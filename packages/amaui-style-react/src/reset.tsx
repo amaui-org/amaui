@@ -12,7 +12,7 @@ import { IResponseStyle, propsAreNew, TValue } from './style';
 export default function reset(value: TValue = {}, options_: IOptions = {}) {
   const responses: Array<IResponseStyle> = [];
 
-  const { name } = options_;
+  const { name = 'Reset' } = options_;
 
   function useReset(props_?: any) {
     const amauiStyle = useAmauiStyle();
@@ -63,10 +63,7 @@ export default function reset(value: TValue = {}, options_: IOptions = {}) {
     }, []);
 
     const makeResponse = () => {
-      // Object
-      let response_: any = is('object', value) && responses[0];
-
-      if (response_) return response_;
+      let response_: any;
 
       // Method
       // If it's a new instance of amauiTheme

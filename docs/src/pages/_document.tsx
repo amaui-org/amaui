@@ -77,13 +77,15 @@ CustomDocument.getInitialProps = async ctx => {
 
   ctx.renderPage = () =>
     page({
-      enhanceApp: App => props => (
-        <AmauiStyleProvider
-          value={amauiStyle}
-        >
-          <App {...props} />
-        </AmauiStyleProvider>
-      ),
+      enhanceApp: App => props => {
+        return (
+          <AmauiStyleProvider
+            value={amauiStyle}
+          >
+            <App {...props} />
+          </AmauiStyleProvider>
+        )
+      },
     });
 
   const initialProps = await Document.getInitialProps(ctx);

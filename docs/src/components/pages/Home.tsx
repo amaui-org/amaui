@@ -2,7 +2,7 @@ import React from 'react';
 
 import Head from 'next/head';
 
-import { isBrowser, random } from '@amaui/utils';
+import { random } from '@amaui/utils';
 import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Checkbox, DatePicker, DonutChart, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Placeholder, Radio, Rating, Slider, Surface, Switch, Tab, Tabs, TimePicker, Tooltip, Tree, Type, useMediaQuery, Weather } from '@amaui/ui-react';
 import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
@@ -151,11 +151,13 @@ export default function Root(props: any) {
       if (value !== refs.imageSelected.current) setImageSelected(value);
     });
 
-    setTimeout(() => {
-      setInProp(true);
-    }, 700);
+    // setTimeout(() => {
+    //   setInProp(true);
+    // }, 700);
 
     setInit(true);
+
+    setInProp(true);
 
     return () => {
       imageSub.unsubscribe();
@@ -464,16 +466,15 @@ export default function Root(props: any) {
         <div
           style={{
             paddingTop: 44,
-            minHeight: 873
+            minHeight: 888
           }}
         >
-          {init && !inProp && (
+          {/* {init && !inProp && (
             <Fade
               in
 
               enterOnAdd
             >
-              <div>
                 <Masonry
                   className={classes.masonry}
 
@@ -489,13 +490,12 @@ export default function Root(props: any) {
                     />
                   ))}
                 </Masonry>
-              </div>
             </Fade>
-          )}
+          )} */}
 
           {/* UI elements */}
           <Fade
-            in={inProp}
+            in={init && inProp}
 
             removeOnExited
           >

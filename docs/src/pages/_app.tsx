@@ -63,7 +63,7 @@ export default function App(props: AppProps) {
   React.useEffect(() => {
     const elements = window.document.querySelectorAll('#amaui-initial-css');
 
-    elements.forEach(element => element.remove());
+     elements.forEach(element => element.remove());
   }, []);
 
   const valueAmauiStyle = useAmauiStyle();

@@ -23,12 +23,7 @@ const useStyle = styleMethod(theme => ({
   '@p': {
     body: {
       color: theme.palette.text.default.primary,
-      background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.primary.secondary,
-
-      fontWeight: 'normal',
-      fontStyle: 'normal',
-      position: 'relative',
-      overflowX: 'hidden',
+      background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.primary.secondary
     }
   },
 
