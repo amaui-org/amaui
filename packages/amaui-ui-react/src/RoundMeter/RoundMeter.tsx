@@ -104,6 +104,8 @@ export interface IRoundMeter extends IBaseElement {
     [property: string]: any;
   }>;
 
+  renderLabel?: (x: number, y: number, value: number, otherProps: any) => React.ReactNode;
+
   childrenPosition?: 'pre' | 'pre-marks' | 'pre-labels' | 'post';
 
   additional?: TElement;
@@ -162,6 +164,8 @@ const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
     markWidth = 1,
 
     labels: labels_ = [],
+
+    renderLabel,
 
     childrenPosition = 'post',
 
@@ -1074,47 +1078,31 @@ const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
 
             {/* Labels */}
             {labelsVisible && !!labels_.length && (
-              labels.map((labelsValue: any, index: number) => (
-                <g
-                  key={index}
+              labels.map((labelsValue: any, index: number) => {
 
-                  className={classNames([
-                    staticClassName('RoundMeter', theme) && [
-                      'AmauiRoundMeter-labels'
-                    ],
+                return (
+                  <g
+                    key={index}
 
-                    classes.labels
-                  ])}
-                >
-                  {(labelsValue.map((item: any, index_: number) => {
-                    const { x, y, value, ...other_ } = item;
+                    className={classNames([
+                      staticClassName('RoundMeter', theme) && [
+                        'AmauiRoundMeter-labels'
+                      ],
 
-                    return (
-                      <text
-                        key={index_}
+                      classes.labels
+                    ])}
+                  >
+                    {(labelsValue.map((item: any, index_: number) => {
+                      const { x, y, value, ...other_ } = item;
 
-                        x={x}
+                      const propsLabel = {
+                        ...other_,
 
-                        y={y}
+                        ...textProps,
 
-                        {...other_}
+                        ...LabelProps,
 
-                        {...textProps}
-
-                        {...LabelProps}
-
-                        className={classNames([
-                          staticClassName('RoundMeter', theme) && [
-                            'AmauiRoundMeter-label'
-                          ],
-
-                          other_?.className,
-                          textProps?.className,
-                          LabelProps?.className,
-                          classes.label
-                        ])}
-
-                        style={{
+                        style: {
                           fill: color_,
 
                           ...other_.style,
@@ -1122,14 +1110,39 @@ const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
                           ...textProps?.style,
 
                           ...LabelProps?.style
-                        }}
-                      >
-                        {value}
-                      </text>
-                    );
-                  }))}
-                </g>
-              ))
+                        }
+                      };
+
+                      if (is('function', renderLabel)) return renderLabel(x, y, value, propsLabel);
+
+                      return (
+                        <text
+                          key={index_}
+
+                          x={x}
+
+                          y={y}
+
+                          {...propsLabel}
+
+                          className={classNames([
+                            staticClassName('RoundMeter', theme) && [
+                              'AmauiRoundMeter-label'
+                            ],
+
+                            other_?.className,
+                            textProps?.className,
+                            LabelProps?.className,
+                            classes.label
+                          ])}
+                        >
+                          {value}
+                        </text>
+                      );
+                    }))}
+                  </g>
+                );
+              })
             )}
 
             {/* Children */}

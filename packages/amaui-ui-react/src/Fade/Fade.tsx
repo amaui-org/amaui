@@ -83,8 +83,12 @@ const Fade = React.forwardRef((props_: IFade, ref: any) => {
       entering: {
         opacity: 1
       },
+      // With no opacity
+      // as if there's inline opacity value
+      // it ie. overrides button disabled class
+      // opacity value
       entered: {
-        opacity: 1
+
       },
 
       exit: {

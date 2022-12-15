@@ -227,7 +227,9 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
 
   onClick?: (event: React.MouseEvent<any>) => any;
 
-  onCancel: () => any;
+  onCancel?: () => any;
+
+  renderValue?: (valueDate: AmauiDate, version: 'hour' | 'minute' | 'second', x: number, y: number, value: number, otherProps: any) => React.ReactNode;
 
   Icon?: TElementReference;
   IconEnter?: TElementReference;
@@ -311,6 +313,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     onClick: onClick_,
 
     onCancel: onCancel_,
+
+    renderValue,
 
     Icon: Icon_ = IconMaterialScheduleRounded,
     IconEnter = IconMaterialKeyboardAltRounded,
@@ -1090,6 +1094,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
                 onTouchStart: onMouseDown
               }}
 
+              renderLabel={is('function', renderValue) ? (x: number, y: number, valueItem: number, otherProps: any) => renderValue(refs.value.current, refs.values.current.selecting, x, y, valueItem, otherProps) : undefined}
+
               {...RoundMeterProps}
 
               className={classNames([
@@ -1391,7 +1397,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [version, format, hour, minute, second, selectModeHeadingText, mode, tonal, color, switch_, InputProps, theme]);
+  }), [version, format, hour, minute, second, selectModeHeadingText, mode, tonal, color, switch_, InputProps, renderValue, theme]);
 
   const ModeInput = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
     const inputProps = {

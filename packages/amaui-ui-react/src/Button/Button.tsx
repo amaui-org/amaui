@@ -247,8 +247,8 @@ const useStyle = styleMethod(theme => ({
 
   // Disabled
   disabled: {
-    cursor: 'default !important',
-    opacity: `${theme.palette.visual_contrast.default.opacity.disabled} !important`
+    cursor: 'default',
+    opacity: theme.palette.visual_contrast.default.opacity.disabled
   },
 
   disabled_version_text: {

@@ -74,6 +74,7 @@ const useStyle = styleMethod(theme => ({
   svg: {
     position: 'relative',
     touchAction: 'none',
+    userSelect: 'none',
 
     '& path, & circle, & rect, & g': {
       transition: theme.methods.transitions.make('opacity', { duration: 'xs' })
