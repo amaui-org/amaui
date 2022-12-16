@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, clamp } from '@amaui/utils';
+import { is, clamp, element } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Zoom from '../Zoom';
@@ -422,7 +422,13 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
     let allElements = [];
 
     if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
-      allElements = [...Array.from(refs.line.current?.children).map((item: any) => item.children[0])];
+      allElements = [...Array.from(refs.line.current?.children).map((item: any) => item.children[0]).filter((item: HTMLElement) => {
+        const method = is('element', item) && (item.matches || item['webkitMatchesSelector'] || item['mozMatchesSelector'] || item['oMatchesSelector'] || item['msMatchesSelector']);
+
+        const query = `a[href]:not([tabindex='-1']), area[href]:not([tabindex='-1']), input:not([disabled]):not([tabindex='-1']), select:not([disabled]):not([tabindex='-1']), textarea:not([disabled]):not([tabindex='-1']), button:not([disabled]):not([tabindex='-1']), iframe:not([tabindex='-1']), [tabindex]:not([tabindex='-1']), [contentEditable=true]:not([tabindex='-1'])`;
+
+        return method.bind(item)(query) || item.tabIndex > -1;
+      })];
 
       if (!lineItemsDirection.includes('reverse')) {
         allElements.reverse();

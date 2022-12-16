@@ -89,7 +89,11 @@ const useStyle = style(theme => ({
   },
 
   image_option: {
-    transition: theme.methods.transitions.make('transform', { duration: 'sm' }),
+    transition: theme.methods.transitions.make(['box-shadow', 'transform'], { duration: 'sm' }),
+
+    '&:focus-visible': {
+      boxShadow: `0px 0px 0px 1px ${theme.palette.text.default.primary}`
+    },
 
     '&:active': {
       transform: 'scale(0.91)'

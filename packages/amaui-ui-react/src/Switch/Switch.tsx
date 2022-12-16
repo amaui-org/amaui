@@ -12,7 +12,12 @@ const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
     display: 'inline-flex',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    transition: theme.methods.transitions.make('box-shadow'),
+
+    '&:focus-visible': {
+      boxShadow: `0px 0px 0px 1px ${theme.palette.text.default.primary}`
+    }
   },
 
   input: {
@@ -678,11 +683,15 @@ const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
     <Component
       ref={ref}
 
+      tabIndex={disabled ? -1 : 0}
+
       role='switch'
 
       aria-checked={value}
 
       aria-disabled={disabled}
+
+      onKeyDown={onKeyDown}
 
       className={classNames([
         staticClassName('Switch', theme) && [
@@ -789,11 +798,9 @@ const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
             />
 
             <IconButton
-              tabIndex={disabled ? -1 : undefined}
+              tabIndex='-1'
 
               size={size}
-
-              onKeyDown={onKeyDown}
 
               className={classNames([
                 staticClassName('Switch', theme) && [

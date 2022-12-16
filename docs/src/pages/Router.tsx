@@ -22,8 +22,9 @@ import { images, libraries as all_libraries, themeImageSub } from '../utils';
 const useStyle = styleMethod(theme => ({
   '@p': {
     body: {
+      fontFamily: theme.typography.font_family.secondary,
       color: theme.palette.text.default.primary,
-      background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.primary.secondary
+      backgroundColor: theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.primary.secondary
     }
   },
 
@@ -97,7 +98,11 @@ const useStyle = styleMethod(theme => ({
   },
 
   image_option: {
-    transition: theme.methods.transitions.make('transform', { duration: 'sm' }),
+    transition: theme.methods.transitions.make(['box-shadow', 'transform'], { duration: 'sm' }),
+
+    '&:focus-visible': {
+      boxShadow: `0px 0px 0px 1px ${theme.palette.text.default.primary}`
+    },
 
     '&:active': {
       transform: 'scale(0.91)'
