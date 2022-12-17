@@ -18,7 +18,8 @@ const useStyle = styleMethod(theme => ({
     '& .AmauiChart-wrapper': {
       aspectRatio: '1',
       maxWidth: '240px',
-      height: 'unset'
+      height: 'unset',
+      overflow: 'hidden'
     }
   },
 

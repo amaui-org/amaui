@@ -2,9 +2,11 @@ import React from 'react';
 
 import { isEnvironment } from '@amaui/utils';
 
+export type TUseScrollDirection = 'up' | 'down';
+
 export interface IUseScroll {
   offset?: number;
-  direction?: 'up' | 'down';
+  direction?: TUseScrollDirection;
   target?: HTMLElement | Window;
 }
 
@@ -18,8 +20,13 @@ const useScroll = (props: IUseScroll) => {
   const [response, setResponse] = React.useState<boolean>(false);
 
   const refs = {
-    previous: React.useRef<any>(0)
+    previous: React.useRef<any>(0),
+    offset: React.useRef<number>(),
+    direction: React.useRef<TUseScrollDirection>()
   };
+
+  refs.offset.current = offset;
+  refs.direction.current = direction;
 
   const method = React.useCallback(() => {
     const value = (target as HTMLElement).scrollTop !== undefined ? (target as HTMLElement).scrollTop : (target as Window).scrollY;
@@ -27,16 +34,16 @@ const useScroll = (props: IUseScroll) => {
     let newResponse = true;
 
     // Direction
-    if (direction !== undefined) newResponse = newResponse && ((direction === 'down' && value > refs.previous.current) || (direction === 'up' && value < refs.previous.current));
+    if (refs.direction.current !== undefined) newResponse = newResponse && ((refs.direction.current === 'down' && value > refs.previous.current) || (refs.direction.current === 'up' && value < refs.previous.current));
 
     // Offset
-    if (offset !== undefined) newResponse = newResponse && (value > offset);
+    if (refs.offset.current !== undefined) newResponse = newResponse && (value > refs.offset.current);
 
     setResponse(newResponse);
 
     // Previous
     refs.previous.current = value;
-  }, [direction, offset, target]);
+  }, []);
 
   React.useEffect(() => {
     // Add new event listener
@@ -48,7 +55,7 @@ const useScroll = (props: IUseScroll) => {
       // Remove previous event listener
       if (target) target.removeEventListener('scroll', method);
     };
-  }, []);
+  }, [target]);
 
   return response;
 };

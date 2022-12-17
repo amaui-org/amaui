@@ -150,10 +150,12 @@ const ListItemNext = (props: any) => {
 function Root(props: any) {
   const theme = useAmauiTheme();
 
-  const scrollNotTop = useScroll({ offset: 1 });
-  const scrollDown = useScroll({ direction: 'down', offset: 200 });
-
+  const smallerScreen = useMediaQuery('(max-width: 1100px)');
+  const mediumScreen = useMediaQuery('((max-width: 1540px)');
   const mobile = useMediaQuery('(pointer: coarse)');
+
+  const scrollNotTop = useScroll({ offset: 1 });
+  const scrollDown = useScroll({ direction: 'down', offset: smallerScreen ? 40 : mediumScreen ? 100 : 200 });
 
   const light = useMediaQuery('(prefers-color-scheme: light)');
 
