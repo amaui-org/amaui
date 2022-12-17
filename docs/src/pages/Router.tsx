@@ -46,7 +46,10 @@ const useStyle = styleMethod(theme => ({
       padding: 0,
       background: 'transparent',
       borderRadius: theme.methods.shape.radius.value('xxl', 'px'),
-      transition: theme.methods.transitions.make(['background', 'max-width', 'box-shadow'], { duration: 'complex' }),
+      transition: [
+        theme.methods.transitions.make('transform', { duration: 'rg' }),
+        theme.methods.transitions.make(['background', 'max-width', 'box-shadow'], { duration: 'complex' })
+      ].join(', '),
       zIndex: theme.z_index.tooltip + 1
     },
 
@@ -62,6 +65,10 @@ const useStyle = styleMethod(theme => ({
       maxWidth: theme.breakpoints.values.md,
       boxShadow: theme.shadows.values.default['2']
     }
+  },
+
+  header_down: {
+    transform: 'translate(-50%, calc(-100% - 16px))'
   },
 
   logo: {
@@ -143,7 +150,8 @@ const ListItemNext = (props: any) => {
 function Root(props: any) {
   const theme = useAmauiTheme();
 
-  const notTop = useScroll({ offset: 1 });
+  const scrollNotTop = useScroll({ offset: 1 });
+  const scrollDown = useScroll({ direction: 'down', offset: 200 });
 
   const mobile = useMediaQuery('(pointer: coarse)');
 
@@ -458,7 +466,8 @@ function Root(props: any) {
         className={classNames([
           classes.header,
 
-          notTop && classes.header_not_top
+          scrollNotTop && classes.header_not_top,
+          scrollDown && classes.header_down
         ])}
       />
 

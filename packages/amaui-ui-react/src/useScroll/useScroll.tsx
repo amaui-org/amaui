@@ -11,7 +11,7 @@ export interface IUseScroll {
 const useScroll = (props: IUseScroll) => {
   const {
     offset,
-    direction = 'down',
+    direction,
     target = isEnvironment('browser') && window
   } = props;
 
@@ -24,11 +24,13 @@ const useScroll = (props: IUseScroll) => {
   const method = React.useCallback(() => {
     const value = (target as HTMLElement).scrollTop !== undefined ? (target as HTMLElement).scrollTop : (target as Window).scrollY;
 
+    let newResponse = true;
+
     // Direction
-    let newResponse = (direction === 'down' && value > refs.previous.current) || (direction === 'up' && value < refs.previous.current);
+    if (direction !== undefined) newResponse = newResponse && ((direction === 'down' && value > refs.previous.current) || (direction === 'up' && value < refs.previous.current));
 
     // Offset
-    if (offset !== undefined) newResponse = value > offset;
+    if (offset !== undefined) newResponse = newResponse && (value > offset);
 
     setResponse(newResponse);
 
