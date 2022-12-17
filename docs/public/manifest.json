@@ -1,7 +1,8 @@
 {
-  "short_name": "amaui docs",
-  "name": "amaui documentation website",
-  "icons": [{
+  "short_name": "amaui",
+  "name": "amaui",
+  "icons": [
+    {
       "src": "/assets/favicon/light/favicon-16x16.png",
       "sizes": "16x16",
       "type": "image/png"

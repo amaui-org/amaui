@@ -59,13 +59,6 @@ export default function App(props: AppProps) {
     pageProps
   } = props;
 
-  // Clean up
-  React.useEffect(() => {
-    const elements = window.document.querySelectorAll('#amaui-initial-css');
-
-     elements.forEach(element => element.remove());
-  }, []);
-
   const valueAmauiStyle = useAmauiStyle();
 
   valueAmauiStyle.plugins.add = [

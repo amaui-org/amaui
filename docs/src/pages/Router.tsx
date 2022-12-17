@@ -18,6 +18,7 @@ import Home from '../components/pages/Home';
 import Library from '../components/pages/Library';
 
 import { images, libraries as all_libraries, themeImageSub } from '../utils';
+import Head from 'next/head';
 
 const useStyle = styleMethod(theme => ({
   '@p': {
@@ -182,6 +183,18 @@ function Root(props: any) {
       if (value !== refs.imageSelected.current) setImageSelected(value);
     });
 
+    // Clean up
+    const elements = window.document.querySelectorAll('#amaui-initial-css');
+
+    elements.forEach(element => element.remove());
+
+    // Service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(registration => console.log('Service worker registered: ', registration))
+        .catch(error => console.log('Service worker registration failed: ', error));
+    }
+
     setInit(true);
 
     return () => {
@@ -294,7 +307,34 @@ function Root(props: any) {
 
   const Page = !isLibrary ? Home : Library;
 
-  return (
+  return <>
+    <Head>
+      <title>amaui</title>
+
+      <meta property='description' content='Make Modern Web &amp; Mobile Apps Quickly 100+ UI elements' />
+
+      <meta property='og:description' content='Make Modern Web &amp; Mobile Apps Quickly 100+ UI elements' />
+
+      {theme.palette.light ? <>
+        <link rel='manifest' href='/assets/favicon/light/site.webmanifest' />
+        <link rel='apple-touch-icon' sizes='180x180' href='/assets/favicon/light/apple-touch-icon.png' />
+        <link rel='icon' type='image/png' sizes='32x32' href='/assets/favicon/light/favicon-32x32.png' />
+        <link rel='icon' type='image/png' sizes='16x16' href='/assets/favicon/light/favicon-16x16.png' />
+        <link rel='mask-icon' href='/assets/favicon/light/safari-pinned-tab.svg' color='#fafa00' />
+        <meta name='msapplication-TileColor' content='#ffffff' />
+        <meta name='theme-color' content='#fafa00' />
+      </> :
+        <>
+          <link rel='manifest' href='/assets/favicon/dark/site.webmanifest' />
+          <link rel='apple-touch-icon' sizes='180x180' href='/assets/favicon/dark/apple-touch-icon.png' />
+          <link rel='icon' type='image/png' sizes='32x32' href='/assets/favicon/dark/favicon-32x32.png' />
+          <link rel='icon' type='image/png' sizes='16x16' href='/assets/favicon/dark/favicon-16x16.png' />
+          <link rel='mask-icon' href='/assets/favicon/dark/safari-pinned-tab.svg' color='#4d4c00' />
+          <meta name='msapplication-TileColor' content='#ffffff' />
+          <meta name='theme-color' content='#4d4c00' />
+        </>}
+    </Head>
+
     <Surface
       tonal
 
@@ -668,7 +708,7 @@ function Root(props: any) {
         />
       </SpeedDial>
     </Surface>
-  );
+  </>;
 }
 
 export default Root;

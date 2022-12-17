@@ -22,8 +22,6 @@ export default class CustomDocument extends Document {
           <link rel='preload' as='font' type='font/ttf' crossOrigin='anonymous' href='/assets/fonts/Montserrat/Montserrat-Bold.ttf' />
           <link rel='preload' as='font' type='font/ttf' crossOrigin='anonymous' href='/assets/fonts/Lato/Lato-Bold.ttf' />
 
-          <link rel='manifest' href='/manifest.json' />
-
           <meta property='og:image' content='/assets/social/image.jpg' />
           <meta property='og:image:height' content='1257' />
           <meta property='og:image:width' content='2400' />
