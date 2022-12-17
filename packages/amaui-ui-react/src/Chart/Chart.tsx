@@ -840,6 +840,8 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
       }));
 
       if (!guidelinesDisplayInactive) setGuidelineIn(false);
+
+      setPoints([]);
     });
   }, [tooltipCloseOnMouseLeave, guidelinesDisplayInactive]);
 
@@ -1672,14 +1674,6 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
       <Line
         ref={refs.wrapper}
 
-        {...(guidelines ? {
-          onMouseEnter: onWrapperMouseEnter,
-
-          onTouchStart: onWrapperMouseEnter,
-
-          onMouseLeave: onWrapperMouseLeave
-        } : undefined)}
-
         {...WrapperProps}
 
         className={classNames([
@@ -1795,6 +1789,14 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
                   xmlns='http://www.w3.org/2000/svg'
 
                   viewBox={`0 0 ${rects?.wrapper?.width || 0} ${rects?.wrapper?.height || 0}`}
+
+                  {...(guidelines ? {
+                    onMouseEnter: onWrapperMouseEnter,
+
+                    onTouchStart: onWrapperMouseEnter,
+
+                    onMouseLeave: onWrapperMouseLeave
+                  } : undefined)}
 
                   {...SvgProps}
 
