@@ -1,6 +1,8 @@
 import React from 'react';
 import LinkNext from 'next/link';
 
+import Head from 'next/head';
+
 import { Avatar, IconButton, Line, Link, List, ListItem, MenuDesktop, SpeedDial, SpeedDialItem, Surface, Switch, Tooltip, TopAppBar, Type, useMediaQuery, useScroll } from '@amaui/ui-react';
 import { classNames, colors, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
@@ -18,7 +20,6 @@ import Home from '../components/pages/Home';
 import Library from '../components/pages/Library';
 
 import { images, libraries as all_libraries, themeImageSub } from '../utils';
-import Head from 'next/head';
 
 const useStyle = styleMethod(theme => ({
   '@p': {
