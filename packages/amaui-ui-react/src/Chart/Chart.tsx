@@ -747,6 +747,8 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
     guidelinesAppend: React.useRef<any>(),
     hover: React.useRef<any>(),
     allValues: React.useRef<any>([]),
+    values: React.useRef<any>([]),
+    visible: React.useRef<any>([]),
     theme: React.useRef<any>([])
   };
 
@@ -761,6 +763,10 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
   refs.guidelinesAppend.current = guidelinesAppend;
 
   refs.hover.current = hover;
+
+  refs.values.current = values;
+
+  refs.visible.current = visible;
 
   refs.theme.current = theme;
 
@@ -841,7 +847,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
       if (!guidelinesDisplayInactive) setGuidelineIn(false);
 
-      setPoints([]);
+      setGuidelinePosition({});
     });
   }, [tooltipCloseOnMouseLeave, guidelinesDisplayInactive]);
 
@@ -1240,7 +1246,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
     );
   }, [theme]);
 
-  const make = (valueNew = values) => {
+  const make = (valueNew = refs.values.current) => {
     // Make values into x, y, coordinates
     // normalized in rect width, height values
 
@@ -1343,7 +1349,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
           values__.y = valueFromPercentageWithinRange(values__.y, 0, height);
 
-          if (visible[name] !== false) {
+          if (refs.visible.current[name] !== false) {
             refs.allValues.current.push({
               item,
               values: [x, y, ...args],
@@ -1408,7 +1414,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
             ])}
 
             style={{
-              ...(visible[name] === false ? {
+              ...(refs.visible.current[name] === false ? {
                 opacity: 0,
                 pointerEvents: 'none'
               } : undefined),
@@ -1516,7 +1522,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
           className: classNames([
             element?.props?.className,
             legendManageVisibility && classes.legend_item_manage_visibility,
-            visible[item.name] === false && classes.legend_item_hidden
+            refs.visible.current[item.name] === false && classes.legend_item_hidden
           ])
         })
       );
