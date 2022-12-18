@@ -33,7 +33,7 @@ const useStyle = styleMethod(theme => ({
   dots_size_large: {
     width: '50px'
   }
-}), { name: 'AmauiPagination' });
+}), { name: 'amaui-Pagination' });
 
 const IconMaterialLastPageRounded = React.forwardRef((props: any, ref) => {
 
@@ -130,7 +130,7 @@ export interface IPagination extends ILine {
 const Pagination = React.forwardRef((props_: IPagination, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiPagination?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPagination?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = false,
@@ -190,7 +190,7 @@ const Pagination = React.forwardRef((props_: IPagination, ref: any) => {
 
         className={classNames([
           staticClassName('Pagination', theme) && [
-            `AmauiPagination-dots`
+            `amaui-Pagination-dots`
           ],
 
           classes.dots,
@@ -248,7 +248,7 @@ const Pagination = React.forwardRef((props_: IPagination, ref: any) => {
 
       className={classNames([
         staticClassName('Pagination', theme) && [
-          `AmauiPagination-root`
+          `amaui-Pagination-root`
         ],
 
         className,
@@ -317,6 +317,6 @@ const Pagination = React.forwardRef((props_: IPagination, ref: any) => {
   );
 });
 
-Pagination.displayName = 'AmauiPagination';
+Pagination.displayName = 'amaui-Pagination';
 
 export default Pagination;

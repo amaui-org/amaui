@@ -50,7 +50,7 @@ const useStyle = styleMethod(theme => ({
   root: {
 
   }
-}), { name: 'AmauiConfirmProvider' });
+}), { name: 'amaui-ConfirmProvider' });
 
 export interface IConfirmProvider extends IBaseElement {
   throwError?: boolean;
@@ -63,7 +63,7 @@ export interface IConfirmProvider extends IBaseElement {
 const ConfirmProvider = React.forwardRef((props_: IConfirmProvider, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiConfirmProvider?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiConfirmProvider?.props?.default, ...props_ }), [props_]);
 
   const {
     throwError,
@@ -176,7 +176,7 @@ const ConfirmProvider = React.forwardRef((props_: IConfirmProvider, ref: any) =>
 
         className={classNames([
           staticClassName('Confirm', theme) && [
-            `AmauiConfirm-root`
+            `amaui-Confirm-root`
           ],
 
           className,
@@ -236,6 +236,6 @@ const ConfirmProvider = React.forwardRef((props_: IConfirmProvider, ref: any) =>
   );
 });
 
-ConfirmProvider.displayName = 'AmauiConfirmProvider';
+ConfirmProvider.displayName = 'amaui-ConfirmProvider';
 
 export default ConfirmProvider;

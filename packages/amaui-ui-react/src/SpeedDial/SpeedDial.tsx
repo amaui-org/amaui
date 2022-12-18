@@ -70,14 +70,14 @@ const useStyle = styleMethod(theme => ({
   },
 
   fab: {
-    '&.AmauiFab-root': {
+    '&.amaui-Fab-root': {
       boxShadow: theme.shadows.values.default[6],
       transition: theme.methods.transitions.make('box-shadow')
     }
   },
 
   fab_open: {
-    '&.AmauiFab-root': {
+    '&.amaui-Fab-root': {
       boxShadow: theme.shadows.values.default[8]
     }
   },
@@ -101,7 +101,7 @@ const useStyle = styleMethod(theme => ({
     position: 'absolute',
     inset: '0'
   }
-}), { name: 'AmauiSpeedDial' });
+}), { name: 'amaui-SpeedDial' });
 
 const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 
@@ -178,7 +178,7 @@ export interface ISpeedDial extends Omit<ILine, 'direction'> {
 const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiSpeedDial?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSpeedDial?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -498,11 +498,11 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
 
       className={classNames([
         staticClassName('SpeedDial', theme) && [
-          `AmauiSpeedDial-root`,
-          open && `AmauiSpeedDial-open`,
-          hover && `AmauiSpeedDial-hover`,
-          focus && `AmauiSpeedDial-focus`,
-          disabled && `AmauiSpeedDial-disabled`
+          `amaui-SpeedDial-root`,
+          open && `amaui-SpeedDial-open`,
+          hover && `amaui-SpeedDial-hover`,
+          focus && `amaui-SpeedDial-focus`,
+          disabled && `amaui-SpeedDial-disabled`
         ],
 
         className,
@@ -531,7 +531,7 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
 
         className={classNames([
           staticClassName('SpeedDial', theme) && [
-            `AmauiSpeedDial-items`
+            `amaui-SpeedDial-items`
           ],
 
           classes.items,
@@ -613,7 +613,7 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
 
               className={classNames([
                 staticClassName('SpeedDial', theme) && [
-                  `AmauiSpeedDial-fab`
+                  `amaui-SpeedDial-fab`
                 ],
 
                 classes.fab,
@@ -627,7 +627,7 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
               <IconWrapper
                 className={classNames([
                   staticClassName('SpeedDial', theme) && [
-                    `AmauiSpeedDial-icon-wrapper`
+                    `amaui-SpeedDial-icon-wrapper`
                   ],
 
                   classes.iconWrapper,
@@ -661,6 +661,6 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
   );
 });
 
-SpeedDial.displayName = 'AmauiSpeedDial';
+SpeedDial.displayName = 'amaui-SpeedDial';
 
 export default SpeedDial;

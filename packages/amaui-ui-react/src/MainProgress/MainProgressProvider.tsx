@@ -26,7 +26,7 @@ const useStyle = styleMethod(theme => ({
   root: {
     zIndex: theme.z_index.tooltip - 14,
 
-    '& .AmauiLinearProgress-buffer': {
+    '& .amaui-LinearProgress-buffer': {
       background: 'transparent'
     }
   },
@@ -34,7 +34,7 @@ const useStyle = styleMethod(theme => ({
   fixed: {
     insetInline: '0',
 
-    '&.AmauiLinearProgress-root': {
+    '&.amaui-LinearProgress-root': {
       position: 'fixed'
     }
   },
@@ -46,7 +46,7 @@ const useStyle = styleMethod(theme => ({
   position_bottom: {
     bottom: '0'
   }
-}), { name: 'AmauiMainProgressProvider' });
+}), { name: 'amaui-MainProgressProvider' });
 
 export interface IMainProgressProvider extends ILinearProress {
   min?: number;
@@ -77,7 +77,7 @@ export interface IMainProgressProvider extends ILinearProress {
 const MainProgressProvider = React.forwardRef((props_: IMainProgressProvider, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiMainProgressProvider?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMainProgressProvider?.props?.default, ...props_ }), [props_]);
 
   const {
     min = 0,
@@ -271,7 +271,7 @@ const MainProgressProvider = React.forwardRef((props_: IMainProgressProvider, re
 
           className={classNames([
             staticClassName('MainProgress', theme) && [
-              `AmauiMainProgress-root`
+              `amaui-MainProgress-root`
             ],
 
             className,
@@ -291,6 +291,6 @@ const MainProgressProvider = React.forwardRef((props_: IMainProgressProvider, re
   );
 });
 
-MainProgressProvider.displayName = 'AmauiMainProgressProvider';
+MainProgressProvider.displayName = 'amaui-MainProgressProvider';
 
 export default MainProgressProvider;

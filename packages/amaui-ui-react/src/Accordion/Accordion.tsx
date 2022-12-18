@@ -113,7 +113,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   noBackground: {
-    '&.AmauiSurface-root': {
+    '&.amaui-Surface-root': {
       background: 'transparent'
     }
   },
@@ -123,7 +123,7 @@ const useStyle = styleMethod(theme => ({
     pointerEvents: 'none',
     opacity: theme.palette.visual_contrast.default.opacity.disabled
   }
-}), { name: 'AmauiAccordion' });
+}), { name: 'amaui-Accordion' });
 
 const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
 
@@ -178,7 +178,7 @@ export interface IAccordion extends IBaseElement {
 const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiAccordion?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAccordion?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = false,
@@ -261,7 +261,7 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
     const items = React.Children.toArray(children_);
 
     items.forEach((item: any) => {
-      if (item?.type?.displayName === 'AmauiAccordion') {
+      if (item?.type?.displayName === 'amaui-Accordion') {
         if (firstAccordionLevel === undefined) firstAccordionLevel = level;
 
         if (firstAccordionLevel === level) addValue += 1;
@@ -287,8 +287,8 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
 
       className={classNames([
         staticClassName('Accordion', theme) && [
-          'AmauiAccordion-root',
-          disabled && `AmauiAccordion-disabled`
+          'amaui-Accordion-root',
+          disabled && `amaui-Accordion-disabled`
         ],
 
         className,
@@ -313,7 +313,7 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
 
         className={classNames([
           staticClassName('Accordion', theme) && [
-            'AmauiAccordion-wrapper-header'
+            'amaui-Accordion-wrapper-header'
           ],
 
           WrapperHeaderProps?.className,
@@ -334,7 +334,7 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
 
           className={classNames([
             staticClassName('Accordion', theme) && [
-              'AmauiAccordion-header'
+              'amaui-Accordion-header'
             ],
 
             classes.header
@@ -349,7 +349,7 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
 
                 className={classNames([
                   staticClassName('Accordion', theme) && [
-                    'AmauiAccordion-primary'
+                    'amaui-Accordion-primary'
                   ],
 
                   classes.primary
@@ -382,7 +382,7 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
 
                   className={classNames([
                     staticClassName('Accordion', theme) && [
-                      'AmauiAccordion-secondary'
+                      'amaui-Accordion-secondary'
                     ],
 
                     classes.secondary
@@ -423,7 +423,7 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
 
             className={classNames([
               staticClassName('Accordion', theme) && [
-                'AmauiAccordion-icon-button'
+                'amaui-Accordion-icon-button'
               ],
 
               IconButtonProps?.className,
@@ -459,7 +459,7 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
           <Line
             className={classNames([
               staticClassName('Accordion', theme) && [
-                'AmauiAccordion-main'
+                'amaui-Accordion-main'
               ],
 
               classes.main,
@@ -475,6 +475,6 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
   );
 });
 
-Accordion.displayName = 'AmauiAccordion';
+Accordion.displayName = 'amaui-Accordion';
 
 export default Accordion;

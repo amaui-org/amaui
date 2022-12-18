@@ -168,7 +168,7 @@ const useStyle = styleMethod(theme => ({
   nowrap: {
     whiteSpace: 'nowrap'
   }
-}), { name: 'AmauiTooltip' });
+}), { name: 'amaui-Tooltip' });
 
 export interface ITooltip extends Omit<IModal, 'maxWidth'> {
   tonal?: TTonal;
@@ -218,7 +218,7 @@ export interface ITooltip extends Omit<IModal, 'maxWidth'> {
 const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTooltip?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTooltip?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -536,12 +536,12 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
 
             className={classNames([
               staticClassName('Tooltip', theme) && [
-                'AmauiTooltip-root',
-                open && `AmauiButton-open`,
-                touch && 'AmauiTooltip-touch',
-                longPress && 'AmauiTooltip-long-press',
-                hover && 'AmauiTooltip-hover',
-                focus && 'AmauiTooltip-focus'
+                'amaui-Tooltip-root',
+                open && `amaui-Button-open`,
+                touch && 'amaui-Tooltip-touch',
+                longPress && 'amaui-Tooltip-long-press',
+                hover && 'amaui-Tooltip-hover',
+                focus && 'amaui-Tooltip-focus'
               ],
 
               className,
@@ -578,7 +578,7 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
 
                 className={classNames([
                   staticClassName('Tooltip', theme) && [
-                    'AmauiTooltip-label-root'
+                    'amaui-Tooltip-label-root'
                   ],
 
                   classes.labelRoot,
@@ -601,7 +601,7 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
 
                     className={classNames([
                       staticClassName('Tooltip', theme) && [
-                        'AmauiTooltip-label'
+                        'amaui-Tooltip-label'
                       ],
 
                       LabelProps?.className,
@@ -621,7 +621,7 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
                     <span
                       className={classNames([
                         staticClassName('Tooltip', theme) && [
-                          'AmauiTooltip-label-text'
+                          'amaui-Tooltip-label-text'
                         ],
                       ])}
                     >
@@ -666,6 +666,6 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
   );
 });
 
-Tooltip.displayName = 'AmauiTooltip';
+Tooltip.displayName = 'amaui-Tooltip';
 
 export default Tooltip;

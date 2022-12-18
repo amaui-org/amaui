@@ -90,7 +90,7 @@ const useStyle = styleMethod(theme => ({
     zIndex: '3',
     borderRadius: theme.methods.shape.radius.value('lg', 'px'),
 
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       margin: '0px'
     }
   },
@@ -107,7 +107,7 @@ const useStyle = styleMethod(theme => ({
     insetBlock: '0',
     transform: `translateX(${theme.direction === 'rtl' ? '-' : ''}50%)`,
 
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       width: '8px'
     }
   },
@@ -116,11 +116,11 @@ const useStyle = styleMethod(theme => ({
     insetInline: '0',
     transform: `translateY(50%)`,
 
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       height: '8px'
     }
   }
-}), { name: 'AmauiViewSplit' });
+}), { name: 'amaui-ViewSplit' });
 
 const IconMaterialSwapHorizRounded = React.forwardRef((props: any, ref) => {
 
@@ -183,7 +183,7 @@ export interface IViewSplit extends ILine {
 const ViewSplit = React.forwardRef((props_: IViewSplit, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiViewSplit?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiViewSplit?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -553,10 +553,10 @@ const ViewSplit = React.forwardRef((props_: IViewSplit, ref: any) => {
 
       className={classNames([
         staticClassName('ViewSplit', theme) && [
-          'AmauiViewSplit-root',
-          hover && `AmauiViewSplit-hover`,
-          focus && `AmauiViewSplit-focus`,
-          mouseDown && `AmauiViewSplit-mouse-down`
+          'amaui-ViewSplit-root',
+          hover && `amaui-ViewSplit-hover`,
+          focus && `amaui-ViewSplit-focus`,
+          mouseDown && `amaui-ViewSplit-mouse-down`
         ],
 
         className,
@@ -571,7 +571,7 @@ const ViewSplit = React.forwardRef((props_: IViewSplit, ref: any) => {
         <div
           className={classNames([
             staticClassName('ViewSplit', theme) && [
-              'AmauiViewSplit-hidden'
+              'amaui-ViewSplit-hidden'
             ],
 
             classes.hidden
@@ -583,7 +583,7 @@ const ViewSplit = React.forwardRef((props_: IViewSplit, ref: any) => {
         <div
           className={classNames([
             staticClassName('ViewSplit', theme) && [
-              'AmauiViewSplit-start'
+              'amaui-ViewSplit-start'
             ],
 
             classes.item,
@@ -618,7 +618,7 @@ const ViewSplit = React.forwardRef((props_: IViewSplit, ref: any) => {
 
           className={classNames([
             staticClassName('ViewSplit', theme) && [
-              'AmauiViewSplit-divider'
+              'amaui-ViewSplit-divider'
             ],
 
             DividerProps?.className,
@@ -639,7 +639,7 @@ const ViewSplit = React.forwardRef((props_: IViewSplit, ref: any) => {
         (iconButtonComponent && React.cloneElement(iconButtonComponent as any, {
           className: classNames([
             staticClassName('ViewSplit', theme) && [
-              'AmauiViewSplit-icon-button'
+              'amaui-ViewSplit-icon-button'
             ],
 
             classes.iconButton,
@@ -667,7 +667,7 @@ const ViewSplit = React.forwardRef((props_: IViewSplit, ref: any) => {
 
           className={classNames([
             staticClassName('ViewSplit', theme) && [
-              'AmauiViewSplit-icon-button'
+              'amaui-ViewSplit-icon-button'
             ],
 
             IconButtonProps?.className,
@@ -690,7 +690,7 @@ const ViewSplit = React.forwardRef((props_: IViewSplit, ref: any) => {
         <div
           className={classNames([
             staticClassName('ViewSplit', theme) && [
-              'AmauiViewSplit-end'
+              'amaui-ViewSplit-end'
             ],
 
             classes.item,
@@ -710,6 +710,6 @@ const ViewSplit = React.forwardRef((props_: IViewSplit, ref: any) => {
   );
 });
 
-ViewSplit.displayName = 'AmauiViewSplit';
+ViewSplit.displayName = 'amaui-ViewSplit';
 
 export default ViewSplit;

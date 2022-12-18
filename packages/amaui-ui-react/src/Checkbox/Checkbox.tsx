@@ -143,7 +143,7 @@ const useStyle = styleMethod(theme => ({
   disabled: {
     cursor: 'default'
   }
-}), { name: 'AmauiCheckbox' });
+}), { name: 'amaui-Checkbox' });
 
 // Indeterminate
 const IconMaterialIndeterminateCheckBoxSharp = React.forwardRef((props: any, ref) => {
@@ -230,7 +230,7 @@ export interface ICheckbox extends IIconButton {
 const Checkbox = React.forwardRef((props_: ICheckbox, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.AmauiCheckbox?.props?.default }), [props_]);
+  const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.amauiCheckbox?.props?.default }), [props_]);
 
   const {
     tonal = true,
@@ -390,7 +390,7 @@ const Checkbox = React.forwardRef((props_: ICheckbox, ref: any) => {
 
           className={classNames([
             staticClassName('Checkbox', theme) && [
-              'AmauiCheckbox-input'
+              'amaui-Checkbox-input'
             ],
 
             classes.input
@@ -412,9 +412,9 @@ const Checkbox = React.forwardRef((props_: ICheckbox, ref: any) => {
 
       className={classNames([
         staticClassName('Checkbox', theme) && [
-          'AmauiCheckbox-root',
-          value && `AmauiCheckbox-checked`,
-          disabled && `AmauiCheckbox-disabled`
+          'amaui-Checkbox-root',
+          value && `amaui-Checkbox-checked`,
+          disabled && `amaui-Checkbox-disabled`
         ],
 
         className,
@@ -492,6 +492,6 @@ const Checkbox = React.forwardRef((props_: ICheckbox, ref: any) => {
   );
 });
 
-Checkbox.displayName = 'AmauiCheckbox';
+Checkbox.displayName = 'amaui-Checkbox';
 
 export default Checkbox;

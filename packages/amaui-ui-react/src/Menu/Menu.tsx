@@ -14,7 +14,7 @@ const useStyle = styleMethod(theme => ({
   root: {
 
   }
-}), { name: 'AmauiMenu' });
+}), { name: 'amaui-Menu' });
 
 export const MENUS = {
   open: [],
@@ -58,7 +58,7 @@ export interface IMenu extends ITooltip {
 const Menu = React.forwardRef((props_: IMenu, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiMenu?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMenu?.props?.default, ...props_ }), [props_]);
 
   const {
     open,
@@ -251,8 +251,8 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
 
         className={classNames([
           staticClassName('Menu', theme) && [
-            'AmauiMenu-root',
-            open && `AmauiMenu-open`
+            'amaui-Menu-root',
+            open && `amaui-Menu-open`
           ],
 
           className,
@@ -346,6 +346,6 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
   );
 });
 
-Menu.displayName = 'AmauiMenu';
+Menu.displayName = 'amaui-Menu';
 
 export default Menu;

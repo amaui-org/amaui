@@ -9,7 +9,7 @@ const useStyle = styleMethod(theme => ({
   root: {
 
   },
-}), { name: 'AmauiSpyScroll' });
+}), { name: 'amaui-SpyScroll' });
 
 export interface ISpyScroll extends IBaseElement {
   ids?: Array<string>;
@@ -25,7 +25,7 @@ export interface ISpyScroll extends IBaseElement {
 const SpyScroll = React.forwardRef((props_: ISpyScroll, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiSpyScroll?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSpyScroll?.props?.default, ...props_ }), [props_]);
 
   const {
     ids,
@@ -207,7 +207,7 @@ const SpyScroll = React.forwardRef((props_: ISpyScroll, ref: any) => {
 
         className: classNames([
           staticClassName('SpyScroll', theme) && [
-            'AmauiSpyScroll-root'
+            'amaui-SpyScroll-root'
           ],
 
           className,
@@ -220,6 +220,6 @@ const SpyScroll = React.forwardRef((props_: ISpyScroll, ref: any) => {
   );
 });
 
-SpyScroll.displayName = 'AmauiSpyScroll';
+SpyScroll.displayName = 'amaui-SpyScroll';
 
 export default SpyScroll;

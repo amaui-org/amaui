@@ -25,7 +25,7 @@ const useStyle = styleMethod(theme => ({
   text: {
     flex: '0 0 auto'
   }
-}), { name: 'AmauiTablePagination' });
+}), { name: 'amaui-TablePagination' });
 
 const IconMaterialLastPageRounded = React.forwardRef((props: any, ref) => {
 
@@ -125,7 +125,7 @@ export interface ITableRow extends ILine {
 const TablePagination = React.forwardRef((props_: ITableRow, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTablePagination?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTablePagination?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = false,
@@ -215,7 +215,7 @@ const TablePagination = React.forwardRef((props_: ITableRow, ref: any) => {
 
       className={classNames([
         staticClassName('TablePagination', theme) && [
-          `AmauiTablePagination-root`
+          `amaui-TablePagination-root`
         ],
 
         className,
@@ -248,7 +248,7 @@ const TablePagination = React.forwardRef((props_: ITableRow, ref: any) => {
 
           className={classNames([
             staticClassName('TablePagination', theme) && [
-              `AmauiTablePagination-select`
+              `amaui-TablePagination-select`
             ],
 
             classes.select
@@ -283,7 +283,7 @@ const TablePagination = React.forwardRef((props_: ITableRow, ref: any) => {
 
         className={classNames([
           staticClassName('TablePagination', theme) && [
-            `AmauiTablePagination-text`
+            `amaui-TablePagination-text`
           ],
 
           classes.text
@@ -353,6 +353,6 @@ const TablePagination = React.forwardRef((props_: ITableRow, ref: any) => {
   );
 });
 
-TablePagination.displayName = 'AmauiTablePagination';
+TablePagination.displayName = 'amaui-TablePagination';
 
 export default TablePagination;

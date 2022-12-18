@@ -33,11 +33,11 @@ const useStyle = styleMethod(theme => ({
     borderRadius: '28px',
     overflow: 'hidden',
 
-    '& .AmauiTimePicker-mode, & .AmauiDatePicker-mode': {
+    '& .amaui-TimePicker-mode, & .amaui-DatePicker-mode': {
       marginInline: '0px'
     }
   },
-}), { name: 'AmauiDateTimePicker' });
+}), { name: 'amaui-DateTimePicker' });
 
 const IconMaterialDateRangeRoundedFilled = React.forwardRef((props: any, ref) => {
 
@@ -123,7 +123,7 @@ export interface IDateTimePicker extends Omit<IAdvancedTextField, 'version'> {
 const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiDateTimePicker?.props?.default, ...props__ }), [props__]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDateTimePicker?.props?.default, ...props__ }), [props__]);
 
   const breakpoints = {};
 
@@ -506,8 +506,8 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
         className={classNames([
           staticClassName('DateTimePicker', theme) && [
-            'AmauiDateTimePicker-mode',
-            'AmauiDateTimePicker-mode-docked'
+            'amaui-DateTimePicker-mode',
+            'amaui-DateTimePicker-mode-docked'
           ],
 
           ModeDesktopProps?.className,
@@ -620,8 +620,8 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
         className={classNames([
           staticClassName('DateTimePicker', theme) && [
-            'AmauiDateTimePicker-mode',
-            'AmauiDateTimePicker-mode-modal'
+            'amaui-DateTimePicker-mode',
+            'amaui-DateTimePicker-mode-modal'
           ],
 
           ModeMobileProps?.className,
@@ -768,11 +768,11 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
       className={classNames([
         staticClassName('DateTimePicker', theme) && [
-          'AmauiDateTimePicker-root',
-          range && `AmauiDateTimePicker-range`,
-          fullScreen && `AmauiDateTimePicker-full-screen`,
-          readOnly && `AmauiDateTimePicker-read-only`,
-          disabled && `AmauiDateTimePicker-disabled`
+          'amaui-DateTimePicker-root',
+          range && `amaui-DateTimePicker-range`,
+          fullScreen && `amaui-DateTimePicker-full-screen`,
+          readOnly && `amaui-DateTimePicker-read-only`,
+          disabled && `amaui-DateTimePicker-disabled`
         ],
 
         className,
@@ -836,7 +836,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
           NoSurfaceProps={{
             className: classNames([
               staticClassName('DateTimePicker', theme) && [
-                'AmauiDateTimePicker-modal'
+                'amaui-DateTimePicker-modal'
               ],
 
               classes.modal
@@ -876,7 +876,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
             <ClickListener
               onClickOutside={onClose}
 
-              includeParentQueries={['.AmauiDateTimePicker-mode', '.AmauiDatePicker-list', '.AmauiDatePicker-day', '.AmauiTimePicker-mode']}
+              includeParentQueries={['.amaui-DateTimePicker-mode', '.amaui-DatePicker-list', '.amaui-DatePicker-day', '.amaui-TimePicker-mode']}
 
               include={[refs.iconButton, refs.iconButton.current]}
             >
@@ -892,6 +892,6 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
   );
 });
 
-DateTimePicker.displayName = 'AmauiDateTimePicker';
+DateTimePicker.displayName = 'amaui-DateTimePicker';
 
 export default DateTimePicker;

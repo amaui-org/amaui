@@ -42,7 +42,7 @@ const useStyle = styleMethod(theme => ({
   actions: {
     marginTop: '8px'
   }
-}), { name: 'AmauiTimer' });
+}), { name: 'amaui-Timer' });
 
 const IconMaterialTimerRounded = React.forwardRef((props: any, ref) => {
 
@@ -150,7 +150,7 @@ export interface ITimer extends ISurface {
 const Timer = React.forwardRef((props_: ITimer, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTimer?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTimer?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -348,7 +348,7 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
 
       className={classNames([
         staticClassName('Timer', theme) && [
-          'AmauiTimer-root'
+          'amaui-Timer-root'
         ],
 
         className,
@@ -379,7 +379,7 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
 
           className={classNames([
             staticClassName('Timer', theme) && [
-              'AmauiTimer-value'
+              'amaui-Timer-value'
             ],
 
             classes.value
@@ -397,7 +397,7 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
 
         className={classNames([
           staticClassName('Timer', theme) && [
-            'AmauiTimer-flags-wrapper'
+            'amaui-Timer-flags-wrapper'
           ],
 
           classes.flags_wrapper
@@ -424,7 +424,7 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
                   TreeProps={{
                     className: classNames([
                       staticClassName('Timer', theme) && [
-                        'AmauiTimer-flags'
+                        'amaui-Timer-flags'
                       ],
 
                       classes.flags
@@ -509,7 +509,7 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
 
         className={classNames([
           staticClassName('Timer', theme) && [
-            'AmauiTimer-actions'
+            'amaui-Timer-actions'
           ],
 
           classes.actions
@@ -624,6 +624,6 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
   );
 });
 
-Timer.displayName = 'AmauiTimer';
+Timer.displayName = 'amaui-Timer';
 
 export default Timer;

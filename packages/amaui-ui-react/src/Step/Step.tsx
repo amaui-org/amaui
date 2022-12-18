@@ -19,7 +19,7 @@ const useStyle = styleMethod(theme => ({
     position: 'relative',
     transition: theme.methods.transitions.make('opacity'),
 
-    '&.AmauiLine-root': {
+    '&.amaui-Line-root': {
       width: 'unset'
     }
   },
@@ -40,7 +40,7 @@ const useStyle = styleMethod(theme => ({
   direction_column: {
     flex: '1 1 auto',
 
-    '& .AmauiListItem-text': {
+    '& .amaui-ListItem-text': {
       textAlign: 'center'
     }
   },
@@ -53,7 +53,7 @@ const useStyle = styleMethod(theme => ({
   divider: {
     position: 'absolute',
 
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       margin: '0',
       transition: theme.methods.transitions.make(['background', 'height'])
     }
@@ -64,7 +64,7 @@ const useStyle = styleMethod(theme => ({
     right: '0',
     transform: 'translate(calc(-50% - 70px), -50%)',
 
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       width: 'calc(100% - 62px)'
     }
   },
@@ -74,23 +74,23 @@ const useStyle = styleMethod(theme => ({
     top: '0',
     transform: 'translate(-50%, calc(-50% - 16px))',
 
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       height: '50%'
     }
   },
 
   divider_active_orientation_horizontal: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       height: '4px'
     }
   },
 
   divider_active_orientation_vertical: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       width: '4px'
     }
   }
-}), { name: 'AmauiStep' });
+}), { name: 'amaui-Step' });
 
 export interface IStep extends ILine {
   tonal?: TTonal;
@@ -123,7 +123,7 @@ export interface IStep extends ILine {
 const Step = React.forwardRef((props_: IStep, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiStep?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiStep?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -176,7 +176,7 @@ const Step = React.forwardRef((props_: IStep, ref: any) => {
 
         className={classNames([
           staticClassName('Step', theme) && [
-            'AmauiStep-icon'
+            'amaui-Step-icon'
           ],
 
           classes.icon
@@ -209,10 +209,10 @@ const Step = React.forwardRef((props_: IStep, ref: any) => {
 
       className={classNames([
         staticClassName('Step', theme) && [
-          'AmauiStep-root',
-          active && `AmauiStep-active`,
-          completed && `AmauiStep-completed`,
-          (!active && !completed) && `AmauiStep-inactive`
+          'amaui-Step-root',
+          active && `amaui-Step-active`,
+          completed && `amaui-Step-completed`,
+          (!active && !completed) && `amaui-Step-inactive`
         ],
 
         className,
@@ -260,8 +260,8 @@ const Step = React.forwardRef((props_: IStep, ref: any) => {
 
           className={classNames([
             staticClassName('Step', theme) && [
-              'AmauiStep-divider',
-              activeDivider && `AmauiStep-divider-active`
+              'amaui-Step-divider',
+              activeDivider && `amaui-Step-divider-active`
             ],
 
             DividerProps?.className,
@@ -275,6 +275,6 @@ const Step = React.forwardRef((props_: IStep, ref: any) => {
   );
 });
 
-Step.displayName = 'AmauiStep';
+Step.displayName = 'amaui-Step';
 
 export default Step;

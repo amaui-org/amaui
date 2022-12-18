@@ -16,19 +16,19 @@ const useStyle = styleMethod(theme => ({
   },
 
   no_render: {
-    '& .AmauiButton-root': {
+    '& .amaui-Button-root': {
       boxShadow: theme.shadows.values.default[6],
 
       '&:hover': {
         boxShadow: theme.shadows.values.default[8]
       },
 
-      '&.AmauiButton-focus': {
+      '&.amaui-Button-focus': {
         boxShadow: theme.shadows.values.default[8]
       }
     }
   }
-}), { name: 'AmauiSpeedDialItem' });
+}), { name: 'amaui-SpeedDialItem' });
 
 export interface ISpeedDialItem extends IIconButton {
   open?: boolean;
@@ -55,7 +55,7 @@ export interface ISpeedDialItem extends IIconButton {
 const SpeedDialItem = React.forwardRef((props_: ISpeedDialItem, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiSpeedDialItem?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSpeedDialItem?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -97,7 +97,7 @@ const SpeedDialItem = React.forwardRef((props_: ISpeedDialItem, ref: any) => {
 
       className={classNames([
         staticClassName('SpeedDialItem', theme) && [
-          `AmauiSpeedDialItem-root`
+          `amaui-SpeedDialItem-root`
         ],
 
         className,
@@ -136,6 +136,6 @@ const SpeedDialItem = React.forwardRef((props_: ISpeedDialItem, ref: any) => {
   );
 });
 
-SpeedDialItem.displayName = 'AmauiSpeedDialItem';
+SpeedDialItem.displayName = 'amaui-SpeedDialItem';
 
 export default SpeedDialItem;

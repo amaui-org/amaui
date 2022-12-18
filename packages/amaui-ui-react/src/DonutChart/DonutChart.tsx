@@ -9,13 +9,13 @@ import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    '& .AmauiChart-legend-icon': {
+    '& .amaui-Chart-legend-icon': {
       position: 'relative',
       background: 'none !important',
       border: '2px solid currentColor'
     }
   }
-}), { name: 'AmauiDonutChart' });
+}), { name: 'amaui-DonutChart' });
 
 export interface IDonutChart extends IPieChart {
 
@@ -24,7 +24,7 @@ export interface IDonutChart extends IPieChart {
 const DonutChart = React.forwardRef((props_: IDonutChart, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiDonutChart?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDonutChart?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -42,7 +42,7 @@ const DonutChart = React.forwardRef((props_: IDonutChart, ref: any) => {
 
       className={classNames([
         staticClassName('DonutChart', theme) && [
-          'AmauiDonutChart-root'
+          'amaui-DonutChart-root'
         ],
 
         className,
@@ -54,6 +54,6 @@ const DonutChart = React.forwardRef((props_: IDonutChart, ref: any) => {
   );
 });
 
-DonutChart.displayName = 'AmauiDonutChart';
+DonutChart.displayName = 'amaui-DonutChart';
 
 export default DonutChart;

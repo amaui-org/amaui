@@ -34,6 +34,6 @@ const useMediaQuery = (props: string) => {
   return response?.matches;
 };
 
-useMediaQuery.displayName = 'AmauiUseMediaQuery';
+useMediaQuery.displayName = 'amaui-UseMediaQuery';
 
 export default useMediaQuery;

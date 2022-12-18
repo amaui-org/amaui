@@ -36,7 +36,7 @@ const useStyle = styleMethod(theme => ({
       opacity: [theme.palette.visual_contrast.default.opacity.selected, '!important']
     }
   }
-}), { name: 'AmauiTableRow' });
+}), { name: 'amaui-TableRow' });
 
 export interface ITableRow extends ISurface {
   size?: TSize;
@@ -49,7 +49,7 @@ export interface ITableRow extends ISurface {
 const TableRow = React.forwardRef((props_: ITableRow, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTableRow?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTableRow?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -85,9 +85,9 @@ const TableRow = React.forwardRef((props_: ITableRow, ref: any) => {
 
       className={classNames([
         staticClassName('TableRow', theme) && [
-          `AmauiTableRow-root`,
-          (hover && position === 'body') && `AmauiTableRow-hover`,
-          selected && `AmauiTableRow-selected`
+          `amaui-TableRow-root`,
+          (hover && position === 'body') && `amaui-TableRow-hover`,
+          selected && `amaui-TableRow-selected`
         ],
 
         className,
@@ -117,6 +117,6 @@ const TableRow = React.forwardRef((props_: ITableRow, ref: any) => {
   );
 });
 
-TableRow.displayName = 'AmauiTableRow';
+TableRow.displayName = 'amaui-TableRow';
 
 export default TableRow;

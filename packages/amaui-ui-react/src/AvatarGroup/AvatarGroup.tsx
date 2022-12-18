@@ -26,7 +26,7 @@ const useStyle = styleMethod(theme => ({
       marginInlineStart: `-0.24em`
     }
   }
-}), { name: 'AmauiAvatarGroup' });
+}), { name: 'amaui-AvatarGroup' });
 
 export interface IAvatarGroup extends IAvatar {
   tonal?: TTonal;
@@ -45,7 +45,7 @@ export interface IAvatarGroup extends IAvatar {
 const AvatarGroup = React.forwardRef((props_: IAvatarGroup, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiAvatarGroup?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAvatarGroup?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -133,7 +133,7 @@ const AvatarGroup = React.forwardRef((props_: IAvatarGroup, ref: any) => {
 
       className={classNames([
         staticClassName('AvatarGroup', theme) && [
-          'AmauiAvatarGroup-root'
+          'amaui-AvatarGroup-root'
         ],
 
         className,
@@ -169,6 +169,6 @@ const AvatarGroup = React.forwardRef((props_: IAvatarGroup, ref: any) => {
   );
 });
 
-AvatarGroup.displayName = 'AmauiAvatarGroup';
+AvatarGroup.displayName = 'amaui-AvatarGroup';
 
 export default AvatarGroup;

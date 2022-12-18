@@ -40,7 +40,7 @@ const useStyle = styleMethod(theme => ({
     width: '100%',
     flex: '1 1 auto',
 
-    '&.AmauiNavigationBar-root': {
+    '&.amaui-NavigationBar-root': {
       background: 'transparent'
     }
   },
@@ -51,12 +51,12 @@ const useStyle = styleMethod(theme => ({
     insetBlock: '0',
     insetInlineEnd: '0',
 
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       margin: '0',
       opacity: theme.palette.light ? '0.07' : '0.11'
     }
   }
-}), { name: 'AmauiNavigationRail' });
+}), { name: 'amaui-NavigationRail' });
 
 export interface INavigationRail extends ISurface {
   size?: TSize;
@@ -81,7 +81,7 @@ export interface INavigationRail extends ISurface {
 const NavigationRail = React.forwardRef((props_: INavigationRail, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiNavigationRail?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiNavigationRail?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -156,7 +156,7 @@ const NavigationRail = React.forwardRef((props_: INavigationRail, ref: any) => {
 
       color: item.props.color !== undefined ? item.props.color : color,
 
-      tonal: item.props.tonal !== undefined ? item.props.tonal : tonal && ['AmauiFab'].includes(item.type?.displayName) ? 'secondary' : tonal
+      tonal: item.props.tonal !== undefined ? item.props.tonal : tonal && ['amaui-Fab'].includes(item.type?.displayName) ? 'secondary' : tonal
     }));
 
   const children = React.Children
@@ -164,7 +164,7 @@ const NavigationRail = React.forwardRef((props_: INavigationRail, ref: any) => {
     .map((item: any, index: number) => React.cloneElement(item, {
       key: index,
 
-      ...(['AmauiNavigationItem'].includes(item.type?.displayName) ? {
+      ...(['amaui-NavigationItem'].includes(item.type?.displayName) ? {
         vertical: true
       } : {}),
 
@@ -200,7 +200,7 @@ const NavigationRail = React.forwardRef((props_: INavigationRail, ref: any) => {
 
       className={classNames([
         staticClassName('NavigationRail', theme) && [
-          'AmauiNavigationRail-root'
+          'amaui-NavigationRail-root'
         ],
 
         className,
@@ -223,7 +223,7 @@ const NavigationRail = React.forwardRef((props_: INavigationRail, ref: any) => {
 
           className={classNames([
             staticClassName('NavigationRail', theme) && [
-              'AmauiNavigationRail-header'
+              'amaui-NavigationRail-header'
             ],
 
             classes.header
@@ -251,7 +251,7 @@ const NavigationRail = React.forwardRef((props_: INavigationRail, ref: any) => {
 
           className={classNames([
             staticClassName('NavigationRail', theme) && [
-              'AmauiNavigationRail-main'
+              'amaui-NavigationRail-main'
             ],
 
             NavigationBarProps?.className,
@@ -270,7 +270,7 @@ const NavigationRail = React.forwardRef((props_: INavigationRail, ref: any) => {
 
           className={classNames([
             staticClassName('NavigationRail', theme) && [
-              'AmauiNavigationRail-divider'
+              'amaui-NavigationRail-divider'
             ],
 
             DividerProps?.className,
@@ -282,6 +282,6 @@ const NavigationRail = React.forwardRef((props_: INavigationRail, ref: any) => {
   );
 });
 
-NavigationRail.displayName = 'AmauiNavigationRail';
+NavigationRail.displayName = 'amaui-NavigationRail';
 
 export default NavigationRail;

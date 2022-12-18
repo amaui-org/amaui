@@ -252,24 +252,24 @@ const useStyle = styleMethod(theme => ({
   },
 
   disabled_version_text: {
-    '&.AmauiSurface-root': {
+    '&.amaui-Surface-root': {
       color: theme.palette.text.default.primary
     }
   },
 
   disabled_version_outlined: {
-    '&.AmauiSurface-root': {
+    '&.amaui-Surface-root': {
       color: theme.palette.text.default.primary
     }
   },
 
   disabled_version_filled: {
-    '&.AmauiSurface-root': {
+    '&.amaui-Surface-root': {
       color: theme.palette.text.neutral.primary,
       background: theme.palette.light ? theme.palette.text.divider : theme.palette.text.neutral.quaternary
     }
   }
-}), { name: 'AmauiButton' });
+}), { name: 'amaui-Button' });
 
 export interface IButton extends Omit<ISurface, 'elevation'> {
   size?: TSizeAny;
@@ -311,7 +311,7 @@ export interface IButton extends Omit<ISurface, 'elevation'> {
 const Button = React.forwardRef((props_: IButton, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiButton?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiButton?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal,
@@ -541,14 +541,14 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
 
       className={classNames([
         staticClassName('Button', theme) && [
-          `AmauiButton-root`,
-          fullWidth && `AmauiButton-full-width`,
-          start && `AmauiButton-start`,
-          end && `AmauiButton-end`,
-          selected && `AmauiButton-selected`,
-          loading && `AmauiButton-loading`,
-          focus && `AmauiButton-focus`,
-          disabled && `AmauiButton-disabled`
+          `amaui-Button-root`,
+          fullWidth && `amaui-Button-full-width`,
+          start && `amaui-Button-start`,
+          end && `amaui-Button-end`,
+          selected && `amaui-Button-selected`,
+          loading && `amaui-Button-loading`,
+          focus && `amaui-Button-focus`,
+          disabled && `amaui-Button-disabled`
         ],
 
         className,
@@ -604,8 +604,8 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
         <span
           className={classNames([
             staticClassName('Button', theme) && [
-              'AmauiButton-icon',
-              'AmauiButton-start'
+              'amaui-Button-icon',
+              'amaui-Button-start'
             ],
 
             classes.Icon,
@@ -624,7 +624,7 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
 
           className={classNames([
             staticClassName('Button', theme) && [
-              'AmauiButton-icon-root'
+              'amaui-Button-icon-root'
             ],
 
             IconWrapperProps?.className,
@@ -649,7 +649,7 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
 
           className={classNames([
             staticClassName('Button', theme) && [
-              'AmauiButton-label'
+              'amaui-Button-label'
             ],
 
             TypeProps?.className,
@@ -665,11 +665,11 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
           }}
         >
           {React.Children.toArray(children_).map((item_: any, index: number) => {
-            const item = (selected && item_.type?.displayName?.includes('AmauiIcon') && iconSelected) ? iconSelected : item_;
+            const item = (selected && item_.type?.displayName?.includes('amaui-Icon') && iconSelected) ? iconSelected : item_;
 
             if (is('simple', item)) return item;
 
-            return React.cloneElement((selected && item.type?.displayName?.includes('AmauiIcon') && iconSelected) ? iconSelected : item, {
+            return React.cloneElement((selected && item.type?.displayName?.includes('amaui-Icon') && iconSelected) ? iconSelected : item, {
               key: index
             });
           })}
@@ -680,8 +680,8 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
         <span
           className={classNames([
             staticClassName('Button', theme) && [
-              'AmauiButton-icon',
-              'AmauiButton-end'
+              'amaui-Button-icon',
+              'amaui-Button-end'
             ],
 
             classes.Icon,
@@ -697,6 +697,6 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
   );
 });
 
-Button.displayName = 'AmauiButton';
+Button.displayName = 'amaui-Button';
 
 export default Button;

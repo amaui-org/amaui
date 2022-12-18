@@ -12,7 +12,7 @@ const useStyle = styleMethod(theme => ({
   root: {
     width: '100%',
 
-    '&.AmauiListItem-root': {
+    '&.amaui-ListItem-root': {
       padding: '0px'
     }
   },
@@ -47,7 +47,7 @@ const useStyle = styleMethod(theme => ({
   maxWidth_xl: { maxWidth: '1920px' },
 
   maxWidth_unset: { maxWidth: 'unset' }
-}), { name: 'AmauiBanner' });
+}), { name: 'amaui-Banner' });
 
 export interface IBanner extends IBaseElement {
   size?: TSize;
@@ -59,7 +59,7 @@ export interface IBanner extends IBaseElement {
 const Banner = React.forwardRef((props_: IBanner, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiBanner?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBanner?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -129,7 +129,7 @@ const Banner = React.forwardRef((props_: IBanner, ref: any) => {
 
       className={classNames([
         staticClassName('Banner', theme) && [
-          'AmauiBanner-root'
+          'amaui-Banner-root'
         ],
 
         className,
@@ -155,7 +155,7 @@ const Banner = React.forwardRef((props_: IBanner, ref: any) => {
 
         className={classNames([
           staticClassName('Banner', theme) && [
-            'AmauiBanner-list-item'
+            'amaui-Banner-list-item'
           ],
 
           classes.listItem,
@@ -171,6 +171,6 @@ const Banner = React.forwardRef((props_: IBanner, ref: any) => {
   );
 });
 
-Banner.displayName = 'AmauiBanner';
+Banner.displayName = 'amaui-Banner';
 
 export default Banner;

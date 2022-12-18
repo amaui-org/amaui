@@ -11,7 +11,7 @@ const useStyle = styleMethod(theme => ({
     justifyContent: 'flex-end',
     paddingTop: theme.methods.space.value('md', 'px')
   }
-}), { name: 'AmauiModalFooter' });
+}), { name: 'amaui-ModalFooter' });
 
 export interface IModalFooter extends IBaseElement {
 
@@ -20,7 +20,7 @@ export interface IModalFooter extends IBaseElement {
 const ModalFooter = React.forwardRef((props_: IModalFooter, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiModalFooter?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModalFooter?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -47,7 +47,7 @@ const ModalFooter = React.forwardRef((props_: IModalFooter, ref: any) => {
 
       className={classNames([
         staticClassName('ModalFooter', theme) && [
-          'AmauiModalFooter-root'
+          'amaui-ModalFooter-root'
         ],
 
         className,
@@ -67,6 +67,6 @@ const ModalFooter = React.forwardRef((props_: IModalFooter, ref: any) => {
   );
 });
 
-ModalFooter.displayName = 'AmauiModalFooter';
+ModalFooter.displayName = 'amaui-ModalFooter';
 
 export default ModalFooter;

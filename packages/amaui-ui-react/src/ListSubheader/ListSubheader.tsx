@@ -15,7 +15,7 @@ const useStyle = styleMethod(theme => ({
     zIndex: '1',
     userSelect: 'none'
   }
-}), { name: 'AmauiListSubheader' });
+}), { name: 'amaui-ListSubheader' });
 
 export interface IListSubheader extends IListItem {
 
@@ -24,7 +24,7 @@ export interface IListSubheader extends IListItem {
 const ListSubheader = React.forwardRef((props_: IListSubheader, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiListSubheader?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiListSubheader?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -44,7 +44,7 @@ const ListSubheader = React.forwardRef((props_: IListSubheader, ref: any) => {
 
       className={classNames([
         staticClassName('ListSubheader', theme) && [
-          'AmauiListSubheader-root'
+          'amaui-ListSubheader-root'
         ],
 
         className,
@@ -56,6 +56,6 @@ const ListSubheader = React.forwardRef((props_: IListSubheader, ref: any) => {
   );
 });
 
-ListSubheader.displayName = 'AmauiListSubheader';
+ListSubheader.displayName = 'amaui-ListSubheader';
 
 export default ListSubheader;

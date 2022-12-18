@@ -130,7 +130,7 @@ const useStyle = styleMethod(theme => ({
   'columnGap_12': { columnGap: `${12 * theme.space.unit}px` },
 
   'columnGap_16': { columnGap: `${16 * theme.space.unit}px` }
-}), { name: 'AmauiLine' });
+}), { name: 'amaui-Line' });
 
 export type TLineAlign = 'inherit' | 'initial' | 'flex-start' | 'center' | 'flex-end' | 'baseline' | 'stretch';
 
@@ -164,7 +164,7 @@ export interface ILine extends IBaseElement {
 const Line = React.forwardRef((props_: ILine, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiLine?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLine?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 
@@ -241,7 +241,7 @@ const Line = React.forwardRef((props_: ILine, ref: any) => {
 
       className={classNames([
         staticClassName('Line', theme) && [
-          'AmauiLine-root'
+          'amaui-Line-root'
         ],
 
         className,
@@ -271,6 +271,6 @@ const Line = React.forwardRef((props_: ILine, ref: any) => {
   );
 });
 
-Line.displayName = 'AmauiLine';
+Line.displayName = 'amaui-Line';
 
 export default Line;

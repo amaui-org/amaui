@@ -33,7 +33,7 @@ const useStyle = styleMethod(theme => ({
     borderRadius: '28px',
     overflow: 'hidden',
 
-    '& .AmauiTimePicker-mode, & .AmauiDateRangePicker-mode': {
+    '& .amaui-TimePicker-mode, & .amaui-DateRangePicker-mode': {
       marginInline: '0px'
     }
   },
@@ -45,13 +45,13 @@ const useStyle = styleMethod(theme => ({
     borderRadius: '0px',
     overflow: 'hidden',
 
-    '& .AmauiDateTimeRangePicker-mode': {
+    '& .amaui-DateTimeRangePicker-mode': {
       marginInline: '0px',
       borderRadius: '0px',
       height: '100vh'
     },
 
-    '& .AmauiDatePicker-mode-modal-full-screen-main': {
+    '& .amaui-DatePicker-mode-modal-full-screen-main': {
       maxHeight: 'calc(100vh - 283px) !important'
     }
   },
@@ -62,7 +62,7 @@ const useStyle = styleMethod(theme => ({
     width: '100%',
     height: '100%'
   },
-}), { name: 'AmauiDateTimeRangePicker' });
+}), { name: 'amaui-DateTimeRangePicker' });
 
 const IconMaterialDateRangeRoundedFilled = React.forwardRef((props: any, ref) => {
 
@@ -99,7 +99,7 @@ export interface IDateTimeRangePicker extends Omit<IDateTimePicker, 'value'> {
 const DateTimeRangePicker = React.forwardRef((props__: IDateTimeRangePicker, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiDateTimeRangePicker?.props?.default, ...props__ }), [props__]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDateTimeRangePicker?.props?.default, ...props__ }), [props__]);
 
   const breakpoints = {};
 
@@ -506,8 +506,8 @@ const DateTimeRangePicker = React.forwardRef((props__: IDateTimeRangePicker, ref
 
         className={classNames([
           staticClassName('DateTimeRangePicker', theme) && [
-            'AmauiDateTimeRangePicker-mode',
-            'AmauiDateTimeRangePicker-mode-docked'
+            'amaui-DateTimeRangePicker-mode',
+            'amaui-DateTimeRangePicker-mode-docked'
           ],
 
           ModeDesktopProps?.className,
@@ -628,8 +628,8 @@ const DateTimeRangePicker = React.forwardRef((props__: IDateTimeRangePicker, ref
 
         className={classNames([
           staticClassName('DateTimeRangePicker', theme) && [
-            'AmauiDateTimeRangePicker-mode',
-            'AmauiDateTimeRangePicker-mode-modal'
+            'amaui-DateTimeRangePicker-mode',
+            'amaui-DateTimeRangePicker-mode-modal'
           ],
 
           ModeMobileProps?.className,
@@ -784,11 +784,11 @@ const DateTimeRangePicker = React.forwardRef((props__: IDateTimeRangePicker, ref
 
       className={classNames([
         staticClassName('DateTimeRangePicker', theme) && [
-          'AmauiDateTimeRangePicker-root',
-          range && `AmauiDateTimeRangePicker-range`,
-          fullScreen && `AmauiDateTimeRangePicker-full-screen`,
-          readOnly && `AmauiDateTimeRangePicker-read-only`,
-          disabled && `AmauiDateTimeRangePicker-disabled`
+          'amaui-DateTimeRangePicker-root',
+          range && `amaui-DateTimeRangePicker-range`,
+          fullScreen && `amaui-DateTimeRangePicker-full-screen`,
+          readOnly && `amaui-DateTimeRangePicker-read-only`,
+          disabled && `amaui-DateTimeRangePicker-disabled`
         ],
 
         className,
@@ -852,8 +852,8 @@ const DateTimeRangePicker = React.forwardRef((props__: IDateTimeRangePicker, ref
           NoSurfaceProps={{
             className: classNames([
               staticClassName('DateTimeRangePicker', theme) && [
-                'AmauiDatePicker-modal',
-                fullScreen && `AmauiDatePicker-modal-full-screen`
+                'amaui-DatePicker-modal',
+                fullScreen && `amaui-DatePicker-modal-full-screen`
               ],
 
               classes.modal,
@@ -894,7 +894,7 @@ const DateTimeRangePicker = React.forwardRef((props__: IDateTimeRangePicker, ref
             <ClickListener
               onClickOutside={onClose}
 
-              includeParentQueries={['.AmauiDateTimeRangePicker-mode', '.AmauiDatePicker-list', '.AmauiDatePicker-day', '.AmauiTimePicker-mode']}
+              includeParentQueries={['.amaui-DateTimeRangePicker-mode', '.amaui-DatePicker-list', '.amaui-DatePicker-day', '.amaui-TimePicker-mode']}
 
               include={[refs.iconButton, refs.iconButton.current]}
             >
@@ -909,6 +909,6 @@ const DateTimeRangePicker = React.forwardRef((props__: IDateTimeRangePicker, ref
   );
 });
 
-DateTimeRangePicker.displayName = 'AmauiDateTimeRangePicker';
+DateTimeRangePicker.displayName = 'amaui-DateTimeRangePicker';
 
 export default DateTimeRangePicker;

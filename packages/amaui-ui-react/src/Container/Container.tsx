@@ -81,7 +81,7 @@ const useStyle = styleMethod(theme => ({
     width: '100%',
     maxWidth: 'unset'
   },
-}), { name: 'AmauiContainer' });
+}), { name: 'amaui-Container' });
 
 export interface IContainer extends ILine {
   alignment?: 'start' | 'center' | 'end' | Record<TValueBreakpoints, 'start' | 'center' | 'end'>;
@@ -98,7 +98,7 @@ export interface IContainer extends ILine {
 const Container = React.forwardRef((props_: IContainer, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiContainer?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiContainer?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 
@@ -157,7 +157,7 @@ const Container = React.forwardRef((props_: IContainer, ref: any) => {
 
       className={classNames([
         staticClassName('Container', theme) && [
-          'AmauiContainer-root'
+          'amaui-Container-root'
         ],
 
         className,
@@ -182,6 +182,6 @@ const Container = React.forwardRef((props_: IContainer, ref: any) => {
   );
 });
 
-Container.displayName = 'AmauiContainer';
+Container.displayName = 'amaui-Container';
 
 export default Container;

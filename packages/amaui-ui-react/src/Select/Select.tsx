@@ -26,7 +26,7 @@ const useStyle = styleMethod(theme => ({
     flex: 'unset',
     minWidth: '140px',
 
-    '& .AmauiTextField-input': {
+    '& .amaui-TextField-input': {
       position: 'absolute',
       left: '0',
       bottom: '0',
@@ -34,7 +34,7 @@ const useStyle = styleMethod(theme => ({
       opacity: '0'
     },
 
-    '& .AmauiTextField-input-wrapper': {
+    '& .amaui-TextField-input-wrapper': {
       cursor: 'pointer'
     }
   },
@@ -42,7 +42,7 @@ const useStyle = styleMethod(theme => ({
   inputWrapper: {
     cursor: 'pointer',
 
-    '&.AmauiTextField-input-wrapper': {
+    '&.amaui-TextField-input-wrapper': {
       cursor: 'pointer'
     }
   },
@@ -75,7 +75,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   chip: {
-    '&.AmauiTextField-input-wrapper': {
+    '&.amaui-TextField-input-wrapper': {
       height: 'unset'
     }
   },
@@ -97,23 +97,23 @@ const useStyle = styleMethod(theme => ({
   },
 
   open: {
-    '&.AmauiTextField-root': {
+    '&.amaui-TextField-root': {
       cursor: 'default'
     }
   },
 
   readOnly: {
-    '&.AmauiTextField-root': {
+    '&.amaui-TextField-root': {
       cursor: 'default'
     }
   },
 
   disabled: {
-    '&.AmauiTextField-root': {
+    '&.amaui-TextField-root': {
       cursor: 'default'
     }
   }
-}), { name: 'AmauiSelect' });
+}), { name: 'amaui-Select' });
 
 const IconMaterialArrowDropDownRounded = React.forwardRef((props: any, ref) => {
 
@@ -147,7 +147,7 @@ export interface ISelect extends ITextField {
 const Select = React.forwardRef((props_: ISelect, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiSelect?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSelect?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -380,7 +380,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
 
       className={classNames([
         staticClassName('Select', theme) && [
-          'AmauiSelect-wrapper'
+          'amaui-Select-wrapper'
         ]
       ])}
     >
@@ -406,10 +406,10 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
 
         className={classNames([
           staticClassName('Select', theme) && [
-            'AmauiSelect-root',
-            open && `AmauiSelect-open`,
-            mouseDown && `AmauiSelect-mouse-down`,
-            focus && `AmauiSelect-focus`
+            'amaui-Select-root',
+            open && `amaui-Select-open`,
+            mouseDown && `amaui-Select-mouse-down`,
+            focus && `amaui-Select-focus`
           ],
 
           className,
@@ -459,7 +459,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
         InputWrapperProps={{
           className: classNames([
             staticClassName('Select', theme) && [
-              'AmauiSelect-input-wrapper'
+              'amaui-Select-input-wrapper'
             ],
 
             classes.inputWrapper,
@@ -495,7 +495,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
         <div
           className={classNames([
             staticClassName('Select', theme) && [
-              'AmauiSelect-input'
+              'amaui-Select-input'
             ],
 
             classes.input,
@@ -593,6 +593,6 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
   );
 });
 
-Select.displayName = 'AmauiSelect';
+Select.displayName = 'amaui-Select';
 
 export default Select;

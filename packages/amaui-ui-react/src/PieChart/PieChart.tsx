@@ -15,7 +15,7 @@ import { angleToCoordinates, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    '& .AmauiChart-wrapper': {
+    '& .amaui-Chart-wrapper': {
       aspectRatio: '1',
       maxWidth: '240px',
       height: 'unset',
@@ -54,7 +54,7 @@ const useStyle = styleMethod(theme => ({
     height: '8px',
     borderRadius: '50%'
   }
-}), { name: 'AmauiPieChart' });
+}), { name: 'amaui-PieChart' });
 
 export interface IPieChart extends IChart {
 
@@ -63,7 +63,7 @@ export interface IPieChart extends IChart {
 const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiPieChart?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPieChart?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 
@@ -132,7 +132,7 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
 
         className={classNames([
           staticClassName('PieChart', theme) && [
-            'AmauiPieChart-legend-item'
+            'amaui-PieChart-legend-item'
           ],
 
           className_,
@@ -145,7 +145,7 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
         <span
           className={classNames([
             staticClassName('PieChart', theme) && [
-              'AmauiPieChart-legend-icon'
+              'amaui-PieChart-legend-icon'
             ],
 
             classes.legend_icon
@@ -310,7 +310,7 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
 
                   className={classNames([
                     staticClassName('PieChart', theme) && [
-                      'AmauiPieChart-text'
+                      'amaui-PieChart-text'
                     ],
 
                     classes.text
@@ -382,7 +382,7 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
 
           className={classNames([
             staticClassName('PieChart', theme) && [
-              'AmauiPieChart-append'
+              'amaui-PieChart-append'
             ],
 
             classes.append
@@ -398,7 +398,7 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
             <span
               className={classNames([
                 staticClassName('PieChart', theme) && [
-                  'AmauiLineChart-append-icon'
+                  'amaui-LineChart-append-icon'
                 ],
 
                 classes.append_icon
@@ -506,7 +506,7 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
 
       className={classNames([
         staticClassName('PieChart', theme) && [
-          'AmauiPieChart-root'
+          'amaui-PieChart-root'
         ],
 
         className,
@@ -518,6 +518,6 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
   );
 });
 
-PieChart.displayName = 'AmauiPieChart';
+PieChart.displayName = 'amaui-PieChart';
 
 export default PieChart;

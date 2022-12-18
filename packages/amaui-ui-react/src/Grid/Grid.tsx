@@ -77,7 +77,7 @@ const useStyle = styleMethod(theme => ({
   'columnGap_12': { columnGap: `${12 * theme.space.unit}px` },
 
   'columnGap_16': { columnGap: `${16 * theme.space.unit}px` }
-}), { name: 'AmauiGrid' });
+}), { name: 'amaui-Grid' });
 
 export interface IGrid extends ILine {
   auto?: boolean;
@@ -94,7 +94,7 @@ export interface IGrid extends ILine {
 const Grid = React.forwardRef((props_: IGrid, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiGrid?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiGrid?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 
@@ -187,7 +187,7 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
 
       className={classNames([
         staticClassName('Grid', theme) && [
-          'AmauiGrid-root'
+          'amaui-Grid-root'
         ],
 
         className,
@@ -221,6 +221,6 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
   );
 });
 
-Grid.displayName = 'AmauiGrid';
+Grid.displayName = 'amaui-Grid';
 
 export default Grid;

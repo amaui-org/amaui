@@ -21,7 +21,7 @@ const useStyle = styleMethod(theme => ({
     insetInline: '0',
     bottom: '0'
   }
-}), { name: 'AmauiNavigationBar' });
+}), { name: 'amaui-NavigationBar' });
 
 export type TNavigationBarValue = Array<string>;
 
@@ -36,7 +36,7 @@ export interface INavigationBar extends ISurface {
 const NavigationBar = React.forwardRef((props_: INavigationBar, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiNavigationBar?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiNavigationBar?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -121,13 +121,13 @@ const NavigationBar = React.forwardRef((props_: INavigationBar, ref: any) => {
     .map((item: any, index: number) => React.cloneElement(item, {
       key: index,
 
-      ...(['AmauiNavigationItem'].includes(item.type?.displayName) ? {
+      ...(['amaui-NavigationItem'].includes(item.type?.displayName) ? {
         ...other,
 
         version
       } : {}),
 
-      color: item.props.color !== undefined ? item.props.color : (['AmauiNavigationItem'].includes(item.type?.displayName) ? color : styles.icon.color),
+      color: item.props.color !== undefined ? item.props.color : (['amaui-NavigationItem'].includes(item.type?.displayName) ? color : styles.icon.color),
 
       tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
 
@@ -163,7 +163,7 @@ const NavigationBar = React.forwardRef((props_: INavigationBar, ref: any) => {
 
       className={classNames([
         staticClassName('NavigationBar', theme) && [
-          'AmauiNavigationBar-root'
+          'amaui-NavigationBar-root'
         ],
 
         className,
@@ -184,6 +184,6 @@ const NavigationBar = React.forwardRef((props_: INavigationBar, ref: any) => {
   );
 });
 
-NavigationBar.displayName = 'AmauiNavigationBar';
+NavigationBar.displayName = 'amaui-NavigationBar';
 
 export default NavigationBar;

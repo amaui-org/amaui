@@ -11,7 +11,7 @@ const useStyle = styleMethod(theme => ({
   root: {
 
   },
-}), { name: 'AmauiTimeline' });
+}), { name: 'amaui-Timeline' });
 
 export interface ITimeline extends ILine {
   orientation?: 'vertical' | 'horizontal';
@@ -20,7 +20,7 @@ export interface ITimeline extends ILine {
 const Timeline = React.forwardRef((props_: ITimeline, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTimeline?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTimeline?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -50,7 +50,7 @@ const Timeline = React.forwardRef((props_: ITimeline, ref: any) => {
 
       className={classNames([
         staticClassName('Timeline', theme) && [
-          'AmauiTimeline-root'
+          'amaui-Timeline-root'
         ],
 
         className,
@@ -68,6 +68,6 @@ const Timeline = React.forwardRef((props_: ITimeline, ref: any) => {
   );
 });
 
-Timeline.displayName = 'AmauiTimeline';
+Timeline.displayName = 'amaui-Timeline';
 
 export default Timeline;

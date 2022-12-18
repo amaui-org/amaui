@@ -23,7 +23,7 @@ const useStyle = styleMethod(theme => ({
     borderCollapse: 'collapse',
     borderSpacing: '0px'
   }
-}), { name: 'AmauiTable' });
+}), { name: 'amaui-Table' });
 
 export interface ITable extends ISurface {
   size?: TSize;
@@ -40,7 +40,7 @@ export interface ITable extends ISurface {
 const Table = React.forwardRef((props_: ITable, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTable?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTable?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -81,7 +81,7 @@ const Table = React.forwardRef((props_: ITable, ref: any) => {
 
       className={classNames([
         staticClassName('Table', theme) && [
-          `AmauiTable-root`
+          `amaui-Table-root`
         ],
 
         className,
@@ -103,7 +103,7 @@ const Table = React.forwardRef((props_: ITable, ref: any) => {
 
         className={classNames([
           staticClassName('Table', theme) && [
-            `AmauiTable-wrapper`
+            `amaui-Table-wrapper`
           ],
 
           WrapperComponentProps?.className,
@@ -113,9 +113,9 @@ const Table = React.forwardRef((props_: ITable, ref: any) => {
         <TableComponent
           className={classNames([
             staticClassName('Table', theme) && [
-              `AmauiTable-table`,
-              header && `AmauiTable-header`,
-              footer && `AmauiTable-footer`
+              `amaui-Table-table`,
+              header && `amaui-Table-header`,
+              footer && `amaui-Table-footer`
             ],
 
             classes.table
@@ -144,6 +144,6 @@ const Table = React.forwardRef((props_: ITable, ref: any) => {
   );
 });
 
-Table.displayName = 'AmauiTable';
+Table.displayName = 'amaui-Table';
 
 export default Table;

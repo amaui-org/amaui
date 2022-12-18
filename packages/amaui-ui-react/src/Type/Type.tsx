@@ -95,7 +95,7 @@ const useStyle = styleMethod(theme => ({
     userSelect: 'none',
     opacity: theme.palette.visual_contrast.default.opacity.disabled
   }
-}), { name: 'AmauiType' });
+}), { name: 'amaui-Type' });
 
 export interface IType extends IBaseElement {
   color?: TColor;
@@ -112,7 +112,7 @@ export interface IType extends IBaseElement {
 const Type = React.forwardRef((props_: IType, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiType?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiType?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -172,8 +172,8 @@ const Type = React.forwardRef((props_: IType, ref: any) => {
 
       className={classNames([
         staticClassName('Type', theme) && [
-          'AmauiType-root',
-          disabled && `AmauiType-disabled`
+          'amaui-Type-root',
+          disabled && `amaui-Type-disabled`
         ],
 
         className,
@@ -197,6 +197,6 @@ const Type = React.forwardRef((props_: IType, ref: any) => {
   );
 });
 
-Type.displayName = 'AmauiType';
+Type.displayName = 'amaui-Type';
 
 export default Type;

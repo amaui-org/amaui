@@ -14,7 +14,7 @@ const useStyle = styleMethod(theme => ({
     gap: '16px',
     paddingBottom: '16px'
   }
-}), { name: 'AmauiModalHeader' });
+}), { name: 'amaui-ModalHeader' });
 
 export interface IModalHeader extends ILine {
   align?: TLineAlign;
@@ -23,7 +23,7 @@ export interface IModalHeader extends ILine {
 const ModalHeader = React.forwardRef((props_: IModalHeader, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiModalHeader?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModalHeader?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -58,8 +58,8 @@ const ModalHeader = React.forwardRef((props_: IModalHeader, ref: any) => {
 
       className={classNames([
         staticClassName('ModalHeader', theme) && [
-          'AmauiModalHeader-root',
-          align && `AmauiModalHeader-align-${align}`
+          'amaui-ModalHeader-root',
+          align && `amaui-ModalHeader-align-${align}`
         ],
 
         className,
@@ -79,6 +79,6 @@ const ModalHeader = React.forwardRef((props_: IModalHeader, ref: any) => {
   );
 });
 
-ModalHeader.displayName = 'AmauiModalHeader';
+ModalHeader.displayName = 'amaui-ModalHeader';
 
 export default ModalHeader;

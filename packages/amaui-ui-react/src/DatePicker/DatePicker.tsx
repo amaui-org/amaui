@@ -92,11 +92,11 @@ const useStyle = styleMethod(theme => ({
   mode_docked_header_button: {
     transition: theme.methods.transitions.make('opacity'),
 
-    '&.AmauiButton-root': {
+    '&.amaui-Button-root': {
       paddingInline: '8px 0px'
     },
 
-    '& .AmauiButton-end': {
+    '& .amaui-Button-end': {
       paddingInline: '8px 0px'
     }
   },
@@ -163,13 +163,13 @@ const useStyle = styleMethod(theme => ({
   },
 
   carousel: {
-    '&.AmauiCarousel-root': {
+    '&.amaui-Carousel-root': {
       height: '100%'
     }
   },
 
   divider: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       margin: '0px'
     }
   },
@@ -301,7 +301,7 @@ const useStyle = styleMethod(theme => ({
     maxHeight: '340px',
     overflowY: 'auto',
 
-    '&.AmauiList-root': {
+    '&.amaui-List-root': {
       boxShadow: 'none'
     }
   },
@@ -318,7 +318,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   listItem: {
-    '& .AmauiListItem-root': {
+    '& .amaui-ListItem-root': {
       minHeight: '50px'
     }
   },
@@ -345,7 +345,7 @@ const useStyle = styleMethod(theme => ({
   arrow_open: {
     transform: 'rotate(-180deg)'
   }
-}), { name: 'AmauiDatePicker' });
+}), { name: 'amaui-DatePicker' });
 
 const IconMaterialCalendarTodayRoundedFilled = React.forwardRef((props: any, ref) => {
 
@@ -657,7 +657,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
       className={classNames([
         staticClassName('DatePicker', theme) && [
-          'AmauiDatePicker-calendar'
+          'amaui-DatePicker-calendar'
         ],
 
         className,
@@ -683,7 +683,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
         className={classNames([
           staticClassName('DatePicker', theme) && [
-            'AmauiDatePicker-day-names'
+            'amaui-DatePicker-day-names'
           ],
 
           classes.dayNames
@@ -705,7 +705,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
             className={classNames([
               staticClassName('DatePicker', theme) && [
-                'AmauiDatePicker-day-name'
+                'amaui-DatePicker-day-name'
               ],
 
               classes.dayName
@@ -750,7 +750,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                       className={classNames([
                         staticClassName('DatePicker', theme) && [
-                          'AmauiDatePicker-weeks'
+                          'amaui-DatePicker-weeks'
                         ],
 
                         classes.weeks,
@@ -773,7 +773,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                           className={classNames([
                             staticClassName('DatePicker', theme) && [
-                              'AmauiDatePicker-week'
+                              'amaui-DatePicker-week'
                             ],
 
                             classes.week
@@ -814,8 +814,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                                 className={classNames([
                                   staticClassName('DatePicker', theme) && [
-                                    'AmauiDatePicker-day',
-                                    `AmauiDatePicker-day-${day.in ? 'in' : 'out'}`
+                                    'amaui-DatePicker-day',
+                                    `amaui-DatePicker-day-${day.in ? 'in' : 'out'}`
                                   ],
 
                                   classes.day,
@@ -862,7 +862,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                                       className={classNames([
                                         staticClassName('DatePicker', theme) && [
-                                          'AmauiDatePicker-day-value'
+                                          'amaui-DatePicker-day-value'
                                         ],
 
                                         classes.dayValue
@@ -917,7 +917,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
               className={classNames([
                 staticClassName('DatePicker', theme) && [
-                  'AmauiDatePicker-weeks'
+                  'amaui-DatePicker-weeks'
                 ],
 
                 classes.weeks,
@@ -940,7 +940,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                   className={classNames([
                     staticClassName('DatePicker', theme) && [
-                      'AmauiDatePicker-week'
+                      'amaui-DatePicker-week'
                     ],
 
                     classes.week
@@ -981,8 +981,8 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                         className={classNames([
                           staticClassName('DatePicker', theme) && [
-                            'AmauiDatePicker-day',
-                            `AmauiDatePicker-day-${day.in ? 'in' : 'out'}`
+                            'amaui-DatePicker-day',
+                            `amaui-DatePicker-day-${day.in ? 'in' : 'out'}`
                           ],
 
                           classes.day,
@@ -1029,7 +1029,7 @@ const CalendarDays = React.forwardRef((props: any, ref: any) => {
 
                               className={classNames([
                                 staticClassName('DatePicker', theme) && [
-                                  'AmauiDatePicker-day-value'
+                                  'amaui-DatePicker-day-value'
                                 ],
 
                                 classes.dayValue
@@ -1176,7 +1176,7 @@ export interface IDatePicker extends ILine {
 const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiDatePicker?.props?.default, ...props__ }), [props__]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDatePicker?.props?.default, ...props__ }), [props__]);
 
   const breakpoints = {};
 
@@ -2226,8 +2226,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
         className={classNames([
           staticClassName('DatePicker', theme) && [
-            'AmauiDatePicker-mode',
-            'AmauiDatePicker-mode-docked'
+            'amaui-DatePicker-mode',
+            'amaui-DatePicker-mode-docked'
           ],
 
           ModeDockedProps?.className,
@@ -2247,7 +2247,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
           className={classNames([
             staticClassName('DatePicker', theme) && [
-              'AmauiDatePicker-mode-docked-header'
+              'amaui-DatePicker-mode-docked-header'
             ],
 
             classes.mode_docked_header
@@ -2293,7 +2293,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                   <IconDropDown
                     className={classNames([
                       staticClassName('DatePicker', theme) && [
-                        'AmauiDatePicker-arrow'
+                        'amaui-DatePicker-arrow'
                       ],
 
                       classes.arrow,
@@ -2305,7 +2305,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
               className={classNames([
                 staticClassName('DatePicker', theme) && [
-                  'AmauiDatePicker-mode-docked-header-button'
+                  'amaui-DatePicker-mode-docked-header-button'
                 ],
 
                 classes.mode_docked_header_button,
@@ -2374,7 +2374,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                   <IconDropDown
                     className={classNames([
                       staticClassName('DatePicker', theme) && [
-                        'AmauiDatePicker-arrow'
+                        'amaui-DatePicker-arrow'
                       ],
 
                       classes.arrow,
@@ -2388,7 +2388,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
               className={classNames([
                 staticClassName('DatePicker', theme) && [
-                  'AmauiDatePicker-mode-docked-header-button'
+                  'amaui-DatePicker-mode-docked-header-button'
                 ],
 
                 classes.mode_docked_header_button,
@@ -2486,7 +2486,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                       <div
                         className={classNames([
                           staticClassName('DatePicker', theme) && [
-                            'AmauiDatePicker-calendar-wrapper'
+                            'amaui-DatePicker-calendar-wrapper'
                           ],
 
                           classes.calendar_wrapper
@@ -2521,7 +2521,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                           className={classNames([
                             staticClassName('DatePicker', theme) && [
-                              'AmauiDatePicker-calendar-transition'
+                              'amaui-DatePicker-calendar-transition'
                             ],
 
                             classes.calendar_transition
@@ -2543,7 +2543,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                 className={classNames([
                   staticClassName('DatePicker', theme) && [
-                    'AmauiDatePicker-mode-docked-footer'
+                    'amaui-DatePicker-mode-docked-footer'
                   ],
 
                   classes.mode_docked_footer
@@ -2590,7 +2590,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
           <Divider
             className={classNames([
               staticClassName('DatePicker', theme) && [
-                'AmauiDatePicker-divider'
+                'amaui-DatePicker-divider'
               ],
 
               classes.divider
@@ -2616,7 +2616,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
               className={classNames([
                 staticClassName('DatePicker', theme) && [
-                  'AmauiDatePicker-list'
+                  'amaui-DatePicker-list'
                 ],
 
                 classes.list
@@ -2666,7 +2666,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                     className={classNames([
                       staticClassName('DatePicker', theme) && [
-                        'AmauiDatePicker-list-item'
+                        'amaui-DatePicker-list-item'
                       ],
 
                       classes.listItem
@@ -2696,7 +2696,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
               className={classNames([
                 staticClassName('DatePicker', theme) && [
-                  'AmauiDatePicker-list'
+                  'amaui-DatePicker-list'
                 ],
 
                 classes.list
@@ -2746,7 +2746,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                     className={classNames([
                       staticClassName('DatePicker', theme) && [
-                        'AmauiDatePicker-list-item'
+                        'amaui-DatePicker-list-item'
                       ],
 
                       classes.listItem
@@ -2793,7 +2793,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
         className={classNames([
           staticClassName('DatePicker', theme) && [
-            'AmauiDatePicker-mode'
+            'amaui-DatePicker-mode'
           ],
 
           ModeInputProps?.className,
@@ -2809,7 +2809,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
           className={classNames([
             staticClassName('DatePicker', theme) && [
-              'AmauiDatePicker-mode-modal-header'
+              'amaui-DatePicker-mode-modal-header'
             ],
 
             classes.mode_modal_header
@@ -2821,7 +2821,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
             className={classNames([
               staticClassName('TimePicker', theme) && [
-                'AmauiTimePicker-heading'
+                'amaui-TimePicker-heading'
               ],
 
               classes.heading
@@ -2915,7 +2915,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         <Divider
           className={classNames([
             staticClassName('DatePicker', theme) && [
-              'AmauiDatePicker-divider'
+              'amaui-DatePicker-divider'
             ],
 
             classes.divider
@@ -2944,7 +2944,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                   className={classNames([
                     staticClassName('DatePicker', theme) && [
-                      'AmauiDatePicker-mode-modal-middle'
+                      'amaui-DatePicker-mode-modal-middle'
                     ],
 
                     classes.mode_modal_middle
@@ -2962,7 +2962,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                     className={classNames([
                       staticClassName('DatePicker', theme) && [
-                        'AmauiDatePicker-mode-modal-header-select'
+                        'amaui-DatePicker-mode-modal-header-select'
                       ],
 
                       classes.mode_modal_header_select
@@ -2984,7 +2984,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                         <IconDropDown
                           className={classNames([
                             staticClassName('DatePicker', theme) && [
-                              'AmauiDatePicker-arrow'
+                              'amaui-DatePicker-arrow'
                             ],
 
                             classes.arrow,
@@ -2995,7 +2995,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                       className={classNames([
                         staticClassName('DatePicker', theme) && [
-                          'AmauiDatePicker-mode-docked-header-button'
+                          'amaui-DatePicker-mode-docked-header-button'
                         ],
 
                         classes.mode_docked_header_button
@@ -3059,7 +3059,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                       <div
                         className={classNames([
                           staticClassName('DatePicker', theme) && [
-                            'AmauiDatePicker-calendar-wrapper'
+                            'amaui-DatePicker-calendar-wrapper'
                           ],
 
                           classes.calendar_wrapper
@@ -3092,7 +3092,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                           className={classNames([
                             staticClassName('DatePicker', theme) && [
-                              'AmauiDatePicker-calendar-transition'
+                              'amaui-DatePicker-calendar-transition'
                             ],
 
                             classes.calendar_transition
@@ -3122,7 +3122,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                         className={classNames([
                           staticClassName('DatePicker', theme) && [
-                            'AmauiDatePicker-list-modal'
+                            'amaui-DatePicker-list-modal'
                           ],
 
                           classes.list_modal
@@ -3166,7 +3166,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                               className={classNames([
                                 staticClassName('DatePicker', theme) && [
-                                  'AmauiDatePicker-day-value-modal'
+                                  'amaui-DatePicker-day-value-modal'
                                 ],
 
                                 classes.dayValue_modal
@@ -3230,7 +3230,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                 className={classNames([
                   staticClassName('DatePicker', theme) && [
-                    'AmauiDatePicker-input'
+                    'amaui-DatePicker-input'
                   ],
 
                   classes.input
@@ -3247,7 +3247,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
           <Divider
             className={classNames([
               staticClassName('DatePicker', theme) && [
-                'AmauiDatePicker-divider'
+                'amaui-DatePicker-divider'
               ],
 
               classes.divider
@@ -3265,7 +3265,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
           className={classNames([
             staticClassName('DatePicker', theme) && [
-              'AmauiDatePicker-mode-docked-footer'
+              'amaui-DatePicker-mode-docked-footer'
             ],
 
             classes.mode_docked_footer
@@ -3356,8 +3356,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
         className={classNames([
           staticClassName('DatePicker', theme) && [
-            'AmauiDatePicker-mode',
-            'AmauiDatePicker-mode-full-screen'
+            'amaui-DatePicker-mode',
+            'amaui-DatePicker-mode-full-screen'
           ],
 
           ModeInputProps?.className,
@@ -3373,7 +3373,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
           className={classNames([
             staticClassName('DatePicker', theme) && [
-              'AmauiDatePicker-mode-modal-full-screen-header'
+              'amaui-DatePicker-mode-modal-full-screen-header'
             ],
 
             classes.mode_modal_fullScreen_header
@@ -3503,7 +3503,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         <Divider
           className={classNames([
             staticClassName('DatePicker', theme) && [
-              'AmauiDatePicker-divider'
+              'amaui-DatePicker-divider'
             ],
 
             classes.divider
@@ -3514,7 +3514,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         <main
           className={classNames([
             staticClassName('DatePicker', theme) && [
-              'AmauiDatePicker-mode-modal-full-screen-main'
+              'amaui-DatePicker-mode-modal-full-screen-main'
             ],
 
             classes.mode_modal_fullScreen_main
@@ -3551,7 +3551,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                     className={classNames([
                       staticClassName('DatePicker', theme) && [
-                        'AmauiDatePicker-mode-modal-middle'
+                        'amaui-DatePicker-mode-modal-middle'
                       ],
 
                       classes.mode_modal_middle
@@ -3569,7 +3569,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                       className={classNames([
                         staticClassName('DatePicker', theme) && [
-                          'AmauiDatePicker-mode-modal-header-select'
+                          'amaui-DatePicker-mode-modal-header-select'
                         ],
 
                         classes.mode_modal_header_select
@@ -3591,7 +3591,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                           <IconDropDown
                             className={classNames([
                               staticClassName('DatePicker', theme) && [
-                                'AmauiDatePicker-arrow'
+                                'amaui-DatePicker-arrow'
                               ],
 
                               classes.arrow,
@@ -3602,7 +3602,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                         className={classNames([
                           staticClassName('DatePicker', theme) && [
-                            'AmauiDatePicker-mode-docked-header-button'
+                            'amaui-DatePicker-mode-docked-header-button'
                           ],
 
                           classes.mode_docked_header_button
@@ -3730,8 +3730,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                                 <div
                                   className={classNames([
                                     staticClassName('DatePicker', theme) && [
-                                      'AmauiDatePicker-calendar-wrapper',
-                                      'AmauiDatePicker-calendar-wrapper-full-screen'
+                                      'amaui-DatePicker-calendar-wrapper',
+                                      'amaui-DatePicker-calendar-wrapper-full-screen'
                                     ],
 
                                     classes.calendar_wrapper,
@@ -3778,7 +3778,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                           className={classNames([
                             staticClassName('DatePicker', theme) && [
-                              'AmauiDatePicker-carousel'
+                              'amaui-DatePicker-carousel'
                             ],
 
                             classes.carousel
@@ -3807,8 +3807,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                           className={classNames([
                             staticClassName('DatePicker', theme) && [
-                              'AmauiDatePicker-list-modal',
-                              'AmauiDatePicker-list-modal-full-screen'
+                              'amaui-DatePicker-list-modal',
+                              'amaui-DatePicker-list-modal-full-screen'
                             ],
 
                             classes.list_modal,
@@ -3853,7 +3853,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                                 className={classNames([
                                   staticClassName('DatePicker', theme) && [
-                                    'AmauiDatePicker-day-value-modal'
+                                    'amaui-DatePicker-day-value-modal'
                                   ],
 
                                   classes.dayValue_modal
@@ -3917,7 +3917,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                   className={classNames([
                     staticClassName('DatePicker', theme) && [
-                      'AmauiDatePicker-input'
+                      'amaui-DatePicker-input'
                     ],
 
                     classes.input
@@ -3933,7 +3933,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         <Divider
           className={classNames([
             staticClassName('DatePicker', theme) && [
-              'AmauiDatePicker-divider'
+              'amaui-DatePicker-divider'
             ],
 
             classes.divider
@@ -3952,7 +3952,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
           className={classNames([
             staticClassName('DatePicker', theme) && [
-              'AmauiDatePicker-mode-modal-full-screen-footer'
+              'amaui-DatePicker-mode-modal-full-screen-footer'
             ],
 
             classes.mode_modal_fullScreen_footer
@@ -4038,11 +4038,11 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
       className={classNames([
         staticClassName('DatePicker', theme) && [
-          'AmauiDatePicker-root',
-          range && `AmauiDatePicker-range`,
-          fullScreen && `AmauiDatePicker-full-screen`,
-          readOnly && `AmauiDatePicker-read-only`,
-          disabled && `AmauiDatePicker-disabled`
+          'amaui-DatePicker-root',
+          range && `amaui-DatePicker-range`,
+          fullScreen && `amaui-DatePicker-full-screen`,
+          readOnly && `amaui-DatePicker-read-only`,
+          disabled && `amaui-DatePicker-disabled`
         ],
 
         className,
@@ -4106,8 +4106,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
           NoSurfaceProps={{
             className: classNames([
               staticClassName('DatePicker', theme) && [
-                'AmauiDatePicker-modal',
-                fullScreen && `AmauiDatePicker-modal-fullScreen`
+                'amaui-DatePicker-modal',
+                fullScreen && `amaui-DatePicker-modal-fullScreen`
               ],
 
               classes.modal,
@@ -4148,7 +4148,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
             <ClickListener
               onClickOutside={onCancel}
 
-              includeParentQueries={['.AmauiDatePicker-mode', '.AmauiDatePicker-list', '.AmauiDatePicker-day']}
+              includeParentQueries={['.amaui-DatePicker-mode', '.amaui-DatePicker-list', '.amaui-DatePicker-day']}
 
               include={[refs.iconButton, refs.iconButton.current]}
             >
@@ -4163,6 +4163,6 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   );
 });
 
-DatePicker.displayName = 'AmauiDatePicker';
+DatePicker.displayName = 'amaui-DatePicker';
 
 export default DatePicker;

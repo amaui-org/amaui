@@ -27,7 +27,7 @@ const useStyle = styleMethod(theme => ({
     position: 'fixed',
     zIndex: theme.z_index.tooltip + 4
   }
-}), { name: 'AmauiScreenCapture' });
+}), { name: 'amaui-ScreenCapture' });
 
 const IconMaterialFitScreenRounded = React.forwardRef((props: any, ref) => {
 
@@ -126,7 +126,7 @@ export interface IScreenCapture extends ISurface {
 const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiScreenCapture?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiScreenCapture?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -279,7 +279,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
       await elementToCanvas(window.document.body, {
         response: 'download',
 
-        filter: ['.AmauiWidgets-root', '#amaui-screen-capture'],
+        filter: ['.amaui-Widgets-root', '#amaui-screen-capture'],
 
         download: {
           name,
@@ -317,7 +317,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
       await elementToCanvas(window.document.body, {
         response: 'download',
 
-        filter: ['.AmauiWidgets-root', '#amaui-screen-capture'],
+        filter: ['.amaui-Widgets-root', '#amaui-screen-capture'],
 
         download: {
           name,
@@ -349,7 +349,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
       const canvas = await elementToCanvas(window.document.body, {
         response: 'canvas',
 
-        filter: ['.AmauiWidgets-root', '#amaui-screen-capture'],
+        filter: ['.amaui-Widgets-root', '#amaui-screen-capture'],
 
         download: {
           name,
@@ -453,7 +453,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
 
       className={classNames([
         staticClassName('ScreenCapture', theme) && [
-          'AmauiScreenCapture-root'
+          'amaui-ScreenCapture-root'
         ],
 
         className,
@@ -563,7 +563,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
           <div
             className={classNames([
               staticClassName('ScreenCapture', theme) && [
-                'AmauiScreenCapture-image-wrapper'
+                'amaui-ScreenCapture-image-wrapper'
               ],
 
               classes.imageWrapper
@@ -587,6 +587,6 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   );
 });
 
-ScreenCapture.displayName = 'AmauiScreenCapture';
+ScreenCapture.displayName = 'amaui-ScreenCapture';
 
 export default ScreenCapture;

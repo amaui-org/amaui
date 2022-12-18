@@ -26,7 +26,7 @@ export interface IClickListener extends IBaseElement {
 const ClickListener = React.forwardRef((props_: IClickListener, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiClickListener?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiClickListener?.props?.default, ...props_ }), [props_]);
 
   const {
     mouseEvent = 'onClick',
@@ -116,6 +116,6 @@ const ClickListener = React.forwardRef((props_: IClickListener, ref: any) => {
   );
 });
 
-ClickListener.displayName = 'AmauiClickListener';
+ClickListener.displayName = 'amaui-ClickListener';
 
 export default ClickListener;

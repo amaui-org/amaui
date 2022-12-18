@@ -94,11 +94,11 @@ const useStyle = styleMethod(theme => ({
     transform: `translateX(${theme.direction === 'ltr' ? '' : '-'}100%)`,
     zIndex: '1',
 
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       position: 'absolute'
     }
   }
-}), { name: 'AmauiWidgetsProvider' });
+}), { name: 'amaui-WidgetsProvider' });
 
 const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 
@@ -157,7 +157,7 @@ export interface IWidgetsProvider extends IBaseElement {
 const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiWidgetsProvider?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiWidgetsProvider?.props?.default, ...props_ }), [props_]);
 
   const {
     widgets,
@@ -279,7 +279,7 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
 
           className={classNames([
             staticClassName('Widgets', theme) && [
-              `AmauiWidgets-root`
+              `amaui-Widgets-root`
             ],
 
             className,
@@ -303,7 +303,7 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
 
             className={classNames([
               staticClassName('Widgets', theme) && [
-                `AmauiWidgets-line`
+                `amaui-Widgets-line`
               ],
 
               classes.line
@@ -336,7 +336,7 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
                     <div
                       className={classNames([
                         staticClassName('Widgets', theme) && [
-                          `AmauiWidgets-item`
+                          `amaui-Widgets-item`
                         ],
 
                         classes.item,
@@ -359,7 +359,7 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
 
                           className={classNames([
                             staticClassName('Widgets', theme) && [
-                              `AmauiWidgets-icon-button`
+                              `amaui-Widgets-icon-button`
                             ],
 
                             classes.iconButton
@@ -371,13 +371,13 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
                         {React.cloneElement(item.element, {
                           className: classNames([
                             staticClassName('Widgets', theme) && [
-                              `AmauiWidgets-widget`
+                              `amaui-Widgets-widget`
                             ],
 
                             classes.widget
                           ]),
 
-                          ...(((['AmauiWeather', 'AmauiWatch'].includes(item.element.type?.displayName))) ? {
+                          ...(((['amaui-Weather', 'amaui-Watch'].includes(item.element.type?.displayName))) ? {
                             shadow: true,
 
                             style: {
@@ -400,6 +400,6 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
   );
 });
 
-WidgetsProvider.displayName = 'AmauiWidgetsProvider';
+WidgetsProvider.displayName = 'amaui-WidgetsProvider';
 
 export default WidgetsProvider;

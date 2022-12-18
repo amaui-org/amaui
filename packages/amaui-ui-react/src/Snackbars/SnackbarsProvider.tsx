@@ -25,7 +25,7 @@ const useStyle = styleMethod(theme => ({
   position_top: {
     top: '24px',
 
-    '& .AmauiSnackbar-root': {
+    '& .amaui-Snackbar-root': {
       marginBottom: '16px'
     }
   },
@@ -33,7 +33,7 @@ const useStyle = styleMethod(theme => ({
   position_bottom: {
     bottom: '24px',
 
-    '& .AmauiSnackbar-root': {
+    '& .amaui-Snackbar-root': {
       marginTop: '16px'
     }
   },
@@ -63,7 +63,7 @@ const useStyle = styleMethod(theme => ({
     insetInlineEnd: '24px',
     insetInlineStart: 'auto'
   }
-}), { name: 'AmauiSnackbarsProvider' });
+}), { name: 'amaui-SnackbarsProvider' });
 
 export interface ISnackbarsProvider extends IBaseElement {
   max?: number;
@@ -76,7 +76,7 @@ export interface ISnackbarsProvider extends IBaseElement {
 const SnackbarsProvider = React.forwardRef((props_: ISnackbarsProvider, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiSnackbarsProvider?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSnackbarsProvider?.props?.default, ...props_ }), [props_]);
 
   const {
     max = 4,
@@ -240,7 +240,7 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbarsProvider, ref: any
 
         className={classNames([
           staticClassName('Snackbars', theme) && [
-            `AmauiSnackbars-root`
+            `amaui-Snackbars-root`
           ],
 
           className,
@@ -294,6 +294,6 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbarsProvider, ref: any
   );
 });
 
-SnackbarsProvider.displayName = 'AmauiSnackbarsProvider';
+SnackbarsProvider.displayName = 'amaui-SnackbarsProvider';
 
 export default SnackbarsProvider;

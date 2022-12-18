@@ -83,7 +83,7 @@ const useStyle = styleMethod(theme => ({
   divider: {
     position: 'absolute',
 
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       margin: '0px',
       background: 'currentColor',
       opacity: '0.14',
@@ -92,7 +92,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   divider_orientation_horizontal: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       left: '0',
       right: '0',
       bottom: '0'
@@ -100,7 +100,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   divider_orientation_vertical: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       top: '0',
       bottom: '0',
       insetInlineEnd: '0'
@@ -112,7 +112,7 @@ const useStyle = styleMethod(theme => ({
     top: '0',
     insetInline: '0'
   }
-}), { name: 'AmauiTabs' });
+}), { name: 'amaui-Tabs' });
 
 const IconMaterialExpandLessRounded = React.forwardRef((props: any, ref) => {
 
@@ -210,7 +210,7 @@ export interface ITabs extends Omit<ISurface, 'version'> {
 const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTabs?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTabs?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -427,7 +427,7 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
 
       className={classNames([
         staticClassName('Tabs', theme) && [
-          'AmauiTabs-arrow'
+          'amaui-Tabs-arrow'
         ],
 
         classes.arrow
@@ -447,7 +447,7 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
 
       className={classNames([
         staticClassName('Tabs', theme) && [
-          'AmauiTabs-arrow'
+          'amaui-Tabs-arrow'
         ],
 
         classes.arrow
@@ -489,7 +489,7 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
 
       className={classNames([
         staticClassName('Tabs', theme) && [
-          'AmauiTabs-root'
+          'amaui-Tabs-root'
         ],
 
         SurfaceProps?.className,
@@ -512,7 +512,7 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
 
         className={classNames([
           staticClassName('Tabs', theme) && [
-            'AmauiTabs-divider'
+            'amaui-Tabs-divider'
           ],
 
           classes.divider,
@@ -535,7 +535,7 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
 
         className={classNames([
           staticClassName('Tabs', theme) && [
-            'AmauiTabs-tabs'
+            'amaui-Tabs-tabs'
           ],
 
           classes.tabs,
@@ -545,7 +545,7 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
         <span
           className={classNames([
             staticClassName('Tabs', theme) && [
-              'AmauiTabs-line'
+              'amaui-Tabs-line'
             ],
 
             classes.line,
@@ -606,6 +606,6 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
   );
 });
 
-Tabs.displayName = 'AmauiTabs';
+Tabs.displayName = 'amaui-Tabs';
 
 export default Tabs;

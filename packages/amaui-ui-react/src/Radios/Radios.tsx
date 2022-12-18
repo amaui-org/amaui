@@ -22,7 +22,7 @@ const useStyle = styleMethod(theme => ({
     cursor: 'default',
     userSelect: 'none'
   }
-}), { name: 'AmauiRadios' });
+}), { name: 'amaui-Radios' });
 
 export interface IRadios extends ILine {
   tonal?: TTonal;
@@ -47,7 +47,7 @@ export interface IRadios extends ILine {
 const Radios = React.forwardRef((props_: IRadios, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiRadios?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRadios?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -130,8 +130,8 @@ const Radios = React.forwardRef((props_: IRadios, ref: any) => {
 
       className={classNames([
         staticClassName('Radios', theme) && [
-          'AmauiRadios-root',
-          disabled && `AmauiRadios-disabled`
+          'amaui-Radios-root',
+          disabled && `amaui-Radios-disabled`
         ],
 
         className,
@@ -150,7 +150,7 @@ const Radios = React.forwardRef((props_: IRadios, ref: any) => {
 
         className={classNames([
           staticClassName('Radios', theme) && [
-            'AmauiRadios-label'
+            'amaui-Radios-label'
           ],
 
           LabelProps?.className,
@@ -196,6 +196,6 @@ const Radios = React.forwardRef((props_: IRadios, ref: any) => {
   );
 });
 
-Radios.displayName = 'AmauiRadios';
+Radios.displayName = 'amaui-Radios';
 
 export default Radios;

@@ -138,6 +138,6 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
   return response;
 };
 
-useSwipe.displayName = 'AmauiUseSwipe';
+useSwipe.displayName = 'amaui-UseSwipe';
 
 export default useSwipe;

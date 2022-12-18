@@ -131,7 +131,7 @@ const useStyle = styleMethod(theme => ({
       }
     },
 
-    '& .AmauiDrawing-svg': {
+    '& .amaui-Drawing-svg': {
       display: 'block',
       margin: '16px auto',
       background: theme.palette.color.neutral[100]
@@ -149,30 +149,30 @@ const useStyle = styleMethod(theme => ({
   },
 
   divider: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       margin: 0
     }
   },
 
   divider_middle: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       opacity: theme.palette.light ? 0.07 : 0.24
     }
   },
 
   divider_end: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       opacity: theme.palette.light ? 0.14 : 0.4
     }
   },
 
   select: {
-    '& .AmauiTextField-input-wrapper': {
+    '& .amaui-TextField-input-wrapper': {
       height: '40px',
       paddingBlock: '11px'
     },
 
-    '& .AmauiSelect-input': {
+    '& .amaui-Select-input': {
       '& > *': {
         ...theme.typography.values.b2,
 
@@ -228,7 +228,7 @@ const useStyle = styleMethod(theme => ({
       border: 'none'
     }
   }
-}), { name: 'AmauiRichTextEditor' });
+}), { name: 'amaui-RichTextEditor' });
 
 const IconMaterialFormatItalicRounded = React.forwardRef((props: any, ref) => {
 
@@ -909,7 +909,7 @@ export interface IRichTextEditor extends ILine {
 const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiRichTextEditor?.props?.default, ...props__ }), [props__]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRichTextEditor?.props?.default, ...props__ }), [props__]);
 
   const { classes } = useStyle(props);
 
@@ -1595,7 +1595,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
       <span
         className={classNames([
           staticClassName('RichTextEditor', theme) && [
-            'AmauiRichTextEditor-palette-item'
+            'amaui-RichTextEditor-palette-item'
           ],
 
           classes.paletteItem
@@ -1637,7 +1637,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
         className={classNames([
           staticClassName('RichTextEditor', theme) && [
-            'AmauiRichTextEditor-palette'
+            'amaui-RichTextEditor-palette'
           ],
 
           classes.palette
@@ -1752,7 +1752,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
             className={classNames([
               staticClassName('RichTextEditor', theme) && [
-                'AmauiRichTextEditor-text-field-color'
+                'amaui-RichTextEditor-text-field-color'
               ],
 
               ColorTextFieldProps?.className,
@@ -1824,7 +1824,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
         className={classNames([
           staticClassName('RichTextEditor', theme) && [
-            'AmauiRichTextEditor-palette'
+            'amaui-RichTextEditor-palette'
           ],
 
           classes.palette
@@ -1860,7 +1860,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
             className={classNames([
               staticClassName('RichTextEditor', theme) && [
-                'AmauiRichTextEditor-text-field-color'
+                'amaui-RichTextEditor-text-field-color'
               ],
 
               classes.textFieldColor
@@ -2002,7 +2002,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
         className={classNames([
           staticClassName('RichTextEditor', theme) && [
-            'AmauiRichTextEditor-select'
+            'amaui-RichTextEditor-select'
           ],
 
           SelectProps?.className,
@@ -2050,7 +2050,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
         className={classNames([
           staticClassName('RichTextEditor', theme) && [
-            'AmauiRichTextEditor-select'
+            'amaui-RichTextEditor-select'
           ],
 
           SelectProps?.className,
@@ -2102,7 +2102,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
         className={classNames([
           staticClassName('RichTextEditor', theme) && [
-            'AmauiRichTextEditor-select'
+            'amaui-RichTextEditor-select'
           ],
 
           SelectProps?.className,
@@ -2782,7 +2782,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
               className={classNames([
                 staticClassName('RichTextEditor', theme) && [
-                  'AmauiRichTextEditor-palette'
+                  'amaui-RichTextEditor-palette'
                 ],
 
                 classes.palette
@@ -3133,7 +3133,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
             include={[refs.elements.drawing, refs.elements.drawingSelect, refs.elements.drawingSelect.current, refs.elements.drawingPalette, refs.elements.drawingPalette.current, refs.elements.drawingSize, refs.elements.drawingSize.current]}
 
-            includeParentQueries={['.AmauiDrawing-palette', '.AmauiDrawing-modal']}
+            includeParentQueries={['.amaui-Drawing-palette', '.amaui-Drawing-modal']}
 
             includeQueries={['a[download]', 'svg', 'path']}
           >
@@ -3148,7 +3148,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
               className={classNames([
                 staticClassName('RichTextEditor', theme) && [
-                  'AmauiRichTextEditor-palette'
+                  'amaui-RichTextEditor-palette'
                 ],
 
                 classes.palette
@@ -3229,7 +3229,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
                     svgClone.style.boxShadow = 'none';
 
-                    const pointers = Array.from(svgClone.querySelectorAll('.AmauiDrawing-pointer')) as Array<HTMLElement>;
+                    const pointers = Array.from(svgClone.querySelectorAll('.amaui-Drawing-pointer')) as Array<HTMLElement>;
 
                     pointers.forEach(pointer => pointer.remove());
 
@@ -3362,7 +3362,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
       className={classNames([
         staticClassName('RichTextEditor', theme) && [
-          'AmauiRichTextEditor-root'
+          'amaui-RichTextEditor-root'
         ],
 
         className,
@@ -3393,7 +3393,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
           className={classNames([
             staticClassName('RichTextEditor', theme) && [
-              'AmauiRichTextEditor-toolbars'
+              'amaui-RichTextEditor-toolbars'
             ],
 
             ToolbarProps?.className,
@@ -3418,7 +3418,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
               className={classNames([
                 staticClassName('RichTextEditor', theme) && [
-                  'AmauiRichTextEditor-toolbar'
+                  'amaui-RichTextEditor-toolbar'
                 ],
 
                 ToolbarUpdatesProps?.className,
@@ -3558,7 +3558,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
               className={classNames([
                 staticClassName('RichTextEditor', theme) && [
-                  'AmauiRichTextEditor-divider'
+                  'amaui-RichTextEditor-divider'
                 ],
 
                 DividerProps?.className,
@@ -3586,7 +3586,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
               className={classNames([
                 staticClassName('RichTextEditor', theme) && [
-                  'AmauiRichTextEditor-toolbar'
+                  'amaui-RichTextEditor-toolbar'
                 ],
 
                 ToolbarActionsProps?.className,
@@ -3803,7 +3803,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
             className={classNames([
               staticClassName('RichTextEditor', theme) && [
-                'AmauiRichTextEditor-divider'
+                'amaui-RichTextEditor-divider'
               ],
 
               DividerProps?.className,
@@ -3869,7 +3869,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
                       className={classNames([
                         staticClassName('RichTextEditor', theme) && [
-                          'AmauiRichTextEditor-mini-menu'
+                          'amaui-RichTextEditor-mini-menu'
                         ],
 
                         MiniMenuProps?.className,
@@ -3967,7 +3967,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
         className={classNames([
           staticClassName('RichTextEditor', theme) && [
-            'AmauiRichTextEditor-value'
+            'amaui-RichTextEditor-value'
           ],
 
           classes.value
@@ -3977,6 +3977,6 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
   );
 });
 
-RichTextEditor.displayName = 'AmauiRichTextEditor';
+RichTextEditor.displayName = 'amaui-RichTextEditor';
 
 export default RichTextEditor;

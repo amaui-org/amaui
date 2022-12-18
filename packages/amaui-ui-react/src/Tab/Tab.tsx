@@ -54,7 +54,7 @@ const useStyle = styleMethod(theme => ({
     opacity: theme.palette.visual_contrast.default.opacity.disabled,
     cursor: 'default'
   }
-}), { name: 'AmauiTab' });
+}), { name: 'amaui-Tab' });
 
 export interface ITab extends Omit<ISurface, 'version'> {
   version?: 'primary' | 'secondary';
@@ -83,7 +83,7 @@ export interface ITab extends Omit<ISurface, 'version'> {
 const Tab = React.forwardRef((props_: ITab, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTab?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTab?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -166,9 +166,9 @@ const Tab = React.forwardRef((props_: ITab, ref: any) => {
 
       className={classNames([
         staticClassName('Tab', theme) && [
-          'AmauiTab-root',
-          active && `AmauiTab-active`,
-          disabled && `AmauiTab-disabled`
+          'amaui-Tab-root',
+          active && `amaui-Tab-active`,
+          disabled && `amaui-Tab-disabled`
         ],
 
         className,
@@ -196,7 +196,7 @@ const Tab = React.forwardRef((props_: ITab, ref: any) => {
 
         className={classNames([
           staticClassName('Tab', theme) && [
-            'AmauiTab-line'
+            'amaui-Tab-line'
           ],
 
           LineProps?.className,
@@ -212,7 +212,7 @@ const Tab = React.forwardRef((props_: ITab, ref: any) => {
 
               className={classNames([
                 staticClassName('Tab', theme) && [
-                  'AmauiTab-type'
+                  'amaui-Tab-type'
                 ],
 
                 classes.type
@@ -230,7 +230,7 @@ const Tab = React.forwardRef((props_: ITab, ref: any) => {
 
               className={classNames([
                 staticClassName('Tab', theme) && [
-                  'AmauiTab-type'
+                  'amaui-Tab-type'
                 ],
 
                 classes.type
@@ -245,6 +245,6 @@ const Tab = React.forwardRef((props_: ITab, ref: any) => {
   );
 });
 
-Tab.displayName = 'AmauiTab';
+Tab.displayName = 'amaui-Tab';
 
 export default Tab;

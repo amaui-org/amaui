@@ -12,7 +12,7 @@ const useStyle = styleMethod(theme => ({
     overflowY: 'auto',
     flex: '1 1 auto'
   }
-}), { name: 'AmauiModalMain' });
+}), { name: 'amaui-ModalMain' });
 
 export interface IModalMain extends IBaseElement {
 
@@ -21,7 +21,7 @@ export interface IModalMain extends IBaseElement {
 const ModalMain = React.forwardRef((props_: IModalMain, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiModalMain?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModalMain?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -48,7 +48,7 @@ const ModalMain = React.forwardRef((props_: IModalMain, ref: any) => {
 
       className={classNames([
         staticClassName('ModalMain', theme) && [
-          'AmauiModalMain-root'
+          'amaui-ModalMain-root'
         ],
 
         className,
@@ -68,6 +68,6 @@ const ModalMain = React.forwardRef((props_: IModalMain, ref: any) => {
   );
 });
 
-ModalMain.displayName = 'AmauiModalMain';
+ModalMain.displayName = 'amaui-ModalMain';
 
 export default ModalMain;

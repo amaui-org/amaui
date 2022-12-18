@@ -23,7 +23,7 @@ const useStyle = styleMethod(theme => ({
   size_large: {
     padding: '32px 24px'
   }
-}), { name: 'AmauiTableHeader' });
+}), { name: 'amaui-TableHeader' });
 
 export interface ITableHeader extends ISurface {
   size?: TSize;
@@ -32,7 +32,7 @@ export interface ITableHeader extends ISurface {
 const TableHeader = React.forwardRef((props_: ITableHeader, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTableHeader?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTableHeader?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -62,7 +62,7 @@ const TableHeader = React.forwardRef((props_: ITableHeader, ref: any) => {
 
       className={classNames([
         staticClassName('TableHeader', theme) && [
-          `AmauiTableHeader-root`
+          `amaui-TableHeader-root`
         ],
 
         className,
@@ -77,6 +77,6 @@ const TableHeader = React.forwardRef((props_: ITableHeader, ref: any) => {
   );
 });
 
-TableHeader.displayName = 'AmauiTableHeader';
+TableHeader.displayName = 'amaui-TableHeader';
 
 export default TableHeader;

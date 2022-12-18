@@ -121,7 +121,7 @@ const useStyle = styleMethod(theme => ({
   disabled: {
 
   }
-}), { name: 'AmauiButtons' });
+}), { name: 'amaui-Buttons' });
 
 export const IconMaterialDoneSharp = React.forwardRef((props: any, ref) => {
   const {
@@ -248,7 +248,7 @@ export interface IButtons extends ILine {
 const Buttons = React.forwardRef((props_: IButtons, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiButtons?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiButtons?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -421,8 +421,8 @@ const Buttons = React.forwardRef((props_: IButtons, ref: any) => {
 
       className={classNames([
         staticClassName('Buttons', theme) && [
-          'AmauiButtons-root',
-          disabled && `AmauiButtons-disabled`,
+          'amaui-Buttons-root',
+          disabled && `amaui-Buttons-disabled`,
         ],
 
         className,
@@ -442,6 +442,6 @@ const Buttons = React.forwardRef((props_: IButtons, ref: any) => {
   );
 });
 
-Buttons.displayName = 'AmauiButtons';
+Buttons.displayName = 'amaui-Buttons';
 
 export default Buttons;

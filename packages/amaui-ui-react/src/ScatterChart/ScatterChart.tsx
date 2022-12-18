@@ -34,7 +34,7 @@ const useStyle = styleMethod(theme => ({
     height: '8px',
     borderRadius: '50%'
   }
-}), { name: 'AmauiAreaChart' });
+}), { name: 'amaui-AreaChart' });
 
 export interface IScatterChart extends IChart {
 
@@ -43,7 +43,7 @@ export interface IScatterChart extends IChart {
 const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiScatterChart?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiScatterChart?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 
@@ -196,7 +196,7 @@ const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
 
         className={classNames([
           staticClassName('ScatterChart', theme) && [
-            'AmauiScatterChart-legend-item'
+            'amaui-ScatterChart-legend-item'
           ],
 
           className_,
@@ -209,7 +209,7 @@ const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
         <span
           className={classNames([
             staticClassName('ScatterChart', theme) && [
-              'AmauiScatterChart-legend-icon'
+              'amaui-ScatterChart-legend-icon'
             ],
 
             classes.legend_icon
@@ -306,7 +306,7 @@ const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
 
       className={classNames([
         staticClassName('ScatterChart', theme) && [
-          'AmauiScatterChart-root'
+          'amaui-ScatterChart-root'
         ],
 
         className,
@@ -318,6 +318,6 @@ const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
   );
 });
 
-ScatterChart.displayName = 'AmauiScatterChart';
+ScatterChart.displayName = 'amaui-ScatterChart';
 
 export default ScatterChart;

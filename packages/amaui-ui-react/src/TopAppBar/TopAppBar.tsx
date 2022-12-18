@@ -105,7 +105,7 @@ const useStyle = styleMethod(theme => ({
   position_unset: {
     position: 'unset'
   }
-}), { name: 'AmauiTopAppBar' });
+}), { name: 'amaui-TopAppBar' });
 
 export interface ITopAppBar extends Omit<ISurface, 'version'> {
   version?: 'small' | 'center' | 'medium' | 'large';
@@ -120,7 +120,7 @@ export interface ITopAppBar extends Omit<ISurface, 'version'> {
 const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTopAppBar?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTopAppBar?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -174,7 +174,7 @@ const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
 
   const classNameTitle = classNames([
     staticClassName('TopAppBar', theme) && [
-      'AmauiTopAppBar-title'
+      'amaui-TopAppBar-title'
     ],
 
     classes.title,
@@ -184,8 +184,8 @@ const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
 
   const classNameTitleMedium = classNames([
     staticClassName('TopAppBar', theme) && [
-      'AmauiTopAppBar-title',
-      'AmauiTopAppBar-title-medium'
+      'amaui-TopAppBar-title',
+      'amaui-TopAppBar-title-medium'
     ],
 
     classes.title,
@@ -255,7 +255,7 @@ const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
 
       className={classNames([
         staticClassName('TopAppBar', theme) && [
-          'AmauiTopAppBar-root'
+          'amaui-TopAppBar-root'
         ],
 
         className,
@@ -276,7 +276,7 @@ const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
 
         className={classNames([
           staticClassName('TopAppBar', theme) && [
-            'AmauiTopAppBar-wrapper'
+            'amaui-TopAppBar-wrapper'
           ],
 
           classes.wrapper,
@@ -295,8 +295,8 @@ const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
 
             className={classNames([
               staticClassName('TopAppBar', theme) && [
-                'AmauiTopAppBar-aside',
-                `AmauiTopAppBar-start`
+                'amaui-TopAppBar-aside',
+                `amaui-TopAppBar-start`
               ],
 
               classes.aside
@@ -320,8 +320,8 @@ const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
 
             className={classNames([
               staticClassName('TopAppBar', theme) && [
-                'AmauiTopAppBar-aside',
-                `AmauiTopAppBar-end`
+                'amaui-TopAppBar-aside',
+                `amaui-TopAppBar-end`
               ],
 
               classes.aside
@@ -345,6 +345,6 @@ const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
   );
 });
 
-TopAppBar.displayName = 'AmauiTopAppBar';
+TopAppBar.displayName = 'amaui-TopAppBar';
 
 export default TopAppBar;

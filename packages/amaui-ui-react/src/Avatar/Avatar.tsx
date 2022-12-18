@@ -33,7 +33,7 @@ const useStyle = styleMethod(theme => ({
     left: '50%',
     transform: 'translate(-50%, -50%)'
   }
-}), { name: 'AmauiAvatar' });
+}), { name: 'amaui-Avatar' });
 
 export interface IAvatar extends Omit<IButton, 'elevation'> {
   image?: string;
@@ -48,7 +48,7 @@ export interface IAvatar extends Omit<IButton, 'elevation'> {
 const Avatar = React.forwardRef((props_: IAvatar, ref) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiAvatar?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAvatar?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -148,7 +148,7 @@ const Avatar = React.forwardRef((props_: IAvatar, ref) => {
 
       className={classNames([
         staticClassName('Avatar', theme) && [
-          'AmauiAvatar-root'
+          'amaui-Avatar-root'
         ],
 
         className,
@@ -163,6 +163,6 @@ const Avatar = React.forwardRef((props_: IAvatar, ref) => {
   );
 });
 
-Avatar.displayName = 'AmauiAvatar';
+Avatar.displayName = 'amaui-Avatar';
 
 export default Avatar;

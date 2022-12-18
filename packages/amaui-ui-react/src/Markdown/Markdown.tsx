@@ -138,7 +138,7 @@ const useStyle = styleMethod(theme => ({
     }
   }
 
-}), { name: 'AmauiMarkdown' });
+}), { name: 'amaui-Markdown' });
 
 const escapeRegExp = (value: string) => value.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
 
@@ -155,7 +155,7 @@ export interface IMarkdown extends IBaseElement {
 const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiMarkdown?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMarkdown?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -663,7 +663,7 @@ ${listItem(other_)}
 
       className={classNames([
         staticClassName('Markdown', theme) && [
-          'AmauiMarkdown-root'
+          'amaui-Markdown-root'
         ],
 
         className,
@@ -675,6 +675,6 @@ ${listItem(other_)}
   );
 });
 
-Markdown.displayName = 'AmauiMarkdown';
+Markdown.displayName = 'amaui-Markdown';
 
 export default Markdown;

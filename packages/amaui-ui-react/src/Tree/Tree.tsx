@@ -106,7 +106,7 @@ const useStyle = styleMethod(theme => ({
     cursor: 'default',
     opacity: theme.palette.visual_contrast.default.opacity.disabled
   }
-}), { name: 'AmauiTree' });
+}), { name: 'amaui-Tree' });
 
 const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
 
@@ -172,7 +172,7 @@ export interface ITree extends Omit<IBaseElement, 'children'> {
 const Tree = React.forwardRef((props_: ITree, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTree?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTree?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -441,10 +441,10 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
 
       className={classNames([
         staticClassName('Tree', theme) && [
-          'AmauiTree-root',
-          children ? `AmauiTree-children` : `AmauiTree-empty`,
-          parentDisabled && `AmauiTree-parent-disabled`,
-          disabled && `AmauiTree-disabled`
+          'amaui-Tree-root',
+          children ? `amaui-Tree-children` : `amaui-Tree-empty`,
+          parentDisabled && `amaui-Tree-parent-disabled`,
+          disabled && `amaui-Tree-disabled`
         ],
 
         className,
@@ -482,7 +482,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
 
         className={classNames([
           staticClassName('Tree', theme) && [
-            'AmauiTree-main'
+            'amaui-Tree-main'
           ],
 
           MainProps?.className,
@@ -513,9 +513,9 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
 
             className={classNames([
               staticClassName('Tree', theme) && [
-                'AmauiTree-item',
-                'AmauiTree-aside',
-                'AmauiTree-start'
+                'amaui-Tree-item',
+                'amaui-Tree-aside',
+                'amaui-Tree-start'
               ],
 
               StartProps?.className,
@@ -544,9 +544,9 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
 
             className={classNames([
               staticClassName('Tree', theme) && [
-                'AmauiTree-item',
-                'AmauiTree-middle',
-                'AmauiTree-end'
+                'amaui-Tree-item',
+                'amaui-Tree-middle',
+                'amaui-Tree-end'
               ],
 
               MiddleProps?.className,
@@ -572,9 +572,9 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
 
             className={classNames([
               staticClassName('Tree', theme) && [
-                'AmauiTree-item',
-                'AmauiTree-aside',
-                'AmauiTree-end'
+                'amaui-Tree-item',
+                'amaui-Tree-aside',
+                'amaui-Tree-end'
               ],
 
               EndProps?.className,
@@ -616,7 +616,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
 
               className={classNames([
                 staticClassName('Tree', theme) && [
-                  'AmauiTree-tree'
+                  'amaui-Tree-tree'
                 ],
 
                 TreeProps?.className,
@@ -636,6 +636,6 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
   );
 });
 
-Tree.displayName = 'AmauiTree';
+Tree.displayName = 'amaui-Tree';
 
 export default Tree;

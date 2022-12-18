@@ -14,7 +14,7 @@ import { IChart } from '../Chart/Chart';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    '& .AmauiChart-legend-icon': {
+    '& .amaui-Chart-legend-icon': {
       width: '11px',
       height: '2px',
       borderRadius: 'unset'
@@ -29,7 +29,7 @@ const useStyle = styleMethod(theme => ({
     width: '10px',
     height: '2px'
   }
-}), { name: 'AmauiLineChart' });
+}), { name: 'amaui-LineChart' });
 
 export interface ILineChart extends IChart {
   smooth?: boolean;
@@ -40,7 +40,7 @@ export interface ILineChart extends IChart {
 const LineChart = React.forwardRef((props_: ILineChart, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiLineChart?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLineChart?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 
@@ -199,7 +199,7 @@ const LineChart = React.forwardRef((props_: ILineChart, ref: any) => {
 
         className={classNames([
           staticClassName('LineChart', theme) && [
-            'AmauiLineChart-legend-item'
+            'amaui-LineChart-legend-item'
           ],
 
           className_,
@@ -212,7 +212,7 @@ const LineChart = React.forwardRef((props_: ILineChart, ref: any) => {
         <span
           className={classNames([
             staticClassName('LineChart', theme) && [
-              'AmauiLineChart-legend-icon'
+              'amaui-LineChart-legend-icon'
             ],
 
             classes.legend_icon
@@ -385,7 +385,7 @@ const LineChart = React.forwardRef((props_: ILineChart, ref: any) => {
 
       className={classNames([
         staticClassName('LineChart', theme) && [
-          'AmauiLineChart-root'
+          'amaui-LineChart-root'
         ],
 
         className,
@@ -397,6 +397,6 @@ const LineChart = React.forwardRef((props_: ILineChart, ref: any) => {
   );
 });
 
-LineChart.displayName = 'AmauiLineChart';
+LineChart.displayName = 'amaui-LineChart';
 
 export default LineChart;

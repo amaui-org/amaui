@@ -11,7 +11,7 @@ const useStyle = styleMethod(theme => ({
   root: {
 
   },
-}), { name: 'AmauiToggleButtons' });
+}), { name: 'amaui-ToggleButtons' });
 
 export interface IToggleButtons extends IButtons {
 
@@ -20,7 +20,7 @@ export interface IToggleButtons extends IButtons {
 const ToggleButtons = React.forwardRef((props_: IToggleButtons, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiToggleButtons?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiToggleButtons?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -36,7 +36,7 @@ const ToggleButtons = React.forwardRef((props_: IToggleButtons, ref: any) => {
 
       className={classNames([
         staticClassName('ToggleButtons', theme) && [
-          'AmauiToggleButtons-root'
+          'amaui-ToggleButtons-root'
         ],
 
         className,
@@ -54,6 +54,6 @@ const ToggleButtons = React.forwardRef((props_: IToggleButtons, ref: any) => {
   );
 });
 
-ToggleButtons.displayName = 'AmauiToggleButtons';
+ToggleButtons.displayName = 'amaui-ToggleButtons';
 
 export default ToggleButtons;

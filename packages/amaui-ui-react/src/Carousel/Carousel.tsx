@@ -157,7 +157,7 @@ const useStyle = styleMethod(theme => ({
   icon_next_orientation_vertical: {
     transform: 'rotate(90deg)'
   }
-}), { name: 'AmauiCarousel' });
+}), { name: 'amaui-Carousel' });
 
 const IconMaterialNavigateBeforeRounded = React.forwardRef((props: any, ref) => {
 
@@ -323,7 +323,7 @@ export interface ICarousel extends Omit<ISurface, 'version'> {
 const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiCarousel?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCarousel?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 
@@ -1277,7 +1277,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
         <div
           className={classNames([
             staticClassName('Carousel', theme) && [
-              'AmauiCarousel-background'
+              'amaui-Carousel-background'
             ],
 
             classes.background
@@ -1338,7 +1338,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
       className={classNames([
         staticClassName('Carousel', theme) && [
-          'AmauiCarousel-root'
+          'amaui-Carousel-root'
         ],
 
         className,
@@ -1379,7 +1379,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
           className={classNames([
             staticClassName('Carousel', theme) && [
-              'AmauiCarousel-carousel'
+              'amaui-Carousel-carousel'
             ],
 
             CarouselProps?.className,
@@ -1415,7 +1415,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
               className={classNames([
                 staticClassName('Carousel', theme) && [
-                  'AmauiCarousel-item'
+                  'amaui-Carousel-item'
                 ],
 
                 ItemWrapperProps?.className,
@@ -1461,7 +1461,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
           className={classNames([
             staticClassName('Carousel', theme) && [
-              'AmauiCarousel-carousel'
+              'amaui-Carousel-carousel'
             ],
 
             CarouselProps?.className,
@@ -1500,7 +1500,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
                   className={classNames([
                     staticClassName('Carousel', theme) && [
-                      'AmauiCarousel-item-transition'
+                      'amaui-Carousel-item-transition'
                     ],
 
                     classes.item_transition,
@@ -1538,7 +1538,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
               className={classNames([
                 staticClassName('Carousel', theme) && [
-                  'AmauiCarousel-progress'
+                  'amaui-Carousel-progress'
                 ],
 
                 classes.progress,
@@ -1553,7 +1553,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
                   className={classNames([
                     staticClassName('Carousel', theme) && [
-                      'AmauiCarousel-progress-item'
+                      'amaui-Carousel-progress-item'
                     ],
 
                     classes.progress_item,
@@ -1597,8 +1597,8 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
                   className: classNames([
                     staticClassName('Carousel', theme) && [
-                      'AmauiCarousel-arrow',
-                      'AmauiCarousel-arrow-previous'
+                      'amaui-Carousel-arrow',
+                      'amaui-Carousel-arrow-previous'
                     ],
 
                     ArrowProps?.className,
@@ -1628,8 +1628,8 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
                   className={classNames([
                     staticClassName('Carousel', theme) && [
-                      'AmauiCarousel-arrow',
-                      'AmauiCarousel-arrow-previous'
+                      'amaui-Carousel-arrow',
+                      'amaui-Carousel-arrow-previous'
                     ],
 
                     ArrowProps?.className,
@@ -1680,8 +1680,8 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
                   className: classNames([
                     staticClassName('Carousel', theme) && [
-                      'AmauiCarousel-arrow',
-                      'AmauiCarousel-arrow-next'
+                      'amaui-Carousel-arrow',
+                      'amaui-Carousel-arrow-next'
                     ],
 
                     ArrowProps?.className,
@@ -1711,8 +1711,8 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
                   className={classNames([
                     staticClassName('Carousel', theme) && [
-                      'AmauiCarousel-arrow',
-                      'AmauiCarousel-arrow-next'
+                      'amaui-Carousel-arrow',
+                      'amaui-Carousel-arrow-next'
                     ],
 
                     ArrowProps?.className,
@@ -1737,6 +1737,6 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
   );
 });
 
-Carousel.displayName = 'AmauiCarousel';
+Carousel.displayName = 'amaui-Carousel';
 
 export default Carousel;

@@ -67,7 +67,7 @@ const useStyle = styleMethod(theme => ({
     flex: '0 0 auto',
     zIndex: '3',
 
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       opacity: '1',
       margin: '0px'
     }
@@ -78,7 +78,7 @@ const useStyle = styleMethod(theme => ({
     cursor: 'ew-resize',
     transform: `translateX(${theme.direction === 'rtl' ? '-' : ''}50%)`,
 
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       width: '8px'
     }
   },
@@ -88,11 +88,11 @@ const useStyle = styleMethod(theme => ({
     cursor: 'ns-resize',
     transform: `translateY(50%)`,
 
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       height: '8px'
     }
   }
-}), { name: 'AmauiWindowSplit' });
+}), { name: 'amaui-WindowSplit' });
 
 const IconMaterialSwapHorizRounded = React.forwardRef((props: any, ref) => {
 
@@ -158,7 +158,7 @@ export interface IWindowSplit extends ILine {
 const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiWindowSplit?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiWindowSplit?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = false,
@@ -473,9 +473,9 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
 
       className={classNames([
         staticClassName('WindowSplit', theme) && [
-          'AmauiWindowSplit-root',
-          focus && `AmauiButton-focus`,
-          mouseDown && `AmauiButton-mouse-down`,
+          'amaui-WindowSplit-root',
+          focus && `amaui-Button-focus`,
+          mouseDown && `amaui-Button-mouse-down`,
         ],
 
         className,
@@ -497,7 +497,7 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
 
         className={classNames([
           staticClassName('WindowSplit', theme) && [
-            'AmauiWindowSplit-wrapper'
+            'amaui-WindowSplit-wrapper'
           ],
 
           classes.wrapper
@@ -513,7 +513,7 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
 
             className={classNames([
               staticClassName('WindowSplit', theme) && [
-                'AmauiWindowSplit-start'
+                'amaui-WindowSplit-start'
               ],
 
               classes.item,
@@ -538,7 +538,7 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
 
             className={classNames([
               staticClassName('WindowSplit', theme) && [
-                'AmauiWindowSplit-end'
+                'amaui-WindowSplit-end'
               ],
 
               classes.item,
@@ -569,7 +569,7 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
 
         className={classNames([
           staticClassName('WindowSplit', theme) && [
-            'AmauiWindowSplit-divider'
+            'amaui-WindowSplit-divider'
           ],
 
           DividerProps?.className,
@@ -588,7 +588,7 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
         (iconButtonComponent && React.cloneElement(iconButtonComponent as any, {
           className: classNames([
             staticClassName('WindowSplit', theme) && [
-              'AmauiWindowSplit-icon-button'
+              'amaui-WindowSplit-icon-button'
             ],
 
             classes.iconButton,
@@ -617,7 +617,7 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
 
           className={classNames([
             staticClassName('WindowSplit', theme) && [
-              'AmauiWindowSplit-icon-button'
+              'amaui-WindowSplit-icon-button'
             ],
 
             IconButtonProps?.className,
@@ -638,6 +638,6 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
   );
 });
 
-WindowSplit.displayName = 'AmauiWindowSplit';
+WindowSplit.displayName = 'amaui-WindowSplit';
 
 export default WindowSplit;

@@ -43,7 +43,7 @@ const useStyle = styleMethod(theme => ({
     userSelect: 'none',
     touchAction: 'none',
 
-    '& .AmauiRoundMeter-children, & .AmauiRoundMeter-labels': {
+    '& .amaui-RoundMeter-children, & .amaui-RoundMeter-labels': {
       pointerEvents: 'none'
     },
 
@@ -75,13 +75,13 @@ const useStyle = styleMethod(theme => ({
     maxWidth: '96px',
     flex: '1 1 auto',
 
-    '& .AmauiTextField-input-wrapper': {
+    '& .amaui-TextField-input-wrapper': {
       paddingInline: '0px',
       paddingBlock: '11px 8px',
       height: '72px'
     },
 
-    '& .AmauiTextField-input': {
+    '& .amaui-TextField-input': {
       ...theme.typography.values.d2,
 
       lineHeight: '1',
@@ -89,12 +89,12 @@ const useStyle = styleMethod(theme => ({
       textAlign: 'center'
     },
 
-    '& .AmauiTextField-footer': {
+    '& .amaui-TextField-footer': {
       marginTop: '8px',
       padding: '0px'
     },
 
-    '& .AmauiTextField-helper-text': {
+    '& .amaui-TextField-helper-text': {
       color: theme.palette.text.default.primary
     }
   },
@@ -109,7 +109,7 @@ const useStyle = styleMethod(theme => ({
     userSelect: 'none',
     flex: '1 1',
 
-    '& .AmauiButton-label': {
+    '& .amaui-Button-label': {
       ...theme.typography.values.d2,
 
       lineHeight: '1',
@@ -150,7 +150,7 @@ const useStyle = styleMethod(theme => ({
     width: '100%',
     marginTop: '24px'
   }
-}), { name: 'AmauiTimePicker' });
+}), { name: 'amaui-TimePicker' });
 
 const IconMaterialScheduleRounded = React.forwardRef((props: any, ref) => {
 
@@ -250,7 +250,7 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
 const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTimePicker?.props?.default, ...props__ }), [props__]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTimePicker?.props?.default, ...props__ }), [props__]);
 
   const breakpoints = {};
 
@@ -529,8 +529,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     // Add momentary transition to the AmauiRoundMeter-children > *
     // if selecting value updates
     if (refs.roundMeter.current && property === 'selecting' && refs.values.current.selecting !== value__) {
-      let elementChildren: any = (refs.roundMeter.current as HTMLElement).getElementsByClassName('AmauiRoundMeter-children')[0];
-      let elementLabels: any = (refs.roundMeter.current as HTMLElement).getElementsByClassName('AmauiRoundMeter-labels')[0];
+      let elementChildren: any = (refs.roundMeter.current as HTMLElement).getElementsByClassName('amaui-RoundMeter-children')[0];
+      let elementLabels: any = (refs.roundMeter.current as HTMLElement).getElementsByClassName('amaui-RoundMeter-labels')[0];
 
       if (elementChildren) {
         elementChildren = Array.from(elementChildren.children);
@@ -684,7 +684,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
         if (refs.format.current === '24') {
           let within = false;
 
-          const labels = refs.roundMeter.current.querySelectorAll('.AmauiRoundMeter-labels');
+          const labels = refs.roundMeter.current.querySelectorAll('.amaui-RoundMeter-labels');
 
           const elements = {
             outer: labels[0],
@@ -840,7 +840,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
       className: classNames([
         staticClassName('TimePicker', theme) && [
-          'AmauiTimePicker-button'
+          'amaui-TimePicker-button'
         ],
 
         classes.button
@@ -853,7 +853,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
         className={classNames([
           staticClassName('TimePicker', theme) && [
-            'AmauiTimePicker-input-separator'
+            'amaui-TimePicker-input-separator'
           ],
 
           classes.inputSeparator
@@ -916,7 +916,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
       className: classNames([
         staticClassName('TimePicker', theme) && [
-          'AmauiTimePicker-toggle-button'
+          'amaui-TimePicker-toggle-button'
         ],
 
         ToggleButtonProps?.className,
@@ -1100,7 +1100,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
               className={classNames([
                 staticClassName('TimePicker', theme) && [
-                  'AmauiTimePicker-round-meter'
+                  'amaui-TimePicker-round-meter'
                 ],
 
                 RoundMeterProps?.className,
@@ -1175,7 +1175,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
         className={classNames([
           staticClassName('TimePicker', theme) && [
-            'AmauiTimePicker-mode'
+            'amaui-TimePicker-mode'
           ],
 
           ModeSelectProps?.className,
@@ -1192,7 +1192,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
           className={classNames([
             staticClassName('TimePicker', theme) && [
-              'AmauiTimePicker-mode-wrapper'
+              'amaui-TimePicker-mode-wrapper'
             ],
 
             classes.mode_wrapper
@@ -1204,7 +1204,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
             className={classNames([
               staticClassName('TimePicker', theme) && [
-                'AmauiTimePicker-heading'
+                'amaui-TimePicker-heading'
               ],
 
               classes.heading
@@ -1225,7 +1225,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
             className={classNames([
               staticClassName('TimePicker', theme) && [
-                'AmauiTimePicker-middle'
+                'amaui-TimePicker-middle'
               ],
 
               classes.middle
@@ -1243,7 +1243,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
               className={classNames([
                 staticClassName('TimePicker', theme) && [
-                  'AmauiTimePicker-inputs'
+                  'amaui-TimePicker-inputs'
                 ],
 
                 classes.inputs
@@ -1291,7 +1291,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
                   className={classNames([
                     staticClassName('TimePicker', theme) && [
-                      'AmauiTimePicker-toggle-buttons'
+                      'amaui-TimePicker-toggle-buttons'
                     ],
 
                     ToggleButtonsProps?.className,
@@ -1334,7 +1334,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
             className={classNames([
               staticClassName('TimePicker', theme) && [
-                'AmauiTimePicker-footer'
+                'amaui-TimePicker-footer'
               ],
 
               classes.footer
@@ -1408,7 +1408,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
       className: classNames([
         staticClassName('TimePicker', theme) && [
-          'AmauiTimePicker-input'
+          'amaui-TimePicker-input'
         ],
 
         classes.input,
@@ -1424,7 +1424,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
         className={classNames([
           staticClassName('TimePicker', theme) && [
-            'AmauiTimePicker-input-separator'
+            'amaui-TimePicker-input-separator'
           ],
 
           classes.inputSeparator
@@ -1517,7 +1517,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
       className: classNames([
         staticClassName('TimePicker', theme) && [
-          'AmauiTimePicker-toggle-button'
+          'amaui-TimePicker-toggle-button'
         ],
 
         ToggleButtonProps?.className,
@@ -1535,7 +1535,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
         className={classNames([
           staticClassName('TimePicker', theme) && [
-            'AmauiTimePicker-mode'
+            'amaui-TimePicker-mode'
           ],
 
           ModeInputProps?.className,
@@ -1549,7 +1549,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
           className={classNames([
             staticClassName('TimePicker', theme) && [
-              'AmauiTimePicker-mode-wrapper'
+              'amaui-TimePicker-mode-wrapper'
             ],
 
             classes.mode_wrapper
@@ -1561,7 +1561,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
             className={classNames([
               staticClassName('TimePicker', theme) && [
-                'AmauiTimePicker-heading'
+                'amaui-TimePicker-heading'
               ],
 
               classes.heading
@@ -1582,7 +1582,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
             className={classNames([
               staticClassName('TimePicker', theme) && [
-                'AmauiTimePicker-middle'
+                'amaui-TimePicker-middle'
               ],
 
               classes.middle
@@ -1600,7 +1600,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
               className={classNames([
                 staticClassName('TimePicker', theme) && [
-                  'AmauiTimePicker-inputs'
+                  'amaui-TimePicker-inputs'
                 ],
 
                 classes.inputs
@@ -1646,7 +1646,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
                   className={classNames([
                     staticClassName('TimePicker', theme) && [
-                      'AmauiTimePicker-toggle-buttons'
+                      'amaui-TimePicker-toggle-buttons'
                     ],
 
                     ToggleButtonsProps?.className,
@@ -1686,7 +1686,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
             className={classNames([
               staticClassName('TimePicker', theme) && [
-                'AmauiTimePicker-footer'
+                'amaui-TimePicker-footer'
               ],
 
               classes.footer
@@ -1863,9 +1863,9 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
       className={classNames([
         staticClassName('TimePicker', theme) && [
-          'AmauiTimePicker-root',
-          readOnly && `AmauiTimePicker-read-only`,
-          disabled && `AmauiTimePicker-disabled`
+          'amaui-TimePicker-root',
+          readOnly && `amaui-TimePicker-read-only`,
+          disabled && `amaui-TimePicker-disabled`
         ],
 
         className,
@@ -1955,7 +1955,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
             <ClickListener
               onClickOutside={onCancel}
 
-              includeParentQueries={['.AmauiTimePicker-mode']}
+              includeParentQueries={['.amaui-TimePicker-mode']}
 
               include={[refs.iconButton, refs.iconButton.current]}
             >
@@ -1970,6 +1970,6 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
   );
 });
 
-TimePicker.displayName = 'AmauiTimePicker';
+TimePicker.displayName = 'amaui-TimePicker';
 
 export default TimePicker;

@@ -53,7 +53,7 @@ const useStyle = styleMethod(theme => ({
     width: '100%',
     height: 'auto'
   }
-}), { name: 'AmauiRoundMeter' });
+}), { name: 'amaui-RoundMeter' });
 
 export interface IRoundMeter extends IBaseElement {
   tonal?: TTonal;
@@ -127,7 +127,7 @@ export interface IRoundMeter extends IBaseElement {
 const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiRoundMeter?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRoundMeter?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -839,7 +839,7 @@ const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
     <g
       className={classNames([
         staticClassName('RoundMeter', theme) && [
-          'AmauiRoundMeter-children'
+          'amaui-RoundMeter-children'
         ],
 
         classes.children
@@ -884,7 +884,7 @@ const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
 
       className={classNames([
         staticClassName('RoundMeter', theme) && [
-          'AmauiRoundMeter-root'
+          'amaui-RoundMeter-root'
         ],
 
         className,
@@ -918,7 +918,7 @@ const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
 
             className={classNames([
               staticClassName('RoundMeter', theme) && [
-                'AmauiRoundMeter-svg'
+                'amaui-RoundMeter-svg'
               ],
 
               SvgProps?.className,
@@ -965,7 +965,7 @@ const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
               <g
                 className={classNames([
                   staticClassName('RoundMeter', theme) && [
-                    'AmauiRoundMeter-arcs'
+                    'amaui-RoundMeter-arcs'
                   ],
 
                   classes.arcs
@@ -1002,7 +1002,7 @@ const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
 
                 className={classNames([
                   staticClassName('RoundMeter', theme) && [
-                    'AmauiRoundMeter-arcs-progress'
+                    'amaui-RoundMeter-arcs-progress'
                   ],
 
                   ArcsProgressProps?.className,
@@ -1044,7 +1044,7 @@ const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
 
                   className={classNames([
                     staticClassName('RoundMeter', theme) && [
-                      'AmauiRoundMeter-marks'
+                      'amaui-RoundMeter-marks'
                     ],
 
                     classes.marks
@@ -1086,7 +1086,7 @@ const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
 
                     className={classNames([
                       staticClassName('RoundMeter', theme) && [
-                        'AmauiRoundMeter-labels'
+                        'amaui-RoundMeter-labels'
                       ],
 
                       classes.labels
@@ -1127,7 +1127,7 @@ const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
 
                           className={classNames([
                             staticClassName('RoundMeter', theme) && [
-                              'AmauiRoundMeter-label'
+                              'amaui-RoundMeter-label'
                             ],
 
                             other_?.className,
@@ -1154,6 +1154,6 @@ const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
   );
 });
 
-RoundMeter.displayName = 'AmauiRoundMeter';
+RoundMeter.displayName = 'amaui-RoundMeter';
 
 export default RoundMeter;

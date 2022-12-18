@@ -148,116 +148,116 @@ const useStyle = styleMethod(theme => ({
 
   // iconButton
   iconButton_color_default: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.palette.text.default.primary
     }
   },
 
   iconButton_color_neutral: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.palette.color.neutral.main
     }
   },
 
   iconButton_color_primary: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.palette.color.primary.main
     }
   },
 
   iconButton_color_secondary: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.palette.color.secondary.main
     }
   },
 
   iconButton_color_tertiary: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.palette.color.tertiary.main
     }
   },
 
   iconButton_color_quaternary: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.palette.color.quaternary.main
     }
   },
 
   iconButton_color_info: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.palette.color.info.main
     }
   },
 
   iconButton_color_success: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.palette.color.success.main
     }
   },
 
   iconButton_color_warning: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.palette.color.warning.main
     }
   },
 
   iconButton_color_error: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.palette.color.error.main
     }
   },
 
   // Tonal
   iconButton_tonal_color_neutral: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.methods.palette.color.value('default', 70)
     }
   },
 
   iconButton_tonal_color_primary: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.methods.palette.color.value('primary', 70)
     }
   },
 
   iconButton_tonal_color_secondary: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.methods.palette.color.value('secondary', 70)
     }
   },
 
   iconButton_tonal_color_tertiary: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.methods.palette.color.value('tertiary', 70)
     }
   },
 
   iconButton_tonal_color_quaternary: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.methods.palette.color.value('quaternary', 70)
     }
   },
 
   iconButton_tonal_color_info: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.methods.palette.color.value('info', 70)
     }
   },
 
   iconButton_tonal_color_success: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.methods.palette.color.value('success', 70)
     }
   },
 
   iconButton_tonal_color_warning: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.methods.palette.color.value('warning', 70)
     }
   },
 
   iconButton_tonal_color_error: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       color: theme.methods.palette.color.value('error', 70)
     }
   },
@@ -368,7 +368,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   tooltip: {
-    '& .AmauiTooltip-label': {
+    '& .amaui-Tooltip-label': {
       padding: '0',
       lineHeight: '0',
       minWidth: '30px',
@@ -377,7 +377,7 @@ const useStyle = styleMethod(theme => ({
       borderRadius: '50% 50% 50% 0px',
       transform: 'rotate(-45deg)',
 
-      '& .AmauiTooltip-label-text': {
+      '& .amaui-Tooltip-label-text': {
         position: 'absolute',
         top: '50%',
         left: '50%',
@@ -385,34 +385,34 @@ const useStyle = styleMethod(theme => ({
       }
     },
 
-    '&.AmauiTooltip-position-left': {
-      '& .AmauiTooltip-label': {
+    '&.amaui-Tooltip-position-left': {
+      '& .amaui-Tooltip-label': {
         borderRadius: '50% 50% 0px 50%'
       }
     },
 
-    '&.AmauiTooltip-position-right': {
-      '& .AmauiTooltip-label': {
+    '&.amaui-Tooltip-position-right': {
+      '& .amaui-Tooltip-label': {
         borderRadius: '0px 50% 50% 50%'
       }
     }
   },
 
   tooltip_switch_orientation_horizontal_ltr: {
-    '& .AmauiTooltip-label': {
+    '& .amaui-Tooltip-label': {
       transform: 'rotate(135deg)',
 
-      '& .AmauiTooltip-label-text': {
+      '& .amaui-Tooltip-label-text': {
         transform: 'translate(-50%, -50%) rotate(-135deg)'
       }
     }
   },
 
   tooltip_switch_orientation_horizontal_rtl: {
-    '& .AmauiTooltip-label': {
+    '& .amaui-Tooltip-label': {
       transform: 'rotate(135deg)',
 
-      '& .AmauiTooltip-label-text': {
+      '& .amaui-Tooltip-label-text': {
         transform: 'translate(-50%, -50%) rotate(-135deg)'
       }
     }
@@ -423,7 +423,7 @@ const useStyle = styleMethod(theme => ({
     pointerEvents: 'none',
     opacity: theme.palette.visual_contrast.default.opacity.disabled
   }
-}), { name: 'AmauiSlider' });
+}), { name: 'amaui-Slider' });
 
 export type TSliderValue = number | Array<number>;
 
@@ -465,7 +465,7 @@ export interface ISlider extends IBaseElement {
 const Slider = React.forwardRef((props_: ISlider, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiSlider?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSlider?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -1003,11 +1003,11 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
 
       className={classNames([
         staticClassName('Slider', theme) && [
-          'AmauiSlider-root',
-          mouseDown && `AmauiSlider-mouse-down`,
-          focus && `AmauiSlider-focus`,
-          readOnly && `AmauiSlider-read-only`,
-          disabled && `AmauiSlider-disabled`
+          'amaui-Slider-root',
+          mouseDown && `amaui-Slider-mouse-down`,
+          focus && `amaui-Slider-focus`,
+          readOnly && `amaui-Slider-read-only`,
+          disabled && `amaui-Slider-disabled`
         ],
 
         className,
@@ -1031,7 +1031,7 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
       <span
         className={classNames([
           staticClassName('Slider', theme) && [
-            'AmauiSlider-rail'
+            'amaui-Slider-rail'
           ],
 
           classes.rail,
@@ -1053,7 +1053,7 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
         <span
           className={classNames([
             staticClassName('Slider', theme) && [
-              'AmauiSlider-track'
+              'amaui-Slider-track'
             ],
 
             classes.track,
@@ -1076,7 +1076,7 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
         <span
           className={classNames([
             staticClassName('Slider', theme) && [
-              'AmauiSlider-marks'
+              'amaui-Slider-marks'
             ],
 
             classes.marks,
@@ -1090,7 +1090,7 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
 
               className={classNames([
                 staticClassName('Slider', theme) && [
-                  'AmauiSlider-mark'
+                  'amaui-Slider-mark'
                 ],
 
                 classes.mark,
@@ -1114,7 +1114,7 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
         <span
           className={classNames([
             staticClassName('Slider', theme) && [
-              'AmauiSlider-labels'
+              'amaui-Slider-labels'
             ],
 
             classes.labels,
@@ -1127,7 +1127,7 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
 
               className={classNames([
                 staticClassName('Slider', theme) && [
-                  'AmauiSlider-label'
+                  'amaui-Slider-label'
                 ],
 
                 classes.label,
@@ -1212,7 +1212,7 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
 
             className={classNames([
               staticClassName('Slider', theme) && [
-                'AmauiSlider-icon-button'
+                'amaui-Slider-icon-button'
               ],
 
               classes.iconButton,
@@ -1228,7 +1228,7 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
             <span
               className={classNames([
                 staticClassName('Slider', theme) && [
-                  'AmauiSlider-icon'
+                  'amaui-Slider-icon'
                 ],
 
                 classes.icon,
@@ -1247,6 +1247,6 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
   );
 });
 
-Slider.displayName = 'AmauiSlider';
+Slider.displayName = 'amaui-Slider';
 
 export default Slider;

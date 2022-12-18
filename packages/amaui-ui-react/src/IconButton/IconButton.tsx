@@ -11,7 +11,7 @@ const useStyle = styleMethod(theme => ({
   root: {
 
   }
-}), { name: 'AmauiIconButton' });
+}), { name: 'amaui-IconButton' });
 
 export interface IIconButton extends IButton {
 
@@ -20,7 +20,7 @@ export interface IIconButton extends IButton {
 const IconButton = React.forwardRef((props_: IIconButton, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiIconButton?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiIconButton?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -40,7 +40,7 @@ const IconButton = React.forwardRef((props_: IIconButton, ref: any) => {
 
       className={classNames([
         staticClassName('IconButton', theme) && [
-          'AmauiIconButton-root'
+          'amaui-IconButton-root'
         ],
 
         className,
@@ -54,6 +54,6 @@ const IconButton = React.forwardRef((props_: IIconButton, ref: any) => {
   );
 });
 
-IconButton.displayName = 'AmauiIconButton';
+IconButton.displayName = 'amaui-IconButton';
 
 export default IconButton;

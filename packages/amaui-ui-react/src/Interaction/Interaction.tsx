@@ -149,7 +149,7 @@ const useStyle = styleMethod(theme => ({
       opacity: '0',
     }
   }
-}), { name: 'AmauiInteraction' });
+}), { name: 'amaui-Interaction' });
 
 export interface IInteraction extends IBaseElement {
   wave?: boolean;
@@ -169,7 +169,7 @@ export interface IInteraction extends IBaseElement {
 const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiInteraction?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiInteraction?.props?.default, ...props_ }), [props_]);
 
   const {
     wave = true,
@@ -446,8 +446,8 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
 
       className={classNames([
         staticClassName('Interaction', theme) && [
-          'AmauiInteraction-root',
-          disabled && `AmauiInteraction-disabled`
+          'amaui-Interaction-root',
+          disabled && `amaui-Interaction-disabled`
         ],
 
         className,
@@ -459,7 +459,7 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
         <span
           className={classNames([
             staticClassName('Interaction', theme) && [
-              'AmauiInteraction-background'
+              'amaui-Interaction-background'
             ],
 
             classes.background,
@@ -495,7 +495,7 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
             <span
               className={classNames([
                 staticClassName('Interaction', theme) && [
-                  'AmauiInteraction-border'
+                  'amaui-Interaction-border'
                 ],
 
                 classes.border
@@ -514,6 +514,6 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
   );
 });
 
-Interaction.displayName = 'AmauiInteraction';
+Interaction.displayName = 'amaui-Interaction';
 
 export default Interaction;

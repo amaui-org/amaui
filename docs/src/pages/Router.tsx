@@ -40,7 +40,7 @@ const useStyle = styleMethod(theme => ({
     left: '50%',
     transform: 'translateX(-50%)',
 
-    '&.AmauiTopAppBar-root': {
+    '&.amaui-TopAppBar-root': {
       width: `calc(100% - 48px)`,
       maxWidth: theme.breakpoints.values.lg,
       padding: 0,
@@ -53,14 +53,14 @@ const useStyle = styleMethod(theme => ({
       zIndex: theme.z_index.tooltip + 1
     },
 
-    '& .AmauiTopAppBar-wrapper': {
+    '& .amaui-TopAppBar-wrapper': {
       height: 'unset',
       padding: '12px 24px'
     }
   },
 
   header_not_top: {
-    '&.AmauiTopAppBar-root': {
+    '&.amaui-TopAppBar-root': {
       background: theme.methods.palette.color.colorToRgb(theme.palette.color.primary[theme.palette.light ? 99 : 10] as string, 0.97),
       maxWidth: theme.breakpoints.values.md,
       boxShadow: theme.shadows.values.default['2']
@@ -117,7 +117,7 @@ const useStyle = styleMethod(theme => ({
       transform: 'scale(0.91)'
     },
 
-    '&.AmauiAvatar-root': {
+    '&.amaui-Avatar-root': {
       cursor: 'pointer'
     }
   },

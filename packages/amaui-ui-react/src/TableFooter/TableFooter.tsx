@@ -23,7 +23,7 @@ const useStyle = styleMethod(theme => ({
   size_large: {
     padding: '32px 24px'
   }
-}), { name: 'AmauiTableFooter' });
+}), { name: 'amaui-TableFooter' });
 
 export interface ITableFooter extends ISurface {
   size?: TSize;
@@ -32,7 +32,7 @@ export interface ITableFooter extends ISurface {
 const TableFooter = React.forwardRef((props_: ITableFooter, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTableFooter?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTableFooter?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -62,7 +62,7 @@ const TableFooter = React.forwardRef((props_: ITableFooter, ref: any) => {
 
       className={classNames([
         staticClassName('TableFooter', theme) && [
-          `AmauiTableFooter-root`
+          `amaui-TableFooter-root`
         ],
 
         className,
@@ -77,6 +77,6 @@ const TableFooter = React.forwardRef((props_: ITableFooter, ref: any) => {
   );
 });
 
-TableFooter.displayName = 'AmauiTableFooter';
+TableFooter.displayName = 'amaui-TableFooter';
 
 export default TableFooter;

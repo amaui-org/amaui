@@ -12,7 +12,7 @@ export interface IGrow extends ITransition {
 const Grow = React.forwardRef((props_: IGrow, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiGrow?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiGrow?.props?.default, ...props_ }), [props_]);
 
   const refs = {
     root: React.useRef<HTMLElement>()
@@ -165,6 +165,6 @@ const Grow = React.forwardRef((props_: IGrow, ref: any) => {
   );
 });
 
-Grow.displayName = 'AmauiGrow';
+Grow.displayName = 'amaui-Grow';
 
 export default Grow;

@@ -87,7 +87,7 @@ const useStyle = styleMethod(theme => ({
   tonal_color_warning: { color: theme.methods.palette.color.value('warning', 30) },
 
   tonal_color_error: { color: theme.methods.palette.color.value('error', 30) }
-}), { name: 'AmauiLink' });
+}), { name: 'amaui-Link' });
 
 export interface ILink extends Omit<IType, 'color'> {
   color?: TColor;
@@ -98,7 +98,7 @@ export interface ILink extends Omit<IType, 'color'> {
 const Link = React.forwardRef((props_: ILink, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiLink?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLink?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -188,9 +188,9 @@ const Link = React.forwardRef((props_: ILink, ref: any) => {
 
       className={classNames([
         staticClassName('Link', theme) && [
-          'AmauiLink-root',
-          hover && `AmauiLink-hover`,
-          focus && `AmauiLink-focus`
+          'amaui-Link-root',
+          hover && `amaui-Link-hover`,
+          focus && `amaui-Link-focus`
         ],
 
         className,
@@ -215,6 +215,6 @@ const Link = React.forwardRef((props_: ILink, ref: any) => {
   );
 });
 
-Link.displayName = 'AmauiLink';
+Link.displayName = 'amaui-Link';
 
 export default Link;

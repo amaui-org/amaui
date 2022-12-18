@@ -23,7 +23,7 @@ const useStyle = styleMethod(theme => ({
     cursor: 'default',
     pointerEvents: 'none'
   }
-}), { name: 'AmauiLabel' });
+}), { name: 'amaui-Label' });
 
 export interface ILabel extends ILine {
   tonal?: TTonal;
@@ -50,7 +50,7 @@ export interface ILabel extends ILine {
 const Label = React.forwardRef((props_: ILabel, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiLabel?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLabel?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -117,9 +117,9 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
 
   const Text = label !== undefined ? label : children[1];
 
-  const inlineElement = ['AmauiCheckbox', 'AmauiRadio', 'AmauiSwitch'].includes(Input?.type?.displayName);
+  const inlineElement = ['amaui-Checkbox', 'amaui-Radio', 'amaui-Switch'].includes(Input?.type?.displayName);
 
-  const padding = !['AmauiCheckbox', 'AmauiRadio'].includes(Input?.type?.displayName);
+  const padding = !['amaui-Checkbox', 'amaui-Radio'].includes(Input?.type?.displayName);
 
   let align = 'center';
 
@@ -153,8 +153,8 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
 
       className={classNames([
         staticClassName('Label', theme) && [
-          'AmauiLabel-root',
-          disabled && `AmauiLabel-disabled`
+          'amaui-Label-root',
+          disabled && `amaui-Label-disabled`
         ],
 
         className,
@@ -167,7 +167,7 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
       {Input && React.cloneElement(Input, {
         className: classNames([
           staticClassName('Label', theme) && [
-            'AmauiLabel-input'
+            'amaui-Label-input'
           ],
 
           classes.input
@@ -200,7 +200,7 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
 
           className={classNames([
             staticClassName('Label', theme) && [
-              'AmauiLabel-text'
+              'amaui-Label-text'
             ],
 
             TypeProps?.className,
@@ -217,6 +217,6 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
   );
 });
 
-Label.displayName = 'AmauiLabel';
+Label.displayName = 'amaui-Label';
 
 export default Label;

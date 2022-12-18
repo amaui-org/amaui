@@ -23,7 +23,7 @@ const useStyle = styleMethod(theme => ({
     width: '100%',
     flex: 'unset',
 
-    '& .AmauiTextField-input': {
+    '& .amaui-TextField-input': {
       width: 'auto'
     }
   },
@@ -63,7 +63,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   multiple: {
-    '&.AmauiTextField-input-wrapper': {
+    '&.amaui-TextField-input-wrapper': {
       height: 'unset'
     }
   },
@@ -83,7 +83,7 @@ const useStyle = styleMethod(theme => ({
   open: {},
 
   readOnly: {
-    '&.AmauiTextField-input-wrapper': {
+    '&.amaui-TextField-input-wrapper': {
       cursor: 'default'
     }
   },
@@ -102,11 +102,11 @@ const useStyle = styleMethod(theme => ({
   },
 
   disabled: {
-    '&.AmauiTextField-input-wrapper': {
+    '&.amaui-TextField-input-wrapper': {
       cursor: 'default'
     }
   }
-}), { name: 'AmauiAutoComplete' });
+}), { name: 'amaui-AutoComplete' });
 
 const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 
@@ -192,7 +192,7 @@ export interface IAutoComplete extends ITextField {
 const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiAutoComplete?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAutoComplete?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -727,7 +727,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
       className={classNames([
         staticClassName('AutoComplete', theme) && [
-          'AmauiAutoComplete-wrapper'
+          'amaui-AutoComplete-wrapper'
         ]
       ])}
     >
@@ -758,11 +758,11 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
         className={
           classNames([
             staticClassName('AutoComplete', theme) && [
-              'AmauiAutoComplete-root',
-              open && `AmauiAutoComplete-open`,
-              mouseDown && `AmauiAutoComplete-mouse-down`,
-              focus && `AmauiAutoComplete-focus`,
-              loading && `AmauiAutoComplete-loading`
+              'amaui-AutoComplete-root',
+              open && `amaui-AutoComplete-open`,
+              mouseDown && `amaui-AutoComplete-mouse-down`,
+              focus && `amaui-AutoComplete-focus`,
+              loading && `amaui-AutoComplete-loading`
             ],
 
             className,
@@ -815,7 +815,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
         InputWrapperProps={{
           className: classNames([
             staticClassName('AutoComplete', theme) && [
-              'AmauiAutoComplete-input-wrapper'
+              'amaui-AutoComplete-input-wrapper'
             ],
 
             classes.inputWrapper,
@@ -870,12 +870,12 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
             className={classNames([
               staticClassName('AutoComplete', theme) && [
-                'AmauiAutoComplete-input',
+                'amaui-AutoComplete-input',
 
                 multiple && [
-                  chip && `AmauiAutoComplete-chip`,
-                  open && `AmauiAutoComplete-open`,
-                  readOnly && `AmauiSelect-readOnly`
+                  chip && `amaui-AutoComplete-chip`,
+                  open && `amaui-AutoComplete-open`,
+                  readOnly && `amaui-Select-readOnly`
                 ],
               ],
 
@@ -969,6 +969,6 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
   );
 });
 
-AutoComplete.displayName = 'AmauiAutoComplete';
+AutoComplete.displayName = 'amaui-AutoComplete';
 
 export default AutoComplete;

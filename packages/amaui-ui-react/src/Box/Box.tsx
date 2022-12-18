@@ -9,7 +9,7 @@ const useStyle = styleMethod(theme => ({
   root: {
 
   }
-}), { name: 'AmauiBox' });
+}), { name: 'amaui-Box' });
 
 export interface IBox extends IBaseElement {
   styles?: string | TValue;
@@ -18,7 +18,7 @@ export interface IBox extends IBaseElement {
 const Box = React.forwardRef((props_: IBox, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiBox?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBox?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -40,12 +40,12 @@ const Box = React.forwardRef((props_: IBox, ref: any) => {
 
       className={classNameMethod(styles as any, props, classNames([
         staticClassName('Box', theme) && [
-          'AmauiBox-root'
+          'amaui-Box-root'
         ],
 
         className,
         classes.root
-      ]), { name: 'AmauiBoxClassNameRoot' })}
+      ]), { name: 'amaui-BoxClassNameRoot' })}
 
       {...other}
     >
@@ -54,6 +54,6 @@ const Box = React.forwardRef((props_: IBox, ref: any) => {
   );
 });
 
-Box.displayName = 'AmauiBox';
+Box.displayName = 'amaui-Box';
 
 export default Box;

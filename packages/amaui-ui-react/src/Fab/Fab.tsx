@@ -11,7 +11,7 @@ const useStyle = styleMethod(theme => ({
   root: {
 
   }
-}), { name: 'AmauiFab' });
+}), { name: 'amaui-Fab' });
 
 export interface IFab extends IButton {
 
@@ -20,7 +20,7 @@ export interface IFab extends IButton {
 const Fab = React.forwardRef((props_: IFab, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiFab?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiFab?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -39,7 +39,7 @@ const Fab = React.forwardRef((props_: IFab, ref: any) => {
 
       className={classNames([
         staticClassName('Fab', theme) && [
-          'AmauiFab-root'
+          'amaui-Fab-root'
         ],
 
         className,
@@ -55,6 +55,6 @@ const Fab = React.forwardRef((props_: IFab, ref: any) => {
   );
 });
 
-Fab.displayName = 'AmauiFab';
+Fab.displayName = 'amaui-Fab';
 
 export default Fab;

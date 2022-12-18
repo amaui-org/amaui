@@ -13,7 +13,7 @@ import { staticClassName, TMethodTransition, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    '& .AmauiModal-surface': {
+    '& .amaui-Modal-surface': {
       display: 'flex',
       flexDirection: 'column',
       margin: '0',
@@ -26,24 +26,24 @@ const useStyle = styleMethod(theme => ({
   },
 
   version_modal: {
-    '& .AmauiModal-surface': {
+    '& .amaui-Modal-surface': {
       position: 'fixed'
     }
   },
 
   version_standard: {
-    '&.AmauiModal-root': {
+    '&.amaui-Modal-root': {
       position: 'unset',
       inset: 'unset'
     },
 
-    '& .AmauiModal-surface': {
+    '& .amaui-Modal-surface': {
       position: 'relative'
     }
   },
 
   direction_top: {
-    '& .AmauiModal-surface': {
+    '& .amaui-Modal-surface': {
       top: '0',
       width: '100%',
       borderRadius: '0 0 16px 16px'
@@ -51,7 +51,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   direction_left: {
-    '& .AmauiModal-surface': {
+    '& .amaui-Modal-surface': {
       left: '0',
       height: '100%',
       borderRadius: '0 16px 16px 0'
@@ -59,7 +59,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   direction_right: {
-    '& .AmauiModal-surface': {
+    '& .amaui-Modal-surface': {
       right: '0',
       height: '100%',
       borderRadius: '16px 0 0 16px'
@@ -67,13 +67,13 @@ const useStyle = styleMethod(theme => ({
   },
 
   direction_bottom: {
-    '& .AmauiModal-surface': {
+    '& .amaui-Modal-surface': {
       bottom: '0',
       width: '100%',
       borderRadius: '16px 16px 0 0'
     }
   }
-}), { name: 'AmauiNavigationDrawer' });
+}), { name: 'amaui-NavigationDrawer' });
 
 export interface INavigationDrawer extends IModal {
   direction?: 'top' | 'left' | 'bottom' | 'right';
@@ -89,7 +89,7 @@ export interface INavigationDrawer extends IModal {
 const NavigationDrawer = React.forwardRef((props_: INavigationDrawer, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiNavigationDrawer?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiNavigationDrawer?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = false,
@@ -259,7 +259,7 @@ const NavigationDrawer = React.forwardRef((props_: INavigationDrawer, ref: any) 
 
       className={classNames([
         staticClassName('NavigationDrawer', theme) && [
-          'AmauiNavigationDrawer-root'
+          'amaui-NavigationDrawer-root'
         ],
 
         className,
@@ -275,6 +275,6 @@ const NavigationDrawer = React.forwardRef((props_: INavigationDrawer, ref: any) 
   );
 });
 
-NavigationDrawer.displayName = 'AmauiNavigationDrawer';
+NavigationDrawer.displayName = 'amaui-NavigationDrawer';
 
 export default NavigationDrawer;

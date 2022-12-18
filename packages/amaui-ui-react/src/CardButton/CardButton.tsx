@@ -12,7 +12,7 @@ const useStyle = styleMethod(theme => ({
     cursor: 'pointer',
     userSelect: 'none'
   }
-}), { name: 'AmauiCardButton' });
+}), { name: 'amaui-CardButton' });
 
 export interface ICardButton extends IBaseElement {
   focus?: boolean;
@@ -29,7 +29,7 @@ export interface ICardButton extends IBaseElement {
 const CardButton = React.forwardRef((props_: ICardButton, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiCardButton?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCardButton?.props?.default, ...props_ }), [props_]);
 
   const {
     focus: focus_,
@@ -89,9 +89,9 @@ const CardButton = React.forwardRef((props_: ICardButton, ref: any) => {
 
       className={classNames([
         staticClassName('CardButton', theme) && [
-          `AmauiCardButton-root`,
-          focus && `AmauiCardButton-focus`,
-          disabled && `AmauiCardButton-disabled`
+          `amaui-CardButton-root`,
+          focus && `amaui-CardButton-focus`,
+          disabled && `amaui-CardButton-disabled`
         ],
 
         className,
@@ -115,6 +115,6 @@ const CardButton = React.forwardRef((props_: ICardButton, ref: any) => {
   );
 });
 
-CardButton.displayName = 'AmauiCardButton';
+CardButton.displayName = 'amaui-CardButton';
 
 export default CardButton;

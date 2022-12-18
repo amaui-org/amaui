@@ -15,7 +15,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   size_small: {
-    '&.AmauiButton-root': {
+    '&.amaui-Button-root': {
       width: 'unset',
       minWidth: '30px',
       paddingInline: '3px'
@@ -23,7 +23,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   size_regular: {
-    '&.AmauiButton-root': {
+    '&.amaui-Button-root': {
       width: 'unset',
       minWidth: '40px',
       paddingInline: '7px'
@@ -31,13 +31,13 @@ const useStyle = styleMethod(theme => ({
   },
 
   size_large: {
-    '&.AmauiButton-root': {
+    '&.amaui-Button-root': {
       width: 'unset',
       minWidth: '50px',
       paddingInline: '10px'
     }
   }
-}), { name: 'AmauiPaginationItem' });
+}), { name: 'amaui-PaginationItem' });
 
 export interface IPaginationItem extends IButton {
   TypeProps?: TPropsAny;
@@ -46,7 +46,7 @@ export interface IPaginationItem extends IButton {
 const PaginationItem = React.forwardRef((props_: IPaginationItem, ref) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiPaginationItem?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPaginationItem?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -86,7 +86,7 @@ const PaginationItem = React.forwardRef((props_: IPaginationItem, ref) => {
 
       className={classNames([
         staticClassName('PaginationItem', theme) && [
-          'AmauiPaginationItem-root'
+          'amaui-PaginationItem-root'
         ],
 
         className,
@@ -110,6 +110,6 @@ const PaginationItem = React.forwardRef((props_: IPaginationItem, ref) => {
   );
 });
 
-PaginationItem.displayName = 'AmauiPaginationItem';
+PaginationItem.displayName = 'amaui-PaginationItem';
 
 export default PaginationItem;

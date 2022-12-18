@@ -32,7 +32,7 @@ const useStyle = styleMethod(theme => ({
   label: {
     position: 'relative',
 
-    '&.AmauiSurface-root': {
+    '&.amaui-Surface-root': {
       width: '100%',
       height: '174px',
       outlineStyle: 'dashed',
@@ -41,7 +41,7 @@ const useStyle = styleMethod(theme => ({
       cursor: 'pointer'
     }
   }
-}), { name: 'AmauiDropZone' });
+}), { name: 'amaui-DropZone' });
 
 const IconMaterialCloudUploadRounded = React.forwardRef((props: any, ref) => {
 
@@ -76,7 +76,7 @@ export interface IDropZone extends IFileChoose {
 const DropZone = React.forwardRef((props_: IDropZone, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiDropZone?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDropZone?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -283,7 +283,7 @@ const DropZone = React.forwardRef((props_: IDropZone, ref: any) => {
 
       className={classNames([
         staticClassName('DropZone', theme) && [
-          'AmauiDropZone-root'
+          'amaui-DropZone-root'
         ],
 
         className,
@@ -301,7 +301,7 @@ const DropZone = React.forwardRef((props_: IDropZone, ref: any) => {
 
         className: classNames([
           staticClassName('DropZone', theme) && [
-            'AmauiDropZone-label'
+            'amaui-DropZone-label'
           ],
 
           ComponentProps?.className,
@@ -314,7 +314,7 @@ const DropZone = React.forwardRef((props_: IDropZone, ref: any) => {
 
         className: classNames([
           staticClassName('DropZone', theme) && [
-            'AmauiDropZone-wrapper'
+            'amaui-DropZone-wrapper'
           ],
 
           WrapperProps?.className,
@@ -335,7 +335,7 @@ const DropZone = React.forwardRef((props_: IDropZone, ref: any) => {
 
         className={classNames([
           staticClassName('DropZone', theme) && [
-            'AmauiDropZone-wrapper-text'
+            'amaui-DropZone-wrapper-text'
           ],
 
           classes.wrapperText
@@ -353,6 +353,6 @@ const DropZone = React.forwardRef((props_: IDropZone, ref: any) => {
   );
 });
 
-DropZone.displayName = 'AmauiDropZone';
+DropZone.displayName = 'amaui-DropZone';
 
 export default DropZone;

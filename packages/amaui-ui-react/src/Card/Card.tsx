@@ -42,7 +42,7 @@ const useStyle = styleMethod(theme => ({
     pointerEvents: 'none',
     opacity: theme.palette.visual_contrast.default.opacity.disabled
   }
-}), { name: 'AmauiCard' });
+}), { name: 'amaui-Card' });
 
 export interface ICard extends ISurface {
   focus?: boolean;
@@ -60,7 +60,7 @@ export interface ICard extends ISurface {
 const Card = React.forwardRef((props_: ICard, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiCard?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCard?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -142,9 +142,9 @@ const Card = React.forwardRef((props_: ICard, ref: any) => {
 
       className={classNames([
         staticClassName('Card', theme) && [
-          `AmauiCard-root`,
-          focus && `AmauiCard-focus`,
-          disabled && `AmauiCard-disabled`
+          `amaui-Card-root`,
+          focus && `amaui-Card-focus`,
+          disabled && `amaui-Card-disabled`
         ],
 
         className,
@@ -186,6 +186,6 @@ const Card = React.forwardRef((props_: ICard, ref: any) => {
   );
 });
 
-Card.displayName = 'AmauiCard';
+Card.displayName = 'amaui-Card';
 
 export default Card;

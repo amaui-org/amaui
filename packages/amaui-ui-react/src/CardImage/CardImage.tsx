@@ -42,7 +42,7 @@ const useStyle = styleMethod(theme => ({
     width: 'calc(100% - 48px)',
     margin: '0 24px'
   }
-}), { name: 'AmauiCardImage' });
+}), { name: 'amaui-CardImage' });
 
 export interface ICardImage extends IBaseElement {
   tonal?: TTonal;
@@ -59,7 +59,7 @@ export interface ICardImage extends IBaseElement {
 const CardImage = React.forwardRef((props_: ICardImage, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiCardImage?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCardImage?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -93,7 +93,7 @@ const CardImage = React.forwardRef((props_: ICardImage, ref: any) => {
 
       className={classNames([
         staticClassName('CardImage', theme) && [
-          `AmauiCardImage-root`
+          `amaui-CardImage-root`
         ],
 
         className,
@@ -107,6 +107,6 @@ const CardImage = React.forwardRef((props_: ICardImage, ref: any) => {
   );
 });
 
-CardImage.displayName = 'AmauiCardImage';
+CardImage.displayName = 'amaui-CardImage';
 
 export default CardImage;

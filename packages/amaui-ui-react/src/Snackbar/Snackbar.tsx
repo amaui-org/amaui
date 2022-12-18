@@ -75,7 +75,7 @@ const useStyle = styleMethod(theme => ({
     insetInlineEnd: '24px',
     insetInlineStart: 'auto'
   }
-}), { name: 'AmauiSnackbar' });
+}), { name: 'amaui-Snackbar' });
 
 const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 
@@ -119,7 +119,7 @@ export interface ISnackbar extends ISurface {
 const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiSnackbar?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSnackbar?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -302,7 +302,7 @@ const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
 
         className={classNames([
           staticClassName('Snackbar', theme) && [
-            `AmauiSnackbar-root`
+            `amaui-Snackbar-root`
           ],
 
           className,
@@ -321,7 +321,7 @@ const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
           <div
             className={classNames([
               staticClassName('Snackbar', theme) && [
-                `AmauiSnackbar-primary`
+                `amaui-Snackbar-primary`
               ],
 
               classes.primary
@@ -353,7 +353,7 @@ const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
 
             className={classNames([
               staticClassName('Snackbar', theme) && [
-                `AmauiSnackbar-end`
+                `amaui-Snackbar-end`
               ],
 
               classes.end
@@ -367,6 +367,6 @@ const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
   );
 });
 
-Snackbar.displayName = 'AmauiSnackbar';
+Snackbar.displayName = 'amaui-Snackbar';
 
 export default Snackbar;

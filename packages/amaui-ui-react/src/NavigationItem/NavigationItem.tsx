@@ -118,7 +118,7 @@ const useStyle = styleMethod(theme => ({
     pointerEvents: 'none',
     cursor: 'default'
   }
-}), { name: 'AmauiNavigationItem' });
+}), { name: 'amaui-NavigationItem' });
 
 // To do
 
@@ -154,7 +154,7 @@ export interface INavigationItem extends IBaseElement {
 const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiNavigationItem?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiNavigationItem?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -309,7 +309,7 @@ const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
 
     LabelWrapperProps.className = classNames([
       staticClassName('NavigationItem', theme) && [
-        'AmauiNavigationItem-label'
+        'amaui-NavigationItem-label'
       ],
 
       classes.labelWrapper
@@ -355,12 +355,12 @@ const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
 
         className={classNames([
           staticClassName('NavigationItem', theme) && [
-            'AmauiNavigationItem-root',
-            selected && 'AmauiNavigationItem-selected',
-            hover && `AmauiNavigationItem-hover`,
-            mouseDown && `AmauiNavigationItem-mouse-down`,
-            focus && `AmauiNavigationItem-focus`,
-            disabled && `AmauiNavigationItem-disabled`
+            'amaui-NavigationItem-root',
+            selected && 'amaui-NavigationItem-selected',
+            hover && `amaui-NavigationItem-hover`,
+            mouseDown && `amaui-NavigationItem-mouse-down`,
+            focus && `amaui-NavigationItem-focus`,
+            disabled && `amaui-NavigationItem-disabled`
           ],
 
           className,
@@ -390,7 +390,7 @@ const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
 
           className={classNames([
             staticClassName('NavigationItem', theme) && [
-              'AmauiNavigationItem-item'
+              'amaui-NavigationItem-item'
             ],
 
             classes.item
@@ -406,7 +406,7 @@ const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
 
               className={classNames([
                 staticClassName('NavigationItem', theme) && [
-                  'AmauiNavigationItem-icon-wrapper'
+                  'amaui-NavigationItem-icon-wrapper'
                 ],
 
                 classes.iconWrapper,
@@ -421,7 +421,7 @@ const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
                   <span
                     className={classNames([
                       staticClassName('NavigationItem', theme) && [
-                        'AmauiNavigationItem-indicator'
+                        'amaui-NavigationItem-indicator'
                       ],
 
                       classes.indicator,
@@ -442,7 +442,7 @@ const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
 
                 className={classNames([
                   staticClassName('NavigationItem', theme) && [
-                    'AmauiNavigationItem-icon'
+                    'amaui-NavigationItem-icon'
                   ],
 
                   IconWrapperProps?.className,
@@ -469,7 +469,7 @@ const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
 
                 className={classNames([
                   staticClassName('NavigationItem', theme) && [
-                    'AmauiNavigationItem-label'
+                    'amaui-NavigationItem-label'
                   ],
 
                   classes.label
@@ -487,6 +487,6 @@ const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
   );
 });
 
-NavigationItem.displayName = 'AmauiNavigationItem';
+NavigationItem.displayName = 'amaui-NavigationItem';
 
 export default NavigationItem;

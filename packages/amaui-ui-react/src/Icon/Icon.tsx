@@ -33,7 +33,7 @@ const useStyle = styleMethod(theme => ({
   disabled: {
     opacity: theme.palette.visual_contrast.default.opacity.disabled
   }
-}), { name: 'AmauiIcon' });
+}), { name: 'amaui-Icon' });
 
 export interface IIcon extends IBaseElement {
   tonal?: TTonal;
@@ -55,7 +55,7 @@ export interface IIcon extends IBaseElement {
 const Icon = React.forwardRef((props_: IIcon, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiIcon?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiIcon?.props?.default, ...props_ }), [props_]);
 
   const {
     viewBox = '0 0 24 24',
@@ -121,9 +121,9 @@ const Icon = React.forwardRef((props_: IIcon, ref: any) => {
 
       className={classNames([
         staticClassName('Icon', theme) && [
-          'AmauiIcon-root',
-          (!noRtl && rtl && isRtlIcon) ? 'AmauiIcon-direction-rtl' : 'AmauiIcon-direction-ltr',
-          disabled && `AmauiIcon-disabled`
+          'amaui-Icon-root',
+          (!noRtl && rtl && isRtlIcon) ? 'amaui-Icon-direction-rtl' : 'amaui-Icon-direction-ltr',
+          disabled && `amaui-Icon-disabled`
         ],
 
         className,
@@ -162,6 +162,6 @@ const Icon = React.forwardRef((props_: IIcon, ref: any) => {
   );
 });
 
-Icon.displayName = 'AmauiIcon';
+Icon.displayName = 'amaui-Icon';
 
 export default Icon;

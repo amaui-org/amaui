@@ -39,17 +39,17 @@ const useStyle = styleMethod(theme => ({
   },
 
   timePicker: {
-    '&.AmauiTimePicker-mode': {
+    '&.amaui-TimePicker-mode': {
       marginInline: '0px'
     }
   },
 
   divider: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       margin: '0px'
     }
   }
-}), { name: 'AmauiTimeRangePicker' });
+}), { name: 'amaui-TimeRangePicker' });
 
 const IconMaterialScheduleRounded = React.forwardRef((props: any, ref) => {
 
@@ -86,7 +86,7 @@ export interface ITimeRangePicker extends Omit<ITimePicker, 'versionStatic'> {
 const TimeRangePicker = React.forwardRef((props__: ITimeRangePicker, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTimeRangePicker?.props?.default, ...props__ }), [props__]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTimeRangePicker?.props?.default, ...props__ }), [props__]);
 
   const breakpoints = {};
 
@@ -540,7 +540,7 @@ const TimeRangePicker = React.forwardRef((props__: ITimeRangePicker, ref: any) =
       ModeSelectProps={{
         className: classNames([
           staticClassName('TimeRangePicker', theme) && [
-            'AmauiTimeRangePicker-time-picker'
+            'amaui-TimeRangePicker-time-picker'
           ],
 
           classes.timePicker
@@ -571,7 +571,7 @@ const TimeRangePicker = React.forwardRef((props__: ITimeRangePicker, ref: any) =
       ModeSelectProps={{
         className: classNames([
           staticClassName('TimeRangePicker', theme) && [
-            'AmauiTimeRangePicker-time-picker'
+            'amaui-TimeRangePicker-time-picker'
           ],
 
           classes.timePicker
@@ -604,7 +604,7 @@ const TimeRangePicker = React.forwardRef((props__: ITimeRangePicker, ref: any) =
 
         className={classNames([
           staticClassName('TimeRangePicker', theme) && [
-            'AmauiTimeRangePicker-mode'
+            'amaui-TimeRangePicker-mode'
           ],
 
           classes.mode
@@ -718,9 +718,9 @@ const TimeRangePicker = React.forwardRef((props__: ITimeRangePicker, ref: any) =
 
       className={classNames([
         staticClassName('TimeRangePicker', theme) && [
-          'AmauiTimeRangePicker-root',
-          readOnly && `AmauiTimeRangePicker-read-only`,
-          disabled && `AmauiTimeRangePicker-disabled`
+          'amaui-TimeRangePicker-root',
+          readOnly && `amaui-TimeRangePicker-read-only`,
+          disabled && `amaui-TimeRangePicker-disabled`
         ],
 
         className,
@@ -778,7 +778,7 @@ const TimeRangePicker = React.forwardRef((props__: ITimeRangePicker, ref: any) =
           NoSurfaceProps={{
             className: classNames([
               staticClassName('TimeRangePicker', theme) && [
-                'AmauiTimeRangePicker-modal'
+                'amaui-TimeRangePicker-modal'
               ],
 
               classes.modal
@@ -818,7 +818,7 @@ const TimeRangePicker = React.forwardRef((props__: ITimeRangePicker, ref: any) =
             <ClickListener
               onClickOutside={onClose}
 
-              includeParentQueries={['.AmauiTimePicker-mode', '.AmauiTimeRangePicker-mode']}
+              includeParentQueries={['.amaui-TimePicker-mode', '.amaui-TimeRangePicker-mode']}
 
               include={[refs.iconButton, refs.iconButton.current]}
             >
@@ -833,6 +833,6 @@ const TimeRangePicker = React.forwardRef((props__: ITimeRangePicker, ref: any) =
   );
 });
 
-TimeRangePicker.displayName = 'AmauiTimeRangePicker';
+TimeRangePicker.displayName = 'amaui-TimeRangePicker';
 
 export default TimeRangePicker;

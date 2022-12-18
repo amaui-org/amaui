@@ -15,7 +15,7 @@ import { staticClassName, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    '& .AmauiChart-legend-icon': {
+    '& .amaui-Chart-legend-icon': {
       position: 'relative',
       background: 'none !important',
       border: '2px solid currentColor',
@@ -66,7 +66,7 @@ const useStyle = styleMethod(theme => ({
     height: '8px',
     borderRadius: '50%'
   }
-}), { name: 'AmauiBubbleChart' });
+}), { name: 'amaui-BubbleChart' });
 
 export interface IBubbleChart extends IChart {
   smooth?: boolean;
@@ -79,7 +79,7 @@ export interface IBubbleChart extends IChart {
 const BubbleChart = React.forwardRef((props_: IBubbleChart, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiBubbleChart?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBubbleChart?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 
@@ -235,7 +235,7 @@ const BubbleChart = React.forwardRef((props_: IBubbleChart, ref: any) => {
 
         className={classNames([
           staticClassName('BubbleChart', theme) && [
-            'AmauiBubbleChart-legend-item'
+            'amaui-BubbleChart-legend-item'
           ],
 
           className_,
@@ -248,7 +248,7 @@ const BubbleChart = React.forwardRef((props_: IBubbleChart, ref: any) => {
         <span
           className={classNames([
             staticClassName('BubbleChart', theme) && [
-              'AmauiBubbleChart-legend-icon'
+              'amaui-BubbleChart-legend-icon'
             ],
 
             classes.legend_icon
@@ -356,7 +356,7 @@ const BubbleChart = React.forwardRef((props_: IBubbleChart, ref: any) => {
 
                   className={classNames([
                     staticClassName('BubbleChart', theme) && [
-                      'AmauiBubbleChart-text'
+                      'amaui-BubbleChart-text'
                     ],
 
                     classes.text
@@ -411,7 +411,7 @@ const BubbleChart = React.forwardRef((props_: IBubbleChart, ref: any) => {
 
           className={classNames([
             staticClassName('BubbleChart', theme) && [
-              'AmauiBubbleChart-append'
+              'amaui-BubbleChart-append'
             ],
 
             classes.append
@@ -531,7 +531,7 @@ const BubbleChart = React.forwardRef((props_: IBubbleChart, ref: any) => {
 
         className={classNames([
           staticClassName('BubbleChart', theme) && [
-            'AmauiBubbleChart-append'
+            'amaui-BubbleChart-append'
           ],
 
           classes.append
@@ -614,7 +614,7 @@ const BubbleChart = React.forwardRef((props_: IBubbleChart, ref: any) => {
                 <span
                   className={classNames([
                     staticClassName('BubbleChart', theme) && [
-                      'AmauiBubbleChart-append-icon'
+                      'amaui-BubbleChart-append-icon'
                     ],
 
                     classes.append_icon
@@ -730,7 +730,7 @@ const BubbleChart = React.forwardRef((props_: IBubbleChart, ref: any) => {
 
       className={classNames([
         staticClassName('BubbleChart', theme) && [
-          'AmauiBubbleChart-root'
+          'amaui-BubbleChart-root'
         ],
 
         className,
@@ -742,6 +742,6 @@ const BubbleChart = React.forwardRef((props_: IBubbleChart, ref: any) => {
   );
 });
 
-BubbleChart.displayName = 'AmauiBubbleChart';
+BubbleChart.displayName = 'amaui-BubbleChart';
 
 export default BubbleChart;

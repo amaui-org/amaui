@@ -11,7 +11,7 @@ const useStyle = styleMethod(theme => ({
   root: {
     margin: '24px'
   }
-}), { name: 'AmauiCardMain' });
+}), { name: 'amaui-CardMain' });
 
 export interface ICardMain extends ILine {
   tonal?: TTonal;
@@ -23,7 +23,7 @@ export interface ICardMain extends ILine {
 const CardMain = React.forwardRef((props_: ICardMain, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiCardMain?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCardMain?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -50,7 +50,7 @@ const CardMain = React.forwardRef((props_: ICardMain, ref: any) => {
 
       className={classNames([
         staticClassName('CardMain', theme) && [
-          `AmauiCardMain-root`
+          `amaui-CardMain-root`
         ],
 
         className,
@@ -64,6 +64,6 @@ const CardMain = React.forwardRef((props_: ICardMain, ref: any) => {
   );
 });
 
-CardMain.displayName = 'AmauiCardMain';
+CardMain.displayName = 'amaui-CardMain';
 
 export default CardMain;

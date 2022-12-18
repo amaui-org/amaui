@@ -37,7 +37,7 @@ const useStyle = styleMethod(theme => ({
     width: '100%',
     height: 'auto'
   }
-}), { name: 'AmauiLinearMeter' });
+}), { name: 'amaui-LinearMeter' });
 
 export interface ILinearMeter extends IBaseElement {
   tonal?: TTonal;
@@ -115,7 +115,7 @@ export interface ILinearMeter extends IBaseElement {
 const LinearMeter = React.forwardRef((props_: ILinearMeter, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiLinearMeter?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLinearMeter?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -668,7 +668,7 @@ const LinearMeter = React.forwardRef((props_: ILinearMeter, ref: any) => {
 
       className={classNames([
         staticClassName('LinearMeter', theme) && [
-          'AmauiLinearMeter-root'
+          'amaui-LinearMeter-root'
         ],
 
         className,
@@ -701,7 +701,7 @@ const LinearMeter = React.forwardRef((props_: ILinearMeter, ref: any) => {
 
             className={classNames([
               staticClassName('LinearMeter', theme) && [
-                'AmauiLinearMeter-svg'
+                'amaui-LinearMeter-svg'
               ],
 
               SvgProps?.className,
@@ -745,7 +745,7 @@ const LinearMeter = React.forwardRef((props_: ILinearMeter, ref: any) => {
               <g
                 className={classNames([
                   staticClassName('LinearMeter', theme) && [
-                    'AmauiLinearMeter-arcs'
+                    'amaui-LinearMeter-arcs'
                   ],
 
                   classes.arcs
@@ -782,7 +782,7 @@ const LinearMeter = React.forwardRef((props_: ILinearMeter, ref: any) => {
 
                 className={classNames([
                   staticClassName('LinearMeter', theme) && [
-                    'AmauiLinearMeter-lines-progress'
+                    'amaui-LinearMeter-lines-progress'
                   ],
 
                   LinesProgressProps?.className,
@@ -818,7 +818,7 @@ const LinearMeter = React.forwardRef((props_: ILinearMeter, ref: any) => {
               <g
                 className={classNames([
                   staticClassName('LinearMeter', theme) && [
-                    'AmauiLinearMeter-children'
+                    'amaui-LinearMeter-children'
                   ],
 
                   classes.children
@@ -860,7 +860,7 @@ const LinearMeter = React.forwardRef((props_: ILinearMeter, ref: any) => {
 
                   className={classNames([
                     staticClassName('LinearMeter', theme) && [
-                      'AmauiLinearMeter-marks'
+                      'amaui-LinearMeter-marks'
                     ],
 
                     classes.marks
@@ -897,7 +897,7 @@ const LinearMeter = React.forwardRef((props_: ILinearMeter, ref: any) => {
 
                   className={classNames([
                     staticClassName('LinearMeter', theme) && [
-                      'AmauiLinearMeter-labels'
+                      'amaui-LinearMeter-labels'
                     ],
 
                     classes.labels
@@ -922,7 +922,7 @@ const LinearMeter = React.forwardRef((props_: ILinearMeter, ref: any) => {
 
                         className={classNames([
                           staticClassName('LinearMeter', theme) && [
-                            'AmauiLinearMeter-label'
+                            'amaui-LinearMeter-label'
                           ],
 
                           other_?.className,
@@ -955,6 +955,6 @@ const LinearMeter = React.forwardRef((props_: ILinearMeter, ref: any) => {
   );
 });
 
-LinearMeter.displayName = 'AmauiLinearMeter';
+LinearMeter.displayName = 'amaui-LinearMeter';
 
 export default LinearMeter;

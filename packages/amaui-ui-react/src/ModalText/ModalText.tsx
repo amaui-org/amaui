@@ -13,7 +13,7 @@ const useStyle = styleMethod(theme => ({
     flexDirection: 'column',
     alignItems: 'flex-start'
   }
-}), { name: 'AmauiModalText' });
+}), { name: 'amaui-ModalText' });
 
 export interface IModalText extends IType {
 
@@ -22,7 +22,7 @@ export interface IModalText extends IType {
 const ModalText = React.forwardRef((props_: IModalText, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiModalText?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModalText?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -44,7 +44,7 @@ const ModalText = React.forwardRef((props_: IModalText, ref: any) => {
 
       className={classNames([
         staticClassName('ModalText', theme) && [
-          'AmauiModalText-root'
+          'amaui-ModalText-root'
         ],
 
         className,
@@ -58,6 +58,6 @@ const ModalText = React.forwardRef((props_: IModalText, ref: any) => {
   );
 });
 
-ModalText.displayName = 'AmauiModalText';
+ModalText.displayName = 'amaui-ModalText';
 
 export default ModalText;

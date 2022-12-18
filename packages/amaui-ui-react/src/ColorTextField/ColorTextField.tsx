@@ -44,7 +44,7 @@ const useStyle = styleMethod(theme => ({
       border: 'none'
     }
   }
-}), { name: 'AmauiColorTextField' });
+}), { name: 'amaui-ColorTextField' });
 
 export interface IColorTextField extends ITextField {
 
@@ -53,7 +53,7 @@ export interface IColorTextField extends ITextField {
 const ColorTextField = React.forwardRef((props_: IColorTextField, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiColorTextField?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiColorTextField?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -110,7 +110,7 @@ const ColorTextField = React.forwardRef((props_: IColorTextField, ref: any) => {
 
           className={classNames([
             staticClassName('ColorTextField', theme) && [
-              'AmauiColorTextField-input-color'
+              'amaui-ColorTextField-input-color'
             ],
 
             classes.inputColor
@@ -120,7 +120,7 @@ const ColorTextField = React.forwardRef((props_: IColorTextField, ref: any) => {
 
       className={classNames([
         staticClassName('ColorTextField', theme) && [
-          'AmauiColorTextField-root'
+          'amaui-ColorTextField-root'
         ],
 
         classes.root
@@ -131,6 +131,6 @@ const ColorTextField = React.forwardRef((props_: IColorTextField, ref: any) => {
   );
 });
 
-ColorTextField.displayName = 'AmauiColorTextField';
+ColorTextField.displayName = 'amaui-ColorTextField';
 
 export default ColorTextField;

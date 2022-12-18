@@ -25,7 +25,7 @@ const useStyle = style(theme => ({
     flex: '1 1 auto',
     background: 'transparent',
 
-    '& .AmauiTimePicker-mode': {
+    '& .amaui-TimePicker-mode': {
       margin: 0
     }
   },
@@ -97,7 +97,7 @@ const useStyle = style(theme => ({
       transform: 'scale(0.91)'
     },
 
-    '&.AmauiAvatar-root': {
+    '&.amaui-Avatar-root': {
       cursor: 'pointer'
     }
   },

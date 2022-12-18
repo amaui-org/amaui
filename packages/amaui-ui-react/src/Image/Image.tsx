@@ -32,7 +32,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   figcaption: {
-    '&.AmauiType-root': {
+    '&.amaui-Type-root': {
       padding: '12px 16px'
     }
   },
@@ -101,7 +101,7 @@ const useStyle = styleMethod(theme => ({
     display: 'block',
     width: '100%'
   }
-}), { name: 'AmauiImage' });
+}), { name: 'amaui-Image' });
 
 export interface IImage extends IBaseElement {
   tonal?: TTonal;
@@ -129,7 +129,7 @@ export interface IImage extends IBaseElement {
 const Image = React.forwardRef((props_: IImage, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiImage?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImage?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -201,7 +201,7 @@ const Image = React.forwardRef((props_: IImage, ref: any) => {
   const WrapperProps = (picture && description) ? {
     className: classNames([
       staticClassName('Image', theme) && [
-        'AmauiImage-picture'
+        'amaui-Image-picture'
       ],
 
       classes.picture
@@ -236,7 +236,7 @@ const Image = React.forwardRef((props_: IImage, ref: any) => {
 
           className={classNames([
             staticClassName('Image', theme) && [
-              'AmauiImage-img'
+              'amaui-Image-img'
             ],
 
             className,
@@ -258,7 +258,7 @@ const Image = React.forwardRef((props_: IImage, ref: any) => {
 
         className={classNames([
           staticClassName('Image', theme) && [
-            'AmauiImage-figcaption'
+            'amaui-Image-figcaption'
           ],
 
           DescriptionProps?.className,
@@ -278,8 +278,8 @@ const Image = React.forwardRef((props_: IImage, ref: any) => {
 
       className={classNames([
         staticClassName('Image', theme) && [
-          'AmauiImage-root',
-          (picture && !description) && `AmauiImage-picture`
+          'amaui-Image-root',
+          (picture && !description) && `amaui-Image-picture`
         ],
 
         className,
@@ -298,6 +298,6 @@ const Image = React.forwardRef((props_: IImage, ref: any) => {
   );
 });
 
-Image.displayName = 'AmauiImage';
+Image.displayName = 'amaui-Image';
 
 export default Image;

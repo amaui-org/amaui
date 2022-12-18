@@ -61,7 +61,7 @@ const useStyle = styleMethod(theme => ({
   noMaxWidth: {
     maxWidth: 'unset'
   }
-}), { name: 'AmauiList' });
+}), { name: 'amaui-List' });
 
 export interface IList extends ISurface {
   size?: TSize;
@@ -78,7 +78,7 @@ export interface IList extends ISurface {
 const List = React.forwardRef((props_: IList, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiList?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiList?.props?.default, ...props_ }), [props_]);
 
   const mobile = useMediaQuery('(max-width: 767px)');
 
@@ -144,7 +144,7 @@ const List = React.forwardRef((props_: IList, ref: any) => {
 
       className={classNames([
         staticClassName('List', theme) && [
-          'AmauiList-root'
+          'amaui-List-root'
         ],
 
         className,
@@ -188,6 +188,6 @@ const List = React.forwardRef((props_: IList, ref: any) => {
   );
 });
 
-List.displayName = 'AmauiList';
+List.displayName = 'amaui-List';
 
 export default List;

@@ -56,7 +56,7 @@ const useStyle = styleMethod(theme => ({
   wrap_large: {
     rowGap: '20px'
   }
-}), { name: 'AmauiChips' });
+}), { name: 'amaui-Chips' });
 
 export interface IChips extends IChip {
   wrap?: boolean;
@@ -65,7 +65,7 @@ export interface IChips extends IChip {
 const Chips = React.forwardRef((props_: IChips, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiChips?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiChips?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -96,7 +96,7 @@ const Chips = React.forwardRef((props_: IChips, ref: any) => {
 
       className={classNames([
         staticClassName('Chips', theme) && [
-          'AmauiChips-root'
+          'amaui-Chips-root'
         ],
 
         className,
@@ -123,6 +123,6 @@ const Chips = React.forwardRef((props_: IChips, ref: any) => {
   );
 });
 
-Chips.displayName = 'AmauiChips';
+Chips.displayName = 'amaui-Chips';
 
 export default Chips;

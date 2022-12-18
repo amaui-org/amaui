@@ -14,7 +14,7 @@ const useStyle = styleMethod(theme => ({
   root: {
 
   },
-}), { name: 'AmauiChip' });
+}), { name: 'amaui-Chip' });
 
 const IconMaterialCloseSharp = React.forwardRef((props: any, ref) => {
 
@@ -45,7 +45,7 @@ export interface IChip extends IButton {
 const Chip = React.forwardRef((props_: IChip, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiChip?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiChip?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = false,
@@ -174,8 +174,8 @@ const Chip = React.forwardRef((props_: IChip, ref: any) => {
 
       className={classNames([
         staticClassName('Chip', theme) && [
-          'AmauiChip-root',
-          selected && `AmauiChip-selected`
+          'amaui-Chip-root',
+          selected && `amaui-Chip-selected`
         ],
 
         className,
@@ -191,6 +191,6 @@ const Chip = React.forwardRef((props_: IChip, ref: any) => {
   );
 });
 
-Chip.displayName = 'AmauiChip';
+Chip.displayName = 'amaui-Chip';
 
 export default Chip;

@@ -103,23 +103,23 @@ const useStyle = styleMethod(theme => ({
   },
 
   divider: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       margin: '0'
     }
   },
 
   divider_middle: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       opacity: theme.palette.light ? '0.07' : '0.24'
     }
   },
 
   divider_end: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       opacity: theme.palette.light ? '0.14' : '0.4'
     }
   },
-}), { name: 'AmauiDrawing' });
+}), { name: 'amaui-Drawing' });
 
 const IconMaterialDeleteSweepRounded = React.forwardRef((props: any, ref) => {
 
@@ -245,7 +245,7 @@ export interface IDrawing extends ISurface {
 const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiDrawing?.props?.default, ...props__ }), [props__]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDrawing?.props?.default, ...props__ }), [props__]);
 
   const { classes } = useStyle(props);
 
@@ -530,7 +530,7 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
       await elementToCanvas(clone, {
         response: 'download',
 
-        filter: ['.AmauiDrawing-pointer'],
+        filter: ['.amaui-Drawing-pointer'],
 
         download: refs.download.current,
 
@@ -719,7 +719,7 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
       <span
         className={classNames([
           staticClassName('Drawing', theme) && [
-            'AmauiDrawing-palette-item'
+            'amaui-Drawing-palette-item'
           ],
 
           classes.paletteItem
@@ -760,7 +760,7 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
 
         className={classNames([
           staticClassName('Drawing', theme) && [
-            'AmauiDrawing-palette'
+            'amaui-Drawing-palette'
           ],
 
           classes.palette
@@ -864,7 +864,7 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
 
             className={classNames([
               staticClassName('Drawing', theme) && [
-                'AmauiDrawing-text-field-color'
+                'amaui-Drawing-text-field-color'
               ],
 
               ColorTextFieldProps?.className,
@@ -1004,9 +1004,9 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
 
       className={classNames([
         staticClassName('Drawing', theme) && [
-          'AmauiDrawing-root',
-          updates && `AmauiDrawing-updates`,
-          actions && `AmauiDrawing-actions`
+          'amaui-Drawing-root',
+          updates && `amaui-Drawing-updates`,
+          actions && `amaui-Drawing-actions`
         ],
 
         className,
@@ -1038,7 +1038,7 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
 
           className={classNames([
             staticClassName('Drawing', theme) && [
-              'AmauiDrawing-toolbars'
+              'amaui-Drawing-toolbars'
             ],
 
             ToolbarProps?.className,
@@ -1059,7 +1059,7 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
 
               className={classNames([
                 staticClassName('Drawing', theme) && [
-                  'AmauiDrawing-toolbar'
+                  'amaui-Drawing-toolbar'
                 ],
 
                 ToolbarUpdatesProps?.className,
@@ -1091,7 +1091,7 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
 
                       className={classNames([
                         staticClassName('Drawing', theme) && [
-                          'AmauiDrawing-select'
+                          'amaui-Drawing-select'
                         ],
 
                         SelectProps?.className,
@@ -1197,7 +1197,7 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
 
                             className={classNames([
                               staticClassName('Drawing', theme) && [
-                                'AmauiDrawing-modal'
+                                'amaui-Drawing-modal'
                               ],
 
                               classes.modal
@@ -1340,7 +1340,7 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
 
               className={classNames([
                 staticClassName('Drawing', theme) && [
-                  'AmauiDrawing-divider'
+                  'amaui-Drawing-divider'
                 ],
 
                 DividerProps?.className,
@@ -1364,7 +1364,7 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
 
               className={classNames([
                 staticClassName('Drawing', theme) && [
-                  'AmauiDrawing-toolbar'
+                  'amaui-Drawing-toolbar'
                 ],
 
                 ToolbarActionsProps?.className,
@@ -1457,7 +1457,7 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
 
             className={classNames([
               staticClassName('Drawing', theme) && [
-                'AmauiDrawing-divider'
+                'amaui-Drawing-divider'
               ],
 
               DividerProps?.className,
@@ -1483,7 +1483,7 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
 
         className={classNames([
           staticClassName('Drawing', theme) && [
-            'AmauiDrawing-svg'
+            'amaui-Drawing-svg'
           ],
 
           classes.svg
@@ -1506,7 +1506,7 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
 
         {/* Pointer  */}
         <circle
-          className='AmauiDrawing-pointer'
+          className='amaui-Drawing-pointer'
 
           cx={move?.x}
 
@@ -1521,6 +1521,6 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
   );
 });
 
-Drawing.displayName = 'AmauiDrawing';
+Drawing.displayName = 'amaui-Drawing';
 
 export default Drawing;

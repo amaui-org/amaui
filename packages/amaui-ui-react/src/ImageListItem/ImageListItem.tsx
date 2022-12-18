@@ -25,7 +25,7 @@ const useStyle = styleMethod(theme => ({
     display: 'block',
     height: 'auto'
   }
-}), { name: 'AmauiImageListItem' });
+}), { name: 'amaui-ImageListItem' });
 
 export interface IImageListItem extends ILine {
   rows?: number | Record<TValueBreakpoints, number>;
@@ -36,7 +36,7 @@ export interface IImageListItem extends ILine {
 const ImageListItem = React.forwardRef((props_: IImageListItem, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiImageListItem?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageListItem?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 
@@ -95,7 +95,7 @@ const ImageListItem = React.forwardRef((props_: IImageListItem, ref: any) => {
 
       className={classNames([
         staticClassName('ImageListItem', theme) && [
-          'AmauiImageListItem-root'
+          'amaui-ImageListItem-root'
         ],
 
         className,
@@ -116,6 +116,6 @@ const ImageListItem = React.forwardRef((props_: IImageListItem, ref: any) => {
   );
 });
 
-ImageListItem.displayName = 'AmauiImageListItem';
+ImageListItem.displayName = 'amaui-ImageListItem';
 
 export default ImageListItem;

@@ -14,7 +14,7 @@ const useStyle = styleMethod(theme => ({
   root: {
 
   }
-}), { name: 'AmauiNumericTextField' });
+}), { name: 'amaui-NumericTextField' });
 
 const IconMaterialKeyboardArrowUpRounded = React.forwardRef((props: any, ref) => {
 
@@ -67,7 +67,7 @@ export interface INumericTextField extends IAdvancedTextField {
 const NumericTextField = React.forwardRef((props_: INumericTextField, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiNumericTextField?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiNumericTextField?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -328,7 +328,7 @@ const NumericTextField = React.forwardRef((props_: INumericTextField, ref: any) 
 
       className={classNames([
         staticClassName('NumericTextField', theme) && [
-          'AmauiNumericTextField-root'
+          'amaui-NumericTextField-root'
         ],
 
         className,
@@ -340,6 +340,6 @@ const NumericTextField = React.forwardRef((props_: INumericTextField, ref: any) 
   );
 });
 
-NumericTextField.displayName = 'AmauiNumericTextField';
+NumericTextField.displayName = 'amaui-NumericTextField';
 
 export default NumericTextField;

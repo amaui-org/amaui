@@ -136,7 +136,7 @@ const useStyle = styleMethod(theme => ({
     strokeDashoffset: '0px',
     stroke: 'transparent'
   }
-}), { name: 'AmauiRoundProgress' });
+}), { name: 'amaui-RoundProgress' });
 
 export interface IRoundProgress extends IBaseElement {
   tonal?: TTonal;
@@ -157,7 +157,7 @@ export interface IRoundProgress extends IBaseElement {
 const RoundProgress = React.forwardRef((props_: IRoundProgress, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiRoundProgress?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRoundProgress?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -230,7 +230,7 @@ const RoundProgress = React.forwardRef((props_: IRoundProgress, ref: any) => {
 
       className={classNames([
         staticClassName('RoundedProgress', theme) && [
-          'AmauiRoundedProgress-root'
+          'amaui-RoundedProgress-root'
         ],
 
         className,
@@ -246,7 +246,7 @@ const RoundProgress = React.forwardRef((props_: IRoundProgress, ref: any) => {
 
         className={classNames([
           staticClassName('RoundedProgress', theme) && [
-            'AmauiRoundedProgress-svg'
+            'amaui-RoundedProgress-svg'
           ],
 
           classes.svg
@@ -273,7 +273,7 @@ const RoundProgress = React.forwardRef((props_: IRoundProgress, ref: any) => {
 
           className={classNames([
             staticClassName('RoundedProgress', theme) && [
-              'AmauiRoundedProgress-path-background'
+              'amaui-RoundedProgress-path-background'
             ],
 
             pathBackgroundProps?.className,
@@ -295,7 +295,7 @@ const RoundProgress = React.forwardRef((props_: IRoundProgress, ref: any) => {
 
           className={classNames([
             staticClassName('RoundedProgress', theme) && [
-              'AmauiRoundedProgress-path'
+              'amaui-RoundedProgress-path'
             ],
 
             pathProps?.className,
@@ -317,6 +317,6 @@ const RoundProgress = React.forwardRef((props_: IRoundProgress, ref: any) => {
   );
 });
 
-RoundProgress.displayName = 'AmauiRoundProgress';
+RoundProgress.displayName = 'amaui-RoundProgress';
 
 export default RoundProgress;

@@ -12,7 +12,7 @@ const useStyle = styleMethod(theme => ({
   root: {
 
   }
-}), { name: 'AmauiAdvancedTextField' });
+}), { name: 'amaui-AdvancedTextField' });
 
 export interface IAdvancedTextField extends ITextField {
   validate?: (value: string) => boolean;
@@ -31,7 +31,7 @@ export interface IAdvancedTextField extends ITextField {
 const AdvancedTextField = React.forwardRef((props_: IAdvancedTextField, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiAdvancedTextField?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAdvancedTextField?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -206,7 +206,7 @@ const AdvancedTextField = React.forwardRef((props_: IAdvancedTextField, ref: any
 
       className={classNames([
         staticClassName('AdvancedTextField', theme) && [
-          'AmauiAdvancedTextField-root'
+          'amaui-AdvancedTextField-root'
         ],
 
         className,
@@ -220,6 +220,6 @@ const AdvancedTextField = React.forwardRef((props_: IAdvancedTextField, ref: any
   );
 });
 
-AdvancedTextField.displayName = 'AmauiAdvancedTextField';
+AdvancedTextField.displayName = 'amaui-AdvancedTextField';
 
 export default AdvancedTextField;

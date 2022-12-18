@@ -37,7 +37,7 @@ const useStyle = styleMethod(theme => ({
     alignItems: 'center',
     justifyContent: 'center'
   }
-}), { name: 'AmauiBackdrop' });
+}), { name: 'amaui-Backdrop' });
 
 let BACKDROPS_OPEN = 0;
 
@@ -73,7 +73,7 @@ export interface IBackdrop extends ILine {
 const Backdrop = React.forwardRef((props_: IBackdrop, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiBackdrop?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBackdrop?.props?.default, ...props_ }), [props_]);
 
   const {
     open: open_,
@@ -160,7 +160,7 @@ const Backdrop = React.forwardRef((props_: IBackdrop, ref: any) => {
 
       className={classNames([
         staticClassName('Backdrop', theme) && [
-          'AmauiBackdrop-root'
+          'amaui-Backdrop-root'
         ],
 
         className,
@@ -185,7 +185,7 @@ const Backdrop = React.forwardRef((props_: IBackdrop, ref: any) => {
           <div
             className={classNames([
               staticClassName('Backdrop', theme) && [
-                'AmauiBackdrop-background'
+                'amaui-Backdrop-background'
               ],
 
               classes.background,
@@ -200,7 +200,7 @@ const Backdrop = React.forwardRef((props_: IBackdrop, ref: any) => {
         <div
           className={classNames([
             staticClassName('Backdrop', theme) && [
-              'AmauiBackdrop-backdrop-root'
+              'amaui-Backdrop-backdrop-root'
             ],
 
             classes.backdropRoot
@@ -223,6 +223,6 @@ const Backdrop = React.forwardRef((props_: IBackdrop, ref: any) => {
   );
 });
 
-Backdrop.displayName = 'AmauiBackdrop';
+Backdrop.displayName = 'amaui-Backdrop';
 
 export default Backdrop;

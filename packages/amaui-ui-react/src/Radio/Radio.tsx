@@ -61,7 +61,7 @@ const useStyle = styleMethod(theme => ({
   disabled: {
     cursor: 'default'
   }
-}), { name: 'AmauiRadio' });
+}), { name: 'amaui-Radio' });
 
 const IconItem = (props: any) => {
   const {
@@ -119,7 +119,7 @@ export interface IRadio extends IIconButton {
 const Radio = React.forwardRef((props_: IRadio, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiRadio?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRadio?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -236,7 +236,7 @@ const Radio = React.forwardRef((props_: IRadio, ref: any) => {
 
           className={classNames([
             staticClassName('Radio', theme) && [
-              'AmauiRadio-input'
+              'amaui-Radio-input'
             ],
 
             classes.input
@@ -258,9 +258,9 @@ const Radio = React.forwardRef((props_: IRadio, ref: any) => {
 
       className={classNames([
         staticClassName('Radio', theme) && [
-          'AmauiRadio-root',
-          value && `AmauiRadio-checked`,
-          disabled && `AmauiRadio-disabled`
+          'amaui-Radio-root',
+          value && `amaui-Radio-checked`,
+          disabled && `amaui-Radio-disabled`
         ],
 
         className,
@@ -275,8 +275,8 @@ const Radio = React.forwardRef((props_: IRadio, ref: any) => {
 
         className={classNames([
           staticClassName('Radio', theme) && [
-            'AmauiRadio-icon',
-            'AmauiRadio-icon-box'
+            'amaui-Radio-icon',
+            'amaui-Radio-icon-box'
           ],
 
           classes.icon,
@@ -293,8 +293,8 @@ const Radio = React.forwardRef((props_: IRadio, ref: any) => {
 
         className={classNames([
           staticClassName('Radio', theme) && [
-            'AmauiRadio-icon',
-            'AmauiRadio-icon-dot'
+            'amaui-Radio-icon',
+            'amaui-Radio-icon-dot'
           ],
 
           classes.icon,
@@ -306,6 +306,6 @@ const Radio = React.forwardRef((props_: IRadio, ref: any) => {
   );
 });
 
-Radio.displayName = 'AmauiRadio';
+Radio.displayName = 'amaui-Radio';
 
 export default Radio;

@@ -140,7 +140,7 @@ const useStyle = styleMethod(theme => ({
     marginLeft: `72px`,
     width: `calc(100% - 72px)`
   }
-}), { name: 'AmauiDivider' });
+}), { name: 'amaui-Divider' });
 
 export interface IDivider extends ISurface {
   inset?: boolean;
@@ -155,7 +155,7 @@ export interface IDivider extends ISurface {
 const Divider = React.forwardRef((props_: IDivider, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiDivider?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDivider?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -212,7 +212,7 @@ const Divider = React.forwardRef((props_: IDivider, ref: any) => {
 
       className={classNames([
         staticClassName('Divider', theme) && [
-          'AmauiDivider-root'
+          'amaui-Divider-root'
         ],
 
         className,
@@ -244,7 +244,7 @@ const Divider = React.forwardRef((props_: IDivider, ref: any) => {
 
           className={classNames([
             staticClassName('Divider', theme) && [
-              'AmauiDivider-divider'
+              'amaui-Divider-divider'
             ],
 
             classes.divider,
@@ -264,7 +264,7 @@ const Divider = React.forwardRef((props_: IDivider, ref: any) => {
 
           className={classNames([
             staticClassName('Divider', theme) && [
-              'AmauiDivider-text'
+              'amaui-Divider-text'
             ],
 
             classes.text,
@@ -283,7 +283,7 @@ const Divider = React.forwardRef((props_: IDivider, ref: any) => {
 
           className={classNames([
             staticClassName('Divider', theme) && [
-              'AmauiDivider-divider'
+              'amaui-Divider-divider'
             ],
 
             classes.divider,
@@ -302,6 +302,6 @@ const Divider = React.forwardRef((props_: IDivider, ref: any) => {
   );
 });
 
-Divider.displayName = 'AmauiDivider';
+Divider.displayName = 'amaui-Divider';
 
 export default Divider;

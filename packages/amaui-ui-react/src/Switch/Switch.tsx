@@ -155,7 +155,7 @@ const useStyle = styleMethod(theme => ({
     opacity: theme.palette.light ? theme.palette.visual_contrast.default.opacity.disabled : '1',
     pointerEvents: 'none'
   }
-}), { name: 'AmauiSwitch' });
+}), { name: 'amaui-Switch' });
 
 const Icon = (props: any) => {
   const {
@@ -213,7 +213,7 @@ export interface ISwitch extends IBaseElement {
 const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiSwitch?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSwitch?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal: tonal_ = true,
@@ -695,9 +695,9 @@ const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
 
       className={classNames([
         staticClassName('Switch', theme) && [
-          'AmauiSwitch-root',
-          value && `AmauiSwitch-checked`,
-          disabled && `AmauiSwitch-disabled`
+          'amaui-Switch-root',
+          value && `amaui-Switch-checked`,
+          disabled && `amaui-Switch-disabled`
         ],
 
         className,
@@ -733,7 +733,7 @@ const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
 
         className={classNames([
           staticClassName('Switch', theme) && [
-            'AmauiSwitch-input'
+            'amaui-Switch-input'
           ],
 
           classes.input
@@ -761,7 +761,7 @@ const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
             <span
               className={classNames([
                 staticClassName('Switch', theme) && [
-                  'AmauiSwitch-background'
+                  'amaui-Switch-background'
                 ],
 
                 classes.background,
@@ -780,7 +780,7 @@ const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
             <span
               className={classNames([
                 staticClassName('Switch', theme) && [
-                  'AmauiSwitch-border'
+                  'amaui-Switch-border'
                 ],
 
                 classes.border,
@@ -804,7 +804,7 @@ const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
 
               className={classNames([
                 staticClassName('Switch', theme) && [
-                  'AmauiSwitch-icon-button'
+                  'amaui-Switch-icon-button'
                 ],
 
                 classes.iconButton
@@ -821,7 +821,7 @@ const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
               <Icon
                 className={classNames([
                   staticClassName('Switch', theme) && [
-                    'AmauiSwitch-icon'
+                    'amaui-Switch-icon'
                   ],
 
                   classes.icon
@@ -847,6 +847,6 @@ const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
   );
 });
 
-Switch.displayName = 'AmauiSwitch';
+Switch.displayName = 'amaui-Switch';
 
 export default Switch;

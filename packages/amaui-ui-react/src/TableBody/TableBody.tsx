@@ -11,7 +11,7 @@ const useStyle = styleMethod(theme => ({
   root: {
     display: 'table-row-group'
   }
-}), { name: 'AmauiTableBody' });
+}), { name: 'amaui-TableBody' });
 
 export interface ITableBody extends ISurface {
   size?: TSize;
@@ -20,7 +20,7 @@ export interface ITableBody extends ISurface {
 const TableBody = React.forwardRef((props_: ITableBody, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTableBody?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTableBody?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -52,7 +52,7 @@ const TableBody = React.forwardRef((props_: ITableBody, ref: any) => {
 
       className={classNames([
         staticClassName('TableBody', theme) && [
-          `AmauiTableBody-root`
+          `amaui-TableBody-root`
         ],
 
         className,
@@ -76,6 +76,6 @@ const TableBody = React.forwardRef((props_: ITableBody, ref: any) => {
   );
 });
 
-TableBody.displayName = 'AmauiTableBody';
+TableBody.displayName = 'amaui-TableBody';
 
 export default TableBody;

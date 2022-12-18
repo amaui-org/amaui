@@ -35,7 +35,7 @@ const useStyle = styleMethod(theme => ({
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap'
   }
-}), { name: 'AmauiFileChoose' });
+}), { name: 'amaui-FileChoose' });
 
 const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 
@@ -155,7 +155,7 @@ export interface IFileChoose extends IBaseElement {
 const FileChoose = React.forwardRef((props_: IFileChoose, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiFileChoose?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiFileChoose?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -271,7 +271,7 @@ const FileChoose = React.forwardRef((props_: IFileChoose, ref: any) => {
 
     className: classNames([
       staticClassName('FileChoose', theme) && [
-        'AmauiFileChoose-root'
+        'amaui-FileChoose-root'
       ],
 
       WrapperProps_?.className,
@@ -294,7 +294,7 @@ const FileChoose = React.forwardRef((props_: IFileChoose, ref: any) => {
 
       className: classNames([
         staticClassName('FileChoose', theme) && [
-          'AmauiFileChoose-root'
+          'amaui-FileChoose-root'
         ],
 
         ComponentProps_?.className,
@@ -348,7 +348,7 @@ const FileChoose = React.forwardRef((props_: IFileChoose, ref: any) => {
 
           className={classNames([
             staticClassName('FileChoose', theme) && [
-              'AmauiFileChoose-input'
+              'amaui-FileChoose-input'
             ],
 
             inputProps?.className,
@@ -375,7 +375,7 @@ const FileChoose = React.forwardRef((props_: IFileChoose, ref: any) => {
 
             className={classNames([
               staticClassName('FileChoose', theme) && [
-                'AmauiFileChoose-files'
+                'amaui-FileChoose-files'
               ],
 
               classes.files
@@ -416,7 +416,7 @@ const FileChoose = React.forwardRef((props_: IFileChoose, ref: any) => {
 
                       className={classNames([
                         staticClassName('FileChoose', theme) && [
-                          'AmauiFileChoose-file'
+                          'amaui-FileChoose-file'
                         ],
 
                         classes.file
@@ -443,6 +443,6 @@ const FileChoose = React.forwardRef((props_: IFileChoose, ref: any) => {
   );
 });
 
-FileChoose.displayName = 'AmauiFileChoose';
+FileChoose.displayName = 'amaui-FileChoose';
 
 export default FileChoose;

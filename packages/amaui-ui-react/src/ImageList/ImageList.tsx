@@ -32,7 +32,7 @@ const useStyle = styleMethod(theme => ({
   version_masonry: {
     display: 'block'
   }
-}), { name: 'AmauiImageList' });
+}), { name: 'amaui-ImageList' });
 
 export interface IImageList extends IBaseElement {
   version?: 'standard' | 'vowen' | 'masonry';
@@ -46,7 +46,7 @@ export interface IImageList extends IBaseElement {
 const ImageList = React.forwardRef((props_: IImageList, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiImageList?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageList?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 
@@ -139,7 +139,7 @@ const ImageList = React.forwardRef((props_: IImageList, ref: any) => {
       <Component
         className={classNames([
           staticClassName('ImageList', theme) && [
-            `AmauiImageList-root`
+            `amaui-ImageList-root`
           ],
 
           className,
@@ -167,6 +167,6 @@ const ImageList = React.forwardRef((props_: IImageList, ref: any) => {
   );
 });
 
-ImageList.displayName = 'AmauiImageList';
+ImageList.displayName = 'amaui-ImageList';
 
 export default ImageList;

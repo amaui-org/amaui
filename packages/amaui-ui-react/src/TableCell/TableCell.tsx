@@ -15,7 +15,7 @@ const useStyle = styleMethod(theme => ({
     zIndex: '1',
     ...theme.typography.values.b2,
 
-    '& .AmauiDivider-root': {
+    '& .amaui-Divider-root': {
       margin: '0px'
     }
   },
@@ -47,7 +47,7 @@ const useStyle = styleMethod(theme => ({
   noWeight: {
     fontWeight: '400'
   }
-}), { name: 'AmauiTableCell' });
+}), { name: 'amaui-TableCell' });
 
 export interface ITableCell extends IBaseElement {
   tonal?: TTonal;
@@ -65,7 +65,7 @@ export interface ITableCell extends IBaseElement {
 const TableCell = React.forwardRef((props_: ITableCell, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTableCell?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTableCell?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -98,7 +98,7 @@ const TableCell = React.forwardRef((props_: ITableCell, ref: any) => {
 
       className={classNames([
         staticClassName('TableCell', theme) && [
-          `AmauiTableCell-root`
+          `amaui-TableCell-root`
         ],
 
         className,
@@ -118,7 +118,7 @@ const TableCell = React.forwardRef((props_: ITableCell, ref: any) => {
 
         className={classNames([
           staticClassName('TableCell', theme) && [
-            `AmauiTableCell-value`
+            `amaui-TableCell-value`
           ],
 
           classes.value,
@@ -137,6 +137,6 @@ const TableCell = React.forwardRef((props_: ITableCell, ref: any) => {
   );
 });
 
-TableCell.displayName = 'AmauiTableCell';
+TableCell.displayName = 'amaui-TableCell';
 
 export default TableCell;

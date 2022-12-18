@@ -107,7 +107,7 @@ const useStyle = styleMethod(theme => ({
   indicator_open: {
     transform: 'rotate(-180deg)'
   }
-}), { name: 'AmauiMenuDesktop' });
+}), { name: 'amaui-MenuDesktop' });
 
 const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
 
@@ -205,7 +205,7 @@ export interface IMenuDesktop extends ILine {
 const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiMenuDesktop?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMenuDesktop?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -544,7 +544,7 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
 
         className={classNames([
           staticClassName('MenuDesktop', theme) && [
-            'AmauiMenuDesktop-root'
+            'amaui-MenuDesktop-root'
           ],
 
           className,
@@ -602,9 +602,9 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
 
                 className={classNames([
                   staticClassName('MenuDesktop', theme) && [
-                    'AmauiMenuDesktop-item',
-                    open === item.value && `AmauiMenuDesktop-open`,
-                    item.disabled && `AmauiMenuDesktop-disabled`
+                    'amaui-MenuDesktop-item',
+                    open === item.value && `amaui-MenuDesktop-open`,
+                    item.disabled && `amaui-MenuDesktop-disabled`
                   ],
 
                   ItemProps?.className,
@@ -626,7 +626,7 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
 
                     className={classNames([
                       staticClassName('MenuDesktop', theme) && [
-                        'AmauiMenuDesktop-indicator'
+                        'amaui-MenuDesktop-indicator'
                       ],
 
                       classes.indicator,
@@ -712,7 +712,7 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
 
                     className={classNames([
                       staticClassName('MenuDesktop', theme) && [
-                        'AmauiMenuDesktop-menu-wrapper'
+                        'amaui-MenuDesktop-menu-wrapper'
                       ],
 
                       classes.menuWrapper,
@@ -735,7 +735,7 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
 
                                 className: classNames([
                                   staticClassName('MenuDesktop', theme) && [
-                                    'AmauiMenuDesktop-menu',
+                                    'amaui-MenuDesktop-menu',
 
                                     status
                                   ],
@@ -771,7 +771,7 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
 
                         className: classNames([
                           staticClassName('MenuDesktop', theme) && [
-                            'AmauiMenuDesktop-menu'
+                            'amaui-MenuDesktop-menu'
                           ],
 
                           classes.menu
@@ -799,6 +799,6 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
   );
 });
 
-MenuDesktop.displayName = 'AmauiMenuDesktop';
+MenuDesktop.displayName = 'amaui-MenuDesktop';
 
 export default MenuDesktop;

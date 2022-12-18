@@ -11,7 +11,7 @@ const useStyle = styleMethod(theme => ({
   root: {
 
   }
-}), { name: 'AmauiDateRangePicker' });
+}), { name: 'amaui-DateRangePicker' });
 
 export interface IDateRangePicker extends IDatePicker {
 
@@ -20,7 +20,7 @@ export interface IDateRangePicker extends IDatePicker {
 const DateRangePicker = React.forwardRef((props_: IDateRangePicker, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiDateRangePicker?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDateRangePicker?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -38,7 +38,7 @@ const DateRangePicker = React.forwardRef((props_: IDateRangePicker, ref: any) =>
 
       className={classNames([
         staticClassName('DateRangePicker', theme) && [
-          'AmauiDateRangePicker-root'
+          'amaui-DateRangePicker-root'
         ],
 
         className,
@@ -50,6 +50,6 @@ const DateRangePicker = React.forwardRef((props_: IDateRangePicker, ref: any) =>
   );
 });
 
-DateRangePicker.displayName = 'AmauiDateRangePicker';
+DateRangePicker.displayName = 'amaui-DateRangePicker';
 
 export default DateRangePicker;

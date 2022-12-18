@@ -63,7 +63,7 @@ const useStyle = styleMethod(theme => ({
     padding: '0',
     borderRadius: `${theme.shape.radius.unit * 0.5}px`,
   }
-}), { name: 'AmauiBadge' });
+}), { name: 'amaui-Badge' });
 
 export interface IBadge extends IBaseElement {
   tonal?: TTonal;
@@ -80,7 +80,7 @@ export interface IBadge extends IBaseElement {
 const Badge = React.forwardRef((props_: IBadge, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiBadge?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBadge?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -118,7 +118,7 @@ const Badge = React.forwardRef((props_: IBadge, ref: any) => {
 
       className={classNames([
         staticClassName('Badge', theme) && [
-          'AmauiBadge-root'
+          'amaui-Badge-root'
         ],
 
         className,
@@ -138,7 +138,7 @@ const Badge = React.forwardRef((props_: IBadge, ref: any) => {
 
         className={classNames([
           staticClassName('Badge', theme) && [
-            'AmauiBadge-badge'
+            'amaui-Badge-badge'
           ],
 
           classes.badge,
@@ -156,6 +156,6 @@ const Badge = React.forwardRef((props_: IBadge, ref: any) => {
   );
 });
 
-Badge.displayName = 'AmauiBadge';
+Badge.displayName = 'amaui-Badge';
 
 export default Badge;

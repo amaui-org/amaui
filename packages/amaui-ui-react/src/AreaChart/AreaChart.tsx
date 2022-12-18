@@ -14,7 +14,7 @@ import { controlPoint, staticClassName, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    '& .AmauiChart-legend-icon': {
+    '& .amaui-Chart-legend-icon': {
       width: '14px',
       position: 'relative',
       background: 'transparent',
@@ -43,7 +43,7 @@ const useStyle = styleMethod(theme => ({
     width: '10px',
     height: '2px'
   }
-}), { name: 'AmauiAreaChart' });
+}), { name: 'amaui-AreaChart' });
 
 export interface IAreaChart extends IChart {
   smooth?: boolean;
@@ -56,7 +56,7 @@ export interface IAreaChart extends IChart {
 const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiAreaChart?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAreaChart?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 
@@ -219,7 +219,7 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
 
         className={classNames([
           staticClassName('AreaChart', theme) && [
-            'AmauiAreaChart-legend-item'
+            'amaui-AreaChart-legend-item'
           ],
 
           className_,
@@ -232,7 +232,7 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
         <span
           className={classNames([
             staticClassName('AreaChart', theme) && [
-              'AmauiAreaChart-legend-icon'
+              'amaui-AreaChart-legend-icon'
             ],
 
             classes.legend_icon
@@ -504,7 +504,7 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
 
       className={classNames([
         staticClassName('AreaChart', theme) && [
-          'AmauiAreaChart-root'
+          'amaui-AreaChart-root'
         ],
 
         className,
@@ -527,6 +527,6 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
 
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-AreaChart.displayName = 'AmauiAreaChart';
+AreaChart.displayName = 'amaui-AreaChart';
 
 export default AreaChart;

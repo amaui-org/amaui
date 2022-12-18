@@ -14,7 +14,7 @@ import { staticClassName, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    '& .AmauiChart-legend-icon': {
+    '& .amaui-Chart-legend-icon': {
       width: '6px',
       height: '12px',
       borderRadius: 'unset'
@@ -29,7 +29,7 @@ const useStyle = styleMethod(theme => ({
     width: '4px',
     height: '12px'
   }
-}), { name: 'AmauiColumnChart' });
+}), { name: 'amaui-ColumnChart' });
 
 export interface IColumnChart extends IChart {
 
@@ -38,7 +38,7 @@ export interface IColumnChart extends IChart {
 const ColumnChart = React.forwardRef((props_: IColumnChart, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiColumnChart?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiColumnChart?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 
@@ -193,7 +193,7 @@ const ColumnChart = React.forwardRef((props_: IColumnChart, ref: any) => {
 
         className={classNames([
           staticClassName('ColumnChart', theme) && [
-            'AmauiColumnChart-legend-item'
+            'amaui-ColumnChart-legend-item'
           ],
 
           className_,
@@ -206,7 +206,7 @@ const ColumnChart = React.forwardRef((props_: IColumnChart, ref: any) => {
         <span
           className={classNames([
             staticClassName('ColumnChart', theme) && [
-              'AmauiColumnChart-legend-icon'
+              'amaui-ColumnChart-legend-icon'
             ],
 
             classes.legend_icon
@@ -361,7 +361,7 @@ const ColumnChart = React.forwardRef((props_: IColumnChart, ref: any) => {
 
       className={classNames([
         staticClassName('ColumnChart', theme) && [
-          'AmauiColumnChart-root'
+          'amaui-ColumnChart-root'
         ],
 
         className,
@@ -373,6 +373,6 @@ const ColumnChart = React.forwardRef((props_: IColumnChart, ref: any) => {
   );
 });
 
-ColumnChart.displayName = 'AmauiColumnChart';
+ColumnChart.displayName = 'amaui-ColumnChart';
 
 export default ColumnChart;

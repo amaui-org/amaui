@@ -21,6 +21,6 @@ const Reset = (props: IReset) => {
   );
 };
 
-Reset.displayName = 'AmauiReset';
+Reset.displayName = 'amaui-Reset';
 
 export default Reset;

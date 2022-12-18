@@ -9,7 +9,7 @@ import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    '&.AmauiModal-root .AmauiModal-surface': {
+    '&.amaui-Modal-root .amaui-Modal-surface': {
       paddingTop: '50px',
       maxWidth: '640px',
 
@@ -28,13 +28,13 @@ const useStyle = styleMethod(theme => ({
     },
 
     '@media only screen and (min-width: 640px)': {
-      '&.AmauiModal-root .AmauiModal-surface': {
+      '&.amaui-Modal-root .amaui-Modal-surface': {
         marginTop: '72px',
         marginInline: '56px'
       }
     }
   },
-}), { name: 'AmauiBottomSheet' });
+}), { name: 'amaui-BottomSheet' });
 
 export interface IBottomSheet extends INavigationDrawer {
 
@@ -43,7 +43,7 @@ export interface IBottomSheet extends INavigationDrawer {
 const BottomSheet = React.forwardRef((props_: IBottomSheet, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiBottomSheet?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBottomSheet?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -61,7 +61,7 @@ const BottomSheet = React.forwardRef((props_: IBottomSheet, ref: any) => {
 
       className={classNames([
         staticClassName('BottomSheet', theme) && [
-          'AmauiBottomSheet-root'
+          'amaui-BottomSheet-root'
         ],
 
         className,
@@ -73,6 +73,6 @@ const BottomSheet = React.forwardRef((props_: IBottomSheet, ref: any) => {
   );
 });
 
-BottomSheet.displayName = 'AmauiBottomSheet';
+BottomSheet.displayName = 'amaui-BottomSheet';
 
 export default BottomSheet;

@@ -11,7 +11,7 @@ const useStyle = styleMethod(theme => ({
   root: {
 
   }
-}), { name: 'AmauiParallax' });
+}), { name: 'amaui-Parallax' });
 
 export type TParallaxDirection = 'vertical' | 'horizontal';
 
@@ -37,7 +37,7 @@ export interface IParallax extends IBaseElement {
 const Parallax = React.forwardRef((props_: IParallax, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiParallax?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiParallax?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 
@@ -174,7 +174,7 @@ const Parallax = React.forwardRef((props_: IParallax, ref: any) => {
       React.cloneElement(children as any, {
         className: classNames([
           staticClassName('Parallax', theme) && [
-            `AmauiParallax-root`
+            `amaui-Parallax-root`
           ],
 
           className,
@@ -206,6 +206,6 @@ const Parallax = React.forwardRef((props_: IParallax, ref: any) => {
   );
 });
 
-Parallax.displayName = 'AmauiParallax';
+Parallax.displayName = 'amaui-Parallax';
 
 export default Parallax;

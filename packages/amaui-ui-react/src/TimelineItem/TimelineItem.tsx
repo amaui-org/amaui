@@ -54,23 +54,23 @@ const useStyle = styleMethod(theme => ({
   },
 
   divider: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       margin: '0px'
     }
   },
 
   divider_orientation_vertical: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       width: '2px'
     }
   },
 
   divider_orientation_horizontal: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       height: '2px'
     }
   }
-}), { name: 'AmauiTimelineItem' });
+}), { name: 'amaui-TimelineItem' });
 
 export interface ITimelineItem extends ILine {
   orientation?: 'vertical' | 'horizontal';
@@ -88,7 +88,7 @@ export interface ITimelineItem extends ILine {
 const TimelineItem = React.forwardRef((props_: ITimelineItem, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTimelineItem?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTimelineItem?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -148,7 +148,7 @@ const TimelineItem = React.forwardRef((props_: ITimelineItem, ref: any) => {
 
       className={classNames([
         staticClassName('TimelineItem', theme) && [
-          'AmauiTimelineItem-root'
+          'amaui-TimelineItem-root'
         ],
 
         className,
@@ -162,9 +162,9 @@ const TimelineItem = React.forwardRef((props_: ITimelineItem, ref: any) => {
         <div
           className={classNames([
             staticClassName('TimelineItem', theme) && [
-              'AmauiTimelineItem-aside',
-              'AmauiTimelineItem-item',
-              'AmauiTimelineItem-start'
+              'amaui-TimelineItem-aside',
+              'amaui-TimelineItem-item',
+              'amaui-TimelineItem-start'
             ],
 
             classes.aside,
@@ -188,8 +188,8 @@ const TimelineItem = React.forwardRef((props_: ITimelineItem, ref: any) => {
 
         className={classNames([
           staticClassName('TimelineItem', theme) && [
-            'AmauiTimelineItem-item',
-            'AmauiTimelineItem-middle'
+            'amaui-TimelineItem-item',
+            'amaui-TimelineItem-middle'
           ],
 
           classes.item,
@@ -199,7 +199,7 @@ const TimelineItem = React.forwardRef((props_: ITimelineItem, ref: any) => {
         <div
           className={classNames([
             staticClassName('TimelineItem', theme) && [
-              'AmauiTimelineItem-icon-wrapper'
+              'amaui-TimelineItem-icon-wrapper'
             ],
 
             classes.iconWrapper,
@@ -212,7 +212,7 @@ const TimelineItem = React.forwardRef((props_: ITimelineItem, ref: any) => {
 
               className={classNames([
                 staticClassName('TimelineItem', theme) && [
-                  'AmauiTimelineItem-icon'
+                  'amaui-TimelineItem-icon'
                 ],
 
                 IconProps?.className,
@@ -228,7 +228,7 @@ const TimelineItem = React.forwardRef((props_: ITimelineItem, ref: any) => {
 
             className={classNames([
               staticClassName('TimelineItem', theme) && [
-                'AmauiTimelineItem-divider'
+                'amaui-TimelineItem-divider'
               ],
 
               DividerProps?.className,
@@ -245,9 +245,9 @@ const TimelineItem = React.forwardRef((props_: ITimelineItem, ref: any) => {
         <div
           className={classNames([
             staticClassName('TimelineItem', theme) && [
-              'AmauiTimelineItem-aside',
-              'AmauiTimelineItem-item',
-              'AmauiTimelineItem-end'
+              'amaui-TimelineItem-aside',
+              'amaui-TimelineItem-item',
+              'amaui-TimelineItem-end'
             ],
 
             classes.aside,
@@ -263,6 +263,6 @@ const TimelineItem = React.forwardRef((props_: ITimelineItem, ref: any) => {
   );
 });
 
-TimelineItem.displayName = 'AmauiTimelineItem';
+TimelineItem.displayName = 'amaui-TimelineItem';
 
 export default TimelineItem;

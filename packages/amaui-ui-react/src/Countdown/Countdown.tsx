@@ -34,33 +34,33 @@ const useStyle = styleMethod(theme => ({
   linearProgress: {
     borderRadius: '140px',
 
-    '&.AmauiLinearProgress-root': {
+    '&.amaui-LinearProgress-root': {
       height: '6px'
     },
 
-    '& .AmauiLinearProgress-line, & .AmauiLinearProgress-buffer': {
+    '& .amaui-LinearProgress-line, & .amaui-LinearProgress-buffer': {
       borderRadius: '140px'
     }
   },
 
   roundProgress: {
-    '&.AmauiRoundedProgress-root': {
+    '&.amaui-RoundedProgress-root': {
       position: 'absolute',
       inset: '0'
     },
 
-    '& .AmauiRoundedProgress-svg': {
+    '& .amaui-RoundedProgress-svg': {
       width: '100%',
       height: '100%',
       margin: '0'
     },
 
-    '& .AmauiRoundedProgress-path-background': {
+    '& .amaui-RoundedProgress-path-background': {
       stroke: 'currentColor',
       opacity: '0.24'
     },
 
-    '& .AmauiRoundedProgress-path, & .AmauiRoundedProgress-path-background': {
+    '& .amaui-RoundedProgress-path, & .amaui-RoundedProgress-path-background': {
       strokeLinecap: 'round'
     }
   },
@@ -73,28 +73,28 @@ const useStyle = styleMethod(theme => ({
   numericTextField: {
     width: '70px',
 
-    '& .AmauiTextField-input-wrapper': {
+    '& .amaui-TextField-input-wrapper': {
       paddingInline: '0px',
       paddingBlock: '8px',
       height: 'auto'
     },
 
-    '&.AmauiTextField-value .AmauiTextField-label, &.AmauiTextField-focus .AmauiTextField-label': {
+    '&.amaui-TextField-value .amaui-TextField-label, &.amaui-TextField-focus .amaui-TextField-label': {
       insetInlineStart: '60%',
       transform: `translate(${theme.direction === 'ltr' ? '-' : ''}50%, -16px) scale(0.667)`
     },
 
-    '& .AmauiTextField-input': {
+    '& .amaui-TextField-input': {
       ...theme.typography.values.h2,
 
       textAlign: 'center'
     },
 
-    '& .AmauiTextField-border': {
+    '& .amaui-TextField-border': {
       boxShadow: 'none'
     }
   }
-}), { name: 'AmauiCountdown' });
+}), { name: 'amaui-Countdown' });
 
 const IconMaterialAvTimerRounded = React.forwardRef((props: any, ref) => {
 
@@ -188,7 +188,7 @@ export interface ICountdown extends Omit<ISurface, 'version'> {
 const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiCountdown?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCountdown?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -429,7 +429,7 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
 
       className={classNames([
         staticClassName('Countdown', theme) && [
-          'AmauiCountdown-root'
+          'amaui-Countdown-root'
         ],
 
         className,
@@ -487,7 +487,7 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
 
               className={classNames([
                 staticClassName('Countdown', theme) && [
-                  'AmauiCountdown-numeric-text-field'
+                  'amaui-Countdown-numeric-text-field'
                 ],
 
                 NumericTextFieldProps?.className,
@@ -510,7 +510,7 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
 
               className={classNames([
                 staticClassName('Countdown', theme) && [
-                  'AmauiCountdown-numeric-text-field'
+                  'amaui-Countdown-numeric-text-field'
                 ],
 
                 NumericTextFieldProps?.className,
@@ -533,7 +533,7 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
 
               className={classNames([
                 staticClassName('Countdown', theme) && [
-                  'AmauiCountdown-numeric-text-field'
+                  'amaui-Countdown-numeric-text-field'
                 ],
 
                 NumericTextFieldProps?.className,
@@ -588,7 +588,7 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
 
                 className={classNames([
                   staticClassName('Countdown', theme) && [
-                    'AmauiCountdown-linear-progress'
+                    'amaui-Countdown-linear-progress'
                   ],
 
                   LinearProgressProps?.className,
@@ -617,7 +617,7 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
 
             className={classNames([
               staticClassName('Countdown', theme) && [
-                'AmauiCountdown-round-wrapper'
+                'amaui-Countdown-round-wrapper'
               ],
 
               classes.roundWrapper
@@ -632,7 +632,7 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
 
               className={classNames([
                 staticClassName('Countdown', theme) && [
-                  'AmauiCountdown-round-progress'
+                  'amaui-Countdown-round-progress'
                 ],
 
                 RoundProgressProps?.className,
@@ -653,7 +653,7 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
 
               className={classNames([
                 staticClassName('Countdown', theme) && [
-                  'AmauiCountdown-meta'
+                  'amaui-Countdown-meta'
                 ],
 
                 classes.meta
@@ -786,6 +786,6 @@ const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
   );
 });
 
-Countdown.displayName = 'AmauiCountdown';
+Countdown.displayName = 'amaui-Countdown';
 
 export default Countdown;

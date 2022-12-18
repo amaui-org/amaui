@@ -101,7 +101,7 @@ const useStyle = styleMethod(theme => ({
       transform: 'scale(1)'
     }
   }
-}), { name: 'AmauiBottomAppBar' });
+}), { name: 'amaui-BottomAppBar' });
 
 export interface IBottomAppBar extends ISurface {
   size?: TSize;
@@ -114,7 +114,7 @@ export interface IBottomAppBar extends ISurface {
 const BottomAppBar = React.forwardRef((props_: IBottomAppBar, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiBottomAppBar?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBottomAppBar?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -197,7 +197,7 @@ const BottomAppBar = React.forwardRef((props_: IBottomAppBar, ref: any) => {
 
               color: item.props.color !== undefined ? item.props.color : color,
 
-              tonal: item.props.tonal !== undefined ? item.props.tonal : tonal && ['AmauiFab'].includes(item.type?.displayName) ? 'secondary' : tonal
+              tonal: item.props.tonal !== undefined ? item.props.tonal : tonal && ['amaui-Fab'].includes(item.type?.displayName) ? 'secondary' : tonal
             })
           )}
         </Transition>
@@ -274,7 +274,7 @@ const BottomAppBar = React.forwardRef((props_: IBottomAppBar, ref: any) => {
 
       className={classNames([
         staticClassName('BottomAppBar', theme) && [
-          'AmauiBottomAppBar-root'
+          'amaui-BottomAppBar-root'
         ],
 
         className,
@@ -322,6 +322,6 @@ const BottomAppBar = React.forwardRef((props_: IBottomAppBar, ref: any) => {
   );
 });
 
-BottomAppBar.displayName = 'AmauiBottomAppBar';
+BottomAppBar.displayName = 'amaui-BottomAppBar';
 
 export default BottomAppBar;

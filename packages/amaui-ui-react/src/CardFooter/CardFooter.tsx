@@ -11,7 +11,7 @@ const useStyle = styleMethod(theme => ({
   root: {
     margin: '24px'
   }
-}), { name: 'AmauiCardFooter' });
+}), { name: 'amaui-CardFooter' });
 
 export interface ICardFooter extends ILine {
   tonal?: TTonal;
@@ -23,7 +23,7 @@ export interface ICardFooter extends ILine {
 const CardFooter = React.forwardRef((props_: ICardFooter, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiCardFooter?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCardFooter?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -60,7 +60,7 @@ const CardFooter = React.forwardRef((props_: ICardFooter, ref: any) => {
 
       className={classNames([
         staticClassName('CardFooter', theme) && [
-          `AmauiCardFooter-root`
+          `amaui-CardFooter-root`
         ],
 
         className,
@@ -74,6 +74,6 @@ const CardFooter = React.forwardRef((props_: ICardFooter, ref: any) => {
   );
 });
 
-CardFooter.displayName = 'AmauiCardFooter';
+CardFooter.displayName = 'amaui-CardFooter';
 
 export default CardFooter;

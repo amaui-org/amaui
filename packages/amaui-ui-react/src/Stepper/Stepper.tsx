@@ -25,7 +25,7 @@ const useStyle = styleMethod(theme => ({
   divider: {
     margin: '0',
 
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       transition: theme.methods.transitions.make(['background', 'width', 'height'])
     }
   },
@@ -38,7 +38,7 @@ const useStyle = styleMethod(theme => ({
     alignSelf: 'flex-start',
     transform: 'translateX(-50%)',
 
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       marginInlineStart: '20px'
     }
   },
@@ -46,23 +46,23 @@ const useStyle = styleMethod(theme => ({
   divider_orientation_vertical_stepDirection_column: {
     alignSelf: 'center',
 
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       margin: '0px'
     }
   },
 
   divider_active_orientation_horizontal: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       height: '4px'
     }
   },
 
   divider_active_orientation_vertical: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       width: '4px'
     }
   }
-}), { name: 'AmauiStepper' });
+}), { name: 'amaui-Stepper' });
 
 export interface IStepper extends ILine {
   tonal?: TTonal;
@@ -89,7 +89,7 @@ export interface IStepper extends ILine {
 const Stepper = React.forwardRef((props_: IStepper, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiStepper?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiStepper?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -138,7 +138,7 @@ const Stepper = React.forwardRef((props_: IStepper, ref: any) => {
 
       className={classNames([
         staticClassName('Stepper', theme) && [
-          'AmauiStepper-root'
+          'amaui-Stepper-root'
         ],
 
         className,
@@ -209,8 +209,8 @@ const Stepper = React.forwardRef((props_: IStepper, ref: any) => {
 
               className={classNames([
                 staticClassName('Stepper', theme) && [
-                  'AmauiStepper-divider',
-                  active_ && dividerActive && `AmauiStepper-divider-active`
+                  'amaui-Stepper-divider',
+                  active_ && dividerActive && `amaui-Stepper-divider-active`
                 ],
 
                 DividerProps?.className,
@@ -233,6 +233,6 @@ const Stepper = React.forwardRef((props_: IStepper, ref: any) => {
   );
 });
 
-Stepper.displayName = 'AmauiStepper';
+Stepper.displayName = 'amaui-Stepper';
 
 export default Stepper;

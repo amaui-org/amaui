@@ -6,7 +6,7 @@ export function reflow(element: HTMLElement) {
 }
 
 export const staticClassName = (name: string, theme: any) => {
-  return theme?.ui?.elements?.[`Amaui${name}`]?.className?.static !== undefined ? theme?.ui?.elements?.[`Amaui${name}`]?.className?.static : theme?.ui?.className.static;
+  return theme?.ui?.elements?.[`amaui-${name}`]?.className?.static !== undefined ? theme?.ui?.elements?.[`amaui-${name}`]?.className?.static : theme?.ui?.className.static;
 };
 
 export const iconSizeToFontSize = (value: string | number) => {

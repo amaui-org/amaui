@@ -698,7 +698,7 @@ const useStyle = styleMethod(theme => ({
   noOutline: {
     boxShadow: 'none'
   }
-}), { name: 'AmauiSurface' });
+}), { name: 'amaui-Surface' });
 
 export interface ISurface extends IBaseElement {
   tonal?: TTonal;
@@ -715,7 +715,7 @@ export interface ISurface extends IBaseElement {
 const Surface = React.forwardRef((props_: ISurface, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiSurface?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSurface?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -955,7 +955,7 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
 
       className={classNames([
         staticClassName('Surface', theme) && [
-          'AmauiSurface-root'
+          'amaui-Surface-root'
         ],
 
         AdditionalProps?.className,
@@ -991,6 +991,6 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
   );
 });
 
-Surface.displayName = 'AmauiSurface';
+Surface.displayName = 'amaui-Surface';
 
 export default Surface;

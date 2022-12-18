@@ -286,7 +286,7 @@ const useStyle = styleMethod(theme => ({
       transform: 'translate(-50%, 50%)'
     }
   }
-}), { name: 'AmauiImageCrop' });
+}), { name: 'amaui-ImageCrop' });
 
 export type TImageCrop = {
   x?: number;
@@ -323,7 +323,7 @@ export interface IImageCrop extends IBaseElement {
 const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiImageCrop?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageCrop?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -1299,7 +1299,7 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
 
       className={classNames([
         staticClassName('ImageCrop', theme) && [
-          'AmauiImageCrop-root'
+          'amaui-ImageCrop-root'
         ],
 
         className,
@@ -1313,8 +1313,8 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
 
         className={classNames([
           staticClassName('ImageCrop', theme) && [
-            'AmauiImageCrop-canvas',
-            'AmauiImageCrop-canvas-main'
+            'amaui-ImageCrop-canvas',
+            'amaui-ImageCrop-canvas-main'
           ],
 
           classes.canvas,
@@ -1325,7 +1325,7 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
       <div
         className={classNames([
           staticClassName('ImageCrop', theme) && [
-            'AmauiImageCrop-background'
+            'amaui-ImageCrop-background'
           ],
 
           classes.background,
@@ -1347,7 +1347,7 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
 
           className={classNames([
             staticClassName('ImageCrop', theme) && [
-              'AmauiImageCrop-image-selector-main'
+              'amaui-ImageCrop-image-selector-main'
             ],
 
             classes.imageSelector_main,
@@ -1367,7 +1367,7 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
 
             className={classNames([
               staticClassName('ImageCrop', theme) && [
-                'AmauiImageCrop-move'
+                'amaui-ImageCrop-move'
               ],
 
               classes.move
@@ -1378,8 +1378,8 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
             <div
               className={classNames([
                 staticClassName('ImageCrop', theme) && [
-                  'AmauiImageCrop-grid-line',
-                  'AmauiImageCrop-grid-line-top-start'
+                  'amaui-ImageCrop-grid-line',
+                  'amaui-ImageCrop-grid-line-top-start'
                 ],
 
                 classes.grid_line,
@@ -1390,8 +1390,8 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
             <div
               className={classNames([
                 staticClassName('ImageCrop', theme) && [
-                  'AmauiImageCrop-grid-line',
-                  'AmauiImageCrop-grid-line-top-end'
+                  'amaui-ImageCrop-grid-line',
+                  'amaui-ImageCrop-grid-line-top-end'
                 ],
 
                 classes.grid_line,
@@ -1402,8 +1402,8 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
             <div
               className={classNames([
                 staticClassName('ImageCrop', theme) && [
-                  'AmauiImageCrop-grid-line',
-                  'AmauiImageCrop-grid-line-left-start'
+                  'amaui-ImageCrop-grid-line',
+                  'amaui-ImageCrop-grid-line-left-start'
                 ],
 
                 classes.grid_line,
@@ -1414,8 +1414,8 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
             <div
               className={classNames([
                 staticClassName('ImageCrop', theme) && [
-                  'AmauiImageCrop-grid-line',
-                  'AmauiImageCrop-grid-line-left-end'
+                  'amaui-ImageCrop-grid-line',
+                  'amaui-ImageCrop-grid-line-left-end'
                 ],
 
                 classes.grid_line,
@@ -1433,8 +1433,8 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
 
             className={classNames([
               staticClassName('ImageCrop', theme) && [
-                'AmauiImageCrop-dot',
-                'AmauiImageCrop-dot-top-left'
+                'amaui-ImageCrop-dot',
+                'amaui-ImageCrop-dot-top-left'
               ],
 
               classes.dot,
@@ -1451,8 +1451,8 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
 
             className={classNames([
               staticClassName('ImageCrop', theme) && [
-                'AmauiImageCrop-dot',
-                'AmauiImageCrop-dot-top-right'
+                'amaui-ImageCrop-dot',
+                'amaui-ImageCrop-dot-top-right'
               ],
 
               classes.dot,
@@ -1469,8 +1469,8 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
 
             className={classNames([
               staticClassName('ImageCrop', theme) && [
-                'AmauiImageCrop-dot',
-                'AmauiImageCrop-dot-bottom-left'
+                'amaui-ImageCrop-dot',
+                'amaui-ImageCrop-dot-bottom-left'
               ],
 
               classes.dot,
@@ -1487,8 +1487,8 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
 
             className={classNames([
               staticClassName('ImageCrop', theme) && [
-                'AmauiImageCrop-dot',
-                'AmauiImageCrop-dot-bottom-right'
+                'amaui-ImageCrop-dot',
+                'amaui-ImageCrop-dot-bottom-right'
               ],
 
               classes.dot,
@@ -1505,8 +1505,8 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
 
             className={classNames([
               staticClassName('ImageCrop', theme) && [
-                'AmauiImageCrop-border',
-                'AmauiImageCrop-border-top'
+                'amaui-ImageCrop-border',
+                'amaui-ImageCrop-border-top'
               ],
 
               classes.border,
@@ -1523,8 +1523,8 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
 
             className={classNames([
               staticClassName('ImageCrop', theme) && [
-                'AmauiImageCrop-border',
-                'AmauiImageCrop-border-left'
+                'amaui-ImageCrop-border',
+                'amaui-ImageCrop-border-left'
               ],
 
               classes.border,
@@ -1541,8 +1541,8 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
 
             className={classNames([
               staticClassName('ImageCrop', theme) && [
-                'AmauiImageCrop-border',
-                'AmauiImageCrop-border-right'
+                'amaui-ImageCrop-border',
+                'amaui-ImageCrop-border-right'
               ],
 
               classes.border,
@@ -1559,8 +1559,8 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
 
             className={classNames([
               staticClassName('ImageCrop', theme) && [
-                'AmauiImageCrop-border',
-                'AmauiImageCrop-border-bottom'
+                'amaui-ImageCrop-border',
+                'amaui-ImageCrop-border-bottom'
               ],
 
               classes.border,
@@ -1575,7 +1575,7 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
 
         className={classNames([
           staticClassName('ImageCrop', theme) && [
-            'AmauiImageCrop-image-selector'
+            'amaui-ImageCrop-image-selector'
           ],
 
           classes.imageSelector
@@ -1590,8 +1590,8 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
 
           className={classNames([
             staticClassName('ImageCrop', theme) && [
-              'AmauiImageCrop-canvas',
-              'AmauiImageCrop-canvas-image-selector'
+              'amaui-ImageCrop-canvas',
+              'amaui-ImageCrop-canvas-image-selector'
             ],
 
             classes.canvas,
@@ -1614,6 +1614,6 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
   );
 });
 
-ImageCrop.displayName = 'AmauiImageCrop';
+ImageCrop.displayName = 'amaui-ImageCrop';
 
 export default ImageCrop;

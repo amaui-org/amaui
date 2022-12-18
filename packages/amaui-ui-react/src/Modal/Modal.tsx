@@ -117,7 +117,7 @@ const useStyle = styleMethod(theme => ({
   maxWidth_xxl: { maxWidth: `1360px` },
 
   maxWidth_unset: { maxWidth: `unset` }
-}), { name: 'AmauiModal' });
+}), { name: 'amaui-Modal' });
 
 let MODALS_OPEN = 0;
 
@@ -174,7 +174,7 @@ export interface IModal extends IBaseElement {
 const Modal = React.forwardRef((props_: IModal, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiModal?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModal?.props?.default, ...props_ }), [props_]);
 
   const mobile = useMediaQuery('(max-width: 767px)');
 
@@ -348,7 +348,7 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
 
       className={classNames([
         staticClassName('Modal', theme) && [
-          'AmauiModal-modal-root'
+          'amaui-Modal-modal-root'
         ],
 
         classes.modalRoot
@@ -369,7 +369,7 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
               <div
                 className={classNames([
                   staticClassName('Modal', theme) && [
-                    'AmauiModal-no-surface'
+                    'amaui-Modal-no-surface'
                   ],
 
                   NoSurfaceProps?.className,
@@ -391,7 +391,7 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
 
               className={classNames([
                 staticClassName('Modal', theme) && [
-                  'AmauiModal-surface'
+                  'amaui-Modal-surface'
                 ],
 
                 classes.surface,
@@ -424,9 +424,9 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
 
         className={classNames([
           staticClassName('Modal', theme) && [
-            'AmauiModal-root',
-            open && `AmauiModal-open`,
-            focus && `AmauiModal-focus`
+            'amaui-Modal-root',
+            open && `amaui-Modal-open`,
+            focus && `amaui-Modal-focus`
           ],
 
           className,
@@ -454,7 +454,7 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
 
                 className={classNames([
                   staticClassName('Modal', theme) && [
-                    'AmauiModal-background'
+                    'amaui-Modal-background'
                   ],
 
                   classes.background,
@@ -472,6 +472,6 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
   );
 });
 
-Modal.displayName = 'AmauiModal';
+Modal.displayName = 'amaui-Modal';
 
 export default Modal;

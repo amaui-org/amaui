@@ -12,7 +12,7 @@ export interface IZoom extends ITransition {
 const Zoom = React.forwardRef((props_: IZoom, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiZoom?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiZoom?.props?.default, ...props_ }), [props_]);
 
   const refs = {
     root: React.useRef<HTMLElement>()
@@ -155,6 +155,6 @@ const Zoom = React.forwardRef((props_: IZoom, ref: any) => {
   );
 });
 
-Zoom.displayName = 'AmauiZoom';
+Zoom.displayName = 'amaui-Zoom';
 
 export default Zoom;

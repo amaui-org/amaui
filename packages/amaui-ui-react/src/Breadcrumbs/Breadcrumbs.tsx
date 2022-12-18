@@ -18,14 +18,14 @@ const useStyle = styleMethod(theme => ({
   },
 
   expandMore: {
-    '&.AmauiIconButton-root': {
+    '&.amaui-IconButton-root': {
       padding: '0',
       width: 'unset',
       height: '100%',
       borderRadius: theme.methods.shape.radius.value(0.25, 'px')
     }
   }
-}), { name: 'AmauiBreadcrumbs' });
+}), { name: 'amaui-Breadcrumbs' });
 
 const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
@@ -70,7 +70,7 @@ export interface IBreadcrumbs extends IBaseElement {
 const Breadcrumbs = React.forwardRef((props_: IBreadcrumbs, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiBreadcrumbs?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBreadcrumbs?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 
@@ -142,7 +142,7 @@ const Breadcrumbs = React.forwardRef((props_: IBreadcrumbs, ref: any) => {
 
           className={classNames([
             staticClassName('Breadcrumbs', theme) && [
-              'AmauiBreadcrumbs-expand-more'
+              'amaui-Breadcrumbs-expand-more'
             ],
 
             MoreProps?.className,
@@ -208,7 +208,7 @@ const Breadcrumbs = React.forwardRef((props_: IBreadcrumbs, ref: any) => {
 
       className={classNames([
         staticClassName('Breadcrumbs', theme) && [
-          'AmauiBreadcrumbs-root'
+          'amaui-Breadcrumbs-root'
         ],
 
         className,
@@ -235,7 +235,7 @@ const Breadcrumbs = React.forwardRef((props_: IBreadcrumbs, ref: any) => {
 
               className={classNames([
                 staticClassName('Breadcrumbs', theme) && [
-                  'AmauiBreadcrumbs-item'
+                  'amaui-Breadcrumbs-item'
                 ],
 
                 classes.item
@@ -252,7 +252,7 @@ const Breadcrumbs = React.forwardRef((props_: IBreadcrumbs, ref: any) => {
 
             className: classNames([
               staticClassName('Breadcrumbs', theme) && [
-                'AmauiBreadcrumbs-item'
+                'amaui-Breadcrumbs-item'
               ],
 
               item?.props?.className,
@@ -267,6 +267,6 @@ const Breadcrumbs = React.forwardRef((props_: IBreadcrumbs, ref: any) => {
   );
 });
 
-Breadcrumbs.displayName = 'AmauiBreadcrumbs';
+Breadcrumbs.displayName = 'amaui-Breadcrumbs';
 
 export default Breadcrumbs;

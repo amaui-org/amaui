@@ -26,7 +26,7 @@ export interface IFocus extends IBaseElement {
 const Focus = React.forwardRef((props_: IFocus, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiFocus?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiFocus?.props?.default, ...props_ }), [props_]);
 
   const refs = {
     focusStart: React.useRef<HTMLDivElement>(),
@@ -119,6 +119,6 @@ const Focus = React.forwardRef((props_: IFocus, ref: any) => {
   );
 });
 
-Focus.displayName = 'AmauiFocus';
+Focus.displayName = 'amaui-Focus';
 
 export default Focus;

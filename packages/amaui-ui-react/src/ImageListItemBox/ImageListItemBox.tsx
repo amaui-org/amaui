@@ -25,7 +25,7 @@ const useStyle = styleMethod(theme => ({
     insetInline: '0',
     borderRadius: `${theme.shape.radius.unit * 3}px ${theme.shape.radius.unit * 3}px 0 0`
   }
-}), { name: 'AmauiImageListItemBox' });
+}), { name: 'amaui-ImageListItemBox' });
 
 export interface IImageListItemBox extends IListItem {
   position?: 'top' | 'bottom';
@@ -35,7 +35,7 @@ export interface IImageListItemBox extends IListItem {
 const ImageListItemBox = React.forwardRef((props_: IImageListItemBox, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiImageListItemBox?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageListItemBox?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -62,7 +62,7 @@ const ImageListItemBox = React.forwardRef((props_: IImageListItemBox, ref: any) 
 
       className={classNames([
         staticClassName('ImageListItemBox', theme) && [
-          'AmauiImageListItemBox-root'
+          'amaui-ImageListItemBox-root'
         ],
 
         className,
@@ -77,6 +77,6 @@ const ImageListItemBox = React.forwardRef((props_: IImageListItemBox, ref: any) 
   );
 });
 
-ImageListItemBox.displayName = 'AmauiImageListItemBox';
+ImageListItemBox.displayName = 'amaui-ImageListItemBox';
 
 export default ImageListItemBox;

@@ -86,7 +86,7 @@ export interface ITransition extends Omit<IBaseElement, 'children' | 'className'
 function Transition(props_: ITransition) {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTransition?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTransition?.props?.default, ...props_ }), [props_]);
 
   const {
     in: inProp_,
@@ -489,6 +489,6 @@ function Transition(props_: ITransition) {
   );
 }
 
-Transition.displayName = 'AmauiTransition';
+Transition.displayName = 'amaui-Transition';
 
 export default Transition;

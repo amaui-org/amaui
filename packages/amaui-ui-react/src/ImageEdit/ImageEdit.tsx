@@ -47,7 +47,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   divider: {
-    '&.AmauiDivider-root': {
+    '&.amaui-Divider-root': {
       margin: '0px'
     }
   },
@@ -97,12 +97,12 @@ const useStyle = styleMethod(theme => ({
   },
 
   optionInput: {
-    '& .AmauiTextField-input-wrapper': {
+    '& .amaui-TextField-input-wrapper': {
       padding: '0px',
       height: 'auto'
     },
 
-    '& .AmauiTextField-input': {
+    '& .amaui-TextField-input': {
       textAlign: 'center'
     }
   },
@@ -124,7 +124,7 @@ const useStyle = styleMethod(theme => ({
   slider: {
     width: '100%'
   }
-}), { name: 'AmauiImageEdit' });
+}), { name: 'amaui-ImageEdit' });
 
 const IconMaterialDoneRounded = React.forwardRef((props: any, ref) => {
 
@@ -430,7 +430,7 @@ export interface IImageEdit extends ILine {
 const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiImageEdit?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageEdit?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -1036,7 +1036,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
           className={classNames([
             staticClassName('ImageEdit', theme) && [
-              'AmauiImageEdit-slider'
+              'amaui-ImageEdit-slider'
             ],
 
             SliderProps.className,
@@ -1107,7 +1107,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
           className={classNames([
             staticClassName('ImageEdit', theme) && [
-              'AmauiImageEdit-slider'
+              'amaui-ImageEdit-slider'
             ],
 
             SliderProps.className,
@@ -1178,7 +1178,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
           className={classNames([
             staticClassName('ImageEdit', theme) && [
-              'AmauiImageEdit-slider'
+              'amaui-ImageEdit-slider'
             ],
 
             SliderProps.className,
@@ -1248,7 +1248,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
           className={classNames([
             staticClassName('ImageEdit', theme) && [
-              'AmauiImageEdit-slider'
+              'amaui-ImageEdit-slider'
             ],
 
             SliderProps.className,
@@ -1318,7 +1318,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
           className={classNames([
             staticClassName('ImageEdit', theme) && [
-              'AmauiImageEdit-slider'
+              'amaui-ImageEdit-slider'
             ],
 
             SliderProps.className,
@@ -1389,7 +1389,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
           className={classNames([
             staticClassName('ImageEdit', theme) && [
-              'AmauiImageEdit-slider'
+              'amaui-ImageEdit-slider'
             ],
 
             SliderProps.className,
@@ -1481,7 +1481,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
       className={classNames([
         staticClassName('ImageEdit', theme) && [
-          'AmauiImageEdit-root'
+          'amaui-ImageEdit-root'
         ],
 
         className,
@@ -1501,7 +1501,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
         className={classNames([
           staticClassName('ImageEdit', theme) && [
-            'AmauiImageEdit-image-wrapper'
+            'amaui-ImageEdit-image-wrapper'
           ],
 
           classes.imageWrapper
@@ -1510,7 +1510,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
         <div
           className={classNames([
             staticClassName('ImageEdit', theme) && [
-              'AmauiImageEdit-canvas-wrapper'
+              'amaui-ImageEdit-canvas-wrapper'
             ],
 
             classes.canvasWrapper
@@ -1521,8 +1521,8 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
             className={classNames([
               staticClassName('ImageEdit', theme) && [
-                'AmauiImageEdit-canvas',
-                'AmauiImageEdit-canvas-main'
+                'amaui-ImageEdit-canvas',
+                'amaui-ImageEdit-canvas-main'
               ],
 
               classes.canvas,
@@ -1542,7 +1542,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
               className={classNames([
                 staticClassName('ImageEdit', theme) && [
-                  'AmauiImageEdit-image-crop'
+                  'amaui-ImageEdit-image-crop'
                 ],
 
                 ImageCropProps.className,
@@ -1573,7 +1573,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
             className={classNames([
               staticClassName('ImageEdit', theme) && [
-                'AmauiImageEdit-option'
+                'amaui-ImageEdit-option'
               ],
 
               classes.option
@@ -1608,7 +1608,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
                 className={classNames([
                   staticClassName('ImageEdit', theme) && [
-                    'AmauiImageEdit-filters'
+                    'amaui-ImageEdit-filters'
                   ],
 
                   classes.filters
@@ -1679,7 +1679,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
                       className={classNames([
                         staticClassName('ImageEdit', theme) && [
-                          'AmauiImageEdit-option-input'
+                          'amaui-ImageEdit-option-input'
                         ],
 
                         classes.optionInput
@@ -1717,7 +1717,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
                       className={classNames([
                         staticClassName('ImageEdit', theme) && [
-                          'AmauiImageEdit-option-input'
+                          'amaui-ImageEdit-option-input'
                         ],
 
                         classes.optionInput
@@ -1742,7 +1742,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
                 className={classNames([
                   staticClassName('ImageEdit', theme) && [
-                    'AmauiImageEdit-inputs'
+                    'amaui-ImageEdit-inputs'
                   ],
 
                   classes.inputs
@@ -1835,7 +1835,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
                   className={classNames([
                     staticClassName('ImageEdit', theme) && [
-                      'AmauiImageEdit-slider'
+                      'amaui-ImageEdit-slider'
                     ],
 
                     SliderProps.className,
@@ -1866,7 +1866,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
                   className={classNames([
                     staticClassName('ImageEdit', theme) && [
-                      'AmauiImageEdit-option-input'
+                      'amaui-ImageEdit-option-input'
                     ],
 
                     classes.optionInput
@@ -1890,7 +1890,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
               className={classNames([
                 staticClassName('ImageEdit', theme) && [
-                  'AmauiImageEdit-action'
+                  'amaui-ImageEdit-action'
                 ],
 
                 classes.action
@@ -1939,7 +1939,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
             className={classNames([
               staticClassName('ImageEdit', theme) && [
-                'AmauiImageEdit-divider'
+                'amaui-ImageEdit-divider'
               ],
 
               classes.divider
@@ -1956,7 +1956,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
           className={classNames([
             staticClassName('ImageEdit', theme) && [
-              'AmauiImageEdit-options'
+              'amaui-ImageEdit-options'
             ],
 
             classes.options
@@ -2049,7 +2049,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
           className={classNames([
             staticClassName('ImageEdit', theme) && [
-              'AmauiImageEdit-divider'
+              'amaui-ImageEdit-divider'
             ],
 
             classes.divider
@@ -2067,7 +2067,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
           className={classNames([
             staticClassName('ImageEdit', theme) && [
-              'AmauiImageEdit-meta'
+              'amaui-ImageEdit-meta'
             ],
 
             classes.meta
@@ -2096,6 +2096,6 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
   );
 });
 
-ImageEdit.displayName = 'AmauiImageEdit';
+ImageEdit.displayName = 'amaui-ImageEdit';
 
 export default ImageEdit;

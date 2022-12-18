@@ -84,7 +84,7 @@ const useStyle = styleMethod(theme => ({
   children: {
     visibility: 'hidden'
   }
-}), { name: 'AmauiPlaceholder' });
+}), { name: 'amaui-Placeholder' });
 
 export interface IPlaceholder extends Omit<IBaseElement, 'version'> {
   color?: TColor;
@@ -99,7 +99,7 @@ export interface IPlaceholder extends Omit<IBaseElement, 'version'> {
 const Placeholder = React.forwardRef((props_: IPlaceholder, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiPlaceholder?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPlaceholder?.props?.default, ...props_ }), [props_]);
 
   const {
     color = 'default',
@@ -139,7 +139,7 @@ const Placeholder = React.forwardRef((props_: IPlaceholder, ref: any) => {
 
       className={classNames([
         staticClassName('Placeholder', theme) && [
-          `AmauiPlaceholder-root`
+          `amaui-Placeholder-root`
         ],
 
         className,
@@ -166,7 +166,7 @@ const Placeholder = React.forwardRef((props_: IPlaceholder, ref: any) => {
 
         className={classNames([
           staticClassName('Placeholder', theme) && [
-            `AmauiPlaceholder-wrapper`
+            `amaui-Placeholder-wrapper`
           ],
 
           classes.wrapper
@@ -176,7 +176,7 @@ const Placeholder = React.forwardRef((props_: IPlaceholder, ref: any) => {
           <div
             className={classNames([
               staticClassName('Placeholder', theme) && [
-                `AmauiPlaceholder-children`
+                `amaui-Placeholder-children`
               ],
 
               classes.children
@@ -190,6 +190,6 @@ const Placeholder = React.forwardRef((props_: IPlaceholder, ref: any) => {
   );
 });
 
-Placeholder.displayName = 'AmauiPlaceholder';
+Placeholder.displayName = 'amaui-Placeholder';
 
 export default Placeholder;

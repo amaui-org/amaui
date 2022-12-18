@@ -60,7 +60,7 @@ const useStyle = styleMethod(theme => ({
     opacity: theme.palette.visual_contrast.default.opacity.disabled,
     cursor: 'default'
   }
-}), { name: 'AmauiRating' });
+}), { name: 'amaui-Rating' });
 
 const IconMaterialGradeRounded = React.forwardRef((props: any, ref) => {
 
@@ -128,7 +128,7 @@ export interface IRating extends IBaseElement {
 const Rating = React.forwardRef((props_: IRating, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiRating?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRating?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -472,15 +472,15 @@ const Rating = React.forwardRef((props_: IRating, ref: any) => {
 
       className={classNames([
         staticClassName('Rating', theme) && [
-          'AmauiRating-root',
-          hover && `AmauiButton-hover`,
-          mouseDown && `AmauiButton-mouse-down`,
+          'amaui-Rating-root',
+          hover && `amaui-Button-hover`,
+          mouseDown && `amaui-Button-mouse-down`,
           focus && [
-            `AmauiButton-focus`,
-            [undefined, 0].includes(value) && `AmauiButton-focus-noValue`
+            `amaui-Button-focus`,
+            [undefined, 0].includes(value) && `amaui-Button-focus-noValue`
           ],
-          readOnly && `AmauiRating-read-only`,
-          disabled && `AmauiRating-disabled`
+          readOnly && `amaui-Rating-read-only`,
+          disabled && `amaui-Rating-disabled`
         ],
 
         className,
@@ -509,8 +509,8 @@ const Rating = React.forwardRef((props_: IRating, ref: any) => {
 
             className={classNames([
               staticClassName('Rating', theme) && [
-                'AmauiRating-icon-wrapper',
-                focus && selected(index + 1) && 'AmauiRating-focus'
+                'amaui-Rating-icon-wrapper',
+                focus && selected(index + 1) && 'amaui-Rating-focus'
               ],
 
               classes.iconWrapper,
@@ -521,8 +521,8 @@ const Rating = React.forwardRef((props_: IRating, ref: any) => {
             <span
               className={classNames([
                 staticClassName('Rating', theme) && [
-                  'AmauiRating-icon',
-                  'AmauiRating-icon-inactive'
+                  'amaui-Rating-icon',
+                  'amaui-Rating-icon-inactive'
                 ],
 
                 classes.icon,
@@ -538,8 +538,8 @@ const Rating = React.forwardRef((props_: IRating, ref: any) => {
             <span
               className={classNames([
                 staticClassName('Rating', theme) && [
-                  'AmauiRating-icon',
-                  'AmauiRating-icon-active'
+                  'amaui-Rating-icon',
+                  'amaui-Rating-icon-active'
                 ],
 
                 classes.icon,
@@ -561,6 +561,6 @@ const Rating = React.forwardRef((props_: IRating, ref: any) => {
   );
 });
 
-Rating.displayName = 'AmauiRating';
+Rating.displayName = 'amaui-Rating';
 
 export default Rating;

@@ -18,7 +18,7 @@ const useStyle = styleMethod(theme => ({
   lineBreak: {
     flex: '1 1 100%'
   }
-}), { name: 'AmauiMasonry' });
+}), { name: 'amaui-Masonry' });
 
 export interface IMasonry extends Omit<ILine, 'gap'> {
   gap?: number | Record<TValueBreakpoints, number>;
@@ -28,7 +28,7 @@ export interface IMasonry extends Omit<ILine, 'gap'> {
 const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiMasonry?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMasonry?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 
@@ -183,7 +183,7 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
 
       className={classNames([
         staticClassName('Masonry', theme) && [
-          'AmauiMasonry-root'
+          'amaui-Masonry-root'
         ],
 
         className,
@@ -217,7 +217,7 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
 
           className={classNames([
             staticClassName('Masonry', theme) && [
-              'AmauiMasonry-line-break'
+              'amaui-Masonry-line-break'
             ],
 
             classes.lineBreak
@@ -232,6 +232,6 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
   );
 });
 
-Masonry.displayName = 'AmauiMasonry';
+Masonry.displayName = 'amaui-Masonry';
 
 export default Masonry;

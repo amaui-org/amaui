@@ -498,7 +498,7 @@ const useStyle = styleMethod(theme => ({
     pointerEvents: 'none',
     cursor: 'default'
   }
-}), { name: 'AmauiTextField' });
+}), { name: 'amaui-TextField' });
 
 export interface ITextField extends IBaseElement {
   tonal?: TTonal;
@@ -558,7 +558,7 @@ export interface ITextField extends IBaseElement {
 const TextField = React.forwardRef((props_: ITextField, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTextField?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTextField?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -827,9 +827,9 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
     WrapperProps['className'] = classNames([
       staticClassName('TextField', theme) && [
-        'AmauiTextField-wrapper',
-        fullWidth && 'AmauiTextField-full-width',
-        disabled && 'AmauiTextField-disabled'
+        'amaui-TextField-wrapper',
+        fullWidth && 'amaui-TextField-full-width',
+        disabled && 'amaui-TextField-disabled'
       ],
 
       className,
@@ -907,16 +907,16 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
         className={classNames([
           staticClassName('TextField', theme) && [
-            'AmauiTextField-root',
-            valueWithData && 'AmauiTextField-value',
-            error && `AmauiTextField-error`,
-            required && 'AmauiTextField-required',
-            enabled && 'AmauiTextField-enabled',
-            hover && `AmauiTextField-hover`,
-            mouseDown && `AmauiTextField-mouse-down`,
-            focus && `AmauiTextField-focus`,
-            readOnly && `AmauiTextField-read-only`,
-            disabled && 'AmauiTextField-disabled'
+            'amaui-TextField-root',
+            valueWithData && 'amaui-TextField-value',
+            error && `amaui-TextField-error`,
+            required && 'amaui-TextField-required',
+            enabled && 'amaui-TextField-enabled',
+            hover && `amaui-TextField-hover`,
+            mouseDown && `amaui-TextField-mouse-down`,
+            focus && `amaui-TextField-focus`,
+            readOnly && `amaui-TextField-read-only`,
+            disabled && 'amaui-TextField-disabled'
           ],
 
           ComponentProps.className,
@@ -931,7 +931,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
           <span
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-background'
+                'amaui-TextField-background'
               ],
 
               classes.background,
@@ -947,7 +947,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
           <span
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-border'
+                'amaui-TextField-border'
               ],
 
               classes.border,
@@ -962,7 +962,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
           <fieldset
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-fieldset'
+                'amaui-TextField-fieldset'
               ],
 
               classes.fieldset,
@@ -974,7 +974,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
             <legend
               className={classNames([
                 staticClassName('TextField', theme) && [
-                  'AmauiTextField-legend'
+                  'amaui-TextField-legend'
                 ],
 
                 classes.legend,
@@ -996,7 +996,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-label'
+                'amaui-TextField-label'
               ],
 
               classes.label,
@@ -1018,8 +1018,8 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
           <span
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-icon',
-                'AmauiTextField-icon-start'
+                'amaui-TextField-icon',
+                'amaui-TextField-icon-start'
               ],
 
               classes.icon,
@@ -1049,8 +1049,8 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
           <Type
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-addition',
-                'AmauiTextField-prefix'
+                'amaui-TextField-addition',
+                'amaui-TextField-prefix'
               ],
 
               classes.addition,
@@ -1073,7 +1073,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
           className={classNames([
             staticClassName('TextField', theme) && [
-              'AmauiTextField-input-wrapper'
+              'amaui-TextField-input-wrapper'
             ],
 
             classes.inputWrapper,
@@ -1114,7 +1114,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-input'
+                'amaui-TextField-input'
               ],
 
               classes.input,
@@ -1157,8 +1157,8 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
           <Type
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-addition',
-                'AmauiTextField-sufix'
+                'amaui-TextField-addition',
+                'amaui-TextField-sufix'
               ],
 
               classes.addition,
@@ -1180,8 +1180,8 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
           <span
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-icon',
-                'AmauiTextField-icon-end'
+                'amaui-TextField-icon',
+                'amaui-TextField-icon-end'
               ],
 
               classes.icon,
@@ -1215,7 +1215,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
           <div
             className={classNames([
               staticClassName('TextField', theme) && [
-                'AmauiTextField-footer'
+                'amaui-TextField-footer'
               ],
 
               classes.footer,
@@ -1228,8 +1228,8 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
                 className={classNames([
                   staticClassName('TextField', theme) && [
-                    'AmauiTextField-helper-text',
-                    error && 'AmauiTextField-error'
+                    'amaui-TextField-helper-text',
+                    error && 'amaui-TextField-error'
                   ],
 
                   classes.helperText,
@@ -1246,7 +1246,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
                 className={classNames([
                   staticClassName('TextField', theme) && [
-                    'AmauiTextField-counter'
+                    'amaui-TextField-counter'
                   ],
 
                   classes.counterText,
@@ -1263,6 +1263,6 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
   );
 });
 
-TextField.displayName = 'AmauiTextField';
+TextField.displayName = 'amaui-TextField';
 
 export default TextField;

@@ -39,13 +39,13 @@ const useStyle = styleMethod(theme => ({
   version_analog: {
     background: 'transparent',
 
-    '& .AmauiRoundMeter-marks': {
+    '& .amaui-RoundMeter-marks': {
       opacity: '0.74'
     }
   },
 
   shadow_version_analog: {
-    '& .AmauiRoundMeter-svg': {
+    '& .amaui-RoundMeter-svg': {
       filter: `drop-shadow(0px 6px 10px rgb(0 0 0 / 4%)) drop-shadow(0px 1px 18px rgb(0 0 0 / 1%)) drop-shadow(0px 3px 5px rgb(0 0 0 / 7%))`
     }
   },
@@ -55,13 +55,13 @@ const useStyle = styleMethod(theme => ({
   },
 
   version_minimal_label: {
-    '&.AmauiRoundMeter-label': {
+    '&.amaui-RoundMeter-label': {
       ...theme.typography.values.t2
     }
   },
 
   shadow_version_minimal: {
-    '& .AmauiRoundMeter-svg': {
+    '& .amaui-RoundMeter-svg': {
       filter: `drop-shadow(0px 6px 10px rgb(0 0 0 / 4%)) drop-shadow(0px 1px 18px rgb(0 0 0 / 1%)) drop-shadow(0px 3px 5px rgb(0 0 0 / 7%))`
     }
   },
@@ -86,7 +86,7 @@ const useStyle = styleMethod(theme => ({
   modernDate: {
     textAnchor: 'middle'
   }
-}), { name: 'AmauiWatch' });
+}), { name: 'amaui-Watch' });
 
 export interface IWatch extends Omit<ISurface, 'version'> {
   version?: 'regular' | 'analog' | 'modern' | 'minimal';
@@ -114,7 +114,7 @@ export interface IWatch extends Omit<ISurface, 'version'> {
 const Watch = React.forwardRef((props_: IWatch, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiWatch?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiWatch?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -291,7 +291,7 @@ const Watch = React.forwardRef((props_: IWatch, ref: any) => {
 
       className={classNames([
         staticClassName('Watch', theme) && [
-          'AmauiWatch-root'
+          'amaui-Watch-root'
         ],
 
         className,
@@ -325,7 +325,7 @@ const Watch = React.forwardRef((props_: IWatch, ref: any) => {
 
                 className={classNames([
                   staticClassName('Watch', theme) && [
-                    'AmauiWatch-regular'
+                    'amaui-Watch-regular'
                   ],
 
                   RegularProps?.className,
@@ -386,7 +386,7 @@ const Watch = React.forwardRef((props_: IWatch, ref: any) => {
 
                     className={classNames([
                       staticClassName('Watch', theme) && [
-                        'AmauiWatch-time-of-day'
+                        'amaui-Watch-time-of-day'
                       ],
 
                       classes.timeOfDay
@@ -576,7 +576,7 @@ const Watch = React.forwardRef((props_: IWatch, ref: any) => {
 
                     className={classNames([
                       staticClassName('Watch', theme) && [
-                        'AmauiWatch-modern-background'
+                        'amaui-Watch-modern-background'
                       ],
 
                       classes.modern_background
@@ -610,7 +610,7 @@ const Watch = React.forwardRef((props_: IWatch, ref: any) => {
 
                     className={classNames([
                       staticClassName('Watch', theme) && [
-                        'AmauiWatch-modern-date'
+                        'amaui-Watch-modern-date'
                       ],
 
                       classes.modernDate
@@ -677,6 +677,6 @@ const Watch = React.forwardRef((props_: IWatch, ref: any) => {
   );
 });
 
-Watch.displayName = 'AmauiWatch';
+Watch.displayName = 'amaui-Watch';
 
 export default Watch;

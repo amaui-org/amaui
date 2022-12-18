@@ -17,7 +17,7 @@ const useStyle = styleMethod(theme => ({
     top: '0',
     zIndex: '11'
   }
-}), { name: 'AmauiTableHead' });
+}), { name: 'amaui-TableHead' });
 
 export interface ITableHead extends ISurface {
   size?: TSize;
@@ -28,7 +28,7 @@ export interface ITableHead extends ISurface {
 const TableHead = React.forwardRef((props_: ITableHead, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiTableHead?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTableHead?.props?.default, ...props_ }), [props_]);
 
   const {
     tonal = true,
@@ -62,7 +62,7 @@ const TableHead = React.forwardRef((props_: ITableHead, ref: any) => {
 
       className={classNames([
         staticClassName('TableHead', theme) && [
-          `AmauiTableHead-root`
+          `amaui-TableHead-root`
         ],
 
         className,
@@ -87,6 +87,6 @@ const TableHead = React.forwardRef((props_: ITableHead, ref: any) => {
   );
 });
 
-TableHead.displayName = 'AmauiTableHead';
+TableHead.displayName = 'amaui-TableHead';
 
 export default TableHead;

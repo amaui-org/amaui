@@ -10,7 +10,7 @@ const useStyle = styleMethod(theme => ({
     pointerEvents: 'auto',
     touchAction: 'none'
   }
-}), { name: 'AmauiMove' });
+}), { name: 'amaui-Move' });
 
 export interface IMove extends IBaseElement {
   manage?: boolean;
@@ -24,7 +24,7 @@ export interface IMove extends IBaseElement {
 const Move = React.forwardRef((props_: IMove, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.AmauiMove?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMove?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -192,7 +192,7 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
 
       className={classNames([
         staticClassName('Move', theme) && [
-          'AmauiMove-root'
+          'amaui-Move-root'
         ],
 
         className,
@@ -212,6 +212,6 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
   );
 });
 
-Move.displayName = 'AmauiMove';
+Move.displayName = 'amaui-Move';
 
 export default Move;
