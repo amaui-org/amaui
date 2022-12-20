@@ -749,6 +749,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
     allValues: React.useRef<any>([]),
     values: React.useRef<any>([]),
     visible: React.useRef<any>([]),
+    appendStyle: React.useRef<any>({}),
     theme: React.useRef<any>([])
   };
 
@@ -2313,9 +2314,29 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
                 classes.append_wrapper
               ])}
+
+              style={{
+                ...refs.appendStyle.current
+              }}
             >
               <Grow
                 in={append?.open}
+
+                onAdded={() => {
+                  refs.appendStyle.current = {
+                    transition: theme.methods.transitions.make('transform', { duration: 150 })
+                  };
+                }}
+
+                onEntered={() => {
+                  refs.appendStyle.current = {
+                    transition: theme.methods.transitions.make('transform', { duration: 150 })
+                  };
+                }}
+
+                onExited={() => {
+                  refs.appendStyle.current = {};
+                }}
 
                 add
               >
