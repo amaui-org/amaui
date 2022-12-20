@@ -273,7 +273,6 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
     menuRects: React.useRef<Array<DOMRect>>([]),
     previousOpen: React.useRef<any>(),
     previousOpenIndex: React.useRef<any>(),
-    previousInitial: React.useRef<any>(),
     anchorElement: React.useRef<HTMLElement>(),
     wrapper: React.useRef<any>()
   };
@@ -668,15 +667,6 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
           alignment='start'
 
           element={({ ref: refAppend, values, style: styleAppend }) => {
-            const previousInitial = (!refs.previousInitial.current || refs.previousInitial.current.init);
-
-            refs.previousInitial.current = values;
-
-            if (!previousInitial && refAppend) {
-              setTimeout(() => {
-                refAppend.current.style.transition = theme.methods.transitions.make(['width', 'height', 'transform']);
-              }, 14);
-            }
 
             return (
               <Wrapper
@@ -695,7 +685,19 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
                 <TransitionComponent
                   in={inProp}
 
-                  onExited={close}
+                  onEntered={() => {
+                    refAppend.current.style.transition = theme.methods.transitions.make(['width', 'height', 'transform']);
+                  }}
+
+                  onAdded={() => {
+                    refAppend.current.style.transition = theme.methods.transitions.make(['width', 'height', 'transform']);
+                  }}
+
+                  onExited={() => {
+                    close();
+
+                    refAppend.current.style.transition = 'none';
+                  }}
 
                   add
 
