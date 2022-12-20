@@ -95,6 +95,10 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
 
     maxPaddingY: maxPaddingY__,
 
+    animate: animate_,
+
+    animateTimeout: animateTimeout_,
+
     smooth = true,
 
     smoothRatio = 0.14,
@@ -122,14 +126,23 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
   const minPaddingY = valueBreakpoints(minPaddingY__, undefined, breakpoints, theme);
   const maxPaddingX = valueBreakpoints(maxPaddingX__, undefined, breakpoints, theme);
   const maxPaddingY = valueBreakpoints(maxPaddingY__, undefined, breakpoints, theme);
+  const animate = valueBreakpoints(animate_, true, breakpoints, theme);
+  const animateTimeout = valueBreakpoints(animateTimeout_, 140, breakpoints, theme);
 
   const [value, setValue] = React.useState<any>();
+  const [init, setInit] = React.useState<any>();
 
   const refs = {
     rects: React.useRef<any>(),
     minMax: React.useRef<any>(),
     smooth: React.useRef<any>(),
-    theme: React.useRef<any>()
+    theme: React.useRef<any>(),
+    path: React.useRef<SVGPathElement>(),
+    pathBackground: React.useRef<SVGPathElement>(),
+    pathStyle: React.useRef({}),
+    animate: React.useRef<any>(),
+    animateTimeout: React.useRef<number>(),
+    init: React.useRef<any>()
   };
 
   refs.theme.current = theme;
@@ -190,6 +203,12 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
   refs.minMax.current = minMax;
 
   refs.smooth.current = smooth;
+
+  refs.animate.current = animate;
+
+  refs.animateTimeout.current = animateTimeout;
+
+  refs.init.current = init;
 
   const LegendItem = React.useCallback((props__: any) => {
     const {
@@ -403,6 +422,8 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
             <g>
               {/* Background */}
               <Path
+                ref={refs.pathBackground}
+
                 d={d.background}
 
                 fill={linearGradient ? `url('#areaChart_id_${name}')` : refs.theme.current.methods.palette.color.colorToRgb(!refs.theme.current.palette.color[color_] ? color_ : refs.theme.current.palette.color[color_][tone], 0.14)}
@@ -412,10 +433,24 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
                 {...PathProps}
 
                 {...BackgroundProps}
+
+                style={{
+                  ...PathProps?.style,
+
+                  ...BackgroundProps?.style,
+
+                  ...((animate && !init) && {
+                    opacity: 0
+                  }),
+
+                  ...refs.pathStyle.current
+                }}
               />
 
               {/* Border */}
               <Path
+                ref={refs.path}
+
                 d={d.border}
 
                 fill='none'
@@ -427,6 +462,18 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
                 {...PathProps}
 
                 {...BorderProps}
+
+                style={{
+                  ...PathProps?.style,
+
+                  ...BorderProps?.style,
+
+                  ...((refs.animate.current && refs.init.current !== 'animated') && {
+                    opacity: 0
+                  }),
+
+                  ...refs.pathStyle.current
+                }}
               />
             </g>
           )
@@ -452,9 +499,39 @@ const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
     }
   };
 
+  const initMethod = React.useCallback(() => {
+    if (animate) {
+      if (!init && refs.path.current) {
+        const total = refs.path.current.getTotalLength();
+
+        refs.pathStyle.current = {
+          strokeDasharray: total,
+          strokeDashoffset: total,
+          transition: theme.methods.transitions.make('stroke-dashoffset', { duration: 2400, timing_function: 'decelerated' })
+        };
+
+        setInit(true);
+
+        setTimeout(() => {
+          refs.pathStyle.current = {
+            ...refs.pathStyle.current,
+
+            opacity: 1,
+
+            strokeDashoffset: 0
+          };
+
+          setInit('animated');
+        }, refs.animateTimeout.current);
+      }
+    }
+  }, [init, animate]);
+
   React.useEffect(() => {
     make();
-  }, [values, theme]);
+
+    initMethod();
+  }, [values, theme, animate, init, !!(refs.path.current && refs.pathBackground.current)]);
 
   const onUpdateRects = (valueNew: any) => {
     refs.rects.current = valueNew;

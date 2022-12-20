@@ -375,6 +375,10 @@ export interface IChart extends IBaseElement {
   guidelinesAppend?: boolean | Record<TValueBreakpoints, boolean>;
   guidelinesDisplayInactive?: boolean | Record<TValueBreakpoints, boolean>;
 
+  // Animate
+  animate?: boolean;
+  animateTimeout?: number;
+
   // Additional lines
   additionalLines?: TElement;
 

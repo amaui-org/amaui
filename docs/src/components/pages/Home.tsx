@@ -694,6 +694,8 @@ export default function Root(props: any) {
 
                   maxPaddingY={0.14}
 
+                  animateTimeout={1400}
+
                   linearGradient
 
                   values={[
