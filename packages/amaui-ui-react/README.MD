@@ -4,11 +4,11 @@
 
 <p align='center'>
   <a target='_blank' rel='noopener noreferrer' href='#'>
-    <img src='../../utils/images/logo.svg' alt='AMAUI logo' />
+    <img src='../../utils/images/logo.svg' alt='amaui logo' />
   </a>
 </p>
 
-<h1 align='center'>AMAUI UI React</h1>
+<h1 align='center'>amaui UI React</h1>
 
 <p align='center'>
   Amaui UI for React
@@ -91,4 +91,4 @@ Might be soon...
 
 ## Disclaimer
 
-AMAUI UI elements library is mostly based on the UI design rules of Open Source Google Material Design 3 design principles. The project is not in any way affiliated with Alphabet Inc., Google Inc. or any of their projects.
+amaui UI elements library is mostly based on the UI design rules of Open Source Google Material Design 3 design principles. The project is not in any way affiliated with Alphabet Inc., Google Inc. or any of their projects.

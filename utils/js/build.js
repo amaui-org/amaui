@@ -173,7 +173,7 @@ async function addLicense() {
       if (exists) {
         const data = await fse.readFile(filePath, 'utf8');
 
-        if (data.indexOf('@license AMAUI') === -1) await fse.writeFile(filePath, license + data, 'utf8');
+        if (data.indexOf('@license amaui') === -1) await fse.writeFile(filePath, license + data, 'utf8');
       }
     })
   );
