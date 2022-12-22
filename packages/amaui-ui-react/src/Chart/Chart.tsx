@@ -2332,7 +2332,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
                   };
                 }}
 
-                onEntered={() => {
+                onEnter={() => {
                   refs.appendStyle.current = {
                     transition: theme.methods.transitions.make('transform', { duration: 150 })
                   };
