@@ -32,10 +32,10 @@ const useStyle = styleMethod(theme => ({
   },
 
   version_standard: {
-    '&.amaui-Modal-root': {
-      position: 'unset',
-      inset: 'unset'
-    },
+    // '&.amaui-Modal-root': {
+    //   position: 'unset',
+    //   inset: 'unset'
+    // },
 
     '& .amaui-Modal-surface': {
       position: 'relative'
@@ -76,6 +76,7 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-NavigationDrawer' });
 
 export interface INavigationDrawer extends IModal {
+  version?: 'modal' | 'standard';
   direction?: 'top' | 'left' | 'bottom' | 'right';
   swipe?: boolean;
   swipeTouchAnywhere?: boolean;
@@ -109,6 +110,8 @@ const NavigationDrawer = React.forwardRef((props_: INavigationDrawer, ref: any) 
 
     TransitionComponentProps = {},
 
+    Component = 'nav',
+
     className,
 
     children,
@@ -135,7 +138,7 @@ const NavigationDrawer = React.forwardRef((props_: INavigationDrawer, ref: any) 
 
   let swipeValue: IResponseUseSwipe;
 
-  if (swipe) {
+  if (swipe && version === 'modal') {
     const swipeOptions: IOptionsUseSwipe = {
       open,
       min,
@@ -256,6 +259,8 @@ const NavigationDrawer = React.forwardRef((props_: INavigationDrawer, ref: any) 
       }}
 
       TransitionComponent={Slide}
+
+      Component={Component}
 
       className={classNames([
         staticClassName('NavigationDrawer', theme) && [

@@ -480,9 +480,11 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
     }
   }, [open]);
 
-  const onBlur = React.useCallback((item: any) => {
-    updateOpen('');
-    setFocus('');
+  const onBlur = React.useCallback(() => {
+    if (refs.focus.current) {
+      updateOpen('');
+      setFocus('');
+    }
   }, []);
 
   const onFocus = React.useCallback((item: any) => {
@@ -506,6 +508,8 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
   const onClick = React.useCallback((item: any) => {
     if (item && !item.disabled && item.menu) {
       open ? updateOpen('') : updateOpen(item.value);
+
+      setTimeout(() => setFocus(''));
     }
   }, [open]);
 
@@ -590,7 +594,7 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
                 {...((!!item.menu && !mobile && openOnFocus) && {
                   onFocus: () => onFocus(item),
 
-                  onBlur: () => onBlur(item)
+                  onBlur: () => onBlur()
                 })}
 
                 {...((!!item.menu && openOnHover) && {
@@ -678,30 +682,25 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
 
                 style={{
                   ...append,
+                  ...styleAppend,
 
-                  ...styleAppend
+                  transition: 'none'
                 }}
               >
                 <TransitionComponent
                   in={inProp}
 
                   onEnter={() => {
-                    refAppend.current.style.transition = theme.methods.transitions.make(['width', 'height', 'transform']);
-                  }}
-
-                  onAdded={() => {
-                    refAppend.current.style.transition = theme.methods.transitions.make(['width', 'height', 'transform']);
+                    if (refAppend.current) refAppend.current.style.transition = theme.methods.transitions.make(['width', 'height', 'transform']);
                   }}
 
                   onExited={() => {
                     close();
 
-                    refAppend.current.style.transition = 'none';
+                    if (refAppend.current) refAppend.current.style.transition = 'none';
                   }}
 
                   add
-
-                  addTransition={theme.methods.transitions.make(['width', 'height'])}
 
                   {...TransitionComponentProps}
                 >

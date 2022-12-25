@@ -3,7 +3,7 @@ import LinkNext from 'next/link';
 
 import Head from 'next/head';
 
-import { Avatar, IconButton, Line, Link, List, ListItem, MenuDesktop, SpeedDial, SpeedDialItem, Surface, Switch, Tooltip, TopAppBar, Type, useMediaQuery, useScroll } from '@amaui/ui-react';
+import { Avatar, Divider, IconButton, Line, Link, List, ListItem, ListSubheader, MenuDesktop, NavigationDrawer, SpeedDial, SpeedDialItem, Surface, Switch, Tooltip, TopAppBar, Type, useMediaQuery, useScroll } from '@amaui/ui-react';
 import { classNames, colors, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
 
@@ -12,6 +12,9 @@ import IconMaterialLightModeRounded from '@amaui/icons-material-react/IconMateri
 import IconMaterialDarkModeRounded from '@amaui/icons-material-react/IconMaterialDarkModeRounded';
 import IconMaterialFormatTextdirectionLToRRounded from '@amaui/icons-material-react/IconMaterialFormatTextdirectionLToRRounded';
 import IconMaterialFormatTextdirectionRToLRounded from '@amaui/icons-material-react/IconMaterialFormatTextdirectionRToLRounded';
+import IconMaterialAutoAwesomeRounded from '@amaui/icons-material-react/IconMaterialAutoAwesomeRounded';
+import IconMaterialMenuRounded from '@amaui/icons-material-react/IconMaterialMenuRounded';
+import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/IconMaterialPottedPlantRounded';
 
 import Logo from '../../public/assets/svg/logo.svg';
 import IconGithub from '../../public/assets/svg/github.svg';
@@ -35,6 +38,31 @@ const useStyle = styleMethod(theme => ({
     background: 'transparent'
   },
 
+  wrapper: {
+    width: '100%'
+  },
+
+  wrapper_library: {
+    marginInlineStart: '370px'
+  },
+
+  navigationDrawer: {
+    '&.amaui-Modal-root': {
+      position: 'fixed',
+      top: 0,
+      insetInlineStart: 0,
+      height: '100vh',
+      width: 370,
+      zIndex: 1
+    }
+  },
+
+  navigationDrawer_mobile: {
+    '&.amaui-Modal-root': {
+      zIndex: theme.z_index.tooltip + 2
+    }
+  },
+
   header: {
     top: '8px',
     left: '50%',
@@ -47,7 +75,7 @@ const useStyle = styleMethod(theme => ({
       background: 'transparent',
       borderRadius: theme.methods.shape.radius.value('xxl', 'px'),
       transition: [
-        theme.methods.transitions.make('transform', { duration: 'rg' }),
+        theme.methods.transitions.make(['transform', 'left'], { duration: 'rg' }),
         theme.methods.transitions.make(['background', 'max-width', 'box-shadow'], { duration: 'complex' })
       ].join(', '),
       zIndex: theme.z_index.tooltip + 1
@@ -56,6 +84,14 @@ const useStyle = styleMethod(theme => ({
     '& .amaui-TopAppBar-wrapper': {
       height: 'unset',
       padding: '12px 24px'
+    }
+  },
+
+  header_withNavigationDrawer: {
+    left: 'calc(50% + 170px)',
+
+    '&.amaui-TopAppBar-root': {
+      width: `calc(100% - 370px)`,
     }
   },
 
@@ -92,6 +128,7 @@ const useStyle = styleMethod(theme => ({
     width: '100%',
     marginTop: '76px',
     flex: '1 1 auto',
+    minHeight: '140vh',
 
     '& > *': {
       display: 'flex',
@@ -161,6 +198,7 @@ function Root(props: any) {
 
   const [init, setInit] = React.useState(false);
   const [imageSelected, setImageSelected] = React.useState('');
+  const [open, setOpen] = React.useState(false);
 
   const refs = {
     storage: new AmauiStorage({ namespace: 'amaui-docs' }),
@@ -318,6 +356,15 @@ function Root(props: any) {
 
   const Page = !isLibrary ? Home : Library;
 
+  const withNavigationDrawer = !!(isLibrary) && !smallerScreen;
+
+  const NavigationDrawerProps: any = {};
+
+  if (isLibrary && smallerScreen) {
+    NavigationDrawerProps.color = 'primary';
+    NavigationDrawerProps.tonal = true;
+  }
+
   return <>
     <Head>
       <title>amaui</title>
@@ -353,7 +400,7 @@ function Root(props: any) {
 
       gap={0}
 
-      direction='column'
+      direction='row'
 
       Component={Line}
 
@@ -361,243 +408,410 @@ function Root(props: any) {
         classes.root
       ])}
     >
-      {/* Header */}
-      <TopAppBar
-        start={(
-          <LinkNext
-            href='/'
+      {isLibrary && (
+        <NavigationDrawer
+          open={smallerScreen ? open : true}
+
+          openDefault={(isLibrary && !smallerScreen)}
+
+          version={smallerScreen ? 'modal' : 'standard'}
+
+          onClose={() => setOpen(false)}
+
+          tonal={false}
+
+          color='default'
+
+          {...NavigationDrawerProps}
+
+          className={classNames([
+            smallerScreen ? classes.navigationDrawer_mobile : classes.navigationDrawer
+          ])}
+        >
+          <List
+            tonal={false}
+
+            color='default'
+
+            shapePosition='both'
+
+            paddingHorizontal='both'
+
+            {...NavigationDrawerProps}
+
+            style={{ width: 340 }}
           >
-            <span>
-              <Logo
-                className={classNames([
-                  classes.logo
-                ])}
-              />
-            </span>
-          </LinkNext>
-        )}
+            <ListSubheader>
+              Mail
+            </ListSubheader>
 
-        end={[
-          //   <MenuDesktop
-          //     key={0}
+            <ListItem
+              primary='Inbox'
 
-          //     items={[
-          //       {
-          //         label: 'Libraries',
+              start={(
+                <IconMaterialPottedPlantRounded />
+              )}
 
-          //         value: 'libraries',
+              end={(
+                <Type
+                  version='l2'
+                >
+                  114
+                </Type>
+              )}
 
-          //         menu: (
-          //           <List
-          //             tonal
+              button
 
-          //             color='primary'
+              selected
+            />
 
-          //             size='regular'
+            <ListItem
+              primary='Outbox'
 
-          //             menu
+              start={(
+                <IconMaterialPottedPlantRounded />
+              )}
 
-          //             style={{
-          //               maxHeight: 400,
-          //               overflowY: 'auto'
-          //             }}
-          //           >
-          //             {libraries.map((item, index: number) => {
+              end={(
+                <Type
+                  version='l2'
+                >
+                  114
+                </Type>
+              )}
 
-          //               return (
-          //                 <ListItemNext
-          //                   key={index}
+              button
+            />
 
-          //                   href={item.url}
+            <ListItem
+              primary='Favourites'
 
-          //                   menuCloseOnClick
-          //                 >
-          //                   <ListItem
-          //                     primary={item.name}
+              start={(
+                <IconMaterialPottedPlantRounded />
+              )}
 
-          //                     selected={item.url === props.url}
+              button
+            />
 
-          //                     button
+            <ListItem
+              primary='Trash'
 
-          //                     style={{
-          //                       minWidth: 240
-          //                     }}
-          //                   />
-          //                 </ListItemNext>
-          //               );
-          //             })}
-          //           </List>
-          //         )
-          //       }
-          //     ]}
+              start={(
+                <IconMaterialPottedPlantRounded />
+              )}
 
-          //     AppendProps={{
-          //       alignment: !mobile ? 'end' : 'center'
-          //     }}
-          //   />,
+              button
+            />
 
-          <Tooltip
-            key={1}
+            <Divider
+              Component='li'
 
-            label='amaui org'
+              padding
 
-            color='inverted'
-          >
-            <IconButton
               color='inherit'
+            />
 
-              Component='a'
+            <ListItem
+              primary='Label'
 
-              href='https://github.com/amaui-org/amaui'
+              button
+            />
 
-              target='_blank'
+            <ListItem
+              primary='Label 114'
+
+              button
+            />
+          </List>
+        </NavigationDrawer>
+      )}
+
+      <Line
+        gap={0}
+
+        direction='column'
+
+        className={classNames([
+          classes.wrapper,
+          (isLibrary && !smallerScreen) && classes.wrapper_library
+        ])}
+      >
+        {/* Header */}
+        <TopAppBar
+          start={[
+            ...((smallerScreen && isLibrary) ? [(
+              <IconButton
+                color='inherit'
+
+                onClick={() => setOpen(true)}
+
+                style={{
+                  marginInlineEnd: 16
+                }}
+              >
+                <IconMaterialMenuRounded />
+              </IconButton>
+            )] : []),
+
+            <LinkNext
+              href='/'
             >
-              <IconGithub
-                className={classNames([
-                  classes.icon
-                ])}
-              />
-            </IconButton>
-          </Tooltip>
-        ]}
+              <span>
+                <Logo
+                  className={classNames([
+                    classes.logo
+                  ])}
+                />
+              </span>
+            </LinkNext>
+          ]}
 
-        position='fixed'
+          end={[
+            <MenuDesktop
+              key={0}
 
-        Component='header'
+              items={[
+                {
+                  label: 'Libraries',
 
-        className={classNames([
-          classes.header,
+                  value: 'libraries',
 
-          scrollNotTop && classes.header_not_top,
-          scrollDown && classes.header_down
-        ])}
-      />
+                  menu: (
+                    <List
+                      tonal
 
-      {/* Main */}
-      <Line
-        Component='main'
+                      color='primary'
 
-        className={classNames([
-          classes.main
-        ])}
-      >
-        <Page {...props} />
-      </Line>
+                      size='regular'
 
-      {/* Footer */}
-      <Line
-        align='center'
+                      menu
 
-        Component='footer'
+                      style={{
+                        maxHeight: 400,
+                        overflowY: 'auto'
+                      }}
+                    >
+                      {libraries.map((item: any, index: number) => {
 
-        className={classNames([
-          classes.footer
-        ])}
-      >
+                        return (
+                          <ListItemNext
+                            key={index}
+
+                            href={item.url}
+
+                            menuCloseOnClick
+                          >
+                            <ListItem
+                              primary={item.name}
+
+                              selected={item.url === props.url}
+
+                              {...(item.version !== undefined ? {
+                                ...(item.version === 'primary' ? {
+                                  start: (
+                                    <IconMaterialAutoAwesomeRounded
+                                      color={item.version}
+
+                                      size='small'
+                                    />
+                                  ),
+
+                                  startAlign: 'center'
+                                } : {
+                                  start: (
+                                    <IconMaterialAutoAwesomeRounded
+                                      color={item.version}
+
+                                      size='small'
+                                    />
+                                  ),
+
+                                  startAlign: 'center'
+                                })
+                              } : undefined)}
+
+                              button
+
+                              style={{
+                                minWidth: 247
+                              }}
+                            />
+                          </ListItemNext>
+                        );
+                      })}
+                    </List>
+                  )
+                }
+              ]}
+
+              AppendProps={{
+                alignment: !mobile ? 'end' : 'center'
+              }}
+            />,
+
+            <Tooltip
+              key={1}
+
+              label='amaui org'
+
+              color='inverted'
+            >
+              <IconButton
+                color='inherit'
+
+                Component='a'
+
+                href='https://github.com/amaui-org/amaui'
+
+                target='_blank'
+              >
+                <IconGithub
+                  className={classNames([
+                    classes.icon
+                  ])}
+                />
+              </IconButton>
+            </Tooltip>
+          ]}
+
+          position='fixed'
+
+          Component='header'
+
+          className={classNames([
+            classes.header,
+            withNavigationDrawer && classes.header_withNavigationDrawer,
+            scrollNotTop && classes.header_not_top,
+            scrollDown && classes.header_down
+          ])}
+        />
+
+        {/* Main */}
         <Line
-          gap={1}
+          Component='main'
 
-          direction='row'
+          className={classNames([
+            classes.main
+          ])}
+        >
+          <Page {...props} />
+        </Line>
 
+        {/* Footer */}
+        <Line
           align='center'
 
-          justify='center'
+          Component='footer'
 
-          wrap='wrap'
-
-          style={{
-            marginBottom: 24
-          }}
+          className={classNames([
+            classes.footer
+          ])}
         >
           <Line
-            gap={0.5}
+            gap={1}
 
             direction='row'
 
             align='center'
 
             justify='center'
+
+            wrap='wrap'
+
+            style={{
+              marginBottom: 24
+            }}
           >
+            <Line
+              gap={0.5}
+
+              direction='row'
+
+              align='center'
+
+              justify='center'
+            >
+              <Type
+                version='m3'
+              >
+                100% Open source,
+              </Type>
+
+              <Link
+                version='m3'
+
+                href='https://github.com/amaui-org/amaui/blob/main/LICENSE'
+
+                target='_blank'
+
+                color={theme.palette.color.secondary[50]}
+              >
+                MIT license
+              </Link>
+            </Line>
+
+            <Type>·</Type>
+
             <Type
               version='m3'
             >
-              100% Open source,
+              Modern code
             </Type>
 
-            <Link
+            <Type>·</Type>
+
+            <Type
               version='m3'
-
-              href='https://github.com/amaui-org/amaui/blob/main/LICENSE'
-
-              target='_blank'
-
-              color={theme.palette.color.secondary[50]}
             >
-              MIT license
-            </Link>
+              Alpha version
+            </Type>
+
+            <Type>·</Type>
+
+            <Type
+              version='m3'
+            >
+              Browser & Nodejs
+            </Type>
           </Line>
 
-          <Type>·</Type>
-
-          <Type
-            version='m3'
-          >
-            Modern code
-          </Type>
-
-          <Type>·</Type>
-
-          <Type
-            version='m3'
-          >
-            Alpha version
-          </Type>
-
-          <Type>·</Type>
-
-          <Type
-            version='m3'
-          >
-            Browser & Nodejs
-          </Type>
-        </Line>
-
-        <Type
-          version='b3'
-
-          priority='secondary'
-
-          style={{
-            textAlign: 'center'
-          }}
-        >
-          Disclaimer: This is an independent open source project, and is not in any way affiliated with Alphabet Inc., Google Inc. or any of their projects.
-        </Type>
-
-        <Type
-          version='b3'
-        >
-          Copyright © 2022 Lazar Eric
-        </Type>
-
-        <Line
-          gap={0.5}
-
-          direction='row'
-        >
           <Type
             version='b3'
 
             priority='secondary'
+
+            style={{
+              textAlign: 'center'
+            }}
           >
-            Made with
+            Disclaimer: This is an independent open source project, and is not in any way affiliated with Alphabet Inc., Google Inc. or any of their projects.
           </Type>
 
           <Type
             version='b3'
           >
-            💛
+            Copyright © 2022 Lazar Eric
           </Type>
+
+          <Line
+            gap={0.5}
+
+            direction='row'
+          >
+            <Type
+              version='b3'
+
+              priority='secondary'
+            >
+              Made with
+            </Type>
+
+            <Type
+              version='b3'
+            >
+              💛
+            </Type>
+          </Line>
         </Line>
       </Line>
 
