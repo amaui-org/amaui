@@ -138,7 +138,7 @@ const NavigationDrawer = React.forwardRef((props_: INavigationDrawer, ref: any) 
 
   let swipeValue: IResponseUseSwipe;
 
-  if (swipe && version === 'modal') {
+  if (swipe) {
     const swipeOptions: IOptionsUseSwipe = {
       open,
       min,
@@ -154,7 +154,7 @@ const NavigationDrawer = React.forwardRef((props_: INavigationDrawer, ref: any) 
   }, [open_]);
 
   React.useEffect(() => {
-    if (swipeValue) {
+    if (swipeValue && version === 'modal') {
       const valueSwipe = swipeValue.value;
       const valuePercentageSwipe = clamp(swipeValue.valuePercentage, 0, 100);
       const position = swipeValue.position;
@@ -206,7 +206,7 @@ const NavigationDrawer = React.forwardRef((props_: INavigationDrawer, ref: any) 
         }
       }
     }
-  }, [swipeValue?.value, swipeValue?.position]);
+  }, [version, swipeValue?.value, swipeValue?.position]);
 
   const onClose = React.useCallback(() => {
     if (is('function', onClose_)) onClose_();

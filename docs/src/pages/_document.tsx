@@ -100,7 +100,7 @@ CustomDocument.getInitialProps = async ctx => {
           __html: `
 @font-face {
   font-family: 'Montserrat';
-  src: url('assets/fonts/Montserrat/Montserrat-Bold.ttf');
+  src: url('/assets/fonts/Montserrat/Montserrat-Bold.ttf');
   font-weight: 700;
   font-style: normal;
   font-display: block;
@@ -108,7 +108,7 @@ CustomDocument.getInitialProps = async ctx => {
 
 @font-face {
   font-family: 'Lato';
-  src: url('assets/fonts/Lato/Lato-Bold.ttf');
+  src: url('/assets/fonts/Lato/Lato-Bold.ttf');
   font-weight: 700;
   font-style: normal;
   font-display: block;

@@ -1,0 +1,37 @@
+[
+  {
+    "url": "/dev/queue",
+    "label": "Queue",
+    "default": "/dev/queue/starting/install",
+    "menu": [
+      {
+        "label": "Starting",
+        "url": "/dev/queue/starting",
+        "menu": [
+          {
+            "label": "Install",
+            "url": "/dev/queue/starting/install"
+          },
+          {
+            "label": "Import",
+            "url": "/dev/queue/starting/import"
+          }
+        ]
+      },
+      {
+        "label": "Use",
+        "url": "/dev/queue/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/queue/api",
+        "menu": [
+          {
+            "label": "AmauiQueue",
+            "url": "/dev/queue/api/amaui-queue"
+          }
+        ]
+      }
+    ]
+  }
+]

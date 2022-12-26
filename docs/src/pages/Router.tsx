@@ -3,7 +3,9 @@ import LinkNext from 'next/link';
 
 import Head from 'next/head';
 
-import { Avatar, Divider, IconButton, Line, Link, List, ListItem, ListSubheader, MenuDesktop, NavigationDrawer, SpeedDial, SpeedDialItem, Surface, Switch, Tooltip, TopAppBar, Type, useMediaQuery, useScroll } from '@amaui/ui-react';
+import { is, isEnvironment } from '@amaui/utils';
+
+import { Avatar, IconButton, Line, Link, List, ListItem, ListSubheader, MenuDesktop, NavigationDrawer, SpeedDial, SpeedDialItem, Surface, Switch, Tooltip, TopAppBar, Type, useMediaQuery, useScroll } from '@amaui/ui-react';
 import { classNames, colors, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
 
@@ -14,10 +16,11 @@ import IconMaterialFormatTextdirectionLToRRounded from '@amaui/icons-material-re
 import IconMaterialFormatTextdirectionRToLRounded from '@amaui/icons-material-react/IconMaterialFormatTextdirectionRToLRounded';
 import IconMaterialAutoAwesomeRounded from '@amaui/icons-material-react/IconMaterialAutoAwesomeRounded';
 import IconMaterialMenuRounded from '@amaui/icons-material-react/IconMaterialMenuRounded';
-import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/IconMaterialPottedPlantRounded';
 
 import Logo from '../../public/assets/svg/logo.svg';
 import IconGithub from '../../public/assets/svg/github.svg';
+
+import sidenavJSON from '../assets/json/sidenav.json';
 
 import Home from '../components/pages/Home';
 import Library from '../components/pages/Library';
@@ -35,7 +38,11 @@ const useStyle = styleMethod(theme => ({
 
   root: {
     minHeight: '100vh',
-    background: 'transparent'
+    background: 'transparent',
+
+    '& .amaui-List-root': {
+      gap: 4
+    }
   },
 
   wrapper: {
@@ -43,7 +50,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   wrapper_library: {
-    marginInlineStart: '370px'
+    marginInlineStart: '340px'
   },
 
   navigationDrawer: {
@@ -52,7 +59,7 @@ const useStyle = styleMethod(theme => ({
       top: 0,
       insetInlineStart: 0,
       height: '100vh',
-      width: 370,
+      width: 340,
       zIndex: 1
     }
   },
@@ -91,7 +98,7 @@ const useStyle = styleMethod(theme => ({
     left: 'calc(50% + 170px)',
 
     '&.amaui-TopAppBar-root': {
-      width: `calc(100% - 370px)`,
+      width: `calc(100% - 340px)`,
     }
   },
 
@@ -128,7 +135,7 @@ const useStyle = styleMethod(theme => ({
     width: '100%',
     marginTop: '76px',
     flex: '1 1 auto',
-    minHeight: '140vh',
+    minHeight: 'calc(100vh - 305px)',
 
     '& > *': {
       display: 'flex',
@@ -161,12 +168,28 @@ const useStyle = styleMethod(theme => ({
 
   image_option_selected: {
     boxShadow: `0px 0px 0px 1px ${theme.palette.text.default.primary}`
+  },
+
+  menuItem_menu: {
+    '& > .amaui-ListItem-root .amaui-ListItem-text-primary': {
+      fontWeight: '600'
+    }
+  },
+
+  sideNavList: {
+    '&.amaui-Surface-root, & .amaui-Surface-root': {
+      background: 'transparent'
+    }
   }
 }), { name: 'root' });
 
 const ListItemNext = (props: any) => {
   const {
     href,
+
+    version,
+    color,
+    size,
 
     children,
 
@@ -202,8 +225,30 @@ function Root(props: any) {
 
   const refs = {
     storage: new AmauiStorage({ namespace: 'amaui-docs' }),
-    imageSelected: React.useRef<any>()
+    imageSelected: React.useRef<any>(),
+    sidenavMenu: React.useRef<any>(),
+    props: React.useRef<any>()
   };
+
+  const sidenavMenu: any = React.useMemo(() => {
+    const menu = sidenavJSON.find(item => props.url.indexOf(item.url) === 0);
+
+    return menu || [];
+  }, [props.url]);
+
+  refs.sidenavMenu.current = sidenavMenu;
+
+  refs.props.current = props;
+
+  const resolveOpenList = () => {
+    const url = refs.props.current.url;
+
+    const item = refs.sidenavMenu.current?.menu?.find((itemMenu: any) => url.indexOf(itemMenu?.url) === 0 || !!itemMenu?.menu?.find((itemMenuItem: any) => url.indexOf(itemMenuItem?.url) === 0));
+
+    return item?.label;
+  };
+
+  const [openList, setOpenList] = React.useState(resolveOpenList);
 
   const { classes } = useStyle(props);
 
@@ -257,6 +302,10 @@ function Root(props: any) {
       update('light', light);
     }
   }, [light]);
+
+  React.useEffect(() => {
+    setOpenList(resolveOpenList());
+  }, [props.url]);
 
   const update = async (version = 'light', value: any = true) => {
     let values_ = {};
@@ -352,7 +401,21 @@ function Root(props: any) {
     return all_libraries;
   }, []);
 
-  const isLibrary = libraries.find(item => props.url?.indexOf(item.url) === 0);
+  const urls = React.useMemo(() => {
+    const urls: string[] = libraries.map(item => item.url);
+
+    const method = (item: any) => {
+      if (item.url !== undefined) urls.push(item.url);
+
+      if (is('array', item.menu)) item.menu.forEach((route: any) => method(route));
+    };
+
+    sidenavJSON.forEach(item => method(item));
+
+    return urls;
+  }, [isEnvironment('browser') && window.location.pathname]);
+
+  const isLibrary = urls.find(item => props.url === item);
 
   const Page = !isLibrary ? Home : Library;
 
@@ -364,6 +427,76 @@ function Root(props: any) {
     NavigationDrawerProps.color = 'primary';
     NavigationDrawerProps.tonal = true;
   }
+
+  const toggleList = React.useCallback((name: string) => {
+    setOpenList(name === openList ? '' : name);
+  }, [openList]);
+
+  const menuItems = React.useCallback((menu: any) => {
+    return (menu || []).map((item: any, index: number) => {
+      const isUrl = item.url && !item.menu;
+
+      const ListItemComponent = isUrl ? ListItemNext : React.Fragment;
+      const ListItemComponentProps: any = {};
+
+      if (isUrl) {
+        ListItemComponentProps.href = item.url;
+
+        ListItemComponentProps.onClick = () => setOpen(false);
+      }
+
+      return (
+        <ListItemComponent
+          {...ListItemComponentProps}
+        >
+          <ListItem
+            key={index}
+
+            primary={item.label}
+
+            tonal
+
+            color='inherit'
+
+            colorSelected='primary'
+
+            size='small'
+
+            list={item.menu && menuItems(item.menu)}
+
+            shapePosition='both'
+
+            selected={!item.menu ? item.url === (isEnvironment('browser') && window.location.pathname) : false}
+
+            button
+
+            ListProps={{
+              tonal: true,
+              color: 'primary'
+            }}
+
+            WrapperProps={{
+              version: 'text'
+            }}
+
+            {...(item.menu ? {
+              onClick: () => {
+                toggleList(item.label);
+              },
+
+              openList: item.label === openList,
+
+              openListDefault: item.label === openList
+            } : undefined)}
+
+            className={classNames([
+              item.menu && classes.menuItem_menu
+            ])}
+          />
+        </ListItemComponent>
+      );
+    });
+  }, [openList, toggleList, NavigationDrawerProps]);
 
   return <>
     <Head>
@@ -408,11 +541,11 @@ function Root(props: any) {
         classes.root
       ])}
     >
-      {isLibrary && (
+      {!!isLibrary && (
         <NavigationDrawer
           open={smallerScreen ? open : true}
 
-          openDefault={(isLibrary && !smallerScreen)}
+          openDefault={false}
 
           version={smallerScreen ? 'modal' : 'standard'}
 
@@ -425,104 +558,44 @@ function Root(props: any) {
           {...NavigationDrawerProps}
 
           className={classNames([
-            smallerScreen ? classes.navigationDrawer_mobile : classes.navigationDrawer
+            (init && smallerScreen) ? classes.navigationDrawer_mobile : classes.navigationDrawer
           ])}
         >
-          <List
-            tonal={false}
+          {sidenavMenu && (
+            <List
+              tonal
 
-            color='default'
+              color='primary'
 
-            shapePosition='both'
+              shapePosition='both'
 
-            paddingHorizontal='both'
+              paddingHorizontal='both'
 
-            {...NavigationDrawerProps}
+              {...NavigationDrawerProps}
 
-            style={{ width: 340 }}
-          >
-            <ListSubheader>
-              Mail
-            </ListSubheader>
+              className={classNames([
+                classes.sideNavList
+              ])}
 
-            <ListItem
-              primary='Inbox'
+              style={{
+                width: 340
+              }}
+            >
+              {sidenavMenu.label && (
+                <ListSubheader>
+                  <Type
+                    version='t1'
 
-              start={(
-                <IconMaterialPottedPlantRounded />
+                    color='primary'
+                  >
+                    {sidenavMenu.label}
+                  </Type>
+                </ListSubheader>
               )}
 
-              end={(
-                <Type
-                  version='l2'
-                >
-                  114
-                </Type>
-              )}
-
-              button
-
-              selected
-            />
-
-            <ListItem
-              primary='Outbox'
-
-              start={(
-                <IconMaterialPottedPlantRounded />
-              )}
-
-              end={(
-                <Type
-                  version='l2'
-                >
-                  114
-                </Type>
-              )}
-
-              button
-            />
-
-            <ListItem
-              primary='Favourites'
-
-              start={(
-                <IconMaterialPottedPlantRounded />
-              )}
-
-              button
-            />
-
-            <ListItem
-              primary='Trash'
-
-              start={(
-                <IconMaterialPottedPlantRounded />
-              )}
-
-              button
-            />
-
-            <Divider
-              Component='li'
-
-              padding
-
-              color='inherit'
-            />
-
-            <ListItem
-              primary='Label'
-
-              button
-            />
-
-            <ListItem
-              primary='Label 114'
-
-              button
-            />
-          </List>
+              {menuItems(sidenavMenu.menu)}
+            </List>
+          )}
         </NavigationDrawer>
       )}
 
@@ -533,7 +606,7 @@ function Root(props: any) {
 
         className={classNames([
           classes.wrapper,
-          (isLibrary && !smallerScreen) && classes.wrapper_library
+          (init && isLibrary && !smallerScreen) && classes.wrapper_library
         ])}
       >
         {/* Header */}
@@ -605,6 +678,8 @@ function Root(props: any) {
                               primary={item.name}
 
                               selected={item.url === props.url}
+
+                              color='inherit'
 
                               {...(item.version !== undefined ? {
                                 ...(item.version === 'primary' ? {
@@ -680,7 +755,7 @@ function Root(props: any) {
 
           className={classNames([
             classes.header,
-            withNavigationDrawer && classes.header_withNavigationDrawer,
+            (init && withNavigationDrawer) && classes.header_withNavigationDrawer,
             scrollNotTop && classes.header_not_top,
             scrollDown && classes.header_down
           ])}

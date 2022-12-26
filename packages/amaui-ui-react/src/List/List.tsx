@@ -73,6 +73,8 @@ export interface IList extends ISurface {
   indent?: number;
   paddingHorizontal?: 'both' | 'start' | 'end' | 'none';
   paddingVertical?: 'both' | 'start' | 'end' | 'none';
+
+  SurfaceProps?: any;
 }
 
 const List = React.forwardRef((props_: IList, ref: any) => {
@@ -99,6 +101,8 @@ const List = React.forwardRef((props_: IList, ref: any) => {
     paddingVertical = 'both',
 
     onMenuDesktopClose,
+
+    SurfaceProps,
 
     Component = 'ul',
 
@@ -142,11 +146,14 @@ const List = React.forwardRef((props_: IList, ref: any) => {
         Component
       }}
 
+      {...SurfaceProps}
+
       className={classNames([
         staticClassName('List', theme) && [
           'amaui-List-root'
         ],
 
+        SurfaceProps?.className,
         className,
         classes.root,
         classes[`padding_vertical_${paddingVertical}`],
@@ -161,29 +168,32 @@ const List = React.forwardRef((props_: IList, ref: any) => {
         ...styles.root
       }}
     >
-      {React.Children.toArray(children).map((item: any, index: number) => React.cloneElement(item, {
-        key: index,
+      {React.Children.toArray(children).map((item: any, index: number) => {
 
-        menuItem: menu,
+        return React.cloneElement(item, {
+          key: index,
 
-        menuOpen,
+          menuItem: menu,
 
-        tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
+          menuOpen,
 
-        color: item.props.color !== undefined ? item.props.color : color,
+          tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
 
-        size: item.props.size !== undefined ? item.props.size : size,
+          color: item.props.color !== undefined ? item.props.color : color,
 
-        ...other,
+          size: item.props.size !== undefined ? item.props.size : size,
 
-        ...item.props,
+          ...other,
 
-        onClick: (event: React.MouseEvent<any>) => {
-          if (is('function', onMenuDesktopClose) && item.props.menuCloseOnClick) onMenuDesktopClose();
+          ...item.props,
 
-          if (is('function', item.props.onClick)) item.props.onClick(event);
-        }
-      }))}
+          onClick: (event: React.MouseEvent<any>) => {
+            if (is('function', onMenuDesktopClose) && item.props.menuCloseOnClick) onMenuDesktopClose();
+
+            if (is('function', item.props.onClick)) item.props.onClick(event);
+          }
+        });
+      })}
     </Surface>
   );
 });

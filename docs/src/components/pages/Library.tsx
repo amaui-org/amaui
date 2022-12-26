@@ -10,12 +10,6 @@ const useStyle = styleMethod(theme => ({
 export default function Library(props: any) {
   const { classes } = useStyle(props);
 
-  React.useEffect(() => {
-    console.log(1, props);
-  }, []);
-
-  console.log(props);
-
   return (
     <div>
 

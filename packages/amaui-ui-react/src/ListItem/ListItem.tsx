@@ -316,6 +316,7 @@ export interface IListItem extends ISurface {
   tabIndex?: string | number;
   menuCloseOnClick?: boolean;
   listCloseOnClick?: boolean;
+  indicator?: boolean;
   noOutline?: boolean;
   disabled?: boolean;
 
@@ -386,6 +387,7 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
     tabIndex,
     menuCloseOnClick,
     listCloseOnClick,
+    indicator = true,
     noOutline,
     disabled,
 
@@ -468,7 +470,9 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
         if (item.props.listCloseOnClick) onCloseList();
 
         if (is('function', item.props.onClick)) item.props.onClick(event);
-      }
+      },
+
+      ...item?.props
     })
   ));
 
@@ -484,13 +488,11 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
 
   if (menu) end = end_ || <IconMaterialArrowRightRounded />;
 
-  if (list) end = end_ || (
+  if (list) end = end_ || (indicator && (
     <IconButton
       size={24}
 
       fontSize={24}
-
-      color='default'
 
       onClick={onClick}
 
@@ -509,7 +511,7 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
         ])}
       />
     </IconButton>
-  );
+  ));
 
   React.useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -627,7 +629,9 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
     method(list);
   }
 
-  const colorToUse = selected ? colorSelected : color;
+  const isSelected = selected !== undefined ? selected : openMenu || openList;
+
+  const colorToUse = isSelected ? colorSelected : color;
 
   ListTransitionComponentProps.in = !!openList;
 
@@ -700,7 +704,7 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
             openMenu && `amaui-ListItem-open-menu`,
             openList && `amaui-ListItem-open-list`,
             preselected && `amaui-ListItem-preselected`,
-            selected && `amaui-ListItem-selected`,
+            isSelected && `amaui-ListItem-selected`,
             hover && `amaui-ListItem-hover`,
             focus && `amaui-ListItem-focus`,
             disabled && `amaui-ListItem-disabled`
@@ -735,7 +739,7 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
 
             preselected={focus || preselected || undefined}
 
-            selected={openMenu || openList || selected}
+            selected={isSelected}
 
             disabled={disabled}
 
