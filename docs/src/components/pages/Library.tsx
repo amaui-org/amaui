@@ -85,8 +85,12 @@ const useStyle = styleMethod(theme => ({
     userSelect: 'none',
     transition: theme.methods.transitions.make('box-shadow'),
 
+    '&:focus-visible': {
+      boxShadow: `inset 0px 0px 0px 1px ${theme.palette.text.default.tertiary}`
+    },
+
     '&.active': {
-      boxShadow: `0px 0px 0px 1px ${theme.palette.text.default.primary}`
+      boxShadow: `inset 0px 0px 0px 1px ${theme.palette.text.default.primary}`
     }
   }
 }), { name: 'library' });
@@ -293,7 +297,7 @@ export default function Library(props: any) {
 
                   data-amaui-spy-scroll={heading.id}
 
-                  Component='a'
+                  Component='button'
 
                   className={classNames([
                     classes.sidenav_heading
