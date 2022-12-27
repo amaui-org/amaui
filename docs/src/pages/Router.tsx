@@ -38,11 +38,7 @@ const useStyle = styleMethod(theme => ({
 
   root: {
     minHeight: '100vh',
-    background: 'transparent',
-
-    '& .amaui-List-root': {
-      gap: 4
-    }
+    background: 'transparent'
   },
 
   wrapper: {
@@ -54,6 +50,12 @@ const useStyle = styleMethod(theme => ({
   },
 
   navigationDrawer: {
+    '& .amaui-List-root': {
+      gap: 4
+    }
+  },
+
+  navigationDrawer_desktop: {
     '&.amaui-Modal-root': {
       position: 'fixed',
       top: 0,
@@ -558,7 +560,8 @@ function Root(props: any) {
           {...NavigationDrawerProps}
 
           className={classNames([
-            (init && smallerScreen) ? classes.navigationDrawer_mobile : classes.navigationDrawer
+            classes.navigationDrawer,
+            (init && smallerScreen) ? classes.navigationDrawer_mobile : classes.navigationDrawer_desktop
           ])}
         >
           {sidenavMenu && (

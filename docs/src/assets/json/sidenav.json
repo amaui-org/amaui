@@ -2,21 +2,11 @@
   {
     "url": "/dev/queue",
     "label": "Queue",
-    "default": "/dev/queue/starting/install",
+    "default": "/dev/queue/start",
     "menu": [
       {
-        "label": "Starting",
-        "url": "/dev/queue/starting",
-        "menu": [
-          {
-            "label": "Install",
-            "url": "/dev/queue/starting/install"
-          },
-          {
-            "label": "Import",
-            "url": "/dev/queue/starting/import"
-          }
-        ]
+        "label": "Start",
+        "url": "/dev/queue/start"
       },
       {
         "label": "Use",

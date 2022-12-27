@@ -7,6 +7,8 @@ import { IBaseElement, staticClassName, TStyle } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
+    width: '100%',
+
     '& dt': {
       marginTop: '16px',
       fontWeight: '500'
@@ -67,7 +69,11 @@ const useStyle = styleMethod(theme => ({
     padding: '2px 4px',
     borderRadius: '4px',
     color: theme.palette.text.default.primary,
-    background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.1)
+    background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.1),
+
+    '& span': {
+      whiteSpace: 'nowrap'
+    }
   },
 
   pre: {
@@ -117,7 +123,11 @@ const useStyle = styleMethod(theme => ({
   },
 
   li: {
+    marginBottom: '12px',
 
+    '& p:last-of-type': {
+      marginBottom: '0px'
+    }
   },
 
   table: {
@@ -150,6 +160,8 @@ export interface IMarkdown extends IBaseElement {
   elementClassNames?: Record<string, string>;
 
   elementStyles?: Record<string, TStyle>;
+
+  onUpdate: () => any;
 }
 
 const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
@@ -168,6 +180,8 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
 
     elementStyles,
 
+    onUpdate,
+
     Component = 'div',
 
     className,
@@ -184,10 +198,13 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
   const make = (value_: string) => {
     let valueNew: any = '';
 
-    const addClassName = (name: string) => {
+    const addClassName = (name: string, ...args: string[]) => {
       let valueClass = classes[name];
 
-      if (elementClassNames?.[name]) valueClass += `, ${elementClassNames[name]}`;
+      if (elementClassNames?.[name]) valueClass += ` ${elementClassNames[name]}`;
+
+      // Add additional values
+      args.forEach(arg => valueClass += ` ${arg}`);
 
       return ` class='${valueClass}'`;
     };
@@ -436,7 +453,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
 
             if (valueRender !== undefined) return valueRender;
 
-            return `${a1}<pre${addClassName('pre')}${addStyle('pre')}><code${addClassName('code')}${addStyle('code')}>${a3}</code></pre>${a4}`;
+            return `${a1}<pre${addClassName('pre', a2, `language-${a2}`)}${addStyle('pre')}><code${addClassName('code')}${addStyle('code')}>${a3}</code></pre>${a4}`;
           })
           // blockquote
           .replace(/^ *(>+ (<(a|img|em|strong)|[A-Za-z0-9[\]()])*.*(\n *>+.*)*)/gm, (match, a1, ...args) => {
@@ -596,7 +613,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
 
             return `<del${addClassName('del')}${addStyle('del')}>${a1}</del>`;
           })
-          // code
+          // inline code
           .replace(/([^`])`{1}([^`]*)`{1}([^`])/g, (match, a1, a2, a3, ...args) => {
             const valueRender = is('function', render) ? render('code', addClassName('code'), addStyle('code'), match, a1, a2, a3, ...args) : undefined;
 
@@ -647,8 +664,12 @@ ${listItem(other_)}
   };
 
   React.useEffect(() => {
-    if (refs.root.current) refs.root.current.innerHTML = make(value);
-  }, [value]);
+    if (refs.root.current) {
+      refs.root.current.innerHTML = make(value);
+
+      if (is('function', onUpdate)) onUpdate();
+    }
+  }, [value, onUpdate]);
 
   return (
     <Component

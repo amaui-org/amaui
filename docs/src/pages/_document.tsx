@@ -41,6 +41,11 @@ export default class CustomDocument extends Document {
           <meta name='apple-mobile-web-app-status-bar-style' content='#fafa00' />
 
           <script src='https://unpkg.com/@amaui/date@latest/umd/amaui-date.dev.js' />
+
+          {/* Other */}
+          {/* Prism */}
+          <link rel='stylesheet' href='/assets/css/prism.css' />
+          <script src='/assets/js/prism.js'></script>
         </Head>
 
         <body>
