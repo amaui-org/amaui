@@ -16,7 +16,6 @@ export interface ISpyScroll extends IBaseElement {
 
   offset?: number;
   offsetStart?: number;
-  offsetEnd?: number;
 
   addClassName?: string;
   addStyle?: TStyle;
@@ -32,7 +31,6 @@ const SpyScroll = React.forwardRef((props_: ISpyScroll, ref: any) => {
 
     offset,
     offsetStart,
-    offsetEnd,
 
     addClassName,
     addStyle,
@@ -152,7 +150,7 @@ const SpyScroll = React.forwardRef((props_: ISpyScroll, ref: any) => {
 
         for (const element of refs.active.current) {
           // addClassName
-          element.classList.add(refs.props.current.addClassName);
+          if (!element.classList.contains(refs.props.current.addClassName)) element.classList.add(refs.props.current.addClassName);
 
           // addStyle
           if (refs.props.current.addStyle) {
@@ -210,6 +208,7 @@ const SpyScroll = React.forwardRef((props_: ISpyScroll, ref: any) => {
             'amaui-SpyScroll-root'
           ],
 
+          (children as any).props.className,
           className,
           classes.root
         ]),

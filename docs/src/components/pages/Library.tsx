@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Line, Markdown, Type, useMainProgress, useMediaQuery } from '@amaui/ui-react';
+import { Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery } from '@amaui/ui-react';
 import { classNames, style as styleMethod } from '@amaui/style-react';
 import AmauiRequest from '@amaui/request';
 import { slugify } from '@amaui/utils';
@@ -9,26 +9,7 @@ const useStyle = styleMethod(theme => ({
   root: {
     paddingInline: 40,
     marginTop: 40,
-    marginInline: 'auto',
-
-    '& code[class*=language-], & pre[class*=language-]': {
-      ...theme.typography.values.m3,
-
-      color: 'inherit',
-      fontSize: '0.75rem',
-      textShadow: 'none'
-    },
-
-    '& pre': {
-      padding: '24px 26px',
-      margin: '16px 0',
-      background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.color.primary[5],
-      boxShadow: theme.palette.light ? theme.shadows.values.default[12] : undefined
-    },
-
-    '& .operator': {
-      background: 'transparent'
-    }
+    marginInline: 'auto'
   },
 
   heading: {
@@ -57,6 +38,26 @@ const useStyle = styleMethod(theme => ({
     maxWidth: 1024,
     flex: '1 1 auto',
 
+    '& code[class*=language-], & pre[class*=language-]': {
+      ...theme.typography.values.m3,
+
+      color: 'inherit',
+      fontSize: '0.75rem',
+      textShadow: 'none'
+    },
+
+    '& pre': {
+      padding: '24px 26px',
+      margin: '16px 0',
+      background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.color.primary[5],
+      boxShadow: theme.palette.light ? theme.shadows.values.default[12] : undefined,
+      maxHeight: '540px'
+    },
+
+    '& .operator': {
+      background: 'transparent'
+    },
+
     '& > *:first-child': {
       marginTop: 0
     }
@@ -68,6 +69,25 @@ const useStyle = styleMethod(theme => ({
     flex: '0 0 auto',
     position: 'sticky',
     top: '114px'
+  },
+
+  sidenav_headings: {
+    marginInlineStart: -16
+  },
+
+  sidenav_heading: {
+    display: 'inline-block',
+    cursor: 'pointer',
+    padding: '8px 16px',
+    borderRadius: '140px',
+    position: 'relative',
+    fontSize: '0.875rem',
+    userSelect: 'none',
+    transition: theme.methods.transitions.make('box-shadow'),
+
+    '&.active': {
+      boxShadow: `0px 0px 0px 1px ${theme.palette.text.default.primary}`
+    }
   }
 }), { name: 'library' });
 
@@ -106,14 +126,18 @@ export default function Library(props: any) {
     mainProgress.done();
   }, [mainProgress]);
 
+  const scrollIntoView = React.useCallback((id: string) => {
+    const element = window.document.getElementById(id);
+
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
+  }, []);
+
   React.useEffect(() => {
     // Element scroll into the view
     if (window.location.hash) {
       const id = window.location.hash.replace('#', '');
 
-      const element = window.document.getElementById(id);
-
-      if (element) element.scrollIntoView({ behavior: 'smooth' });
+      scrollIntoView(id);
     }
 
     setInit(true);
@@ -179,67 +203,110 @@ export default function Library(props: any) {
     }
   }, []);
 
-  console.log(1, headings);
+  const onClickSidenavHeading = React.useCallback((heading: any) => {
+    const { id } = heading;
+
+    // Scroll into view the value
+    scrollIntoView(id);
+  }, []);
 
   const withSidenav = !mediumScreen && !!headings.length;
 
   return (
-    <Line
-      gap={5}
+    <SpyScroll
+      ids={headings.map((heading: any) => heading.id)}
 
-      direction='row'
-
-      justify='center'
-
-      id={refs.id}
-
-      className={classNames([
-        classes.root
-      ])}
+      addClassName='active'
     >
-      <Markdown
-        ref={refs.markdown}
+      <Line
+        gap={5}
 
-        value={value}
+        direction='row'
 
-        onStart={onStart}
+        justify='center'
 
-        onUpdate={onUpdate}
-
-        render={render}
+        id={refs.id}
 
         className={classNames([
-          classes.markdown
+          classes.root
         ])}
+      >
+        <Markdown
+          ref={refs.markdown}
 
-        style={{
-          ...(withSidenav ? {
-            marginInlineStart: 180
-          } : {})
-        }}
-      />
+          value={value}
 
-      {withSidenav && (
-        <Line
-          gap={1}
+          onStart={onStart}
+
+          onUpdate={onUpdate}
+
+          render={render}
 
           className={classNames([
-            classes.sidenav
+            classes.markdown
           ])}
-        >
-          <Type
-            version='b3'
-          >
-            On this page
-          </Type>
 
-          <Type
-            version='t2'
+          style={{
+            ...(withSidenav ? {
+              marginInlineStart: 180
+            } : {})
+          }}
+        />
+
+        {withSidenav && (
+          <Line
+            gap={1}
+
+            className={classNames([
+              classes.sidenav
+            ])}
           >
-            {props.label}
-          </Type>
-        </Line>
-      )}
-    </Line>
+            <Type
+              version='b3'
+            >
+              On this page
+            </Type>
+
+            <Type
+              version='t2'
+            >
+              {props.label}
+            </Type>
+
+            <Line
+              gap={0}
+
+              direction='column'
+
+              className={classNames([
+                classes.sidenav_headings
+              ])}
+            >
+              {headings.map((heading: any, index: number) => (
+                <Type
+                  key={index}
+
+                  version='b2'
+
+                  onClick={() => onClickSidenavHeading(heading)}
+
+                  data-amaui-spy-scroll={heading.id}
+
+                  Component='a'
+
+                  className={classNames([
+                    classes.sidenav_heading
+                  ])}
+                >
+                  {heading.text}
+
+                  <Interaction />
+                </Type>
+              ))}
+            </Line>
+          </Line>
+        )}
+      </Line>
+    </SpyScroll>
   );
 }

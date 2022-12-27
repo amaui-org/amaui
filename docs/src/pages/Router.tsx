@@ -97,7 +97,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   header_withNavigationDrawer: {
-    left: 'calc(50% + 170px)',
+    left: `calc(50% ${theme.direction === 'ltr' ? '+' : '-'} 170px)`,
 
     '&.amaui-TopAppBar-root': {
       width: `calc(100% - 340px)`,
