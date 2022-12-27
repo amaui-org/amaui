@@ -1,7 +1,5 @@
 ### Add
 
-To install value y.
-
 ```bash
 // yarn
 yarn add @amaui/queue

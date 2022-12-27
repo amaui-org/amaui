@@ -417,11 +417,11 @@ function Root(props: any) {
     return urls;
   }, [isEnvironment('browser') && window.location.pathname]);
 
-  const isLibrary = urls.find(item => props.url === item);
+  const isLibrary = props.url.indexOf('/dev/') === 0;
 
   const Page = !isLibrary ? Home : Library;
 
-  const withNavigationDrawer = !!(isLibrary) && !smallerScreen;
+  const withNavigationDrawer = isLibrary && !smallerScreen;
 
   const NavigationDrawerProps: any = {};
 
@@ -564,41 +564,39 @@ function Root(props: any) {
             (init && smallerScreen) ? classes.navigationDrawer_mobile : classes.navigationDrawer_desktop
           ])}
         >
-          {sidenavMenu && (
-            <List
-              tonal
+          <List
+            tonal
 
-              color='primary'
+            color='primary'
 
-              shapePosition='both'
+            shapePosition='both'
 
-              paddingHorizontal='both'
+            paddingHorizontal='both'
 
-              {...NavigationDrawerProps}
+            {...NavigationDrawerProps}
 
-              className={classNames([
-                classes.sideNavList
-              ])}
+            className={classNames([
+              classes.sideNavList
+            ])}
 
-              style={{
-                width: 340
-              }}
-            >
-              {sidenavMenu.label && (
-                <ListSubheader>
-                  <Type
-                    version='t1'
+            style={{
+              width: 340
+            }}
+          >
+            {sidenavMenu.label && (
+              <ListSubheader>
+                <Type
+                  version='t1'
 
-                    color='primary'
-                  >
-                    {sidenavMenu.label}
-                  </Type>
-                </ListSubheader>
-              )}
+                  color='primary'
+                >
+                  {sidenavMenu.label}
+                </Type>
+              </ListSubheader>
+            )}
 
-              {menuItems(sidenavMenu.menu)}
-            </List>
-          )}
+            {menuItems(sidenavMenu.menu)}
+          </List>
         </NavigationDrawer>
       )}
 
@@ -609,7 +607,7 @@ function Root(props: any) {
 
         className={classNames([
           classes.wrapper,
-          (init && isLibrary && !smallerScreen) && classes.wrapper_library
+          isLibrary && !smallerScreen && classes.wrapper_library
         ])}
       >
         {/* Header */}
@@ -758,7 +756,7 @@ function Root(props: any) {
 
           className={classNames([
             classes.header,
-            (init && withNavigationDrawer) && classes.header_withNavigationDrawer,
+            withNavigationDrawer && classes.header_withNavigationDrawer,
             scrollNotTop && classes.header_not_top,
             scrollDown && classes.header_down
           ])}
@@ -772,7 +770,7 @@ function Root(props: any) {
             classes.main
           ])}
         >
-          <Page {...props} />
+          <Page {...sidenavMenu} {...props} />
         </Line>
 
         {/* Footer */}

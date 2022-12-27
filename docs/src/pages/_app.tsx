@@ -3,7 +3,7 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
 
-import { Widgets, ScreenCapture, Timer, Countdown, Watch, Reset } from '@amaui/ui-react';
+import { Widgets, ScreenCapture, Timer, Countdown, Watch, Reset, MainProgress } from '@amaui/ui-react';
 import { AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, rtl, unit, makeClassName, useAmauiStyle } from '@amaui/style-react';
 
 import IconMaterialTimerRounded from '@amaui/icons-material-react/build/IconMaterialTimerRounded';
@@ -161,13 +161,15 @@ export default function App(props: AppProps) {
       <AmauiThemeProvider
         value={valueAmauiTheme}
       >
-        <Widgets
-          widgets={widgets}
-        >
-          <Reset />
+        <MainProgress>
+          <Widgets
+            widgets={widgets}
+          >
+            <Reset />
 
-          <Component {...pageProps} />
-        </Widgets>
+            <Component {...pageProps} />
+          </Widgets>
+        </MainProgress>
       </AmauiThemeProvider>
     </AmauiStyleProvider>
   </>;

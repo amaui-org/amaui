@@ -1,6 +1,7 @@
 import { GetServerSidePropsContext } from 'next';
 
 import { is } from '@amaui/utils';
+import AmauiRequest from '@amaui/request';
 
 import sidenavJSON from '../../assets/json/sidenav.json';
 
@@ -18,7 +19,9 @@ export default function (props: any) {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const url = context.resolvedUrl.split('?')[0];
+  const props: any = {
+    url: context.resolvedUrl.split('?')[0]
+  };
 
   const urls: string[] = libraries.map(item => item.url);
 
@@ -30,7 +33,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   sidenavJSON.forEach(item => method(item));
 
-  if (!(urls.some((item: string) => url === item) || ['/dev', '/dev/'].some(item => item === url))) return {
+  if (!(urls.some((item: string) => props.url === item) || ['/dev', '/dev/'].some(item => item === props.url))) return {
     redirect: {
       destination: '/',
       permanent: false
@@ -38,18 +41,25 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   };
 
   // Default redirect
-  const item: any = sidenavJSON.find(item_ => url.indexOf(item_.url) === 0);
+  const item: any = sidenavJSON.find(item_ => props.url.indexOf(item_.url) === 0);
 
-  if (item?.url === url) return {
+  if (item?.url === props.url) return {
     redirect: {
       destination: item?.default,
       permanent: false
     }
   };
 
+  // page md
+  try {
+    const port = process.env.PORT || 3000;
+
+    const response = (await AmauiRequest.get(`http://localhost:${port}/assets/md${props.url}.md`, { response: { type: 'text' } }));
+
+    if (response.status === 200) props.value = response.response;
+  } catch (error) { }
+
   return {
-    props: {
-      url: context.resolvedUrl
-    }
+    props
   };
 }

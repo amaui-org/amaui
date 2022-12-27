@@ -26,6 +26,10 @@ const useStyle = styleMethod(theme => ({
   root: {
     zIndex: theme.z_index.tooltip - 14,
 
+    '&.amaui-LinearProgress-root': {
+      height: '2px'
+    },
+
     '& .amaui-LinearProgress-buffer': {
       background: 'transparent'
     }
