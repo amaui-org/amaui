@@ -8,7 +8,7 @@ import { slugify } from '@amaui/utils';
 const useStyle = styleMethod(theme => ({
   root: {
     paddingInline: 40,
-    marginTop: 40,
+    marginTop: 114,
     marginInline: 'auto'
   },
 
@@ -100,6 +100,7 @@ export default function Library(props: any) {
   const [headings, setHeadings] = React.useState<any>([]);
 
   const mediumScreen = useMediaQuery('(max-width: 1300px)');
+  const useMiddleMargin = useMediaQuery('(min-width: 1800px)');
 
   const refs = {
     id: React.useId(),
@@ -247,7 +248,7 @@ export default function Library(props: any) {
           ])}
 
           style={{
-            ...(withSidenav ? {
+            ...((withSidenav && useMiddleMargin) ? {
               marginInlineStart: 180
             } : {})
           }}

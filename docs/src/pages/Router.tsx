@@ -213,7 +213,7 @@ function Root(props: any) {
   const theme = useAmauiTheme();
 
   const smallerScreen = useMediaQuery('(max-width: 1100px)');
-  const mediumScreen = useMediaQuery('((max-width: 1540px)');
+  const mediumScreen = useMediaQuery('(max-width: 1540px)');
   const mobile = useMediaQuery('(pointer: coarse)');
 
   const scrollNotTop = useScroll({ offset: 1 });
