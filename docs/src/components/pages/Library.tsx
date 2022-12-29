@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import LinkNext from 'next/link';
 
 import { Button, Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery } from '@amaui/ui-react';
@@ -265,7 +266,16 @@ export default function Library(props: any) {
 
   const withSidenav = !mediumScreen && !!headings.length;
 
-  return (
+  const activePage = props?.menu.find((item: any) => item.url === props.url);
+
+  return <>
+    <Head>
+      <title>{props.label} {activePage?.label}</title>
+
+      <meta property='og:title' content={`${props.label} ${activePage?.label}`} />
+      <meta property='og:url' content={`https://amaui.me${props.url}`} />
+    </Head>
+
     <SpyScroll
       ids={headings.map((heading: any) => heading.id)}
 
@@ -429,5 +439,5 @@ export default function Library(props: any) {
         </Line>
       </Line>
     </SpyScroll>
-  );
+  </>;
 }
