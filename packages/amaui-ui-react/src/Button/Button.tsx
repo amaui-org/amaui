@@ -17,7 +17,6 @@ const useStyle = styleMethod(theme => ({
     fontFamily: 'inherit',
     '-webkit-appearance': 'none',
     appearance: 'none',
-    background: 'transparent',
     border: 'none',
     fontSize: '100%',
     lineHeight: '1.15',

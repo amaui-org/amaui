@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery } from '@amaui/ui-react';
+import { Button, Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery } from '@amaui/ui-react';
 import { classNames, style as styleMethod } from '@amaui/style-react';
 import AmauiRequest from '@amaui/request';
 import { slugify } from '@amaui/utils';
@@ -8,7 +8,7 @@ import { slugify } from '@amaui/utils';
 const useStyle = styleMethod(theme => ({
   root: {
     paddingInline: 40,
-    marginTop: 114,
+    marginTop: 'clamp(40px, 7vw, 114px)',
     marginInline: 'auto'
   },
 
@@ -61,6 +61,11 @@ const useStyle = styleMethod(theme => ({
     '& > *:first-child': {
       marginTop: 0
     }
+  },
+
+  wrapper: {
+    width: '100%',
+    maxWidth: 1024
   },
 
   sidenav: {
@@ -226,9 +231,9 @@ export default function Library(props: any) {
       <Line
         gap={5}
 
-        direction='row'
+        direction='column'
 
-        justify='center'
+        align='center'
 
         id={refs.id}
 
@@ -236,81 +241,119 @@ export default function Library(props: any) {
           classes.root
         ])}
       >
-        <Markdown
-          ref={refs.markdown}
+        <Line
+          direction='row'
 
-          value={value}
+          justify='flex-end'
 
-          onStart={onStart}
+          Component='header'
 
-          onUpdate={onUpdate}
+          className={classes.wrapper}
+        >
+          <Button
+            color='inherit'
 
-          render={render}
+            version='text'
 
-          className={classNames([
-            classes.markdown
-          ])}
+            href={`https://github.com/amaui-org/amaui/tree/main/docs/public/assets/md${props.url}.md`}
+
+            target='_blank'
+
+            Component='a'
+          >
+            Edit page
+          </Button>
+        </Line>
+
+        <Line
+          gap={5}
+
+          direction='row'
+
+          justify='center'
 
           style={{
-            ...((withSidenav && useMiddleMargin) ? {
-              marginInlineStart: 180
-            } : {})
+            width: '100%'
           }}
-        />
+        >
+          <Markdown
+            ref={refs.markdown}
 
-        {withSidenav && (
-          <Line
-            gap={1}
+            value={value}
+
+            onStart={onStart}
+
+            onUpdate={onUpdate}
+
+            render={render}
 
             className={classNames([
-              classes.sidenav
+              classes.markdown
             ])}
-          >
-            <Type
-              version='b3'
-            >
-              On this page
-            </Type>
 
-            <Type
-              version='t2'
-            >
-              {props.label}
-            </Type>
+            style={{
+              ...((withSidenav && useMiddleMargin) ? {
+                marginInlineStart: 180
+              } : {})
+            }}
+          />
 
+          {withSidenav && (
             <Line
-              gap={0}
+              gap={1}
 
-              direction='column'
+              Component='nav'
 
               className={classNames([
-                classes.sidenav_headings
+                classes.sidenav
               ])}
             >
-              {headings.map((heading: any, index: number) => (
-                <Type
-                  key={index}
+              <Type
+                version='b3'
+              >
+                On this page
+              </Type>
 
-                  version='b2'
+              <Type
+                version='t2'
+              >
+                {props.label}
+              </Type>
 
-                  onClick={() => onClickSidenavHeading(heading)}
+              <Line
+                gap={0}
 
-                  data-amaui-spy-scroll={heading.id}
+                direction='column'
 
-                  Component='button'
+                className={classNames([
+                  classes.sidenav_headings
+                ])}
+              >
+                {headings.map((heading: any, index: number) => (
+                  <Type
+                    key={index}
 
-                  className={classNames([
-                    classes.sidenav_heading
-                  ])}
-                >
-                  {heading.text}
+                    version='b2'
 
-                  <Interaction />
-                </Type>
-              ))}
+                    onClick={() => onClickSidenavHeading(heading)}
+
+                    data-amaui-spy-scroll={heading.id}
+
+                    Component='button'
+
+                    className={classNames([
+                      classes.sidenav_heading
+                    ])}
+                  >
+                    {heading.text}
+
+                    <Interaction />
+                  </Type>
+                ))}
+              </Line>
             </Line>
-          </Line>
-        )}
+          )}
+        </Line>
       </Line>
     </SpyScroll>
   );

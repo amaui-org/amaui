@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { getID, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Snackbar from '../Snackbar';
@@ -148,7 +148,7 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbarsProvider, ref: any
 
   const add = (value: any) => {
     const value_ = {
-      id: React.useId(),
+      id: getID(),
 
       in: true,
       expand: true,

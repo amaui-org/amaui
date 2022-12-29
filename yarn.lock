@@ -24,12 +24,12 @@
     "@amaui/utils" "^1.0.11411"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/date@^1.0.11431":
-  version "1.0.11431"
-  resolved "https://registry.yarnpkg.com/@amaui/date/-/date-1.0.11431.tgz#6c1d42fa67c349de5b10f8a50fa2c2d26c9616e4"
-  integrity sha512-MZlprJ5OJbznzBDQiRTHI9aB+oAvLwq4P7ejr4p1IVRR/zF4CP9A3/Sqepe2lVUA7uO9LnchBupXYIQ/WzdUgw==
+"@amaui/date@^1.0.11434":
+  version "1.0.11434"
+  resolved "https://registry.yarnpkg.com/@amaui/date/-/date-1.0.11434.tgz#ce2c3105027a8dc25c41d4e8d4973f1c0c9b4244"
+  integrity sha512-bL1N2Nugz6fTA4SK0GsdLemJpDo2aRahwPu7tQLwOtSteGSSDfO5MqtCITB20lAf3aXksncpR8MOnfeSl5g9vw==
   dependencies:
-    "@amaui/utils" "^1.0.11411"
+    "@amaui/utils" "^1.0.11447"
     "@babel/runtime" "^7.18.3"
 
 "@amaui/diff@^1.0.11141":
@@ -164,6 +164,14 @@
     "@amaui/utils" "^1.0.11411"
     "@babel/runtime" "^7.18.3"
 
+"@amaui/subscription@^1.0.11151":
+  version "1.0.11151"
+  resolved "https://registry.yarnpkg.com/@amaui/subscription/-/subscription-1.0.11151.tgz#3c47b7a94d49eb267835964e0f3c66c4a72a25b1"
+  integrity sha512-RjH1DCZxcj8UYwnLunucLxbWOj/fh3Ecjm1DQflTyVTY9yaKu96zcdQLaIgsF3soKGoGAGtBata0hZFlHTT0gg==
+  dependencies:
+    "@amaui/utils" "^1.0.11447"
+    "@babel/runtime" "^7.18.3"
+
 "@amaui/test@^1.0.11150":
   version "1.0.11150"
   resolved "https://registry.yarnpkg.com/@amaui/test/-/test-1.0.11150.tgz#e163aa797ee82393eed2d0609adee1caabc2d051"
@@ -194,6 +202,16 @@
   version "1.0.11445"
   resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.0.11445.tgz#f824cdb4c84885a06d9d17a308b9b6f67d2a5308"
   integrity sha512-okORtkmCSLSZZk6sVGMgDpo+83QLkbe0Nu9S0AuhTbwDuca3VUd7M3HS2rRLF0Lq7O06qMKc9+1synQnHu8dLw==
+  dependencies:
+    "@babel/runtime" "^7.18.3"
+    crypto-js "^4.1.1"
+    path-to-regexp "^6.2.0"
+    uuid "^8.3.2"
+
+"@amaui/utils@^1.0.11447":
+  version "1.0.11447"
+  resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.0.11447.tgz#a428721fc23a3e71260810325918d8b14160e857"
+  integrity sha512-km90as9RpEsCYtDRI1x0EySobBWzmcgosK3bWP4BSHMdIulPNGlJ/yqlshOCGYYWDjrEUHFn5xZ1KEf4LhpZ3A==
   dependencies:
     "@babel/runtime" "^7.18.3"
     crypto-js "^4.1.1"

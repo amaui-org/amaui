@@ -134,6 +134,8 @@ async function makePackage() {
 
   // Bug fix use of exports
   delete newPackage.exports;
+  // npm publish issue with files
+  delete newPackage.files;
 
   await fse.writeFile(path.resolve(to, './package.json'), JSON.stringify(newPackage, null, 2), 'utf8');
 

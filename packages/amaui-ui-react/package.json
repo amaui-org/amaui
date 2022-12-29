@@ -1,6 +1,6 @@
 {
   "name": "@amaui/ui-react",
-  "version": "1.0.1175",
+  "version": "1.0.10003",
   "description": "UI for React",
   "repository": "https://github.com/amaui-org/amaui.git",
   "author": "Lazar <lazareric2@gmail.com>",
@@ -41,16 +41,16 @@
     "test": "yarn lint && yarn type && yarn build && yarn test:pre && yarn cov && yarn test:post"
   },
   "peerDependencies": {
-    "@amaui/style-react": "^1.0.1130",
+    "@amaui/style-react": "^1.0.1135",
     "react": "^18.1.0"
   },
   "dependencies": {
-    "@amaui/date": "^1.0.11431",
-    "@amaui/subscription": "^1.0.11147",
-    "@amaui/utils": "^1.0.11445"
+    "@amaui/date": "^1.0.11434",
+    "@amaui/subscription": "^1.0.11151",
+    "@amaui/utils": "^1.0.11447"
   },
   "devDependencies": {
-    "@amaui/style-react": "^1.0.1130"
+    "@amaui/style-react": "^1.0.1135"
   },
   "publishConfig": {
     "access": "public",
