@@ -244,6 +244,7 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
     ItemProps,
     IconProps,
     TransitionComponentProps,
+    WrapperMenuProps,
 
     className,
 
@@ -711,17 +712,22 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
 
                     version={version}
 
+                    {...WrapperMenuProps}
+
                     className={classNames([
                       staticClassName('MenuDesktop', theme) && [
                         'amaui-MenuDesktop-menu-wrapper'
                       ],
 
+                      WrapperMenuProps?.className,
                       classes.menuWrapper,
                       menuOpened && classes.menuWrapper_open
                     ])}
 
                     style={{
-                      ...append
+                      ...append,
+
+                      ...WrapperMenuProps?.style
                     }}
                   >
                     {menu && menuTransition && (

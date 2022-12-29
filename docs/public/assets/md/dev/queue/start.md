@@ -1,3 +1,4 @@
+
 ### Add
 
 ```bash
@@ -66,3 +67,17 @@ Build
 ```bash
 yarn build
 ```
+
+{{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "Node: Start",
+      "to": "/dev/node/start"
+    },
+    "next": {
+      "label": "Queue: Use",
+      "to": "/dev/queue/use"
+    }
+  }
+}}

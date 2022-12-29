@@ -106,7 +106,7 @@ const useStyle = styleMethod(theme => ({
 
   header_not_top: {
     '&.amaui-TopAppBar-root': {
-      background: theme.methods.palette.color.colorToRgb(theme.palette.color.primary[theme.palette.light ? 99 : 10] as string, 0.97),
+      background: theme.methods.palette.color.colorToRgb(theme.palette.color.primary[theme.palette.light ? 99 : 5] as string, 0.97),
       maxWidth: theme.breakpoints.values.md,
       boxShadow: theme.shadows.values.default['2']
     }
@@ -263,7 +263,7 @@ function Root(props: any) {
   };
 
   React.useEffect(() => {
-    if (window.matchMedia?.('(prefers-color-scheme: dark)')?.matches) update('light', false);
+    if (window.matchMedia?.('(prefers-color-scheme: dark)')?.matches && !theme.inited) update('light', false);
 
     const imageSelected_ = refs.storage.get('image-selected');
 
@@ -321,6 +321,8 @@ function Root(props: any) {
         });
 
         refs.storage.add('light', value);
+
+        theme.inited = true;
 
         break;
 
@@ -402,20 +404,6 @@ function Root(props: any) {
   const libraries = React.useMemo(() => {
     return all_libraries;
   }, []);
-
-  const urls = React.useMemo(() => {
-    const urls: string[] = libraries.map(item => item.url);
-
-    const method = (item: any) => {
-      if (item.url !== undefined) urls.push(item.url);
-
-      if (is('array', item.menu)) item.menu.forEach((route: any) => method(route));
-    };
-
-    sidenavJSON.forEach(item => method(item));
-
-    return urls;
-  }, [isEnvironment('browser') && window.location.pathname]);
 
   const isLibrary = props.url.indexOf('/dev/') === 0;
 
@@ -583,17 +571,33 @@ function Root(props: any) {
               width: 340
             }}
           >
-            {sidenavMenu.label && (
-              <ListSubheader>
+            <ListSubheader
+              size='small'
+
+              style={{
+                marginBottom: 24
+              }}
+            >
+              <Line
+                gap={0.5}
+              >
+                <Type
+                  version='b2'
+
+                  color='inherit'
+
+                  priority='secondary'
+                >
+                  Page
+                </Type>
+
                 <Type
                   version='t1'
-
-                  color='primary'
                 >
-                  {sidenavMenu.label}
+                  {sidenavMenu.label || 'No page'}
                 </Type>
-              </ListSubheader>
-            )}
+              </Line>
+            </ListSubheader>
 
             {menuItems(sidenavMenu.menu)}
           </List>
@@ -644,6 +648,10 @@ function Root(props: any) {
             <MenuDesktop
               key={0}
 
+              WrapperMenuProps={{
+                elevation: 12
+              }}
+
               items={[
                 {
                   label: 'Libraries',
@@ -654,7 +662,7 @@ function Root(props: any) {
                     <List
                       tonal
 
-                      color='primary'
+                      color='themed'
 
                       size='regular'
 
@@ -678,7 +686,7 @@ function Root(props: any) {
                             <ListItem
                               primary={item.name}
 
-                              selected={item.url === props.url}
+                              selected={props.url.indexOf(item.url) === 0}
 
                               color='inherit'
 

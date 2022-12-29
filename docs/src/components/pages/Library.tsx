@@ -1,9 +1,12 @@
 import React from 'react';
+import LinkNext from 'next/link';
 
 import { Button, Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery } from '@amaui/ui-react';
 import { classNames, style as styleMethod } from '@amaui/style-react';
 import AmauiRequest from '@amaui/request';
-import { slugify } from '@amaui/utils';
+import { parse, slugify, unique } from '@amaui/utils';
+
+import { BottomNavigation } from '../ui';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -34,16 +37,24 @@ const useStyle = styleMethod(theme => ({
     transition: theme.methods.transitions.make('opacity', { duration: 'xs' })
   },
 
-  markdown: {
+  wrapper: {
+    width: '100%',
     maxWidth: 1024,
-    flex: '1 1 auto',
+    flex: '1 1 auto'
+  },
 
+  markdown: {
     '& code[class*=language-], & pre[class*=language-]': {
       ...theme.typography.values.m3,
 
       color: 'inherit',
       fontSize: '0.75rem',
       textShadow: 'none'
+    },
+
+    '& .token.comment': {
+      color: 'inherit',
+      opacity: 0.5
     },
 
     '& pre': {
@@ -56,16 +67,7 @@ const useStyle = styleMethod(theme => ({
 
     '& .operator': {
       background: 'transparent'
-    },
-
-    '& > *:first-child': {
-      marginTop: 0
     }
-  },
-
-  wrapper: {
-    width: '100%',
-    maxWidth: 1024
   },
 
   sidenav: {
@@ -114,7 +116,7 @@ export default function Library(props: any) {
   const refs = {
     id: React.useId(),
     headings: React.useRef<any[]>([]),
-    markdown: React.useRef<HTMLElement>()
+    wrapper: React.useRef<HTMLElement>()
   };
 
   const page = React.useCallback(async (url_: string) => {
@@ -163,32 +165,72 @@ export default function Library(props: any) {
 
     Prism.highlightAllUnder(window.document.getElementById(refs.id) as HTMLElement);
 
-    setHeadings([...refs.headings.current]);
+    setHeadings([...unique(refs.headings.current, 'id')]);
 
-    // Update all headings within the markdown inner html
-    const elements = Array.from(refs.markdown.current?.querySelectorAll('h1, h2, h3, h4, h5, h6') || []);
+    const markdowns = Array.from(refs.wrapper.current!.querySelectorAll('.amaui-Markdown-root'));
 
-    elements.forEach(element => {
-      const id = slugify(element.innerHTML);
+    markdowns.forEach(markdown => {
+      // Update all headings within the markdown inner html
+      const elements = Array.from(markdown?.querySelectorAll('h1, h2, h3, h4, h5, h6') || []);
 
-      // ID
-      element.id = id;
+      elements.filter(item => !item.id).forEach(item => {
+        const id = slugify(item.innerHTML);
 
-      // ClassName
-      element.className = classNames([element.className, classes.heading]);
+        // ID
+        item.id = id;
 
-      const text = element.innerHTML;
+        // ClassName
+        item.className = classNames([item.className, classes.heading]);
 
-      const iconAnchor = `<svg viewBox="0 0 24 24" width="1em" height="1em" focusable="false" aria-hidden="true" style="fill: currentcolor; font-size: 24px;"><path d="M7 17Q4.925 17 3.463 15.537Q2 14.075 2 12Q2 9.925 3.463 8.462Q4.925 7 7 7H10Q10.425 7 10.713 7.287Q11 7.575 11 8Q11 8.425 10.713 8.712Q10.425 9 10 9H7Q5.75 9 4.875 9.875Q4 10.75 4 12Q4 13.25 4.875 14.125Q5.75 15 7 15H10Q10.425 15 10.713 15.287Q11 15.575 11 16Q11 16.425 10.713 16.712Q10.425 17 10 17ZM9 13Q8.575 13 8.288 12.712Q8 12.425 8 12Q8 11.575 8.288 11.287Q8.575 11 9 11H15Q15.425 11 15.713 11.287Q16 11.575 16 12Q16 12.425 15.713 12.712Q15.425 13 15 13ZM14 17Q13.575 17 13.288 16.712Q13 16.425 13 16Q13 15.575 13.288 15.287Q13.575 15 14 15H17Q18.25 15 19.125 14.125Q20 13.25 20 12Q20 10.75 19.125 9.875Q18.25 9 17 9H14Q13.575 9 13.288 8.712Q13 8.425 13 8Q13 7.575 13.288 7.287Q13.575 7 14 7H17Q19.075 7 20.538 8.462Q22 9.925 22 12Q22 14.075 20.538 15.537Q19.075 17 17 17Z"/></svg>`;
+        const text = item.innerHTML;
 
-      // Add the anchors
-      element.innerHTML += `<a href='#${id}' class='${classNames([classes.anchor])}' aria-label='${text}' title='${text}'>${iconAnchor}</a>`;
+        const iconAnchor = `<svg viewBox="0 0 24 24" width="1em" height="1em" focusable="false" aria-hidden="true" style="fill: currentcolor; font-size: 24px;"><path d="M7 17Q4.925 17 3.463 15.537Q2 14.075 2 12Q2 9.925 3.463 8.462Q4.925 7 7 7H10Q10.425 7 10.713 7.287Q11 7.575 11 8Q11 8.425 10.713 8.712Q10.425 9 10 9H7Q5.75 9 4.875 9.875Q4 10.75 4 12Q4 13.25 4.875 14.125Q5.75 15 7 15H10Q10.425 15 10.713 15.287Q11 15.575 11 16Q11 16.425 10.713 16.712Q10.425 17 10 17ZM9 13Q8.575 13 8.288 12.712Q8 12.425 8 12Q8 11.575 8.288 11.287Q8.575 11 9 11H15Q15.425 11 15.713 11.287Q16 11.575 16 12Q16 12.425 15.713 12.712Q15.425 13 15 13ZM14 17Q13.575 17 13.288 16.712Q13 16.425 13 16Q13 15.575 13.288 15.287Q13.575 15 14 15H17Q18.25 15 19.125 14.125Q20 13.25 20 12Q20 10.75 19.125 9.875Q18.25 9 17 9H14Q13.575 9 13.288 8.712Q13 8.425 13 8Q13 7.575 13.288 7.287Q13.575 7 14 7H17Q19.075 7 20.538 8.462Q22 9.925 22 12Q22 14.075 20.538 15.537Q19.075 17 17 17Z"/></svg>`;
+
+        // Add the anchors
+        item.innerHTML += `<a href='#${id}' class='${classNames([classes.anchor])}' aria-label='${text}' title='${text}'>${iconAnchor}</a>`;
+      });
     });
   }, []);
 
   const onStart = React.useCallback(() => {
-    refs.headings.current = [];
+    // refs.headings.current = [];
   }, []);
+
+  const values = value?.trim().match(/[^}}]+?(?={{)|(?={{)[\s\S]+?(?:}})/ig) || [];
+
+  const element = (value_: string, index: number) => {
+    if (value_?.indexOf('{{') !== 0) return (
+      <Markdown
+        key={index}
+
+        value={value_}
+
+        onStart={onStart}
+
+        onUpdate={onUpdate}
+
+        render={render}
+
+        className={classNames([
+          classes.markdown
+        ])}
+      />
+    );
+
+    const object = parse(value_.slice(1, -1));
+
+    switch (object?.element) {
+      case 'BottomNavigation':
+        return (
+          <BottomNavigation
+            {...object?.props}
+          />
+        );
+
+      default:
+        break;
+    }
+  };
 
   const render = React.useCallback((tag: string, className: string, style: string, match: string, a1: string, ...args: string[]) => {
     switch (tag) {
@@ -213,6 +255,7 @@ export default function Library(props: any) {
     }
   }, []);
 
+
   const onClickSidenavHeading = React.useCallback((heading: any) => {
     const { id } = heading;
 
@@ -229,7 +272,7 @@ export default function Library(props: any) {
       addClassName='active'
     >
       <Line
-        gap={5}
+        gap={0}
 
         direction='column'
 
@@ -241,31 +284,67 @@ export default function Library(props: any) {
           classes.root
         ])}
       >
-        <Line
-          direction='row'
+        {!value && (
+          <Line
+            gap={3}
 
-          justify='flex-end'
+            direction='column'
 
-          Component='header'
+            justify='center'
 
-          className={classes.wrapper}
-        >
-          <Button
-            color='inherit'
-
-            version='text'
-
-            href={`https://github.com/amaui-org/amaui/tree/main/docs/public/assets/md${props.url}.md`}
-
-            target='_blank'
-
-            Component='a'
+            align='center'
           >
-            Edit page
-          </Button>
-        </Line>
+            <Type
+              version='h1'
+
+              style={{
+                textAlign: 'center'
+              }}
+            >
+              Oops, no page found 🤷‍♀️
+            </Type>
+
+            <LinkNext
+              href='/'
+            >
+              <Button
+                color='inherit'
+              >
+                Back to home
+              </Button>
+            </LinkNext>
+          </Line>
+        )}
+
+        {value && (
+          <Line
+            direction='row'
+
+            justify='flex-end'
+
+            Component='header'
+
+            className={classes.wrapper}
+          >
+            <Button
+              color='inherit'
+
+              version='text'
+
+              href={`https://github.com/amaui-org/amaui/tree/main/docs/public/assets/md${props.url}.md`}
+
+              target='_blank'
+
+              Component='a'
+            >
+              Edit page
+            </Button>
+          </Line>
+        )}
 
         <Line
+          ref={refs.wrapper}
+
           gap={5}
 
           direction='row'
@@ -276,27 +355,21 @@ export default function Library(props: any) {
             width: '100%'
           }}
         >
-          <Markdown
-            ref={refs.markdown}
+          <Line
+            gap={0}
 
-            value={value}
+            direction='column'
 
-            onStart={onStart}
-
-            onUpdate={onUpdate}
-
-            render={render}
-
-            className={classNames([
-              classes.markdown
-            ])}
+            className={classes.wrapper}
 
             style={{
               ...((withSidenav && useMiddleMargin) ? {
                 marginInlineStart: 180
               } : {})
             }}
-          />
+          >
+            {values?.map((item: string, index: number) => element(item, index))}
+          </Line>
 
           {withSidenav && (
             <Line

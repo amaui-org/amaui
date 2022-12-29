@@ -229,6 +229,8 @@ export default function Root(props: any) {
 
         refs.storage.add('light', value);
 
+        theme.inited = true;
+
         break;
 
       case 'direction':

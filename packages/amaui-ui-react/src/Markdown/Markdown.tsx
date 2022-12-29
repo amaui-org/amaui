@@ -3,7 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement, staticClassName, TStyle } from '../utils';
+import { IBaseElement, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {

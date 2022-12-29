@@ -3,7 +3,7 @@ import React from 'react';
 import { isEnvironment } from '@amaui/utils';
 
 const useMediaQuery = (props: string) => {
-  const [response, setResponse] = React.useState<MediaQueryList | MediaQueryListEvent>();
+  const [response, setResponse] = React.useState<MediaQueryList | MediaQueryListEvent>(isEnvironment('browser') && window.matchMedia(props));
 
   const refs = {
     mediaQuery: React.useRef<MediaQueryList>()
