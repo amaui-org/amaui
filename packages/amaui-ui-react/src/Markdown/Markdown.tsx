@@ -281,7 +281,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
       };
 
       const method = (valueNew_: string) => {
-        return valueNew_
+        const result = valueNew_
           // hr
           .replace(/^ *\*{3}$/gm, (match, ...args) => {
             const valueRender = is('function', render) ? render('hr', classNames([classes['hr'], elementClassNames?.['hr']]), elementStyles?.['hr'], match, ...args) : undefined;
@@ -366,6 +366,18 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
 
             return `<h6${addClassName('h6')}${addStyle('h6')}>${a1}</h6>`;
           })
+          // a url
+          .replace(/(?:[^:][\n <])((?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\-\/]+))(?:>)?/g, (match, a1, ...args) => {
+            const valueRender = is('function', render) ? render('a', classNames([classes['a'], elementClassNames?.['a']]), elementStyles?.['a'], match, a1, ...args) : undefined;
+
+            if (valueRender !== undefined) return valueRender;
+
+            let match_ = match;
+
+            if (match_.includes(`<${a1}>`)) match_ = match_.replace(`<${a1}>`, a1);
+
+            return match_.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${a1}' ref='nofollow'>${a1}</a>`);
+          })
           // tables
           .replace(/ *\|?([^|\n]+(\|[^|\n]+)+ *\|?(\n *\|? *:?-{3,}:? *(\| *:?-{3,}:? *)+ *\|?)(\n *\|?([^|\n]+(\|[^|\n]+)+) *\|?)*)/g, (match, ...args) => {
             const valueRender = is('function', render) ? render('table', classNames([classes['table'], elementClassNames?.['table']]), elementStyles?.['table'], match, ...args) : undefined;
@@ -432,7 +444,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
             return `<img${addClassName('img')}${addStyle('img')} alt='${a1}' src='${url[1]}' title='${url[3] || ''}' />`;
           })
           // a ref inline
-          .replace(/(?:[^^]*)(\[([^\]]*)\])(?:[^:[(]*)/gm, (match, a1, a2, offset, string) => {
+          .replace(/(?:[^^]*)(\[([^\]]*)\])(?!;)(?:[^:[(]*)/gm, (match, a1, a2, offset, string) => {
             const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
 
             const valueRender = is('function', render) ? render('a', classNames([classes['a'], elementClassNames?.['a']]), elementStyles?.['a'], url, match, a1, a2, offset, string) : undefined;
@@ -442,18 +454,6 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
             if (!url) return '';
 
             return match.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${url[1]}' title='${url[3] || ''}' ref='nofollow'>${a2}</a>`);
-          })
-          // a urls inline
-          .replace(/(?:[^:][\n <])((?:http(s)?:\/\/)?[\w.-]+(?:\.[\w.-]+))(?:>)?/g, (match, a1, ...args) => {
-            const valueRender = is('function', render) ? render('a', classNames([classes['a'], elementClassNames?.['a']]), elementStyles?.['a'], match, a1, ...args) : undefined;
-
-            if (valueRender !== undefined) return valueRender;
-
-            let match_ = match;
-
-            if (match_.includes(`<${a1}>`)) match_ = match_.replace(`<${a1}>`, a1);
-
-            return match_.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${a1}' ref='nofollow'>${a1}</a>`);
           })
           // pre
           .replace(/([^`])`{3}(.*)\n([^`]*)`{3}([^`])/g, (match, a1, a2, a3, a4, ...args) => {
@@ -641,6 +641,8 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
           })
           // other
           .trim();
+
+        return result;
       };
 
       const listItem = (valueListItem_: string) => {

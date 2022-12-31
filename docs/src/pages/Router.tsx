@@ -50,6 +50,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   navigationDrawer: {
+    paddingBottom: 100,
+
     '& .amaui-List-root': {
       gap: 4
     }
@@ -179,8 +181,24 @@ const useStyle = styleMethod(theme => ({
   },
 
   sideNavList: {
+    width: 340,
+    overflow: 'auto',
+
+    '&.amaui-Line-root': {
+      paddingTop: 0
+    },
+
     '&.amaui-Surface-root, & .amaui-Surface-root': {
       background: 'transparent'
+    }
+  },
+
+  sideNavListSubheader: {
+    paddingTop: 8,
+    marginBottom: 24,
+
+    '&.amaui-ListSubheader-root': {
+      background: theme.palette.background.default.primary
     }
   }
 }), { name: 'root' });
@@ -566,17 +584,13 @@ function Root(props: any) {
             className={classNames([
               classes.sideNavList
             ])}
-
-            style={{
-              width: 340
-            }}
           >
             <ListSubheader
               size='small'
 
-              style={{
-                marginBottom: 24
-              }}
+              className={classNames([
+                classes.sideNavListSubheader
+              ])}
             >
               <Line
                 gap={0.5}

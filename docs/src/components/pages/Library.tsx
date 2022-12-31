@@ -91,6 +91,7 @@ const useStyle = styleMethod(theme => ({
     position: 'relative',
     fontSize: '0.875rem',
     userSelect: 'none',
+    textAlign: 'start',
     transition: theme.methods.transitions.make('box-shadow'),
 
     '&:focus-visible': {
@@ -116,7 +117,6 @@ export default function Library(props: any) {
 
   const refs = {
     id: React.useId(),
-    headings: React.useRef<any[]>([]),
     wrapper: React.useRef<HTMLElement>()
   };
 
@@ -166,9 +166,9 @@ export default function Library(props: any) {
 
     Prism.highlightAllUnder(window.document.getElementById(refs.id) as HTMLElement);
 
-    setHeadings([...unique(refs.headings.current, 'id')]);
-
     const markdowns = Array.from(refs.wrapper.current!.querySelectorAll('.amaui-Markdown-root'));
+
+    const valuesHeadings: any = [];
 
     markdowns.forEach(markdown => {
       // Update all headings within the markdown inner html
@@ -185,32 +185,32 @@ export default function Library(props: any) {
 
         const text = item.innerHTML;
 
+        valuesHeadings.push({
+          id: item.id,
+          text,
+          priority: +item.tagName.slice(1)
+        });
+
         const iconAnchor = `<svg viewBox="0 0 24 24" width="1em" height="1em" focusable="false" aria-hidden="true" style="fill: currentcolor; font-size: 24px;"><path d="M7 17Q4.925 17 3.463 15.537Q2 14.075 2 12Q2 9.925 3.463 8.462Q4.925 7 7 7H10Q10.425 7 10.713 7.287Q11 7.575 11 8Q11 8.425 10.713 8.712Q10.425 9 10 9H7Q5.75 9 4.875 9.875Q4 10.75 4 12Q4 13.25 4.875 14.125Q5.75 15 7 15H10Q10.425 15 10.713 15.287Q11 15.575 11 16Q11 16.425 10.713 16.712Q10.425 17 10 17ZM9 13Q8.575 13 8.288 12.712Q8 12.425 8 12Q8 11.575 8.288 11.287Q8.575 11 9 11H15Q15.425 11 15.713 11.287Q16 11.575 16 12Q16 12.425 15.713 12.712Q15.425 13 15 13ZM14 17Q13.575 17 13.288 16.712Q13 16.425 13 16Q13 15.575 13.288 15.287Q13.575 15 14 15H17Q18.25 15 19.125 14.125Q20 13.25 20 12Q20 10.75 19.125 9.875Q18.25 9 17 9H14Q13.575 9 13.288 8.712Q13 8.425 13 8Q13 7.575 13.288 7.287Q13.575 7 14 7H17Q19.075 7 20.538 8.462Q22 9.925 22 12Q22 14.075 20.538 15.537Q19.075 17 17 17Z"/></svg>`;
 
         // Add the anchors
         item.innerHTML += `<a href='#${id}' class='${classNames([classes.anchor])}' aria-label='${text}' title='${text}'>${iconAnchor}</a>`;
       });
     });
+
+    setHeadings([...valuesHeadings]);
   }, []);
 
-  const onStart = React.useCallback(() => {
-    // refs.headings.current = [];
-  }, []);
-
-  const values = value?.trim().match(/[^}}]+?(?={{)|(?={{)[\s\S]+?(?:}})/ig) || [];
+  const values = value?.trim().match(/[^~]+?(?=~)|(?:~)[\s\S]+?(?:~)/ig) || [];
 
   const element = (value_: string, index: number) => {
-    if (value_?.indexOf('{{') !== 0) return (
+    if (value_?.indexOf('~{') !== 0) return (
       <Markdown
         key={index}
 
         value={value_}
 
-        onStart={onStart}
-
         onUpdate={onUpdate}
-
-        render={render}
 
         className={classNames([
           classes.markdown
@@ -233,30 +233,6 @@ export default function Library(props: any) {
     }
   };
 
-  const render = React.useCallback((tag: string, className: string, style: string, match: string, a1: string, ...args: string[]) => {
-    switch (tag) {
-      case 'h1':
-      case 'h2':
-      case 'h3':
-      case 'h4':
-      case 'h5':
-      case 'h6':
-        const id = slugify(a1);
-
-        refs.headings.current.push({
-          tag,
-          id,
-          text: a1
-        });
-
-        return;
-
-      default:
-        return;
-    }
-  }, []);
-
-
   const onClickSidenavHeading = React.useCallback((heading: any) => {
     const { id } = heading;
 
@@ -266,8 +242,11 @@ export default function Library(props: any) {
 
   const withSidenav = !mediumScreen && !!headings.length;
 
-  const activePage = props?.menu.find((item: any) => item.url === props.url);
+  const activePage = props?.menu?.find((item: any) => item.url === props.url);
 
+  const maxPriority = Math.max(...headings?.map((item: any) => item.priority));
+
+  console.log(1, headings, maxPriority);
   return <>
     <Head>
       <title>{props.label} {activePage?.label}</title>
@@ -427,6 +406,10 @@ export default function Library(props: any) {
                     className={classNames([
                       classes.sidenav_heading
                     ])}
+
+                    style={{
+                      marginLeft: (heading.priority - maxPriority + 1) * 8
+                    }}
                   >
                     {heading.text}
 

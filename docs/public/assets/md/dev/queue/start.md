@@ -68,7 +68,7 @@ Build
 yarn build
 ```
 
-{{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -80,4 +80,4 @@ yarn build
       "to": "/dev/queue/use"
     }
   }
-}}
+}~

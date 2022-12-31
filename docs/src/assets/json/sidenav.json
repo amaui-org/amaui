@@ -1,5 +1,2249 @@
 [
   {
+    "url": "/dev/ui-react",
+    "label": "UI React",
+    "default": "/dev/ui-react/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/ui-react/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/ui-react/use",
+        "menu": [
+          {
+            "label": "Accordion",
+            "url": "/dev/ui-react/use/Accordion"
+          },
+          {
+            "label": "AdvancedTextField",
+            "url": "/dev/ui-react/use/AdvancedTextField"
+          },
+          {
+            "label": "Append",
+            "url": "/dev/ui-react/use/Append"
+          },
+          {
+            "label": "AreaChart",
+            "url": "/dev/ui-react/use/AreaChart"
+          },
+          {
+            "label": "AutoComplete",
+            "url": "/dev/ui-react/use/AutoComplete"
+          },
+          {
+            "label": "Avatar",
+            "url": "/dev/ui-react/use/Avatar"
+          },
+          {
+            "label": "AvatarGroup",
+            "url": "/dev/ui-react/use/AvatarGroup"
+          },
+          {
+            "label": "Backdrop",
+            "url": "/dev/ui-react/use/Backdrop"
+          },
+          {
+            "label": "Badge",
+            "url": "/dev/ui-react/use/Badge"
+          },
+          {
+            "label": "Banner",
+            "url": "/dev/ui-react/use/Banner"
+          },
+          {
+            "label": "BottomAppBar",
+            "url": "/dev/ui-react/use/BottomAppBar"
+          },
+          {
+            "label": "BottomSheet",
+            "url": "/dev/ui-react/use/BottomSheet"
+          },
+          {
+            "label": "Box",
+            "url": "/dev/ui-react/use/Box"
+          },
+          {
+            "label": "Breadcrumbs",
+            "url": "/dev/ui-react/use/Breadcrumbs"
+          },
+          {
+            "label": "BubbleChart",
+            "url": "/dev/ui-react/use/BubbleChart"
+          },
+          {
+            "label": "Button",
+            "url": "/dev/ui-react/use/Button"
+          },
+          {
+            "label": "Buttons",
+            "url": "/dev/ui-react/use/Buttons"
+          },
+          {
+            "label": "Card",
+            "url": "/dev/ui-react/use/Card"
+          },
+          {
+            "label": "CardButton",
+            "url": "/dev/ui-react/use/CardButton"
+          },
+          {
+            "label": "CardFooter",
+            "url": "/dev/ui-react/use/CardFooter"
+          },
+          {
+            "label": "CardHeader",
+            "url": "/dev/ui-react/use/CardFooter"
+          },
+          {
+            "label": "CardImage",
+            "url": "/dev/ui-react/use/CardImage"
+          },
+          {
+            "label": "CardMain",
+            "url": "/dev/ui-react/use/CardMain"
+          },
+          {
+            "label": "Carousel",
+            "url": "/dev/ui-react/use/Carousel"
+          },
+          {
+            "label": "Chart",
+            "url": "/dev/ui-react/use/Chart"
+          },
+          {
+            "label": "Checbox",
+            "url": "/dev/ui-react/use/Checbox"
+          },
+          {
+            "label": "Chip",
+            "url": "/dev/ui-react/use/Chip"
+          },
+          {
+            "label": "Chips",
+            "url": "/dev/ui-react/use/Chips"
+          },
+          {
+            "label": "ClickListener",
+            "url": "/dev/ui-react/use/ClickListener"
+          },
+          {
+            "label": "ColorTextField",
+            "url": "/dev/ui-react/use/ColorTextField"
+          },
+          {
+            "label": "ColumChart",
+            "url": "/dev/ui-react/use/ColumChart"
+          },
+          {
+            "label": "Confirm",
+            "url": "/dev/ui-react/use/Confirm"
+          },
+          {
+            "label": "Container",
+            "url": "/dev/ui-react/use/Container"
+          },
+          {
+            "label": "Countdown",
+            "url": "/dev/ui-react/use/Countdown"
+          },
+          {
+            "label": "DatePicker",
+            "url": "/dev/ui-react/use/DatePicker"
+          },
+          {
+            "label": "DateRangePicker",
+            "url": "/dev/ui-react/use/DateRangePicker"
+          },
+          {
+            "label": "DateTimePicker",
+            "url": "/dev/ui-react/use/DateTimePicker"
+          },
+          {
+            "label": "DateTimeRangePicker",
+            "url": "/dev/ui-react/use/DateTimeRangePicker"
+          },
+          {
+            "label": "Divider",
+            "url": "/dev/ui-react/use/Divider"
+          },
+          {
+            "label": "DonutChart",
+            "url": "/dev/ui-react/use/DonutChart"
+          },
+          {
+            "label": "Drawing",
+            "url": "/dev/ui-react/use/Drawing"
+          },
+          {
+            "label": "DropZone",
+            "url": "/dev/ui-react/use/DropZone"
+          },
+          {
+            "label": "Expand",
+            "url": "/dev/ui-react/use/Expand"
+          },
+          {
+            "label": "Fab",
+            "url": "/dev/ui-react/use/Fab"
+          },
+          {
+            "label": "Fade",
+            "url": "/dev/ui-react/use/Fade"
+          },
+          {
+            "label": "FileChoose",
+            "url": "/dev/ui-react/use/FileChoose"
+          },
+          {
+            "label": "Focus",
+            "url": "/dev/ui-react/use/Focus"
+          },
+          {
+            "label": "Grid",
+            "url": "/dev/ui-react/use/Grid"
+          },
+          {
+            "label": "Grow",
+            "url": "/dev/ui-react/use/Grow"
+          },
+          {
+            "label": "Icon",
+            "url": "/dev/ui-react/use/Icon"
+          },
+          {
+            "label": "IconButton",
+            "url": "/dev/ui-react/use/IconButton"
+          },
+          {
+            "label": "Image",
+            "url": "/dev/ui-react/use/Image"
+          },
+          {
+            "label": "ImageCrop",
+            "url": "/dev/ui-react/use/ImageCrop"
+          },
+          {
+            "label": "ImageEdit",
+            "url": "/dev/ui-react/use/ImageEdit"
+          },
+          {
+            "label": "ImageList",
+            "url": "/dev/ui-react/use/ImageList"
+          },
+          {
+            "label": "ImageListItem",
+            "url": "/dev/ui-react/use/ImageListItem"
+          },
+          {
+            "label": "ImageListItemBox",
+            "url": "/dev/ui-react/use/ImageListItemBox"
+          },
+          {
+            "label": "Interaction",
+            "url": "/dev/ui-react/use/Interaction"
+          },
+          {
+            "label": "Keyframes",
+            "url": "/dev/ui-react/use/Keyframes"
+          },
+          {
+            "label": "Label",
+            "url": "/dev/ui-react/use/Label"
+          },
+          {
+            "label": "Line",
+            "url": "/dev/ui-react/use/Line"
+          },
+          {
+            "label": "LinearMeter",
+            "url": "/dev/ui-react/use/LinearMeter"
+          },
+          {
+            "label": "LinearProgress",
+            "url": "/dev/ui-react/use/LinearProgress"
+          },
+          {
+            "label": "LineChart",
+            "url": "/dev/ui-react/use/LineChart"
+          },
+          {
+            "label": "Link",
+            "url": "/dev/ui-react/use/Link"
+          },
+          {
+            "label": "List",
+            "url": "/dev/ui-react/use/List"
+          },
+          {
+            "label": "ListItem",
+            "url": "/dev/ui-react/use/ListItem"
+          },
+          {
+            "label": "ListSubheader",
+            "url": "/dev/ui-react/use/ListSubheader"
+          },
+          {
+            "label": "MainProgress",
+            "url": "/dev/ui-react/use/MainProgress"
+          },
+          {
+            "label": "Markdown",
+            "url": "/dev/ui-react/use/Markdown"
+          },
+          {
+            "label": "Masonry",
+            "url": "/dev/ui-react/use/Masonry"
+          },
+          {
+            "label": "Menu",
+            "url": "/dev/ui-react/use/Menu"
+          },
+          {
+            "label": "MenUDesktop",
+            "url": "/dev/ui-react/use/MenUDesktop"
+          },
+          {
+            "label": "Modal",
+            "url": "/dev/ui-react/use/Modal"
+          },
+          {
+            "label": "ModalFooter",
+            "url": "/dev/ui-react/use/ModalFooter"
+          },
+          {
+            "label": "ModalHeader",
+            "url": "/dev/ui-react/use/ModalHeader"
+          },
+          {
+            "label": "ModalIcon",
+            "url": "/dev/ui-react/use/ModalIcon"
+          },
+          {
+            "label": "ModalMain",
+            "url": "/dev/ui-react/use/ModalMain"
+          },
+          {
+            "label": "ModalText",
+            "url": "/dev/ui-react/use/ModalText"
+          },
+          {
+            "label": "ModalTitle",
+            "url": "/dev/ui-react/use/ModalTitle"
+          },
+          {
+            "label": "Move",
+            "url": "/dev/ui-react/use/Move"
+          },
+          {
+            "label": "NavigationBar",
+            "url": "/dev/ui-react/use/NavigationBar"
+          },
+          {
+            "label": "NavigationDrawer",
+            "url": "/dev/ui-react/use/NavigationDrawer"
+          },
+          {
+            "label": "NavigationItem",
+            "url": "/dev/ui-react/use/NavigationItem"
+          },
+          {
+            "label": "NavigationRail",
+            "url": "/dev/ui-react/use/NavigationRail"
+          },
+          {
+            "label": "NumericTextField",
+            "url": "/dev/ui-react/use/NumericTextField"
+          },
+          {
+            "label": "Pagination",
+            "url": "/dev/ui-react/use/Pagination"
+          },
+          {
+            "label": "PaginationItem",
+            "url": "/dev/ui-react/use/PaginationItem"
+          },
+          {
+            "label": "Parallax",
+            "url": "/dev/ui-react/use/Parallax"
+          },
+          {
+            "label": "Path",
+            "url": "/dev/ui-react/use/Path"
+          },
+          {
+            "label": "PieChart",
+            "url": "/dev/ui-react/use/PieChart"
+          },
+          {
+            "label": "Placeholder",
+            "url": "/dev/ui-react/use/Placeholder"
+          },
+          {
+            "label": "Portal",
+            "url": "/dev/ui-react/use/Portal"
+          },
+          {
+            "label": "Radio",
+            "url": "/dev/ui-react/use/Radio"
+          },
+          {
+            "label": "Radios",
+            "url": "/dev/ui-react/use/Radios"
+          },
+          {
+            "label": "Rating",
+            "url": "/dev/ui-react/use/Rating"
+          },
+          {
+            "label": "Reset",
+            "url": "/dev/ui-react/use/Reset"
+          },
+          {
+            "label": "Reveal",
+            "url": "/dev/ui-react/use/Reveal"
+          },
+          {
+            "label": "RichTextEditor",
+            "url": "/dev/ui-react/use/RichTextEditor"
+          },
+          {
+            "label": "RoundMeters",
+            "url": "/dev/ui-react/use/RoundMeters"
+          },
+          {
+            "label": "RoundProgress",
+            "url": "/dev/ui-react/use/RoundProgress"
+          },
+          {
+            "label": "ScatterChart",
+            "url": "/dev/ui-react/use/ScatterChart"
+          },
+          {
+            "label": "ScreenCapture",
+            "url": "/dev/ui-react/use/ScreenCapture"
+          },
+          {
+            "label": "Select",
+            "url": "/dev/ui-react/use/Select"
+          },
+          {
+            "label": "Slide",
+            "url": "/dev/ui-react/use/Slide"
+          },
+          {
+            "label": "Slider",
+            "url": "/dev/ui-react/use/Slider"
+          },
+          {
+            "label": "Snackbar",
+            "url": "/dev/ui-react/use/Snackbar"
+          },
+          {
+            "label": "Snackbars",
+            "url": "/dev/ui-react/use/Snackbars"
+          },
+          {
+            "label": "SpeedDial",
+            "url": "/dev/ui-react/use/SpeedDial"
+          },
+          {
+            "label": "SpeedDialItem",
+            "url": "/dev/ui-react/use/SpeedDialItem"
+          },
+          {
+            "label": "SpyScroll",
+            "url": "/dev/ui-react/use/SpyScroll"
+          },
+          {
+            "label": "Step",
+            "url": "/dev/ui-react/use/Step"
+          },
+          {
+            "label": "Stepper",
+            "url": "/dev/ui-react/use/Stepper"
+          },
+          {
+            "label": "Surface",
+            "url": "/dev/ui-react/use/Surface"
+          },
+          {
+            "label": "Switch",
+            "url": "/dev/ui-react/use/Switch"
+          },
+          {
+            "label": "Tab",
+            "url": "/dev/ui-react/use/Tab"
+          },
+          {
+            "label": "Table",
+            "url": "/dev/ui-react/use/Table"
+          },
+          {
+            "label": "TableBody",
+            "url": "/dev/ui-react/use/TableBody"
+          },
+          {
+            "label": "TableCell",
+            "url": "/dev/ui-react/use/TableCell"
+          },
+          {
+            "label": "TableHead",
+            "url": "/dev/ui-react/use/TableHead"
+          },
+          {
+            "label": "TableHeader",
+            "url": "/dev/ui-react/use/TableHeader"
+          },
+          {
+            "label": "TablePagination",
+            "url": "/dev/ui-react/use/TablePagination"
+          },
+          {
+            "label": "TableRow",
+            "url": "/dev/ui-react/use/TableRow"
+          },
+          {
+            "label": "Tabs",
+            "url": "/dev/ui-react/use/Tabs"
+          },
+          {
+            "label": "TextField",
+            "url": "/dev/ui-react/use/TextField"
+          },
+          {
+            "label": "Timeline",
+            "url": "/dev/ui-react/use/Timeline"
+          },
+          {
+            "label": "TimelineItem",
+            "url": "/dev/ui-react/use/TimelineItem"
+          },
+          {
+            "label": "TimePicker",
+            "url": "/dev/ui-react/use/TimePicker"
+          },
+          {
+            "label": "Timer",
+            "url": "/dev/ui-react/use/Timer"
+          },
+          {
+            "label": "TimeRangePicker",
+            "url": "/dev/ui-react/use/TimeRangePicker"
+          },
+          {
+            "label": "ToggleButton",
+            "url": "/dev/ui-react/use/ToggleButton"
+          },
+          {
+            "label": "ToggleButtons",
+            "url": "/dev/ui-react/use/ToggleButtons"
+          },
+          {
+            "label": "Tooltip",
+            "url": "/dev/ui-react/use/Tooltip"
+          },
+          {
+            "label": "TopAppBar",
+            "url": "/dev/ui-react/use/TopAppBar"
+          },
+          {
+            "label": "Transition",
+            "url": "/dev/ui-react/use/Transition"
+          },
+          {
+            "label": "Transitions",
+            "url": "/dev/ui-react/use/Transitions"
+          },
+          {
+            "label": "Tree",
+            "url": "/dev/ui-react/use/Tree"
+          },
+          {
+            "label": "Type",
+            "url": "/dev/ui-react/use/Type"
+          },
+          {
+            "label": "useMediaQuery",
+            "url": "/dev/ui-react/use/useMediaQuery"
+          },
+          {
+            "label": "useScroll",
+            "url": "/dev/ui-react/use/useScroll"
+          },
+          {
+            "label": "useSwipe",
+            "url": "/dev/ui-react/use/useSwipe"
+          },
+          {
+            "label": "ViewSplit",
+            "url": "/dev/ui-react/use/ViewSplit"
+          },
+          {
+            "label": "Watch",
+            "url": "/dev/ui-react/use/Watch"
+          },
+          {
+            "label": "Weather",
+            "url": "/dev/ui-react/use/Weather"
+          },
+          {
+            "label": "Widgets",
+            "url": "/dev/ui-react/use/Widgets"
+          },
+          {
+            "label": "WindowSplit",
+            "url": "/dev/ui-react/use/WindowSplit"
+          },
+          {
+            "label": "Zoom",
+            "url": "/dev/ui-react/use/Zoom"
+          }
+        ]
+      },
+      {
+        "label": "API",
+        "url": "/dev/ui-react/api",
+        "menu": [
+          {
+            "label": "Accordion",
+            "url": "/dev/ui-react/api/Accordion"
+          },
+          {
+            "label": "AdvancedTextField",
+            "url": "/dev/ui-react/api/AdvancedTextField"
+          },
+          {
+            "label": "Append",
+            "url": "/dev/ui-react/api/Append"
+          },
+          {
+            "label": "AreaChart",
+            "url": "/dev/ui-react/api/AreaChart"
+          },
+          {
+            "label": "AutoComplete",
+            "url": "/dev/ui-react/api/AutoComplete"
+          },
+          {
+            "label": "Avatar",
+            "url": "/dev/ui-react/api/Avatar"
+          },
+          {
+            "label": "AvatarGroup",
+            "url": "/dev/ui-react/api/AvatarGroup"
+          },
+          {
+            "label": "Backdrop",
+            "url": "/dev/ui-react/api/Backdrop"
+          },
+          {
+            "label": "Badge",
+            "url": "/dev/ui-react/api/Badge"
+          },
+          {
+            "label": "Banner",
+            "url": "/dev/ui-react/api/Banner"
+          },
+          {
+            "label": "BottomAppBar",
+            "url": "/dev/ui-react/api/BottomAppBar"
+          },
+          {
+            "label": "BottomSheet",
+            "url": "/dev/ui-react/api/BottomSheet"
+          },
+          {
+            "label": "Box",
+            "url": "/dev/ui-react/api/Box"
+          },
+          {
+            "label": "Breadcrumbs",
+            "url": "/dev/ui-react/api/Breadcrumbs"
+          },
+          {
+            "label": "BubbleChart",
+            "url": "/dev/ui-react/api/BubbleChart"
+          },
+          {
+            "label": "Button",
+            "url": "/dev/ui-react/api/Button"
+          },
+          {
+            "label": "Buttons",
+            "url": "/dev/ui-react/api/Buttons"
+          },
+          {
+            "label": "Card",
+            "url": "/dev/ui-react/api/Card"
+          },
+          {
+            "label": "CardButton",
+            "url": "/dev/ui-react/api/CardButton"
+          },
+          {
+            "label": "CardFooter",
+            "url": "/dev/ui-react/api/CardFooter"
+          },
+          {
+            "label": "CardHeader",
+            "url": "/dev/ui-react/api/CardFooter"
+          },
+          {
+            "label": "CardImage",
+            "url": "/dev/ui-react/api/CardImage"
+          },
+          {
+            "label": "CardMain",
+            "url": "/dev/ui-react/api/CardMain"
+          },
+          {
+            "label": "Carousel",
+            "url": "/dev/ui-react/api/Carousel"
+          },
+          {
+            "label": "Chart",
+            "url": "/dev/ui-react/api/Chart"
+          },
+          {
+            "label": "Checbox",
+            "url": "/dev/ui-react/api/Checbox"
+          },
+          {
+            "label": "Chip",
+            "url": "/dev/ui-react/api/Chip"
+          },
+          {
+            "label": "Chips",
+            "url": "/dev/ui-react/api/Chips"
+          },
+          {
+            "label": "ClickListener",
+            "url": "/dev/ui-react/api/ClickListener"
+          },
+          {
+            "label": "ColorTextField",
+            "url": "/dev/ui-react/api/ColorTextField"
+          },
+          {
+            "label": "ColumChart",
+            "url": "/dev/ui-react/api/ColumChart"
+          },
+          {
+            "label": "Confirm",
+            "url": "/dev/ui-react/api/Confirm"
+          },
+          {
+            "label": "Container",
+            "url": "/dev/ui-react/api/Container"
+          },
+          {
+            "label": "Countdown",
+            "url": "/dev/ui-react/api/Countdown"
+          },
+          {
+            "label": "DatePicker",
+            "url": "/dev/ui-react/api/DatePicker"
+          },
+          {
+            "label": "DateRangePicker",
+            "url": "/dev/ui-react/api/DateRangePicker"
+          },
+          {
+            "label": "DateTimePicker",
+            "url": "/dev/ui-react/api/DateTimePicker"
+          },
+          {
+            "label": "DateTimeRangePicker",
+            "url": "/dev/ui-react/api/DateTimeRangePicker"
+          },
+          {
+            "label": "Divider",
+            "url": "/dev/ui-react/api/Divider"
+          },
+          {
+            "label": "DonutChart",
+            "url": "/dev/ui-react/api/DonutChart"
+          },
+          {
+            "label": "Drawing",
+            "url": "/dev/ui-react/api/Drawing"
+          },
+          {
+            "label": "DropZone",
+            "url": "/dev/ui-react/api/DropZone"
+          },
+          {
+            "label": "Expand",
+            "url": "/dev/ui-react/api/Expand"
+          },
+          {
+            "label": "Fab",
+            "url": "/dev/ui-react/api/Fab"
+          },
+          {
+            "label": "Fade",
+            "url": "/dev/ui-react/api/Fade"
+          },
+          {
+            "label": "FileChoose",
+            "url": "/dev/ui-react/api/FileChoose"
+          },
+          {
+            "label": "Focus",
+            "url": "/dev/ui-react/api/Focus"
+          },
+          {
+            "label": "Grid",
+            "url": "/dev/ui-react/api/Grid"
+          },
+          {
+            "label": "Grow",
+            "url": "/dev/ui-react/api/Grow"
+          },
+          {
+            "label": "Icon",
+            "url": "/dev/ui-react/api/Icon"
+          },
+          {
+            "label": "IconButton",
+            "url": "/dev/ui-react/api/IconButton"
+          },
+          {
+            "label": "Image",
+            "url": "/dev/ui-react/api/Image"
+          },
+          {
+            "label": "ImageCrop",
+            "url": "/dev/ui-react/api/ImageCrop"
+          },
+          {
+            "label": "ImageEdit",
+            "url": "/dev/ui-react/api/ImageEdit"
+          },
+          {
+            "label": "ImageList",
+            "url": "/dev/ui-react/api/ImageList"
+          },
+          {
+            "label": "ImageListItem",
+            "url": "/dev/ui-react/api/ImageListItem"
+          },
+          {
+            "label": "ImageListItemBox",
+            "url": "/dev/ui-react/api/ImageListItemBox"
+          },
+          {
+            "label": "Interaction",
+            "url": "/dev/ui-react/api/Interaction"
+          },
+          {
+            "label": "Keyframes",
+            "url": "/dev/ui-react/api/Keyframes"
+          },
+          {
+            "label": "Label",
+            "url": "/dev/ui-react/api/Label"
+          },
+          {
+            "label": "Line",
+            "url": "/dev/ui-react/api/Line"
+          },
+          {
+            "label": "LinearMeter",
+            "url": "/dev/ui-react/api/LinearMeter"
+          },
+          {
+            "label": "LinearProgress",
+            "url": "/dev/ui-react/api/LinearProgress"
+          },
+          {
+            "label": "LineChart",
+            "url": "/dev/ui-react/api/LineChart"
+          },
+          {
+            "label": "Link",
+            "url": "/dev/ui-react/api/Link"
+          },
+          {
+            "label": "List",
+            "url": "/dev/ui-react/api/List"
+          },
+          {
+            "label": "ListItem",
+            "url": "/dev/ui-react/api/ListItem"
+          },
+          {
+            "label": "ListSubheader",
+            "url": "/dev/ui-react/api/ListSubheader"
+          },
+          {
+            "label": "MainProgress",
+            "url": "/dev/ui-react/api/MainProgress"
+          },
+          {
+            "label": "Markdown",
+            "url": "/dev/ui-react/api/Markdown"
+          },
+          {
+            "label": "Masonry",
+            "url": "/dev/ui-react/api/Masonry"
+          },
+          {
+            "label": "Menu",
+            "url": "/dev/ui-react/api/Menu"
+          },
+          {
+            "label": "MenUDesktop",
+            "url": "/dev/ui-react/api/MenUDesktop"
+          },
+          {
+            "label": "Modal",
+            "url": "/dev/ui-react/api/Modal"
+          },
+          {
+            "label": "ModalFooter",
+            "url": "/dev/ui-react/api/ModalFooter"
+          },
+          {
+            "label": "ModalHeader",
+            "url": "/dev/ui-react/api/ModalHeader"
+          },
+          {
+            "label": "ModalIcon",
+            "url": "/dev/ui-react/api/ModalIcon"
+          },
+          {
+            "label": "ModalMain",
+            "url": "/dev/ui-react/api/ModalMain"
+          },
+          {
+            "label": "ModalText",
+            "url": "/dev/ui-react/api/ModalText"
+          },
+          {
+            "label": "ModalTitle",
+            "url": "/dev/ui-react/api/ModalTitle"
+          },
+          {
+            "label": "Move",
+            "url": "/dev/ui-react/api/Move"
+          },
+          {
+            "label": "NavigationBar",
+            "url": "/dev/ui-react/api/NavigationBar"
+          },
+          {
+            "label": "NavigationDrawer",
+            "url": "/dev/ui-react/api/NavigationDrawer"
+          },
+          {
+            "label": "NavigationItem",
+            "url": "/dev/ui-react/api/NavigationItem"
+          },
+          {
+            "label": "NavigationRail",
+            "url": "/dev/ui-react/api/NavigationRail"
+          },
+          {
+            "label": "NumericTextField",
+            "url": "/dev/ui-react/api/NumericTextField"
+          },
+          {
+            "label": "Pagination",
+            "url": "/dev/ui-react/api/Pagination"
+          },
+          {
+            "label": "PaginationItem",
+            "url": "/dev/ui-react/api/PaginationItem"
+          },
+          {
+            "label": "Parallax",
+            "url": "/dev/ui-react/api/Parallax"
+          },
+          {
+            "label": "Path",
+            "url": "/dev/ui-react/api/Path"
+          },
+          {
+            "label": "PieChart",
+            "url": "/dev/ui-react/api/PieChart"
+          },
+          {
+            "label": "Placeholder",
+            "url": "/dev/ui-react/api/Placeholder"
+          },
+          {
+            "label": "Portal",
+            "url": "/dev/ui-react/api/Portal"
+          },
+          {
+            "label": "Radio",
+            "url": "/dev/ui-react/api/Radio"
+          },
+          {
+            "label": "Radios",
+            "url": "/dev/ui-react/api/Radios"
+          },
+          {
+            "label": "Rating",
+            "url": "/dev/ui-react/api/Rating"
+          },
+          {
+            "label": "Reset",
+            "url": "/dev/ui-react/api/Reset"
+          },
+          {
+            "label": "Reveal",
+            "url": "/dev/ui-react/api/Reveal"
+          },
+          {
+            "label": "RichTextEditor",
+            "url": "/dev/ui-react/api/RichTextEditor"
+          },
+          {
+            "label": "RoundMeters",
+            "url": "/dev/ui-react/api/RoundMeters"
+          },
+          {
+            "label": "RoundProgress",
+            "url": "/dev/ui-react/api/RoundProgress"
+          },
+          {
+            "label": "ScatterChart",
+            "url": "/dev/ui-react/api/ScatterChart"
+          },
+          {
+            "label": "ScreenCapture",
+            "url": "/dev/ui-react/api/ScreenCapture"
+          },
+          {
+            "label": "Select",
+            "url": "/dev/ui-react/api/Select"
+          },
+          {
+            "label": "Slide",
+            "url": "/dev/ui-react/api/Slide"
+          },
+          {
+            "label": "Slider",
+            "url": "/dev/ui-react/api/Slider"
+          },
+          {
+            "label": "Snackbar",
+            "url": "/dev/ui-react/api/Snackbar"
+          },
+          {
+            "label": "Snackbars",
+            "url": "/dev/ui-react/api/Snackbars"
+          },
+          {
+            "label": "SpeedDial",
+            "url": "/dev/ui-react/api/SpeedDial"
+          },
+          {
+            "label": "SpeedDialItem",
+            "url": "/dev/ui-react/api/SpeedDialItem"
+          },
+          {
+            "label": "SpyScroll",
+            "url": "/dev/ui-react/api/SpyScroll"
+          },
+          {
+            "label": "Step",
+            "url": "/dev/ui-react/api/Step"
+          },
+          {
+            "label": "Stepper",
+            "url": "/dev/ui-react/api/Stepper"
+          },
+          {
+            "label": "Surface",
+            "url": "/dev/ui-react/api/Surface"
+          },
+          {
+            "label": "Switch",
+            "url": "/dev/ui-react/api/Switch"
+          },
+          {
+            "label": "Tab",
+            "url": "/dev/ui-react/api/Tab"
+          },
+          {
+            "label": "Table",
+            "url": "/dev/ui-react/api/Table"
+          },
+          {
+            "label": "TableBody",
+            "url": "/dev/ui-react/api/TableBody"
+          },
+          {
+            "label": "TableCell",
+            "url": "/dev/ui-react/api/TableCell"
+          },
+          {
+            "label": "TableHead",
+            "url": "/dev/ui-react/api/TableHead"
+          },
+          {
+            "label": "TableHeader",
+            "url": "/dev/ui-react/api/TableHeader"
+          },
+          {
+            "label": "TablePagination",
+            "url": "/dev/ui-react/api/TablePagination"
+          },
+          {
+            "label": "TableRow",
+            "url": "/dev/ui-react/api/TableRow"
+          },
+          {
+            "label": "Tabs",
+            "url": "/dev/ui-react/api/Tabs"
+          },
+          {
+            "label": "TextField",
+            "url": "/dev/ui-react/api/TextField"
+          },
+          {
+            "label": "Timeline",
+            "url": "/dev/ui-react/api/Timeline"
+          },
+          {
+            "label": "TimelineItem",
+            "url": "/dev/ui-react/api/TimelineItem"
+          },
+          {
+            "label": "TimePicker",
+            "url": "/dev/ui-react/api/TimePicker"
+          },
+          {
+            "label": "Timer",
+            "url": "/dev/ui-react/api/Timer"
+          },
+          {
+            "label": "TimeRangePicker",
+            "url": "/dev/ui-react/api/TimeRangePicker"
+          },
+          {
+            "label": "ToggleButton",
+            "url": "/dev/ui-react/api/ToggleButton"
+          },
+          {
+            "label": "ToggleButtons",
+            "url": "/dev/ui-react/api/ToggleButtons"
+          },
+          {
+            "label": "Tooltip",
+            "url": "/dev/ui-react/api/Tooltip"
+          },
+          {
+            "label": "TopAppBar",
+            "url": "/dev/ui-react/api/TopAppBar"
+          },
+          {
+            "label": "Transition",
+            "url": "/dev/ui-react/api/Transition"
+          },
+          {
+            "label": "Transitions",
+            "url": "/dev/ui-react/api/Transitions"
+          },
+          {
+            "label": "Tree",
+            "url": "/dev/ui-react/api/Tree"
+          },
+          {
+            "label": "Type",
+            "url": "/dev/ui-react/api/Type"
+          },
+          {
+            "label": "useMediaQuery",
+            "url": "/dev/ui-react/api/useMediaQuery"
+          },
+          {
+            "label": "useScroll",
+            "url": "/dev/ui-react/api/useScroll"
+          },
+          {
+            "label": "useSwipe",
+            "url": "/dev/ui-react/api/useSwipe"
+          },
+          {
+            "label": "ViewSplit",
+            "url": "/dev/ui-react/api/ViewSplit"
+          },
+          {
+            "label": "Watch",
+            "url": "/dev/ui-react/api/Watch"
+          },
+          {
+            "label": "Weather",
+            "url": "/dev/ui-react/api/Weather"
+          },
+          {
+            "label": "Widgets",
+            "url": "/dev/ui-react/api/Widgets"
+          },
+          {
+            "label": "WindowSplit",
+            "url": "/dev/ui-react/api/WindowSplit"
+          },
+          {
+            "label": "Zoom",
+            "url": "/dev/ui-react/api/Zoom"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/style-react",
+    "label": "Style React",
+    "default": "/dev/style-react/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/style-react/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/style-react/use",
+        "menu": [
+          {
+            "label": "AmauiStyleProvider",
+            "url": "/dev/style-react/use/AmauiStyleProvider"
+          },
+          {
+            "label": "AmauiThemeProvider",
+            "url": "/dev/style-react/use/AmauiThemeProvider"
+          },
+          {
+            "label": "className",
+            "url": "/dev/style-react/use/className"
+          },
+          {
+            "label": "inline",
+            "url": "/dev/style-react/use/inline"
+          },
+          {
+            "label": "pure",
+            "url": "/dev/style-react/use/pure"
+          },
+          {
+            "label": "reset",
+            "url": "/dev/style-react/use/reset"
+          },
+          {
+            "label": "string",
+            "url": "/dev/style-react/use/string"
+          },
+          {
+            "label": "style",
+            "url": "/dev/style-react/use/style"
+          },
+          {
+            "label": "styled",
+            "url": "/dev/style-react/use/styled"
+          },
+          {
+            "label": "withStyle",
+            "url": "/dev/style-react/use/withStyle"
+          }
+        ]
+      },
+      {
+        "label": "API",
+        "url": "/dev/style-react/api",
+        "menu": [
+          {
+            "label": "AmauiStyleProvider",
+            "url": "/dev/style-react/api/AmauiStyleProvider"
+          },
+          {
+            "label": "AmauiThemeProvider",
+            "url": "/dev/style-react/api/AmauiThemeProvider"
+          },
+          {
+            "label": "className",
+            "url": "/dev/style-react/api/className"
+          },
+          {
+            "label": "inline",
+            "url": "/dev/style-react/api/inline"
+          },
+          {
+            "label": "pure",
+            "url": "/dev/style-react/api/pure"
+          },
+          {
+            "label": "reset",
+            "url": "/dev/style-react/api/reset"
+          },
+          {
+            "label": "string",
+            "url": "/dev/style-react/api/string"
+          },
+          {
+            "label": "style",
+            "url": "/dev/style-react/api/style"
+          },
+          {
+            "label": "styled",
+            "url": "/dev/style-react/api/styled"
+          },
+          {
+            "label": "withStyle",
+            "url": "/dev/style-react/api/withStyle"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/icons-material-react",
+    "label": "Icons Material React",
+    "default": "/dev/icons-material-react/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/icons-material-react/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/icons-material-react/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/icons-material-react/api",
+        "menu": [
+          {
+            "label": "Icon",
+            "url": "/dev/icons-material-react/api/Icon"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/algorithms",
+    "label": "Algorithms",
+    "default": "/dev/algorithms/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/algorithms/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/algorithms/use",
+        "menu": [
+          {
+            "label": "binarySearchRecursive",
+            "url": "/dev/algorithms/use/binarySearchRecursive"
+          },
+          {
+            "label": "binarySearch",
+            "url": "/dev/algorithms/use/binarySearch"
+          },
+          {
+            "label": "factorialRecurisve",
+            "url": "/dev/algorithms/use/factorialRecurisve"
+          },
+          {
+            "label": "factorial",
+            "url": "/dev/algorithms/use/factorial"
+          },
+          {
+            "label": "fibonacciRecursive",
+            "url": "/dev/algorithms/use/fibonacciRecursive"
+          },
+          {
+            "label": "fibonacci",
+            "url": "/dev/algorithms/use/fibonacci"
+          },
+          {
+            "label": "insertionSort",
+            "url": "/dev/algorithms/use/insertionSort"
+          },
+          {
+            "label": "kmp",
+            "url": "/dev/algorithms/use/kmp"
+          },
+          {
+            "label": "longestPrefixSuffix",
+            "url": "/dev/algorithms/use/longestPrefixSuffix"
+          },
+          {
+            "label": "mergeSort",
+            "url": "/dev/algorithms/use/mergeSort"
+          },
+          {
+            "label": "naiveSort",
+            "url": "/dev/algorithms/use/naiveSort"
+          },
+          {
+            "label": "quickSort",
+            "url": "/dev/algorithms/use/quickSort"
+          },
+          {
+            "label": "radixSort",
+            "url": "/dev/algorithms/use/radixSort"
+          },
+          {
+            "label": "selectionSort",
+            "url": "/dev/algorithms/use/selectionSort"
+          }
+        ]
+      },
+      {
+        "label": "API",
+        "url": "/dev/algorithms/api",
+        "menu": [
+          {
+            "label": "binarySearchRecursive",
+            "url": "/dev/algorithms/api/binarySearchRecursive"
+          },
+          {
+            "label": "binarySearch",
+            "url": "/dev/algorithms/api/binarySearch"
+          },
+          {
+            "label": "factorialRecurisve",
+            "url": "/dev/algorithms/api/factorialRecurisve"
+          },
+          {
+            "label": "factorial",
+            "url": "/dev/algorithms/api/factorial"
+          },
+          {
+            "label": "fibonacciRecursive",
+            "url": "/dev/algorithms/api/fibonacciRecursive"
+          },
+          {
+            "label": "fibonacci",
+            "url": "/dev/algorithms/api/fibonacci"
+          },
+          {
+            "label": "insertionSort",
+            "url": "/dev/algorithms/api/insertionSort"
+          },
+          {
+            "label": "kmp",
+            "url": "/dev/algorithms/api/kmp"
+          },
+          {
+            "label": "longestPrefixSuffix",
+            "url": "/dev/algorithms/api/longestPrefixSuffix"
+          },
+          {
+            "label": "mergeSort",
+            "url": "/dev/algorithms/api/mergeSort"
+          },
+          {
+            "label": "naiveSort",
+            "url": "/dev/algorithms/api/naiveSort"
+          },
+          {
+            "label": "quickSort",
+            "url": "/dev/algorithms/api/quickSort"
+          },
+          {
+            "label": "radixSort",
+            "url": "/dev/algorithms/api/radixSort"
+          },
+          {
+            "label": "selectionSort",
+            "url": "/dev/algorithms/api/selectionSort"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/amqp",
+    "label": "AMQP",
+    "default": "/dev/amqp/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/amqp/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/amqp/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/amqp/api",
+        "menu": [
+          {
+            "label": "AmauiAmqp",
+            "url": "/dev/amqp/api/AmauiAmqp"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/api",
+    "label": "API",
+    "default": "/dev/api/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/api/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/api/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/api/api",
+        "menu": [
+          {
+            "label": "All",
+            "url": "/dev/api/api/all"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/aws",
+    "label": "AWS",
+    "default": "/dev/aws/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/aws/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/aws/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/aws/api",
+        "menu": [
+          {
+            "label": "AmauiAws",
+            "url": "/dev/aws/api/AmauiAws"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/binary-tree",
+    "label": "Binary Tree",
+    "default": "/dev/binary-tree/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/binary-tree/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/binary-tree/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/binary-tree/api",
+        "menu": [
+          {
+            "label": "AmauiBinaryTree",
+            "url": "/dev/binary-tree/api/AmauiBinaryTree"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/cache",
+    "label": "Cache",
+    "default": "/dev/cache/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/cache/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/cache/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/cache/api",
+        "menu": [
+          {
+            "label": "AmauiCache",
+            "url": "/dev/cache/api/AmauiCache"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/cookie",
+    "label": "Cookie",
+    "default": "/dev/cookie/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/cookie/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/cookie/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/cookie/api",
+        "menu": [
+          {
+            "label": "AmauiCookie",
+            "url": "/dev/cookie/api/AmauiCookie"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/date",
+    "label": "Date",
+    "default": "/dev/date/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/date/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/date/use",
+        "menu": [
+          {
+            "label": "add",
+            "url": "/dev/date/use/add"
+          },
+          {
+            "label": "ago",
+            "url": "/dev/date/use/ago"
+          },
+          {
+            "label": "AmauiDate",
+            "url": "/dev/date/use/AmauiDate"
+          },
+          {
+            "label": "diff",
+            "url": "/dev/date/use/diff"
+          },
+          {
+            "label": "duration",
+            "url": "/dev/date/use/duration"
+          },
+          {
+            "label": "endOf",
+            "url": "/dev/date/use/endOf"
+          },
+          {
+            "label": "format",
+            "url": "/dev/date/use/format"
+          },
+          {
+            "label": "formats",
+            "url": "/dev/date/use/formats"
+          },
+          {
+            "label": "getTimezoneOffset",
+            "url": "/dev/date/use/getTimezoneOffset"
+          },
+          {
+            "label": "in",
+            "url": "/dev/date/use/in"
+          },
+          {
+            "label": "is",
+            "url": "/dev/date/use/is"
+          },
+          {
+            "label": "max",
+            "url": "/dev/date/use/max"
+          },
+          {
+            "label": "min",
+            "url": "/dev/date/use/min"
+          },
+          {
+            "label": "my",
+            "url": "/dev/date/use/my"
+          },
+          {
+            "label": "myTimezone",
+            "url": "/dev/date/use/myTimezone"
+          },
+          {
+            "label": "myTimezoneAbbr",
+            "url": "/dev/date/use/myTimezoneAbbr"
+          },
+          {
+            "label": "remove",
+            "url": "/dev/date/use/remove"
+          },
+          {
+            "label": "set",
+            "url": "/dev/date/use/set"
+          },
+          {
+            "label": "startOf",
+            "url": "/dev/date/use/startOf"
+          },
+          {
+            "label": "timezones",
+            "url": "/dev/date/use/timezones"
+          }
+        ]
+      },
+      {
+        "label": "API",
+        "url": "/dev/date/api",
+        "menu": [
+          {
+            "label": "add",
+            "url": "/dev/date/api/add"
+          },
+          {
+            "label": "ago",
+            "url": "/dev/date/api/ago"
+          },
+          {
+            "label": "AmauiDate",
+            "url": "/dev/date/api/AmauiDate"
+          },
+          {
+            "label": "diff",
+            "url": "/dev/date/api/diff"
+          },
+          {
+            "label": "duration",
+            "url": "/dev/date/api/duration"
+          },
+          {
+            "label": "endOf",
+            "url": "/dev/date/api/endOf"
+          },
+          {
+            "label": "format",
+            "url": "/dev/date/api/format"
+          },
+          {
+            "label": "formats",
+            "url": "/dev/date/api/formats"
+          },
+          {
+            "label": "getTimezoneOffset",
+            "url": "/dev/date/api/getTimezoneOffset"
+          },
+          {
+            "label": "in",
+            "url": "/dev/date/api/in"
+          },
+          {
+            "label": "is",
+            "url": "/dev/date/api/is"
+          },
+          {
+            "label": "max",
+            "url": "/dev/date/api/max"
+          },
+          {
+            "label": "min",
+            "url": "/dev/date/api/min"
+          },
+          {
+            "label": "my",
+            "url": "/dev/date/api/my"
+          },
+          {
+            "label": "myTimezone",
+            "url": "/dev/date/api/myTimezone"
+          },
+          {
+            "label": "myTimezoneAbbr",
+            "url": "/dev/date/api/myTimezoneAbbr"
+          },
+          {
+            "label": "remove",
+            "url": "/dev/date/api/remove"
+          },
+          {
+            "label": "set",
+            "url": "/dev/date/api/set"
+          },
+          {
+            "label": "startOf",
+            "url": "/dev/date/api/startOf"
+          },
+          {
+            "label": "timezones",
+            "url": "/dev/date/api/timezones"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/diff",
+    "label": "Diff",
+    "default": "/dev/diff/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/diff/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/diff/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/diff/api",
+        "menu": [
+          {
+            "label": "AmauiDiff",
+            "url": "/dev/diff/api/AmauiDiff"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/errors",
+    "label": "Errors",
+    "default": "/dev/errors/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/errors/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/errors/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/errors/api",
+        "menu": [
+          {
+            "label": "All",
+            "url": "/dev/errors/api/all"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/graph",
+    "label": "Graph",
+    "default": "/dev/graph/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/graph/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/graph/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/graph/api",
+        "menu": [
+          {
+            "label": "AmauiGraph",
+            "url": "/dev/graph/api/AmauiGraph"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/hash-table",
+    "label": "Hash Table",
+    "default": "/dev/hash-table/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/hash-table/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/hash-table/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/hash-table/api",
+        "menu": [
+          {
+            "label": "AmauiHashTable",
+            "url": "/dev/hash-table/api/AmauiHashTable"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/heap",
+    "label": "Heap",
+    "default": "/dev/heap/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/heap/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/heap/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/heap/api",
+        "menu": [
+          {
+            "label": "AmauiHeap",
+            "url": "/dev/heap/api/AmauiHeap"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/huffman-code",
+    "label": "Huffman Code",
+    "default": "/dev/huffman-code/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/huffman-code/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/huffman-code/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/huffman-code/api",
+        "menu": [
+          {
+            "label": "AmauiHuffmanCode",
+            "url": "/dev/huffman-code/api/AmauiHuffmanCode"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/linked-list",
+    "label": "Linked List",
+    "default": "/dev/linked-list/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/linked-list/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/linked-list/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/linked-list/api",
+        "menu": [
+          {
+            "label": "AmauiLinkedList",
+            "url": "/dev/linked-list/api/AmauiLinkedList"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/log",
+    "label": "Log",
+    "default": "/dev/log/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/log/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/log/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/log/api",
+        "menu": [
+          {
+            "label": "AmauiLog",
+            "url": "/dev/log/api/AmauiLog"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/lz77",
+    "label": "LZ77",
+    "default": "/dev/lz77/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/lz77/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/lz77/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/lz77/api",
+        "menu": [
+          {
+            "label": "AmauiLZ77",
+            "url": "/dev/lz77/api/AmauiLZ77"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/meta",
+    "label": "Meta",
+    "default": "/dev/meta/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/meta/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/meta/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/meta/api",
+        "menu": [
+          {
+            "label": "AmauiMeta",
+            "url": "/dev/meta/api/AmauiMeta"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/models",
+    "label": "Models",
+    "default": "/dev/models/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/models/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/models/use",
+        "menu": [
+          {
+            "label": "base",
+            "url": "/dev/models/use/base"
+          },
+          {
+            "label": "getExpressParamValue",
+            "url": "/dev/models/use/getExpressParamValue"
+          },
+          {
+            "label": "getMongoFilter",
+            "url": "/dev/models/use/getMongoFilter"
+          },
+          {
+            "label": "getMongoFilters",
+            "url": "/dev/models/use/getMongoFilters"
+          },
+          {
+            "label": "getMongoMatch",
+            "url": "/dev/models/use/getMongoMatch"
+          },
+          {
+            "label": "getMongoOperator",
+            "url": "/dev/models/use/getMongoOperator"
+          },
+          {
+            "label": "models",
+            "url": "/dev/models/use/models"
+          },
+          {
+            "label": "MongoQuery",
+            "url": "/dev/models/use/MongoQuery"
+          },
+          {
+            "label": "Query",
+            "url": "/dev/models/use/Query"
+          },
+          {
+            "label": "ResponseMeta",
+            "url": "/dev/models/use/ResponseMeta"
+          },
+          {
+            "label": "ResponsePagination",
+            "url": "/dev/models/use/ResponsePagination"
+          },
+          {
+            "label": "Response",
+            "url": "/dev/models/use/Response"
+          },
+          {
+            "label": "validateMongoQuery",
+            "url": "/dev/models/use/validateMongoQuery"
+          }
+        ]
+      },
+      {
+        "label": "API",
+        "url": "/dev/models/api",
+        "menu": [
+          {
+            "label": "base",
+            "url": "/dev/models/api/base"
+          },
+          {
+            "label": "getExpressParamValue",
+            "url": "/dev/models/api/getExpressParamValue"
+          },
+          {
+            "label": "getMongoFilter",
+            "url": "/dev/models/api/getMongoFilter"
+          },
+          {
+            "label": "getMongoFilters",
+            "url": "/dev/models/api/getMongoFilters"
+          },
+          {
+            "label": "getMongoMatch",
+            "url": "/dev/models/api/getMongoMatch"
+          },
+          {
+            "label": "getMongoOperator",
+            "url": "/dev/models/api/getMongoOperator"
+          },
+          {
+            "label": "models",
+            "url": "/dev/models/api/models"
+          },
+          {
+            "label": "MongoQuery",
+            "url": "/dev/models/api/MongoQuery"
+          },
+          {
+            "label": "Query",
+            "url": "/dev/models/api/Query"
+          },
+          {
+            "label": "ResponseMeta",
+            "url": "/dev/models/api/ResponseMeta"
+          },
+          {
+            "label": "ResponsePagination",
+            "url": "/dev/models/api/ResponsePagination"
+          },
+          {
+            "label": "Response",
+            "url": "/dev/models/api/Response"
+          },
+          {
+            "label": "validateMongoQuery",
+            "url": "/dev/models/api/validateMongoQuery"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/mongo",
+    "label": "Mongo",
+    "default": "/dev/mongo/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/mongo/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/mongo/use",
+        "menu": [
+          {
+            "label": "AmauiMongo",
+            "url": "/dev/mongo/use/AmauiMongo"
+          },
+          {
+            "label": "BaseCollection",
+            "url": "/dev/mongo/use/BaseCollection"
+          },
+          {
+            "label": "Mongo",
+            "url": "/dev/mongo/use/Mongo"
+          }
+        ]
+      },
+      {
+        "label": "API",
+        "url": "/dev/mongo/api",
+        "menu": [
+          {
+            "label": "AmauiMongo",
+            "url": "/dev/mongo/api/AmauiMongo"
+          },
+          {
+            "label": "BaseCollection",
+            "url": "/dev/mongo/api/BaseCollection"
+          },
+          {
+            "label": "Mongo",
+            "url": "/dev/mongo/api/Mongo"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/node",
+    "label": "Node",
+    "default": "/dev/node/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/node/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/node/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/node/api",
+        "menu": [
+          {
+            "label": "AmauiNode",
+            "url": "/dev/node/api/AmauiNode"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "url": "/dev/queue",
     "label": "Queue",
     "default": "/dev/queue/start",
@@ -18,7 +2262,1305 @@
         "menu": [
           {
             "label": "AmauiQueue",
-            "url": "/dev/queue/api/amaui-queue"
+            "url": "/dev/queue/api/AmauiQueue"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/request",
+    "label": "Request",
+    "default": "/dev/request/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/request/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/request/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/request/api",
+        "menu": [
+          {
+            "label": "AmauiRequest",
+            "url": "/dev/request/api/AmauiRequest"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/stack",
+    "label": "Stack",
+    "default": "/dev/stack/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/stack/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/stack/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/stack/api",
+        "menu": [
+          {
+            "label": "AmauiStack",
+            "url": "/dev/stack/api/AmauiStack"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/storage",
+    "label": "Storage",
+    "default": "/dev/storage/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/storage/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/storage/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/storage/api",
+        "menu": [
+          {
+            "label": "AmauiStorage",
+            "url": "/dev/storage/api/AmauiStorage"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/style",
+    "label": "Style",
+    "default": "/dev/style/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/style/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/style/use",
+        "menu": [
+          {
+            "label": "AmauiStyleRenderer",
+            "url": "/dev/style/use/AmauiStyleRenderer"
+          },
+          {
+            "label": "AmauiStyleRuleProperty",
+            "url": "/dev/style/use/AmauiStyleRuleProperty"
+          },
+          {
+            "label": "AmauiStyleRule",
+            "url": "/dev/style/use/AmauiStyleRule"
+          },
+          {
+            "label": "AmauiStyleSheetManager",
+            "url": "/dev/style/use/AmauiStyleSheetManager"
+          },
+          {
+            "label": "AmauiStyleSheet",
+            "url": "/dev/style/use/AmauiStyleSheet"
+          },
+          {
+            "label": "AmauiStyle",
+            "url": "/dev/style/use/AmauiStyle"
+          },
+          {
+            "label": "AmauiTheme",
+            "url": "/dev/style/use/AmauiTheme"
+          },
+          {
+            "label": "classNames",
+            "url": "/dev/style/use/classNames"
+          },
+          {
+            "label": "cli",
+            "url": "/dev/style/use/cli"
+          },
+          {
+            "label": "colors",
+            "url": "/dev/style/use/colors"
+          },
+          {
+            "label": "css",
+            "url": "/dev/style/use/css"
+          },
+          {
+            "label": "inline",
+            "url": "/dev/style/use/inline"
+          },
+          {
+            "label": "makeClassName",
+            "url": "/dev/style/use/makeClassName"
+          },
+          {
+            "label": "prefix",
+            "url": "/dev/style/use/prefix"
+          },
+          {
+            "label": "pure",
+            "url": "/dev/style/use/pure"
+          },
+          {
+            "label": "reset",
+            "url": "/dev/style/use/reset"
+          },
+          {
+            "label": "rtl",
+            "url": "/dev/style/use/rtl"
+          },
+          {
+            "label": "sort",
+            "url": "/dev/style/use/sort"
+          },
+          {
+            "label": "style",
+            "url": "/dev/style/use/style"
+          },
+          {
+            "label": "unit",
+            "url": "/dev/style/use/unit"
+          },
+          {
+            "label": "valueObject",
+            "url": "/dev/style/use/valueObject"
+          }
+        ]
+      },
+      {
+        "label": "API",
+        "url": "/dev/style/api",
+        "menu": [
+          {
+            "label": "AmauiStyleRenderer",
+            "url": "/dev/style/api/AmauiStyleRenderer"
+          },
+          {
+            "label": "AmauiStyleRuleProperty",
+            "url": "/dev/style/api/AmauiStyleRuleProperty"
+          },
+          {
+            "label": "AmauiStyleRule",
+            "url": "/dev/style/api/AmauiStyleRule"
+          },
+          {
+            "label": "AmauiStyleSheetManager",
+            "url": "/dev/style/api/AmauiStyleSheetManager"
+          },
+          {
+            "label": "AmauiStyleSheet",
+            "url": "/dev/style/api/AmauiStyleSheet"
+          },
+          {
+            "label": "AmauiStyle",
+            "url": "/dev/style/api/AmauiStyle"
+          },
+          {
+            "label": "AmauiTheme",
+            "url": "/dev/style/api/AmauiTheme"
+          },
+          {
+            "label": "classNames",
+            "url": "/dev/style/api/classNames"
+          },
+          {
+            "label": "cli",
+            "url": "/dev/style/api/cli"
+          },
+          {
+            "label": "colors",
+            "url": "/dev/style/api/colors"
+          },
+          {
+            "label": "css",
+            "url": "/dev/style/api/css"
+          },
+          {
+            "label": "inline",
+            "url": "/dev/style/api/inline"
+          },
+          {
+            "label": "makeClassName",
+            "url": "/dev/style/api/makeClassName"
+          },
+          {
+            "label": "prefix",
+            "url": "/dev/style/api/prefix"
+          },
+          {
+            "label": "pure",
+            "url": "/dev/style/api/pure"
+          },
+          {
+            "label": "reset",
+            "url": "/dev/style/api/reset"
+          },
+          {
+            "label": "rtl",
+            "url": "/dev/style/api/rtl"
+          },
+          {
+            "label": "sort",
+            "url": "/dev/style/api/sort"
+          },
+          {
+            "label": "style",
+            "url": "/dev/style/api/style"
+          },
+          {
+            "label": "unit",
+            "url": "/dev/style/api/unit"
+          },
+          {
+            "label": "valueObject",
+            "url": "/dev/style/api/valueObject"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/subscription",
+    "label": "Subscription",
+    "default": "/dev/subscription/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/subscription/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/subscription/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/subscription/api",
+        "menu": [
+          {
+            "label": "AmauiSubscription",
+            "url": "/dev/subscription/api/AmauiSubscription"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/test",
+    "label": "Test",
+    "default": "/dev/test/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/test/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/test/use",
+        "menu": [
+          {
+            "label": "AmauiGroup",
+            "url": "/dev/test/use/AmauiGroup"
+          },
+          {
+            "label": "AmauiMiddleware",
+            "url": "/dev/test/use/AmauiMiddleware"
+          },
+          {
+            "label": "AmauiTest",
+            "url": "/dev/test/use/AmauiTest"
+          },
+          {
+            "label": "AmauiTo",
+            "url": "/dev/test/use/AmauiTo"
+          },
+          {
+            "label": "assert",
+            "url": "/dev/test/use/assert"
+          },
+          {
+            "label": "cli",
+            "url": "/dev/test/use/cli"
+          },
+          {
+            "label": "request",
+            "url": "/dev/test/use/request"
+          }
+        ]
+      },
+      {
+        "label": "API",
+        "url": "/dev/test/api",
+        "menu": [
+          {
+            "label": "AmauiGroup",
+            "url": "/dev/test/api/AmauiGroup"
+          },
+          {
+            "label": "AmauiMiddleware",
+            "url": "/dev/test/api/AmauiMiddleware"
+          },
+          {
+            "label": "AmauiTest",
+            "url": "/dev/test/api/AmauiTest"
+          },
+          {
+            "label": "AmauiTo",
+            "url": "/dev/test/api/AmauiTo"
+          },
+          {
+            "label": "assert",
+            "url": "/dev/test/api/assert"
+          },
+          {
+            "label": "cli",
+            "url": "/dev/test/api/cli"
+          },
+          {
+            "label": "request",
+            "url": "/dev/test/api/request"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/utils",
+    "label": "Utils",
+    "default": "/dev/utils/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/utils/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/utils/use",
+        "menu": [
+          {
+            "label": "allImagesLoaded",
+            "url": "/dev/utils/use/allImagesLoaded"
+          },
+          {
+            "label": "alpha",
+            "url": "/dev/utils/use/alpha"
+          },
+          {
+            "label": "arrayMoveItem",
+            "url": "/dev/utils/use/arrayMoveItem"
+          },
+          {
+            "label": "arrayToParts",
+            "url": "/dev/utils/use/arrayToParts"
+          },
+          {
+            "label": "asyncMethodRetry",
+            "url": "/dev/utils/use/asyncMethodRetry"
+          },
+          {
+            "label": "binaryStringToHexadecimal",
+            "url": "/dev/utils/use/binaryStringToHexadecimal"
+          },
+          {
+            "label": "canvasCrop",
+            "url": "/dev/utils/use/canvasCrop"
+          },
+          {
+            "label": "canvasFilterBrightness",
+            "url": "/dev/utils/use/canvasFilterBrightness"
+          },
+          {
+            "label": "canvasFilterContrast",
+            "url": "/dev/utils/use/canvasFilterContrast"
+          },
+          {
+            "label": "canvasFilterFade",
+            "url": "/dev/utils/use/canvasFilterFade"
+          },
+          {
+            "label": "canvasFilterInvert",
+            "url": "/dev/utils/use/canvasFilterInvert"
+          },
+          {
+            "label": "canvasFilterOldPhoto",
+            "url": "/dev/utils/use/canvasFilterOldPhoto"
+          },
+          {
+            "label": "canvasFilterSaturation",
+            "url": "/dev/utils/use/canvasFilterSaturation"
+          },
+          {
+            "label": "capitalize",
+            "url": "/dev/utils/use/capitalize"
+          },
+          {
+            "label": "castParam",
+            "url": "/dev/utils/use/castParam"
+          },
+          {
+            "label": "checkAppVersion",
+            "url": "/dev/utils/use/checkAppVersion"
+          },
+          {
+            "label": "checkObjectFilters",
+            "url": "/dev/utils/use/checkObjectFilters"
+          },
+          {
+            "label": "clamp",
+            "url": "/dev/utils/use/clamp"
+          },
+          {
+            "label": "cleanValue",
+            "url": "/dev/utils/use/cleanValue"
+          },
+          {
+            "label": "colorToRgb",
+            "url": "/dev/utils/use/colorToRgb"
+          },
+          {
+            "label": "combination",
+            "url": "/dev/utils/use/combination"
+          },
+          {
+            "label": "combinationWithRepetition",
+            "url": "/dev/utils/use/combinationWithRepetition"
+          },
+          {
+            "label": "copy",
+            "url": "/dev/utils/use/copy"
+          },
+          {
+            "label": "copyToClipboard",
+            "url": "/dev/utils/use/copyToClipboard"
+          },
+          {
+            "label": "countries",
+            "url": "/dev/utils/use/countries"
+          },
+          {
+            "label": "darken",
+            "url": "/dev/utils/use/darken"
+          },
+          {
+            "label": "debounce",
+            "url": "/dev/utils/use/debounce"
+          },
+          {
+            "label": "decode",
+            "url": "/dev/utils/use/decode"
+          },
+          {
+            "label": "decrypt",
+            "url": "/dev/utils/use/decrypt"
+          },
+          {
+            "label": "deserialize",
+            "url": "/dev/utils/use/deserialize"
+          },
+          {
+            "label": "download",
+            "url": "/dev/utils/use/download"
+          },
+          {
+            "label": "element",
+            "url": "/dev/utils/use/element"
+          },
+          {
+            "label": "elementToCanvas",
+            "url": "/dev/utils/use/elementToCanvas"
+          },
+          {
+            "label": "emphasize",
+            "url": "/dev/utils/use/emphasize"
+          },
+          {
+            "label": "encode",
+            "url": "/dev/utils/use/encode"
+          },
+          {
+            "label": "encrypt",
+            "url": "/dev/utils/use/encrypt"
+          },
+          {
+            "label": "equalDeep",
+            "url": "/dev/utils/use/equalDeep"
+          },
+          {
+            "label": "factorial",
+            "url": "/dev/utils/use/factorial"
+          },
+          {
+            "label": "fileToValue",
+            "url": "/dev/utils/use/fileToValue"
+          },
+          {
+            "label": "flattenObject",
+            "url": "/dev/utils/use/flattenObject"
+          },
+          {
+            "label": "getContrastRatio",
+            "url": "/dev/utils/use/getContrastRatio"
+          },
+          {
+            "label": "getCountry",
+            "url": "/dev/utils/use/getCountry"
+          },
+          {
+            "label": "getEnvironment",
+            "url": "/dev/utils/use/getEnvironment"
+          },
+          {
+            "label": "getFileName",
+            "url": "/dev/utils/use/getFileName"
+          },
+          {
+            "label": "getGoogleFontsURL",
+            "url": "/dev/utils/use/getGoogleFontsURL"
+          },
+          {
+            "label": "getID",
+            "url": "/dev/utils/use/getID"
+          },
+          {
+            "label": "getLeadingZerosNumber",
+            "url": "/dev/utils/use/getLeadingZerosNumber"
+          },
+          {
+            "label": "getLuminance",
+            "url": "/dev/utils/use/getLuminance"
+          },
+          {
+            "label": "getObjectPropertyValue",
+            "url": "/dev/utils/use/getObjectPropertyValue"
+          },
+          {
+            "label": "getObjectValue",
+            "url": "/dev/utils/use/getObjectValue"
+          },
+          {
+            "label": "getOrdinalNumber",
+            "url": "/dev/utils/use/getOrdinalNumber"
+          },
+          {
+            "label": "getQueryParams",
+            "url": "/dev/utils/use/getQueryParams"
+          },
+          {
+            "label": "getRedirectTo",
+            "url": "/dev/utils/use/getRedirectTo"
+          },
+          {
+            "label": "getStringVariables",
+            "url": "/dev/utils/use/getStringVariables"
+          },
+          {
+            "label": "getURL",
+            "url": "/dev/utils/use/getURL"
+          },
+          {
+            "label": "getUserLocalInfo",
+            "url": "/dev/utils/use/getUserLocalInfo"
+          },
+          {
+            "label": "hash",
+            "url": "/dev/utils/use/hash"
+          },
+          {
+            "label": "hashFile",
+            "url": "/dev/utils/use/hashFile"
+          },
+          {
+            "label": "hasObjectProperty",
+            "url": "/dev/utils/use/hasObjectProperty"
+          },
+          {
+            "label": "hasObjectPropertyValue",
+            "url": "/dev/utils/use/hasObjectPropertyValue"
+          },
+          {
+            "label": "hexadecimalStringToBinary",
+            "url": "/dev/utils/use/hexadecimalStringToBinary"
+          },
+          {
+            "label": "hexToRgb",
+            "url": "/dev/utils/use/hexToRgb"
+          },
+          {
+            "label": "hslToRgb",
+            "url": "/dev/utils/use/hslToRgb"
+          },
+          {
+            "label": "hslToRgbPure",
+            "url": "/dev/utils/use/hslToRgbPure"
+          },
+          {
+            "label": "imageToPalette",
+            "url": "/dev/utils/use/imageToPalette"
+          },
+          {
+            "label": "is",
+            "url": "/dev/utils/use/is"
+          },
+          {
+            "label": "isBrowser",
+            "url": "/dev/utils/use/isBrowser"
+          },
+          {
+            "label": "isEnvironment",
+            "url": "/dev/utils/use/isEnvironment"
+          },
+          {
+            "label": "isExists",
+            "url": "/dev/utils/use/isExists"
+          },
+          {
+            "label": "isOS",
+            "url": "/dev/utils/use/isOS"
+          },
+          {
+            "label": "isResponsive",
+            "url": "/dev/utils/use/isResponsive"
+          },
+          {
+            "label": "isState",
+            "url": "/dev/utils/use/isState"
+          },
+          {
+            "label": "isValid",
+            "url": "/dev/utils/use/isValid"
+          },
+          {
+            "label": "lighten",
+            "url": "/dev/utils/use/lighten"
+          },
+          {
+            "label": "matchRoute",
+            "url": "/dev/utils/use/matchRoute"
+          },
+          {
+            "label": "merge",
+            "url": "/dev/utils/use/merge"
+          },
+          {
+            "label": "numberWithCommas",
+            "url": "/dev/utils/use/numberWithCommas"
+          },
+          {
+            "label": "order",
+            "url": "/dev/utils/use/order"
+          },
+          {
+            "label": "pagination",
+            "url": "/dev/utils/use/pagination"
+          },
+          {
+            "label": "parse",
+            "url": "/dev/utils/use/parse"
+          },
+          {
+            "label": "percentageFromValueWithinRange",
+            "url": "/dev/utils/use/percentageFromValueWithinRange"
+          },
+          {
+            "label": "permutation",
+            "url": "/dev/utils/use/permutation"
+          },
+          {
+            "label": "permutationWithRepetition",
+            "url": "/dev/utils/use/permutationWithRepetition"
+          },
+          {
+            "label": "pick",
+            "url": "/dev/utils/use/pick"
+          },
+          {
+            "label": "polyfills",
+            "url": "/dev/utils/use/polyfills"
+          },
+          {
+            "label": "promisify",
+            "url": "/dev/utils/use/promisify"
+          },
+          {
+            "label": "quantize",
+            "url": "/dev/utils/use/quantize"
+          },
+          {
+            "label": "random",
+            "url": "/dev/utils/use/random"
+          },
+          {
+            "label": "randomString",
+            "url": "/dev/utils/use/randomString"
+          },
+          {
+            "label": "removeObjectValue",
+            "url": "/dev/utils/use/removeObjectValue"
+          },
+          {
+            "label": "rgbToHex",
+            "url": "/dev/utils/use/rgbToHex"
+          },
+          {
+            "label": "rgbToHsl",
+            "url": "/dev/utils/use/rgbToHsl"
+          },
+          {
+            "label": "rgbToHslPure",
+            "url": "/dev/utils/use/rgbToHslPure"
+          },
+          {
+            "label": "rgbToRgba",
+            "url": "/dev/utils/use/rgbToRgba"
+          },
+          {
+            "label": "serialize",
+            "url": "/dev/utils/use/serialize"
+          },
+          {
+            "label": "setObjectValue",
+            "url": "/dev/utils/use/setObjectValue"
+          },
+          {
+            "label": "setStringVariables",
+            "url": "/dev/utils/use/setStringVariables"
+          },
+          {
+            "label": "shuffle",
+            "url": "/dev/utils/use/shuffle"
+          },
+          {
+            "label": "simpleNormalize",
+            "url": "/dev/utils/use/simpleNormalize"
+          },
+          {
+            "label": "slugify",
+            "url": "/dev/utils/use/slugify"
+          },
+          {
+            "label": "stringify",
+            "url": "/dev/utils/use/stringify"
+          },
+          {
+            "label": "to",
+            "url": "/dev/utils/use/to"
+          },
+          {
+            "label": "try",
+            "url": "/dev/utils/use/try"
+          },
+          {
+            "label": "unflattenObject",
+            "url": "/dev/utils/use/unflattenObject"
+          },
+          {
+            "label": "unique",
+            "url": "/dev/utils/use/unique"
+          },
+          {
+            "label": "updateQueryParams",
+            "url": "/dev/utils/use/updateQueryParams"
+          },
+          {
+            "label": "valueFromPercentageWithinRange",
+            "url": "/dev/utils/use/valueFromPercentageWithinRange"
+          },
+          {
+            "label": "variation",
+            "url": "/dev/utils/use/variation"
+          },
+          {
+            "label": "variationWithRepetition",
+            "url": "/dev/utils/use/variationWithRepetition"
+          },
+          {
+            "label": "wait",
+            "url": "/dev/utils/use/wait"
+          }
+        ]
+      },
+      {
+        "label": "API",
+        "url": "/dev/utils/api",
+        "menu": [
+          {
+            "label": "allImagesLoaded",
+            "url": "/dev/utils/api/allImagesLoaded"
+          },
+          {
+            "label": "alpha",
+            "url": "/dev/utils/api/alpha"
+          },
+          {
+            "label": "arrayMoveItem",
+            "url": "/dev/utils/api/arrayMoveItem"
+          },
+          {
+            "label": "arrayToParts",
+            "url": "/dev/utils/api/arrayToParts"
+          },
+          {
+            "label": "asyncMethodRetry",
+            "url": "/dev/utils/api/asyncMethodRetry"
+          },
+          {
+            "label": "binaryStringToHexadecimal",
+            "url": "/dev/utils/api/binaryStringToHexadecimal"
+          },
+          {
+            "label": "canvasCrop",
+            "url": "/dev/utils/api/canvasCrop"
+          },
+          {
+            "label": "canvasFilterBrightness",
+            "url": "/dev/utils/api/canvasFilterBrightness"
+          },
+          {
+            "label": "canvasFilterContrast",
+            "url": "/dev/utils/api/canvasFilterContrast"
+          },
+          {
+            "label": "canvasFilterFade",
+            "url": "/dev/utils/api/canvasFilterFade"
+          },
+          {
+            "label": "canvasFilterInvert",
+            "url": "/dev/utils/api/canvasFilterInvert"
+          },
+          {
+            "label": "canvasFilterOldPhoto",
+            "url": "/dev/utils/api/canvasFilterOldPhoto"
+          },
+          {
+            "label": "canvasFilterSaturation",
+            "url": "/dev/utils/api/canvasFilterSaturation"
+          },
+          {
+            "label": "capitalize",
+            "url": "/dev/utils/api/capitalize"
+          },
+          {
+            "label": "castParam",
+            "url": "/dev/utils/api/castParam"
+          },
+          {
+            "label": "checkAppVersion",
+            "url": "/dev/utils/api/checkAppVersion"
+          },
+          {
+            "label": "checkObjectFilters",
+            "url": "/dev/utils/api/checkObjectFilters"
+          },
+          {
+            "label": "clamp",
+            "url": "/dev/utils/api/clamp"
+          },
+          {
+            "label": "cleanValue",
+            "url": "/dev/utils/api/cleanValue"
+          },
+          {
+            "label": "colorToRgb",
+            "url": "/dev/utils/api/colorToRgb"
+          },
+          {
+            "label": "combination",
+            "url": "/dev/utils/api/combination"
+          },
+          {
+            "label": "combinationWithRepetition",
+            "url": "/dev/utils/api/combinationWithRepetition"
+          },
+          {
+            "label": "copy",
+            "url": "/dev/utils/api/copy"
+          },
+          {
+            "label": "copyToClipboard",
+            "url": "/dev/utils/api/copyToClipboard"
+          },
+          {
+            "label": "countries",
+            "url": "/dev/utils/api/countries"
+          },
+          {
+            "label": "darken",
+            "url": "/dev/utils/api/darken"
+          },
+          {
+            "label": "debounce",
+            "url": "/dev/utils/api/debounce"
+          },
+          {
+            "label": "decode",
+            "url": "/dev/utils/api/decode"
+          },
+          {
+            "label": "decrypt",
+            "url": "/dev/utils/api/decrypt"
+          },
+          {
+            "label": "deserialize",
+            "url": "/dev/utils/api/deserialize"
+          },
+          {
+            "label": "download",
+            "url": "/dev/utils/api/download"
+          },
+          {
+            "label": "element",
+            "url": "/dev/utils/api/element"
+          },
+          {
+            "label": "elementToCanvas",
+            "url": "/dev/utils/api/elementToCanvas"
+          },
+          {
+            "label": "emphasize",
+            "url": "/dev/utils/api/emphasize"
+          },
+          {
+            "label": "encode",
+            "url": "/dev/utils/api/encode"
+          },
+          {
+            "label": "encrypt",
+            "url": "/dev/utils/api/encrypt"
+          },
+          {
+            "label": "equalDeep",
+            "url": "/dev/utils/api/equalDeep"
+          },
+          {
+            "label": "factorial",
+            "url": "/dev/utils/api/factorial"
+          },
+          {
+            "label": "fileToValue",
+            "url": "/dev/utils/api/fileToValue"
+          },
+          {
+            "label": "flattenObject",
+            "url": "/dev/utils/api/flattenObject"
+          },
+          {
+            "label": "getContrastRatio",
+            "url": "/dev/utils/api/getContrastRatio"
+          },
+          {
+            "label": "getCountry",
+            "url": "/dev/utils/api/getCountry"
+          },
+          {
+            "label": "getEnvironment",
+            "url": "/dev/utils/api/getEnvironment"
+          },
+          {
+            "label": "getFileName",
+            "url": "/dev/utils/api/getFileName"
+          },
+          {
+            "label": "getGoogleFontsURL",
+            "url": "/dev/utils/api/getGoogleFontsURL"
+          },
+          {
+            "label": "getID",
+            "url": "/dev/utils/api/getID"
+          },
+          {
+            "label": "getLeadingZerosNumber",
+            "url": "/dev/utils/api/getLeadingZerosNumber"
+          },
+          {
+            "label": "getLuminance",
+            "url": "/dev/utils/api/getLuminance"
+          },
+          {
+            "label": "getObjectPropertyValue",
+            "url": "/dev/utils/api/getObjectPropertyValue"
+          },
+          {
+            "label": "getObjectValue",
+            "url": "/dev/utils/api/getObjectValue"
+          },
+          {
+            "label": "getOrdinalNumber",
+            "url": "/dev/utils/api/getOrdinalNumber"
+          },
+          {
+            "label": "getQueryParams",
+            "url": "/dev/utils/api/getQueryParams"
+          },
+          {
+            "label": "getRedirectTo",
+            "url": "/dev/utils/api/getRedirectTo"
+          },
+          {
+            "label": "getStringVariables",
+            "url": "/dev/utils/api/getStringVariables"
+          },
+          {
+            "label": "getURL",
+            "url": "/dev/utils/api/getURL"
+          },
+          {
+            "label": "getUserLocalInfo",
+            "url": "/dev/utils/api/getUserLocalInfo"
+          },
+          {
+            "label": "hash",
+            "url": "/dev/utils/api/hash"
+          },
+          {
+            "label": "hashFile",
+            "url": "/dev/utils/api/hashFile"
+          },
+          {
+            "label": "hasObjectProperty",
+            "url": "/dev/utils/api/hasObjectProperty"
+          },
+          {
+            "label": "hasObjectPropertyValue",
+            "url": "/dev/utils/api/hasObjectPropertyValue"
+          },
+          {
+            "label": "hexadecimalStringToBinary",
+            "url": "/dev/utils/api/hexadecimalStringToBinary"
+          },
+          {
+            "label": "hexToRgb",
+            "url": "/dev/utils/api/hexToRgb"
+          },
+          {
+            "label": "hslToRgb",
+            "url": "/dev/utils/api/hslToRgb"
+          },
+          {
+            "label": "hslToRgbPure",
+            "url": "/dev/utils/api/hslToRgbPure"
+          },
+          {
+            "label": "imageToPalette",
+            "url": "/dev/utils/api/imageToPalette"
+          },
+          {
+            "label": "is",
+            "url": "/dev/utils/api/is"
+          },
+          {
+            "label": "isBrowser",
+            "url": "/dev/utils/api/isBrowser"
+          },
+          {
+            "label": "isEnvironment",
+            "url": "/dev/utils/api/isEnvironment"
+          },
+          {
+            "label": "isExists",
+            "url": "/dev/utils/api/isExists"
+          },
+          {
+            "label": "isOS",
+            "url": "/dev/utils/api/isOS"
+          },
+          {
+            "label": "isResponsive",
+            "url": "/dev/utils/api/isResponsive"
+          },
+          {
+            "label": "isState",
+            "url": "/dev/utils/api/isState"
+          },
+          {
+            "label": "isValid",
+            "url": "/dev/utils/api/isValid"
+          },
+          {
+            "label": "lighten",
+            "url": "/dev/utils/api/lighten"
+          },
+          {
+            "label": "matchRoute",
+            "url": "/dev/utils/api/matchRoute"
+          },
+          {
+            "label": "merge",
+            "url": "/dev/utils/api/merge"
+          },
+          {
+            "label": "numberWithCommas",
+            "url": "/dev/utils/api/numberWithCommas"
+          },
+          {
+            "label": "order",
+            "url": "/dev/utils/api/order"
+          },
+          {
+            "label": "pagination",
+            "url": "/dev/utils/api/pagination"
+          },
+          {
+            "label": "parse",
+            "url": "/dev/utils/api/parse"
+          },
+          {
+            "label": "percentageFromValueWithinRange",
+            "url": "/dev/utils/api/percentageFromValueWithinRange"
+          },
+          {
+            "label": "permutation",
+            "url": "/dev/utils/api/permutation"
+          },
+          {
+            "label": "permutationWithRepetition",
+            "url": "/dev/utils/api/permutationWithRepetition"
+          },
+          {
+            "label": "pick",
+            "url": "/dev/utils/api/pick"
+          },
+          {
+            "label": "polyfills",
+            "url": "/dev/utils/api/polyfills"
+          },
+          {
+            "label": "promisify",
+            "url": "/dev/utils/api/promisify"
+          },
+          {
+            "label": "quantize",
+            "url": "/dev/utils/api/quantize"
+          },
+          {
+            "label": "random",
+            "url": "/dev/utils/api/random"
+          },
+          {
+            "label": "randomString",
+            "url": "/dev/utils/api/randomString"
+          },
+          {
+            "label": "removeObjectValue",
+            "url": "/dev/utils/api/removeObjectValue"
+          },
+          {
+            "label": "rgbToHex",
+            "url": "/dev/utils/api/rgbToHex"
+          },
+          {
+            "label": "rgbToHsl",
+            "url": "/dev/utils/api/rgbToHsl"
+          },
+          {
+            "label": "rgbToHslPure",
+            "url": "/dev/utils/api/rgbToHslPure"
+          },
+          {
+            "label": "rgbToRgba",
+            "url": "/dev/utils/api/rgbToRgba"
+          },
+          {
+            "label": "serialize",
+            "url": "/dev/utils/api/serialize"
+          },
+          {
+            "label": "setObjectValue",
+            "url": "/dev/utils/api/setObjectValue"
+          },
+          {
+            "label": "setStringVariables",
+            "url": "/dev/utils/api/setStringVariables"
+          },
+          {
+            "label": "shuffle",
+            "url": "/dev/utils/api/shuffle"
+          },
+          {
+            "label": "simpleNormalize",
+            "url": "/dev/utils/api/simpleNormalize"
+          },
+          {
+            "label": "slugify",
+            "url": "/dev/utils/api/slugify"
+          },
+          {
+            "label": "stringify",
+            "url": "/dev/utils/api/stringify"
+          },
+          {
+            "label": "to",
+            "url": "/dev/utils/api/to"
+          },
+          {
+            "label": "try",
+            "url": "/dev/utils/api/try"
+          },
+          {
+            "label": "unflattenObject",
+            "url": "/dev/utils/api/unflattenObject"
+          },
+          {
+            "label": "unique",
+            "url": "/dev/utils/api/unique"
+          },
+          {
+            "label": "updateQueryParams",
+            "url": "/dev/utils/api/updateQueryParams"
+          },
+          {
+            "label": "valueFromPercentageWithinRange",
+            "url": "/dev/utils/api/valueFromPercentageWithinRange"
+          },
+          {
+            "label": "variation",
+            "url": "/dev/utils/api/variation"
+          },
+          {
+            "label": "variationWithRepetition",
+            "url": "/dev/utils/api/variationWithRepetition"
+          },
+          {
+            "label": "wait",
+            "url": "/dev/utils/api/wait"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "url": "/dev/zip",
+    "label": "Zip",
+    "default": "/dev/zip/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/dev/zip/start"
+      },
+      {
+        "label": "Use",
+        "url": "/dev/zip/use"
+      },
+      {
+        "label": "API",
+        "url": "/dev/zip/api",
+        "menu": [
+          {
+            "label": "AmauiZip",
+            "url": "/dev/zip/api/AmauiZip"
           }
         ]
       }
