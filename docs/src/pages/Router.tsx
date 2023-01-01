@@ -547,7 +547,7 @@ function Root(props: any) {
         classes.root
       ])}
     >
-      {init && !!isLibrary && (
+      {!!isLibrary && (
         <NavigationDrawer
           open={!init ? false : smallerScreen ? open : true}
 
