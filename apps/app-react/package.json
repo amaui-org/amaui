@@ -11,7 +11,7 @@
   "dependencies": {
     "@amaui/icons-material-react": "^1.0.1111",
     "@amaui/style-react": "^1.0.1130",
-    "@amaui/ui-react": "^1.0.1143",
+    "@amaui/ui-react": "^1.0.10003",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",

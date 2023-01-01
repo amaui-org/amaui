@@ -33,7 +33,7 @@ const value = [1, 14, 7, 4];
 
 bubbleSort(value);
 
-// [1, 4, 7, 14];
+// [1, 4, 7, 14]
 
 // etc.
 ```

@@ -1,0 +1,71 @@
+
+### Add
+
+```sh
+// yarn
+yarn add @amaui/storage
+
+// npm
+npm install @amaui/storage
+```
+
+### Use
+
+```javascript
+import AmauiStorage from '@amaui/storage';
+
+const amauiStorage = new AmauiStorage();
+
+const value = { a: 4 };
+
+// Add
+amauiStorage.add('a', value);
+
+// Get
+amauiStorage.get('a');
+
+// { a: 4 }
+
+// Remove
+amauiStorage.remove('a');
+
+amauiStorage.get('a');
+
+// null
+```
+
+### Dev
+
+Install
+
+```sh
+yarn
+```
+
+Test
+
+```sh
+yarn test
+```
+
+### Prod
+
+Build
+
+```sh
+yarn build
+```
+
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "Stack: Start",
+      "to": "/dev/stack/start"
+    },
+    "next": {
+      "label": "Storage: Use",
+      "to": "/dev/storage/use"
+    }
+  }
+}~

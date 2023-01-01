@@ -28,7 +28,7 @@ const useStyle = style(theme => ({
 
   [`@media only screen and (min-width: ${theme.breakpoints.values.sm}px)`]: {
     $item: {
-      width: '50%'
+      maxWidth: '50%'
     }
   },
 

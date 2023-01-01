@@ -13,9 +13,9 @@ import IconMaterialNestClockFarsightDigitalRounded from '@amaui/icons-material-r
 import IconMaterialNestClockFarsightAnalogRounded from '@amaui/icons-material-react/build/IconMaterialNestClockFarsightAnalogRounded';
 
 const FONT_FAMILY = {
-  primary: ['Montserrat', 'Helvetica', 'Helvetica Neue', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Arial', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'sans-serif'].join(', '),
-  secondary: ['Lato', 'Helvetica', 'Helvetica Neue', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Arial', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'sans-serif'].join(', '),
-  tertiary: ['Roboto Mono', 'monospace'].join(', ')
+  primary: ['Montserrat', 'Helvetica', 'Helvetica Neue', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'].join(', '),
+  secondary: ['Lato', 'Helvetica', '"Helvetica Neue"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'].join(', '),
+  tertiary: ['"Roboto Mono"', 'monospace'].join(', ')
 };
 
 const widgets = [

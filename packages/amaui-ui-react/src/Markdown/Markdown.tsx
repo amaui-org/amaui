@@ -3,7 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement, staticClassName } from '../utils';
+import { IBaseElement, sanitize, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -22,12 +22,12 @@ const useStyle = styleMethod(theme => ({
 
   h1: {
     ...theme.typography.values.h1,
-    margin: '40px 0 16px'
+    margin: '70px 0 16px'
   },
 
   h2: {
     ...theme.typography.values.h2,
-    margin: '40px 0 16px'
+    margin: '50px 0 16px'
   },
 
   h3: {
@@ -37,17 +37,17 @@ const useStyle = styleMethod(theme => ({
 
   h4: {
     ...theme.typography.values.t1,
-    margin: '40px 0 16px'
+    margin: '30px 0 16px'
   },
 
   h5: {
     ...theme.typography.values.t2,
-    margin: '40px 0 16px'
+    margin: '20px 0 16px'
   },
 
   h6: {
     ...theme.typography.values.t3,
-    margin: '40px 0 16px'
+    margin: '10px 0 16px'
   },
 
   p: {
@@ -61,7 +61,7 @@ const useStyle = styleMethod(theme => ({
   del: {},
 
   a: {
-    color: theme.palette.color.primary.main,
+    color: theme.palette.color.primary[40],
     textDecoration: 'underline'
   },
 
@@ -70,9 +70,11 @@ const useStyle = styleMethod(theme => ({
     borderRadius: '4px',
     color: theme.palette.text.default.primary,
     background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.1),
+    fontFamily: theme.typography.font_family.tertiary,
+    fontSize: '0.75rem',
 
     '& span': {
-      whiteSpace: 'nowrap'
+      whiteSpace: 'pre'
     }
   },
 
@@ -93,7 +95,8 @@ const useStyle = styleMethod(theme => ({
     height: '1px',
     width: '100%',
     margin: '24px 0',
-    background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.2)
+    background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.2),
+    border: 'none'
   },
 
   blockquote: {
@@ -280,94 +283,149 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
 `;
       };
 
-      const method = (valueNew_: string) => {
-        const result = valueNew_
-          // hr
-          .replace(/^ *\*{3}$/gm, (match, ...args) => {
+      const regExpressions = [
+        // hr
+        {
+          value: /^ *\*{3}$/gm,
+          method: (match, ...args) => {
             const valueRender = is('function', render) ? render('hr', classNames([classes['hr'], elementClassNames?.['hr']]), elementStyles?.['hr'], match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<hr${addClassName('hr')}${addStyle('hr')}/>`;
-          })
-          .replace(/^ *-{3}$/gm, (match, ...args) => {
+          }
+        },
+        {
+          value: /^ *-{3}$/gm,
+          method: (match, ...args) => {
             const valueRender = is('function', render) ? render('hr', classNames([classes['hr'], elementClassNames?.['hr']]), elementStyles?.['hr'], match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<hr${addClassName('hr')}${addStyle('hr')}/>`;
-          })
-          .replace(/^ *_{3}$/gm, (match, ...args) => {
+          }
+        },
+        {
+          value: /^ *_{3}$/gm,
+          method: (match, ...args) => {
             const valueRender = is('function', render) ? render('hr', classNames([classes['hr'], elementClassNames?.['hr']]), elementStyles?.['hr'], match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<hr${addClassName('hr')}${addStyle('hr')}/>`;
-          })
-          // h1
-          .replace(/^ *# (.*)$/gm, (match, a1, ...args) => {
+          }
+        },
+        // h1
+        {
+          value: /^ *# (.*)$/gm,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('h1', classNames([classes['h1'], elementClassNames?.['h1']]), elementStyles?.['h1'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<h1${addClassName('h1')}${addStyle('h1')}>${a1}</h1>`;
-          })
-          .replace(/^ *(.*)[\r\n]=+$/gm, (match, a1, ...args) => {
+          }
+        },
+        {
+          value: /^ *(.*)[\r\n]=+$/gm,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('h1', classNames([classes['h1'], elementClassNames?.['h1']]), elementStyles?.['h1'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<h1${addClassName('h1')}${addStyle('h1')}>${a1}</h1>`;
-          })
-          // h2
-          .replace(/^ *## (.*)$/gm, (match, a1, ...args) => {
+          }
+        },
+        {
+          value: /^ *(.*)[\r\n]=+$/gm,
+          method: (match, a1, ...args) => {
+            const valueRender = is('function', render) ? render('h1', classNames([classes['h1'], elementClassNames?.['h1']]), elementStyles?.['h1'], match, a1, ...args) : undefined;
+
+            if (valueRender !== undefined) return valueRender;
+
+            return `<h1${addClassName('h1')}${addStyle('h1')}>${a1}</h1>`;
+          }
+        },
+        // h2
+        {
+          value: /^ *## (.*)$/gm,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('h2', classNames([classes['h2'], elementClassNames?.['h2']]), elementStyles?.['h2'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<h2${addClassName('h2')}${addStyle('h2')}>${a1}</h2>`;
-          })
-          .replace(/^ *(.*)[\r\n]-+$/gm, (match, a1, ...args) => {
+          }
+        },
+        {
+          value: /^ *(.*)[\r\n]-+$/gm,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('h2', classNames([classes['h2'], elementClassNames?.['h2']]), elementStyles?.['h2'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<h2${addClassName('h2')}${addStyle('h2')}>${a1}</h2>`;
-          })
-          // h3
-          .replace(/^ *### (.*)$/gm, (match, a1, ...args) => {
+          }
+        },
+        // h3
+        {
+          value: /^ *### (.*)$/gm,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('h3', classNames([classes['h3'], elementClassNames?.['h3']]), elementStyles?.['h3'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<h3${addClassName('h3')}${addStyle('h3')}>${a1}</h3>`;
-          })
-          // h4
-          .replace(/^ *#### (.*)$/gm, (match, a1, ...args) => {
+          }
+        },
+        // h4
+        {
+          value: /^ *#### (.*)$/gm,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('h4', classNames([classes['h4'], elementClassNames?.['h4']]), elementStyles?.['h4'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<h4${addClassName('h4')}${addStyle('h4')}>${a1}</h4>`;
-          })
-          // h5
-          .replace(/^ *##### (.*)$/gm, (match, a1, ...args) => {
+          }
+        },
+        // h5
+        {
+          value: /^ *##### (.*)$/gm,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('h5', classNames([classes['h5'], elementClassNames?.['h5']]), elementStyles?.['h5'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<h5${addClassName('h5')}${addStyle('h5')}>${a1}</h5>`;
-          })
-          // h6
-          .replace(/^ *###### (.*)$/gm, (match, a1, ...args) => {
+          }
+        },
+        // h6
+        {
+          value: /^ *###### (.*)$/gm,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('h6', classNames([classes['h6'], elementClassNames?.['h6']]), elementStyles?.['h6'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<h6${addClassName('h6')}${addStyle('h6')}>${a1}</h6>`;
-          })
-          // a url
-          .replace(/(?:[^:][\n <])((?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\-\/]+))(?:>)?/g, (match, a1, ...args) => {
+          }
+        },
+        // table
+        {
+          value: / *\|?([^|\n]+(\|[^|\n]+)+ *\|?(\n *\|? *:?-{3,}:? *(\| *:?-{3,}:? *)+ *\|?)(\n *\|?([^|\n]+(\|[^|\n]+)+) *\|?)*)/g,
+          method: (match, ...args) => {
+            const valueRender = is('function', render) ? render('table', classNames([classes['table'], elementClassNames?.['table']]), elementStyles?.['table'], match, ...args) : undefined;
+
+            if (valueRender !== undefined) return valueRender;
+
+            return `<table${addClassName('table')}${addStyle('table')}>${table(match)}</table>`;
+          }
+        },
+        // a url
+        {
+          value: /(?:[^:][\n <])((?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\-\/]+))(?:>)?/g,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('a', classNames([classes['a'], elementClassNames?.['a']]), elementStyles?.['a'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -376,63 +434,76 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
 
             if (match_.includes(`<${a1}>`)) match_ = match_.replace(`<${a1}>`, a1);
 
-            return match_.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${a1}' ref='nofollow'>${a1}</a>`);
-          })
-          // tables
-          .replace(/ *\|?([^|\n]+(\|[^|\n]+)+ *\|?(\n *\|? *:?-{3,}:? *(\| *:?-{3,}:? *)+ *\|?)(\n *\|?([^|\n]+(\|[^|\n]+)+) *\|?)*)/g, (match, ...args) => {
-            const valueRender = is('function', render) ? render('table', classNames([classes['table'], elementClassNames?.['table']]), elementStyles?.['table'], match, ...args) : undefined;
-
-            if (valueRender !== undefined) return valueRender;
-
-            return `<table${addClassName('table')}${addStyle('table')}>${table(match)}</table>`;
-          })
-          // ol
-          .replace(/^ *(\d+\. .*(\n+(\d+\. |\s{2}.*).*)*)/gm, (match, ...args) => {
+            return match_.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${a1}' ref='nofollow' target='blank'>${a1}</a>`);
+          }
+        },
+        // ol
+        {
+          value: /^ *(\d+\. .*(\n+(\d+\. |\s{2}.*).*)*)/gm,
+          method: (match, ...args) => {
             const valueRender = is('function', render) ? render('ol', classNames([classes['ol'], elementClassNames?.['ol']]), elementStyles?.['ol'], match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<ol${addClassName('ol')}${addStyle('ol')}>${list(match, `\\d\\.`)}</ol>`;
-          })
-          .replace(/^ *(\d+\) .*(\n+(\d+\) |\s{2}.*).*)*)/gm, (match, ...args) => {
+          }
+        },
+        {
+          value: /^ *(\d+\) .*(\n+(\d+\) |\s{2}.*).*)*)/gm,
+          method: (match, ...args) => {
             const valueRender = is('function', render) ? render('ol', classNames([classes['ol'], elementClassNames?.['ol']]), elementStyles?.['ol'], match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<ol${addClassName('ol')}${addStyle('ol')}>${list(match, `\\d\\)`)}</ol>`;
-          })
-          // ul
-          .replace(/^ *(\* .*(\n+(\* |\s{2}.*).*)*)/gm, (match, ...args) => {
+          }
+        },
+        // ul
+        {
+          value: /^ *(\* .*(\n+(\* |\s{2}.*).*)*)/gm,
+          method: (match, ...args) => {
             const valueRender = is('function', render) ? render('ul', classNames([classes['ul'], elementClassNames?.['ul']]), elementStyles?.['ul'], match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\*`)}</ul>`;
-          })
-          .replace(/^ *(- .*(\n+(- |\s{2}.*).*)*)/gm, (match, ...args) => {
+          }
+        },
+        {
+          value: /^ *(- .*(\n+(- |\s{2}.*).*)*)/gm,
+          method: (match, ...args) => {
             const valueRender = is('function', render) ? render('ul', classNames([classes['ul'], elementClassNames?.['ul']]), elementStyles?.['ul'], match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\-`)}</ul>`;
-          })
-          .replace(/^ *(\+ .*(\n+(\+ |\s{2}.*).*)*)/gm, (match, ...args) => {
+          }
+        },
+        {
+          value: /^ *(\+ .*(\n+(\+ |\s{2}.*).*)*)/gm,
+          method: (match, ...args) => {
             const valueRender = is('function', render) ? render('ul', classNames([classes['ul'], elementClassNames?.['ul']]), elementStyles?.['ul'], match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<ul${addClassName('ul')}${addStyle('ul')}>${list(match, `\\+`)}</ul>`;
-          })
-          // img
-          .replace(/!\[(.*)\]\(([^\s]*)( "([^"]*)")?\)/g, (match, a1, a2, a3, a4, ...args) => {
+          }
+        },
+        // img
+        {
+          value: /!\[(.*)\]\(([^\s]*)( "([^"]*)")?\)/g,
+          method: (match, a1, a2, a3, a4, ...args) => {
             const valueRender = is('function', render) ? render('img', classNames([classes['img'], elementClassNames?.['img']]), elementStyles?.['img'], match, a1, a2, a3, a4, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<img${addClassName('img')}${addStyle('img')} alt='${a1}' src='${a2}' title='${a4 || ''}' />`;
-          })
-          // img ref
-          .replace(/!\[(.*)\]\[(.*)\]/g, (match, a1, a2, offset, string) => {
+          }
+        },
+        // img ref
+        {
+          value: /!\[(.*)\]\[(.*)\]/g,
+          method: (match, a1, a2, offset, string) => {
             const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
 
             const valueRender = is('function', render) ? render('img', classNames([classes['img'], elementClassNames?.['img']]), elementStyles?.['img'], url, match, a1, a2, offset, string) : undefined;
@@ -442,31 +513,27 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
             if (!url) return '';
 
             return `<img${addClassName('img')}${addStyle('img')} alt='${a1}' src='${url[1]}' title='${url[3] || ''}' />`;
-          })
-          // a ref inline
-          .replace(/(?:[^^]*)(\[([^\]]*)\])(?!;)(?:[^:[(]*)/gm, (match, a1, a2, offset, string) => {
+          }
+        },
+        // a ref inline
+        {
+          value: /(?:[^^]*)(\[([^\]]*)\])(?:[^:[(]*)/gm,
+          method: (match, a1, a2, offset, string) => {
             const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
 
             const valueRender = is('function', render) ? render('a', classNames([classes['a'], elementClassNames?.['a']]), elementStyles?.['a'], url, match, a1, a2, offset, string) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
-            if (!url) return '';
+            if (!url) return match;
 
-            return match.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${url[1]}' title='${url[3] || ''}' ref='nofollow'>${a2}</a>`);
-          })
-          // pre
-          .replace(/([^`])`{3}(.*)\n([^`]*)`{3}([^`])/g, (match, a1, a2, a3, a4, ...args) => {
-            const additionalClassNames = [a2, `language-${a2}`];
-
-            const valueRender = is('function', render) ? render('pre', classNames([classes['pre'], classNames([classes['pre'], elementClassNames?.['pre']]), ...additionalClassNames]), elementStyles?.['pre'], match, a1, a2, a3, a4, ...args) : undefined;
-
-            if (valueRender !== undefined) return valueRender;
-
-            return `${a1}<pre${addClassName('pre', ...additionalClassNames)}${addStyle('pre')}><code${addClassName('code')}${addStyle('code')}>${a3}</code></pre>${a4}`;
-          })
-          // blockquote
-          .replace(/^ *(>+ (<(a|img|em|strong)|[A-Za-z0-9[\]()])*.*(\n *>+.*)*)/gm, (match, a1, ...args) => {
+            return match.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${url[1]}' title='${url[3] || ''}' ref='nofollow' target='blank'>${a2}</a>`);
+          }
+        },
+        // blockquote
+        {
+          value: /^ *(>+ (<(a|img|em|strong)|[A-Za-z0-9[\]()])*.*(\n *>+.*)*)/gm,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('blockquote', classNames([classes['blockquote'], elementClassNames?.['blockquote']]), elementStyles?.['blockquote'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -474,9 +541,12 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
             const valueAdd = a1.replace(/^ *> */gm, ' ');
 
             return `<blockquote${addClassName('blockquote')}${addStyle('blockquote')}>${method(valueAdd)}</blockquote>`;
-          })
-          // p
-          .replace(/^ *((<(a|img|em|strong)|[A-Za-z0-9[\]()]).*(\n *(<(a|img|em|strong)|[A-Za-z0-9[\]()]).*)*)/gm, (match, a1, ...args) => {
+          }
+        },
+        // p
+        {
+          value: /^ *((<(a|img|em|strong)|[A-Za-z0-9[\]()]).*(\n *(<(a|img|em|strong)|[A-Za-z0-9[\]()]).*)*)/gm,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('p', classNames([classes['p'], elementClassNames?.['p']]), elementStyles?.['p'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
@@ -558,17 +628,23 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
             }
 
             return `<p${addClassName('p')}${addStyle('p')}>${a1.trim().replace(/ +/g, ' ')}</p>`;
-          })
-          // a
-          .replace(/\[(.*)\]\(([^\s]*)( "([^"]*)")?\)/g, (match, a1, a2, a3, a4, ...args) => {
+          }
+        },
+        // a
+        {
+          value: /\[([^\]]*)\]\(([^\s]*)( "([^"]*)")?\)/g,
+          method: (match, a1, a2, a3, a4, ...args) => {
             const valueRender = is('function', render) ? render('a', classNames([classes['a'], elementClassNames?.['a']]), elementStyles?.['a'], match, a1, a2, a3, a4, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
-            return `<a${addClassName('a')}${addStyle('a')} href='${a2}' title='${a4 || ''}' ref='nofollow'>${a1}</a>`;
-          })
-          // a ref
-          .replace(/\[(.*)\]\[(.*)\]/g, (match, a1, a2, offset, string) => {
+            return `<a${addClassName('a')}${addStyle('a')} href='${a2}' title='${a4 || ''}' ref='nofollow' target='blank'>${a1}</a>`;
+          }
+        },
+        // a ref
+        {
+          value: /\[(.*)\]\[(.*)\]/g,
+          method: (match, a1, a2, offset, string) => {
             const url = string.match(new RegExp(`\\[${a2}\\]: ([^\\s]*)( "([^"]*)")?`)) || string.match(new RegExp(`\\[${a2.toLowerCase()}\\]: ([^\\s]*)( "([^"]*)")?`));
 
             const valueRender = is('function', render) ? render('a', classNames([classes['a'], elementClassNames?.['a']]), elementStyles?.['a'], url, match, a1, a2, offset, string) : undefined;
@@ -578,69 +654,136 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
             if (!url) return '';
 
             return `<a${addClassName('a')}${addStyle('a')} href='${url[1]}' title='${url[3] || ''}' ref='nofollow'>${a1}</a>`;
-          })
-          // a clean up
-          .replace(/(<a.*)(title='')([^<]*<\/a>)/g, '$1$3')
-          // img clean up
-          .replace(/(<img.*)(title='')([^<]*\/>)/g, '$1$3')
-          // a refs clean up
-          .replace(/<p.*>\[.*\]:[^<]*<\/p>/g, '')
-          // bold
-          .replace(/__([^_]*)__/g, (match, a1, ...args) => {
+          }
+        },
+        // a clean up
+        {
+          value: /(<a.*)(title='')([^<]*<\/a>)/g,
+          method: '$1$3'
+        },
+        // img clean up
+        {
+          value: /(<img.*)(title='')([^<]*\/>)/g,
+          method: '$1$3'
+        },
+        // a refs clean up
+        {
+          value: /<p.*>\[.*\]:[^<]*<\/p>/g,
+          method: ''
+        },
+        // pre
+        {
+          version: 'pre',
+          value: /([^`])`{3}(.*)\n([^`]*)`{3}([^`])/g,
+          method: (match, a1, a2, a3, a4, ...args) => {
+            const additionalClassNames = [a2, `language-${a2}`];
+
+            const valueRender = is('function', render) ? render('pre', classNames([classes['pre'], classNames([classes['pre'], elementClassNames?.['pre']]), ...additionalClassNames]), elementStyles?.['pre'], match, a1, a2, a3, a4, ...args) : undefined;
+
+            if (valueRender !== undefined) return valueRender;
+
+            return `${a1}<pre${addClassName('pre', ...additionalClassNames)}${addStyle('pre')}><code${addClassName('code')}${addStyle('code')}>${sanitize(a3)}</code></pre>${a4}`;
+          }
+        },
+        // bold
+        {
+          value: /__([^_]*)__/g,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('strong', classNames([classes['strong'], elementClassNames?.['strong']]), elementStyles?.['strong'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<strong${addClassName('strong')}${addStyle('strong')}>${a1}</strong>`;
-          })
-          .replace(/\*\*([^*]*)\*\*/g, (match, a1, ...args) => {
+          }
+        },
+        {
+          value: /\*\*([^*]*)\*\*/g,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('strong', classNames([classes['strong'], elementClassNames?.['strong']]), elementStyles?.['strong'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<strong${addClassName('strong')}${addStyle('strong')}>${a1}</strong>`;
-          })
-          // italic
-          .replace(/_([^_]*)_/g, (match, a1, ...args) => {
+          }
+        },
+        // italic
+        {
+          value: /_([^_]*)_/g,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('italic', classNames([classes['italic'], elementClassNames?.['italic']]), elementStyles?.['italic'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<em${addClassName('em')}${addStyle('em')}>${a1}</em>`;
-          })
-          .replace(/\*([^*]*)\*/g, (match, a1, ...args) => {
+          }
+        },
+        {
+          value: /\*([^*]*)\*/g,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('italic', classNames([classes['italic'], elementClassNames?.['italic']]), elementStyles?.['italic'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<em${addClassName('em')}${addStyle('em')}>${a1}</em>`;
-          })
-          // del
-          .replace(/~~([^~]*)~~/g, (match, a1, ...args) => {
+          }
+        },
+        // del
+        {
+          value: /~~([^~]*)~~/g,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('del', classNames([classes['del'], elementClassNames?.['del']]), elementStyles?.['del'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `<del${addClassName('del')}${addStyle('del')}>${a1}</del>`;
-          })
-          // inline code
-          .replace(/([^`])`{1}([^`]*)`{1}([^`])/g, (match, a1, a2, a3, ...args) => {
+          }
+        },
+        // inline code
+        {
+          value: /([^`])`{1}([^`]*)`{1}([^`])/g,
+          method: (match, a1, a2, a3, ...args) => {
             const valueRender = is('function', render) ? render('code', classNames([classes['code'], elementClassNames?.['code']]), elementStyles?.['code'], match, a1, a2, a3, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return `${a1}<code${addClassName('code')}${addStyle('code')}>${a2}</code>${a3}`;
-          })
-          // line break
-          .replace(/\\/g, (match, ...args) => {
+          }
+        },
+        // line break
+        {
+          value: /\\/g,
+          method: (match, ...args) => {
             const valueRender = is('function', render) ? render('br', classNames([classes['br'], elementClassNames?.['br']]), elementStyles?.['br'], match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return '<br />';
-          })
-          // other
-          .trim();
+          }
+        }
+      ];
+
+      const method = (valueNew_: string) => {
+        let result = regExpressions.reduce((regexResult: string, current: { version?: string; value: RegExp; method: any }) => {
+          let response = regexResult;
+
+          // Extract code blocks
+          const preVars = response.match(/```.*\n[^`]+```/g) || [];
+
+          if (!!preVars.length && !['pre'].includes(current.version)) {
+            preVars.forEach((item: any, index: number) => response = response.replace(item, `amauiVar${index}`));
+          }
+
+          response = response.replace(current.value, current.method);
+
+          // Revert code blocks
+          if (!!preVars.length && !['pre'].includes(current.version)) {
+            preVars.forEach((item: any, index: number) => response = response.replace(`amauiVar${index}`, item));
+          }
+
+          return response;
+        }, valueNew_);
+
+        result = result.trim();
 
         return result;
       };

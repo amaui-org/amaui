@@ -317,3 +317,22 @@ export interface IBaseElement {
 export type TMethodTransition = (element?: THTMLElement) => any;
 
 export type TValueBreakpoints = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'default';
+
+export const sanitize = (value: string) => {
+  if (value) {
+    const map: any = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#x27;',
+      "/": '&#x2F;',
+      "\\": '&#x5c;',
+      '*': '&#x2a',
+    };
+
+    const reg = /[&<>"'/\\*]/ig;
+
+    return value.replace(reg, (match) => (map[match]));
+  }
+};

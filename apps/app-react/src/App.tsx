@@ -1977,6 +1977,8 @@ Strikethrough uses two tildes. ~~Scratch this~~.
 
 [You can use numbers for reference-style link definitions][1]
 
+[Google material design icons](https://fonts.google.com/icons) are ones used in this repository, licenced under their own [licence](https://github.com/google/material-design-icons/blob/master/LICENSE).
+
 Or leave it empty and use the [link text itself].
 
 URLs and URLs in angle brackets will automatically get turned into links.

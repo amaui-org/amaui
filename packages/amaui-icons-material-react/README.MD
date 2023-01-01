@@ -51,18 +51,14 @@
 ### Use
 
 ```javascript
-  // Import any of the ui and icons
-  import { IconButton } from '@amaui/ui-react';
-
+  // Import any of the icons
   import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/IconMaterialPottedPlantRounded';
 
   function A(props) {
 
     return (
-      <IconButton>
-        // 🪴
-        <IconMaterialPottedPlantRounded />
-      </IconButton>
+      // 🪴
+      <IconMaterialPottedPlantRounded />
     );
   }
 ```

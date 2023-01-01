@@ -72,8 +72,8 @@ yarn build
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "API: Start",
-      "to": "/dev/api/start"
+      "label": "Icons Material React: Start",
+      "to": "/dev/icons-material-react/start"
     },
     "next": {
       "label": "AMQP: Use",

@@ -5,7 +5,7 @@ import LinkNext from 'next/link';
 import { Button, Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery } from '@amaui/ui-react';
 import { classNames, style as styleMethod } from '@amaui/style-react';
 import AmauiRequest from '@amaui/request';
-import { parse, slugify, unique } from '@amaui/utils';
+import { clamp, parse, slugify, unique } from '@amaui/utils';
 
 import { BottomNavigation } from '../ui';
 
@@ -203,6 +203,8 @@ export default function Library(props: any) {
 
   const values = value?.trim().match(/[^~]+?(?=~)|(?:~)[\s\S]+?(?:~)/ig) || [];
 
+  if (!value.includes('~{')) values.push(value);
+
   const element = (value_: string, index: number) => {
     if (value_?.indexOf('~{') !== 0) return (
       <Markdown
@@ -244,14 +246,13 @@ export default function Library(props: any) {
 
   const activePage = props?.menu?.find((item: any) => item.url === props.url);
 
-  const maxPriority = Math.max(...headings?.map((item: any) => item.priority));
-
-  console.log(1, headings, maxPriority);
+  const maxPriority = clamp(Math.max(...headings?.map((item: any) => item.priority)), 1);
+  console.log(1, value, values);
   return <>
     <Head>
-      <title>{props.label} {activePage?.label}</title>
+      <title>{props.label}{activePage?.label ? `: ${activePage?.label}` : ''}</title>
 
-      <meta property='og:title' content={`${props.label} ${activePage?.label}`} />
+      <meta property='og:title' content={`${props.label}${activePage?.label ? `: ${activePage?.label}` : ''}`} />
       <meta property='og:url' content={`https://amaui.me${props.url}`} />
     </Head>
 
