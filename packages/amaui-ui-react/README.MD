@@ -83,10 +83,6 @@ Build
   yarn build
 ```
 
-### Docs
-
-Might be soon...
-
 <br>
 
 ## Disclaimer

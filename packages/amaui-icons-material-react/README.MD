@@ -85,10 +85,6 @@ Build
   yarn build
 ```
 
-### Docs
-
-Might be soon...
-
 ### Licenses
 
 [Google material design icons](https://fonts.google.com/icons) are ones used in this repository, licenced under their own [licence](https://github.com/google/material-design-icons/blob/master/LICENSE).
