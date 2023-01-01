@@ -70,6 +70,7 @@ const useStyle = styleMethod(theme => ({
 
   navigationDrawer_mobile: {
     '&.amaui-Modal-root': {
+      paddingBottom: 0,
       zIndex: theme.z_index.tooltip + 2
     }
   },
@@ -181,25 +182,22 @@ const useStyle = styleMethod(theme => ({
   },
 
   sideNavList: {
-    width: 340,
+    width: '90vw',
+    maxWidth: 340,
     overflow: 'auto',
 
     '&.amaui-Line-root': {
       paddingTop: 0
     },
 
-    '&.amaui-Surface-root, & .amaui-Surface-root': {
+    '&.amaui-Surface-root:not(.amaui-ListSubheader-root), & .amaui-Surface-root:not(.amaui-ListSubheader-root)': {
       background: 'transparent'
     }
   },
 
   sideNavListSubheader: {
     paddingTop: 8,
-    marginBottom: 24,
-
-    '&.amaui-ListSubheader-root': {
-      background: theme.palette.background.default.primary
-    }
+    marginBottom: 24
   }
 }), { name: 'root' });
 
@@ -587,6 +585,14 @@ function Root(props: any) {
           >
             <ListSubheader
               size='small'
+
+              tonal={false}
+
+              color='default'
+
+              Component={Surface}
+
+              {...NavigationDrawerProps}
 
               className={classNames([
                 classes.sideNavListSubheader

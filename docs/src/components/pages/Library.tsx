@@ -247,7 +247,7 @@ export default function Library(props: any) {
   const activePage = props?.menu?.find((item: any) => item.url === props.url);
 
   const maxPriority = clamp(Math.max(...headings?.map((item: any) => item.priority)), 1);
-  console.log(1, value, values);
+
   return <>
     <Head>
       <title>{props.label}{activePage?.label ? `: ${activePage?.label}` : ''}</title>
