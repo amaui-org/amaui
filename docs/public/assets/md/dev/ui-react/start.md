@@ -45,8 +45,6 @@ Build
 yarn build
 ```
 
-<br>
-
 ### Disclaimer
 
 amaui UI elements library is mostly based on the UI design rules of Open Source Google Material Design 3 design principles. \

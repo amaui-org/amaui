@@ -144,6 +144,7 @@ export default function Library(props: any) {
     else {
       setValue('');
       setHeadings([]);
+      setLoaded(true);
     }
 
     // Main progress
@@ -245,6 +246,8 @@ export default function Library(props: any) {
       case 'BottomNavigation':
         return (
           <BottomNavigation
+            key={index}
+
             {...object?.props}
           />
         );
@@ -347,7 +350,7 @@ export default function Library(props: any) {
           classes.root
         ])}
       >
-        {!value && (
+        {!value && loaded && (
           <Line
             gap={3}
 

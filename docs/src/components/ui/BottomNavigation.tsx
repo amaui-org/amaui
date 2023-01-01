@@ -56,7 +56,10 @@ export default function BottomNavigation(props: any) {
 
       direction={{
         xs: 'column',
-        default: 'row'
+        sm: 'row',
+        md: 'row',
+        lg: 'row',
+        xl: 'row'
       }}
 
       align='unset'
