@@ -51,7 +51,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   p: {
-    marginBottom: '16px'
+    marginBottom: '16px',
+    lineHeight: '1.5'
   },
 
   em: {},
