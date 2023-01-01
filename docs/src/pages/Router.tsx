@@ -251,7 +251,7 @@ function Root(props: any) {
   };
 
   const sidenavMenu: any = React.useMemo(() => {
-    const menu = sidenavJSON.find(item => props.url.indexOf(item.url) === 0);
+    const menu = sidenavJSON.find(item => props.url?.indexOf(item.url) === 0);
 
     return menu || [];
   }, [props.url]);
@@ -423,7 +423,7 @@ function Root(props: any) {
     return all_libraries;
   }, []);
 
-  const isLibrary = props.url.indexOf('/dev/') === 0;
+  const isLibrary = props.url?.indexOf('/dev/') === 0;
 
   const Page = !isLibrary ? Home : Library;
 
@@ -700,7 +700,7 @@ function Root(props: any) {
                             <ListItem
                               primary={item.name}
 
-                              selected={props.url.indexOf(item.url) === 0}
+                              selected={props.url?.indexOf(item.url) === 0}
 
                               color='inherit'
 

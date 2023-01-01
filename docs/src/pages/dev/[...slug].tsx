@@ -41,7 +41,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   };
 
   // Default redirect
-  const item: any = sidenavJSON.find(item_ => props.url.indexOf(item_.url) === 0);
+  const item: any = sidenavJSON.find(item_ => props.url?.indexOf(item_.url) === 0);
 
   if (item?.url === props.url) return {
     redirect: {
