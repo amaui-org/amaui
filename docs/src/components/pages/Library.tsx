@@ -2,10 +2,10 @@ import React from 'react';
 import Head from 'next/head';
 import LinkNext from 'next/link';
 
-import { Button, Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery } from '@amaui/ui-react';
+import { clamp, parse, random, slugify } from '@amaui/utils';
+import { Button, Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery, Placeholder, Fade } from '@amaui/ui-react';
 import { classNames, style as styleMethod } from '@amaui/style-react';
 import AmauiRequest from '@amaui/request';
-import { clamp, parse, slugify, unique } from '@amaui/utils';
 
 import { BottomNavigation } from '../ui';
 
@@ -41,7 +41,8 @@ const useStyle = styleMethod(theme => ({
   wrapper: {
     width: '100%',
     maxWidth: 1024,
-    flex: '1 1 auto'
+    flex: '1 1 auto',
+    position: 'relative'
   },
 
   markdown: {
@@ -101,6 +102,15 @@ const useStyle = styleMethod(theme => ({
     '&.active': {
       boxShadow: `inset 0px 0px 0px 1px ${theme.palette.text.default.primary}`
     }
+  },
+
+  header: {
+    flex: '0 0 auto'
+  },
+
+  placeholders: {
+    marginTop: '40px',
+    width: '100%'
   }
 }), { name: 'library' });
 
@@ -111,6 +121,7 @@ export default function Library(props: any) {
   const [init, setInit] = React.useState(false);
   const [value, setValue] = React.useState(props.value || '');
   const [headings, setHeadings] = React.useState<any>([]);
+  const [loaded, setLoaded] = React.useState(false);
 
   const mediumScreen = useMediaQuery('(max-width: 1300px)');
   const useMiddleMargin = useMediaQuery('(min-width: 1800px)');
@@ -161,6 +172,10 @@ export default function Library(props: any) {
     if (init || !value) page(props.url);
   }, [props.url]);
 
+  const onStart = React.useCallback(() => {
+    setLoaded(false);
+  }, []);
+
   const onUpdate = React.useCallback(() => {
     const Prism = (window as any).Prism;
 
@@ -199,6 +214,8 @@ export default function Library(props: any) {
     });
 
     setHeadings([...valuesHeadings]);
+
+    setLoaded(true);
   }, []);
 
   const values = value?.trim().match(/[^~]+?(?=~)|(?:~)[\s\S]+?(?:~)/ig) || [];
@@ -211,6 +228,8 @@ export default function Library(props: any) {
         key={index}
 
         value={value_}
+
+        onStart={onStart}
 
         onUpdate={onUpdate}
 
@@ -247,6 +266,60 @@ export default function Library(props: any) {
   const activePage = props?.menu?.find((item: any) => item.url === props.url);
 
   const maxPriority = clamp(Math.max(...headings?.map((item: any) => item.priority)), 1);
+
+  const Placeholders = React.useMemo(() => {
+
+    return (
+      <Line
+        direction='column'
+
+        className={classes.placeholders}
+      >
+        {new Array(4).fill(true).map((item: any, index: number) => <>
+          <Placeholder
+            key={index}
+
+            width={`${random(14, 40)}%`}
+
+            height={40}
+          />
+
+          <Line
+            gap={1}
+
+            direction='column'
+
+            style={{
+              width: '100%'
+            }}
+          >
+            {new Array(1).fill(true).map((item: any, index_: number) => (
+              <Placeholder
+                key={`${index}_${index_}`}
+
+                width={`${random(4, 70)}%`}
+
+                height={20}
+              />
+            ))}
+          </Line>
+
+          <Placeholder
+            key={index + 1}
+
+            width='100%'
+
+            height={random(70, 240)}
+
+            style={{
+              marginTop: 7,
+              marginBottom: 41
+            }}
+          />
+        </>)}
+      </Line>
+    );
+  }, []);
 
   return <>
     <Head>
@@ -314,7 +387,10 @@ export default function Library(props: any) {
 
             Component='header'
 
-            className={classes.wrapper}
+            className={classNames([
+              classes.wrapper,
+              classes.header
+            ])}
           >
             <Button
               color='inherit'
@@ -358,7 +434,21 @@ export default function Library(props: any) {
               } : {})
             }}
           >
-            {values?.map((item: string, index: number) => element(item, index))}
+            {!loaded && Placeholders}
+
+            <Fade
+              in={loaded}
+            >
+              <Line
+                gap={0}
+
+                direction='column'
+
+                className={classes.wrapper}
+              >
+                {values?.map((item: string, index: number) => element(item, index))}
+              </Line>
+            </Fade>
           </Line>
 
           {withSidenav && (
@@ -422,6 +512,6 @@ export default function Library(props: any) {
           )}
         </Line>
       </Line>
-    </SpyScroll>
+    </SpyScroll >
   </>;
 }

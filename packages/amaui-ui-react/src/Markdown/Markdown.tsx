@@ -122,6 +122,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   ul: {
+    listStyleType: 'circle',
     paddingInlineStart: '16px',
     marginBottom: '16px'
   },
@@ -133,8 +134,12 @@ const useStyle = styleMethod(theme => ({
       marginBottom: '0px'
     },
 
-    '& p:last-of-type': {
-      marginBottom: '0px'
+    '& p': {
+      lineHeight: 'inherit',
+
+      '&:last-of-type': {
+        marginBottom: '0px'
+      }
     }
   },
 

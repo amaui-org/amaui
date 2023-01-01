@@ -46,7 +46,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   wrapper_library: {
-    marginInlineStart: '340px'
+    marginInlineStart: '340px',
+    transition: theme.methods.transitions.make('margin')
   },
 
   navigationDrawer: {

@@ -77,6 +77,10 @@ const useStyle = styleMethod(theme => ({
     borderRadius: `${theme.shape.radius.unit}px`
   },
 
+  version_rectangle: {
+    borderRadius: '0px'
+  },
+
   text: {
     height: '1em'
   },
@@ -88,7 +92,7 @@ const useStyle = styleMethod(theme => ({
 
 export interface IPlaceholder extends Omit<IBaseElement, 'version'> {
   color?: TColor;
-  version?: 'rounded' | 'circle';
+  version?: 'rectangle' | 'rounded' | 'circle';
 
   width?: string | number;
   height?: string | number;
