@@ -182,11 +182,11 @@ const useStyle = styleMethod(theme => ({
   },
 
   sideNavList: {
-    width: '90vw',
-    maxWidth: 340,
     overflow: 'auto',
 
     '&.amaui-Line-root': {
+      width: '90vw',
+      maxWidth: 340,
       paddingTop: 0
     },
 
@@ -549,11 +549,11 @@ function Root(props: any) {
     >
       {!!isLibrary && (
         <NavigationDrawer
-          open={smallerScreen ? open : true}
+          open={!init ? false : smallerScreen ? open : true}
 
           openDefault={false}
 
-          version={smallerScreen ? 'modal' : 'standard'}
+          version={(!init || smallerScreen) ? 'modal' : 'standard'}
 
           onClose={() => setOpen(false)}
 
@@ -631,7 +631,7 @@ function Root(props: any) {
 
         className={classNames([
           classes.wrapper,
-          isLibrary && !smallerScreen && classes.wrapper_library
+          init && isLibrary && !smallerScreen && classes.wrapper_library
         ])}
       >
         {/* Header */}
@@ -784,7 +784,7 @@ function Root(props: any) {
 
           className={classNames([
             classes.header,
-            withNavigationDrawer && classes.header_withNavigationDrawer,
+            init && withNavigationDrawer && classes.header_withNavigationDrawer,
             scrollNotTop && classes.header_not_top,
             scrollDown && classes.header_down
           ])}
