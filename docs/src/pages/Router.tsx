@@ -3,7 +3,7 @@ import LinkNext from 'next/link';
 
 import Head from 'next/head';
 
-import { is, isEnvironment } from '@amaui/utils';
+import { isEnvironment } from '@amaui/utils';
 
 import { Avatar, IconButton, Line, Link, List, ListItem, ListSubheader, MenuDesktop, NavigationDrawer, SpeedDial, SpeedDialItem, Surface, Switch, Tooltip, TopAppBar, Type, useMediaQuery, useScroll } from '@amaui/ui-react';
 import { classNames, colors, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
@@ -51,6 +51,15 @@ const useStyle = styleMethod(theme => ({
 
   navigationDrawer: {
     paddingBottom: 100,
+
+    '& .amaui-Modal-surface': {
+      overflowY: 'auto',
+      scrollbarWidth: 0,
+
+      '&::-webkit-scrollbar': {
+        display: 'none'
+      }
+    },
 
     '& .amaui-List-root': {
       gap: 4
@@ -187,7 +196,8 @@ const useStyle = styleMethod(theme => ({
     '&.amaui-Line-root': {
       width: '90vw',
       maxWidth: 340,
-      paddingTop: 0
+      paddingTop: 0,
+      overflow: 'unset'
     },
 
     '&.amaui-Surface-root:not(.amaui-ListSubheader-root), & .amaui-Surface-root:not(.amaui-ListSubheader-root)': {

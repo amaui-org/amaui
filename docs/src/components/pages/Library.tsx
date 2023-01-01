@@ -285,7 +285,7 @@ export default function Library(props: any) {
             align='center'
           >
             <Type
-              version='h1'
+              version='h3'
 
               style={{
                 textAlign: 'center'
