@@ -446,8 +446,8 @@ function Root(props: any) {
       const ListItemComponentProps: any = {};
 
       if (isUrl) {
+        ListItemComponentProps.key = index;
         ListItemComponentProps.href = item.url;
-
         ListItemComponentProps.onClick = () => setOpen(false);
       }
 
@@ -547,7 +547,7 @@ function Root(props: any) {
         classes.root
       ])}
     >
-      {!!isLibrary && (
+      {init && !!isLibrary && (
         <NavigationDrawer
           open={!init ? false : smallerScreen ? open : true}
 
@@ -637,7 +637,7 @@ function Root(props: any) {
         {/* Header */}
         <TopAppBar
           start={[
-            ...((smallerScreen && isLibrary) ? [(
+            ...((init && smallerScreen && isLibrary) ? [(
               <IconButton
                 color='inherit'
 
