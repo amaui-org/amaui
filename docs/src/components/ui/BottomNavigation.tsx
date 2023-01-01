@@ -1,3 +1,4 @@
+import React from 'react';
 import { useRouter } from 'next/router';
 
 import { classNames, style } from '@amaui/style-react';
@@ -9,7 +10,12 @@ import IconMaterialEastRounded from '@amaui/icons-material-react/IconMaterialEas
 const useStyle = style(theme => ({
   root: {
     marginTop: 100,
-    width: '100%'
+    width: '100%',
+
+    // bug
+    '&.amaui-Line-root': {
+      flexDirection: 'column'
+    }
   },
 
   item: {
@@ -27,6 +33,13 @@ const useStyle = style(theme => ({
   },
 
   [`@media only screen and (min-width: ${theme.breakpoints.values.sm}px)`]: {
+    $root: {
+      // bug
+      '&.amaui-Line-root': {
+        flexDirection: 'row !important'
+      }
+    },
+
     $item: {
       maxWidth: '50%'
     }
@@ -45,22 +58,20 @@ export default function BottomNavigation(props: any) {
   const { classes } = useStyle();
   const router = useRouter();
 
+  const [init, setInit] = React.useState(false);
+
   const {
     previous,
     next
   } = props;
 
+  React.useEffect(() => {
+    setInit(true);
+  }, []);
+
   return (
     <Line
       gap={1}
-
-      direction={{
-        xs: 'column',
-        sm: 'row',
-        md: 'row',
-        lg: 'row',
-        xl: 'row'
-      }}
 
       align='unset'
 

@@ -209,6 +209,14 @@ const useStyle = styleMethod(theme => ({
   sideNavListSubheader: {
     paddingTop: 8,
     marginBottom: 24
+  },
+
+  [`@media only screen and (min-width: 1100px)`]: {
+    $sideNavListSubheader: {
+      '&.amaui-Surface-root': {
+        background: theme.palette.background.default.primary
+      }
+    }
   }
 }), { name: 'root' });
 
@@ -597,13 +605,11 @@ function Root(props: any) {
             <ListSubheader
               size='small'
 
-              tonal={false}
+              tonal
 
-              color='default'
+              color='primary'
 
               Component={Surface}
-
-              {...NavigationDrawerProps}
 
               className={classNames([
                 classes.sideNavListSubheader
