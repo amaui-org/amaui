@@ -212,9 +212,15 @@ const useStyle = styleMethod(theme => ({
   },
 
   [`@media only screen and (min-width: 1100px)`]: {
+    $navigationDrawer: {
+      '& .amaui-Modal-surface': {
+        background: 'transparent'
+      }
+    },
+
     $sideNavListSubheader: {
       '&.amaui-Surface-root': {
-        background: theme.palette.background.default.primary
+        background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.primary.secondary
       }
     }
   }
@@ -699,7 +705,7 @@ function Root(props: any) {
                     <List
                       tonal
 
-                      color='themed'
+                      color='primary'
 
                       size='regular'
 
