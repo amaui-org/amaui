@@ -363,11 +363,17 @@ export default function Library(props: any) {
     );
   }, []);
 
+  let activePageGroup = activePage?.url?.split('/')[3];
+
+  activePageGroup = activePageGroup === 'api' ? 'API' : activePageGroup === 'use' ? 'Use' : '';
+
+  if (activePageGroup === 'Use' && !activePage?.menu?.length) activePageGroup = '';
+
   return <>
     <Head>
-      <title>{props.label}{activePage?.label ? `: ${activePage?.label}` : ''}</title>
+      <title>{props.label}{activePageGroup ? ` ${activePageGroup}` : activePageGroup}{activePage?.label ? `: ${activePage?.label}` : ''}</title>
 
-      <meta property='og:title' content={`${props.label}${activePage?.label ? `: ${activePage?.label}` : ''}`} />
+      <meta property='og:title' content={`${props.label}${activePageGroup ? ` ${activePageGroup}` : activePageGroup}${activePage?.label ? `: ${activePage?.label}` : ''}`} />
       <meta property='og:url' content={`https://amaui.me${props.url}`} />
     </Head>
 
