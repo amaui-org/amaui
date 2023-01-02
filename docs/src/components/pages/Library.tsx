@@ -13,7 +13,23 @@ const useStyle = styleMethod(theme => ({
   root: {
     paddingInline: 40,
     marginTop: 'clamp(40px, 7vw, 114px)',
-    marginInline: 'auto'
+    marginInline: 'auto',
+
+    '& .amaui_string': {
+      color: 'hsl(114deg 54% 54%)'
+    },
+
+    '& .amaui_number': {
+      color: 'hsl(214deg 54% 64%)'
+    },
+
+    '& .amaui_boolean': {
+      color: 'hsl(170deg 54% 54%)'
+    },
+
+    '& .amaui_other': {
+      color: 'hsl(57deg 54% 54%)'
+    }
   },
 
   heading: {
@@ -69,6 +85,18 @@ const useStyle = styleMethod(theme => ({
 
     '& .operator': {
       background: 'transparent'
+    },
+
+    '& table': {
+      border: 'none',
+
+      '& th, & td': {
+        borderRight: 'none'
+      }
+    },
+
+    '& thead > tr > th': {
+      fontWeight: 700
     }
   },
 
@@ -266,7 +294,18 @@ export default function Library(props: any) {
 
   const withSidenav = !mediumScreen && !!headings.length;
 
-  const activePage = props?.menu?.find((item: any) => item.url === props.url);
+  const activePageRecursive = (menu: any[] = props.menu): any => {
+    for (const item of menu) {
+      if (item.url === props.url) return item;
+      else if (item?.menu) {
+        const activePage_ = activePageRecursive(item.menu as any);
+
+        if (activePage_) return activePage_;
+      }
+    }
+  };
+
+  const activePage = activePageRecursive();
 
   const maxPriority = clamp(Math.max(...headings?.map((item: any) => item.priority)), 1);
 
@@ -473,7 +512,7 @@ export default function Library(props: any) {
               <Type
                 version='t2'
               >
-                {props.label}
+                {activePage?.label || props.label}
               </Type>
 
               <Line

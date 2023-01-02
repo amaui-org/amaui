@@ -3561,6 +3561,10 @@
           {
             "label": "AmauiZip",
             "url": "/dev/zip/api/AmauiZip"
+          },
+          {
+            "label": "AmauiZipResponse",
+            "url": "/dev/zip/api/AmauiZipResponse"
           }
         ]
       }

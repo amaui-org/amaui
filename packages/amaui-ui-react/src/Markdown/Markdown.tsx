@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { colorToRgb, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, sanitize, staticClassName } from '../utils';
@@ -22,36 +22,43 @@ const useStyle = styleMethod(theme => ({
 
   h1: {
     ...theme.typography.values.h1,
+    wordBreak: 'break-word',
     margin: '70px 0 16px'
   },
 
   h2: {
     ...theme.typography.values.h2,
+    wordBreak: 'break-word',
     margin: '50px 0 16px'
   },
 
   h3: {
     ...theme.typography.values.h3,
+    wordBreak: 'break-word',
     margin: '40px 0 16px'
   },
 
   h4: {
     ...theme.typography.values.t1,
+    wordBreak: 'break-word',
     margin: '30px 0 16px'
   },
 
   h5: {
     ...theme.typography.values.t2,
+    wordBreak: 'break-word',
     margin: '20px 0 16px'
   },
 
   h6: {
     ...theme.typography.values.t3,
+    wordBreak: 'break-word',
     margin: '10px 0 16px'
   },
 
   p: {
     marginBottom: '16px',
+    wordBreak: 'break-word',
     lineHeight: '1.5'
   },
 
@@ -143,21 +150,27 @@ const useStyle = styleMethod(theme => ({
     }
   },
 
+  tableWrapper: {
+    overflowX: 'auto'
+  },
+
   table: {
     margin: '16px 0',
     borderCollapse: 'collapse',
     border: `1px solid ${theme.palette.light ? theme.palette.color.neutral[80] : theme.palette.color.neutral[30]}`,
 
-    '& th,td': {
+    '& th, td': {
       ...theme.typography.values.b2,
       padding: '12px 16px',
       borderBottom: `1px solid ${theme.palette.light ? theme.palette.color.neutral[80] : theme.palette.color.neutral[30]}`,
-      borderRight: `1px solid ${theme.palette.light ? theme.palette.color.neutral[80] : theme.palette.color.neutral[30]}`
+      borderRight: `1px solid ${theme.palette.light ? theme.palette.color.neutral[80] : theme.palette.color.neutral[30]}`,
+      whiteSpace: 'nowrap'
     },
 
     '& th': {
       fontWeight: '500',
-      borderBottom: `1px solid ${theme.palette.light ? theme.palette.color.neutral[50] : theme.palette.color.neutral[50]}`
+      borderBottom: `1px solid ${colorToRgb(theme.methods.palette.color.value('primary', 5, true), theme.palette.light ? 40 : 54)}`,
+      background: theme.methods.palette.color.value('primary', 99, true)
     }
   }
 
@@ -257,7 +270,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
         items[1].split('|').filter(Boolean).map(item => item.trim()).forEach((item: string, index: number) => {
           if (item.startsWith(':') && item.endsWith(':')) tdAttributes[index] = ` align='center'`;
           else if (item.endsWith(':')) tdAttributes[index] = ` align='right'`;
-          else tdAttributes[index] = '';
+          else tdAttributes[index] = ` align='left'`;
         });
 
         const rowsHead = head.reduce((result: string, item: string, index: number) => {
@@ -425,7 +438,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
 
             if (valueRender !== undefined) return valueRender;
 
-            return `<table${addClassName('table')}${addStyle('table')}>${table(match)}</table>`;
+            return `<div class='${classes.tableWrapper}'><table${addClassName('table')}${addStyle('table')}>${table(match)}</table></div>`;
           }
         },
         // a url
@@ -714,7 +727,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
         },
         // italic
         {
-          value: /_([^_]*)_/g,
+          value: /(?<!\\)_([^_]*)(?!\\)_/g,
           method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('italic', classNames([classes['italic'], elementClassNames?.['italic']]), elementStyles?.['italic'], match, a1, ...args) : undefined;
 
@@ -757,13 +770,25 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
         },
         // line break
         {
-          value: /\\/g,
+          value: /(?<= )\\/g,
           method: (match, ...args) => {
             const valueRender = is('function', render) ? render('br', classNames([classes['br'], elementClassNames?.['br']]), elementStyles?.['br'], match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
             return '<br />';
+          }
+        },
+        // Clean up
+        // Escape '\', preceeded, followed by any none \ character remove it
+        {
+          value: /(?<=[^\\]+)\\(?=[^\\]+)/g,
+          method: (match, ...args) => {
+            const valueRender = is('function', render) ? render('br', classNames([classes['br'], elementClassNames?.['br']]), elementStyles?.['br'], match, ...args) : undefined;
+
+            if (valueRender !== undefined) return valueRender;
+
+            return '';
           }
         }
       ];
