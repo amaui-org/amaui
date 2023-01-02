@@ -729,7 +729,7 @@ function Root(props: any) {
                             <ListItem
                               primary={item.name}
 
-                              selected={props.url?.indexOf(item.url) === 0}
+                              selected={props.url?.indexOf(`${item.url}/`) === 0}
 
                               color='inherit'
 
