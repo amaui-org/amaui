@@ -689,20 +689,6 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
           value: /<p.*>\[.*\]:[^<]*<\/p>/g,
           method: ''
         },
-        // pre
-        {
-          version: 'pre',
-          value: /([^`])`{3}(.*)\n([^`]*)`{3}([^`])/g,
-          method: (match, a1, a2, a3, a4, ...args) => {
-            const additionalClassNames = [a2, `language-${a2}`];
-
-            const valueRender = is('function', render) ? render('pre', classNames([classes['pre'], classNames([classes['pre'], elementClassNames?.['pre']]), ...additionalClassNames]), elementStyles?.['pre'], match, a1, a2, a3, a4, ...args) : undefined;
-
-            if (valueRender !== undefined) return valueRender;
-
-            return `${a1}<pre${addClassName('pre', ...additionalClassNames)}${addStyle('pre')}><code${addClassName('code')}${addStyle('code')}>${sanitize(a3)}</code></pre>${a4}`;
-          }
-        },
         // bold
         {
           value: /__([^_]*)__/g,
@@ -788,6 +774,22 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
             if (valueRender !== undefined) return valueRender;
 
             return '';
+          }
+        },
+        // pre
+        // it ought to be clean, only used code characters
+        // without any updates
+        {
+          version: 'pre',
+          value: /([^`])`{3}(.*)\n([^`]*)`{3}([^`])/g,
+          method: (match, a1, a2, a3, a4, ...args) => {
+            const additionalClassNames = [a2, `language-${a2}`];
+
+            const valueRender = is('function', render) ? render('pre', classNames([classes['pre'], classNames([classes['pre'], elementClassNames?.['pre']]), ...additionalClassNames]), elementStyles?.['pre'], match, a1, a2, a3, a4, ...args) : undefined;
+
+            if (valueRender !== undefined) return valueRender;
+
+            return `${a1}<pre${addClassName('pre', ...additionalClassNames)}${addStyle('pre')}><code${addClassName('code')}${addStyle('code')}>${sanitize(a3)}</code></pre>${a4}`;
           }
         }
       ];
