@@ -5,7 +5,7 @@
 
 Name | Type | Description
 -----|------|------------
-value | <span class='amaui\_number'>number</span>, <span class='amaui\_other'>Uint8Array</span>, <span class='amaui\_other'>Buffer</span> | Value of the response
+value | <span class='amaui\_string'>string</span>, <span class='amaui\_other'>Uint8Array</span>, <span class='amaui\_other'>Buffer</span> | Value of the response
 original\_byte\_size | <span class='amaui\_number'>number</span> | Original value in bytes
 value\_byte\_size | <span class='amaui\_number'>number</span> | Encoded, decoded value (result) in byte size
 compression\_ratio | <span class='amaui\_number'>number</span> | Compression ratio over or below 1

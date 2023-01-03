@@ -5,7 +5,7 @@
 
 Name | Type | Default | Description
 -----|------|---------|------------
-value | <span class='amaui\_number'>number</span>, <span class='amaui\_other'>Uint8Array</span>, <span class='amaui\_other'>Buffer</span> | | Value to zip
+value | <span class='amaui\_string'>string</span>, <span class='amaui\_other'>Uint8Array</span>, <span class='amaui\_other'>Buffer</span> | | Value to zip
 
 
 ## Encode, decode
