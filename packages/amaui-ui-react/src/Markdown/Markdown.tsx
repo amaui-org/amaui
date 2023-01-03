@@ -76,8 +76,7 @@ const useStyle = styleMethod(theme => ({
   code: {
     padding: '2px 4px',
     borderRadius: '4px',
-    color: theme.palette.text.default.primary,
-    background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.1),
+    background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 4 : 10),
     fontFamily: theme.typography.font_family.tertiary,
     fontSize: '0.75rem',
 
