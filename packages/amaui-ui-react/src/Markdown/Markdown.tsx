@@ -742,17 +742,6 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
             return `<del${addClassName('del')}${addStyle('del')}>${a1}</del>`;
           }
         },
-        // inline code
-        {
-          value: /([^`])`{1}([^`]*)`{1}([^`])/g,
-          method: (match, a1, a2, a3, ...args) => {
-            const valueRender = is('function', render) ? render('code', classNames([classes['code'], elementClassNames?.['code']]), elementStyles?.['code'], match, a1, a2, a3, ...args) : undefined;
-
-            if (valueRender !== undefined) return valueRender;
-
-            return `${a1}<code${addClassName('code')}${addStyle('code')}>${a2}</code>${a3}`;
-          }
-        },
         // line break
         {
           value: /(?<= )\\/g,
@@ -776,9 +765,20 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
             return '';
           }
         },
-        // pre
-        // it ought to be clean, only used code characters
+        // It ought to be clean, only used code characters
         // without any updates
+        // inline code
+        {
+          value: /([^`])`{1}([^`]*)`{1}([^`])/g,
+          method: (match, a1, a2, a3, ...args) => {
+            const valueRender = is('function', render) ? render('code', classNames([classes['code'], elementClassNames?.['code']]), elementStyles?.['code'], match, a1, a2, a3, ...args) : undefined;
+
+            if (valueRender !== undefined) return valueRender;
+
+            return `${a1}<code${addClassName('code')}${addStyle('code')}>${a2}</code>${a3}`;
+          }
+        },
+        // pre
         {
           version: 'pre',
           value: /([^`])`{3}(.*)\n([^`]*)`{3}([^`])/g,

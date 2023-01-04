@@ -13,7 +13,7 @@ npm install @amaui/test --dev
 
 #### Nodejs
 
-You can have amaui-test options either in package.json in 'amaui-test' property or amaui-test.options.js file in root directory, where `amaui-test` command will be made.
+You can have options either in `package.json` in `amaui-test` property or `amaui-test.options.js` file in root directory, where `amaui-test` command will be made.
 
 In nodejs on amaui-test run errors amaui-test exits the process, so it's all good if the command is flow dependent.
 
