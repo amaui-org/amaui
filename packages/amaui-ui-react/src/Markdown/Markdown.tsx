@@ -712,11 +712,14 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
         },
         // italic
         {
-          value: /(?<!\\)_([^_]*)(?!\\)_/g,
-          method: (match, a1, ...args) => {
+          // Safari doesn't support lookbehind
+          value: /_([^_]+)_/g,
+          method: (match, a1, a2, a3, ...args) => {
             const valueRender = is('function', render) ? render('italic', classNames([classes['italic'], elementClassNames?.['italic']]), elementStyles?.['italic'], match, a1, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
+
+            if (a3[a2 - 1] === '\\') return match;
 
             return `<em${addClassName('em')}${addStyle('em')}>${a1}</em>`;
           }
@@ -744,7 +747,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
         },
         // line break
         {
-          value: /(?<= )\\/g,
+          value: / \\/g,
           method: (match, ...args) => {
             const valueRender = is('function', render) ? render('br', classNames([classes['br'], elementClassNames?.['br']]), elementStyles?.['br'], match, ...args) : undefined;
 
@@ -756,13 +759,13 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
         // Clean up
         // Escape '\', preceeded, followed by any none \ character remove it
         {
-          value: /(?<=[^\\]+)\\(?=[^\\]+)/g,
-          method: (match, ...args) => {
+          value: /[^\\](\\)[^\\]/g,
+          method: (match, a1, ...args) => {
             const valueRender = is('function', render) ? render('br', classNames([classes['br'], elementClassNames?.['br']]), elementStyles?.['br'], match, ...args) : undefined;
 
             if (valueRender !== undefined) return valueRender;
 
-            return '';
+            return match.replace(a1, '');
           }
         },
         // It ought to be clean, only used code characters
