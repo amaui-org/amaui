@@ -421,8 +421,14 @@ export * from './DateTimeRangePicker';
 export { default as Chart } from './Chart';
 export * from './Chart';
 
+export { default as LineChartItem } from './LineChartItem';
+export * from './LineChartItem';
+
 export { default as LineChart } from './LineChart';
 export * from './LineChart';
+
+export { default as AreaChartItem } from './AreaChartItem';
+export * from './AreaChartItem';
 
 export { default as AreaChart } from './AreaChart';
 export * from './AreaChart';
@@ -430,8 +436,14 @@ export * from './AreaChart';
 export { default as ScatterChart } from './ScatterChart';
 export * from './ScatterChart';
 
+export { default as BubbleChartItem } from './BubbleChartItem';
+export * from './BubbleChartItem';
+
 export { default as BubbleChart } from './BubbleChart';
 export * from './BubbleChart';
+
+export { default as ColumnChartItem } from './ColumnChartItem';
+export * from './ColumnChartItem';
 
 export { default as ColumnChart } from './ColumnChart';
 export * from './ColumnChart';

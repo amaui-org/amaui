@@ -1809,6 +1809,8 @@ function App() {
               {
                 color: 'primary',
 
+                name: 'a',
+
                 values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
               }
             ]}
@@ -4866,9 +4868,9 @@ Please sign in again.`}
           </Line>
         </Accordion>
 
-        <Accordion primary='LineChart additional_lines'>
+        <Accordion primary='LineChart additionalLines'>
           <LineChart
-            additional_lines={[
+            additionalLines={[
               {
                 color: 'secondary',
 
@@ -4916,6 +4918,8 @@ Please sign in again.`}
               {
                 color: 'primary',
 
+                name: 'a',
+
                 values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
               }
             ]}
@@ -4943,6 +4947,8 @@ Please sign in again.`}
               {
                 color: 'primary',
 
+                name: 'a',
+
                 values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
               }
             ]}
@@ -4967,6 +4973,8 @@ Please sign in again.`}
             values={[
               {
                 color: 'primary',
+
+                name: 'a',
 
                 values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
               }
@@ -5025,6 +5033,8 @@ Please sign in again.`}
               {
                 color: 'primary',
 
+                name: 'a',
+
                 values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
               }
             ]}
@@ -5042,6 +5052,8 @@ Please sign in again.`}
             values={[
               {
                 color: 'primary',
+
+                name: 'a',
 
                 values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
               }
@@ -5062,6 +5074,8 @@ Please sign in again.`}
             values={[
               {
                 color: 'primary',
+
+                name: 'a',
 
                 values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
               }

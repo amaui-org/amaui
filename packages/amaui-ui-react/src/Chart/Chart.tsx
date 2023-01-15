@@ -343,6 +343,9 @@ export interface IChart extends IBaseElement {
   // Values
   values?: Array<IChartValue>;
 
+  // Defs
+  defs?: TElement;
+
   // Pre
   pre?: TElement;
 
@@ -732,7 +735,8 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
   const [marks, setMarks] = React.useState<any>();
   const [grid, setGrid] = React.useState<any>();
   const [additionalLines, setAdditionalLines] = React.useState<any>();
-  const [legend, setLegend] = React.useState<any>();
+  const [legend, setLegend] = React.useState<any>([]);
+  const [defs, setDefs] = React.useState<any>([]);
   const [append, setAppend] = React.useState<any>();
   const [visible, setVisible] = React.useState<any>({});
   const [guidelinesIn, setGuidelineIn] = React.useState(false);
@@ -743,6 +747,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
     root: React.useRef<any>(),
     wrapper: React.useRef<any>(),
     svg: React.useRef<any>(),
+    defs: React.useRef<any>(),
     minMax: React.useRef<any>(),
     rects: React.useRef<any>(),
     guidelines: React.useRef<any>(),
@@ -1505,7 +1510,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
     }
 
     // Legend
-    let legend_ = legend__ !== 'auto' ? legend__ : (values as IChartValue[]).map((item: any) => {
+    const legend_ = legend__ !== 'auto' ? legend__ : (values as IChartValue[]).map((item: any) => {
 
       return {
         item,
@@ -1516,21 +1521,6 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
           />
         )
       };
-    });
-
-    legend_ = legend_?.map(({ item, element }: any) => {
-
-      return (
-        React.cloneElement(element, {
-          onClick: () => onLegendClick(item.name),
-
-          className: classNames([
-            element?.props?.className,
-            legendManageVisibility && classes.legend_item_manage_visibility,
-            refs.visible.current[item.name] === false && classes.legend_item_hidden
-          ])
-        })
-      );
     });
 
     // Legend
@@ -1673,11 +1663,20 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
             (names?.y && nameY) && classes.legend_offset_names_y
           ])}
         >
-          {legend.map((item: any, index: number) => (
-            React.cloneElement(item, {
-              key: index
-            })
-          ))}
+          {legend.map(({ item, element }: any) => {
+
+            return (
+              React.cloneElement(element, {
+                onClick: () => onLegendClick(item.name),
+
+                className: classNames([
+                  element?.props?.className,
+                  legendManageVisibility && classes.legend_item_manage_visibility,
+                  refs.visible.current[item.name] === false && classes.legend_item_hidden
+                ])
+              })
+            );
+          })}
         </Line>
       )}
 
@@ -1820,12 +1819,23 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
                     classes.svg
                   ])}
                 >
+                  {/* Defs */}
+                  <defs
+                    ref={refs.defs}
+                  >
+                    {defs && defs.map((item: any, index: number) => (
+                      React.cloneElement(item, {
+                        key: index
+                      })
+                    ))}
+                  </defs>
+
                   {/* Pre */}
                   {pre}
 
                   {/* Elements */}
                   {elements && elements.map(({ item, element }, index: number) => {
-                    const itemVisible = (visible[item?.name] === undefined || !!visible[item?.name]);
+                    const isVisible = (visible[item?.name] === undefined || !!visible[item?.name]);
 
                     return (
                       React.cloneElement(element as any, {
@@ -1848,7 +1858,65 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
                         style: {
                           ...(element as any)?.props?.style,
 
-                          ...(!itemVisible ? {
+                          ...(!isVisible ? {
+                            opacity: '0',
+                            pointerEvents: 'none'
+                          } : undefined)
+                        }
+                      })
+                    );
+                  })}
+
+                  {/* Children */}
+                  {children && React.Children.toArray(children).map((element: any, index: number) => {
+                    const isVisible = (visible[element.props?.name] === undefined || !!visible[element.props?.name]);
+
+                    return (
+                      React.cloneElement(element, {
+                        key: index,
+
+                        refs: {
+                          wrapper: refs.wrapper.current,
+                          defs: refs.defs.current
+                        },
+
+                        rects,
+
+                        updateDefs: setDefs,
+
+                        updateLegend: setLegend,
+
+                        ...(elementTooltip ? {
+                          onMouseEnter: event => {
+                            const rect_ = (event.target as any).getBoundingClientRect();
+
+                            onPointMouseEnter({
+                              ...element.props,
+
+                              rect: rect_
+                            });
+                          },
+
+                          onMouseLeave: onPointMouseLeave
+                        } : undefined),
+
+                        minMax: element.props.minMax !== undefined ? element.props.minMax : minMax,
+                        minX: element.props.minX !== undefined ? element.props.minX : minX,
+                        maxX: element.props.maxX !== undefined ? element.props.maxX : maxX,
+                        minY: element.props.minY !== undefined ? element.props.minY : minY,
+                        maxY: element.props.maxY !== undefined ? element.props.maxY : maxY,
+                        minMaxPadding: element.props.minMaxPadding !== undefined ? element.props.minMaxPadding : minMaxPadding,
+                        minPadding: element.props.minPadding !== undefined ? element.props.minPadding : minPadding,
+                        maxPadding: element.props.maxPadding !== undefined ? element.props.maxPadding : maxPadding,
+                        minPaddingX: element.props.minPaddingX !== undefined ? element.props.minPaddingX : minPaddingX,
+                        minPaddingY: element.props.minPaddingY !== undefined ? element.props.minPaddingY : minPaddingY,
+                        maxPaddingX: element.props.maxPaddingX !== undefined ? element.props.maxPaddingX : maxPaddingX,
+                        maxPaddingY: element.props.maxPaddingY !== undefined ? element.props.maxPaddingY : maxPaddingY,
+
+                        style: {
+                          ...(element as any)?.props?.style,
+
+                          ...(!isVisible ? {
                             opacity: '0',
                             pointerEvents: 'none'
                           } : undefined)
@@ -2292,11 +2360,20 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
             (names?.y && nameY) && classes.legend_offset_names_y
           ])}
         >
-          {legend.map((item: any, index: number) => (
-            React.cloneElement(item, {
-              key: index
-            })
-          ))}
+          {legend.map(({ item, element }: any) => {
+
+            return (
+              React.cloneElement(element, {
+                onClick: () => onLegendClick(item.name),
+
+                className: classNames([
+                  element?.props?.className,
+                  legendManageVisibility && classes.legend_item_manage_visibility,
+                  refs.visible.current[item.name] === false && classes.legend_item_hidden
+                ])
+              })
+            );
+          })}
         </Line>
       )}
 

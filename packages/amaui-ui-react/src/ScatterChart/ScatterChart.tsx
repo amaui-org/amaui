@@ -1,15 +1,12 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Chart from '../Chart';
 import Line from '../Line';
 import Type from '../Type';
-import useMediaQuery from '../useMediaQuery';
 import { IChart } from '../Chart/Chart';
-
-import { staticClassName, valueBreakpoints } from '../utils';
+import { staticClassName } from '../utils';
 
 export interface IItem {
   color: string;
@@ -34,7 +31,7 @@ const useStyle = styleMethod(theme => ({
     height: '8px',
     borderRadius: '50%'
   }
-}), { name: 'amaui-AreaChart' });
+}), { name: 'amaui-ScatterChart' });
 
 export interface IScatterChart extends IChart {
 
@@ -45,12 +42,6 @@ const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiScatterChart?.props?.default, ...props_ }), [props_]);
 
-  const breakpoints = {};
-
-  theme.breakpoints.keys.sort((a, b) => theme.breakpoints.values[b] - theme.breakpoints.values[a]).forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(`(min-width: ${theme.breakpoints.values[key]}px)`);
-  });
-
   const { classes } = useStyle(props);
 
   const {
@@ -60,28 +51,6 @@ const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
 
     values,
 
-    minX: minX_,
-
-    maxX: maxX_,
-
-    minY: minY_,
-
-    maxY: maxY_,
-
-    minMaxPadding: minMaxPadding_,
-
-    minPadding: minPadding__,
-
-    maxPadding: maxPadding__,
-
-    minPaddingX: minPaddingX__,
-
-    minPaddingY: minPaddingY__,
-
-    maxPaddingX: maxPaddingX__,
-
-    maxPaddingY: maxPaddingY__,
-
     PathProps,
     LegendItemProps,
 
@@ -90,83 +59,13 @@ const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
     ...other
   } = props;
 
-  const minX = valueBreakpoints(minX_, undefined, breakpoints, theme);
-  const maxX = valueBreakpoints(maxX_, undefined, breakpoints, theme);
-  const minY = valueBreakpoints(minY_, undefined, breakpoints, theme);
-  const maxY = valueBreakpoints(maxY_, undefined, breakpoints, theme);
-  const minMaxPadding = valueBreakpoints(minMaxPadding_, undefined, breakpoints, theme);
-  const minPadding = valueBreakpoints(minPadding__, undefined, breakpoints, theme);
-  const maxPadding = valueBreakpoints(maxPadding__, undefined, breakpoints, theme);
-  const minPaddingX = valueBreakpoints(minPaddingX__, undefined, breakpoints, theme);
-  const minPaddingY = valueBreakpoints(minPaddingY__, undefined, breakpoints, theme);
-  const maxPaddingX = valueBreakpoints(maxPaddingX__, undefined, breakpoints, theme);
-  const maxPaddingY = valueBreakpoints(maxPaddingY__, undefined, breakpoints, theme);
-
   const [value, setValue] = React.useState<any>();
 
   const refs = {
-    rects: React.useRef<any>(),
-    minMax: React.useRef<any>(),
-    smooth: React.useRef<any>(),
     theme: React.useRef<any>()
   };
 
   refs.theme.current = theme;
-
-  const minMax = React.useMemo(() => {
-    const values_ = {
-      min: {
-        x: minX || Number.MAX_SAFE_INTEGER,
-        y: minY || Number.MAX_SAFE_INTEGER
-      },
-
-      max: {
-        x: maxX || Number.MIN_SAFE_INTEGER,
-        y: maxY || Number.MIN_SAFE_INTEGER
-      }
-    };
-
-    const allItems = values.flatMap(item => item.values);
-
-    if (is('array', values)) {
-      allItems.forEach((item: [number, number]) => {
-        const [x, y] = item;
-
-        if (minX === undefined) values_.min.x = Math.min(values_.min.x, x);
-
-        if (maxX === undefined) values_.max.x = Math.max(values_.max.x, x);
-
-        if (minY === undefined) values_.min.y = Math.min(values_.min.y, y);
-
-        if (maxY === undefined) values_.max.y = Math.max(values_.max.y, y);
-      });
-    }
-
-    const minPaddingY_ = minPaddingY !== undefined ? minPaddingY : minPadding !== undefined ? minPadding : minMaxPadding;
-
-    const maxPaddingY_ = maxPaddingY !== undefined ? maxPaddingY : maxPadding !== undefined ? maxPadding : minMaxPadding;
-
-    const minPaddingX_ = minPaddingX !== undefined ? minPaddingX : minPadding !== undefined ? minPadding : minMaxPadding;
-
-    const maxPaddingX_ = maxPaddingX !== undefined ? maxPaddingX : maxPadding !== undefined ? maxPadding : minMaxPadding;
-
-    const totals = {
-      x: values_.max.x - values_.min.x,
-      y: values_.max.y - values_.min.y
-    };
-
-    if (minPaddingY_ !== undefined) values_.min.y -= totals.y * minPaddingY_;
-
-    if (maxPaddingY_ !== undefined) values_.max.y += totals.y * maxPaddingY_;
-
-    if (minPaddingX_ !== undefined) values_.min.x -= totals.x * minPaddingX_;
-
-    if (maxPaddingX_ !== undefined) values_.max.x += totals.x * maxPaddingX_;
-
-    return values_;
-  }, [values, minX, maxX, minY, maxY, minMaxPadding, minPadding, maxPadding, minPaddingX, minPaddingY, maxPaddingX, maxPaddingY]);
-
-  refs.minMax.current = minMax;
 
   const LegendItem = React.useCallback((props__: any) => {
     const {
@@ -234,7 +133,7 @@ const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
     // normalized in rect width, height values
 
     // invert y so 0, 0 is at bottom left
-    if (refs.rects.current && values) {
+    if (values) {
       // Legend
       const legend_ = values.map((item: any) => {
 
@@ -260,9 +159,7 @@ const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
     make();
   }, [values, theme]);
 
-  const onUpdateRects = (valueNew: any) => {
-    refs.rects.current = valueNew;
-
+  const onUpdateRects = () => {
     make();
   };
 
@@ -275,28 +172,6 @@ const ScatterChart = React.forwardRef((props_: IScatterChart, ref: any) => {
       color={color}
 
       values={values}
-
-      minX={minX}
-
-      maxX={maxX}
-
-      minY={minY}
-
-      maxY={maxY}
-
-      minMaxPadding={minMaxPadding}
-
-      minPadding={minPadding}
-
-      maxPadding={maxPadding}
-
-      minPaddingX={minPaddingX}
-
-      minPaddingY={minPaddingY}
-
-      maxPaddingX={maxPaddingX}
-
-      maxPaddingY={maxPaddingY}
 
       legend={value?.legend}
 

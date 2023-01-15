@@ -26,7 +26,10 @@ export const iconSizeToFontSize = (value: string | number) => {
 // Media query value or value
 export const valueBreakpoints = (item: any, value: any, breakpoints: any, theme: any) => {
   // Simple
-  if (is('simple', item) && item !== undefined) return item;
+  if (!is('object', item) && item !== undefined) return item;
+
+  // No breakpoints object
+  if (is('object', item) && !Object.keys(item).every(prop => ['default', ...theme.breakpoints.keys].includes(prop))) return item;
 
   // Item
   if (is('object', item)) {
