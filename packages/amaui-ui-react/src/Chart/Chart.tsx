@@ -1532,7 +1532,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
     // Legend
     if (is('array', legend_)) setLegend(legend_);
   };
-  console.log(1, legend);
+
   return (
     <Surface
       ref={item => {
