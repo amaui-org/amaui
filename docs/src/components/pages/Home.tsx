@@ -698,8 +698,6 @@ export default function Root(props: any) {
 
                   animateTimeout={700}
 
-                  linearGradient
-
                   values={[
                     {
                       color: 'primary',
@@ -853,6 +851,8 @@ export default function Root(props: any) {
 
                 <DonutChart
                   values={valueDonut}
+
+                  animateTimeout={700}
                 />
 
                 <Line

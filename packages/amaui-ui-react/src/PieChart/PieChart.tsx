@@ -109,6 +109,7 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
     rects: React.useRef<any>(),
     pathStyle: React.useRef<any>(),
     animate: React.useRef<any>(),
+    animateTimeout: React.useRef<any>(),
     init: React.useRef<any>(),
     theme: React.useRef<any>()
   };
@@ -116,6 +117,8 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
   refs.theme.current = theme;
 
   refs.animate.current = animate;
+
+  refs.animateTimeout.current = animateTimeout;
 
   refs.init.current = init;
 
@@ -404,10 +407,10 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
           };
 
           setInit('animated');
-        }, animateTimeout);
+        }, refs.animateTimeout.current);
       }
     }
-  }, [init, animate, animateTimeout]);
+  }, [init, animate]);
 
   React.useEffect(() => {
     make();
