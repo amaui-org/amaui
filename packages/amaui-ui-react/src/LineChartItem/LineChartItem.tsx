@@ -128,7 +128,7 @@ const LineChartItem = React.forwardRef((props_: ILineChartItem, ref: any) => {
 
   refs.init.current = init;
 
-  const LegendItem = React.useCallback(() => {
+  const LegendItem = React.useCallback((legendItemProps: any) => {
 
     return (
       <Line
@@ -138,6 +138,8 @@ const LineChartItem = React.forwardRef((props_: ILineChartItem, ref: any) => {
 
         align='center'
 
+        {...legendItemProps}
+
         {...LegendItemProps}
 
         className={classNames([
@@ -145,6 +147,7 @@ const LineChartItem = React.forwardRef((props_: ILineChartItem, ref: any) => {
             'amaui-LineChartItem-legend-item'
           ],
 
+          legendItemProps?.className,
           LegendItemProps?.className,
           classes.legend_item
         ])}
@@ -244,7 +247,7 @@ const LineChartItem = React.forwardRef((props_: ILineChartItem, ref: any) => {
             style={{
               ...PathProps?.style,
 
-              ...((animate && !init) && {
+              ...((refs.animate.current && refs.init.current !== 'animated') && {
                 opacity: 0
               }),
 
@@ -287,7 +290,6 @@ const LineChartItem = React.forwardRef((props_: ILineChartItem, ref: any) => {
         refs.pathStyle.current = {
           strokeDasharray: total,
           strokeDashoffset: total,
-          transition: theme.methods.transitions.make('stroke-dashoffset', { duration: 2400, timing_function: 'decelerated' })
         };
 
         setInit(true);
@@ -295,6 +297,8 @@ const LineChartItem = React.forwardRef((props_: ILineChartItem, ref: any) => {
         setTimeout(() => {
           refs.pathStyle.current = {
             ...refs.pathStyle.current,
+
+            transition: theme.methods.transitions.make('stroke-dashoffset', { duration: 2400, timing_function: 'decelerated' }),
 
             opacity: 1,
 

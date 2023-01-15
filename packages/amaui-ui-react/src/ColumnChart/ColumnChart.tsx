@@ -11,11 +11,7 @@ import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    '& .amaui-Chart-legend-icon': {
-      width: '6px',
-      height: '12px',
-      borderRadius: 'unset'
-    }
+
   }
 }), { name: 'amaui-ColumnChart' });
 

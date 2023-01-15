@@ -11,7 +11,7 @@ import useMediaQuery from '../useMediaQuery';
 import Surface from '../Surface';
 import { IChart } from '../Chart/Chart';
 
-import { angleToCoordinates, staticClassName } from '../utils';
+import { angleToCoordinates, staticClassName, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -79,6 +79,10 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
 
     values,
 
+    animate: animate_,
+
+    animateTimeout: animateTimeout_,
+
     names,
 
     gap = 4,
@@ -95,14 +99,25 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
     ...other
   } = props;
 
+  const animate = valueBreakpoints(animate_, true, breakpoints, theme);
+  const animateTimeout = valueBreakpoints(animateTimeout_, 140, breakpoints, theme);
+
   const [value, setValue] = React.useState<any>();
+  const [init, setInit] = React.useState<any>();
 
   const refs = {
     rects: React.useRef<any>(),
+    pathStyle: React.useRef<any>(),
+    animate: React.useRef<any>(),
+    init: React.useRef<any>(),
     theme: React.useRef<any>()
   };
 
   refs.theme.current = theme;
+
+  refs.animate.current = animate;
+
+  refs.init.current = init;
 
   const LegendItem = React.useCallback((props__: any) => {
     const {
@@ -300,6 +315,22 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
                 strokeWidth={gap}
 
                 {...PathProps}
+
+                style={{
+                  ...PathProps?.style,
+
+                  ...((refs.animate.current && refs.init.current !== 'animated') && {
+                    opacity: 0,
+
+                    transform: 'scale(0)'
+                  }),
+
+                  transformBox: 'fill-box',
+
+                  transformOrigin: 'center',
+
+                  ...refs.pathStyle.current
+                }}
               />
 
               {partPercentage >= 7 && (
@@ -317,6 +348,22 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
                   ])}
 
                   fill={refs.theme.current.methods.palette.color.text(!refs.theme.current.palette.color[color_] ? color_ : refs.theme.current.palette.color[color_][tone], true, 'light')}
+
+                  style={{
+                    ...PathProps?.style,
+
+                    ...((refs.animate.current && refs.init.current !== 'animated') && {
+                      opacity: 0,
+
+                      transform: 'scale(0)'
+                    }),
+
+                    transformBox: 'fill-box',
+
+                    transformOrigin: 'center',
+
+                    ...refs.pathStyle.current
+                  }}
                 >
                   {`${partPercentage.toFixed(1)}%`.replace('.0%', '%')}
                 </text>
@@ -338,9 +385,35 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
     }
   };
 
+  const initMethod = React.useCallback(() => {
+    if (animate) {
+      if (!init) {
+        refs.pathStyle.current = {
+          transition: theme.methods.transitions.make(['transform', 'opacity'], { timing_function: 'decelerated' })
+        };
+
+        setInit(true);
+
+        setTimeout(() => {
+          refs.pathStyle.current = {
+            ...refs.pathStyle.current,
+
+            opacity: 1,
+
+            transform: 'scale(1)'
+          };
+
+          setInit('animated');
+        }, animateTimeout);
+      }
+    }
+  }, [init, animate, animateTimeout]);
+
   React.useEffect(() => {
     make();
-  }, [values, theme]);
+
+    initMethod();
+  }, [values, theme, animate, init]);
 
   const onUpdateRects = (valueNew: any) => {
     refs.rects.current = valueNew;

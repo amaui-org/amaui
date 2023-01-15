@@ -127,7 +127,7 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
 
       refs.root.current.style.height = `${height}px`;
 
-      if (!refs.init.current) setInit(true);
+      if (refs.init.current !== 'animated') setInit(true);
     }
   };
 

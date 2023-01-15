@@ -543,6 +543,11 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
     legendPosition = 'bottom',
 
+    // Animation
+    animate: animate_,
+
+    animateTimeout: animateTimeout_,
+
     // Labels
     labels: labels___,
 
@@ -675,6 +680,9 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
   const guidelinesAppend = valueBreakpoints(guidelinesAppend_, true, breakpoints, theme);
   const guidelinesDisplayInactive = valueBreakpoints(guidelinesDisplayInactive_, false, breakpoints, theme);
 
+  const animate = valueBreakpoints(animate_, true, breakpoints, theme);
+  const animateTimeout = valueBreakpoints(animateTimeout_, 140, breakpoints, theme);
+
   const legend__ = valueBreakpoints(legend___, 'auto', breakpoints, theme);
 
   const labels__ = valueBreakpoints(labels___, 'auto', breakpoints, theme);
@@ -794,9 +802,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
     };
 
     if (!noMain) {
-      const itemArrayNested = is('array', values[0]?.values?.[0]);
-
-      const allItems = (values as any)[itemArrayNested ? 'flatMap' : 'map'](item => item.values);
+      const allItems = (values as any).flatMap(item => is('array', item.values[0]) ? item.values : [item.values]);
 
       if (is('array', values)) {
         allItems.forEach((item: [number, number]) => {
@@ -1524,9 +1530,9 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
     });
 
     // Legend
-    setLegend(legend_);
+    if (is('array', legend_)) setLegend(legend_);
   };
-
+  console.log(1, legend);
   return (
     <Surface
       ref={item => {
@@ -1881,6 +1887,10 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
                         },
 
                         rects,
+
+                        animate: element.props.animate !== undefined ? element.props.animate : animate,
+
+                        animateTimeout: element.props.animateTimeout !== undefined ? element.props.animateTimeout : animateTimeout,
 
                         updateDefs: setDefs,
 

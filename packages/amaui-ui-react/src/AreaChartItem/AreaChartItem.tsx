@@ -22,8 +22,23 @@ const useStyle = styleMethod(theme => ({
   },
 
   legend_icon: {
-    width: '10px',
-    height: '2px'
+    width: '14px',
+    position: 'relative',
+    background: 'transparent',
+    borderTop: '2px solid currentColor',
+    borderRadius: 'unset',
+    height: 'unset',
+
+    '&::before': {
+      content: "''",
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      height: '4px',
+      width: '100%',
+      background: 'currentColor',
+      opacity: '0.14'
+    }
   }
 }), { name: 'amaui-AreaChartItem' });
 
@@ -93,7 +108,7 @@ const AreaChartItem = React.forwardRef((props_: IAreaChartItem, ref: any) => {
 
     smoothRatio = 0.14,
 
-    linearGradient,
+    linearGradient = true,
 
     PathProps,
     BackgroundProps,
@@ -133,7 +148,7 @@ const AreaChartItem = React.forwardRef((props_: IAreaChartItem, ref: any) => {
 
   refs.init.current = init;
 
-  const LegendItem = React.useCallback(() => {
+  const LegendItem = React.useCallback((legendItemProps: any) => {
 
     return (
       <Line
@@ -143,6 +158,8 @@ const AreaChartItem = React.forwardRef((props_: IAreaChartItem, ref: any) => {
 
         align='center'
 
+        {...legendItemProps}
+
         {...LegendItemProps}
 
         className={classNames([
@@ -150,6 +167,7 @@ const AreaChartItem = React.forwardRef((props_: IAreaChartItem, ref: any) => {
             'amaui-AreaChartItem-legend-item'
           ],
 
+          legendItemProps?.className,
           LegendItemProps?.className,
           classes.legend_item
         ])}
@@ -164,7 +182,7 @@ const AreaChartItem = React.forwardRef((props_: IAreaChartItem, ref: any) => {
           ])}
 
           style={{
-            background: !refs.theme.current.palette.color[color] ? color : refs.theme.current.palette.color[color].main
+            color: !refs.theme.current.palette.color[color] ? color : refs.theme.current.palette.color[color].main
           }}
         />
 
@@ -304,7 +322,7 @@ const AreaChartItem = React.forwardRef((props_: IAreaChartItem, ref: any) => {
 
             d={d.background}
 
-            fill={linearGradient ? `url('#areaChart_id_${name}')` : refs.theme.current.methods.palette.color.colorToRgb(!refs.theme.current.palette.color[color] ? color : refs.theme.current.palette.color[color].main, 0.14)}
+            fill={linearGradient ? `url('#areaChartItem_id_${name}')` : refs.theme.current.methods.palette.color.colorToRgb(!refs.theme.current.palette.color[color] ? color : refs.theme.current.palette.color[color].main, 0.14)}
 
             stroke='none'
 
@@ -317,11 +335,15 @@ const AreaChartItem = React.forwardRef((props_: IAreaChartItem, ref: any) => {
 
               ...BackgroundProps?.style,
 
-              ...((animate && !init) && {
+              transition: theme.methods.transitions.make('opacity', { duration: 2400, timing_function: 'decelerated' }),
+
+              ...((refs.animate.current && refs.init.current !== 'animated') && {
                 opacity: 0
               }),
 
-              ...refs.pathStyle.current
+              ...((refs.animate.current && refs.init.current === 'animated') && {
+                opacity: 1
+              })
             }}
           />
 
@@ -345,6 +367,8 @@ const AreaChartItem = React.forwardRef((props_: IAreaChartItem, ref: any) => {
               ...PathProps?.style,
 
               ...BorderProps?.style,
+
+              transition: theme.methods.transitions.make('stroke-dashoffset', { duration: 2400, timing_function: 'decelerated' }),
 
               ...((refs.animate.current && refs.init.current !== 'animated') && {
                 opacity: 0
@@ -398,8 +422,7 @@ const AreaChartItem = React.forwardRef((props_: IAreaChartItem, ref: any) => {
 
         refs.pathStyle.current = {
           strokeDasharray: total,
-          strokeDashoffset: total,
-          transition: theme.methods.transitions.make('stroke-dashoffset', { duration: 2400, timing_function: 'decelerated' })
+          strokeDashoffset: total
         };
 
         setInit(true);

@@ -121,7 +121,7 @@ const ColumnChartItem = React.forwardRef((props_: IColumnChartItem, ref: any) =>
 
   refs.init.current = init;
 
-  const LegendItem = React.useCallback(() => {
+  const LegendItem = React.useCallback((legendItemProps: any) => {
 
     return (
       <Line
@@ -131,6 +131,8 @@ const ColumnChartItem = React.forwardRef((props_: IColumnChartItem, ref: any) =>
 
         align='center'
 
+        {...legendItemProps}
+
         {...LegendItemProps}
 
         className={classNames([
@@ -138,6 +140,7 @@ const ColumnChartItem = React.forwardRef((props_: IColumnChartItem, ref: any) =>
             'amaui-ColumnChartItem-legend-item'
           ],
 
+          legendItemProps?.className,
           LegendItemProps?.className,
           classes.legend_item
         ])}
@@ -204,6 +207,20 @@ const ColumnChartItem = React.forwardRef((props_: IColumnChartItem, ref: any) =>
             Component='rect'
 
             {...PathProps}
+
+            style={{
+              ...PathProps?.style,
+
+              ...((refs.animate.current && refs.init.current !== 'animated') && {
+                opacity: 0,
+
+                transform: 'scaleY(0)'
+              }),
+
+              transformOrigin: 'bottom',
+
+              ...refs.pathStyle.current
+            }}
           />
         </g>
       );
@@ -234,31 +251,27 @@ const ColumnChartItem = React.forwardRef((props_: IColumnChartItem, ref: any) =>
   };
 
   const initMethod = React.useCallback(() => {
-    // if (animate) {
-    //   if (!init && refs.path.current) {
-    //     const total = refs.path.current.getTotalLength();
+    if (animate) {
+      if (!init) {
+        refs.pathStyle.current = {
+          transition: theme.methods.transitions.make(['transform', 'opacity'], { timing_function: 'decelerated' })
+        };
 
-    //     refs.pathStyle.current = {
-    //       strokeDasharray: total,
-    //       strokeDashoffset: total,
-    //       transition: theme.methods.transitions.make('stroke-dashoffset', { duration: 2400, timing_function: 'decelerated' })
-    //     };
+        setInit(true);
 
-    //     setInit(true);
+        setTimeout(() => {
+          refs.pathStyle.current = {
+            ...refs.pathStyle.current,
 
-    //     setTimeout(() => {
-    //       refs.pathStyle.current = {
-    //         ...refs.pathStyle.current,
+            opacity: 1,
 
-    //         opacity: 1,
+            transform: 'scaleY(1)'
+          };
 
-    //         strokeDashoffset: 0
-    //       };
-
-    //       setInit('animated');
-    //     }, refs.animateTimeout.current);
-    //   }
-    // }
+          setInit('animated');
+        }, refs.animateTimeout.current);
+      }
+    }
   }, [init, animate]);
 
   React.useEffect(() => {

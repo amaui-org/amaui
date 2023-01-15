@@ -22,24 +22,13 @@ const useStyle = styleMethod(theme => ({
   },
 
   legend_icon: {
-    width: '10px',
-    height: '2px'
-  },
-
-  text: {
-    ...theme.typography.values.b3,
-    fill: 'currentColor',
-    textAnchor: 'middle',
-    alignmentBaseline: 'middle'
+    width: '8px',
+    height: '8px'
   }
-}), { name: 'amaui-BubbleChartItem' });
+}), { name: 'amaui-ScatterChartItem' });
 
-export interface IBubbleChartItem extends IChart {
+export interface IScatterChartItem extends IChart {
   name?: string;
-
-  minSize?: number;
-
-  maxSize?: number;
 
   refs?: {
     wrapper?: HTMLElement;
@@ -58,10 +47,10 @@ export interface IBubbleChartItem extends IChart {
   updateLegend: TMethod;
 }
 
-const BubbleChartItem = React.forwardRef((props_: IBubbleChartItem, ref: any) => {
+const ScatterChartItem = React.forwardRef((props_: IScatterChartItem, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBubbleChartItem?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiScatterChartItem?.props?.default, ...props_ }), [props_]);
 
   const breakpoints = {};
 
@@ -80,10 +69,6 @@ const BubbleChartItem = React.forwardRef((props_: IBubbleChartItem, ref: any) =>
 
     values,
 
-    minSize,
-
-    maxSize,
-
     refs: refs_,
 
     rects,
@@ -99,6 +84,8 @@ const BubbleChartItem = React.forwardRef((props_: IBubbleChartItem, ref: any) =>
     animateTimeout: animateTimeout_,
 
     PathProps,
+    BackgroundProps,
+    BorderProps,
     LegendItemProps,
 
     className,
@@ -115,7 +102,6 @@ const BubbleChartItem = React.forwardRef((props_: IBubbleChartItem, ref: any) =>
   const refs = {
     minMax: React.useRef<any>(),
     theme: React.useRef<any>(),
-    path: React.useRef<SVGPathElement>(),
     pathStyle: React.useRef({}),
     animate: React.useRef<any>(),
     animateTimeout: React.useRef<number>(),
@@ -143,8 +129,8 @@ const BubbleChartItem = React.forwardRef((props_: IBubbleChartItem, ref: any) =>
         {...LegendItemProps}
 
         className={classNames([
-          staticClassName('BubbleChart', theme) && [
-            'amaui-BubbleChart-legend-item'
+          staticClassName('ScatterChartItem', theme) && [
+            'amaui-ScatterChartItem-legend-item'
           ],
 
           LegendItemProps?.className,
@@ -153,15 +139,15 @@ const BubbleChartItem = React.forwardRef((props_: IBubbleChartItem, ref: any) =>
       >
         <span
           className={classNames([
-            staticClassName('BubbleChart', theme) && [
-              'amaui-BubbleChart-legend-icon'
+            staticClassName('ScatterChartItem', theme) && [
+              'amaui-ScatterChartItem-legend-icon'
             ],
 
             classes.legend_icon
           ])}
 
           style={{
-            background: !theme.palette.color[color] ? color : theme.palette.color[color]['main']
+            background: !refs.theme.current.palette.color[color] ? color : refs.theme.current.palette.color[color]['main']
           }}
         />
 
@@ -182,75 +168,43 @@ const BubbleChartItem = React.forwardRef((props_: IBubbleChartItem, ref: any) =>
     if (rects?.wrapper && values) {
       const { width, height } = rects.wrapper;
 
-      const [x, y, size, label] = values;
+      const values_ = values
+        // Sort for x from smallest to largest
+        .sort((a, b) => a[0] - b[0])
+        .map(itemValue => {
+          const [x, y] = itemValue;
 
-      const values_ = {
-        x: percentageFromValueWithinRange(x, minMax.min.x, minMax.max.x),
-        y: percentageFromValueWithinRange(y, minMax.min.y, minMax.max.y)
-      };
+          const values__ = {
+            x: percentageFromValueWithinRange(x, minMax.min.x, minMax.max.x),
+            y: percentageFromValueWithinRange(y, minMax.min.y, minMax.max.y)
+          };
 
-      values_.x = valueFromPercentageWithinRange(values_.x, 0, width);
+          values__.x = valueFromPercentageWithinRange(values__.x, 0, width);
 
-      values_.y = valueFromPercentageWithinRange(values_.y, 0, height);
+          values__.y = valueFromPercentageWithinRange(values__.y, 0, height);
 
-      const value_: any = [...[values_.x, height - values_.y].map(item_ => Math.abs(item_)), size, label];
-
-      const minR = 4;
-      const maxR = 40;
-
-      const percentage = percentageFromValueWithinRange(value_[2], minSize, maxSize);
-
-      const r = valueFromPercentageWithinRange(percentage, minR, maxR);
+          return [values__.x, height - values__.y].map(item_ => Math.abs(item_));
+        });
 
       const element = (
         <g>
-          <Path
-            r={r}
+          {values_.map((item, index: number) => (
+            <Path
+              key={index}
 
-            cx={value_[0]}
+              cx={item[0]}
 
-            cy={value_[1]}
+              cy={item[1]}
 
-            fill={theme.methods.palette.color.colorToRgb(!theme.palette.color[color] ? color : theme.palette.color[color]['main'], 0.14)}
+              r={4}
 
-            stroke={!theme.palette.color[color] ? color : theme.palette.color[color]['main']}
+              fill={!refs.theme.current.palette.color[color] ? color : refs.theme.current.palette.color[color]['main']}
 
-            strokeWidth='2px'
+              stroke='none'
 
-            Component='circle'
+              {...PathProps}
 
-            {...PathProps}
-
-            style={{
-              ...PathProps?.style,
-
-              ...((refs.animate.current && refs.init.current !== 'animated') && {
-                opacity: 0,
-
-                transform: 'scale(0)'
-              }),
-
-              transformBox: 'fill-box',
-
-              transformOrigin: 'center',
-
-              ...refs.pathStyle.current
-            }}
-          />
-
-          {(r >= 20 && value_[3]) && (
-            <text
-              x={value_[0]}
-
-              y={value_[1]}
-
-              className={classNames([
-                staticClassName('BubbleChartItem', theme) && [
-                  'amaui-BubbleChartItem-text'
-                ],
-
-                classes.text
-              ])}
+              Component='circle'
 
               style={{
                 ...PathProps?.style,
@@ -267,10 +221,8 @@ const BubbleChartItem = React.forwardRef((props_: IBubbleChartItem, ref: any) =>
 
                 ...refs.pathStyle.current
               }}
-            >
-              {value_[3]}
-            </text>
-          )}
+            />
+          ))}
         </g>
       );
 
@@ -327,7 +279,7 @@ const BubbleChartItem = React.forwardRef((props_: IBubbleChartItem, ref: any) =>
     make();
 
     initMethod();
-  }, [values, theme, animate, init, !!refs.path.current]);
+  }, [values, theme, animate, init]);
 
   React.useEffect(() => {
     make();
@@ -342,6 +294,6 @@ const BubbleChartItem = React.forwardRef((props_: IBubbleChartItem, ref: any) =>
   );
 });
 
-BubbleChartItem.displayName = 'amaui-BubbleChartItem';
+ScatterChartItem.displayName = 'amaui-ScatterChartItem';
 
-export default BubbleChartItem;
+export default ScatterChartItem;

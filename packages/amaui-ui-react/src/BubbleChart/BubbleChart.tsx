@@ -69,6 +69,10 @@ const BubbleChart = React.forwardRef((props_: IBubbleChart, ref: any) => {
 
     values,
 
+    animate,
+
+    animateTimeout,
+
     tooltipRender: tooltipRender_,
 
     tooltipGroupRender: tooltipGroupRender_,
@@ -344,13 +348,13 @@ const BubbleChart = React.forwardRef((props_: IBubbleChart, ref: any) => {
                       <Type
                         version='b3'
                       >
-                        {item?.values?.[0]}
+                        {item?.values?.[1]}
                       </Type>
 
                       <Type
                         version='b3'
                       >
-                        {item?.values?.[1]}
+                        {item?.values?.[0]}
                       </Type>
 
                       <Type
@@ -407,6 +411,10 @@ const BubbleChart = React.forwardRef((props_: IBubbleChart, ref: any) => {
       {is('array', values) && values.map((item, index: number) => (
         <BubbleChartItem
           key={index}
+
+          animate={animate}
+
+          animateTimeout={animateTimeout}
 
           minSize={minSize}
 

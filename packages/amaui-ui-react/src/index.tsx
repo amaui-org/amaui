@@ -433,6 +433,9 @@ export * from './AreaChartItem';
 export { default as AreaChart } from './AreaChart';
 export * from './AreaChart';
 
+export { default as ScatterChartItem } from './ScatterChartItem';
+export * from './ScatterChartItem';
+
 export { default as ScatterChart } from './ScatterChart';
 export * from './ScatterChart';
 

@@ -3,7 +3,7 @@ import React from 'react';
 import { is, unique, random, countries } from '@amaui/utils';
 import { AmauiDate, format, add, remove, set } from '@amaui/date';
 import { AmauiThemeProvider, classNames, style, sy, useAmauiTheme } from '@amaui/style-react';
-import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, ColorTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter, Path, Watch, LinearMeter, Carousel, TimePicker, TimeRangePicker, DatePicker, DateRangePicker, DateTimePicker, DateTimeRangePicker, LineChart, AreaChart, ScatterChart, BubbleChart, ColumnChart, PieChart, DonutChart, Breadcrumbs } from '@amaui/ui-react';
+import { Button, Modal, Expand, Fab, Fade, Focus, Grow, IconButton, Interaction, LinearProgress, Link, Portal, Reset, RoundProgress, Buttons, Slide, Surface, Transition, Transitions, Type, Zoom, ModalHeader, ModalMain, ModalFooter, ModalTitle, ModalText, ModalIcon, Divider, Badge, Avatar, AvatarGroup, ClickListener, Chip, Chips, Backdrop, Checkbox, Radio, Radios, Keyframes, Switch, TextField, Label, List, ListItem, ListSubheader, Append, Tooltip, Menu, Select, AutoComplete, Rating, Box, Container, Line, Grid, Banner, Slider, ToggleButtons, ToggleButton, Accordion, NavigationBar, NavigationItem, NavigationRail, NavigationDrawer, BottomSheet, BottomAppBar, TopAppBar, Card, CardImage, CardMain, CardHeader, CardButton, CardFooter, Table, TableHead, TableRow, TableCell, TableHeader, TableFooter, TableBody, Placeholder, Snackbar, useSnackbars, Pagination, TablePagination, SpeedDial, SpeedDialItem, ImageList, ImageListItem, ImageListItemBox, Stepper, Step, Tabs, Tab, Timeline, TimelineItem, Tree, Masonry, Reveal, useConfirm, ViewSplit, WindowSplit, useMainProgress, Image, SpyScroll, AdvancedTextField, NumericTextField, ColorTextField, useWidgets, ImageCrop, ImageEdit, FileChoose, DropZone, MenuDesktop, Markdown, RichTextEditor, ScreenCapture, Timer, Countdown, Drawing, Parallax, Weather, RoundMeter, Path, Watch, LinearMeter, Carousel, TimePicker, TimeRangePicker, DatePicker, DateRangePicker, DateTimePicker, DateTimeRangePicker, LineChart, AreaChart, ScatterChart, BubbleChart, ColumnChart, PieChart, DonutChart, Chart, LineChartItem, AreaChartItem, ColumnChartItem, Breadcrumbs } from '@amaui/ui-react';
 
 import IconMaterial10kRounded from '@amaui/icons-material-react/build/IconMaterial10kRounded';
 import IconMaterialAddRounded from '@amaui/icons-material-react/build/IconMaterialAddRounded';
@@ -1505,6 +1505,27 @@ function App() {
       }
     ], 'position')
   };
+
+  const chartValues = React.useMemo<any>(() => {
+    return {
+      line: {
+        color: 'secondary',
+        name: 'Line',
+        values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+      },
+      area: {
+        color: 'primary',
+        name: 'Area',
+        values: Array.from({ length: 14 }).map(() => [random(-40, 400), random(-40, 400)])
+      },
+      column: {
+        color: 'tertiary',
+        name: 'Column',
+        width: 40,
+        values: Array.from({ length: 2 }).map(() => random(-40, 400))
+      }
+    };
+  }, []);
 
   return (
     <div className={classes.root}>
@@ -3557,12 +3578,53 @@ Please sign in again.`}
         </Accordion>
       </Accordion>
 
+      <Accordion primary='Chart'>
+        <Accordion primary='Chart' open>
+          <Chart
+            names={{
+              x: 'Name x',
+              y: 'Name y'
+            }}
+
+            nameX
+
+            nameY
+
+            minPaddingY={0.14}
+
+            maxPaddingY={0.14}
+
+            guidelines='both'
+
+            legend='none'
+
+            animateTimeout={1400}
+
+            values={Object.keys(chartValues).map((item: any) => chartValues[item])}
+          >
+            <AreaChartItem
+              {...chartValues.area}
+            />
+
+            <LineChartItem
+              {...chartValues.line}
+            />
+
+            <ColumnChartItem
+              {...chartValues.column}
+            />
+          </Chart>
+        </Accordion>
+      </Accordion>
+
       <Accordion primary='DonutChart'>
         <Accordion primary='DonutChart' open>
           <DonutChart
             title='Donut chart'
 
             subtitle='In millions'
+
+            animateTimeout={1400}
 
             values={[
               {
@@ -3921,6 +3983,8 @@ Please sign in again.`}
 
             subtitle='In millions'
 
+            animateTimeout={1400}
+
             values={[
               {
                 color: 'primary',
@@ -4230,6 +4294,8 @@ Please sign in again.`}
 
             maxPaddingY={0.14}
 
+            animateTimeout={1400}
+
             values={[
               {
                 color: 'primary',
@@ -4297,6 +4363,8 @@ Please sign in again.`}
             minPaddingY={0.14}
 
             maxPaddingY={0.14}
+
+            animateTimeout={1400}
 
             values={[
               {
@@ -4368,6 +4436,8 @@ Please sign in again.`}
 
             maxPaddingY={0.14}
 
+            animateTimeout={1400}
+
             values={[
               {
                 color: 'primary',
@@ -4398,6 +4468,8 @@ Please sign in again.`}
             minPaddingY={0.14}
 
             maxPaddingY={0.14}
+
+            animateTimeout={1400}
 
             values={[
               {
