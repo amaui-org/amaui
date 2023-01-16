@@ -204,7 +204,7 @@ export default function Library(props: any) {
 
   React.useEffect(() => {
     // Get page details
-    if (init || !value) page(props.url);
+    page(props.url);
   }, [props.url]);
 
   const onStart = React.useCallback(() => {
