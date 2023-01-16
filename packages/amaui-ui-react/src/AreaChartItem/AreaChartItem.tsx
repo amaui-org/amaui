@@ -199,7 +199,7 @@ const AreaChartItem = React.forwardRef((props_: IAreaChartItem, ref: any) => {
 
     return (
       <linearGradient
-        id={`areaChartItem_id_${(theme.methods.palette.color.colorToRgb(!refs.theme.current.palette.color[color] ? color : refs.theme.current.palette.color[color]['main'], undefined, true) as number[]).join('')}_${name}_${refs.theme.current.palette.light ? 'light' : 'dark'}`}
+        id={`areaChartItem_id_${name}`}
 
         x1='0%'
         x2='0%'
@@ -322,7 +322,7 @@ const AreaChartItem = React.forwardRef((props_: IAreaChartItem, ref: any) => {
 
             d={d.background}
 
-            fill={linearGradient ? `url('#areaChartItem_id_${(theme.methods.palette.color.colorToRgb(!refs.theme.current.palette.color[color] ? color : refs.theme.current.palette.color[color]['main'], undefined, true) as number[]).join('')}_${name}_${refs.theme.current.palette.light ? 'light' : 'dark'}` : refs.theme.current.methods.palette.color.colorToRgb(!refs.theme.current.palette.color[color] ? color : refs.theme.current.palette.color[color].main, 0.14)}
+            fill={linearGradient ? `url('#areaChartItem_id_${name}` : refs.theme.current.methods.palette.color.colorToRgb(!refs.theme.current.palette.color[color] ? color : refs.theme.current.palette.color[color].main, 0.14)}
 
             stroke='none'
 
@@ -382,11 +382,18 @@ const AreaChartItem = React.forwardRef((props_: IAreaChartItem, ref: any) => {
 
       // Defs
       if (refs_.defs) {
-        if (!refs_.defs.querySelector(`#areaChartItem_id_${(theme.methods.palette.color.colorToRgb(!refs.theme.current.palette.color[color] ? color : refs.theme.current.palette.color[color]['main'], undefined, true) as number[]).join('')}_${name}_${refs.theme.current.palette.light ? 'light' : 'dark'}`)) {
+        const linearGradientElement = refs_.defs.querySelector(`#areaChartItem_id_${name}`);
+
+        if (!linearGradientElement) {
           updateDefs(previous => {
 
             return [...(previous || []), <LinearGradient />];
           });
+        }
+        else {
+          linearGradientElement.children[0].setAttribute('stop-color', !refs.theme.current.palette.color[color] ? color : refs.theme.current.palette.color[color]['main']);
+
+          linearGradientElement.children[1].setAttribute('stop-color', refs.theme.current.palette.background.default.primary);
         }
       }
 
