@@ -356,14 +356,12 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
                     ...PathProps?.style,
 
                     ...((refs.animate.current && refs.init.current !== 'animated') && {
-                      opacity: 0,
-
-                      transform: 'scale(0)'
+                      opacity: 0
                     }),
 
-                    transformBox: 'fill-box',
-
-                    transformOrigin: 'center',
+                    ...((refs.animate.current && refs.init.current === 'animated') && {
+                      opacity: 1
+                    }),
 
                     ...refs.pathStyle.current
                   }}
