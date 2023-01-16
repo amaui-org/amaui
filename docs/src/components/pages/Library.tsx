@@ -156,14 +156,19 @@ export default function Library(props: any) {
 
   const refs = {
     id: React.useId(),
-    wrapper: React.useRef<HTMLElement>()
+    wrapper: React.useRef<HTMLElement>(),
+    value: React.useRef<any>()
   };
+
+  refs.value.current = value;
 
   const page = React.useCallback(async (url_: string) => {
     const url = url_?.split('/dev')[1];
 
     // Main progress
     mainProgress.start();
+
+    setLoaded(false);
 
     // page md
     const response = (await AmauiRequest.get(`/assets/md/dev${url}.md`, { response: { type: 'text' } }));
@@ -172,8 +177,9 @@ export default function Library(props: any) {
     else {
       setValue('');
       setHeadings([]);
-      setLoaded(true);
     }
+
+    setLoaded(true);
 
     // Main progress
     mainProgress.done();
@@ -190,7 +196,9 @@ export default function Library(props: any) {
     if (window.location.hash) {
       const id = window.location.hash.replace('#', '');
 
-      scrollIntoView(id);
+      setTimeout(() => {
+        scrollIntoView(id);
+      }, 1400);
     }
 
     setInit(true);
@@ -202,7 +210,7 @@ export default function Library(props: any) {
   }, [props.url]);
 
   const onStart = React.useCallback(() => {
-    setLoaded(false);
+    // setLoaded(false);
   }, []);
 
   const onUpdate = React.useCallback(() => {
@@ -243,8 +251,6 @@ export default function Library(props: any) {
     });
 
     setHeadings([...valuesHeadings]);
-
-    setLoaded(true);
   }, []);
 
   const values = value?.trim().match(/[^~]+?(?=~)|(?:~)[\s\S]+?(?:~)/ig) || [];
