@@ -168,8 +168,6 @@ export default function Library(props: any) {
     // Main progress
     mainProgress.start();
 
-    setLoaded(false);
-
     // page md
     const response = (await AmauiRequest.get(`/assets/md/dev${url}.md`, { response: { type: 'text' } }));
 
@@ -179,11 +177,11 @@ export default function Library(props: any) {
       setHeadings([]);
     }
 
-    setLoaded(true);
+    if (!loaded) setLoaded(true);
 
     // Main progress
     mainProgress.done();
-  }, [mainProgress]);
+  }, [mainProgress, loaded]);
 
   const scrollIntoView = React.useCallback((id: string) => {
     const element = window.document.getElementById(id);
