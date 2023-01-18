@@ -13,6 +13,7 @@ import Line from '../Line';
 import Icon from '../Icon';
 
 import { IBaseElement, staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
+import { TTransitionStatus } from '../Transition';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -238,7 +239,8 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
     root: React.useRef<any>(),
     ids: {
       middle: React.useId()
-    }
+    },
+    expandInProgress: React.useRef<boolean>()
   };
 
   const { classes } = useStyle(props);
@@ -292,6 +294,10 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
   };
 
   const onClick = React.useCallback((event: React.MouseEvent<any>) => {
+    if (is('function', MiddleProps?.onClick)) MiddleProps.onClick(event);
+
+    if (refs.expandInProgress.current) return;
+
     if (!disabled && !noExpand && children_) {
       const valueNew = !open;
 
@@ -300,8 +306,6 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
 
       if (is('function', onChange)) onChange(valueNew);
     }
-
-    if (is('function', MiddleProps?.onClick)) MiddleProps.onClick(event);
   }, [open, noExpand, children_, disabled]);
 
   if (!noTransition) TransitionComponentProps.in = open;
@@ -597,6 +601,10 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
       {!noExpand && children && (
         <Expand
           in={open}
+
+          onTransition={(element: any, status: TTransitionStatus) => {
+            refs.expandInProgress.current = !['entered', 'removed'].includes(status);
+          }}
 
           {...ExpandProps}
         >

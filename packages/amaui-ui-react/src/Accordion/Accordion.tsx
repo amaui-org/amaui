@@ -13,6 +13,7 @@ import Line from '../Line';
 import Type from '../Type';
 
 import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TElevation, TPropsAny, TTonal } from '../utils';
+import { TTransitionStatus } from '../Transition';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -225,7 +226,8 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
     ids: {
       button: React.useId(),
       data: React.useId()
-    }
+    },
+    expandInProgress: React.useRef<boolean>()
   };
 
   const { classes } = useStyle(props);
@@ -238,6 +240,8 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
   }, [open_]);
 
   const onClick = React.useCallback(() => {
+    if (refs.expandInProgress.current) return;
+
     if (!disabled) {
       const valueNew = !open;
 
@@ -444,6 +448,10 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
         in={open}
 
         addValue={addValue * -8}
+
+        onTransition={(element: any, status: TTransitionStatus) => {
+          refs.expandInProgress.current = !['entered', 'removed'].includes(status);
+        }}
 
         role='region'
 
