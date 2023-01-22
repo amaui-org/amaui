@@ -1,6 +1,6 @@
 import React from 'react';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { clamp, getLeadingZerosNumber, is, unique } from '@amaui/utils';
+import { clamp, getLeadingZerosNumber, hash, is, TMethod, unique } from '@amaui/utils';
 
 import RoundMeter from '../RoundMeter';
 import Path from '../Path';
@@ -34,14 +34,14 @@ export interface IClockValue {
   second?: number;
 }
 
-export type TClockVersion = '12' | '24';
+export type TClockFormat = '12' | '24';
 
 export type TClockSelecting = 'hour' | 'minute' | 'second';
 
 export interface IClock extends IBaseElement {
   tonal?: TTonal;
   color?: TColor;
-  version?: TClockVersion;
+  format?: TClockFormat;
   selecting?: TClockSelecting;
 
   value?: IClockValue;
@@ -57,6 +57,8 @@ export interface IClock extends IBaseElement {
   autoNext?: boolean;
 
   renderValue?: (valueDate: IClockValue, version: 'hour' | 'minute' | 'second', x: number, y: number, value: number, otherProps: any) => React.ReactNode;
+
+  onDoneSelecting?: (value: IClockValue, selecting: TClockSelecting) => any;
 }
 
 const Clock = React.forwardRef((props__: IClock, ref: any) => {
@@ -70,7 +72,7 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
     tonal = true,
     color = 'primary',
 
-    version = '12',
+    format = '12',
 
     selecting: selecting_ = 'hour',
 
@@ -90,9 +92,13 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
 
     renderValue,
 
+    onDoneSelecting,
+
     disabled,
 
     className,
+
+    BackgroundProps,
 
     ...other
   } = props;
@@ -111,7 +117,7 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
     hour: React.useRef<any>(),
     minute: React.useRef<any>(),
     second: React.useRef<any>(),
-    version: React.useRef<any>()
+    format: React.useRef<any>()
   };
 
   refs.mouseDown.current = mouseDown;
@@ -128,7 +134,7 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
 
   refs.autoNext.current = autoNext;
 
-  refs.version.current = version;
+  refs.format.current = format;
 
   React.useEffect(() => {
     const onMouseUp = () => {
@@ -149,6 +155,8 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
             setSelecting(valueSelecting);
           }
         }
+
+        if (is('function', onDoneSelecting)) onDoneSelecting(refs.value.current, refs.selecting.current);
       }
     };
 
@@ -179,9 +187,9 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
 
         let index = valuesAll.findIndex((item: [number, number]) => angle >= item[0] && angle <= item[1]);
 
-        if (index === -1 || index === 0) index = refs.version.current === '24' ? 0 : 12;
+        if (index === -1 || index === 0) index = refs.format.current === '24' ? 0 : 12;
 
-        if (refs.version.current === '24') {
+        if (refs.format.current === '24') {
           let within = false;
 
           const labelElements = refs.root.current.querySelectorAll('.amaui-RoundMeter-labels');
@@ -273,18 +281,14 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
     if (value_ !== undefined) setValue(value_);
   }, [value_]);
 
-  React.useEffect(() => {
-    if (selecting_ !== undefined) setSelecting(selecting_);
-  }, [selecting_]);
-
-  React.useEffect(() => {
+  const updateTransitions = React.useCallback(() => {
     // Add momentary transition to the AmauiRoundMeter-children > *
     // if selecting value updates
     if (refs.root.current) {
       let elementChildren: any = (refs.root.current as HTMLElement).getElementsByClassName('amaui-RoundMeter-children')[0];
       let elementLabels: any = (refs.root.current as HTMLElement).getElementsByClassName('amaui-RoundMeter-labels')[0];
 
-      if (elementChildren) {
+      if (elementChildren && elementLabels) {
         elementChildren = Array.from(elementChildren.children);
         elementLabels = Array.from(elementLabels.children);
 
@@ -296,9 +300,41 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
         }, 300);
       }
     }
+  }, []);
+
+  React.useEffect(() => {
+    if (selecting_ !== undefined && selecting_ !== selecting) {
+      setSelecting(selecting_);
+
+      updateTransitions();
+    }
+  }, [selecting_]);
+
+  React.useEffect(() => {
+    if (selecting !== selecting_) {
+      updateTransitions();
+    }
   }, [selecting]);
 
   const onUpdate = (valueNew: IClockValue) => {
+    // Only if value updated
+    const newValue = { ...valueNew };
+    const previousValue = { ...refs.value.current };
+
+    Object.keys(newValue).forEach(key => {
+      if (is('string', newValue[key])) {
+        newValue[key] = +(newValue[key].startsWith('0') ? newValue[key].slice(1) : newValue[key]);
+      }
+    });
+
+    Object.keys(previousValue).forEach(key => {
+      if (is('string', previousValue[key])) {
+        previousValue[key] = +(previousValue[key].startsWith('0') ? previousValue[key].slice(1) : previousValue[key]);
+      }
+    });
+
+    if (hash(newValue) === hash(previousValue)) return;
+
     if (!disabled) {
       // Inner controlled value
       if (!props.hasOwnProperty('value')) setValue(valueNew);
@@ -340,14 +376,14 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
 
     valueClock = valueClock24 = +valueClock;
 
-    if (version === '24' && valueClock > 11) lowerPointer = true;
+    if (format === '24' && valueClock > 11) lowerPointer = true;
 
     if (valueClock > 12) valueClock -= 12;
 
     valuePosition = (100 / 12) * valueClock;
 
     // Labels
-    if (version === '12') labels = unique([
+    if (format === '12') labels = unique([
       // 12 hours
       ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
         value: index === 0 ? 12 : index,

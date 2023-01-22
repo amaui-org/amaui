@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, unique, getLeadingZerosNumber, clamp } from '@amaui/utils';
+import { is, getLeadingZerosNumber } from '@amaui/utils';
 import { AmauiDate, format as formatMethod, set, is as isMethod } from '@amaui/date';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
@@ -17,10 +17,10 @@ import Type from '../Type';
 import ToggleButtons from '../ToggleButtons';
 import ToggleButton from '../ToggleButton';
 import Button from '../Button';
-import RoundMeter from '../RoundMeter';
-import Path from '../Path';
 import Slide from '../Slide';
+import Clock from '../Clock';
 import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
+import { IClockValue } from '../Clock/Clock';
 
 import { staticClassName, TElementReference, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
 
@@ -35,27 +35,16 @@ const useStyle = styleMethod(theme => ({
     borderRadius: '28px'
   },
 
+  mode_orientation_vertical: {
+    minWidth: '340px'
+  },
+
+  mode_orientation_horizontal: {
+    minWidth: '570px'
+  },
+
   heading: {
     width: '100%'
-  },
-
-  roundMeter: {
-    userSelect: 'none',
-    touchAction: 'none',
-
-    '& .amaui-RoundMeter-children, & .amaui-RoundMeter-labels': {
-      pointerEvents: 'none'
-    },
-
-    '& svg > *': {
-      cursor: 'grab'
-    }
-  },
-
-  roundMeter_mouseDown: {
-    '& svg > *': {
-      cursor: 'grabbing'
-    }
   },
 
   modeWrapper: {
@@ -241,7 +230,7 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
   ToggleButtonProps?: TPropsAny;
   IconButtonProps?: TPropsAny;
   InputProps?: TPropsAny;
-  RoundMeterProps?: TPropsAny;
+  ClockProps?: TPropsAny;
   ModeSelectProps?: TPropsAny;
   ModeInputProps?: TPropsAny;
   AdvancedTextFieldProps?: TPropsAny;
@@ -326,7 +315,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     ToggleButtonProps,
     IconButtonProps,
     InputProps,
-    RoundMeterProps,
+    ClockProps,
     ModeSelectProps,
     ModeInputProps,
     AdvancedTextFieldProps,
@@ -344,7 +333,6 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
   const refs = {
     root: React.useRef<any>(),
     iconButton: React.useRef<any>(),
-    roundMeter: React.useRef<any>(),
     middle: React.useRef<any>(),
     version: React.useRef<any>(),
     open: React.useRef<any>(),
@@ -404,7 +392,6 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
   const [mode, setMode] = React.useState((touch ? openMobile : openDesktop) || 'select');
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || (now && new AmauiDate()));
   const [values, setValues] = React.useState<any>(() => valueToValues(value));
-  const [mouseDown, setMouseDown] = React.useState<any>(false);
   const [error, setError] = React.useState(false);
 
   let version = version_;
@@ -423,8 +410,6 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
   refs.values.current = values;
 
   refs.value.current = value;
-
-  refs.mouseDown.current = mouseDown;
 
   refs.format.current = format;
 
@@ -449,7 +434,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     // and am, pm
     let hour_ = values_.hour || '00';
 
-    if (hour_.startsWith('0')) hour_ = +hour_.slice(1);
+    if (is('string', hour_) && hour_.startsWith('0')) hour_ = +hour_.slice(1);
 
     if (format === '12') {
       if (+hour_ === 0 || +hour_ === 12) {
@@ -463,14 +448,14 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     // minute
     let minute_ = values_.minute || '00';
 
-    if (minute_.startsWith('0')) minute_ = +minute_.slice(1);
+    if (is('string', minute_) && minute_.startsWith('0')) minute_ = +minute_.slice(1);
 
     amauiDate = set(+minute_, 'minute', amauiDate);
 
     // second
     let second_ = values_.second || '00';
 
-    if (second_.startsWith('0')) second_ = +second_.slice(1);
+    if (is('string', second_) && second_.startsWith('0')) second_ = +second_.slice(1);
 
     amauiDate = set(+second_, 'second', amauiDate);
 
@@ -517,36 +502,49 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     setValue(amauiDate);
   };
 
-  const updateValues = (property: string, value__: any) => {
-    const values_ = {
+  const onChangeClock = React.useCallback((valueNew: IClockValue) => {
+    const valuesNew = {
       ...refs.values.current,
 
-      [property]: value__
+      ...valueNew
     };
 
-    setValues(values_);
+    if (is('number', valuesNew.hour) && valuesNew.hour < 10) valuesNew.hour = `0${valuesNew.hour}`;
 
-    // Add momentary transition to the AmauiRoundMeter-children > *
-    // if selecting value updates
-    if (refs.roundMeter.current && property === 'selecting' && refs.values.current.selecting !== value__) {
-      let elementChildren: any = (refs.roundMeter.current as HTMLElement).getElementsByClassName('amaui-RoundMeter-children')[0];
-      let elementLabels: any = (refs.roundMeter.current as HTMLElement).getElementsByClassName('amaui-RoundMeter-labels')[0];
+    if (is('number', valuesNew.minute) && valuesNew.minute < 10) valuesNew.minute = `0${valuesNew.minute}`;
 
-      if (elementChildren) {
-        elementChildren = Array.from(elementChildren.children);
-        elementLabels = Array.from(elementLabels.children);
+    if (is('number', valuesNew.second) && valuesNew.second < 10) valuesNew.second = `0${valuesNew.second}`;
 
-        elementChildren.forEach((item: HTMLElement) => item.style.transition = 'transform .3s');
-        elementLabels.forEach((item: HTMLElement) => item.style.transition = 'fill .3s');
-
-        setTimeout(() => {
-          [...elementChildren, ...elementLabels].forEach((item: HTMLElement) => item.style.removeProperty('transition'));
-        }, 300);
-      }
-    }
+    setValues(valuesNew);
 
     // Error
-    setError(!validItem('', '', property === 'input' ? inputToValues(value__) : values_));
+    setError(!validItem('', '', valuesNew));
+  }, []);
+
+  const onDoneSelecting = React.useCallback((valueNew: any, selecting: any) => {
+    // AutoCloseOnLast
+    if (refs.autoCloseOnLast.current && refs.mode.current === 'select') {
+      if (['hour', 'minute', 'second'].includes(selecting)) {
+        if (
+          (selecting === 'second') ||
+          (selecting === 'minute' && !second) ||
+          (selecting === 'hour' && !minute)
+        ) return onOk();
+      }
+    }
+  }, [hour, minute, second]);
+
+  const updateValues = (property: string, valueNew: any) => {
+    const valuesNew = {
+      ...refs.values.current,
+
+      [property]: valueNew
+    };
+
+    setValues(valuesNew);
+
+    // Error
+    setError(!validItem('', '', property === 'input' ? inputToValues(valueNew) : valuesNew));
   };
 
   const updateInputToValues = () => {
@@ -573,12 +571,12 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     updateValue(amauiDate);
   };
 
-  const validItem = (item: number | string = '', version__ = '', values__ = refs.values.current) => {
+  const validItem = (item: number | string = '', valuesProperty = '', valuesCurrent = refs.values.current) => {
     const values_ = {
-      ...values__
+      ...valuesCurrent
     };
 
-    if (version__) values_[version__] = is('number', item) ? getLeadingZerosNumber(item as number) : item;
+    if (valuesProperty) values_[valuesProperty] = is('number', item) ? getLeadingZerosNumber(item as number) : item;
 
     const amauiDate = valuesToValue(values_);
 
@@ -618,161 +616,13 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
       }
     };
 
-    const onMouseUp = () => {
-      if (refs.mouseDown.current) {
-        setMouseDown(false);
-
-        const property = refs.values.current.selecting;
-
-        // Auto close on last
-        if (refs.autoCloseOnLast.current && refs.mode.current === 'select') {
-          if (['hour', 'minute', 'second'].includes(property)) {
-            if (
-              (property === 'second') ||
-              (property === 'minute' && !second) ||
-              (property === 'hour' && !minute)
-            ) return onOk();
-          }
-        }
-
-        // Auto next
-        if (refs.autoNext.current && refs.mode.current === 'select') {
-          if (['hour', 'minute', 'second'].includes(property)) {
-            const values_: any = {};
-
-            if (property === 'second') values_.selecting = 'hour';
-
-            if (property === 'minute') values_.selecting = second ? 'second' : 'hour';
-
-            if (property === 'hour' && minute) values_.selecting = 'minute';
-
-            setValues({ ...refs.values.current, ...values_ });
-          }
-        }
-      }
-    };
-
-    const onMove = (x_: number, y_: number) => {
-      const rectMiddle = refs.middle.current.getBoundingClientRect();
-
-      const x = x_ - rectMiddle.x;
-
-      const y = y_ - rectMiddle.y;
-
-      const radians = Math.atan2(x, y);
-
-      const degrees = (radians * 180) / Math.PI;
-
-      const angle = 180 - degrees;
-
-      // Make array of values
-      // for hours, minutes and seconds
-      // with +- 50% around the value
-
-      // Find item in that array that this angle fits within
-      let valuesAll = [];
-
-      if (refs.values.current.selecting === 'hour') {
-        const part = 360 / 12;
-
-        valuesAll = Array.from({ length: 12 }).map((item: any, index_: number) => [(part * index_) - (part / 2), (part * index_) + (part / 2)]);
-
-        let index = valuesAll.findIndex((item: [number, number]) => angle >= item[0] && angle <= item[1]);
-
-        if (index === -1 || index === 0) index = refs.format.current === '24' ? 0 : 12;
-
-        if (refs.format.current === '24') {
-          let within = false;
-
-          const labels = refs.roundMeter.current.querySelectorAll('.amaui-RoundMeter-labels');
-
-          const elements = {
-            outer: labels[0],
-            inner: labels[1]
-          };
-
-          const rects = {
-            outer: elements.outer.getBoundingClientRect(),
-            inner: elements.inner.getBoundingClientRect()
-          };
-
-          const part_ = Math.abs(Math.abs(rects.outer.x) - Math.abs(rects.inner.x));
-
-          const valueMoved = Math.sqrt(x ** 2 + y ** 2);
-
-          const middleInner = Math.abs(Math.abs(rectMiddle.x) - Math.abs(rects.inner.x));
-
-          if (valueMoved <= (middleInner + (part_ / 2))) within = true;
-
-          if (within) index += 12;
-
-          index = clamp(index, 0, 23);
-        }
-
-        // Validate
-        if (!validItem(index, 'hour')) return;
-
-        // Update values
-        updateValues('hour', getLeadingZerosNumber(index));
-      }
-      else if (['minute', 'second'].includes(refs.values.current.selecting)) {
-        const part = 360 / 60;
-
-        valuesAll = Array.from({ length: 60 }).map((item: any, index_: number) => [(part * index_) - (part / 2), (part * index_) + (part / 2)]);
-
-        let index = valuesAll.findIndex((item: [number, number]) => angle >= item[0] && angle <= item[1]);
-
-        if (index === -1 || index === 0) index = 0;
-
-        // Validate
-        if (!validItem(index, refs.values.current.selecting)) return;
-
-        // Update values
-        updateValues(refs.values.current.selecting, getLeadingZerosNumber(index));
-      }
-    };
-
-    // Mouse move
-    const onMouseMove = (event: MouseEvent) => {
-      if (refs.mouseDown.current) {
-        const { clientY, clientX } = event;
-
-        onMove(clientX, clientY);
-      }
-    };
-
-    // Touch move
-    const onTouchMove = (event: TouchEvent) => {
-      if (refs.mouseDown.current) {
-        const { clientY, clientX } = event.touches[0];
-
-        onMove(clientX, clientY);
-      }
-    };
-
     // Error
     setError(!validItem('', '', inputToValues(refs.values.current.input)));
 
     window.addEventListener('keydown', onKeyDown);
 
-    window.addEventListener('mouseup', onMouseUp);
-
-    window.addEventListener('mousemove', onMouseMove);
-
-    window.addEventListener('touchend', onMouseUp);
-
-    window.addEventListener('touchmove', onTouchMove, { passive: true });
-
     return () => {
       window.removeEventListener('keydown', onKeyDown);
-
-      window.removeEventListener('mousemove', onMouseMove);
-
-      window.removeEventListener('mouseup', onMouseUp);
-
-      window.removeEventListener('touchmove', onTouchMove);
-
-      window.removeEventListener('touchend', onMouseUp);
     };
   }, []);
 
@@ -825,10 +675,6 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
     if (is('function', onCancel_)) onCancel_();
   }, [onCancel_]);
-
-  const onMouseDown = React.useCallback(() => {
-    setMouseDown(true);
-  }, []);
 
   const ModeSelect = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
     const buttonProps = {
@@ -925,242 +771,33 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     };
 
     const Watch = (
-      <Surface
-        tonal={tonal}
+      <Clock
+        format={format}
 
-        color={color}
-      >
-        {({ palette }) => {
-          let labels = [];
+        value={refs.values.current}
 
-          const colors = {
-            regular: 'currentColor',
-            inverse: theme.methods.palette.color.value(undefined, 90, true, palette)
-          };
+        onChange={onChangeClock}
 
-          let valueTime: any = '';
+        selecting={refs.values.current.selecting}
 
-          let valueValue: any = '';
+        onDoneSelecting={onDoneSelecting}
 
-          let lowerPointer = false;
+        renderValue={renderValue}
 
-          if (refs.values.current.selecting === 'hour') {
-            valueTime = refs.values.current.hour;
+        valid={validItem}
 
-            if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
+        hour={hour}
 
-            valueValue = valueTime = +valueTime;
+        minute={minute}
 
-            if (refs.format.current === '24' && valueTime > 11) lowerPointer = true;
+        second={second}
 
-            if (valueTime > 12) valueTime -= 12;
+        autoNext={autoNext}
 
-            valueTime = (100 / 12) * valueTime;
-          }
+        disabled={disabled}
 
-          if (refs.values.current.selecting === 'minute') {
-            valueTime = refs.values.current.minute;
-
-            if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
-
-            valueValue = valueTime = +valueTime;
-
-            valueTime = (100 / 60) * valueTime;
-          }
-
-          if (refs.values.current.selecting === 'second') {
-            valueTime = refs.values.current.second;
-
-            if (valueTime.startsWith('0')) valueTime = valueTime.slice(1);
-
-            valueValue = valueTime = +valueTime;
-
-            valueTime = (100 / 60) * valueTime;
-          }
-
-          if (refs.values.current.selecting === 'hour') {
-            if (format === '12') labels = unique([
-              // 12 hours
-              ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                value: index === 0 ? 12 : index,
-
-                padding: 20,
-
-                style: {
-                  fontSize: 14,
-                  opacity: validItem(index === 0 ? 12 : index, 'hour') ? 1 : 0.27,
-                  fill: ((valueValue === 12 && index === 0) || (valueValue === index)) ? colors.inverse : colors.regular
-                },
-
-                position: index * (100 / 12)
-              })))
-            ], 'position');
-            else {
-              labels = [
-                unique([
-                  // 0-11 hours
-                  ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                    value: index === 0 ? '00' : index,
-
-                    padding: 20,
-
-                    style: {
-                      fontSize: 14,
-                      opacity: validItem(index === 0 ? 0 : index, 'hour') ? 1 : 0.27,
-                      fill: valueValue === index ? colors.inverse : colors.regular
-                    },
-
-                    position: index * (100 / 12)
-                  })))
-                ], 'position'),
-
-                unique([
-                  // 12-23 hours
-                  ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                    value: 12 + index,
-
-                    padding: 49.5,
-
-                    style: {
-                      fontSize: 14,
-                      opacity: validItem(12 + index, 'hour') ? 1 : 0.27,
-                      fill: valueValue === (12 + index) ? colors.inverse : colors.regular
-                    },
-
-                    position: index * (100 / 12)
-                  })))
-                ], 'position')
-              ];
-            }
-          }
-          else if (refs.values.current.selecting === 'minute') {
-            labels = unique([
-              // 59 minutes
-              ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                value: index === 0 ? '00' : getLeadingZerosNumber((60 / 12) * index),
-
-                padding: 20,
-
-                style: {
-                  fontSize: 14,
-                  opacity: validItem(index === 0 ? 0 : (60 / 12) * index, 'minute') ? 1 : 0.27,
-                  fill: (valueValue === ((60 / 12) * index)) ? colors.inverse : colors.regular
-                },
-
-                position: index * (100 / 12)
-              })))
-            ], 'position');
-          }
-          else if (refs.values.current.selecting === 'second') {
-            labels = unique([
-              // 59 seconds
-              ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-                value: index === 0 ? '00' : getLeadingZerosNumber((60 / 12) * index),
-
-                padding: 20,
-
-                style: {
-                  fontSize: 14,
-                  opacity: validItem(index === 0 ? 0 : (60 / 12) * index, 'second') ? 1 : 0.27,
-                  fill: (valueValue === ((60 / 12) * index)) ? colors.inverse : colors.regular
-                },
-
-                position: index * (100 / 12)
-              })))
-            ], 'position');
-          }
-
-          return (
-            <RoundMeter
-              ref={refs.roundMeter}
-
-              tonal={tonal}
-
-              color={color}
-
-              labels={labels}
-
-              arcsVisible={false}
-
-              childrenPosition='pre-marks'
-
-              background
-
-              BackgroundProps={{
-                fill: theme.methods.palette.color.value(undefined, 90, true, palette),
-
-                onMouseDown: onMouseDown,
-
-                onTouchStart: onMouseDown
-              }}
-
-              renderLabel={is('function', renderValue) ? (x: number, y: number, valueItem: number, otherProps: any) => renderValue(refs.value.current, refs.values.current.selecting, x, y, valueItem, otherProps) : undefined}
-
-              {...RoundMeterProps}
-
-              className={classNames([
-                staticClassName('TimePicker', theme) && [
-                  'amaui-TimePicker-round-meter'
-                ],
-
-                RoundMeterProps?.className,
-                classes.roundMeter,
-                refs.mouseDown.current && classes.roundMeter_mouseDown
-              ])}
-            >
-              {/* Center */}
-              <Path
-                ref={refs.middle}
-
-                Component='circle'
-
-                r='4'
-
-                cx='120'
-
-                cy='120'
-
-                style={{
-                  stroke: 'none',
-                  fill: palette[40]
-                }}
-              />
-
-              {/* Pointer */}
-              <Path
-                d='M 120 119 L 195 119 A 1 1 0 0 1 195 121 L 120 121 A 1 1 0 0 1 121 119'
-
-                value={valueTime}
-
-                style={{
-                  transformOrigin: '50% 50%',
-                  fill: palette[40],
-                  stroke: 'none'
-                }}
-              />
-
-              {/* Pointer circle */}
-              <Path
-                Component='circle'
-
-                r='24'
-
-                cx={lowerPointer ? 182 : 212.5}
-
-                cy='120'
-
-                value={valueTime}
-
-                style={{
-                  transformOrigin: 'center',
-                  fill: palette[40],
-                  stroke: 'none'
-                }}
-              />
-            </RoundMeter>
-          );
-        }}
-      </Surface>
+        {...ClockProps}
+      />
     );
 
     if (refs.version.current === 'static-watch') return Watch;
@@ -1180,6 +817,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
           ModeSelectProps?.className,
           classes.mode,
+          classes[`mode_orientation_${refs.orientation.current}`],
           classes.model_input
         ])}
       >
@@ -1397,7 +1035,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
         </Line>
       </Surface>
     );
-  }), [version, format, hour, minute, second, selectModeHeadingText, mode, tonal, color, switch_, InputProps, renderValue, theme]);
+  }), [version, format, hour, minute, second, autoNext, selectModeHeadingText, mode, tonal, color, switch_, InputProps, renderValue, disabled, theme]);
 
   const ModeInput = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
     const inputProps = {
@@ -1854,7 +1492,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
     return mode === 'select' ? <ModeSelect /> : <ModeInput />;
   }
-
+  console.log(1, value);
   return (
     <Line
       gap={0}
