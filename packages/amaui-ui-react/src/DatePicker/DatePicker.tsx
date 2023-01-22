@@ -2588,6 +2588,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         {/* Divider */}
         {!!refs.openMenu.current && (
           <Divider
+            tonal={false}
+
             className={classNames([
               staticClassName('DatePicker', theme) && [
                 'amaui-DatePicker-divider'
@@ -2913,6 +2915,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
         {/* Divider */}
         <Divider
+          tonal={false}
+
           className={classNames([
             staticClassName('DatePicker', theme) && [
               'amaui-DatePicker-divider'
@@ -3245,6 +3249,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         {/* Divider */}
         {!!refs.openMenu.current && (
           <Divider
+            tonal={false}
+
             className={classNames([
               staticClassName('DatePicker', theme) && [
                 'amaui-DatePicker-divider'
@@ -3501,6 +3507,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         </Line>
 
         <Divider
+          tonal={false}
+
           className={classNames([
             staticClassName('DatePicker', theme) && [
               'amaui-DatePicker-divider'
@@ -3931,6 +3939,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         </main>
 
         <Divider
+          tonal={false}
+
           className={classNames([
             staticClassName('DatePicker', theme) && [
               'amaui-DatePicker-divider'

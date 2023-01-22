@@ -11,11 +11,7 @@ import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    '& .amaui-Chart-legend-icon': {
-      width: '8px',
-      height: '8px',
-      borderRadius: 'unset'
-    }
+
   }
 }), { name: 'amaui-ScatterChart' });
 

@@ -23,7 +23,8 @@ const useStyle = styleMethod(theme => ({
 
   legend_icon: {
     width: '8px',
-    height: '8px'
+    height: '8px',
+    borderRadius: '50%'
   }
 }), { name: 'amaui-ScatterChartItem' });
 
