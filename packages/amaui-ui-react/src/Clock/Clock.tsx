@@ -92,6 +92,8 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
 
     renderValue,
 
+    onClick: onClick_,
+
     onDoneSelecting,
 
     disabled,
@@ -137,6 +139,86 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
 
   refs.format.current = format;
 
+  const onMove = React.useCallback((x_: number, y_: number) => {
+    const rectMiddle = refs.middle.current.getBoundingClientRect();
+
+    const x = x_ - rectMiddle.x;
+
+    const y = y_ - rectMiddle.y;
+
+    const radians = Math.atan2(x, y);
+
+    const degrees = (radians * 180) / Math.PI;
+
+    const angle = 180 - degrees;
+
+    // Make array of values
+    // for hours, minutes and seconds
+    // with +- 50% around the value
+
+    // Find item in that array that this angle fits within
+    let valuesAll = [];
+
+    if (refs.selecting.current === 'hour') {
+      const part = 360 / 12;
+
+      valuesAll = Array.from({ length: 12 }).map((item: any, index_: number) => [(part * index_) - (part / 2), (part * index_) + (part / 2)]);
+
+      let index = valuesAll.findIndex((item: [number, number]) => angle >= item[0] && angle <= item[1]);
+
+      if (index === -1 || index === 0) index = refs.format.current === '24' ? 0 : 12;
+
+      if (refs.format.current === '24') {
+        let within = false;
+
+        const labelElements = refs.root.current.querySelectorAll('.amaui-RoundMeter-labels');
+
+        const elements = {
+          outer: labelElements[0],
+          inner: labelElements[1]
+        };
+
+        const rects = {
+          outer: elements.outer.getBoundingClientRect(),
+          inner: elements.inner.getBoundingClientRect()
+        };
+
+        const part_ = Math.abs(Math.abs(rects.outer.x) - Math.abs(rects.inner.x));
+
+        const valueMoved = Math.sqrt(x ** 2 + y ** 2);
+
+        const middleInner = Math.abs(Math.abs(rectMiddle.x) - Math.abs(rects.inner.x));
+
+        if (valueMoved <= (middleInner + (part_ / 2))) within = true;
+
+        if (within) index += 12;
+
+        index = clamp(index, 0, 23);
+      }
+
+      // Validate
+      if (!valid(index, 'hour')) return;
+
+      // Update values
+      onUpdate({ ...refs.value.current, hour: index });
+    }
+    else if (['minute', 'second'].includes(refs.selecting.current)) {
+      const part = 360 / 60;
+
+      valuesAll = Array.from({ length: 60 }).map((item: any, index_: number) => [(part * index_) - (part / 2), (part * index_) + (part / 2)]);
+
+      let index = valuesAll.findIndex((item: [number, number]) => angle >= item[0] && angle <= item[1]);
+
+      if (index === -1 || index === 0) index = 0;
+
+      // Validate
+      if (!valid(index, refs.selecting.current)) return;
+
+      // Update values
+      onUpdate({ ...refs.value.current, [refs.selecting.current]: getLeadingZerosNumber(index) });
+    }
+  }, []);
+
   React.useEffect(() => {
     const onMouseUp = () => {
       if (refs.mouseDown.current) {
@@ -158,86 +240,6 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
         }
 
         if (is('function', onDoneSelecting)) onDoneSelecting(refs.value.current, refs.selecting.current);
-      }
-    };
-
-    const onMove = (x_: number, y_: number) => {
-      const rectMiddle = refs.middle.current.getBoundingClientRect();
-
-      const x = x_ - rectMiddle.x;
-
-      const y = y_ - rectMiddle.y;
-
-      const radians = Math.atan2(x, y);
-
-      const degrees = (radians * 180) / Math.PI;
-
-      const angle = 180 - degrees;
-
-      // Make array of values
-      // for hours, minutes and seconds
-      // with +- 50% around the value
-
-      // Find item in that array that this angle fits within
-      let valuesAll = [];
-
-      if (refs.selecting.current === 'hour') {
-        const part = 360 / 12;
-
-        valuesAll = Array.from({ length: 12 }).map((item: any, index_: number) => [(part * index_) - (part / 2), (part * index_) + (part / 2)]);
-
-        let index = valuesAll.findIndex((item: [number, number]) => angle >= item[0] && angle <= item[1]);
-
-        if (index === -1 || index === 0) index = refs.format.current === '24' ? 0 : 12;
-
-        if (refs.format.current === '24') {
-          let within = false;
-
-          const labelElements = refs.root.current.querySelectorAll('.amaui-RoundMeter-labels');
-
-          const elements = {
-            outer: labelElements[0],
-            inner: labelElements[1]
-          };
-
-          const rects = {
-            outer: elements.outer.getBoundingClientRect(),
-            inner: elements.inner.getBoundingClientRect()
-          };
-
-          const part_ = Math.abs(Math.abs(rects.outer.x) - Math.abs(rects.inner.x));
-
-          const valueMoved = Math.sqrt(x ** 2 + y ** 2);
-
-          const middleInner = Math.abs(Math.abs(rectMiddle.x) - Math.abs(rects.inner.x));
-
-          if (valueMoved <= (middleInner + (part_ / 2))) within = true;
-
-          if (within) index += 12;
-
-          index = clamp(index, 0, 23);
-        }
-
-        // Validate
-        if (!valid(index, 'hour')) return;
-
-        // Update values
-        onUpdate({ ...refs.value.current, hour: index });
-      }
-      else if (['minute', 'second'].includes(refs.selecting.current)) {
-        const part = 360 / 60;
-
-        valuesAll = Array.from({ length: 60 }).map((item: any, index_: number) => [(part * index_) - (part / 2), (part * index_) + (part / 2)]);
-
-        let index = valuesAll.findIndex((item: [number, number]) => angle >= item[0] && angle <= item[1]);
-
-        if (index === -1 || index === 0) index = 0;
-
-        // Validate
-        if (!valid(index, refs.selecting.current)) return;
-
-        // Update values
-        onUpdate({ ...refs.value.current, [refs.selecting.current]: getLeadingZerosNumber(index) });
       }
     };
 
@@ -357,6 +359,14 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
   const onMouseDown = React.useCallback(() => {
     setMouseDown(true);
   }, []);
+
+  const onClick = React.useCallback((event: React.MouseEvent) => {
+    const { clientX: x, clientY: y } = event;
+
+    onMove(x, y);
+
+    if (is('function', onClick_)) onClick_(event);
+  }, [onClick_]);
 
   const palette = React.useMemo(() => {
     return theme.methods.color((theme.palette.color[color] as any)?.main as string || color);
@@ -521,6 +531,8 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
       arcsVisible={false}
 
       childrenPosition='pre-marks'
+
+      onClick={onClick}
 
       background
 
