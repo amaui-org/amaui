@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { arrayToParts, getLeadingZerosNumber, is } from '@amaui/utils';
+import { arrayToParts, is } from '@amaui/utils';
 import { add, AmauiDate, endOf, format, remove, set, startOf } from '@amaui/date';
 
 import Line from '../Line';
@@ -523,7 +523,7 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
       {/* Weeks */}
       {!noTransition && (
         <Transitions
-          noTransition={monthSame}
+          noTransition={noTransition || monthSame}
 
           mode='in-out-follow'
 
@@ -690,158 +690,6 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
             }}
           </Transition>
         </Transitions>
-      )}
-
-      {/* Without the transition */}
-      {noTransition && (
-        <Surface
-          tonal={tonal}
-
-          color={color}
-        >
-          {({ palette }) => (
-            <Line
-              gap={0.5}
-
-              direction='column'
-
-              align='unset'
-
-              justify='unset'
-
-              className={classNames([
-                staticClassName('DatePicker', theme) && [
-                  'amaui-CalendarDays-weeks'
-                ],
-
-                classes.weeks
-              ])}
-            >
-              {weeks.map((week: any, index: number) => (
-                // Week
-                <Line
-                  key={index}
-
-                  gap={0}
-
-                  direction='row'
-
-                  align='unset'
-
-                  justify='space-between'
-
-                  className={classNames([
-                    staticClassName('DatePicker', theme) && [
-                      'amaui-CalendarDays-week'
-                    ],
-
-                    classes.week
-                  ])}
-                >
-                  {week.map((day: any, index_: number) => {
-                    const propsDay = {
-                      onClick: () => onUpdateValue(day.amauiDate),
-
-                      disabled: (
-                        (!day.in && !outside) ||
-
-                        !valid(day.amauiDate, 'day') ||
-
-                        // not prior to 1970, we may potentially update this in the future
-                        day.amauiDate.year < 1970
-                      )
-                    };
-
-                    return (
-                      <Line
-                        key={index_}
-
-                        direction='row'
-
-                        align='center'
-
-                        justify='center'
-
-                        className={classNames([
-                          staticClassName('DatePicker', theme) && [
-                            'amaui-CalendarDays-day',
-                            `amaui-CalendarDays-day-${day.in ? 'in' : 'out'}`
-                          ],
-
-                          classes.day,
-                          classes[`day_${day.in ? 'in' : 'out'}`],
-                          (!day.in && !outside) && classes.day_out_no,
-                          !day.selectedSame && range && [
-                            (day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && classes.dayStart,
-                            (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside)) && classes.dayEnd,
-                            ((day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside))) && classes.dayStartEnd,
-                            (day.selected && day.selectedIndex === 0 && !day.selectedSame) && classes.dayStartSelected,
-                            (day.selected && day.selectedIndex === 1 && !day.selectedSame) && classes.dayEndSelected
-                          ]
-                        ])}
-
-                        style={{
-                          ...(range && !day.selected && !day.selectedSame && day.between ? {
-                            background: theme.methods.palette.color.value(undefined, 80, true, palette)
-                          } : undefined),
-
-                          ...(range && day.selected && !day.selectedSame ? {
-                            color: theme.methods.palette.color.value(undefined, 80, true, palette)
-                          } : undefined)
-                        }}
-                      >
-                        {is('function', renderDay) ?
-                          renderDay(day.amauiDate, propsDay, day.today, day.weekend, day.selected, outside) :
-                          (
-                            <PaginationItem
-                              tonal={tonal}
-
-                              color='inherit'
-
-                              InteractionProps={{
-                                background: false
-                              }}
-
-                              TypeProps={{
-                                version: 'b3',
-
-                                priority: !day.selected ? !day.weekend ? 'primary' : 'secondary' : undefined
-                              }}
-
-                              aria-label={format(day, 'DD-MM-YYYY')}
-
-                              className={classNames([
-                                staticClassName('DatePicker', theme) && [
-                                  'amaui-CalendarDays-day-value'
-                                ],
-
-                                classes.dayValue
-                              ])}
-
-                              style={{
-                                ...(day.today ? {
-                                  boxShadow: `inset 0px 0px 0px 1px ${palette[40]}`
-                                } : undefined),
-
-                                ...(day.selected ? {
-                                  color: theme.methods.palette.color.value(undefined, 90, true, palette),
-                                  backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
-                                } : undefined)
-                              }}
-
-                              {...propsDay}
-                            >
-                              {day.value}
-                            </PaginationItem>
-                          )}
-                      </Line>
-                    );
-                  })}
-                </Line>
-              ))}
-            </Line>
-          )}
-        </Surface>
       )}
     </Line>
   );

@@ -3,9 +3,11 @@ import Head from 'next/head';
 import LinkNext from 'next/link';
 
 import { clamp, parse, random, slugify } from '@amaui/utils';
-import { Button, Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery, Placeholder, Fade } from '@amaui/ui-react';
+import { Button, Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery, Placeholder, Fade, Tooltip, IconButton } from '@amaui/ui-react';
 import { classNames, style as styleMethod } from '@amaui/style-react';
 import AmauiRequest from '@amaui/request';
+
+import IconGithub from '../../../public/assets/svg/github.svg';
 
 import { BottomNavigation } from '../ui';
 
@@ -139,7 +141,13 @@ const useStyle = styleMethod(theme => ({
   placeholders: {
     marginTop: '40px',
     width: '100%'
-  }
+  },
+
+  icon: {
+    width: 'auto',
+    height: '24px',
+    fill: 'currentColor'
+  },
 }), { name: 'library' });
 
 export default function Library(props: any) {
@@ -437,6 +445,8 @@ export default function Library(props: any) {
 
             justify='flex-end'
 
+            gap={0.5}
+
             Component='header'
 
             className={classNames([
@@ -444,6 +454,26 @@ export default function Library(props: any) {
               classes.header
             ])}
           >
+            <Tooltip
+              label={`${props?.label} repository`}
+
+              color='inverted'
+            >
+              <IconButton
+                color='inherit'
+
+                Component='a'
+
+                href={`https://github.com/amaui-org${props?.github}`}
+
+                target='_blank'
+              >
+                <IconGithub
+                  className={classes.icon}
+                />
+              </IconButton>
+            </Tooltip>
+
             <Button
               color='inherit'
 
