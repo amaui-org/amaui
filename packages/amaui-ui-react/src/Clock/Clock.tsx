@@ -117,7 +117,8 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
     hour: React.useRef<any>(),
     minute: React.useRef<any>(),
     second: React.useRef<any>(),
-    format: React.useRef<any>()
+    format: React.useRef<any>(),
+    previous: React.useRef<any>(selecting)
   };
 
   refs.mouseDown.current = mouseDown;
@@ -306,12 +307,16 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
     if (selecting_ !== undefined && selecting_ !== selecting) {
       setSelecting(selecting_);
 
+      refs.previous.current = selecting_;
+
       updateTransitions();
     }
   }, [selecting_]);
 
   React.useEffect(() => {
-    if (selecting !== selecting_) {
+    if (selecting !== refs.previous.current) {
+      refs.previous.current = selecting;
+
       updateTransitions();
     }
   }, [selecting]);

@@ -406,6 +406,9 @@ export * from './TimePicker';
 export { default as TimeRangePicker } from './TimeRangePicker';
 export * from './TimeRangePicker';
 
+export { default as CalendarDays } from './CalendarDays';
+export * from './CalendarDays';
+
 export { default as DatePicker } from './DatePicker';
 export * from './DatePicker';
 
