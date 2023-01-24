@@ -1177,7 +1177,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
           ],
 
           ModeInputProps?.className,
-          classes.mode
+          classes.mode,
+          classes[`mode_orientation_${refs.orientation.current}`]
         ])}
       >
         <Line

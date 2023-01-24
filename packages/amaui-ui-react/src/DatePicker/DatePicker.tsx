@@ -1801,7 +1801,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     const valueNew = new AmauiDate(amauiDate);
 
     // value or value range update
-    const to = refs.values.current.to;
+    const to = refs.values.current[1];
 
     let [from] = refs.values.current;
 
@@ -4039,7 +4039,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
     return !fullScreen ? <ModeModal /> : <ModeFullScreen />;
   }
-
+  console.log(1, value, values);
   return (
     <Line
       gap={0}
