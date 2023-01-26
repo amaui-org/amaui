@@ -433,6 +433,8 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
                     validate={validate}
 
+                    outside={false}
+
                     noTransition
 
                     {...CalendarMonthProps}

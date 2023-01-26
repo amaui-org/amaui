@@ -5296,11 +5296,13 @@ Please sign in again.`}
         <Accordion primary='Calendar version'>
           <Line>
             <Calendar
-              version='regular'
+              version='year'
             />
 
             <Calendar
               version='year'
+
+              range
             />
           </Line>
         </Accordion>
