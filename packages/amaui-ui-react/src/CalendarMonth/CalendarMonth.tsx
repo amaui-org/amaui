@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import { arrayToParts, is } from '@amaui/utils';
-import { add, AmauiDate, endOf, format, remove, set, startOf } from '@amaui/date';
+import { add, AmauiDate, endOf, format, remove, set, startOf, is as isAmauiDate } from '@amaui/date';
 
 import Line from '../Line';
 import Surface from '../Surface';
@@ -183,6 +183,9 @@ export interface ICalenarDays extends IBaseElement {
   noMove?: boolean;
   noTransition?: boolean;
   offset?: number;
+  min?: AmauiDate;
+  max?: AmauiDate;
+  validate?: (value: AmauiDate) => boolean;
 
   valid?: (value: AmauiDate, version: 'day' | 'month' | 'year') => boolean;
   renderDay?: (value: AmauiDate, props: any, today: boolean, weekend: boolean, selected: boolean, outside: boolean) => React.ReactNode;
@@ -212,6 +215,9 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
     outside = true,
     weekStartDay,
     now = true,
+    min,
+    max,
+    validate,
     noMove,
     noTransition,
 
@@ -251,8 +257,22 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
   const valid = React.useCallback((...args: [AmauiDate, any]) => {
     if (is('function', valid_)) return valid_(...args);
 
+    const amauiDate = args[0];
+
+    if (min || max || validate) {
+      let response = true;
+
+      if (is('function', validate)) response = validate(amauiDate);
+
+      if (min !== undefined) response = response && isAmauiDate(amauiDate, 'after or same', min);
+
+      if (max !== undefined) response = response && isAmauiDate(amauiDate, 'before or same', max);
+
+      return response;
+    }
+
     return true;
-  }, [valid_]);
+  }, [valid_, min, max, validate]);
 
   const onUpdateCalendar = React.useCallback((valueNew: AmauiDate) => {
     // Inner update

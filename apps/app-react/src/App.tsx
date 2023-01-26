@@ -5277,12 +5277,12 @@ Please sign in again.`}
           <Calendar />
         </Accordion>
 
-        <Accordion primary='Calendar version' open>
+        <Accordion primary='Calendar menu' open>
           <Line>
             <Calendar />
 
             <Calendar
-              version='month'
+              menu='month'
             />
           </Line>
         </Accordion>
@@ -5290,6 +5290,12 @@ Please sign in again.`}
         <Accordion primary='Calendar range' open>
           <Calendar
             range
+          />
+        </Accordion>
+
+        <Accordion primary='Calendar entireYear' open>
+          <Calendar
+            entireYear
           />
         </Accordion>
       </Accordion>

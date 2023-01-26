@@ -15,6 +15,7 @@ import List from '../List';
 import ListItem from '../ListItem';
 import Divider from '../Divider';
 import Type from '../Type';
+import Carousel from '../Carousel';
 import PaginationItem from '../PaginationItem';
 import { IconDoneAnimated } from '../Buttons/Buttons';
 import { ICalenarDays, TCalendarMonthCalendar, TCalendarMonthValue } from '../CalendarMonth/CalendarMonth';
@@ -94,6 +95,12 @@ const useStyle = style(theme => ({
     }
   },
 
+  carousel: {
+    '&.amaui-Carousel-root': {
+      height: '100%'
+    }
+  },
+
   arrow: {
     transition: theme.methods.transitions.make('transform')
   },
@@ -115,7 +122,7 @@ export interface ICalendar extends IBaseElement {
   tonal?: TTonal;
   color?: TColor;
 
-  version?: 'month-year' | 'month';
+  menu?: 'month-year' | 'month';
 
   value?: TCalendarMonthValue;
   valueDefault?: TCalendarMonthValue;
@@ -129,6 +136,10 @@ export interface ICalendar extends IBaseElement {
   range?: boolean;
   entireYear?: boolean;
   calendars?: number;
+  min?: AmauiDate;
+  max?: AmauiDate;
+  validate?: (value: AmauiDate) => boolean;
+
   valid?: (value: AmauiDate, version: 'day' | 'month' | 'year') => boolean;
   geMonths?: TGetAmauiDates;
   geYears?: TGetAmauiDates;
@@ -202,7 +213,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
     tonal = true,
     color = 'primary',
 
-    version = 'month-year',
+    menu = 'month-year',
 
     value: value_,
     valueDefault,
@@ -216,6 +227,9 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
     now = true,
     entireYear,
     calendars = props.range ? 2 : 1,
+    min,
+    max,
+    validate,
 
     valid: valid_,
     getMonths: getMonths_,
@@ -246,6 +260,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
     return ((is('array', valueResult) ? valueResult : [valueResult]) as Array<AmauiDate>).filter(Boolean);
   });
   const [calendar, setCalendar] = React.useState((calendarDefault !== undefined ? calendarDefault : calendar_) || new AmauiDate());
+  const [carousel, setCarousel] = React.useState<any>();
   const [open, setOpen] = React.useState<'month' | 'year' | null>();
 
   // Value
@@ -305,7 +320,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
           const element = list.querySelector(`[data-value="${valueData}"]`) as HTMLElement;
 
           if (element) list.scrollTo({
-            top: clamp(element.offsetTop - (version === 'month' ? 104 : 204), 0),
+            top: clamp(element.offsetTop - (menu === 'month' ? 104 : 204), 0),
             behavior: 'smooth'
           });
         });
@@ -322,6 +337,21 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
     const length = 130;
 
     return Array.from({ length }).map((item: any, index: number) => ({ value: set(minYear + index, 'year', calendar) }));
+  }, []);
+
+  const onCarouselInit = React.useCallback(() => {
+    // Scroll to the value
+    setTimeout(() => {
+      Try(() => {
+        let item: any = window.document.body.querySelector('[data-month-from]');
+
+        if (item) {
+          item = item.parentElement.parentElement.parentElement;
+
+          setCarousel({ y: item.offsetTop });
+        }
+      });
+    }, 140);
   }, []);
 
   const month = format(calendar, 'MMM');
@@ -372,7 +402,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
           classes.header
         ])}
       >
-        {version === 'month-year' ? <>
+        {menu === 'month-year' ? <>
           {/* Month */}
           <Line
             gap={0}
@@ -629,57 +659,57 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
         <Fade
           in
         >
-          <Line
-            gap={0}
+          {entireYear ? (
+            <Carousel
+              tonal={tonal}
 
-            direction='column'
+              color={color}
 
-            align='center'
+              id={value[0].milliseconds + (value[1]?.milliseconds || 0) + year}
 
-            style={{
-              width: '100%'
-            }}
-          >
-            {/* Calendar/s */}
-            <Line
-              direction='row'
+              value={carousel}
 
-              align='center'
+              arrows={false}
 
-              className={classNames([
-                staticClassName('Calendar', theme) && [
-                  'amaui-Calendar-calendars'
-                ],
+              progress={false}
 
-                classes.calendars
-              ])}
-            >
-              {Array.from({ length: calendars }).map((item: any, index: number) => {
-                const calendarAmauiDate = add(index, 'month', calendar);
+              orientation='vertical'
+
+              moveBeyondEdge={false}
+
+              itemSize='auto'
+
+              gap={0}
+
+              free
+
+              onInit={onCarouselInit}
+
+              items={Array.from({ length: 12 }).map((item: any, index: number) => {
+                const calendarAmauiDate = set(index, 'month', calendar);
 
                 return (
                   <Line
                     key={index}
 
-                    gap={1}
+                    gap={1.5}
 
                     direction='column'
 
                     style={{
-                      width: '100%'
+                      width: '100%',
+                      marginTop: '16px'
                     }}
                   >
-                    {calendars > 1 && (
-                      <Type
-                        version='l2'
+                    <Type
+                      version='l2'
 
-                        style={{
-                          paddingInlineStart: '16px'
-                        }}
-                      >
-                        {format(calendarAmauiDate, 'MMMM')}
-                      </Type>
-                    )}
+                      style={{
+                        paddingInlineStart: '16px'
+                      }}
+                    >
+                      {format(calendarAmauiDate, 'MMMM')} {format(calendarAmauiDate, 'YYYY')}
+                    </Type>
 
                     <CalendarMonth
                       tonal={tonal}
@@ -697,6 +727,14 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
                       range={range}
 
                       offset={index}
+
+                      min={min}
+
+                      max={max}
+
+                      validate={validate}
+
+                      noTransition
 
                       {...CalendarMonthProps}
 
@@ -716,10 +754,120 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
                   </Line>
                 );
               })}
-            </Line>
 
-            {belowCalendars}
-          </Line>
+              ItemWrapperProps={{
+                style: {
+                  width: '100%'
+                }
+              }}
+
+              className={classNames([
+                staticClassName('Calendar', theme) && [
+                  'amaui-Calendar-carousel'
+                ],
+
+                classes.carousel
+              ])}
+            />
+          ) : (
+            <Line
+              gap={0}
+
+              direction='column'
+
+              align='center'
+
+              style={{
+                width: '100%'
+              }}
+            >
+              {/* Calendar/s */}
+              <Line
+                direction='row'
+
+                align='center'
+
+                className={classNames([
+                  staticClassName('Calendar', theme) && [
+                    'amaui-Calendar-calendars'
+                  ],
+
+                  classes.calendars
+                ])}
+              >
+                {Array.from({ length: calendars }).map((item: any, index: number) => {
+                  const calendarAmauiDate = add(index, 'month', calendar);
+
+                  return (
+                    <Line
+                      key={index}
+
+                      gap={1}
+
+                      direction='column'
+
+                      style={{
+                        width: '100%'
+                      }}
+                    >
+                      {calendars > 1 && (
+                        <Type
+                          version='l2'
+
+                          style={{
+                            paddingInlineStart: '16px'
+                          }}
+                        >
+                          {format(calendarAmauiDate, 'MMMM')}
+                        </Type>
+                      )}
+
+                      <CalendarMonth
+                        tonal={tonal}
+
+                        color={color}
+
+                        value={value}
+
+                        calendar={calendarAmauiDate}
+
+                        valid={valid}
+
+                        now={now}
+
+                        range={range}
+
+                        offset={index}
+
+                        min={min}
+
+                        max={max}
+
+                        validate={validate}
+
+                        {...CalendarMonthProps}
+
+                        onChange={onCalendarMonthChange}
+
+                        onChangeCalendar={onCalendarMonthChangeCalendar}
+
+                        className={classNames([
+                          staticClassName('Calendar', theme) && [
+                            'amaui-Calendar-calendar-days'
+                          ],
+
+                          CalendarMonthProps?.className,
+                          classes.calendar
+                        ])}
+                      />
+                    </Line>
+                  );
+                })}
+              </Line>
+
+              {belowCalendars}
+            </Line>
+          )}
         </Fade>
       )}
 
@@ -739,251 +887,255 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
       )}
 
       {/* Menu month */}
-      {open === 'month' && (
-        <Fade
-          in
-        >
-          <List
-            ref={refs.month}
+      {
+        open === 'month' && (
+          <Fade
+            in
+          >
+            <List
+              ref={refs.month}
 
+              tonal={tonal}
+
+              color={color}
+
+              size='large'
+
+              menu
+
+              className={classNames([
+                staticClassName('Calendar', theme) && [
+                  'amaui-Calendar-list'
+                ],
+
+                classes.list
+              ])}
+            >
+              {getMonths(value as any, calendar, props).map((item, index: number) => {
+                const amauiDate = item.value;
+                const selected = calendar.month === amauiDate.month;
+
+                return (
+                  <ListItem
+                    key={index}
+
+                    onClick={() => onUpdateCalendarOption(amauiDate)}
+
+                    primary={format(amauiDate, 'MMMM')}
+
+                    inset={!selected}
+
+                    startAlign='center'
+
+                    start={selected ? (
+                      <IconDoneAnimated
+                        in
+
+                        add
+
+                        simple
+                      />
+                    ) : undefined}
+
+                    disabled={(
+                      !valid(
+                        amauiDate,
+
+                        'month'
+                      )
+                    )}
+
+                    selected={selected}
+
+                    button
+
+                    data-value={index}
+
+                    className={classNames([
+                      staticClassName('Calendar', theme) && [
+                        'amaui-Calendar-list-item'
+                      ],
+
+                      classes.listItem
+                    ])}
+                  />
+                );
+              })}
+            </List>
+          </Fade>
+        )
+      }
+
+      {/* Menu year */}
+      {
+        open === 'year' && (
+          <Surface
             tonal={tonal}
 
             color={color}
-
-            size='large'
-
-            menu
-
-            className={classNames([
-              staticClassName('Calendar', theme) && [
-                'amaui-Calendar-list'
-              ],
-
-              classes.list
-            ])}
           >
-            {getMonths(value as any, calendar, props).map((item, index: number) => {
-              const amauiDate = item.value;
-              const selected = calendar.month === amauiDate.month;
+            {({ palette }) => (menu === 'month-year' ?
+              <Fade
+                in
+              >
+                <List
+                  ref={refs.year}
 
-              return (
-                <ListItem
-                  key={index}
+                  tonal={tonal}
 
-                  onClick={() => onUpdateCalendarOption(amauiDate)}
+                  color={color}
 
-                  primary={format(amauiDate, 'MMMM')}
+                  size='large'
 
-                  inset={!selected}
-
-                  startAlign='center'
-
-                  start={selected ? (
-                    <IconDoneAnimated
-                      in
-
-                      add
-
-                      simple
-                    />
-                  ) : undefined}
-
-                  disabled={(
-                    !valid(
-                      amauiDate,
-
-                      'month'
-                    )
-                  )}
-
-                  selected={selected}
-
-                  button
-
-                  data-value={index}
+                  menu
 
                   className={classNames([
                     staticClassName('Calendar', theme) && [
-                      'amaui-Calendar-list-item'
+                      'amaui-Calendar-list'
                     ],
 
-                    classes.listItem
+                    classes.list
                   ])}
-                />
-              );
-            })}
-          </List>
-        </Fade>
-      )}
+                >
+                  {getYears(value as any, calendar, props).map((item, index: number) => {
+                    const amauiDate = item.value;
+                    const yearValue = format(amauiDate, 'YYYY');
+                    const selected = calendar.year === amauiDate.year;
 
-      {/* Menu year */}
-      {open === 'year' && (
-        <Surface
-          tonal={tonal}
+                    return (
+                      <ListItem
+                        key={index}
 
-          color={color}
-        >
-          {({ palette }) => (version === 'month-year' ?
-            <Fade
-              in
-            >
-              <List
-                ref={refs.year}
+                        onClick={() => onUpdateCalendarOption(amauiDate)}
 
-                tonal={tonal}
+                        primary={yearValue}
 
-                color={color}
+                        inset={!selected}
 
-                size='large'
+                        startAlign='center'
 
-                menu
+                        start={selected ? (
+                          <IconDoneAnimated
+                            in
 
-                className={classNames([
-                  staticClassName('Calendar', theme) && [
-                    'amaui-Calendar-list'
-                  ],
+                            add
 
-                  classes.list
-                ])}
+                            simple
+                          />
+                        ) : undefined}
+
+                        selected={selected}
+
+                        disabled={(
+                          !valid(
+                            amauiDate,
+
+                            'year'
+                          )
+                        )}
+
+                        button
+
+                        data-value={yearValue}
+
+                        className={classNames([
+                          staticClassName('Calendar', theme) && [
+                            'amaui-Calendar-list-item'
+                          ],
+
+                          classes.listItem
+                        ])}
+                      />
+                    );
+                  })}
+                </List>
+              </Fade> :
+
+              <Fade
+                in
               >
-                {getYears(value as any, calendar, props).map((item, index: number) => {
-                  const amauiDate = item.value;
-                  const yearValue = format(amauiDate, 'YYYY');
-                  const selected = calendar.year === amauiDate.year;
+                <Line
+                  ref={refs.year}
 
-                  return (
-                    <ListItem
-                      key={index}
+                  tonal={tonal}
 
-                      onClick={() => onUpdateCalendarOption(amauiDate)}
+                  color={color}
 
-                      primary={yearValue}
+                  direction='row'
 
-                      inset={!selected}
+                  wrap='wrap'
 
-                      startAlign='center'
+                  justify='space-evenly'
 
-                      start={selected ? (
-                        <IconDoneAnimated
-                          in
+                  className={classNames([
+                    staticClassName('Calendar', theme) && [
+                      'amaui-Calendar-list-version-year'
+                    ],
 
-                          add
+                    classes.list_version_year
+                  ])}
+                >
+                  {getYears(value as any, calendar, props).map((item, index: number) => {
+                    const amauiDate = item.value;
+                    const yearValue = format(amauiDate, 'YYYY');
+                    const selected = calendar.year === amauiDate.year;
 
-                          simple
-                        />
-                      ) : undefined}
+                    return (
+                      <PaginationItem
+                        key={index}
 
-                      selected={selected}
+                        tonal={tonal}
 
-                      disabled={(
-                        !valid(
-                          amauiDate,
+                        color='inherit'
 
-                          'year'
-                        )
-                      )}
+                        InteractionProps={{
+                          background: false
+                        }}
 
-                      button
+                        TypeProps={{
+                          version: 'b2',
 
-                      data-value={yearValue}
+                          tone: !selected ? 'primary' : undefined
+                        }}
 
-                      className={classNames([
-                        staticClassName('Calendar', theme) && [
-                          'amaui-Calendar-list-item'
-                        ],
+                        onClick={() => onUpdateCalendarOption(amauiDate)}
 
-                        classes.listItem
-                      ])}
-                    />
-                  );
-                })}
-              </List>
-            </Fade> :
+                        data-value={yearValue}
 
-            <Fade
-              in
-            >
-              <Line
-                ref={refs.year}
+                        disabled={(
+                          !valid(
+                            amauiDate,
 
-                tonal={tonal}
+                            'year'
+                          )
+                        )}
 
-                color={color}
+                        className={classNames([
+                          staticClassName('Calendar', theme) && [
+                            'amaui-Calendar-day-version-year'
+                          ],
 
-                direction='row'
+                          classes.day_version_year
+                        ])}
 
-                wrap='wrap'
-
-                justify='space-evenly'
-
-                className={classNames([
-                  staticClassName('Calendar', theme) && [
-                    'amaui-Calendar-list-version-year'
-                  ],
-
-                  classes.list_version_year
-                ])}
-              >
-                {getYears(value as any, calendar, props).map((item, index: number) => {
-                  const amauiDate = item.value;
-                  const yearValue = format(amauiDate, 'YYYY');
-                  const selected = calendar.year === amauiDate.year;
-
-                  return (
-                    <PaginationItem
-                      key={index}
-
-                      tonal={tonal}
-
-                      color='inherit'
-
-                      InteractionProps={{
-                        background: false
-                      }}
-
-                      TypeProps={{
-                        version: 'b2',
-
-                        tone: !selected ? 'primary' : undefined
-                      }}
-
-                      onClick={() => onUpdateCalendarOption(amauiDate)}
-
-                      data-value={yearValue}
-
-                      disabled={(
-                        !valid(
-                          amauiDate,
-
-                          'year'
-                        )
-                      )}
-
-                      className={classNames([
-                        staticClassName('Calendar', theme) && [
-                          'amaui-Calendar-day-version-year'
-                        ],
-
-                        classes.day_version_year
-                      ])}
-
-                      style={{
-                        ...(selected ? {
-                          color: theme.methods.palette.color.value(undefined, 90, true, palette),
-                          backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
-                        } : undefined)
-                      }}
-                    >
-                      {yearValue}
-                    </PaginationItem>
-                  );
-                })}
-              </Line>
-            </Fade>
-          )}
-        </Surface>
-      )}
-    </Surface>
+                        style={{
+                          ...(selected ? {
+                            color: theme.methods.palette.color.value(undefined, 90, true, palette),
+                            backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
+                          } : undefined)
+                        }}
+                      >
+                        {yearValue}
+                      </PaginationItem>
+                    );
+                  })}
+                </Line>
+              </Fade>
+            )}
+          </Surface>
+        )
+      }
+    </Surface >
   );
 });
 
