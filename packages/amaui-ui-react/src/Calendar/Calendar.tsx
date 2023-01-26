@@ -102,9 +102,14 @@ const useStyle = style(theme => ({
     }
   },
 
-  carousel_item_label: {
-    paddingInlineStart: '16px',
+  carousel_item: {
+    width: '100%',
+    marginTop: '16px',
     userSelect: 'none'
+  },
+
+  carousel_item_label: {
+    paddingInlineStart: '16px'
   },
 
   arrow: {
@@ -400,10 +405,9 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
                   direction='column'
 
-                  style={{
-                    width: '100%',
-                    marginTop: '16px'
-                  }}
+                  className={classNames([
+                    classes.carousel_item
+                  ])}
                 >
                   <Type
                     version='l2'
