@@ -102,6 +102,11 @@ const useStyle = style(theme => ({
     }
   },
 
+  carousel_item_label: {
+    paddingInlineStart: '16px',
+    userSelect: 'none'
+  },
+
   arrow: {
     transition: theme.methods.transitions.make('transform')
   },
@@ -347,7 +352,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
         let item: any = window.document.body.querySelector('[data-month-from]');
 
         if (item) {
-          item = item.parentElement.parentElement.parentElement;
+          item = item.parentElement.parentElement;
 
           setCarousel({ y: item.offsetTop });
         }
@@ -403,9 +408,9 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
                   <Type
                     version='l2'
 
-                    style={{
-                      paddingInlineStart: '16px'
-                    }}
+                    className={classNames([
+                      classes.carousel_item_label
+                    ])}
                   >
                     {format(calendarAmauiDate, 'MMMM')} {format(calendarAmauiDate, 'YYYY')}
                   </Type>
