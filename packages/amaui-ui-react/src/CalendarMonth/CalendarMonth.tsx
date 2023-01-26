@@ -144,13 +144,13 @@ const useStyle = style(theme => ({
       boxShadow: 'inset 0px 0px 0px 1px currentColor'
     }
   }
-}), { name: 'amaui-CalendarDays' });
+}), { name: 'amaui-CalendarMonth' });
 
-export type TCalendarDaysValue = AmauiDate | [AmauiDate, AmauiDate];
+export type TCalendarMonthValue = AmauiDate | [AmauiDate, AmauiDate];
 
-export type TCalendarDaysCalendar = AmauiDate;
+export type TCalendarMonthCalendar = AmauiDate;
 
-export interface ICalendarDaysValuesValue {
+export interface ICalendarMonthValuesValue {
   day: string;
   month: string;
   year: string;
@@ -162,34 +162,36 @@ export interface ICalendarDaysValuesValue {
   move: 'previous' | 'next';
 }
 
-export type TCalendarDaysValues = [ICalendarDaysValuesValue, ICalendarDaysValuesValue];
+export type TCalendarMonthValues = [ICalendarMonthValuesValue, ICalendarMonthValuesValue];
 
 export interface ICalenarDays extends IBaseElement {
   tonal?: TTonal;
   color?: TColor;
 
-  value?: TCalendarDaysValue;
-  valueDefault?: TCalendarDaysValue;
-  onChange?: (value: TCalendarDaysValue) => any;
+  value?: TCalendarMonthValue;
+  valueDefault?: TCalendarMonthValue;
+  onChange?: (value: TCalendarMonthValue) => any;
 
-  calendar?: TCalendarDaysCalendar;
-  calendarDefault?: TCalendarDaysCalendar;
-  onChangeCalendar?: (value: TCalendarDaysCalendar) => any;
+  calendar?: TCalendarMonthCalendar;
+  calendarDefault?: TCalendarMonthCalendar;
+  onChangeCalendar?: (value: TCalendarMonthCalendar) => any;
 
   now?: boolean;
   outside?: boolean;
-  valid?: (value: AmauiDate, version: 'day' | 'month' | 'year') => boolean;
   range?: boolean;
   weekStartDay: 'Monday' | 'Sunday';
   noMove?: boolean;
   noTransition?: boolean;
+  offset?: number;
+
+  valid?: (value: AmauiDate, version: 'day' | 'month' | 'year') => boolean;
   renderDay?: (value: AmauiDate, props: any, today: boolean, weekend: boolean, selected: boolean, outside: boolean) => React.ReactNode;
 }
 
-const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
+const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCalendarDays?.props?.default, ...props__ }), [props__]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCalendarMonth?.props?.default, ...props__ }), [props__]);
 
   const { classes } = useStyle(props);
 
@@ -205,20 +207,15 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
     calendarDefault,
     onChangeCalendar,
 
-    valid: valid_,
-
     range,
-
+    offset = 0,
     outside = true,
-
     weekStartDay,
-
     now = true,
-
     noMove,
-
     noTransition,
 
+    valid: valid_,
     renderDay,
 
     className,
@@ -244,7 +241,11 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
   // Calendar
   React.useEffect(() => {
-    if (calendar_ !== undefined && calendar_ !== calendar) setCalendar(calendar_);
+    if (calendar_ !== undefined && calendar_ !== calendar) {
+      refs.previous.current = calendar;
+
+      setCalendar(calendar_);
+    }
   }, [calendar_]);
 
   const valid = React.useCallback((...args: [AmauiDate, any]) => {
@@ -260,7 +261,7 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
     if (is('function', onChangeCalendar)) onChangeCalendar(valueNew);
   }, [onChangeCalendar]);
 
-  const onUpdateValue = React.useCallback((valueUpdated: AmauiDate) => {
+  const onUpdateValue = React.useCallback((valueUpdated: AmauiDate, offsetMultiplier?: number) => {
     let valueNew: Array<AmauiDate> = [valueUpdated, value[1]].filter(Boolean);
 
     // Previous
@@ -269,41 +270,44 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
     // Range reset
     // If value is range, and is the same (in terms of day, month, year as from and/or to)
     // make a reset, ie. make both values that same date
-    if (
-      range &&
-      value.filter(Boolean)
-        .some(item => valueUpdated.year === item.year && valueUpdated.month === item.month && valueUpdated.day === item.day)
-    ) valueNew = [valueUpdated, valueUpdated];
-    else {
-      // Update the value closest to from, to value
-      let index: number;
-
-      // Update from or to
-      // based on if value is closer to the middle from, or middle to
-      if (!value[0]) index = 0;
-      else if (!value[1]) index = 1;
-      else if (valueUpdated.milliseconds < value[0].milliseconds) index = 0;
-      else if (valueUpdated.milliseconds > value[1].milliseconds) index = 1;
+    if (range) {
+      if (
+        value.filter(Boolean)
+          .some(item => valueUpdated.year === item.year && valueUpdated.month === item.month && valueUpdated.day === item.day)
+      ) valueNew = [valueUpdated, valueUpdated];
       else {
-        const middle = Math.abs(value[1].milliseconds - value[0].milliseconds) / 2;
+        // Update the value closest to from, to value
+        let index: number;
 
-        index = valueUpdated.milliseconds <= (value[0].milliseconds + middle) ? 0 : 1;
+        // Update from or to
+        // based on if value is closer to the middle from, or middle to
+        if (!value[0]) index = 0;
+        else if (!value[1]) index = 1;
+        else if (valueUpdated.milliseconds < value[0].milliseconds) index = 0;
+        else if (valueUpdated.milliseconds > value[1].milliseconds) index = 1;
+        else {
+          const middle = Math.abs(value[1].milliseconds - value[0].milliseconds) / 2;
+
+          index = valueUpdated.milliseconds <= (value[0].milliseconds + middle) ? 0 : 1;
+        }
+
+        valueNew = [...value];
+
+        valueNew[index] = valueUpdated;
       }
-
-      valueNew = [...value];
-
-      valueNew[index] = valueUpdated;
     }
 
     // If value isnt's same as the calendar
     // update calendar to the value
-    if (!(valueUpdated.year === calendar.year && valueUpdated.month === calendar.month)) onUpdateCalendar(valueUpdated);
+    if (!(valueUpdated.year === calendar.year && valueUpdated.month === calendar.month)) {
+      onUpdateCalendar(add(offsetMultiplier !== undefined ? (offsetMultiplier * offset) : 0, 'month', valueUpdated));
+    }
 
     // Inner value update
     if (!props.hasOwnProperty('value')) setValue(valueNew);
 
     if (is('function', onChange)) onChange(valueNew as any);
-  }, [value, range, calendar, onChange]);
+  }, [value, range, offset, calendar, onChange]);
 
   const dayNames = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
@@ -405,6 +409,8 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
         selectedSame: selectedSame(day),
 
+        start: true,
+
         amauiDate: day
       });
     }
@@ -440,6 +446,8 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
         selectedSame: selectedSame(day),
 
+        end: true,
+
         amauiDate: day
       });
     }
@@ -451,6 +459,7 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
   const move = refs.previous.current?.milliseconds > calendar.milliseconds ? 'next' : 'previous';
 
+  console.log('CalendarMonth', value, calendar);
   return (
     <Line
       ref={ref}
@@ -461,7 +470,7 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
       className={classNames([
         staticClassName('DatePicker', theme) && [
-          'amaui-CalendarDays-root'
+          'amaui-CalendarMonth-root'
         ],
 
         className,
@@ -487,7 +496,7 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
         className={classNames([
           staticClassName('DatePicker', theme) && [
-            'amaui-CalendarDays-day-names'
+            'amaui-CalendarMonth-day-names'
           ],
 
           classes.dayNames
@@ -509,7 +518,7 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
             className={classNames([
               staticClassName('DatePicker', theme) && [
-                'amaui-CalendarDays-day-name'
+                'amaui-CalendarMonth-day-name'
               ],
 
               classes.dayName
@@ -554,7 +563,7 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
                       className={classNames([
                         staticClassName('DatePicker', theme) && [
-                          'amaui-CalendarDays-weeks'
+                          'amaui-CalendarMonth-weeks'
                         ],
 
                         classes.weeks,
@@ -576,7 +585,7 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
                           className={classNames([
                             staticClassName('DatePicker', theme) && [
-                              'amaui-CalendarDays-week'
+                              'amaui-CalendarMonth-week'
                             ],
 
                             classes.week
@@ -584,7 +593,7 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
                         >
                           {week.map((day: any, index_: number) => {
                             const propsDay = {
-                              onClick: () => onUpdateValue(day.amauiDate),
+                              onClick: () => onUpdateValue(day.amauiDate, day.start || day.end ? -1 : undefined),
 
                               disabled: (
                                 (!day.in && !outside) ||
@@ -608,8 +617,8 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
                                 className={classNames([
                                   staticClassName('DatePicker', theme) && [
-                                    'amaui-CalendarDays-day',
-                                    `amaui-CalendarDays-day-${day.in ? 'in' : 'out'}`
+                                    'amaui-CalendarMonth-day',
+                                    `amaui-CalendarMonth-day-${day.in ? 'in' : 'out'}`
                                   ],
 
                                   classes.day,
@@ -656,7 +665,7 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
                                       className={classNames([
                                         staticClassName('DatePicker', theme) && [
-                                          'amaui-CalendarDays-day-value'
+                                          'amaui-CalendarMonth-day-value'
                                         ],
 
                                         classes.dayValue
@@ -695,6 +704,6 @@ const CalendarDays = React.forwardRef((props__: ICalenarDays, ref: any) => {
   );
 });
 
-CalendarDays.displayName = 'amaui-CalendarDays';
+CalendarMonth.displayName = 'amaui-CalendarMonth';
 
-export default CalendarDays;
+export default CalendarMonth;

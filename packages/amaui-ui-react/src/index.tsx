@@ -406,8 +406,11 @@ export * from './TimePicker';
 export { default as TimeRangePicker } from './TimeRangePicker';
 export * from './TimeRangePicker';
 
-export { default as CalendarDays } from './CalendarDays';
-export * from './CalendarDays';
+export { default as CalendarMonth } from './CalendarMonth';
+export * from './CalendarMonth';
+
+export { default as Calendar } from './Calendar';
+export * from './Calendar';
 
 export { default as DatePicker } from './DatePicker';
 export * from './DatePicker';

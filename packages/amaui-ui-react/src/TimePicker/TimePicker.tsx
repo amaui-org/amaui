@@ -19,8 +19,8 @@ import ToggleButton from '../ToggleButton';
 import Button from '../Button';
 import Slide from '../Slide';
 import Clock from '../Clock';
-import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
 import { IClockValue } from '../Clock/Clock';
+import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
 
 import { staticClassName, TElementReference, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
 
@@ -44,10 +44,6 @@ const useStyle = styleMethod(theme => ({
   },
 
   heading: {
-    width: '100%'
-  },
-
-  modeWrapper: {
     width: '100%'
   },
 
