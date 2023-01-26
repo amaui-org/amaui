@@ -5277,6 +5277,16 @@ Please sign in again.`}
           <Calendar />
         </Accordion>
 
+        <Accordion primary='Calendar version' open>
+          <Line>
+            <Calendar />
+
+            <Calendar
+              version='month'
+            />
+          </Line>
+        </Accordion>
+
         <Accordion primary='Calendar range' open>
           <Calendar
             range

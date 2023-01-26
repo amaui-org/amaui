@@ -15,6 +15,7 @@ import List from '../List';
 import ListItem from '../ListItem';
 import Divider from '../Divider';
 import Type from '../Type';
+import PaginationItem from '../PaginationItem';
 import { IconDoneAnimated } from '../Buttons/Buttons';
 import { ICalenarDays, TCalendarMonthCalendar, TCalendarMonthValue } from '../CalendarMonth/CalendarMonth';
 
@@ -22,7 +23,13 @@ import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TT
 
 const useStyle = style(theme => ({
   root: {
-    borderRadius: theme.methods.shape.radius.value(4, 'px')
+    borderRadius: theme.methods.shape.radius.value(4, 'px'),
+    width: '320px',
+    overflow: 'hidden'
+  },
+
+  range: {
+    width: 'unset'
   },
 
   header: {
@@ -57,7 +64,7 @@ const useStyle = style(theme => ({
 
   list: {
     width: '100%',
-    maxHeight: '340px',
+    maxHeight: '307px',
     overflowY: 'auto',
 
     '&.amaui-List-root': {
@@ -68,6 +75,22 @@ const useStyle = style(theme => ({
   listItem: {
     '& .amaui-ListItem-root': {
       minHeight: '50px'
+    }
+  },
+
+  list_version_year: {
+    width: '100%',
+    maxHeight: '299px',
+    overflowY: 'auto',
+    marginTop: '8px'
+  },
+
+  day_version_year: {
+    flex: '0 1 72px',
+    height: '36px',
+
+    '&:hover': {
+      boxShadow: 'inset 0px 0px 0px 1px currentColor'
     }
   },
 
@@ -325,7 +348,8 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
         ],
 
         className,
-        classes.root
+        classes.root,
+        range && classes.range
       ])}
 
       {...other}
@@ -348,113 +372,177 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
           classes.header
         ])}
       >
-        {/* Month */}
-        <Line
-          gap={0}
+        {version === 'month-year' ? <>
+          {/* Month */}
+          <Line
+            gap={0}
 
-          direction='row'
+            direction='row'
 
-          align='center'
-        >
-          <Fade
-            in={!open}
+            align='center'
           >
-            <IconButton
-              onClick={() => move(false)}
-
-              aria-label='Previous month'
-
-              disabled={open || (+year <= 1970 && month === 'Jan')}
-
-              {...optionButtonProps}
+            <Fade
+              in={!open}
             >
-              <IconPrevious />
-            </IconButton>
-          </Fade>
+              <IconButton
+                onClick={() => move(false)}
 
-          <Button
-            version='text'
+                aria-label='Previous month'
 
-            onClick={() => onOpen()}
+                disabled={open || (+year <= 1970 && month === 'Jan')}
 
-            fontSize={24}
-
-            end={(
-              <Fade
-                in={open !== 'year'}
+                {...optionButtonProps}
               >
-                <IconDropDown
-                  className={classNames([
-                    staticClassName('Calendar', theme) && [
-                      'amaui-Calendar-arrow'
-                    ],
+                <IconPrevious />
+              </IconButton>
+            </Fade>
 
-                    classes.arrow,
-                    open === 'month' && classes.arrow_open
-                  ])}
-                />
-              </Fade>
-            )}
+            <Button
+              version='text'
 
-            aria-label={`Select month, current ${month}`}
+              onClick={() => onOpen()}
 
-            {...optionButtonProps}
+              fontSize={24}
 
-            className={classNames([
-              staticClassName('Calendar', theme) && [
-                'amaui-Calendar-option'
-              ],
+              end={(
+                <Fade
+                  in={open !== 'year'}
+                >
+                  <IconDropDown
+                    className={classNames([
+                      staticClassName('Calendar', theme) && [
+                        'amaui-Calendar-arrow'
+                      ],
 
-              optionButtonProps?.className,
-              classes.option,
-              open === 'year' && classes.option_secondary
-            ])}
-          >
-            {month}
-          </Button>
+                      classes.arrow,
+                      open === 'month' && classes.arrow_open
+                    ])}
+                  />
+                </Fade>
+              )}
 
-          <Fade
-            in={!open}
-          >
-            <IconButton
-              onClick={() => move()}
-
-              aria-label='Next month'
-
-              disabled={open || (+year === 2099 && month === 'Dec')}
+              aria-label={`Select month, current ${month}`}
 
               {...optionButtonProps}
+
+              className={classNames([
+                staticClassName('Calendar', theme) && [
+                  'amaui-Calendar-option'
+                ],
+
+                optionButtonProps?.className,
+                classes.option,
+                open === 'year' && classes.option_secondary
+              ])}
             >
-              <IconNext />
-            </IconButton>
-          </Fade>
-        </Line>
+              {month}
+            </Button>
 
-        {/* Year */}
-        <Line
-          gap={0}
+            <Fade
+              in={!open}
+            >
+              <IconButton
+                onClick={() => move()}
 
-          direction='row'
+                aria-label='Next month'
 
-          align='center'
-        >
-          <Fade
-            in={!open}
+                disabled={open || (+year === 2099 && month === 'Dec')}
+
+                {...optionButtonProps}
+              >
+                <IconNext />
+              </IconButton>
+            </Fade>
+          </Line>
+
+          {/* Year */}
+          <Line
+            gap={0}
+
+            direction='row'
+
+            align='center'
           >
-            <IconButton
-              onClick={() => move(false, 'year')}
+            <Fade
+              in={!open}
+            >
+              <IconButton
+                onClick={() => move(false, 'year')}
 
-              aria-label='Previous year'
+                aria-label='Previous year'
 
-              disabled={open || +year <= 1970}
+                disabled={open || +year <= 1970}
+
+                {...optionButtonProps}
+              >
+                <IconPrevious />
+              </IconButton>
+            </Fade>
+
+            <Button
+              version='text'
+
+              onClick={() => onOpen('year')}
+
+              fontSize={24}
+
+              end={(
+                <Fade
+                  in={open !== 'month'}
+                >
+                  <IconDropDown
+                    className={classNames([
+                      staticClassName('Calendar', theme) && [
+                        'amaui-Calendar-arrow'
+                      ],
+
+                      classes.arrow,
+                      open === 'year' && classes.arrow_open
+                    ])}
+                  />
+                </Fade>
+              )}
+
+              aria-label={`Select year, current ${year}`}
 
               {...optionButtonProps}
-            >
-              <IconPrevious />
-            </IconButton>
-          </Fade>
 
+              className={classNames([
+                staticClassName('Calendar', theme) && [
+                  'amaui-Calendar-option'
+                ],
+
+                optionButtonProps?.className,
+                classes.option,
+                open === 'month' && classes.option_secondary
+              ])}
+            >
+              {year}
+            </Button>
+
+            <Fade
+              in={!open}
+            >
+              <IconButton
+                onClick={() => move(true, 'year')}
+
+                aria-label='Next year'
+
+                disabled={open || +year === 2099}
+
+                {...optionButtonProps}
+              >
+                <IconNext />
+              </IconButton>
+            </Fade>
+          </Line>
+        </> : <>
+          {/* Month year */}
           <Button
+            tonal={tonal}
+
+            color='inherit'
+
             version='text'
 
             onClick={() => onOpen('year')}
@@ -462,23 +550,17 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
             fontSize={24}
 
             end={(
-              <Fade
-                in={open !== 'month'}
-              >
-                <IconDropDown
-                  className={classNames([
-                    staticClassName('Calendar', theme) && [
-                      'amaui-Calendar-arrow'
-                    ],
+              <IconDropDown
+                className={classNames([
+                  staticClassName('Calendar', theme) && [
+                    'amaui-Calendar-arrow'
+                  ],
 
-                    classes.arrow,
-                    open === 'year' && classes.arrow_open
-                  ])}
-                />
-              </Fade>
+                  classes.arrow,
+                  open === 'year' && classes.arrow_open
+                ])}
+              />
             )}
-
-            aria-label={`Select year, current ${year}`}
 
             {...optionButtonProps}
 
@@ -488,33 +570,61 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
               ],
 
               optionButtonProps?.className,
-              classes.option,
-              open === 'month' && classes.option_secondary
+              classes.option
             ])}
           >
-            {year}
+            {format(calendar, 'MMMM')} {format(calendar, 'YYYY')}
           </Button>
 
-          <Fade
-            in={!open}
+          {/* Arrows */}
+          <Line
+            gap={0}
+
+            direction='row'
+
+            align='center'
           >
-            <IconButton
-              onClick={() => move(true, 'year')}
-
-              aria-label='Next year'
-
-              disabled={open || +year === 2099}
-
-              {...optionButtonProps}
+            <Fade
+              in={!open}
             >
-              <IconNext />
-            </IconButton>
-          </Fade>
-        </Line>
+              <IconButton
+                tonal={tonal}
+
+                color='inherit'
+
+                onClick={() => move(false, 'month')}
+
+                aria-label='Previous month'
+
+                disabled={open || (+year === 1970 && month === 'Jan')}
+              >
+                <IconPrevious />
+              </IconButton>
+            </Fade>
+
+            <Fade
+              in={!open}
+            >
+              <IconButton
+                tonal={tonal}
+
+                color='inherit'
+
+                onClick={() => move(true, 'month')}
+
+                aria-label='Next month'
+
+                disabled={open || (+year === 2099 && month === 'Dec')}
+              >
+                <IconNext />
+              </IconButton>
+            </Fade>
+          </Line>
+        </>}
       </Line>
 
       {/* Main */}
-      {/* Calendar */}
+      {/* Calendar/s */}
       {!open && (
         <Fade
           in
@@ -708,81 +818,170 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
       {/* Menu year */}
       {open === 'year' && (
-        <Fade
-          in
+        <Surface
+          tonal={tonal}
+
+          color={color}
         >
-          <List
-            ref={refs.year}
+          {({ palette }) => (version === 'month-year' ?
+            <Fade
+              in
+            >
+              <List
+                ref={refs.year}
 
-            tonal={tonal}
+                tonal={tonal}
 
-            color={color}
+                color={color}
 
-            size='large'
+                size='large'
 
-            menu
+                menu
 
-            className={classNames([
-              staticClassName('Calendar', theme) && [
-                'amaui-Calendar-list'
-              ],
+                className={classNames([
+                  staticClassName('Calendar', theme) && [
+                    'amaui-Calendar-list'
+                  ],
 
-              classes.list
-            ])}
-          >
-            {getYears(value as any, calendar, props).map((item, index: number) => {
-              const amauiDate = item.value;
-              const yearValue = format(amauiDate, 'YYYY');
-              const selected = calendar.year === amauiDate.year;
+                  classes.list
+                ])}
+              >
+                {getYears(value as any, calendar, props).map((item, index: number) => {
+                  const amauiDate = item.value;
+                  const yearValue = format(amauiDate, 'YYYY');
+                  const selected = calendar.year === amauiDate.year;
 
-              return (
-                <ListItem
-                  key={index}
+                  return (
+                    <ListItem
+                      key={index}
 
-                  onClick={() => onUpdateCalendarOption(amauiDate)}
+                      onClick={() => onUpdateCalendarOption(amauiDate)}
 
-                  primary={yearValue}
+                      primary={yearValue}
 
-                  inset={!selected}
+                      inset={!selected}
 
-                  startAlign='center'
+                      startAlign='center'
 
-                  start={selected ? (
-                    <IconDoneAnimated
-                      in
+                      start={selected ? (
+                        <IconDoneAnimated
+                          in
 
-                      add
+                          add
 
-                      simple
+                          simple
+                        />
+                      ) : undefined}
+
+                      selected={selected}
+
+                      disabled={(
+                        !valid(
+                          amauiDate,
+
+                          'year'
+                        )
+                      )}
+
+                      button
+
+                      data-value={yearValue}
+
+                      className={classNames([
+                        staticClassName('Calendar', theme) && [
+                          'amaui-Calendar-list-item'
+                        ],
+
+                        classes.listItem
+                      ])}
                     />
-                  ) : undefined}
+                  );
+                })}
+              </List>
+            </Fade> :
 
-                  selected={selected}
+            <Fade
+              in
+            >
+              <Line
+                ref={refs.year}
 
-                  disabled={(
-                    !valid(
-                      amauiDate,
+                tonal={tonal}
 
-                      'year'
-                    )
-                  )}
+                color={color}
 
-                  button
+                direction='row'
 
-                  data-value={yearValue}
+                wrap='wrap'
 
-                  className={classNames([
-                    staticClassName('Calendar', theme) && [
-                      'amaui-Calendar-list-item'
-                    ],
+                justify='space-evenly'
 
-                    classes.listItem
-                  ])}
-                />
-              );
-            })}
-          </List>
-        </Fade>
+                className={classNames([
+                  staticClassName('Calendar', theme) && [
+                    'amaui-Calendar-list-version-year'
+                  ],
+
+                  classes.list_version_year
+                ])}
+              >
+                {getYears(value as any, calendar, props).map((item, index: number) => {
+                  const amauiDate = item.value;
+                  const yearValue = format(amauiDate, 'YYYY');
+                  const selected = calendar.year === amauiDate.year;
+
+                  return (
+                    <PaginationItem
+                      key={index}
+
+                      tonal={tonal}
+
+                      color='inherit'
+
+                      InteractionProps={{
+                        background: false
+                      }}
+
+                      TypeProps={{
+                        version: 'b2',
+
+                        tone: !selected ? 'primary' : undefined
+                      }}
+
+                      onClick={() => onUpdateCalendarOption(amauiDate)}
+
+                      data-value={yearValue}
+
+                      disabled={(
+                        !valid(
+                          amauiDate,
+
+                          'year'
+                        )
+                      )}
+
+                      className={classNames([
+                        staticClassName('Calendar', theme) && [
+                          'amaui-Calendar-day-version-year'
+                        ],
+
+                        classes.day_version_year
+                      ])}
+
+                      style={{
+                        ...(selected ? {
+                          color: theme.methods.palette.color.value(undefined, 90, true, palette),
+                          backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
+                        } : undefined)
+                      }}
+                    >
+                      {yearValue}
+                    </PaginationItem>
+                  );
+                })}
+              </Line>
+            </Fade>
+          )}
+        </Surface>
       )}
     </Surface>
   );

@@ -665,7 +665,15 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
                                       className={classNames([
                                         staticClassName('DatePicker', theme) && [
-                                          'amaui-CalendarMonth-day-value'
+                                          'amaui-CalendarMonth-day-value',
+                                          day.in && 'amaui-CalendarMonth-day-in',
+                                          day.dayWeek && 'amaui-CalendarMonth-day-day-week',
+                                          day.weekend && 'amaui-CalendarMonth-day-weekend',
+                                          day.today && 'amaui-CalendarMonth-day-today',
+                                          day.between && 'amaui-CalendarMonth-day-between',
+                                          day.selected && 'amaui-CalendarMonth-day-selected',
+                                          day.start && 'amaui-CalendarMonth-day-start',
+                                          day.end && 'amaui-CalendarMonth-day-end'
                                         ],
 
                                         classes.dayValue
