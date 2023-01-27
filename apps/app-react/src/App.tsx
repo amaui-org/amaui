@@ -5253,10 +5253,10 @@ Please sign in again.`}
           <DatePicker
             label='Date picker'
 
-            validate={(value: number, values: any, version: string) => {
-              if (version === 'day') return !(value % 10);
+            validate={(value: AmauiDate) => {
+              const day = value.day;
 
-              return true;
+              return !(day % 10);
             }}
           />
         </Accordion>
