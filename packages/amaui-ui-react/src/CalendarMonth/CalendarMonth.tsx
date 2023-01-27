@@ -236,8 +236,12 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
   });
   const [calendar, setCalendar] = React.useState((calendarDefault !== undefined ? calendarDefault : calendar_) || new AmauiDate());
 
+  const month: AmauiDate = calendar || value[0];
+
   const refs = {
-    previous: React.useRef<AmauiDate>()
+    previous: React.useRef<AmauiDate>(month),
+    id: React.useRef<string>(`${(month).year} ${(month).month}`),
+    move: React.useRef<'previous' | 'next'>()
   };
 
   // Value
@@ -247,11 +251,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
   // Calendar
   React.useEffect(() => {
-    if (calendar_ !== undefined && calendar_ !== calendar) {
-      refs.previous.current = calendar;
-
-      setCalendar(calendar_);
-    }
+    if (calendar_ !== undefined && calendar_ !== calendar) setCalendar(calendar_);
   }, [calendar_]);
 
   const valid = React.useCallback((...args: [AmauiDate, any]) => {
@@ -285,8 +285,6 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
     let valueNew: Array<AmauiDate> = [valueUpdated, value[1]].filter(Boolean);
 
     // Previous
-    refs.previous.current = calendar;
-
     // Range reset
     // If value is range, and is the same (in terms of day, month, year as from and/or to)
     // make a reset, ie. make both values that same date
@@ -338,8 +336,6 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
   const days = [];
 
   const monthNow = new AmauiDate();
-
-  const month: AmauiDate = calendar || value[0];
 
   // value or value range selected value
   let id = `${month.year} ${month.month} ${month.day}`;
@@ -473,13 +469,18 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
     }
   }
 
+  // Update previous
+  if (refs.id.current !== `${month.year} ${month.month}`) {
+    refs.move.current = refs.previous.current?.milliseconds > month.milliseconds ? 'next' : 'previous';
+
+    refs.id.current = `${month.year} ${month.month}`;
+    refs.previous.current = month;
+  }
+
   if (noMove) monthSame = true;
 
   const weeks = arrayToParts(days, 7);
 
-  const move = refs.previous.current?.milliseconds > calendar.milliseconds ? 'next' : 'previous';
-
-  console.log('CalendarMonth', value, calendar);
   return (
     <Line
       ref={ref}
@@ -495,7 +496,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
         className,
         classes.root,
-        classes[`move_${move}`]
+        classes[`move_${refs.move.current}`]
       ])}
 
       {...(isMonthFrom && { 'data-month-from': true })}

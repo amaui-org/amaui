@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, getLeadingZerosNumber, arrayToParts, clamp } from '@amaui/utils';
-import { AmauiDate, format as formatMethod, set, is as isMethod, startOf, endOf, remove, add, TTimeUnits, months as monthsValue, format } from '@amaui/date';
+import { AmauiDate, format, set, is as isAmauiDate, startOf, endOf, remove, add, TTimeUnits, months as monthsValue } from '@amaui/date';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -28,10 +28,18 @@ import Slide from '../Slide';
 import { ILine } from '../Line/Line';
 
 import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TValueBreakpoints, valueBreakpoints } from '../utils';
+import CalendarMonth from '../CalendarMonth';
+import { TCalendarMonthCalendar, TCalendarMonthValue } from '../CalendarMonth/CalendarMonth';
+import Calendar from '../Calendar';
 
 const useStyle = styleMethod(theme => ({
   root: {
 
+  },
+
+  actions: {
+    width: '100%',
+    padding: '0px 8px 8px'
   },
 
   mode: {
@@ -463,714 +471,60 @@ const SEPARATOR_SYMBOL = `–`;
 
 const SEPARATOR = ` ${SEPARATOR_SYMBOL} `;
 
-const CalendarDays = React.forwardRef((props: any, ref: any) => {
-  const theme = useAmauiTheme();
-
-  const { classes } = useStyle(props);
-
-  const {
-    tonal = true,
-    color,
-
-    outside = true,
-
-    value,
-    values,
-
-    calendar,
-
-    valid,
-
-    range,
-
-    weekStartDay,
-
-    monthName,
-
-    onDayClick,
-
-    relative = true,
-
-    noMove,
-
-    noTransition,
-
-    renderDay,
-
-    className,
-
-    ...other
-  } = props;
-
-  const dayNames = ['M', 'T', 'W', 'T', 'F', 'S'];
-
-  if (weekStartDay === 'Monday') dayNames.push('S');
-  else dayNames.unshift('S');
-
-  const days = [];
-
-  const monthNow = new AmauiDate();
-
-  const month: AmauiDate = calendar?.date || value[0];
-
-  // value or value range selected y value y
-  const selecteds: [AmauiDate, AmauiDate] = values.map(item => item.selected);
-
-  let id = `${month.year} ${month.month} ${month.day}`;
-
-  selecteds.forEach(item => id += ` ${item.year} ${item.month} ${item.day}`);
-
-  const monthStart = startOf(month, 'month');
-
-  const previousMonth = remove(1, 'month', month);
-
-  const previousMonthEnd = endOf(previousMonth, 'month');
-
-  const nextMonth = add(1, 'month', month);
-
-  let monthSame = month.year === calendar?.previous?.year && month.month === calendar?.previous?.month;
-
-  const isBetween = (day: any) => day.milliseconds >= selecteds[0]?.milliseconds && day.milliseconds <= (selecteds[1]?.milliseconds + 4000);
-
-  const isSelected = (day: any) => selecteds.some((item: any) => item.year === day.year && item.month === day.month && item.day === day.day);
-
-  const selectedIndex = (day: any) => selecteds.findIndex((item: any) => item.year === day.year && item.month === day.month && item.day === day.day);
-
-  const selectedSame = (day: any) => selecteds.filter((item: any) => item.year === day.year && item.month === day.month && item.day === day.day).length === 2;
-
-  let isMonthFrom = false;
-  let isMonthTo = false;
-
-  // Add all month days
-  for (let i = 0; i < month.daysInMonth; i++) {
-    const day = set(i + 1, 'day', month);
-
-    const selectedIndex_ = selectedIndex(day);
-
-    if (selectedIndex_ === 0) isMonthFrom = true;
-    else if (selectedIndex_ === 1) isMonthTo = true;
-
-    days.push({
-      value: i + 1,
-
-      in: true,
-
-      dayWeek: day.dayWeek,
-
-      weekend: [0, 6].includes(day.dayWeek),
-
-      today: day.year === monthNow.year && day.dayYear === monthNow.dayYear,
-
-      between: isBetween(day),
-
-      selected: isSelected(day),
-
-      selectedIndex: selectedIndex_,
-
-      selectedSame: selectedSame(day),
-
-      amauiDate: day
-    });
-  }
-
-  days[0].start = true;
-
-  days[days.length - 1].end = true;
-
-  // Add to start
-  if (monthStart.dayWeek !== 1) {
-    const toAdd = monthStart.dayWeek === 0 ? 6 : monthStart.dayWeek - 1;
-
-    for (let i = 0; i < toAdd; i++) {
-      const day = set(previousMonthEnd.day - i, 'day', previousMonth);
-
-      days.unshift({
-        value: day.day,
-
-        in: false,
-
-        dayWeek: day.dayWeek,
-
-        weekend: [0, 6].includes(day.dayWeek),
-
-        today: day.year === monthNow.year && day.dayYear === monthNow.dayYear,
-
-        between: isBetween(day),
-
-        selected: isSelected(day),
-
-        selectedIndex: selectedIndex(day),
-
-        selectedSame: selectedSame(day),
-
-        amauiDate: day
-      });
-    }
-  }
-
-  // Add to end
-  const dayLast = days[days.length - 1];
-
-  if (dayLast.dayWeek < 7) {
-    let toAdd = 7 - dayLast.dayWeek;
-
-    if (days.length + toAdd - 1 < 42) toAdd += 41 - (days.length + toAdd - 1);
-
-    for (let i = 0; i < toAdd; i++) {
-      const day = set(i + 1, 'day', nextMonth);
-
-      days.push({
-        value: i + 1,
-
-        in: false,
-
-        dayWeek: day.dayWeek,
-
-        weekend: [0, 6].includes(day.dayWeek),
-
-        today: day.year === monthNow.year && day.dayYear === monthNow.dayYear,
-
-        between: isBetween(day),
-
-        selected: isSelected(day),
-
-        selectedIndex: selectedIndex(day),
-
-        selectedSame: selectedSame(day),
-
-        amauiDate: day
-      });
-    }
-  }
-
-  if (noMove) monthSame = true;
-
-  const weeks = arrayToParts(days, 7);
-
-  return (
-    <Line
-      ref={ref}
-
-      gap={0}
-
-      direction='column'
-
-      className={classNames([
-        staticClassName('DatePicker', theme) && [
-          'amaui-DatePicker-calendar'
-        ],
-
-        className,
-        classes.calendar,
-        classes[`move_${calendar?.move}`]
-      ])}
-
-      {...(isMonthFrom && { 'data-month-from': true })}
-
-      {...(isMonthTo && { 'data-month-to': true })}
-
-      {...other}
-    >
-      {/* Day names */}
-      <Line
-        gap={0}
-
-        direction='row'
-
-        align='center'
-
-        justify='space-between'
-
-        className={classNames([
-          staticClassName('DatePicker', theme) && [
-            'amaui-DatePicker-day-names'
-          ],
-
-          classes.dayNames
-        ])}
-      >
-        {dayNames.map((day: string, index: number) => (
-          <Line
-            key={index}
-
-            version='b3'
-
-            direction='row'
-
-            align='center'
-
-            justify='center'
-
-            Component={Type}
-
-            className={classNames([
-              staticClassName('DatePicker', theme) && [
-                'amaui-DatePicker-day-name'
-              ],
-
-              classes.dayName
-            ])}
-          >
-            {day}
-          </Line>
-        ))}
-      </Line>
-
-      {/* Weeks */}
-      {!noTransition && (
-        <Transitions
-          noTransition={monthSame}
-
-          mode='in-out-follow'
-
-          switch
-        >
-          <Transition
-            key={id}
-
-            in
-          >
-            {(status: TTransitionStatus) => {
-
-              return (
-                <Surface
-                  tonal={tonal}
-
-                  color={color}
-                >
-                  {({ palette }) => (
-                    <Line
-                      gap={0.5}
-
-                      direction='column'
-
-                      align='unset'
-
-                      justify='unset'
-
-                      className={classNames([
-                        staticClassName('DatePicker', theme) && [
-                          'amaui-DatePicker-weeks'
-                        ],
-
-                        classes.weeks,
-                        !relative && classes.weeks_absolute,
-                        [`weeks_${status}`]
-                      ])}
-                    >
-                      {weeks.map((week: any, index: number) => (
-                        // Week
-                        <Line
-                          key={index}
-
-                          gap={0}
-
-                          direction='row'
-
-                          align='unset'
-
-                          justify='space-between'
-
-                          className={classNames([
-                            staticClassName('DatePicker', theme) && [
-                              'amaui-DatePicker-week'
-                            ],
-
-                            classes.week
-                          ])}
-                        >
-                          {week.map((day: any, index_: number) => {
-                            const propsDay = {
-                              onClick: () => onDayClick(day.amauiDate),
-
-                              disabled: (
-                                (!day.in && !outside) ||
-
-                                !valid(
-                                  getLeadingZerosNumber(day.amauiDate.day),
-
-                                  'day',
-
-                                  {
-                                    month: getLeadingZerosNumber(day.amauiDate.month),
-                                    year: day.amauiDate.year
-                                  }
-                                ) ||
-
-                                // not prior to 1970, we may potentially update this in the future
-                                day.amauiDate.year < 1970
-                              )
-                            };
-
-                            return (
-                              <Line
-                                key={index_}
-
-                                direction='row'
-
-                                align='center'
-
-                                justify='center'
-
-                                className={classNames([
-                                  staticClassName('DatePicker', theme) && [
-                                    'amaui-DatePicker-day',
-                                    `amaui-DatePicker-day-${day.in ? 'in' : 'out'}`
-                                  ],
-
-                                  classes.day,
-                                  classes[`day_${day.in ? 'in' : 'out'}`],
-                                  (!day.in && !outside) && classes.day_out_no,
-                                  !day.selectedSame && range && [
-                                    (day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && classes.dayStart,
-                                    (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside)) && classes.dayEnd,
-                                    ((day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside))) && classes.dayStartEnd,
-                                    (day.selected && day.selectedIndex === 0 && !day.selectedSame) && classes.dayStartSelected,
-                                    (day.selected && day.selectedIndex === 1 && !day.selectedSame) && classes.dayEndSelected
-                                  ]
-                                ])}
-
-                                style={{
-                                  ...(range && !day.selected && !day.selectedSame && day.between ? {
-                                    background: theme.methods.palette.color.value(undefined, 80, true, palette)
-                                  } : undefined),
-
-                                  ...(range && day.selected && !day.selectedSame ? {
-                                    color: theme.methods.palette.color.value(undefined, 80, true, palette)
-                                  } : undefined)
-                                }}
-                              >
-                                {is('function', renderDay) ?
-                                  renderDay(day.amauiDate, propsDay, day.today, day.weekend, day.selected, outside) :
-                                  (
-                                    <PaginationItem
-                                      tonal={tonal}
-
-                                      color='inherit'
-
-                                      InteractionProps={{
-                                        background: false
-                                      }}
-
-                                      TypeProps={{
-                                        version: 'b3',
-
-                                        priority: !day.selected ? !day.weekend ? 'primary' : 'secondary' : undefined
-                                      }}
-
-                                      aria-label={format(day, 'DD-MM-YYYY')}
-
-                                      className={classNames([
-                                        staticClassName('DatePicker', theme) && [
-                                          'amaui-DatePicker-day-value'
-                                        ],
-
-                                        classes.dayValue
-                                      ])}
-
-                                      style={{
-                                        ...(day.today ? {
-                                          boxShadow: `inset 0px 0px 0px 1px ${palette[40]}`
-                                        } : undefined),
-
-                                        ...(day.selected ? {
-                                          color: theme.methods.palette.color.value(undefined, 90, true, palette),
-                                          backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
-                                        } : undefined)
-                                      }}
-
-                                      {...propsDay}
-                                    >
-                                      {day.value}
-                                    </PaginationItem>
-                                  )}
-                              </Line>
-                            );
-                          })}
-                        </Line>
-                      ))}
-                    </Line>
-                  )}
-                </Surface>
-              );
-            }}
-          </Transition>
-        </Transitions>
-      )}
-
-      {/* Without the transition */}
-      {noTransition && (
-        <Surface
-          tonal={tonal}
-
-          color={color}
-        >
-          {({ palette }) => (
-            <Line
-              gap={0.5}
-
-              direction='column'
-
-              align='unset'
-
-              justify='unset'
-
-              className={classNames([
-                staticClassName('DatePicker', theme) && [
-                  'amaui-DatePicker-weeks'
-                ],
-
-                classes.weeks,
-                !relative && classes.weeks_absolute,
-                [`weeks_${status}`]
-              ])}
-            >
-              {weeks.map((week: any, index: number) => (
-                // Week
-                <Line
-                  key={index}
-
-                  gap={0}
-
-                  direction='row'
-
-                  align='unset'
-
-                  justify='space-between'
-
-                  className={classNames([
-                    staticClassName('DatePicker', theme) && [
-                      'amaui-DatePicker-week'
-                    ],
-
-                    classes.week
-                  ])}
-                >
-                  {week.map((day: any, index_: number) => {
-                    const propsDay = {
-                      onClick: () => onDayClick(day.amauiDate),
-
-                      disabled: (
-                        (!day.in && !outside) ||
-
-                        !valid(
-                          getLeadingZerosNumber(day.amauiDate.day),
-
-                          'day',
-
-                          {
-                            month: getLeadingZerosNumber(day.amauiDate.month),
-                            year: day.amauiDate.year
-                          }
-                        ) ||
-
-                        // not prior to 1970, we may potentially update this in the future
-                        day.amauiDate.year < 1970
-                      )
-                    };
-
-                    return (
-                      <Line
-                        key={index_}
-
-                        direction='row'
-
-                        align='center'
-
-                        justify='center'
-
-                        className={classNames([
-                          staticClassName('DatePicker', theme) && [
-                            'amaui-DatePicker-day',
-                            `amaui-DatePicker-day-${day.in ? 'in' : 'out'}`
-                          ],
-
-                          classes.day,
-                          classes[`day_${day.in ? 'in' : 'out'}`],
-                          (!day.in && !outside) && classes.day_out_no,
-                          !day.selectedSame && range && [
-                            (day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && classes.dayStart,
-                            (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside)) && classes.dayEnd,
-                            ((day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside))) && classes.dayStartEnd,
-                            (day.selected && day.selectedIndex === 0 && !day.selectedSame) && classes.dayStartSelected,
-                            (day.selected && day.selectedIndex === 1 && !day.selectedSame) && classes.dayEndSelected
-                          ]
-                        ])}
-
-                        style={{
-                          ...(range && !day.selected && !day.selectedSame && day.between ? {
-                            background: theme.methods.palette.color.value(undefined, 80, true, palette)
-                          } : undefined),
-
-                          ...(range && day.selected && !day.selectedSame ? {
-                            color: theme.methods.palette.color.value(undefined, 80, true, palette)
-                          } : undefined)
-                        }}
-                      >
-                        {is('function', renderDay) ?
-                          renderDay(day.amauiDate, propsDay, day.today, day.weekend, day.selected, outside) :
-                          (
-                            <PaginationItem
-                              tonal={tonal}
-
-                              color='inherit'
-
-                              InteractionProps={{
-                                background: false
-                              }}
-
-                              TypeProps={{
-                                version: 'b3',
-
-                                priority: !day.selected ? !day.weekend ? 'primary' : 'secondary' : undefined
-                              }}
-
-                              aria-label={format(day, 'DD-MM-YYYY')}
-
-                              className={classNames([
-                                staticClassName('DatePicker', theme) && [
-                                  'amaui-DatePicker-day-value'
-                                ],
-
-                                classes.dayValue
-                              ])}
-
-                              style={{
-                                ...(day.today ? {
-                                  boxShadow: `inset 0px 0px 0px 1px ${palette[40]}`
-                                } : undefined),
-
-                                ...(day.selected ? {
-                                  color: theme.methods.palette.color.value(undefined, 90, true, palette),
-                                  backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
-                                } : undefined)
-                              }}
-
-                              {...propsDay}
-                            >
-                              {day.value}
-                            </PaginationItem>
-                          )}
-                      </Line>
-                    );
-                  })}
-                </Line>
-              ))}
-            </Line>
-          )}
-        </Surface>
-      )}
-    </Line>
-  );
-});
-
-export type TDatePickerValue = AmauiDate | [AmauiDate, AmauiDate];
-
-export type TDatePickerCalendar = {
-  previous?: AmauiDate;
-  date?: AmauiDate;
-  move?: 'next' | 'previous';
-  update?: string;
-};
-
 export interface IDatePicker extends ILine {
   tonal?: TTonal;
   color?: TColor;
 
-  version?: 'auto' | 'mobile' | 'desktop' | 'static';
+  version?: 'auto' | 'mobile' | 'desktop';
 
-  versionStatic?: 'docked' | 'modal' | 'fullScreen';
+  value?: TCalendarMonthValue;
+  valueDefault?: TCalendarMonthValue;
+  onChange?: (value: TCalendarMonthValue) => any;
 
-  value?: TDatePickerValue;
-  valueDefault?: TDatePickerValue;
-
-  onChange?: (value: TDatePickerValue) => any;
-
-  calendar?: TDatePickerCalendar;
-
-  onChangeCalendar?: (value: TDatePickerCalendar) => any;
-
-  calendars?: number;
+  calendar?: TCalendarMonthCalendar;
+  calendarDefault?: TCalendarMonthCalendar;
+  onChangeCalendar?: (value: TCalendarMonthCalendar) => any;
 
   now?: boolean;
-
-  today?: boolean;
-
-  label?: TElement;
-
-  labelFrom?: string;
-
-  labelTo?: string;
-
-  min?: number;
-
-  max?: number;
-
-  validate?: (value: AmauiDate) => boolean;
-
-  autoCloseOnPick?: boolean | Record<TValueBreakpoints, boolean>;
-
-  openMobile?: 'input' | 'select';
-
-  modeModalHeadingText?: string;
-
-  selectModeHeadingText?: string;
-
-  inputModeHeadingText?: string;
-
-  useHelperText?: boolean | Record<TValueBreakpoints, boolean>;
-
-  weekStartDay?: 'Monday' | 'Sunday';
-
-  menuCloseOnSelect?: boolean;
-
-  day?: boolean;
-
-  month?: boolean;
-
-  year?: boolean;
-
   range?: boolean;
-
+  valid?: (value: AmauiDate, version: 'day' | 'month' | 'year') => boolean;
+  validate?: (value: AmauiDate) => boolean;
+  min?: AmauiDate;
+  max?: AmauiDate;
+  calendars?: number;
+  placeholder?: string;
+  autoCloseOnPick?: boolean | Record<TValueBreakpoints, boolean>;
+  openMobile?: 'input' | 'select';
+  modeModalHeadingText?: string;
+  selectModeHeadingText?: string;
+  inputModeHeadingText?: string;
   switch?: boolean | Record<TValueBreakpoints, boolean>;
-
+  useHelperText?: boolean | Record<TValueBreakpoints, boolean>;
+  menuCloseOnSelect?: boolean;
+  label?: TElement;
+  labelFrom?: string;
+  labelTo?: string;
   fullScreen?: boolean;
-
   readOnly?: boolean;
-
   disabled?: boolean;
 
-  geMonths?: (value: TDatePickerValue, values: any, calendar: TDatePickerCalendar, props: TPropsAny) => Array<{ value: string }>;
-
-  geYears?: (value: TDatePickerValue, values: any, calendar: TDatePickerCalendar, props: TPropsAny) => Array<{ value: number }>;
-
   onClick?: (event: React.MouseEvent<any>) => any;
-
   onClose?: (event: React.MouseEvent<any>) => any;
-
   onCancel?: (event: React.MouseEvent<any>) => any;
-
-  renderDay?: (value: AmauiDate, props: any, today: boolean, weekend: boolean, selected: boolean, outside: boolean) => React.ReactNode;
+  onToday?: (event: React.MouseEvent<any>) => any;
+  onOk?: (event: React.MouseEvent<any>) => any;
 
   Icon?: TElementReference;
-  IconPrevious?: TElementReference;
-  IconNext?: TElementReference;
-  IconDropDown?: TElementReference;
   IconCheck?: TElementReference;
   IconEnter?: TElementReference;
   IconClose?: TElementReference;
 
-  ModalProps?: TPropsAny;
+  CalendarProps?: TPropsAny;
+  CalendarPropsDesktop?: TPropsAny;
   TooltipProps?: TPropsAny;
   IconButtonProps?: TPropsAny;
   AdvancedTextFieldProps?: TPropsAny;
-  ModeDockedProps?: TPropsAny;
-  ModeModalProps?: TPropsAny;
-  ModeFullScreenProps?: TPropsAny;
-  ModeInputProps?: TPropsAny;
-  CalendarProps?: TPropsAny;
-  ButtonProps?: TPropsAny;
-  InputProps?: TPropsAny;
+  ActionButtonProps?: TPropsAny;
 }
 
 const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
@@ -1190,101 +544,58 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     tonal = true,
     color = 'primary',
 
-    // mobile, desktop, static & auto
     version: version_ = 'auto',
-
-    versionStatic,
 
     value: value_,
     valueDefault,
-
     onChange,
 
-    calendar: calendar__,
-
+    calendar: calendar_,
+    calendarDefault,
     onChangeCalendar,
 
-    calendars = props.range ? 2 : 1,
-
-    now = true,
-
-    today = true,
-
-    label,
-
-    labelFrom = `Date from`,
-
-    labelTo = `Date to`,
-
-    min,
-
-    max,
-
-    validate,
-
-    autoCloseOnPick: autoCloseOnPick_,
-
-    openMobile = 'select',
-
-    modeModalHeadingText = 'Select date',
-
-    selectModeHeadingText = 'Select date',
-
-    inputModeHeadingText = 'Enter date',
-
-    useHelperText: useHelperText_,
-
-    weekStartDay = 'Monday',
-
-    menuCloseOnSelect = true,
-
-    day = true,
-
-    month = true,
-
-    year = true,
-
     range,
-
+    now = true,
+    openMobile = 'select',
+    placeholder: placeholder_,
+    calendars = props.range ? 2 : 1,
+    min,
+    max,
+    validate,
+    label,
+    labelFrom = `Date from`,
+    labelTo = `Date to`,
+    autoCloseOnPick: autoCloseOnPick_,
+    modeModalHeadingText = 'Select date',
+    selectModeHeadingText = 'Select date',
+    inputModeHeadingText = 'Enter date',
+    useHelperText: useHelperText_,
+    weekStartDay = 'Monday',
+    menuCloseOnSelect = true,
     switch: switch__,
-
     fullScreen,
-
     readOnly,
-
     disabled,
 
-    geMonths: getMonths_,
-
-    geYears: getYears_,
+    valid: valid_,
 
     onClick: onClick_,
-
     onClose: onClose_,
-
     onCancel: onCancel_,
-
-    renderDay,
+    onOk: onOk_,
+    onToday: onToday_,
 
     Icon: Icon_ = IconMaterialCalendarTodayRoundedFilled,
-    IconPrevious = IconMaterialNavigateBeforeRounded,
-    IconNext = IconMaterialNavigateNextRounded,
-    IconDropDown = IconMaterialArrowDropDownRounded,
     IconCheck = IconMaterialDoneRounded,
     IconEnter = IconMaterialEditRounded,
     IconClose = IconMaterialCloseRounded,
 
-    ModalProps,
-    TooltipProps,
+    CalendarProps,
+    CalendarPropsDesktop,
     IconButtonProps,
     AdvancedTextFieldProps,
-    ModeDockedProps,
-    ModeModalProps,
-    ModeFullScreenProps,
-    ModeInputProps,
-    CalendarProps,
-    ButtonProps,
-    InputProps,
+    TooltipProps,
+    ActionButtonProps,
 
     className,
 
@@ -1296,136 +607,36 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   const autoCloseOnPick = valueBreakpoints(autoCloseOnPick_, undefined, breakpoints, theme);
 
   const refs = {
-    root: React.useRef<any>(),
-    iconButton: React.useRef<any>(),
-    month: React.useRef<any>(),
-    year: React.useRef<any>(),
-    version: React.useRef<any>(),
-    open: React.useRef<any>(),
-    openMenu: React.useRef<any>(),
-    mode: React.useRef<any>(),
-    value: React.useRef<any>(),
-    values: React.useRef<any>(),
-    autoCloseOnPick: React.useRef<any>(),
-    min: React.useRef<any>(),
-    max: React.useRef<any>(),
-    validate: React.useRef<any>(),
-    weekStartDay: React.useRef<any>(),
-    today: React.useRef<any>(),
-    menuCloseOnSelect: React.useRef<any>(),
-    mask: React.useRef<any>(),
-    maskInput: React.useRef<any>(),
-    placeholder: React.useRef<any>(),
-    placeholderInput: React.useRef<any>(),
-    calendar: React.useRef<any>(),
-    carousel: React.useRef<any>(),
-    carouselValue: React.useRef<any>()
-  };
-
-  const valueToValues = (valueNew: AmauiDate, index: number, input = true) => {
-    const values_: any = {
-      ...refs.values.current?.[index]
-    };
-
-    if (valueNew) {
-      // day
-      values_.day = formatMethod(valueNew, 'DD');
-
-      // month
-      values_.month = formatMethod(valueNew, 'MM');
-
-      // year
-      values_.year = formatMethod(valueNew, 'YYYY');
-
-      // input
-      const format_ = [];
-
-      if (day) format_.push('DD');
-
-      if (month) format_.push('MM');
-
-      if (year) format_.push('YYYY');
-
-      if (input) values_.input = values_.inputModal = formatMethod(valueNew, format_.join('/'));
-    }
-
-    return values_;
-  };
-
-  const valuesToValue = (values_: any, date = true) => {
-    let amauiDate = new AmauiDate(refs.value.current);
-
-    if (values_.date && date) {
-      amauiDate = new AmauiDate(values_.date);
-    }
-    else {
-      // day
-      let day_: any = String(values_.day || '01');
-
-      if (day_.startsWith('0')) day_ = +day_.slice(1);
-
-      amauiDate = set(+day_, 'day', amauiDate);
-
-      // month
-      let month_: any = String(values_.month || '01');
-
-      if (month_.startsWith('0')) month_ = +month_.slice(1);
-
-      // months start from 0
-      amauiDate = set(+month_ - 1, 'month', amauiDate);
-
-      // year
-      const year_: any = String(values_.year || new AmauiDate().year);
-
-      amauiDate = set(+year_, 'year', amauiDate);
-    }
-
-    return amauiDate;
-  };
-
-  const valueToInputModal = (value__: any) => {
-    let inputModal = '';
-
-    const format_: any = [];
-
-    // day
-    if (day) format_.push('DD');
-
-    if (month) format_.push('MM');
-
-    if (year) format_.push('YYYY');
-
-    inputModal = formatMethod(value__, format_.join('/'));
-
-    return inputModal;
+    root: React.useRef<any>()
   };
 
   const touch = useMediaQuery('(pointer: coarse)');
 
-  const [open, setOpen] = React.useState(false);
-  const [openMenu, setOpenMenu] = React.useState<any>(false);
-  const [mode, setMode] = React.useState((touch ? openMobile : 'select') || 'select');
   const [value, setValue] = React.useState(() => {
-    const value__ = (valueDefault !== undefined ? valueDefault : value_) || (now && (range ? [new AmauiDate(), new AmauiDate()] : [new AmauiDate()]));
+    const valueResult = (valueDefault !== undefined ? valueDefault : value_) || (now && (range ? [new AmauiDate(), new AmauiDate()] : [new AmauiDate()]));
 
-    return is('array', value__) ? value__ : [value__];
+    return ((is('array', valueResult) ? valueResult : [valueResult]) as Array<AmauiDate>).filter(Boolean);
   });
-  const [values, setValues] = React.useState<any>(() => (value as any).map((item: any, index: number) => {
-    const item_ = valueToValues(item, index);
-
-    item_.date = item_.selected = item;
-
-    return item_;
-  }));
-  const [calendar, setCalendar] = React.useState<any>(() => {
-    const calendar_ = { ...values[0] };
-
-    calendar_.date = calendar_.previous = valuesToValue(values[0]);
-
-    return calendar_;
-  });
-  const [carouselValue, setCarouselValue] = React.useState<any>();
+  const [calendar, setCalendar] = React.useState((calendarDefault !== undefined ? calendarDefault : calendar_) || new AmauiDate());
+  const [open, setOpen] = React.useState(false);
+  const [mode, setMode] = React.useState((touch ? openMobile : 'select') || 'select');
   const [error, setError] = React.useState(false);
+
+  const valueToInput = React.useCallback((valueNew: any = value) => {
+    let result = '';
+
+    const [from, to] = valueNew;
+
+    const method = (item: AmauiDate) => `${format(item, 'DD')}/${format(item, 'MM')}/${format(item, 'YYYY')}`;
+
+    result += `${method(from)}`;
+
+    if (range && to) result += `${SEPARATOR}${method(to)}`;
+
+    return result;
+  }, [value]);
+
+  const [input, setInput] = React.useState(valueToInput());
 
   let version = version_;
 
@@ -1434,83 +645,2650 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     else version = 'desktop';
   }
 
-  refs.version.current = version;
+  // const valueToValues = (valueNew: AmauiDate, index: number, input = true) => {
+  //   const values_: any = {
+  //     ...refs.values.current?.[index]
+  //   };
 
-  refs.open.current = open;
+  //   if (valueNew) {
+  //     // day
+  //     values_.day = formatMethod(valueNew, 'DD');
 
-  refs.openMenu.current = openMenu;
+  //     // month
+  //     values_.month = formatMethod(valueNew, 'MM');
 
-  refs.mode.current = mode;
+  //     // year
+  //     values_.year = formatMethod(valueNew, 'YYYY');
 
-  refs.values.current = values;
+  //     // input
+  //     const format_ = [];
 
-  refs.value.current = value;
+  //     if (day) format_.push('DD');
 
-  refs.autoCloseOnPick.current = autoCloseOnPick;
+  //     if (month) format_.push('MM');
 
-  refs.min.current = min;
+  //     if (year) format_.push('YYYY');
 
-  refs.max.current = max;
+  //     if (input) values_.input = values_.inputModal = formatMethod(valueNew, format_.join('/'));
+  //   }
 
-  refs.validate.current = validate;
+  //   return values_;
+  // };
 
-  refs.weekStartDay.current = weekStartDay;
+  // const valuesToValue = (values_: any, date = true) => {
+  //   let amauiDate = new AmauiDate(refs.value.current);
 
-  refs.today.current = today;
+  //   if (values_.date && date) {
+  //     amauiDate = new AmauiDate(values_.date);
+  //   }
+  //   else {
+  //     // day
+  //     let day_: any = String(values_.day || '01');
 
-  refs.menuCloseOnSelect.current = menuCloseOnSelect;
+  //     if (day_.startsWith('0')) day_ = +day_.slice(1);
 
-  refs.calendar.current = calendar;
+  //     amauiDate = set(+day_, 'day', amauiDate);
 
-  refs.carouselValue.current = carouselValue;
+  //     // month
+  //     let month_: any = String(values_.month || '01');
 
-  const mask: any = [];
+  //     if (month_.startsWith('0')) month_ = +month_.slice(1);
 
-  let placeholder: any = [];
+  //     // months start from 0
+  //     amauiDate = set(+month_ - 1, 'month', amauiDate);
 
-  if (day) {
-    mask.push(
-      { pattern: '[0-3]' },
+  //     // year
+  //     const year_: any = String(values_.year || new AmauiDate().year);
 
-      (item: string, result: string, valueInput: string) => /^(0[0-9]|1[0-9]|2[0-9]|3[0-1]).*/.test(valueInput)
-    );
+  //     amauiDate = set(+year_, 'year', amauiDate);
+  //   }
 
-    placeholder.push('DD');
-  }
+  //   return amauiDate;
+  // };
 
-  if (month) {
-    if (mask.length) mask.push('/');
+  // const valueToInputModal = (value__: any) => {
+  //   let inputModal = '';
 
-    mask.push(
-      { pattern: '[0-1]' },
+  //   const format_: any = [];
 
-      (item: string, result: string, valueInput: string) => day ? /^(0[0-9]|1[0-9]|2[0-9]|3[0-1])\/(0[0-9]|1[0-2])/.test(valueInput) : /^(0[0-9]|1[0-2]).*/.test(valueInput)
-    );
+  //   // day
+  //   if (day) format_.push('DD');
 
-    placeholder.push('MM');
-  }
+  //   if (month) format_.push('MM');
 
-  if (year) {
-    if (mask.length) mask.push('/');
+  //   if (year) format_.push('YYYY');
 
-    mask.push(
-      { pattern: '[1-2]' },
+  //   inputModal = formatMethod(value__, format_.join('/'));
 
-      { pattern: '[0-9]' },
+  //   return inputModal;
+  // };
 
-      { pattern: '[0-9]' },
+  // const getMonths = is('function', getMonths_) ? getMonths_ : React.useCallback(() => {
+  //   return monthsValue.map((item: any) => ({ value: item }));
+  // }, []);
 
-      { pattern: '[0-9]' }
-    );
+  // const getYears = is('function', getYears_) ? getYears_ : React.useCallback(() => {
+  //   const years_ = [];
 
-    placeholder.push('YYYY');
-  }
+  //   for (let i = 0; i < 130; i++) years_.push({ value: 1970 + i });
 
-  placeholder = placeholder.join('/');
+  //   return years_;
+  // }, []);
 
-  refs.maskInput.current = [...mask];
+  // const updateCalendar = (valueNew: any) => {
+  //   setCalendar(valueNew);
 
-  refs.placeholderInput.current = placeholder;
+  //   if (is('function', onChangeCalendar)) onChangeCalendar(valueNew);
+  // };
+
+  // const updateInputModal = (valueNew: any, index: number) => {
+  //   const [from, to] = valueNew.split(SEPARATOR);
+
+  //   let values_ = [
+  //     ...refs.values.current
+  //   ];
+
+  //   values_[index] = {
+  //     ...values_[index],
+
+  //     ...inputToValues(valueNew, index),
+
+  //     inputModal: valueNew
+  //   };
+
+  //   values_[index].selected = values_[index].date;
+
+  //   values_ = values_.filter(Boolean);
+
+  //   if (range) {
+  //     const amauiDates = values_.map(item => item.selected);
+
+  //     if (amauiDates[1].milliseconds < amauiDates[0].milliseconds && index === 1) {
+  //       values_[1] = { ...values_[0] };
+
+  //       values_[1].date = new AmauiDate(values_[1].date);
+
+  //       values_[1].selected = new AmauiDate(values_[1].selected);
+  //     }
+  //     else if (amauiDates[0].milliseconds > amauiDates[1].milliseconds) {
+  //       values_[0] = { ...values_[1] };
+
+  //       values_[0].date = new AmauiDate(values_[0].date);
+
+  //       values_[0].selected = new AmauiDate(values_[0].selected);
+  //     }
+  //   }
+
+  //   setValues(values_);
+
+  //   updateCalendar({ ...values_[index], previous: values_[index].date });
+
+  //   updateValue(values_.map(item => valuesToValue(item)));
+
+  //   // Error
+  //   setError([from, to].filter(Boolean).some((item: any, index_: number) => !validItem('', '', inputToValues(item, index_))));
+
+  //   return values_;
+  // };
+
+  // const validItem = (item: number | string = '', version__ = '', calendar_ = refs.calendar.current, withDate = false) => {
+  //   const values_ = {
+  //     ...calendar_
+  //   };
+
+  //   // Only validate against day, month, year values
+  //   if (!withDate) delete values_.date;
+
+  //   if (version__) values_[version__] = is('number', item) ? getLeadingZerosNumber(item as number) : item;
+
+  //   const amauiDate = valuesToValue(values_);
+
+  //   Object.keys(values_).forEach((item_: any) => {
+  //     if (is('string', values_[item_])) {
+  //       if (values_[item_].startsWith('0')) values_[item_] = values_[item_].slice(1);
+  //     }
+  //   });
+
+  //   if (values_.day !== undefined) values_.day = +values_.day;
+
+  //   if (values_.month !== undefined) values_.month = +values_.month;
+
+  //   if (values_.year !== undefined) values_.year = +values_.year;
+
+  //   let valid = true;
+
+  //   if (is('function', refs.validate.current)) valid = refs.validate.current(values_[version], values_, version);
+
+  //   if (refs.min.current !== undefined) valid = valid && isMethod(amauiDate, 'after or same', refs.min.current);
+
+  //   if (refs.max.current !== undefined) valid = valid && isMethod(amauiDate, 'before or same', refs.max.current);
+
+  //   return valid;
+  // };
+
+  // const inputToValues = (valueNew: any, index: number) => {
+  //   const values_: any = {
+  //     ...refs.values.current[index]
+  //   };
+
+  //   values_.date = new AmauiDate();
+
+  //   // input
+  //   const [day_, month_, year_] = (valueNew || '').split('/');
+
+  //   if (day_) {
+  //     values_.day = day_.startsWith('0') ? day_.slice(1) : day_;
+
+  //     values_.day = +day_;
+
+  //     values_.date = set(values_.day, 'day', values_.date);
+  //   }
+
+  //   if (month_) {
+  //     values_.month = month_.startsWith('0') ? month_.slice(1) : month_;
+
+  //     values_.month = +month_;
+
+  //     values_.date = set(values_.month - 1, 'month', values_.date);
+  //   }
+
+  //   if (year_) {
+  //     values_.year = +year_;
+
+  //     values_.date = set(values_.year, 'year', values_.date);
+  //   }
+
+  //   return values_;
+  // };
+
+  // const updateValue = (valueNew: any) => {
+  //   if (!props.hasOwnProperty('value')) setValue(valueNew);
+
+  //   if (is('function', onChange)) onChange(!range ? valueNew[0] : valueNew);
+  // };
+
+  // const updateFromValue = (valueNew_: AmauiDate | number | [AmauiDate | number, AmauiDate | number]) => {
+  //   const valueNew: any = is('array', valueNew_) ? valueNew_ : [valueNew_];
+
+  //   const amauiDates = valueNew.map(item => new AmauiDate(item));
+
+  //   if (amauiDates[0].milliseconds > amauiDates[1]?.milliseconds) amauiDates[0] = new AmauiDate(amauiDates[1]);
+
+  //   // Error
+  //   setError(amauiDates.some((item: any, index: number) => !validItem('', '', valueToValues(item, index))));
+
+  //   // Update values
+  //   setValues(amauiDates.map((item: any, index: number) => valueToValues(item, index)));
+
+  //   // Update value
+  //   setValue(amauiDates);
+  // };
+
+  // React.useEffect(() => {
+  //   const onKeyDown = (event: KeyboardEvent) => {
+  //     if (refs.open.current) {
+  //       switch (event.key) {
+  //         case 'Escape':
+  //           return onCancel(event as any);
+
+  //         default:
+  //           break;
+  //       }
+  //     }
+  //   };
+
+  //   // Error
+  //   setError((refs.values.current || []).some((item: any, index: number) => !validItem('', '', inputToValues(item?.input, index))));
+
+  //   window.addEventListener('keydown', onKeyDown);
+
+  //   return () => {
+  //     window.removeEventListener('keydown', onKeyDown);
+  //   };
+  // }, []);
+
+  // React.useEffect(() => {
+  //   if (value_ !== undefined && value_ !== refs.value.current) updateFromValue(value_);
+  // }, [value_]);
+
+  // React.useEffect(() => {
+  //   if (calendar__ !== undefined && calendar__ !== refs.calendar.current) setCalendar(calendarValue => ({ ...calendarValue, ...calendar__ }));
+  // }, [calendar__]);
+
+  // const updateCarouselPosition = () => {
+  //   // scroll to the value
+  //   setTimeout(() => {
+  //     try {
+  //       let item: any = window.document.body.querySelector('[data-month-from]');
+
+  //       if (item) {
+  //         item = item.parentElement.parentElement.parentElement;
+
+  //         setCarouselValue({ y: item.offsetTop });
+  //       }
+  //     } catch (error) { }
+  //   }, 140);
+  // };
+
+  // const onDayClick = React.useCallback((amauiDate: AmauiDate) => {
+  //   const valueNew = new AmauiDate(amauiDate);
+
+  //   // value or value range update
+  //   const to = refs.values.current[1];
+
+  //   let [from] = refs.values.current;
+
+  //   if (!range) {
+  //     from = {
+  //       ...from,
+
+  //       ...valueToValues(valueNew, 0, false),
+
+  //       previous: refs.calendar.current.date,
+
+  //       move: valueNew.milliseconds > refs.calendar.current?.date?.milliseconds ? 'next' : 'previous',
+
+  //       selected: new AmauiDate(valueNew),
+
+  //       inputModal: valueToInputModal(valueNew),
+
+  //       date: valueNew
+  //     };
+
+  //     // Calendar
+  //     let calendarValue = {
+  //       ...from
+  //     };
+
+  //     if (calendars > 1) {
+  //       calendarValue = {
+  //         ...refs.calendar.current,
+
+  //         update: 'day'
+  //       };
+
+  //       calendarValue.previous = new AmauiDate(calendarValue.date);
+  //     }
+
+  //     updateCalendar(calendarValue);
+
+  //     setValues([from, to].filter(Boolean));
+
+  //     return;
+  //   }
+
+  //   // update the value closest to from, to value
+  //   // if value is same (in terms of day, month, year as from or to)
+  //   // make a reset, ie. make both values that same date
+  //   // as a selected value
+  //   const selecteds = refs.values.current.map(item => item.selected);
+
+  //   // if day, month, year
+  //   // is same as one of the selected, reset
+  //   // make both selected values the same value
+  //   if (selecteds.filter(Boolean).some(item => valueNew.year === item.year && valueNew.month === item.month && valueNew.day === item.day)) {
+  //     return setValues(values_ => {
+  //       const values__ = values_.map((item_: any, index_: number) => {
+  //         const item = {
+  //           ...item_,
+
+  //           ...valueToValues(valueNew, index_, false),
+
+  //           previous: refs.calendar.current.date,
+
+  //           move: valueNew.milliseconds > refs.calendar.current?.date?.milliseconds ? 'next' : 'previous',
+
+  //           selected: new AmauiDate(valueNew),
+
+  //           inputModal: valueToInputModal(valueNew),
+
+  //           date: valueNew
+  //         };
+
+  //         return item;
+  //       });
+
+  //       // Calendar
+  //       let calendarValue = {
+  //         ...values__[0]
+  //       };
+
+  //       if (calendars > 1) {
+  //         calendarValue = {
+  //           ...refs.calendar.current,
+
+  //           update: 'day'
+  //         };
+
+  //         calendarValue.previous = new AmauiDate(calendarValue.date);
+  //       }
+
+  //       updateCalendar(calendarValue);
+
+  //       return values__;
+  //     });
+  //   }
+
+  //   let index: number;
+
+  //   if (!selecteds[0]) index = 0;
+  //   else if (!selecteds[1]) index = 1;
+  //   else if (valueNew.milliseconds < selecteds[0].milliseconds) index = 0;
+  //   else if (valueNew.milliseconds > selecteds[1].milliseconds) index = 1;
+  //   else {
+  //     const part = Math.abs(selecteds[1].milliseconds - selecteds[0].milliseconds) / 2;
+
+  //     index = valueNew.milliseconds <= (selecteds[0].milliseconds + part) ? 0 : 1;
+  //   }
+
+  //   setValues(values_ => {
+  //     const values__ = values_.map((item_: any, index_: number) => {
+  //       if (index_ === index) {
+  //         const item = {
+  //           ...item_,
+
+  //           ...valueToValues(valueNew, index_, false),
+
+  //           previous: refs.calendar.current.date,
+
+  //           move: valueNew.milliseconds > refs.calendar.current?.date?.milliseconds ? 'next' : 'previous',
+
+  //           selected: new AmauiDate(valueNew),
+
+  //           inputModal: valueToInputModal(valueNew),
+
+  //           date: valueNew
+  //         };
+
+  //         // Calendar
+  //         let calendarValue = {
+  //           ...item
+  //         };
+
+  //         if (calendars > 1) {
+  //           calendarValue = {
+  //             ...refs.calendar.current,
+
+  //             update: 'day'
+  //           };
+
+  //           calendarValue.previous = new AmauiDate(calendarValue.date);
+  //         }
+
+  //         updateCalendar(calendarValue);
+
+  //         return item;
+  //       }
+
+  //       return item_;
+  //     });
+
+  //     return values__;
+  //   });
+  // }, [range, calendars]);
+
+  // const onMonthClick = React.useCallback((index: number) => {
+  //   let valueNew = new AmauiDate(refs.calendar.current.date);
+
+  //   valueNew = set(index, 'month', valueNew);
+
+  //   updateCalendar({
+  //     ...refs.calendar.current,
+
+  //     previous: refs.calendar.current.date,
+
+  //     move: valueNew.milliseconds > refs.calendar.current?.date?.milliseconds ? 'next' : 'previous',
+
+  //     inputModal: valueToInputModal(valueNew),
+
+  //     date: valueNew
+  //   });
+
+  //   if (refs.menuCloseOnSelect.current) onCloseMenu();
+  // }, []);
+
+  // const onYearClick = React.useCallback((year_: number) => {
+  //   let valueNew = new AmauiDate(refs.calendar.current.date);
+
+  //   valueNew = set(year_, 'year', valueNew);
+
+  //   const calendar_ = {
+  //     ...refs.calendar.current,
+
+  //     previous: refs.calendar.current.date,
+
+  //     move: valueNew.milliseconds > refs.calendar.current?.date?.milliseconds ? 'next' : 'previous',
+
+  //     inputModal: valueToInputModal(valueNew),
+
+  //     date: valueNew
+  //   };
+
+  //   updateCalendar(calendar_);
+
+  //   if (refs.menuCloseOnSelect.current) onCloseMenu();
+  // }, []);
+
+  // const onOpenMenu = React.useCallback((menu_ = 'month') => {
+  //   const valueNew = refs.openMenu.current === menu_ ? false : menu_;
+
+  //   setOpenMenu(valueNew);
+
+  //   // scroll to the value
+  //   setTimeout(() => {
+  //     if (valueNew) {
+  //       const date = refs.calendar.current.date;
+
+  //       let valueItem: any = '';
+
+  //       if (valueNew === 'month') valueItem = date.month - 1;
+  //       else if (valueNew === 'year') valueItem = date.year;
+
+  //       const list = refs[valueNew].current;
+
+  //       if (list) {
+  //         try {
+  //           const item = list.querySelector(`[data-value="${valueItem}"]`);
+
+  //           if (item) list.scrollTo(0, clamp(item.offsetTop - (refs.version.current !== 'desktop' ? 104 : 204), 0), { behavior: 'smooth' });
+  //         } catch (error) { }
+  //       }
+  //     }
+  //   });
+  // }, []);
+
+  // const onCloseMenu = React.useCallback(() => {
+  //   setOpenMenu(false);
+  // }, []);
+
+  // const onModal = React.useCallback((event: React.MouseEvent<any>) => {
+  //   setMode(refs.version.current === 'mobile' ? openMobile : 'select');
+
+  //   setOpen(true);
+
+  //   // Update calendar to from value view
+  //   updateCalendar({
+  //     ...refs.calendar.current,
+
+  //     ...refs.values.current[0]
+  //   });
+
+  //   if (is('function', onClick_)) onClick_(event);
+  // }, [openMobile, onClick_]);
+
+  // const onModeSwitch = React.useCallback(() => {
+  //   setMode(refs.mode.current === 'select' ? 'input' : 'select');
+  // }, []);
+
+  // const onClear = React.useCallback(() => {
+  //   setOpenMenu(false);
+
+  //   const values_ = (range ? [new AmauiDate(), new AmauiDate()] : [new AmauiDate()]).map((item: any, index: number) => {
+  //     const item_ = valueToValues(item, index);
+
+  //     item_.date = item_.selected = item;
+
+  //     item_.inputModal = valueToInputModal(item_.date);
+
+  //     return item_;
+  //   });
+
+  //   setValues(values_);
+
+  //   const calendar_ = { ...refs.calendar.current, ...values_[0] };
+
+  //   calendar_.previous = refs.calendar.current?.date;
+
+  //   calendar_.date = valuesToValue(values_[0]);
+
+  //   calendar_.move = calendar_.date.milliseconds > calendar_.previous?.milliseconds ? 'next' : 'previous';
+
+  //   calendar_.update = 'clear';
+
+  //   updateCalendar(calendar_);
+  // }, [range]);
+
+  // const onOk = React.useCallback(() => {
+  //   let values_ = refs.values.current;
+
+  //   const amauiDates = values_.map((item => valuesToValue(item)));
+
+  //   values_ = amauiDates.map((item: any, index: number) => valueToValues(item, index));
+
+  //   setValues(values_);
+
+  //   updateValue(amauiDates);
+
+  //   // Error
+  //   setError(values_.some(item => !validItem('', '', item)));
+
+  //   setOpenMenu(false);
+
+  //   setOpen(false);
+  // }, []);
+
+  // const reset = () => {
+  //   const values_ = refs.values.current.map((item: any, index: number) => {
+  //     const item_ = {
+  //       ...item,
+
+  //       ...inputToValues(item.input, index),
+
+  //       input: item.input,
+
+  //       inputModal: item.input
+  //     };
+
+  //     item_.date = item_.selected = valuesToValue(item_);
+
+  //     return item_;
+  //   });
+
+  //   setValues(values_);
+
+  //   const calendar_ = { ...refs.calendar.current, ...values_[0] };
+
+  //   calendar_.previous = refs.calendar.current?.date;
+
+  //   calendar_.date = valuesToValue(values_[0]);
+
+  //   calendar_.move = calendar_.date.milliseconds > calendar_.previous?.milliseconds ? 'next' : 'previous';
+
+  //   calendar_.update = 'clear';
+
+  //   updateCalendar(calendar_);
+  // };
+
+  // const move = (next = true, unit: TTimeUnits = 'month') => {
+  //   try {
+  //     const calendar_ = ({
+  //       ...refs.calendar.current,
+
+  //       previous: refs.calendar.current.date,
+
+  //       move: next ? 'next' : 'previous',
+
+  //       update: 'move',
+
+  //       date: (next ? add : remove)(1, unit, refs.calendar.current.date)
+  //     });
+
+  //     updateCalendar(calendar_);
+  //   }
+  //   catch (error) { }
+  // };
+
+  // const moveCalendar = (units = 1, calendarValue: any = refs.calendar.current, next = true, unit: TTimeUnits = 'month') => {
+  //   try {
+  //     const previousCalendar: any = (calendarValue?.move === 'next' ? remove : add)(units - 1, unit, calendarValue.date);
+
+  //     const valueNew: any = (next ? add : remove)(units, unit, calendarValue.date);
+
+  //     const calendar_ = ({
+  //       ...calendarValue,
+
+  //       previous: previousCalendar,
+
+  //       date: valueNew
+  //     });
+
+  //     return calendar_;
+  //   }
+  //   catch (error) { }
+  // };
+
+  // const ModeDocked = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
+  //   const valueMonth = refs.calendar.current.date;
+
+  //   const month_ = formatMethod(valueMonth, 'MMM');
+  //   const year_ = formatMethod(valueMonth, 'YYYY');
+
+  //   const buttonsProps = {
+  //     color: 'inherit',
+  //     version: 'text'
+  //   };
+
+  //   const actionsButtonsProps = {
+  //     tonal,
+  //     color,
+  //     version: 'text'
+  //   };
+
+  //   return (
+  //     <Surface
+  //       ref={ref_}
+
+  //       tonal={tonal}
+
+  //       color={color}
+
+  //       className={classNames([
+  //         staticClassName('DatePicker', theme) && [
+  //           'amaui-DatePicker-mode',
+  //           'amaui-DatePicker-mode-docked'
+  //         ],
+
+  //         ModeDockedProps?.className,
+  //         classes.mode,
+  //         classes.mode_docked
+  //       ])}
+  //     >
+  //       {/* Header */}
+  //       <Line
+  //         gap={0.5}
+
+  //         direction='row'
+
+  //         align='center'
+
+  //         justify='space-between'
+
+  //         className={classNames([
+  //           staticClassName('DatePicker', theme) && [
+  //             'amaui-DatePicker-mode-docked-header'
+  //           ],
+
+  //           classes.mode_docked_header
+  //         ])}
+  //       >
+  //         {/* Month */}
+  //         <Line
+  //           gap={0}
+
+  //           direction='row'
+
+  //           align='center'
+  //         >
+  //           <Fade
+  //             in={!refs.openMenu.current}
+  //           >
+  //             <IconButton
+  //               onClick={() => move(false)}
+
+  //               aria-label='Previous month'
+
+  //               disabled={refs.openMenu.current || (+year_ <= 1970 && month_ === 'Jan')}
+
+  //               {...buttonsProps}
+  //             >
+  //               <IconPrevious />
+  //             </IconButton>
+  //           </Fade>
+
+  //           <Button
+  //             version='text'
+
+  //             {...buttonsProps}
+
+  //             onClick={() => onOpenMenu()}
+
+  //             fontSize={24}
+
+  //             end={(
+  //               <Fade
+  //                 in={refs.openMenu.current !== 'year'}
+  //               >
+  //                 <IconDropDown
+  //                   className={classNames([
+  //                     staticClassName('DatePicker', theme) && [
+  //                       'amaui-DatePicker-arrow'
+  //                     ],
+
+  //                     classes.arrow,
+  //                     refs.openMenu.current === 'month' && classes.arrow_open
+  //                   ])}
+  //                 />
+  //               </Fade>
+  //             )}
+
+  //             className={classNames([
+  //               staticClassName('DatePicker', theme) && [
+  //                 'amaui-DatePicker-mode-docked-header-button'
+  //               ],
+
+  //               classes.mode_docked_header_button,
+  //               refs.openMenu.current === 'year' && classes.open_secondary
+  //             ])}
+
+  //             aria-label={`Select month, current ${month_}`}
+  //           >
+  //             {month_}
+  //           </Button>
+
+  //           <Fade
+  //             in={!refs.openMenu.current}
+  //           >
+  //             <IconButton
+  //               onClick={() => move()}
+
+  //               aria-label='Next month'
+
+  //               disabled={refs.openMenu.current || (+year_ === 2099 && month_ === 'Dec')}
+
+  //               {...buttonsProps}
+  //             >
+  //               <IconNext />
+  //             </IconButton>
+  //           </Fade>
+  //         </Line>
+
+  //         {/* Year */}
+  //         <Line
+  //           gap={0}
+
+  //           direction='row'
+
+  //           align='center'
+  //         >
+  //           <Fade
+  //             in={!refs.openMenu.current}
+  //           >
+  //             <IconButton
+  //               onClick={() => move(false, 'year')}
+
+  //               aria-label='Previous year'
+
+  //               disabled={refs.openMenu.current || +year_ <= 1970}
+
+  //               {...buttonsProps}
+  //             >
+  //               <IconPrevious />
+  //             </IconButton>
+  //           </Fade>
+
+  //           <Button
+  //             version='text'
+
+  //             {...buttonsProps}
+
+  //             onClick={() => onOpenMenu('year')}
+
+  //             fontSize={24}
+
+  //             end={(
+  //               <Fade
+  //                 in={refs.openMenu.current !== 'month'}
+  //               >
+  //                 <IconDropDown
+  //                   className={classNames([
+  //                     staticClassName('DatePicker', theme) && [
+  //                       'amaui-DatePicker-arrow'
+  //                     ],
+
+  //                     classes.arrow,
+  //                     refs.openMenu.current === 'year' && classes.arrow_open
+  //                   ])}
+  //                 />
+  //               </Fade>
+  //             )}
+
+  //             aria-label={`Select year, current ${year_}`}
+
+  //             className={classNames([
+  //               staticClassName('DatePicker', theme) && [
+  //                 'amaui-DatePicker-mode-docked-header-button'
+  //               ],
+
+  //               classes.mode_docked_header_button,
+  //               refs.openMenu.current === 'month' && classes.open_secondary
+  //             ])}
+  //           >
+  //             {year_}
+  //           </Button>
+
+  //           <Fade
+  //             in={!refs.openMenu.current}
+  //           >
+  //             <IconButton
+  //               onClick={() => move(true, 'year')}
+
+  //               aria-label='Next year'
+
+  //               disabled={refs.openMenu.current || +year_ === 2099}
+
+  //               {...buttonsProps}
+  //             >
+  //               <IconNext />
+  //             </IconButton>
+  //           </Fade>
+  //         </Line>
+  //       </Line>
+
+  //       {/* Main */}
+  //       {/* Calendar */}
+  //       {!refs.openMenu.current && (
+  //         <Fade
+  //           in
+  //         >
+  //           <Line
+  //             gap={0}
+
+  //             direction='column'
+
+  //             align='center'
+
+  //             style={{
+  //               width: '100%'
+  //             }}
+  //           >
+  //             {/* Calendar/s */}
+  //             <Line
+  //               direction='row'
+
+  //               align='center'
+
+  //               style={{
+  //                 width: '100%',
+  //                 padding: '0 8px'
+  //               }}
+  //             >
+  //               {Array.from({ length: calendars }).map((item: any, index: number) => {
+  //                 const calendarValue = index === 0 ? refs.calendar.current : moveCalendar(index, refs.calendar.current);
+
+  //                 if (
+  //                   (refs.calendar.current.update === 'day') ||
+  //                   (
+  //                     (['clear', 'reset'].includes(refs.calendar.current.update)) &&
+  //                     (refs.calendar.current.previous.month === refs.calendar.current.date.month && refs.calendar.current.previous.year === refs.calendar.current.date.year)
+  //                   )
+  //                 ) {
+  //                   calendarValue.previous = new AmauiDate(calendarValue.date);
+  //                 }
+
+  //                 const month__ = calendarValue?.date?.month - 1;
+
+  //                 return (
+  //                   <Line
+  //                     key={index}
+
+  //                     gap={1}
+
+  //                     direction='column'
+
+  //                     style={{
+  //                       width: '100%'
+  //                     }}
+  //                   >
+  //                     {calendars > 1 && (
+  //                       <Type
+  //                         version='l2'
+
+  //                         style={{
+  //                           paddingInlineStart: '16px'
+  //                         }}
+  //                       >
+  //                         {monthsValue[month__]}
+  //                       </Type>
+  //                     )}
+
+  //                     <div
+  //                       className={classNames([
+  //                         staticClassName('DatePicker', theme) && [
+  //                           'amaui-DatePicker-calendar-wrapper'
+  //                         ],
+
+  //                         classes.calendar_wrapper
+  //                       ])}
+  //                     >
+  //                       <CalendarMonth
+  //                         tonal={tonal}
+
+  //                         color={color}
+
+  //                         weekStartDay={weekStartDay}
+
+  //                         value={refs.value.current}
+
+  //                         values={refs.values.current}
+
+  //                         calendar={calendarValue}
+
+  //                         valid={validItem}
+
+  //                         onDayClick={onDayClick}
+
+  //                         range={range}
+
+  //                         relative={false}
+
+  //                         outside={calendars === 1}
+
+  //                         monthName={calendars > 1}
+
+  //                         renderDay={renderDay}
+
+  //                         className={classNames([
+  //                           staticClassName('DatePicker', theme) && [
+  //                             'amaui-DatePicker-calendar-transition'
+  //                           ],
+
+  //                           classes.calendar_transition
+  //                         ])}
+  //                       />
+  //                     </div>
+  //                   </Line>
+  //                 );
+  //               })}
+  //             </Line>
+
+  //             {/* Actions */}
+  //             <Line
+  //               direction='row'
+
+  //               align='center'
+
+  //               justify='space-between'
+
+  //               className={classNames([
+  //                 staticClassName('DatePicker', theme) && [
+  //                   'amaui-DatePicker-mode-docked-footer'
+  //                 ],
+
+  //                 classes.mode_docked_footer
+  //               ])}
+  //             >
+  //               <Button
+  //                 onClick={onClear}
+
+  //                 {...actionsButtonsProps}
+  //               >
+  //                 Clear
+  //               </Button>
+
+  //               <Line
+  //                 gap={0}
+
+  //                 direction='row'
+
+  //                 align='center'
+  //               >
+  //                 <Button
+  //                   onClick={onCancel}
+
+  //                   {...actionsButtonsProps}
+  //                 >
+  //                   Cancel
+  //                 </Button>
+
+  //                 <Button
+  //                   onClick={onOk}
+
+  //                   {...actionsButtonsProps}
+  //                 >
+  //                   Ok
+  //                 </Button>
+  //               </Line>
+  //             </Line>
+  //           </Line>
+  //         </Fade>
+  //       )}
+
+  //       {/* Divider */}
+  //       {!!refs.openMenu.current && (
+  //         <Divider
+  //           tonal={false}
+
+  //           className={classNames([
+  //             staticClassName('DatePicker', theme) && [
+  //               'amaui-DatePicker-divider'
+  //             ],
+
+  //             classes.divider
+  //           ])}
+  //         />
+  //       )}
+
+  //       {/* Menu month */}
+  //       {refs.openMenu.current === 'month' && (
+  //         <Fade
+  //           in
+  //         >
+  //           <List
+  //             ref={refs.month}
+
+  //             tonal={tonal}
+
+  //             color={color}
+
+  //             size='large'
+
+  //             menu
+
+  //             className={classNames([
+  //               staticClassName('DatePicker', theme) && [
+  //                 'amaui-DatePicker-list'
+  //               ],
+
+  //               classes.list
+  //             ])}
+  //           >
+  //             {getMonths(refs.value.current, refs.values.current, refs.calendar.current, props).map((item: any, index: number) => {
+  //               const monthValue = refs.calendar.current.date;
+  //               const month__ = formatMethod(monthValue, 'MMMM');
+
+  //               const selected = month__ === item.value;
+
+  //               return (
+  //                 <ListItem
+  //                   key={index}
+
+  //                   onClick={() => onMonthClick(index)}
+
+  //                   primary={item.value}
+
+  //                   inset={!selected}
+
+  //                   startAlign='center'
+
+  //                   start={selected ? (
+  //                     <IconDoneAnimated
+  //                       in
+
+  //                       add
+
+  //                       simple
+  //                     />
+  //                   ) : undefined}
+
+  //                   disabled={(
+  //                     !validItem(
+  //                       getLeadingZerosNumber(index + 1),
+
+  //                       'month'
+  //                     )
+  //                   )}
+
+  //                   selected={selected}
+
+  //                   button
+
+  //                   data-value={index}
+
+  //                   className={classNames([
+  //                     staticClassName('DatePicker', theme) && [
+  //                       'amaui-DatePicker-list-item'
+  //                     ],
+
+  //                     classes.listItem
+  //                   ])}
+  //                 />
+  //               );
+  //             })}
+  //           </List>
+  //         </Fade>
+  //       )}
+
+  //       {/* Menu year */}
+  //       {refs.openMenu.current === 'year' && (
+  //         <Fade
+  //           in
+  //         >
+  //           <List
+  //             ref={refs.year}
+
+  //             tonal={tonal}
+
+  //             color={color}
+
+  //             size='large'
+
+  //             menu
+
+  //             className={classNames([
+  //               staticClassName('DatePicker', theme) && [
+  //                 'amaui-DatePicker-list'
+  //               ],
+
+  //               classes.list
+  //             ])}
+  //           >
+  //             {getYears(refs.value.current, refs.values.current, refs.calendar.current, props).map((item: any, index: number) => {
+  //               const monthValue = refs.calendar.current.date;
+  //               const year__ = +formatMethod(monthValue, 'YYYY');
+
+  //               const selected = year__ === item.value;
+
+  //               return (
+  //                 <ListItem
+  //                   key={index}
+
+  //                   onClick={() => onYearClick(item.value)}
+
+  //                   primary={item.value}
+
+  //                   inset={!selected}
+
+  //                   startAlign='center'
+
+  //                   start={selected ? (
+  //                     <IconDoneAnimated
+  //                       in
+
+  //                       add
+
+  //                       simple
+  //                     />
+  //                   ) : undefined}
+
+  //                   selected={selected}
+
+  //                   disabled={(
+  //                     !validItem(
+  //                       getLeadingZerosNumber(item.value),
+
+  //                       'year'
+  //                     )
+  //                   )}
+
+  //                   button
+
+  //                   data-value={item.value}
+
+  //                   className={classNames([
+  //                     staticClassName('DatePicker', theme) && [
+  //                       'amaui-DatePicker-list-item'
+  //                     ],
+
+  //                     classes.listItem
+  //                   ])}
+  //                 />
+  //               );
+  //             })}
+  //           </List>
+  //         </Fade>
+  //       )}
+  //     </Surface>
+  //   );
+  // }), [tonal, color, range, weekStartDay, renderDay, theme]);
+
+  // const ModeModal = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
+  //   const month_ = refs.calendar.current?.date;
+
+  //   const year_ = formatMethod(month_, 'YYYY');
+  //   const monthName = formatMethod(month_, 'MMMM');
+
+  //   const text = refs.values.current.map(item => {
+  //     const selected = item.selected;
+
+  //     const monthNameAbr = formatMethod(selected, 'MMM');
+  //     const dayName = formatMethod(selected, 'd');
+  //     const day_ = getLeadingZerosNumber(selected.day);
+
+  //     return `${dayName}, ${monthNameAbr} ${day_}`;
+  //   }).join(SEPARATOR);
+
+  //   const actionsButtonsProps = {
+  //     tonal,
+  //     color,
+  //     version: 'text'
+  //   };
+
+  //   return (
+  //     <Surface
+  //       ref={ref_}
+
+  //       tonal={tonal}
+
+  //       color={color}
+
+  //       className={classNames([
+  //         staticClassName('DatePicker', theme) && [
+  //           'amaui-DatePicker-mode'
+  //         ],
+
+  //         ModeInputProps?.className,
+  //         classes.mode,
+  //         classes.mode_modal
+  //       ])}
+  //     >
+  //       {/* Header */}
+  //       <Line
+  //         gap={0}
+
+  //         direction='column'
+
+  //         className={classNames([
+  //           staticClassName('DatePicker', theme) && [
+  //             'amaui-DatePicker-mode-modal-header'
+  //           ],
+
+  //           classes.mode_modal_header
+  //         ])}
+  //       >
+  //         {/* Heading */}
+  //         <Type
+  //           version='l2'
+
+  //           className={classNames([
+  //             staticClassName('TimePicker', theme) && [
+  //               'amaui-TimePicker-heading'
+  //             ],
+
+  //             classes.heading
+  //           ])}
+  //         >
+  //           {modeModalHeadingText}
+  //         </Type>
+
+  //         {/* Select */}
+  //         {refs.mode.current === 'select' && (
+  //           <Line
+  //             direction='row'
+
+  //             align='center'
+
+  //             justify='space-between'
+
+  //             style={{
+  //               width: '100%',
+  //               marginBottom: '12px'
+  //             }}
+  //           >
+  //             <Type
+  //               version='h1'
+  //             >
+  //               {text}
+  //             </Type>
+
+  //             {switch_ && (
+  //               <Tooltip
+  //                 label='Enter date'
+  //               >
+  //                 <IconButton
+  //                   tonal={tonal}
+
+  //                   color='inherit'
+
+  //                   onClick={onModeSwitch}
+
+  //                   aria-label='Enter date'
+  //                 >
+  //                   <IconEnter />
+  //                 </IconButton>
+  //               </Tooltip>
+  //             )}
+  //           </Line>
+  //         )}
+
+  //         {/* Input */}
+  //         {refs.mode.current === 'input' && (
+  //           <Line
+  //             direction='row'
+
+  //             align='center'
+
+  //             justify='space-between'
+
+  //             style={{
+  //               width: '100%',
+  //               marginBottom: '12px'
+  //             }}
+  //           >
+  //             <Type
+  //               version='h1'
+  //             >
+  //               {inputModeHeadingText}
+  //             </Type>
+
+  //             {switch_ && (
+  //               <Tooltip
+  //                 label='Select date'
+  //               >
+  //                 <IconButton
+  //                   tonal={tonal}
+
+  //                   color='inherit'
+
+  //                   onClick={onModeSwitch}
+
+  //                   aria-label='Choose date'
+  //                 >
+  //                   <Icon_ />
+  //                 </IconButton>
+  //               </Tooltip>
+  //             )}
+  //           </Line>
+  //         )}
+  //       </Line>
+
+  //       {/* Divider */}
+  //       <Divider
+  //         tonal={false}
+
+  //         className={classNames([
+  //           staticClassName('DatePicker', theme) && [
+  //             'amaui-DatePicker-divider'
+  //           ],
+
+  //           classes.divider
+  //         ])}
+  //       />
+
+  //       {/* Select */}
+  //       {refs.mode.current === 'select' && (
+  //         <Surface
+  //           tonal={tonal}
+
+  //           color={color}
+  //         >
+  //           {({ palette }) => (
+  //             <Line
+  //               gap={0}
+
+  //               direction='column'
+  //             >
+  //               <Line
+  //                 gap={0}
+
+  //                 direction='column'
+
+  //                 align='center'
+
+  //                 className={classNames([
+  //                   staticClassName('DatePicker', theme) && [
+  //                     'amaui-DatePicker-mode-modal-middle'
+  //                   ],
+
+  //                   classes.mode_modal_middle
+  //                 ])}
+  //               >
+  //                 {/* Header */}
+  //                 <Line
+  //                   gap={0.5}
+
+  //                   direction='row'
+
+  //                   align='center'
+
+  //                   justify='space-between'
+
+  //                   className={classNames([
+  //                     staticClassName('DatePicker', theme) && [
+  //                       'amaui-DatePicker-mode-modal-header-select'
+  //                     ],
+
+  //                     classes.mode_modal_header_select
+  //                   ])}
+  //                 >
+  //                   {/* Month year */}
+  //                   <Button
+  //                     tonal={tonal}
+
+  //                     color='inherit'
+
+  //                     version='text'
+
+  //                     onClick={() => onOpenMenu('year')}
+
+  //                     fontSize={24}
+
+  //                     end={(
+  //                       <IconDropDown
+  //                         className={classNames([
+  //                           staticClassName('DatePicker', theme) && [
+  //                             'amaui-DatePicker-arrow'
+  //                           ],
+
+  //                           classes.arrow,
+  //                           refs.openMenu.current === 'year' && classes.arrow_open
+  //                         ])}
+  //                       />
+  //                     )}
+
+  //                     className={classNames([
+  //                       staticClassName('DatePicker', theme) && [
+  //                         'amaui-DatePicker-mode-docked-header-button'
+  //                       ],
+
+  //                       classes.mode_docked_header_button
+  //                     ])}
+  //                   >
+  //                     {monthName} {year_}
+  //                   </Button>
+
+  //                   {/* Arrows */}
+  //                   <Line
+  //                     gap={0}
+
+  //                     direction='row'
+
+  //                     align='center'
+  //                   >
+  //                     <Fade
+  //                       in={!refs.openMenu.current}
+  //                     >
+  //                       <IconButton
+  //                         tonal={tonal}
+
+  //                         color='inherit'
+
+  //                         onClick={() => move(false, 'month')}
+
+  //                         aria-label='Previous month'
+
+  //                         disabled={refs.openMenu.current || (+year_ === 1970 && month_ === 'Jan')}
+  //                       >
+  //                         <IconPrevious />
+  //                       </IconButton>
+  //                     </Fade>
+
+  //                     <Fade
+  //                       in={!refs.openMenu.current}
+  //                     >
+  //                       <IconButton
+  //                         tonal={tonal}
+
+  //                         color='inherit'
+
+  //                         onClick={() => move(true, 'month')}
+
+  //                         aria-label='Next month'
+
+  //                         disabled={refs.openMenu.current || (+year_ === 2099 && month_ === 'Dec')}
+  //                       >
+  //                         <IconNext />
+  //                       </IconButton>
+  //                     </Fade>
+  //                   </Line>
+  //                 </Line>
+
+  //                 {/* Calendar */}
+  //                 {!refs.openMenu.current && (
+  //                   <Fade
+  //                     in
+  //                   >
+  //                     {/* Calendar */}
+  //                     <div
+  //                       className={classNames([
+  //                         staticClassName('DatePicker', theme) && [
+  //                           'amaui-DatePicker-calendar-wrapper'
+  //                         ],
+
+  //                         classes.calendar_wrapper
+  //                       ])}
+  //                     >
+  //                       <CalendarDays
+  //                         tonal={tonal}
+
+  //                         color={color}
+
+  //                         weekStartDay={weekStartDay}
+
+  //                         value={refs.value.current}
+
+  //                         values={refs.values.current}
+
+  //                         calendar={refs.calendar.current}
+
+  //                         valid={validItem}
+
+  //                         onDayClick={onDayClick}
+
+  //                         relative={false}
+
+  //                         range={range}
+
+  //                         outside={false}
+
+  //                         renderDay={renderDay}
+
+  //                         className={classNames([
+  //                           staticClassName('DatePicker', theme) && [
+  //                             'amaui-DatePicker-calendar-transition'
+  //                           ],
+
+  //                           classes.calendar_transition
+  //                         ])}
+  //                       />
+  //                     </div>
+  //                   </Fade>
+  //                 )}
+
+  //                 {/* Menu */}
+  //                 {refs.openMenu.current === 'year' && (
+  //                   <Fade
+  //                     in
+  //                   >
+  //                     <Line
+  //                       ref={refs.year}
+
+  //                       tonal={tonal}
+
+  //                       color={color}
+
+  //                       direction='row'
+
+  //                       wrap='wrap'
+
+  //                       justify='space-evenly'
+
+  //                       className={classNames([
+  //                         staticClassName('DatePicker', theme) && [
+  //                           'amaui-DatePicker-list-modal'
+  //                         ],
+
+  //                         classes.list_modal
+  //                       ])}
+  //                     >
+  //                       {getYears(refs.value.current, refs.values.current, refs.calendar.current, props).map((item: any, index: number) => {
+  //                         const monthValue = refs.calendar.current.date;
+  //                         const year__ = +formatMethod(monthValue, 'YYYY');
+
+  //                         const selected = year__ === item.value;
+
+  //                         return (
+  //                           <PaginationItem
+  //                             key={index}
+
+  //                             tonal={tonal}
+
+  //                             color='inherit'
+
+  //                             InteractionProps={{
+  //                               background: false
+  //                             }}
+
+  //                             TypeProps={{
+  //                               version: 'b2',
+
+  //                               tone: !selected ? 'primary' : undefined
+  //                             }}
+
+  //                             onClick={() => onYearClick(item.value)}
+
+  //                             data-value={item.value}
+
+  //                             disabled={(
+  //                               !validItem(
+  //                                 getLeadingZerosNumber(item.value),
+
+  //                                 'year'
+  //                               )
+  //                             )}
+
+  //                             className={classNames([
+  //                               staticClassName('DatePicker', theme) && [
+  //                                 'amaui-DatePicker-day-value-modal'
+  //                               ],
+
+  //                               classes.dayValue_modal
+  //                             ])}
+
+  //                             style={{
+  //                               ...(selected ? {
+  //                                 color: theme.methods.palette.color.value(undefined, 90, true, palette),
+  //                                 backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
+  //                               } : undefined)
+  //                             }}
+  //                           >
+  //                             {item.value}
+  //                           </PaginationItem>
+  //                         );
+  //                       })}
+  //                     </Line>
+  //                   </Fade>
+  //                 )}
+  //               </Line>
+  //             </Line>
+  //           )}
+  //         </Surface>
+  //       )}
+
+  //       {/* Input */}
+  //       {refs.mode.current === 'input' && (
+  //         <Line
+  //           gap={1.5}
+
+  //           direction='row'
+
+  //           align='center'
+
+  //           style={{
+  //             width: '100%',
+  //             padding: '16px 24px 16px'
+  //           }}
+  //         >
+  //           {refs.values.current.map((item: any, index: number) => (
+  //             <AdvancedTextField
+  //               key={index}
+
+  //               tonal={tonal}
+
+  //               color={color}
+
+  //               version='outlined'
+
+  //               label={index === 0 ? !range ? label : labelFrom : labelTo}
+
+  //               mask={refs.maskInput.current}
+
+  //               placeholder={refs.placeholderInput.current}
+
+  //               value={item.inputModal}
+
+  //               onChange={(valueNew: any) => updateInputModal(valueNew, index)}
+
+  //               helperText={useHelperText ? placeholder : undefined}
+
+  //               className={classNames([
+  //                 staticClassName('DatePicker', theme) && [
+  //                   'amaui-DatePicker-input'
+  //                 ],
+
+  //                 classes.input
+  //               ])}
+
+  //               {...AdvancedTextFieldProps}
+  //             />
+  //           ))}
+  //         </Line>
+  //       )}
+
+  //       {/* Divider */}
+  //       {!!refs.openMenu.current && (
+  //         <Divider
+  //           tonal={false}
+
+  //           className={classNames([
+  //             staticClassName('DatePicker', theme) && [
+  //               'amaui-DatePicker-divider'
+  //             ],
+
+  //             classes.divider
+  //           ])}
+  //         />
+  //       )}
+
+  //       {/* Actions */}
+  //       <Line
+  //         direction='row'
+
+  //         align='center'
+
+  //         justify='space-between'
+
+  //         className={classNames([
+  //           staticClassName('DatePicker', theme) && [
+  //             'amaui-DatePicker-mode-docked-footer'
+  //           ],
+
+  //           classes.mode_docked_footer
+  //         ])}
+  //       >
+  //         <Button
+  //           onClick={onClear}
+
+  //           {...actionsButtonsProps}
+  //         >
+  //           Clear
+  //         </Button>
+
+  //         <Line
+  //           gap={0}
+
+  //           direction='row'
+
+  //           align='center'
+  //         >
+  //           <Button
+  //             onClick={onCancel}
+
+  //             {...actionsButtonsProps}
+  //           >
+  //             Cancel
+  //           </Button>
+
+  //           <Button
+  //             onClick={onOk}
+
+  //             {...actionsButtonsProps}
+  //           >
+  //             Ok
+  //           </Button>
+  //         </Line>
+  //       </Line>
+  //     </Surface>
+  //   );
+  // }), [tonal, color, range, switch_, labelFrom, labelTo, modeModalHeadingText, inputModeHeadingText, renderDay, theme]);
+
+  // const ModeFullScreen = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
+  //   const month_ = refs.calendar.current?.date;
+
+  //   const year_ = formatMethod(month_, 'YYYY');
+  //   const monthName = formatMethod(month_, 'MMMM');
+
+  //   let millisecondsSelected = 0;
+
+  //   const text = refs.values.current.map(item => {
+  //     const selected = item.selected;
+
+  //     millisecondsSelected += selected.milliseconds;
+
+  //     const monthNameAbr = formatMethod(selected, 'MMM');
+  //     const dayName = formatMethod(selected, 'd');
+  //     const day_ = getLeadingZerosNumber(selected.day);
+
+  //     return `${dayName}, ${monthNameAbr} ${day_}`;
+  //   }).join(SEPARATOR);
+
+  //   const months = monthsValue;
+
+  //   const buttonsProps = {
+  //     color: 'inherit',
+  //     version: 'text'
+  //   };
+
+  //   const actionsButtonsProps = {
+  //     tonal,
+  //     color,
+  //     version: 'text'
+  //   };
+
+  //   return (
+  //     <Surface
+  //       ref={ref_}
+
+  //       tonal={tonal}
+
+  //       color={color}
+
+  //       gap={0}
+
+  //       direction='column'
+
+  //       Component={Line}
+
+  //       className={classNames([
+  //         staticClassName('DatePicker', theme) && [
+  //           'amaui-DatePicker-mode',
+  //           'amaui-DatePicker-mode-full-screen'
+  //         ],
+
+  //         ModeInputProps?.className,
+  //         classes.mode,
+  //         classes.mode_modal_fullScreen
+  //       ])}
+  //     >
+  //       {/* Header */}
+  //       <Line
+  //         gap={0}
+
+  //         direction='column'
+
+  //         className={classNames([
+  //           staticClassName('DatePicker', theme) && [
+  //             'amaui-DatePicker-mode-modal-full-screen-header'
+  //           ],
+
+  //           classes.mode_modal_fullScreen_header
+  //         ])}
+  //       >
+  //         {/* Actions */}
+  //         <Line
+  //           gap={0}
+
+  //           direction='row'
+
+  //           align='center'
+
+  //           justify='space-between'
+
+  //           style={{
+  //             width: '100%',
+  //             padding: '0px 8px 8px'
+  //           }}
+  //         >
+  //           <IconButton
+  //             onClick={onClose}
+
+  //             aria-label='Close'
+
+  //             {...buttonsProps}
+  //           >
+  //             <IconClose />
+  //           </IconButton>
+
+  //           <Button
+  //             onClick={onOk}
+
+  //             {...actionsButtonsProps}
+  //           >
+  //             Save
+  //           </Button>
+  //         </Line>
+
+  //         <div
+  //           style={{
+  //             width: '100%',
+  //             padding: '0 16px 16px'
+  //           }}
+  //         >
+  //           {/* Select */}
+  //           {refs.mode.current === 'select' && (
+  //             <Line
+  //               direction='row'
+
+  //               align='center'
+
+  //               justify='space-between'
+
+  //               style={{
+  //                 width: '100%',
+  //                 paddingInlineStart: '48px'
+  //               }}
+  //             >
+  //               <Type
+  //                 version='h1'
+  //               >
+  //                 {text}
+  //               </Type>
+
+  //               {switch_ && (
+  //                 <Tooltip
+  //                   label='Enter date'
+  //                 >
+  //                   <IconButton
+  //                     tonal={tonal}
+
+  //                     color='inherit'
+
+  //                     onClick={onModeSwitch}
+
+  //                     aria-label='Enter date'
+  //                   >
+  //                     <IconEnter />
+  //                   </IconButton>
+  //                 </Tooltip>
+  //               )}
+  //             </Line>
+  //           )}
+
+  //           {/* Input */}
+  //           {refs.mode.current === 'input' && (
+  //             <Line
+  //               direction='row'
+
+  //               align='center'
+
+  //               justify='space-between'
+
+  //               style={{
+  //                 width: '100%'
+  //               }}
+  //             >
+  //               <Type
+  //                 version='h1'
+  //               >
+  //                 {inputModeHeadingText}
+  //               </Type>
+
+  //               {switch_ && (
+  //                 <Tooltip
+  //                   label='Select date'
+  //                 >
+  //                   <IconButton
+  //                     tonal={tonal}
+
+  //                     color='inherit'
+
+  //                     onClick={onModeSwitch}
+
+  //                     aria-label='Select date'
+  //                   >
+  //                     <Icon_ />
+  //                   </IconButton>
+  //                 </Tooltip>
+  //               )}
+  //             </Line>
+  //           )}
+  //         </div>
+  //       </Line>
+
+  //       <Divider
+  //         tonal={false}
+
+  //         className={classNames([
+  //           staticClassName('DatePicker', theme) && [
+  //             'amaui-DatePicker-divider'
+  //           ],
+
+  //           classes.divider
+  //         ])}
+  //       />
+
+  //       {/* Main */}
+  //       <main
+  //         className={classNames([
+  //           staticClassName('DatePicker', theme) && [
+  //             'amaui-DatePicker-mode-modal-full-screen-main'
+  //           ],
+
+  //           classes.mode_modal_fullScreen_main
+  //         ])}
+
+  //         style={{
+  //           // without range date value
+  //           maxHeight: `calc(100vh - ${(range && refs.mode.current === 'select') ? 222 : 181}px)`
+  //         }}
+  //       >
+  //         {/* Select */}
+  //         {refs.mode.current === 'select' && (
+  //           <Surface
+  //             tonal={tonal}
+
+  //             color={color}
+  //           >
+  //             {({ palette }) => (
+  //               <Line
+  //                 gap={0}
+
+  //                 direction='column'
+
+  //                 style={{
+  //                   height: '100%'
+  //                 }}
+  //               >
+  //                 <Line
+  //                   gap={0}
+
+  //                   direction='column'
+
+  //                   align='center'
+
+  //                   className={classNames([
+  //                     staticClassName('DatePicker', theme) && [
+  //                       'amaui-DatePicker-mode-modal-middle'
+  //                     ],
+
+  //                     classes.mode_modal_middle
+  //                   ])}
+  //                 >
+  //                   {/* Header */}
+  //                   <Line
+  //                     gap={0.5}
+
+  //                     direction='row'
+
+  //                     align='center'
+
+  //                     justify='space-between'
+
+  //                     className={classNames([
+  //                       staticClassName('DatePicker', theme) && [
+  //                         'amaui-DatePicker-mode-modal-header-select'
+  //                       ],
+
+  //                       classes.mode_modal_header_select
+  //                     ])}
+  //                   >
+  //                     {/* Month year */}
+  //                     <Button
+  //                       tonal={tonal}
+
+  //                       color='inherit'
+
+  //                       version='text'
+
+  //                       onClick={() => onOpenMenu('year')}
+
+  //                       fontSize={24}
+
+  //                       end={(
+  //                         <IconDropDown
+  //                           className={classNames([
+  //                             staticClassName('DatePicker', theme) && [
+  //                               'amaui-DatePicker-arrow'
+  //                             ],
+
+  //                             classes.arrow,
+  //                             refs.openMenu.current === 'year' && classes.arrow_open
+  //                           ])}
+  //                         />
+  //                       )}
+
+  //                       className={classNames([
+  //                         staticClassName('DatePicker', theme) && [
+  //                           'amaui-DatePicker-mode-docked-header-button'
+  //                         ],
+
+  //                         classes.mode_docked_header_button
+  //                       ])}
+  //                     >
+  //                       {monthName} {year_}
+  //                     </Button>
+
+  //                     {/* Arrows */}
+  //                     <Line
+  //                       gap={0}
+
+  //                       direction='row'
+
+  //                       align='center'
+  //                     >
+  //                       <Fade
+  //                         in={!refs.openMenu.current}
+  //                       >
+  //                         <IconButton
+  //                           tonal={tonal}
+
+  //                           color='inherit'
+
+  //                           onClick={() => move(false, 'year')}
+
+  //                           aria-label='Previous year'
+
+  //                           disabled={refs.openMenu.current || +year_ === 1970}
+  //                         >
+  //                           <IconPrevious />
+  //                         </IconButton>
+  //                       </Fade>
+
+  //                       <Fade
+  //                         in={!refs.openMenu.current}
+  //                       >
+  //                         <IconButton
+  //                           tonal={tonal}
+
+  //                           color='inherit'
+
+  //                           onClick={() => move(true, 'year')}
+
+  //                           aria-label='Next year'
+
+  //                           disabled={refs.openMenu.current || +year_ === 2099}
+  //                         >
+  //                           <IconNext />
+  //                         </IconButton>
+  //                       </Fade>
+  //                     </Line>
+  //                   </Line>
+
+  //                   {/* Calendar */}
+  //                   {!refs.openMenu.current && (
+  //                     <Fade
+  //                       in
+  //                     >
+  //                       {/* Calendars */}
+  //                       <Carousel
+  //                         ref={refs.carousel}
+
+  //                         tonal={tonal}
+
+  //                         color={color}
+
+  //                         id={millisecondsSelected + year_}
+
+  //                         value={refs.carouselValue.current}
+
+  //                         arrows={false}
+
+  //                         progress={false}
+
+  //                         orientation='vertical'
+
+  //                         moveBeyondEdge={false}
+
+  //                         itemSize='auto'
+
+  //                         gap={0}
+
+  //                         free
+
+  //                         onInit={updateCarouselPosition}
+
+  //                         items={Array.from({ length: 12 }).map((item: any, index: number) => {
+  //                           const calendar_ = {
+  //                             ...refs.calendar.current,
+
+  //                             year: year_,
+
+  //                             month: getLeadingZerosNumber(index + 1)
+  //                           };
+
+  //                           delete calendar_.date;
+
+  //                           // date
+  //                           calendar_.date = valuesToValue(calendar_);
+
+  //                           return (
+  //                             <Line
+  //                               key={index}
+
+  //                               gap={1.5}
+
+  //                               direction='column'
+
+  //                               style={{
+  //                                 width: '100%',
+  //                                 marginTop: '16px'
+  //                               }}
+  //                             >
+  //                               <Type
+  //                                 version='l2'
+
+  //                                 style={{
+  //                                   paddingInlineStart: '16px'
+  //                                 }}
+  //                               >
+  //                                 {months[index]} {year_}
+  //                               </Type>
+
+  //                               <div
+  //                                 className={classNames([
+  //                                   staticClassName('DatePicker', theme) && [
+  //                                     'amaui-DatePicker-calendar-wrapper',
+  //                                     'amaui-DatePicker-calendar-wrapper-full-screen'
+  //                                   ],
+
+  //                                   classes.calendar_wrapper,
+  //                                   classes.calendar_wrapper_fullScreen
+  //                                 ])}
+  //                               >
+  //                                 <CalendarDays
+  //                                   tonal={tonal}
+
+  //                                   color={color}
+
+  //                                   weekStartDay={weekStartDay}
+
+  //                                   value={refs.value.current}
+
+  //                                   values={refs.values.current}
+
+  //                                   calendar={calendar_}
+
+  //                                   valid={validItem}
+
+  //                                   onDayClick={onDayClick}
+
+  //                                   range={range}
+
+  //                                   outside={false}
+
+  //                                   renderDay={renderDay}
+
+  //                                   relative
+
+  //                                   noTransition
+  //                                 />
+  //                               </div>
+  //                             </Line>
+  //                           );
+  //                         })}
+
+  //                         ItemWrapperProps={{
+  //                           style: {
+  //                             width: '100%'
+  //                           }
+  //                         }}
+
+  //                         className={classNames([
+  //                           staticClassName('DatePicker', theme) && [
+  //                             'amaui-DatePicker-carousel'
+  //                           ],
+
+  //                           classes.carousel
+  //                         ])}
+  //                       />
+  //                     </Fade>
+  //                   )}
+
+  //                   {/* Menu */}
+  //                   {refs.openMenu.current === 'year' && (
+  //                     <Fade
+  //                       in
+  //                     >
+  //                       <Line
+  //                         ref={refs.year}
+
+  //                         tonal={tonal}
+
+  //                         color={color}
+
+  //                         direction='row'
+
+  //                         wrap='wrap'
+
+  //                         justify='space-evenly'
+
+  //                         className={classNames([
+  //                           staticClassName('DatePicker', theme) && [
+  //                             'amaui-DatePicker-list-modal',
+  //                             'amaui-DatePicker-list-modal-full-screen'
+  //                           ],
+
+  //                           classes.list_modal,
+  //                           classes.list_modal_fullScreen
+  //                         ])}
+  //                       >
+  //                         {getYears(refs.value.current, refs.values.current, refs.calendar.current, props).map((item: any, index: number) => {
+  //                           const monthValue = refs.calendar.current.date;
+  //                           const year__ = +formatMethod(monthValue, 'YYYY');
+
+  //                           const selected = year__ === item.value;
+
+  //                           return (
+  //                             <PaginationItem
+  //                               key={index}
+
+  //                               tonal={tonal}
+
+  //                               color='inherit'
+
+  //                               InteractionProps={{
+  //                                 background: false
+  //                               }}
+
+  //                               TypeProps={{
+  //                                 version: 'b2',
+
+  //                                 priority: !selected ? 'primary' : undefined
+  //                               }}
+
+  //                               onClick={() => onYearClick(item.value)}
+
+  //                               data-value={item.value}
+
+  //                               disabled={(
+  //                                 !validItem(
+  //                                   getLeadingZerosNumber(item.value),
+
+  //                                   'year'
+  //                                 )
+  //                               )}
+
+  //                               className={classNames([
+  //                                 staticClassName('DatePicker', theme) && [
+  //                                   'amaui-DatePicker-day-value-modal'
+  //                                 ],
+
+  //                                 classes.dayValue_modal
+  //                               ])}
+
+  //                               style={{
+  //                                 ...(selected ? {
+  //                                   color: theme.methods.palette.color.value(undefined, 90, true, palette),
+  //                                   backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
+  //                                 } : undefined)
+  //                               }}
+  //                             >
+  //                               {item.value}
+  //                             </PaginationItem>
+  //                           );
+  //                         })}
+  //                       </Line>
+  //                     </Fade>
+  //                   )}
+  //                 </Line>
+  //               </Line>
+  //             )}
+  //           </Surface>
+  //         )}
+
+  //         {/* Input */}
+  //         {refs.mode.current === 'input' && (
+  //           <Line
+  //             gap={1.5}
+
+  //             direction='row'
+
+  //             align='center'
+
+  //             style={{
+  //               width: '100%',
+  //               padding: '16px 24px 16px'
+  //             }}
+  //           >
+  //             {refs.values.current.map((item: any, index: number) => (
+  //               <AdvancedTextField
+  //                 key={index}
+
+  //                 tonal={tonal}
+
+  //                 color={color}
+
+  //                 version='outlined'
+
+  //                 label={index === 0 ? !range ? label : labelFrom : labelTo}
+
+  //                 mask={refs.maskInput.current}
+
+  //                 placeholder={refs.placeholderInput.current}
+
+  //                 value={item.inputModal}
+
+  //                 onChange={(valueNew: any) => updateInputModal(valueNew, index)}
+
+  //                 helperText={useHelperText ? placeholder : undefined}
+
+  //                 className={classNames([
+  //                   staticClassName('DatePicker', theme) && [
+  //                     'amaui-DatePicker-input'
+  //                   ],
+
+  //                   classes.input
+  //                 ])}
+
+  //                 {...AdvancedTextFieldProps}
+  //               />
+  //             ))}
+  //           </Line>
+  //         )}
+  //       </main>
+
+  //       <Divider
+  //         tonal={false}
+
+  //         className={classNames([
+  //           staticClassName('DatePicker', theme) && [
+  //             'amaui-DatePicker-divider'
+  //           ],
+
+  //           classes.divider
+  //         ])}
+  //       />
+
+  //       {/* Footer */}
+
+  //       {/* Actions */}
+  //       <Line
+  //         direction='row'
+
+  //         align='center'
+
+  //         justify='space-between'
+
+  //         className={classNames([
+  //           staticClassName('DatePicker', theme) && [
+  //             'amaui-DatePicker-mode-modal-full-screen-footer'
+  //           ],
+
+  //           classes.mode_modal_fullScreen_footer
+  //         ])}
+  //       >
+  //         <Button
+  //           onClick={onClear}
+
+  //           {...actionsButtonsProps}
+  //         >
+  //           Clear
+  //         </Button>
+
+  //         <Line
+  //           gap={0}
+
+  //           direction='row'
+
+  //           align='center'
+  //         >
+  //           <Button
+  //             onClick={onCancel}
+
+  //             {...actionsButtonsProps}
+  //           >
+  //             Cancel
+  //           </Button>
+
+  //           <Button
+  //             onClick={onOk}
+
+  //             {...actionsButtonsProps}
+  //           >
+  //             Ok
+  //           </Button>
+  //         </Line>
+  //       </Line>
+  //     </Surface>
+  //   );
+  // }), [tonal, color, range, switch_, fullScreen, labelFrom, labelTo, modeModalHeadingText, inputModeHeadingText, renderDay, theme]);
+
+  // Value
+  React.useEffect(() => {
+    if (value_ !== undefined && value_ !== value) setValue(value_ as any);
+  }, [value_]);
+
+  // Calendar
+  React.useEffect(() => {
+    if (calendar_ !== undefined && calendar_ !== calendar) setCalendar(calendar_);
+  }, [calendar_]);
+
+  const onUpdate = React.useCallback((valueNew: AmauiDate) => {
+    // Inner update
+    if (!props.hasOwnProperty('value')) setValue(valueNew as any);
+
+    if (is('function', onChange)) onChange(valueNew);
+  }, [onChange]);
+
+  const onUpdateCalendar = React.useCallback((valueNew: AmauiDate) => {
+    // Inner update
+    if (!props.hasOwnProperty('calendar')) setCalendar(valueNew);
+
+    if (is('function', onChangeCalendar)) onChangeCalendar(valueNew);
+  }, [onChangeCalendar]);
+
+  // Update only internally, without using onChange
+  // since it might be canceled
+  // only use onChange on
+  // input change, or ok
+  const onCalendarChange = React.useCallback((valueNew: TCalendarMonthValue) => {
+    if (valueNew !== value) setValue(valueNew as any);
+  }, [value]);
+
+  const onCalendarChangeCalendar = React.useCallback((valueNew: TCalendarMonthCalendar) => {
+    if (valueNew !== calendar) onUpdateCalendar(valueNew as any);
+  }, [calendar]);
+
+  const inputToValue = React.useCallback((valueNew_: string = input) => {
+    let valueNew = valueNew_;
+
+    let [from, to] = valueNew.split(SEPARATOR) as any;
+
+    from = textToAmauiDate(from);
+
+    if (to) to = textToAmauiDate(to);
+
+    valueNew = [from, to].filter(Boolean) as any;
+
+    return valueNew as unknown as TCalendarMonthValue;
+  }, [input]);
+
+  const onOpen = React.useCallback(() => {
+    setMode(version === 'mobile' ? openMobile : 'select');
+
+    setOpen(!open);
+  }, [open, openMobile, version]);
+
+  const onClose = React.useCallback((event: React.MouseEvent<any>) => {
+    setOpen(false);
+
+    if (is('function', onClose_)) onClose_(event);
+  }, [onClose_]);
+
+  const onReset = React.useCallback(() => {
+    const valueNew = inputToValue() as any;
+
+    // Update value
+    onUpdate(valueNew);
+
+    // Update calendar
+    onUpdateCalendar(valueNew[0]);
+  }, [input]);
+
+  const onToday = React.useCallback((event: React.MouseEvent) => {
+    const valueNew = [new AmauiDate()];
+
+    if (range) valueNew.push(new AmauiDate());
+
+    // Update value
+    onUpdate(valueNew as any);
+
+    // Update calendar
+    onUpdateCalendar(valueNew[0]);
+
+    // Update input
+    setInput(valueToInput(valueNew));
+
+    onClose(event);
+
+    if (is('function', onToday_)) onToday_(event);
+  }, [input, range, onToday_]);
+
+  const onOk = React.useCallback((event: React.MouseEvent) => {
+    // Error
+    setError(value.some((item: any, index: number) => !valid(item)));
+
+    // Update value
+    onUpdate(value as any);
+
+    // Update input
+    setInput(valueToInput(value));
+
+    onClose(event);
+
+    if (is('function', onCancel_)) onCancel_(event);
+  }, [value, onOk_]);
+
+  const onCancel = React.useCallback((event: React.MouseEvent) => {
+    onReset();
+
+    onClose(event);
+
+    if (is('function', onCancel_)) onCancel_(event);
+  }, [input, onCancel_]);
+
+  const valid = React.useCallback((...args: [AmauiDate, any?]) => {
+    if (is('function', valid_)) return valid_(...args);
+
+    const amauiDate = args[0];
+
+    if (min || max || validate) {
+      let response = true;
+
+      if (is('function', validate)) response = validate(amauiDate);
+
+      if (min !== undefined) response = response && isAmauiDate(amauiDate, 'after or same', min);
+
+      if (max !== undefined) response = response && isAmauiDate(amauiDate, 'before or same', max);
+
+      return response;
+    }
+
+    return true;
+  }, [valid_, min, max, validate]);
+
+  const textToAmauiDate = React.useCallback((valueNew: string) => {
+    const [valueDay, valueMonth, valueYear] = (valueNew || '').split('/');
+
+    const amauiDate = new AmauiDate(new Date(`${valueMonth}/${valueDay}/${valueYear}`));
+
+    return amauiDate;
+  }, []);
+
+  const onInputChange = React.useCallback((valueNew_: any) => {
+    const valueNew = inputToValue(valueNew_);
+
+    const validValues = (valueNew as [AmauiDate, AmauiDate]).every(item => item.valid);
+
+    // Only update values if input is valid
+    // format used to make the value
+    if (validValues) {
+      // Error
+      setError((valueNew as any).some((item: any, index: number) => !valid(item)));
+
+      // Update value
+      onUpdate(valueNew as any);
+
+      // Update calendar
+      onUpdateCalendar(valueNew[0]);
+    }
+
+    // Update input for free typing
+    setInput(valueNew_);
+  }, []);
+
+  const mask = [
+    { pattern: '[0-3]' },
+
+    (item: string, result: string, valueInput: string) => /^(0[0-9]|1[0-9]|2[0-9]|3[0-1]).*/.test(valueInput),
+
+    '/',
+
+    { pattern: '[0-1]' },
+
+    (item: string, result: string, valueInput: string) => /^(0[0-9]|1[0-9]|2[0-9]|3[0-1])\/(0[0-9]|1[0-2])/.test(valueInput),
+
+    '/',
+
+    { pattern: '[1-2]' },
+
+    { pattern: '[0-9]' },
+
+    { pattern: '[0-9]' },
+
+    { pattern: '[0-9]' }
+  ];
+
+  let placeholder = `DD/MM/YYYY`;
 
   // range
   if (range) {
@@ -1522,2500 +3300,81 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
       ...mask
     );
 
-    placeholder += `${SEPARATOR} ${placeholder}`;
+    placeholder += `${SEPARATOR}${placeholder}`;
   }
 
-  refs.mask.current = mask;
+  placeholder = placeholder_ || placeholder;
 
-  refs.placeholder.current = placeholder;
-
-  const moreProps: any = {};
-
-  const getMonths = is('function', getMonths_) ? getMonths_ : React.useCallback(() => {
-    return monthsValue.map((item: any) => ({ value: item }));
-  }, []);
-
-  const getYears = is('function', getYears_) ? getYears_ : React.useCallback(() => {
-    const years_ = [];
-
-    for (let i = 0; i < 130; i++) years_.push({ value: 1970 + i });
-
-    return years_;
-  }, []);
-
-  const updateCalendar = (valueNew: any) => {
-    setCalendar(valueNew);
-
-    if (is('function', onChangeCalendar)) onChangeCalendar(valueNew);
+  const actionButtonsProps = {
+    tonal,
+    color,
+    version: 'text',
+    ...ActionButtonProps
   };
 
-  const updateInput = (valueNew: any) => {
-    const [from, to] = valueNew.split(SEPARATOR);
+  const actions = (
+    <Line
+      direction='row'
 
-    let values_ = [
-      ...refs.values.current
-    ];
+      align='center'
 
-    values_[0] = {
-      ...values_[0],
+      justify='space-between'
 
-      ...(from && inputToValues(from, 0)),
-
-      input: from,
-
-      inputModal: from
-    };
-
-    values_[0].selected = values_[0].date;
-
-    if (range) {
-      if (to) {
-        values_[1] = {
-          ...values_[1],
-
-          ...(to && inputToValues(to, 1)),
-
-          input: to,
-
-          inputModal: to
-        };
-
-        values_[1].selected = values_[1].date;
-      }
-
-      const amauiDates = values_.map(item => item.selected);
-
-      if (amauiDates[0].milliseconds > amauiDates[1].milliseconds) {
-        values_[0] = { ...values_[1] };
-
-        values_[0].date = new AmauiDate(values_[0].date);
-
-        values_[0].selected = new AmauiDate(values_[0].selected);
-      }
-    }
-
-    values_ = values_.filter(Boolean);
-
-    setValues(values_);
-
-    updateCalendar({ ...values_[0], previous: values_[0].date });
-
-    updateValue(values_.map(item => valuesToValue(item)));
-
-    // Error
-    setError([from, to].filter(Boolean).some((item: any, index: number) => !validItem('', '', inputToValues(item, index))));
-
-    return values_;
-  };
-
-  const updateInputModal = (valueNew: any, index: number) => {
-    const [from, to] = valueNew.split(SEPARATOR);
-
-    let values_ = [
-      ...refs.values.current
-    ];
-
-    values_[index] = {
-      ...values_[index],
-
-      ...inputToValues(valueNew, index),
-
-      inputModal: valueNew
-    };
-
-    values_[index].selected = values_[index].date;
-
-    values_ = values_.filter(Boolean);
-
-    if (range) {
-      const amauiDates = values_.map(item => item.selected);
-
-      if (amauiDates[1].milliseconds < amauiDates[0].milliseconds && index === 1) {
-        values_[1] = { ...values_[0] };
-
-        values_[1].date = new AmauiDate(values_[1].date);
-
-        values_[1].selected = new AmauiDate(values_[1].selected);
-      }
-      else if (amauiDates[0].milliseconds > amauiDates[1].milliseconds) {
-        values_[0] = { ...values_[1] };
-
-        values_[0].date = new AmauiDate(values_[0].date);
-
-        values_[0].selected = new AmauiDate(values_[0].selected);
-      }
-    }
-
-    setValues(values_);
-
-    updateCalendar({ ...values_[index], previous: values_[index].date });
-
-    updateValue(values_.map(item => valuesToValue(item)));
-
-    // Error
-    setError([from, to].filter(Boolean).some((item: any, index_: number) => !validItem('', '', inputToValues(item, index_))));
-
-    return values_;
-  };
-
-  const validItem = (item: number | string = '', version__ = '', calendar_ = refs.calendar.current, withDate = false) => {
-    const values_ = {
-      ...calendar_
-    };
-
-    // Only validate against day, month, year values
-    if (!withDate) delete values_.date;
-
-    if (version__) values_[version__] = is('number', item) ? getLeadingZerosNumber(item as number) : item;
-
-    const amauiDate = valuesToValue(values_);
-
-    Object.keys(values_).forEach((item_: any) => {
-      if (is('string', values_[item_])) {
-        if (values_[item_].startsWith('0')) values_[item_] = values_[item_].slice(1);
-      }
-    });
-
-    if (values_.day !== undefined) values_.day = +values_.day;
-
-    if (values_.month !== undefined) values_.month = +values_.month;
-
-    if (values_.year !== undefined) values_.year = +values_.year;
-
-    let valid = true;
-
-    if (is('function', refs.validate.current)) valid = refs.validate.current(values_[version], values_, version);
-
-    if (refs.min.current !== undefined) valid = valid && isMethod(amauiDate, 'after or same', refs.min.current);
-
-    if (refs.max.current !== undefined) valid = valid && isMethod(amauiDate, 'before or same', refs.max.current);
-
-    return valid;
-  };
-
-  const inputToValues = (valueNew: any, index: number) => {
-    const values_: any = {
-      ...refs.values.current[index]
-    };
-
-    values_.date = new AmauiDate();
-
-    // input
-    const [day_, month_, year_] = (valueNew || '').split('/');
-
-    if (day_) {
-      values_.day = day_.startsWith('0') ? day_.slice(1) : day_;
-
-      values_.day = +day_;
-
-      values_.date = set(values_.day, 'day', values_.date);
-    }
-
-    if (month_) {
-      values_.month = month_.startsWith('0') ? month_.slice(1) : month_;
-
-      values_.month = +month_;
-
-      values_.date = set(values_.month - 1, 'month', values_.date);
-    }
-
-    if (year_) {
-      values_.year = +year_;
-
-      values_.date = set(values_.year, 'year', values_.date);
-    }
-
-    return values_;
-  };
-
-  const updateValue = (valueNew: any) => {
-    if (!props.hasOwnProperty('value')) setValue(valueNew);
-
-    if (is('function', onChange)) onChange(!range ? valueNew[0] : valueNew);
-  };
-
-  const updateFromValue = (valueNew_: AmauiDate | number | [AmauiDate | number, AmauiDate | number]) => {
-    const valueNew: any = is('array', valueNew_) ? valueNew_ : [valueNew_];
-
-    const amauiDates = valueNew.map(item => new AmauiDate(item));
-
-    if (amauiDates[0].milliseconds > amauiDates[1]?.milliseconds) amauiDates[0] = new AmauiDate(amauiDates[1]);
-
-    // Error
-    setError(amauiDates.some((item: any, index: number) => !validItem('', '', valueToValues(item, index))));
-
-    // Update values
-    setValues(amauiDates.map((item: any, index: number) => valueToValues(item, index)));
-
-    // Update value
-    setValue(amauiDates);
-  };
-
-  React.useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (refs.open.current) {
-        switch (event.key) {
-          case 'Escape':
-            return onCancel(event as any);
-
-          default:
-            break;
-        }
-      }
-    };
-
-    // Error
-    setError((refs.values.current || []).some((item: any, index: number) => !validItem('', '', inputToValues(item?.input, index))));
-
-    window.addEventListener('keydown', onKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, []);
-
-  React.useEffect(() => {
-    if (value_ !== undefined && value_ !== refs.value.current) updateFromValue(value_);
-  }, [value_]);
-
-  React.useEffect(() => {
-    if (calendar__ !== undefined && calendar__ !== refs.calendar.current) setCalendar(calendarValue => ({ ...calendarValue, ...calendar__ }));
-  }, [calendar__]);
-
-  const updateCarouselPosition = () => {
-    // scroll to the value
-    setTimeout(() => {
-      try {
-        let item: any = window.document.body.querySelector('[data-month-from]');
-
-        if (item) {
-          item = item.parentElement.parentElement.parentElement;
-
-          setCarouselValue({ y: item.offsetTop });
-        }
-      } catch (error) { }
-    }, 140);
-  };
-
-  const onDayClick = React.useCallback((amauiDate: AmauiDate) => {
-    const valueNew = new AmauiDate(amauiDate);
-
-    // value or value range update
-    const to = refs.values.current[1];
-
-    let [from] = refs.values.current;
-
-    if (!range) {
-      from = {
-        ...from,
-
-        ...valueToValues(valueNew, 0, false),
-
-        previous: refs.calendar.current.date,
-
-        move: valueNew.milliseconds > refs.calendar.current?.date?.milliseconds ? 'next' : 'previous',
-
-        selected: new AmauiDate(valueNew),
-
-        inputModal: valueToInputModal(valueNew),
-
-        date: valueNew
-      };
-
-      // Calendar
-      let calendarValue = {
-        ...from
-      };
-
-      if (calendars > 1) {
-        calendarValue = {
-          ...refs.calendar.current,
-
-          update: 'day'
-        };
-
-        calendarValue.previous = new AmauiDate(calendarValue.date);
-      }
-
-      updateCalendar(calendarValue);
-
-      setValues([from, to].filter(Boolean));
-
-      return;
-    }
-
-    // update the value closest to from, to value
-    // if value is same (in terms of day, month, year as from or to)
-    // make a reset, ie. make both values that same date
-    // as a selected value
-    const selecteds = refs.values.current.map(item => item.selected);
-
-    // if day, month, year
-    // is same as one of the selected, reset
-    // make both selected values the same value
-    if (selecteds.filter(Boolean).some(item => valueNew.year === item.year && valueNew.month === item.month && valueNew.day === item.day)) {
-      return setValues(values_ => {
-        const values__ = values_.map((item_: any, index_: number) => {
-          const item = {
-            ...item_,
-
-            ...valueToValues(valueNew, index_, false),
-
-            previous: refs.calendar.current.date,
-
-            move: valueNew.milliseconds > refs.calendar.current?.date?.milliseconds ? 'next' : 'previous',
-
-            selected: new AmauiDate(valueNew),
-
-            inputModal: valueToInputModal(valueNew),
-
-            date: valueNew
-          };
-
-          return item;
-        });
-
-        // Calendar
-        let calendarValue = {
-          ...values__[0]
-        };
-
-        if (calendars > 1) {
-          calendarValue = {
-            ...refs.calendar.current,
-
-            update: 'day'
-          };
-
-          calendarValue.previous = new AmauiDate(calendarValue.date);
-        }
-
-        updateCalendar(calendarValue);
-
-        return values__;
-      });
-    }
-
-    let index: number;
-
-    if (!selecteds[0]) index = 0;
-    else if (!selecteds[1]) index = 1;
-    else if (valueNew.milliseconds < selecteds[0].milliseconds) index = 0;
-    else if (valueNew.milliseconds > selecteds[1].milliseconds) index = 1;
-    else {
-      const part = Math.abs(selecteds[1].milliseconds - selecteds[0].milliseconds) / 2;
-
-      index = valueNew.milliseconds <= (selecteds[0].milliseconds + part) ? 0 : 1;
-    }
-
-    setValues(values_ => {
-      const values__ = values_.map((item_: any, index_: number) => {
-        if (index_ === index) {
-          const item = {
-            ...item_,
-
-            ...valueToValues(valueNew, index_, false),
-
-            previous: refs.calendar.current.date,
-
-            move: valueNew.milliseconds > refs.calendar.current?.date?.milliseconds ? 'next' : 'previous',
-
-            selected: new AmauiDate(valueNew),
-
-            inputModal: valueToInputModal(valueNew),
-
-            date: valueNew
-          };
-
-          // Calendar
-          let calendarValue = {
-            ...item
-          };
-
-          if (calendars > 1) {
-            calendarValue = {
-              ...refs.calendar.current,
-
-              update: 'day'
-            };
-
-            calendarValue.previous = new AmauiDate(calendarValue.date);
-          }
-
-          updateCalendar(calendarValue);
-
-          return item;
-        }
-
-        return item_;
-      });
-
-      return values__;
-    });
-  }, [range, calendars]);
-
-  const onMonthClick = React.useCallback((index: number) => {
-    let valueNew = new AmauiDate(refs.calendar.current.date);
-
-    valueNew = set(index, 'month', valueNew);
-
-    updateCalendar({
-      ...refs.calendar.current,
-
-      previous: refs.calendar.current.date,
-
-      move: valueNew.milliseconds > refs.calendar.current?.date?.milliseconds ? 'next' : 'previous',
-
-      inputModal: valueToInputModal(valueNew),
-
-      date: valueNew
-    });
-
-    if (refs.menuCloseOnSelect.current) onCloseMenu();
-  }, []);
-
-  const onYearClick = React.useCallback((year_: number) => {
-    let valueNew = new AmauiDate(refs.calendar.current.date);
-
-    valueNew = set(year_, 'year', valueNew);
-
-    const calendar_ = {
-      ...refs.calendar.current,
-
-      previous: refs.calendar.current.date,
-
-      move: valueNew.milliseconds > refs.calendar.current?.date?.milliseconds ? 'next' : 'previous',
-
-      inputModal: valueToInputModal(valueNew),
-
-      date: valueNew
-    };
-
-    updateCalendar(calendar_);
-
-    if (refs.menuCloseOnSelect.current) onCloseMenu();
-  }, []);
-
-  const onOpenMenu = React.useCallback((menu_ = 'month') => {
-    const valueNew = refs.openMenu.current === menu_ ? false : menu_;
-
-    setOpenMenu(valueNew);
-
-    // scroll to the value
-    setTimeout(() => {
-      if (valueNew) {
-        const date = refs.calendar.current.date;
-
-        let valueItem: any = '';
-
-        if (valueNew === 'month') valueItem = date.month - 1;
-        else if (valueNew === 'year') valueItem = date.year;
-
-        const list = refs[valueNew].current;
-
-        if (list) {
-          try {
-            const item = list.querySelector(`[data-value="${valueItem}"]`);
-
-            if (item) list.scrollTo(0, clamp(item.offsetTop - (refs.version.current !== 'desktop' ? 104 : 204), 0), { behavior: 'smooth' });
-          } catch (error) { }
-        }
-      }
-    });
-  }, []);
-
-  const onCloseMenu = React.useCallback(() => {
-    setOpenMenu(false);
-  }, []);
-
-  const onMode = React.useCallback(() => {
-    setMode(refs.version.current === 'mobile' ? openMobile : 'select');
-
-    // Update calendar to from value view
-    if (!refs.open.current) {
-      const calendarValue = {
-        ...refs.calendar.current,
-
-        ...refs.values.current[0]
-      };
-
-      calendarValue.previous = new AmauiDate(calendarValue.date);
-
-      updateCalendar(calendarValue);
-    }
-
-    setOpen(!refs.open.current);
-  }, [openMobile]);
-
-  const onClose = React.useCallback((event: React.MouseEvent<any>) => {
-    setOpenMenu(false);
-
-    setOpen(false);
-
-    if (is('function', onClose_)) onClose_(event);
-  }, [onClose_]);
-
-  const onModal = React.useCallback((event: React.MouseEvent<any>) => {
-    setMode(refs.version.current === 'mobile' ? openMobile : 'select');
-
-    setOpen(true);
-
-    // Update calendar to from value view
-    updateCalendar({
-      ...refs.calendar.current,
-
-      ...refs.values.current[0]
-    });
-
-    if (is('function', onClick_)) onClick_(event);
-  }, [openMobile, onClick_]);
-
-  const onModeSwitch = React.useCallback(() => {
-    setMode(refs.mode.current === 'select' ? 'input' : 'select');
-  }, []);
-
-  const onClear = React.useCallback(() => {
-    setOpenMenu(false);
-
-    const values_ = (range ? [new AmauiDate(), new AmauiDate()] : [new AmauiDate()]).map((item: any, index: number) => {
-      const item_ = valueToValues(item, index);
-
-      item_.date = item_.selected = item;
-
-      item_.inputModal = valueToInputModal(item_.date);
-
-      return item_;
-    });
-
-    setValues(values_);
-
-    const calendar_ = { ...refs.calendar.current, ...values_[0] };
-
-    calendar_.previous = refs.calendar.current?.date;
-
-    calendar_.date = valuesToValue(values_[0]);
-
-    calendar_.move = calendar_.date.milliseconds > calendar_.previous?.milliseconds ? 'next' : 'previous';
-
-    calendar_.update = 'clear';
-
-    updateCalendar(calendar_);
-  }, [range]);
-
-  const onOk = React.useCallback(() => {
-    let values_ = refs.values.current;
-
-    const amauiDates = values_.map((item => valuesToValue(item)));
-
-    values_ = amauiDates.map((item: any, index: number) => valueToValues(item, index));
-
-    setValues(values_);
-
-    updateValue(amauiDates);
-
-    // Error
-    setError(values_.some(item => !validItem('', '', item)));
-
-    setOpenMenu(false);
-
-    setOpen(false);
-  }, []);
-
-  const reset = () => {
-    const values_ = refs.values.current.map((item: any, index: number) => {
-      const item_ = {
-        ...item,
-
-        ...inputToValues(item.input, index),
-
-        input: item.input,
-
-        inputModal: item.input
-      };
-
-      item_.date = item_.selected = valuesToValue(item_);
-
-      return item_;
-    });
-
-    setValues(values_);
-
-    const calendar_ = { ...refs.calendar.current, ...values_[0] };
-
-    calendar_.previous = refs.calendar.current?.date;
-
-    calendar_.date = valuesToValue(values_[0]);
-
-    calendar_.move = calendar_.date.milliseconds > calendar_.previous?.milliseconds ? 'next' : 'previous';
-
-    calendar_.update = 'clear';
-
-    updateCalendar(calendar_);
-  };
-
-  const onCancel = React.useCallback((event: React.MouseEvent<any>) => {
-    reset();
-
-    onClose(event);
-
-    if (is('function', onCancel_)) onCancel_(event);
-  }, [onCancel_]);
-
-  const move = (next = true, unit: TTimeUnits = 'month') => {
-    try {
-      const calendar_ = ({
-        ...refs.calendar.current,
-
-        previous: refs.calendar.current.date,
-
-        move: next ? 'next' : 'previous',
-
-        update: 'move',
-
-        date: (next ? add : remove)(1, unit, refs.calendar.current.date)
-      });
-
-      updateCalendar(calendar_);
-    }
-    catch (error) { }
-  };
-
-  const moveCalendar = (units = 1, calendarValue: any = refs.calendar.current, next = true, unit: TTimeUnits = 'month') => {
-    try {
-      const previousCalendar: any = (calendarValue?.move === 'next' ? remove : add)(units - 1, unit, calendarValue.date);
-
-      const valueNew: any = (next ? add : remove)(units, unit, calendarValue.date);
-
-      const calendar_ = ({
-        ...calendarValue,
-
-        previous: previousCalendar,
-
-        date: valueNew
-      });
-
-      return calendar_;
-    }
-    catch (error) { }
-  };
-
-  const ModeDocked = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
-    const valueMonth = refs.calendar.current.date;
-
-    const month_ = formatMethod(valueMonth, 'MMM');
-    const year_ = formatMethod(valueMonth, 'YYYY');
-
-    const buttonsProps = {
-      color: 'inherit',
-      version: 'text'
-    };
-
-    const actionsButtonsProps = {
-      tonal,
-      color,
-      version: 'text'
-    };
-
-    return (
-      <Surface
-        ref={ref_}
-
-        tonal={tonal}
-
-        color={color}
-
-        className={classNames([
+      className={
+        classNames([
           staticClassName('DatePicker', theme) && [
-            'amaui-DatePicker-mode',
-            'amaui-DatePicker-mode-docked'
+            'amaui-DatePicker-actions'
           ],
 
-          ModeDockedProps?.className,
-          classes.mode,
-          classes.mode_docked
+          classes.actions
         ])}
+    >
+      <Button
+        onClick={onToday}
+
+        {...actionButtonsProps}
       >
-        {/* Header */}
-        <Line
-          gap={0.5}
+        Today
+      </Button>
 
-          direction='row'
-
-          align='center'
-
-          justify='space-between'
-
-          className={classNames([
-            staticClassName('DatePicker', theme) && [
-              'amaui-DatePicker-mode-docked-header'
-            ],
-
-            classes.mode_docked_header
-          ])}
-        >
-          {/* Month */}
-          <Line
-            gap={0}
-
-            direction='row'
-
-            align='center'
-          >
-            <Fade
-              in={!refs.openMenu.current}
-            >
-              <IconButton
-                onClick={() => move(false)}
-
-                aria-label='Previous month'
-
-                disabled={refs.openMenu.current || (+year_ <= 1970 && month_ === 'Jan')}
-
-                {...buttonsProps}
-              >
-                <IconPrevious />
-              </IconButton>
-            </Fade>
-
-            <Button
-              version='text'
-
-              {...buttonsProps}
-
-              onClick={() => onOpenMenu()}
-
-              fontSize={24}
-
-              end={(
-                <Fade
-                  in={refs.openMenu.current !== 'year'}
-                >
-                  <IconDropDown
-                    className={classNames([
-                      staticClassName('DatePicker', theme) && [
-                        'amaui-DatePicker-arrow'
-                      ],
-
-                      classes.arrow,
-                      refs.openMenu.current === 'month' && classes.arrow_open
-                    ])}
-                  />
-                </Fade>
-              )}
-
-              className={classNames([
-                staticClassName('DatePicker', theme) && [
-                  'amaui-DatePicker-mode-docked-header-button'
-                ],
-
-                classes.mode_docked_header_button,
-                refs.openMenu.current === 'year' && classes.open_secondary
-              ])}
-
-              aria-label={`Select month, current ${month_}`}
-            >
-              {month_}
-            </Button>
-
-            <Fade
-              in={!refs.openMenu.current}
-            >
-              <IconButton
-                onClick={() => move()}
-
-                aria-label='Next month'
-
-                disabled={refs.openMenu.current || (+year_ === 2099 && month_ === 'Dec')}
-
-                {...buttonsProps}
-              >
-                <IconNext />
-              </IconButton>
-            </Fade>
-          </Line>
-
-          {/* Year */}
-          <Line
-            gap={0}
-
-            direction='row'
-
-            align='center'
-          >
-            <Fade
-              in={!refs.openMenu.current}
-            >
-              <IconButton
-                onClick={() => move(false, 'year')}
-
-                aria-label='Previous year'
-
-                disabled={refs.openMenu.current || +year_ <= 1970}
-
-                {...buttonsProps}
-              >
-                <IconPrevious />
-              </IconButton>
-            </Fade>
-
-            <Button
-              version='text'
-
-              {...buttonsProps}
-
-              onClick={() => onOpenMenu('year')}
-
-              fontSize={24}
-
-              end={(
-                <Fade
-                  in={refs.openMenu.current !== 'month'}
-                >
-                  <IconDropDown
-                    className={classNames([
-                      staticClassName('DatePicker', theme) && [
-                        'amaui-DatePicker-arrow'
-                      ],
-
-                      classes.arrow,
-                      refs.openMenu.current === 'year' && classes.arrow_open
-                    ])}
-                  />
-                </Fade>
-              )}
-
-              aria-label={`Select year, current ${year_}`}
-
-              className={classNames([
-                staticClassName('DatePicker', theme) && [
-                  'amaui-DatePicker-mode-docked-header-button'
-                ],
-
-                classes.mode_docked_header_button,
-                refs.openMenu.current === 'month' && classes.open_secondary
-              ])}
-            >
-              {year_}
-            </Button>
-
-            <Fade
-              in={!refs.openMenu.current}
-            >
-              <IconButton
-                onClick={() => move(true, 'year')}
-
-                aria-label='Next year'
-
-                disabled={refs.openMenu.current || +year_ === 2099}
-
-                {...buttonsProps}
-              >
-                <IconNext />
-              </IconButton>
-            </Fade>
-          </Line>
-        </Line>
-
-        {/* Main */}
-        {/* Calendar */}
-        {!refs.openMenu.current && (
-          <Fade
-            in
-          >
-            <Line
-              gap={0}
-
-              direction='column'
-
-              align='center'
-
-              style={{
-                width: '100%'
-              }}
-            >
-              {/* Calendar/s */}
-              <Line
-                direction='row'
-
-                align='center'
-
-                style={{
-                  width: '100%',
-                  padding: '0 8px'
-                }}
-              >
-                {Array.from({ length: calendars }).map((item: any, index: number) => {
-                  const calendarValue = index === 0 ? refs.calendar.current : moveCalendar(index, refs.calendar.current);
-
-                  if (
-                    (refs.calendar.current.update === 'day') ||
-                    (
-                      (['clear', 'reset'].includes(refs.calendar.current.update)) &&
-                      (refs.calendar.current.previous.month === refs.calendar.current.date.month && refs.calendar.current.previous.year === refs.calendar.current.date.year)
-                    )
-                  ) {
-                    calendarValue.previous = new AmauiDate(calendarValue.date);
-                  }
-
-                  const month__ = calendarValue?.date?.month - 1;
-
-                  return (
-                    <Line
-                      key={index}
-
-                      gap={1}
-
-                      direction='column'
-
-                      style={{
-                        width: '100%'
-                      }}
-                    >
-                      {calendars > 1 && (
-                        <Type
-                          version='l2'
-
-                          style={{
-                            paddingInlineStart: '16px'
-                          }}
-                        >
-                          {monthsValue[month__]}
-                        </Type>
-                      )}
-
-                      <div
-                        className={classNames([
-                          staticClassName('DatePicker', theme) && [
-                            'amaui-DatePicker-calendar-wrapper'
-                          ],
-
-                          classes.calendar_wrapper
-                        ])}
-                      >
-                        <CalendarDays
-                          tonal={tonal}
-
-                          color={color}
-
-                          weekStartDay={weekStartDay}
-
-                          value={refs.value.current}
-
-                          values={refs.values.current}
-
-                          calendar={calendarValue}
-
-                          valid={validItem}
-
-                          onDayClick={onDayClick}
-
-                          range={range}
-
-                          relative={false}
-
-                          outside={calendars === 1}
-
-                          monthName={calendars > 1}
-
-                          renderDay={renderDay}
-
-                          className={classNames([
-                            staticClassName('DatePicker', theme) && [
-                              'amaui-DatePicker-calendar-transition'
-                            ],
-
-                            classes.calendar_transition
-                          ])}
-                        />
-                      </div>
-                    </Line>
-                  );
-                })}
-              </Line>
-
-              {/* Actions */}
-              <Line
-                direction='row'
-
-                align='center'
-
-                justify='space-between'
-
-                className={classNames([
-                  staticClassName('DatePicker', theme) && [
-                    'amaui-DatePicker-mode-docked-footer'
-                  ],
-
-                  classes.mode_docked_footer
-                ])}
-              >
-                <Button
-                  onClick={onClear}
-
-                  {...actionsButtonsProps}
-                >
-                  Clear
-                </Button>
-
-                <Line
-                  gap={0}
-
-                  direction='row'
-
-                  align='center'
-                >
-                  <Button
-                    onClick={onCancel}
-
-                    {...actionsButtonsProps}
-                  >
-                    Cancel
-                  </Button>
-
-                  <Button
-                    onClick={onOk}
-
-                    {...actionsButtonsProps}
-                  >
-                    Ok
-                  </Button>
-                </Line>
-              </Line>
-            </Line>
-          </Fade>
-        )}
-
-        {/* Divider */}
-        {!!refs.openMenu.current && (
-          <Divider
-            tonal={false}
-
-            className={classNames([
-              staticClassName('DatePicker', theme) && [
-                'amaui-DatePicker-divider'
-              ],
-
-              classes.divider
-            ])}
-          />
-        )}
-
-        {/* Menu month */}
-        {refs.openMenu.current === 'month' && (
-          <Fade
-            in
-          >
-            <List
-              ref={refs.month}
-
-              tonal={tonal}
-
-              color={color}
-
-              size='large'
-
-              menu
-
-              className={classNames([
-                staticClassName('DatePicker', theme) && [
-                  'amaui-DatePicker-list'
-                ],
-
-                classes.list
-              ])}
-            >
-              {getMonths(refs.value.current, refs.values.current, refs.calendar.current, props).map((item: any, index: number) => {
-                const monthValue = refs.calendar.current.date;
-                const month__ = formatMethod(monthValue, 'MMMM');
-
-                const selected = month__ === item.value;
-
-                return (
-                  <ListItem
-                    key={index}
-
-                    onClick={() => onMonthClick(index)}
-
-                    primary={item.value}
-
-                    inset={!selected}
-
-                    startAlign='center'
-
-                    start={selected ? (
-                      <IconDoneAnimated
-                        in
-
-                        add
-
-                        simple
-                      />
-                    ) : undefined}
-
-                    disabled={(
-                      !validItem(
-                        getLeadingZerosNumber(index + 1),
-
-                        'month'
-                      )
-                    )}
-
-                    selected={selected}
-
-                    button
-
-                    data-value={index}
-
-                    className={classNames([
-                      staticClassName('DatePicker', theme) && [
-                        'amaui-DatePicker-list-item'
-                      ],
-
-                      classes.listItem
-                    ])}
-                  />
-                );
-              })}
-            </List>
-          </Fade>
-        )}
-
-        {/* Menu year */}
-        {refs.openMenu.current === 'year' && (
-          <Fade
-            in
-          >
-            <List
-              ref={refs.year}
-
-              tonal={tonal}
-
-              color={color}
-
-              size='large'
-
-              menu
-
-              className={classNames([
-                staticClassName('DatePicker', theme) && [
-                  'amaui-DatePicker-list'
-                ],
-
-                classes.list
-              ])}
-            >
-              {getYears(refs.value.current, refs.values.current, refs.calendar.current, props).map((item: any, index: number) => {
-                const monthValue = refs.calendar.current.date;
-                const year__ = +formatMethod(monthValue, 'YYYY');
-
-                const selected = year__ === item.value;
-
-                return (
-                  <ListItem
-                    key={index}
-
-                    onClick={() => onYearClick(item.value)}
-
-                    primary={item.value}
-
-                    inset={!selected}
-
-                    startAlign='center'
-
-                    start={selected ? (
-                      <IconDoneAnimated
-                        in
-
-                        add
-
-                        simple
-                      />
-                    ) : undefined}
-
-                    selected={selected}
-
-                    disabled={(
-                      !validItem(
-                        getLeadingZerosNumber(item.value),
-
-                        'year'
-                      )
-                    )}
-
-                    button
-
-                    data-value={item.value}
-
-                    className={classNames([
-                      staticClassName('DatePicker', theme) && [
-                        'amaui-DatePicker-list-item'
-                      ],
-
-                      classes.listItem
-                    ])}
-                  />
-                );
-              })}
-            </List>
-          </Fade>
-        )}
-      </Surface>
-    );
-  }), [tonal, color, range, weekStartDay, renderDay, theme]);
-
-  const ModeModal = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
-    const month_ = refs.calendar.current?.date;
-
-    const year_ = formatMethod(month_, 'YYYY');
-    const monthName = formatMethod(month_, 'MMMM');
-
-    const text = refs.values.current.map(item => {
-      const selected = item.selected;
-
-      const monthNameAbr = formatMethod(selected, 'MMM');
-      const dayName = formatMethod(selected, 'd');
-      const day_ = getLeadingZerosNumber(selected.day);
-
-      return `${dayName}, ${monthNameAbr} ${day_}`;
-    }).join(SEPARATOR);
-
-    const actionsButtonsProps = {
-      tonal,
-      color,
-      version: 'text'
-    };
-
-    return (
-      <Surface
-        ref={ref_}
-
-        tonal={tonal}
-
-        color={color}
-
-        className={classNames([
-          staticClassName('DatePicker', theme) && [
-            'amaui-DatePicker-mode'
-          ],
-
-          ModeInputProps?.className,
-          classes.mode,
-          classes.mode_modal
-        ])}
-      >
-        {/* Header */}
-        <Line
-          gap={0}
-
-          direction='column'
-
-          className={classNames([
-            staticClassName('DatePicker', theme) && [
-              'amaui-DatePicker-mode-modal-header'
-            ],
-
-            classes.mode_modal_header
-          ])}
-        >
-          {/* Heading */}
-          <Type
-            version='l2'
-
-            className={classNames([
-              staticClassName('TimePicker', theme) && [
-                'amaui-TimePicker-heading'
-              ],
-
-              classes.heading
-            ])}
-          >
-            {modeModalHeadingText}
-          </Type>
-
-          {/* Select */}
-          {refs.mode.current === 'select' && (
-            <Line
-              direction='row'
-
-              align='center'
-
-              justify='space-between'
-
-              style={{
-                width: '100%',
-                marginBottom: '12px'
-              }}
-            >
-              <Type
-                version='h1'
-              >
-                {text}
-              </Type>
-
-              {switch_ && (
-                <Tooltip
-                  label='Enter date'
-                >
-                  <IconButton
-                    tonal={tonal}
-
-                    color='inherit'
-
-                    onClick={onModeSwitch}
-
-                    aria-label='Enter date'
-                  >
-                    <IconEnter />
-                  </IconButton>
-                </Tooltip>
-              )}
-            </Line>
-          )}
-
-          {/* Input */}
-          {refs.mode.current === 'input' && (
-            <Line
-              direction='row'
-
-              align='center'
-
-              justify='space-between'
-
-              style={{
-                width: '100%',
-                marginBottom: '12px'
-              }}
-            >
-              <Type
-                version='h1'
-              >
-                {inputModeHeadingText}
-              </Type>
-
-              {switch_ && (
-                <Tooltip
-                  label='Select date'
-                >
-                  <IconButton
-                    tonal={tonal}
-
-                    color='inherit'
-
-                    onClick={onModeSwitch}
-
-                    aria-label='Choose date'
-                  >
-                    <Icon_ />
-                  </IconButton>
-                </Tooltip>
-              )}
-            </Line>
-          )}
-        </Line>
-
-        {/* Divider */}
-        <Divider
-          tonal={false}
-
-          className={classNames([
-            staticClassName('DatePicker', theme) && [
-              'amaui-DatePicker-divider'
-            ],
-
-            classes.divider
-          ])}
-        />
-
-        {/* Select */}
-        {refs.mode.current === 'select' && (
-          <Surface
-            tonal={tonal}
-
-            color={color}
-          >
-            {({ palette }) => (
-              <Line
-                gap={0}
-
-                direction='column'
-              >
-                <Line
-                  gap={0}
-
-                  direction='column'
-
-                  align='center'
-
-                  className={classNames([
-                    staticClassName('DatePicker', theme) && [
-                      'amaui-DatePicker-mode-modal-middle'
-                    ],
-
-                    classes.mode_modal_middle
-                  ])}
-                >
-                  {/* Header */}
-                  <Line
-                    gap={0.5}
-
-                    direction='row'
-
-                    align='center'
-
-                    justify='space-between'
-
-                    className={classNames([
-                      staticClassName('DatePicker', theme) && [
-                        'amaui-DatePicker-mode-modal-header-select'
-                      ],
-
-                      classes.mode_modal_header_select
-                    ])}
-                  >
-                    {/* Month year */}
-                    <Button
-                      tonal={tonal}
-
-                      color='inherit'
-
-                      version='text'
-
-                      onClick={() => onOpenMenu('year')}
-
-                      fontSize={24}
-
-                      end={(
-                        <IconDropDown
-                          className={classNames([
-                            staticClassName('DatePicker', theme) && [
-                              'amaui-DatePicker-arrow'
-                            ],
-
-                            classes.arrow,
-                            refs.openMenu.current === 'year' && classes.arrow_open
-                          ])}
-                        />
-                      )}
-
-                      className={classNames([
-                        staticClassName('DatePicker', theme) && [
-                          'amaui-DatePicker-mode-docked-header-button'
-                        ],
-
-                        classes.mode_docked_header_button
-                      ])}
-                    >
-                      {monthName} {year_}
-                    </Button>
-
-                    {/* Arrows */}
-                    <Line
-                      gap={0}
-
-                      direction='row'
-
-                      align='center'
-                    >
-                      <Fade
-                        in={!refs.openMenu.current}
-                      >
-                        <IconButton
-                          tonal={tonal}
-
-                          color='inherit'
-
-                          onClick={() => move(false, 'month')}
-
-                          aria-label='Previous month'
-
-                          disabled={refs.openMenu.current || (+year_ === 1970 && month_ === 'Jan')}
-                        >
-                          <IconPrevious />
-                        </IconButton>
-                      </Fade>
-
-                      <Fade
-                        in={!refs.openMenu.current}
-                      >
-                        <IconButton
-                          tonal={tonal}
-
-                          color='inherit'
-
-                          onClick={() => move(true, 'month')}
-
-                          aria-label='Next month'
-
-                          disabled={refs.openMenu.current || (+year_ === 2099 && month_ === 'Dec')}
-                        >
-                          <IconNext />
-                        </IconButton>
-                      </Fade>
-                    </Line>
-                  </Line>
-
-                  {/* Calendar */}
-                  {!refs.openMenu.current && (
-                    <Fade
-                      in
-                    >
-                      {/* Calendar */}
-                      <div
-                        className={classNames([
-                          staticClassName('DatePicker', theme) && [
-                            'amaui-DatePicker-calendar-wrapper'
-                          ],
-
-                          classes.calendar_wrapper
-                        ])}
-                      >
-                        <CalendarDays
-                          tonal={tonal}
-
-                          color={color}
-
-                          weekStartDay={weekStartDay}
-
-                          value={refs.value.current}
-
-                          values={refs.values.current}
-
-                          calendar={refs.calendar.current}
-
-                          valid={validItem}
-
-                          onDayClick={onDayClick}
-
-                          relative={false}
-
-                          range={range}
-
-                          outside={false}
-
-                          renderDay={renderDay}
-
-                          className={classNames([
-                            staticClassName('DatePicker', theme) && [
-                              'amaui-DatePicker-calendar-transition'
-                            ],
-
-                            classes.calendar_transition
-                          ])}
-                        />
-                      </div>
-                    </Fade>
-                  )}
-
-                  {/* Menu */}
-                  {refs.openMenu.current === 'year' && (
-                    <Fade
-                      in
-                    >
-                      <Line
-                        ref={refs.year}
-
-                        tonal={tonal}
-
-                        color={color}
-
-                        direction='row'
-
-                        wrap='wrap'
-
-                        justify='space-evenly'
-
-                        className={classNames([
-                          staticClassName('DatePicker', theme) && [
-                            'amaui-DatePicker-list-modal'
-                          ],
-
-                          classes.list_modal
-                        ])}
-                      >
-                        {getYears(refs.value.current, refs.values.current, refs.calendar.current, props).map((item: any, index: number) => {
-                          const monthValue = refs.calendar.current.date;
-                          const year__ = +formatMethod(monthValue, 'YYYY');
-
-                          const selected = year__ === item.value;
-
-                          return (
-                            <PaginationItem
-                              key={index}
-
-                              tonal={tonal}
-
-                              color='inherit'
-
-                              InteractionProps={{
-                                background: false
-                              }}
-
-                              TypeProps={{
-                                version: 'b2',
-
-                                tone: !selected ? 'primary' : undefined
-                              }}
-
-                              onClick={() => onYearClick(item.value)}
-
-                              data-value={item.value}
-
-                              disabled={(
-                                !validItem(
-                                  getLeadingZerosNumber(item.value),
-
-                                  'year'
-                                )
-                              )}
-
-                              className={classNames([
-                                staticClassName('DatePicker', theme) && [
-                                  'amaui-DatePicker-day-value-modal'
-                                ],
-
-                                classes.dayValue_modal
-                              ])}
-
-                              style={{
-                                ...(selected ? {
-                                  color: theme.methods.palette.color.value(undefined, 90, true, palette),
-                                  backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
-                                } : undefined)
-                              }}
-                            >
-                              {item.value}
-                            </PaginationItem>
-                          );
-                        })}
-                      </Line>
-                    </Fade>
-                  )}
-                </Line>
-              </Line>
-            )}
-          </Surface>
-        )}
-
-        {/* Input */}
-        {refs.mode.current === 'input' && (
-          <Line
-            gap={1.5}
-
-            direction='row'
-
-            align='center'
-
-            style={{
-              width: '100%',
-              padding: '16px 24px 16px'
-            }}
-          >
-            {refs.values.current.map((item: any, index: number) => (
-              <AdvancedTextField
-                key={index}
-
-                tonal={tonal}
-
-                color={color}
-
-                version='outlined'
-
-                label={index === 0 ? !range ? label : labelFrom : labelTo}
-
-                mask={refs.maskInput.current}
-
-                placeholder={refs.placeholderInput.current}
-
-                value={item.inputModal}
-
-                onChange={(valueNew: any) => updateInputModal(valueNew, index)}
-
-                helperText={useHelperText ? placeholder : undefined}
-
-                className={classNames([
-                  staticClassName('DatePicker', theme) && [
-                    'amaui-DatePicker-input'
-                  ],
-
-                  classes.input
-                ])}
-
-                {...AdvancedTextFieldProps}
-              />
-            ))}
-          </Line>
-        )}
-
-        {/* Divider */}
-        {!!refs.openMenu.current && (
-          <Divider
-            tonal={false}
-
-            className={classNames([
-              staticClassName('DatePicker', theme) && [
-                'amaui-DatePicker-divider'
-              ],
-
-              classes.divider
-            ])}
-          />
-        )}
-
-        {/* Actions */}
-        <Line
-          direction='row'
-
-          align='center'
-
-          justify='space-between'
-
-          className={classNames([
-            staticClassName('DatePicker', theme) && [
-              'amaui-DatePicker-mode-docked-footer'
-            ],
-
-            classes.mode_docked_footer
-          ])}
-        >
-          <Button
-            onClick={onClear}
-
-            {...actionsButtonsProps}
-          >
-            Clear
-          </Button>
-
-          <Line
-            gap={0}
-
-            direction='row'
-
-            align='center'
-          >
-            <Button
-              onClick={onCancel}
-
-              {...actionsButtonsProps}
-            >
-              Cancel
-            </Button>
-
-            <Button
-              onClick={onOk}
-
-              {...actionsButtonsProps}
-            >
-              Ok
-            </Button>
-          </Line>
-        </Line>
-      </Surface>
-    );
-  }), [tonal, color, range, switch_, labelFrom, labelTo, modeModalHeadingText, inputModeHeadingText, renderDay, theme]);
-
-  const ModeFullScreen = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
-    const month_ = refs.calendar.current?.date;
-
-    const year_ = formatMethod(month_, 'YYYY');
-    const monthName = formatMethod(month_, 'MMMM');
-
-    let millisecondsSelected = 0;
-
-    const text = refs.values.current.map(item => {
-      const selected = item.selected;
-
-      millisecondsSelected += selected.milliseconds;
-
-      const monthNameAbr = formatMethod(selected, 'MMM');
-      const dayName = formatMethod(selected, 'd');
-      const day_ = getLeadingZerosNumber(selected.day);
-
-      return `${dayName}, ${monthNameAbr} ${day_}`;
-    }).join(SEPARATOR);
-
-    const months = monthsValue;
-
-    const buttonsProps = {
-      color: 'inherit',
-      version: 'text'
-    };
-
-    const actionsButtonsProps = {
-      tonal,
-      color,
-      version: 'text'
-    };
-
-    return (
-      <Surface
-        ref={ref_}
-
-        tonal={tonal}
-
-        color={color}
-
+      <Line
         gap={0}
 
-        direction='column'
+        direction='row'
 
-        Component={Line}
-
-        className={classNames([
-          staticClassName('DatePicker', theme) && [
-            'amaui-DatePicker-mode',
-            'amaui-DatePicker-mode-full-screen'
-          ],
-
-          ModeInputProps?.className,
-          classes.mode,
-          classes.mode_modal_fullScreen
-        ])}
+        align='center'
       >
-        {/* Header */}
-        <Line
-          gap={0}
+        <Button
+          onClick={onCancel}
 
-          direction='column'
-
-          className={classNames([
-            staticClassName('DatePicker', theme) && [
-              'amaui-DatePicker-mode-modal-full-screen-header'
-            ],
-
-            classes.mode_modal_fullScreen_header
-          ])}
+          {...actionButtonsProps}
         >
-          {/* Actions */}
-          <Line
-            gap={0}
+          Cancel
+        </Button>
 
-            direction='row'
+        <Button
+          onClick={onOk}
 
-            align='center'
-
-            justify='space-between'
-
-            style={{
-              width: '100%',
-              padding: '0px 8px 8px'
-            }}
-          >
-            <IconButton
-              onClick={onClose}
-
-              aria-label='Close'
-
-              {...buttonsProps}
-            >
-              <IconClose />
-            </IconButton>
-
-            <Button
-              onClick={onOk}
-
-              {...actionsButtonsProps}
-            >
-              Save
-            </Button>
-          </Line>
-
-          <div
-            style={{
-              width: '100%',
-              padding: '0 16px 16px'
-            }}
-          >
-            {/* Select */}
-            {refs.mode.current === 'select' && (
-              <Line
-                direction='row'
-
-                align='center'
-
-                justify='space-between'
-
-                style={{
-                  width: '100%',
-                  paddingInlineStart: '48px'
-                }}
-              >
-                <Type
-                  version='h1'
-                >
-                  {text}
-                </Type>
-
-                {switch_ && (
-                  <Tooltip
-                    label='Enter date'
-                  >
-                    <IconButton
-                      tonal={tonal}
-
-                      color='inherit'
-
-                      onClick={onModeSwitch}
-
-                      aria-label='Enter date'
-                    >
-                      <IconEnter />
-                    </IconButton>
-                  </Tooltip>
-                )}
-              </Line>
-            )}
-
-            {/* Input */}
-            {refs.mode.current === 'input' && (
-              <Line
-                direction='row'
-
-                align='center'
-
-                justify='space-between'
-
-                style={{
-                  width: '100%'
-                }}
-              >
-                <Type
-                  version='h1'
-                >
-                  {inputModeHeadingText}
-                </Type>
-
-                {switch_ && (
-                  <Tooltip
-                    label='Select date'
-                  >
-                    <IconButton
-                      tonal={tonal}
-
-                      color='inherit'
-
-                      onClick={onModeSwitch}
-
-                      aria-label='Select date'
-                    >
-                      <Icon_ />
-                    </IconButton>
-                  </Tooltip>
-                )}
-              </Line>
-            )}
-          </div>
-        </Line>
-
-        <Divider
-          tonal={false}
-
-          className={classNames([
-            staticClassName('DatePicker', theme) && [
-              'amaui-DatePicker-divider'
-            ],
-
-            classes.divider
-          ])}
-        />
-
-        {/* Main */}
-        <main
-          className={classNames([
-            staticClassName('DatePicker', theme) && [
-              'amaui-DatePicker-mode-modal-full-screen-main'
-            ],
-
-            classes.mode_modal_fullScreen_main
-          ])}
-
-          style={{
-            // without range date value
-            maxHeight: `calc(100vh - ${(range && refs.mode.current === 'select') ? 222 : 181}px)`
-          }}
+          {...actionButtonsProps}
         >
-          {/* Select */}
-          {refs.mode.current === 'select' && (
-            <Surface
-              tonal={tonal}
-
-              color={color}
-            >
-              {({ palette }) => (
-                <Line
-                  gap={0}
-
-                  direction='column'
-
-                  style={{
-                    height: '100%'
-                  }}
-                >
-                  <Line
-                    gap={0}
-
-                    direction='column'
-
-                    align='center'
-
-                    className={classNames([
-                      staticClassName('DatePicker', theme) && [
-                        'amaui-DatePicker-mode-modal-middle'
-                      ],
-
-                      classes.mode_modal_middle
-                    ])}
-                  >
-                    {/* Header */}
-                    <Line
-                      gap={0.5}
-
-                      direction='row'
-
-                      align='center'
-
-                      justify='space-between'
-
-                      className={classNames([
-                        staticClassName('DatePicker', theme) && [
-                          'amaui-DatePicker-mode-modal-header-select'
-                        ],
-
-                        classes.mode_modal_header_select
-                      ])}
-                    >
-                      {/* Month year */}
-                      <Button
-                        tonal={tonal}
-
-                        color='inherit'
-
-                        version='text'
-
-                        onClick={() => onOpenMenu('year')}
-
-                        fontSize={24}
-
-                        end={(
-                          <IconDropDown
-                            className={classNames([
-                              staticClassName('DatePicker', theme) && [
-                                'amaui-DatePicker-arrow'
-                              ],
-
-                              classes.arrow,
-                              refs.openMenu.current === 'year' && classes.arrow_open
-                            ])}
-                          />
-                        )}
-
-                        className={classNames([
-                          staticClassName('DatePicker', theme) && [
-                            'amaui-DatePicker-mode-docked-header-button'
-                          ],
-
-                          classes.mode_docked_header_button
-                        ])}
-                      >
-                        {monthName} {year_}
-                      </Button>
-
-                      {/* Arrows */}
-                      <Line
-                        gap={0}
-
-                        direction='row'
-
-                        align='center'
-                      >
-                        <Fade
-                          in={!refs.openMenu.current}
-                        >
-                          <IconButton
-                            tonal={tonal}
-
-                            color='inherit'
-
-                            onClick={() => move(false, 'year')}
-
-                            aria-label='Previous year'
-
-                            disabled={refs.openMenu.current || +year_ === 1970}
-                          >
-                            <IconPrevious />
-                          </IconButton>
-                        </Fade>
-
-                        <Fade
-                          in={!refs.openMenu.current}
-                        >
-                          <IconButton
-                            tonal={tonal}
-
-                            color='inherit'
-
-                            onClick={() => move(true, 'year')}
-
-                            aria-label='Next year'
-
-                            disabled={refs.openMenu.current || +year_ === 2099}
-                          >
-                            <IconNext />
-                          </IconButton>
-                        </Fade>
-                      </Line>
-                    </Line>
-
-                    {/* Calendar */}
-                    {!refs.openMenu.current && (
-                      <Fade
-                        in
-                      >
-                        {/* Calendars */}
-                        <Carousel
-                          ref={refs.carousel}
-
-                          tonal={tonal}
-
-                          color={color}
-
-                          id={millisecondsSelected + year_}
-
-                          value={refs.carouselValue.current}
-
-                          arrows={false}
-
-                          progress={false}
-
-                          orientation='vertical'
-
-                          moveBeyondEdge={false}
-
-                          itemSize='auto'
-
-                          gap={0}
-
-                          free
-
-                          onInit={updateCarouselPosition}
-
-                          items={Array.from({ length: 12 }).map((item: any, index: number) => {
-                            const calendar_ = {
-                              ...refs.calendar.current,
-
-                              year: year_,
-
-                              month: getLeadingZerosNumber(index + 1)
-                            };
-
-                            delete calendar_.date;
-
-                            // date
-                            calendar_.date = valuesToValue(calendar_);
-
-                            return (
-                              <Line
-                                key={index}
-
-                                gap={1.5}
-
-                                direction='column'
-
-                                style={{
-                                  width: '100%',
-                                  marginTop: '16px'
-                                }}
-                              >
-                                <Type
-                                  version='l2'
-
-                                  style={{
-                                    paddingInlineStart: '16px'
-                                  }}
-                                >
-                                  {months[index]} {year_}
-                                </Type>
-
-                                <div
-                                  className={classNames([
-                                    staticClassName('DatePicker', theme) && [
-                                      'amaui-DatePicker-calendar-wrapper',
-                                      'amaui-DatePicker-calendar-wrapper-full-screen'
-                                    ],
-
-                                    classes.calendar_wrapper,
-                                    classes.calendar_wrapper_fullScreen
-                                  ])}
-                                >
-                                  <CalendarDays
-                                    tonal={tonal}
-
-                                    color={color}
-
-                                    weekStartDay={weekStartDay}
-
-                                    value={refs.value.current}
-
-                                    values={refs.values.current}
-
-                                    calendar={calendar_}
-
-                                    valid={validItem}
-
-                                    onDayClick={onDayClick}
-
-                                    range={range}
-
-                                    outside={false}
-
-                                    renderDay={renderDay}
-
-                                    relative
-
-                                    noTransition
-                                  />
-                                </div>
-                              </Line>
-                            );
-                          })}
-
-                          ItemWrapperProps={{
-                            style: {
-                              width: '100%'
-                            }
-                          }}
-
-                          className={classNames([
-                            staticClassName('DatePicker', theme) && [
-                              'amaui-DatePicker-carousel'
-                            ],
-
-                            classes.carousel
-                          ])}
-                        />
-                      </Fade>
-                    )}
-
-                    {/* Menu */}
-                    {refs.openMenu.current === 'year' && (
-                      <Fade
-                        in
-                      >
-                        <Line
-                          ref={refs.year}
-
-                          tonal={tonal}
-
-                          color={color}
-
-                          direction='row'
-
-                          wrap='wrap'
-
-                          justify='space-evenly'
-
-                          className={classNames([
-                            staticClassName('DatePicker', theme) && [
-                              'amaui-DatePicker-list-modal',
-                              'amaui-DatePicker-list-modal-full-screen'
-                            ],
-
-                            classes.list_modal,
-                            classes.list_modal_fullScreen
-                          ])}
-                        >
-                          {getYears(refs.value.current, refs.values.current, refs.calendar.current, props).map((item: any, index: number) => {
-                            const monthValue = refs.calendar.current.date;
-                            const year__ = +formatMethod(monthValue, 'YYYY');
-
-                            const selected = year__ === item.value;
-
-                            return (
-                              <PaginationItem
-                                key={index}
-
-                                tonal={tonal}
-
-                                color='inherit'
-
-                                InteractionProps={{
-                                  background: false
-                                }}
-
-                                TypeProps={{
-                                  version: 'b2',
-
-                                  priority: !selected ? 'primary' : undefined
-                                }}
-
-                                onClick={() => onYearClick(item.value)}
-
-                                data-value={item.value}
-
-                                disabled={(
-                                  !validItem(
-                                    getLeadingZerosNumber(item.value),
-
-                                    'year'
-                                  )
-                                )}
-
-                                className={classNames([
-                                  staticClassName('DatePicker', theme) && [
-                                    'amaui-DatePicker-day-value-modal'
-                                  ],
-
-                                  classes.dayValue_modal
-                                ])}
-
-                                style={{
-                                  ...(selected ? {
-                                    color: theme.methods.palette.color.value(undefined, 90, true, palette),
-                                    backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
-                                  } : undefined)
-                                }}
-                              >
-                                {item.value}
-                              </PaginationItem>
-                            );
-                          })}
-                        </Line>
-                      </Fade>
-                    )}
-                  </Line>
-                </Line>
-              )}
-            </Surface>
-          )}
-
-          {/* Input */}
-          {refs.mode.current === 'input' && (
-            <Line
-              gap={1.5}
-
-              direction='row'
-
-              align='center'
-
-              style={{
-                width: '100%',
-                padding: '16px 24px 16px'
-              }}
-            >
-              {refs.values.current.map((item: any, index: number) => (
-                <AdvancedTextField
-                  key={index}
-
-                  tonal={tonal}
-
-                  color={color}
-
-                  version='outlined'
-
-                  label={index === 0 ? !range ? label : labelFrom : labelTo}
-
-                  mask={refs.maskInput.current}
-
-                  placeholder={refs.placeholderInput.current}
-
-                  value={item.inputModal}
-
-                  onChange={(valueNew: any) => updateInputModal(valueNew, index)}
-
-                  helperText={useHelperText ? placeholder : undefined}
-
-                  className={classNames([
-                    staticClassName('DatePicker', theme) && [
-                      'amaui-DatePicker-input'
-                    ],
-
-                    classes.input
-                  ])}
-
-                  {...AdvancedTextFieldProps}
-                />
-              ))}
-            </Line>
-          )}
-        </main>
-
-        <Divider
-          tonal={false}
-
-          className={classNames([
-            staticClassName('DatePicker', theme) && [
-              'amaui-DatePicker-divider'
-            ],
-
-            classes.divider
-          ])}
-        />
-
-        {/* Footer */}
-
-        {/* Actions */}
-        <Line
-          direction='row'
-
-          align='center'
-
-          justify='space-between'
-
-          className={classNames([
-            staticClassName('DatePicker', theme) && [
-              'amaui-DatePicker-mode-modal-full-screen-footer'
-            ],
-
-            classes.mode_modal_fullScreen_footer
-          ])}
-        >
-          <Button
-            onClick={onClear}
-
-            {...actionsButtonsProps}
-          >
-            Clear
-          </Button>
-
-          <Line
-            gap={0}
-
-            direction='row'
-
-            align='center'
-          >
-            <Button
-              onClick={onCancel}
-
-              {...actionsButtonsProps}
-            >
-              Cancel
-            </Button>
-
-            <Button
-              onClick={onOk}
-
-              {...actionsButtonsProps}
-            >
-              Ok
-            </Button>
-          </Line>
-        </Line>
-      </Surface>
-    );
-  }), [tonal, color, range, switch_, fullScreen, labelFrom, labelTo, modeModalHeadingText, inputModeHeadingText, renderDay, theme]);
+          Ok
+        </Button>
+      </Line>
+    </Line>
+  );
+
+  const moreProps: any = {};
 
   if (version === 'desktop') {
     moreProps.end = (
       <IconButton
-        ref={refs.iconButton}
-
         tonal={tonal}
 
         color={color}
 
         version='text'
 
-        onClick={onMode}
+        onClick={onOpen}
 
         aria-label={`Choose date${range ? ' range' : ''}`}
 
@@ -4029,17 +3388,10 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   }
 
   if (version === 'mobile') {
-    if (!readOnly) moreProps.onClick = onModal;
+    // if (!readOnly) moreProps.onClick = onModal;
   }
 
-  if (version === 'static') {
-    if (versionStatic !== undefined) return versionStatic === 'docked' ? <ModeDocked /> : versionStatic === 'modal' ? <ModeModal /> : <ModeFullScreen />;
-
-    if (!touch) return <ModeDocked />;
-
-    return !fullScreen ? <ModeModal /> : <ModeFullScreen />;
-  }
-  console.log(1, value, values);
+  console.log('DatePicker', input, value, calendar);
   return (
     <Line
       gap={0}
@@ -4050,7 +3402,6 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         staticClassName('DatePicker', theme) && [
           'amaui-DatePicker-root',
           range && `amaui-DatePicker-range`,
-          fullScreen && `amaui-DatePicker-full-screen`,
           readOnly && `amaui-DatePicker-read-only`,
           disabled && `amaui-DatePicker-disabled`
         ],
@@ -4081,9 +3432,9 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
         placeholder={placeholder}
 
-        value={values.map(item => item.input).join(SEPARATOR)}
+        value={input}
 
-        onChange={(valueNew: any) => updateInput(valueNew)}
+        onChange={onInputChange}
 
         helperText={useHelperText ? placeholder : undefined}
 
@@ -4101,7 +3452,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
       />
 
       {/* Mobile */}
-      {version === 'mobile' && (
+      {/* {version === 'mobile' && (
         <Modal
           open={open}
 
@@ -4129,7 +3480,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         >
           {fullScreen ? <ModeFullScreen /> : <ModeModal />}
         </Modal>
-      )}
+      )} */}
 
       {/* Desktop */}
       {version === 'desktop' && (
@@ -4158,18 +3509,60 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
             <ClickListener
               onClickOutside={onCancel}
 
-              includeParentQueries={['.amaui-DatePicker-mode', '.amaui-DatePicker-list', '.amaui-DatePicker-day']}
-
-              include={[refs.iconButton, refs.iconButton.current]}
+              includeParentQueries={['.amaui-Calendar-list']}
             >
-              <ModeDocked />
+              <Calendar
+                tonal={tonal}
+
+                color={color}
+
+                value={value}
+
+                calendar={calendar}
+
+                onChange={onCalendarChange}
+
+                onChangeCalendar={onCalendarChangeCalendar}
+
+                now={now}
+
+                range={range}
+
+                calendars={calendars}
+
+                valid={valid}
+
+                min={min}
+
+                max={max}
+
+                validate={validate}
+
+                belowCalendars={actions}
+
+                {...CalendarProps}
+
+                {...CalendarPropsDesktop}
+
+                className={classNames([
+                  staticClassName('DatePicker', theme) && [
+                    'amaui-DatePicker-calendar',
+                    'amaui-DatePicker-version-desktop'
+                  ],
+
+                  CalendarProps?.className,
+                  CalendarPropsDesktop?.className,
+                  classes.calendar,
+                  classes.calendar_version_desktop
+                ])}
+              />
             </ClickListener>
           )}
 
           {...TooltipProps}
         />
       )}
-    </ Line>
+    </Line>
   );
 });
 

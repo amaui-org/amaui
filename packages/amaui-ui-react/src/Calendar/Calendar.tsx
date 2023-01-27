@@ -284,6 +284,13 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
     if (calendar_ !== undefined && calendar_ !== calendar) setCalendar(calendar_);
   }, [calendar_]);
 
+  const onUpdate = React.useCallback((valueNew: AmauiDate) => {
+    // Inner update
+    if (!props.hasOwnProperty('value')) setValue(valueNew as any);
+
+    if (is('function', onChange)) onChange(valueNew);
+  }, [onChange]);
+
   const onUpdateCalendar = React.useCallback((valueNew: AmauiDate) => {
     // Inner update
     if (!props.hasOwnProperty('calendar')) setCalendar(valueNew);
@@ -298,11 +305,11 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
   }, []);
 
   const onCalendarMonthChange = React.useCallback((valueNew: TCalendarMonthValue) => {
-    if (valueNew !== value) setValue(valueNew as any);
+    if (valueNew !== value) onUpdate(valueNew as any);
   }, [value]);
 
   const onCalendarMonthChangeCalendar = React.useCallback((valueNew: TCalendarMonthCalendar) => {
-    if (valueNew !== calendar) setCalendar(valueNew as any);
+    if (valueNew !== calendar) onUpdateCalendar(valueNew as any);
   }, [calendar]);
 
   const valid = React.useCallback((...args: [AmauiDate, any]) => {
@@ -593,7 +600,6 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
     ...OptionButtonProps
   };
 
-  console.log('Calendar', value, calendar, open);
   return (
     <Surface
       ref={ref}
