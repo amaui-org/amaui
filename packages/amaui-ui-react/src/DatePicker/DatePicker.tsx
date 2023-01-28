@@ -453,6 +453,9 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
     // Update calendar
     onUpdateCalendar(valueNew[0]);
+
+    // Update input modal
+    setInputModal(input);
   }, [input]);
 
   const onToday = React.useCallback((event: React.MouseEvent) => {
@@ -469,6 +472,9 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     // Update input
     setInput(valueToInput(valueNew));
 
+    // Update input modal
+    setInputModal(valueToInput(valueNew));
+
     onClose(event);
 
     if (is('function', onToday_)) onToday_(event);
@@ -483,6 +489,9 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
     // Update input
     setInput(valueToInput(value));
+
+    // Update input modal
+    setInputModal(valueToInput(value));
 
     onClose(event);
 
