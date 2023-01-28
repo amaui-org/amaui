@@ -99,6 +99,7 @@ const useStyle = style(theme => ({
     '&.amaui-Carousel-root': {
       height: '100vh',
       maxHeight: '440px',
+      padding: '0 8px'
     }
   },
 
@@ -129,6 +130,8 @@ const useStyle = style(theme => ({
 
 export type TGetAmauiDates = (value: TCalendarMonthValue, calendar: TCalendarMonthCalendar, props: TPropsAny) => Array<{ value: AmauiDate }>;
 
+export type TCalendarUnit = 'day' | 'month' | 'year';
+
 export interface ICalendar extends IBaseElement {
   tonal?: TTonal;
   color?: TColor;
@@ -150,8 +153,10 @@ export interface ICalendar extends IBaseElement {
   min?: AmauiDate;
   max?: AmauiDate;
   validate?: (value: AmauiDate) => boolean;
+  menu_month_previous_unit?: TCalendarUnit;
+  menu_month_next_unit?: TCalendarUnit;
 
-  valid?: (value: AmauiDate, version: 'day' | 'month' | 'year') => boolean;
+  valid?: (value: AmauiDate, version: TCalendarUnit) => boolean;
   geMonths?: TGetAmauiDates;
   geYears?: TGetAmauiDates;
 
@@ -241,6 +246,8 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
     min,
     max,
     validate,
+    menu_month_previous_unit,
+    menu_month_next_unit,
 
     valid: valid_,
     getMonths: getMonths_,
@@ -803,7 +810,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
             </Fade>
           </Line>
         </> : <>
-          {/* Month year */}
+          {/* Month */}
           <Button
             tonal={tonal}
 
@@ -858,7 +865,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
                 color='inherit'
 
-                onClick={() => move(false, 'month')}
+                onClick={() => move(false, menu_month_previous_unit || 'month')}
 
                 aria-label='Previous month'
 
@@ -876,7 +883,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
                 color='inherit'
 
-                onClick={() => move(true, 'month')}
+                onClick={() => move(true, menu_month_next_unit || 'month')}
 
                 aria-label='Next month'
 

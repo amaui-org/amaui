@@ -20,6 +20,10 @@ const useStyle = style(theme => ({
     overflow: 'hidden'
   },
 
+  root_no_labels: {
+    height: '260px'
+  },
+
   dayNames: {
     width: '100%'
   },
@@ -89,6 +93,10 @@ const useStyle = style(theme => ({
     top: '40px',
     left: '0px',
     transition: theme.methods.transitions.make(['opacity', 'transform'])
+  },
+
+  weeks_no_labels: {
+    top: '0px'
   },
 
   week: {
@@ -186,6 +194,7 @@ export interface ICalenarDays extends IBaseElement {
   min?: AmauiDate;
   max?: AmauiDate;
   validate?: (value: AmauiDate) => boolean;
+  labels?: boolean;
 
   valid?: (value: AmauiDate, version: 'day' | 'month' | 'year') => boolean;
   renderDay?: (value: AmauiDate, props: any, today: boolean, weekend: boolean, selected: boolean, outside: boolean) => React.ReactNode;
@@ -218,6 +227,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
     min,
     max,
     validate,
+    labels = true,
     noMove,
     noTransition,
 
@@ -490,13 +500,14 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
       direction='column'
 
       className={classNames([
-        staticClassName('DatePicker', theme) && [
+        staticClassName('CalendarMonth', theme) && [
           'amaui-CalendarMonth-root'
         ],
 
         className,
         classes.root,
-        classes[`move_${refs.move.current}`]
+        classes[`move_${refs.move.current}`],
+        !labels && classes.root_no_labels
       ])}
 
       {...(isMonthFrom && { 'data-month-from': true })}
@@ -506,49 +517,51 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
       {...other}
     >
       {/* Day names */}
-      <Line
-        gap={0}
+      {labels && (
+        <Line
+          gap={0}
 
-        direction='row'
+          direction='row'
 
-        align='center'
+          align='center'
 
-        justify='space-between'
+          justify='space-between'
 
-        className={classNames([
-          staticClassName('DatePicker', theme) && [
-            'amaui-CalendarMonth-day-names'
-          ],
+          className={classNames([
+            staticClassName('CalendarMonth', theme) && [
+              'amaui-CalendarMonth-day-names'
+            ],
 
-          classes.dayNames
-        ])}
-      >
-        {dayNames.map((day: string, index: number) => (
-          <Line
-            key={index}
+            classes.dayNames
+          ])}
+        >
+          {dayNames.map((day: string, index: number) => (
+            <Line
+              key={index}
 
-            version='b3'
+              version='b3'
 
-            direction='row'
+              direction='row'
 
-            align='center'
+              align='center'
 
-            justify='center'
+              justify='center'
 
-            Component={Type}
+              Component={Type}
 
-            className={classNames([
-              staticClassName('DatePicker', theme) && [
-                'amaui-CalendarMonth-day-name'
-              ],
+              className={classNames([
+                staticClassName('CalendarMonth', theme) && [
+                  'amaui-CalendarMonth-day-name'
+                ],
 
-              classes.dayName
-            ])}
-          >
-            {day}
-          </Line>
-        ))}
-      </Line>
+                classes.dayName
+              ])}
+            >
+              {day}
+            </Line>
+          ))}
+        </Line>
+      )}
 
       {/* Weeks */}
       <Transitions
@@ -582,12 +595,13 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
                     justify='unset'
 
                     className={classNames([
-                      staticClassName('DatePicker', theme) && [
+                      staticClassName('CalendarMonth', theme) && [
                         'amaui-CalendarMonth-weeks'
                       ],
 
                       classes.weeks,
-                      [`weeks_${status}`]
+                      [`weeks_${status}`],
+                      !labels && classes.weeks_no_labels
                     ])}
                   >
                     {weeks.map((week: any, index: number) => (
@@ -604,7 +618,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
                         justify='space-between'
 
                         className={classNames([
-                          staticClassName('DatePicker', theme) && [
+                          staticClassName('CalendarMonth', theme) && [
                             'amaui-CalendarMonth-week'
                           ],
 
@@ -636,7 +650,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
                               justify='center'
 
                               className={classNames([
-                                staticClassName('DatePicker', theme) && [
+                                staticClassName('CalendarMonth', theme) && [
                                   'amaui-CalendarMonth-day',
                                   `amaui-CalendarMonth-day-${day.in ? 'in' : 'out'}`
                                 ],
@@ -684,7 +698,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
                                     aria-label={format(day, 'DD-MM-YYYY')}
 
                                     className={classNames([
-                                      staticClassName('DatePicker', theme) && [
+                                      staticClassName('CalendarMonth', theme) && [
                                         'amaui-CalendarMonth-day-value',
                                         day.in && 'amaui-CalendarMonth-day-in',
                                         day.dayWeek && 'amaui-CalendarMonth-day-day-week',

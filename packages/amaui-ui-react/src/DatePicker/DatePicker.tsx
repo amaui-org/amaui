@@ -28,9 +28,16 @@ const useStyle = styleMethod(theme => ({
 
   },
 
+  header: {
+    width: '100%',
+    padding: '16px 0px 0px',
+    flex: '0 0 auto'
+  },
+
   actions: {
     width: '100%',
-    padding: '0px 8px 8px'
+    padding: '0px 8px 8px',
+    flex: '0 0 auto'
   },
 
   mode: {
@@ -53,29 +60,66 @@ const useStyle = styleMethod(theme => ({
     }
   },
 
-  modal: {
-    width: 'calc(100% - 48px)',
+  mobile: {
+    width: 'calc(100vw - 48px)',
     maxWidth: '330px',
     margin: '0 auto',
     borderRadius: '28px',
-    overflow: 'hidden'
+    overflow: 'hidden',
+
+    '& .amaui-Calendar-root': {
+      borderRadius: '0'
+    }
   },
 
-  modal_fullScreen: {
-    width: '100%',
-    height: '100%',
+  mobile_fullScreen: {
+    height: '100vh',
+    width: '100vw',
+    margin: '0',
     maxWidth: 'unset',
-    borderRadius: '0px',
-    overflow: 'hidden'
-  },
-
-  mode_modal: {
-    width: '100%'
+    borderRadius: '0'
   },
 
   mode_modal_fullScreen: {
     width: '100%',
     height: '100%'
+  },
+
+  modal_input: {
+    width: '100%',
+    marginBottom: '12px',
+    flex: '1 1 auto'
+  },
+
+  dayNames: {
+    width: '100%',
+    padding: '0 8px'
+  },
+
+  dayName: {
+    width: '40px',
+    height: '40px',
+    flex: '1 1 auto',
+    userSelect: 'none'
+  },
+
+  heading: {
+    width: '100%',
+    marginBottom: '12px'
+  },
+
+  heading_fullScreen: {
+    paddingInline: '60px 12px'
+  },
+
+  subheading: {
+    width: '100%',
+    marginBottom: '36px'
+  },
+
+  subheading_fullScreen: {
+    margin: '8px 0',
+    marginInlineStart: '60px'
   },
 
   mode_modal_middle: {
@@ -87,11 +131,6 @@ const useStyle = styleMethod(theme => ({
 
   header_select: {
     width: '100%'
-  },
-
-  header: {
-    width: '100%',
-    padding: '16px 24px 0px'
   },
 
   mode_docked: {
@@ -118,11 +157,6 @@ const useStyle = styleMethod(theme => ({
 
   input: {
     width: '100%'
-  },
-
-  heading: {
-    width: '100%',
-    marginBottom: '36px'
   },
 
   open_secondary: {
@@ -187,17 +221,6 @@ const useStyle = styleMethod(theme => ({
     '&.amaui-Divider-root': {
       margin: '0px'
     }
-  },
-
-  dayNames: {
-    width: '100%'
-  },
-
-  dayName: {
-    width: '40px',
-    height: '40px',
-    flex: '1 1 auto',
-    userSelect: 'none'
   },
 
   day: {
@@ -453,7 +476,8 @@ export interface IDatePicker extends ILine {
   calendars?: number;
   placeholder?: string;
   openMobile?: 'input' | 'select';
-  modeModalHeadingText?: string;
+  modeModalSubHeadingText?: string;
+  modeModalSubHeadingTextRange?: string;
   selectModeHeadingText?: string;
   inputModeHeadingText?: string;
   switch?: boolean | Record<TValueBreakpoints, boolean>;
@@ -524,7 +548,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     label,
     labelFrom = `Date from`,
     labelTo = `Date to`,
-    modeModalHeadingText = 'Select date',
+    modeModalSubHeadingText = 'Select date',
+    modeModalSubHeadingTextRange = 'Date from - Date to',
     selectModeHeadingText = 'Select date',
     inputModeHeadingText = 'Enter date',
     useHelperText: useHelperText_,
@@ -901,19 +926,27 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     textHeading = `${format(value[0], 'MMM')} ${format(value[0], 'DD')}${SEPARATOR}${format(value[1], 'MMM')} ${format(value[1], 'DD')}`;
   }
 
+  const dayNames = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+
   const mobile = (
     <Surface
       tonal={tonal}
 
       color={color}
 
+      gap={0}
+
+      direction='column'
+
+      Component={Line}
+
       className={classNames([
         staticClassName('DatePicker', theme) && [
           'amaui-DatePicker-mobile'
         ],
 
-        classes.mode,
-        classes.mode_modal
+        classes.mobile,
+        fullScreen && classes.mobile_fullScreen
       ])}
     >
       {/* Header */}
@@ -931,18 +964,56 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         ])}
       >
         {/* Heading */}
+        {fullScreen && (
+          <Line
+            gap={0}
+
+            direction='row'
+
+            align='center'
+
+            justify='space-between'
+
+            style={{
+              width: '100%',
+              marginBottom: 8
+            }}
+          >
+            <IconButton
+              color='inherit'
+
+              version='text'
+
+              onClick={onClose}
+
+              aria-label='Close'
+            >
+              <IconClose />
+            </IconButton>
+
+            <Button
+              onClick={onOk}
+
+              {...actionButtonsProps}
+            >
+              Save
+            </Button>
+          </Line>
+        )}
+
         <Type
           version='l2'
 
           className={classNames([
             staticClassName('DatePicker', theme) && [
-              'amaui-DatePicker-heading'
+              'amaui-DatePicker-subheading'
             ],
 
-            classes.heading
+            classes.subheading,
+            fullScreen && classes.subheading_fullScreen
           ])}
         >
-          {modeModalHeadingText}
+          {!range ? modeModalSubHeadingText : modeModalSubHeadingTextRange}
         </Type>
 
         {/* Select */}
@@ -954,10 +1025,14 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
             justify='space-between'
 
-            style={{
-              width: '100%',
-              marginBottom: '12px'
-            }}
+            className={classNames([
+              staticClassName('DatePicker', theme) && [
+                'amaui-DatePicker-heading'
+              ],
+
+              classes.heading,
+              fullScreen && classes.heading_fullScreen
+            ])}
           >
             <Type
               version='h1'
@@ -990,14 +1065,13 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
           <Line
             direction='row'
 
-            align='center'
+            align='flex-start'
 
             justify='space-between'
 
-            style={{
-              width: '100%',
-              marginBottom: '12px'
-            }}
+            className={classNames([
+              classes.modal_input
+            ])}
           >
             <Type
               version='h1'
@@ -1026,6 +1100,53 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         )}
       </Line>
 
+      {/* Day names */}
+      {mode === 'select' && fullScreen && (
+        <Line
+          gap={0}
+
+          direction='row'
+
+          align='center'
+
+          justify='space-between'
+
+          className={classNames([
+            staticClassName('DatePicker', theme) && [
+              'amaui-DatePicker-day-names'
+            ],
+
+            classes.dayNames
+          ])}
+        >
+          {dayNames.map((day: string, index: number) => (
+            <Line
+              key={index}
+
+              version='b3'
+
+              direction='row'
+
+              align='center'
+
+              justify='center'
+
+              Component={Type}
+
+              className={classNames([
+                staticClassName('DatePicker', theme) && [
+                  'amaui-DatePicker-day-name'
+                ],
+
+                classes.dayName
+              ])}
+            >
+              {day}
+            </Line>
+          ))}
+        </Line>
+      )}
+
       {/* Divider */}
       <Divider
         tonal={false}
@@ -1042,6 +1163,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
       {/* Calendar */}
       {mode === 'select' && (
         <Calendar
+          version={!fullScreen ? 'regular' : 'year'}
+
           tonal={tonal}
 
           color={color}
@@ -1049,6 +1172,10 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
           value={value}
 
           menu='month'
+
+          menu_month_previous_unit={fullScreen ? 'year' : 'month'}
+
+          menu_month_next_unit={fullScreen ? 'year' : 'month'}
 
           calendar={calendar}
 
@@ -1060,7 +1187,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
           range={range}
 
-          calendars={calendars}
+          calendars={1}
 
           valid={valid}
 
@@ -1071,7 +1198,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
           validate={validate}
 
           CalendarMonthProps={{
-            outside: false
+            outside: false,
+            labels: !fullScreen
           }}
 
           {...CalendarProps}
@@ -1139,6 +1267,20 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
             ])}
           />
         </Line>
+      )}
+
+      {fullScreen && (
+        <Divider
+          tonal={false}
+
+          className={classNames([
+            staticClassName('DatePicker', theme) && [
+              'amaui-DatePicker-divider'
+            ],
+
+            classes.divider
+          ])}
+        />
       )}
 
       {React.cloneElement(actions, {
@@ -1276,14 +1418,12 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
                 fullScreen && `amaui-DatePicker-fullScreen`
               ],
 
-              classes.modal,
-              fullScreen && classes.fullScreen
+              classes.modal
             ])
           }}
 
           {...ModalProps}
         >
-          {/* {fullScreen ? <ModeFullScreen /> : <ModeModal />} */}
           {mobile}
         </Modal>
       )}
