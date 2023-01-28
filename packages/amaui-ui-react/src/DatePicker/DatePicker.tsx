@@ -298,7 +298,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     labelFrom = `Date from`,
     labelTo = `Date to`,
     modeModalSubHeadingText = 'Select date',
-    modeModalSubHeadingTextRange = 'Date from - Date to',
+    modeModalSubHeadingTextRange = `Date from${SEPARATOR}Date to`,
     selectModeHeadingText = 'Select date',
     inputModeHeadingText = 'Enter date',
     useHelperText: useHelperText_,
@@ -369,6 +369,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   }, [value]);
 
   const [input, setInput] = React.useState(valueToInput());
+  const [inputModal, setInputModal] = React.useState(valueToInput());
 
   let version = version_;
 
@@ -406,7 +407,12 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   // only use onChange on
   // input change, or ok
   const onCalendarChange = React.useCallback((valueNew: TCalendarMonthValue) => {
-    if (valueNew !== value) setValue(valueNew as any);
+    if (valueNew !== value) {
+      setValue(valueNew as any);
+
+      // Update input modal
+      setInputModal(valueToInput(valueNew));
+    }
   }, [value]);
 
   const onCalendarChangeCalendar = React.useCallback((valueNew: TCalendarMonthCalendar) => {
@@ -539,6 +545,28 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
     // Update input for free typing
     setInput(valueNew_);
+  }, []);
+
+  const onInputChangeModal = React.useCallback((valueNew_: any) => {
+    const valueNew = inputToValue(valueNew_);
+
+    const validValues = (valueNew as [AmauiDate, AmauiDate]).every(item => item.valid);
+
+    // Only update values if input is valid
+    // format used to make the value
+    if (validValues) {
+      // Error
+      setError((valueNew as any).some((item: any, index: number) => !valid(item)));
+
+      // Update value
+      onUpdate(valueNew as any);
+
+      // Update calendar
+      onUpdateCalendar(valueNew[0]);
+    }
+
+    // Update input for free typing
+    setInputModal(valueNew_);
   }, []);
 
   const onMode = React.useCallback(() => {
@@ -726,7 +754,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
             style={{
               width: '100%',
-              marginBottom: 8
+              marginBottom: 8,
+              padding: '0px 8px 0px 12px'
             }}
           >
             <IconButton
@@ -982,7 +1011,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
           direction='row'
 
-          align='center'
+          align='flex-start'
 
           className={classNames([
             classes.modal_input
@@ -1001,9 +1030,9 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
             placeholder={placeholder}
 
-            value={input}
+            value={inputModal}
 
-            onChange={onInputChange}
+            onChange={onInputChangeModal}
 
             helperText={useHelperText ? placeholder : undefined}
 
