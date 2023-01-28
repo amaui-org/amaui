@@ -218,6 +218,7 @@ export interface IDatePicker extends ILine {
 
   now?: boolean;
   range?: boolean;
+  static?: boolean;
   valid?: (value: AmauiDate, version: 'day' | 'month' | 'year') => boolean;
   validate?: (value: AmauiDate) => boolean;
   min?: AmauiDate;
@@ -288,6 +289,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
     range,
     now = true,
+    static: static_,
     openMobile = 'select',
     placeholder: placeholder_,
     calendars = props.range ? 2 : 1,
@@ -1130,6 +1132,12 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
       ])}
     />
   );
+
+  if (static_) {
+    if (version === 'mobile') return mobile;
+
+    if (version === 'desktop') return desktop;
+  }
 
   return (
     <Line
