@@ -30,8 +30,12 @@ const useStyle = styleMethod(theme => ({
 
   header: {
     width: '100%',
-    padding: '16px 0px 0px',
+    padding: '16px 24px 0px',
     flex: '0 0 auto'
+  },
+
+  header_fullScreen: {
+    padding: '16px 0px 0px'
   },
 
   actions: {
@@ -87,6 +91,7 @@ const useStyle = styleMethod(theme => ({
 
   modal_input: {
     width: '100%',
+    padding: '16px 24px 16px',
     marginBottom: '12px',
     flex: '1 1 auto'
   },
@@ -120,6 +125,12 @@ const useStyle = styleMethod(theme => ({
   subheading_fullScreen: {
     margin: '8px 0',
     marginInlineStart: '60px'
+  },
+
+  divider: {
+    '&.amaui-Divider-root': {
+      margin: '0'
+    }
   }
 }), { name: 'amaui-DatePicker' });
 
@@ -698,7 +709,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
             'amaui-DatePicker-header'
           ],
 
-          classes.header
+          classes.header,
+          fullScreen && classes.header_fullScreen
         ])}
       >
         {/* Heading */}
@@ -808,7 +820,12 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
             justify='space-between'
 
             className={classNames([
-              classes.modal_input
+              staticClassName('DatePicker', theme) && [
+                'amaui-DatePicker-heading'
+              ],
+
+              classes.heading,
+              fullScreen && classes.heading_fullScreen
             ])}
           >
             <Type
@@ -967,10 +984,9 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
           align='center'
 
-          style={{
-            width: '100%',
-            padding: '16px 24px 16px'
-          }}
+          className={classNames([
+            classes.modal_input
+          ])}
         >
           <AdvancedTextField
             tonal={tonal}
