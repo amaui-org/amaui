@@ -41,16 +41,16 @@ const useStyle = styleMethod(theme => ({
     maxWidth: '330px'
   },
 
-  main_orientation_horizontal: {
-    maxWidth: '570px'
-  },
-
   main_orientation_vertical_3: {
     maxWidth: '450px'
   },
 
+  main_orientation_horizontal: {
+    maxWidth: '510px'
+  },
+
   main_orientation_horizontal_3: {
-    maxWidth: '690px'
+    maxWidth: '650px'
   },
 
   main_input_2_12: {
