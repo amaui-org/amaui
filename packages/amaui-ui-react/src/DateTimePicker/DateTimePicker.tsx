@@ -245,6 +245,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
     return ((is('array', valueResult) ? valueResult : [valueResult]) as Array<AmauiDate>).filter(Boolean);
   });
+  const [calendar, setCalendar] = React.useState(value[0]);
   const [open, setOpen] = React.useState(false);
   const [error, setError] = React.useState(false);
   const [tab, setTab] = React.useState('date');
@@ -334,6 +335,10 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
     if (valueNew !== value) setValue(valueNew as any);
   }, [value]);
 
+  const onChangeCalendar = React.useCallback((valueNew: AmauiDate) => {
+    if (valueNew !== calendar) setCalendar(valueNew as any);
+  }, [calendar]);
+
   const textToAmauiDate = React.useCallback((valueNew: string) => {
     const [date, time] = valueNew.split(' ');
 
@@ -407,6 +412,9 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
       // Update value
       onUpdate(valueNew as any);
+
+      // Update calendar
+      setCalendar(valueNew[0]);
     }
 
     // Update input for free typing
@@ -498,7 +506,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
     { pattern: '[0-1]' },
 
-    (item: string, result: string, valueInput: string) => /^(0[0-9]|1[0-9]|2[0-9]|3[0-1])\/(0[0-9]|1[0-2])/.test(valueInput),
+    (item: string, result: string, valueInput: string) => /^(0[0-9]|1[0-9]|2[0-9]|3[0-1])\/(0[0-9]|1[0-2]).*/.test(valueInput),
 
     '/',
 
@@ -579,37 +587,125 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
     placeholder += ' (a|p)m';
   }
 
-  if (second) {
-    mask.push(
-      { pattern: '[0-5]' },
-
-      { pattern: '[0-9]' }
-    );
-
-    placeholder += 'ss';
-  }
-
-  if (format === '12') {
-    mask.push(
-      ' ',
-
-      { pattern: '[ap]' },
-
-      'm'
-    );
-
-    placeholder += ' (a|p)m';
-  }
-
   // range
   if (range) {
     mask.push(
       ' ',
       SEPARATOR_SYMBOL,
-      ' ',
-
-      ...mask
+      ' '
     );
+
+    // Date
+    mask.push(
+      { pattern: '[0-3]' },
+
+      (item: string, result: string, valueInput: string) => /^[^–]+– (0[0-9]|1[0-9]|2[0-9]|3[0-1]).*/.test(valueInput),
+
+      '/',
+
+      { pattern: '[0-1]' },
+
+      (item: string, result: string, valueInput: string) => /^[^–]+– (0[0-9]|1[0-9]|2[0-9]|3[0-1])\/(0[0-9]|1[0-2]).*/.test(valueInput),
+
+      '/',
+
+      { pattern: '[1-2]' },
+
+      { pattern: '[0-9]' },
+
+      { pattern: '[0-9]' },
+
+      { pattern: '[0-9]' },
+
+      ' '
+    );
+
+    // Time
+    if (hour) {
+      if (format === '12') {
+        mask.push(
+          { pattern: '[0-1]' },
+
+          (item: string, result: string, valueInput: string) => /^[^–]+– (0[0-9]|1[0-9]|2[0-9]|3[0-1])\/(0[0-9]|1[0-2])\/[1-2][0-9][0-9][0-9] ([0][0-9]|1[0-2]).*/.test(valueInput)
+        );
+      }
+
+      if (format === '24') {
+        mask.push(
+          { pattern: '[0-2]' },
+
+          (item: string, result: string, valueInput: string) => /^[^–]+– (0[0-9]|1[0-9]|2[0-9]|3[0-1])\/(0[0-9]|1[0-2])\/[1-2][0-9][0-9][0-9] ([01][0-9]|2[0-3]).*/.test(valueInput),
+        );
+      }
+
+      placeholder += 'hh';
+
+      if (minute || second) {
+        mask.push(':');
+
+        placeholder += ':';
+      }
+    }
+
+    if (minute) {
+      mask.push(
+        { pattern: '[0-5]' },
+
+        { pattern: '[0-9]' }
+      );
+
+      placeholder += 'mm';
+
+      if (second) {
+        mask.push(':');
+
+        placeholder += ':';
+      }
+    }
+
+    if (second) {
+      mask.push(
+        { pattern: '[0-5]' },
+
+        { pattern: '[0-9]' }
+      );
+
+      placeholder += 'ss';
+    }
+
+    if (format === '12') {
+      mask.push(
+        ' ',
+
+        { pattern: '[ap]' },
+
+        'm'
+      );
+
+      placeholder += ' (a|p)m';
+    }
+
+    if (second) {
+      mask.push(
+        { pattern: '[0-5]' },
+
+        { pattern: '[0-9]' }
+      );
+
+      placeholder += 'ss';
+    }
+
+    if (format === '12') {
+      mask.push(
+        ' ',
+
+        { pattern: '[ap]' },
+
+        'm'
+      );
+
+      placeholder += ' (a|p)m';
+    }
 
     placeholder += `${SEPARATOR}${placeholder}`;
   }
@@ -769,6 +865,10 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
       >
         {tab === 'date' ? (
           <DatePicker
+            calendar={calendar}
+
+            onChangeCalendar={onChangeCalendar}
+
             {...PickerProps}
           />
         ) : (
@@ -934,7 +1034,6 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
           {...TooltipProps}
         />
       )}
-
     </Line>
   );
 });

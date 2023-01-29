@@ -447,7 +447,13 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
   // Value
   React.useEffect(() => {
-    if (value_ !== undefined && value_ !== value) setValue((is('array', value_) ? value_ : [value_]) as any);
+    if (value_ !== undefined && value_ !== value) {
+      const valueNew = (is('array', value_) ? value_ : [value_]) as any;
+
+      setValue(valueNew);
+
+      setDayTime(valueNew.map(item => formatMethod(item, 'a')));
+    }
   }, [value_]);
 
   const onUpdate = React.useCallback((valueNew_: AmauiDate) => {
