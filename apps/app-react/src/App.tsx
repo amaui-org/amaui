@@ -5160,6 +5160,10 @@ Please sign in again.`}
         <Accordion primary='DateTimeRangePicker' open>
           <DateTimeRangePicker
             label='Date time range'
+
+            style={{
+              width: 400
+            }}
           />
         </Accordion>
 
@@ -5168,6 +5172,10 @@ Please sign in again.`}
             label='Date time range'
 
             fullScreen={false}
+
+            style={{
+              width: 400
+            }}
           />
         </Accordion>
       </Accordion>
@@ -5176,6 +5184,10 @@ Please sign in again.`}
         <Accordion primary='DateTimePicker' open>
           <DateTimePicker
             label='Date time'
+
+            style={{
+              width: 400
+            }}
           />
         </Accordion>
 
@@ -5184,6 +5196,10 @@ Please sign in again.`}
             label='Date time validate'
 
             validate={(value: AmauiDate) => value.milliseconds < add(4, 'month').milliseconds}
+
+            style={{
+              width: 400
+            }}
           />
         </Accordion>
 
@@ -5194,6 +5210,10 @@ Please sign in again.`}
             min={remove(4, 'month', new AmauiDate())}
 
             max={add(4, 'month', add(4, 'hour', new AmauiDate()))}
+
+            style={{
+              width: 400
+            }}
           />
         </Accordion>
       </Accordion>

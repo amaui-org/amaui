@@ -126,6 +126,7 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
     minute: React.useRef<boolean>(),
     second: React.useRef<boolean>(),
     format: React.useRef<TClockFormat>(),
+    dayTime: React.useRef<any>(),
     previous: React.useRef<TClockUnit>(selecting)
   };
 
@@ -145,6 +146,21 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
 
   refs.format.current = format;
 
+  refs.dayTime.current = dayTime;
+
+  const resolve = React.useCallback((valueNew = refs.value.current, dayTimeValue = refs.dayTime.current) => {
+    // Resolve the range value
+    const valueHour = valueNew.hour;
+
+    if (format === '12') {
+      if (dayTimeValue === 'am' && valueHour > 12) return set(valueHour - 12, 'hour', valueNew);
+
+      if (dayTimeValue === 'pm' && valueHour < 12) return set(valueHour + 12, 'hour', valueNew);
+    }
+
+    return valueNew;
+  }, [value, dayTime, format]);
+
   const inputToValue = React.useCallback((valueNew: string | number, unit: TClockUnit = refs.selecting.current) => {
     let amauiDate = new AmauiDate(refs.value.current);
 
@@ -157,7 +173,7 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
     if (unit === 'hour') amauiDate = set((format === '12' && dayTime === 'pm') ? valueTime + 12 : valueTime, 'hour', amauiDate);
     else amauiDate = set(valueTime, unit, amauiDate);
 
-    return amauiDate;
+    return resolve(amauiDate);
   }, [value, format, dayTime, hour, minute, second]);
 
   const onMove = React.useCallback((x_: number, y_: number) => {
@@ -345,8 +361,8 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
   }, [selecting]);
 
   const onUpdate = React.useCallback((valueNew: TClockValue) => {
-    const newValue = `${formatMethod(valueNew, 'HH')}:${formatMethod(valueNew, 'mm')}:${formatMethod(valueNew, 'ss')}`;
-    const previousValue = `${formatMethod(refs.value.current, 'HH')}:${formatMethod(refs.value.current, 'mm')}:${formatMethod(refs.value.current, 'ss')}`;
+    const newValue = valueNew.milliseconds;
+    const previousValue = refs.value.current.milliseconds;
 
     if (newValue === previousValue) return;
 

@@ -32,35 +32,26 @@ const useStyle = styleMethod(theme => ({
   },
 
   main: {
-    padding: '24px',
     marginInline: '24px',
-    borderRadius: '28px',
-    width: `calc(100vw - 48px)`
+    borderRadius: '28px'
   },
 
   heading: {
-    width: '100%'
+    width: '100%',
+    padding: '24px 24px 0'
   },
 
   middle: {
     width: '100%',
-    marginTop: '24px'
-  },
 
-  mode: {
-    paddingTop: '12px',
-    marginInline: '24px',
-    borderRadius: '28px',
-    overflow: 'hidden',
-
-    '& .amaui-TimePicker-mode, & .amaui-DatePicker-mode': {
-      marginInline: '0px'
+    '& .amaui-DatePicker-root, &.amaui-TimePicker-root': {
+      margin: '0px'
     }
   },
 
   footer: {
     width: '100%',
-    marginTop: '24px'
+    padding: '0px 8px 12px 12px',
   }
 }), { name: 'amaui-DateTimePicker' });
 
@@ -206,7 +197,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
     format = '12',
     hour = true,
     minute = true,
-    second = true,
+    second = false,
     placeholder: placeholder_,
     readOnly,
     disabled,
@@ -337,10 +328,10 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
   // since it might be canceled
   // only use onChange on
   // input change, or ok
-  const onPickerChange = React.useCallback((valueNew: TCalendarMonthValue) => {
-    if (valueNew !== value) {
-      setValue(valueNew as any);
-    }
+  const onPickerChange = React.useCallback((valueNew_: TCalendarMonthValue) => {
+    const valueNew = is('array', valueNew_) ? valueNew_ : [valueNew_];
+
+    if (valueNew !== value) setValue(valueNew as any);
   }, [value]);
 
   const textToAmauiDate = React.useCallback((valueNew: string) => {
@@ -517,21 +508,19 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
     { pattern: '[0-9]' },
 
-    { pattern: '[0-9]' }
+    { pattern: '[0-9]' },
+
+    ' '
   ];
 
-  let placeholder = `DD/MM/YYYY`;
-
-  placeholder += ' ';
-
-  mask.push(' ');
+  let placeholder = `DD/MM/YYYY `;
 
   if (hour) {
     if (format === '12') {
       mask.push(
         { pattern: '[0-1]' },
 
-        (item: string, result: string, valueInput: string) => /^([0][0-9]|1[0-2]).*/.test(valueInput)
+        (item: string, result: string, valueInput: string) => /^[^ ]+ ([0][0-9]|1[0-2]).*/.test(valueInput)
       );
     }
 
@@ -539,7 +528,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
       mask.push(
         { pattern: '[0-2]' },
 
-        (item: string, result: string, valueInput: string) => /^([01][0-9]|2[0-3]).*/.test(valueInput),
+        (item: string, result: string, valueInput: string) => /^[^ ]+ ([01][0-9]|2[0-3]).*/.test(valueInput),
       );
     }
 
@@ -566,6 +555,28 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
       placeholder += ':';
     }
+  }
+
+  if (second) {
+    mask.push(
+      { pattern: '[0-5]' },
+
+      { pattern: '[0-9]' }
+    );
+
+    placeholder += 'ss';
+  }
+
+  if (format === '12') {
+    mask.push(
+      ' ',
+
+      { pattern: '[ap]' },
+
+      'm'
+    );
+
+    placeholder += ' (a|p)m';
   }
 
   if (second) {
@@ -810,6 +821,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
   if (static_) return element;
 
+  console.log(mask);
   return (
     <Line
       gap={0}

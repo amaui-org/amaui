@@ -291,7 +291,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
     if (is('function', onChangeCalendar)) onChangeCalendar(valueNew);
   }, [onChangeCalendar]);
 
-  const onUpdateValue = React.useCallback((valueUpdated: AmauiDate, offsetMultiplier?: number) => {
+  const onUpdate = React.useCallback((valueUpdated: AmauiDate, offsetMultiplier?: number) => {
     let valueNew: Array<AmauiDate> = [valueUpdated, value[1]].filter(Boolean);
 
     // Previous
@@ -627,7 +627,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
                       >
                         {week.map((day: any, index_: number) => {
                           const propsDay = {
-                            onClick: () => onUpdateValue(day.amauiDate, day.start || day.end ? -1 : undefined),
+                            onClick: () => onUpdate(day.amauiDate, day.start || day.end ? -1 : undefined),
 
                             disabled: (
                               (!day.in && !outside) ||

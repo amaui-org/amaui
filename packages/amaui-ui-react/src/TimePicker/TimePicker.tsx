@@ -33,7 +33,6 @@ const useStyle = styleMethod(theme => ({
   },
 
   main: {
-    padding: '24px',
     marginInline: '24px',
     borderRadius: '28px',
     width: `calc(100vw - 48px)`
@@ -72,6 +71,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   heading: {
+    padding: '24px 24px 0',
     width: '100%'
   },
 
@@ -160,11 +160,16 @@ const useStyle = styleMethod(theme => ({
   },
 
   tabs: {
+
+  },
+
+  tabs_padding: {
     marginTop: 12
   },
 
   footer: {
     width: '100%',
+    padding: '0px 8px 12px 12px',
     marginTop: '24px'
   }
 }), { name: 'amaui-TimePicker' });
@@ -535,8 +540,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
     value[index] = set(valueTime, unit || selecting[index], value[index]);
 
-    setValue(resolve(value) as any);
-  }, [value, selecting]);
+    (!actions_ ? onUpdate : setValue)(resolve(value) as any);
+  }, [value, actions_, selecting]);
 
   const resolve = React.useCallback((valueNew = refs.value.current, dayTimeNew = refs.dayTime.current) => {
     const values = valueNew.map((item: AmauiDate, index: number) => {
@@ -563,10 +568,12 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
     dayTimeNew[index] = valueNew as any;
 
+    refs.dayTime.current = dayTimeNew;
+
     setDayTime(dayTimeNew);
 
-    setValue(resolve(value, dayTimeNew) as any);
-  }, [value, dayTime, format]);
+    (!actions_ ? onUpdate : setValue)(resolve(refs.value.current) as any);
+  }, [value, actions_, dayTime, format]);
 
   const inputToValue = React.useCallback((valueNew_: string = input) => {
     let valueNew = valueNew_;
@@ -607,12 +614,12 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     if (valueNew_ !== value[index]) {
       valueNew[index] = valueNew_;
 
-      setValue(resolve(valueNew) as any);
+      (!actions_ ? onUpdate : setValue)(resolve(valueNew) as any);
 
       // Error
       errorCheck(valueNew);
     }
-  }, [value]);
+  }, [value, actions_]);
 
   const onChangeSelectingClock = React.useCallback((valueNew: TClockUnit, index = 0) => {
     const selectingValue = selecting;
@@ -774,7 +781,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
       value={value[index]}
 
-      dayTime={dayTime}
+      dayTime={dayTime[index]}
 
       selecting={selecting[index]}
 
@@ -1189,7 +1196,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
             ],
 
             TabsProps?.className,
-            classes.tabs
+            classes.tabs,
+            heading_ && classes.tabs_padding
           ])}
         >
           <Tab

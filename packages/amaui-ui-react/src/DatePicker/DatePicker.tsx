@@ -419,14 +419,16 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   // since it might be canceled
   // only use onChange on
   // input change, or ok
-  const onCalendarChange = React.useCallback((valueNew: TCalendarMonthValue) => {
+  const onCalendarChange = React.useCallback((valueNew_: TCalendarMonthValue) => {
+    const valueNew = is('array', valueNew_) ? valueNew_ : [valueNew_];
+
     if (valueNew !== value) {
-      setValue(valueNew as any);
+      (!actions_ ? onUpdate : setValue)(valueNew as any);
 
       // Update input modal
       setInputModal(valueToInput(valueNew));
     }
-  }, [value]);
+  }, [value, actions_]);
 
   const onCalendarChangeCalendar = React.useCallback((valueNew: TCalendarMonthCalendar) => {
     if (valueNew !== calendar) onUpdateCalendar(valueNew as any);

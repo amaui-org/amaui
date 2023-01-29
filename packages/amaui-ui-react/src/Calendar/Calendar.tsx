@@ -311,7 +311,9 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
     onUpdateCalendar(valueNew);
   }, []);
 
-  const onCalendarMonthChange = React.useCallback((valueNew: TCalendarMonthValue) => {
+  const onCalendarMonthChange = React.useCallback((valueNew_: TCalendarMonthValue) => {
+    const valueNew = is('array', valueNew_) ? valueNew_ : [valueNew_];
+
     if (valueNew !== value) onUpdate(valueNew as any);
   }, [value]);
 
