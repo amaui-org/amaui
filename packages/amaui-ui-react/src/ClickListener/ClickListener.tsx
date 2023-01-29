@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, element, TMethod } from '@amaui/utils';
-import { useAmauiTheme } from '@amaui/style-react';
+import { classNames, useAmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, matches, THTMLElement } from '../utils';
 
@@ -109,7 +109,12 @@ const ClickListener = React.forwardRef((props_: IClickListener, ref: any) => {
             refs.root.current = item;
           },
 
-          ...other
+          ...other,
+
+          className: classNames([
+            other.className,
+            (children as any).props.className,
+          ])
         })
       )}
     </React.Fragment>

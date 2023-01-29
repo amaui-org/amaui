@@ -19,6 +19,7 @@ import Divider from '../Divider';
 import Slide from '../Slide';
 import { ILine } from '../Line/Line';
 import Calendar from '../Calendar';
+import { TCalendarUnit } from '../Calendar/Calendar';
 import { TCalendarMonthCalendar, TCalendarMonthValue } from '../CalendarMonth/CalendarMonth';
 
 import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TValueBreakpoints, valueBreakpoints } from '../utils';
@@ -82,11 +83,6 @@ const useStyle = styleMethod(theme => ({
     margin: '0',
     maxWidth: 'unset',
     borderRadius: '0'
-  },
-
-  mode_modal_fullScreen: {
-    width: '100%',
-    height: '100%'
   },
 
   modal_input: {
@@ -198,9 +194,9 @@ const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const SEPARATOR_SYMBOL = `–`;
+export const SEPARATOR_SYMBOL = `–`;
 
-const SEPARATOR = ` ${SEPARATOR_SYMBOL} `;
+export const SEPARATOR = ` ${SEPARATOR_SYMBOL} `;
 
 export interface IDatePicker extends ILine {
   tonal?: TTonal;
@@ -219,7 +215,7 @@ export interface IDatePicker extends ILine {
   now?: boolean;
   range?: boolean;
   static?: boolean;
-  valid?: (value: AmauiDate, version: 'day' | 'month' | 'year') => boolean;
+  valid?: (value: AmauiDate, version: TCalendarUnit) => boolean;
   validate?: (value: AmauiDate) => boolean;
   min?: AmauiDate;
   max?: AmauiDate;
@@ -380,9 +376,20 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     else version = 'desktop';
   }
 
+  const errorCheck = React.useCallback((valueNew: any = value) => {
+    // Error
+    setError((valueNew || []).some((item: any, index: number) => !valid(item)));
+  }, [value]);
+
+  // Init
+  React.useEffect(() => {
+    // Error
+    errorCheck();
+  }, []);
+
   // Value
   React.useEffect(() => {
-    if (value_ !== undefined && value_ !== value) setValue(value_ as any);
+    if (value_ !== undefined && value_ !== value) setValue(is('array', value_) ? value_ as any : [value_]);
   }, [value_]);
 
   // Calendar
@@ -394,8 +401,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     // Inner update
     if (!props.hasOwnProperty('value')) setValue(valueNew as any);
 
-    if (is('function', onChange)) onChange(valueNew);
-  }, [onChange]);
+    if (is('function', onChange)) onChange(!range ? valueNew[0] : valueNew);
+  }, [onChange, range]);
 
   const onUpdateCalendar = React.useCallback((valueNew: AmauiDate) => {
     // Inner update
@@ -436,7 +443,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   }, [input]);
 
   const onOpen = React.useCallback(() => {
-    setMode(version === 'mobile' ? openMobile : 'select');
+    onMode();
 
     setOpen(!open);
   }, [open, openMobile, version]);
@@ -484,7 +491,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
   const onOk = React.useCallback((event: React.MouseEvent) => {
     // Error
-    setError(value.some((item: any, index: number) => !valid(item)));
+    errorCheck();
 
     // Update value
     onUpdate(value as any);
@@ -497,7 +504,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
     onClose(event);
 
-    if (is('function', onCancel_)) onCancel_(event);
+    if (is('function', onOk_)) onOk_(event);
   }, [value, onOk_]);
 
   const onCancel = React.useCallback((event: React.MouseEvent) => {
@@ -545,7 +552,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     // format used to make the value
     if (validValues) {
       // Error
-      setError((valueNew as any).some((item: any, index: number) => !valid(item)));
+      errorCheck(valueNew);
 
       // Update value
       onUpdate(valueNew as any);
@@ -567,7 +574,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     // format used to make the value
     if (validValues) {
       // Error
-      setError((valueNew as any).some((item: any, index: number) => !valid(item)));
+      errorCheck(valueNew);
 
       // Update value
       onUpdate(valueNew as any);
@@ -1203,24 +1210,13 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         <Modal
           open={open}
 
-          onClose={onClose}
-
           modalWrapperSurface={false}
 
           TransitionComponent={Slide}
 
           fullScreen={fullScreen}
 
-          NoSurfaceProps={{
-            className: classNames([
-              staticClassName('DatePicker', theme) && [
-                'amaui-DatePicker-modal',
-                fullScreen && `amaui-DatePicker-fullScreen`
-              ],
-
-              classes.modal
-            ])
-          }}
+          onClose={onClose}
 
           {...ModalProps}
         >

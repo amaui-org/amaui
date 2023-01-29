@@ -256,7 +256,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
   // Value
   React.useEffect(() => {
-    if (value_ !== undefined && value_ !== value) setValue(value_ as any);
+    if (value_ !== undefined && value_ !== value) setValue((is('array', value_) ? value_ : [value_]) as any);
   }, [value_]);
 
   // Calendar
@@ -334,7 +334,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
     // Inner value update
     if (!props.hasOwnProperty('value')) setValue(valueNew);
 
-    if (is('function', onChange)) onChange(valueNew as any);
+    if (is('function', onChange)) onChange((!range ? valueNew[0] : valueNew) as any);
   }, [value, range, offset, calendar, onChange]);
 
   const dayNames = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];

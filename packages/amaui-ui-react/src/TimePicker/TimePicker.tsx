@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { is, getLeadingZerosNumber } from '@amaui/utils';
-import { AmauiDate, format as formatMethod, set, is as isMethod } from '@amaui/date';
+import { is } from '@amaui/utils';
+import { AmauiDate, format as formatMethod, set, is as isAmauiDate } from '@amaui/date';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -19,7 +19,8 @@ import ToggleButton from '../ToggleButton';
 import Button from '../Button';
 import Slide from '../Slide';
 import Clock from '../Clock';
-import { IClockValue } from '../Clock/Clock';
+import { SEPARATOR } from '../DatePicker/DatePicker';
+import { TClockUnit } from '../Clock/Clock';
 import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
 
 import { staticClassName, TElementReference, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
@@ -29,18 +30,34 @@ const useStyle = styleMethod(theme => ({
 
   },
 
-  mode: {
+  main: {
     padding: '24px',
     marginInline: '24px',
     borderRadius: '28px'
   },
 
-  mode_orientation_vertical: {
+  main_orientation_vertical: {
     minWidth: '340px'
   },
 
-  mode_orientation_horizontal: {
+  main_orientation_horizontal: {
     minWidth: '570px'
+  },
+
+  main_2_12: {
+    minWidth: '320px'
+  },
+
+  main_3_12: {
+    minWidth: '440px'
+  },
+
+  main_2_24: {
+    minWidth: '260px'
+  },
+
+  main_3_24: {
+    minWidth: '380px'
   },
 
   heading: {
@@ -169,66 +186,61 @@ const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
-  version?: 'auto' | 'mobile' | 'desktop' | 'static';
+export type TTimePickerValue = AmauiDate | [AmauiDate, AmauiDate];
 
-  versionStatic?: 'select' | 'input';
+export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
+  version?: 'auto' | 'mobile' | 'desktop';
+
+  value?: TTimePickerValue;
+  valueDefault?: TTimePickerValue;
+  onChange?: (value: TTimePickerValue) => any;
+
+  selecting?: TClockUnit;
+  selectingDefault?: TClockUnit;
+  onChangeSelecting?: (value: TClockUnit) => any;
 
   now?: boolean;
-
-  min?: number;
-
-  max?: number;
-
-  validate?: (value: number | string, values: any, selecting: 'hour' | 'minute' | 'second') => boolean;
-
+  range?: boolean;
+  static?: boolean | 'clock';
+  valid?: (value: AmauiDate, version: TClockUnit) => boolean;
+  validate?: (value: AmauiDate) => boolean;
+  min?: AmauiDate;
+  max?: AmauiDate;
   autoNext?: boolean | Record<TValueBreakpoints, boolean>;
-
   autoCloseOnLast?: boolean | Record<TValueBreakpoints, boolean>;
-
   openMobile?: 'input' | 'select';
-
   openDesktop?: 'input' | 'select';
-
   selectModeHeadingText?: string;
-
   inputModeHeadingText?: string;
-
   orientation?: 'vertical' | 'horizontal' | Record<TValueBreakpoints, 'vertical' | 'horizontal'>;
-
   format?: '12' | '24';
-
   hour?: boolean;
-
   minute?: boolean;
-
   second?: boolean;
-
   switch?: boolean | Record<TValueBreakpoints, boolean>;
-
   readOnly?: boolean;
-
   disabled?: boolean;
 
   onClick?: (event: React.MouseEvent<any>) => any;
+  onClose?: (event: React.MouseEvent<any>) => any;
+  onCancel?: (event: React.MouseEvent<any>) => any;
+  onNow?: (event: React.MouseEvent<any>) => any;
+  onOk?: (event: React.MouseEvent<any>) => any;
 
-  onCancel?: () => any;
-
-  renderValue?: (valueDate: AmauiDate, version: 'hour' | 'minute' | 'second', x: number, y: number, value: number, otherProps: any) => React.ReactNode;
+  renderValue?: (value: AmauiDate, version: TClockUnit, x: number, y: number, valueNumber: number, otherProps: any) => React.ReactNode;
 
   Icon?: TElementReference;
   IconEnter?: TElementReference;
 
-  ButtonProps?: TPropsAny;
+  MainProps?: TPropsAny;
   ModalProps?: TPropsAny;
+  ButtonProps?: TPropsAny;
   TooltipProps?: TPropsAny;
   ToggleButtonsProps?: TPropsAny;
   ToggleButtonProps?: TPropsAny;
   IconButtonProps?: TPropsAny;
   InputProps?: TPropsAny;
   ClockProps?: TPropsAny;
-  ModeSelectProps?: TPropsAny;
-  ModeInputProps?: TPropsAny;
   AdvancedTextFieldProps?: TPropsAny;
 }
 
@@ -248,72 +260,61 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
   const {
     tonal = true,
     color = 'primary',
-    // mobile, desktop, static & auto
-    version: version_ = 'auto',
 
-    versionStatic,
+    version: version_ = 'auto',
 
     value: value_,
     valueDefault,
     onChange,
 
+    selecting: selecting_,
+    selectingDefault,
+    onChangeSelecting,
+
+    range,
     now = true,
-
     label,
-
     min,
-
     max,
-
     validate,
-
     autoNext: autoNext_,
-
     autoCloseOnLast: autoCloseOnLast_,
-
     openMobile = 'select',
-
     openDesktop = 'select',
-
     selectModeHeadingText = 'Select time',
-
     inputModeHeadingText = 'Enter time',
-
     orientation: orientation_,
-
     format = '12',
-
     hour = true,
-
     minute = true,
-
     second = false,
-
     switch: switch__,
-
+    static: static_,
     readOnly,
-
     disabled,
 
-    onClick: onClick_,
+    valid: valid_,
 
+    onClick: onClick_,
+    onClose: onClose_,
     onCancel: onCancel_,
+    onNow: onNow_,
+    onOk: onOk_,
 
     renderValue,
 
     Icon: Icon_ = IconMaterialScheduleRounded,
     IconEnter = IconMaterialKeyboardAltRounded,
 
-    ButtonProps,
+    MainProps,
     ModalProps,
+    ButtonProps,
     TooltipProps,
     ToggleButtonsProps,
     ToggleButtonProps,
     IconButtonProps,
     InputProps,
     ClockProps,
-    ModeSelectProps,
-    ModeInputProps,
     AdvancedTextFieldProps,
 
     className,
@@ -321,74 +322,65 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     ...other
   } = props;
 
-  const orientation = valueBreakpoints(orientation_, 'vertical', breakpoints, theme);
   const switch_ = valueBreakpoints(switch__, true, breakpoints, theme);
+  const orientation = valueBreakpoints(orientation_, 'vertical', breakpoints, theme);
   const autoNext = valueBreakpoints(autoNext_, undefined, breakpoints, theme);
   const autoCloseOnLast = valueBreakpoints(autoCloseOnLast_, undefined, breakpoints, theme);
 
   const refs = {
     root: React.useRef<any>(),
-    iconButton: React.useRef<any>(),
-    middle: React.useRef<any>(),
-    version: React.useRef<any>(),
-    open: React.useRef<any>(),
     mode: React.useRef<any>(),
     value: React.useRef<any>(),
-    values: React.useRef<any>(),
-    mouseDown: React.useRef<any>(),
-    format: React.useRef<any>(),
-    orientation: React.useRef<any>(),
-    autoNext: React.useRef<any>(),
-    autoCloseOnLast: React.useRef<any>(),
-    min: React.useRef<any>(),
-    max: React.useRef<any>(),
-    validate: React.useRef<any>()
-  };
-
-  const valueToValues = (valueNew: AmauiDate) => {
-    const values_: any = {
-      selecting: refs.values.current?.selecting || 'hour'
-    };
-
-    if (valueNew) {
-      // hour
-      if (format === '12') values_.hour = formatMethod(valueNew, 'hh');
-      else values_.hour = formatMethod(valueNew, 'HH');
-
-      // minute
-      values_.minute = formatMethod(valueNew, 'mm');
-
-      // second
-      values_.second = formatMethod(valueNew, 'ss');
-
-      // am, pm
-      values_.dayTime = formatMethod(valueNew, 'a');
-
-      // input
-      let format_ = '';
-
-      if (format === '12') format_ += `hh`;
-      else format_ += `HH`;
-
-      if (minute) format_ += `:mm`;
-
-      if (second) format_ += `:ss`;
-
-      if (format === '12') format_ += ` a`;
-
-      values_.input = formatMethod(valueNew, format_);
-    }
-
-    return values_;
+    dayTime: React.useRef<any>()
   };
 
   const touch = useMediaQuery('(pointer: coarse)');
 
+  const [value, setValue] = React.useState(() => {
+    const valueResult = (valueDefault !== undefined ? valueDefault : value_) || (now && (range ? [new AmauiDate(), new AmauiDate()] : [new AmauiDate()]));
+
+    return ((is('array', valueResult) ? valueResult : [valueResult]) as Array<AmauiDate>).filter(Boolean);
+  });
+  const [selecting, setSelecting] = React.useState((selectingDefault !== undefined ? selectingDefault : selecting_) || 'hour');
   const [open, setOpen] = React.useState(false);
   const [mode, setMode] = React.useState((touch ? openMobile : openDesktop) || 'select');
-  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || (now && new AmauiDate()));
-  const [values, setValues] = React.useState<any>(() => valueToValues(value));
   const [error, setError] = React.useState(false);
+  const [dayTime, setDayTime] = React.useState('am');
+
+  refs.value.current = value;
+
+  refs.mode.current = mode;
+
+  refs.dayTime.current = dayTime;
+
+  const valueToInput = React.useCallback((valueNew: any = refs.value.current) => {
+    let result = '';
+
+    const [from, to] = valueNew as [AmauiDate, AmauiDate];
+
+    const method = (item: AmauiDate) => {
+      let formatValue = '';
+
+      if (format === '12') formatValue += `hh`;
+      else formatValue += `HH`;
+
+      if (minute) formatValue += `:mm`;
+
+      if (second) formatValue += `:ss`;
+
+      if (format === '12') formatValue += ` a`;
+
+      return formatMethod(item, formatValue);
+    };
+
+    result += `${method(from)}`;
+
+    if (range && to) result += `${SEPARATOR}${method(to)}`;
+
+    return result;
+  }, [value, format, hour, minute, second]);
+
+  const [input, setInput] = React.useState(valueToInput());
 
   let version = version_;
 
@@ -397,994 +389,246 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     else version = 'desktop';
   }
 
-  refs.version.current = version;
-
-  refs.open.current = open;
-
-  refs.mode.current = mode;
-
-  refs.values.current = values;
-
-  refs.value.current = value;
-
-  refs.format.current = format;
-
-  refs.orientation.current = orientation;
-
-  refs.autoNext.current = autoNext;
-
-  refs.autoCloseOnLast.current = autoCloseOnLast;
-
-  refs.autoCloseOnLast.current = autoCloseOnLast;
-
-  refs.min.current = min;
-
-  refs.max.current = max;
-
-  refs.validate.current = validate;
-
-  const valuesToValue = (values_: any) => {
-    let amauiDate = refs.value.current;
-
-    // hour
-    // and am, pm
-    let hour_ = values_.hour || '00';
-
-    if (is('string', hour_) && hour_.startsWith('0')) hour_ = +hour_.slice(1);
-
-    if (format === '12') {
-      if (+hour_ === 0 || +hour_ === 12) {
-        if (values_.dayTime === 'am') amauiDate = set(0, 'hour', amauiDate);
-        else if (values_.dayTime === 'pm') amauiDate = set(12, 'hour', amauiDate);
-      }
-      else amauiDate = set(+hour_ + (values_.dayTime === 'pm' ? 12 : 0), 'hour', amauiDate);
-    }
-    else amauiDate = set(+hour_, 'hour', amauiDate);
-
-    // minute
-    let minute_ = values_.minute || '00';
-
-    if (is('string', minute_) && minute_.startsWith('0')) minute_ = +minute_.slice(1);
-
-    amauiDate = set(+minute_, 'minute', amauiDate);
-
-    // second
-    let second_ = values_.second || '00';
-
-    if (is('string', second_) && second_.startsWith('0')) second_ = +second_.slice(1);
-
-    amauiDate = set(+second_, 'second', amauiDate);
-
-    return amauiDate;
-  };
-
-  const inputToValues = (valueNew: any) => {
-    const values_: any = {
-      selecting: refs.values.current?.selecting || 'hour'
-    };
-
-    // input
-    const [valuesTime, dayTime_] = valueNew.split(' ');
-
-    const [hour_, minute_, second_] = (valuesTime || '').split(':');
-
-    if (hour_) values_.hour = hour_;
-
-    if (minute_) values_.minute = minute_;
-
-    if (second_) values_.second = second_;
-
-    if (dayTime_) values_.dayTime = dayTime_;
-
-    return values_;
-  };
-
-  const updateValue = (valueNew: any) => {
-    if (!props.hasOwnProperty('value')) setValue(valueNew);
-
-    if (is('function', onChange)) onChange(valueNew);
-  };
-
-  const updateFromValue = (valueNew: number) => {
-    const amauiDate = new AmauiDate(valueNew);
-
+  const errorCheck = React.useCallback((valueNew: any = value) => {
     // Error
-    setError(!validItem('', '', valueToValues(amauiDate)));
+    setError((valueNew || []).some((item: any, index: number) => !valid(item)));
+  }, [value]);
 
-    // Update values
-    setValues(valueToValues(amauiDate));
-
-    // Update value
-    setValue(amauiDate);
-  };
-
-  const onChangeClock = React.useCallback((valueNew: IClockValue) => {
-    const valuesNew = {
-      ...refs.values.current,
-
-      ...valueNew
-    };
-
-    if (is('number', valuesNew.hour) && valuesNew.hour < 10) valuesNew.hour = `0${valuesNew.hour}`;
-
-    if (is('number', valuesNew.minute) && valuesNew.minute < 10) valuesNew.minute = `0${valuesNew.minute}`;
-
-    if (is('number', valuesNew.second) && valuesNew.second < 10) valuesNew.second = `0${valuesNew.second}`;
-
-    setValues(valuesNew);
-
+  // Init
+  React.useEffect(() => {
     // Error
-    setError(!validItem('', '', valuesNew));
+    errorCheck();
   }, []);
 
-  const onDoneSelecting = React.useCallback((valueNew: any, selecting: any) => {
+  // Value
+  React.useEffect(() => {
+    if (value_ !== undefined && value_ !== value) setValue((is('array', value_) ? value_ : [value_]) as any);
+  }, [value_]);
+
+  const onUpdate = React.useCallback((valueNew_: AmauiDate) => {
+    const valueNew = resolve(valueNew_);
+
+    // Inner update
+    if (!props.hasOwnProperty('value')) setValue(valueNew as any);
+
+    if (is('function', onChange)) onChange(!range ? valueNew[0] : valueNew);
+  }, [value, range, onChange]);
+
+  const onUpdateSelecting = React.useCallback((valueNew: TClockUnit) => {
+    // Inner update
+    if (!props.hasOwnProperty('selecting')) setSelecting(valueNew);
+
+    if (is('function', onChangeSelecting)) onChangeSelecting(valueNew);
+  }, [onChangeSelecting]);
+
+  const valid = React.useCallback((...args: [AmauiDate, any?]) => {
+    if (is('function', valid_)) return valid_(...args);
+
+    const amauiDate = args[0];
+
+    if (min || max || validate) {
+      let response = true;
+
+      if (is('function', validate)) response = validate(amauiDate);
+
+      if (min !== undefined) response = response && isAmauiDate(amauiDate, 'after or same', min);
+
+      if (max !== undefined) response = response && isAmauiDate(amauiDate, 'before or same', max);
+
+      return response;
+    }
+
+    return true;
+  }, [valid_, min, max, validate]);
+
+  // ie. 07:40:04 am
+  const textToAmauiDate = React.useCallback((valueNew: string) => {
+    const [times, dayTime_] = (valueNew || '').split(' ');
+    const values = times.split(':');
+
+    let valueTime: any;
+
+    let amauiDate = new AmauiDate();
+
+    if (hour) {
+      valueTime = values[0];
+
+      if (is('string', valueTime) && valueTime.startsWith('0')) valueTime = valueTime.slice(1);
+
+      valueTime = +valueTime;
+
+      amauiDate = set((format === '12' && dayTime_ === 'pm') ? valueTime + 12 : valueTime, 'hour', amauiDate);
+    }
+
+    if (minute) {
+      valueTime = values[!hour ? 0 : 1];
+
+      if (is('string', valueTime) && valueTime.startsWith('0')) valueTime = valueTime.slice(1);
+
+      valueTime = +valueTime;
+
+      amauiDate = set(valueTime, 'minute', amauiDate);
+    }
+
+    if (second) {
+      valueTime = values[!(hour && minute) ? 0 : !hour ? 1 : 2];
+
+      if (is('string', valueTime) && valueTime.startsWith('0')) valueTime = valueTime.slice(1);
+
+      valueTime = +valueTime;
+
+      amauiDate = set(valueTime, 'second', amauiDate);
+    }
+
+    return amauiDate;
+  }, [format, hour, minute, second]);
+
+  const onInputModalChange = React.useCallback((valueNew: string, unit = selecting, index = 0) => {
+    let valueTime: any = valueNew;
+
+    if (is('string', valueTime) && valueTime.startsWith('0')) valueTime = valueTime.slice(1);
+
+    valueTime = +valueTime;
+
+    value[index] = set(valueTime, unit, value[index]);
+
+    setValue(resolve(value) as any);
+  }, [value, selecting]);
+
+  const resolve = React.useCallback((valueNew = refs.value.current, dayTimeNew = refs.dayTime.current) => {
+    const values = valueNew.map(item => {
+      const valueHour = item.hour;
+
+      if (format === '12') {
+        if (dayTimeNew === 'am' && valueHour > 12) return set(valueHour - 12, 'hour', item);
+
+        if (dayTimeNew === 'pm' && valueHour < 12) return set(valueHour + 12, 'hour', item);
+      }
+
+      return item;
+    });
+
+    return values;
+  }, [value, dayTime, format]);
+
+  const updateDayTime = React.useCallback((valueNew: string) => {
+    setDayTime(valueNew[0]);
+
+    setValue(resolve(value, valueNew[0]) as any);
+  }, [value, format]);
+
+  const inputToValue = React.useCallback((valueNew_: string = input) => {
+    let valueNew = valueNew_;
+
+    let [from, to] = valueNew.split(SEPARATOR) as any;
+
+    from = textToAmauiDate(from);
+
+    if (to) to = textToAmauiDate(to);
+
+    valueNew = [from, to].filter(Boolean) as any;
+
+    return valueNew as unknown as TTimePickerValue;
+  }, [input]);
+
+  const onInputChange = React.useCallback((valueNew_: any) => {
+    const valueNew = inputToValue(valueNew_);
+
+    const validValues = (valueNew as [AmauiDate, AmauiDate]).every(item => item.valid);
+
+    // Only update values if input is valid
+    // format used to make the value
+    if (validValues) {
+      // Error
+      errorCheck(valueNew);
+
+      // Update value
+      onUpdate(valueNew as any);
+    }
+
+    // Update input for free typing
+    setInput(valueNew_);
+  }, []);
+
+  const onChangeClock = React.useCallback((valueNew_: any, index: number = 0) => {
+    const valueNew = [...value];
+
+    if (valueNew_ !== value[index]) {
+      valueNew[index] = valueNew_;
+
+      setValue(resolve(valueNew) as any);
+
+      // Error
+      errorCheck(valueNew);
+    }
+  }, [value]);
+
+  const onChangeSelectingClock = React.useCallback((valueNew: TClockUnit) => {
+    if (valueNew !== selecting) setSelecting(valueNew);
+  }, [selecting]);
+
+  const onDoneSelecting = React.useCallback((valueNew: any, selectingNew: any) => {
     // AutoCloseOnLast
-    if (refs.autoCloseOnLast.current && refs.mode.current === 'select') {
-      if (['hour', 'minute', 'second'].includes(selecting)) {
+    if (autoCloseOnLast && refs.mode.current === 'select') {
+      if (['hour', 'minute', 'second'].includes(selectingNew)) {
         if (
-          (selecting === 'second') ||
-          (selecting === 'minute' && !second) ||
-          (selecting === 'hour' && !minute)
+          (selectingNew === 'second') ||
+          (selectingNew === 'minute' && !second) ||
+          (selectingNew === 'hour' && !minute)
         ) return onOk();
       }
     }
-  }, [hour, minute, second]);
-
-  const updateValues = (property: string, valueNew: any) => {
-    const valuesNew = {
-      ...refs.values.current,
-
-      [property]: valueNew
-    };
-
-    setValues(valuesNew);
-
-    // Error
-    setError(!validItem('', '', property === 'input' ? inputToValues(valueNew) : valuesNew));
-  };
-
-  const updateInputToValues = () => {
-    const values_ = {
-      ...refs.values.current,
-
-      ...inputToValues(refs.values.current.input)
-    };
-
-    const amauiDate = valuesToValue(values_);
-
-    setValues(values_);
-
-    setValue(amauiDate);
-
-    return values_;
-  };
-
-  const updateValuesToInput = () => {
-    const amauiDate = valuesToValue(refs.values.current);
-
-    setValues(valueToValues(amauiDate));
-
-    updateValue(amauiDate);
-  };
-
-  const validItem = (item: number | string = '', valuesProperty = '', valuesCurrent = refs.values.current) => {
-    const values_ = {
-      ...valuesCurrent
-    };
-
-    if (valuesProperty) values_[valuesProperty] = is('number', item) ? getLeadingZerosNumber(item as number) : item;
-
-    const amauiDate = valuesToValue(values_);
-
-    Object.keys(values_).forEach((item_: any) => {
-      if (is('string', values_[item_])) {
-        if (values_[item_].startsWith('0')) values_[item_] = values_[item_].slice(1);
-      }
-    });
-
-    if (values_.hour !== undefined) values_.hour = +values_.hour;
-
-    if (values_.minute !== undefined) values_.minute = +values_.minute;
-
-    if (values_.second !== undefined) values_.second = +values_.second;
-
-    let valid = true;
-
-    if (is('function', refs.validate.current)) valid = refs.validate.current(item, values_, values_.selecting);
-
-    if (refs.min.current !== undefined) valid = valid && isMethod(amauiDate, 'after or same', refs.min.current);
-
-    if (refs.max.current !== undefined) valid = valid && isMethod(amauiDate, 'before or same', refs.max.current);
-
-    return valid;
-  };
-
-  React.useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (refs.open.current) {
-        switch (event.key) {
-          case 'Escape':
-            return onCancel();
-
-          default:
-            break;
-        }
-      }
-    };
-
-    // Error
-    setError(!validItem('', '', inputToValues(refs.values.current.input)));
-
-    window.addEventListener('keydown', onKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, []);
-
-  React.useEffect(() => {
-    if (value_ !== undefined && value_ !== refs.value.current) updateFromValue(value_);
-  }, [value_]);
+  }, [mode, autoCloseOnLast, hour, minute, second]);
 
   const onMode = React.useCallback(() => {
-    setMode((refs.version.current === 'mobile' ? openMobile : openDesktop) || 'select');
-
-    if (!refs.open.current) updateInputToValues();
-
-    setOpen(!refs.open.current);
-  }, [openMobile, openDesktop]);
-
-  const onClose = React.useCallback(() => {
-    setOpen(false);
-  }, []);
-
-  const onModal = React.useCallback((event: React.MouseEvent<any>) => {
-    setMode((refs.version.current === 'mobile' ? openMobile : openDesktop) || 'select');
-
-    updateInputToValues();
-
-    setOpen(true);
-
-    if (is('function', onClick_)) onClick_(event);
-  }, [openMobile, openDesktop, onClick_]);
+    setMode((version === 'mobile' ? openMobile : openDesktop) || 'select');
+  }, [version, openMobile, openDesktop]);
 
   const onModeSwitch = React.useCallback(() => {
     setMode(refs.mode.current === 'select' ? 'input' : 'select');
   }, []);
 
-  const onOk = React.useCallback(() => {
-    updateValuesToInput();
+  const onOpen = React.useCallback(() => {
+    onMode();
 
+    setOpen(previous => !previous);
+  }, [open, openMobile, version]);
+
+  const onClose = React.useCallback((event: React.MouseEvent<any>) => {
+    setOpen(false);
+
+    if (is('function', onClose_)) onClose_(event);
+  }, [onClose_]);
+
+  const onReset = React.useCallback(() => {
+    const valueNew = inputToValue() as any;
+
+    // Update value
+    onUpdate(valueNew);
+  }, [input]);
+
+  const onOk = React.useCallback((event?: React.MouseEvent) => {
     // Error
-    setError(!validItem());
+    errorCheck();
 
-    onClose();
-  }, []);
+    // Update value
+    onUpdate(refs.value.current as any);
 
-  const onCancel = React.useCallback(() => {
-    const values_ = updateInputToValues();
+    // Update input
+    setInput(valueToInput(refs.value.current));
 
-    // Error
-    setError(!validItem('', '', values_));
+    onClose(event);
 
-    onClose();
+    if (is('function', onOk_)) onOk_(event);
+  }, [value, onOk_]);
 
-    if (is('function', onCancel_)) onCancel_();
-  }, [onCancel_]);
+  const onCancel = React.useCallback((event: React.MouseEvent) => {
+    onReset();
 
-  const ModeSelect = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
-    const buttonProps = {
-      tonal: 'secondary',
-      color,
-      version: 'filled',
-      backgroundOpacity: theme.palette.light ? 0.24 : 0.14,
-      elevation: false,
+    onClose(event);
 
-      className: classNames([
-        staticClassName('TimePicker', theme) && [
-          'amaui-TimePicker-button'
-        ],
-
-        classes.button
-      ])
-    };
-
-    const separator = (
-      <Type
-        version='d2'
-
-        className={classNames([
-          staticClassName('TimePicker', theme) && [
-            'amaui-TimePicker-input-separator'
-          ],
-
-          classes.inputSeparator
-        ])}
-      >
-        :
-      </Type>
-    );
-
-    const buttons = [
-      <Button
-        key={0}
-
-        {...buttonProps}
-
-        selected={refs.values.current.selecting === 'hour'}
-
-        onClick={() => updateValues('selecting', 'hour')}
-      >
-        {refs.values.current.hour}
-      </Button>
-    ];
-
-    if (minute) {
-      buttons.push(
-        separator,
-
-        <Button
-          {...buttonProps}
-
-          selected={refs.values.current.selecting === 'minute'}
-
-          onClick={() => updateValues('selecting', 'minute')}
-        >
-          {refs.values.current.minute}
-        </Button>
-      );
-    }
-
-    if (second) {
-      buttons.push(
-        separator,
-
-        <Button
-          {...buttonProps}
-
-          selected={refs.values.current.selecting === 'second'}
-
-          onClick={() => updateValues('selecting', 'second')}
-        >
-          {refs.values.current.second}
-        </Button>
-      );
-    }
-
-    const toggleButtonProps = {
-      icon: false,
-
-      ...ToggleButtonProps,
-
-      className: classNames([
-        staticClassName('TimePicker', theme) && [
-          'amaui-TimePicker-toggle-button'
-        ],
-
-        ToggleButtonProps?.className,
-        classes.toggleButton
-      ])
-    };
-
-    const Watch = (
-      <Clock
-        format={format}
-
-        value={refs.values.current}
-
-        onChange={onChangeClock}
-
-        selecting={refs.values.current.selecting}
-
-        onDoneSelecting={onDoneSelecting}
-
-        renderValue={renderValue}
-
-        valid={validItem}
-
-        hour={hour}
-
-        minute={minute}
-
-        second={second}
-
-        autoNext={autoNext}
-
-        disabled={disabled}
-
-        {...ClockProps}
-      />
-    );
-
-    if (refs.version.current === 'static-watch') return Watch;
-
-    return (
-      <Surface
-        ref={ref_}
-
-        tonal={tonal}
-
-        color={color}
-
-        className={classNames([
-          staticClassName('TimePicker', theme) && [
-            'amaui-TimePicker-mode'
-          ],
-
-          ModeSelectProps?.className,
-          classes.mode,
-          classes[`mode_orientation_${refs.orientation.current}`],
-          classes.model_input
-        ])}
-      >
-        <Line
-          gap={0}
-
-          direction='column'
-
-          align='center'
-
-          className={classNames([
-            staticClassName('TimePicker', theme) && [
-              'amaui-TimePicker-mode-wrapper'
-            ],
-
-            classes.mode_wrapper
-          ])}
-        >
-          {/* Heading */}
-          <Type
-            version='l2'
-
-            className={classNames([
-              staticClassName('TimePicker', theme) && [
-                'amaui-TimePicker-heading'
-              ],
-
-              classes.heading
-            ])}
-          >
-            {selectModeHeadingText}
-          </Type>
-
-          {/* Middle */}
-          <Line
-            gap={4.5}
-
-            direction={refs.orientation.current === 'vertical' ? 'column' : 'row'}
-
-            align='center'
-
-            justify='unset'
-
-            className={classNames([
-              staticClassName('TimePicker', theme) && [
-                'amaui-TimePicker-middle'
-              ],
-
-              classes.middle
-            ])}
-          >
-            {/* Inputs, am, pm */}
-            <Line
-              gap={refs.orientation.current === 'vertical' ? 1.5 : 2}
-
-              direction={refs.orientation.current === 'vertical' ? 'row' : 'column'}
-
-              align='unset'
-
-              justify='center'
-
-              className={classNames([
-                staticClassName('TimePicker', theme) && [
-                  'amaui-TimePicker-inputs'
-                ],
-
-                classes.inputs
-              ])}
-            >
-              <Line
-                gap={0}
-
-                direction='row'
-
-                wrap='wrap'
-
-                align='flex-start'
-
-                justify='center'
-              >
-                {buttons.map((item: any, index: number) => (
-                  React.cloneElement(item, {
-                    key: index
-                  })
-                ))}
-              </Line>
-
-              {format === '12' && (
-                <ToggleButtons
-                  tonal={tonal}
-
-                  color='inherit'
-
-                  version='outlined'
-
-                  orientation={refs.orientation.current}
-
-                  value={refs.values.current.dayTime}
-
-                  onChange={(valueNew: any) => {
-                    if (!valueNew.length) return;
-
-                    updateValues('dayTime', is('array', valueNew) ? valueNew[0] : valueNew);
-                  }}
-
-                  select='single'
-
-                  {...ToggleButtonsProps}
-
-                  className={classNames([
-                    staticClassName('TimePicker', theme) && [
-                      'amaui-TimePicker-toggle-buttons'
-                    ],
-
-                    ToggleButtonsProps?.className,
-                    classes.toggleButtons,
-                    classes[`toggleButtons_orientation_${refs.orientation.current}`]
-                  ])}
-                >
-                  <ToggleButton
-                    value='am'
-
-                    {...toggleButtonProps}
-                  >
-                    AM
-                  </ToggleButton>
-
-                  <ToggleButton
-                    value='pm'
-
-                    {...toggleButtonProps}
-                  >
-                    PM
-                  </ToggleButton>
-                </ToggleButtons>
-              )}
-            </Line>
-
-            {/* Watch */}
-            {Watch}
-          </Line>
-
-          {/* Footer */}
-          <Line
-            direction='row'
-
-            wrap='wrap'
-
-            align='center'
-
-            justify={switch_ ? 'space-between' : 'flex-end'}
-
-            className={classNames([
-              staticClassName('TimePicker', theme) && [
-                'amaui-TimePicker-footer'
-              ],
-
-              classes.footer
-            ])}
-          >
-            {switch_ && (
-              <Tooltip
-                label={mode === 'select' ? 'Enter time' : 'Select time'}
-              >
-                <IconButton
-                  tonal={tonal}
-
-                  color='inherit'
-
-                  onClick={onModeSwitch}
-
-                  aria-label={mode === 'select' ? 'Enter time' : 'Select time'}
-                >
-                  {mode === 'select' ? <IconEnter /> : <Icon_ />}
-                </IconButton>
-              </Tooltip>
-            )}
-
-            <Line
-              gap={0}
-
-              direction='row'
-
-              align='center'
-            >
-              <Button
-                tonal={tonal}
-
-                color={color}
-
-                version='text'
-
-                onClick={onCancel}
-
-                {...ButtonProps}
-              >
-                Cancel
-              </Button>
-
-              <Button
-                tonal={tonal}
-
-                color={color}
-
-                version='text'
-
-                onClick={onOk}
-
-                {...ButtonProps}
-              >
-                Ok
-              </Button>
-            </Line>
-          </Line>
-        </Line>
-      </Surface>
-    );
-  }), [version, format, hour, minute, second, autoNext, selectModeHeadingText, mode, tonal, color, switch_, InputProps, renderValue, disabled, theme]);
-
-  const ModeInput = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
-    const inputProps = {
-      tonal,
-      color,
-      version: 'outlined',
-      size: 'large',
-
-      className: classNames([
-        staticClassName('TimePicker', theme) && [
-          'amaui-TimePicker-input'
-        ],
-
-        classes.input,
-        classes[`input_version_${version}`]
-      ]),
-
-      ...InputProps
-    };
-
-    const separator = (
-      <Type
-        version='d2'
-
-        className={classNames([
-          staticClassName('TimePicker', theme) && [
-            'amaui-TimePicker-input-separator'
-          ],
-
-          classes.inputSeparator
-        ])}
-      >
-        :
-      </Type>
-    );
-
-    const inputs = [
-      <AdvancedTextField
-        key={0}
-
-        helperText='Hour'
-
-        value={refs.values.current.hour}
-
-        onChange={(valueNew: any) => updateValues('hour', valueNew)}
-
-        placeholder='00'
-
-        mask={[
-          ...(format === '12' ? [
-            { pattern: '[0-1]' },
-
-            (item: string, result: string, valueInput: string) => /^([0][0-9]|1[0-2]).*/.test(valueInput)
-          ] : [
-            { pattern: '[0-2]' },
-
-            (item: string, result: string, valueInput: string) => /^([01][0-9]|2[0-3]).*/.test(valueInput)
-          ])
-        ]}
-
-        {...inputProps}
-      />
-    ];
-
-    if (minute) {
-      inputs.push(
-        separator,
-
-        <AdvancedTextField
-          helperText='Minute'
-
-          value={refs.values.current.minute}
-
-          onChange={(valueNew: any) => updateValues('minute', valueNew)}
-
-          placeholder='00'
-
-          mask={[
-            { pattern: '[0-5]' },
-
-            { pattern: '[0-9]' }
-          ]}
-
-          {...inputProps}
-        />
-      );
-    }
-
-    if (second) {
-      inputs.push(
-        separator,
-
-        <AdvancedTextField
-          helperText='Second'
-
-          value={refs.values.current.second}
-
-          onChange={(valueNew: any) => updateValues('second', valueNew)}
-
-          placeholder='00'
-
-          mask={[
-            { pattern: '[0-5]' },
-
-            { pattern: '[0-9]' }
-          ]}
-
-          {...inputProps}
-        />
-      );
-    }
-
-    const toggleButtonProps = {
-      icon: false,
-
-      ...ToggleButtonProps,
-
-      className: classNames([
-        staticClassName('TimePicker', theme) && [
-          'amaui-TimePicker-toggle-button'
-        ],
-
-        ToggleButtonProps?.className,
-        classes.toggleButton
-      ])
-    };
-
-    return (
-      <Surface
-        ref={ref_}
-
-        tonal={tonal}
-
-        color={color}
-
-        className={classNames([
-          staticClassName('TimePicker', theme) && [
-            'amaui-TimePicker-mode'
-          ],
-
-          ModeInputProps?.className,
-          classes.mode,
-          classes[`mode_orientation_${refs.orientation.current}`]
-        ])}
-      >
-        <Line
-          gap={0}
-
-          direction='column'
-
-          className={classNames([
-            staticClassName('TimePicker', theme) && [
-              'amaui-TimePicker-mode-wrapper'
-            ],
-
-            classes.mode_wrapper
-          ])}
-        >
-          {/* Heading */}
-          <Type
-            version='l2'
-
-            className={classNames([
-              staticClassName('TimePicker', theme) && [
-                'amaui-TimePicker-heading'
-              ],
-
-              classes.heading
-            ])}
-          >
-            {inputModeHeadingText}
-          </Type>
-
-          {/* Middle */}
-          <Line
-            gap={4.5}
-
-            direction={refs.orientation.current === 'vertical' ? 'column' : 'row'}
-
-            align='center'
-
-            justify='unset'
-
-            className={classNames([
-              staticClassName('TimePicker', theme) && [
-                'amaui-TimePicker-middle'
-              ],
-
-              classes.middle
-            ])}
-          >
-            {/* Inputs, am, pm */}
-            <Line
-              gap={1.5}
-
-              direction='row'
-
-              align='unset'
-
-              justify='center'
-
-              className={classNames([
-                staticClassName('TimePicker', theme) && [
-                  'amaui-TimePicker-inputs'
-                ],
-
-                classes.inputs
-              ])}
-            >
-              <Line
-                gap={0}
-
-                direction='row'
-
-                align='flex-start'
-
-                justify='unset'
-              >
-                {inputs.map((item: any, index: number) => (
-                  React.cloneElement(item, {
-                    key: index
-                  })
-                ))}
-              </Line>
-
-              {format === '12' && (
-                <ToggleButtons
-                  tonal={tonal}
-
-                  color='inherit'
-
-                  version='outlined'
-
-                  orientation='vertical'
-
-                  value={refs.values.current.dayTime}
-
-                  onChange={(valueNew: any) => {
-                    if (!valueNew.length) return;
-
-                    updateValues('dayTime', is('array', valueNew) ? valueNew[0] : valueNew);
-                  }}
-
-                  select='single'
-
-                  {...ToggleButtonsProps}
-
-                  className={classNames([
-                    staticClassName('TimePicker', theme) && [
-                      'amaui-TimePicker-toggle-buttons'
-                    ],
-
-                    ToggleButtonsProps?.className,
-                    classes.toggleButtons,
-                    classes.toggleButtons_input
-                  ])}
-                >
-                  <ToggleButton
-                    value='am'
-
-                    {...toggleButtonProps}
-                  >
-                    AM
-                  </ToggleButton>
-
-                  <ToggleButton
-                    value='pm'
-
-                    {...toggleButtonProps}
-                  >
-                    PM
-                  </ToggleButton>
-                </ToggleButtons>
-              )}
-            </Line>
-          </Line>
-
-          {/* Footer */}
-          <Line
-            direction='row'
-
-            wrap='wrap'
-
-            align='center'
-
-            justify={switch_ ? 'space-between' : 'flex-end'}
-
-            className={classNames([
-              staticClassName('TimePicker', theme) && [
-                'amaui-TimePicker-footer'
-              ],
-
-              classes.footer
-            ])}
-          >
-            {switch_ && (
-              <Tooltip
-                label={mode === 'select' ? 'Enter' : 'Select'}
-              >
-                <IconButton
-                  tonal={tonal}
-
-                  color='inherit'
-
-                  onClick={onModeSwitch}
-
-                  aria-label={mode === 'select' ? 'Enter time' : 'Select time'}
-                >
-                  {mode === 'select' ? <IconEnter /> : <Icon_ />}
-                </IconButton>
-              </Tooltip>
-            )}
-
-            <Line
-              gap={0}
-
-              direction='row'
-
-              align='center'
-            >
-              <Button
-                tonal={tonal}
-
-                color={color}
-
-                version='text'
-
-                onClick={onCancel}
-
-                {...ButtonProps}
-              >
-                Cancel
-              </Button>
-
-              <Button
-                tonal={tonal}
-
-                color={color}
-
-                version='text'
-
-                onClick={onOk}
-
-                {...ButtonProps}
-              >
-                Ok
-              </Button>
-            </Line>
-          </Line>
-        </Line>
-      </Surface>
-    );
-  }), [version, format, hour, minute, second, inputModeHeadingText, mode, tonal, color, switch_, InputProps, theme]);
+    if (is('function', onCancel_)) onCancel_(event);
+  }, [input, onCancel_]);
 
   const mask: any = [];
 
@@ -1454,20 +698,50 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     placeholder += ' (a|p)m';
   }
 
+  const clock = (
+    <Clock
+      format={format}
+
+      value={value[0]}
+
+      selecting={selecting}
+
+      onChange={onChangeClock}
+
+      onChangeSelecting={onChangeSelectingClock}
+
+      onDoneSelecting={onDoneSelecting}
+
+      renderValue={renderValue}
+
+      valid={valid}
+
+      hour={hour}
+
+      minute={minute}
+
+      second={second}
+
+      autoNext={autoNext}
+
+      disabled={disabled}
+
+      {...ClockProps}
+    />
+  );
+
   const moreProps: any = {};
 
   if (version === 'desktop') {
     moreProps.end = (
       <IconButton
-        ref={refs.iconButton}
-
         tonal={tonal}
 
         color={color}
 
         version='text'
 
-        onClick={onMode}
+        onClick={onOpen}
 
         aria-label='Choose time'
 
@@ -1480,16 +754,426 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     );
   }
 
+  const inputProps = {
+    tonal,
+    color,
+    version: 'outlined',
+    size: 'large',
+
+    className: classNames([
+      staticClassName('TimePicker', theme) && [
+        'amaui-TimePicker-input'
+      ],
+
+      classes.input,
+      classes[`input_version_${version}`]
+    ]),
+
+    ...InputProps
+  };
+
+  const toggleButtonProps = {
+    icon: false,
+
+    ...ToggleButtonProps,
+
+    className: classNames([
+      staticClassName('TimePicker', theme) && [
+        'amaui-TimePicker-toggle-button'
+      ],
+
+      ToggleButtonProps?.className,
+      classes.toggleButton
+    ])
+  };
+
+  const buttonProps = {
+    tonal: 'secondary',
+    color,
+    version: 'filled',
+    backgroundOpacity: theme.palette.light ? 0.24 : 0.14,
+    elevation: false,
+
+    className: classNames([
+      staticClassName('TimePicker', theme) && [
+        'amaui-TimePicker-button'
+      ],
+
+      classes.button
+    ])
+  };
+
+  const separator = (
+    <Type
+      version='d2'
+
+      className={classNames([
+        staticClassName('TimePicker', theme) && [
+          'amaui-TimePicker-input-separator'
+        ],
+
+        classes.inputSeparator
+      ])}
+    >
+      :
+    </Type>
+  );
+
+  const buttons = [];
+  const inputs = [];
+
+  if (hour) {
+    buttons.push(
+      <Button
+        {...buttonProps}
+
+        selected={selecting === 'hour'}
+
+        onClick={() => onUpdateSelecting('hour')}
+      >
+        {formatMethod(value[0], format === '12' ? 'hh' : 'HH')}
+      </Button>
+    );
+
+    inputs.push(
+      <AdvancedTextField
+        key={0}
+
+        helperText='Hour'
+
+        value={formatMethod(value[0], format === '12' ? 'hh' : 'HH')}
+
+        onChange={(valueNew: any) => onInputModalChange(valueNew, 'hour', 0)}
+
+        placeholder='00'
+
+        mask={[
+          ...(format === '12' ? [
+            { pattern: '[0-1]' },
+
+            (item: string, result: string, valueInput: string) => /^([0][0-9]|1[0-2]).*/.test(valueInput)
+          ] : [
+            { pattern: '[0-2]' },
+
+            (item: string, result: string, valueInput: string) => /^([01][0-9]|2[0-3]).*/.test(valueInput)
+          ])
+        ]}
+
+        {...inputProps}
+      />
+    );
+  }
+
+  if (minute) {
+    if (hour) {
+      buttons.push(separator);
+      inputs.push(separator);
+    }
+
+    buttons.push(
+      <Button
+        {...buttonProps}
+
+        selected={selecting === 'minute'}
+
+        onClick={() => onUpdateSelecting('minute')}
+      >
+        {formatMethod(value[0], 'mm')}
+      </Button>
+    );
+
+    inputs.push(
+      <AdvancedTextField
+        helperText='Minute'
+
+        value={formatMethod(value[0], 'mm')}
+
+        onChange={(valueNew: any) => onInputModalChange(valueNew, 'minute', 0)}
+
+        placeholder='00'
+
+        mask={[
+          { pattern: '[0-5]' },
+
+          { pattern: '[0-9]' }
+        ]}
+
+        {...inputProps}
+      />
+    );
+  }
+
+  if (second) {
+    if (hour || minute) {
+      buttons.push(separator);
+      inputs.push(separator);
+    }
+
+    buttons.push(
+      <Button
+        {...buttonProps}
+
+        selected={selecting === 'second'}
+
+        onClick={() => onUpdateSelecting('second')}
+      >
+        {formatMethod(value[0], 'ss')}
+      </Button>
+    );
+
+    inputs.push(
+      <AdvancedTextField
+        helperText='Second'
+
+        value={formatMethod(value[0], 'ss')}
+
+        onChange={(valueNew: any) => onInputModalChange(valueNew, 'second', 0)}
+
+        placeholder='00'
+
+        mask={[
+          { pattern: '[0-5]' },
+
+          { pattern: '[0-9]' }
+        ]}
+
+        {...inputProps}
+      />
+    );
+  }
+
+  const orientationValue = mode === 'select' ? orientation : 'vertical';
+
+  const element = (
+    <Surface
+      tonal={tonal}
+
+      color={color}
+
+      gap={0}
+
+      direction='column'
+
+      align='center'
+
+      Component={Line}
+
+      className={classNames([
+        staticClassName('TimePicker', theme) && [
+          'amaui-TimePicker-main'
+        ],
+
+        MainProps?.className,
+        classes.main,
+        classes[`main_orientation_${orientationValue}`],
+        mode === 'input' && classes[`main_${(hour && minute && second) ? 2 : 3}_${format}`]
+      ])}
+    >
+      {/* Heading */}
+      <Type
+        version='l2'
+
+        className={classNames([
+          staticClassName('TimePicker', theme) && [
+            'amaui-TimePicker-heading'
+          ],
+
+          classes.heading
+        ])}
+      >
+        {selectModeHeadingText}
+      </Type>
+
+      {/* Middle */}
+      <Line
+        gap={4.5}
+
+        direction={orientationValue === 'vertical' ? 'column' : 'row'}
+
+        align='center'
+
+        justify='unset'
+
+        className={classNames([
+          staticClassName('TimePicker', theme) && [
+            'amaui-TimePicker-middle'
+          ],
+
+          classes.middle
+        ])}
+      >
+        {/* Inputs, am, pm */}
+        <Line
+          gap={orientationValue === 'vertical' ? 1.5 : 2}
+
+          direction={orientationValue === 'vertical' ? 'row' : 'column'}
+
+          align='unset'
+
+          justify='center'
+
+          className={classNames([
+            staticClassName('TimePicker', theme) && [
+              'amaui-TimePicker-inputs'
+            ],
+
+            classes.inputs
+          ])}
+        >
+          <Line
+            gap={0}
+
+            direction='row'
+
+            wrap='wrap'
+
+            align='flex-start'
+
+            justify='center'
+          >
+            {(mode === 'select' ? buttons : inputs).map((item: any, index: number) => (
+              React.cloneElement(item, {
+                key: index
+              })
+            ))}
+          </Line>
+
+          {format === '12' && (
+            <ToggleButtons
+              tonal={tonal}
+
+              color='inherit'
+
+              version='outlined'
+
+              orientation={orientationValue}
+
+              value={dayTime}
+
+              onChange={updateDayTime}
+
+              select='single'
+
+              {...ToggleButtonsProps}
+
+              className={classNames([
+                staticClassName('TimePicker', theme) && [
+                  'amaui-TimePicker-toggle-buttons'
+                ],
+
+                ToggleButtonsProps?.className,
+                classes.toggleButtons,
+                classes[`toggleButtons_orientation_${orientationValue}`]
+              ])}
+            >
+              <ToggleButton
+                value='am'
+
+                {...toggleButtonProps}
+              >
+                AM
+              </ToggleButton>
+
+              <ToggleButton
+                value='pm'
+
+                {...toggleButtonProps}
+              >
+                PM
+              </ToggleButton>
+            </ToggleButtons>
+          )}
+        </Line>
+
+        {/* Watch */}
+        {mode === 'select' && clock}
+      </Line>
+
+      {/* Footer */}
+      <Line
+        direction='row'
+
+        wrap='wrap'
+
+        align='center'
+
+        justify={switch_ ? 'space-between' : 'flex-end'}
+
+        className={classNames([
+          staticClassName('TimePicker', theme) && [
+            'amaui-TimePicker-footer'
+          ],
+
+          classes.footer
+        ])}
+      >
+        {switch_ && (
+          <Tooltip
+            label={mode === 'select' ? 'Enter time' : 'Select time'}
+          >
+            <IconButton
+              tonal={tonal}
+
+              color='inherit'
+
+              onClick={onModeSwitch}
+
+              aria-label={mode === 'select' ? 'Enter time' : 'Select time'}
+            >
+              {mode === 'select' ? <IconEnter /> : <Icon_ />}
+            </IconButton>
+          </Tooltip>
+        )}
+
+        <Line
+          gap={0}
+
+          direction='row'
+
+          align='center'
+        >
+          <Button
+            tonal={tonal}
+
+            color={color}
+
+            version='text'
+
+            onClick={onCancel}
+
+            {...ButtonProps}
+          >
+            Cancel
+          </Button>
+
+          <Button
+            tonal={tonal}
+
+            color={color}
+
+            version='text'
+
+            onClick={onOk}
+
+            {...ButtonProps}
+          >
+            Ok
+          </Button>
+        </Line>
+      </Line>
+    </Surface>
+  );
+
   if (version === 'mobile') {
-    if (!readOnly) moreProps.onClick = onModal;
+    if (!readOnly) moreProps.onClick = onOpen;
   }
 
-  if (version === 'static') {
-    if (versionStatic !== undefined) return versionStatic === 'select' ? <ModeSelect /> : <ModeInput />;
+  if (static_) {
+    if (static_ === 'clock') return clock;
 
-    return mode === 'select' ? <ModeSelect /> : <ModeInput />;
+    return element;
   }
-  console.log(1, value);
+
   return (
     <Line
       gap={0}
@@ -1529,9 +1213,9 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
         placeholder={placeholder}
 
-        value={values.input}
+        value={input}
 
-        onChange={(valueNew: any) => updateValues('input', valueNew)}
+        onChange={onInputChange}
 
         error={error}
 
@@ -1559,7 +1243,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
           {...ModalProps}
         >
-          {mode === 'select' ? <ModeSelect /> : <ModeInput />}
+          {element}
         </Modal>
       )}
 
@@ -1590,11 +1274,9 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
             <ClickListener
               onClickOutside={onCancel}
 
-              includeParentQueries={['.amaui-TimePicker-mode']}
-
-              include={[refs.iconButton, refs.iconButton.current]}
+              includeParentQueries={['.amaui-TimePicker-main']}
             >
-              {mode === 'select' ? <ModeSelect /> : <ModeInput />}
+              {element}
             </ClickListener>
           )}
 

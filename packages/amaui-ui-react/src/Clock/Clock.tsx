@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { clamp, getLeadingZerosNumber, hash, is, TMethod, unique } from '@amaui/utils';
+import { clamp, getLeadingZerosNumber, is, unique } from '@amaui/utils';
+import { AmauiDate, format as formatMethod, is as isAmauiDate, set } from '@amaui/date';
 
 import RoundMeter from '../RoundMeter';
 import Path from '../Path';
@@ -28,37 +30,41 @@ const useStyle = style(theme => ({
   },
 }), { name: 'amaui-Clock' });
 
-export interface IClockValue {
-  hour?: number;
-  minute?: number;
-  second?: number;
-}
+export type TClockValue = AmauiDate;
 
 export type TClockFormat = '12' | '24';
 
-export type TClockSelecting = 'hour' | 'minute' | 'second';
+export type TClockUnit = 'hour' | 'minute' | 'second';
+
+export type TClockDayTime = 'am' | 'pm';
 
 export interface IClock extends IBaseElement {
   tonal?: TTonal;
   color?: TColor;
+
+  value?: TClockValue;
+  valueDefault?: TClockValue;
+  onChange?: (value: TClockValue) => any;
+
+  selecting?: TClockUnit;
+  selectingDefault?: TClockUnit;
+  onChangeSelecting?: (value: TClockUnit) => any;
+
   format?: TClockFormat;
-  selecting?: TClockSelecting;
-
-  value?: IClockValue;
-  valueDefault?: IClockValue;
-  onChange?: (value: IClockValue) => any;
-
+  dayTime?: TClockDayTime;
   hour?: boolean;
   minute?: boolean;
   second?: boolean;
-
-  valid?: (value: number, selecting: TClockSelecting) => any;
-
   autoNext?: boolean;
+  min?: AmauiDate;
+  max?: AmauiDate;
+  validate?: (value: AmauiDate) => boolean;
+  readOnly?: boolean;
+  disabled?: boolean;
 
-  renderValue?: (valueDate: IClockValue, version: 'hour' | 'minute' | 'second', x: number, y: number, value: number, otherProps: any) => React.ReactNode;
-
-  onDoneSelecting?: (value: IClockValue, selecting: TClockSelecting) => any;
+  valid?: (value: AmauiDate, selecting: TClockUnit) => any;
+  renderValue?: (value: TClockValue, version: TClockUnit, x: number, y: number, valueNumber: number, otherProps: any) => React.ReactNode;
+  onDoneSelecting?: (value: TClockValue, selecting: TClockUnit) => any;
 }
 
 const Clock = React.forwardRef((props__: IClock, ref: any) => {
@@ -72,31 +78,31 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
     tonal = true,
     color = 'primary',
 
-    format = '12',
-
-    selecting: selecting_ = 'hour',
-
     value: value_,
     valueDefault,
     onChange,
 
-    valid: valid_,
+    selecting: selecting_,
+    selectingDefault,
+    onChangeSelecting,
 
+    format = '12',
+    dayTime = 'am',
     hour = true,
-
     minute = true,
-
     second = false,
-
     autoNext,
+    min,
+    max,
+    validate,
+    readOnly,
+    disabled,
 
+    valid: valid_,
     renderValue,
-
-    onClick: onClick_,
-
     onDoneSelecting,
 
-    disabled,
+    onClick: onClick_,
 
     className,
 
@@ -105,22 +111,22 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
     ...other
   } = props;
 
-  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || { hour: 0, minute: 0, second: 0 });
-  const [selecting, setSelecting] = React.useState(selecting_);
+  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || new AmauiDate());
+  const [selecting, setSelecting] = React.useState((selectingDefault !== undefined ? selectingDefault : selecting_) || 'hour');
   const [mouseDown, setMouseDown] = React.useState(false);
 
   const refs = {
     root: React.useRef<HTMLElement>(),
-    middle: React.useRef<any>(),
+    middle: React.useRef<HTMLElement>(),
     mouseDown: React.useRef<any>(),
-    value: React.useRef<any>(),
-    selecting: React.useRef<any>(),
-    autoNext: React.useRef<any>(),
-    hour: React.useRef<any>(),
-    minute: React.useRef<any>(),
-    second: React.useRef<any>(),
-    format: React.useRef<any>(),
-    previous: React.useRef<any>(selecting)
+    value: React.useRef<TClockValue>(),
+    selecting: React.useRef<TClockUnit>(),
+    autoNext: React.useRef<boolean>(),
+    hour: React.useRef<boolean>(),
+    minute: React.useRef<boolean>(),
+    second: React.useRef<boolean>(),
+    format: React.useRef<TClockFormat>(),
+    previous: React.useRef<TClockUnit>(selecting)
   };
 
   refs.mouseDown.current = mouseDown;
@@ -138,6 +144,21 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
   refs.autoNext.current = autoNext;
 
   refs.format.current = format;
+
+  const inputToValue = React.useCallback((valueNew: string | number, unit: TClockUnit = refs.selecting.current) => {
+    let amauiDate = new AmauiDate(refs.value.current);
+
+    let valueTime: any = valueNew;
+
+    if (is('string', valueTime) && valueTime.startsWith('0')) valueTime = valueTime.slice(1);
+
+    valueTime = +valueTime;
+
+    if (unit === 'hour') amauiDate = set((format === '12' && dayTime === 'pm') ? valueTime + 12 : valueTime, 'hour', amauiDate);
+    else amauiDate = set(valueTime, unit, amauiDate);
+
+    return amauiDate;
+  }, [value, format, dayTime, hour, minute, second]);
 
   const onMove = React.useCallback((x_: number, y_: number) => {
     const rectMiddle = refs.middle.current.getBoundingClientRect();
@@ -197,10 +218,10 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
       }
 
       // Validate
-      if (!valid(index, 'hour')) return;
+      if (!valid(inputToValue(index, 'hour'), 'hour')) return;
 
       // Update values
-      onUpdate({ ...refs.value.current, hour: index });
+      onUpdate(inputToValue(index, 'hour'));
     }
     else if (['minute', 'second'].includes(refs.selecting.current)) {
       const part = 360 / 60;
@@ -212,10 +233,10 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
       if (index === -1 || index === 0) index = 0;
 
       // Validate
-      if (!valid(index, refs.selecting.current)) return;
+      if (!valid(inputToValue(index), refs.selecting.current)) return;
 
       // Update values
-      onUpdate({ ...refs.value.current, [refs.selecting.current]: getLeadingZerosNumber(index) });
+      onUpdate(inputToValue(index));
     }
   }, []);
 
@@ -235,7 +256,7 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
 
             if (refs.selecting.current === 'hour' && refs.minute.current) valueSelecting = 'minute';
 
-            setSelecting(valueSelecting);
+            onUpdateSelecting(valueSelecting);
           }
         }
 
@@ -281,7 +302,7 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
   }, []);
 
   React.useEffect(() => {
-    if (value_ !== undefined) setValue(value_);
+    if (value_ !== undefined && value_ !== value) setValue(value_);
   }, [value_]);
 
   const updateTransitions = React.useCallback(() => {
@@ -323,38 +344,48 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
     }
   }, [selecting]);
 
-  const onUpdate = (valueNew: IClockValue) => {
-    // Only if value updated
-    const newValue = { ...valueNew };
-    const previousValue = { ...refs.value.current };
+  const onUpdate = React.useCallback((valueNew: TClockValue) => {
+    const newValue = `${formatMethod(valueNew, 'HH')}:${formatMethod(valueNew, 'mm')}:${formatMethod(valueNew, 'ss')}`;
+    const previousValue = `${formatMethod(refs.value.current, 'HH')}:${formatMethod(refs.value.current, 'mm')}:${formatMethod(refs.value.current, 'ss')}`;
 
-    Object.keys(newValue).forEach(key => {
-      if (is('string', newValue[key])) {
-        newValue[key] = +(newValue[key].startsWith('0') ? newValue[key].slice(1) : newValue[key]);
-      }
-    });
+    if (newValue === previousValue) return;
 
-    Object.keys(previousValue).forEach(key => {
-      if (is('string', previousValue[key])) {
-        previousValue[key] = +(previousValue[key].startsWith('0') ? previousValue[key].slice(1) : previousValue[key]);
-      }
-    });
-
-    if (hash(newValue) === hash(previousValue)) return;
-
-    if (!disabled) {
+    if (!(readOnly || disabled)) {
       // Inner controlled value
       if (!props.hasOwnProperty('value')) setValue(valueNew);
 
       if (is('function', onChange)) onChange(valueNew);
     }
-  };
+  }, [readOnly, disabled]);
 
-  const valid = React.useCallback((valueNew: number, selectingValue: TClockSelecting) => {
-    if (is('function', valid_)) return valid_(valueNew, selectingValue);
+  const onUpdateSelecting = React.useCallback((valueNew: TClockUnit) => {
+    if (!(readOnly || disabled)) {
+      // Inner controlled selecting
+      if (!props.hasOwnProperty('selecting')) setSelecting(valueNew);
+
+      if (is('function', onChangeSelecting)) onChangeSelecting(valueNew);
+    }
+  }, [readOnly, disabled]);
+
+  const valid = React.useCallback((...args: [AmauiDate, any?]) => {
+    if (is('function', valid_)) return valid_(...args);
+
+    const amauiDate = args[0];
+
+    if (min || max || validate) {
+      let response = true;
+
+      if (is('function', validate)) response = validate(amauiDate);
+
+      if (min !== undefined) response = response && isAmauiDate(amauiDate, 'after or same', min);
+
+      if (max !== undefined) response = response && isAmauiDate(amauiDate, 'before or same', max);
+
+      return response;
+    }
 
     return true;
-  }, [valid_]);
+  }, [valid_, min, max, validate]);
 
   const onMouseDown = React.useCallback(() => {
     setMouseDown(true);
@@ -385,11 +416,7 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
 
   if (selecting === 'hour') {
     // Value
-    valueClock = value?.hour;
-
-    if (is('string', valueClock) && valueClock.startsWith('0')) valueClock = valueClock.slice(1);
-
-    valueClock = valueClock24 = +valueClock;
+    valueClock = valueClock24 = value?.hour;
 
     if (format === '24' && valueClock > 11) lowerPointer = true;
 
@@ -407,7 +434,7 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
 
         style: {
           fontSize: 14,
-          opacity: valid(index === 0 ? 12 : index, 'hour') ? 1 : 0.27,
+          opacity: valid(inputToValue(index === 0 ? 12 : index, 'hour'), 'hour') ? 1 : 0.27,
           fill: ((valueClock === 12 && index === 0) || (valueClock === index)) ? colors.inverse : colors.regular
         },
 
@@ -425,7 +452,7 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
 
             style: {
               fontSize: 14,
-              opacity: valid(index === 0 ? 0 : index, 'hour') ? 1 : 0.27,
+              opacity: valid(inputToValue(index === 0 ? 0 : index, 'hour'), 'hour') ? 1 : 0.27,
               fill: valueClock24 === index ? colors.inverse : colors.regular
             },
 
@@ -442,7 +469,7 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
 
             style: {
               fontSize: 14,
-              opacity: valid(12 + index, 'hour') ? 1 : 0.27,
+              opacity: valid(inputToValue(12 + index, 'hour'), 'hour') ? 1 : 0.27,
               fill: valueClock24 === (12 + index) ? colors.inverse : colors.regular
             },
 
@@ -457,10 +484,6 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
     // Value
     valueClock = value?.minute;
 
-    if (is('string', valueClock) && valueClock.startsWith('0')) valueClock = valueClock.slice(1);
-
-    valueClock = +valueClock;
-
     valuePosition = (100 / 60) * valueClock;
 
     // Labels
@@ -473,7 +496,7 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
 
         style: {
           fontSize: 14,
-          opacity: valid(index === 0 ? 0 : (60 / 12) * index, 'minute') ? 1 : 0.27,
+          opacity: valid(inputToValue(index === 0 ? 0 : (60 / 12) * index), 'minute') ? 1 : 0.27,
           fill: (valueClock === ((60 / 12) * index)) ? colors.inverse : colors.regular
         },
 
@@ -485,10 +508,6 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
   if (selecting === 'second') {
     // Value
     valueClock = value?.second;
-
-    if (is('string', valueClock) && valueClock.startsWith('0')) valueClock = valueClock.slice(1);
-
-    valueClock = +valueClock;
 
     valuePosition = (100 / 60) * valueClock;
 
@@ -502,7 +521,7 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
 
         style: {
           fontSize: 14,
-          opacity: valid(index === 0 ? 0 : (60 / 12) * index, 'second') ? 1 : 0.27,
+          opacity: valid(inputToValue(index === 0 ? 0 : (60 / 12) * index, 'second'), 'second') ? 1 : 0.27,
           fill: (valueClock === ((60 / 12) * index)) ? colors.inverse : colors.regular
         },
 

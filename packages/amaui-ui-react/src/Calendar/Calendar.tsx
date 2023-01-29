@@ -283,7 +283,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
   // Value
   React.useEffect(() => {
-    if (value_ !== undefined && value_ !== value) setValue(value_ as any);
+    if (value_ !== undefined && value_ !== value) setValue((is('array', value_) ? value_ : [value_]) as any);
   }, [value_]);
 
   // Calendar
@@ -295,8 +295,8 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
     // Inner update
     if (!props.hasOwnProperty('value')) setValue(valueNew as any);
 
-    if (is('function', onChange)) onChange(valueNew);
-  }, [onChange]);
+    if (is('function', onChange)) onChange(!range ? valueNew[0] : valueNew);
+  }, [range, onChange]);
 
   const onUpdateCalendar = React.useCallback((valueNew: AmauiDate) => {
     // Inner update

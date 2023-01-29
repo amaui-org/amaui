@@ -15,6 +15,7 @@ const useStyle = styleMethod(theme => ({
     flexShrink: '0',
     color: 'inherit',
     fill: 'currentColor',
+    pointerEvents: 'none',
 
     // Make width and height in em unit
     // means it will scale based on parent's font-size
