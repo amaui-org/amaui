@@ -19,11 +19,14 @@ import ToggleButton from '../ToggleButton';
 import Button from '../Button';
 import Slide from '../Slide';
 import Clock from '../Clock';
-import { SEPARATOR } from '../DatePicker/DatePicker';
+import { SEPARATOR, SEPARATOR_SYMBOL } from '../DatePicker/DatePicker';
 import { TClockUnit } from '../Clock/Clock';
 import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
 
 import { staticClassName, TElementReference, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
+import Carousel from '../Carousel';
+import Tabs from '../Tabs';
+import Tab from '../Tab';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -157,6 +160,10 @@ const useStyle = styleMethod(theme => ({
 
   },
 
+  tabs: {
+    marginTop: 12
+  },
+
   footer: {
     width: '100%',
     marginTop: '24px'
@@ -197,6 +204,8 @@ const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
 
 export type TTimePickerValue = AmauiDate | [AmauiDate, AmauiDate];
 
+export type TTimePickerSelecting = TClockUnit | [TClockUnit, TClockUnit];
+
 export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
   version?: 'auto' | 'mobile' | 'desktop';
 
@@ -204,9 +213,9 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
   valueDefault?: TTimePickerValue;
   onChange?: (value: TTimePickerValue) => any;
 
-  selecting?: TClockUnit;
-  selectingDefault?: TClockUnit;
-  onChangeSelecting?: (value: TClockUnit) => any;
+  selecting?: TTimePickerSelecting;
+  selectingDefault?: TTimePickerSelecting;
+  onChangeSelecting?: (value: TTimePickerSelecting) => any;
 
   now?: boolean;
   range?: boolean;
@@ -219,14 +228,17 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
   autoCloseOnLast?: boolean | Record<TValueBreakpoints, boolean>;
   openMobile?: 'input' | 'select';
   openDesktop?: 'input' | 'select';
-  selectModeHeadingText?: string;
-  inputModeHeadingText?: string;
+  selectModalSubHeadingText?: string;
+  selectModalSubHeadingTextRange?: string;
+  inputModalSubHeadingText?: string;
+  inputModalSubHeadingTextRange?: string;
   orientation?: 'vertical' | 'horizontal' | Record<TValueBreakpoints, 'vertical' | 'horizontal'>;
   format?: '12' | '24';
   hour?: boolean;
   minute?: boolean;
   second?: boolean;
   switch?: boolean | Record<TValueBreakpoints, boolean>;
+  placeholder?: string;
   readOnly?: boolean;
   disabled?: boolean;
 
@@ -243,6 +255,7 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
 
   MainProps?: TPropsAny;
   ModalProps?: TPropsAny;
+  MiddleProps?: TPropsAny;
   ButtonProps?: TPropsAny;
   TooltipProps?: TPropsAny;
   ToggleButtonsProps?: TPropsAny;
@@ -250,6 +263,9 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
   IconButtonProps?: TPropsAny;
   InputProps?: TPropsAny;
   ClockProps?: TPropsAny;
+  TabsProps?: TPropsAny;
+  TabFromProps?: TPropsAny;
+  TabToProps?: TPropsAny;
   AdvancedTextFieldProps?: TPropsAny;
 }
 
@@ -290,8 +306,10 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     autoCloseOnLast: autoCloseOnLast_,
     openMobile = 'select',
     openDesktop = 'select',
-    selectModeHeadingText = 'Select time',
-    inputModeHeadingText = 'Enter time',
+    selectModalSubHeadingText = 'Select time',
+    selectModalSubHeadingTextRange = `Select from${SEPARATOR}to time`,
+    inputModalSubHeadingText = 'Enter time',
+    inputModalSubHeadingTextRange = `Enter from${SEPARATOR}to time`,
     orientation: orientation_,
     format = '12',
     hour = true,
@@ -299,6 +317,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     second = false,
     switch: switch__,
     static: static_,
+    placeholder: placeholder_,
     readOnly,
     disabled,
 
@@ -317,6 +336,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
     MainProps,
     ModalProps,
+    MiddleProps,
     ButtonProps,
     TooltipProps,
     ToggleButtonsProps,
@@ -324,6 +344,9 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     IconButtonProps,
     InputProps,
     ClockProps,
+    TabsProps,
+    TabFromProps,
+    TabToProps,
     AdvancedTextFieldProps,
 
     className,
@@ -350,11 +373,16 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
     return ((is('array', valueResult) ? valueResult : [valueResult]) as Array<AmauiDate>).filter(Boolean);
   });
-  const [selecting, setSelecting] = React.useState((selectingDefault !== undefined ? selectingDefault : selecting_) || 'hour');
+  const [selecting, setSelecting] = React.useState(() => {
+    const valueResult = (selectingDefault !== undefined ? selectingDefault : selecting_) || ['hour', 'hour'];
+
+    return ((is('array', valueResult) ? valueResult : [valueResult]) as Array<TClockUnit>).filter(Boolean);
+  });
   const [open, setOpen] = React.useState(false);
   const [mode, setMode] = React.useState((touch ? openMobile : openDesktop) || 'select');
   const [error, setError] = React.useState(false);
-  const [dayTime, setDayTime] = React.useState('am');
+  const [dayTime, setDayTime] = React.useState<Array<'am' | 'pm'>>(Array.from({ length: 2 }).map(item => formatMethod(new AmauiDate(), 'a') as any));
+  const [tab, setTab] = React.useState(0);
 
   refs.value.current = value;
 
@@ -423,11 +451,15 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     if (is('function', onChange)) onChange(!range ? valueNew[0] : valueNew);
   }, [value, range, onChange]);
 
-  const onUpdateSelecting = React.useCallback((valueNew: TClockUnit) => {
+  const onUpdateSelecting = React.useCallback((valueNew_: TClockUnit, index: number) => {
+    const valueNew = [...selecting];
+
+    valueNew[index] = valueNew_;
+
     // Inner update
     if (!props.hasOwnProperty('selecting')) setSelecting(valueNew);
 
-    if (is('function', onChangeSelecting)) onChangeSelecting(valueNew);
+    if (is('function', onChangeSelecting)) onChangeSelecting(valueNew as any);
   }, [onChangeSelecting]);
 
   const valid = React.useCallback((...args: [AmauiDate, any?]) => {
@@ -492,26 +524,27 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     return amauiDate;
   }, [format, hour, minute, second]);
 
-  const onInputModalChange = React.useCallback((valueNew: string, unit = selecting, index = 0) => {
+  const onInputModalChange = React.useCallback((valueNew: string, unit: TClockUnit, index: number) => {
     let valueTime: any = valueNew;
 
     if (is('string', valueTime) && valueTime.startsWith('0')) valueTime = valueTime.slice(1);
 
     valueTime = +valueTime;
 
-    value[index] = set(valueTime, unit, value[index]);
+    value[index] = set(valueTime, unit || selecting[index], value[index]);
 
     setValue(resolve(value) as any);
   }, [value, selecting]);
 
   const resolve = React.useCallback((valueNew = refs.value.current, dayTimeNew = refs.dayTime.current) => {
-    const values = valueNew.map(item => {
+    const values = valueNew.map((item: AmauiDate, index: number) => {
+      // Resolve the range value
       const valueHour = item.hour;
 
       if (format === '12') {
-        if (dayTimeNew === 'am' && valueHour > 12) return set(valueHour - 12, 'hour', item);
+        if (dayTimeNew[index] === 'am' && valueHour > 12) return set(valueHour - 12, 'hour', item);
 
-        if (dayTimeNew === 'pm' && valueHour < 12) return set(valueHour + 12, 'hour', item);
+        if (dayTimeNew[index] === 'pm' && valueHour < 12) return set(valueHour + 12, 'hour', item);
       }
 
       return item;
@@ -520,20 +553,31 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     return values;
   }, [value, dayTime, format]);
 
-  const updateDayTime = React.useCallback((valueNew: string) => {
-    setDayTime(valueNew[0]);
+  const updateDayTime = React.useCallback((valueNew_: string[], index: number) => {
+    const valueNew = valueNew_[0];
 
-    setValue(resolve(value, valueNew[0]) as any);
-  }, [value, format]);
+    // Update dayTime
+    const dayTimeNew = [...dayTime];
+
+    dayTimeNew[index] = valueNew as any;
+
+    setDayTime(dayTimeNew);
+
+    setValue(resolve(value, dayTimeNew) as any);
+  }, [value, dayTime, format]);
 
   const inputToValue = React.useCallback((valueNew_: string = input) => {
     let valueNew = valueNew_;
 
     let [from, to] = valueNew.split(SEPARATOR) as any;
 
+    console.log(11, from, to);
+
     from = textToAmauiDate(from);
 
     if (to) to = textToAmauiDate(to);
+
+    console.log(14, from, to);
 
     valueNew = [from, to].filter(Boolean) as any;
 
@@ -572,8 +616,12 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     }
   }, [value]);
 
-  const onChangeSelectingClock = React.useCallback((valueNew: TClockUnit) => {
-    if (valueNew !== selecting) setSelecting(valueNew);
+  const onChangeSelectingClock = React.useCallback((valueNew: TClockUnit, index = 0) => {
+    const selectingValue = selecting;
+
+    selectingValue[index] = valueNew;
+
+    if (valueNew !== selecting[0]) setSelecting([...selectingValue]);
   }, [selecting]);
 
   const onDoneSelecting = React.useCallback((valueNew: any, selectingNew: any) => {
@@ -707,19 +755,34 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     placeholder += ' (a|p)m';
   }
 
-  const clock = (
+  // range
+  if (range) {
+    mask.push(
+      ' ',
+      SEPARATOR_SYMBOL,
+      ' ',
+
+      ...mask
+    );
+
+    placeholder += `${SEPARATOR}${placeholder}`;
+  }
+
+  placeholder = placeholder_ || placeholder;
+
+  const clock = (index = 0) => (
     <Clock
       format={format}
 
-      value={value[0]}
+      value={value[index]}
 
       dayTime={dayTime}
 
-      selecting={selecting}
+      selecting={selecting[index]}
 
-      onChange={onChangeClock}
+      onChange={valueNew => onChangeClock(valueNew, index)}
 
-      onChangeSelecting={onChangeSelectingClock}
+      onChangeSelecting={valueNew => onChangeSelectingClock(valueNew, index)}
 
       onDoneSelecting={onDoneSelecting}
 
@@ -765,22 +828,179 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     );
   }
 
-  const inputProps = {
-    tonal,
-    color,
-    version: 'outlined',
-    size: 'large',
+  const makeInputs = (index = 0) => {
+    const inputProps = {
+      tonal,
+      color,
+      version: 'outlined',
+      size: 'large',
 
-    className: classNames([
-      staticClassName('TimePicker', theme) && [
-        'amaui-TimePicker-input'
-      ],
+      className: classNames([
+        staticClassName('TimePicker', theme) && [
+          'amaui-TimePicker-input'
+        ],
 
-      classes.input,
-      classes[`input_version_${version}`]
-    ]),
+        classes.input,
+        classes[`input_version_${version}`]
+      ]),
 
-    ...InputProps
+      ...InputProps
+    };
+
+    const buttonProps = {
+      tonal: 'secondary',
+      color,
+      version: 'filled',
+      backgroundOpacity: theme.palette.light ? 0.24 : 0.14,
+      elevation: false,
+
+      className: classNames([
+        staticClassName('TimePicker', theme) && [
+          'amaui-TimePicker-button'
+        ],
+
+        classes.button
+      ])
+    };
+
+    const separator = (
+      <Type
+        version='d2'
+
+        className={classNames([
+          staticClassName('TimePicker', theme) && [
+            'amaui-TimePicker-input-separator'
+          ],
+
+          classes.inputSeparator
+        ])}
+      >
+        :
+      </Type>
+    );
+
+    const buttons = [];
+    const inputs = [];
+
+    if (hour) {
+      buttons.push(
+        <Button
+          {...buttonProps}
+
+          selected={selecting[index] === 'hour'}
+
+          onClick={() => onUpdateSelecting('hour', index)}
+        >
+          {formatMethod(value[index], format === '12' ? 'hh' : 'HH')}
+        </Button>
+      );
+
+      inputs.push(
+        <AdvancedTextField
+          helperText='Hour'
+
+          value={formatMethod(value[index], format === '12' ? 'hh' : 'HH')}
+
+          onChange={(valueNew: any) => onInputModalChange(valueNew, 'hour', index)}
+
+          placeholder='00'
+
+          mask={[
+            ...(format === '12' ? [
+              { pattern: '[0-1]' },
+
+              (item: string, result: string, valueInput: string) => /^([0][0-9]|1[0-2]).*/.test(valueInput)
+            ] : [
+              { pattern: '[0-2]' },
+
+              (item: string, result: string, valueInput: string) => /^([01][0-9]|2[0-3]).*/.test(valueInput)
+            ])
+          ]}
+
+          {...inputProps}
+        />
+      );
+    }
+
+    if (minute) {
+      if (hour) {
+        buttons.push(separator);
+        inputs.push(separator);
+      }
+
+      buttons.push(
+        <Button
+          {...buttonProps}
+
+          selected={selecting[index] === 'minute'}
+
+          onClick={() => onUpdateSelecting('minute', index)}
+        >
+          {formatMethod(value[index], 'mm')}
+        </Button>
+      );
+
+      inputs.push(
+        <AdvancedTextField
+          helperText='Minute'
+
+          value={formatMethod(value[index], 'mm')}
+
+          onChange={(valueNew: any) => onInputModalChange(valueNew, 'minute', index)}
+
+          placeholder='00'
+
+          mask={[
+            { pattern: '[0-5]' },
+
+            { pattern: '[0-9]' }
+          ]}
+
+          {...inputProps}
+        />
+      );
+    }
+
+    if (second) {
+      if (hour || minute) {
+        buttons.push(separator);
+        inputs.push(separator);
+      }
+
+      buttons.push(
+        <Button
+          {...buttonProps}
+
+          selected={selecting[index] === 'second'}
+
+          onClick={() => onUpdateSelecting('second', index)}
+        >
+          {formatMethod(value[index], 'ss')}
+        </Button>
+      );
+
+      inputs.push(
+        <AdvancedTextField
+          helperText='Second'
+
+          value={formatMethod(value[index], 'ss')}
+
+          onChange={(valueNew: any) => onInputModalChange(valueNew, 'second', index)}
+
+          placeholder='00'
+
+          mask={[
+            { pattern: '[0-5]' },
+
+            { pattern: '[0-9]' }
+          ]}
+
+          {...inputProps}
+        />
+      );
+    }
+
+    return mode === 'select' ? buttons : inputs;
   };
 
   const toggleButtonProps = {
@@ -798,205 +1018,13 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     ])
   };
 
-  const buttonProps = {
-    tonal: 'secondary',
-    color,
-    version: 'filled',
-    backgroundOpacity: theme.palette.light ? 0.24 : 0.14,
-    elevation: false,
-
-    className: classNames([
-      staticClassName('TimePicker', theme) && [
-        'amaui-TimePicker-button'
-      ],
-
-      classes.button
-    ])
-  };
-
-  const separator = (
-    <Type
-      version='d2'
-
-      className={classNames([
-        staticClassName('TimePicker', theme) && [
-          'amaui-TimePicker-input-separator'
-        ],
-
-        classes.inputSeparator
-      ])}
-    >
-      :
-    </Type>
-  );
-
-  const buttons = [];
-  const inputs = [];
-
-  if (hour) {
-    buttons.push(
-      <Button
-        {...buttonProps}
-
-        selected={selecting === 'hour'}
-
-        onClick={() => onUpdateSelecting('hour')}
-      >
-        {formatMethod(value[0], format === '12' ? 'hh' : 'HH')}
-      </Button>
-    );
-
-    inputs.push(
-      <AdvancedTextField
-        key={0}
-
-        helperText='Hour'
-
-        value={formatMethod(value[0], format === '12' ? 'hh' : 'HH')}
-
-        onChange={(valueNew: any) => onInputModalChange(valueNew, 'hour', 0)}
-
-        placeholder='00'
-
-        mask={[
-          ...(format === '12' ? [
-            { pattern: '[0-1]' },
-
-            (item: string, result: string, valueInput: string) => /^([0][0-9]|1[0-2]).*/.test(valueInput)
-          ] : [
-            { pattern: '[0-2]' },
-
-            (item: string, result: string, valueInput: string) => /^([01][0-9]|2[0-3]).*/.test(valueInput)
-          ])
-        ]}
-
-        {...inputProps}
-      />
-    );
-  }
-
-  if (minute) {
-    if (hour) {
-      buttons.push(separator);
-      inputs.push(separator);
-    }
-
-    buttons.push(
-      <Button
-        {...buttonProps}
-
-        selected={selecting === 'minute'}
-
-        onClick={() => onUpdateSelecting('minute')}
-      >
-        {formatMethod(value[0], 'mm')}
-      </Button>
-    );
-
-    inputs.push(
-      <AdvancedTextField
-        helperText='Minute'
-
-        value={formatMethod(value[0], 'mm')}
-
-        onChange={(valueNew: any) => onInputModalChange(valueNew, 'minute', 0)}
-
-        placeholder='00'
-
-        mask={[
-          { pattern: '[0-5]' },
-
-          { pattern: '[0-9]' }
-        ]}
-
-        {...inputProps}
-      />
-    );
-  }
-
-  if (second) {
-    if (hour || minute) {
-      buttons.push(separator);
-      inputs.push(separator);
-    }
-
-    buttons.push(
-      <Button
-        {...buttonProps}
-
-        selected={selecting === 'second'}
-
-        onClick={() => onUpdateSelecting('second')}
-      >
-        {formatMethod(value[0], 'ss')}
-      </Button>
-    );
-
-    inputs.push(
-      <AdvancedTextField
-        helperText='Second'
-
-        value={formatMethod(value[0], 'ss')}
-
-        onChange={(valueNew: any) => onInputModalChange(valueNew, 'second', 0)}
-
-        placeholder='00'
-
-        mask={[
-          { pattern: '[0-5]' },
-
-          { pattern: '[0-9]' }
-        ]}
-
-        {...inputProps}
-      />
-    );
-  }
-
   const orientationValue = mode === 'select' ? orientation : 'vertical';
 
-  const element = (
-    <Surface
-      tonal={tonal}
-
-      color={color}
-
-      gap={0}
-
-      direction='column'
-
-      align='center'
-
-      Component={Line}
-
-      className={classNames([
-        staticClassName('TimePicker', theme) && [
-          'amaui-TimePicker-main'
-        ],
-
-        MainProps?.className,
-        classes.main,
-        classes[`main_orientation_${orientationValue}${(hour && minute && second) ? '_3' : ''}`],
-        mode === 'input' && classes[`main_input_${(hour && minute && second) ? 3 : 2}_${format}`]
-      ])}
-    >
-      {/* Heading */}
-      <Type
-        version='l2'
-
-        className={classNames([
-          staticClassName('TimePicker', theme) && [
-            'amaui-TimePicker-heading'
-          ],
-
-          classes.heading
-        ])}
-      >
-        {selectModeHeadingText}
-      </Type>
-
-      {/* Middle */}
+  const elementValues = (
+    value.map((item, index: number) => (
       <Line
+        key={index}
+
         gap={4.5}
 
         direction={orientationValue === 'vertical' ? 'column' : 'row'}
@@ -1005,13 +1033,9 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
         justify='unset'
 
-        className={classNames([
-          staticClassName('TimePicker', theme) && [
-            'amaui-TimePicker-middle'
-          ],
-
-          classes.middle
-        ])}
+        style={{
+          width: '100%'
+        }}
       >
         {/* Inputs, am, pm */}
         <Line
@@ -1042,11 +1066,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
             justify='center'
           >
-            {(mode === 'select' ? buttons : inputs).map((item: any, index: number) => (
-              React.cloneElement(item, {
-                key: index
-              })
-            ))}
+            {makeInputs(index)}
           </Line>
 
           {format === '12' && (
@@ -1059,9 +1079,9 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
               orientation={orientationValue}
 
-              value={dayTime}
+              value={dayTime[index]}
 
-              onChange={updateDayTime}
+              onChange={valueNew => updateDayTime(valueNew, index)}
 
               select='single'
 
@@ -1097,10 +1117,118 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
         </Line>
 
         {/* Watch */}
-        {mode === 'select' && clock}
+        {mode === 'select' && clock(index)}
+      </Line>
+    ))
+  );
+
+  const heading = mode === 'select' ? !range ? selectModalSubHeadingText : selectModalSubHeadingTextRange : !range ? inputModalSubHeadingText : inputModalSubHeadingTextRange;
+
+  const element = (
+    <Surface
+      tonal={tonal}
+
+      color={color}
+
+      gap={0}
+
+      direction='column'
+
+      align='center'
+
+      Component={Line}
+
+      className={classNames([
+        staticClassName('TimePicker', theme) && [
+          'amaui-TimePicker-main'
+        ],
+
+        MainProps?.className,
+        classes.main,
+        classes[`main_orientation_${orientationValue}${(hour && minute && second) ? '_3' : ''}`],
+        mode === 'input' && classes[`main_input_${(hour && minute && second) ? 3 : 2}_${format}`]
+      ])}
+    >
+      {/* Heading */}
+      {heading && (
+        <Type
+          version='l2'
+
+          className={classNames([
+            staticClassName('TimePicker', theme) && [
+              'amaui-TimePicker-heading'
+            ],
+
+            classes.heading
+          ])}
+        >
+          {heading}
+        </Type>
+      )}
+
+      {/* Tabs */}
+      {range && (
+        <Tabs
+          tonal={tonal}
+
+          color={color}
+
+          justify='center'
+
+          initialLineUpdateTimeout={340}
+
+          value={tab}
+
+          valueDefault={tab}
+
+          onChange={setTab}
+
+          {...TabsProps}
+
+          className={classNames([
+            staticClassName('TimePicker', theme) && [
+              'amaui-TimePicker-tabs'
+            ],
+
+            TabsProps?.className,
+            classes.tabs
+          ])}
+        >
+          <Tab
+            value={0}
+
+            label='From'
+
+            {...TabFromProps}
+          />
+
+          <Tab
+            value={1}
+
+            label='To'
+
+            {...TabToProps}
+          />
+        </Tabs>
+      )}
+
+      {/* Middle */}
+      <Line
+        gap={0}
+
+        className={classNames([
+          staticClassName('TimePicker', theme) && [
+            'amaui-TimePicker-middle'
+          ],
+
+          MiddleProps?.className,
+          classes.middle
+        ])}
+      >
+        {elementValues[tab]}
       </Line>
 
-      {/* Footer */}
+      {/* Actions */}
       <Line
         direction='row'
 
@@ -1179,11 +1307,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     if (!readOnly) moreProps.onClick = onOpen;
   }
 
-  if (static_) {
-    if (static_ === 'clock') return clock;
-
-    return element;
-  }
+  if (static_) return element;
 
   return (
     <Line

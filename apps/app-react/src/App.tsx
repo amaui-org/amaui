@@ -5340,6 +5340,13 @@ Please sign in again.`}
             label='Time'
           />
         </Accordion>
+        <Accordion primary='TimePicker range'>
+          <TimePicker
+            label='Time'
+
+            range
+          />
+        </Accordion>
 
         <Accordion primary='TimePicker validate'>
           <TimePicker

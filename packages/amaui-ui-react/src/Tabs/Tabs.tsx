@@ -183,7 +183,6 @@ export interface ITabs extends Omit<ISurface, 'version'> {
 
   value?: number;
   valueDefault?: number;
-
   onChange?: (value: number) => any;
 
   activateOnFocus?: boolean;
@@ -287,7 +286,7 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
     // with the first tab
     // For elements within a modal
     // being transitioned, minor bug fix
-    setTimeout(() => updateLine(refs.tabs.current[0]?.value), refs.initialLineUpdateTimeout.current);
+    setTimeout(updateLine, refs.initialLineUpdateTimeout.current);
 
     const observerMethod = () => updateLine(refs.value.current);
 
