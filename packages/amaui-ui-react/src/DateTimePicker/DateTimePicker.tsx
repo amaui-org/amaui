@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
-import { AmauiDate, format as formatMethod, set, is as isMethod } from '@amaui/date';
+import { AmauiDate, format as formatMethod, set, is as isAmauiDate } from '@amaui/date';
 
 import useMediaQuery from '../useMediaQuery';
 import AdvancedTextField from '../AdvancedTextField';
@@ -13,18 +13,38 @@ import Slide from '../Slide';
 import Surface from '../Surface';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
-import Tabs from '../Tabs';
-import Tab from '../Tab';
 import Line from '../Line';
+import { SEPARATOR, SEPARATOR_SYMBOL } from '../DatePicker/DatePicker';
 import DatePicker from '../DatePicker';
 import TimePicker from '../TimePicker';
 import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
+import { TCalendarMonthValue } from '../CalendarMonth/CalendarMonth';
+import { TCalendarUnit } from '../Calendar/Calendar';
+import { TClockUnit } from '../Clock/Clock';
+import Button from '../Button';
+import Type from '../Type';
 
-import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TValueBreakpoints, valueBreakpoints } from '../utils';
+import { staticClassName, TColor, TElementReference, TPropsAny, TTonal, TValueBreakpoints, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
 
+  },
+
+  main: {
+    padding: '24px',
+    marginInline: '24px',
+    borderRadius: '28px',
+    width: `calc(100vw - 48px)`
+  },
+
+  heading: {
+    width: '100%'
+  },
+
+  middle: {
+    width: '100%',
+    marginTop: '24px'
   },
 
   mode: {
@@ -37,6 +57,11 @@ const useStyle = styleMethod(theme => ({
       marginInline: '0px'
     }
   },
+
+  footer: {
+    width: '100%',
+    marginTop: '24px'
+  }
 }), { name: 'amaui-DateTimePicker' });
 
 const IconMaterialDateRangeRoundedFilled = React.forwardRef((props: any, ref) => {
@@ -55,58 +80,79 @@ const IconMaterialDateRangeRoundedFilled = React.forwardRef((props: any, ref) =>
   );
 });
 
+const IconMaterialCalendarTodayRoundedFilled = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='CalendarTodayRoundedFilled'
+      short_name='CalendarToday'
+
+      {...props}
+    >
+      <path d="M5 22Q4.175 22 3.587 21.413Q3 20.825 3 20V6Q3 5.175 3.587 4.588Q4.175 4 5 4H6V2.975Q6 2.55 6.287 2.275Q6.575 2 7 2Q7.425 2 7.713 2.287Q8 2.575 8 3V4H16V2.975Q16 2.55 16.288 2.275Q16.575 2 17 2Q17.425 2 17.712 2.287Q18 2.575 18 3V4H19Q19.825 4 20.413 4.588Q21 5.175 21 6V20Q21 20.825 20.413 21.413Q19.825 22 19 22ZM5 20H19Q19 20 19 20Q19 20 19 20V10H5V20Q5 20 5 20Q5 20 5 20Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialScheduleRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='ScheduleRounded'
+      short_name='Schedule'
+
+      {...props}
+    >
+      <path d="M14.625 16.025Q14.9 16.3 15.3 16.3Q15.7 16.3 16 16Q16.275 15.725 16.275 15.3Q16.275 14.875 16 14.6L13 11.6V7.975Q13 7.55 12.713 7.275Q12.425 7 12 7Q11.575 7 11.288 7.287Q11 7.575 11 8V11.975Q11 12.175 11.075 12.362Q11.15 12.55 11.3 12.7ZM12 22Q9.925 22 8.1 21.212Q6.275 20.425 4.925 19.075Q3.575 17.725 2.788 15.9Q2 14.075 2 12Q2 9.925 2.788 8.1Q3.575 6.275 4.925 4.925Q6.275 3.575 8.1 2.787Q9.925 2 12 2Q14.075 2 15.9 2.787Q17.725 3.575 19.075 4.925Q20.425 6.275 21.212 8.1Q22 9.925 22 12Q22 14.075 21.212 15.9Q20.425 17.725 19.075 19.075Q17.725 20.425 15.9 21.212Q14.075 22 12 22ZM12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12ZM12 20Q15.325 20 17.663 17.663Q20 15.325 20 12Q20 8.675 17.663 6.337Q15.325 4 12 4Q8.675 4 6.338 6.337Q4 8.675 4 12Q4 15.325 6.338 17.663Q8.675 20 12 20Z" />
+    </Icon>
+  );
+});
+
 export type TDateTimePicker = AmauiDate;
 
 export interface IDateTimePicker extends Omit<IAdvancedTextField, 'version'> {
   tonal?: TTonal;
   color?: TColor;
 
-  version?: 'auto' | 'mobile' | 'desktop' | 'static';
+  version?: 'auto' | 'mobile' | 'desktop';
 
-  versionStatic?: 'mobile' | 'desktop';
-
-  value?: TDateTimePicker;
-  valueDefault?: TDateTimePicker;
-
-  onChange?: (value: TDateTimePicker) => any;
-
-  label?: TElement;
+  value?: TCalendarMonthValue;
+  valueDefault?: TCalendarMonthValue;
+  onChange?: (value: TCalendarMonthValue) => any;
 
   now?: boolean;
-
-  validate?: (value: AmauiDate) => boolean;
-
-  min?: number;
-
-  max?: number;
-
-  format?: '12' | '24';
-
-  openMobile?: 'date' | 'time';
-
-  openDesktop?: 'date' | 'time';
-
   range?: boolean;
-
-  fullScreen?: boolean;
-
+  static?: boolean;
+  valid?: (value: AmauiDate, version: TCalendarUnit | TClockUnit) => boolean;
+  validate?: (value: AmauiDate) => boolean;
+  min?: AmauiDate;
+  max?: AmauiDate;
+  headingText?: string;
+  headingTextTime?: string;
+  headingTextTimeRange?: string;
+  headingTextDate?: string;
+  headingTextDateRange?: string;
   useHelperText?: boolean | Record<TValueBreakpoints, boolean>;
-
-  onClick?: (event: React.MouseEvent<any>) => any;
-
-  readOnly?: boolean;
-
-  disabled?: boolean;
-
-  year?: boolean;
-  month?: boolean;
-  day?: boolean;
-
+  format?: '12' | '24';
   hour?: boolean;
   minute?: boolean;
   second?: boolean;
+  placeholder?: string;
+  readOnly?: boolean;
+  disabled?: boolean;
+
+  onClose?: (event: React.MouseEvent<any>) => any;
+  onCancel?: (event: React.MouseEvent<any>) => any;
+  onToday?: (event: React.MouseEvent<any>) => any;
+  onOk?: (event: React.MouseEvent<any>) => any;
 
   Icon?: TElementReference;
+  IconDate?: TElementReference;
+  IconTime?: TElementReference;
 
   ModalProps?: TPropsAny;
   TooltipProps?: TPropsAny;
@@ -114,10 +160,10 @@ export interface IDateTimePicker extends Omit<IAdvancedTextField, 'version'> {
   DatePickerProps?: TPropsAny;
   TimePickerProps?: TPropsAny;
   IconButtonProps?: TPropsAny;
-  ModeDesktopProps?: TPropsAny;
-  ModeMobileProps?: TPropsAny;
-  TabsProps?: TPropsAny;
-  TabProps?: TPropsAny;
+  ButtonProps?: TPropsAny;
+  PickerProps?: TPropsAny;
+  MiddleProps?: TPropsAny;
+  MainProps?: TPropsAny;
 }
 
 const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => {
@@ -137,53 +183,44 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
     tonal = true,
     color = 'primary',
 
-    // mobile, desktop, static & auto
     version: version_ = 'auto',
-
-    versionStatic,
 
     value: value_,
     valueDefault,
-
     onChange,
 
     label,
 
-    now = true,
-
-    validate,
-
-    min,
-
-    max,
-
-    format = '12',
-
-    openMobile = 'date',
-
-    openDesktop = 'date',
-
     range,
-
-    fullScreen,
-
+    now = true,
+    static: static_,
+    min,
+    max,
+    validate,
+    headingText = 'Select date & time',
+    headingTextTime,
+    headingTextTimeRange,
+    headingTextDate,
+    headingTextDateRange,
     useHelperText: useHelperText_,
-
-    onClick: onClick_,
-
-    readOnly,
-
-    disabled,
-
-    year = true,
-    month = true,
-    day = true,
-
+    format = '12',
     hour = true,
     minute = true,
-    second = false,
+    second = true,
+    placeholder: placeholder_,
+    readOnly,
+    disabled,
+
+    valid: valid_,
+
+    onClose: onClose_,
+    onToday: onToday_,
+    onCancel: onCancel_,
+    onOk: onOk_,
 
     Icon: Icon_ = IconMaterialDateRangeRoundedFilled,
+    IconDate = IconMaterialCalendarTodayRoundedFilled,
+    IconTime = IconMaterialScheduleRounded,
 
     ModalProps,
     TooltipProps,
@@ -193,8 +230,10 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
     IconButtonProps,
     ModeDesktopProps,
     ModeMobileProps,
-    TabsProps,
-    TabProps,
+    ButtonProps,
+    PickerProps: PickerProps_,
+    MiddleProps,
+    MainProps,
 
     className,
 
@@ -205,77 +244,60 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
   const refs = {
     root: React.useRef<any>(),
-    iconButton: React.useRef<any>(),
-    value: React.useRef<any>(),
-    open: React.useRef<any>(),
-    openVersion: React.useRef<any>(),
-    validate: React.useRef<any>(),
-    min: React.useRef<any>(),
-    max: React.useRef<any>()
-  };
-
-  const valueToInput = (value__ = refs.value.current) => {
-    const amauiDate = new AmauiDate(value__);
-
-    let format_ = '';
-
-    if (day) {
-      format_ += `DD`;
-
-      if (month || year) format_ += `/`;
-    }
-
-    if (month) {
-      format_ += `MM`;
-
-      if (year) format_ += `/`;
-    }
-
-    if (year) format_ += `YYYY`;
-
-    format_ += ' ';
-
-    if (hour) {
-      if (format === '12') format_ += `hh`;
-      else format_ += `HH`;
-
-      if (minute || second) format_ += `:`;
-    }
-
-    if (minute) {
-      format_ += `mm`;
-
-      if (second) format_ += `:`;
-    }
-
-    if (second) format_ += `ss`;
-
-    if (format === '12') format_ += ` a`;
-
-    return formatMethod(amauiDate, format_);
+    value: React.useRef<any>()
   };
 
   const touch = useMediaQuery('(pointer: coarse)');
 
-  const [open, setOpen] = React.useState(false);
-  const [openVersion, setOpenVersion] = React.useState<any>((touch ? openMobile : openDesktop) || 'date');
-  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || (now && new AmauiDate()));
-  const [values, setValues] = React.useState<any>({
-    input: valueToInput(value)
+  const [value, setValue] = React.useState(() => {
+    const valueResult = (valueDefault !== undefined ? valueDefault : value_) || (now && (range ? [new AmauiDate(), new AmauiDate()] : [new AmauiDate()]));
+
+    return ((is('array', valueResult) ? valueResult : [valueResult]) as Array<AmauiDate>).filter(Boolean);
   });
+  const [open, setOpen] = React.useState(false);
   const [error, setError] = React.useState(false);
+  const [tab, setTab] = React.useState('date');
 
   refs.value.current = value;
 
-  refs.open.current = open;
+  const valueToInput = React.useCallback((valueNew = refs.value.current) => {
+    let result = '';
 
-  refs.openVersion.current = openVersion;
+    const [from, to] = valueNew as [AmauiDate, AmauiDate];
 
-  refs.validate.current = validate;
+    const method = (item: AmauiDate) => {
+      let formatValue = `${formatMethod(item, 'DD')}/${formatMethod(item, 'MM')}/${formatMethod(item, 'YYYY')}`;
 
-  refs.min.current = min;
+      formatValue += ' ';
 
-  refs.max.current = max;
+      if (hour) {
+        if (format === '12') formatValue += `hh`;
+        else formatValue += `HH`;
+
+        if (minute || second) formatValue += `:`;
+      }
+
+      if (minute) {
+        formatValue += `mm`;
+
+        if (second) formatValue += `:`;
+      }
+
+      if (second) formatValue += `ss`;
+
+      if (format === '12') formatValue += ` a`;
+
+      return formatMethod(item, formatValue);
+    };
+
+    result += `${method(from)}`;
+
+    if (range && to) result += `${SEPARATOR}${method(to)}`;
+
+    return result;
+  }, [value, format, hour, minute, second, range]);
+
+  const [input, setInput] = React.useState(valueToInput());
 
   let version = version_;
 
@@ -284,135 +306,221 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
     else version = 'desktop';
   }
 
-  const updateValue = (valueNew: any) => {
-    setValue(valueNew);
+  const errorCheck = React.useCallback((valueNew: any = value) => {
+    // Error
+    setError((valueNew || []).some((item: any, index: number) => !valid(item)));
+  }, [value]);
 
-    setError(!valid(valueNew));
+  // Init
+  React.useEffect(() => {
+    // Error
+    errorCheck();
+  }, []);
 
-    if (is('function', onChange)) onChange(valueNew);
-  };
+  // Value
+  React.useEffect(() => {
+    if (value_ !== undefined && value_ !== value) setValue(is('array', value_) ? value_ as any : [value_]);
+  }, [value_]);
 
-  const updateValueFromPicker = (valueNew: any) => {
-    setValues(values_ => ({
-      ...values_,
+  const onUpdate = React.useCallback((valueNew: AmauiDate) => {
+    // Inner update
+    if (!props.hasOwnProperty('value')) setValue(valueNew as any);
 
-      input: valueToInput(valueNew)
-    }));
+    if (is('function', onChange)) onChange(!range ? valueNew[0] : valueNew);
+  }, [onChange, range]);
 
-    updateValue(valueNew);
-  };
+  const onPickSwitch = React.useCallback(() => {
+    setTab(previous => previous === 'date' ? 'time' : 'date');
+  }, []);
 
-  const updateInput = (valueNew: any) => {
-    // tslint:disable-next-line
-    let [date, ...time] = valueNew.split(' ');
-
-    time = time.join(' ').replace(/ +/, ' ');
-
-    // tslint:disable-next-line
-    let [day_, month_, year_] = date.split('/');
-
-    if (day_ && day_.startsWith('0')) day_ = day_.slice(1);
-
-    if (month_ && month_.startsWith('0')) month_ = month_.slice(1);
-
-    const [timeValue, dayTime] = time.split(' ');
-
-    let [hour_, minute_, second_] = timeValue.split(':');
-
-    if (hour_ && hour_.startsWith('0')) hour_ = hour_.slice(1);
-
-    if (hour_) {
-      hour_ = +hour_;
-
-      if (dayTime === 'pm' && hour_ < 12) hour_ += 12;
+  // Update only internally, without using onChange
+  // since it might be canceled
+  // only use onChange on
+  // input change, or ok
+  const onPickerChange = React.useCallback((valueNew: TCalendarMonthValue) => {
+    if (valueNew !== value) {
+      setValue(valueNew as any);
     }
+  }, [value]);
 
-    if (minute_ && minute_.startsWith('0')) minute_ = minute_.slice(1);
+  const textToAmauiDate = React.useCallback((valueNew: string) => {
+    const [date, time] = valueNew.split(' ');
 
-    if (second_ && second_.startsWith('0')) second_ = second_.slice(1);
+    const [valueDay, valueMonth, valueYear] = (date || '').split('/');
+    const [times, dayTime] = (time || '').split(' ');
+    const valuesTime = times.split(':');
+
+    let valueTime: any;
 
     let amauiDate = new AmauiDate();
 
-    if (day_) amauiDate = set(+day_, 'day', amauiDate);
+    amauiDate = new AmauiDate(new Date(`${valueMonth}/${valueDay}/${valueYear}`));
 
-    if (month_) amauiDate = set(+month_ - 1, 'month', amauiDate);
+    if (hour) {
+      valueTime = valuesTime[0];
 
-    if (year_) amauiDate = set(+year_, 'year', amauiDate);
+      if (is('string', valueTime) && valueTime.startsWith('0')) valueTime = valueTime.slice(1);
 
-    if (hour_ !== undefined) amauiDate = set(hour_, 'hour', amauiDate);
+      valueTime = +valueTime;
 
-    if (minute_) amauiDate = set(+minute_, 'minute', amauiDate);
+      amauiDate = set((format === '12' && dayTime === 'pm') ? valueTime + 12 : valueTime, 'hour', amauiDate);
+    }
 
-    if (second_) amauiDate = set(+second_, 'second', amauiDate);
+    if (minute) {
+      valueTime = valuesTime[!hour ? 0 : 1];
 
-    // Values
-    setValues(values_ => ({
-      ...values_,
+      if (is('string', valueTime) && valueTime.startsWith('0')) valueTime = valueTime.slice(1);
 
-      input: valueNew
-    }));
+      valueTime = +valueTime;
 
-    // Value
-    updateValue(amauiDate);
-  };
+      amauiDate = set(valueTime, 'minute', amauiDate);
+    }
 
-  React.useEffect(() => {
-    if (value_ !== undefined && value_ !== refs.value.current) setValue(value_);
-  }, [value_]);
+    if (second) {
+      valueTime = valuesTime[!(hour && minute) ? 0 : !hour ? 1 : 2];
+
+      if (is('string', valueTime) && valueTime.startsWith('0')) valueTime = valueTime.slice(1);
+
+      valueTime = +valueTime;
+
+      amauiDate = set(valueTime, 'second', amauiDate);
+    }
+
+    return amauiDate;
+  }, [format, hour, minute, second]);
+
+  const inputToValue = React.useCallback((valueNew_: string = input) => {
+    let valueNew = valueNew_;
+
+    let [from, to] = valueNew.split(SEPARATOR) as any;
+
+    from = textToAmauiDate(from);
+
+    if (to) to = textToAmauiDate(to);
+
+    valueNew = [from, to].filter(Boolean) as any;
+
+    return valueNew as unknown as TCalendarMonthValue;
+  }, [input]);
+
+  const onInputChange = React.useCallback((valueNew_: any) => {
+    const valueNew = inputToValue(valueNew_);
+
+    const validValues = (valueNew as [AmauiDate, AmauiDate]).every(item => item.valid);
+
+    // Only update values if input is valid
+    // format used to make the value
+    if (validValues) {
+      // Error
+      errorCheck(valueNew);
+
+      // Update value
+      onUpdate(valueNew as any);
+    }
+
+    // Update input for free typing
+    setInput(valueNew_);
+  }, []);
+
+  const onReset = React.useCallback(() => {
+    const valueNew = inputToValue() as any;
+
+    // Update value
+    onUpdate(valueNew);
+  }, [input]);
+
+  const onToday = React.useCallback((event: React.MouseEvent) => {
+    const valueNew = [new AmauiDate()];
+
+    if (range) valueNew.push(new AmauiDate());
+
+    // Update value
+    onUpdate(valueNew as any);
+
+    // Update input
+    setInput(valueToInput(valueNew));
+
+    onClose(event);
+
+    if (is('function', onToday_)) onToday_(event);
+  }, [input, range, onToday_]);
+
+  const onOk = React.useCallback((event: React.MouseEvent) => {
+    // Error
+    errorCheck();
+
+    // Update value
+    onUpdate(value as any);
+
+    // Update input
+    setInput(valueToInput(value));
+
+    onClose(event);
+
+    if (is('function', onOk_)) onOk_(event);
+  }, [value, onOk_]);
+
+  const onCancel = React.useCallback((event: React.MouseEvent) => {
+    onReset();
+
+    onClose(event);
+
+    if (is('function', onCancel_)) onCancel_(event);
+  }, [input, onCancel_]);
 
   const onOpen = React.useCallback(() => {
-    setOpen(!refs.open.current);
-  }, []);
+    setOpen(previous => !previous);
+  }, [open, version]);
 
-  const onClose = React.useCallback(() => {
+  const onClose = React.useCallback((event: React.MouseEvent<any>) => {
     setOpen(false);
 
-    setOpenVersion((touch ? openMobile : openDesktop) || 'date');
-  }, []);
+    if (is('function', onClose_)) onClose_(event);
+  }, [onClose_]);
 
-  const mask: any = [];
+  const valid = React.useCallback((...args: [AmauiDate, any?]) => {
+    if (is('function', valid_)) return valid_(...args);
 
-  let placeholder: any = [];
+    const amauiDate = args[0];
 
-  if (day) {
-    mask.push(
-      { pattern: '[0-3]' },
+    if (min || max || validate) {
+      let response = true;
 
-      (item: string, result: string, valueInput: string) => /^(0[0-9]|1[0-9]|2[0-9]|3[0-1]).*/.test(valueInput)
-    );
+      if (is('function', validate)) response = validate(amauiDate);
 
-    placeholder.push('DD');
-  }
+      if (min !== undefined) response = response && isAmauiDate(amauiDate, 'after or same', min);
 
-  if (month) {
-    if (mask.length) mask.push('/');
+      if (max !== undefined) response = response && isAmauiDate(amauiDate, 'before or same', max);
 
-    mask.push(
-      { pattern: '[0-1]' },
+      return response;
+    }
 
-      (item: string, result: string, valueInput: string) => day ? /^(0[0-9]|1[0-9]|2[0-9]|3[0-1])\/(0[0-9]|1[0-2])/.test(valueInput) : /^(0[0-9]|1[0-2]).*/.test(valueInput)
-    );
+    return true;
+  }, [valid_, min, max, validate]);
 
-    placeholder.push('MM');
-  }
+  const mask = [
+    { pattern: '[0-3]' },
 
-  if (year) {
-    if (mask.length) mask.push('/');
+    (item: string, result: string, valueInput: string) => /^(0[0-9]|1[0-9]|2[0-9]|3[0-1]).*/.test(valueInput),
 
-    mask.push(
-      { pattern: '[1-2]' },
+    '/',
 
-      { pattern: '[0-9]' },
+    { pattern: '[0-1]' },
 
-      { pattern: '[0-9]' },
+    (item: string, result: string, valueInput: string) => /^(0[0-9]|1[0-9]|2[0-9]|3[0-1])\/(0[0-9]|1[0-2])/.test(valueInput),
 
-      { pattern: '[0-9]' }
-    );
+    '/',
 
-    placeholder.push('YYYY');
-  }
+    { pattern: '[1-2]' },
 
-  placeholder = placeholder.join('/');
+    { pattern: '[0-9]' },
+
+    { pattern: '[0-9]' },
+
+    { pattern: '[0-9]' }
+  ];
+
+  let placeholder = `DD/MM/YYYY`;
 
   placeholder += ' ';
 
@@ -423,7 +531,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
       mask.push(
         { pattern: '[0-1]' },
 
-        (item: string, result: string, valueInput: string) => /^[^ ]+ ([0][0-9]|1[0-2]).*/.test(valueInput)
+        (item: string, result: string, valueInput: string) => /^([0][0-9]|1[0-2]).*/.test(valueInput)
       );
     }
 
@@ -431,7 +539,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
       mask.push(
         { pattern: '[0-2]' },
 
-        (item: string, result: string, valueInput: string) => /^[^ ]+ ([01][0-9]|2[0-3]).*/.test(valueInput),
+        (item: string, result: string, valueInput: string) => /^([01][0-9]|2[0-3]).*/.test(valueInput),
       );
     }
 
@@ -482,253 +590,201 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
     placeholder += ' (a|p)m';
   }
 
-  const valid = (valueNew = refs.value.current) => {
-    let valid_ = true;
+  // range
+  if (range) {
+    mask.push(
+      ' ',
+      SEPARATOR_SYMBOL,
+      ' ',
 
-    if (is('function', refs.validate.current)) valid_ = refs.validate.current(valueNew);
+      ...mask
+    );
 
-    if (refs.min.current !== undefined) valid_ = valid_ && isMethod(valueNew, 'after or same', refs.min.current);
+    placeholder += `${SEPARATOR}${placeholder}`;
+  }
 
-    if (refs.max.current !== undefined) valid_ = valid_ && isMethod(valueNew, 'before or same', refs.max.current);
+  placeholder = placeholder_ || placeholder;
 
-    return valid_;
+  const actions = (
+    <Line
+      direction='row'
+
+      wrap='wrap'
+
+      align='center'
+
+      justify='space-between'
+
+      className={classNames([
+        staticClassName('TimePicker', theme) && [
+          'amaui-TimePicker-footer'
+        ],
+
+        classes.footer
+      ])}
+    >
+      <Tooltip
+        label={tab === 'date' ? 'Time' : 'Date'}
+      >
+        <IconButton
+          tonal={tonal}
+
+          color='inherit'
+
+          onClick={onPickSwitch}
+
+          aria-label={tab === 'date' ? 'Time' : 'Date'}
+        >
+          {tab === 'date' ? <IconTime /> : <IconDate />}
+        </IconButton>
+      </Tooltip>
+
+      <Line
+        gap={0}
+
+        direction='row'
+
+        align='center'
+      >
+        <Button
+          tonal={tonal}
+
+          color={color}
+
+          version='text'
+
+          onClick={onCancel}
+
+          {...ButtonProps}
+        >
+          Cancel
+        </Button>
+
+        <Button
+          tonal={tonal}
+
+          color={color}
+
+          version='text'
+
+          onClick={onOk}
+
+          {...ButtonProps}
+        >
+          Ok
+        </Button>
+      </Line>
+    </Line>
+  );
+
+  const heading = (range ? (tab === 'date' ? headingTextDateRange : headingTextTimeRange) : (tab === 'date' ? headingTextDate : headingTextTime)) || headingText;
+
+  const PickerProps = {
+    tonal,
+    color,
+
+    value,
+    onChange: onPickerChange,
+
+    now,
+    static: true,
+    range,
+    valid,
+    min,
+    max,
+    validate,
+    actions: false,
+    heading: false,
+    readOnly,
+    disabled,
+
+    ...PickerProps_,
+
+    ...(tab === 'date' && DatePickerProps),
+
+    ...(tab === 'time' && TimePickerProps),
   };
 
-  const ModeDesktop = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
+  const element = (
+    <Surface
+      tonal={tonal}
 
-    return (
-      <Surface
-        ref={ref_}
+      color={color}
 
-        tonal={tonal}
+      gap={0}
 
-        color={color}
+      direction='column'
 
-        className={classNames([
-          staticClassName('DateTimePicker', theme) && [
-            'amaui-DateTimePicker-mode',
-            'amaui-DateTimePicker-mode-docked'
-          ],
+      align='center'
 
-          ModeDesktopProps?.className,
-          classes.mode,
-          classes.mode_docked
-        ])}
-      >
-        <Tabs
-          tonal={tonal}
+      Component={Line}
 
-          color={color}
+      className={classNames([
+        staticClassName('TimePicker', theme) && [
+          'amaui-TimePicker-main'
+        ],
 
-          justify='center'
-
-          initialLineUpdateTimeout={314}
-
-          value={refs.openVersion.current}
-
-          onChange={(valueNew: string) => setOpenVersion(valueNew)}
-
-          {...TabsProps}
-        >
-          <Tab
-            value='date'
-
-            label='Date'
-
-            {...TabProps}
-          />
-
-          <Tab
-            value='time'
-
-            label='Time'
-
-            {...TabProps}
-          />
-        </Tabs>
-
-        <Line
-          gap={0}
-
-          direction='column'
-
-          style={{
-            width: '100%'
-          }}
-        >
-          {refs.openVersion.current === 'date' ? (
-            <DatePicker
-              tonal={tonal}
-
-              color={color}
-
-              version='static'
-
-              day={day}
-
-              month={month}
-
-              year={year}
-
-              value={refs.value.current}
-
-              onCancel={onClose}
-
-              onChange={(valueNew: any) => updateValueFromPicker(valueNew)}
-
-              {...DatePickerProps}
-            />
-          ) : (
-            <TimePicker
-              tonal={tonal}
-
-              color={color}
-
-              version='static'
-
-              format={format}
-
-              hour={hour}
-
-              minute={minute}
-
-              second={second}
-
-              value={refs.value.current}
-
-              onCancel={onClose}
-
-              onChange={(valueNew: any) => updateValueFromPicker(valueNew)}
-
-              {...TimePickerProps}
-            />
-          )}
-        </Line>
-      </Surface>
-    );
-  }), [tonal, color, day, month, year, hour, minute, second, format]);
-
-  const ModeMobile = React.useCallback(React.forwardRef((props_: any, ref_: any) => {
-
-    return (
-      <Surface
-        ref={ref_}
-
-        tonal={tonal}
-
-        color={color}
+        MainProps?.className,
+        classes.main
+      ])}
+    >
+      {/* Heading */}
+      <Type
+        version='l2'
 
         className={classNames([
-          staticClassName('DateTimePicker', theme) && [
-            'amaui-DateTimePicker-mode',
-            'amaui-DateTimePicker-mode-modal'
+          staticClassName('TimePicker', theme) && [
+            'amaui-TimePicker-heading'
           ],
 
-          ModeMobileProps?.className,
-          classes.mode,
-          classes.mode_modal
+          classes.heading
         ])}
       >
-        <Tabs
-          tonal={tonal}
+        {heading}
+      </Type>
 
-          color={color}
+      {/* Middle */}
+      <Line
+        gap={0}
 
-          justify='center'
+        className={classNames([
+          staticClassName('TimePicker', theme) && [
+            'amaui-TimePicker-middle'
+          ],
 
-          initialLineUpdateTimeout={314}
-
-          value={refs.openVersion.current}
-
-          onChange={(valueNew: string) => setOpenVersion(valueNew)}
-
-          {...TabsProps}
-        >
-          <Tab
-            value='date'
-
-            label='Date'
-
-            {...TabProps}
+          MiddleProps?.className,
+          classes.middle
+        ])}
+      >
+        {tab === 'date' ? (
+          <DatePicker
+            {...PickerProps}
           />
+        ) : (
+          <TimePicker
+            format={format}
 
-          <Tab
-            value='time'
+            hour={hour}
 
-            label='Time'
+            minute={minute}
 
-            {...TabProps}
+            second={second}
+
+            {...PickerProps}
           />
-        </Tabs>
+        )}
+      </Line>
 
-        <Line
-          gap={0}
-
-          direction='column'
-
-          style={{
-            width: '100%'
-          }}
-        >
-          {refs.openVersion.current === 'date' ? (
-            <DatePicker
-              tonal={tonal}
-
-              color={color}
-
-              version='static'
-
-              day={day}
-
-              month={month}
-
-              year={year}
-
-              value={refs.value.current}
-
-              onCancel={onClose}
-
-              onChange={(valueNew: any) => updateValueFromPicker(valueNew)}
-
-              {...DatePickerProps}
-            />
-          ) : (
-            <TimePicker
-              tonal={tonal}
-
-              color={color}
-
-              version='static'
-
-              format={format}
-
-              hour={hour}
-
-              minute={minute}
-
-              second={second}
-
-              value={refs.value.current}
-
-              onCancel={onClose}
-
-              onChange={(valueNew: any) => updateValueFromPicker(valueNew)}
-
-              {...TimePickerProps}
-            />
-          )}
-        </Line>
-      </Surface>
-    );
-  }), [tonal, color, day, month, year, hour, minute, second, format]);
+      {/* Actions */}
+      {actions}
+    </Surface>
+  );
 
   const moreProps: any = {};
 
   if (version === 'desktop') {
     moreProps.end = (
       <IconButton
-        ref={refs.iconButton}
-
         tonal={tonal}
 
         color={color}
@@ -749,16 +805,10 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
   }
 
   if (version === 'mobile') {
-    if (!readOnly) moreProps.onClick = onOpen;
+    if (!(readOnly || disabled)) moreProps.onClick = onOpen;
   }
 
-  if (version === 'static') {
-    if (versionStatic !== undefined) return versionStatic === 'desktop' ? <ModeDesktop /> : <ModeMobile />;
-
-    if (touch) return <ModeDesktop />;
-
-    return <ModeMobile />;
-  }
+  if (static_) return element;
 
   return (
     <Line
@@ -770,7 +820,6 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
         staticClassName('DateTimePicker', theme) && [
           'amaui-DateTimePicker-root',
           range && `amaui-DateTimePicker-range`,
-          fullScreen && `amaui-DateTimePicker-full-screen`,
           readOnly && `amaui-DateTimePicker-read-only`,
           disabled && `amaui-DateTimePicker-disabled`
         ],
@@ -801,9 +850,9 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
         placeholder={placeholder}
 
-        value={values.input}
+        value={input}
 
-        onChange={(valueNew: any) => updateInput(valueNew)}
+        onChange={onInputChange}
 
         helperText={useHelperText ? placeholder : undefined}
 
@@ -827,25 +876,13 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
           modalWrapperSurface={false}
 
-          onClose={onClose}
-
           TransitionComponent={Slide}
 
-          fullScreen={fullScreen}
-
-          NoSurfaceProps={{
-            className: classNames([
-              staticClassName('DateTimePicker', theme) && [
-                'amaui-DateTimePicker-modal'
-              ],
-
-              classes.modal
-            ])
-          }}
+          onClose={onClose}
 
           {...ModalProps}
         >
-          <ModeMobile />
+          {element}
         </Modal>
       )}
 
@@ -874,13 +911,11 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
           label={(
             <ClickListener
-              onClickOutside={onClose}
+              onClickOutside={onCancel}
 
-              includeParentQueries={['.amaui-DateTimePicker-mode', '.amaui-DatePicker-list', '.amaui-DatePicker-day', '.amaui-TimePicker-mode']}
-
-              include={[refs.iconButton, refs.iconButton.current]}
+              includeParentQueries={['.amaui-TimePicker-main', '.amaui-Calendar-list']}
             >
-              <ModeDesktop />
+              {element}
             </ClickListener>
           )}
 

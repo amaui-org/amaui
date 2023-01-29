@@ -232,6 +232,8 @@ export interface IDatePicker extends ILine {
   labelFrom?: string;
   labelTo?: string;
   fullScreen?: boolean;
+  heading?: boolean;
+  actions?: boolean;
   readOnly?: boolean;
   disabled?: boolean;
 
@@ -303,6 +305,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     weekStartDay = 'Monday',
     switch: switch__,
     fullScreen,
+    heading: heading_ = true,
+    actions: actions_ = true,
     readOnly,
     disabled,
 
@@ -310,9 +314,9 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
     onClick: onClick_,
     onClose: onClose_,
+    onToday: onToday_,
     onCancel: onCancel_,
     onOk: onOk_,
-    onToday: onToday_,
 
     Icon: Icon_ = IconMaterialCalendarTodayRoundedFilled,
     IconCheck = IconMaterialDoneRounded,
@@ -364,7 +368,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     if (range && to) result += `${SEPARATOR}${method(to)}`;
 
     return result;
-  }, [value]);
+  }, [value, range]);
 
   const [input, setInput] = React.useState(valueToInput());
   const [inputModal, setInputModal] = React.useState(valueToInput());
@@ -712,7 +716,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   }
 
   if (version === 'mobile') {
-    if (!readOnly) moreProps.onClick = onOpen;
+    if (!(readOnly || disabled)) moreProps.onClick = onOpen;
   }
 
   let textHeading = `${format(value[0], 'd')}, ${format(value[0], 'MMM')} ${format(value[0], 'DD')}`;
@@ -759,8 +763,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
           fullScreen && classes.header_fullScreen
         ])}
       >
-        {/* Heading */}
-        {fullScreen && (
+        {/* Upper actions */}
+        {actions_ && fullScreen && (
           <Line
             gap={0}
 
@@ -798,20 +802,23 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
           </Line>
         )}
 
-        <Type
-          version='l2'
+        {/* Heading */}
+        {heading_ && (
+          <Type
+            version='l2'
 
-          className={classNames([
-            staticClassName('DatePicker', theme) && [
-              'amaui-DatePicker-subheading'
-            ],
+            className={classNames([
+              staticClassName('DatePicker', theme) && [
+                'amaui-DatePicker-subheading'
+              ],
 
-            classes.subheading,
-            fullScreen && classes.subheading_fullScreen
-          ])}
-        >
-          {!range ? modeModalSubHeadingText : modeModalSubHeadingTextRange}
-        </Type>
+              classes.subheading,
+              fullScreen && classes.subheading_fullScreen
+            ])}
+          >
+            {!range ? modeModalSubHeadingText : modeModalSubHeadingTextRange}
+          </Type>
+        )}
 
         {/* Select */}
         {mode === 'select' && (
@@ -1084,7 +1091,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         />
       )}
 
-      {React.cloneElement(actions, {
+      {actions_ && React.cloneElement(actions, {
         style: {
           paddingTop: 8
         }
@@ -1120,7 +1127,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
       validate={validate}
 
-      belowCalendars={actions}
+      belowCalendars={actions_ ? actions : undefined}
 
       {...CalendarProps}
 

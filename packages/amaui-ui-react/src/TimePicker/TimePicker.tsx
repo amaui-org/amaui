@@ -22,11 +22,10 @@ import Clock from '../Clock';
 import { SEPARATOR, SEPARATOR_SYMBOL } from '../DatePicker/DatePicker';
 import { TClockUnit } from '../Clock/Clock';
 import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
-
-import { staticClassName, TElementReference, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
-import Carousel from '../Carousel';
 import Tabs from '../Tabs';
 import Tab from '../Tab';
+
+import { staticClassName, TElementReference, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -219,7 +218,7 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
 
   now?: boolean;
   range?: boolean;
-  static?: boolean | 'clock';
+  static?: boolean;
   valid?: (value: AmauiDate, version: TClockUnit) => boolean;
   validate?: (value: AmauiDate) => boolean;
   min?: AmauiDate;
@@ -239,6 +238,8 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
   second?: boolean;
   switch?: boolean | Record<TValueBreakpoints, boolean>;
   placeholder?: string;
+  heading?: boolean;
+  actions?: boolean;
   readOnly?: boolean;
   disabled?: boolean;
 
@@ -318,6 +319,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     switch: switch__,
     static: static_,
     placeholder: placeholder_,
+    heading: heading_ = true,
+    actions: actions_ = true,
     readOnly,
     disabled,
 
@@ -415,7 +418,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     if (range && to) result += `${SEPARATOR}${method(to)}`;
 
     return result;
-  }, [value, format, hour, minute, second]);
+  }, [value, format, hour, minute, second, range]);
 
   const [input, setInput] = React.useState(valueToInput());
 
@@ -482,7 +485,6 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     return true;
   }, [valid_, min, max, validate]);
 
-  // ie. 07:40:04 am
   const textToAmauiDate = React.useCallback((valueNew: string) => {
     const [times, dayTime_] = (valueNew || '').split(' ');
     const values = times.split(':');
@@ -571,13 +573,9 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
     let [from, to] = valueNew.split(SEPARATOR) as any;
 
-    console.log(11, from, to);
-
     from = textToAmauiDate(from);
 
     if (to) to = textToAmauiDate(to);
-
-    console.log(14, from, to);
 
     valueNew = [from, to].filter(Boolean) as any;
 
@@ -1150,7 +1148,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
       ])}
     >
       {/* Heading */}
-      {heading && (
+      {heading_ && (
         <Type
           version='l2'
 
@@ -1229,82 +1227,84 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
       </Line>
 
       {/* Actions */}
-      <Line
-        direction='row'
-
-        wrap='wrap'
-
-        align='center'
-
-        justify={switch_ ? 'space-between' : 'flex-end'}
-
-        className={classNames([
-          staticClassName('TimePicker', theme) && [
-            'amaui-TimePicker-footer'
-          ],
-
-          classes.footer
-        ])}
-      >
-        {switch_ && (
-          <Tooltip
-            label={mode === 'select' ? 'Enter time' : 'Select time'}
-          >
-            <IconButton
-              tonal={tonal}
-
-              color='inherit'
-
-              onClick={onModeSwitch}
-
-              aria-label={mode === 'select' ? 'Enter time' : 'Select time'}
-            >
-              {mode === 'select' ? <IconEnter /> : <Icon_ />}
-            </IconButton>
-          </Tooltip>
-        )}
-
+      {actions_ && (
         <Line
-          gap={0}
-
           direction='row'
 
+          wrap='wrap'
+
           align='center'
+
+          justify={switch_ ? 'space-between' : 'flex-end'}
+
+          className={classNames([
+            staticClassName('TimePicker', theme) && [
+              'amaui-TimePicker-footer'
+            ],
+
+            classes.footer
+          ])}
         >
-          <Button
-            tonal={tonal}
+          {switch_ && (
+            <Tooltip
+              label={mode === 'select' ? 'Enter time' : 'Select time'}
+            >
+              <IconButton
+                tonal={tonal}
 
-            color={color}
+                color='inherit'
 
-            version='text'
+                onClick={onModeSwitch}
 
-            onClick={onCancel}
+                aria-label={mode === 'select' ? 'Enter time' : 'Select time'}
+              >
+                {mode === 'select' ? <IconEnter /> : <Icon_ />}
+              </IconButton>
+            </Tooltip>
+          )}
 
-            {...ButtonProps}
+          <Line
+            gap={0}
+
+            direction='row'
+
+            align='center'
           >
-            Cancel
-          </Button>
+            <Button
+              tonal={tonal}
 
-          <Button
-            tonal={tonal}
+              color={color}
 
-            color={color}
+              version='text'
 
-            version='text'
+              onClick={onCancel}
 
-            onClick={onOk}
+              {...ButtonProps}
+            >
+              Cancel
+            </Button>
 
-            {...ButtonProps}
-          >
-            Ok
-          </Button>
+            <Button
+              tonal={tonal}
+
+              color={color}
+
+              version='text'
+
+              onClick={onOk}
+
+              {...ButtonProps}
+            >
+              Ok
+            </Button>
+          </Line>
         </Line>
-      </Line>
+      )}
     </Surface>
   );
 
   if (version === 'mobile') {
-    if (!readOnly) moreProps.onClick = onOpen;
+    if (!(readOnly || disabled)) moreProps.onClick = onOpen;
   }
 
   if (static_) return element;
