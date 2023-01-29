@@ -44,7 +44,7 @@ const useStyle = styleMethod(theme => ({
   middle: {
     width: '100%',
 
-    '& .amaui-DatePicker-root, &.amaui-TimePicker-root': {
+    '& .amaui-DatePicker-root, & .amaui-TimePicker-root, & .amaui-TimePicker-main': {
       margin: '0px'
     }
   },
@@ -340,7 +340,9 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
   }, [calendar]);
 
   const textToAmauiDate = React.useCallback((valueNew: string) => {
-    const [date, time] = valueNew.split(' ');
+    const [date, ...valueOther] = valueNew.split(' ');
+
+    const time = valueOther.join(' ');
 
     const [valueDay, valueMonth, valueYear] = (date || '').split('/');
     const [times, dayTime] = (time || '').split(' ');
@@ -638,12 +640,8 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
         );
       }
 
-      placeholder += 'hh';
-
       if (minute || second) {
         mask.push(':');
-
-        placeholder += ':';
       }
     }
 
@@ -654,12 +652,8 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
         { pattern: '[0-9]' }
       );
 
-      placeholder += 'mm';
-
       if (second) {
         mask.push(':');
-
-        placeholder += ':';
       }
     }
 
@@ -669,8 +663,6 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
         { pattern: '[0-9]' }
       );
-
-      placeholder += 'ss';
     }
 
     if (format === '12') {
@@ -681,8 +673,6 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
         'm'
       );
-
-      placeholder += ' (a|p)m';
     }
 
     if (second) {
@@ -691,8 +681,6 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
         { pattern: '[0-9]' }
       );
-
-      placeholder += 'ss';
     }
 
     if (format === '12') {
@@ -703,8 +691,6 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
         'm'
       );
-
-      placeholder += ' (a|p)m';
     }
 
     placeholder += `${SEPARATOR}${placeholder}`;
@@ -921,7 +907,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
   if (static_) return element;
 
-  console.log(mask);
+  console.log(1, value);
   return (
     <Line
       gap={0}

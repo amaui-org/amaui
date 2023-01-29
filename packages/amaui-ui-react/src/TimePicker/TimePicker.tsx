@@ -685,6 +685,9 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     // Update input
     setInput(valueToInput(refs.value.current));
 
+    // Update dayTime
+    setDayTime(refs.value.current.map(item => formatMethod(item, 'a')));
+
     onClose(event);
 
     if (is('function', onOk_)) onOk_(event);
