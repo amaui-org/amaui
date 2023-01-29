@@ -704,6 +704,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
       value={value[0]}
 
+      dayTime={dayTime}
+
       selecting={selecting}
 
       onChange={onChangeClock}
