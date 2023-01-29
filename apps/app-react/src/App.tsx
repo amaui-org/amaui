@@ -5412,7 +5412,7 @@ Please sign in again.`}
             <TimePicker
               label='hour, minute and second autoNext, autoCloseOnLast'
 
-              seconds
+              second
 
               autoNext
 
@@ -5456,7 +5456,7 @@ Please sign in again.`}
 
               orientation='horizontal'
 
-              seconds
+              second
 
               format='12'
             />
@@ -5495,7 +5495,7 @@ Please sign in again.`}
           <TimePicker
             label='Hours'
 
-            minutes={false}
+            minute={false}
           />
 
           <TimePicker
@@ -5505,7 +5505,7 @@ Please sign in again.`}
           <TimePicker
             label='Hours, minutes & seconds'
 
-            seconds
+            second
           />
         </Accordion>
 

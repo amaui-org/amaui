@@ -53,11 +53,11 @@ const useStyle = styleMethod(theme => ({
   },
 
   main_2_24: {
-    minWidth: '260px'
+    minWidth: '270px'
   },
 
   main_3_24: {
-    minWidth: '380px'
+    minWidth: '390px'
   },
 
   heading: {
