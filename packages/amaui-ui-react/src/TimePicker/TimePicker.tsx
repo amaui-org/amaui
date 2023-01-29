@@ -33,39 +33,40 @@ const useStyle = styleMethod(theme => ({
   main: {
     padding: '24px',
     marginInline: '24px',
-    borderRadius: '28px'
+    borderRadius: '28px',
+    width: `calc(100vw - 48px)`
   },
 
   main_orientation_vertical: {
-    minWidth: '330px'
+    maxWidth: '330px'
   },
 
   main_orientation_horizontal: {
-    minWidth: '570px'
+    maxWidth: '570px'
   },
 
   main_orientation_vertical_3: {
-    minWidth: '450px'
+    maxWidth: '450px'
   },
 
   main_orientation_horizontal_3: {
-    minWidth: '690px'
+    maxWidth: '690px'
   },
 
   main_input_2_12: {
-    minWidth: '330px'
+    maxWidth: '330px'
   },
 
   main_input_3_12: {
-    minWidth: '450px'
+    maxWidth: '450px'
   },
 
   main_input_2_24: {
-    minWidth: '270px'
+    maxWidth: '270px'
   },
 
   main_input_3_24: {
-    minWidth: '390px'
+    maxWidth: '390px'
   },
 
   heading: {
