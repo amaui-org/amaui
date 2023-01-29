@@ -44,19 +44,27 @@ const useStyle = styleMethod(theme => ({
     minWidth: '570px'
   },
 
-  main_2_12: {
+  main_orientation_vertical_3: {
+    minWidth: '460px'
+  },
+
+  main_orientation_horizontal_3: {
+    minWidth: '690px'
+  },
+
+  main_input_2_12: {
     minWidth: '330px'
   },
 
-  main_3_12: {
+  main_input_3_12: {
     minWidth: '450px'
   },
 
-  main_2_24: {
+  main_input_2_24: {
     minWidth: '270px'
   },
 
-  main_3_24: {
+  main_input_3_24: {
     minWidth: '390px'
   },
 
@@ -967,8 +975,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
         MainProps?.className,
         classes.main,
-        classes[`main_orientation_${orientationValue}`],
-        mode === 'input' && classes[`main_${(hour && minute && second) ? 3 : 2}_${format}`]
+        classes[`main_orientation_${orientationValue}${(hour && minute && second) ? 3 : ''}`],
+        mode === 'input' && classes[`main_input_${(hour && minute && second) ? 3 : 2}_${format}`]
       ])}
     >
       {/* Heading */}
