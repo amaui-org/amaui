@@ -45,11 +45,11 @@ const useStyle = styleMethod(theme => ({
   },
 
   main_2_12: {
-    minWidth: '320px'
+    minWidth: '330px'
   },
 
   main_3_12: {
-    minWidth: '440px'
+    minWidth: '450px'
   },
 
   main_2_24: {
@@ -968,7 +968,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
         MainProps?.className,
         classes.main,
         classes[`main_orientation_${orientationValue}`],
-        mode === 'input' && classes[`main_${(hour && minute && second) ? 2 : 3}_${format}`]
+        mode === 'input' && classes[`main_${(hour && minute && second) ? 3 : 2}_${format}`]
       ])}
     >
       {/* Heading */}
