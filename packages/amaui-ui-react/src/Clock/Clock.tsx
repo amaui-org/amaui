@@ -417,7 +417,7 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
 
   const palette = React.useMemo(() => {
     return theme.methods.color((theme.palette.color[color] as any)?.main as string || color);
-  }, [color]);
+  }, [color, theme]);
 
   let valueClock: any = '';
   let valueClock24: number = 0;

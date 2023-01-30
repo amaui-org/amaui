@@ -41,7 +41,7 @@ const useStyle = styleMethod(theme => ({
 
   actions: {
     width: '100%',
-    padding: '0px 8px 8px',
+    padding: '0px 8px 12px 12px',
     flex: '0 0 auto'
   },
 

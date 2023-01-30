@@ -17,7 +17,8 @@ const useStyle = style(theme => ({
   root: {
     // for transition
     height: '300px',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    position: 'relative'
   },
 
   root_no_labels: {
@@ -188,7 +189,6 @@ export interface ICalenarDays extends IBaseElement {
   outside?: boolean;
   range?: boolean;
   weekStartDay: 'Monday' | 'Sunday';
-  noMove?: boolean;
   noTransition?: boolean;
   offset?: number;
   min?: AmauiDate;
@@ -228,7 +228,6 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
     max,
     validate,
     labels = true,
-    noMove,
     noTransition,
 
     valid: valid_,
@@ -251,7 +250,8 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
   const refs = {
     previous: React.useRef<AmauiDate>(month),
     id: React.useRef<string>(`${(month).year} ${(month).month}`),
-    move: React.useRef<'previous' | 'next'>()
+    move: React.useRef<'previous' | 'next'>(),
+    noTransition: React.useRef<any>()
   };
 
   // Value
@@ -360,7 +360,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
   const nextMonth = add(1, 'month', month);
 
-  let monthSame = refs.previous.current?.year === calendar?.year && refs.previous.current?.month === calendar?.month;
+  const monthSame = refs.previous.current?.year === calendar?.year && refs.previous.current?.month === calendar?.month;
 
   const isBetween = (day: any) => day.milliseconds >= value[0]?.milliseconds && day.milliseconds <= (value[1]?.milliseconds + 4000);
 
@@ -479,15 +479,18 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
     }
   }
 
+  // noTransition
+  refs.noTransition.current = noTransition || monthSame;
+
   // Update previous
   if (refs.id.current !== `${month.year} ${month.month}`) {
     refs.move.current = refs.previous.current?.milliseconds > month.milliseconds ? 'next' : 'previous';
 
     refs.id.current = `${month.year} ${month.month}`;
     refs.previous.current = month;
-  }
 
-  if (noMove) monthSame = true;
+    refs.noTransition.current = false;
+  }
 
   const weeks = arrayToParts(days, 7);
 
@@ -565,7 +568,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
       {/* Weeks */}
       <Transitions
-        noTransition={noTransition || monthSame}
+        id={refs.id.current}
 
         mode='in-out-follow'
 

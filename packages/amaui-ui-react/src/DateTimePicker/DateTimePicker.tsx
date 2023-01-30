@@ -907,7 +907,6 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
   if (static_) return element;
 
-  console.log(1, value);
   return (
     <Line
       gap={0}

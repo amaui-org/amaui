@@ -5,15 +5,12 @@ import { useAmauiTheme } from '@amaui/style-react';
 
 import { STATUS, TPropsAny, TTransitionStatus } from '..';
 
-const TransitionsContext = React.createContext(undefined);
-
 export type TTransitionsMode = 'in-out' | 'in-out-follow' | 'out-in';
 
 export interface ITransitions {
+  id?: string;
   mode?: TTransitionsMode;
   switch?: boolean;
-
-  noTransition?: boolean;
 
   TransitionProps?: TPropsAny;
 
@@ -29,7 +26,7 @@ function Transitions(props_: ITransitions) {
     mode = 'out-in',
     switch: switch_,
 
-    noTransition,
+    id,
 
     TransitionProps,
 
@@ -52,6 +49,7 @@ function Transitions(props_: ITransitions) {
     element: React.useRef<any>(),
     previousKeyValue: React.useRef<any>(),
     status: React.useRef<any>(),
+    id: React.useRef<any>(),
     noTransition: React.useRef<any>()
   };
 
@@ -59,7 +57,22 @@ function Transitions(props_: ITransitions) {
 
   refs.status.current = status;
 
-  refs.noTransition.current = noTransition;
+  // No transition controll
+  // bug solve in nextjs
+  React.useEffect(() => {
+    if (id !== undefined) {
+      if (id !== refs.id.current) {
+        refs.noTransition.current = false;
+
+        refs.id.current = id;
+      }
+      else refs.noTransition.current = true;
+    }
+  }, [id]);
+
+  React.useEffect(() => {
+    if (id !== undefined) refs.noTransition.current = id === refs.id.current;
+  }, [status]);
 
   React.useEffect(() => {
     setInit(true);
@@ -94,7 +107,7 @@ function Transitions(props_: ITransitions) {
 
   // Switch
   React.useEffect(() => {
-    refs.previousKeyValue.current = children__?.key;
+    refs.previousKeyValue.current = children__.key;
 
     // Abrupted value update
     if (refs.noTransition.current) {
@@ -281,11 +294,7 @@ function Transitions(props_: ITransitions) {
     }
   }
 
-  return (
-    <TransitionsContext.Provider value={null}>
-      {children_}
-    </TransitionsContext.Provider>
-  );
+  return children_;
 }
 
 Transitions.displayName = 'amaui-Transitions';

@@ -5241,6 +5241,12 @@ Please sign in again.`}
           />
         </Accordion>
 
+        <Accordion primary='DatePicker static'>
+          <DatePicker
+            static
+          />
+        </Accordion>
+
         <Accordion primary='DatePicker range'>
           <DatePicker
             label='Date'
