@@ -3,7 +3,8 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
 
-import { Widgets, ScreenCapture, Timer, Countdown, Watch, Reset, MainProgress } from '@amaui/ui-react';
+import { isOS } from '@amaui/utils';
+import { Widgets, ScreenCapture, Timer, Countdown, Watch, Reset, MainProgress, useMediaQuery } from '@amaui/ui-react';
 import { AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, rtl, unit, makeClassName, useAmauiStyle } from '@amaui/style-react';
 
 import IconMaterialTimerRounded from '@amaui/icons-material-react/build/IconMaterialTimerRounded';
@@ -18,46 +19,20 @@ const FONT_FAMILY = {
   tertiary: ['"Roboto Mono"', 'monospace'].join(', ')
 };
 
-const widgets = [
-  {
-    label: 'Countdown',
-    Icon: IconMaterialAvTimerRounded,
-    element: <Countdown />
-  },
-  {
-    label: 'Timer',
-    Icon: IconMaterialTimerRounded,
-    element: <Timer />
-  },
-  // {
-  //   label: 'Weather',
-  //   Icon: IconMaterialWeatherRounded,
-  //   element: <Weather temperature={14} weather='clear' />
-  // },
-  {
-    label: 'Screen Capture',
-    Icon: IconMaterialVideocamRounded,
-    move: false,
-    element: <ScreenCapture />
-  },
-  {
-    label: 'Modern Clock',
-    Icon: IconMaterialNestClockFarsightAnalogRounded,
-    element: <Watch version='minimal' size='small' />
-  },
-  {
-    label: 'Regular Clock',
-    Icon: IconMaterialNestClockFarsightDigitalRounded,
-    element: <Watch />
-  }
-];
-
 export default function App(props: AppProps) {
   const {
     Component,
 
     pageProps
   } = props;
+
+  const touch = useMediaQuery('coarse');
+
+  const [screenCaptureSupported, setScreenCaptureSupported] = React.useState(false);
+
+  React.useEffect(() => {
+    setScreenCaptureSupported(!(touch || isOS('mobile')));
+  }, [touch]);
 
   const valueAmauiStyle = useAmauiStyle();
 
@@ -135,6 +110,42 @@ export default function App(props: AppProps) {
       }
     };
   }, []);
+
+  const widgets = React.useMemo(() => [
+    {
+      label: 'Countdown',
+      Icon: IconMaterialAvTimerRounded,
+      element: <Countdown />
+    },
+    {
+      label: 'Timer',
+      Icon: IconMaterialTimerRounded,
+      element: <Timer />
+    },
+    // {
+    //   label: 'Weather',
+    //   Icon: IconMaterialWeatherRounded,
+    //   element: <Weather temperature={14} weather='clear' />
+    // },
+    ...(screenCaptureSupported ? [
+      {
+        label: 'Screen Capture',
+        Icon: IconMaterialVideocamRounded,
+        move: false,
+        element: <ScreenCapture />
+      }
+    ] : []),
+    {
+      label: 'Modern Clock',
+      Icon: IconMaterialNestClockFarsightAnalogRounded,
+      element: <Watch version='minimal' size='small' />
+    },
+    {
+      label: 'Regular Clock',
+      Icon: IconMaterialNestClockFarsightDigitalRounded,
+      element: <Watch />
+    }
+  ], [screenCaptureSupported]);
 
   return <>
     {/* Google Analytics */}

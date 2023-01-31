@@ -1,20 +1,21 @@
 import React from 'react';
 
-import { canvasCrop, download, elementToCanvas, is } from '@amaui/utils';
+import { canvasCrop, download, is, isOS, wait } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Tooltip from '../Tooltip';
 import Surface from '../Surface';
 import TextField from '../TextField';
 import IconButton from '../IconButton';
-import { IconDoneAnimated } from '../Buttons/Buttons';
 import ImageCrop from '../ImageCrop';
 import Portal from '../Portal';
 import Line from '../Line';
 import Icon from '../Icon';
+import useMediaQuery from '../useMediaQuery';
+import { IconDoneAnimated } from '../Buttons/Buttons';
+import { ISurface } from '../Surface/Surface';
 
 import { staticClassName, TElementReference, TPropsAny } from '../utils';
-import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -22,9 +23,10 @@ const useStyle = styleMethod(theme => ({
     borderRadius: theme.methods.shape.radius.value('rg', 'px')
   },
 
-  imageWrapper: {
+  wrapper: {
     inset: '0',
     position: 'fixed',
+    background: '#000',
     zIndex: theme.z_index.tooltip + 4
   }
 }), { name: 'amaui-ScreenCapture' });
@@ -93,6 +95,8 @@ const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+export type TTrackValueVersion = 'image' | 'canvas';
+
 export interface IScreenCapture extends ISurface {
   nameDefault?: string;
   name?: string;
@@ -106,6 +110,7 @@ export interface IScreenCapture extends ISurface {
   type?: string;
   quality?: number;
 
+  onInit?: (supported: boolean) => any;
   onView?: (event: React.MouseEvent<any> | KeyboardEvent) => any;
   onEntirePage?: (event: React.MouseEvent<any> | KeyboardEvent) => any;
   onFree?: (event: React.MouseEvent<any> | KeyboardEvent) => any;
@@ -146,6 +151,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
     type = `image/png`,
     quality = 1,
 
+    onInit: onInit_,
     onView: onView_,
     onEntirePage: onEntirePage_,
     onFree: onFree_,
@@ -172,21 +178,35 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
     ...other
   } = props;
 
+  const touch = useMediaQuery('(pointer: coarse)');
+
   const [init, setInit] = React.useState(false);
   const [name, setName] = React.useState(nameDefault !== undefined ? nameDefault : name_);
   const [loading, setLoading] = React.useState([]);
   const [done, setDone] = React.useState([]);
-  const [image, setImage] = React.useState<HTMLCanvasElement>();
-  const [imageSelectorValue, setImageSelectorValue] = React.useState<any>();
+  const [canvas, setCanvas] = React.useState<HTMLCanvasElement>();
+  const [canvasSelectorValue, setCanvasSelectorValue] = React.useState<any>();
+  const [supported, setSupported] = React.useState(true);
 
   const refs = {
-    image: React.useRef<any>(),
-    imageSelectorValue: React.useRef<any>()
+    canvas: React.useRef<any>(),
+    canvasSelectorValue: React.useRef<any>(),
+    element: React.useRef<HTMLVideoElement>()
   };
 
-  refs.image.current = image;
+  refs.canvas.current = canvas;
 
-  refs.imageSelectorValue.current = imageSelectorValue;
+  refs.canvasSelectorValue.current = canvasSelectorValue;
+
+  const onInit = React.useCallback(() => {
+    const value = !(touch || isOS('mobile'));
+
+    setInit(true);
+
+    setSupported(value);
+
+    if (is('function', onInit_)) onInit_(value);
+  }, [touch, onInit_]);
 
   React.useEffect(() => {
     const method = (event: KeyboardEvent) => {
@@ -197,11 +217,11 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
 
           break;
 
-        case 'E':
-        case 'e':
-          if (event.metaKey && event.shiftKey) onEntirePage(event as any);
+        // case 'E':
+        // case 'e':
+        //   if (event.metaKey && event.shiftKey) onEntirePage(event as any);
 
-          break;
+        //   break;
 
         case 'F':
         case 'f':
@@ -212,18 +232,18 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
         case 'S':
         case 's':
           if (event.metaKey) {
-            if (refs.image.current) onFreeSave(event as any);
+            if (refs.canvas.current) onFreeSave(event as any);
           }
 
           break;
 
         case 'Enter':
-          if (refs.image.current) onFreeSave(event as any);
+          if (refs.canvas.current) onFreeSave(event as any);
 
           break;
 
         case 'Escape':
-          if (refs.image.current) onFreeClose(event as any);
+          if (refs.canvas.current) onFreeClose(event as any);
 
           break;
 
@@ -234,14 +254,14 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
 
     window.addEventListener('keydown', method);
 
-    setInit(true);
+    onInit();
 
     return () => {
       // Clean up
       window.removeEventListener('keydown', method);
 
-      if (refs.image.current) {
-        setImage('' as any);
+      if (refs.canvas.current) {
+        setCanvas('' as any);
 
         if (window.document.body.style.overflow === 'hidden') window.document.body.style.removeProperty('overflow');
       }
@@ -255,15 +275,15 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   }, [name_]);
 
   React.useEffect(() => {
-    if (image) {
+    if (canvas) {
       window.document.body.style.overflow = 'hidden';
     }
     else {
-      setImageSelectorValue(false);
+      setCanvasSelectorValue(false);
 
       if (window.document.body.style.overflow === 'hidden') window.document.body.style.removeProperty('overflow');
     }
-  }, [image]);
+  }, [canvas]);
 
   const onChange = (value_: any) => {
     // Update inner or controlled
@@ -272,28 +292,88 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
     if (is('function', onChangeName)) onChangeName(value_);
   };
 
-  const onView = async (event: React.MouseEvent<any>) => {
+  const trackToValue = React.useCallback(async (track: MediaStreamTrack, version: TTrackValueVersion = 'canvas') => {
+    const canvasElement = document.createElement('canvas');
+
+    const { width, height } = track.getSettings();
+
+    canvasElement.width = width || window.innerWidth;
+    canvasElement.height = height || window.innerHeight;
+
+    // Hide elements
+    const elements = Array.from(window.document.body.querySelectorAll('.amaui-ScreenCapture-root')).map(element => {
+      if (element.parentElement.classList.contains('amaui-Move-root')) return element.parentElement;
+
+      return element;
+    });
+
+    elements.forEach((item: HTMLElement) => item.style.visibility = 'hidden');
+
+    // Wait for media options window to hide
+    await wait(414);
+
+    // Draw the frame
+    canvasElement.getContext('2d').drawImage(refs.element.current, 0, 0);
+
+    // Unhide the elements
+    elements.forEach((item: HTMLElement) => item.style.removeProperty('visibility'));
+
+    if (version === 'canvas') return canvasElement;
+
+    const image = canvasElement.toDataURL(type, quality);
+
+    return image;
+  }, [type, quality]);
+
+  const make = React.useCallback(async (version: TTrackValueVersion = 'image', options: any = {}) => {
+    refs.element.current = window.document.createElement('video');
+
+    let tracks: MediaStreamTrack[];
+
+    const cleanUp = () => {
+      // Stop tracks
+      (tracks || []).forEach(item => item.stop());
+
+      // Unload the element
+      refs.element.current = undefined;
+    };
+
+    try {
+      refs.element.current.srcObject = await window.navigator.mediaDevices.getDisplayMedia(options);
+
+      const mediaStream = refs.element.current.srcObject;
+
+      if (!mediaStream) throw new Error('No media stream');
+
+      // Required to work
+      await refs.element.current.play();
+
+      tracks = mediaStream.getVideoTracks();
+
+      const track = tracks[0];
+
+      const value = await trackToValue(track, version);
+
+      // Clean up
+      cleanUp();
+
+      return value;
+    }
+    catch (error) {
+      console.log('ScreenCapture make', error);
+
+      // Clean up
+      cleanUp();
+    }
+  }, []);
+
+  const onView = React.useCallback(async (event: React.MouseEvent<any>) => {
     setLoading(items => [...items, 'view']);
 
     try {
-      await elementToCanvas(window.document.body, {
-        response: 'download',
+      const image = await make();
 
-        filter: ['.amaui-Widgets-root', '#amaui-screen-capture'],
-
-        download: {
-          name,
-          type,
-          quality
-        },
-
-        crop: {
-          y: window.scrollY,
-          x: window.scrollX,
-          width: window.innerWidth,
-          height: window.innerHeight
-        }
-      });
+      download(name, image);
     }
     catch (error) {
       console.log('onView', error);
@@ -308,64 +388,47 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
     }, 1400);
 
     if (is('function', onView_)) onView_(event);
-  };
+  }, [name, make]);
 
-  const onEntirePage = async (event: React.MouseEvent<any>) => {
-    setLoading(items => [...items, 'entirePage']);
+  // const onEntirePage = async (event: React.MouseEvent<any>) => {
+  //   setLoading(items => [...items, 'entirePage']);
 
-    try {
-      await elementToCanvas(window.document.body, {
-        response: 'download',
+  //   try {
+  //     await elementToCanvas(window.document.body, {
+  //       response: 'download',
 
-        filter: ['.amaui-Widgets-root', '#amaui-screen-capture'],
+  //       filter: ['.amaui-Widgets-root', '#amaui-screen-capture'],
 
-        download: {
-          name,
-          type,
-          quality
-        }
-      });
-    }
-    catch (error) {
-      console.log('onEntirePage', error);
-    }
+  //       download: {
+  //         name,
+  //         type,
+  //         quality
+  //       }
+  //     });
+  //   }
+  //   catch (error) {
+  //     console.log('onEntirePage', error);
+  //   }
 
-    setLoading(items => items.filter(item => item !== 'entirePage'));
+  //   setLoading(items => items.filter(item => item !== 'entirePage'));
 
-    setDone(items => [...items, 'entirePage']);
+  //   setDone(items => [...items, 'entirePage']);
 
-    setTimeout(() => {
-      setDone(items => items.filter(item => item !== 'entirePage'));
-    }, 1400);
+  //   setTimeout(() => {
+  //     setDone(items => items.filter(item => item !== 'entirePage'));
+  //   }, 1400);
 
-    if (is('function', onEntirePage_)) onEntirePage_(event);
-  };
+  //   if (is('function', onEntirePage_)) onEntirePage_(event);
+  // };
 
   const onFree = async (event: React.MouseEvent<any>) => {
     setLoading(items => [...items, 'free']);
 
-    // Update image
+    // Update canvas
     try {
-      const canvas = await elementToCanvas(window.document.body, {
-        response: 'canvas',
+      const valueCanvas = await make('canvas') as HTMLCanvasElement;
 
-        filter: ['.amaui-Widgets-root', '#amaui-screen-capture'],
-
-        download: {
-          name,
-          type,
-          quality
-        },
-
-        crop: {
-          y: window.scrollY,
-          x: window.scrollX,
-          width: window.innerWidth,
-          height: window.innerHeight
-        }
-      }) as HTMLCanvasElement;
-
-      setImage(canvas);
+      setCanvas(valueCanvas);
     }
     catch (error) {
       console.log('onFree', error);
@@ -378,16 +441,16 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
 
   const onFreeSave = (event: React.MouseEvent<any>) => {
     // Crop the canvas
-    const canvas = canvasCrop(refs.image.current, refs.imageSelectorValue.current.left, refs.imageSelectorValue.current.top, refs.imageSelectorValue.current.width, refs.imageSelectorValue.current.height);
+    const valueCanvas = canvasCrop(refs.canvas.current, refs.canvasSelectorValue.current.left, refs.canvasSelectorValue.current.top, refs.canvasSelectorValue.current.width, refs.canvasSelectorValue.current.height);
 
     // Download the image from canvas datauri
     // of the image type and quality, name
-    const uri = canvas.toDataURL(type, quality);
+    const uri = valueCanvas.toDataURL(type, quality);
 
     download(name, uri, type);
 
     // Clear the image
-    setImage('' as any);
+    setCanvas('' as any);
 
     setDone(items => [...items, 'free']);
 
@@ -400,13 +463,13 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
 
   const onFreeClose = (event: React.MouseEvent<any>) => {
     // Clear the image
-    setImage('' as any);
+    setCanvas('' as any);
 
     if (is('function', onFreeClose_)) onFreeClose_(event);
   };
 
   const onImageCropSelectorChange = React.useCallback((values: any) => {
-    setImageSelectorValue(values);
+    setCanvasSelectorValue(values);
   }, []);
 
   const iconButtonProps = {
@@ -428,6 +491,8 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
     portal: false,
     interactive: false
   };
+
+  if (!supported) return null;
 
   return (
     <Surface
@@ -495,7 +560,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
           </Tooltip>
         )}
 
-        {entirePage && (
+        {/* {entirePage && (
           <Tooltip
             label='Entire page'
 
@@ -517,18 +582,18 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
               {done.includes('entirePage') ? <IconDoneAnimated add in /> : <IconEntirePage />}
             </IconButton>
           </Tooltip>
-        )}
+        )} */}
 
         {free && (
           <Tooltip
-            label={image ? 'Save' : 'Free form'}
+            label={canvas ? 'Save' : 'Free form'}
 
             {...tooltipProps}
 
             {...TooltipProps}
           >
             <IconButton
-              onClick={(event: React.MouseEvent<any>) => image ? onFreeSave(event) : onFree(event)}
+              onClick={(event: React.MouseEvent<any>) => canvas ? onFreeSave(event) : onFree(event)}
 
               loading={loading.includes('free')}
 
@@ -538,7 +603,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
 
               {...IconButtonProps}
             >
-              {done.includes('free') ? <IconDoneAnimated add in /> : image ? <IconDownload /> : <IconFree />}
+              {done.includes('free') ? <IconDoneAnimated add in /> : canvas ? <IconDownload /> : <IconFree />}
             </IconButton>
           </Tooltip>
         )}
@@ -556,7 +621,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
         {...TextFieldProps}
       />
 
-      {image && (
+      {canvas && (
         <Portal
           element={window.document.body}
         >
@@ -566,11 +631,11 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
                 'amaui-ScreenCapture-image-wrapper'
               ],
 
-              classes.imageWrapper
+              classes.wrapper
             ])}
           >
             <ImageCrop
-              image={image}
+              image={canvas}
 
               onSelectorChange={onImageCropSelectorChange}
 
