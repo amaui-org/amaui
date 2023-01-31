@@ -21,6 +21,7 @@ import { IconDoneAnimated } from '../Buttons/Buttons';
 import { ICalenarDays, TCalendarMonthCalendar, TCalendarMonthValue } from '../CalendarMonth/CalendarMonth';
 
 import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TTonal } from '../utils';
+import { TTransitionStatus } from '../Transition';
 
 const useStyle = style(theme => ({
   root: {
@@ -269,7 +270,8 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
   const refs = {
     month: React.useRef<HTMLElement>(),
-    year: React.useRef<HTMLElement>()
+    year: React.useRef<HTMLElement>(),
+    inProgressTransition: React.useRef<boolean>()
   };
 
   const [value, setValue] = React.useState(() => {
@@ -328,6 +330,8 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
   }, [valid_]);
 
   const move = React.useCallback((next = true, unit: TTimeUnits = 'month') => {
+    if (refs.inProgressTransition.current) return;
+
     setCalendar((next ? add : remove)(1, unit, calendar));
   }, [calendar]);
 
@@ -379,6 +383,12 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
         }
       });
     }, 140);
+  }, []);
+
+  // Prevent multiple moves of the calendar
+  // before the previous transition is done
+  const onTransition = React.useCallback((element: any, status: TTransitionStatus) => {
+    refs.inProgressTransition.current = !['entered', 'exited', 'removed'].includes(status);
   }, []);
 
   const main = () => {
@@ -467,6 +477,10 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
                     onChange={onCalendarMonthChange}
 
                     onChangeCalendar={onCalendarMonthChangeCalendar}
+
+                    TransitionProps={{
+                      onTransition
+                    }}
 
                     className={classNames([
                       staticClassName('Calendar', theme) && [
@@ -579,6 +593,10 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
                       onChange={onCalendarMonthChange}
 
                       onChangeCalendar={onCalendarMonthChangeCalendar}
+
+                      TransitionProps={{
+                        onTransition
+                      }}
 
                       className={classNames([
                         staticClassName('Calendar', theme) && [

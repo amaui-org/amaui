@@ -11,7 +11,7 @@ import PaginationItem from '../PaginationItem';
 import Transitions from '../Transitions';
 import Transition, { TTransitionStatus } from '../Transition';
 
-import { IBaseElement, staticClassName, TColor, TTonal } from '../utils';
+import { IBaseElement, staticClassName, TColor, TPropsAny, TTonal } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -198,6 +198,9 @@ export interface ICalenarDays extends IBaseElement {
 
   valid?: (value: AmauiDate, version: 'day' | 'month' | 'year') => boolean;
   renderDay?: (value: AmauiDate, props: any, today: boolean, weekend: boolean, selected: boolean, outside: boolean) => React.ReactNode;
+
+  TransitionProps?: TPropsAny;
+  TransitionsProps?: TPropsAny;
 }
 
 const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
@@ -232,6 +235,9 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
     valid: valid_,
     renderDay,
+
+    TransitionProps,
+    TransitionsProps,
 
     className,
 
@@ -573,11 +579,15 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
         mode='in-out-follow'
 
         switch
+
+        {...TransitionsProps}
       >
         <Transition
           key={id}
 
           in
+
+          {...TransitionProps}
         >
           {(status: TTransitionStatus) => {
 

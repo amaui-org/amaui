@@ -240,7 +240,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
     ids: {
       middle: React.useId()
     },
-    expandInProgress: React.useRef<boolean>()
+    inProgressTransition: React.useRef<boolean>()
   };
 
   const { classes } = useStyle(props);
@@ -296,7 +296,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
   const onClick = React.useCallback((event: React.MouseEvent<any>) => {
     if (is('function', MiddleProps?.onClick)) MiddleProps.onClick(event);
 
-    if (refs.expandInProgress.current) return;
+    if (refs.inProgressTransition.current) return;
 
     if (!disabled && !noExpand && children_) {
       const valueNew = !open;
@@ -603,7 +603,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
           in={open}
 
           onTransition={(element: any, status: TTransitionStatus) => {
-            refs.expandInProgress.current = !['entered', 'removed'].includes(status);
+            refs.inProgressTransition.current = !['entered', 'removed'].includes(status);
           }}
 
           {...ExpandProps}
