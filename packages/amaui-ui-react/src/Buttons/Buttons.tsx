@@ -236,6 +236,7 @@ export interface IButtons extends ILine {
   onChange?: (value: any) => any;
 
   select?: 'single' | 'multiple';
+  unselect?: boolean;
   orientation?: 'vertical' | 'horizontal';
   noCheckIcon?: boolean;
   elevation?: boolean;
@@ -262,6 +263,7 @@ const Buttons = React.forwardRef((props_: IButtons, ref: any) => {
     onChange,
 
     select,
+    unselect = true,
     orientation = 'horizontal',
     noCheckIcon,
     elevation = true,
@@ -310,7 +312,13 @@ const Buttons = React.forwardRef((props_: IButtons, ref: any) => {
     }
     else {
       // Unselect
-      if (selected.includes(itemProps.value)) {
+      if (
+        selected.includes(itemProps.value) &&
+        (
+          unselect ||
+          (select === 'multiple' && selected.length > 1)
+        )
+      ) {
         if (!noCheckIcon) {
           setPreSelected(items => items.filter(item => item !== itemProps.value));
         }

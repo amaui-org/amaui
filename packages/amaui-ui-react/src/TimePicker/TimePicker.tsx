@@ -1102,6 +1102,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
               select='single'
 
+              unselect={false}
+
               {...ToggleButtonsProps}
 
               className={classNames([
