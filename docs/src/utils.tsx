@@ -53,3 +53,27 @@ export const images = [
 ];
 
 export const themeImageSub = new AmauiSubscrption('primary');
+
+export const importIframeStyles = (iframeDocument: Document) => {
+  const styleSheets = window.document.styleSheets;
+
+  for (const styleSheet of Array.from(styleSheets)) {
+    if (!(styleSheet.ownerNode as any).amaui) {
+      iframeDocument.head.append((styleSheet.ownerNode as any)?.cloneNode(true));
+
+      continue;
+    }
+
+    let css = '';
+
+    const rules = styleSheet?.cssRules;
+
+    for (const rule of Array.from(rules)) css += rule.cssText;
+
+    const style = window.document.createElement('style');
+
+    style.innerHTML = css;
+
+    iframeDocument.head.append(style);
+  }
+};

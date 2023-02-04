@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { classNames, style } from '@amaui/style-react';
+import { classNames, style, useAmauiTheme } from '@amaui/style-react';
+
+import { importIframeStyles } from '../../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -25,6 +27,8 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
     ...other
   } = props;
 
+  const theme = useAmauiTheme();
+
   const { classes } = useStyle();
 
   const [init, setInit] = React.useState(false);
@@ -37,10 +41,25 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
   const iframeBody = refs.root.current?.contentWindow?.document.body;
 
   React.useEffect(() => {
-    iframeDocument?.head.replaceWith(window.document.head.cloneNode(true));
+    if (iframeDocument) {
+      iframeDocument.head?.replaceWith(window.document.createElement('head'));
 
-    setTimeout(() => setInit(true), 14);
-  }, [iframeBody]);
+      importIframeStyles(iframeDocument);
+
+      // Default
+      const styleDefault = window.document.createElement('style');
+
+      styleDefault.innerHTML = `
+        body {
+          background-color: transparent;
+        }
+      `;
+
+      iframeDocument.head?.append(styleDefault);
+    }
+
+    if (!init) setTimeout(() => setInit(true), 14);
+  }, [refs.root.current, iframeBody, theme]);
 
   return (
     <iframe

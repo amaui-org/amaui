@@ -14,7 +14,7 @@ import { BottomNavigation } from '../ui';
 
 // Examples
 // Zip
-const ZipExampleMain = Dynamic(() => import('../examples/Zip/main'));
+const ZipExampleMain = Dynamic(() => import('../examples/Zip/zip'));
 
 const useStyle = styleMethod(theme => ({
   root: {

@@ -4,7 +4,11 @@
 Try `@amaui/zip` in the example:
 
 ~{
-  "element": "zip-example-main"
+  "element": "zip-example-zip"
+}~
+
+~{
+  "element": "zip-example-unzip"
 }~
 
 ~{
