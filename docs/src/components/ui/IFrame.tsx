@@ -32,6 +32,7 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
   const { classes } = useStyle();
 
   const [init, setInit] = React.useState(false);
+  const [show, setShow] = React.useState(false);
 
   const refs = {
     root: React.useRef<HTMLIFrameElement>()
@@ -39,6 +40,10 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
 
   const iframeDocument = refs.root.current?.contentWindow?.document;
   const iframeBody = refs.root.current?.contentWindow?.document.body;
+
+  React.useEffect(() => {
+    if (init && !show) setTimeout(() => setShow(true), 1400);
+  }, [init]);
 
   React.useEffect(() => {
     if (iframeDocument) {
@@ -53,12 +58,16 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
         body {
           background-color: transparent;
         }
+
+        body::-webkit-scrollbar: {
+          display: none;
+        }
       `;
 
       iframeDocument.head?.append(styleDefault);
     }
 
-    if (!init) setTimeout(() => setInit(true), 14);
+    if (!init) setInit(true);
   });
 
   return (
@@ -72,7 +81,19 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
         classes.root
       ])}
     >
-      {init && iframeBody && ReactDOM.createPortal(children, iframeBody)}
+      {init && iframeBody && ReactDOM.createPortal(React.cloneElement(children, {
+        style: {
+          ...children.props.style,
+
+          transition: theme.methods.transitions.make('opacity'),
+
+          ...(show ? {
+            opacity: 1
+          } : {
+            opacity: 0
+          })
+        }
+      }), iframeBody)}
     </iframe>
   );
 });
