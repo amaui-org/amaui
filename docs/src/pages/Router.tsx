@@ -50,6 +50,10 @@ const useStyle = styleMethod(theme => ({
     transition: theme.methods.transitions.make('margin')
   },
 
+  title: {
+    cursor: 'pointer'
+  },
+
   navigationDrawer: {
     paddingBottom: 100,
 
@@ -634,11 +638,17 @@ function Root(props: any) {
                   Page
                 </Type>
 
-                <Type
-                  version='t1'
+                <LinkNext
+                  href={sidenavMenu.url}
                 >
-                  {sidenavMenu.label || 'No page'}
-                </Type>
+                  <Type
+                    version='t1'
+
+                    className={classes.title}
+                  >
+                    {sidenavMenu.label || 'No page'}
+                  </Type>
+                </LinkNext>
               </Line>
             </ListSubheader>
 
