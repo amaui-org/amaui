@@ -184,8 +184,6 @@ export default function Library(props: any) {
       setValue('');
     }
 
-    setHeadings([]);
-
     if (!loaded) setLoaded(true);
 
     // Main progress
@@ -207,6 +205,8 @@ export default function Library(props: any) {
         scrollIntoView(id);
       }, 1400);
     }
+
+    onUpdate();
 
     setInit(true);
   }, []);
@@ -233,34 +233,36 @@ export default function Library(props: any) {
       // Update all headings within the markdown inner html
       const elements = Array.from(markdown?.querySelectorAll('h1, h2, h3, h4, h5, h6') || []);
 
-      elements.filter(item => !(item as any).dataset.amaui).forEach(item => {
+      elements.forEach(item => {
         const id = slugify(item.innerHTML);
 
+        const text = item.textContent;
+
         // ID
-        item.id = id;
+        if (!(item as any).dataset.amaui) {
+          item.id = id;
 
-        // ClassName
-        item.className = classNames([item.className, classes.heading]);
+          // ClassName
+          item.className = classNames([item.className, classes.heading]);
 
-        // Mark
-        item.setAttribute('data-amaui', 'true');
+          // Mark
+          item.setAttribute('data-amaui', 'true');
 
-        const text = item.innerHTML;
+          const iconAnchor = `<svg viewBox="0 0 24 24" width="1em" height="1em" focusable="false" aria-hidden="true" style="fill: currentcolor; font-size: 24px;"><path d="M7 17Q4.925 17 3.463 15.537Q2 14.075 2 12Q2 9.925 3.463 8.462Q4.925 7 7 7H10Q10.425 7 10.713 7.287Q11 7.575 11 8Q11 8.425 10.713 8.712Q10.425 9 10 9H7Q5.75 9 4.875 9.875Q4 10.75 4 12Q4 13.25 4.875 14.125Q5.75 15 7 15H10Q10.425 15 10.713 15.287Q11 15.575 11 16Q11 16.425 10.713 16.712Q10.425 17 10 17ZM9 13Q8.575 13 8.288 12.712Q8 12.425 8 12Q8 11.575 8.288 11.287Q8.575 11 9 11H15Q15.425 11 15.713 11.287Q16 11.575 16 12Q16 12.425 15.713 12.712Q15.425 13 15 13ZM14 17Q13.575 17 13.288 16.712Q13 16.425 13 16Q13 15.575 13.288 15.287Q13.575 15 14 15H17Q18.25 15 19.125 14.125Q20 13.25 20 12Q20 10.75 19.125 9.875Q18.25 9 17 9H14Q13.575 9 13.288 8.712Q13 8.425 13 8Q13 7.575 13.288 7.287Q13.575 7 14 7H17Q19.075 7 20.538 8.462Q22 9.925 22 12Q22 14.075 20.538 15.537Q19.075 17 17 17Z"/></svg>`;
+
+          // Add the anchors
+          item.innerHTML += `<a href='#${id}' class='${classNames([classes.anchor])}' aria-label='${text}' title='${text}'>${iconAnchor}</a>`;
+        }
 
         valuesHeadings.push({
           id: item.id,
           text,
           priority: +item.tagName.slice(1)
         });
-
-        const iconAnchor = `<svg viewBox="0 0 24 24" width="1em" height="1em" focusable="false" aria-hidden="true" style="fill: currentcolor; font-size: 24px;"><path d="M7 17Q4.925 17 3.463 15.537Q2 14.075 2 12Q2 9.925 3.463 8.462Q4.925 7 7 7H10Q10.425 7 10.713 7.287Q11 7.575 11 8Q11 8.425 10.713 8.712Q10.425 9 10 9H7Q5.75 9 4.875 9.875Q4 10.75 4 12Q4 13.25 4.875 14.125Q5.75 15 7 15H10Q10.425 15 10.713 15.287Q11 15.575 11 16Q11 16.425 10.713 16.712Q10.425 17 10 17ZM9 13Q8.575 13 8.288 12.712Q8 12.425 8 12Q8 11.575 8.288 11.287Q8.575 11 9 11H15Q15.425 11 15.713 11.287Q16 11.575 16 12Q16 12.425 15.713 12.712Q15.425 13 15 13ZM14 17Q13.575 17 13.288 16.712Q13 16.425 13 16Q13 15.575 13.288 15.287Q13.575 15 14 15H17Q18.25 15 19.125 14.125Q20 13.25 20 12Q20 10.75 19.125 9.875Q18.25 9 17 9H14Q13.575 9 13.288 8.712Q13 8.425 13 8Q13 7.575 13.288 7.287Q13.575 7 14 7H17Q19.075 7 20.538 8.462Q22 9.925 22 12Q22 14.075 20.538 15.537Q19.075 17 17 17Z"/></svg>`;
-
-        // Add the anchors
-        item.innerHTML += `<a href='#${id}' class='${classNames([classes.anchor])}' aria-label='${text}' title='${text}'>${iconAnchor}</a>`;
       });
     });
 
-    setHeadings((previous: any[]) => unique([...previous, ...valuesHeadings], 'id'));
+    setHeadings(unique([...valuesHeadings], 'id'));
   }, []);
 
   const values = value?.trim().match(/[^~]+?(?=~)|(?:~)[\s\S]+?(?:~)/ig) || [];
