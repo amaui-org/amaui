@@ -1,11 +1,27 @@
+import { style } from '@amaui/style-react';
 import React from 'react';
 
-const zip = React.forwardRef(() => {
+import IFrame from '../../ui/IFrame';
+
+const useStyle = style(theme => ({
+  root: {
+    color: 'green'
+  }
+}), { name: 'zip-example-zip' });
+
+const zip = React.forwardRef((props: any, ref: any) => {
+  const { classes } = useStyle();
 
   return (
-    <div>
-      zip
-    </div>
+    <IFrame
+      ref={ref}
+    >
+      <p
+        className={classes.root}
+      >
+        zip
+      </p>
+    </IFrame>
   );
 });
 
