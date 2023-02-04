@@ -11,7 +11,12 @@ import { is } from '@amaui/utils';
 
 const useStyle = style(theme => ({
   root: {
-    width: '100%'
+    width: '100%',
+    background: 'none',
+
+    '& > *': {
+      width: '100%'
+    }
   }
 }), { name: 'Example' });
 
@@ -32,76 +37,89 @@ const Example = React.forwardRef((props: any, ref: any) => {
   const [children, setChildren] = React.useState<any>();
   const [files, setFiles] = React.useState<any>({});
 
-  const init = React.useCallback(() => {
+  const init = React.useCallback(async () => {
     const mainSrc = is('string', src) ? src : src.main;
     const shortSrc = src.short || `${src}.short`;
 
-    const Element = Dynamic(() => import(mainSrc));
+    let Element: any;
 
-    setChildren(
-      <Element />
-    );
+    switch (mainSrc) {
+      case '../examples/Zip/zip':
+        Element = Dynamic(() => import('../../../public/assets/js/examples/Zip/zip'));
+        break;
+
+      case '../examples/Zip/unzip':
+        Element = Dynamic(() => import('../../../public/assets/js/examples/Zip/unzip'));
+        break;
+
+      default:
+        break;
+    }
+
+    const files_ = {
+      mainSrc: await AmauiRequest.get(`/assets/js/examples/Zip/zip.tsx`, { response: { type: 'text' } }),
+      shortSrc: await AmauiRequest.get(`${mainSrc}.tsx`, { response: { type: 'text' } })
+    };
+
+    console.log(1, files_.mainSrc);
+
+    // Element
+    if (Element) setChildren(<Element />);
   }, []);
 
   React.useEffect(() => {
     init();
   }, []);
 
+  console.log(0, children);
   return (
-    <Line
+    <IFrame
       ref={ref}
-
-      className={classNames([
-        className,
-        classes.root
-      ])}
-
-      {...other}
     >
-      <Line
-        direction='row'
+      <Surface
+        tonal
 
-        align='center'
+        color='primary'
 
-        justify='space-between'
+        direction='column'
 
-        style={{
-          width: '100%'
-        }}
+        Component={Line}
+
+        className={classes.root}
       >
-        <Type
-          version='h3'
-        >
-          {label}
-        </Type>
-
-        <Button
-
-        >
-          Asd
-        </Button>
-      </Line>
-
-      {use === 'example' && children && (
-        <IFrame
+        <Line
           ref={ref}
+
+          className={classNames([
+            className,
+            classes.root
+          ])}
+
+          {...other}
         >
-          <Surface
-            tonal
+          <Line
+            direction='row'
 
-            color='primary'
+            align='center'
 
-            direction='column'
+            justify='space-between'
 
-            Component={Line}
-
-            className={classes.root}
+            style={{
+              width: '100%'
+            }}
           >
-            {children}
-          </Surface>
-        </IFrame>
-      )}
-    </Line>
+            <Type
+              version='h3'
+            >
+              {label}
+            </Type>
+
+          </Line>
+
+          {use === 'example' && children}
+        </Line>
+      </Surface>
+    </IFrame>
   );
 });
 

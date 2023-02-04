@@ -177,7 +177,7 @@ export default function Library(props: any) {
     mainProgress.start();
 
     // page md
-    const response = (await AmauiRequest.get(`/assets/md/dev${url}.md`, { response: { type: 'text' } }));
+    const response = await AmauiRequest.get(`/assets/md/dev${url}.md`, { response: { type: 'text' } });
 
     if (response.status === 200) setValue(response.response);
     else {

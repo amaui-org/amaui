@@ -42,7 +42,7 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
   const iframeBody = refs.root.current?.contentWindow?.document.body;
 
   React.useEffect(() => {
-    if (init && !show) setTimeout(() => setShow(true), 1400);
+    if (init && !show) setTimeout(() => setShow(true), 740);
   }, [init]);
 
   React.useEffect(() => {

@@ -44,6 +44,8 @@ const run = async () => {
       }
     });
 
+    app.use('/src', express.static(__dirname + '/src'));
+
     app.all('*', handle);
 
     const httpServer = http.createServer(app);

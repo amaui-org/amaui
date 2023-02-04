@@ -33,7 +33,7 @@ const zip = React.forwardRef((props: any, ref: any) => {
   }, [value]);
 
   const onCopy = React.useCallback(async () => {
-    await copyToClipboard(response?.response.value);
+    if (response?.response?.value) await copyToClipboard(response?.response?.value);
   }, [response]);
 
   return (
@@ -53,6 +53,8 @@ const zip = React.forwardRef((props: any, ref: any) => {
       >
         <Button
           onClick={onZip}
+
+          disabled={!value}
         >
           Run
         </Button>
@@ -107,7 +109,7 @@ const zip = React.forwardRef((props: any, ref: any) => {
               </IconButton>
 
               <Type>
-                {response.response.value}
+                {response.response?.value}
               </Type>
             </Line>
           </Line>
@@ -122,7 +124,7 @@ const zip = React.forwardRef((props: any, ref: any) => {
             </Type>
 
             <Type>
-              {response.response.compression_percentage} %
+              {response.response?.compression_percentage} %
             </Type>
           </Line>
 
