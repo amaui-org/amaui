@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import Dynamic from 'next/dynamic';
 import LinkNext from 'next/link';
 
 import { clamp, parse, random, slugify } from '@amaui/utils';
@@ -10,12 +9,7 @@ import AmauiRequest from '@amaui/request';
 
 import IconGithub from '../../../public/assets/svg/github.svg';
 
-import { BottomNavigation } from '../ui';
-
-// Examples
-// Zip
-const ZipExampleZip = Dynamic(() => import('../examples/Zip/zip'));
-const ZipExampleUnzip = Dynamic(() => import('../examples/Zip/unzip'));
+import { BottomNavigation, Example } from '../ui';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -300,15 +294,9 @@ export default function Library(props: any) {
           <BottomNavigation {...objectProps} />
         );
 
-      // Zip
-      case 'zip-example-zip':
+      case 'Example':
         return (
-          <ZipExampleZip {...objectProps} />
-        );
-
-      case 'zip-example-unzip':
-        return (
-          <ZipExampleUnzip {...objectProps} />
+          <Example {...objectProps} />
         );
 
       default:

@@ -4,11 +4,19 @@
 Try `@amaui/zip` in the example:
 
 ~{
-  "element": "zip-example-zip"
+  "element": "Example",
+  "props": {
+    "label": "Zip",
+    "src": "../examples/Zip/zip"
+  }
 }~
 
 ~{
-  "element": "zip-example-unzip"
+  "element": "Example",
+  "props": {
+    "label": "Unzip",
+    "src": "../examples/Zip/unzip"
+  }
 }~
 
 ~{

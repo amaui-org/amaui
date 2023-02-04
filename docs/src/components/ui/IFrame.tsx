@@ -59,7 +59,7 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
           background-color: transparent;
         }
 
-        body::-webkit-scrollbar: {
+        body::-webkit-scrollbar {
           display: none;
         }
       `;
