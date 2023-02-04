@@ -1,15 +1,21 @@
 import React from 'react';
 
 import AmauiZip from '@amaui/zip';
-import { parse, stringify } from '@amaui/utils';
-import { Button, Line, TextField, Type } from '@amaui/ui-react';
+import { copyToClipboard, parse, stringify } from '@amaui/utils';
+import { Button, Surface, IconButton, Line, TextField, Type } from '@amaui/ui-react';
 import { style } from '@amaui/style-react';
 
 import IFrame from '../../ui/IFrame';
 
+import IconMaterialContentCopyRounded from '@amaui/icons-material-react/IconMaterialContentCopyRounded';
+
 const useStyle = style(theme => ({
+  root: {
+    background: 'none'
+  },
+
   pre: {
-    fontSize: 14,
+    fontSize: 12,
     fontFamily: theme.typography.font_family.tertiary
   }
 }), { name: 'zip-example-zip' });
@@ -29,15 +35,29 @@ const zip = React.forwardRef((props: any, ref: any) => {
     }
   }, [value]);
 
+  const onCopy = React.useCallback(async () => {
+    await copyToClipboard(response.value);
+  }, [response]);
+
   return (
     <IFrame
       ref={ref}
     >
-      <Line
+      <Surface
+        tonal
+
+        color='primary'
+
         direction='column'
+
+        Component={Line}
+
+        className={classes.root}
       >
         <Line
           direction='row'
+
+          align='center'
 
           justify='space-between'
 
@@ -52,8 +72,6 @@ const zip = React.forwardRef((props: any, ref: any) => {
           </Type>
 
           <Button
-            color='secondary'
-
             onClick={onUnzip}
           >
             Run
@@ -63,13 +81,11 @@ const zip = React.forwardRef((props: any, ref: any) => {
         <TextField
           label='Text to unzip'
 
-          color='secondary'
-
-          tonal={false}
-
           version='outlined'
 
           minRows={4}
+
+          maxRows={7}
 
           multiline
 
@@ -83,21 +99,57 @@ const zip = React.forwardRef((props: any, ref: any) => {
         />
 
         {response && (
-          <Line>
-            <Type
-              version='l2'
+          <Line
+            gap={2}
+          >
+            <Line
+              gap={1}
             >
-              Result:
-            </Type>
+              <Type
+                version='h4'
+              >
+                Unzipped
+              </Type>
 
-            <pre
-              className={classes.pre}
+              <Line
+                gap={1}
+
+                direction='row'
+
+                align='center'
+              >
+                <IconButton
+                  size='small'
+
+                  onClick={onCopy}
+                >
+                  <IconMaterialContentCopyRounded />
+                </IconButton>
+
+                <Type>
+                  {response.value}
+                </Type>
+              </Line>
+            </Line>
+
+            <Line
+              gap={1}
             >
-              {stringify(response, 2)}
-            </pre>
+              <Type
+                version='h4'
+              >
+                Result
+              </Type>
+
+              <pre
+                className={classes.pre}
+              >
+                {stringify(response, 2)}
+              </pre>
+            </Line>
           </Line>
         )}
-      </Line>
+      </Surface>
     </IFrame>
   );
 });

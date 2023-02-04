@@ -1,15 +1,21 @@
 import React from 'react';
 
 import AmauiZip from '@amaui/zip';
-import { stringify } from '@amaui/utils';
-import { Button, Line, TextField, Type } from '@amaui/ui-react';
+import { copyToClipboard, stringify } from '@amaui/utils';
+import { Button, Surface, IconButton, Line, TextField, Type } from '@amaui/ui-react';
 import { style } from '@amaui/style-react';
 
 import IFrame from '../../ui/IFrame';
 
+import IconMaterialContentCopyRounded from '@amaui/icons-material-react/IconMaterialContentCopyRounded';
+
 const useStyle = style(theme => ({
+  root: {
+    background: 'none'
+  },
+
   pre: {
-    fontSize: 14,
+    fontSize: 12,
     fontFamily: theme.typography.font_family.tertiary
   }
 }), { name: 'zip-example-zip' });
@@ -20,19 +26,37 @@ const zip = React.forwardRef((props: any, ref: any) => {
   const [value, setValue] = React.useState();
   const [response, setResponse] = React.useState<AmauiZip>();
 
+  React.useEffect(() => {
+    (window as any).AmauiZip = AmauiZip;
+  }, []);
+
   const onZip = React.useCallback(() => {
     setResponse(new AmauiZip(value));
   }, [value]);
+
+  const onCopy = React.useCallback(async () => {
+    await copyToClipboard(response?.response.value);
+  }, [response]);
 
   return (
     <IFrame
       ref={ref}
     >
-      <Line
+      <Surface
+        tonal
+
+        color='primary'
+
         direction='column'
+
+        Component={Line}
+
+        className={classes.root}
       >
         <Line
           direction='row'
+
+          align='center'
 
           justify='space-between'
 
@@ -47,8 +71,6 @@ const zip = React.forwardRef((props: any, ref: any) => {
           </Type>
 
           <Button
-            color='secondary'
-
             onClick={onZip}
           >
             Run
@@ -58,13 +80,11 @@ const zip = React.forwardRef((props: any, ref: any) => {
         <TextField
           label='Text to zip'
 
-          color='secondary'
-
-          tonal={false}
-
           version='outlined'
 
           minRows={4}
+
+          maxRows={7}
 
           multiline
 
@@ -78,21 +98,71 @@ const zip = React.forwardRef((props: any, ref: any) => {
         />
 
         {response && (
-          <Line>
-            <Type
-              version='l2'
+          <Line
+            gap={2}
+          >
+            <Line
+              gap={1}
             >
-              Result:
-            </Type>
+              <Type
+                version='h4'
+              >
+                Zipped
+              </Type>
 
-            <pre
-              className={classes.pre}
+              <Line
+                gap={1}
+
+                direction='row'
+
+                align='center'
+              >
+                <IconButton
+                  size='small'
+
+                  onClick={onCopy}
+                >
+                  <IconMaterialContentCopyRounded />
+                </IconButton>
+
+                <Type>
+                  {response.response.value}
+                </Type>
+              </Line>
+            </Line>
+
+            <Line
+              gap={1}
             >
-              {stringify(response, 2)}
-            </pre>
+              <Type
+                version='h4'
+              >
+                Compression
+              </Type>
+
+              <Type>
+                {response.response.compression_percentage} %
+              </Type>
+            </Line>
+
+            <Line
+              gap={1}
+            >
+              <Type
+                version='h4'
+              >
+                Result
+              </Type>
+
+              <pre
+                className={classes.pre}
+              >
+                {stringify(response, 2)}
+              </pre>
+            </Line>
           </Line>
         )}
-      </Line>
+      </Surface>
     </IFrame>
   );
 });

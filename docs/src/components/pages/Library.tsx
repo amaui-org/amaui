@@ -14,7 +14,8 @@ import { BottomNavigation } from '../ui';
 
 // Examples
 // Zip
-const ZipExampleMain = Dynamic(() => import('../examples/Zip/zip'));
+const ZipExampleZip = Dynamic(() => import('../examples/Zip/zip'));
+const ZipExampleUnzip = Dynamic(() => import('../examples/Zip/unzip'));
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -300,9 +301,14 @@ export default function Library(props: any) {
         );
 
       // Zip
-      case 'zip-example-main':
+      case 'zip-example-zip':
         return (
-          <ZipExampleMain {...objectProps} />
+          <ZipExampleZip {...objectProps} />
+        );
+
+      case 'zip-example-unzip':
+        return (
+          <ZipExampleUnzip {...objectProps} />
         );
 
       default:

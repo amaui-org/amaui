@@ -8,7 +8,7 @@ import { importIframeStyles } from '../../utils';
 const useStyle = style(theme => ({
   root: {
     padding: '24px 26px',
-    margin: '8px 0 0',
+    margin: '8px 0',
     background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.color.primary[5],
     boxShadow: theme.palette.light ? theme.shadows.values.default[12] : undefined,
     width: '100%',
@@ -59,7 +59,7 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
     }
 
     if (!init) setTimeout(() => setInit(true), 14);
-  }, [refs.root.current, iframeBody, theme]);
+  });
 
   return (
     <iframe
