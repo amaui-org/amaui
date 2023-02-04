@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import LinkNext from 'next/link';
 
-import { clamp, parse, random, slugify } from '@amaui/utils';
+import { clamp, parse, random, slugify, unique } from '@amaui/utils';
 import { Button, Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery, Placeholder, Fade, Tooltip, IconButton } from '@amaui/ui-react';
 import { classNames, style as styleMethod } from '@amaui/style-react';
 import AmauiRequest from '@amaui/request';
@@ -182,8 +182,9 @@ export default function Library(props: any) {
     if (response.status === 200) setValue(response.response);
     else {
       setValue('');
-      setHeadings([]);
     }
+
+    setHeadings([]);
 
     if (!loaded) setLoaded(true);
 
@@ -232,7 +233,7 @@ export default function Library(props: any) {
       // Update all headings within the markdown inner html
       const elements = Array.from(markdown?.querySelectorAll('h1, h2, h3, h4, h5, h6') || []);
 
-      elements.filter(item => !item.id).forEach(item => {
+      elements.filter(item => !(item as any).dataset.amaui).forEach(item => {
         const id = slugify(item.innerHTML);
 
         // ID
@@ -240,6 +241,9 @@ export default function Library(props: any) {
 
         // ClassName
         item.className = classNames([item.className, classes.heading]);
+
+        // Mark
+        item.setAttribute('data-amaui', 'true');
 
         const text = item.innerHTML;
 
@@ -256,7 +260,7 @@ export default function Library(props: any) {
       });
     });
 
-    setHeadings([...valuesHeadings]);
+    setHeadings((previous: any[]) => unique([...previous, ...valuesHeadings], 'id'));
   }, []);
 
   const values = value?.trim().match(/[^~]+?(?=~)|(?:~)[\s\S]+?(?:~)/ig) || [];

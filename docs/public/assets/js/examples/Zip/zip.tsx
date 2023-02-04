@@ -52,6 +52,8 @@ const zip = React.forwardRef((props: any, ref: any) => {
         }}
       >
         <Button
+          tonal
+
           onClick={onZip}
 
           disabled={!value}
