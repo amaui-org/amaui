@@ -56,10 +56,10 @@
     "@amaui/utils" "^1.0.11411"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/huffman-code@^1.0.11147":
-  version "1.0.11147"
-  resolved "https://registry.yarnpkg.com/@amaui/huffman-code/-/huffman-code-1.0.11147.tgz#45f1600b8f0a15c3502ba193841970cf504b1014"
-  integrity sha512-VLgfynGHpuKfaQ+8AuODlGitWLuY4pk/1a90g+JPXWNSRWPSW1fkkNk1Ot8QEw4pbsHDBeiR3EG92j79SFKB4g==
+"@amaui/huffman-code@^1.0.11150":
+  version "1.0.11150"
+  resolved "https://registry.yarnpkg.com/@amaui/huffman-code/-/huffman-code-1.0.11150.tgz#5225c25c9d3d2387a2a4fb4f00bcad3d5a88a627"
+  integrity sha512-N6AoUv3sAgDET/qtiGYuQwCEejdf6NXbr1G03GZnJfYJJDE89Rw/Q839Uz30NMQ0RYO7MaXkYHK5J6VUHzpIEg==
   dependencies:
     "@amaui/date" "^1.0.11433"
     "@amaui/utils" "^1.0.11445"
@@ -247,13 +247,13 @@
     "@amaui/utils" "^1.0.11411"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/zip@^1.0.11144":
-  version "1.0.11144"
-  resolved "https://registry.yarnpkg.com/@amaui/zip/-/zip-1.0.11144.tgz#907f28676e21080b0ce75761e2ad94b919f71f53"
-  integrity sha512-ehalZHL8+KPvsNVFKzHuD4CuupwVrfHGoTDkAE6lNYCQgWHnqt7XZPTppAoT7PhtqEgxoxRY3t2m46G7wviVuQ==
+"@amaui/zip@^1.0.11147":
+  version "1.0.11147"
+  resolved "https://registry.yarnpkg.com/@amaui/zip/-/zip-1.0.11147.tgz#c498e854778268d0d3a4b0204b989bc43217086f"
+  integrity sha512-ynWGly0Z0KA/jxXWKde8JYeh7neAf3ufnY0f5tg646V4hM5Px+PkRRLPEbJmM3Jzf9CXUhPcyjYqRMzjIBBHPw==
   dependencies:
     "@amaui/date" "^1.0.11433"
-    "@amaui/huffman-code" "^1.0.11147"
+    "@amaui/huffman-code" "^1.0.11150"
     "@amaui/lz77" "^1.0.11151"
     "@amaui/utils" "^1.0.11445"
     "@babel/runtime" "^7.18.3"
