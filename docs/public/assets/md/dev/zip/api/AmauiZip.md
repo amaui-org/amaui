@@ -19,7 +19,7 @@ return | [AmauiZipResponse](/dev/zip/api/AmauiZipResponse) | Encode, decode retu
   "props": {
     "previous": {
       "label": "Zip: Use",
-      "to": "/dev/zip/start"
+      "to": "/dev/zip/use"
     },
     "next": {
       "label": "Zip API: AmauiZipResponse",
