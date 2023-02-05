@@ -180,7 +180,7 @@ export default function Library(props: any) {
     // page md
     const response = await AmauiRequest.get(`/assets/md/dev${url}.md`, { response: { type: 'text' } });
 
-    setMarkdownAdded(false);
+    if (!loaded) setMarkdownAdded(false);
 
     if (response.status === 200) setValue(response.response);
     else {
