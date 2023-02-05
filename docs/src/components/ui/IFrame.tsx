@@ -20,6 +20,8 @@ const useStyle = style(theme => ({
 
 const IFrame = React.forwardRef((props: any, ref: any) => {
   const {
+    id,
+
     className,
 
     children,
@@ -67,6 +69,7 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
   React.useEffect(() => {
     if (init && !show) setTimeout(() => {
       refresh();
+
       setShow(true);
     }, 740);
   }, [init]);
@@ -75,7 +78,7 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
     refresh();
 
     if (!init) setInit(true);
-  }, [refs.root.current, theme]);
+  }, [id, refs.root.current, theme]);
 
   return (
     <iframe
