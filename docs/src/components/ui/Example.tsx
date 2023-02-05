@@ -23,7 +23,6 @@ const useStyle = style(theme => ({
     top: 0,
     left: 0,
     width: '100%',
-    background: 'inherit',
     backdropFilter: 'blur(2px)',
     zIndex: 4
   },
