@@ -97,7 +97,7 @@ const zip = React.forwardRef((props: any, ref: any) => {
             gap={1}
           >
             <Line
-              gap={1}
+              gap={0.5}
 
               direction='row'
 
@@ -113,6 +113,8 @@ const zip = React.forwardRef((props: any, ref: any) => {
 
               <IconButton
                 size='small'
+
+                color='inherit'
 
                 onClick={onCopy}
 
