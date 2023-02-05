@@ -15,6 +15,7 @@ const useStyle = style(theme => ({
   pre: {
     fontSize: 12,
     fontFamily: theme.typography.font_family.tertiary,
+    width: '100vw',
     overflow: 'auto'
   }
 }), { name: 'zip-example-zip' });
