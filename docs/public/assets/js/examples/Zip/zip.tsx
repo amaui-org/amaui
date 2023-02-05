@@ -17,6 +17,10 @@ const useStyle = style(theme => ({
     fontFamily: theme.typography.font_family.tertiary,
     width: '100vw',
     overflow: 'auto'
+  },
+
+  icon: {
+    flex: '0 0 auto'
   }
 }), { name: 'zip-example-zip' });
 
@@ -112,6 +116,8 @@ const zip = React.forwardRef((props: any, ref: any) => {
                 size='small'
 
                 onClick={onCopy}
+
+                className={classes.icon}
               >
                 <IconMaterialContentCopyRounded />
               </IconButton>
