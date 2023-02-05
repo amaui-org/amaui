@@ -24,7 +24,6 @@ const useStyle = style(theme => ({
     left: 0,
     width: '100%',
     backdropFilter: 'blur(2px)',
-    '-webkit-backdrop-filter': 'blur(2px)',
     zIndex: 4
   },
 

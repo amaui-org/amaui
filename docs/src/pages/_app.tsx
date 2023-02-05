@@ -5,7 +5,7 @@ import Script from 'next/script';
 
 import { isOS } from '@amaui/utils';
 import { Widgets, ScreenCapture, Timer, Countdown, Watch, Reset, MainProgress, useMediaQuery } from '@amaui/ui-react';
-import { AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, rtl, unit, makeClassName, useAmauiStyle } from '@amaui/style-react';
+import { AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, rtl, unit, makeClassName, useAmauiStyle, AmauiTheme } from '@amaui/style-react';
 
 import IconMaterialTimerRounded from '@amaui/icons-material-react/build/IconMaterialTimerRounded';
 import IconMaterialVideocamRounded from '@amaui/icons-material-react/build/IconMaterialVideocamRounded';
@@ -36,6 +36,8 @@ export default function App(props: AppProps) {
 
   const valueAmauiStyle = useAmauiStyle();
 
+  if (valueAmauiStyle?.options?.rule) valueAmauiStyle.options.rule.prefix = true;
+
   valueAmauiStyle.plugins.add = [
     unit,
     prefix,
@@ -53,7 +55,7 @@ export default function App(props: AppProps) {
 
   const valueAmauiTheme = React.useMemo(() => {
 
-    return {
+    return new AmauiTheme({
       typography: {
         font_family: {
           primary: FONT_FAMILY.primary,
@@ -108,7 +110,7 @@ export default function App(props: AppProps) {
           m3: { fontFamily: FONT_FAMILY.tertiary }
         }
       }
-    };
+    }, undefined, { rule: { prefix: true } });
   }, []);
 
   const widgets = React.useMemo(() => [
