@@ -96,19 +96,21 @@ const zip = React.forwardRef((props: any, ref: any) => {
           <Line
             gap={1}
           >
-            <Type
-              version='h4'
-            >
-              Unzipped
-            </Type>
-
             <Line
               gap={1}
 
               direction='row'
 
+              justify='space-between'
+
               align='center'
             >
+              <Type
+                version='h4'
+              >
+                Unzipped
+              </Type>
+
               <IconButton
                 size='small'
 
@@ -118,11 +120,11 @@ const zip = React.forwardRef((props: any, ref: any) => {
               >
                 <IconMaterialContentCopyRounded />
               </IconButton>
-
-              <Type>
-                {response.value}
-              </Type>
             </Line>
+
+            <Type>
+              {response.value}
+            </Type>
           </Line>
 
           <Line
