@@ -47,7 +47,11 @@ const useStyle = style(theme => ({
 
       color: 'inherit',
       fontSize: '0.75rem !important',
-      textShadow: 'none !important'
+      textShadow: 'none !important',
+
+      '& span': {
+        whiteSpace: 'unset !important'
+      }
     },
 
     '& .token.comment': {

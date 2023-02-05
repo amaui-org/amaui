@@ -14,7 +14,8 @@ const useStyle = style(theme => ({
 
   pre: {
     fontSize: 12,
-    fontFamily: theme.typography.font_family.tertiary
+    fontFamily: theme.typography.font_family.tertiary,
+    overflow: 'auto'
   }
 }), { name: 'zip-example-zip' });
 
@@ -129,7 +130,9 @@ const zip = React.forwardRef((props: any, ref: any) => {
             <pre
               className={classes.pre}
             >
-              {stringify(response, 2)}
+              <code>
+                {stringify(response, 2)}
+              </code>
             </pre>
           </Line>
         </Line>
