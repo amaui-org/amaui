@@ -41,11 +41,7 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
   const iframeDocument = refs.root.current?.contentWindow?.document;
   const iframeBody = refs.root.current?.contentWindow?.document.body;
 
-  React.useEffect(() => {
-    if (init && !show) setTimeout(() => setShow(true), 740);
-  }, [init]);
-
-  React.useEffect(() => {
+  const refresh = React.useCallback(() => {
     if (iframeDocument) {
       iframeDocument.head?.replaceWith(window.document.createElement('head'));
 
@@ -66,9 +62,20 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
 
       iframeDocument.head?.append(styleDefault);
     }
+  }, [iframeDocument]);
+
+  React.useEffect(() => {
+    if (init && !show) setTimeout(() => {
+      refresh();
+      setShow(true);
+    }, 740);
+  }, [init]);
+
+  React.useEffect(() => {
+    refresh();
 
     if (!init) setInit(true);
-  });
+  }, [refs.root.current, theme]);
 
   return (
     <iframe

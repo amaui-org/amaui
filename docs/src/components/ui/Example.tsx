@@ -15,7 +15,22 @@ import IFrame from './IFrame';
 const useStyle = style(theme => ({
   root: {
     width: '100%',
-    background: 'none',
+    background: 'none'
+  },
+
+  nav: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100%',
+    background: 'inherit',
+    backdropFilter: 'blur(2px)',
+    zIndex: 4
+  },
+
+  main: {
+    paddingTop: 44,
+    width: '100%',
 
     '& > *': {
       width: '100%'
@@ -173,9 +188,9 @@ const Example = React.forwardRef((props: any, ref: any) => {
 
             justify='space-between'
 
-            style={{
-              width: '100%'
-            }}
+            Component='nav'
+
+            className={classes.nav}
           >
             <Type
               version='h3'
@@ -216,20 +231,26 @@ const Example = React.forwardRef((props: any, ref: any) => {
             </Line>
           </Line>
 
-          {use === 'example' && children}
+          <Line
+            Component='main'
 
-          {['long', 'short'].includes(use) && (
-            <pre
-              className={classNames([
-                'language-javascript',
-                classes.pre
-              ])}
-            >
-              <code>
-                {use === 'short' ? files.short : files.long}
-              </code>
-            </pre>
-          )}
+            className={classes.main}
+          >
+            {use === 'example' && children}
+
+            {['long', 'short'].includes(use) && (
+              <pre
+                className={classNames([
+                  'language-javascript',
+                  classes.pre
+                ])}
+              >
+                <code>
+                  {use === 'short' ? files.short : files.long}
+                </code>
+              </pre>
+            )}
+          </Line>
         </Line>
       </Surface>
     </IFrame>
