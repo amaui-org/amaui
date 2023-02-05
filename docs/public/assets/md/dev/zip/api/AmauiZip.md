@@ -6,7 +6,7 @@
 Name | Type | Default | Description
 -----|------|---------|------------
 encode\_values | <span class='amaui\_boolean'>boolean</span> | true | If huffman values ought to be encoded
-huffman\_code | <span class='amaui\_string'>'auto'</span> or <span class='amaui\_boolean'>boolean</span> | <span class='amaui\_string'>'auto'</span> | If huffman code optimization should be used, with auto it's used only if it compresses the data more, after lz77 is used
+huffman\_code | <span class='amaui\_string'>'auto'</span> or <span class='amaui\_boolean'>boolean</span> | 'auto' | If huffman code optimization should be used, with auto it's used only if it compresses the data more, after lz77 is used
 
 ## Arguments
 
