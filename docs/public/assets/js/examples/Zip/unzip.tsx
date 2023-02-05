@@ -114,7 +114,7 @@ const zip = React.forwardRef((props: any, ref: any) => {
               <IconButton
                 size='small'
 
-                color='inherit'
+                color='secondary'
 
                 onClick={onCopy}
 
