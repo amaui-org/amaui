@@ -166,12 +166,15 @@ export default function Library(props: any) {
   const refs = {
     id: React.useId(),
     wrapper: React.useRef<HTMLElement>(),
-    value: React.useRef<any>()
+    value: React.useRef<any>(),
+    url: React.useRef<string>()
   };
 
   refs.value.current = value;
 
   const page = React.useCallback(async (url_: string) => {
+    refs.url.current = url_;
+
     const url = url_?.split('/dev')[1];
 
     // Main progress
@@ -179,8 +182,6 @@ export default function Library(props: any) {
 
     // page md
     const response = await AmauiRequest.get(`/assets/md/dev${url}.md`, { response: { type: 'text' } });
-
-    if (!loaded) setMarkdownAdded(false);
 
     if (response.status === 200) setValue(response.response);
     else {
@@ -215,6 +216,10 @@ export default function Library(props: any) {
   }, []);
 
   React.useEffect(() => {
+    if (refs.url.current !== props.url) {
+      setMarkdownAdded(false);
+    }
+
     // Get page details
     page(props.url);
   }, [props.url]);
