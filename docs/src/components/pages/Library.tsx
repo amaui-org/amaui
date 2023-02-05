@@ -404,7 +404,7 @@ export default function Library(props: any) {
   activePageGroup = activePageGroup === 'api' ? 'API' : activePageGroup === 'use' ? 'Use' : '';
 
   if (activePageGroup === 'Use' && !activePage?.menu?.length) activePageGroup = '';
-
+  console.log(1, markdownAdded);
   return <>
     <Head>
       <title>{props.label}{activePageGroup ? ` ${activePageGroup}` : activePageGroup}{activePage?.label ? `: ${activePage?.label}` : ''}</title>
