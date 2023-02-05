@@ -15,7 +15,7 @@ import IFrame from './IFrame';
 const useStyle = style(theme => ({
   root: {
     width: '100%',
-    background: 'none'
+    background: 'transparent'
   },
 
   nav: {
@@ -24,6 +24,7 @@ const useStyle = style(theme => ({
     left: 0,
     width: '100%',
     backdropFilter: 'blur(2px)',
+    '-webkit-backdrop-filter': 'blur(2px)',
     zIndex: 4
   },
 
