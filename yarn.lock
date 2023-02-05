@@ -56,10 +56,10 @@
     "@amaui/utils" "^1.0.11411"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/huffman-code@^1.0.11150":
-  version "1.0.11150"
-  resolved "https://registry.yarnpkg.com/@amaui/huffman-code/-/huffman-code-1.0.11150.tgz#5225c25c9d3d2387a2a4fb4f00bcad3d5a88a627"
-  integrity sha512-N6AoUv3sAgDET/qtiGYuQwCEejdf6NXbr1G03GZnJfYJJDE89Rw/Q839Uz30NMQ0RYO7MaXkYHK5J6VUHzpIEg==
+"@amaui/huffman-code@^1.0.11154":
+  version "1.0.11154"
+  resolved "https://registry.yarnpkg.com/@amaui/huffman-code/-/huffman-code-1.0.11154.tgz#710a2a680275fb23f0047a4d37cc60e614049604"
+  integrity sha512-s1h8F6jLG1b75sSM8YxeQ1m7wRB2+XReQxf/KA/YOayFBZhBsL2n4Q00t6LvRQikPmFiYAR/8pXw+PlV3/QD1A==
   dependencies:
     "@amaui/date" "^1.0.11433"
     "@amaui/utils" "^1.0.11445"
@@ -84,10 +84,10 @@
     "@amaui/utils" "^1.0.11411"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/lz77@^1.0.11151":
-  version "1.0.11151"
-  resolved "https://registry.yarnpkg.com/@amaui/lz77/-/lz77-1.0.11151.tgz#0ab0aadb3d27be466c09f6e08a383e670100773c"
-  integrity sha512-FTQ3o1Hn8sTtm1NL+l4ex0zF8JZ09jBJjLpqtfqAgEttK9CSWVKlGLzjmk6HwICkSbby6v2viIR1/eqSlDWsZw==
+"@amaui/lz77@^1.0.11154":
+  version "1.0.11154"
+  resolved "https://registry.yarnpkg.com/@amaui/lz77/-/lz77-1.0.11154.tgz#d876a083ca1fb0a655250c6a5cbb9105047550de"
+  integrity sha512-t2VCRVwhO4yU61VAobaeQuagoKB4g1QFEmbCq7THMX4n4ECR/ScQ7AnnxuJl+jjbxbhhwITzIzN5pdm45W7WbA==
   dependencies:
     "@amaui/date" "^1.0.11433"
     "@amaui/utils" "^1.0.11445"
@@ -247,14 +247,14 @@
     "@amaui/utils" "^1.0.11411"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/zip@^1.0.11147":
-  version "1.0.11147"
-  resolved "https://registry.yarnpkg.com/@amaui/zip/-/zip-1.0.11147.tgz#c498e854778268d0d3a4b0204b989bc43217086f"
-  integrity sha512-ynWGly0Z0KA/jxXWKde8JYeh7neAf3ufnY0f5tg646V4hM5Px+PkRRLPEbJmM3Jzf9CXUhPcyjYqRMzjIBBHPw==
+"@amaui/zip@^1.0.11154":
+  version "1.0.11154"
+  resolved "https://registry.yarnpkg.com/@amaui/zip/-/zip-1.0.11154.tgz#31a62443ae26b7d066a962caaa4aaea512858ced"
+  integrity sha512-NUbzKvgmuAzu4mkVJSTdpng99eKv3BKKgy29TtZVWotXnwVv8LmjJRqMSGEi0cXmS9hNgg1s886BZWbpC/OCig==
   dependencies:
     "@amaui/date" "^1.0.11433"
-    "@amaui/huffman-code" "^1.0.11150"
-    "@amaui/lz77" "^1.0.11151"
+    "@amaui/huffman-code" "^1.0.11154"
+    "@amaui/lz77" "^1.0.11154"
     "@amaui/utils" "^1.0.11445"
     "@babel/runtime" "^7.18.3"
 

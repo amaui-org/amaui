@@ -29,7 +29,11 @@ const zip = React.forwardRef((props: any, ref: any) => {
   }, []);
 
   const onZip = React.useCallback(() => {
-    setResponse(new AmauiZip(value));
+    // AmauiZip encoded_values option, ought to be true
+    // for most efficiency, i've only made it false so in the UI
+    // to try the AmauiZip, without it browser on copy, copies
+    // incorrectly encoded values, use encode_values: true in production
+    setResponse(new AmauiZip(value, { encode_values: false }));
   }, [value]);
 
   const onCopy = React.useCallback(async () => {
