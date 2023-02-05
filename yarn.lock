@@ -247,10 +247,10 @@
     "@amaui/utils" "^1.0.11411"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/zip@^1.0.11154":
-  version "1.0.11154"
-  resolved "https://registry.yarnpkg.com/@amaui/zip/-/zip-1.0.11154.tgz#31a62443ae26b7d066a962caaa4aaea512858ced"
-  integrity sha512-NUbzKvgmuAzu4mkVJSTdpng99eKv3BKKgy29TtZVWotXnwVv8LmjJRqMSGEi0cXmS9hNgg1s886BZWbpC/OCig==
+"@amaui/zip@^1.0.11157":
+  version "1.0.11157"
+  resolved "https://registry.yarnpkg.com/@amaui/zip/-/zip-1.0.11157.tgz#9b6ffb688aeac2347c0ae9a9178698fcd65e5870"
+  integrity sha512-uFyZ46P7mP94sNQLVhZ2xUDPCOdOlVeJh5u/dNnoOyh00NkEcf7kjhdlu6gXAb8cXeqEn6Fwxk1zG+CmXOeYHA==
   dependencies:
     "@amaui/date" "^1.0.11433"
     "@amaui/huffman-code" "^1.0.11154"
