@@ -155,6 +155,7 @@ export default function Library(props: any) {
   const mainProgress = useMainProgress();
 
   const [init, setInit] = React.useState(false);
+  const [markdownAdded, setMarkdownAdded] = React.useState(false);
   const [value, setValue] = React.useState(props.value || '');
   const [headings, setHeadings] = React.useState<any>([]);
   const [loaded, setLoaded] = React.useState(false);
@@ -178,6 +179,8 @@ export default function Library(props: any) {
 
     // page md
     const response = await AmauiRequest.get(`/assets/md/dev${url}.md`, { response: { type: 'text' } });
+
+    setMarkdownAdded(false);
 
     if (response.status === 200) setValue(response.response);
     else {
@@ -218,6 +221,10 @@ export default function Library(props: any) {
 
   const onStart = React.useCallback(() => {
     // setLoaded(false);
+  }, []);
+
+  const onAdded = React.useCallback(() => {
+    setMarkdownAdded(true);
   }, []);
 
   const onUpdate = React.useCallback(() => {
@@ -263,6 +270,8 @@ export default function Library(props: any) {
     });
 
     setHeadings(unique([...valuesHeadings], 'id'));
+
+    setMarkdownAdded(true);
   }, []);
 
   const values = value?.trim().match(/[^~]+?(?=~)|(?:~)[\s\S]+?(?:~)/ig) || [];
@@ -275,6 +284,8 @@ export default function Library(props: any) {
         key={index}
 
         value={value_}
+
+        onAdded={onAdded}
 
         onStart={onStart}
 
@@ -297,7 +308,7 @@ export default function Library(props: any) {
     switch (object?.element) {
       case 'BottomNavigation':
         return (
-          <BottomNavigation {...objectProps} />
+          markdownAdded && <BottomNavigation {...objectProps} />
         );
 
       case 'Example':

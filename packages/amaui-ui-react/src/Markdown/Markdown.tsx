@@ -186,8 +186,8 @@ export interface IMarkdown extends IBaseElement {
 
   elementStyles?: Record<string, string>;
 
+  onAdded: () => any;
   onUpdate: () => any;
-
   onStart: () => any;
 }
 
@@ -200,15 +200,13 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
 
   const {
     value,
-
     render,
 
     elementClassNames,
-
     elementStyles,
 
+    onAdded,
     onUpdate,
-
     onStart,
 
     Component = 'div',
@@ -223,6 +221,8 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
   const refs = {
     root: React.useRef<HTMLElement>()
   };
+
+  const [init, setInit] = React.useState(false);
 
   const make = (value_: string) => {
     let valueNew: any = '';
@@ -859,9 +859,15 @@ ${listItem(other_)}
 
       refs.root.current.innerHTML = make(value);
 
+      if (!init) {
+        setInit(true);
+
+        if (is('function', onAdded)) onAdded();
+      }
+
       if (is('function', onUpdate)) onUpdate();
     }
-  }, [value, onStart, onUpdate]);
+  }, [init, value, onStart, onAdded, onUpdate]);
 
   return (
     <Component

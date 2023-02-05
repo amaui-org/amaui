@@ -25,7 +25,7 @@ const useStyle = style(theme => ({
     flex: '1 1 auto',
     background: 'transparent',
 
-    '& .amaui-TimePicker-main, & .amaui-Calendar-root': {
+    '& .amaui-TimePicker-main, & .amaui-Calendar-root, & .amaui-DatePicker-mobile': {
       width: '100%',
       maxWidth: 'unset',
       margin: 0
