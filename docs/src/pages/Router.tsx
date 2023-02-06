@@ -29,6 +29,12 @@ import { images, libraries as all_libraries, themeImageSub } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   '@p': {
+    '*': {
+      '&::-webkit-scrollbar': {
+        display: 'none'
+      }
+    },
+
     body: {
       fontFamily: theme.typography.font_family.secondary,
       color: theme.palette.text.default.primary,
