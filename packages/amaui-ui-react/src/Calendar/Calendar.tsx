@@ -360,7 +360,10 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
   }, [open, calendar]);
 
   const getMonths: TGetAmauiDates = is('function', getMonths_) ? getMonths_ : React.useCallback(() => {
-    return Array.from({ length: 12 }).map((item: any, index: number) => ({ value: set(index, 'month', calendar) }));
+    const valueCalendar = set(14, 'day', calendar);
+    const result = Array.from({ length: 12 }).map((item: any, index: number) => ({ value: set(index, 'month', valueCalendar) }));
+
+    return result;
   }, [calendar]);
 
   const getYears: TGetAmauiDates = is('function', getYears_) ? getYears_ : React.useCallback(() => {
