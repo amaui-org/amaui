@@ -78,7 +78,7 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
     refresh();
 
     if (!init) setInit(true);
-  }, [id, refs.root.current, theme]);
+  }, [id, refs.root.current, children, theme]);
 
   return (
     <iframe
