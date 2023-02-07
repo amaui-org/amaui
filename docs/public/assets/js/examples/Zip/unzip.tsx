@@ -124,7 +124,11 @@ const zip = React.forwardRef((props: any, ref: any) => {
               </IconButton>
             </Line>
 
-            <Type>
+            <Type
+              style={{
+                wordBreak: 'break-word'
+              }}
+            >
               {response.value}
             </Type>
           </Line>
