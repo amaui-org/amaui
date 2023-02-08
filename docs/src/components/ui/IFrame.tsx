@@ -45,6 +45,7 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
 
   const refresh = React.useCallback(() => {
     if (iframeDocument) {
+      // Head
       iframeDocument.head?.replaceWith(window.document.createElement('head'));
 
       importIframeStyles(iframeDocument);
@@ -63,6 +64,9 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
       `;
 
       iframeDocument.head?.append(styleDefault);
+
+      // Body
+      if (iframeBody) iframeBody.dir = window.document.body.dir;
     }
   }, [iframeDocument]);
 
