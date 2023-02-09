@@ -13,12 +13,15 @@ npm install @amaui/amqp
 
 ```javascript
 import AmauiAmqp from '@amaui/amqp';
+// Make if you wanna a config file and
+// inside of it add all the process.env related props
+import Config from './config';
 
 // Make a new amqp instance
 const amauiAmqp = new AmauiAmqp({
-  uri: process.env.amqp.rabbitmq.uri,
-  queues: process.env.amqp.rabbitmq.queues,
-  exchanges: process.env.amqp.rabbitmq.exchanges,
+  uri: Config.amqp.rabbitmq.uri,
+  queues: Config.amqp.rabbitmq.queues,
+  exchanges: Config.amqp.rabbitmq.exchanges,
 });
 
 // Await for a channel

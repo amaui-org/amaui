@@ -14,11 +14,14 @@ npm install @amaui/mongo
 ```javascript
 import { Mongo, BaseCollection } from '@amaui/mongo';
 import { Query } from '@amaui/models';
+// Make if you wanna a config file and
+// inside of it add all the process.env related props
+import Config from './config';
 
 // Make a new mongo instance
 const mongo = new Mongo({
-  uri: process.env.db.mongo.uri,
-  name: process.env.db.mongo.name,
+  uri: Config.db.mongo.uri,
+  name: Config.db.mongo.name,
 });
 
 // Make a collection class
