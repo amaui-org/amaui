@@ -11,7 +11,7 @@
 <h1 align='center'>amaui</h1>
 
 <div align='center'>
-   MIT / Open source framework agnostic<br />UI elements and utils, for building quality and production ready<br />modern front end web apps.
+   MIT / Open source framework agnostic<br />UI elements and utils, for building quality and production ready<br />modern front end web apps
 </div>
 
 <br />
