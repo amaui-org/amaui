@@ -795,7 +795,7 @@ function Root(props: any) {
             <Tooltip
               key={1}
 
-              label='amaui organization'
+              label='amaui org'
 
               color='inverted'
             >
