@@ -1,14 +1,15 @@
 import React from 'react';
 import Dynamic from 'next/dynamic';
 
-import { is } from '@amaui/utils';
-import { IconButton, Line, Surface, Type } from '@amaui/ui-react';
+import { is, copyToClipboard } from '@amaui/utils';
+import { IconButton, Line, Surface, Tooltip, Type } from '@amaui/ui-react';
 import { classNames, style } from '@amaui/style-react';
 import AmauiRequest from '@amaui/request';
 
 import IconMaterialTempPreferencesCustomRounded from '@amaui/icons-material-react/IconMaterialTempPreferencesCustomRounded';
 import IconMaterialDataObjectRounded from '@amaui/icons-material-react/IconMaterialDataObjectRounded';
 import IconMaterialDraftRounded from '@amaui/icons-material-react/IconMaterialDraftRounded';
+import IconMaterialContentCopyRounded from '@amaui/icons-material-react/IconMaterialContentCopyRounded';
 
 import IFrame from './IFrame';
 
@@ -24,11 +25,12 @@ const useStyle = style(theme => ({
     left: 0,
     width: '100%',
     backdropFilter: 'blur(2px)',
+    padding: '24px 26px',
     zIndex: 4
   },
 
   main: {
-    paddingTop: 44,
+    paddingTop: 56,
     width: '100%',
 
     '& > *': {
@@ -37,7 +39,7 @@ const useStyle = style(theme => ({
   },
 
   pre: {
-    padding: '16px 0 !important',
+    padding: '12px 0 !important',
     margin: '0 !important',
     background: [theme.palette.light ? theme.palette.background.default.primary : theme.palette.color.primary[5], '!important'],
 
@@ -95,6 +97,7 @@ const Example = React.forwardRef((props: any, ref: any) => {
   const [use, setUse] = React.useState('example');
   const [children, setChildren] = React.useState<any>();
   const [files, setFiles] = React.useState<any>({});
+  const [copied, setCopied] = React.useState(false);
 
   const init = React.useCallback(async () => {
     let mainSrc = is('string', src) ? src : src?.main;
@@ -149,6 +152,16 @@ const Example = React.forwardRef((props: any, ref: any) => {
     }
   }, []);
 
+  const onCopy = React.useCallback(async () => {
+    await copyToClipboard(files[use]);
+
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 1400);
+  }, [use, files]);
+
   React.useEffect(() => {
     init();
   }, []);
@@ -157,6 +170,10 @@ const Example = React.forwardRef((props: any, ref: any) => {
     color: 'inherit',
     version: 'text',
     size: 'small'
+  };
+
+  const tooltipProps = {
+    portal: false
   };
 
   return (
@@ -210,29 +227,65 @@ const Example = React.forwardRef((props: any, ref: any) => {
 
               align='center'
             >
-              <IconButton
-                onClick={() => onUse('short')}
+              {['short', 'long'].includes(use) && (
+                <Tooltip
+                  label={copied ? `Copied!` : 'Copy'}
 
-                {...optionButtonProps}
+                  alignment='start'
+
+                  {...tooltipProps}
+                >
+                  <IconButton
+                    onClick={onCopy}
+
+                    {...optionButtonProps}
+                  >
+                    <IconMaterialContentCopyRounded />
+                  </IconButton>
+                </Tooltip>
+              )}
+
+              <Tooltip
+                label='Short'
+
+                {...tooltipProps}
               >
-                <IconMaterialDataObjectRounded />
-              </IconButton>
+                <IconButton
+                  onClick={() => onUse('short')}
 
-              <IconButton
-                onClick={() => onUse('long')}
+                  {...optionButtonProps}
+                >
+                  <IconMaterialDataObjectRounded />
+                </IconButton>
+              </Tooltip>
 
-                {...optionButtonProps}
+              <Tooltip
+                label='Entire file'
+
+                {...tooltipProps}
               >
-                <IconMaterialDraftRounded />
-              </IconButton>
+                <IconButton
+                  onClick={() => onUse('long')}
 
-              <IconButton
-                onClick={() => onUse('example')}
+                  {...optionButtonProps}
+                >
+                  <IconMaterialDraftRounded />
+                </IconButton>
+              </Tooltip>
 
-                {...optionButtonProps}
+              <Tooltip
+                label='Example'
+
+                {...tooltipProps}
               >
-                <IconMaterialTempPreferencesCustomRounded />
-              </IconButton>
+                <IconButton
+                  onClick={() => onUse('example')}
+
+                  {...optionButtonProps}
+                >
+                  <IconMaterialTempPreferencesCustomRounded />
+                </IconButton>
+              </Tooltip>
             </Line>
           </Line>
 

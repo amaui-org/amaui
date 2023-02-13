@@ -7,7 +7,6 @@ import { importIframeStyles } from '../../utils';
 
 const useStyle = style(theme => ({
   root: {
-    padding: '24px 26px',
     margin: '8px 0',
     background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.color.primary[5],
     boxShadow: theme.palette.light ? theme.shadows.values.default[12] : undefined,
@@ -56,6 +55,7 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
       styleDefault.innerHTML = `
         body {
           background-color: transparent;
+          padding: 24px 26px;
         }
 
         body::-webkit-scrollbar {
