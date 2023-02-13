@@ -226,6 +226,10 @@ const Example = React.forwardRef((props: any, ref: any) => {
               direction='row'
 
               align='center'
+
+              style={{
+                position: 'relative'
+              }}
             >
               {['short', 'long'].includes(use) && (
                 <Tooltip

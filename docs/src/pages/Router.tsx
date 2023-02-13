@@ -123,7 +123,7 @@ const useStyle = styleMethod(theme => ({
     left: `calc(50% ${theme.direction === 'ltr' ? '+' : '-'} 170px)`,
 
     '&.amaui-TopAppBar-root': {
-      width: `calc(100% - 340px)`,
+      width: `calc(100% - 380px)`,
     }
   },
 
@@ -795,7 +795,7 @@ function Root(props: any) {
             <Tooltip
               key={1}
 
-              label='amaui org'
+              label='amaui organization'
 
               color='inverted'
             >
