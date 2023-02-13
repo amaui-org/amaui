@@ -1,2 +1,2 @@
 
-# amaui Docs
+## amaui Docs
