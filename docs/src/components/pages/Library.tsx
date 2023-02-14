@@ -508,60 +508,62 @@ export default function Library(props: any) {
 
                 className={classes.wrapper}
               >
-                <Line
-                  direction='row'
+                {value && (
+                  <Line
+                    direction='row'
 
-                  justify='flex-end'
+                    justify='flex-end'
 
-                  align='center'
+                    align='center'
 
-                  gap={0.5}
+                    gap={0.5}
 
-                  Component='header'
+                    Component='header'
 
-                  className={classNames([
-                    classes.wrapper,
-                    classes.header
-                  ])}
-                >
-                  <Tooltip
-                    label={`${props?.label} repository`}
+                    className={classNames([
+                      classes.wrapper,
+                      classes.header
+                    ])}
                   >
-                    <IconButton
+                    <Tooltip
+                      label={`${props?.label} repository`}
+                    >
+                      <IconButton
+                        color='inherit'
+
+                        Component='a'
+
+                        href={`https://github.com/amaui-org${props?.github}`}
+
+                        target='_blank'
+
+                        size='small'
+                      >
+                        <IconGithub
+                          className={classes.icon}
+
+                          style={{
+                            height: 22
+                          }}
+                        />
+                      </IconButton>
+                    </Tooltip>
+
+                    <Button
                       color='inherit'
 
-                      Component='a'
+                      version='text'
 
-                      href={`https://github.com/amaui-org${props?.github}`}
+                      href={`https://github.com/amaui-org/amaui/tree/main/docs/public/assets/md${props.url}.md`}
 
                       target='_blank'
 
-                      size='small'
+                      Component='a'
                     >
-                      <IconGithub
-                        className={classes.icon}
-
-                        style={{
-                          height: 22
-                        }}
-                      />
-                    </IconButton>
-                  </Tooltip>
-
-                  <Button
-                    color='inherit'
-
-                    version='text'
-
-                    href={`https://github.com/amaui-org/amaui/tree/main/docs/public/assets/md${props.url}.md`}
-
-                    target='_blank'
-
-                    Component='a'
-                  >
-                    Edit page
-                  </Button>
-                </Line>
+                      Edit page
+                    </Button>
+                  </Line>
+                )}
 
                 {values?.map((item: string, index: number) => element(item, index))}
               </Line>
