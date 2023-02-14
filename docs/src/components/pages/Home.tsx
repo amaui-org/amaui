@@ -72,7 +72,7 @@ const useStyle = style(theme => ({
   about_wrapper: {
     width: '100%',
     padding: 'clamp(40px, 5vw, 104px) 44px',
-    background: theme.methods.palette.color.value('primary', 95, true)
+    background: theme.methods.palette.color.value('primary', theme.palette.light ? 99 : 95, true)
   },
 
   about_text: {

@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import LinkNext from 'next/link';
 
-import { clamp, parse, random, slugify, unique } from '@amaui/utils';
+import { clamp, parse, random, slugify, unique, copyToClipboard } from '@amaui/utils';
 import { Button, Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery, Placeholder, Fade, Tooltip, IconButton } from '@amaui/ui-react';
 import { classNames, style as styleMethod, useAmauiStyle } from '@amaui/style-react';
 import AmauiRequest from '@amaui/request';
@@ -63,6 +63,44 @@ const useStyle = styleMethod(theme => ({
     position: 'relative'
   },
 
+  actions: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    position: 'absolute',
+    gap: '8px',
+    top: '0px',
+    right: '0px',
+    padding: '24px 26px',
+    backdropFilter: 'blur(2px)',
+    opacity: 0,
+    transition: theme.methods.transitions.make('opacity')
+  },
+
+  action: {
+    lineHeight: 0,
+    cursor: 'pointer',
+    userSelect: 'none',
+    transition: theme.methods.transitions.make('transform'),
+
+    '&:active': {
+      transform: 'scale(0.84)'
+    },
+
+    '& svg': {
+      fontSize: 16
+    }
+  },
+
+  pre: {
+    '&:hover': {
+      '& $actions': {
+        opacity: 1
+      }
+    }
+  },
+
   markdown: {
     '& code[class*=language-], & pre[class*=language-]': {
       ...theme.typography.values.m3,
@@ -82,7 +120,8 @@ const useStyle = styleMethod(theme => ({
       margin: '16px 0',
       background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.color.primary[5],
       boxShadow: theme.palette.light ? theme.shadows.values.default[12] : undefined,
-      maxHeight: '540px'
+      maxHeight: '540px',
+      position: 'relative'
     },
 
     '& .operator': {
@@ -245,8 +284,9 @@ export default function Library(props: any) {
 
     markdowns.forEach(markdown => {
       // Update all headings within the markdown inner html
-      const elements = Array.from(markdown?.querySelectorAll('h1, h2, h3, h4, h5, h6') || []);
+      let elements = Array.from(markdown?.querySelectorAll('h1, h2, h3, h4, h5, h6') || []);
 
+      // Add url anchor to heading elements
       elements.forEach(item => {
         const id = slugify(item.innerHTML);
 
@@ -273,6 +313,46 @@ export default function Library(props: any) {
           text,
           priority: +item.tagName.slice(1)
         });
+      });
+
+      // Update all headings within the markdown inner html
+      elements = Array.from(markdown?.querySelectorAll('pre') || []);
+
+      // Add url anchor to heading elements
+      elements.forEach(item => {
+        const text = item.textContent;
+
+        // ID
+        if (!(item as any).dataset.amaui) {
+          // ClassName
+          item.className = classNames([item.className, classes.pre]);
+
+          // Mark
+          item.setAttribute('data-amaui', 'true');
+
+          const iconCopy = `<svg viewBox="0 0 24 24" width="1em" height="1em" focusable="false" aria-hidden="true" style="fill: currentcolor; font-size: 22px;"><path d="M9 18Q8.175 18 7.588 17.413Q7 16.825 7 16V4Q7 3.175 7.588 2.587Q8.175 2 9 2H18Q18.825 2 19.413 2.587Q20 3.175 20 4V16Q20 16.825 19.413 17.413Q18.825 18 18 18ZM9 16H18Q18 16 18 16Q18 16 18 16V4Q18 4 18 4Q18 4 18 4H9Q9 4 9 4Q9 4 9 4V16Q9 16 9 16Q9 16 9 16ZM5 22Q4.175 22 3.587 21.413Q3 20.825 3 20V7Q3 6.575 3.288 6.287Q3.575 6 4 6Q4.425 6 4.713 6.287Q5 6.575 5 7V20Q5 20 5 20Q5 20 5 20H15Q15.425 20 15.713 20.288Q16 20.575 16 21Q16 21.425 15.713 21.712Q15.425 22 15 22ZM9 4Q9 4 9 4Q9 4 9 4V16Q9 16 9 16Q9 16 9 16Q9 16 9 16Q9 16 9 16V4Q9 4 9 4Q9 4 9 4Z"/></svg>`;
+
+          const actions = window.document.createElement('div');
+
+          actions.className = classNames([classes.actions]);
+
+          // Actions
+          const actionCopy = window.document.createElement('span');
+
+          actionCopy.onclick = async () => {
+            await copyToClipboard(text?.trim());
+          };
+
+          actionCopy.className = classNames([classes.action]);
+
+          actionCopy.innerHTML = iconCopy;
+
+          // Add to actions
+          actions.append(actionCopy);
+
+          // Add to pre
+          item.append(actions);
+        }
       });
     });
 
