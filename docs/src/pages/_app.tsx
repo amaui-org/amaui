@@ -28,10 +28,10 @@ export default function App(props: AppProps) {
 
   const touch = useMediaQuery('coarse');
 
-  const [screenCaptureSupported, setScreenCaptureSupported] = React.useState(false);
+  const [screenCaptureSupported, setScreenCaptureSupported] = React.useState(true);
 
   React.useEffect(() => {
-    setScreenCaptureSupported(!(touch || isOS('mobile')));
+    // setScreenCaptureSupported(!(touch || isOS('mobile')));
   }, [touch]);
 
   const valueAmauiStyle = useAmauiStyle();

@@ -199,7 +199,8 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   refs.canvasSelectorValue.current = canvasSelectorValue;
 
   const onInit = React.useCallback(() => {
-    const value = !(touch || isOS('mobile'));
+    // const value = !(touch || isOS('mobile'));
+    const value = true;
 
     setInit(true);
 
