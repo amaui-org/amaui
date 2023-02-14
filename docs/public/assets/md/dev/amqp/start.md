@@ -2,11 +2,7 @@
 ### Add
 
 ```bash
-// yarn
 yarn add @amaui/amqp
-
-// npm
-npm install @amaui/amqp
 ```
 
 ### Use

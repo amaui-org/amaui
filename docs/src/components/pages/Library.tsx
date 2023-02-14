@@ -72,6 +72,7 @@ const useStyle = styleMethod(theme => ({
     gap: '8px',
     top: '0px',
     right: '0px',
+    minHeight: 64,
     padding: '24px 26px',
     backdropFilter: 'blur(2px)',
     opacity: 0,

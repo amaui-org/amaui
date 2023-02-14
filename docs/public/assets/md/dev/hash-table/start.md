@@ -2,11 +2,7 @@
 ### Add
 
 ```sh
-// yarn
 yarn add @amaui/hash-table
-
-// npm
-npm install @amaui/hash-table
 ```
 
 ### Use cases

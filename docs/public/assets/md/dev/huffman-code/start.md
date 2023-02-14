@@ -2,11 +2,7 @@
 ### Add
 
 ```sh
-// yarn
 yarn add @amaui/huffman-code
-
-// npm
-npm install @amaui/huffman-code
 ```
 
 ### Use

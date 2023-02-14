@@ -2,11 +2,7 @@
 ### Add
 
 ```sh
-// yarn
 yarn add @amaui/style
-
-// npm
-npm install @amaui/style
 ```
 
 ### Use

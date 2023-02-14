@@ -2,11 +2,7 @@
 ### Add
 
 ```sh
-// yarn
 yarn add @amaui/zip
-
-// npm
-npm install @amaui/zip
 ```
 
 ### Use

@@ -2,11 +2,7 @@
 ### Add
 
 ```bash
-// yarn
 yarn add @amaui/queue
-
-// npm
-npm install @amaui/queue
 ```
 
 ### Use cases

@@ -2,11 +2,7 @@
 ### Add
 
 ```sh
-// yarn
 yarn add @amaui/diff
-
-// npm
-npm install @amaui/diff
 ```
 
 ### Use

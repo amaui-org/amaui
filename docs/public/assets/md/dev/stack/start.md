@@ -2,11 +2,7 @@
 ### Add
 
 ```sh
-// yarn
 yarn add @amaui/stack
-
-// npm
-npm install @amaui/stack
 ```
 
 ### Use cases

@@ -2,11 +2,7 @@
 ### Add
 
 ```bash
-// yarn
 yarn add @amaui/icons-material-react
-
-// npm
-npm install @amaui/icons-material-react
 ```
 
 ### Use

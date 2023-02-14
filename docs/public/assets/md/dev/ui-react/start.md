@@ -7,10 +7,6 @@ Make sure to install `@amaui/style-react` as well.
 yarn add @amaui/ui-react @amaui/style-react
 ```
 
-```bash
-npm install @amaui/ui-react @amaui/style-react
-```
-
 ### Use
 
 ```jsx

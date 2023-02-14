@@ -2,11 +2,7 @@
 ### Add
 
 ```sh
-// yarn
 yarn add @amaui/meta
-
-// npm
-npm install @amaui/meta
 ```
 
 ### Use

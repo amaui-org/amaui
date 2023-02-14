@@ -2,11 +2,7 @@
 ### Add
 
 ```sh
-// yarn
 yarn add @amaui/style-react
-
-// npm
-npm install @amaui/style-react
 ```
 
 ### Use

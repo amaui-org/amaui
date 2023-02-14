@@ -2,11 +2,7 @@
 ### Add
 
 ```bash
-// yarn
 yarn add @amaui/aws
-
-// npm
-npm install @amaui/aws
 ```
 
 ### Use

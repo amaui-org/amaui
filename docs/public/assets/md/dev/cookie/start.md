@@ -4,9 +4,6 @@
 ```sh
 // yarn
 yarn add @amaui/cookie
-
-// npm
-npm install @amaui/cookie
 ```
 
 ### Use

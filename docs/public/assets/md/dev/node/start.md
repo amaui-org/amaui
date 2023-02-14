@@ -2,11 +2,7 @@
 ### Add
 
 ```sh
-// yarn
 yarn add @amaui/node
-
-// npm
-npm install @amaui/node
 ```
 
 ### Use

@@ -2,11 +2,7 @@
 ### Add
 
 ```sh
-// yarn
 yarn add @amaui/heap
-
-// npm
-npm install @amaui/heap
 ```
 
 ### Use cases

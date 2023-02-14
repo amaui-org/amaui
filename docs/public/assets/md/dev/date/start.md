@@ -2,11 +2,7 @@
 ### Add
 
 ```sh
-// yarn
 yarn add @amaui/date
-
-// npm
-npm install @amaui/date
 ```
 
 ### Use

@@ -2,11 +2,7 @@
 ### Add
 
 ```bash
-// yarn
 yarn add @amaui/algorithms
-
-// npm
-npm install @amaui/algorithms
 ```
 
 ### Algorithms

@@ -2,11 +2,7 @@
 ### Add
 
 ```sh
-  // yarn
-  yarn add @amaui/cache
-
-  // npm
-  npm install @amaui/cache
+yarn add @amaui/cache
 ```
 
 ### Use
