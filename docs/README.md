@@ -1,2 +1,0 @@
-
-# amaui docs
