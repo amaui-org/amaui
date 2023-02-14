@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "build": "lerna bootstrap --scope='@amaui/docs' --include-dependencies && lerna run build --scope='@amaui/docs' --include-dependencies --stream",
-    "start": "cd docs && cross-env NODE_ENV=production node ./src"
+    "start": "cd docs && cross-env NODE_ENV=production node ./src",
+    "dev": "cd docs && yarn dev"
   },
   "devDependencies": {
     "@amaui/models": "^1.0.11114",

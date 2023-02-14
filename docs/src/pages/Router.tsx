@@ -218,19 +218,15 @@ const useStyle = styleMethod(theme => ({
 
   sideNavListSubheader: {
     paddingTop: 8,
-    marginBottom: 24
+    marginBottom: 24,
+    background: 'transparent !important',
+    backdropFilter: 'blur(2px)'
   },
 
   [`@media only screen and (min-width: 1100px)`]: {
     $navigationDrawer: {
       '& .amaui-Modal-surface': {
         background: 'transparent'
-      }
-    },
-
-    $sideNavListSubheader: {
-      '&.amaui-Surface-root': {
-        background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.primary.secondary
       }
     }
   }
