@@ -4,7 +4,7 @@ import LinkNext from 'next/link';
 
 import { clamp, parse, random, slugify, unique, copyToClipboard } from '@amaui/utils';
 import { Button, Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery, Placeholder, Fade, Tooltip, IconButton } from '@amaui/ui-react';
-import { classNames, style as styleMethod, useAmauiStyle } from '@amaui/style-react';
+import { classNames, style as styleMethod } from '@amaui/style-react';
 import AmauiRequest from '@amaui/request';
 
 import IconGithub from '../../../public/assets/svg/github.svg';
@@ -211,13 +211,11 @@ export default function Library(props: any) {
 
   refs.value.current = value;
 
-  const amauiStyle = useAmauiStyle();
-
   const page = React.useCallback(async (url_: string) => {
     refs.url.current = url_;
 
     const url = url_?.split('/dev')[1];
-    console.log(1, amauiStyle);
+
     // Main progress
     mainProgress.start();
 
