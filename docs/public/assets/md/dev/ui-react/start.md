@@ -1,25 +1,14 @@
 
 ### Add
 
-```bash
-// yarn
-yarn add @amaui/ui-react
-
-// npm
-npm install @amaui/ui-react
-```
-
-<br />
-
 Make sure to install `@amaui/style-react` as well.
 
+```bash
+yarn add @amaui/ui-react @amaui/style-react
+```
 
-```sh
-// yarn
-yarn add @amaui/style-react
-
-// npm
-npm install @amaui/style-react
+```bash
+npm install @amaui/ui-react @amaui/style-react
 ```
 
 ### Use
