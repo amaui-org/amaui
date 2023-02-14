@@ -339,7 +339,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
     };
 
     try {
-      refs.element.current.srcObject = await window.navigator.mediaDevices.getDisplayMedia(options);
+      refs.element.current.srcObject = await window.navigator.mediaDevices.getDisplayMedia({ preferCurrentTab: true, ...options });
 
       const mediaStream = refs.element.current.srcObject;
 
