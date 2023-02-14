@@ -9,6 +9,8 @@ yarn add @amaui/ui-react
 npm install @amaui/ui-react
 ```
 
+<br />
+
 Make sure to install `@amaui/style-react` as well.
 
 
@@ -55,11 +57,6 @@ Build
 ```bash
 yarn build
 ```
-
-### Disclaimer
-
-amaui UI elements library is mostly based on the UI design rules of Open Source Google Material Design 3 design principles. \
-The project is not in any way affiliated with Alphabet Inc., Google Inc. or any of their projects.
 
 ~{
   "element": "BottomNavigation",
