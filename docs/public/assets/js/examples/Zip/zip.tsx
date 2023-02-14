@@ -15,7 +15,7 @@ const useStyle = style(theme => ({
   pre: {
     fontSize: 12,
     fontFamily: theme.typography.font_family.tertiary,
-    width: '100vw',
+    width: '100%',
     overflow: 'auto'
   },
 
@@ -95,9 +95,17 @@ const zip = React.forwardRef((props: any, ref: any) => {
       {response && (
         <Line
           gap={2}
+
+          style={{
+            width: '100%'
+          }}
         >
           <Line
             gap={1}
+
+            style={{
+              width: '100%'
+            }}
           >
             <Line
               gap={0.5}
@@ -152,6 +160,10 @@ const zip = React.forwardRef((props: any, ref: any) => {
 
           <Line
             gap={1}
+
+            style={{
+              width: '100%'
+            }}
           >
             <Type
               version='h4'
