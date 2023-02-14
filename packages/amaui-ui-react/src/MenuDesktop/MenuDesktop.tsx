@@ -200,6 +200,8 @@ export interface IMenuDesktop extends ILine {
   ItemProps?: TPropsAny;
   IconProps?: TPropsAny;
   TransitionComponentProps?: TPropsAny;
+  WrapperProps?: TPropsAny;
+  WrapperMenuProps?: TPropsAny;
 }
 
 const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
@@ -244,6 +246,7 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
     ItemProps,
     IconProps,
     TransitionComponentProps,
+    WrapperProps,
     WrapperMenuProps,
 
     className,
@@ -681,11 +684,15 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
 
                 onMouseLeave={onMouseLeave}
 
+                {...WrapperProps}
+
                 style={{
                   ...append,
                   ...styleAppend,
 
-                  transition: 'none'
+                  transition: 'none',
+
+                  ...WrapperProps?.style
                 }}
               >
                 <TransitionComponent

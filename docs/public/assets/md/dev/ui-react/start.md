@@ -9,6 +9,17 @@ yarn add @amaui/ui-react
 npm install @amaui/ui-react
 ```
 
+Make sure to install `@amaui/style-react` as well.
+
+
+```sh
+// yarn
+yarn add @amaui/style-react
+
+// npm
+npm install @amaui/style-react
+```
+
 ### Use
 
 ```jsx

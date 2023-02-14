@@ -105,6 +105,7 @@ const useStyle = styleMethod(theme => ({
       maxWidth: theme.breakpoints.values.lg,
       padding: 0,
       background: 'transparent',
+      backdropFilter: 'blur(12px)',
       borderRadius: theme.methods.shape.radius.value('xxl', 'px'),
       transition: [
         theme.methods.transitions.make(['transform', 'left'], { duration: 'rg' }),
@@ -129,7 +130,6 @@ const useStyle = styleMethod(theme => ({
 
   header_not_top: {
     '&.amaui-TopAppBar-root': {
-      background: theme.methods.palette.color.colorToRgb(theme.palette.color.primary[theme.palette.light ? 99 : 5] as string, 0.97),
       maxWidth: theme.breakpoints.values.md,
       boxShadow: theme.shadows.values.default['2']
     }
@@ -704,7 +704,11 @@ function Root(props: any) {
               key={0}
 
               WrapperMenuProps={{
-                elevation: 12
+                elevation: 12,
+
+                style: {
+                  background: theme.methods.palette.color.colorToRgb(theme.palette.light ? theme.palette.background.default.secondary : theme.palette.background.default.tertiary, 94)
+                }
               }}
 
               items={[
@@ -725,7 +729,8 @@ function Root(props: any) {
 
                       style={{
                         maxHeight: 400,
-                        overflowY: 'auto'
+                        overflowY: 'auto',
+                        background: 'transparent'
                       }}
                     >
                       {libraries.map((item: any, index: number) => {

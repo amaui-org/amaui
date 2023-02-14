@@ -1,7 +1,8 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 
 import { random } from '@amaui/utils';
-import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Checkbox, DatePicker, DonutChart, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Radio, Rating, Slider, Surface, Switch, Tab, Tabs, TimePicker, Tooltip, Tree, Type, useMediaQuery, Weather, Calendar, CalendarMonth } from '@amaui/ui-react';
+import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Checkbox, DatePicker, DonutChart, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Radio, Rating, Slider, Surface, Switch, Tab, Tabs, TimePicker, Tooltip, Tree, Type, useMediaQuery, Weather } from '@amaui/ui-react';
 import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
 
@@ -14,6 +15,7 @@ import IconMaterialFolderRounded from '@amaui/icons-material-react/IconMaterialF
 import IconMaterialFolderOpenRounded from '@amaui/icons-material-react/IconMaterialFolderOpenRounded';
 import IconMaterialFiberManualRecordRounded from '@amaui/icons-material-react/IconMaterialFiberManualRecordRoundedFilled';
 import IconMaterialMoreVertRounded from '@amaui/icons-material-react/IconMaterialMoreVertRounded';
+import IconMaterialEastRounded from '@amaui/icons-material-react/IconMaterialEastRounded';
 
 import Logo from '../../../public/assets/svg/logo.svg';
 
@@ -38,7 +40,7 @@ const useStyle = style(theme => ({
 
   main_wrapper: {
     width: '100%',
-    padding: 'clamp(104px, 14vw, 240px) 44px'
+    padding: 'clamp(104px, 14vw, 240px) 44px clamp(104px, 14vw, 140px)'
   },
 
   main_title: {
@@ -121,6 +123,7 @@ const useStyle = style(theme => ({
 
 export default function Root(props: any) {
   const { classes } = useStyle(props);
+  const router = useRouter();
 
   const theme = useAmauiTheme();
 
@@ -369,6 +372,28 @@ export default function Root(props: any) {
           >
             Make Modern Web & Mobile Apps Quickly <Type version='none' color='primary' Component='span' className={classes.text_primary}>100+ UI elements</Type>
           </Type>
+
+          <Button
+            version='filled'
+
+            color='secondary'
+
+            tonal
+
+            size='large'
+
+            end={(
+              <IconMaterialEastRounded />
+            )}
+
+            onClick={() => router.push('/dev/ui-react')}
+
+            style={{
+              marginTop: 24
+            }}
+          >
+            Start now
+          </Button>
         </Line>
       </section>
 
