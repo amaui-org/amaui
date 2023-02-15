@@ -72,7 +72,7 @@ const useStyle = styleMethod(theme => ({
     gap: '8px',
     top: '0px',
     right: '0px',
-    minHeight: 64,
+    minHeight: 68,
     padding: '20px 26px',
     backdropFilter: 'blur(2px)',
     opacity: 0,
@@ -95,6 +95,20 @@ const useStyle = styleMethod(theme => ({
   },
 
   pre: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+
+    '& > code': {
+      flex: '1 1 auto',
+      padding: '24px 32px 24px 0 !important'
+    },
+
+    '& > $actions': {
+      position: 'sticky',
+      flex: '0 0 74px'
+    },
+
     '&:hover': {
       '& $actions': {
         opacity: 1
@@ -116,8 +130,12 @@ const useStyle = styleMethod(theme => ({
       opacity: 0.5
     },
 
+    '& code': {
+      counterReset: 'lines'
+    },
+
     '& pre': {
-      padding: '24px 26px',
+      padding: '0',
       margin: '16px 0',
       background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.color.primary[5],
       boxShadow: theme.palette.light ? theme.shadows.values.default[12] : undefined,
@@ -139,6 +157,26 @@ const useStyle = styleMethod(theme => ({
 
     '& thead > tr > th': {
       fontWeight: 700
+    }
+  },
+
+  line: {
+    counterIncrement: 'line',
+    height: 20,
+    lineHeight: '20px',
+
+    '&:only-child': {
+      paddingInlineStart: 32
+    },
+
+    '&:not(:only-child)::before': {
+      content: 'counter(line)',
+      minWidth: 40,
+      marginInlineEnd: 20,
+      textAlign: 'end',
+      display: 'inline-block',
+      color: 'currentcolor',
+      opacity: 0.3
     }
   },
 
@@ -275,8 +313,6 @@ export default function Library(props: any) {
   const onUpdate = React.useCallback(() => {
     const Prism = (window as any).Prism;
 
-    Prism.highlightAllUnder(window.document.getElementById(refs.id) as HTMLElement);
-
     const markdowns = Array.from(refs.wrapper.current!.querySelectorAll('.amaui-Markdown-root'));
 
     const valuesHeadings: any = [];
@@ -321,7 +357,6 @@ export default function Library(props: any) {
       elements.forEach(item => {
         const text = item.textContent;
 
-        // ID
         if (!(item as any).dataset.amaui) {
           // ClassName
           item.className = classNames([item.className, classes.pre]);
@@ -351,6 +386,33 @@ export default function Library(props: any) {
 
           // Add to pre
           item.append(actions);
+        }
+      });
+
+      // Code blocks
+      elements = Array.from(markdown?.querySelectorAll('pre > code') || []);
+
+      elements.forEach(item => {
+        if (!(item as any).dataset.amaui) {
+          // Mark
+          item.setAttribute('data-amaui', 'true');
+
+          const items = (item.textContent || '').split('\n').slice(0, -1);
+
+          // Reset
+          item.innerHTML = '';
+
+          items.forEach(line => {
+            const lineDiv = window.document.createElement('div');
+
+            lineDiv.className = classNames([classes.line, ...(Array.from(item.parentElement?.classList || []) as any).filter((value: any) => value.startsWith('language-'))]);
+
+            lineDiv.innerHTML = line;
+
+            Prism.highlightElement(lineDiv);
+
+            item.append(lineDiv);
+          });
         }
       });
     });

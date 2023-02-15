@@ -23,12 +23,10 @@ const useStyle = style(theme => ({
 
   a: {
       width: 100,
-
       'max-width': 100,
 
       // Simple
       background: '#faa',
-
       margin: '0 14px 4px 40px',
 
       // rtl
