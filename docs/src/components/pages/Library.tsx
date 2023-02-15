@@ -80,18 +80,36 @@ const useStyle = styleMethod(theme => ({
   },
 
   action: {
+    position: 'relative',
     lineHeight: 0,
     cursor: 'pointer',
     userSelect: 'none',
-    transition: theme.methods.transitions.make('transform'),
 
     '&:active': {
-      transform: 'scale(0.84)'
+      '& svg': {
+        transform: 'scale(0.84)'
+      }
     },
 
     '& svg': {
-      fontSize: 16
+      fontSize: 16,
+      pointerEvents: 'none',
+      transition: theme.methods.transitions.make('transform')
     }
+  },
+
+  tooltip: {
+    ...theme.typography.values.b3,
+
+    display: 'inline-block',
+    position: 'absolute',
+    opacity: 0,
+    borderRadius: `${clamp(theme.shape.radius.unit / 2, 0, 8)}px`,
+    padding: '4px 8px',
+    color: theme.palette.background.default.primary,
+    backgroundColor: theme.palette.light ? theme.palette.background.dark.primary : theme.palette.background.light.primary,
+    lineHeight: '1.455',
+    transition: theme.methods.transitions.make('opacity')
   },
 
   pre: {
@@ -397,7 +415,7 @@ export default function Library(props: any) {
       // Update all headings within the markdown inner html
       elements = Array.from(markdown?.querySelectorAll('pre') || []);
 
-      // Add url anchor to heading elements
+      // Add actions to pre elements
       elements.forEach(item => {
         const text = item.textContent;
 
@@ -417,8 +435,56 @@ export default function Library(props: any) {
           // Actions
           const actionCopy = window.document.createElement('span');
 
-          actionCopy.onclick = async () => {
+          actionCopy.onclick = async event => {
+            const target = event.target as HTMLElement;
+
             await copyToClipboard(text?.trim());
+
+            if (!(target as any).tooltip) {
+              const tooltip = window.document.createElement('span');
+
+              (target as any).tooltip = tooltip;
+
+              tooltip.innerHTML = 'Copied!';
+              tooltip.className = classes.tooltip;
+
+              const rect = target.getBoundingClientRect();
+
+              tooltip.style.top = `${window.scrollY + rect.y + 40}px`;
+              tooltip.style.left = `${rect.x - 17}px`;
+
+              window.document.body.append(tooltip);
+
+              setTimeout(() => {
+                tooltip.style.opacity = '1';
+              }, 14);
+            }
+
+            clearTimeout((target as any).timeout);
+
+            const remove = () => {
+              if ((target as any).tooltip) {
+                (target as any).tooltip.style.opacity = 0;
+
+                setTimeout(() => {
+                  if ((target as any).tooltip) {
+                    (target as any).tooltip.remove();
+
+                    (target as any).tooltip = undefined;
+
+                    (actionCopy.parentElement?.parentElement as any).onmouseleave = (actionCopy.parentElement?.parentElement as any).onmouseout = undefined;
+                  }
+                }, 300);
+              }
+            };
+
+            const removeOnOut = (event_: any) => {
+              if (event_.target === (actionCopy.parentElement?.parentElement as any)) remove();
+            };
+
+            (actionCopy.parentElement?.parentElement as any).onmouseleave = (actionCopy.parentElement?.parentElement as any).onmouseout = removeOnOut;
+
+            (target as any).timeout = setTimeout(remove, 1400);
           };
 
           actionCopy.className = classNames([classes.action]);
@@ -433,7 +499,7 @@ export default function Library(props: any) {
         }
       });
 
-      // Code blocks
+      // Parse code blocks
       elements = Array.from(markdown?.querySelectorAll('pre > code') || []);
 
       elements.forEach(item => {
