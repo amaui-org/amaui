@@ -74,6 +74,7 @@ const useStyle = styleMethod(theme => ({
     right: '0px',
     minHeight: 68,
     padding: '20px 26px',
+    borderEndStartRadius: 12,
     backdropFilter: 'blur(2px)',
     opacity: 0,
     transition: theme.methods.transitions.make('opacity')
