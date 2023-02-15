@@ -120,7 +120,8 @@ const useStyle = styleMethod(theme => ({
 
     '& > code': {
       flex: '1 1 auto',
-      padding: '24px 32px 24px 0 !important'
+      paddingBlock: '24px !important',
+      paddingInlineEnd: '32px',
     },
 
     '& > $actions': {
@@ -212,6 +213,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   line: {
+    textAlign: 'start',
     counterIncrement: 'line',
     height: 20,
     lineHeight: '20px',
