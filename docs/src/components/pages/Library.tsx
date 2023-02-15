@@ -211,7 +211,7 @@ const useStyle = styleMethod(theme => ({
       opacity: 0.3
     },
 
-    '&.language-bash': {
+    '&.language-bash, &.language-sh': {
       '& .function + .function': {
         color: theme.methods.palette.color.value('primary', 10)
       }
