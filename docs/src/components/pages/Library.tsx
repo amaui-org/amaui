@@ -3,7 +3,7 @@ import Head from 'next/head';
 import LinkNext from 'next/link';
 
 import { clamp, parse, random, slugify, unique, copyToClipboard } from '@amaui/utils';
-import { Button, Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery, Placeholder, Fade, Tooltip, IconButton } from '@amaui/ui-react';
+import { Button, Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery, Placeholder, Fade, Tooltip, IconButton, sanitize } from '@amaui/ui-react';
 import { classNames, style as styleMethod } from '@amaui/style-react';
 import AmauiRequest from '@amaui/request';
 
@@ -147,6 +147,38 @@ const useStyle = styleMethod(theme => ({
       background: 'transparent'
     },
 
+    '& .keyword, & .attr-name': {
+      color: theme.palette.color.primary[theme.palette.light ? 40 : 30]
+    },
+
+    '& .attr-name': {
+      fontStyle: 'italic'
+    },
+
+    '& .function, & .class-name, & .tag': {
+      color: theme.palette.color.primary[theme.palette.light ? 30 : 40]
+    },
+
+    '& .constant': {
+      color: theme.palette.color.secondary[theme.palette.light ? 40 : 30]
+    },
+
+    '& .important, & .regex, & .variable': {
+      color: theme.palette.color.tertiary[theme.palette.light ? 40 : 30]
+    },
+
+    '& .number, & .boolean': {
+      color: theme.palette.color.quaternary[theme.palette.light ? 40 : 30]
+    },
+
+    '& .punctuation': {
+      color: theme.methods.palette.color.colorToRgb(theme.methods.palette.color.value('primary', 10), 54)
+    },
+
+    '& .property, & .operator, & .builtin.class-name, & .script': {
+      color: theme.methods.palette.color.value('primary', 10)
+    },
+
     '& table': {
       border: 'none',
 
@@ -177,6 +209,12 @@ const useStyle = styleMethod(theme => ({
       display: 'inline-block',
       color: 'currentcolor',
       opacity: 0.3
+    },
+
+    '&.language-bash': {
+      '& .function + .function': {
+        color: theme.methods.palette.color.value('primary', 10)
+      }
     }
   },
 
@@ -407,7 +445,7 @@ export default function Library(props: any) {
 
             lineDiv.className = classNames([classes.line, ...(Array.from(item.parentElement?.classList || []) as any).filter((value: any) => value.startsWith('language-'))]);
 
-            lineDiv.innerHTML = line;
+            lineDiv.innerHTML = line ? sanitize(line) : '';
 
             Prism.highlightElement(lineDiv);
 

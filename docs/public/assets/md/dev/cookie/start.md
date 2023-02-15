@@ -2,7 +2,6 @@
 ### Add
 
 ```sh
-// yarn
 yarn add @amaui/cookie
 ```
 

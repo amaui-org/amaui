@@ -38,11 +38,7 @@
 ### Add
 
 ```sh
-  // yarn
   yarn add @amaui/ui-react
-
-  // npm
-  npm install @amaui/ui-react
 ```
 
 ### Use
