@@ -105,12 +105,13 @@ const useStyle = styleMethod(theme => ({
     display: 'inline-block',
     position: 'absolute',
     opacity: 0,
+    transform: 'scale(0.74)',
     borderRadius: `${clamp(theme.shape.radius.unit / 2, 0, 8)}px`,
     padding: '4px 8px',
     color: theme.palette.background.default.primary,
     backgroundColor: theme.palette.light ? theme.palette.background.dark.primary : theme.palette.background.light.primary,
     lineHeight: '1.455',
-    transition: theme.methods.transitions.make('opacity')
+    transition: theme.methods.transitions.make(['opacity', 'transform'])
   },
 
   pre: {
@@ -453,13 +454,13 @@ export default function Library(props: any) {
 
               const rect = target.getBoundingClientRect();
 
-              tooltip.style.top = `${window.scrollY + rect.y + 40}px`;
-              tooltip.style.left = `${rect.x - 17}px`;
-
               window.document.body.append(tooltip);
 
               setTimeout(() => {
+                tooltip.style.top = `${window.scrollY + rect.y + 40}px`;
+                tooltip.style.left = `${rect.x - (Math.abs(tooltip.clientWidth - target.clientWidth) / 2)}px`;
                 tooltip.style.opacity = '1';
+                tooltip.style.transform = 'scale(1)';
               }, 14);
             }
 
@@ -468,6 +469,7 @@ export default function Library(props: any) {
             const remove = () => {
               if ((target as any).tooltip) {
                 (target as any).tooltip.style.opacity = 0;
+                (target as any).tooltip.style.transform = 'scale(0.74)';
 
                 setTimeout(() => {
                   if ((target as any).tooltip) {
