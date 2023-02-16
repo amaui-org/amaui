@@ -452,7 +452,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
 
             if (match_.includes(`<${a1}>`)) match_ = match_.replace(`<${a1}>`, a1);
 
-            return match_.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${a1}' ref='nofollow' target='blank'>${a1}</a>`);
+            return match_.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${a1}' ref='nofollow'>${a1}</a>`);
           }
         },
         // ol
@@ -545,7 +545,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
 
             if (!url) return match;
 
-            return match.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${url[1]}' title='${url[3] || ''}' ref='nofollow' target='blank'>${a2}</a>`);
+            return match.replace(a1, `<a${addClassName('a')}${addStyle('a')} href='${url[1]}' title='${url[3] || ''}' ref='nofollow'>${a2}</a>`);
           }
         },
         // blockquote
@@ -656,7 +656,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
 
             if (valueRender !== undefined) return valueRender;
 
-            return `<a${addClassName('a')}${addStyle('a')} href='${a2}' title='${a4 || ''}' ref='nofollow' target='blank'>${a1}</a>`;
+            return `<a${addClassName('a')}${addStyle('a')} href='${a2}' title='${a4 || ''}' ref='nofollow'>${a1}</a>`;
           }
         },
         // a ref
