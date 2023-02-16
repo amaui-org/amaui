@@ -304,6 +304,7 @@ export default function Library(props: any) {
   const [headings, setHeadings] = React.useState<any>([]);
   const [loaded, setLoaded] = React.useState(false);
 
+  const smallScreen = useMediaQuery('(max-width: 1100px)');
   const mediumScreen = useMediaQuery('(max-width: 1300px)');
   const useMiddleMargin = useMediaQuery('(min-width: 1800px)');
 
@@ -315,6 +316,27 @@ export default function Library(props: any) {
   };
 
   refs.value.current = value;
+
+  const activePageRecursive = (menu: any[] = props.menu): any => {
+    for (const item of menu) {
+      if (item.url === props.url) return item;
+      else if (item?.menu) {
+        const activePage_ = activePageRecursive(item.menu as any);
+
+        if (activePage_) return activePage_;
+      }
+    }
+  };
+
+  const activePage = activePageRecursive();
+
+  let activePageGroup = activePage?.url?.split('/')[3];
+
+  activePageGroup = activePageGroup === 'api' ? 'API' : activePageGroup === 'use' ? 'Use' : '';
+
+  if (activePageGroup === 'Use' && !activePage?.menu?.length) activePageGroup = '';
+
+  const title = `${props.label}${activePageGroup ? ` ${activePageGroup}` : activePageGroup}${activePage?.label ? `: ${activePage?.label}` : ''}`;
 
   const page = React.useCallback(async (url_: string) => {
     refs.url.current = url_;
@@ -593,19 +615,6 @@ export default function Library(props: any) {
 
   const withSidenav = !mediumScreen && !!headings.length;
 
-  const activePageRecursive = (menu: any[] = props.menu): any => {
-    for (const item of menu) {
-      if (item.url === props.url) return item;
-      else if (item?.menu) {
-        const activePage_ = activePageRecursive(item.menu as any);
-
-        if (activePage_) return activePage_;
-      }
-    }
-  };
-
-  const activePage = activePageRecursive();
-
   const maxPriority = clamp(Math.max(...headings?.map((item: any) => item.priority)), 1);
 
   const Placeholders = React.useMemo(() => {
@@ -662,15 +671,9 @@ export default function Library(props: any) {
     );
   }, []);
 
-  let activePageGroup = activePage?.url?.split('/')[3];
-
-  activePageGroup = activePageGroup === 'api' ? 'API' : activePageGroup === 'use' ? 'Use' : '';
-
-  if (activePageGroup === 'Use' && !activePage?.menu?.length) activePageGroup = '';
-
   return <>
     <Head>
-      <title>{props.label}{activePageGroup ? ` ${activePageGroup}` : activePageGroup}{activePage?.label ? `: ${activePage?.label}` : ''}</title>
+      <title>{title}</title>
 
       <meta property='og:title' content={`${props.label}${activePageGroup ? ` ${activePageGroup}` : activePageGroup}${activePage?.label ? `: ${activePage?.label}` : ''}`} />
       <meta property='og:url' content={`https://amaui.me${props.url}`} />
@@ -694,6 +697,18 @@ export default function Library(props: any) {
           classes.root
         ])}
       >
+        {smallScreen && (
+          <Type
+            version='h2'
+
+            style={{
+              margin: '24px 0 40px'
+            }}
+          >
+            {title}
+          </Type>
+        )}
+
         {!value && loaded && (
           <Line
             gap={3}
