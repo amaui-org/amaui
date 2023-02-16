@@ -330,13 +330,15 @@ export default function Library(props: any) {
 
   const activePage = activePageRecursive();
 
-  let activePageGroup = activePage?.url?.split('/')[3];
+  let group = activePage?.url?.split('/')[3];
 
-  activePageGroup = activePageGroup === 'api' ? 'API' : activePageGroup === 'use' ? 'Use' : '';
+  group = group === 'api' ? 'API' : group === 'use' ? 'Use' : '';
 
-  // if (activePageGroup === 'Use' && !activePage?.menu?.length) activePageGroup = '';
+  let pageLabel = activePage?.label;
 
-  const title = `${props.label}${activePageGroup ? ` ${activePageGroup}` : activePageGroup}${activePage?.label ? `: ${activePage?.label}` : ''}`;
+  if (['use', 'api'].includes(pageLabel.toLowerCase())) group = '';
+
+  const title = `${props.label}${group ? ` ${group}` : group}${pageLabel ? `: ${pageLabel}` : ''}`;
 
   const page = React.useCallback(async (url_: string) => {
     refs.url.current = url_;
@@ -675,7 +677,7 @@ export default function Library(props: any) {
     <Head>
       <title>{title}</title>
 
-      <meta property='og:title' content={`${props.label}${activePageGroup ? ` ${activePageGroup}` : activePageGroup}${activePage?.label ? `: ${activePage?.label}` : ''}`} />
+      <meta property='og:title' content={title} />
       <meta property='og:url' content={`https://amaui.me${props.url}`} />
     </Head>
 
