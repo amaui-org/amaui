@@ -334,7 +334,7 @@ export default function Library(props: any) {
 
   activePageGroup = activePageGroup === 'api' ? 'API' : activePageGroup === 'use' ? 'Use' : '';
 
-  if (activePageGroup === 'Use' && !activePage?.menu?.length) activePageGroup = '';
+  // if (activePageGroup === 'Use' && !activePage?.menu?.length) activePageGroup = '';
 
   const title = `${props.label}${activePageGroup ? ` ${activePageGroup}` : activePageGroup}${activePage?.label ? `: ${activePage?.label}` : ''}`;
 
@@ -702,6 +702,7 @@ export default function Library(props: any) {
             version='h2'
 
             style={{
+              textAlign: 'center',
               margin: '24px 0 40px'
             }}
           >
@@ -720,13 +721,14 @@ export default function Library(props: any) {
             align='center'
           >
             <Type
-              version='h3'
+              version='b1'
 
               style={{
+                fontSize: 24,
                 textAlign: 'center'
               }}
             >
-              Oops, no page found 🤷‍♀️
+              Oops, no page found 🤷
             </Type>
 
             <LinkNext
