@@ -8,7 +8,6 @@ import SpeedDialItem from '../SpeedDialItem';
 import WidgetsContext from './WidgetsContext';
 import Transition, { TTransitionStatus } from '../Transition';
 import IconButton from '../IconButton';
-import Line from '../Line';
 import Icon from '../Icon';
 import Move from '../Move';
 
@@ -52,10 +51,13 @@ const useStyle = styleMethod(theme => ({
   },
 
   item: {
-    position: 'relative',
+    position: 'fixed',
+    top: '40px',
+    left: '40px',
     opacity: '0',
     transform: 'translateY(100%)',
     transition: theme?.methods.transitions.make(['opacity', 'transform'], { duration: 'rg', timing_function: 'standard' }),
+    zIndex: theme.z_index.modal - 1,
 
     '&.enter': {
       opacity: '0',
@@ -270,129 +272,87 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
           })}
         </SpeedDial>
 
-        <Line
-          gap={0}
+        {widgetsToUse.map((item: any, index: number) => {
+          const valueItem = item.value !== undefined ? item.value : item.label;
 
-          direction='row'
+          const WidgetWrapper = Move;
 
-          justify='center'
+          const WidgetWrapperProps = {
+            version: 'fixed',
 
-          className={classNames([
-            staticClassName('Widgets', theme) && [
-              `amaui-Widgets-root`
-            ],
+            manage: true,
+            manageLevel: 1,
 
-            className,
-            classes.root,
-            position && classes[`position_${position}`],
-            fixed && classes.fixed
-          ])}
+            disabled: !(move && item.move !== false),
 
-          {...other}
-        >
-          <Line
-            gap={6}
+            ...MoveProps
+          };
 
-            wrap='wrap'
+          return (
+            <Transition
+              key={index}
 
-            direction='row'
+              in={openItems.includes(valueItem)}
 
-            justify='flex-start'
+              removeOnExited
+            >
+              {(status: TTransitionStatus) => (
+                <WidgetWrapper
+                  className={classNames([
+                    staticClassName('Widgets', theme) && [
+                      `amaui-Widgets-item`
+                    ],
 
-            align={position === 'top' ? 'flex-start' : 'flex-end'}
+                    classes.item,
+                    status
+                  ])}
 
-            className={classNames([
-              staticClassName('Widgets', theme) && [
-                `amaui-Widgets-line`
-              ],
-
-              classes.line
-            ])}
-          >
-            {widgetsToUse.map((item: any, index: number) => {
-              const valueItem = item.value !== undefined ? item.value : item.label;
-
-              const WidgetWrapper = Move;
-
-              const WidgetWrapperProps = {
-                manage: true,
-
-                manageLevel: 1,
-
-                disabled: !(move && item.move !== false),
-
-                ...MoveProps
-              };
-
-              return (
-                <Transition
-                  key={index}
-
-                  in={openItems.includes(valueItem)}
-
-                  removeOnExited
+                  {...WidgetWrapperProps}
                 >
-                  {(status: TTransitionStatus) => (
-                    <div
-                      className={classNames([
-                        staticClassName('Widgets', theme) && [
-                          `amaui-Widgets-item`
-                        ],
+                  <IconButton
+                    onClick={() => close(valueItem)}
 
-                        classes.item,
-                        status
-                      ])}
-                    >
-                      <WidgetWrapper
-                        {...WidgetWrapperProps}
-                      >
-                        <IconButton
-                          onClick={() => close(valueItem)}
+                    color='default'
 
-                          color='default'
+                    version='filled'
 
-                          version='filled'
+                    size='small'
 
-                          size='small'
+                    elevation={false}
 
-                          elevation={false}
+                    className={classNames([
+                      staticClassName('Widgets', theme) && [
+                        `amaui-Widgets-icon-button`
+                      ],
 
-                          className={classNames([
-                            staticClassName('Widgets', theme) && [
-                              `amaui-Widgets-icon-button`
-                            ],
+                      classes.iconButton
+                    ])}
+                  >
+                    <IconCloseItem />
+                  </IconButton>
 
-                            classes.iconButton
-                          ])}
-                        >
-                          <IconCloseItem />
-                        </IconButton>
+                  {React.cloneElement(item.element, {
+                    className: classNames([
+                      staticClassName('Widgets', theme) && [
+                        `amaui-Widgets-widget`
+                      ],
 
-                        {React.cloneElement(item.element, {
-                          className: classNames([
-                            staticClassName('Widgets', theme) && [
-                              `amaui-Widgets-widget`
-                            ],
+                      classes.widget
+                    ]),
 
-                            classes.widget
-                          ]),
+                    ...(((['amaui-Weather', 'amaui-Watch'].includes(item.element.type?.displayName))) ? {
+                      shadow: true,
 
-                          ...(((['amaui-Weather', 'amaui-Watch'].includes(item.element.type?.displayName))) ? {
-                            shadow: true,
-
-                            style: {
-                              boxShadow: 'none'
-                            }
-                          } : undefined)
-                        })}
-                      </WidgetWrapper>
-                    </div>
-                  )}
-                </Transition>
-              );
-            })}
-          </Line>
-        </Line>
+                      style: {
+                        boxShadow: 'none'
+                      }
+                    } : undefined)
+                  })}
+                </WidgetWrapper>
+              )}
+            </Transition>
+          );
+        })}
       </>}
 
       {children}

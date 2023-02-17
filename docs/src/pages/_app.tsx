@@ -133,7 +133,6 @@ export default function App(props: AppProps) {
       {
         label: 'Screen Capture',
         Icon: IconMaterialVideocamRounded,
-        move: false,
         element: <ScreenCapture />
       }
     ] : []),

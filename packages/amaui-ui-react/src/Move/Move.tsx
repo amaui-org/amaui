@@ -13,6 +13,7 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Move' });
 
 export interface IMove extends IBaseElement {
+  version?: 'regular' | 'fixed';
   manage?: boolean;
 
   manageLevel?: number;
@@ -29,8 +30,8 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    version = 'regular',
     manage = false,
-
     manageLevel = 0,
 
     disabled,
@@ -50,6 +51,7 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
   const refs = {
     root: React.useRef<any>(),
     values: React.useRef<any>(),
+    version: React.useRef<any>(),
     mouseDown: React.useRef<any>(),
     onMouseDown: React.useRef<any>(),
     onTouchStart: React.useRef<any>(),
@@ -59,6 +61,8 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
 
   const [mouseDown, setMouseDown] = React.useState(false);
   const [values, setValues] = React.useState<any>({});
+
+  refs.version.current = version;
 
   refs.values.current = values;
 
@@ -104,16 +108,26 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
 
         const transform = (refs.root.current as HTMLElement).style.transform;
 
+        const { left: left_, top: top_ } = (refs.root.current as HTMLElement).style;
         const [xTransform, yTransform] = (transform?.match(/[-+]?\d+\.?\d*/g) || [0, 0]).map((item: any) => Number(item));
+
+        const left = +(left_ || '').replace('px', '');
+        const top = +(top_ || '').replace('px', '');
 
         const valuesNew = {
           ...refs.values.current,
 
-          x: x + (xTransform || 0),
-          y: y + (yTransform || 0)
+          x: x + (left || xTransform || 0),
+          y: y + (top || yTransform || 0)
         };
+        console.log('onMove', x, y, xPrevious, yPrevious, x_, y_, left, top, xTransform, yTransform);
+        if (refs.version.current === 'regular') refs.root.current.style.transform = `translate(${valuesNew.x}px, ${valuesNew.y}px)`;
+        else {
+          refs.root.current.style.position = 'fixed';
 
-        refs.root.current.style.transform = `translate(${valuesNew.x}px, ${valuesNew.y}px)`;
+          refs.root.current.style.left = `${valuesNew.x}px`;
+          refs.root.current.style.top = `${valuesNew.y}px`;
+        }
 
         setValues(valuesNew);
       }

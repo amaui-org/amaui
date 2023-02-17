@@ -9,7 +9,7 @@ import { angleToCoordinates, IBaseElement, staticClassName, TColor, TElement, TP
 
 const useStyle = styleMethod(theme => ({
   root: {
-    width: '100%'
+    width: '100vw'
   },
 
   size_small: {
