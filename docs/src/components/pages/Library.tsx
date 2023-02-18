@@ -456,6 +456,8 @@ export default function Library(props: any) {
 
           const iconCopy = `<svg viewBox="0 0 24 24" width="1em" height="1em" focusable="false" aria-hidden="true" style="fill: currentcolor; font-size: 22px;"><path d="M9 18Q8.175 18 7.588 17.413Q7 16.825 7 16V4Q7 3.175 7.588 2.587Q8.175 2 9 2H18Q18.825 2 19.413 2.587Q20 3.175 20 4V16Q20 16.825 19.413 17.413Q18.825 18 18 18ZM9 16H18Q18 16 18 16Q18 16 18 16V4Q18 4 18 4Q18 4 18 4H9Q9 4 9 4Q9 4 9 4V16Q9 16 9 16Q9 16 9 16ZM5 22Q4.175 22 3.587 21.413Q3 20.825 3 20V7Q3 6.575 3.288 6.287Q3.575 6 4 6Q4.425 6 4.713 6.287Q5 6.575 5 7V20Q5 20 5 20Q5 20 5 20H15Q15.425 20 15.713 20.288Q16 20.575 16 21Q16 21.425 15.713 21.712Q15.425 22 15 22ZM9 4Q9 4 9 4Q9 4 9 4V16Q9 16 9 16Q9 16 9 16Q9 16 9 16Q9 16 9 16V4Q9 4 9 4Q9 4 9 4Z"/></svg>`;
 
+          const iconDone = `<svg viewBox="0 0 24 24" width="1em" height="1em" focusable="false" aria-hidden="true" style="fill: currentcolor; font-size: 22px;"><path d="M9.55 17.575Q9.35 17.575 9.175 17.512Q9 17.45 8.85 17.3L4.55 13Q4.275 12.725 4.287 12.287Q4.3 11.85 4.575 11.575Q4.85 11.3 5.275 11.3Q5.7 11.3 5.975 11.575L9.55 15.15L18.025 6.675Q18.3 6.4 18.738 6.4Q19.175 6.4 19.45 6.675Q19.725 6.95 19.725 7.387Q19.725 7.825 19.45 8.1L10.25 17.3Q10.1 17.45 9.925 17.512Q9.75 17.575 9.55 17.575Z"/></svg>`;
+
           const actions = window.document.createElement('div');
 
           actions.className = classNames([classes.actions]);
@@ -468,43 +470,49 @@ export default function Library(props: any) {
 
             await copyToClipboard(text?.trim());
 
-            if (!(target as any).tooltip) {
-              const tooltip = window.document.createElement('span');
+            // if (!(target as any).tooltip) {
+            //   const tooltip = window.document.createElement('span');
 
-              (target as any).tooltip = tooltip;
+            //   (target as any).tooltip = tooltip;
 
-              tooltip.innerHTML = 'Copied!';
-              tooltip.className = classes.tooltip;
+            //   tooltip.innerHTML = 'Copied!';
+            //   tooltip.className = classes.tooltip;
 
-              const rect = target.getBoundingClientRect();
+            //   const rect = target.getBoundingClientRect();
 
-              window.document.body.append(tooltip);
+            //   window.document.body.append(tooltip);
 
-              setTimeout(() => {
-                tooltip.style.top = `${window.scrollY + rect.y + 40}px`;
-                tooltip.style.left = `${rect.x - (Math.abs(tooltip.clientWidth - target.clientWidth) / 2)}px`;
-                tooltip.style.opacity = '1';
-                tooltip.style.transform = 'scale(1)';
-              }, 14);
-            }
+            //   setTimeout(() => {
+            //     tooltip.style.top = `${window.scrollY + rect.y + 40}px`;
+            //     tooltip.style.left = `${rect.x - (Math.abs(tooltip.clientWidth - target.clientWidth) / 2)}px`;
+            //     tooltip.style.opacity = '1';
+            //     tooltip.style.transform = 'scale(1)';
+            //   }, 14);
+            // }
+
+            actionCopy.innerHTML = iconDone;
 
             clearTimeout((target as any).timeout);
 
             const remove = () => {
-              if ((target as any).tooltip) {
-                (target as any).tooltip.style.opacity = 0;
-                (target as any).tooltip.style.transform = 'scale(0.74)';
+              actionCopy.innerHTML = iconCopy;
 
-                setTimeout(() => {
-                  if ((target as any).tooltip) {
-                    (target as any).tooltip.remove();
+              (actionCopy.parentElement?.parentElement as any).onmouseleave = (actionCopy.parentElement?.parentElement as any).onmouseout = undefined;
 
-                    (target as any).tooltip = undefined;
+              // if ((target as any).tooltip) {
+              //   (target as any).tooltip.style.opacity = 0;
+              //   (target as any).tooltip.style.transform = 'scale(0.74)';
 
-                    (actionCopy.parentElement?.parentElement as any).onmouseleave = (actionCopy.parentElement?.parentElement as any).onmouseout = undefined;
-                  }
-                }, 300);
-              }
+              //   setTimeout(() => {
+              //     if ((target as any).tooltip) {
+              //       (target as any).tooltip.remove();
+
+              //       (target as any).tooltip = undefined;
+
+              //       (actionCopy.parentElement?.parentElement as any).onmouseleave = (actionCopy.parentElement?.parentElement as any).onmouseout = undefined;
+              //     }
+              //   }, 300);
+              // }
             };
 
             const removeOnOut = (event_: any) => {
@@ -513,7 +521,7 @@ export default function Library(props: any) {
 
             (actionCopy.parentElement?.parentElement as any).onmouseleave = (actionCopy.parentElement?.parentElement as any).onmouseout = removeOnOut;
 
-            (target as any).timeout = setTimeout(remove, 1400);
+            (target as any).timeout = setTimeout(remove, 1100);
           };
 
           actionCopy.className = classNames([classes.action]);
