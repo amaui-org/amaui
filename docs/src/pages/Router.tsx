@@ -52,6 +52,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   wrapper_library: {
+    width: `calc(100vw - 340px)`,
     marginInlineStart: '340px',
     transition: theme.methods.transitions.make('margin')
   },

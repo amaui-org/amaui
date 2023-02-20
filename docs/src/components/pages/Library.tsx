@@ -306,6 +306,7 @@ export default function Library(props: any) {
 
   const smallScreen = useMediaQuery('(max-width: 1100px)');
   const mediumScreen = useMediaQuery('(max-width: 1300px)');
+  const minMediumScreen = useMediaQuery('(min-width: 1300px)');
   const useMiddleMargin = useMediaQuery('(min-width: 1800px)');
 
   const refs = {
@@ -774,7 +775,12 @@ export default function Library(props: any) {
             className={classes.wrapper}
 
             style={{
+              ...((withSidenav && minMediumScreen) ? {
+                width: `calc(100% - 180px)`
+              } : {}),
+
               ...((withSidenav && useMiddleMargin) ? {
+                width: `calc(100% - 180px)`,
                 marginInlineStart: 180
               } : {})
             }}
