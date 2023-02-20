@@ -805,7 +805,7 @@ function Root(props: any) {
 
                 Component='a'
 
-                href='https://github.com/amaui-org/amaui'
+                href='https://github.com/amaui-org'
 
                 target='_blank'
               >
