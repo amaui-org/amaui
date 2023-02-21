@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port=4014",
     "build": "next build",
     "start": "cross-env NODE_ENV=production node ./src",
     "lint": "next lint"

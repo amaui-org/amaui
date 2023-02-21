@@ -621,6 +621,8 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
         <IconWrapperComponent
           {...IconWrapperProps}
 
+          id={refs.ids.label}
+
           className={classNames([
             staticClassName('Button', theme) && [
               'amaui-Button-icon-root'

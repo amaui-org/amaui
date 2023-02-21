@@ -708,7 +708,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
                                       priority: !day.selected ? !day.weekend ? 'primary' : 'secondary' : undefined
                                     }}
 
-                                    aria-label={format(day, 'DD-MM-YYYY')}
+                                    aria-label={format(day.amauiDate, 'DD-MM-YYYY')}
 
                                     className={classNames([
                                       staticClassName('CalendarMonth', theme) && [
