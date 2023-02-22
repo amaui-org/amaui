@@ -779,14 +779,14 @@ export default function Library(props: any) {
             className={classes.wrapper}
 
             style={{
-              ...((withSidenav && minMediumScreen) ? {
+              ...((withSidenav && minMediumScreen) && {
                 width: `calc(100% - 180px)`
-              } : {}),
+              }),
 
-              ...((withSidenav && useMiddleMargin) ? {
+              ...((withSidenav && useMiddleMargin) && {
                 width: `calc(100% - 180px)`,
                 marginInlineStart: 180
-              } : {})
+              })
             }}
           >
             {!loaded && Placeholders}
