@@ -191,7 +191,7 @@ const useStyle = style(theme => ({
 
     '&:not(:only-child)::before': {
       content: 'counter(line)',
-      minWidth: 40,
+      minWidth: 24,
       marginInlineEnd: 20,
       textAlign: 'end',
       display: 'inline-block',
