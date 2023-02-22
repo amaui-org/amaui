@@ -200,6 +200,10 @@ const useStyle = styleMethod(theme => ({
       color: theme.methods.palette.color.value('primary', 10)
     },
 
+    '& .token.attr-value': {
+      color: '#690'
+    },
+
     '& table': {
       border: 'none',
 

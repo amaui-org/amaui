@@ -2,10 +2,11 @@ import React from 'react';
 
 import AmauiZip from '@amaui/zip';
 import { copyToClipboard, stringify } from '@amaui/utils';
-import { Button, IconButton, Line, TextField, Type } from '@amaui/ui-react';
+import { Button, IconButton, Line, TextField, Tooltip, Type } from '@amaui/ui-react';
 import { style } from '@amaui/style-react';
 
 import IconMaterialContentCopyRounded from '@amaui/icons-material-react/IconMaterialContentCopyRounded';
+import IconMaterialDoneRounded from '@amaui/icons-material-react/IconMaterialDoneRounded';
 
 const useStyle = style(theme => ({
   root: {
@@ -29,6 +30,11 @@ const zip = React.forwardRef((props: any, ref: any) => {
 
   const [value, setValue] = React.useState();
   const [response, setResponse] = React.useState<AmauiZip>();
+  const [copying, setCopying] = React.useState(false);
+
+  const refs = {
+    interval: React.useRef<any>()
+  };
 
   React.useEffect(() => {
     (window as any).AmauiZip = AmauiZip;
@@ -44,6 +50,14 @@ const zip = React.forwardRef((props: any, ref: any) => {
 
   const onCopy = React.useCallback(async () => {
     if (response?.response?.value) await copyToClipboard(response?.response?.value);
+
+    clearInterval(refs.interval.current);
+
+    setCopying(true);
+
+    refs.interval.current = setInterval(() => {
+      setCopying(false);
+    }, 1100);
   }, [response]);
 
   return (
@@ -122,17 +136,23 @@ const zip = React.forwardRef((props: any, ref: any) => {
                 Zipped
               </Type>
 
-              <IconButton
-                size='small'
+              <Tooltip
+                label='Copy'
 
-                color='secondary'
-
-                onClick={onCopy}
-
-                className={classes.icon}
+                portal={false}
               >
-                <IconMaterialContentCopyRounded />
-              </IconButton>
+                <IconButton
+                  size='small'
+
+                  color='secondary'
+
+                  onClick={onCopy}
+
+                  className={classes.icon}
+                >
+                  {!copying ? <IconMaterialContentCopyRounded /> : <IconMaterialDoneRounded />}
+                </IconButton>
+              </Tooltip>
             </Line>
 
             <Type
