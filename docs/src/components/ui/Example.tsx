@@ -320,14 +320,14 @@ const Example = React.forwardRef((props: any, ref: any) => {
               const remove = () => {
                 actionCopy.innerHTML = iconCopy;
 
-                (actionCopy.parentElement?.parentElement as any).onmouseleave = (actionCopy.parentElement?.parentElement as any).onmouseout = undefined;
+                // (actionCopy.parentElement?.parentElement as any).onmouseleave = (actionCopy.parentElement?.parentElement as any).onmouseout = undefined;
               };
 
-              const removeOnOut = (event_: any) => {
-                if (event_.target === (actionCopy.parentElement?.parentElement as any)) remove();
-              };
+              // const removeOnOut = (event_: any) => {
+              //   if (event_.target === (actionCopy.parentElement?.parentElement as any)) remove();
+              // };
 
-              (actionCopy.parentElement?.parentElement as any).onmouseleave = (actionCopy.parentElement?.parentElement as any).onmouseout = removeOnOut;
+              // (actionCopy.parentElement?.parentElement as any).onmouseleave = (actionCopy.parentElement?.parentElement as any).onmouseout = removeOnOut;
 
               (target as any).timeout = setTimeout(remove, 1100);
             };
@@ -335,6 +335,13 @@ const Example = React.forwardRef((props: any, ref: any) => {
             actionCopy.className = classNames([classes.action]);
 
             actionCopy.innerHTML = iconCopy;
+
+            // On mouse enter
+            (item as any).onmouseenter = () => {
+              clearTimeout((actionCopy as any).timeout);
+
+              actionCopy.innerHTML = iconCopy;
+            };
 
             // Add to actions
             actions.append(actionCopy);
