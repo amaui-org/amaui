@@ -225,7 +225,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
     range,
     offset = 0,
     outside = true,
-    weekStartDay,
+    weekStartDay: weekStartDay_ = 'Monday',
     now = true,
     min,
     max,
@@ -259,6 +259,8 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
     move: React.useRef<'previous' | 'next'>(),
     noTransition: React.useRef<any>()
   };
+
+  const weekStartDay = !['Monday', 'Sunday'].includes(weekStartDay_) ? 'Monday' : weekStartDay_;
 
   // Value
   React.useEffect(() => {
@@ -343,11 +345,10 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
     if (is('function', onChange)) onChange((!range ? valueNew[0] : valueNew) as any);
   }, [value, range, offset, calendar, onChange]);
 
-  const dayNames = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+  const dayNames = ['M', 'T', 'W', 'T', 'F', 'S'];
 
-  // For now only supported Monday-Sunday
-  // if (weekStartDay === 'Monday') dayNames.push('S');
-  // else dayNames.unshift('S');
+  if (weekStartDay === 'Monday') dayNames.push('S');
+  else dayNames.unshift('S');
 
   const days = [];
 
@@ -416,8 +417,13 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
   days[days.length - 1].end = true;
 
   // Add to start
-  if (monthStart.dayWeek !== 1) {
-    const toAdd = monthStart.dayWeek === 0 ? 6 : monthStart.dayWeek - 1;
+  if (
+    (weekStartDay === 'Sunday' && monthStart.dayWeek !== 0) ||
+    (weekStartDay === 'Monday' && monthStart.dayWeek !== 1)
+  ) {
+    let toAdd = monthStart.dayWeek === 0 ? 6 : monthStart.dayWeek - 1;
+
+    if (weekStartDay === 'Sunday') toAdd++;
 
     for (let i = 0; i < toAdd; i++) {
       const day = set(previousMonthEnd.day - i, 'day', previousMonth);

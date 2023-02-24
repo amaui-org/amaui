@@ -167,6 +167,7 @@ export interface ICalendar extends IBaseElement {
   IconNext?: TElementReference;
   IconDropDown?: TElementReference;
 
+  CalendarMonthProps?: any;
   CalendarDayProps?: ICalenarDays;
   OptionButtonProps: any;
 }
