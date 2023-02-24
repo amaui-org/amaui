@@ -120,7 +120,7 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
           x: x + (left || xTransform || 0),
           y: y + (top || yTransform || 0)
         };
-        console.log('onMove', x, y, xPrevious, yPrevious, x_, y_, left, top, xTransform, yTransform);
+
         if (refs.version.current === 'regular') refs.root.current.style.transform = `translate(${valuesNew.x}px, ${valuesNew.y}px)`;
         else {
           refs.root.current.style.position = 'fixed';

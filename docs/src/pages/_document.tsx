@@ -17,7 +17,9 @@ export default class CustomDocument extends Document {
           <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='true' />
 
-          <link href='https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:wght@400;700&family=Montserrat:wght@700&display=swap' rel='stylesheet' />
+          <link href='https://fonts.googleapis.com/css2?family=Roboto+Mono&family=DM+Sans:wght@400;700&display=swap' rel='stylesheet' />
+
+          <link rel='preload' as='font' type='font/ttf' crossOrigin='anonymous' href='/assets/fonts/Montserrat/Montserrat-Bold.ttf' />
 
           <meta property='og:image' content='/assets/social/image.jpg' />
           <meta property='og:image:height' content='1257' />

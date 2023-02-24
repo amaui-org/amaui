@@ -39,6 +39,11 @@ const useStyle = styleMethod(theme => ({
     overflowY: 'auto'
   },
 
+  flag: {
+    width: '100%',
+    paddingInlineStart: '4px'
+  },
+
   actions: {
     marginTop: '8px'
   }
@@ -451,11 +456,11 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
 
                           align='center'
 
-                          justify='center'
+                          justify='space-between'
 
-                          style={{
-                            marginInlineStart: '4px'
-                          }}
+                          className={classNames([
+                            classes.flag
+                          ])}
                         >
                           <Type
                             version='b2'
