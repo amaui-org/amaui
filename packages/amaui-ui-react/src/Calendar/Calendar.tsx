@@ -352,13 +352,13 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
           const element = list.querySelector(`[data-value="${valueData}"]`) as HTMLElement;
 
           if (element) list.scrollTo({
-            top: clamp(element.offsetTop - (menu === 'month' ? 104 : 204), 0),
+            top: clamp((element.offsetTop - element.parentElement.offsetTop) + (menu === 'month' ? -104 : 51), 0),
             behavior: 'smooth'
           });
         });
       }
     });
-  }, [open, calendar]);
+  }, [open, menu, calendar]);
 
   const getMonths: TGetAmauiDates = is('function', getMonths_) ? getMonths_ : React.useCallback(() => {
     const valueCalendar = set(14, 'day', calendar);
