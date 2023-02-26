@@ -16,7 +16,7 @@ import IconMaterialNestClockFarsightAnalogRounded from '@amaui/icons-material-re
 const FONT_FAMILY = {
   primary: ['Montserrat', 'Helvetica', 'Helvetica Neue', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'].join(', '),
   secondary: ['DM Sans', 'Helvetica', 'Helvetica Neue', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'].join(', '),
-  tertiary: ['DM Mono', 'monospace'].join(', ')
+  tertiary: ['Roboto Mono', 'monospace'].join(', ')
 };
 
 export default function App(props: AppProps) {
