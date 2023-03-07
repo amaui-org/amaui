@@ -177,7 +177,11 @@ const useStyle = styleMethod(theme => ({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    lineHeight: '0'
+    lineHeight: '0',
+
+    '& > *': {
+      lineHeight: '0'
+    }
   },
 
   // Icon element
