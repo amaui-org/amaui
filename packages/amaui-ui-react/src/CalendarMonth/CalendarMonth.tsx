@@ -254,8 +254,9 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
   const month: AmauiDate = calendar || value[0];
 
   const refs = {
-    previous: React.useRef<AmauiDate>(month),
     id: React.useRef<string>(`${(month).year} ${(month).month}`),
+    previous: React.useRef<AmauiDate>(month),
+    previousTheme: React.useRef<boolean>(theme.palette.light),
     move: React.useRef<'previous' | 'next'>(),
     noTransition: React.useRef<any>()
   };
@@ -355,7 +356,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
   const monthNow = new AmauiDate();
 
   // value or value range selected value
-  let id = `${month.year} ${month.month} ${month.day}`;
+  let id = `${month.year} ${month.month} ${month.day} ${theme.palette.light}`;
 
   value.forEach(item => id += ` ${item.year} ${item.month} ${item.day}`);
 
