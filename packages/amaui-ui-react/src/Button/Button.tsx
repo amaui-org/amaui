@@ -180,7 +180,7 @@ const useStyle = styleMethod(theme => ({
     lineHeight: '0',
 
     '& > *': {
-      lineHeight: '0'
+      lineHeight: '0 !important'
     }
   },
 
