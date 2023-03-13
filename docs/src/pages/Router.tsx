@@ -366,11 +366,7 @@ function Root(props: any) {
     setOpenList(resolveOpenList());
   }, [props.url]);
 
-  const to = React.useCallback((url: string) => {
-    console.log('to', url);
-
-    router.push(url);
-  }, []);
+  const to = React.useCallback((url: string) => router.push(url), []);
 
   const update = async (version = 'light', value: any = true) => {
     let values_ = {};

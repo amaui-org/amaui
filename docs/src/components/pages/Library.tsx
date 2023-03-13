@@ -322,8 +322,20 @@ export default function Library(props: any) {
 
   refs.value.current = value;
 
+  const allURLs: string[] = [];
+
+  const allURLsRecursive = (menu = props.menu || []) => {
+    for (const item of menu) {
+      if (item.url) allURLs.push(item.url);
+
+      if (item.menu) allURLsRecursive(item.menu);
+    }
+  };
+
+  allURLsRecursive();
+
   const URL = React.useMemo(() => {
-    const urls = [props.default, ...props.menu.map((item: any) => item.url)];
+    const urls = [props.default, ...allURLs];
 
     return urls.includes(props.url) ? props.url : props.default;
   }, [props.url]);
