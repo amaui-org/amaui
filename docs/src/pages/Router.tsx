@@ -26,6 +26,7 @@ import Home from '../components/pages/Home';
 import Library from '../components/pages/Library';
 
 import { images, libraries as all_libraries, themeImageSub } from '../utils';
+import { useRouter } from 'next/router';
 
 const useStyle = styleMethod(theme => ({
   '@p': {
@@ -259,6 +260,7 @@ const ListItemNext = (props: any) => {
 
 function Root(props: any) {
   const theme = useAmauiTheme();
+  const router = useRouter();
 
   const smallerScreen = useMediaQuery('(max-width: 1100px)');
   const mediumScreen = useMediaQuery('(max-width: 1540px)');
@@ -277,11 +279,18 @@ function Root(props: any) {
     storage: new AmauiStorage({ namespace: 'amaui-docs' }),
     imageSelected: React.useRef<any>(),
     sidenavMenu: React.useRef<any>(),
+    previousURL: React.useRef<string>(),
     props: React.useRef<any>()
   };
 
+  React.useEffect(() => {
+    if (props.url !== undefined) refs.previousURL.current = props.url;
+  }, [props.url]);
+
   const sidenavMenu: any = React.useMemo(() => {
-    const menu = sidenavJSON.find(item => props.url?.indexOf(item.url) === 0);
+    const url = props.url !== undefined ? props.url : refs.previousURL.current;
+
+    const menu = sidenavJSON.find(item => url?.replace(/#.*/, '').indexOf(item.url) === 0);
 
     return menu || [];
   }, [props.url]);
@@ -291,7 +300,7 @@ function Root(props: any) {
   refs.props.current = props;
 
   const resolveOpenList = () => {
-    const url = refs.props.current.url;
+    const url = refs.props.current.url !== undefined ? refs.props.current.url : refs.previousURL.current;
 
     const item = refs.sidenavMenu.current?.menu?.find((itemMenu: any) => url.indexOf(itemMenu?.url) === 0 || !!itemMenu?.menu?.find((itemMenuItem: any) => url.indexOf(itemMenuItem?.url) === 0));
 
@@ -356,6 +365,12 @@ function Root(props: any) {
   React.useEffect(() => {
     setOpenList(resolveOpenList());
   }, [props.url]);
+
+  const to = React.useCallback((url: string) => {
+    console.log('to', url);
+
+    router.push(url);
+  }, []);
 
   const update = async (version = 'light', value: any = true) => {
     let values_ = {};
@@ -453,7 +468,9 @@ function Root(props: any) {
     return all_libraries;
   }, []);
 
-  const isLibrary = props.url?.indexOf('/dev/') === 0;
+  const propsURL = props.url !== undefined ? props.url : refs.previousURL.current;
+
+  const isLibrary = propsURL?.indexOf('/dev/') === 0;
 
   const Page = !isLibrary ? Home : Library;
 
@@ -641,17 +658,15 @@ function Root(props: any) {
                   Page
                 </Type>
 
-                <LinkNext
-                  href={sidenavMenu.url}
-                >
-                  <Type
-                    version='t1'
+                <Type
+                  version='t1'
 
-                    className={classes.title}
-                  >
-                    {sidenavMenu.label || 'No page'}
-                  </Type>
-                </LinkNext>
+                  className={classes.title}
+
+                  onClick={() => to(sidenavMenu.url)}
+                >
+                  {sidenavMenu.label || 'No page'}
+                </Type>
               </Line>
             </ListSubheader>
 

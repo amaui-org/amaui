@@ -322,9 +322,15 @@ export default function Library(props: any) {
 
   refs.value.current = value;
 
+  const URL = React.useMemo(() => {
+    const urls = [props.default, ...props.menu.map((item: any) => item.url)];
+
+    return urls.includes(props.url) ? props.url : props.default;
+  }, [props.url]);
+
   const activePageRecursive = (menu: any[] = props.menu): any => {
     for (const item of menu) {
-      if (item.url === props.url) return item;
+      if (item.url === URL) return item;
       else if (item?.menu) {
         const activePage_ = activePageRecursive(item.menu as any);
 
@@ -389,13 +395,13 @@ export default function Library(props: any) {
   }, []);
 
   React.useEffect(() => {
-    if (refs.url.current !== props.url) {
+    if (refs.url.current !== URL) {
       setMarkdownAdded(false);
     }
 
     // Get page details
-    page(props.url);
-  }, [props.url]);
+    page(URL);
+  }, [URL]);
 
   const onStart = React.useCallback(() => {
     // setLoaded(false);
@@ -698,7 +704,7 @@ export default function Library(props: any) {
       <title>{title}</title>
 
       <meta property='og:title' content={title} />
-      <meta property='og:url' content={`https://amaui.me${props.url}`} />
+      <meta property='og:url' content={`https://amaui.me${URL}`} />
     </Head>
 
     <SpyScroll
@@ -854,7 +860,7 @@ export default function Library(props: any) {
 
                       version='text'
 
-                      href={`https://github.com/amaui-org/amaui/tree/main/docs/public/assets/md${props.url}.md`}
+                      href={`https://github.com/amaui-org/amaui/tree/main/docs/public/assets/md${URL}.md`}
 
                       target='_blank'
 
