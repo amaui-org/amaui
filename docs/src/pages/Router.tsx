@@ -206,6 +206,14 @@ const useStyle = styleMethod(theme => ({
   sideNavList: {
     overflow: 'auto',
 
+    '& > * > *': {
+      paddingInlineStart: '20px !important'
+    },
+
+    '& > * > .amaui-ListItem-root .amaui-ListItem-text': {
+      fontSize: '0.925rem'
+    },
+
     '&.amaui-Line-root': {
       width: '90vw',
       maxWidth: 340,
@@ -515,7 +523,9 @@ function Root(props: any) {
 
             list={item.menu && menuItems(item.menu)}
 
-            shapePosition='both'
+            shapePosition='end'
+
+            paddingHorizontal='start'
 
             selected={!item.menu ? item.url === (isEnvironment('browser') && window.location.pathname) : false}
 
@@ -523,7 +533,8 @@ function Root(props: any) {
 
             ListProps={{
               tonal: true,
-              color: 'primary'
+              color: 'primary',
+              shapePosition: 'both'
             }}
 
             WrapperProps={{
@@ -618,9 +629,7 @@ function Root(props: any) {
 
             color='primary'
 
-            shapePosition='both'
-
-            paddingHorizontal='both'
+            paddingHorizontal='end'
 
             {...NavigationDrawerProps}
 
@@ -634,6 +643,8 @@ function Root(props: any) {
               tonal
 
               color='primary'
+
+              paddingHorizontal='both'
 
               Component={Surface}
 
