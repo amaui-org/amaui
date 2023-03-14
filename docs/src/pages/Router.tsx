@@ -228,7 +228,7 @@ const useStyle = styleMethod(theme => ({
 
   sideNavListSubheader: {
     paddingTop: 32,
-    marginBottom: 24,
+    marginBottom: 20,
     background: 'transparent !important',
     backdropFilter: 'blur(2px)'
   },
