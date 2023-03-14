@@ -207,7 +207,7 @@ const useStyle = styleMethod(theme => ({
     overflow: 'auto',
 
     '& > * > *': {
-      paddingInlineStart: '20px !important'
+      paddingInlineStart: '23px !important'
     },
 
     '& > * > .amaui-ListItem-root .amaui-ListItem-text': {
