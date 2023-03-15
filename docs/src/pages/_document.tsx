@@ -58,7 +58,7 @@ export default class CustomDocument extends Document {
 }
 
 CustomDocument.getInitialProps = async ctx => {
-  const amauiStyle = new AmauiStyle(undefined, undefined, undefined, { rule: { prefix: true } });
+  const amauiStyle = new AmauiStyle();
 
   amauiStyle.plugins.add = [
     unit,

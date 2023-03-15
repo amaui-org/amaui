@@ -6,7 +6,9 @@ import { AmauiStyle, makeClassName, unit, rtl, sort, valueObject } from '@amaui/
 import AmauiStyleContext from './AmauiStyleContext';
 
 function makeAmauiStyle(element?: Element) {
-  const amauiStyle = new AmauiStyle(element);
+  const amauiStyle = new AmauiStyle({
+    element
+  });
 
   // Add all the plugins
   amauiStyle.plugins.add = [

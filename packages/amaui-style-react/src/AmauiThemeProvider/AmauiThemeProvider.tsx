@@ -154,7 +154,7 @@ ${values.map(item => `\t${item};`).join('\n')}
 
   React.useEffect(() => {
     if (refs.root.current) {
-      const amauiTheme = new AmauiTheme(value as any, refs.root.current) as any;
+      const amauiTheme = new AmauiTheme(value as any, { element: refs.root.current }) as any;
 
       amauiTheme.id = value.id;
 
@@ -175,7 +175,7 @@ ${values.map(item => `\t${item};`).join('\n')}
     if (init) {
       value.update(merge(resolveValue(is('function', valueLocal) ? (valueLocal as any)(valueParent) : valueLocal), resolveValue(valueParent), { copy: true }) as any);
 
-      const amauiTheme = new AmauiTheme(value as any, refs.root?.current) as any;
+      const amauiTheme = new AmauiTheme(value as any, { element: refs.root?.current }) as any;
 
       amauiTheme.id = value.id;
 
@@ -190,7 +190,7 @@ ${values.map(item => `\t${item};`).join('\n')}
       // Update
       value.update(updateValue);
 
-      const amauiTheme = new AmauiTheme(value as any, refs.root?.current || (isEnvironment('browser') && window.document.body)) as any;
+      const amauiTheme = new AmauiTheme(value as any, { element: refs.root?.current || (isEnvironment('browser') && window.document.body) }) as any;
 
       amauiTheme.id = value.id;
 

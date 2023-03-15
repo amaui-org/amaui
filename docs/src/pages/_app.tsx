@@ -36,8 +36,6 @@ export default function App(props: AppProps) {
 
   const valueAmauiStyle = useAmauiStyle();
 
-  if (valueAmauiStyle?.options?.rule) valueAmauiStyle.options.rule.prefix = true;
-
   valueAmauiStyle.plugins.add = [
     unit,
     prefix,
@@ -110,7 +108,7 @@ export default function App(props: AppProps) {
           m3: { fontFamily: FONT_FAMILY.tertiary }
         }
       }
-    }, undefined, { rule: { prefix: true } });
+    });
   }, []);
 
   const widgets = React.useMemo(() => [

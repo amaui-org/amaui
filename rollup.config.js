@@ -102,7 +102,7 @@ export default [
       ...plugins,
       replace({ preventAssignment: true, 'process.env.NODE_ENV': JSON.stringify('production') }),
       terser(),
-      sizeSnapshot({ snapshotPath: path.resolve(wd, 'size-snapshot.json') }),
+      // sizeSnapshot({ snapshotPath: path.resolve(wd, 'size-snapshot.json') })
     ],
   },
 ];
