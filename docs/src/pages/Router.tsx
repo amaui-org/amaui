@@ -53,8 +53,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   wrapper_library: {
-    width: `calc(100vw - 340px)`,
-    marginInlineStart: '340px',
+    width: `calc(100vw - 274px)`,
+    marginInlineStart: '274px',
     transition: theme.methods.transitions.make('margin')
   },
 
@@ -85,7 +85,7 @@ const useStyle = styleMethod(theme => ({
       top: 0,
       insetInlineStart: 0,
       height: '100vh',
-      width: 340,
+      width: 274,
       zIndex: 1
     }
   },
@@ -216,7 +216,7 @@ const useStyle = styleMethod(theme => ({
 
     '&.amaui-Line-root': {
       width: '90vw',
-      maxWidth: 340,
+      maxWidth: 274,
       paddingTop: 0,
       overflow: 'unset'
     },
@@ -228,7 +228,7 @@ const useStyle = styleMethod(theme => ({
 
   sideNavListSubheader: {
     paddingTop: 32,
-    marginBottom: 16,
+    marginBottom: 12,
     background: 'transparent !important',
     backdropFilter: 'blur(2px)'
   },
