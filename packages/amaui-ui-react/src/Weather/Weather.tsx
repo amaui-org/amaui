@@ -484,11 +484,11 @@ const Weather = React.forwardRef((props_: IWeather, ref: any) => {
             ],
 
             classes.text,
-            classes[`text_${values.temperature < 100 ? 'regular' : 'large'}`]
+            classes[`text_${+values.temperature < 100 ? 'regular' : 'large'}`]
           ])}
 
           style={{
-            fontSize: `${(rect?.width || 0) * (values.temperature < 100 ? values.temperature < -10 ? 0.32 : 0.34 : 0.27)}px`
+            fontSize: `${(rect?.width || 0) * (+values.temperature < 100 ? +values.temperature < -10 ? 0.32 : 0.34 : 0.27)}px`
           }}
         >
           {values.temperature}°
