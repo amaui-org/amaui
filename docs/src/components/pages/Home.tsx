@@ -118,6 +118,36 @@ const useStyle = style(theme => ({
     margin: '0 auto',
     width: 'calc(100% - 88px)',
     maxWidth: theme.breakpoints.values.xl
+  },
+
+  card: {
+    maxWidth: 'unset !important',
+
+    '&:hover': {
+      '& $cardImage': {
+        boxShadow: theme.shadows.values.default[24],
+        transform: 'scale(1.07)'
+      }
+    }
+  },
+
+  cardImage: {
+    boxShadow: theme.shadows.values.default[8],
+    background: theme.palette.color.primary[50],
+    transform: 'scale(1.04)',
+    transition: theme.methods.transitions.make(['box-shadow', 'transform'], { duration: 'rg', timing_function: 'decelerated' })
+  },
+
+  weather: {
+    '& .amaui-Weather-icon': {
+      transition: `${theme.methods.transitions.make(['opacity', 'transform'], { duration: 'rg', timing_function: 'decelerated' })} !important`
+    },
+
+    '&:hover': {
+      '& .amaui-Weather-icon': {
+        transform: 'scale(1.04)'
+      }
+    }
   }
 }), { name: 'root' });
 
@@ -752,9 +782,9 @@ export default function Root(props: any) {
               />
 
               <Card
-                style={{
-                  maxWidth: 'unset'
-                }}
+                className={classNames([
+                  classes.card
+                ])}
               >
                 <CardHeader>
                   <ListItem
@@ -791,9 +821,9 @@ export default function Root(props: any) {
 
                   shape='all'
 
-                  style={{
-                    backgroundColor: theme.palette.color.primary[50]
-                  }}
+                  className={classNames([
+                    classes.cardImage
+                  ])}
                 />
 
                 <CardMain
@@ -858,6 +888,10 @@ export default function Root(props: any) {
                   temperature={14}
 
                   weather='clear'
+
+                  className={classNames([
+                    classes.weather
+                  ])}
                 />
               </Line>
 

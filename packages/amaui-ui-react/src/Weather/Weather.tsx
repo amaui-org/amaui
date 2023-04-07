@@ -27,7 +27,8 @@ const useStyle = styleMethod(theme => ({
     position: 'absolute',
     textAlign: 'center',
     fontWeight: '500',
-    lineHeight: '1'
+    lineHeight: '1',
+    userSelect: 'none'
   },
 
   text_regular: {

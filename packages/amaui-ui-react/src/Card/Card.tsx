@@ -12,7 +12,6 @@ import { ISurface } from '../Surface/Surface';
 const useStyle = styleMethod(theme => ({
   root: {
     display: 'inline-block',
-    overflow: 'hidden',
     borderRadius: `${theme.shape.radius.unit * 3}px`,
     maxWidth: '340px',
     position: 'relative',
