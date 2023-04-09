@@ -190,6 +190,8 @@ export default function Root(props: any) {
   const [transitioned, setTransitioned] = React.useState<any>({});
   const light = useMediaQuery('(prefers-color-scheme: light)');
 
+  const smallScreen = useMediaQuery('(max-width: 1100px)');
+
   refs.imageSelected.current = imageSelected;
 
   const updateImageSelected = (value: string) => {
@@ -832,7 +834,7 @@ export default function Root(props: any) {
                 </CardHeader>
 
                 <Reveal
-                  offset={-400}
+                  offset={smallScreen ? -40 : -400}
 
                   inClassName={classNames([
                     classes.cardImageIn,
@@ -919,7 +921,7 @@ export default function Root(props: any) {
                 }}
               >
                 <Reveal
-                  offset={-340}
+                  offset={smallScreen ? -34 : -340}
 
                   inClassName={classNames([
                     classes.weatherIn
