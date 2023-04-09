@@ -22,7 +22,9 @@ export interface IReveal extends IBaseElement {
 
   unreveal?: boolean;
 
-  addClassName?: string;
+  inClassName?: string;
+
+  onChange?: (value: boolean) => any;
 
   noTransition?: boolean;
 }
@@ -41,7 +43,9 @@ const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
 
     unreveal,
 
-    addClassName,
+    inClassName,
+
+    onChange,
 
     noTransition,
 
@@ -67,6 +71,12 @@ const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
   refs.props.current = props;
 
   refs.in.current = inProp;
+
+  const updateIn = React.useCallback((value: boolean) => {
+    setInProp(value);
+
+    if (is('function', onChange)) onChange(value);
+  }, [onChange]);
 
   React.useEffect(() => {
     // Listen to window scroll value
@@ -130,7 +140,7 @@ const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
                 (rect.left - offset_ < window.innerWidth && rect.right + offset_ > 0)
               )
             )
-          ) setInProp(true);
+          ) updateIn(true);
         }
         else if (refs.props.current.unreveal) {
           const offset_ = refs.props.current.offsetUnreveal !== undefined ? refs.props.current.offsetUnreveal : refs.props.current.offset !== undefined ? refs.props.current.offset : 0;
@@ -147,7 +157,7 @@ const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
 
             // Bottom
             rect.top - offset_ > window.innerHeight
-          ) setInProp(false);
+          ) updateIn(false);
         }
       }
     };
@@ -192,8 +202,9 @@ const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
           ],
 
           className,
+          (children as any).props.className,
           classes.root,
-          inProp && addClassName
+          inProp && inClassName
         ])
       })}
     </Component>

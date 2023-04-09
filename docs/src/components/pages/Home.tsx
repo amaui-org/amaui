@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 import { random } from '@amaui/utils';
-import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Checkbox, DatePicker, DonutChart, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Radio, Rating, Slider, Surface, Switch, Tab, Tabs, TimePicker, Tooltip, Tree, Type, useMediaQuery, Weather } from '@amaui/ui-react';
+import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Checkbox, DatePicker, DonutChart, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Radio, Rating, Reveal, Slider, Surface, Switch, Tab, Tabs, TimePicker, Tooltip, Tree, Type, useMediaQuery, Weather } from '@amaui/ui-react';
 import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
 
@@ -132,21 +132,37 @@ const useStyle = style(theme => ({
   },
 
   cardImage: {
+    clipPath: `inset(0 0 100%)`,
     boxShadow: theme.shadows.values.default[8],
     background: theme.palette.color.primary[50],
     transform: 'scale(1.04)',
-    transition: theme.methods.transitions.make(['box-shadow', 'transform'], { duration: 'rg', timing_function: 'decelerated' })
+    transition: `${theme.methods.transitions.make(['clip-path'], { duration: 1400, timing_function: 'standard' })}, ${theme.methods.transitions.make(['box-shadow', 'transform'], { duration: 'rg', timing_function: 'decelerated' })}`
+  },
+
+  cardImageIn: {
+    clipPath: 'inset(0 0 0%)'
+  },
+
+  cardImageTransitioned: {
+    clipPath: 'none'
   },
 
   weather: {
     '& .amaui-Weather-icon': {
-      transition: `${theme.methods.transitions.make(['opacity', 'transform'], { duration: 'rg', timing_function: 'decelerated' })} !important`
+      clipPath: `circle(0)`,
+      transition: `${theme.methods.transitions.make(['clip-path'], { duration: 7400, timing_function: 'decelerated', delay: 1400 })}, ${theme.methods.transitions.make(['opacity', 'transform'], { duration: 'rg', timing_function: 'decelerated' })} !important`
     },
 
     '&:hover': {
       '& .amaui-Weather-icon': {
         transform: 'scale(1.04)'
       }
+    }
+  },
+
+  weatherIn: {
+    '& .amaui-Weather-icon': {
+      clipPath: `circle(100%)`
     }
   }
 }), { name: 'root' });
@@ -171,6 +187,7 @@ export default function Root(props: any) {
     tree_12: true,
     tree_13: true
   });
+  const [transitioned, setTransitioned] = React.useState<any>({});
   const light = useMediaQuery('(prefers-color-scheme: light)');
 
   refs.imageSelected.current = imageSelected;
@@ -814,17 +831,34 @@ export default function Root(props: any) {
                   />
                 </CardHeader>
 
-                <CardImage
-                  alt={attribution()}
+                <Reveal
+                  offset={-400}
 
-                  image={[undefined, 'primary'].includes(imageSelected) ? '/assets/image/image-yellow.jpg' : `/assets/image/${imageSelected}.jpg`}
-
-                  shape='all'
-
-                  className={classNames([
-                    classes.cardImage
+                  inClassName={classNames([
+                    classes.cardImageIn,
+                    transitioned.cardImage && classes.cardImageTransitioned
                   ])}
-                />
+
+                  onChange={(valueNew: boolean) => {
+                    if (valueNew) setTimeout(() => {
+                      setTransitioned((previous: any) => ({ ...previous, cardImage: true }));
+                    }, 1400);
+                  }}
+
+                  noTransition
+                >
+                  <CardImage
+                    alt={attribution()}
+
+                    image={[undefined, 'primary'].includes(imageSelected) ? '/assets/image/image-yellow.jpg' : `/assets/image/${imageSelected}.jpg`}
+
+                    shape='all'
+
+                    className={classNames([
+                      classes.cardImage
+                    ])}
+                  />
+                </Reveal>
 
                 <CardMain
                   gap={1}
@@ -884,15 +918,25 @@ export default function Root(props: any) {
                   padding: '24px 0'
                 }}
               >
-                <Weather
-                  temperature={14}
+                <Reveal
+                  offset={-340}
 
-                  weather='clear'
-
-                  className={classNames([
-                    classes.weather
+                  inClassName={classNames([
+                    classes.weatherIn
                   ])}
-                />
+
+                  noTransition
+                >
+                  <Weather
+                    temperature={14}
+
+                    weather='clear'
+
+                    className={classNames([
+                      classes.weather
+                    ])}
+                  />
+                </Reveal>
               </Line>
 
               <Slider
