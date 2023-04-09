@@ -133,7 +133,6 @@ const useStyle = style(theme => ({
 
   cardImage: {
     clipPath: `inset(0 0 100%)`,
-    boxShadow: theme.shadows.values.default[8],
     background: theme.palette.color.primary[50],
     transform: 'scale(1.04)',
     transition: `${theme.methods.transitions.make(['clip-path'], { duration: 1400, timing_function: 'standard' })}, ${theme.methods.transitions.make(['box-shadow', 'transform'], { duration: 'rg', timing_function: 'decelerated' })}`
@@ -144,6 +143,7 @@ const useStyle = style(theme => ({
   },
 
   cardImageTransitioned: {
+    boxShadow: theme.shadows.values.default[8],
     clipPath: 'none'
   },
 
