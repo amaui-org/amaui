@@ -267,9 +267,9 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
       parent.addEventListener('touchend', onMouseUp, { passive: true });
       window.document.addEventListener('touchend', onMouseUp, { passive: true });
       parent.addEventListener('mouseenter', onMouseIn);
-      parent.addEventListener('touchstart', onMouseIn, { passive: true });
+      // parent.addEventListener('touchstart', onMouseIn, { passive: true });
       parent.addEventListener('mouseleave', onMouseOut);
-      parent.addEventListener('touchend', onMouseOut, { passive: true });
+      // parent.addEventListener('touchend', onMouseOut, { passive: true });
     }
 
     setInit(true);
@@ -307,7 +307,7 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
     if (disabled) setInteractions([]);
   }, [disabled]);
 
-  const addWave = (event: MouseEvent) => {
+  const addWave = (event: MouseEvent | TouchEvent) => {
     if (refs.wave.current && !refs.props.current.disabled) {
       let top = 0;
       let left = 0;
@@ -316,10 +316,27 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
       if (wave_version !== 'simple') {
         const rect = (event.currentTarget as any)?.getBoundingClientRect();
         const root = ((event?.currentTarget || refs.root.current.parentNode) as any).getBoundingClientRect() as DOMRect;
+
+        // Mouse or touch event
+        const valuesEvent = (!(event as TouchEvent)?.touches ? event : (event as TouchEvent).touches[0]) as MouseEvent;
+        const values: {
+          x: number;
+          y: number;
+          offsetX: number;
+          offsetY: number;
+        } = {
+          x: valuesEvent.x !== undefined ? valuesEvent.x : valuesEvent.clientX,
+          y: valuesEvent.y !== undefined ? valuesEvent.y : valuesEvent.clientY
+        } as any;
+
+        values.offsetX = valuesEvent.offsetX !== undefined ? valuesEvent.offsetX : values.x - rect.x;
+
+        values.offsetY = valuesEvent.offsetY !== undefined ? valuesEvent.offsetY : values.y - rect.y;
+
         const w = root.width;
         const h = root.height;
-        const x = (origin === 'center' || !event) ? w / 2 : rect ? event.x - rect.left : event.offsetX;
-        const y = (origin === 'center' || !event) ? h / 2 : rect ? event.y - rect.top : event.offsetY;
+        const x = (origin === 'center' || !event) ? w / 2 : rect ? values.x - rect.left : values.offsetX;
+        const y = (origin === 'center' || !event) ? h / 2 : rect ? values.y - rect.top : values.offsetY;
 
         width = Math.round(
           Math.sqrt(
