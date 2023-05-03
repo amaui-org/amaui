@@ -3,7 +3,7 @@ import React from 'react';
 import { is, getID, debounce } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { Transition, Transitions, TTransitionStatus } from '..';
+import { Transition, Transitions, TTransitionStatus, useMediaQuery } from '..';
 
 import { IBaseElement, staticClassName } from '../utils';
 
@@ -192,12 +192,14 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
   const [interactions, setInteractions] = React.useState([]);
   const [border, setBorder] = React.useState(false);
   const [waves, setWaves] = React.useState([]);
+  const touch = useMediaQuery('(pointer: coarse)');
 
   const refs = {
     root: React.useRef<HTMLElement>(),
     mouse: React.useRef({ down: 0, up: 0, press: 0 }),
     wave: React.useRef<any>(),
     pulse: React.useRef<any>(),
+    touch: React.useRef<any>(),
     props: React.useRef<any>()
   };
 
@@ -209,16 +211,22 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
 
   refs.pulse.current = pulse;
 
+  refs.touch.current = touch;
+
   React.useEffect(() => {
     const parent = refs.root.current.parentNode;
 
     const onMouseIn = (event: any) => {
+      if (refs.touch.current) return;
+
       add('mouse-in');
 
       removeWaves();
     };
 
     const onMouseOut = (event: any) => {
+      if (refs.touch.current) return;
+
       refs.mouse.current.up = new Date().getTime();
       refs.mouse.current.press = refs.mouse.current.down ? Math.round(refs.mouse.current.up - refs.mouse.current.down) : 0;
 
