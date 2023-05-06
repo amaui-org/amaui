@@ -36,13 +36,7 @@ export const libraries = [
     { name: 'Stack', url: '/dev/stack', github: '/amaui-stack' },
     { name: 'Hash Table', url: '/dev/hash-table', github: '/amaui-hash-table' },
     { name: 'Graph', url: '/dev/graph', github: '/amaui-graph' },
-  ].sort((a: any, b: any) => {
-    if (a.name > b.name) return 1;
-
-    if (a.name < b.name) return -1;
-
-    return 0;
-  })
+  ].sort((a: any, b: any) => a.name.localeCompare(b.name))
 ];
 
 export const images = [

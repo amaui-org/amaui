@@ -60,12 +60,12 @@ yarn build
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AWS: Start",
-      "to": "/dev/aws/start"
+      "label": "Icons Material React: Start",
+      "to": "/dev/icons-material-react/start"
     },
     "next": {
-      "label": "Algorithms: Use",
-      "to": "/dev/algorithms/use"
+      "label": "Algorithms: BinarySearch",
+      "to": "/dev/algorithms/use/binarySearch"
     }
   }
 }~

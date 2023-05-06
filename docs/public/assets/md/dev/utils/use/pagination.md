@@ -8,3 +8,16 @@
 const pagination: (value?: number, total?: number, boundary?: number, middle?: number) => any[];
 ```
 
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "AMQP: Start",
+      "to": "/dev/amqp/start"
+    },
+    "next": {
+      "label": "API: Use",
+      "to": "/dev/api/use"
+    }
+  }
+}~

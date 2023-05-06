@@ -272,3 +272,16 @@ type TValueBreakpoints = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'default';
 const sanitize: (value: string) => string;
 ```
 
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "AMQP: Start",
+      "to": "/dev/amqp/start"
+    },
+    "next": {
+      "label": "API: Use",
+      "to": "/dev/api/use"
+    }
+  }
+}~

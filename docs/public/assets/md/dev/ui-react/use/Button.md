@@ -44,3 +44,16 @@ interface IButton extends Omit<ISurface, 'elevation'> {
 const Button: React.ForwardRefExoticComponent<Omit<IButton, "ref"> & React.RefAttributes<unknown>>;
 ```
 
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "AMQP: Start",
+      "to": "/dev/amqp/start"
+    },
+    "next": {
+      "label": "API: Use",
+      "to": "/dev/api/use"
+    }
+  }
+}~

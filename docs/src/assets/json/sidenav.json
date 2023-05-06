@@ -702,6 +702,10 @@
             "url": "/dev/algorithms/use/binarySearch"
           },
           {
+            "label": "bubbleSort",
+            "url": "/dev/algorithms/use/bubbleSort"
+          },
+          {
             "label": "factorialRecurisve",
             "url": "/dev/algorithms/use/factorialRecurisve"
           },

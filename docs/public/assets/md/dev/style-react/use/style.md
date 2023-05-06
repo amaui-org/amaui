@@ -54,3 +54,16 @@ const propsAreNew: (props: any) => string;
 function style(value: TValue, options_?: IOptions, responses_?: Array<IResponseStyle>): (props_?: any) => IResponse;
 ```
 
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "AMQP: Start",
+      "to": "/dev/amqp/start"
+    },
+    "next": {
+      "label": "API: Use",
+      "to": "/dev/api/use"
+    }
+  }
+}~

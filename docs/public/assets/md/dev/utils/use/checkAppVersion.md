@@ -26,3 +26,16 @@ const checkRoot: (rootId: string, timeout?: number, reload?: boolean) => Promise
 const checkAppVersion: (retries?: number, reload?: boolean) => Promise<boolean>;
 ```
 
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "AMQP: Start",
+      "to": "/dev/amqp/start"
+    },
+    "next": {
+      "label": "API: Use",
+      "to": "/dev/api/use"
+    }
+  }
+}~

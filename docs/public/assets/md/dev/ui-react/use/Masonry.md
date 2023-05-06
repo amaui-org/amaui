@@ -17,3 +17,16 @@ interface IMasonry extends Omit<ILine, 'gap'> {
 const Masonry: React.ForwardRefExoticComponent<Omit<IMasonry, "ref"> & React.RefAttributes<unknown>>;
 ```
 
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "AMQP: Start",
+      "to": "/dev/amqp/start"
+    },
+    "next": {
+      "label": "API: Use",
+      "to": "/dev/api/use"
+    }
+  }
+}~

@@ -21,3 +21,16 @@ interface IGrid extends ILine {
 const Grid: React.ForwardRefExoticComponent<Omit<IGrid, "ref"> & React.RefAttributes<unknown>>;
 ```
 
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "AMQP: Start",
+      "to": "/dev/amqp/start"
+    },
+    "next": {
+      "label": "API: Use",
+      "to": "/dev/api/use"
+    }
+  }
+}~

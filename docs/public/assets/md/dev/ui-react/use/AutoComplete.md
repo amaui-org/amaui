@@ -63,3 +63,16 @@ interface IAutoComplete extends ITextField {
 const AutoComplete: React.ForwardRefExoticComponent<Omit<IAutoComplete, "ref"> & React.RefAttributes<unknown>>;
 ```
 
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "AMQP: Start",
+      "to": "/dev/amqp/start"
+    },
+    "next": {
+      "label": "API: Use",
+      "to": "/dev/api/use"
+    }
+  }
+}~

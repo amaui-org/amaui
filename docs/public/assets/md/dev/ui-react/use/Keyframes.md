@@ -43,3 +43,16 @@ interface IKeyframes extends Omit<IBaseElement, 'className'> {
 function Keyframes(props_: IKeyframes): JSX.Element;
 ```
 
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "AMQP: Start",
+      "to": "/dev/amqp/start"
+    },
+    "next": {
+      "label": "API: Use",
+      "to": "/dev/api/use"
+    }
+  }
+}~

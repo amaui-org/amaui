@@ -25,5 +25,18 @@ interface IAmauiThemeProvider extends React.HTMLAttributes<any> {
 
 ```ts
 const AmauiThemeProvider: React.ForwardRefExoticComponent<IAmauiThemeProvider & React.RefAttributes<unknown>>;
-```
 
+
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "AMQP: Start",
+      "to": "/dev/amqp/start"
+    },
+    "next": {
+      "label": "API: Use",
+      "to": "/dev/api/use"
+    }
+  }
+}~

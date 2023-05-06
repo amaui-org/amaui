@@ -22,3 +22,16 @@ interface IVariationOptions {
 function variation(value_: any[], items_?: number, options_?: IVariationOptions): TVariation;
 ```
 
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "AMQP: Start",
+      "to": "/dev/amqp/start"
+    },
+    "next": {
+      "label": "API: Use",
+      "to": "/dev/api/use"
+    }
+  }
+}~

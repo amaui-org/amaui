@@ -20,3 +20,16 @@ interface ILinearProress extends IBaseElement {
 const LinearProgress: React.ForwardRefExoticComponent<Omit<ILinearProress, "ref"> & React.RefAttributes<unknown>>;
 ```
 
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "AMQP: Start",
+      "to": "/dev/amqp/start"
+    },
+    "next": {
+      "label": "API: Use",
+      "to": "/dev/api/use"
+    }
+  }
+}~

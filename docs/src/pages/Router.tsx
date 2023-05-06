@@ -300,6 +300,12 @@ function Root(props: any) {
 
     const menu = sidenavJSON.find(item => url?.replace(/#.*/, '').indexOf(item.url) === 0);
 
+    if (menu?.menu) {
+      const use = (menu as any).menu?.find((item: any) => item.label.toLowerCase() === 'use');
+
+      if (use?.menu) use.menu.sort((a: any, b: any) => a.label.localeCompare(b.label));
+    }
+
     return menu || [];
   }, [props.url]);
 

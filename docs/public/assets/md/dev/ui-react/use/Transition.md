@@ -45,3 +45,16 @@ interface ITransition extends Omit<IBaseElement, 'children' | 'className'> {
 function Transition(props_: ITransition): JSX.Element;
 ```
 
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "AMQP: Start",
+      "to": "/dev/amqp/start"
+    },
+    "next": {
+      "label": "API: Use",
+      "to": "/dev/api/use"
+    }
+  }
+}~

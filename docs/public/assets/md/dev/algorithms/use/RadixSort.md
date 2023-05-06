@@ -2,7 +2,7 @@
 
 ### API
 
-#### maxDigits<T
+#### maxDigits
 
 ```ts
 function maxDigits<T = number>(array: Array<T>): number;
@@ -14,9 +14,23 @@ function maxDigits<T = number>(array: Array<T>): number;
 function getDigit(value: number, indexValue: number): number;
 ```
 
-#### radixSort<T
+#### radixSort
 
 ```ts
 default function radixSort<T = number>(value: Array<T>, ascending?: boolean): Array<T>;
 ```
 
+
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "Algorithms: quickSort",
+      "to": "/dev/algorithms/quickSort"
+    },
+    "next": {
+      "label": "Algorithms: selectionSort",
+      "to": "/dev/algorithms/use/selectionSort"
+    }
+  }
+}~

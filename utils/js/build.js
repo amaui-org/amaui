@@ -309,7 +309,7 @@ async function docsUpdateTypes(pathTypes, pathUse, isModules) {
   let valueNew = `\n\n### API\n\n`;
 
   parts.forEach(part => {
-    const partName = (part.replace('default ', '').match(/(?!type|interface|const|function|class) [^ \(\)\{\}\:]+/i) || [])[0]?.trim();
+    const partName = (part.replace('default ', '').match(/(?!type|interface|const|function|class) [^ \(\)\{\}\<\:]+/i) || [])[0]?.trim();
 
     valueNew += `#### ${partName}\n\n\`\`\`ts\n${part.trim()}\n\`\`\`\n\n`;
   });

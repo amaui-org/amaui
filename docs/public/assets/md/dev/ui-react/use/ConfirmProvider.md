@@ -49,3 +49,16 @@ interface IConfirmProvider extends IBaseElement {
 const ConfirmProvider: React.ForwardRefExoticComponent<Omit<IConfirmProvider, "ref"> & React.RefAttributes<unknown>>;
 ```
 
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "AMQP: Start",
+      "to": "/dev/amqp/start"
+    },
+    "next": {
+      "label": "API: Use",
+      "to": "/dev/api/use"
+    }
+  }
+}~
