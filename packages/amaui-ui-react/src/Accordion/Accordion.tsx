@@ -145,8 +145,11 @@ const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
 type TPadding = 'start' | 'end' | 'both' | 'none';
 
 export interface IAccordion extends IBaseElement {
+  // tonal
   tonal?: TTonal;
+  // color
   color?: TColor;
+  /** elevation */
   elevation?: TElevation;
 
   primary?: TElement;

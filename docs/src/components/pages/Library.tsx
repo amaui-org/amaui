@@ -640,7 +640,7 @@ export default function Library(props: any) {
       if (isAPI) {
         return (
           <Accordion
-            // openDefault
+            openDefault={!!window.location.hash}
 
             primary={(
               <Type version='h3' id='api'>API</Type>
@@ -648,17 +648,13 @@ export default function Library(props: any) {
 
             className={classes.accordion}
 
-            expandedMarginVertical='none'
+            expandedMarginVertical='unset'
 
-            expandedHeaderPaddingVertical='none'
+            expandedHeaderPaddingVertical='unset'
 
             headerPaddingHorizontal='none'
 
             mainPaddingHorizontal='none'
-
-            ExpandProps={{
-              removeOnExited: false
-            }}
           >
             {markdown}
           </Accordion>

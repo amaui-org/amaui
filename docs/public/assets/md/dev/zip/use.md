@@ -25,8 +25,11 @@ Try `@amaui/zip` in the example:
 
 ```ts
 class AmauiZipResponse {
+    // a
     value?: any;
+    // a1
     original_byte_size?: number;
+    // a114
     value_byte_size?: number;
     compression_ratio?: number;
     compression_percentage?: number;

@@ -227,7 +227,7 @@ async function types() {
 
   const arguments = [
     '-b',
-    ts,
+    ts
   ];
 
   const cmd = ['yarn tsc', ...arguments].join(' ');
