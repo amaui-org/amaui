@@ -14,7 +14,7 @@ default function kmp(string: string, value: string): boolean;
   "props": {
     "previous": {
       "label": "Algorithms: insertionSort",
-      "to": "/dev/algorithms/insertionSort"
+      "to": "/dev/algorithms/use/insertionSort"
     },
     "next": {
       "label": "Algorithms: longestPrefixSuffix",

@@ -14,7 +14,7 @@ default function longestPrefixSuffix(value: string): Array<number>;
   "props": {
     "previous": {
       "label": "Algorithms: kmp",
-      "to": "/dev/algorithms/kmp"
+      "to": "/dev/algorithms/use/kmp"
     },
     "next": {
       "label": "Algorithms: mergeSort",

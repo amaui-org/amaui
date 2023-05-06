@@ -14,7 +14,7 @@ default function naiveSearch(string: string, value: string): boolean;
   "props": {
     "previous": {
       "label": "Algorithms: mergeSort",
-      "to": "/dev/algorithms/mergeSort"
+      "to": "/dev/algorithms/use/mergeSort"
     },
     "next": {
       "label": "Algorithms: quickSort",

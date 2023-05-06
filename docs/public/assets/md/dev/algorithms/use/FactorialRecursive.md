@@ -22,7 +22,7 @@ default function factorialRecursive(value: number, options?: IFactorialRecursive
   "props": {
     "previous": {
       "label": "Algorithms: factorial",
-      "to": "/dev/algorithms/factorial"
+      "to": "/dev/algorithms/use/factorial"
     },
     "next": {
       "label": "Algorithms: fibonacci",

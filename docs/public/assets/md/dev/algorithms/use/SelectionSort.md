@@ -14,7 +14,7 @@ default function selectionSort<T = number>(value: Array<T>, ascending?: boolean)
   "props": {
     "previous": {
       "label": "Algorithms: radixSort",
-      "to": "/dev/algorithms/radixSort"
+      "to": "/dev/algorithms/use/radixSort"
     },
     "next": {
       "label": "AMQP: Start",

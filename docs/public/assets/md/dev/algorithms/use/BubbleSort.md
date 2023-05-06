@@ -14,7 +14,7 @@ default function bubbleSort<T = number>(value: Array<T>, ascending?: boolean): A
   "props": {
     "previous": {
       "label": "Algorithms: binarySearchRecursive",
-      "to": "/dev/algorithms/binarySearchRecursive"
+      "to": "/dev/algorithms/use/binarySearchRecursive"
     },
     "next": {
       "label": "Algorithms: factorial",

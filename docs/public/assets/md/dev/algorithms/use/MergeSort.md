@@ -20,7 +20,7 @@ default function mergeSort<T = number>(array: Array<T>, ascending?: boolean): Ar
   "props": {
     "previous": {
       "label": "Algorithms: longestPrefixSuffix",
-      "to": "/dev/algorithms/longestPrefixSuffix"
+      "to": "/dev/algorithms/use/longestPrefixSuffix"
     },
     "next": {
       "label": "Algorithms: naiveSearch",

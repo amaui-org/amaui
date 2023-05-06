@@ -706,8 +706,8 @@
             "url": "/dev/algorithms/use/bubbleSort"
           },
           {
-            "label": "factorialRecurisve",
-            "url": "/dev/algorithms/use/factorialRecurisve"
+            "label": "factorialRecursive",
+            "url": "/dev/algorithms/use/factorialRecursive"
           },
           {
             "label": "factorial",
@@ -738,8 +738,8 @@
             "url": "/dev/algorithms/use/mergeSort"
           },
           {
-            "label": "naiveSort",
-            "url": "/dev/algorithms/use/naiveSort"
+            "label": "naiveSearch",
+            "url": "/dev/algorithms/use/naiveSearch"
           },
           {
             "label": "quickSort",

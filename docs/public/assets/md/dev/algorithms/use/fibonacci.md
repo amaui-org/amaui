@@ -22,7 +22,7 @@ default function fibonacci(value: number, options?: IFibonacciOptions): number;
   "props": {
     "previous": {
       "label": "Algorithms: factorialRecursive",
-      "to": "/dev/algorithms/factorialRecursive"
+      "to": "/dev/algorithms/use/factorialRecursive"
     },
     "next": {
       "label": "Algorithms: fibonacciRecursive",
