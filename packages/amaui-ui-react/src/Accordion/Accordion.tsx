@@ -52,6 +52,14 @@ const useStyle = styleMethod(theme => ({
 
   header: {},
 
+  expanded_header_padding_vertical_start: { paddingBlockStart: '16px !important' },
+
+  expanded_header_padding_vertical_both: { paddingBlock: '16px !important' },
+
+  expanded_header_padding_vertical_end: { paddingBlockEnd: '16px !important' },
+
+  expanded_header_padding_vertical_none: { paddingBlock: '0px !important' },
+
   header_padding_vertical_start: { paddingBlockStart: '8px' },
 
   header_padding_vertical_both: { paddingBlock: '8px' },
@@ -59,14 +67,6 @@ const useStyle = styleMethod(theme => ({
   header_padding_vertical_end: { paddingBlockEnd: '8px' },
 
   header_padding_vertical_none: { paddingBlock: '0px' },
-
-  expanded_header_padding_vertical_start: { paddingBlockStart: '16px' },
-
-  expanded_header_padding_vertical_both: { paddingBlock: '16px' },
-
-  expanded_header_padding_vertical_end: { paddingBlockEnd: '16px' },
-
-  expanded_header_padding_vertical_none: { paddingBlock: '0px' },
 
   header_padding_horizontal_start: { paddingInlineStart: '16px' },
 
@@ -236,8 +236,8 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
   let TransitionComponentProps = TransitionComponentProps_;
 
   React.useEffect(() => {
-    if (open_ !== open) setOpen(open_);
-  }, [open_]);
+    if (open_ !== undefined && open_ !== open) setOpen(open_);
+  }, [open_, open]);
 
   const onClick = React.useCallback(() => {
     if (refs.expandInProgress.current) return;
@@ -450,7 +450,7 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
         addValue={addValue * -8}
 
         onTransition={(element: any, status: TTransitionStatus) => {
-          refs.expandInProgress.current = !['entered', 'removed'].includes(status);
+          refs.expandInProgress.current = !['entered', 'exited', 'removed'].includes(status);
         }}
 
         role='region'

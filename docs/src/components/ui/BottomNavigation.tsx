@@ -130,6 +130,8 @@ export default function BottomNavigation(props: any) {
 
           <Type
             version='t1'
+
+            Component='p'
           >
             {previous.label}
           </Type>
@@ -185,6 +187,8 @@ export default function BottomNavigation(props: any) {
 
           <Type
             version='t1'
+
+            Component='p'
           >
             {next.label}
           </Type>

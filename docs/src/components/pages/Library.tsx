@@ -3,7 +3,7 @@ import Head from 'next/head';
 import LinkNext from 'next/link';
 
 import { clamp, parse, random, slugify, unique, copyToClipboard } from '@amaui/utils';
-import { Button, Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery, Placeholder, Fade, Tooltip, IconButton, sanitize } from '@amaui/ui-react';
+import { Button, Interaction, Line, Markdown, SpyScroll, Type, useMainProgress, useMediaQuery, Placeholder, Fade, Tooltip, IconButton, sanitize, Accordion } from '@amaui/ui-react';
 import { classNames, style as styleMethod } from '@amaui/style-react';
 import AmauiRequest from '@amaui/request';
 
@@ -296,6 +296,13 @@ const useStyle = styleMethod(theme => ({
     height: '24px',
     fill: 'currentColor'
   },
+
+  accordion: {
+    '&.amaui-Accordion-root': {
+      background: 'none',
+      marginTop: '14px !important'
+    }
+  }
 }), { name: 'library' });
 
 export default function Library(props: any) {
@@ -315,6 +322,7 @@ export default function Library(props: any) {
 
   const refs = {
     id: React.useId(),
+    root: React.useRef<any>(),
     wrapper: React.useRef<HTMLElement>(),
     value: React.useRef<any>(),
     url: React.useRef<string>()
@@ -428,40 +436,8 @@ export default function Library(props: any) {
 
     const markdowns = Array.from(refs.wrapper.current!.querySelectorAll('.amaui-Markdown-root'));
 
-    const valuesHeadings: any = [];
-
     markdowns.forEach(markdown => {
-      // Update all headings within the markdown inner html
-      let elements = Array.from(markdown?.querySelectorAll('h1, h2, h3, h4, h5, h6') || []);
-
-      // Add url anchor to heading elements
-      elements.forEach(item => {
-        const id = slugify(item.innerHTML);
-
-        const text = item.textContent;
-
-        // ID
-        if (!(item as any).dataset.amaui) {
-          item.id = id;
-
-          // ClassName
-          item.className = classNames([item.className, classes.heading]);
-
-          // Mark
-          item.setAttribute('data-amaui', 'true');
-
-          const iconAnchor = `<svg viewBox="0 0 24 24" width="1em" height="1em" focusable="false" aria-hidden="true" style="fill: currentcolor; font-size: 24px;"><path d="M7 17Q4.925 17 3.463 15.537Q2 14.075 2 12Q2 9.925 3.463 8.462Q4.925 7 7 7H10Q10.425 7 10.713 7.287Q11 7.575 11 8Q11 8.425 10.713 8.712Q10.425 9 10 9H7Q5.75 9 4.875 9.875Q4 10.75 4 12Q4 13.25 4.875 14.125Q5.75 15 7 15H10Q10.425 15 10.713 15.287Q11 15.575 11 16Q11 16.425 10.713 16.712Q10.425 17 10 17ZM9 13Q8.575 13 8.288 12.712Q8 12.425 8 12Q8 11.575 8.288 11.287Q8.575 11 9 11H15Q15.425 11 15.713 11.287Q16 11.575 16 12Q16 12.425 15.713 12.712Q15.425 13 15 13ZM14 17Q13.575 17 13.288 16.712Q13 16.425 13 16Q13 15.575 13.288 15.287Q13.575 15 14 15H17Q18.25 15 19.125 14.125Q20 13.25 20 12Q20 10.75 19.125 9.875Q18.25 9 17 9H14Q13.575 9 13.288 8.712Q13 8.425 13 8Q13 7.575 13.288 7.287Q13.575 7 14 7H17Q19.075 7 20.538 8.462Q22 9.925 22 12Q22 14.075 20.538 15.537Q19.075 17 17 17Z"/></svg>`;
-
-          // Add the anchors
-          item.innerHTML += `<a href='#${id}' class='${classNames([classes.anchor])}' aria-label='${text}' title='${text}'>${iconAnchor}</a>`;
-        }
-
-        valuesHeadings.push({
-          id: item.id,
-          text,
-          priority: +item.tagName.slice(1)
-        });
-      });
+      let elements: Element[] = [];
 
       // Update all headings within the markdown inner html
       elements = Array.from(markdown?.querySelectorAll('pre') || []);
@@ -594,35 +570,105 @@ export default function Library(props: any) {
       });
     });
 
+    const valuesHeadings: any = [];
+
+    // Update all headings within the markdown inner html
+    let elements = Array.from(refs.wrapper.current?.querySelectorAll('h1, h2, h3, h4, h5, h6') || []);
+
+    // Add url anchor to heading elements
+    elements.forEach(item => {
+      const text = item.textContent;
+
+      if (!item.id) item.id = slugify(text as any);
+
+      valuesHeadings.push({
+        id: item.id,
+        text,
+        priority: +item.tagName.slice(1)
+      });
+
+      // ID
+      if (!(item as any).dataset.amaui) {
+        // ClassName
+        item.className = classNames([item.className, classes.heading]);
+
+        // Mark
+        item.setAttribute('data-amaui', 'true');
+
+        const iconAnchor = `<svg viewBox="0 0 24 24" width="1em" height="1em" focusable="false" aria-hidden="true" style="fill: currentcolor; font-size: 24px;"><path d="M7 17Q4.925 17 3.463 15.537Q2 14.075 2 12Q2 9.925 3.463 8.462Q4.925 7 7 7H10Q10.425 7 10.713 7.287Q11 7.575 11 8Q11 8.425 10.713 8.712Q10.425 9 10 9H7Q5.75 9 4.875 9.875Q4 10.75 4 12Q4 13.25 4.875 14.125Q5.75 15 7 15H10Q10.425 15 10.713 15.287Q11 15.575 11 16Q11 16.425 10.713 16.712Q10.425 17 10 17ZM9 13Q8.575 13 8.288 12.712Q8 12.425 8 12Q8 11.575 8.288 11.287Q8.575 11 9 11H15Q15.425 11 15.713 11.287Q16 11.575 16 12Q16 12.425 15.713 12.712Q15.425 13 15 13ZM14 17Q13.575 17 13.288 16.712Q13 16.425 13 16Q13 15.575 13.288 15.287Q13.575 15 14 15H17Q18.25 15 19.125 14.125Q20 13.25 20 12Q20 10.75 19.125 9.875Q18.25 9 17 9H14Q13.575 9 13.288 8.712Q13 8.425 13 8Q13 7.575 13.288 7.287Q13.575 7 14 7H17Q19.075 7 20.538 8.462Q22 9.925 22 12Q22 14.075 20.538 15.537Q19.075 17 17 17Z"/></svg>`;
+
+        // Add the anchors
+        item.innerHTML += `<a href='#${item.id}' class='${classNames([classes.anchor])}' aria-label='${text}' title='${text}'>${iconAnchor}</a>`;
+      }
+    });
+
     setHeadings(unique([...valuesHeadings], 'id'));
 
     setMarkdownAdded(true);
   }, []);
 
-  const values = value?.trim().match(/[^~]+?(?=~)|(?:~)[\s\S]+?(?:~)/ig) || [];
+  const values = value?.trim().match(/(?!^|}~)[^~]+(?!$|~{)/ig) || [];
 
-  if (!value.includes('~{')) values.push(value);
+  if (values[0]?.startsWith('#')) values[0] = `#${values[0]}`;
 
-  const element = (value_: string, index: number) => {
-    if (value_?.indexOf('~{') !== 0) return (
-      <Markdown
-        key={index}
+  const element = React.useCallback((value_: string, index: number) => {
+    if (value_?.indexOf('{') !== 0) {
+      let valueMarkdown = value_;
 
-        value={value_}
+      const isAPI = valueMarkdown.trim().toLowerCase().includes('# api');
 
-        onAdded={onAdded}
+      if (isAPI) valueMarkdown = valueMarkdown.replace(`### API\n\n`, '');
 
-        onStart={onStart}
+      const markdown = (
+        <Markdown
+          key={index}
 
-        onUpdate={onUpdate}
+          value={valueMarkdown}
 
-        className={classNames([
-          classes.markdown
-        ])}
-      />
-    );
+          onAdded={onAdded}
 
-    const object = parse(value_.slice(1, -1));
+          onStart={onStart}
+
+          onUpdate={onUpdate}
+
+          className={classNames([
+            classes.markdown
+          ])}
+        />
+      );
+
+      if (isAPI) {
+        return (
+          <Accordion
+            // openDefault
+
+            primary={(
+              <Type version='h3' id='api'>API</Type>
+            )}
+
+            className={classes.accordion}
+
+            expandedMarginVertical='none'
+
+            expandedHeaderPaddingVertical='none'
+
+            headerPaddingHorizontal='none'
+
+            mainPaddingHorizontal='none'
+
+            ExpandProps={{
+              removeOnExited: false
+            }}
+          >
+            {markdown}
+          </Accordion>
+        )
+      }
+
+      return markdown;
+    }
+
+    const object = parse(value_);
 
     const objectProps = {
       key: index,
@@ -644,7 +690,7 @@ export default function Library(props: any) {
       default:
         break;
     }
-  };
+  }, []);
 
   const onClickSidenavHeading = React.useCallback((heading: any) => {
     const { id } = heading;
@@ -725,6 +771,8 @@ export default function Library(props: any) {
       addClassName='active'
     >
       <Line
+        ref={refs.root}
+
         gap={0}
 
         direction='column'
@@ -949,6 +997,6 @@ export default function Library(props: any) {
           )}
         </Line>
       </Line>
-    </SpyScroll >
+    </SpyScroll>
   </>;
 }
