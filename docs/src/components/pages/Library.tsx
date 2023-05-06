@@ -322,8 +322,9 @@ export default function Library(props: any) {
 
   const refs = {
     id: React.useId(),
-    root: React.useRef<any>(),
+    root: React.useRef<HTMLElement>(),
     wrapper: React.useRef<HTMLElement>(),
+    main: React.useRef<HTMLElement>(),
     value: React.useRef<any>(),
     url: React.useRef<string>()
   };
@@ -434,7 +435,7 @@ export default function Library(props: any) {
   const onUpdate = React.useCallback(() => {
     const Prism = (window as any).Prism;
 
-    const markdowns = Array.from(refs.wrapper.current!.querySelectorAll('.amaui-Markdown-root'));
+    const markdowns = Array.from(refs.main.current!.querySelectorAll('.amaui-Markdown-root'));
 
     markdowns.forEach(markdown => {
       let elements: Element[] = [];
@@ -573,7 +574,7 @@ export default function Library(props: any) {
     const valuesHeadings: any = [];
 
     // Update all headings within the markdown inner html
-    let elements = Array.from(refs.wrapper.current?.querySelectorAll('h1, h2, h3, h4, h5, h6') || []);
+    let elements = Array.from(refs.main.current?.querySelectorAll('h1, h2, h3, h4, h5, h6') || []);
 
     // Add url anchor to heading elements
     elements.forEach(item => {
@@ -607,9 +608,11 @@ export default function Library(props: any) {
     setMarkdownAdded(true);
   }, []);
 
-  const values = value?.trim().match(/(?!^|}~)[^~]+(?!$|~{)/ig) || [];
+  const values = value?.trim().match(/(?!^|}~)[^~]+((?!~{)|$)/ig) || [];
 
   if (values[0]?.startsWith('#')) values[0] = `#${values[0]}`;
+
+  if (values[values.length - 1]?.endsWith('``')) values[values.length - 1] = values[values.length - 1] + '`';
 
   const element = React.useCallback((value_: string, index: number) => {
     if (value_?.indexOf('{') !== 0) {
@@ -640,7 +643,9 @@ export default function Library(props: any) {
       if (isAPI) {
         return (
           <Accordion
-            openDefault={!!window.location.hash}
+            // openDefault={!!window.location.hash}
+
+            openDefault
 
             primary={(
               <Type version='h3' id='api'>API</Type>
@@ -686,7 +691,7 @@ export default function Library(props: any) {
       default:
         break;
     }
-  }, []);
+  }, [markdownAdded]);
 
   const onClickSidenavHeading = React.useCallback((heading: any) => {
     const { id } = heading;
@@ -841,6 +846,8 @@ export default function Library(props: any) {
           }}
         >
           <Line
+            ref={refs.main}
+
             gap={0}
 
             direction='column'
@@ -932,7 +939,7 @@ export default function Library(props: any) {
             </Fade>
           </Line>
 
-          {withSidenav && (
+          {withSidenav && !!values?.length && (
             <Line
               gap={1}
 

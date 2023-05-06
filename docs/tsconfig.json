@@ -19,18 +19,30 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@amaui/style-react": ["../packages/amaui-style-react/build"],
-      "@amaui/style-react/*": ["../packages/amaui-style-react/build/*"],
-
-      "@amaui/icons-material-react": ["../packages/amaui-icons-material-react/build"],
-      "@amaui/icons-material-react/*": ["../packages/amaui-icons-material-react/build/*"],
-
-      "@amaui/ui-react": ["../packages/amaui-ui-react/build"],
-      "@amaui/ui-react/*": ["../packages/amaui-ui-react/build/*"]
+      "@amaui/style-react": [
+        "../packages/amaui-style-react/build"
+      ],
+      "@amaui/style-react/*": [
+        "../packages/amaui-style-react/build/*"
+      ],
+      "@amaui/icons-material-react": [
+        "../packages/amaui-icons-material-react/build"
+      ],
+      "@amaui/icons-material-react/*": [
+        "../packages/amaui-icons-material-react/build/*"
+      ],
+      "@amaui/ui-react": [
+        "../packages/amaui-ui-react/build"
+      ],
+      "@amaui/ui-react/*": [
+        "../packages/amaui-ui-react/build/*"
+      ]
     },
-    "plugins": [{
-      "name": "next"
-    }]
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
