@@ -2,7 +2,7 @@
 
 ### API
 
-#### reflowelement
+#### reflow
 
 ```ts
 function reflow(element: HTMLElement): void;

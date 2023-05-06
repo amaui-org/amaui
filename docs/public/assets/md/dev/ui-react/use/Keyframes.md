@@ -37,7 +37,7 @@ interface IKeyframes extends Omit<IBaseElement, 'className'> {
     };
 ```
 
-#### Keyframesprops_
+#### Keyframes
 
 ```ts
 function Keyframes(props_: IKeyframes): JSX.Element;

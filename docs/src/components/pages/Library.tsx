@@ -255,7 +255,11 @@ const useStyle = styleMethod(theme => ({
     maxWidth: 140,
     flex: '0 0 auto',
     position: 'sticky',
-    top: '114px'
+    top: '114px',
+
+    '& *': {
+      wordBreak: 'break-all'
+    }
   },
 
   sidenav_headings: {
@@ -612,7 +616,7 @@ export default function Library(props: any) {
 
   if (values[0]?.startsWith('#')) values[0] = `#${values[0]}`;
 
-  if (values[values.length - 1]?.endsWith('``')) values[values.length - 1] = values[values.length - 1] + '`';
+  if (values[values.length - 1]?.endsWith('\n``')) values[values.length - 1] = values[values.length - 1] + '`';
 
   const element = React.useCallback((value_: string, index: number) => {
     if (value_?.indexOf('{') !== 0) {

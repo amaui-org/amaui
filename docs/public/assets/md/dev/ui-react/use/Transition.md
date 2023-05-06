@@ -39,7 +39,7 @@ interface ITransition extends Omit<IBaseElement, 'children' | 'className'> {
     };
 ```
 
-#### Transitionprops_
+#### Transition
 
 ```ts
 function Transition(props_: ITransition): JSX.Element;

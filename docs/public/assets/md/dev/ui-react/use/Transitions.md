@@ -20,7 +20,7 @@ interface ITransitions {
 }
 ```
 
-#### Transitionsprops_
+#### Transitions
 
 ```ts
 function Transitions(props_: ITransitions): any;
