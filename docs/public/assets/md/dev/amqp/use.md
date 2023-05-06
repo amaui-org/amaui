@@ -1,5 +1,4 @@
-
-### Use
+## Use
 
 Only able to use server side, so without interactive example.
 
@@ -26,4 +25,4 @@ Only able to use server side, so without interactive example.
   await amauiAmqp.checkQueue();
 
   // { queue: 'a', messageCount: 1, etc. }
-```
+``
