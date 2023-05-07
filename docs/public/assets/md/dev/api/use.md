@@ -2,6 +2,25 @@
 
 ### API
 
+#### IResponseOptions
+
+```ts
+interface IResponseOptions {
+    method: 'json' | 'send';
+    type: 'application/json';
+}
+```
+
+#### IRouteClassInstance
+
+```ts
+interface IRouteClassInstance {
+    response: (req: express.Request, response: express.Response, options: IResponseOptions) => any;
+    error: (req: express.Request, error: Error) => any;
+    [p: string]: any;
+}
+```
+
 #### IRouteClass
 
 ```ts
@@ -87,16 +106,17 @@ function Options(...args: TRouteArgs): MethodDecorator;
 function Delete(...args: TRouteArgs): MethodDecorator;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "API: Start",
+      "to": "/dev/api/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "AWS: Start",
+      "to": "/dev/aws/start"
     }
   }
 }~
