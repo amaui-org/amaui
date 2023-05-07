@@ -302,7 +302,20 @@ async function docsUpdateTypes(pathTypes, pathUse, isModules) {
 
   const use = fse.existsSync(usePath) ? await fse.readFile(usePath, 'utf8') : '';
 
-  let values = use?.trim().match(/(?:^|}~)[^~]+(?:$|~{)/ig) || [];
+  let values = use?.trim().match(/(?!^|}~)[^~]+(?!$|~{)/ig) || [];
+
+  if (values[0]?.startsWith('#')) values[0] = `#${values[0]}`;
+
+  if (values[values.length - 1]?.endsWith('\n``')) values[values.length - 1] = values[values.length - 1] + '`';
+
+  if (values.length > 0 && values.length <= 2) {
+    const md = (values[0].split(/### API[^~]+(?!$|~])/))[0]?.trim();
+    const api = values[0].match(/### API[^~]+(?!$|~])/)[0]?.trim();
+
+    values.splice(0, 1, md, api);
+
+    values = values.filter(Boolean);
+  }
 
   const parts = data.match(/((type|const) [^{|\n]+{\n[^}]+};)|((type|const|function|class) [^\n]+)|((interface|class|default class) [^}]+};?(\n|$))/ig) || [];
 
