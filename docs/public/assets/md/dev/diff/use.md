@@ -119,16 +119,17 @@ class AmauiDiff {
 }
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Diff: Start",
+      "to": "/dev/diff/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Errors: Start",
+      "to": "/dev/errors/start"
     }
   }
 }~
