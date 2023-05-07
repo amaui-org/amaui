@@ -50,16 +50,17 @@ class AmauiLZ77 {
 }
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "LZ77: Start",
+      "to": "/dev/lz77/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Meta: Start",
+      "to": "/dev/meta/start"
     }
   }
 }~

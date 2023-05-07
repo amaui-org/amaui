@@ -23,6 +23,22 @@ interface IAmauiLogVariantColor {
 }
 ```
 
+#### IAmauiLogVariantPre
+
+```ts
+interface IAmauiLogVariantPre {
+    subscription: AmauiSubscription;
+}
+```
+
+#### IAmauiLogVariantPost
+
+```ts
+interface IAmauiLogVariantPost {
+    subscription: AmauiSubscription;
+}
+```
+
 #### IAmauiLogVariant
 
 ```ts
@@ -31,9 +47,9 @@ interface IAmauiLogVariant {
     prefix?: any;
     sufix?: any;
     color?: IAmauiLogVariantColor;
-    pre?: {
-        subscription: AmauiSubscription;
-    };
+    pre?: IAmauiLogVariantPre;
+    post?: IAmauiLogVariantPost;
+}
 ```
 
 #### IAmauiLogVariants
@@ -44,19 +60,63 @@ type IAmauiLogVariants = {
 };
 ```
 
+#### IAmauiLogOptionsLogPadding
+
+```ts
+interface IAmauiLogOptionsLogPadding {
+    top?: boolean;
+    bottom?: boolean;
+}
+```
+
+#### IAmauiLogOptionsLog
+
+```ts
+interface IAmauiLogOptionsLog {
+    archive?: boolean;
+    enabled?: boolean;
+    native?: boolean;
+    variants?: Array<TVariant>;
+    padding?: IAmauiLogOptionsLogPadding;
+}
+```
+
+#### IAmauiLogOptionsArguments
+
+```ts
+interface IAmauiLogOptionsArguments {
+    pre?: any[];
+    post?: any[];
+}
+```
+
+#### IAmauiLogOptionsDate
+
+```ts
+interface IAmauiLogOptionsDate {
+    add?: boolean;
+    method?: TMethod;
+}
+```
+
+#### IAmauiLogOptionsStringify
+
+```ts
+interface IAmauiLogOptionsStringify {
+    method?: TMethod;
+}
+```
+
 #### IAmauiLogOptions
 
 ```ts
 interface IAmauiLogOptions {
-    log?: {
-        archive?: boolean;
-        enabled?: boolean;
-        native?: boolean;
-        variants?: Array<TVariant>;
-        padding?: {
-            top?: boolean;
-            bottom?: boolean;
-        };
+    log?: IAmauiLogOptionsLog;
+    arguments?: IAmauiLogOptionsArguments;
+    variants?: IAmauiLogVariants;
+    date?: IAmauiLogOptionsDate;
+    stringify?: IAmauiLogOptionsStringify;
+}
 ```
 
 #### ILog
@@ -112,16 +172,17 @@ class AmauiLog implements IAmauiLog {
 }
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Log: Start",
+      "to": "/dev/log/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "LZ77: Start",
+      "to": "/dev/lz77/start"
     }
   }
 }~

@@ -63,16 +63,17 @@ class AmauiHeap {
 }
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Heap: Start",
+      "to": "/dev/heap/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Huffman Code: Start",
+      "to": "/dev/huffman-code/start"
     }
   }
 }~

@@ -56,16 +56,17 @@ default class AmauiLinkedList {
 }
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Linked List: Start",
+      "to": "/dev/linked-list/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Log: Start",
+      "to": "/dev/log/start"
     }
   }
 }~
