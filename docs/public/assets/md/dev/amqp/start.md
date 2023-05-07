@@ -7,7 +7,7 @@ yarn add @amaui/amqp
 
 ### Use
 
-```javascript
+```ts
 import AmauiAmqp from '@amaui/amqp';
 // Make if you wanna a config file and
 // inside of it add all the process.env related props
@@ -71,8 +71,8 @@ yarn build
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Icons Material React: Start",
-      "to": "/dev/icons-material-react/start"
+      "label": "Algorithms: Start",
+      "to": "/dev/algorithms/start"
     },
     "next": {
       "label": "AMQP: Use",

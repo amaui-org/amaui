@@ -612,11 +612,20 @@ export default function Library(props: any) {
     setMarkdownAdded(true);
   }, []);
 
-  const values = value?.trim().match(/(?!^|}~)[^~]+((?!~{)|$)/ig) || [];
+  let values = value?.trim().match(/(?!^|}~)[^~]+((?!~{)|$)/ig) || [];
 
   if (values[0]?.startsWith('#')) values[0] = `#${values[0]}`;
 
   if (values[values.length - 1]?.endsWith('\n``')) values[values.length - 1] = values[values.length - 1] + '`';
+
+  if (values.length > 0 && values.length <= 2) {
+    const md = (values[0].split(/### API[^~]+(?!$|~])/))[0]?.trim();
+    const api = (values[0].match(/### API[^~]+(?!$|~])/) || [])[0]?.trim();
+
+    values.splice(0, 1, md, api);
+
+    values = values.filter(Boolean);
+  }
 
   const element = React.useCallback((value_: string, index: number) => {
     if (value_?.indexOf('{') !== 0) {

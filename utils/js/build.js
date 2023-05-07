@@ -315,13 +315,19 @@ async function docsUpdateTypes(pathTypes, pathUse, isModules) {
   });
 
   // Update values value
+  let added = false;
+
   values = values.map(item => {
-    if (item.includes('# API')) return valueNew;
+    if (item.includes('# API')) {
+      added = true;
+
+      return valueNew;
+    }
 
     return item;
   });
 
-  if (!values.length) values.push(valueNew);
+  if (!added) values.push(valueNew);
 
   // Update the file or create it if it doesn't exist
   await fse.writeFile(usePath, values.join('\n'));
