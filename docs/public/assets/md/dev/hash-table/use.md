@@ -28,12 +28,12 @@ default class AmauiHashTable {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Hash Table: Start",
+      "to": "/dev/hash-table/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Heap: Start",
+      "to": "/dev/heap/start"
     }
   }
 }~

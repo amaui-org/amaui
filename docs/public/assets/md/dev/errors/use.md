@@ -136,16 +136,17 @@ class DeveloperError extends AmauiError {
 }
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Errors: Start",
+      "to": "/dev/errors/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Graph: Start",
+      "to": "/dev/graph/start"
     }
   }
 }~

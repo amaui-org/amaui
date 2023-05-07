@@ -13,7 +13,7 @@ import Line from '../Line';
 import Type from '../Type';
 
 import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TElevation, TPropsAny, TTonal } from '../utils';
-import { TTransitionStatus } from '../Transition';
+import { ITransition, TTransitionStatus } from '../Transition';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -233,7 +233,9 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
   const { classes } = useStyle(props);
 
   let TransitionComponent = TransitionComponent_;
-  let TransitionComponentProps = TransitionComponentProps_;
+  let TransitionComponentProps: ITransition = {
+    ...TransitionComponentProps_
+  };
 
   React.useEffect(() => {
     if (open_ !== undefined && open_ !== open) setOpen(open_);
