@@ -8,16 +8,17 @@
 default function In(to?: AmauiDate, withPrefix?: boolean, from?: AmauiDate): string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Date: getTimezoneOffset",
+      "to": "/dev/date/use/getTimezoneOffset"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Date: is",
+      "to": "/dev/date/use/is"
     }
   }
 }~

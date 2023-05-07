@@ -8,16 +8,17 @@
 default function myTimezone(): ITimezone;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Date: my",
+      "to": "/dev/date/use/my"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Date: myTimezoneAbbr",
+      "to": "/dev/date/use/myTimezoneAbbr"
     }
   }
 }~

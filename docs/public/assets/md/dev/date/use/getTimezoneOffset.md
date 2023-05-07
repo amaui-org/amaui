@@ -8,16 +8,17 @@
 default function getTimezoneOffset(value?: AmauiDate, divider?: string): string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Date: formats",
+      "to": "/dev/date/use/formats"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Date: in",
+      "to": "/dev/date/use/in"
     }
   }
 }~

@@ -35,16 +35,17 @@ class AmauiCookie {
 }
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Cookie: Start",
+      "to": "/dev/cookie/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Date: Start",
+      "to": "/dev/date/start"
     }
   }
 }~

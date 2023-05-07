@@ -2,17 +2,24 @@
 
 ### API
 
+#### IOptionsOverrides
+
+```ts
+interface IOptionsOverrides {
+    months?: string[];
+    monthsAbr?: string[];
+    daysWeek?: string[];
+    daysWeekAbr?: string[];
+}
+```
+
 #### IOptions
 
 ```ts
 interface IOptions {
     utc?: boolean;
-    overrides?: {
-        months?: string[];
-        monthsAbr?: string[];
-        daysWeek?: string[];
-        daysWeekAbr?: string[];
-    };
+    overrides?: IOptionsOverrides;
+}
 ```
 
 #### TTimeUnits
@@ -102,16 +109,17 @@ default class AmauiDate {
 }
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Date: ago",
+      "to": "/dev/date/use/ago"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Date: diff",
+      "to": "/dev/date/use/diff"
     }
   }
 }~

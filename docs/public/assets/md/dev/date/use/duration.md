@@ -8,16 +8,17 @@
 default function duration(value: number, unitAbbr?: boolean, raw?: boolean, separator?: string, display?: string[]): string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Date: diff",
+      "to": "/dev/date/use/diff"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Date: endOf",
+      "to": "/dev/date/use/endOf"
     }
   }
 }~

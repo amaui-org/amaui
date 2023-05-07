@@ -71,8 +71,8 @@ yarn build
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Algorithms: Start",
-      "to": "/dev/algorithms/start"
+      "label": "AWS: Start",
+      "to": "/dev/aws/start"
     },
     "next": {
       "label": "Binary Tree: Use",

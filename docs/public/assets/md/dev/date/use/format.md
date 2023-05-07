@@ -8,16 +8,17 @@
 default function format(amauiDate?: AmauiDate, value_?: string): string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Date: endOf",
+      "to": "/dev/date/use/endOf"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Date: formats",
+      "to": "/dev/date/use/formats"
     }
   }
 }~

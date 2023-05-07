@@ -8,16 +8,17 @@
 default function add(value: number, unit: TTimeUnits, amauiDate_?: AmauiDate): AmauiDate;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Date: Start",
+      "to": "/dev/date/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Date: ago",
+      "to": "/dev/date/use/ago"
     }
   }
 }~

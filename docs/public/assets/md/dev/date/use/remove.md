@@ -8,16 +8,17 @@
 default function remove(value: number, unit: TTimeUnits, amauiDate?: AmauiDate): AmauiDate;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Date: myTimezoneAbbr",
+      "to": "/dev/date/use/myTimezoneAbbr"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Date: set",
+      "to": "/dev/date/use/set"
     }
   }
 }~

@@ -20,16 +20,17 @@ type TIsQuery = 'before' | 'after' | 'same' | 'between' | 'before or same' | 'af
 default function is(value: AmauiDate, query: TIsQuery, value1?: AmauiDate, unit?: TTimeUnits, value2?: AmauiDate): boolean;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Date: in",
+      "to": "/dev/date/use/in"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Date: max",
+      "to": "/dev/date/use/max"
     }
   }
 }~

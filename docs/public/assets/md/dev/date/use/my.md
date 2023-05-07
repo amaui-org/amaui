@@ -17,16 +17,17 @@ interface IMy {
 default function my(): IMy;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Date: min",
+      "to": "/dev/date/use/min"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Date: myTimezone",
+      "to": "/dev/date/use/myTimezone"
     }
   }
 }~

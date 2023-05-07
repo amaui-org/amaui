@@ -62,16 +62,17 @@ class AmauiBinaryTree implements IAmauiBinaryTree {
 }
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Binary Tree: Start",
+      "to": "/dev/binary-tree/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Cache: Start",
+      "to": "/dev/cache/start"
     }
   }
 }~

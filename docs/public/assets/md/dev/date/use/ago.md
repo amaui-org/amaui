@@ -8,16 +8,17 @@
 default function ago(amauiDate?: AmauiDate, withSufix?: boolean): string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Date: add",
+      "to": "/dev/date/use/add"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Date: AmauiDate",
+      "to": "/dev/date/use/AmauiDate"
     }
   }
 }~

@@ -8,16 +8,17 @@
 default function formats(amauiDate?: AmauiDate): Array<{
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Date: format",
+      "to": "/dev/date/use/format"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Date: getTimezoneOffset",
+      "to": "/dev/date/use/getTimezoneOffset"
     }
   }
 }~

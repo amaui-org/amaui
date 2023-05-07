@@ -8,16 +8,17 @@
 default function myTimezoneAbbr(): string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Date: myTimezone",
+      "to": "/dev/date/use/myTimezone"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Date: remove",
+      "to": "/dev/date/use/remove"
     }
   }
 }~

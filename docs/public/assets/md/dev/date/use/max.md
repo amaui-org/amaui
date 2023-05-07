@@ -8,16 +8,17 @@
 default function max(values?: Array<AmauiDate>): AmauiDate;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Date: is",
+      "to": "/dev/date/use/is"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Date: min",
+      "to": "/dev/date/use/min"
     }
   }
 }~

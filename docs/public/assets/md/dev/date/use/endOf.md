@@ -8,16 +8,17 @@
 default function endOf(amauiDate_?: AmauiDate, unit?: TTimeUnits): AmauiDate;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Date: duration",
+      "to": "/dev/date/use/duration"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Date: format",
+      "to": "/dev/date/use/format"
     }
   }
 }~

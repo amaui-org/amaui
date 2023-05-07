@@ -56,8 +56,8 @@ yarn build
       "to": "/dev/cookie/start"
     },
     "next": {
-      "label": "Date: Use",
-      "to": "/dev/date/use"
+      "label": "Date: add",
+      "to": "/dev/date/use/add"
     }
   }
 }~
