@@ -38,7 +38,7 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
 
   const refs = {
     root: React.useRef<HTMLElement>(),
-    rectStart: React.useRef<any>(),
+    element: React.useRef<HTMLDivElement>(),
     rect: React.useRef<any>()
   };
 
@@ -84,6 +84,14 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
     ...other
   } = props;
 
+  const [init, setInit] = React.useState(false);
+
+  React.useEffect(() => {
+    refs.rect.current = refs.element.current?.getBoundingClientRect();
+
+    setInit(true);
+  }, []);
+
   let prop = 'height';
 
   if (orientation === 'horizontal') prop = 'width';
@@ -93,21 +101,9 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
 
     const allStyles = {
       appended: {
-        position: 'absolute',
+        position: 'fixed',
+        left: '114%',
         visibility: 'hidden'
-      },
-
-      add: {
-        transition: 'none',
-        [prop]: 0,
-        overflow: 'hidden'
-      },
-      adding: {
-        [prop]: refs.rectStart.current && `${refs.rectStart.current[prop]}px`,
-        overflow: 'hidden'
-      },
-      added: {
-        [prop]: 'auto'
       },
 
       enter: {
@@ -116,7 +112,7 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
         overflow: 'hidden'
       },
       entering: {
-        [prop]: refs.rectStart.current && `${refs.rectStart.current[prop]}px`,
+        [prop]: refs.rect.current && `${refs.rect.current[prop]}px`,
         overflow: 'hidden'
       },
       entered: {
@@ -148,35 +144,32 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
     return `${((is('simple', timeout) ? timeout : timeout[status]) || properties[property] - (status === 'exiting' ? 30 : 0))}ms`;
   };
 
-  const timingFunction = status => (is('simple', timing_function) ? timing_function : timing_function[status]) || theme.transitions.timing_function.standard;
+  const timingFunction = (status: TTransitionStatus) => (is('simple', timing_function) ? timing_function : timing_function[status]) || theme.transitions.timing_function.standard;
 
   const children_: any = React.useMemo(() => <Wrapper {...WrapperProps}>{children}</Wrapper>, [children]);
 
-  return (
-    <Transition
-      append={!removeOnExited}
+  if (!init) return (
+    <div
+      ref={refs.element}
 
-      removeOnExited
-
-      preEnterAppendTimeout={70}
-
-      {...props}
-
-      onAppended={element => {
-        if (!removeOnExited && !refs.rectStart.current) {
-          refs.rectStart.current = element?.getBoundingClientRect();
-
-          if (refs.rectStart.current) refs.rectStart.current[prop] += addValue;
-        }
-      }}
-
-      onEnter={element => {
-        refs.rectStart.current = element?.getBoundingClientRect();
-
-        if (refs.rectStart.current) refs.rectStart.current[prop] += addValue;
+      style={{
+        position: 'fixed',
+        left: '114%',
+        visibility: 'hidden'
       }}
     >
+      {children_}
+    </div>
+  );
+
+  return (
+    <Transition
+      removeOnExited
+
+      {...props}
+    >
       {(status: TTransitionStatus, ref_) => {
+
         return React.cloneElement(children_, {
           ...other,
 

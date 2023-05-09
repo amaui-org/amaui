@@ -222,6 +222,7 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
   } = props;
 
   const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
+
   const refs = {
     ids: {
       button: React.useId(),
@@ -233,6 +234,7 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
   const { classes } = useStyle(props);
 
   let TransitionComponent = TransitionComponent_;
+
   let TransitionComponentProps: ITransition = {
     ...TransitionComponentProps_
   };
@@ -259,25 +261,6 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
     TransitionComponent = React.Fragment;
     TransitionComponentProps = {};
   }
-
-  let addValue = 0;
-  let firstAccordionLevel: any;
-
-  const method = (children_: any, level = 0) => {
-    const items = React.Children.toArray(children_);
-
-    items.forEach((item: any) => {
-      if (item?.type?.displayName === 'amaui-Accordion') {
-        if (firstAccordionLevel === undefined) firstAccordionLevel = level;
-
-        if (firstAccordionLevel === level) addValue += 1;
-      }
-    });
-
-    items.forEach((item: any) => method(item.props?.children, level + 1));
-  };
-
-  method(children);
 
   return (
     <Surface
@@ -448,8 +431,6 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
 
       <Expand
         in={open}
-
-        addValue={addValue * -8}
 
         onTransition={(element: any, status: TTransitionStatus) => {
           refs.expandInProgress.current = !['entered', 'exited', 'removed'].includes(status);

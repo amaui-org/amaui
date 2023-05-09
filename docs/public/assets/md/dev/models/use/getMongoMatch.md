@@ -8,6 +8,7 @@
 const getMongoMatch: (query: Array<object>, type?: TMatchOperator) => Array<TMatch>;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

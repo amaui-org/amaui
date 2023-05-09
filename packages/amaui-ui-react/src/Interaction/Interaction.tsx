@@ -2,6 +2,7 @@ import React from 'react';
 
 import { is, getID, debounce } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import AmauiSubscription from '@amaui/subscription/amaui-subscription';
 
 import { Transition, Transitions, TTransitionStatus, useMediaQuery } from '..';
 
@@ -151,6 +152,8 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-Interaction' });
 
+export type TMethodsVersion = 'add' | 'pulse' | 'remove';
+
 export interface IInteraction extends IBaseElement {
   wave?: boolean;
   background?: boolean;
@@ -162,6 +165,7 @@ export interface IInteraction extends IBaseElement {
   selected?: boolean;
   dragged?: boolean;
   wave_version?: 'simple';
+  subscription?: AmauiSubscription;
   clear?: any;
   disabled?: boolean;
 }
@@ -177,11 +181,12 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
     border: border_,
     pulse,
 
-    origin,
+    origin: origin_,
     preselected,
     selected,
     dragged,
     wave_version,
+    subscription,
     clear,
     disabled,
 
@@ -311,19 +316,38 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
     else removeWaves();
   }, [pulse]);
 
+  const methods = React.useCallback((version: TMethodsVersion) => {
+    if (version === 'add') addWave(undefined, { origin: 'center' });
+    else if (version === 'pulse') addWavePulse();
+    else if (version === 'remove') removeWaves();
+  }, []);
+
+  React.useEffect(() => {
+    let subscribed: any;
+
+    if (subscription?.subscribe) subscribed = subscription.subscribe(methods);
+
+    // Clean up
+    return () => {
+      if (subscribed?.unsubscribe) subscribed.unsubscribe();
+    };
+  }, [subscription]);
+
   React.useEffect(() => {
     if (disabled) setInteractions([]);
   }, [disabled]);
 
-  const addWave = (event: MouseEvent | TouchEvent) => {
+  const addWave = React.useCallback((event?: MouseEvent | TouchEvent, overrides: IInteraction = {}) => {
+    const origin = overrides.origin !== undefined ? overrides.origin : origin_;
+
     if (refs.wave.current && !refs.props.current.disabled) {
       let top = 0;
       let left = 0;
       let width: any = '100%';
 
       if (wave_version !== 'simple') {
-        const rect = (event.currentTarget as any)?.getBoundingClientRect();
-        const root = ((event?.currentTarget || refs.root.current.parentNode) as any).getBoundingClientRect() as DOMRect;
+        const rect = (event?.currentTarget as any)?.getBoundingClientRect();
+        const root = ((event?.currentTarget || refs.root.current.parentNode) as any)?.getBoundingClientRect() as DOMRect;
 
         // Mouse or touch event
         const valuesEvent = (!(event as TouchEvent)?.touches ? event : (event as TouchEvent).touches[0]) as MouseEvent;
@@ -389,9 +413,9 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
       ]
       );
     }
-  };
+  }, []);
 
-  const addWavePulse = () => {
+  const addWavePulse = React.useCallback(() => {
     if (refs.pulse.current && !refs.props.current.disabled) {
       // Remove previous wave
       // if there is one
@@ -438,11 +462,11 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
         )
       ]);
     }
-  };
+  }, []);
 
-  const removeWaves = () => setWaves([]);
+  const removeWaves = React.useCallback(() => setWaves([]), []);
 
-  const add = value => {
+  const add = React.useCallback((value: string) => {
     if (!refs.props.current.disabled) {
       setInteractions(items => {
         const newItems = [...items];
@@ -452,11 +476,11 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
         return newItems;
       });
     }
-  };
+  }, []);
 
-  const has = value => interactions.indexOf(value) > -1;
+  const has = React.useCallback((value: string) => interactions.indexOf(value) > -1, [interactions]);
 
-  const remove = value => setInteractions(items => [...items].filter(item => item !== value));
+  const remove = React.useCallback((value: string) => setInteractions(items => [...items].filter(item => item !== value)), []);
 
   return (
     <span

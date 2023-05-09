@@ -2,13 +2,29 @@
 
 ### API
 
+#### IOptionsValue
+
+```ts
+interface IOptionsValue {
+    copy?: boolean;
+}
+```
+
+#### IOptionsAdd
+
+```ts
+interface IOptionsAdd {
+    override?: boolean;
+}
+```
+
 #### IOptions
 
 ```ts
 interface IOptions {
-    value?: {
-        copy?: boolean;
-    };
+    value?: IOptionsValue;
+    add?: IOptionsAdd;
+}
 ```
 
 #### AmauiMeta
@@ -34,16 +50,17 @@ class AmauiMeta {
 }
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Meta: Start",
+      "to": "/dev/meta/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Models: Start",
+      "to": "/dev/models/start"
     }
   }
 }~

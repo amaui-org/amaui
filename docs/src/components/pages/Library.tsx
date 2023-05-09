@@ -414,10 +414,12 @@ export default function Library(props: any) {
       }, 1400);
     }
 
-    onUpdate();
-
     setInit(true);
   }, []);
+
+  React.useEffect(() => {
+    if (init) onUpdate();
+  }, [init]);
 
   React.useEffect(() => {
     if (refs.url.current !== URL) {
@@ -656,8 +658,6 @@ export default function Library(props: any) {
       if (isAPI) {
         return (
           <Accordion
-            // openDefault={!!window.location.hash}
-
             openDefault
 
             primary={(
@@ -770,6 +770,8 @@ export default function Library(props: any) {
       </Line>
     );
   }, []);
+
+  if (!init) return null;
 
   return <>
     <Head>

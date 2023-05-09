@@ -34,6 +34,7 @@ class ResponsePagination extends Base implements IResponsePagination {
 }
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

@@ -8,6 +8,7 @@
 const validateMongoQuery: (value: object, keys?: IQueryKeys) => Error | boolean;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

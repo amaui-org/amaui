@@ -32,7 +32,7 @@ interface IFilter {
 }
 ```
 
-#### IQueryObject<T
+#### IQueryObject
 
 ```ts
 interface IQueryObject<T = object> {
@@ -100,6 +100,14 @@ type IQueryMeta = {
 };
 ```
 
+#### IKeys
+
+```ts
+interface IKeys {
+    allowed: string[];
+}
+```
+
 #### IQuery
 
 ```ts
@@ -129,10 +137,18 @@ class Query extends Base implements IQuery {
     previous: string | Record<string, any>;
     total: boolean;
     projection?: object;
-    static keys: {
-        allowed: any[];
-    };
+    static keys: IKeys;
+    static collections: string[];
+    static limit: number;
+    static sort: Sort;
+    constructor(query?: IQuery);
+    getMeta(value: IQuery): IQueryMeta;
+    static getMetaValue(value: any, type?: string): any;
+    static fromRequest(req: express.Request): Query;
+    addToAllQueries(filters: any[] | object, type?: string): void;
+}
 ```
+
 
 ~{
   "element": "BottomNavigation",
