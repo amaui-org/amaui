@@ -16,3 +16,16 @@ interface IFactorialRecursiveOptions {
 default function factorialRecursive(value: number, options?: IFactorialRecursiveOptions): number;
 ```
 
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "Algorithms: factorial",
+      "to": "/dev/algorithms/use/factorial"
+    },
+    "next": {
+      "label": "Algorithms: fibonacci",
+      "to": "/dev/algorithms/use/fibonacci"
+    }
+  }
+}~

@@ -16,3 +16,16 @@ interface IFibonacciOptions {
 default function fibonacci(value: number, options?: IFibonacciOptions): number;
 ```
 
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "Algorithms: factorialRecursive",
+      "to": "/dev/algorithms/use/factorialRecursive"
+    },
+    "next": {
+      "label": "Algorithms: fibonacciRecursive",
+      "to": "/dev/algorithms/use/fibonacciRecursive"
+    }
+  }
+}~

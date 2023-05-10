@@ -20,3 +20,16 @@ function getDigit(value: number, indexValue: number): number;
 default function radixSort<T = number>(value: Array<T>, ascending?: boolean): Array<T>;
 ```
 
+~{
+  "element": "BottomNavigation",
+  "props": {
+    "previous": {
+      "label": "Algorithms: quickSort",
+      "to": "/dev/algorithms/use/quickSort"
+    },
+    "next": {
+      "label": "Algorithms: selectionSort",
+      "to": "/dev/algorithms/use/selectionSort"
+    }
+  }
+}~
