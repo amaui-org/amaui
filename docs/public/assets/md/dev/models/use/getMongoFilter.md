@@ -13,12 +13,12 @@ const getMongoFilter: (field: string, operator: string, value: any) => Record<st
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Models: getExpressParamValue",
+      "to": "/dev/models/getExpressParamValue"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Models: getMongoFilters",
+      "to": "/dev/models/getMongoFilters"
     }
   }
 }~

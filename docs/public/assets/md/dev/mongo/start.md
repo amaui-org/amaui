@@ -105,8 +105,8 @@ yarn build
       "to": "/dev/models/start"
     },
     "next": {
-      "label": "Mongo: Use",
-      "to": "/dev/mongo/use"
+      "label": "Mongo: AmauiMongo",
+      "to": "/dev/mongo/use/AmauiMongo"
     }
   }
 }~

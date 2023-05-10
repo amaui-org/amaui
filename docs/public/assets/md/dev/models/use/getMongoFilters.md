@@ -13,12 +13,12 @@ const getMongoFilters: (value_: IQueryObject<IFilter>, methodField?: (...args: a
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Models: getMongoFilter",
+      "to": "/dev/models/getMongoFilter"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Models: getMongoMatch",
+      "to": "/dev/models/getMongoMatch"
     }
   }
 }~

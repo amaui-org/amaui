@@ -55,8 +55,8 @@ class AmauiMeta {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Meta: Start",
-      "to": "/dev/meta/start"
+      "label": "LZ77: Start",
+      "to": "/dev/lz77/start"
     },
     "next": {
       "label": "Models: Start",

@@ -36,12 +36,12 @@ interface IQueryKeys {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Models: getMongoOperator",
+      "to": "/dev/models/getMongoOperator"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Models: MongoQuery",
+      "to": "/dev/models/MongoQuery"
     }
   }
 }~

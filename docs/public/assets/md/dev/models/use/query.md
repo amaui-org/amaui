@@ -154,12 +154,12 @@ class Query extends Base implements IQuery {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Models: MongoQuery",
+      "to": "/dev/models/MongoQuery"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Models: response",
+      "to": "/dev/models/response"
     }
   }
 }~

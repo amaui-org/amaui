@@ -13,12 +13,12 @@ const validateMongoQuery: (value: object, keys?: IQueryKeys) => Error | boolean;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Models: responsePagination",
+      "to": "/dev/models/responsePagination"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Mongo: Start",
+      "to": "/dev/mongo/start"
     }
   }
 }~

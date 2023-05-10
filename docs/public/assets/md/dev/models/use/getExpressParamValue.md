@@ -13,12 +13,12 @@ const getExpressParamValue: (req: express.Request, name: string) => any | undefi
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Models: base",
+      "to": "/dev/models/base"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Models: getMongoFilter",
+      "to": "/dev/models/getMongoFilter"
     }
   }
 }~

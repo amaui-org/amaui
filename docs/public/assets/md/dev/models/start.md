@@ -53,8 +53,8 @@ yarn build
       "to": "/dev/meta/start"
     },
     "next": {
-      "label": "Models: Use",
-      "to": "/dev/models/use"
+      "label": "Models: base",
+      "to": "/dev/models/use/base"
     }
   }
 }~

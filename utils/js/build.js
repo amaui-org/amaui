@@ -310,7 +310,7 @@ async function docsUpdateTypes(pathTypes, pathUse, isModules) {
 
   if (values.length > 0 && values.length <= 2) {
     const md = (values[0].split(/### API[^~]+(?!$|~])/))[0]?.trim();
-    const api = values[0].match(/### API[^~]+(?!$|~])/)[0]?.trim();
+    const api = (values[0].match(/### API[^~]+(?!$|~])/) || [])[0]?.trim();
 
     values.splice(0, 1, md, api);
 

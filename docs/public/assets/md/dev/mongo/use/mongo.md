@@ -72,16 +72,17 @@ class Mongo {
 }
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Mongo: BaseCollection",
+      "to": "/dev/mongo/use/BaseCollection"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Node: start",
+      "to": "/dev/node/start"
     }
   }
 }~

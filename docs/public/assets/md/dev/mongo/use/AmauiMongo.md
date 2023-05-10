@@ -12,16 +12,17 @@ class AmauiMongo {
 }
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Mongo: Start",
+      "to": "/dev/mongo/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Mongo: BaseCollection",
+      "to": "/dev/mongo/use/BaseCollection"
     }
   }
 }~

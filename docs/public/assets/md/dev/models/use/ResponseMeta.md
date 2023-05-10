@@ -26,12 +26,12 @@ class ResponseMeta extends Base implements IResponseMeta {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Models: response",
+      "to": "/dev/models/response"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Models: ResponsePagination",
+      "to": "/dev/models/ResponsePagination"
     }
   }
 }~

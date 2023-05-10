@@ -25,12 +25,12 @@ class Base implements IBase {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "models: Start",
+      "to": "/dev/models/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Models: getExpressParamValue",
+      "to": "/dev/models/getExpressParamValue"
     }
   }
 }~

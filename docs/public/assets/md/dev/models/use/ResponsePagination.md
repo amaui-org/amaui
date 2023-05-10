@@ -39,12 +39,12 @@ class ResponsePagination extends Base implements IResponsePagination {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Models: ResponseMeta",
+      "to": "/dev/models/ResponseMeta"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Models: validateMongoQuery",
+      "to": "/dev/models/validateMongoQuery"
     }
   }
 }~

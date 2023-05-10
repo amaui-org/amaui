@@ -13,12 +13,12 @@ const getMongoMatch: (query: Array<object>, type?: TMatchOperator) => Array<TMat
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Models: getMongoFilters",
+      "to": "/dev/models/getMongoFilters"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Models: getMongoOperator",
+      "to": "/dev/models/getMongoOperator"
     }
   }
 }~

@@ -17,12 +17,12 @@ interface IResponse {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Models: query",
+      "to": "/dev/models/query"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Models: ResponseMeta",
+      "to": "/dev/models/ResponseMeta"
     }
   }
 }~

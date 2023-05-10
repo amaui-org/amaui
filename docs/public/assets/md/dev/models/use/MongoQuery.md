@@ -40,12 +40,12 @@ class MongoQuery extends Base implements IMongoQuery {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Models: models",
+      "to": "/dev/models/models"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Models: query",
+      "to": "/dev/models/query"
     }
   }
 }~
