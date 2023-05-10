@@ -26,14 +26,38 @@ type TResponseTypeNode = 'buffer' | 'json' | 'text';
 type TBody = Blob | BufferSource | FormData | URLSearchParams | Record<any, any> | string | any;
 ```
 
+#### TXhrEvent
+
+```ts
+type TXhrEvent = ProgressEvent<EventTarget>;
+```
+
+#### IInterceptorsSetRequest
+
+```ts
+interface IInterceptorsSetRequest {
+    pre: AmauiSubscription;
+    post: AmauiSubscription;
+}
+```
+
+#### IInterceptorsSetResponse
+
+```ts
+interface IInterceptorsSetResponse {
+    success: AmauiSubscription;
+    error: AmauiSubscription;
+    fail: AmauiSubscription;
+}
+```
+
 #### IInterceptorsSet
 
 ```ts
 interface IInterceptorsSet {
-    request: {
-        pre: AmauiSubscription;
-        post: AmauiSubscription;
-    };
+    request: IInterceptorsSetRequest;
+    response: IInterceptorsSetResponse;
+}
 ```
 
 #### IOptionsRequest
@@ -72,26 +96,82 @@ class AmauiRequestResponse implements IAmauiRequestResponse {
 }
 ```
 
+#### IOptionsZipAmaui
+
+```ts
+interface IOptionsZipAmaui {
+    zip?: boolean;
+    unzip?: boolean;
+    only_positive?: boolean;
+}
+```
+
+#### IOptionsZip
+
+```ts
+interface IOptionsZip {
+    amaui?: IOptionsZipAmaui;
+}
+```
+
+#### IOptionsCsrf
+
+```ts
+interface IOptionsCsrf {
+    cookie?: string;
+    headers?: string;
+}
+```
+
+#### IOptionsAgents
+
+```ts
+interface IOptionsAgents {
+    http?: http.Agent;
+    https?: https.Agent;
+}
+```
+
+#### IOptionsRequest
+
+```ts
+interface IOptionsRequest {
+    url?: string;
+    withCredentials?: boolean;
+    headers?: Record<string, string | number>;
+    zip?: IOptionsZip;
+    csrf?: IOptionsCsrf;
+    agents?: IOptionsAgents;
+    timeout?: number;
+}
+```
+
+#### IOptionsResponseParse
+
+```ts
+interface IOptionsResponseParse {
+    json?: boolean;
+}
+```
+
+#### IOptionsResponse
+
+```ts
+interface IOptionsResponse {
+    pure?: boolean;
+    resolveOnError?: boolean;
+    type?: TResponseType | TResponseTypeNode;
+    parse?: IOptionsResponseParse;
+}
+```
+
 #### IOptions
 
 ```ts
 interface IOptions {
-    request?: {
-        url?: string;
-        withCredentials?: boolean;
-        headers?: Record<string, string | number>;
-        zip?: {
-            amaui?: {
-                zip?: boolean;
-                unzip?: boolean;
-                only_positive?: boolean;
-            };
-```
-
-#### |
-
-```ts
-Type | TResponseTypeNode;
+    request?: IOptionsRequest;
+    response?: IOptionsResponse;
+}
 ```
 
 #### TAmauiRequestDefaults
@@ -153,16 +233,17 @@ class AmauiRequest {
 }
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Request: Start",
+      "to": "/dev/request/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Stack: Start",
+      "to": "/dev/stack/start"
     }
   }
 }~

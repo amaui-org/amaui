@@ -30,12 +30,12 @@ default class AmauiQueue {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Queue: Start",
+      "to": "/dev/queue/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Request: Start",
+      "to": "/dev/request/start"
     }
   }
 }~
