@@ -30,7 +30,7 @@ interface IMongoSearchOneAdditional {
 }
 ```
 
-#### MONGO_AGGREGATE_OPTIONS
+#### MONGO\_AGGREGATE\_OPTIONS
 
 ```ts
 const MONGO_AGGREGATE_OPTIONS: {
@@ -38,7 +38,7 @@ const MONGO_AGGREGATE_OPTIONS: {
 };
 ```
 
-#### MONGO_LIMIT_COUNT
+#### MONGO\_LIMIT\_COUNT
 
 ```ts
 const MONGO_LIMIT_COUNT = 1000;

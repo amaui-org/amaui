@@ -30,7 +30,7 @@ class Base implements IBase {
     },
     "next": {
       "label": "Models: getExpressParamValue",
-      "to": "/dev/models/getExpressParamValue"
+      "to": "/dev/models/use/getExpressParamValue"
     }
   }
 }~

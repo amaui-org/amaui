@@ -26,12 +26,12 @@ class ResponseMeta extends Base implements IResponseMeta {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Models: response",
-      "to": "/dev/models/response"
+      "label": "Models: Response",
+      "to": "/dev/models/use/Response"
     },
     "next": {
       "label": "Models: ResponsePagination",
-      "to": "/dev/models/ResponsePagination"
+      "to": "/dev/models/use/ResponsePagination"
     }
   }
 }~

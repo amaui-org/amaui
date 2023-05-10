@@ -41,11 +41,11 @@ class MongoQuery extends Base implements IMongoQuery {
   "props": {
     "previous": {
       "label": "Models: models",
-      "to": "/dev/models/models"
+      "to": "/dev/models/use/models"
     },
     "next": {
-      "label": "Models: query",
-      "to": "/dev/models/query"
+      "label": "Models: Query",
+      "to": "/dev/models/use/Query"
     }
   }
 }~

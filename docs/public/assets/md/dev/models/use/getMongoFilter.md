@@ -14,11 +14,11 @@ const getMongoFilter: (field: string, operator: string, value: any) => Record<st
   "props": {
     "previous": {
       "label": "Models: getExpressParamValue",
-      "to": "/dev/models/getExpressParamValue"
+      "to": "/dev/models/use/getExpressParamValue"
     },
     "next": {
       "label": "Models: getMongoFilters",
-      "to": "/dev/models/getMongoFilters"
+      "to": "/dev/models/use/getMongoFilters"
     }
   }
 }~

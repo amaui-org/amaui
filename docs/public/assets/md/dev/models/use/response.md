@@ -17,12 +17,12 @@ interface IResponse {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Models: query",
-      "to": "/dev/models/query"
+      "label": "Models: Query",
+      "to": "/dev/models/use/Query"
     },
     "next": {
       "label": "Models: ResponseMeta",
-      "to": "/dev/models/ResponseMeta"
+      "to": "/dev/models/use/ResponseMeta"
     }
   }
 }~
