@@ -24,7 +24,8 @@ interface INumericTextField extends IAdvancedTextField {
 const NumericTextField: React.ForwardRefExoticComponent<Omit<INumericTextField, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -36,4 +37,4 @@ const NumericTextField: React.ForwardRefExoticComponent<Omit<INumericTextField, 
       "to": "/dev/api/use"
     }
   }
-}~
+}

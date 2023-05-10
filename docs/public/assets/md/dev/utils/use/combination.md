@@ -20,8 +20,9 @@ interface ICombinationOptions {
 #### combination
 
 ```ts
-function combination(value_: any[], items_?: number, options_?: ICombinationOptions): TCombination;
+default function combination(value_: any[], items_?: number, options_?: ICombinationOptions): TCombination;
 ```
+
 
 ~{
   "element": "BottomNavigation",

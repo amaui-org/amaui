@@ -15,7 +15,8 @@ interface IBottomSheet extends INavigationDrawer {
 const BottomSheet: React.ForwardRefExoticComponent<Omit<IBottomSheet, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const BottomSheet: React.ForwardRefExoticComponent<Omit<IBottomSheet, "ref"> & R
       "to": "/dev/api/use"
     }
   }
-}~
+}

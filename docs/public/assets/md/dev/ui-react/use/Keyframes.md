@@ -2,6 +2,12 @@
 
 ### API
 
+#### types="react"
+
+```ts
+/// <reference types="react" />
+```
+
 #### TKeyframesStatus
 
 ```ts
@@ -35,6 +41,13 @@ interface IKeyframes extends Omit<IBaseElement, 'className'> {
         default?: number;
         add?: number;
     };
+    onKeyframes?: (element: HTMLElement, status: TKeyframesStatus) => void;
+    onAppended?: (element: HTMLElement) => void;
+    onAdd?: (element: HTMLElement) => void;
+    onAdding?: (element: HTMLElement) => void;
+    onAdded?: (element: HTMLElement) => void;
+    onRemoved?: (element: HTMLElement) => void;
+}
 ```
 
 #### Keyframes
@@ -43,7 +56,16 @@ interface IKeyframes extends Omit<IBaseElement, 'className'> {
 function Keyframes(props_: IKeyframes): JSX.Element;
 ```
 
-~{
+#### Keyframes
+
+```ts
+namespace Keyframes {
+    var displayName: string;
+}
+```
+
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -55,4 +77,4 @@ function Keyframes(props_: IKeyframes): JSX.Element;
       "to": "/dev/api/use"
     }
   }
-}~
+}

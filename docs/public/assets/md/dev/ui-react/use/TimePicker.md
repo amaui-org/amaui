@@ -82,7 +82,8 @@ interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
 const TimePicker: React.ForwardRefExoticComponent<Omit<ITimePicker, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -94,4 +95,4 @@ const TimePicker: React.ForwardRefExoticComponent<Omit<ITimePicker, "ref"> & Rea
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -77,7 +77,8 @@ interface IDatePicker extends ILine {
 const DatePicker: React.ForwardRefExoticComponent<Omit<IDatePicker, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -89,4 +90,4 @@ const DatePicker: React.ForwardRefExoticComponent<Omit<IDatePicker, "ref"> & Rea
       "to": "/dev/api/use"
     }
   }
-}~
+}

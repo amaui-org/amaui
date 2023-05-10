@@ -5,10 +5,11 @@
 #### className
 
 ```ts
-function className(value_: string | TValue, props_?: any, className_?: string, options_?: IOptions): string;
+default function className(value_: string | TValue, props_?: any, className_?: string, options_?: IOptions): string;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ function className(value_: string | TValue, props_?: any, className_?: string, o
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -12,12 +12,12 @@ function run(argv: any): Promise<void>;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Test: assert",
+      "to": "/dev/test/use/assert"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Test: request",
+      "to": "/dev/test/use/request"
     }
   }
 }~

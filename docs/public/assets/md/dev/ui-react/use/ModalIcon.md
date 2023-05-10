@@ -15,7 +15,8 @@ interface IModalIcon extends IIcon {
 const ModalIcon: React.ForwardRefExoticComponent<Omit<IModalIcon, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const ModalIcon: React.ForwardRefExoticComponent<Omit<IModalIcon, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -35,7 +35,8 @@ interface IStep extends ILine {
 const Step: React.ForwardRefExoticComponent<Omit<IStep, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -47,4 +48,4 @@ const Step: React.ForwardRefExoticComponent<Omit<IStep, "ref"> & React.RefAttrib
       "to": "/dev/api/use"
     }
   }
-}~
+}

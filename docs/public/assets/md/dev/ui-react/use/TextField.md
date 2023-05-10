@@ -61,7 +61,8 @@ interface ITextField extends IBaseElement {
 const TextField: React.ForwardRefExoticComponent<Omit<ITextField, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -73,4 +74,4 @@ const TextField: React.ForwardRefExoticComponent<Omit<ITextField, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -16,7 +16,8 @@ interface IPath extends IBaseElement {
 const Path: React.ForwardRefExoticComponent<Omit<IPath, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -28,4 +29,4 @@ const Path: React.ForwardRefExoticComponent<Omit<IPath, "ref"> & React.RefAttrib
       "to": "/dev/api/use"
     }
   }
-}~
+}

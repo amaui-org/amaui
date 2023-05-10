@@ -15,7 +15,8 @@ interface IFab extends IButton {
 const Fab: React.ForwardRefExoticComponent<Omit<IFab, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const Fab: React.ForwardRefExoticComponent<Omit<IFab, "ref"> & React.RefAttribut
       "to": "/dev/api/use"
     }
   }
-}~
+}

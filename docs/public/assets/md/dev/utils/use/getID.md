@@ -8,6 +8,7 @@
 const getID: () => string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

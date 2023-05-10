@@ -68,6 +68,7 @@ const browserPolyfills: (additions?: boolean) => void;
 const polyfills: (additions?: boolean) => void;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

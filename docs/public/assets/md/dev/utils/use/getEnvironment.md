@@ -8,6 +8,7 @@
 const getEnvironment: () => typeof globalThis;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

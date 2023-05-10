@@ -17,7 +17,8 @@ interface ILineChart extends IChart {
 const LineChart: React.ForwardRefExoticComponent<Omit<ILineChart, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -29,4 +30,4 @@ const LineChart: React.ForwardRefExoticComponent<Omit<ILineChart, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

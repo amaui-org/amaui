@@ -8,6 +8,7 @@
 const encode: (value_: any) => string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

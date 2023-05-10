@@ -62,12 +62,12 @@ class AmauiGroup implements IAmauiGroup {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Test: Start",
+      "to": "/dev/test/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Test: AmauiMiddleware",
+      "to": "/dev/test/use/AmauiMiddleware"
     }
   }
 }~

@@ -38,18 +38,31 @@ class AmauiStyleRuleProperty {
         value: string;
         css: string;
     };
+    constructor(value: any, property: string, options?: IOptions);
+    get parent(): AmauiStyleRule;
+    get response(): IValuesVersion;
+    get css(): string;
+    private updateValues;
+    private init;
+    update(value?: any): void;
+    remove(): void;
+    makeSelector(): void;
+    private clear;
+    static make(value: any, property: string, options?: IOptions): AmauiStyleRuleProperty;
+}
 ```
+
 
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style: AmauiStyleRule",
+      "to": "/dev/style/use/AmauiStyleRule"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style: AmauiStyleSheet",
+      "to": "/dev/style/use/AmauiStyleSheet"
     }
   }
 }~

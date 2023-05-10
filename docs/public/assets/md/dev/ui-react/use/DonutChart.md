@@ -15,7 +15,8 @@ interface IDonutChart extends IPieChart {
 const DonutChart: React.ForwardRefExoticComponent<Omit<IDonutChart, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const DonutChart: React.ForwardRefExoticComponent<Omit<IDonutChart, "ref"> & Rea
       "to": "/dev/api/use"
     }
   }
-}~
+}

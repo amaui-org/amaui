@@ -13,6 +13,15 @@ interface IConfirmOpen {
         positive?: {
             text?: string;
         };
+        negative?: {
+            text?: string;
+        };
+    };
+    throwError?: boolean;
+    ButtonNegativeProps?: any;
+    ButtonPositiveProps?: any;
+    [p: string]: any;
+}
 ```
 
 #### IConfirmPromiseArgument
@@ -49,7 +58,8 @@ interface IConfirmProvider extends IBaseElement {
 const ConfirmProvider: React.ForwardRefExoticComponent<Omit<IConfirmProvider, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -61,4 +71,4 @@ const ConfirmProvider: React.ForwardRefExoticComponent<Omit<IConfirmProvider, "r
       "to": "/dev/api/use"
     }
   }
-}~
+}

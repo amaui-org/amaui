@@ -11,6 +11,16 @@ interface ILineChartItem extends IChart {
         wrapper?: HTMLElement;
         defs?: HTMLElement;
     };
+    rects?: {
+        wrapper?: DOMRect;
+        svg?: DOMRect;
+    };
+    values?: TChartValueValues;
+    updateDefs: TMethod;
+    updateLegend: TMethod;
+    smooth?: boolean;
+    smoothRatio?: number;
+}
 ```
 
 #### LineChartItem
@@ -19,7 +29,8 @@ interface ILineChartItem extends IChart {
 const LineChartItem: React.ForwardRefExoticComponent<Omit<ILineChartItem, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -31,4 +42,4 @@ const LineChartItem: React.ForwardRefExoticComponent<Omit<ILineChartItem, "ref">
       "to": "/dev/api/use"
     }
   }
-}~
+}

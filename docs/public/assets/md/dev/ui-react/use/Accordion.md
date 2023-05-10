@@ -45,7 +45,8 @@ interface IAccordion extends IBaseElement {
 const Accordion: React.ForwardRefExoticComponent<Omit<IAccordion, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -57,4 +58,4 @@ const Accordion: React.ForwardRefExoticComponent<Omit<IAccordion, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -22,7 +22,8 @@ interface IMarkdown extends IBaseElement {
 const Markdown: React.ForwardRefExoticComponent<Omit<IMarkdown, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -34,4 +35,4 @@ const Markdown: React.ForwardRefExoticComponent<Omit<IMarkdown, "ref"> & React.R
       "to": "/dev/api/use"
     }
   }
-}~
+}

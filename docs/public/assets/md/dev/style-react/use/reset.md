@@ -5,10 +5,11 @@
 #### reset
 
 ```ts
-function reset(value?: TValue, options_?: IOptions): (props_?: any) => IResponse;
+default function reset(value?: TValue, options_?: IOptions): (props_?: any) => IResponse;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ function reset(value?: TValue, options_?: IOptions): (props_?: any) => IResponse
       "to": "/dev/api/use"
     }
   }
-}~
+}

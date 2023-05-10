@@ -15,7 +15,8 @@ interface IPieChart extends IChart {
 const PieChart: React.ForwardRefExoticComponent<Omit<IPieChart, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const PieChart: React.ForwardRefExoticComponent<Omit<IPieChart, "ref"> & React.R
       "to": "/dev/api/use"
     }
   }
-}~
+}

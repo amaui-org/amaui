@@ -8,6 +8,7 @@
 const canvasFilterBrightness: (value: number, canvas: HTMLCanvasElement) => HTMLCanvasElement;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

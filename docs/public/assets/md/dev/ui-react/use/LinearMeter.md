@@ -2,13 +2,68 @@
 
 ### API
 
+#### ILinearMeter
+
+```ts
+interface ILinearMeter extends IBaseElement {
+    tonal?: TTonal;
+    color?: TColor;
+    size?: TSize;
+    parts?: number;
+    lineCap?: 'inherit' | 'round' | 'square' | 'butt';
+    orientation?: 'vertical' | 'horizontal';
+    linePosition?: 'start' | 'center' | 'end';
+    width?: number;
+    height?: number;
+    padding?: number;
+    paddingVertical?: number;
+    paddingHorizontal?: number;
+    gap?: number;
+    border?: boolean;
+    background?: boolean;
+    boundaryWidth?: number;
+    lineProgress?: boolean;
+    linesVisible?: boolean;
+    marksVisible?: boolean;
+    labelsVisible?: boolean;
+    marks?: Array<{
+        size?: number;
+        position?: number;
+        padding?: number;
+        [property: string]: any;
+    }>;
+    markSize?: number;
+    markWidth?: number;
+    labels?: Array<{
+        value?: number;
+        position?: number;
+        padding?: number;
+        style?: TStyle;
+        [property: string]: any;
+    }>;
+    additional?: TElement;
+    textProps?: TPropsAny;
+    pathProps?: TPropsAny;
+    SvgProps?: TPropsAny;
+    MarkProps?: TPropsAny;
+    LabelProps?: TPropsAny;
+    BackgroundProps?: TPropsAny;
+    BorderProps?: TPropsAny;
+    LineProps?: TPropsAny;
+    LineMainProps?: TPropsAny;
+    LinesProgressProps?: TPropsAny;
+    LineProgressProps?: TPropsAny;
+}
+```
+
 #### LinearMeter
 
 ```ts
 const LinearMeter: React.ForwardRefExoticComponent<Omit<ILinearMeter, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +75,4 @@ const LinearMeter: React.ForwardRefExoticComponent<Omit<ILinearMeter, "ref"> & R
       "to": "/dev/api/use"
     }
   }
-}~
+}

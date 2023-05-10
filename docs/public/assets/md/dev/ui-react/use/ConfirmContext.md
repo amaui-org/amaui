@@ -8,7 +8,8 @@
 const AmauiConfirmContext: any;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ const AmauiConfirmContext: any;
       "to": "/dev/api/use"
     }
   }
-}~
+}

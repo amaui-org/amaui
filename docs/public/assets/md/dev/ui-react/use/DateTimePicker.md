@@ -64,7 +64,8 @@ interface IDateTimePicker extends Omit<IAdvancedTextField, 'version'> {
 const DateTimePicker: React.ForwardRefExoticComponent<Omit<IDateTimePicker, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -76,4 +77,4 @@ const DateTimePicker: React.ForwardRefExoticComponent<Omit<IDateTimePicker, "ref
       "to": "/dev/api/use"
     }
   }
-}~
+}

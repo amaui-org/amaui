@@ -16,6 +16,7 @@ interface IOptions {
 const getQueryParams: (value_?: string, paramName?: string, options_?: IOptions) => object | string | number | boolean | undefined;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

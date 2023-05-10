@@ -17,6 +17,7 @@ interface IOptions {
 const hash: (value_: any, options_?: IOptions) => string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

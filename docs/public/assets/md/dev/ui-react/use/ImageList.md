@@ -20,7 +20,8 @@ interface IImageList extends IBaseElement {
 const ImageList: React.ForwardRefExoticComponent<Omit<IImageList, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -32,4 +33,4 @@ const ImageList: React.ForwardRefExoticComponent<Omit<IImageList, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

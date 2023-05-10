@@ -20,6 +20,7 @@ interface IOptions {
 const getFileName: (file: File, options_?: IOptions) => string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

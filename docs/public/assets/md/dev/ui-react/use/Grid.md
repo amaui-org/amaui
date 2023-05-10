@@ -21,7 +21,8 @@ interface IGrid extends ILine {
 const Grid: React.ForwardRefExoticComponent<Omit<IGrid, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -33,4 +34,4 @@ const Grid: React.ForwardRefExoticComponent<Omit<IGrid, "ref"> & React.RefAttrib
       "to": "/dev/api/use"
     }
   }
-}~
+}

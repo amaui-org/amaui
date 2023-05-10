@@ -27,7 +27,8 @@ interface IRadios extends ILine {
 const Radios: React.ForwardRefExoticComponent<Omit<IRadios, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -39,4 +40,4 @@ const Radios: React.ForwardRefExoticComponent<Omit<IRadios, "ref"> & React.RefAt
       "to": "/dev/api/use"
     }
   }
-}~
+}

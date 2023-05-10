@@ -15,7 +15,8 @@ interface ITimeRangePicker extends ITimePicker {
 const TimeRangePicker: React.ForwardRefExoticComponent<Omit<ITimeRangePicker, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const TimeRangePicker: React.ForwardRefExoticComponent<Omit<ITimeRangePicker, "r
       "to": "/dev/api/use"
     }
   }
-}~
+}

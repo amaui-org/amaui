@@ -13,6 +13,14 @@ interface IBubbleChartItem extends IChart {
         wrapper?: HTMLElement;
         defs?: HTMLElement;
     };
+    rects?: {
+        wrapper?: DOMRect;
+        svg?: DOMRect;
+    };
+    values?: TChartValueValues;
+    updateDefs: TMethod;
+    updateLegend: TMethod;
+}
 ```
 
 #### BubbleChartItem
@@ -21,7 +29,8 @@ interface IBubbleChartItem extends IChart {
 const BubbleChartItem: React.ForwardRefExoticComponent<Omit<IBubbleChartItem, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -33,4 +42,4 @@ const BubbleChartItem: React.ForwardRefExoticComponent<Omit<IBubbleChartItem, "r
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -8,6 +8,7 @@
 const darken: (value: string, coefficient: number) => string | undefined;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

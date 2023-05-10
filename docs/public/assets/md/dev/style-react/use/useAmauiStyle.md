@@ -5,10 +5,11 @@
 #### useAmauiStyle
 
 ```ts
-function useAmauiStyle(): IAmauiStyleProvider;
+default function useAmauiStyle(): IAmauiStyleProvider;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ function useAmauiStyle(): IAmauiStyleProvider;
       "to": "/dev/api/use"
     }
   }
-}~
+}

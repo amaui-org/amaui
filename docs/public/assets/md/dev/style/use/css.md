@@ -16,16 +16,17 @@ interface IResponse {
 function css(value__: TValue, options_?: ICSSOptions): IResponse;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style: colors",
+      "to": "/dev/style/use/colors"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style: inline",
+      "to": "/dev/style/use/inline"
     }
   }
 }~

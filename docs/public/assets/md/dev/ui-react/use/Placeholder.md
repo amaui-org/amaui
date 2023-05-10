@@ -21,7 +21,8 @@ interface IPlaceholder extends Omit<IBaseElement, 'version'> {
 const Placeholder: React.ForwardRefExoticComponent<Omit<IPlaceholder, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -33,4 +34,4 @@ const Placeholder: React.ForwardRefExoticComponent<Omit<IPlaceholder, "ref"> & R
       "to": "/dev/api/use"
     }
   }
-}~
+}

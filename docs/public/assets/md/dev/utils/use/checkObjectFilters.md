@@ -8,6 +8,7 @@
 const checkObjectFilters: (value: object, filters?: Array<IFilter>, operator?: 'or' | 'and') => boolean;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

@@ -16,6 +16,9 @@ interface IOptions {
 
 ```ts
 type TVariablesToValue = Array<{
+    key: string;
+    value: any;
+}>;
 ```
 
 #### setStringVariables
@@ -23,6 +26,7 @@ type TVariablesToValue = Array<{
 ```ts
 const setStringVariables: (value: string, variablesToValue?: TVariablesToValue, options_?: IOptions) => string;
 ```
+
 
 ~{
   "element": "BottomNavigation",

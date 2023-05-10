@@ -27,6 +27,23 @@ interface IElementToCanvasOptions {
         type?: string;
         quality?: number;
     };
+    download?: {
+        type?: string;
+        name?: string;
+        quality?: number;
+    };
+    filter?: Array<string>;
+    crop?: {
+        x?: number;
+        y?: number;
+        width?: number;
+        height?: number;
+    };
+    styleSheets?: boolean;
+    urls?: boolean;
+    images?: boolean;
+    links?: boolean;
+}
 ```
 
 #### elementToCanvas
@@ -34,6 +51,7 @@ interface IElementToCanvasOptions {
 ```ts
 const elementToCanvas: (element_: HTMLElement, options_?: IElementToCanvasOptions) => Promise<TElementToCanvas>;
 ```
+
 
 ~{
   "element": "BottomNavigation",

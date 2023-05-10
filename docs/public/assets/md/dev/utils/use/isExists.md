@@ -5,8 +5,9 @@
 #### isExists
 
 ```ts
-function isExists(type: string): boolean;
+default function isExists(type: string): boolean;
 ```
+
 
 ~{
   "element": "BottomNavigation",

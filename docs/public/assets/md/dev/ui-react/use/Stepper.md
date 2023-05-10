@@ -29,7 +29,8 @@ interface IStepper extends ILine {
 const Stepper: React.ForwardRefExoticComponent<Omit<IStepper, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -41,4 +42,4 @@ const Stepper: React.ForwardRefExoticComponent<Omit<IStepper, "ref"> & React.Ref
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -8,6 +8,7 @@
 const random: (min?: number, max?: number) => number;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

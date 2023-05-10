@@ -8,7 +8,8 @@
 const AmauiMainProgressContext: any;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ const AmauiMainProgressContext: any;
       "to": "/dev/api/use"
     }
   }
-}~
+}

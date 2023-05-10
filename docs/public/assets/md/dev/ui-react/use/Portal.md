@@ -16,7 +16,8 @@ interface IPortal extends IBaseElement {
 const Portal: React.ForwardRefExoticComponent<Omit<IPortal, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -28,4 +29,4 @@ const Portal: React.ForwardRefExoticComponent<Omit<IPortal, "ref"> & React.RefAt
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -16,6 +16,7 @@ interface IOptions {
 const slugify: (value_: string, options_?: IOptions) => any;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

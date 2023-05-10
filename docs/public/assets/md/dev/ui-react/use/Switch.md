@@ -25,7 +25,8 @@ interface ISwitch extends IBaseElement {
 const Switch: React.ForwardRefExoticComponent<Omit<ISwitch, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -37,4 +38,4 @@ const Switch: React.ForwardRefExoticComponent<Omit<ISwitch, "ref"> & React.RefAt
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -21,7 +21,8 @@ interface IRadio extends IIconButton {
 const Radio: React.ForwardRefExoticComponent<Omit<IRadio, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -33,4 +34,4 @@ const Radio: React.ForwardRefExoticComponent<Omit<IRadio, "ref"> & React.RefAttr
       "to": "/dev/api/use"
     }
   }
-}~
+}

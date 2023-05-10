@@ -31,18 +31,27 @@ interface IOptions {
 
 ```ts
 function prefix(amauiStyle: AmauiStyle, options_?: IOptions): {
+    methods: {
+        method: (value_: {
+            property: string;
+            value: string;
+        }) => IPrefix;
+    };
+    remove: () => void;
+};
 ```
+
 
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style: makeClassName",
+      "to": "/dev/style/use/makeClassName"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style: pure",
+      "to": "/dev/style/use/pure"
     }
   }
 }~

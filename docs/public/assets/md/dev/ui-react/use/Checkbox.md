@@ -23,7 +23,8 @@ interface ICheckbox extends IIconButton {
 const Checkbox: React.ForwardRefExoticComponent<Omit<ICheckbox, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -35,4 +36,4 @@ const Checkbox: React.ForwardRefExoticComponent<Omit<ICheckbox, "ref"> & React.R
       "to": "/dev/api/use"
     }
   }
-}~
+}

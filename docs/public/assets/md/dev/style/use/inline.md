@@ -32,16 +32,17 @@ interface IOptions {
 function inline(value_: TValue, props?: any, options_?: IOptions): any;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style: css",
+      "to": "/dev/style/use/css"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style: interfaces",
+      "to": "/dev/style/use/interfaces"
     }
   }
 }~

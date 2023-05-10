@@ -23,7 +23,8 @@ interface ITableCell extends IBaseElement {
 const TableCell: React.ForwardRefExoticComponent<Omit<ITableCell, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -35,4 +36,4 @@ const TableCell: React.ForwardRefExoticComponent<Omit<ITableCell, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

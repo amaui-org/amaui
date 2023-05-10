@@ -44,7 +44,8 @@ interface IButtons extends ILine {
 const Buttons: React.ForwardRefExoticComponent<Omit<IButtons, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -56,4 +57,4 @@ const Buttons: React.ForwardRefExoticComponent<Omit<IButtons, "ref"> & React.Ref
       "to": "/dev/api/use"
     }
   }
-}~
+}

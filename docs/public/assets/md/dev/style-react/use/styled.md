@@ -8,7 +8,8 @@
 const styled: (Element: any) => (value: TValue, options?: IOptions) => React.ElementType;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ const styled: (Element: any) => (value: TValue, options?: IOptions) => React.Ele
       "to": "/dev/api/use"
     }
   }
-}~
+}

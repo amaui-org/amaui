@@ -16,7 +16,8 @@ interface IPaginationItem extends IButton {
 const PaginationItem: React.ForwardRefExoticComponent<Omit<IPaginationItem, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -28,4 +29,4 @@ const PaginationItem: React.ForwardRefExoticComponent<Omit<IPaginationItem, "ref
       "to": "/dev/api/use"
     }
   }
-}~
+}

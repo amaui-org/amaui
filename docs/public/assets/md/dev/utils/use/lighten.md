@@ -8,6 +8,7 @@
 const lighten: (value: string, coefficient: number) => string | undefined;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

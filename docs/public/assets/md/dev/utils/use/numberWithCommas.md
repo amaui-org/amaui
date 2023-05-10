@@ -8,6 +8,7 @@
 const numberWithCommas: (value_: string | number, delimiter?: string) => any;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

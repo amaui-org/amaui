@@ -57,12 +57,12 @@ function request(app?: express.Application | http.Server | https.Server | string
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Test: cli",
+      "to": "/dev/test/use/cli"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: Start",
+      "to": "/dev/utils/use/start"
     }
   }
 }~

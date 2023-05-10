@@ -29,18 +29,24 @@ interface IOptions {
 
 ```ts
 function sort(amauiStyle: AmauiStyle, options_?: IOptions): {
+    methods: {
+        method: (values: Array<IRuleItem>) => ISort;
+    };
+    remove: () => void;
+};
 ```
+
 
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style: rtl",
+      "to": "/dev/style/use/rtl"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style: style",
+      "to": "/dev/style/use/style"
     }
   }
 }~

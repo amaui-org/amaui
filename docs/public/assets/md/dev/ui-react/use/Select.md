@@ -23,7 +23,8 @@ interface ISelect extends ITextField {
 const Select: React.ForwardRefExoticComponent<Omit<ISelect, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -35,4 +36,4 @@ const Select: React.ForwardRefExoticComponent<Omit<ISelect, "ref"> & React.RefAt
       "to": "/dev/api/use"
     }
   }
-}~
+}

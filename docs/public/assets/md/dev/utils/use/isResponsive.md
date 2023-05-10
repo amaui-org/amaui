@@ -5,8 +5,9 @@
 #### isResponsive
 
 ```ts
-function isResponsive(type: string, value?: any): any;
+default function isResponsive(type: string, value?: any): any;
 ```
+
 
 ~{
   "element": "BottomNavigation",

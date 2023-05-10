@@ -20,8 +20,9 @@ interface ICombinationOptions {
 #### combinationWithRepetition
 
 ```ts
-function combinationWithRepetition(value_: any[], items_?: number, options_?: ICombinationOptions): TCombination;
+default function combinationWithRepetition(value_: any[], items_?: number, options_?: ICombinationOptions): TCombination;
 ```
+
 
 ~{
   "element": "BottomNavigation",

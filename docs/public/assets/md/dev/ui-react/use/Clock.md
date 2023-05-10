@@ -61,7 +61,8 @@ interface IClock extends IBaseElement {
 const Clock: React.ForwardRefExoticComponent<Omit<IClock, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -73,4 +74,4 @@ const Clock: React.ForwardRefExoticComponent<Omit<IClock, "ref"> & React.RefAttr
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -32,7 +32,8 @@ interface IViewSplit extends ILine {
 const ViewSplit: React.ForwardRefExoticComponent<Omit<IViewSplit, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -44,4 +45,4 @@ const ViewSplit: React.ForwardRefExoticComponent<Omit<IViewSplit, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

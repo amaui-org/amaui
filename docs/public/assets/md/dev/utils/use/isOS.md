@@ -5,8 +5,9 @@
 #### isOS
 
 ```ts
-function isOS(type: string, value?: any): any;
+default function isOS(type: string, value?: any): any;
 ```
+
 
 ~{
   "element": "BottomNavigation",

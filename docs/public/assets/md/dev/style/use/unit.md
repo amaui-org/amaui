@@ -10,6 +10,8 @@ interface IUnit {
         value: string;
         unit: string;
     };
+    arguments?: any;
+}
 ```
 
 #### TOptionsUnits
@@ -211,18 +213,27 @@ const unitsDefault: {
 
 ```ts
 function unit(amauiStyle: AmauiStyle, options_?: IOptions): {
+    methods: {
+        method: (value_: {
+            property: string;
+            value: number;
+        }) => IUnit;
+    };
+    remove: () => void;
+};
 ```
+
 
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style: style",
+      "to": "/dev/style/use/style"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style: utils",
+      "to": "/dev/style/use/utils"
     }
   }
 }~

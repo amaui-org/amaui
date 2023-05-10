@@ -18,7 +18,8 @@ interface IBanner extends IBaseElement {
 const Banner: React.ForwardRefExoticComponent<Omit<IBanner, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -30,4 +31,4 @@ const Banner: React.ForwardRefExoticComponent<Omit<IBanner, "ref"> & React.RefAt
       "to": "/dev/api/use"
     }
   }
-}~
+}

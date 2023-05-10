@@ -22,7 +22,8 @@ interface ISurface extends IBaseElement {
 const Surface: React.ForwardRefExoticComponent<Omit<ISurface, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -34,4 +35,4 @@ const Surface: React.ForwardRefExoticComponent<Omit<ISurface, "ref"> & React.Ref
       "to": "/dev/api/use"
     }
   }
-}~
+}

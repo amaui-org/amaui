@@ -5,10 +5,11 @@
 #### pure
 
 ```ts
-function pure(value: TValue, options_?: IOptions): (props_?: any) => IResponse;
+default function pure(value: TValue, options_?: IOptions): (props_?: any) => IResponse;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ function pure(value: TValue, options_?: IOptions): (props_?: any) => IResponse;
       "to": "/dev/api/use"
     }
   }
-}~
+}

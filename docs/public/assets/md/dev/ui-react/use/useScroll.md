@@ -27,7 +27,8 @@ const useScroll: {
 };
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -39,4 +40,4 @@ const useScroll: {
       "to": "/dev/api/use"
     }
   }
-}~
+}

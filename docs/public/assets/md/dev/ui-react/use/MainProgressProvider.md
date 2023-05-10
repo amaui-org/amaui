@@ -51,7 +51,8 @@ interface IMainProgressProvider extends ILinearProress {
 const MainProgressProvider: React.ForwardRefExoticComponent<Omit<IMainProgressProvider, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -63,4 +64,4 @@ const MainProgressProvider: React.ForwardRefExoticComponent<Omit<IMainProgressPr
       "to": "/dev/api/use"
     }
   }
-}~
+}

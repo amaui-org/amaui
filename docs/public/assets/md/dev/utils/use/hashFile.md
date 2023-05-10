@@ -16,6 +16,7 @@ interface IOptions {
 const hashFile: (value_: any, options_?: IOptions) => Promise<string>;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

@@ -8,6 +8,7 @@
 const arrayMoveItem: (value: any[], previousIndex: number, newIndex: number) => any[];
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

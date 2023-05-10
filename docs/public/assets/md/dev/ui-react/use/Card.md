@@ -23,7 +23,8 @@ interface ICard extends ISurface {
 const Card: React.ForwardRefExoticComponent<Omit<ICard, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -35,4 +36,4 @@ const Card: React.ForwardRefExoticComponent<Omit<ICard, "ref"> & React.RefAttrib
       "to": "/dev/api/use"
     }
   }
-}~
+}

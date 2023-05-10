@@ -8,6 +8,7 @@
 const encrypt: (value_: any, privateValue: string) => string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

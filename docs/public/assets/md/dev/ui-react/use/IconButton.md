@@ -15,7 +15,8 @@ interface IIconButton extends IButton {
 const IconButton: React.ForwardRefExoticComponent<Omit<IIconButton, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const IconButton: React.ForwardRefExoticComponent<Omit<IIconButton, "ref"> & Rea
       "to": "/dev/api/use"
     }
   }
-}~
+}

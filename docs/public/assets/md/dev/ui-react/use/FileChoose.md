@@ -40,7 +40,8 @@ interface IFileChoose extends IBaseElement {
 const FileChoose: React.ForwardRefExoticComponent<Omit<IFileChoose, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -52,4 +53,4 @@ const FileChoose: React.ForwardRefExoticComponent<Omit<IFileChoose, "ref"> & Rea
       "to": "/dev/api/use"
     }
   }
-}~
+}

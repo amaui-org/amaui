@@ -21,7 +21,8 @@ interface IAvatar extends Omit<IButton, 'elevation'> {
 const Avatar: React.ForwardRefExoticComponent<Omit<IAvatar, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -33,4 +34,4 @@ const Avatar: React.ForwardRefExoticComponent<Omit<IAvatar, "ref"> & React.RefAt
       "to": "/dev/api/use"
     }
   }
-}~
+}

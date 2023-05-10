@@ -23,6 +23,7 @@ interface IOptions {
 const parse: (value: any, type?: TType, options_?: IOptions) => any;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

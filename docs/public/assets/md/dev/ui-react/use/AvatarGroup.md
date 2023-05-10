@@ -23,7 +23,8 @@ interface IAvatarGroup extends IAvatar {
 const AvatarGroup: React.ForwardRefExoticComponent<Omit<IAvatarGroup, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -35,4 +36,4 @@ const AvatarGroup: React.ForwardRefExoticComponent<Omit<IAvatarGroup, "ref"> & R
       "to": "/dev/api/use"
     }
   }
-}~
+}

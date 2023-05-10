@@ -29,7 +29,8 @@ interface IWatch extends Omit<ISurface, 'version'> {
 const Watch: React.ForwardRefExoticComponent<Omit<IWatch, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -41,4 +42,4 @@ const Watch: React.ForwardRefExoticComponent<Omit<IWatch, "ref"> & React.RefAttr
       "to": "/dev/api/use"
     }
   }
-}~
+}

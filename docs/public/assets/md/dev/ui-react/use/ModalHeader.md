@@ -16,7 +16,8 @@ interface IModalHeader extends ILine {
 const ModalHeader: React.ForwardRefExoticComponent<Omit<IModalHeader, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -28,4 +29,4 @@ const ModalHeader: React.ForwardRefExoticComponent<Omit<IModalHeader, "ref"> & R
       "to": "/dev/api/use"
     }
   }
-}~
+}

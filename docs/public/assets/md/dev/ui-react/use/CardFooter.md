@@ -19,7 +19,8 @@ interface ICardFooter extends ILine {
 const CardFooter: React.ForwardRefExoticComponent<Omit<ICardFooter, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -31,4 +32,4 @@ const CardFooter: React.ForwardRefExoticComponent<Omit<ICardFooter, "ref"> & Rea
       "to": "/dev/api/use"
     }
   }
-}~
+}

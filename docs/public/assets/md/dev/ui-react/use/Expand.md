@@ -18,7 +18,8 @@ interface IExpand extends ITransition {
 const Expand: React.ForwardRefExoticComponent<Omit<IExpand, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -30,4 +31,4 @@ const Expand: React.ForwardRefExoticComponent<Omit<IExpand, "ref"> & React.RefAt
       "to": "/dev/api/use"
     }
   }
-}~
+}

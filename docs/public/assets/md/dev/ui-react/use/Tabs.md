@@ -32,7 +32,8 @@ interface ITabs extends Omit<ISurface, 'version'> {
 const Tabs: React.ForwardRefExoticComponent<Omit<ITabs, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -44,4 +45,4 @@ const Tabs: React.ForwardRefExoticComponent<Omit<ITabs, "ref"> & React.RefAttrib
       "to": "/dev/api/use"
     }
   }
-}~
+}

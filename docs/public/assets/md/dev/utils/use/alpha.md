@@ -8,6 +8,7 @@
 const alpha: (value: string, opacity: number) => string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

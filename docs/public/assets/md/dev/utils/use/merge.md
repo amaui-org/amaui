@@ -10,6 +10,7 @@ interface IOptions {
     merge?: {
         array?: boolean;
     };
+}
 ```
 
 #### merge
@@ -17,6 +18,7 @@ interface IOptions {
 ```ts
 const merge: <T extends unknown>(target: T, source: any, options_?: IOptions) => T;
 ```
+
 
 ~{
   "element": "BottomNavigation",

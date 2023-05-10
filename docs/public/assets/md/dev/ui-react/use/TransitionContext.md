@@ -8,7 +8,8 @@
 const TransitionContext: React.Context<any>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ const TransitionContext: React.Context<any>;
       "to": "/dev/api/use"
     }
   }
-}~
+}

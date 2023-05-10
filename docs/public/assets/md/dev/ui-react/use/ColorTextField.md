@@ -15,7 +15,8 @@ interface IColorTextField extends ITextField {
 const ColorTextField: React.ForwardRefExoticComponent<Omit<IColorTextField, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const ColorTextField: React.ForwardRefExoticComponent<Omit<IColorTextField, "ref
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -23,7 +23,8 @@ interface INavigationDrawer extends IModal {
 const NavigationDrawer: React.ForwardRefExoticComponent<Omit<INavigationDrawer, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -35,4 +36,4 @@ const NavigationDrawer: React.ForwardRefExoticComponent<Omit<INavigationDrawer, 
       "to": "/dev/api/use"
     }
   }
-}~
+}

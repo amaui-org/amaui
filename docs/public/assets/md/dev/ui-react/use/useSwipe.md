@@ -32,7 +32,8 @@ const useSwipe: {
 };
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -44,4 +45,4 @@ const useSwipe: {
       "to": "/dev/api/use"
     }
   }
-}~
+}

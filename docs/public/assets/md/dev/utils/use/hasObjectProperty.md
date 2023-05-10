@@ -8,6 +8,7 @@
 const hasObjectProperty: (object: object, ...args: string[]) => boolean;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

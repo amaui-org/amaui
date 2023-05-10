@@ -12,6 +12,10 @@ interface ILinearProress extends IBaseElement {
         progress?: number;
         buffer?: number;
     };
+    version?: 'determinate' | 'indeterminate';
+    buffer?: boolean;
+    reverse?: boolean;
+}
 ```
 
 #### LinearProgress
@@ -20,7 +24,8 @@ interface ILinearProress extends IBaseElement {
 const LinearProgress: React.ForwardRefExoticComponent<Omit<ILinearProress, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -32,4 +37,4 @@ const LinearProgress: React.ForwardRefExoticComponent<Omit<ILinearProress, "ref"
       "to": "/dev/api/use"
     }
   }
-}~
+}

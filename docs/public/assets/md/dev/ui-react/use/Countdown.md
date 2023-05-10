@@ -33,7 +33,8 @@ interface ICountdown extends Omit<ISurface, 'version'> {
 const Countdown: React.ForwardRefExoticComponent<Omit<ICountdown, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -45,4 +46,4 @@ const Countdown: React.ForwardRefExoticComponent<Omit<ICountdown, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

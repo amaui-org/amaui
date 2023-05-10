@@ -19,7 +19,8 @@ interface IBottomAppBar extends ISurface {
 const BottomAppBar: React.ForwardRefExoticComponent<Omit<IBottomAppBar, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -31,4 +32,4 @@ const BottomAppBar: React.ForwardRefExoticComponent<Omit<IBottomAppBar, "ref"> &
       "to": "/dev/api/use"
     }
   }
-}~
+}

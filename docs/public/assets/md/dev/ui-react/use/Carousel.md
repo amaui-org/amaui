@@ -16,6 +16,8 @@ interface ICarouselValue {
 
 ```ts
 type TCarouselItem = string | null | TElement | {
+    element: TElement;
+};
 ```
 
 #### TCarouseOnUpdate
@@ -101,7 +103,8 @@ interface ICarousel extends Omit<ISurface, 'version'> {
 const Carousel: React.ForwardRefExoticComponent<Omit<ICarousel, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -113,4 +116,4 @@ const Carousel: React.ForwardRefExoticComponent<Omit<ICarousel, "ref"> & React.R
       "to": "/dev/api/use"
     }
   }
-}~
+}

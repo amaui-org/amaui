@@ -22,7 +22,8 @@ interface IBadge extends IBaseElement {
 const Badge: React.ForwardRefExoticComponent<Omit<IBadge, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -34,4 +35,4 @@ const Badge: React.ForwardRefExoticComponent<Omit<IBadge, "ref"> & React.RefAttr
       "to": "/dev/api/use"
     }
   }
-}~
+}

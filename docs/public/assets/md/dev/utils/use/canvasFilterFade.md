@@ -8,6 +8,7 @@
 const canvasFilterFade: (value_: number, canvas: HTMLCanvasElement) => HTMLCanvasElement;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

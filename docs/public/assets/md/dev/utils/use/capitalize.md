@@ -8,6 +8,7 @@
 const capitalize: (value: string) => string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

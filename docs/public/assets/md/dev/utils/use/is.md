@@ -18,8 +18,9 @@ interface IOptions {
 #### is
 
 ```ts
-function is(type: string, value?: any, options_?: IOptions): any;
+default function is(type: string, value?: any, options_?: IOptions): any;
 ```
+
 
 ~{
   "element": "BottomNavigation",

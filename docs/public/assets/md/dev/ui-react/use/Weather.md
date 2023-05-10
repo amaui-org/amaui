@@ -34,6 +34,14 @@ interface IWeather extends ISurface {
         weather?: TWeather;
         temperature?: TTemperature;
     };
+    interval?: number;
+    IconDay?: TElementReference;
+    IconNight?: TElementReference;
+    IconCloud?: TElementReference;
+    IconRain?: TElementReference;
+    IconSnow?: TElementReference;
+    IconProps?: TPropsAny;
+}
 ```
 
 #### Weather
@@ -42,7 +50,8 @@ interface IWeather extends ISurface {
 const Weather: React.ForwardRefExoticComponent<Omit<IWeather, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -54,4 +63,4 @@ const Weather: React.ForwardRefExoticComponent<Omit<IWeather, "ref"> & React.Ref
       "to": "/dev/api/use"
     }
   }
-}~
+}

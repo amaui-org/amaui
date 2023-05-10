@@ -5,8 +5,9 @@
 #### isState
 
 ```ts
-function isState(type: string): boolean;
+default function isState(type: string): boolean;
 ```
+
 
 ~{
   "element": "BottomNavigation",

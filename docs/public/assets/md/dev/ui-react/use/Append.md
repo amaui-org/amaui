@@ -2,6 +2,12 @@
 
 ### API
 
+#### types="react"
+
+```ts
+/// <reference types="react" />
+```
+
 #### TAppendPadding
 
 ```ts
@@ -19,6 +25,40 @@ interface IAppendValue {
 }
 ```
 
+#### IAppend
+
+```ts
+interface IAppend {
+    open?: boolean;
+    portal?: boolean;
+    accelerated?: boolean;
+    anchor?: DOMRect;
+    anchorElement?: THTMLElement;
+    offset?: TAppendPadding;
+    padding?: TAppendPadding;
+    paddingUnfollow?: TAppendPadding;
+    inset?: boolean;
+    position?: 'top' | 'left' | 'bottom' | 'right';
+    alignment?: 'start' | 'center' | 'end';
+    switch?: boolean;
+    overflow?: boolean;
+    unfollow?: boolean;
+    style?: TStyle;
+    update?: any;
+    element?: any;
+    parent?: THTMLElement;
+    additional?: (rects: {
+        root: DOMRect;
+        element: DOMRect;
+    }, rectsOffset: {
+        root: DOMRect;
+        element: DOMRect;
+    }) => any;
+    children?: TChildren;
+    [property: string]: any;
+}
+```
+
 #### Append
 
 ```ts
@@ -28,7 +68,8 @@ const Append: {
 };
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -40,4 +81,4 @@ const Append: {
       "to": "/dev/api/use"
     }
   }
-}~
+}

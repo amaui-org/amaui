@@ -8,6 +8,7 @@
 const getContrastRatio: (valueA: string, valueB: string) => number | undefined;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

@@ -6,6 +6,10 @@
 
 ```ts
 type TDrawingValue = Array<{
+    d?: string;
+    stroke?: string;
+    strokeWidth?: number;
+}>;
 ```
 
 #### IDrawing
@@ -57,7 +61,8 @@ interface IDrawing extends ISurface {
 const Drawing: React.ForwardRefExoticComponent<Omit<IDrawing, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -69,4 +74,4 @@ const Drawing: React.ForwardRefExoticComponent<Omit<IDrawing, "ref"> & React.Ref
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -28,6 +28,7 @@ interface IOptions {
 const getStringVariables: (value: string, options_?: IOptions) => IGetStringVariables;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

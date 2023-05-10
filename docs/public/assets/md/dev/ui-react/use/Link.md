@@ -17,7 +17,8 @@ interface ILink extends Omit<IType, 'color'> {
 const Link: React.ForwardRefExoticComponent<Omit<ILink, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -29,4 +30,4 @@ const Link: React.ForwardRefExoticComponent<Omit<ILink, "ref"> & React.RefAttrib
       "to": "/dev/api/use"
     }
   }
-}~
+}

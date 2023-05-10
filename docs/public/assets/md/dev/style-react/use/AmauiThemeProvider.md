@@ -25,9 +25,10 @@ interface IAmauiThemeProvider extends React.HTMLAttributes<any> {
 
 ```ts
 const AmauiThemeProvider: React.ForwardRefExoticComponent<IAmauiThemeProvider & React.RefAttributes<unknown>>;
+```
 
 
-~{
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -39,4 +40,4 @@ const AmauiThemeProvider: React.ForwardRefExoticComponent<IAmauiThemeProvider & 
       "to": "/dev/api/use"
     }
   }
-}~
+}

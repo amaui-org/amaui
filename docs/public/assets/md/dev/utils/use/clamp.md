@@ -8,6 +8,7 @@
 const clamp: (value: number, min?: number, max?: number) => number;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

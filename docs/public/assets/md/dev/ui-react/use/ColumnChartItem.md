@@ -11,6 +11,15 @@ interface IColumnChartItem extends IChart {
         wrapper?: HTMLElement;
         defs?: HTMLElement;
     };
+    rects?: {
+        wrapper?: DOMRect;
+        svg?: DOMRect;
+    };
+    values?: TChartValueValues;
+    width?: number;
+    updateDefs: TMethod;
+    updateLegend: TMethod;
+}
 ```
 
 #### ColumnChartItem
@@ -19,7 +28,8 @@ interface IColumnChartItem extends IChart {
 const ColumnChartItem: React.ForwardRefExoticComponent<Omit<IColumnChartItem, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -31,4 +41,4 @@ const ColumnChartItem: React.ForwardRefExoticComponent<Omit<IColumnChartItem, "r
       "to": "/dev/api/use"
     }
   }
-}~
+}

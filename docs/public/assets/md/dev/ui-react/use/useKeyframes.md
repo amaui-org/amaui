@@ -5,10 +5,11 @@
 #### useKeyframes
 
 ```ts
-function useKeyframes(): any;
+default function useKeyframes(): any;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ function useKeyframes(): any;
       "to": "/dev/api/use"
     }
   }
-}~
+}

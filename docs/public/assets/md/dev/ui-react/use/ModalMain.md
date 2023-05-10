@@ -15,7 +15,8 @@ interface IModalMain extends IBaseElement {
 const ModalMain: React.ForwardRefExoticComponent<Omit<IModalMain, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const ModalMain: React.ForwardRefExoticComponent<Omit<IModalMain, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -28,7 +28,8 @@ interface ISnackbarsProvider extends IBaseElement {
 const SnackbarsProvider: React.ForwardRefExoticComponent<Omit<ISnackbarsProvider, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -40,4 +41,4 @@ const SnackbarsProvider: React.ForwardRefExoticComponent<Omit<ISnackbarsProvider
       "to": "/dev/api/use"
     }
   }
-}~
+}

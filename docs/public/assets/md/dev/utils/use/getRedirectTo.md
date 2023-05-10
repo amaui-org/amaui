@@ -8,6 +8,7 @@
 const getRedirectTo: (value?: string) => string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

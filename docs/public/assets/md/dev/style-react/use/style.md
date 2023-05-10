@@ -8,7 +8,7 @@
 type TValueObject = Record<string, TValueObjectValue>;
 ```
 
-#### RecursiveRequired<T>
+#### RecursiveRequired
 
 ```ts
 type RecursiveRequired<T> = {
@@ -51,10 +51,11 @@ const propsAreNew: (props: any) => string;
 #### style
 
 ```ts
-function style(value: TValue, options_?: IOptions, responses_?: Array<IResponseStyle>): (props_?: any) => IResponse;
+default function style(value: TValue, options_?: IOptions, responses_?: Array<IResponseStyle>): (props_?: any) => IResponse;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -66,4 +67,4 @@ function style(value: TValue, options_?: IOptions, responses_?: Array<IResponseS
       "to": "/dev/api/use"
     }
   }
-}~
+}

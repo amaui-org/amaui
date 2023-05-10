@@ -19,16 +19,17 @@ interface IOptions {
 function pure(value_: TValue, options_?: IOptions): IMethodResponse;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style: prefix",
+      "to": "/dev/style/use/prefix"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style: reset",
+      "to": "/dev/style/use/reset"
     }
   }
 }~

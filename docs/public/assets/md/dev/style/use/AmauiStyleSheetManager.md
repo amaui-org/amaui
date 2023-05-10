@@ -2,6 +2,21 @@
 
 ### API
 
+#### IProperties
+
+```ts
+interface IProperties {
+    static: Array<{
+        property: string;
+        value: any;
+    }>;
+    dynamic: Array<{
+        property: string;
+        value: any;
+    }>;
+}
+```
+
 #### IOptionsStyle
 
 ```ts
@@ -42,18 +57,35 @@ class AmauiStyleSheetManager {
     values: {
         css: string;
     };
+    properties: IProperties;
+    sheets: ISheets;
+    names: IResponse;
+    users: number;
+    constructor(value?: TValueObject, options?: IOptions);
+    private propertiesVersion;
+    set props(value: IAmauiStyleSheetManagerProps);
+    get ids(): IIds;
+    get response(): IValuesVersion;
+    get css(): string;
+    private init;
+    add(props?: any): IResponse;
+    update(value: any): IResponse;
+    remove(ids_?: string[]): void;
+    private versions;
+}
 ```
+
 
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style: AmauiStyleSheet",
+      "to": "/dev/style/use/AmauiStyleSheet"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style: AmauiTheme",
+      "to": "/dev/style/use/AmauiTheme"
     }
   }
 }~

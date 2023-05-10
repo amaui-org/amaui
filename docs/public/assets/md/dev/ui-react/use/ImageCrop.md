@@ -42,7 +42,8 @@ interface IImageCrop extends IBaseElement {
 const ImageCrop: React.ForwardRefExoticComponent<Omit<IImageCrop, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -54,4 +55,4 @@ const ImageCrop: React.ForwardRefExoticComponent<Omit<IImageCrop, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

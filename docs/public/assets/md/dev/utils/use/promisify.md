@@ -16,6 +16,7 @@ interface IOptions {
 const promisify: <T>(method: TMethod | Promise<any>, options_?: IOptions) => (...args: any[]) => Promise<any>;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

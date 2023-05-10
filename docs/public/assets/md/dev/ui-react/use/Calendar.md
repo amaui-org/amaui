@@ -6,6 +6,8 @@
 
 ```ts
 type TGetAmauiDates = (value: TCalendarMonthValue, calendar: TCalendarMonthCalendar, props: TPropsAny) => Array<{
+    value: AmauiDate;
+}>;
 ```
 
 #### TCalendarUnit
@@ -55,7 +57,8 @@ interface ICalendar extends IBaseElement {
 const Calendar: React.ForwardRefExoticComponent<Omit<ICalendar, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -67,4 +70,4 @@ const Calendar: React.ForwardRefExoticComponent<Omit<ICalendar, "ref"> & React.R
       "to": "/dev/api/use"
     }
   }
-}~
+}

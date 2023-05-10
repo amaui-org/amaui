@@ -8,6 +8,7 @@
 const canvasFilterContrast: (value: number, canvas: HTMLCanvasElement) => HTMLCanvasElement;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

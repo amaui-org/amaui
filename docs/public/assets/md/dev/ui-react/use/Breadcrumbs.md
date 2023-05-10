@@ -18,7 +18,8 @@ interface IBreadcrumbs extends IBaseElement {
 const Breadcrumbs: React.ForwardRefExoticComponent<Omit<IBreadcrumbs, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -30,4 +31,4 @@ const Breadcrumbs: React.ForwardRefExoticComponent<Omit<IBreadcrumbs, "ref"> & R
       "to": "/dev/api/use"
     }
   }
-}~
+}

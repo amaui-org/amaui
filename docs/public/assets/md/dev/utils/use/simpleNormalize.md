@@ -12,6 +12,7 @@ interface IOptions {
     normalize?: {
         map?: Map<any, any>;
     };
+}
 ```
 
 #### map
@@ -25,6 +26,7 @@ const map: Map<any, any>;
 ```ts
 const simpleNormalize: (value: any, options_?: IOptions) => string;
 ```
+
 
 ~{
   "element": "BottomNavigation",

@@ -8,16 +8,17 @@
 function classNames(value?: any, prefix?: string, array?: boolean): string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style: AmauiTheme",
+      "to": "/dev/style/use/AmauiTheme"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style: cli",
+      "to": "/dev/style/use/cli"
     }
   }
 }~

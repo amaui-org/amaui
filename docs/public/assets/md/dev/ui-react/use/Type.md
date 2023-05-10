@@ -20,7 +20,8 @@ interface IType extends IBaseElement {
 const Type: React.ForwardRefExoticComponent<Omit<IType, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -32,4 +33,4 @@ const Type: React.ForwardRefExoticComponent<Omit<IType, "ref"> & React.RefAttrib
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -46,7 +46,8 @@ interface ITree extends Omit<IBaseElement, 'children'> {
 const Tree: React.ForwardRefExoticComponent<Omit<ITree, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -58,4 +59,4 @@ const Tree: React.ForwardRefExoticComponent<Omit<ITree, "ref"> & React.RefAttrib
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -58,7 +58,8 @@ interface IMenuDesktop extends ILine {
 const MenuDesktop: React.ForwardRefExoticComponent<Omit<IMenuDesktop, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -70,4 +71,4 @@ const MenuDesktop: React.ForwardRefExoticComponent<Omit<IMenuDesktop, "ref"> & R
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -35,7 +35,8 @@ interface INavigationItem extends IBaseElement {
 const NavigationItem: React.ForwardRefExoticComponent<Omit<INavigationItem, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -47,4 +48,4 @@ const NavigationItem: React.ForwardRefExoticComponent<Omit<INavigationItem, "ref
       "to": "/dev/api/use"
     }
   }
-}~
+}

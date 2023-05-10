@@ -24,7 +24,8 @@ interface IBackdrop extends ILine {
 const Backdrop: React.ForwardRefExoticComponent<Omit<IBackdrop, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -36,4 +37,4 @@ const Backdrop: React.ForwardRefExoticComponent<Omit<IBackdrop, "ref"> & React.R
       "to": "/dev/api/use"
     }
   }
-}~
+}

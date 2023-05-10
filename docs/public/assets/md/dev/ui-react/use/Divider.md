@@ -22,7 +22,8 @@ interface IDivider extends ISurface {
 const Divider: React.ForwardRefExoticComponent<Omit<IDivider, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -34,4 +35,4 @@ const Divider: React.ForwardRefExoticComponent<Omit<IDivider, "ref"> & React.Ref
       "to": "/dev/api/use"
     }
   }
-}~
+}

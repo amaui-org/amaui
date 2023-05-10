@@ -16,7 +16,8 @@ interface ITableFooter extends ISurface {
 const TableFooter: React.ForwardRefExoticComponent<Omit<ITableFooter, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -28,4 +29,4 @@ const TableFooter: React.ForwardRefExoticComponent<Omit<ITableFooter, "ref"> & R
       "to": "/dev/api/use"
     }
   }
-}~
+}

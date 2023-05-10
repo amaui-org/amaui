@@ -5,10 +5,11 @@
 #### useMainProgress
 
 ```ts
-function useMainProgress(): IMainProgressProvider;
+default function useMainProgress(): IMainProgressProvider;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ function useMainProgress(): IMainProgressProvider;
       "to": "/dev/api/use"
     }
   }
-}~
+}

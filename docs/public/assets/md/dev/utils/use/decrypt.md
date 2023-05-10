@@ -16,6 +16,7 @@ interface IOptions {
 const decrypt: (value_: string, privateValue: string, options_?: IOptions) => any | undefined | Error;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

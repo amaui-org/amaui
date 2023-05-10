@@ -8,7 +8,8 @@
 const AmauiSnackbarsContext: any;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ const AmauiSnackbarsContext: any;
       "to": "/dev/api/use"
     }
   }
-}~
+}

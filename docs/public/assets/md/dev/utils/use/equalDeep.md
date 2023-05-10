@@ -8,6 +8,7 @@
 const equalDeep: (valueA: any, valueB: any) => boolean;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

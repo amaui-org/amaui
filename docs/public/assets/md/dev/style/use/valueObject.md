@@ -15,18 +15,27 @@ interface IValueObject {
 
 ```ts
 function valueObject(amauiStyle: AmauiStyle): {
+    methods: {
+        method: (value_?: {
+            property?: string;
+            value?: any;
+        }) => IValueObject;
+    };
+    remove: () => void;
+};
 ```
+
 
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style: utils",
+      "to": "/dev/style/use/utils"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Subscription: Start",
+      "to": "/dev/subscription/start"
     }
   }
 }~

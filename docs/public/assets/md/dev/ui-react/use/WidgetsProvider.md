@@ -38,7 +38,8 @@ interface IWidgetsProvider extends IBaseElement {
 const WidgetsProvider: React.ForwardRefExoticComponent<Omit<IWidgetsProvider, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -50,4 +51,4 @@ const WidgetsProvider: React.ForwardRefExoticComponent<Omit<IWidgetsProvider, "r
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -2,6 +2,12 @@
 
 ### API
 
+#### TMethodsVersion
+
+```ts
+type TMethodsVersion = 'add' | 'pulse' | 'remove';
+```
+
 #### IInteraction
 
 ```ts
@@ -15,6 +21,7 @@ interface IInteraction extends IBaseElement {
     selected?: boolean;
     dragged?: boolean;
     wave_version?: 'simple';
+    subscription?: AmauiSubscription;
     clear?: any;
     disabled?: boolean;
 }
@@ -26,7 +33,8 @@ interface IInteraction extends IBaseElement {
 const Interaction: React.ForwardRefExoticComponent<Omit<IInteraction, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -38,4 +46,4 @@ const Interaction: React.ForwardRefExoticComponent<Omit<IInteraction, "ref"> & R
       "to": "/dev/api/use"
     }
   }
-}~
+}

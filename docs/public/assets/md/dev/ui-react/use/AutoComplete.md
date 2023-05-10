@@ -63,7 +63,8 @@ interface IAutoComplete extends ITextField {
 const AutoComplete: React.ForwardRefExoticComponent<Omit<IAutoComplete, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -75,4 +76,4 @@ const AutoComplete: React.ForwardRefExoticComponent<Omit<IAutoComplete, "ref"> &
       "to": "/dev/api/use"
     }
   }
-}~
+}

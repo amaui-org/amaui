@@ -8,6 +8,7 @@
 const wait: (milliseconds?: number) => Promise<undefined>;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

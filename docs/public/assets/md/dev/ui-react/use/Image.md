@@ -30,7 +30,8 @@ interface IImage extends IBaseElement {
 const Image: React.ForwardRefExoticComponent<Omit<IImage, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -42,4 +43,4 @@ const Image: React.ForwardRefExoticComponent<Omit<IImage, "ref"> & React.RefAttr
       "to": "/dev/api/use"
     }
   }
-}~
+}

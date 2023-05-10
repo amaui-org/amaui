@@ -15,7 +15,8 @@ interface IGrow extends ITransition {
 const Grow: React.ForwardRefExoticComponent<Omit<IGrow, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const Grow: React.ForwardRefExoticComponent<Omit<IGrow, "ref"> & React.RefAttrib
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -20,7 +20,8 @@ interface IMove extends IBaseElement {
 const Move: React.ForwardRefExoticComponent<Omit<IMove, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -32,4 +33,4 @@ const Move: React.ForwardRefExoticComponent<Omit<IMove, "ref"> & React.RefAttrib
       "to": "/dev/api/use"
     }
   }
-}~
+}

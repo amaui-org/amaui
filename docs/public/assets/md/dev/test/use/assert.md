@@ -120,12 +120,12 @@ const _default: IAssert;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Test: AmauiTo",
+      "to": "/dev/test/use/AmauiTo"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Test: cli",
+      "to": "/dev/test/use/cli"
     }
   }
 }~

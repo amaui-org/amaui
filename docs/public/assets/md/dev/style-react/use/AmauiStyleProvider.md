@@ -16,7 +16,8 @@ interface IAmauiStyleProvider extends AmauiStyle {
 const AmauiStyleProvider: React.ForwardRefExoticComponent<Omit<any, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -28,4 +29,4 @@ const AmauiStyleProvider: React.ForwardRefExoticComponent<Omit<any, "ref"> & Rea
       "to": "/dev/api/use"
     }
   }
-}~
+}

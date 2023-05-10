@@ -40,7 +40,8 @@ interface ISpeedDial extends Omit<ILine, 'direction'> {
 const SpeedDial: React.ForwardRefExoticComponent<Omit<ISpeedDial, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -52,4 +53,4 @@ const SpeedDial: React.ForwardRefExoticComponent<Omit<ISpeedDial, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

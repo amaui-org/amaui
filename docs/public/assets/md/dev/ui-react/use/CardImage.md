@@ -23,7 +23,8 @@ interface ICardImage extends IBaseElement {
 const CardImage: React.ForwardRefExoticComponent<Omit<ICardImage, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -35,4 +36,4 @@ const CardImage: React.ForwardRefExoticComponent<Omit<ICardImage, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

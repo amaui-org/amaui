@@ -17,6 +17,7 @@ interface IDebounceMethod {
 const debounce: (method_: TMethod, delay?: number) => IDebounceMethod;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

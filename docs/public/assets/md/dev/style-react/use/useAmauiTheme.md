@@ -5,6 +5,6 @@
 #### useAmauiTheme
 
 ```ts
-function useAmauiTheme(): IAmauiThemeProviderValue;
+default function useAmauiTheme(): IAmauiThemeProviderValue;
 ```
 

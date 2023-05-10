@@ -162,6 +162,9 @@ type TVisualContrast = {
         opacity?: {
             [i in TVisualContrastItemItems]?: number;
         };
+        contrast_threshold?: number;
+    };
+};
 ```
 
 #### TPreferenceItems
@@ -177,6 +180,7 @@ type TPreference = {
     [key in TPreferenceItems]?: {
         default?: TPaletteVersion | TVisualContrastItem;
     };
+};
 ```
 
 #### TAccessibility
@@ -221,6 +225,9 @@ interface IRadius {
         round?: string;
         [p: string]: string | number;
     };
+    keys?: string[];
+    unit?: number;
+}
 ```
 
 #### IShape
@@ -249,6 +256,17 @@ interface IBreakpoints {
         xl?: number;
         [p: string]: number;
     };
+    media?: {
+        xs?: string;
+        sm?: string;
+        md?: string;
+        lg?: string;
+        xl?: string;
+        [p: string]: string;
+    };
+    keys?: string[];
+    unit?: string;
+}
 ```
 
 #### TSpaceKey
@@ -273,6 +291,9 @@ interface ISpace {
         xxxl?: number;
         [p: string]: string | number;
     };
+    keys?: string[];
+    unit?: number;
+}
 ```
 
 #### TShadowValues
@@ -306,6 +327,8 @@ interface IShadows {
         neutral?: IShadow;
         [p: string]: any;
     };
+    opacities?: Array<number>;
+}
 ```
 
 #### TTransitionsTimingFunctionProperties
@@ -398,6 +421,33 @@ interface ITypography {
     font_size?: {
         html?: string | number;
     };
+    font_family?: {
+        primary?: string;
+        secondary?: string;
+        tertiary?: string;
+    };
+    values?: {
+        d1?: ITypographyVersion;
+        d2?: ITypographyVersion;
+        d3?: ITypographyVersion;
+        h1?: ITypographyVersion;
+        h2?: ITypographyVersion;
+        h3?: ITypographyVersion;
+        t1?: ITypographyVersion;
+        t2?: ITypographyVersion;
+        t3?: ITypographyVersion;
+        l1?: ITypographyVersion;
+        l2?: ITypographyVersion;
+        l3?: ITypographyVersion;
+        b1?: ITypographyVersion;
+        b2?: ITypographyVersion;
+        b3?: ITypographyVersion;
+        m1?: ITypographyVersion;
+        m2?: ITypographyVersion;
+        m3?: ITypographyVersion;
+        [p: string]: any;
+    };
+}
 ```
 
 #### TMode
@@ -413,6 +463,21 @@ interface IUi {
     className?: {
         static?: boolean;
     };
+    elements?: {
+        [p: string]: {
+            className?: {
+                static?: boolean;
+            };
+            style?: {
+                add?: TValue;
+                override?: TValue;
+            };
+            props?: {
+                default?: Record<any, any>;
+            };
+        };
+    };
+}
 ```
 
 #### IAmauiTheme
@@ -443,18 +508,99 @@ class AmauiTheme {
     subscriptions: {
         update: AmauiSubscription;
     };
+    element?: HTMLElement;
+    direction: TDirection;
+    preference: TPreference;
+    mode: TMode;
+    palette: IPalette;
+    shape: IShape;
+    breakpoints: IBreakpoints;
+    space: ISpace;
+    shadows: IShadows;
+    typography: ITypography;
+    transitions: ITransitions;
+    z_index: IzIndex;
+    methods: {
+        palette: {
+            image: (image: string, options?: {
+                amount?: number;
+                size?: number;
+                allowCrossOrigin?: boolean;
+            }) => Promise<string[]>;
+            color: {
+                value: (version: TPaletteVersion | 'default', tone: TTone, light?: boolean, palette?: IColor) => any;
+                text: (background: string, max?: boolean, prefer?: 'light' | 'dark', maxOpacity?: string) => any;
+                alpha: (value: string, opacity: number) => string;
+                emphasize: (value: string, coefficient?: number) => string;
+                lighten: (value: string, coefficient: number) => string;
+                darken: (value: string, coefficient: number) => string;
+                getLuminance: (value: string) => number;
+                getContrastRatio: (valueA: string, valueB: string) => number;
+                colorToRgb: (value: string, opacity?: number, array?: boolean) => string | number[];
+                rgbToRgba: (value: string, opacity?: number, array?: boolean) => string | number[];
+                rgbToHsl: (value: string, opacity?: number, array?: boolean) => string | number[];
+                rgbToHex: (value: string, opacity_?: number, array?: boolean) => string | number[];
+                hslToRgb: (value: string, opacity?: number, array?: boolean) => string | number[];
+                hexToRgb: (value: string, opacity?: number, array?: boolean) => string | number[];
+            };
+        };
+        color: (value: string) => IColor;
+        shadow: (value?: string, opacities?: Array<number>) => IShadow;
+        space: {
+            value: (value: TSpaceKey | number, unit?: string, add?: number) => any;
+        };
+        shape: {
+            radius: {
+                value: (value: TRadiusKey | number, unit?: string, add?: number) => string | number;
+            };
+        };
+        breakpoints: {
+            up: (value: number, media?: string) => string;
+            down: (value: number, media?: string) => string;
+            between: (value1: number, value2: number, media?: string) => string;
+            only: (value: number) => string;
+            not: (value: TBreakpoint, media?: string) => string;
+        };
+        transitions: {
+            make: (properties: string | Array<string>, options?: {
+                duration?: TTransitionsDurationProperties | number;
+                timing_function?: TTransitionsTimingFunctionProperties;
+                delay?: TTransitionsDurationProperties | number;
+            }) => any;
+        };
+    };
+    ui?: IUi;
+    [p: string]: any;
+    constructor(value?: IAmauiTheme, options?: IOptions);
+    init(value_?: IAmauiTheme | AmauiTheme): void;
+    image(value_: string, other?: any): Promise<void>;
+    update(value: IAmauiTheme): void;
+    static get amaui_theme(): AmauiTheme;
+    static get make(): {
+        color: (value: string) => IColor;
+        shadow: (value: string, opacities?: Array<number>) => IShadow;
+    };
+    static attributes: string[];
+    static get(value: HTMLElement, index?: number): AmauiTheme;
+    static first(value: HTMLElement): AmauiTheme;
+    static last(value: HTMLElement): AmauiTheme;
+    static nearest(value: HTMLElement): AmauiTheme;
+    static furthest(value: HTMLElement): AmauiTheme;
+    static all(value: HTMLElement): Array<AmauiTheme>;
+}
 ```
+
 
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style: AmauiStyleSheetManager",
+      "to": "/dev/style/use/AmauiStyleSheetManager"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style: classNames",
+      "to": "/dev/style/use/classNames"
     }
   }
 }~

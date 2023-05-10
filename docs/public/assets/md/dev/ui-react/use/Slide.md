@@ -21,7 +21,8 @@ interface ISlide extends ITransition {
 const Slide: React.ForwardRefExoticComponent<Omit<ISlide, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -33,4 +34,4 @@ const Slide: React.ForwardRefExoticComponent<Omit<ISlide, "ref"> & React.RefAttr
       "to": "/dev/api/use"
     }
   }
-}~
+}

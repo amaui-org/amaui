@@ -18,7 +18,8 @@ interface IAreaChart extends IChart {
 const AreaChart: React.ForwardRefExoticComponent<Omit<IAreaChart, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -30,4 +31,4 @@ const AreaChart: React.ForwardRefExoticComponent<Omit<IAreaChart, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -28,7 +28,8 @@ interface ILabel extends ILine {
 const Label: React.ForwardRefExoticComponent<Omit<ILabel, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -40,4 +41,4 @@ const Label: React.ForwardRefExoticComponent<Omit<ILabel, "ref"> & React.RefAttr
       "to": "/dev/api/use"
     }
   }
-}~
+}

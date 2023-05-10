@@ -8,6 +8,7 @@
 const canvasFilterOldPhoto: (value: number, canvas: HTMLCanvasElement) => HTMLCanvasElement;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

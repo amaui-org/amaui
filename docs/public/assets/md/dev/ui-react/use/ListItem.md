@@ -68,7 +68,8 @@ interface IListItem extends ISurface {
 const ListItem: React.ForwardRefExoticComponent<Omit<IListItem, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -80,4 +81,4 @@ const ListItem: React.ForwardRefExoticComponent<Omit<IListItem, "ref"> & React.R
       "to": "/dev/api/use"
     }
   }
-}~
+}

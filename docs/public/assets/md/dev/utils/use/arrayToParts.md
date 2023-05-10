@@ -8,6 +8,7 @@
 const arrayToParts: (value: any[], parts?: number) => any[];
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

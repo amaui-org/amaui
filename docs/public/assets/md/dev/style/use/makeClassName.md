@@ -33,18 +33,27 @@ interface IOptions {
 
 ```ts
 function makeClassName(amauiStyle: AmauiStyle, options_?: IOptions): {
+    methods: {
+        method: (value_: {
+            property: string;
+            value: any;
+        }) => IMakeClassName;
+    };
+    remove: () => void;
+};
 ```
+
 
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style: interfaces",
+      "to": "/dev/style/use/interfaces"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style: prefix",
+      "to": "/dev/style/use/prefix"
     }
   }
 }~

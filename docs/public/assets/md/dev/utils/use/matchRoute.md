@@ -8,6 +8,7 @@
 const matchRoute: (value: string[], path: string) => boolean;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

@@ -5,10 +5,11 @@
 #### useTransition
 
 ```ts
-function useTransition(): any;
+default function useTransition(): any;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ function useTransition(): any;
       "to": "/dev/api/use"
     }
   }
-}~
+}

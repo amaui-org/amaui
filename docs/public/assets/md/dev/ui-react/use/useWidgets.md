@@ -5,10 +5,11 @@
 #### useWidgets
 
 ```ts
-function useWidgets(): IWidgetsProvider;
+default function useWidgets(): IWidgetsProvider;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ function useWidgets(): IWidgetsProvider;
       "to": "/dev/api/use"
     }
   }
-}~
+}

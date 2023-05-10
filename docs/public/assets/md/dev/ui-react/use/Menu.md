@@ -36,7 +36,8 @@ interface IMenu extends ITooltip {
 const Menu: React.ForwardRefExoticComponent<Omit<IMenu, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -48,4 +49,4 @@ const Menu: React.ForwardRefExoticComponent<Omit<IMenu, "ref"> & React.RefAttrib
       "to": "/dev/api/use"
     }
   }
-}~
+}

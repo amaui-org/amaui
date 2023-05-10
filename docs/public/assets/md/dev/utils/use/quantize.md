@@ -8,6 +8,7 @@
 const quantize: (value: Array<[number, number, number]>, amount?: number) => Array<[number, number, number]>;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

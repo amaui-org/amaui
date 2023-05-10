@@ -23,7 +23,8 @@ interface IReveal extends IBaseElement {
 const Reveal: React.ForwardRefExoticComponent<Omit<IReveal, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -35,4 +36,4 @@ const Reveal: React.ForwardRefExoticComponent<Omit<IReveal, "ref"> & React.RefAt
       "to": "/dev/api/use"
     }
   }
-}~
+}

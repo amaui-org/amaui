@@ -25,7 +25,8 @@ interface INavigationRail extends ISurface {
 const NavigationRail: React.ForwardRefExoticComponent<Omit<INavigationRail, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -37,4 +38,4 @@ const NavigationRail: React.ForwardRefExoticComponent<Omit<INavigationRail, "ref
       "to": "/dev/api/use"
     }
   }
-}~
+}

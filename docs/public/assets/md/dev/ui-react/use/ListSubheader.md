@@ -15,7 +15,8 @@ interface IListSubheader extends IListItem {
 const ListSubheader: React.ForwardRefExoticComponent<Omit<IListSubheader, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const ListSubheader: React.ForwardRefExoticComponent<Omit<IListSubheader, "ref">
       "to": "/dev/api/use"
     }
   }
-}~
+}

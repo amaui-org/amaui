@@ -26,6 +26,7 @@ const checkRoot: (rootId: string, timeout?: number, reload?: boolean) => Promise
 const checkAppVersion: (retries?: number, reload?: boolean) => Promise<boolean>;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

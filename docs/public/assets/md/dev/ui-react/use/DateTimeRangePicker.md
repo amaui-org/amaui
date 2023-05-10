@@ -15,7 +15,8 @@ interface IDateTimeRangePicker extends IDateTimePicker {
 const DateTimeRangePicker: React.ForwardRefExoticComponent<Omit<IDateTimeRangePicker, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const DateTimeRangePicker: React.ForwardRefExoticComponent<Omit<IDateTimeRangePi
       "to": "/dev/api/use"
     }
   }
-}~
+}

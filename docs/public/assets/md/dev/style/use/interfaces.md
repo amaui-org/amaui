@@ -2,20 +2,24 @@
 
 ### API
 
-#### Properties
+#### 'csstype'
 
 ```ts
-interface Properties {
+module 'csstype' {
+    interface Properties {
         animationDuration?: CSS.Property.AnimationDuration | number | undefined;
         position?: CSS.Property.Position | CSS.Property.BackgroundPosition | undefined;
         [index: string]: any;
     }
+}
 ```
 
 #### TValueObjectValue
 
 ```ts
 type TValueObjectValue = (string | ((props?: any) => TValueObjectValue) | AmauiSubscription | CSS.Properties<string | number | Array<string | number> | Array<Array<string | number>> | Array<TValueObjectValue> | Array<Array<TValueObjectValue>> | ((props?: any) => TValueObjectValue)> | Record<string, any> | {
+    [index: string]: CSS.Properties<TValueObjectValue>;
+});
 ```
 
 #### TValueObject
@@ -62,6 +66,9 @@ type TRef = {
         sheet: AmauiStyleSheet;
         rule: AmauiStyleRule;
     };
+    className: string;
+    refs: Array<AmauiStyleSheet>;
+};
 ```
 
 #### TRefs
@@ -142,6 +149,27 @@ interface ISheets {
 }
 ```
 
+#### IMethodResponse
+
+```ts
+interface IMethodResponse {
+    amaui_style_sheet_manager: AmauiStyleSheetManager;
+    sheets: ISheets;
+    ids: IIds;
+    add: (props?: any) => IResponse;
+    update: (value: any) => void;
+    props: {
+        props: any;
+        ids: string | Array<string>;
+    } | ((value: {
+        props: any;
+        ids: string | Array<string>;
+    }) => any);
+    remove: (ids?: string | Array<string>) => void;
+    addRule: (value: any, property?: string) => IAddRuleResponse;
+}
+```
+
 #### IOptionsAmauiTheme
 
 ```ts
@@ -180,6 +208,31 @@ interface ICSSOptions {
     resetProps?: {
         override?: boolean;
     };
+    css?: {
+        file?: {
+            name?: string;
+            hash?: boolean;
+        };
+        folders?: Array<{
+            url?: string;
+            clear?: boolean;
+        }>;
+        clear?: boolean;
+        minify?: boolean;
+    };
+    html?: {
+        files?: Array<{
+            url?: string;
+            insert?: IInsert;
+        }>;
+        insert?: IInsert;
+        add?: boolean;
+        addNames?: boolean;
+    };
+    rule?: IOptionsRule;
+    optimize?: boolean;
+    log?: boolean;
+}
 ```
 
 #### IAmauiStyleSheetManagerProps
@@ -191,16 +244,17 @@ interface IAmauiStyleSheetManagerProps {
 }
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style: inline",
+      "to": "/dev/style/use/inline"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style: makeClassName",
+      "to": "/dev/style/use/makeClassName"
     }
   }
 }~

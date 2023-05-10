@@ -26,6 +26,9 @@ interface IRating extends IBaseElement {
         default?: TElement;
         [property: number | string]: TElement;
     };
+    iconInactive?: TElement;
+    iconActive?: TElement;
+}
 ```
 
 #### Rating
@@ -34,7 +37,8 @@ interface IRating extends IBaseElement {
 const Rating: React.ForwardRefExoticComponent<Omit<IRating, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -46,4 +50,4 @@ const Rating: React.ForwardRefExoticComponent<Omit<IRating, "ref"> & React.RefAt
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -37,7 +37,8 @@ interface ITableRow extends ILine {
 const TablePagination: React.ForwardRefExoticComponent<Omit<ITableRow, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -49,4 +50,4 @@ const TablePagination: React.ForwardRefExoticComponent<Omit<ITableRow, "ref"> & 
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -15,7 +15,8 @@ interface IBubbleChart extends IChart {
 const BubbleChart: React.ForwardRefExoticComponent<Omit<IBubbleChart, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const BubbleChart: React.ForwardRefExoticComponent<Omit<IBubbleChart, "ref"> & R
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -51,7 +51,8 @@ interface ITooltip extends Omit<IModal, 'maxWidth'> {
 const Tooltip: React.ForwardRefExoticComponent<Omit<ITooltip, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -63,4 +64,4 @@ const Tooltip: React.ForwardRefExoticComponent<Omit<ITooltip, "ref"> & React.Ref
       "to": "/dev/api/use"
     }
   }
-}~
+}

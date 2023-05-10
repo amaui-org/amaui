@@ -15,7 +15,8 @@ interface IZoom extends ITransition {
 const Zoom: React.ForwardRefExoticComponent<Omit<IZoom, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const Zoom: React.ForwardRefExoticComponent<Omit<IZoom, "ref"> & React.RefAttrib
       "to": "/dev/api/use"
     }
   }
-}~
+}

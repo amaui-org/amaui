@@ -5,10 +5,11 @@
 #### useSnackbars
 
 ```ts
-function useSnackbars(): ISnackbarsProvider;
+default function useSnackbars(): ISnackbarsProvider;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ function useSnackbars(): ISnackbarsProvider;
       "to": "/dev/api/use"
     }
   }
-}~
+}

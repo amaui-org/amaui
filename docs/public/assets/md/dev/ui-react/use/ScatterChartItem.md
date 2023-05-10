@@ -11,6 +11,14 @@ interface IScatterChartItem extends IChart {
         wrapper?: HTMLElement;
         defs?: HTMLElement;
     };
+    rects?: {
+        wrapper?: DOMRect;
+        svg?: DOMRect;
+    };
+    values?: TChartValueValues;
+    updateDefs: TMethod;
+    updateLegend: TMethod;
+}
 ```
 
 #### ScatterChartItem
@@ -19,7 +27,8 @@ interface IScatterChartItem extends IChart {
 const ScatterChartItem: React.ForwardRefExoticComponent<Omit<IScatterChartItem, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -31,4 +40,4 @@ const ScatterChartItem: React.ForwardRefExoticComponent<Omit<IScatterChartItem, 
       "to": "/dev/api/use"
     }
   }
-}~
+}

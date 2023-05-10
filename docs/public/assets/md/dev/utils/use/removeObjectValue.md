@@ -8,6 +8,7 @@
 const removeObjectValue: (object: object | any[], keys: string | string[]) => any;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

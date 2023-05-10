@@ -71,7 +71,8 @@ interface ICalenarDays extends IBaseElement {
 const CalendarMonth: React.ForwardRefExoticComponent<Omit<ICalenarDays, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -83,4 +84,4 @@ const CalendarMonth: React.ForwardRefExoticComponent<Omit<ICalenarDays, "ref"> &
       "to": "/dev/api/use"
     }
   }
-}~
+}

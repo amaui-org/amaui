@@ -5,8 +5,9 @@
 #### isEnvironment
 
 ```ts
-function isEnvironment(type: string, value?: any): any;
+default function isEnvironment(type: string, value?: any): any;
 ```
+
 
 ~{
   "element": "BottomNavigation",

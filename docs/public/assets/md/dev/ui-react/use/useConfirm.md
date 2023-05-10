@@ -5,10 +5,11 @@
 #### useConfirm
 
 ```ts
-function useConfirm(): IConfirmProvider;
+default function useConfirm(): IConfirmProvider;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ function useConfirm(): IConfirmProvider;
       "to": "/dev/api/use"
     }
   }
-}~
+}

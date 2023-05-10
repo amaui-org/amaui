@@ -16,7 +16,8 @@ interface IBox extends IBaseElement {
 const Box: React.ForwardRefExoticComponent<Omit<IBox, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -28,4 +29,4 @@ const Box: React.ForwardRefExoticComponent<Omit<IBox, "ref"> & React.RefAttribut
       "to": "/dev/api/use"
     }
   }
-}~
+}

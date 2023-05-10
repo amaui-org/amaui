@@ -31,12 +31,12 @@ class AmauiMiddleware implements IAmauiMiddleware {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Test: AmauiGroup",
+      "to": "/dev/test/use/AmauiGroup"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Test: AmauiTest",
+      "to": "/dev/test/use/AmauiTest"
     }
   }
 }~

@@ -16,7 +16,8 @@ interface IChips extends IChip {
 const Chips: React.ForwardRefExoticComponent<Omit<IChips, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -28,4 +29,4 @@ const Chips: React.ForwardRefExoticComponent<Omit<IChips, "ref"> & React.RefAttr
       "to": "/dev/api/use"
     }
   }
-}~
+}

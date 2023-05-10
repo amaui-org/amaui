@@ -8,6 +8,7 @@
 const pagination: (value?: number, total?: number, boundary?: number, middle?: number) => any[];
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

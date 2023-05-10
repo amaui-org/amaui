@@ -43,7 +43,8 @@ interface IScreenCapture extends ISurface {
 const ScreenCapture: React.ForwardRefExoticComponent<Omit<IScreenCapture, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -55,4 +56,4 @@ const ScreenCapture: React.ForwardRefExoticComponent<Omit<IScreenCapture, "ref">
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -8,6 +8,7 @@
 const deserialize: (value: string) => any;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

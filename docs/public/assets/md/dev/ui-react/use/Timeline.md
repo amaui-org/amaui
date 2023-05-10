@@ -16,7 +16,8 @@ interface ITimeline extends ILine {
 const Timeline: React.ForwardRefExoticComponent<Omit<ITimeline, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -28,4 +29,4 @@ const Timeline: React.ForwardRefExoticComponent<Omit<ITimeline, "ref"> & React.R
       "to": "/dev/api/use"
     }
   }
-}~
+}

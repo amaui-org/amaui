@@ -20,7 +20,8 @@ interface ISpyScroll extends IBaseElement {
 const SpyScroll: React.ForwardRefExoticComponent<Omit<ISpyScroll, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -32,4 +33,4 @@ const SpyScroll: React.ForwardRefExoticComponent<Omit<ISpyScroll, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

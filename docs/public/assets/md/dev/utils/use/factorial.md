@@ -8,6 +8,7 @@
 function factorial(value: number): number;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

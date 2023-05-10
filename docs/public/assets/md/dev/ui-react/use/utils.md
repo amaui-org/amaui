@@ -2,6 +2,12 @@
 
 ### API
 
+#### types="react"
+
+```ts
+/// <reference types="react" />
+```
+
 #### reflow
 
 ```ts
@@ -272,7 +278,8 @@ type TValueBreakpoints = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'default';
 const sanitize: (value: string) => string;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -284,4 +291,4 @@ const sanitize: (value: string) => string;
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -8,6 +8,7 @@
 const hasObjectPropertyValue: (object: object, keys?: string | string[]) => boolean;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

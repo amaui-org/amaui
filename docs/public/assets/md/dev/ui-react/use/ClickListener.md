@@ -22,7 +22,8 @@ interface IClickListener extends IBaseElement {
 const ClickListener: React.ForwardRefExoticComponent<Omit<IClickListener, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -34,4 +35,4 @@ const ClickListener: React.ForwardRefExoticComponent<Omit<IClickListener, "ref">
       "to": "/dev/api/use"
     }
   }
-}~
+}

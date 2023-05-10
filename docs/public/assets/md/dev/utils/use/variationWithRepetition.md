@@ -19,8 +19,9 @@ interface IVariationOptions {
 #### variationWithRepetition
 
 ```ts
-function variationWithRepetition(value_: any[], items?: number, options_?: IVariationOptions): TVariation;
+default function variationWithRepetition(value_: any[], items?: number, options_?: IVariationOptions): TVariation;
 ```
+
 
 ~{
   "element": "BottomNavigation",

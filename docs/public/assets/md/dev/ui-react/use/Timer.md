@@ -31,7 +31,8 @@ interface ITimer extends ISurface {
 const Timer: React.ForwardRefExoticComponent<Omit<ITimer, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -43,4 +44,4 @@ const Timer: React.ForwardRefExoticComponent<Omit<ITimer, "ref"> & React.RefAttr
       "to": "/dev/api/use"
     }
   }
-}~
+}

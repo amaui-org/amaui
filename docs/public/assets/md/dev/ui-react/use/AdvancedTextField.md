@@ -21,7 +21,8 @@ interface IAdvancedTextField extends ITextField {
 const AdvancedTextField: React.ForwardRefExoticComponent<Omit<IAdvancedTextField, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -33,4 +34,4 @@ const AdvancedTextField: React.ForwardRefExoticComponent<Omit<IAdvancedTextField
       "to": "/dev/api/use"
     }
   }
-}~
+}

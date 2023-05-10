@@ -15,7 +15,8 @@ interface IColumnChart extends IChart {
 const ColumnChart: React.ForwardRefExoticComponent<Omit<IColumnChart, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const ColumnChart: React.ForwardRefExoticComponent<Omit<IColumnChart, "ref"> & R
       "to": "/dev/api/use"
     }
   }
-}~
+}

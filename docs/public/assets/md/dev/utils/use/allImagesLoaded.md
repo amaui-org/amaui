@@ -8,6 +8,7 @@
 const allImagesLoaded: () => Promise<boolean | number> | boolean;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

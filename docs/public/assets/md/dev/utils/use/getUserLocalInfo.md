@@ -22,6 +22,10 @@ interface IUserOSandBrowser {
         agent: string;
         language: string;
     };
+    os: {
+        platform: string;
+    };
+}
 ```
 
 #### UserLocalInfo
@@ -50,6 +54,7 @@ const getUserOSandBrowser: () => IUserOSandBrowser;
 ```ts
 const getUserLocalInfo: () => Promise<UserLocalInfo>;
 ```
+
 
 ~{
   "element": "BottomNavigation",

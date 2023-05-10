@@ -30,7 +30,8 @@ interface ISnackbar extends ISurface {
 const Snackbar: React.ForwardRefExoticComponent<Omit<ISnackbar, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -42,4 +43,4 @@ const Snackbar: React.ForwardRefExoticComponent<Omit<ISnackbar, "ref"> & React.R
       "to": "/dev/api/use"
     }
   }
-}~
+}

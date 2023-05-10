@@ -29,7 +29,8 @@ interface IParallax extends IBaseElement {
 const Parallax: React.ForwardRefExoticComponent<Omit<IParallax, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -41,4 +42,4 @@ const Parallax: React.ForwardRefExoticComponent<Omit<IParallax, "ref"> & React.R
       "to": "/dev/api/use"
     }
   }
-}~
+}

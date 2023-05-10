@@ -18,7 +18,8 @@ interface IImageListItem extends ILine {
 const ImageListItem: React.ForwardRefExoticComponent<Omit<IImageListItem, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -30,4 +31,4 @@ const ImageListItem: React.ForwardRefExoticComponent<Omit<IImageListItem, "ref">
       "to": "/dev/api/use"
     }
   }
-}~
+}

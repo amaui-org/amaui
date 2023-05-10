@@ -86,16 +86,17 @@ const getID: () => string;
 const minify: (value: string) => string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style: unit",
+      "to": "/dev/style/use/unit"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style: valueObject",
+      "to": "/dev/style/use/valueObject"
     }
   }
 }~

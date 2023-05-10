@@ -37,12 +37,12 @@ class AmauiTo implements IAmauiTo {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Test: AmauiTest",
+      "to": "/dev/test/use/AmauiTest"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Test: assert",
+      "to": "/dev/test/use/assert"
     }
   }
 }~

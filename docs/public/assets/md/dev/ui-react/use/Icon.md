@@ -30,7 +30,8 @@ interface IIcon extends IBaseElement {
 const Icon: React.ForwardRefExoticComponent<Omit<IIcon, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -42,4 +43,4 @@ const Icon: React.ForwardRefExoticComponent<Omit<IIcon, "ref"> & React.RefAttrib
       "to": "/dev/api/use"
     }
   }
-}~
+}

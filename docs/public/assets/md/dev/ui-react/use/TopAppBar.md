@@ -21,7 +21,8 @@ interface ITopAppBar extends Omit<ISurface, 'version'> {
 const TopAppBar: React.ForwardRefExoticComponent<Omit<ITopAppBar, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -33,4 +34,4 @@ const TopAppBar: React.ForwardRefExoticComponent<Omit<ITopAppBar, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

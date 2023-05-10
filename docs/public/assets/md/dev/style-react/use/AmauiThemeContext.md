@@ -8,7 +8,8 @@
 const AmauiThemeContext: any;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ const AmauiThemeContext: any;
       "to": "/dev/api/use"
     }
   }
-}~
+}

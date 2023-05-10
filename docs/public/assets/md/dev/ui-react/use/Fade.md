@@ -15,7 +15,8 @@ interface IFade extends ITransition {
 const Fade: React.ForwardRefExoticComponent<Omit<IFade, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const Fade: React.ForwardRefExoticComponent<Omit<IFade, "ref"> & React.RefAttrib
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -15,7 +15,8 @@ interface IScatterChart extends IChart {
 const ScatterChart: React.ForwardRefExoticComponent<Omit<IScatterChart, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const ScatterChart: React.ForwardRefExoticComponent<Omit<IScatterChart, "ref"> &
       "to": "/dev/api/use"
     }
   }
-}~
+}

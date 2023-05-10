@@ -2,6 +2,12 @@
 
 ### API
 
+#### types="node"
+
+```ts
+/// <reference types="node" />
+```
+
 #### TType
 
 ```ts
@@ -28,6 +34,7 @@ interface IOptions {
 ```ts
 const to: (value_: any, type?: TType, options_?: IOptions) => TTo;
 ```
+
 
 ~{
   "element": "BottomNavigation",

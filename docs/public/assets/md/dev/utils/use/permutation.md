@@ -20,8 +20,9 @@ interface IPermutationOptions {
 #### permutation
 
 ```ts
-function permutation(value_: any[], options_?: IPermutationOptions): TPermutation;
+default function permutation(value_: any[], options_?: IPermutationOptions): TPermutation;
 ```
+
 
 ~{
   "element": "BottomNavigation",

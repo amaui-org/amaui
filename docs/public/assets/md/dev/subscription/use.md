@@ -20,6 +20,11 @@ interface IOptions {
         pre?: {
             method?: TMethod;
         };
+        post?: {
+            method?: TMethod;
+        };
+    };
+}
 ```
 
 #### IAmauiSubscription
@@ -51,16 +56,17 @@ class AmauiSubscription implements IAmauiSubscription {
 }
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Subscription: Start",
+      "to": "/dev/subscription/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Test: Start",
+      "to": "/dev/test/start"
     }
   }
 }~

@@ -18,8 +18,9 @@ interface IOptions {
 #### isValid
 
 ```ts
-function isValid(type: string, value?: any, options_?: IOptions): any;
+default function isValid(type: string, value?: any, options_?: IOptions): any;
 ```
+
 
 ~{
   "element": "BottomNavigation",

@@ -103,12 +103,12 @@ class AmauiTest {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Test: AmauiMiddleware",
+      "to": "/dev/test/use/AmauiMiddleware"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Test: AmauiTo",
+      "to": "/dev/test/use/AmauiTo"
     }
   }
 }~

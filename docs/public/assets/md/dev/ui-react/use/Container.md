@@ -20,7 +20,8 @@ interface IContainer extends ILine {
 const Container: React.ForwardRefExoticComponent<Omit<IContainer, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -32,4 +33,4 @@ const Container: React.ForwardRefExoticComponent<Omit<IContainer, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

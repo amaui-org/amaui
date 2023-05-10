@@ -15,7 +15,8 @@ interface IToggleButton extends IChip {
 const ToggleButton: React.ForwardRefExoticComponent<Omit<IToggleButton, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const ToggleButton: React.ForwardRefExoticComponent<Omit<IToggleButton, "ref"> &
       "to": "/dev/api/use"
     }
   }
-}~
+}

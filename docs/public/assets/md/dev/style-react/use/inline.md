@@ -5,10 +5,11 @@
 #### inline
 
 ```ts
-function inline(value_: TValue, props?: any, options_?: IOptions): any;
+default function inline(value_: TValue, props?: any, options_?: IOptions): any;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ function inline(value_: TValue, props?: any, options_?: IOptions): any;
       "to": "/dev/api/use"
     }
   }
-}~
+}

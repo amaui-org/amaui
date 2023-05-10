@@ -5,10 +5,11 @@
 #### string
 
 ```ts
-function string(value_: TemplateStringsArray, ...args: any[]): string;
+default function string(value_: TemplateStringsArray, ...args: any[]): string;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -20,4 +21,4 @@ function string(value_: TemplateStringsArray, ...args: any[]): string;
       "to": "/dev/api/use"
     }
   }
-}~
+}

@@ -11,7 +11,8 @@ const useMediaQuery: {
 };
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -23,4 +24,4 @@ const useMediaQuery: {
       "to": "/dev/api/use"
     }
   }
-}~
+}

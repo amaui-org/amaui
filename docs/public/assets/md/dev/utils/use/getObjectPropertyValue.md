@@ -8,6 +8,7 @@
 const getObjectPropertyValue: (object: object, keys?: string | string[]) => any;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

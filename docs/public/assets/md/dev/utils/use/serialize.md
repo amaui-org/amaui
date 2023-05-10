@@ -8,6 +8,7 @@
 const serialize: (value: any) => string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

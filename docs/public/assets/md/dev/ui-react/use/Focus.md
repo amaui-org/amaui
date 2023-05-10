@@ -27,7 +27,8 @@ interface IFocus extends IBaseElement {
 const Focus: React.ForwardRefExoticComponent<Omit<IFocus, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -39,4 +40,4 @@ const Focus: React.ForwardRefExoticComponent<Omit<IFocus, "ref"> & React.RefAttr
       "to": "/dev/api/use"
     }
   }
-}~
+}

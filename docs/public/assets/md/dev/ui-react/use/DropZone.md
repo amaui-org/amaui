@@ -23,7 +23,8 @@ interface IDropZone extends IFileChoose {
 const DropZone: React.ForwardRefExoticComponent<Omit<IDropZone, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -35,4 +36,4 @@ const DropZone: React.ForwardRefExoticComponent<Omit<IDropZone, "ref"> & React.R
       "to": "/dev/api/use"
     }
   }
-}~
+}

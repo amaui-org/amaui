@@ -25,7 +25,8 @@ interface INavigationBar extends ISurface {
 const NavigationBar: React.ForwardRefExoticComponent<Omit<INavigationBar, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -37,4 +38,4 @@ const NavigationBar: React.ForwardRefExoticComponent<Omit<INavigationBar, "ref">
       "to": "/dev/api/use"
     }
   }
-}~
+}

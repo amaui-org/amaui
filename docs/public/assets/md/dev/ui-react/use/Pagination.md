@@ -35,7 +35,8 @@ interface IPagination extends ILine {
 const Pagination: React.ForwardRefExoticComponent<Omit<IPagination, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -47,4 +48,4 @@ const Pagination: React.ForwardRefExoticComponent<Omit<IPagination, "ref"> & Rea
       "to": "/dev/api/use"
     }
   }
-}~
+}

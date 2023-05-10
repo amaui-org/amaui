@@ -2,6 +2,12 @@
 
 ### API
 
+#### types="react"
+
+```ts
+/// <reference types="react" />
+```
+
 #### TTransitionStatus
 
 ```ts
@@ -37,6 +43,22 @@ interface ITransition extends Omit<IBaseElement, 'children' | 'className'> {
         enter?: number;
         exit?: number;
     };
+    onTransition?: (element: HTMLElement, status: TTransitionStatus) => void;
+    onInit?: (element: HTMLElement) => void;
+    onAppended?: (element: HTMLElement) => void;
+    onAdd?: (element: HTMLElement) => void;
+    onAdding?: (element: HTMLElement) => void;
+    onAdded?: (element: HTMLElement) => void;
+    onEnter?: (element: HTMLElement) => void;
+    onEntering?: (element: HTMLElement) => void;
+    onEntered?: (element: HTMLElement) => void;
+    onExit?: (element: HTMLElement) => void;
+    onExiting?: (element: HTMLElement) => void;
+    onExited?: (element: HTMLElement) => void;
+    onRemoved?: (element: HTMLElement) => void;
+    children?: any;
+    [p: string]: any;
+}
 ```
 
 #### Transition
@@ -45,7 +67,16 @@ interface ITransition extends Omit<IBaseElement, 'children' | 'className'> {
 function Transition(props_: ITransition): JSX.Element;
 ```
 
-~{
+#### Transition
+
+```ts
+namespace Transition {
+    var displayName: string;
+}
+```
+
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -57,4 +88,4 @@ function Transition(props_: ITransition): JSX.Element;
       "to": "/dev/api/use"
     }
   }
-}~
+}

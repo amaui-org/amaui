@@ -65,18 +65,41 @@ class AmauiStyleSheet {
     values: {
         css: string;
     };
+    rules: Array<IRuleItem>;
+    names: {
+        classNames: {};
+        classes: {};
+        keyframes: {};
+        styles: (...args: string[]) => string;
+    };
+    constructor(value?: TValueObject, options?: IOptions);
+    get props(): any;
+    set props(props: any);
+    get response(): IValuesVersion;
+    get css(): string;
+    private get sort();
+    private init;
+    addRule(value: any, property_?: string, add?: boolean): IAddRuleResponse;
+    add(props?: any): void;
+    update(value: any): void;
+    remove(): void;
+    private updateProps;
+    private propsAreNew;
+    private makeRule;
+}
 ```
+
 
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style: AmauiStyleRuleProperty",
+      "to": "/dev/style/use/AmauiStyleRuleProperty"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style: AmauiStyleSheetManager",
+      "to": "/dev/style/use/AmauiStyleSheetManager"
     }
   }
 }~

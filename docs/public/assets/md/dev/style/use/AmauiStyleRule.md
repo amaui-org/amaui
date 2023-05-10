@@ -25,12 +25,16 @@ interface IAmauiStyleRuleValue {
     options?: {
         rule?: IOptionsRule;
     };
+}
 ```
 
 #### TRules
 
 ```ts
 type TRules = Array<{
+    property: string;
+    value: AmauiStyleRule | AmauiStyleRuleProperty;
+}>;
 ```
 
 #### IOptions
@@ -83,18 +87,60 @@ class AmauiStyleRule {
         value: any;
         css: string;
     };
+    rules: TRules;
+    constructor(value: any, property: string, options?: IOptions);
+    get selector(): string;
+    private set selector(value);
+    get className(): string;
+    set className(value: string);
+    get classNames(): string;
+    set classNames(value: string);
+    get keyframesName(): string;
+    set keyframesName(value: string);
+    get hash(): string;
+    get parent(): AmauiStyleRule | AmauiStyleSheet;
+    get response(): IValuesVersion;
+    get css(): string;
+    get allOwnedCss(): string;
+    get counter(): {
+        className: number;
+        keyframesName: number;
+    };
+    private makeRuleClassNameDefault;
+    private makeRuleKeyframesNameDefault;
+    updateValues(hash_?: boolean): void;
+    private makeHash;
+    private init;
+    addProperty(prop: string, value: any, index?: number, unique?: boolean, add?: boolean): void;
+    add(update?: boolean): boolean;
+    updateProps(): void;
+    update(value?: any): void;
+    remove(): void;
+    private addRuleToCss;
+    addRuleRef(): void;
+    makeSelector(): void;
+    private makeClassName;
+    private makeRuleClassName;
+    private makeRuleKeyframesName;
+    get rule(): CSSStyleRule;
+    set rule(rule: CSSStyleRule);
+    private get unique();
+    private clear;
+    static make(value: any, property: string, options?: IOptions): AmauiStyleRule;
+}
 ```
+
 
 ~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style: AmauiStyleRenderer",
+      "to": "/dev/style/use/AmauiStyleRenderer"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style: AmauiStyleRuleProperty",
+      "to": "/dev/style/use/AmauiStyleRuleProperty"
     }
   }
 }~

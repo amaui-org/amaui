@@ -8,6 +8,7 @@
 const binaryStringToHexadecimal: (value_: string) => string;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

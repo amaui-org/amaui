@@ -2,6 +2,12 @@
 
 ### API
 
+#### types="react"
+
+```ts
+/// <reference types="react" />
+```
+
 #### IReset
 
 ```ts
@@ -18,7 +24,8 @@ const Reset: {
 };
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -30,4 +37,4 @@ const Reset: {
       "to": "/dev/api/use"
     }
   }
-}~
+}

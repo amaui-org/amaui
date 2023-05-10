@@ -183,8 +183,8 @@ yarn build
       "to": "/dev/storage/start"
     },
     "next": {
-      "label": "Style: Use",
-      "to": "/dev/style/use"
+      "label": "Style: AmauiStyle",
+      "to": "/dev/style/use/AmauiStyle"
     }
   }
 }~

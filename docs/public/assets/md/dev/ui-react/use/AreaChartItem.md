@@ -11,6 +11,17 @@ interface IAreaChartItem extends IChart {
         wrapper?: HTMLElement;
         defs?: HTMLElement;
     };
+    rects?: {
+        wrapper?: DOMRect;
+        svg?: DOMRect;
+    };
+    values?: TChartValueValues;
+    updateDefs: TMethod;
+    updateLegend: TMethod;
+    smooth?: boolean;
+    smoothRatio?: number;
+    linearGradient?: boolean;
+}
 ```
 
 #### AreaChartItem
@@ -19,7 +30,8 @@ interface IAreaChartItem extends IChart {
 const AreaChartItem: React.ForwardRefExoticComponent<Omit<IAreaChartItem, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -31,4 +43,4 @@ const AreaChartItem: React.ForwardRefExoticComponent<Omit<IAreaChartItem, "ref">
       "to": "/dev/api/use"
     }
   }
-}~
+}

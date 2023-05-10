@@ -26,7 +26,16 @@ interface ITransitions {
 function Transitions(props_: ITransitions): any;
 ```
 
-~{
+#### Transitions
+
+```ts
+namespace Transitions {
+    var displayName: string;
+}
+```
+
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -38,4 +47,4 @@ function Transitions(props_: ITransitions): any;
       "to": "/dev/api/use"
     }
   }
-}~
+}

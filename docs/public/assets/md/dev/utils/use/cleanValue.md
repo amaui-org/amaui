@@ -29,6 +29,7 @@ const optionsDefault: IOptions;
 const cleanValue: (value_: string, options_?: IOptions) => string | any;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

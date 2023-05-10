@@ -5,8 +5,9 @@
 #### isBrowser
 
 ```ts
-function isBrowser(type: string, value?: any): any;
+default function isBrowser(type: string, value?: any): any;
 ```
+
 
 ~{
   "element": "BottomNavigation",

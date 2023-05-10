@@ -15,7 +15,8 @@ interface IModalText extends IType {
 const ModalText: React.ForwardRefExoticComponent<Omit<IModalText, "ref"> & React.RefAttributes<unknown>>;
 ```
 
-~{
+
+{
   "element": "BottomNavigation",
   "props": {
     "previous": {
@@ -27,4 +28,4 @@ const ModalText: React.ForwardRefExoticComponent<Omit<IModalText, "ref"> & React
       "to": "/dev/api/use"
     }
   }
-}~
+}

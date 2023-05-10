@@ -8,6 +8,7 @@
 const unflattenObject: (object: object) => object;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

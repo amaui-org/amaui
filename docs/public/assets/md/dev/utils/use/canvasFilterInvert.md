@@ -8,6 +8,7 @@
 const canvasFilterInvert: (value: number, canvas: HTMLCanvasElement) => HTMLCanvasElement;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {

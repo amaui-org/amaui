@@ -16,6 +16,7 @@ interface IOptions {
 const setObjectValue: <T extends unknown>(object: T, keys?: string | string[], value?: any, options_?: IOptions) => T;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
