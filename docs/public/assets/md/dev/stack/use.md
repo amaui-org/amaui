@@ -30,12 +30,12 @@ default class AmauiStack {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Stack: Start",
+      "to": "/dev/stack/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Storage: Start",
+      "to": "/dev/storage/start"
     }
   }
 }~

@@ -48,12 +48,12 @@ class AmauiStorage {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Storage: Start",
+      "to": "/dev/storage/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style: Start",
+      "to": "/dev/style/start"
     }
   }
 }~
