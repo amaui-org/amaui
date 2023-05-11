@@ -39,7 +39,7 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
   const refs = {
     root: React.useRef<HTMLElement>(),
     element: React.useRef<HTMLDivElement>(),
-    rect: React.useRef<any>()
+    value: React.useRef<number>(0)
   };
 
   const {
@@ -86,8 +86,12 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
 
   const [init, setInit] = React.useState(false);
 
+  const getValue = React.useCallback((element = refs.element.current) => {
+    refs.value.current = (element?.getBoundingClientRect() || {})[prop] || 0;
+  }, []);
+
   React.useEffect(() => {
-    refs.rect.current = refs.element.current?.getBoundingClientRect();
+    getValue();
 
     setInit(true);
   }, []);
@@ -112,7 +116,7 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
         overflow: 'hidden'
       },
       entering: {
-        [prop]: refs.rect.current && `${refs.rect.current[prop]}px`,
+        [prop]: `${refs.value.current}px`,
         overflow: 'hidden'
       },
       entered: {
@@ -169,6 +173,13 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
       {...props}
     >
       {(status: TTransitionStatus, ref_) => {
+        // If children update
+        // & value is updated
+        if (['append', 'appending', 'appended', 'add', 'adding', 'added', 'enter', 'entering', 'entered'].includes(status)) {
+          const value = (refs.root.current?.getBoundingClientRect() || {})[prop];
+
+          if (value > 0 && value !== refs.value.current) refs.value.current = value;
+        }
 
         return React.cloneElement(children_, {
           ...other,
