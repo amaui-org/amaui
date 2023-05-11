@@ -698,8 +698,10 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
                 <TransitionComponent
                   in={inProp}
 
-                  onEnter={() => {
-                    if (refAppend.current) refAppend.current.style.transition = theme.methods.transitions.make(['width', 'height', 'transform']);
+                  onEntered={() => {
+                    if (refAppend.current) setTimeout(() => {
+                      refAppend.current.style.transition = theme.methods.transitions.make(['width', 'height', 'transform']);
+                    }, 14);
                   }}
 
                   onExited={() => {
@@ -709,6 +711,8 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
                   }}
 
                   add
+
+                  removeOnExited
 
                   {...TransitionComponentProps}
                 >

@@ -343,6 +343,12 @@ export interface IListItem extends ISurface {
   MenuProps?: TPropsAny;
 }
 
+const ListItemDelays = {
+  Transition: {
+    enter: 70
+  }
+};
+
 const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -464,8 +470,9 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
 
   const ListTransitionComponentProps: any = {
     add: true,
+
     delay: {
-      enter: 70
+      enter: ListItemDelays.Transition.enter
     },
 
     ...ListTransitionComponentProps_
@@ -919,6 +926,8 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
 
       <Expand
         in={openList}
+
+        enterDelay={ListItemDelays.Transition.enter + 14}
 
         {...ExpandProps}
       >

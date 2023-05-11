@@ -255,6 +255,8 @@ const NavigationDrawer = React.forwardRef((props_: INavigationDrawer, ref: any) 
 
         onExited: () => setEntered(false),
 
+        enterOnAdd: false,
+
         ...TransitionComponentProps
       }}
 

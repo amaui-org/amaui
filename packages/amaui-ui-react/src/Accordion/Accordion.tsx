@@ -176,6 +176,12 @@ export interface IAccordion extends IBaseElement {
   TransitionComponent?: TElementReference;
 }
 
+const AccordionDelays = {
+  Transition: {
+    enter: 70
+  }
+};
+
 const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -210,7 +216,7 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
     Component = 'div',
 
     ExpandProps,
-    TransitionComponentProps: TransitionComponentProps_ = { add: true },
+    TransitionComponentProps: TransitionComponentProps_,
     WrapperHeaderProps,
     IconButtonProps,
 
@@ -236,9 +242,12 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
   let TransitionComponent = TransitionComponent_;
 
   let TransitionComponentProps: ITransition = {
+    add: true,
+
     delay: {
-      enter: 70
+      enter: AccordionDelays.Transition.enter
     },
+
     ...TransitionComponentProps_
   };
 
@@ -434,6 +443,8 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
 
       <Expand
         in={open}
+
+        enterDelay={AccordionDelays.Transition.enter + 14}
 
         onTransition={(element: any, status: TTransitionStatus) => {
           refs.expandInProgress.current = !['appended', 'entered', 'exited', 'removed'].includes(status);

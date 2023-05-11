@@ -170,6 +170,12 @@ export interface ITree extends Omit<IBaseElement, 'children'> {
   children: any;
 }
 
+const TreeDelays = {
+  Transition: {
+    enter: 70
+  }
+};
+
 const Tree = React.forwardRef((props_: ITree, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -215,7 +221,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
     MiddleProps,
     EndProps,
     IndicatorProps,
-    TransitionComponentProps: TransitionComponentProps_ = { add: true },
+    TransitionComponentProps: TransitionComponentProps_,
     TreeProps,
 
     IconArrow = IconMaterialExpandMoreRounded,
@@ -253,8 +259,10 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
 
   let TransitionComponent = TransitionComponent_;
   let TransitionComponentProps: any = {
+    add: true,
+
     delay: {
-      enter: 70
+      enter: TreeDelays.Transition.enter
     },
 
     ...TransitionComponentProps_
@@ -607,6 +615,8 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
       {!noExpand && children && (
         <Expand
           in={open}
+
+          enterDelay={TreeDelays.Transition.enter + 14}
 
           onTransition={(element: any, status: TTransitionStatus) => {
             refs.inProgressTransition.current = !['entered', 'removed'].includes(status);

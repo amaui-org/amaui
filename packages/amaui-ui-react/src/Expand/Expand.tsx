@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { is, wait } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
 import { ITransition, TPropsAny, Transition, TTransitionStatus } from '..';
@@ -25,6 +25,8 @@ const Wrapper = React.forwardRef((props: any, ref: any) => {
 
 export interface IExpand extends ITransition {
   expandSize?: number;
+
+  enterDelay?: number;
 
   orientation?: 'veritcal' | 'horizontal';
 
@@ -73,6 +75,7 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
     onRemoved,
 
     expandSize,
+    enterDelay,
     orientation,
     WrapperProps,
 
@@ -90,10 +93,16 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
     refs.value.current = (element?.getBoundingClientRect() || {})[prop] || 0;
   }, []);
 
-  React.useEffect(() => {
+  const initiate = React.useCallback(async () => {
+    if (enterDelay > 0) await wait(enterDelay);
+
     getValue();
 
     setInit(true);
+  }, [enterDelay]);
+
+  React.useEffect(() => {
+    initiate();
   }, []);
 
   let prop = 'height';
