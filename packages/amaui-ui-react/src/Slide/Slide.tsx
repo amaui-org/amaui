@@ -36,7 +36,7 @@ const Slide = React.forwardRef((props_: ISlide, ref: any) => {
     exitOnAdd,
     noAbruption,
     removeOnExited,
-    timeout: timeout_,
+    duration: duration_,
     onTransition,
     onAppended,
     onAdd,
@@ -161,12 +161,12 @@ const Slide = React.forwardRef((props_: ISlide, ref: any) => {
     return allStyles[status];
   };
 
-  const timeout = (status: TTransitionStatus, property = 'transform') => {
+  const duration = (status: TTransitionStatus, property = 'transform') => {
     const properties = {
       transform: theme.transitions.duration.xs
     };
 
-    return `${((is('simple', timeout) ? timeout : timeout[status]) || properties[property] - (status === 'exiting' ? 30 : 0))}ms`;
+    return `${(is('simple', duration) ? duration : duration[status]) || properties[property]}ms`;
   };
 
   const timingFunction = status => (is('simple', timing_function) ? timing_function : timing_function[status]) || theme.transitions.timing_function.standard;
@@ -224,7 +224,7 @@ const Slide = React.forwardRef((props_: ISlide, ref: any) => {
           },
 
           style: {
-            transition: `transform ${timeout(status)} ${timingFunction(status)} ${delay ? `${delay}ms` : ''}${addTransition ? `, ${addTransition}` : ''}`,
+            transition: `transform ${duration(status)} ${timingFunction(status)} ${addTransition ? `, ${addTransition}` : ''}`,
 
             ...styles(status),
 

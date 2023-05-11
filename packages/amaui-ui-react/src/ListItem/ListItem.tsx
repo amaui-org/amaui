@@ -911,7 +911,9 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
       <Expand
         in={openList}
 
-        addValue={addValue * -8}
+        delay={{
+          enter: 70
+        }}
 
         {...ExpandProps}
       >

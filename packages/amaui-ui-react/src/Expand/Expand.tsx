@@ -56,7 +56,7 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
     noAbruption,
     removeOnExited = true,
     delay,
-    timeout: timeout_,
+    duration: duration_,
     timing_function,
     addTransition,
     onTransition,
@@ -140,12 +140,12 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
     return allStyles[status];
   };
 
-  const timeout = (status: TTransitionStatus, property = 'opacity') => {
+  const duration = (status: TTransitionStatus, property = 'opacity') => {
     const properties = {
       [prop]: theme.transitions.duration.rg
     };
 
-    return `${((is('simple', timeout) ? timeout : timeout[status]) || properties[property] - (status === 'exiting' ? 30 : 0))}ms`;
+    return `${(is('simple', duration) ? duration : duration[status]) || properties[property]}ms`;
   };
 
   const timingFunction = (status: TTransitionStatus) => (is('simple', timing_function) ? timing_function : timing_function[status]) || theme.transitions.timing_function.standard;
@@ -175,7 +175,7 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
       {(status: TTransitionStatus, ref_) => {
         // If children update
         // & value is updated
-        if (['append', 'appending', 'appended', 'add', 'adding', 'added', 'enter', 'entering', 'entered'].includes(status)) {
+        if (['appending', 'appended', 'adding', 'added', 'entering', 'entered'].includes(status)) {
           const value = (refs.root.current?.getBoundingClientRect() || {})[prop];
 
           if (value > 0 && value !== refs.value.current) refs.value.current = value;
@@ -208,7 +208,7 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
           style: {
             position: 'relative',
 
-            transition: `${prop} ${timeout(status, prop)} ${timingFunction(status)} ${delay ? `${delay}ms` : ''}${addTransition ? `, ${addTransition}` : ''}`,
+            transition: `${prop} ${duration(status, prop)} ${timingFunction(status)} ${addTransition ? `, ${addTransition}` : ''}`,
 
             visibility: status === 'exited' && !inProp && expandSize === undefined ? 'hidden' : undefined,
 

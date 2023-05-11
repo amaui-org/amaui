@@ -236,6 +236,9 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
   let TransitionComponent = TransitionComponent_;
 
   let TransitionComponentProps: ITransition = {
+    delay: {
+      enter: 70
+    },
     ...TransitionComponentProps_
   };
 
@@ -433,7 +436,7 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
         in={open}
 
         onTransition={(element: any, status: TTransitionStatus) => {
-          refs.expandInProgress.current = !['entered', 'exited', 'removed'].includes(status);
+          refs.expandInProgress.current = !['appended', 'entered', 'exited', 'removed'].includes(status);
         }}
 
         role='region'

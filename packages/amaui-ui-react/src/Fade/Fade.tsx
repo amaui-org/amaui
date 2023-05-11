@@ -31,7 +31,7 @@ const Fade = React.forwardRef((props_: IFade, ref: any) => {
     noAbruption,
     removeOnExited,
     delay,
-    timeout: timeout_,
+    duration: duration_,
     timing_function,
     addTransition,
     onTransition,
@@ -105,12 +105,12 @@ const Fade = React.forwardRef((props_: IFade, ref: any) => {
     return allStyles[status];
   };
 
-  const timeout = (status: TTransitionStatus, property = 'opacity') => {
+  const duration = (status: TTransitionStatus, property = 'opacity') => {
     const properties = {
       opacity: theme.transitions.duration.sm
     };
 
-    return `${(is('simple', timeout) ? timeout : timeout[status]) || properties[property]}ms`;
+    return `${(is('simple', duration) ? duration : duration[status]) || properties[property]}ms`;
   };
 
   const timingFunction = status => (is('simple', timing_function) ? timing_function : timing_function[status]) || theme.transitions.timing_function.standard;
@@ -118,8 +118,11 @@ const Fade = React.forwardRef((props_: IFade, ref: any) => {
   return (
     <Transition
       {...props}
+
+      name='fade'
     >
       {(status: TTransitionStatus, ref_) => {
+        console.log(0, status);
 
         return React.cloneElement(children as any, {
           ...other,
@@ -146,7 +149,7 @@ const Fade = React.forwardRef((props_: IFade, ref: any) => {
           style: {
             visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
 
-            transition: `opacity ${timeout(status)} ${timingFunction(status)} ${delay ? `${delay}ms` : ''}${addTransition ? `, ${addTransition}` : ''}`,
+            transition: `opacity ${duration(status)} ${timingFunction(status)} ${addTransition ? `, ${addTransition}` : ''}`,
 
             ...styles(status),
 

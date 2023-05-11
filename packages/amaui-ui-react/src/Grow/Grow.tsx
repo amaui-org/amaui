@@ -31,7 +31,7 @@ const Grow = React.forwardRef((props_: IGrow, ref: any) => {
     noAbruption,
     removeOnExited,
     delay,
-    timeout: timeout_,
+    duration: duration_,
     timing_function,
     addTransition,
     onTransition,
@@ -110,13 +110,13 @@ const Grow = React.forwardRef((props_: IGrow, ref: any) => {
     return allStyles[status];
   };
 
-  const timeout = (status: TTransitionStatus, property = 'opacity') => {
+  const duration = (status: TTransitionStatus, property = 'opacity') => {
     const properties = {
       opacity: theme.transitions.duration.sm,
       transform: theme.transitions.duration.xs
     };
 
-    return `${(is('simple', timeout) ? timeout : timeout[status]) || properties[property]}ms`;
+    return `${(is('simple', duration) ? duration : duration[status]) || properties[property]}ms`;
   };
 
   const timingFunction = status => (is('simple', timing_function) ? timing_function : timing_function[status]) || theme.transitions.timing_function.standard;
@@ -151,7 +151,7 @@ const Grow = React.forwardRef((props_: IGrow, ref: any) => {
           style: {
             visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
 
-            transition: `opacity ${timeout(status)} ${timingFunction(status)}, transform ${timeout(status, 'transform')} ${timingFunction(status)} ${delay ? `${delay}ms` : (status === 'exiting' ? '74ms' : '0ms')}${addTransition ? `, ${addTransition}` : ''}`,
+            transition: `opacity ${duration(status)} ${timingFunction(status)}, transform ${duration(status, 'transform')} ${timingFunction(status)} ${addTransition ? `, ${addTransition}` : ''}`,
 
             ...styles(status),
 

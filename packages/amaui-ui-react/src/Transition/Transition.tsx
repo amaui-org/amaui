@@ -27,8 +27,17 @@ export const STATUS: Record<TTransitionStatus, TTransitionStatus> = {
   removed: 'removed'
 };
 
+export interface ITransitionDelay {
+  default?: number;
+  add?: number;
+  enter?: number;
+  exit?: number;
+}
+
 export interface ITransition extends Omit<IBaseElement, 'children' | 'className'> {
   in?: boolean;
+
+  name?: string;
 
   className?: boolean;
 
@@ -50,12 +59,7 @@ export interface ITransition extends Omit<IBaseElement, 'children' | 'className'
 
   preEnterAppendTimeout?: number;
 
-  timeout?: TTransitionsDurationProperties | number | {
-    default?: number;
-    add?: number;
-    enter?: number;
-    exit?: number;
-  };
+  duration?: TTransitionsDurationProperties | number | ITransitionDelay;
 
   // An all in one method
   onTransition?: (element: HTMLElement, status: TTransitionStatus) => void;
@@ -91,6 +95,8 @@ function Transition(props_: ITransition) {
   const {
     in: inProp_,
 
+    name,
+
     prefix,
 
     run,
@@ -100,7 +106,7 @@ function Transition(props_: ITransition) {
     enter: enter_ = true,
     exit: exit_ = true,
 
-    enterOnAdd,
+    enterOnAdd = !!props.removeOnExited,
     exitOnAdd,
 
     noAbruption,
@@ -108,7 +114,10 @@ function Transition(props_: ITransition) {
     removeOnExited,
 
     preEnterAppendTimeout = 14,
-    timeout: timeout_,
+
+    delay: delay_,
+
+    duration: duration_,
 
     // An all in one method
     onTransition,
@@ -241,26 +250,26 @@ function Transition(props_: ITransition) {
 
   React.useEffect(() => {
     if (!inProp_ && noAbruption && ['enter', 'entering'].indexOf(subs.current.status.value) > -1) {
-      const method = (item: TTransitionStatus) => {
+      const sub = (item: TTransitionStatus) => {
         if (item === 'entered') {
           setInProp(inProp_);
 
-          subs.current.status.unsubscribe(method);
+          subs.current.status.unsubscribe(sub);
         }
       };
 
-      subs.current.status.subscribe(method);
+      subs.current.status.subscribe(sub);
     }
     else if (inProp_ && noAbruption && ['exit', 'exiting'].indexOf(subs.current.status.value) > -1) {
-      const method = (item: TTransitionStatus) => {
+      const sub = (item: TTransitionStatus) => {
         if (item === 'exited') {
           setInProp(inProp_);
 
-          subs.current.status.unsubscribe(method);
+          subs.current.status.unsubscribe(sub);
         }
       };
 
-      subs.current.status.subscribe(method);
+      subs.current.status.subscribe(sub);
     }
     else if (
       (!inProp_ && noAbruption && subs.current.status.value === 'entered') ||
@@ -292,71 +301,106 @@ function Transition(props_: ITransition) {
     }
   };
 
-  const timeout = async (status_: TTransitionStatus) => {
-    let duration: any = timeout_;
+  const delay = React.useCallback(async (status_: TTransitionStatus) => {
+    let value: any = delay_;
 
     if (
-      is('string', timeout_) &&
-      theme.transitions.duration[timeout_ as TTransitionsDurationProperties] !== undefined
-    ) duration = theme.transitions.duration[timeout_ as TTransitionsDurationProperties];
+      is('string', value) &&
+      theme.transitions.duration[value as TTransitionsDurationProperties] !== undefined
+    ) value = theme.transitions.duration[value as TTransitionsDurationProperties];
 
-    if (is('object', timeout_)) duration = timeout_[status_] !== undefined ? timeout_[status_] : (timeout_ as any).default;
+    if (is('object', value)) value = value[status_] !== undefined ? value[status_] : (value as any).default;
 
-    if (!is('number', duration)) duration = theme.transitions.duration.rg;
+    if (!(is('number', value) && value > 0)) return;
 
-    await wait(duration);
-  };
+    await wait(value);
+  }, [delay_, theme]);
+
+  const duration = React.useCallback(async (status_: TTransitionStatus) => {
+    let value: any = duration_;
+
+    if (
+      is('string', value) &&
+      theme.transitions.duration[value as TTransitionsDurationProperties] !== undefined
+    ) value = theme.transitions.duration[value as TTransitionsDurationProperties];
+
+    if (is('object', value)) value = value[status_] !== undefined ? value[status_] : (value as any).default;
+
+    if (!is('number', value)) value = theme.transitions.duration.rg;
+
+    if (!(is('number', value) && value > 0)) return;
+
+    await wait(value);
+  }, [duration_, theme]);
 
   const add = async (status_: TTransitionStatus) => {
-    if (add_) {
-      if (refs.status.current !== status_) return;
+    if (
+      !add_ ||
+      (refs.status.current !== status_)
+    ) return;
 
-      updateStatus('add');
+    updateStatus('add');
 
-      // Reflow
-      reflow(refs.root.current);
+    // Reflow
+    reflow(refs.root.current);
 
-      // Prevent update batches
-      await wait(14);
+    await delay('add');
 
-      updateStatus('adding');
+    // Prevent update batches
+    await wait(14);
 
-      if (refs.status.current === status_) updateStatus('added');
-    }
+    updateStatus('adding');
+
+    // await duration('add');
+
+    if (refs.status.current === status_) updateStatus('added');
   };
 
   const enter = async (status_: TTransitionStatus) => {
-    if (refs.status.current !== status_ || !refs.inProp.current) return;
+    if (
+      !enter_ ||
+      (
+        status_ !== 'appended' &&
+        (refs.status.current !== status_ || !refs.inProp.current)
+      )
+    ) return;
 
     updateStatus('enter');
 
     // Reflow
     reflow(refs.root.current);
 
+    await delay('enter');
+
     // Prevent update batches
     await wait(14);
 
     updateStatus('entering');
 
-    if (enter_) await timeout('enter');
+    await duration('enter');
 
     if (refs.status.current?.indexOf('exit') === -1) updateStatus('entered');
   };
 
   const exit = async (status_: TTransitionStatus) => {
-    if (refs.status.current !== status_ || refs.inProp.current) return;
+    if (
+      !exit_ ||
+      (refs.status.current !== status_ || refs.inProp.current)
+    ) return;
 
     updateStatus('exit');
 
     // Reflow
     reflow(refs.root.current);
 
+    await delay('exit');
+
     // Prevent update batches
     await wait(14);
 
     updateStatus('exiting');
 
-    if (exit_) await timeout('exit');
+    await duration('exit');
 
     if (refs.status.current?.indexOf('enter') === -1) updateStatus('exited');
   };
@@ -412,8 +456,7 @@ function Transition(props_: ITransition) {
 
       case 'entered':
         if (is('function', onTransition)) onTransition(refs.root.current, status_);
-
-        onEntered(refs.root.current);
+        if (is('function', onEntered)) onEntered(refs.root.current);
 
         break;
 
@@ -464,12 +507,12 @@ function Transition(props_: ITransition) {
 
   if (status === 'removed') return null;
 
-  const value = {
+  const value_ = {
     status
   };
 
   return (
-    <TransitionContext.Provider value={value}>
+    <TransitionContext.Provider value={value_}>
       {
         is('function', children) ?
           (children as any)(status, refs.root) :

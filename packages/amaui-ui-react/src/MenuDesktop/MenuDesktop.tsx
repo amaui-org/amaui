@@ -738,8 +738,12 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
                     }}
                   >
                     {menu && menuTransition && (
-                      <Transitions switch mode='in-out-follow'>
-                        <Transition key={openItem}>
+                      <Transitions
+                        switch mode='in-out-follow'
+                      >
+                        <Transition
+                          key={openItem}
+                        >
                           {(status: TTransitionStatus) => {
 
                             return (

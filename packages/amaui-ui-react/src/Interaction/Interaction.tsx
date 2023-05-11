@@ -393,7 +393,7 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
           <Transition
             key={getID()}
 
-            timeout='complex'
+            duration='complex'
 
             enterOnAdd
             className
@@ -443,7 +443,7 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
           <Transition
             key={getID()}
 
-            timeout='complex'
+            duration='complex'
 
             enterOnAdd
             className

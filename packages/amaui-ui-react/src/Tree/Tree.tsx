@@ -602,6 +602,10 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
         <Expand
           in={open}
 
+          delay={{
+            enter: 70
+          }}
+
           onTransition={(element: any, status: TTransitionStatus) => {
             refs.inProgressTransition.current = !['entered', 'removed'].includes(status);
           }}
