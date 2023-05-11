@@ -122,7 +122,6 @@ const Fade = React.forwardRef((props_: IFade, ref: any) => {
       name='fade'
     >
       {(status: TTransitionStatus, ref_) => {
-        console.log(0, status);
 
         return React.cloneElement(children as any, {
           ...other,
