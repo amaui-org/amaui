@@ -9,7 +9,7 @@ const AmauiSnackbarsContext: any;
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

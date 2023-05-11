@@ -17,7 +17,7 @@ const Timeline: React.ForwardRefExoticComponent<Omit<ITimeline, "ref"> & React.R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

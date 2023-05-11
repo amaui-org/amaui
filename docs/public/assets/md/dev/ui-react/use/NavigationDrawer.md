@@ -24,7 +24,7 @@ const NavigationDrawer: React.ForwardRefExoticComponent<Omit<INavigationDrawer, 
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

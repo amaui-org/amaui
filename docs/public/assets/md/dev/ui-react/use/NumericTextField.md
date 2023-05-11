@@ -25,7 +25,7 @@ const NumericTextField: React.ForwardRefExoticComponent<Omit<INumericTextField, 
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

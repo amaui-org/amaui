@@ -55,16 +55,16 @@ default function style(value: TValue, options_?: IOptions, responses_?: Array<IR
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style React: string",
+      "to": "/dev/style-react/use/string"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style React: styled",
+      "to": "/dev/style-react/use/styled"
     }
   }
-}
+}~

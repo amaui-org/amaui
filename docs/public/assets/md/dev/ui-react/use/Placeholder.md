@@ -22,7 +22,7 @@ const Placeholder: React.ForwardRefExoticComponent<Omit<IPlaceholder, "ref"> & R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

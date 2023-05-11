@@ -62,7 +62,7 @@ const TextField: React.ForwardRefExoticComponent<Omit<ITextField, "ref"> & React
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

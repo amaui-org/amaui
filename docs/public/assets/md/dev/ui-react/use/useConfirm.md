@@ -9,7 +9,7 @@ default function useConfirm(): IConfirmProvider;
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

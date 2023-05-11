@@ -36,7 +36,7 @@ const Pagination: React.ForwardRefExoticComponent<Omit<IPagination, "ref"> & Rea
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

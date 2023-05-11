@@ -38,7 +38,7 @@ const TablePagination: React.ForwardRefExoticComponent<Omit<ITableRow, "ref"> & 
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

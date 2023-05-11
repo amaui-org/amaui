@@ -60,7 +60,7 @@ const RoundMeter: React.ForwardRefExoticComponent<Omit<IRoundMeter, "ref"> & Rea
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

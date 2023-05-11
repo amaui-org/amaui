@@ -85,7 +85,7 @@ const RichTextEditor: React.ForwardRefExoticComponent<Omit<IRichTextEditor, "ref
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

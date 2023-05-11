@@ -9,16 +9,16 @@ const withStyle: (Element: any) => (value: TValue, options?: IOptions) => React.
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style React: useAmauiTheme",
+      "to": "/dev/style-react/use/useAmauiTheme"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Icons Material React: Start",
+      "to": "/dev/icons-material-react/start"
     }
   }
-}
+}~

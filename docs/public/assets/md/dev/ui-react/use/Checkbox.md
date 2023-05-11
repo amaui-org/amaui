@@ -24,7 +24,7 @@ const Checkbox: React.ForwardRefExoticComponent<Omit<ICheckbox, "ref"> & React.R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

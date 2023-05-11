@@ -16,7 +16,7 @@ const BubbleChart: React.ForwardRefExoticComponent<Omit<IBubbleChart, "ref"> & R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

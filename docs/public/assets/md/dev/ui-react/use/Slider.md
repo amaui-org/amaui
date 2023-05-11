@@ -49,7 +49,7 @@ const Slider: React.ForwardRefExoticComponent<Omit<ISlider, "ref"> & React.RefAt
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

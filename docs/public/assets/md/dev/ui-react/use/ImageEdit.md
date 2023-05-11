@@ -81,7 +81,7 @@ const ImageEdit: React.ForwardRefExoticComponent<Omit<IImageEdit, "ref"> & React
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

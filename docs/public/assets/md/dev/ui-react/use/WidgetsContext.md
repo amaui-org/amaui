@@ -9,7 +9,7 @@ const AmauiWidgetsContext: any;
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

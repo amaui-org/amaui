@@ -12,7 +12,7 @@ const useMediaQuery: {
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

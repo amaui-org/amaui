@@ -51,7 +51,7 @@ const Weather: React.ForwardRefExoticComponent<Omit<IWeather, "ref"> & React.Ref
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

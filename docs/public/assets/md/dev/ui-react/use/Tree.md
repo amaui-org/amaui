@@ -47,7 +47,7 @@ const Tree: React.ForwardRefExoticComponent<Omit<ITree, "ref"> & React.RefAttrib
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

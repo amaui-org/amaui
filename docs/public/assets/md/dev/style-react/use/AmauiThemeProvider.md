@@ -28,16 +28,16 @@ const AmauiThemeProvider: React.ForwardRefExoticComponent<IAmauiThemeProvider & 
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style React: AmauiThemeContext",
+      "to": "/dev/style-react/use/AmauiThemeContext"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style React: className",
+      "to": "/dev/style-react/use/className"
     }
   }
-}
+}~

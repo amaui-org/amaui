@@ -62,7 +62,7 @@ const Clock: React.ForwardRefExoticComponent<Omit<IClock, "ref"> & React.RefAttr
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

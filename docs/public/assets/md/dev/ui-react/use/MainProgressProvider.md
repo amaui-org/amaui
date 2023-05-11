@@ -52,7 +52,7 @@ const MainProgressProvider: React.ForwardRefExoticComponent<Omit<IMainProgressPr
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

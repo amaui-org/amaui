@@ -24,7 +24,7 @@ const AvatarGroup: React.ForwardRefExoticComponent<Omit<IAvatarGroup, "ref"> & R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

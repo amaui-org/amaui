@@ -30,7 +30,7 @@ const Watch: React.ForwardRefExoticComponent<Omit<IWatch, "ref"> & React.RefAttr
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

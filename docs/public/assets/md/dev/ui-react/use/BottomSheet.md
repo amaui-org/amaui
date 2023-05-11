@@ -16,7 +16,7 @@ const BottomSheet: React.ForwardRefExoticComponent<Omit<IBottomSheet, "ref"> & R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

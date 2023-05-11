@@ -21,7 +21,7 @@ const ImageList: React.ForwardRefExoticComponent<Omit<IImageList, "ref"> & React
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

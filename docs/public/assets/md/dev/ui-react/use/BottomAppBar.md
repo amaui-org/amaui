@@ -20,7 +20,7 @@ const BottomAppBar: React.ForwardRefExoticComponent<Omit<IBottomAppBar, "ref"> &
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

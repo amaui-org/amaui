@@ -28,7 +28,7 @@ const useScroll: {
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

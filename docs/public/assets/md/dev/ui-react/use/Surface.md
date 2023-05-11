@@ -23,7 +23,7 @@ const Surface: React.ForwardRefExoticComponent<Omit<ISurface, "ref"> & React.Ref
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

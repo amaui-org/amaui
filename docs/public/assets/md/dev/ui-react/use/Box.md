@@ -17,7 +17,7 @@ const Box: React.ForwardRefExoticComponent<Omit<IBox, "ref"> & React.RefAttribut
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

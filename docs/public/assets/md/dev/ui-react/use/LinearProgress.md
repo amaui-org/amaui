@@ -25,7 +25,7 @@ const LinearProgress: React.ForwardRefExoticComponent<Omit<ILinearProress, "ref"
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

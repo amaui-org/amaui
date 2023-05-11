@@ -35,7 +35,7 @@ const WindowSplit: React.ForwardRefExoticComponent<Omit<IWindowSplit, "ref"> & R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

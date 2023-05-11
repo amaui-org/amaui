@@ -39,7 +39,7 @@ const WidgetsProvider: React.ForwardRefExoticComponent<Omit<IWidgetsProvider, "r
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

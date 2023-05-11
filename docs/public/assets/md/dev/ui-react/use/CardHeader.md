@@ -20,7 +20,7 @@ const CardHeader: React.ForwardRefExoticComponent<Omit<ICardHeader, "ref"> & Rea
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

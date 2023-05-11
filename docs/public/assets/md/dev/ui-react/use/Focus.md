@@ -28,7 +28,7 @@ const Focus: React.ForwardRefExoticComponent<Omit<IFocus, "ref"> & React.RefAttr
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

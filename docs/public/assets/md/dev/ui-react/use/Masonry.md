@@ -18,7 +18,7 @@ const Masonry: React.ForwardRefExoticComponent<Omit<IMasonry, "ref"> & React.Ref
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -17,7 +17,7 @@ const TableFooter: React.ForwardRefExoticComponent<Omit<ITableFooter, "ref"> & R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

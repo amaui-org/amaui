@@ -32,7 +32,7 @@ const Timer: React.ForwardRefExoticComponent<Omit<ITimer, "ref"> & React.RefAttr
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

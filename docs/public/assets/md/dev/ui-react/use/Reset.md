@@ -25,7 +25,7 @@ const Reset: {
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

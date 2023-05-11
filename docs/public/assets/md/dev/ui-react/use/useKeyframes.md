@@ -9,7 +9,7 @@ default function useKeyframes(): any;
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -28,7 +28,7 @@ const ScatterChartItem: React.ForwardRefExoticComponent<Omit<IScatterChartItem, 
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

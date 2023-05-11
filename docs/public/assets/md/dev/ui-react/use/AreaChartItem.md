@@ -31,7 +31,7 @@ const AreaChartItem: React.ForwardRefExoticComponent<Omit<IAreaChartItem, "ref">
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

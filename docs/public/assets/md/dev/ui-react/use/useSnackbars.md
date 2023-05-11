@@ -9,7 +9,7 @@ default function useSnackbars(): ISnackbarsProvider;
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -29,7 +29,7 @@ const SnackbarsProvider: React.ForwardRefExoticComponent<Omit<ISnackbarsProvider
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

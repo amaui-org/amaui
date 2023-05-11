@@ -9,16 +9,16 @@ default function className(value_: string | TValue, props_?: any, className_?: s
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style React: AmauiThemeProvider",
+      "to": "/dev/style-react/use/AmauiThemeProvider"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style React: inline",
+      "to": "/dev/style-react/use/inline"
     }
   }
-}
+}~

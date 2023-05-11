@@ -26,7 +26,7 @@ const NavigationRail: React.ForwardRefExoticComponent<Omit<INavigationRail, "ref
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

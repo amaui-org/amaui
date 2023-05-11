@@ -24,7 +24,7 @@ const CardImage: React.ForwardRefExoticComponent<Omit<ICardImage, "ref"> & React
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

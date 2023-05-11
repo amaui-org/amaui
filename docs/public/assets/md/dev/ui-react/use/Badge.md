@@ -23,7 +23,7 @@ const Badge: React.ForwardRefExoticComponent<Omit<IBadge, "ref"> & React.RefAttr
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

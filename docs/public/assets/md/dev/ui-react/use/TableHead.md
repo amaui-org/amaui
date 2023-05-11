@@ -18,7 +18,7 @@ const TableHead: React.ForwardRefExoticComponent<Omit<ITableHead, "ref"> & React
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -63,7 +63,7 @@ const LinearMeter: React.ForwardRefExoticComponent<Omit<ILinearMeter, "ref"> & R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -16,7 +16,7 @@ const ModalFooter: React.ForwardRefExoticComponent<Omit<IModalFooter, "ref"> & R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -59,7 +59,7 @@ const ConfirmProvider: React.ForwardRefExoticComponent<Omit<IConfirmProvider, "r
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

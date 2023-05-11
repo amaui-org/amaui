@@ -9,16 +9,16 @@ default function inline(value_: TValue, props?: any, options_?: IOptions): any;
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style React: className",
+      "to": "/dev/style-react/use/className"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style React: pure",
+      "to": "/dev/style-react/use/pure"
     }
   }
-}
+}~

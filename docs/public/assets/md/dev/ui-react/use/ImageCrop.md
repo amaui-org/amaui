@@ -43,7 +43,7 @@ const ImageCrop: React.ForwardRefExoticComponent<Omit<IImageCrop, "ref"> & React
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

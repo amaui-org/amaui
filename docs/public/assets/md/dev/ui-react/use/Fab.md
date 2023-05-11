@@ -16,7 +16,7 @@ const Fab: React.ForwardRefExoticComponent<Omit<IFab, "ref"> & React.RefAttribut
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

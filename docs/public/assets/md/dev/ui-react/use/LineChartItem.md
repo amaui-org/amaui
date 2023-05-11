@@ -30,7 +30,7 @@ const LineChartItem: React.ForwardRefExoticComponent<Omit<ILineChartItem, "ref">
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -29,7 +29,7 @@ const Label: React.ForwardRefExoticComponent<Omit<ILabel, "ref"> & React.RefAttr
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

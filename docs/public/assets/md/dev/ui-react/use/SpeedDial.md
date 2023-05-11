@@ -41,7 +41,7 @@ const SpeedDial: React.ForwardRefExoticComponent<Omit<ISpeedDial, "ref"> & React
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

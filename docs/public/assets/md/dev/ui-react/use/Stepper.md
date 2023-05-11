@@ -30,7 +30,7 @@ const Stepper: React.ForwardRefExoticComponent<Omit<IStepper, "ref"> & React.Ref
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

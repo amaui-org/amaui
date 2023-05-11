@@ -9,16 +9,16 @@ default function pure(value: TValue, options_?: IOptions): (props_?: any) => IRe
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style React: inline",
+      "to": "/dev/style-react/use/inline"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style React: reset",
+      "to": "/dev/style-react/use/reset"
     }
   }
-}
+}~

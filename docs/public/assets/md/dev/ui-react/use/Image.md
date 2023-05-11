@@ -31,7 +31,7 @@ const Image: React.ForwardRefExoticComponent<Omit<IImage, "ref"> & React.RefAttr
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

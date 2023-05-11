@@ -23,7 +23,7 @@ const Markdown: React.ForwardRefExoticComponent<Omit<IMarkdown, "ref"> & React.R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -9,7 +9,7 @@ default function useTransition(): any;
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -41,7 +41,7 @@ const FileChoose: React.ForwardRefExoticComponent<Omit<IFileChoose, "ref"> & Rea
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

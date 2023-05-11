@@ -24,7 +24,7 @@ const Reveal: React.ForwardRefExoticComponent<Omit<IReveal, "ref"> & React.RefAt
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

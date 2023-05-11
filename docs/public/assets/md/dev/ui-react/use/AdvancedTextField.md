@@ -22,7 +22,7 @@ const AdvancedTextField: React.ForwardRefExoticComponent<Omit<IAdvancedTextField
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

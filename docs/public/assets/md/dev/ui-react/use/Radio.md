@@ -22,7 +22,7 @@ const Radio: React.ForwardRefExoticComponent<Omit<IRadio, "ref"> & React.RefAttr
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

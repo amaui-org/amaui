@@ -45,7 +45,7 @@ const Buttons: React.ForwardRefExoticComponent<Omit<IButtons, "ref"> & React.Ref
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

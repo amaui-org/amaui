@@ -144,7 +144,7 @@ const Chart: React.ForwardRefExoticComponent<Omit<IChart, "ref"> & React.RefAttr
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

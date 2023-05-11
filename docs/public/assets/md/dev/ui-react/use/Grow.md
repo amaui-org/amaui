@@ -16,7 +16,7 @@ const Grow: React.ForwardRefExoticComponent<Omit<IGrow, "ref"> & React.RefAttrib
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

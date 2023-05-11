@@ -23,7 +23,7 @@ const Divider: React.ForwardRefExoticComponent<Omit<IDivider, "ref"> & React.Ref
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

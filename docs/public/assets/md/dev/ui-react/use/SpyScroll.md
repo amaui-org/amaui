@@ -21,7 +21,7 @@ const SpyScroll: React.ForwardRefExoticComponent<Omit<ISpyScroll, "ref"> & React
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

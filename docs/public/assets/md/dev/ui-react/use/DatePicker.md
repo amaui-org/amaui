@@ -78,7 +78,7 @@ const DatePicker: React.ForwardRefExoticComponent<Omit<IDatePicker, "ref"> & Rea
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -46,7 +46,7 @@ const Accordion: React.ForwardRefExoticComponent<Omit<IAccordion, "ref"> & React
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

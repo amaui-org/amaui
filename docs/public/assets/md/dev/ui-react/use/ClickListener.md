@@ -23,7 +23,7 @@ const ClickListener: React.ForwardRefExoticComponent<Omit<IClickListener, "ref">
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

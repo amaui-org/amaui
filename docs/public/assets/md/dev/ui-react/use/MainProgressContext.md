@@ -9,7 +9,7 @@ const AmauiMainProgressContext: any;
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -36,7 +36,7 @@ const Step: React.ForwardRefExoticComponent<Omit<IStep, "ref"> & React.RefAttrib
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

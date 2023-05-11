@@ -19,7 +19,7 @@ const ImageListItem: React.ForwardRefExoticComponent<Omit<IImageListItem, "ref">
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -19,7 +19,7 @@ const Expand: React.ForwardRefExoticComponent<Omit<IExpand, "ref"> & React.RefAt
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

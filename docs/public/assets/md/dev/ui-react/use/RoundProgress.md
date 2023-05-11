@@ -26,7 +26,7 @@ const RoundProgress: React.ForwardRefExoticComponent<Omit<IRoundProgress, "ref">
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -62,7 +62,7 @@ const Drawing: React.ForwardRefExoticComponent<Omit<IDrawing, "ref"> & React.Ref
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

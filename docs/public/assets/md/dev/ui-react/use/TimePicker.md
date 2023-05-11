@@ -83,7 +83,7 @@ const TimePicker: React.ForwardRefExoticComponent<Omit<ITimePicker, "ref"> & Rea
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

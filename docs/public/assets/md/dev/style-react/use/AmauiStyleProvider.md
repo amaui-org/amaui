@@ -17,16 +17,16 @@ const AmauiStyleProvider: React.ForwardRefExoticComponent<Omit<any, "ref"> & Rea
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style React: AmauiStyleContext",
+      "to": "/dev/style-react/use/AmauiStyleContext"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style React: AmauiThemeContext",
+      "to": "/dev/style-react/use/AmauiThemeContext"
     }
   }
-}
+}~

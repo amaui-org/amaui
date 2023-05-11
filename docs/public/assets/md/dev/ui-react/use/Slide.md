@@ -22,7 +22,7 @@ const Slide: React.ForwardRefExoticComponent<Omit<ISlide, "ref"> & React.RefAttr
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

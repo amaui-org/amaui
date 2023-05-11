@@ -9,16 +9,16 @@ default function reset(value?: TValue, options_?: IOptions): (props_?: any) => I
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style React: pure",
+      "to": "/dev/style-react/use/pure"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style React: string",
+      "to": "/dev/style-react/use/string"
     }
   }
-}
+}~

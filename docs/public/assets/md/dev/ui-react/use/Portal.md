@@ -17,7 +17,7 @@ const Portal: React.ForwardRefExoticComponent<Omit<IPortal, "ref"> & React.RefAt
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

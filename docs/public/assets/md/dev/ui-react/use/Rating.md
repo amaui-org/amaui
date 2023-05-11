@@ -38,7 +38,7 @@ const Rating: React.ForwardRefExoticComponent<Omit<IRating, "ref"> & React.RefAt
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

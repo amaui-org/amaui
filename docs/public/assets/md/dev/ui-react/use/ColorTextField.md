@@ -16,7 +16,7 @@ const ColorTextField: React.ForwardRefExoticComponent<Omit<IColorTextField, "ref
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

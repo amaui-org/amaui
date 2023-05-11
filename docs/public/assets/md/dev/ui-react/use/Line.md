@@ -56,7 +56,7 @@ const Line: React.ForwardRefExoticComponent<Omit<ILine, "ref"> & React.RefAttrib
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

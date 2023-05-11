@@ -23,7 +23,7 @@ const CardButton: React.ForwardRefExoticComponent<Omit<ICardButton, "ref"> & Rea
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

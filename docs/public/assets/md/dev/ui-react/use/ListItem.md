@@ -69,7 +69,7 @@ const ListItem: React.ForwardRefExoticComponent<Omit<IListItem, "ref"> & React.R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

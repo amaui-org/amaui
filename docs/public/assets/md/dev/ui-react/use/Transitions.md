@@ -35,7 +35,7 @@ namespace Transitions {
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

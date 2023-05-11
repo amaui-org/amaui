@@ -31,7 +31,7 @@ const Snackbar: React.ForwardRefExoticComponent<Omit<ISnackbar, "ref"> & React.R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

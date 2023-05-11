@@ -33,7 +33,7 @@ const Tabs: React.ForwardRefExoticComponent<Omit<ITabs, "ref"> & React.RefAttrib
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -26,7 +26,7 @@ const Switch: React.ForwardRefExoticComponent<Omit<ISwitch, "ref"> & React.RefAt
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

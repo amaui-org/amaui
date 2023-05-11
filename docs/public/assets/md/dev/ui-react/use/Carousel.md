@@ -104,7 +104,7 @@ const Carousel: React.ForwardRefExoticComponent<Omit<ICarousel, "ref"> & React.R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

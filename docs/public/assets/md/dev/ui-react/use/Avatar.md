@@ -22,7 +22,7 @@ const Avatar: React.ForwardRefExoticComponent<Omit<IAvatar, "ref"> & React.RefAt
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

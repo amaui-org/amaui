@@ -16,7 +16,7 @@ const ListSubheader: React.ForwardRefExoticComponent<Omit<IListSubheader, "ref">
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

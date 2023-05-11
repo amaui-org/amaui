@@ -34,7 +34,7 @@ const Countdown: React.ForwardRefExoticComponent<Omit<ICountdown, "ref"> & React
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

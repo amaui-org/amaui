@@ -24,7 +24,7 @@ const Select: React.ForwardRefExoticComponent<Omit<ISelect, "ref"> & React.RefAt
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

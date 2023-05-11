@@ -72,7 +72,7 @@ const CalendarMonth: React.ForwardRefExoticComponent<Omit<ICalenarDays, "ref"> &
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -22,7 +22,7 @@ const Chip: React.ForwardRefExoticComponent<Omit<IChip, "ref"> & React.RefAttrib
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

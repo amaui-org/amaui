@@ -16,7 +16,7 @@ const IconButton: React.ForwardRefExoticComponent<Omit<IIconButton, "ref"> & Rea
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

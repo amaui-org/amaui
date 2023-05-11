@@ -52,7 +52,7 @@ const Tooltip: React.ForwardRefExoticComponent<Omit<ITooltip, "ref"> & React.Ref
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

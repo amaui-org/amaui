@@ -9,16 +9,16 @@ const AmauiStyleContext: any;
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style React: Start",
+      "to": "/dev/style-react/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style React: AmauiStyleProvider",
+      "to": "/dev/style-react/use/AmauiStyleProvider"
     }
   }
-}
+}~

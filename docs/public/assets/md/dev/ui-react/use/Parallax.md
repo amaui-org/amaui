@@ -30,7 +30,7 @@ const Parallax: React.ForwardRefExoticComponent<Omit<IParallax, "ref"> & React.R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

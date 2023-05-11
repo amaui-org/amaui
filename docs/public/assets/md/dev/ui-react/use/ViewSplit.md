@@ -33,7 +33,7 @@ const ViewSplit: React.ForwardRefExoticComponent<Omit<IViewSplit, "ref"> & React
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

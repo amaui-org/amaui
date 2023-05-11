@@ -69,7 +69,7 @@ const Append: {
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

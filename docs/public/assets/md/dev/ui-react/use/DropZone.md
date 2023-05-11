@@ -24,7 +24,7 @@ const DropZone: React.ForwardRefExoticComponent<Omit<IDropZone, "ref"> & React.R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

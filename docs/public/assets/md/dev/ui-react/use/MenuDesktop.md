@@ -59,7 +59,7 @@ const MenuDesktop: React.ForwardRefExoticComponent<Omit<IMenuDesktop, "ref"> & R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

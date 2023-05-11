@@ -16,7 +16,7 @@ const PieChart: React.ForwardRefExoticComponent<Omit<IPieChart, "ref"> & React.R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -9,7 +9,7 @@ default function useMainProgress(): IMainProgressProvider;
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

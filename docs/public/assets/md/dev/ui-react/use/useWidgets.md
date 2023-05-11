@@ -9,7 +9,7 @@ default function useWidgets(): IWidgetsProvider;
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

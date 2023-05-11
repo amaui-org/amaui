@@ -19,7 +19,7 @@ const Banner: React.ForwardRefExoticComponent<Omit<IBanner, "ref"> & React.RefAt
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

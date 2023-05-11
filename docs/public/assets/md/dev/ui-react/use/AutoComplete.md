@@ -64,7 +64,7 @@ const AutoComplete: React.ForwardRefExoticComponent<Omit<IAutoComplete, "ref"> &
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

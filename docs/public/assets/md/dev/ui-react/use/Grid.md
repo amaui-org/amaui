@@ -22,7 +22,7 @@ const Grid: React.ForwardRefExoticComponent<Omit<IGrid, "ref"> & React.RefAttrib
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -279,7 +279,7 @@ const sanitize: (value: string) => string;
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

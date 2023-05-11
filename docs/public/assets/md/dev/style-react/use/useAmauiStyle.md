@@ -9,16 +9,16 @@ default function useAmauiStyle(): IAmauiStyleProvider;
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Style React: styled",
+      "to": "/dev/style-react/use/styled"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style React: useAmauiTheme",
+      "to": "/dev/style-react/use/useAmauiTheme"
     }
   }
-}
+}~

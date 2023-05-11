@@ -16,7 +16,7 @@ const Zoom: React.ForwardRefExoticComponent<Omit<IZoom, "ref"> & React.RefAttrib
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

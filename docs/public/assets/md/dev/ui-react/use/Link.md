@@ -18,7 +18,7 @@ const Link: React.ForwardRefExoticComponent<Omit<ILink, "ref"> & React.RefAttrib
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

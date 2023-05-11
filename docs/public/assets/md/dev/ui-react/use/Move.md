@@ -21,7 +21,7 @@ const Move: React.ForwardRefExoticComponent<Omit<IMove, "ref"> & React.RefAttrib
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

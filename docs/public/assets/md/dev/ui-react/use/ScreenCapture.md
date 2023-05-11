@@ -44,7 +44,7 @@ const ScreenCapture: React.ForwardRefExoticComponent<Omit<IScreenCapture, "ref">
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

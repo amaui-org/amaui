@@ -16,7 +16,7 @@ const Fade: React.ForwardRefExoticComponent<Omit<IFade, "ref"> & React.RefAttrib
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

@@ -33,7 +33,7 @@ const useSwipe: {
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

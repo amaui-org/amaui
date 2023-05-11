@@ -9,7 +9,7 @@ const AmauiConfirmContext: any;
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

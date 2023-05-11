@@ -16,7 +16,7 @@ const ToggleButton: React.ForwardRefExoticComponent<Omit<IToggleButton, "ref"> &
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

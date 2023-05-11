@@ -65,7 +65,7 @@ namespace Keyframes {
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

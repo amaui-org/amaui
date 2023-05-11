@@ -28,7 +28,7 @@ const Radios: React.ForwardRefExoticComponent<Omit<IRadios, "ref"> & React.RefAt
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

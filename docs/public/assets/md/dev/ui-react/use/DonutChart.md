@@ -16,7 +16,7 @@ const DonutChart: React.ForwardRefExoticComponent<Omit<IDonutChart, "ref"> & Rea
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

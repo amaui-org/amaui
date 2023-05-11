@@ -29,7 +29,7 @@ const ColumnChartItem: React.ForwardRefExoticComponent<Omit<IColumnChartItem, "r
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {

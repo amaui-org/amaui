@@ -37,7 +37,7 @@ const Menu: React.ForwardRefExoticComponent<Omit<IMenu, "ref"> & React.RefAttrib
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
