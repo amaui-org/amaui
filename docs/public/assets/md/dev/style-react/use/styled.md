@@ -17,8 +17,8 @@ const styled: (Element: any) => (value: TValue, options?: IOptions) => React.Ele
       "to": "/dev/style-react/use/style"
     },
     "next": {
-      "label": "Style React: useAmauiStyle",
-      "to": "/dev/style-react/use/useAmauiStyle"
+      "label": "Style React: withStyle",
+      "to": "/dev/style-react/use/withStyle"
     }
   }
 }~

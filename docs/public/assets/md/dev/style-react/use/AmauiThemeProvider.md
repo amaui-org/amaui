@@ -32,8 +32,8 @@ const AmauiThemeProvider: React.ForwardRefExoticComponent<IAmauiThemeProvider & 
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Style React: AmauiThemeContext",
-      "to": "/dev/style-react/use/AmauiThemeContext"
+      "label": "Style React: AmauiStyleProvider",
+      "to": "/dev/style-react/use/AmauiStyleProvider"
     },
     "next": {
       "label": "Style React: className",

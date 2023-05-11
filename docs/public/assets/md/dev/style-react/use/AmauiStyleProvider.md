@@ -21,12 +21,12 @@ const AmauiStyleProvider: React.ForwardRefExoticComponent<Omit<any, "ref"> & Rea
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Style React: AmauiStyleContext",
-      "to": "/dev/style-react/use/AmauiStyleContext"
+      "label": "Style React: Start",
+      "to": "/dev/style-react/start"
     },
     "next": {
-      "label": "Style React: AmauiThemeContext",
-      "to": "/dev/style-react/use/AmauiThemeContext"
+      "label": "Style React: AmauiThemeProvider",
+      "to": "/dev/style-react/use/AmauiThemeProvider"
     }
   }
 }~

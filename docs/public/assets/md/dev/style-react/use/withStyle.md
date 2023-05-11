@@ -13,8 +13,8 @@ const withStyle: (Element: any) => (value: TValue, options?: IOptions) => React.
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Style React: useAmauiTheme",
-      "to": "/dev/style-react/use/useAmauiTheme"
+      "label": "Style React: styled",
+      "to": "/dev/style-react/use/styled"
     },
     "next": {
       "label": "Icons Material React: Start",

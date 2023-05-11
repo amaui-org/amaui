@@ -88,8 +88,8 @@ yarn build
       "to": "/dev/ui-react/start"
     },
     "next": {
-      "label": "Style React: AmauiStyleContext",
-      "to": "/dev/style-react/use/AmauiStyleContext"
+      "label": "Style React: AmauiStyleProvider",
+      "to": "/dev/style-react/use/AmauiStyleProvider"
     }
   }
 }~
