@@ -106,7 +106,7 @@ function Transition(props_: ITransition) {
     enter: enter_ = true,
     exit: exit_ = true,
 
-    enterOnAdd = !!props.removeOnExited,
+    enterOnAdd = props.add || props.enter,
     exitOnAdd,
 
     noAbruption,
