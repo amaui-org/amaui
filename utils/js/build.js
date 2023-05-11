@@ -291,7 +291,7 @@ async function docsUpdateTypes(pathTypes, pathUse, isModules, options = {}) {
     previous: getName(previous),
     path: getName(pathTypes),
     next: getName(next),
-    lib: moduleFolder.replace('amaui-', '')
+    lib: moduleFolder.replace('amaui-', '').replace(/[-_]/gi, ' ')
   };
 
   if (names.path.includes('-')) names.path = capitalizedCammelCase(names.path);
@@ -325,11 +325,12 @@ async function docsUpdateTypes(pathTypes, pathUse, isModules, options = {}) {
 
   parts = parts
     .filter(Boolean)
-    .map(item => item.replace(/(export|declare) /g, ''))
+    .map(item => item.replace(/(export|declare) /g, '').replace(/`/gi, `'`))
     .filter(item => {
       const partName = (item.replace('default ', '').match(/(?!default|type|interface|const|function|class) [^ \(\)\{\}\<\:]+/i) || [])[0]?.trim();
 
       return (
+        !item.includes(`/// <reference`) &&
         !item.startsWith('import') &&
         !!partName
       );

@@ -2,12 +2,6 @@
 
 ### API
 
-#### types="react"
-
-```ts
-/// <reference types="react" />
-```
-
 #### reflow
 
 ```ts
@@ -137,31 +131,31 @@ type TTonal = true | false | 'secondary';
 #### RGB
 
 ```ts
-type RGB = `rgb(${number}, ${number}, ${number})`;
+type RGB = 'rgb(${number}, ${number}, ${number})';
 ```
 
 #### RGBA
 
 ```ts
-type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
+type RGBA = 'rgba(${number}, ${number}, ${number}, ${number})';
 ```
 
 #### HSL
 
 ```ts
-type HSL = `hsl(${number}, ${number}, ${number})`;
+type HSL = 'hsl(${number}, ${number}, ${number})';
 ```
 
 #### HSLA
 
 ```ts
-type HSLA = `hsla(${number}, ${number}, ${number}, ${number})`;
+type HSLA = 'hsla(${number}, ${number}, ${number}, ${number})';
 ```
 
 #### HEX
 
 ```ts
-type HEX = `#${string}`;
+type HEX = '#${string}';
 ```
 
 #### Color
@@ -287,8 +281,8 @@ const sanitize: (value: string) => string;
       "to": "/dev/ui-react/use/useSwipe"
     },
     "next": {
-      "label": "UI react: Start",
-      "to": "/dev/ui-react/start"
+      "label": "Style react: Start",
+      "to": "/dev/style-react/start"
     }
   }
 }~

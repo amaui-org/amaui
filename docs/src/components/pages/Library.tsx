@@ -263,6 +263,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   sidenav_headings: {
+    maxHeight: '74vh',
+    overflowY: 'auto',
     marginInlineStart: -16
   },
 

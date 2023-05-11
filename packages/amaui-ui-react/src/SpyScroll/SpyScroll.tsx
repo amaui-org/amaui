@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, unique } from '@amaui/utils';
+import { is, unique, Try } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, staticClassName, TStyle } from '../utils';
@@ -120,7 +120,9 @@ const SpyScroll = React.forwardRef((props_: ISpyScroll, ref: any) => {
 
     const method = () => {
       // Find first active id
-      const id = refs.props.current.ids.find((item: string) => methodElement(window.document.querySelector(`#${item}`.replace('##', '#'))));
+      let id: string;
+
+      Try(() => id = refs.props.current.ids.find((item: string) => methodElement(window.document.querySelector(`#${item}`.replace('##', '#')))));
 
       if (id && refs.root.current) {
         // Update all elements in root

@@ -2,12 +2,6 @@
 
 ### API
 
-#### types="react"
-
-```ts
-/// <reference types="react" />
-```
-
 #### TKeyframesStatus
 
 ```ts

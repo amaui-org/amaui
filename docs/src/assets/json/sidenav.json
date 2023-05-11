@@ -30,6 +30,10 @@
             "url": "/dev/ui-react/use/AreaChart"
           },
           {
+            "label": "AreaChartItem",
+            "url": "/dev/ui-react/use/AreaChartItem"
+          },
+          {
             "label": "AutoComplete",
             "url": "/dev/ui-react/use/AutoComplete"
           },
@@ -74,12 +78,24 @@
             "url": "/dev/ui-react/use/BubbleChart"
           },
           {
+            "label": "BubbleChartItem",
+            "url": "/dev/ui-react/use/BubbleChartItem"
+          },
+          {
             "label": "Button",
             "url": "/dev/ui-react/use/Button"
           },
           {
             "label": "Buttons",
             "url": "/dev/ui-react/use/Buttons"
+          },
+          {
+            "label": "Calendar",
+            "url": "/dev/ui-react/use/Calendar"
+          },
+          {
+            "label": "CalendarMonth",
+            "url": "/dev/ui-react/use/CalendarMonth"
           },
           {
             "label": "Card",
@@ -95,7 +111,7 @@
           },
           {
             "label": "CardHeader",
-            "url": "/dev/ui-react/use/CardFooter"
+            "url": "/dev/ui-react/use/CardHeader"
           },
           {
             "label": "CardImage",
@@ -114,8 +130,8 @@
             "url": "/dev/ui-react/use/Chart"
           },
           {
-            "label": "Checbox",
-            "url": "/dev/ui-react/use/Checbox"
+            "label": "Checkbox",
+            "url": "/dev/ui-react/use/Checkbox"
           },
           {
             "label": "Chip",
@@ -130,16 +146,32 @@
             "url": "/dev/ui-react/use/ClickListener"
           },
           {
+            "label": "Clock",
+            "url": "/dev/ui-react/use/Clock"
+          },
+          {
             "label": "ColorTextField",
             "url": "/dev/ui-react/use/ColorTextField"
           },
           {
-            "label": "ColumChart",
-            "url": "/dev/ui-react/use/ColumChart"
+            "label": "ColumnChart",
+            "url": "/dev/ui-react/use/ColumnChart"
           },
           {
-            "label": "Confirm",
-            "url": "/dev/ui-react/use/Confirm"
+            "label": "ColumnChartItem",
+            "url": "/dev/ui-react/use/ColumnChartItem"
+          },
+          {
+            "label": "ConfirmContext",
+            "url": "/dev/ui-react/use/ConfirmContext"
+          },
+          {
+            "label": "ConfirmProvider",
+            "url": "/dev/ui-react/use/ConfirmProvider"
+          },
+          {
+            "label": "useConfirm",
+            "url": "/dev/ui-react/use/useConfirm"
           },
           {
             "label": "Container",
@@ -250,6 +282,14 @@
             "url": "/dev/ui-react/use/Keyframes"
           },
           {
+            "label": "KeyframesContext",
+            "url": "/dev/ui-react/use/KeyframesContext"
+          },
+          {
+            "label": "useKeyframes",
+            "url": "/dev/ui-react/use/useKeyframes"
+          },
+          {
             "label": "Label",
             "url": "/dev/ui-react/use/Label"
           },
@@ -258,16 +298,20 @@
             "url": "/dev/ui-react/use/Line"
           },
           {
+            "label": "LineChart",
+            "url": "/dev/ui-react/use/LineChart"
+          },
+          {
+            "label": "LineChartItem",
+            "url": "/dev/ui-react/use/LineChartItem"
+          },
+          {
             "label": "LinearMeter",
             "url": "/dev/ui-react/use/LinearMeter"
           },
           {
             "label": "LinearProgress",
             "url": "/dev/ui-react/use/LinearProgress"
-          },
-          {
-            "label": "LineChart",
-            "url": "/dev/ui-react/use/LineChart"
           },
           {
             "label": "Link",
@@ -286,8 +330,16 @@
             "url": "/dev/ui-react/use/ListSubheader"
           },
           {
-            "label": "MainProgress",
-            "url": "/dev/ui-react/use/MainProgress"
+            "label": "MainProgressContext",
+            "url": "/dev/ui-react/use/MainProgressContext"
+          },
+          {
+            "label": "MainProgressProvider",
+            "url": "/dev/ui-react/use/MainProgressProvider"
+          },
+          {
+            "label": "useMainProgress",
+            "url": "/dev/ui-react/use/useMainProgress"
           },
           {
             "label": "Markdown",
@@ -302,8 +354,8 @@
             "url": "/dev/ui-react/use/Menu"
           },
           {
-            "label": "MenUDesktop",
-            "url": "/dev/ui-react/use/MenUDesktop"
+            "label": "MenuDesktop",
+            "url": "/dev/ui-react/use/MenuDesktop"
           },
           {
             "label": "Modal",
@@ -410,8 +462,8 @@
             "url": "/dev/ui-react/use/RichTextEditor"
           },
           {
-            "label": "RoundMeters",
-            "url": "/dev/ui-react/use/RoundMeters"
+            "label": "RoundMeter",
+            "url": "/dev/ui-react/use/RoundMeter"
           },
           {
             "label": "RoundProgress",
@@ -420,6 +472,10 @@
           {
             "label": "ScatterChart",
             "url": "/dev/ui-react/use/ScatterChart"
+          },
+          {
+            "label": "ScatterChartItem",
+            "url": "/dev/ui-react/use/ScatterChartItem"
           },
           {
             "label": "ScreenCapture",
@@ -442,8 +498,16 @@
             "url": "/dev/ui-react/use/Snackbar"
           },
           {
-            "label": "Snackbars",
-            "url": "/dev/ui-react/use/Snackbars"
+            "label": "SnackbarsContext",
+            "url": "/dev/ui-react/use/SnackbarsContext"
+          },
+          {
+            "label": "SnackbarsProvider",
+            "url": "/dev/ui-react/use/SnackbarsProvider"
+          },
+          {
+            "label": "useSnackbars",
+            "url": "/dev/ui-react/use/useSnackbars"
           },
           {
             "label": "SpeedDial",
@@ -490,6 +554,10 @@
             "url": "/dev/ui-react/use/TableCell"
           },
           {
+            "label": "TableFooter",
+            "url": "/dev/ui-react/use/TableFooter"
+          },
+          {
             "label": "TableHead",
             "url": "/dev/ui-react/use/TableHead"
           },
@@ -514,6 +582,14 @@
             "url": "/dev/ui-react/use/TextField"
           },
           {
+            "label": "TimePicker",
+            "url": "/dev/ui-react/use/TimePicker"
+          },
+          {
+            "label": "TimeRangePicker",
+            "url": "/dev/ui-react/use/TimeRangePicker"
+          },
+          {
             "label": "Timeline",
             "url": "/dev/ui-react/use/Timeline"
           },
@@ -522,16 +598,8 @@
             "url": "/dev/ui-react/use/TimelineItem"
           },
           {
-            "label": "TimePicker",
-            "url": "/dev/ui-react/use/TimePicker"
-          },
-          {
             "label": "Timer",
             "url": "/dev/ui-react/use/Timer"
-          },
-          {
-            "label": "TimeRangePicker",
-            "url": "/dev/ui-react/use/TimeRangePicker"
           },
           {
             "label": "ToggleButton",
@@ -554,6 +622,14 @@
             "url": "/dev/ui-react/use/Transition"
           },
           {
+            "label": "TransitionContext",
+            "url": "/dev/ui-react/use/TransitionContext"
+          },
+          {
+            "label": "useTransition",
+            "url": "/dev/ui-react/use/useTransition"
+          },
+          {
             "label": "Transitions",
             "url": "/dev/ui-react/use/Transitions"
           },
@@ -564,18 +640,6 @@
           {
             "label": "Type",
             "url": "/dev/ui-react/use/Type"
-          },
-          {
-            "label": "useMediaQuery",
-            "url": "/dev/ui-react/use/useMediaQuery"
-          },
-          {
-            "label": "useScroll",
-            "url": "/dev/ui-react/use/useScroll"
-          },
-          {
-            "label": "useSwipe",
-            "url": "/dev/ui-react/use/useSwipe"
           },
           {
             "label": "ViewSplit",
@@ -590,8 +654,16 @@
             "url": "/dev/ui-react/use/Weather"
           },
           {
-            "label": "Widgets",
-            "url": "/dev/ui-react/use/Widgets"
+            "label": "WidgetsContext",
+            "url": "/dev/ui-react/use/WidgetsContext"
+          },
+          {
+            "label": "WidgetsProvider",
+            "url": "/dev/ui-react/use/WidgetsProvider"
+          },
+          {
+            "label": "useWidgets",
+            "url": "/dev/ui-react/use/useWidgets"
           },
           {
             "label": "WindowSplit",
@@ -600,6 +672,22 @@
           {
             "label": "Zoom",
             "url": "/dev/ui-react/use/Zoom"
+          },
+          {
+            "label": "useMediaQuery",
+            "url": "/dev/ui-react/use/useMediaQuery"
+          },
+          {
+            "label": "useScroll",
+            "url": "/dev/ui-react/use/useScroll"
+          },
+          {
+            "label": "useSwipe",
+            "url": "/dev/ui-react/use/useSwipe"
+          },
+          {
+            "label": "utils",
+            "url": "/dev/ui-react/use/utils"
           }
         ]
       }
