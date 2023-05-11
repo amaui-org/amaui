@@ -13,12 +13,12 @@ const pagination: (value?: number, total?: number, boundary?: number, middle?: n
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: order",
+      "to": "/dev/utils/use/order"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: parse",
+      "to": "/dev/utils/use/parse"
     }
   }
 }~

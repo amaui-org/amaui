@@ -28,12 +28,12 @@ const Reveal: React.ForwardRefExoticComponent<Omit<IReveal, "ref"> & React.RefAt
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Reset",
+      "to": "/dev/ui-react/use/Reset"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: RichTextEditor",
+      "to": "/dev/ui-react/use/RichTextEditor"
     }
   }
-}
+}~

@@ -57,12 +57,12 @@ const elementToCanvas: (element_: HTMLElement, options_?: IElementToCanvasOption
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: element",
+      "to": "/dev/utils/use/element"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: emphasize",
+      "to": "/dev/utils/use/emphasize"
     }
   }
 }~

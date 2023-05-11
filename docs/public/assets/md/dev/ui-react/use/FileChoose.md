@@ -45,12 +45,12 @@ const FileChoose: React.ForwardRefExoticComponent<Omit<IFileChoose, "ref"> & Rea
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Fade",
+      "to": "/dev/ui-react/use/Fade"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Focus",
+      "to": "/dev/ui-react/use/Focus"
     }
   }
-}
+}~

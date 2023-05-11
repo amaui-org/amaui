@@ -13,12 +13,12 @@ const canvasFilterSaturation: (value: number, canvas: HTMLCanvasElement) => HTML
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: canvasFilterOldPhoto",
+      "to": "/dev/utils/use/canvasFilterOldPhoto"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: capitalize",
+      "to": "/dev/utils/use/capitalize"
     }
   }
 }~

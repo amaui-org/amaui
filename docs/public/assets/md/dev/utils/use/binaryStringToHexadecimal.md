@@ -13,12 +13,12 @@ const binaryStringToHexadecimal: (value_: string) => string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: asyncMethodRetry",
+      "to": "/dev/utils/use/asyncMethodRetry"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: canvasCrop",
+      "to": "/dev/utils/use/canvasCrop"
     }
   }
 }~

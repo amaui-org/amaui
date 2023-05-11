@@ -28,12 +28,12 @@ const parse: (value: any, type?: TType, options_?: IOptions) => any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: pagination",
+      "to": "/dev/utils/use/pagination"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: percentageFromValueWithinRange",
+      "to": "/dev/utils/use/percentageFromValueWithinRange"
     }
   }
 }~

@@ -40,12 +40,12 @@ const Step: React.ForwardRefExoticComponent<Omit<IStep, "ref"> & React.RefAttrib
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: SpyScroll",
+      "to": "/dev/ui-react/use/SpyScroll"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Stepper",
+      "to": "/dev/ui-react/use/Stepper"
     }
   }
-}
+}~

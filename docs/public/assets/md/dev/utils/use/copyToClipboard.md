@@ -13,12 +13,12 @@ const copyToClipboard: (value_: any) => Promise<void>;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: copy",
+      "to": "/dev/utils/use/copy"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: countries",
+      "to": "/dev/utils/use/countries"
     }
   }
 }~

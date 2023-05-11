@@ -31,12 +31,12 @@ const checkAppVersion: (retries?: number, reload?: boolean) => Promise<boolean>;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: castParam",
+      "to": "/dev/utils/use/castParam"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: checkObjectFilters",
+      "to": "/dev/utils/use/checkObjectFilters"
     }
   }
 }~

@@ -22,12 +22,12 @@ const castParam: (value: any, options_?: IOptions) => any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: capitalize",
+      "to": "/dev/utils/use/capitalize"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: checkAppVersion",
+      "to": "/dev/utils/use/checkAppVersion"
     }
   }
 }~

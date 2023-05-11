@@ -34,12 +34,12 @@ const Stepper: React.ForwardRefExoticComponent<Omit<IStepper, "ref"> & React.Ref
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Step",
+      "to": "/dev/ui-react/use/Step"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Surface",
+      "to": "/dev/ui-react/use/Surface"
     }
   }
-}
+}~

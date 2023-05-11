@@ -13,12 +13,12 @@ const wait: (milliseconds?: number) => Promise<undefined>;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: variationWithRepetition",
+      "to": "/dev/utils/use/variationWithRepetition"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Zip: Start",
+      "to": "/dev/zip/start"
     }
   }
 }~

@@ -22,12 +22,12 @@ const Link: React.ForwardRefExoticComponent<Omit<ILink, "ref"> & React.RefAttrib
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: LinearProgress",
+      "to": "/dev/ui-react/use/LinearProgress"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: List",
+      "to": "/dev/ui-react/use/List"
     }
   }
-}
+}~

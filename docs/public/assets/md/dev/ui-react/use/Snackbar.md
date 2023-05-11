@@ -35,12 +35,12 @@ const Snackbar: React.ForwardRefExoticComponent<Omit<ISnackbar, "ref"> & React.R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Slider",
+      "to": "/dev/ui-react/use/Slider"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: SnackbarsContext",
+      "to": "/dev/ui-react/use/SnackbarsContext"
     }
   }
-}
+}~

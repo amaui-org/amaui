@@ -21,12 +21,12 @@ const Chips: React.ForwardRefExoticComponent<Omit<IChips, "ref"> & React.RefAttr
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Chip",
+      "to": "/dev/ui-react/use/Chip"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: ClickListener",
+      "to": "/dev/ui-react/use/ClickListener"
     }
   }
-}
+}~

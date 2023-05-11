@@ -30,12 +30,12 @@ const NavigationRail: React.ForwardRefExoticComponent<Omit<INavigationRail, "ref
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: NavigationItem",
+      "to": "/dev/ui-react/use/NavigationItem"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: NumericTextField",
+      "to": "/dev/ui-react/use/NumericTextField"
     }
   }
-}
+}~

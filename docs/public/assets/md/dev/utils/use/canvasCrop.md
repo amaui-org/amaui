@@ -13,12 +13,12 @@ const canvasCrop: (canvas: HTMLCanvasElement, x: number, y: number, width: numbe
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: binaryStringToHexadecimal",
+      "to": "/dev/utils/use/binaryStringToHexadecimal"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: canvasFilterBrightness",
+      "to": "/dev/utils/use/canvasFilterBrightness"
     }
   }
 }~

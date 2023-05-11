@@ -13,12 +13,12 @@ const getID: () => string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: getGoogleFontsURL",
+      "to": "/dev/utils/use/getGoogleFontsURL"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: getLeadingZerosNumber",
+      "to": "/dev/utils/use/getLeadingZerosNumber"
     }
   }
 }~

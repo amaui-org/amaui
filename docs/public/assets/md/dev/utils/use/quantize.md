@@ -13,12 +13,12 @@ const quantize: (value: Array<[number, number, number]>, amount?: number) => Arr
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: promisify",
+      "to": "/dev/utils/use/promisify"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: random",
+      "to": "/dev/utils/use/random"
     }
   }
 }~

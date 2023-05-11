@@ -28,12 +28,12 @@ const Checkbox: React.ForwardRefExoticComponent<Omit<ICheckbox, "ref"> & React.R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Chart",
+      "to": "/dev/ui-react/use/Chart"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Chip",
+      "to": "/dev/ui-react/use/Chip"
     }
   }
-}
+}~

@@ -13,12 +13,12 @@ const canvasFilterOldPhoto: (value: number, canvas: HTMLCanvasElement) => HTMLCa
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: canvasFilterInvert",
+      "to": "/dev/utils/use/canvasFilterInvert"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: canvasFilterSaturation",
+      "to": "/dev/utils/use/canvasFilterSaturation"
     }
   }
 }~

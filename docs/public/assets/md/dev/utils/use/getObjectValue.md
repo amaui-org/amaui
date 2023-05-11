@@ -13,12 +13,12 @@ const getObjectValue: (object: object, ...args: string[]) => any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: getObjectPropertyValue",
+      "to": "/dev/utils/use/getObjectPropertyValue"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: getOrdinalNumber",
+      "to": "/dev/utils/use/getOrdinalNumber"
     }
   }
 }~

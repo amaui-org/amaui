@@ -20,12 +20,12 @@ const ScatterChart: React.ForwardRefExoticComponent<Omit<IScatterChart, "ref"> &
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: RoundProgress",
+      "to": "/dev/ui-react/use/RoundProgress"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: ScatterChartItem",
+      "to": "/dev/ui-react/use/ScatterChartItem"
     }
   }
-}
+}~

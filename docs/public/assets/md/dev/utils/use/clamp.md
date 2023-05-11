@@ -13,12 +13,12 @@ const clamp: (value: number, min?: number, max?: number) => number;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: checkObjectFilters",
+      "to": "/dev/utils/use/checkObjectFilters"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: cleanValue",
+      "to": "/dev/utils/use/cleanValue"
     }
   }
 }~

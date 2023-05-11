@@ -60,12 +60,12 @@ const getUserLocalInfo: () => Promise<UserLocalInfo>;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: getURL",
+      "to": "/dev/utils/use/getURL"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: hasObjectProperty",
+      "to": "/dev/utils/use/hasObjectProperty"
     }
   }
 }~

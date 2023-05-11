@@ -62,12 +62,12 @@ const Calendar: React.ForwardRefExoticComponent<Omit<ICalendar, "ref"> & React.R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Buttons",
+      "to": "/dev/ui-react/use/Buttons"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: CalendarMonth",
+      "to": "/dev/ui-react/use/CalendarMonth"
     }
   }
-}
+}~

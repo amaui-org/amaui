@@ -20,12 +20,12 @@ const ModalMain: React.ForwardRefExoticComponent<Omit<IModalMain, "ref"> & React
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: ModalIcon",
+      "to": "/dev/ui-react/use/ModalIcon"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: ModalText",
+      "to": "/dev/ui-react/use/ModalText"
     }
   }
-}
+}~

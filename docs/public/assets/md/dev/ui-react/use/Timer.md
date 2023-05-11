@@ -36,12 +36,12 @@ const Timer: React.ForwardRefExoticComponent<Omit<ITimer, "ref"> & React.RefAttr
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: TimelineItem",
+      "to": "/dev/ui-react/use/TimelineItem"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: ToggleButton",
+      "to": "/dev/ui-react/use/ToggleButton"
     }
   }
-}
+}~

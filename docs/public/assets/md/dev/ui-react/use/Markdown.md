@@ -27,12 +27,12 @@ const Markdown: React.ForwardRefExoticComponent<Omit<IMarkdown, "ref"> & React.R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: useMainProgress",
+      "to": "/dev/ui-react/use/useMainProgress"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Masonry",
+      "to": "/dev/ui-react/use/Masonry"
     }
   }
-}
+}~

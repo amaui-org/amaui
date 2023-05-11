@@ -32,12 +32,12 @@ const setStringVariables: (value: string, variablesToValue?: TVariablesToValue, 
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: setObjectValue",
+      "to": "/dev/utils/use/setObjectValue"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: shuffle",
+      "to": "/dev/utils/use/shuffle"
     }
   }
 }~

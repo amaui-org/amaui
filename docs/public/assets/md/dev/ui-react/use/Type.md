@@ -25,12 +25,12 @@ const Type: React.ForwardRefExoticComponent<Omit<IType, "ref"> & React.RefAttrib
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Tree",
+      "to": "/dev/ui-react/use/Tree"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: ViewSplit",
+      "to": "/dev/ui-react/use/ViewSplit"
     }
   }
-}
+}~

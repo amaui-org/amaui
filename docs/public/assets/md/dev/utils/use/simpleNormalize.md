@@ -32,12 +32,12 @@ const simpleNormalize: (value: any, options_?: IOptions) => string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: shuffle",
+      "to": "/dev/utils/use/shuffle"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: slugify",
+      "to": "/dev/utils/use/slugify"
     }
   }
 }~

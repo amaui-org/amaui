@@ -28,12 +28,12 @@ const Select: React.ForwardRefExoticComponent<Omit<ISelect, "ref"> & React.RefAt
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: ScreenCapture",
+      "to": "/dev/ui-react/use/ScreenCapture"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Slide",
+      "to": "/dev/ui-react/use/Slide"
     }
   }
-}
+}~

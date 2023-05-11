@@ -85,12 +85,12 @@ const ImageEdit: React.ForwardRefExoticComponent<Omit<IImageEdit, "ref"> & React
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: ImageCrop",
+      "to": "/dev/ui-react/use/ImageCrop"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: ImageList",
+      "to": "/dev/ui-react/use/ImageList"
     }
   }
-}
+}~

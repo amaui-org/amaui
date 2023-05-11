@@ -13,12 +13,12 @@ default function isState(type: string): boolean;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: isResponsive",
+      "to": "/dev/utils/use/isResponsive"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: isValid",
+      "to": "/dev/utils/use/isValid"
     }
   }
 }~

@@ -16,12 +16,12 @@ const useMediaQuery: {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Zoom",
+      "to": "/dev/ui-react/use/Zoom"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: useScroll",
+      "to": "/dev/ui-react/use/useScroll"
     }
   }
-}
+}~

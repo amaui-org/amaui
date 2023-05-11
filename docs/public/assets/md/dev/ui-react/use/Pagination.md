@@ -40,12 +40,12 @@ const Pagination: React.ForwardRefExoticComponent<Omit<IPagination, "ref"> & Rea
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: NumericTextField",
+      "to": "/dev/ui-react/use/NumericTextField"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: PaginationItem",
+      "to": "/dev/ui-react/use/PaginationItem"
     }
   }
-}
+}~

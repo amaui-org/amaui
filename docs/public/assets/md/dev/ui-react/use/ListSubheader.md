@@ -20,12 +20,12 @@ const ListSubheader: React.ForwardRefExoticComponent<Omit<IListSubheader, "ref">
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: ListItem",
+      "to": "/dev/ui-react/use/ListItem"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: MainProgressContext",
+      "to": "/dev/ui-react/use/MainProgressContext"
     }
   }
-}
+}~

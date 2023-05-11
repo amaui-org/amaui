@@ -24,12 +24,12 @@ const CardFooter: React.ForwardRefExoticComponent<Omit<ICardFooter, "ref"> & Rea
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: CardButton",
+      "to": "/dev/ui-react/use/CardButton"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: CardHeader",
+      "to": "/dev/ui-react/use/CardHeader"
     }
   }
-}
+}~

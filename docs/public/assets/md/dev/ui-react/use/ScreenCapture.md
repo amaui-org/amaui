@@ -48,12 +48,12 @@ const ScreenCapture: React.ForwardRefExoticComponent<Omit<IScreenCapture, "ref">
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: ScatterChartItem",
+      "to": "/dev/ui-react/use/ScatterChartItem"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Select",
+      "to": "/dev/ui-react/use/Select"
     }
   }
-}
+}~

@@ -38,12 +38,12 @@ const Countdown: React.ForwardRefExoticComponent<Omit<ICountdown, "ref"> & React
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Container",
+      "to": "/dev/ui-react/use/Container"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: DatePicker",
+      "to": "/dev/ui-react/use/DatePicker"
     }
   }
-}
+}~

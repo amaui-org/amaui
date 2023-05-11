@@ -23,12 +23,12 @@ const AreaChart: React.ForwardRefExoticComponent<Omit<IAreaChart, "ref"> & React
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Append",
+      "to": "/dev/ui-react/use/Append"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: AreaChartItem",
+      "to": "/dev/ui-react/use/AreaChartItem"
     }
   }
-}
+}~

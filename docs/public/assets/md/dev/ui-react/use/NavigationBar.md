@@ -30,12 +30,12 @@ const NavigationBar: React.ForwardRefExoticComponent<Omit<INavigationBar, "ref">
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Move",
+      "to": "/dev/ui-react/use/Move"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: NavigationDrawer",
+      "to": "/dev/ui-react/use/NavigationDrawer"
     }
   }
-}
+}~

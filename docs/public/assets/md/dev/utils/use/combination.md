@@ -28,12 +28,12 @@ default function combination(value_: any[], items_?: number, options_?: ICombina
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: colorToRgb",
+      "to": "/dev/utils/use/colorToRgb"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: combinationWithRepetition",
+      "to": "/dev/utils/use/combinationWithRepetition"
     }
   }
 }~

@@ -60,12 +60,12 @@ const Line: React.ForwardRefExoticComponent<Omit<ILine, "ref"> & React.RefAttrib
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Label",
+      "to": "/dev/ui-react/use/Label"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: LineChart",
+      "to": "/dev/ui-react/use/LineChart"
     }
   }
-}
+}~

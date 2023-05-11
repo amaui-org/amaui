@@ -13,12 +13,12 @@ const hexToRgb: (value: string, opacity?: number, array?: boolean) => string | n
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: hashFile",
+      "to": "/dev/utils/use/hashFile"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: hexadecimalStringToBinary",
+      "to": "/dev/utils/use/hexadecimalStringToBinary"
     }
   }
 }~

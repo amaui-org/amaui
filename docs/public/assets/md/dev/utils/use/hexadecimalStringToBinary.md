@@ -13,12 +13,12 @@ const hexadecimalStringToBinary: (value_: string) => string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: hexToRgb",
+      "to": "/dev/utils/use/hexToRgb"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: hslToRgb",
+      "to": "/dev/utils/use/hslToRgb"
     }
   }
 }~

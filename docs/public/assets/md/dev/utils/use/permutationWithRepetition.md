@@ -28,12 +28,12 @@ default function permutationWithRepetition(value_: any[], options_?: IPermutatio
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: permutation",
+      "to": "/dev/utils/use/permutation"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: pick",
+      "to": "/dev/utils/use/pick"
     }
   }
 }~

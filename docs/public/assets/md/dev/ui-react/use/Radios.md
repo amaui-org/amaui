@@ -32,12 +32,12 @@ const Radios: React.ForwardRefExoticComponent<Omit<IRadios, "ref"> & React.RefAt
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Radio",
+      "to": "/dev/ui-react/use/Radio"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Rating",
+      "to": "/dev/ui-react/use/Rating"
     }
   }
-}
+}~

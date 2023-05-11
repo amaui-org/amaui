@@ -108,12 +108,12 @@ const Carousel: React.ForwardRefExoticComponent<Omit<ICarousel, "ref"> & React.R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: CardMain",
+      "to": "/dev/ui-react/use/CardMain"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Chart",
+      "to": "/dev/ui-react/use/Chart"
     }
   }
-}
+}~

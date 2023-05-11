@@ -13,12 +13,12 @@ const pick: (value: string, min?: number, max?: number) => string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: permutationWithRepetition",
+      "to": "/dev/utils/use/permutationWithRepetition"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: polyfills",
+      "to": "/dev/utils/use/polyfills"
     }
   }
 }~

@@ -13,12 +13,12 @@ default function isResponsive(type: string, value?: any): any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: isOS",
+      "to": "/dev/utils/use/isOS"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: isState",
+      "to": "/dev/utils/use/isState"
     }
   }
 }~

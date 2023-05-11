@@ -13,11 +13,11 @@ default function reset(value?: TValue, options_?: IOptions): (props_?: any) => I
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Style React: pure",
+      "label": "Style react: pure",
       "to": "/dev/style-react/use/pure"
     },
     "next": {
-      "label": "Style React: string",
+      "label": "Style react: string",
       "to": "/dev/style-react/use/string"
     }
   }

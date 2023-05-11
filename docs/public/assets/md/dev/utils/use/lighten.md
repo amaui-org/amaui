@@ -13,12 +13,12 @@ const lighten: (value: string, coefficient: number) => string | undefined;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: isValid",
+      "to": "/dev/utils/use/isValid"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: matchRoute",
+      "to": "/dev/utils/use/matchRoute"
     }
   }
 }~

@@ -20,12 +20,12 @@ const Zoom: React.ForwardRefExoticComponent<Omit<IZoom, "ref"> & React.RefAttrib
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: WindowSplit",
+      "to": "/dev/ui-react/use/WindowSplit"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Style react: Start",
+      "to": "/dev/style-react/start"
     }
   }
-}
+}~

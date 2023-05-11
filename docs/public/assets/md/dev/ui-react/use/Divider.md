@@ -27,12 +27,12 @@ const Divider: React.ForwardRefExoticComponent<Omit<IDivider, "ref"> & React.Ref
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: DateTimeRangePicker",
+      "to": "/dev/ui-react/use/DateTimeRangePicker"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: DonutChart",
+      "to": "/dev/ui-react/use/DonutChart"
     }
   }
-}
+}~

@@ -20,12 +20,12 @@ const Grow: React.ForwardRefExoticComponent<Omit<IGrow, "ref"> & React.RefAttrib
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Grid",
+      "to": "/dev/ui-react/use/Grid"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Icon",
+      "to": "/dev/ui-react/use/Icon"
     }
   }
-}
+}~

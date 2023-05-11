@@ -27,12 +27,12 @@ const Badge: React.ForwardRefExoticComponent<Omit<IBadge, "ref"> & React.RefAttr
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Backdrop",
+      "to": "/dev/ui-react/use/Backdrop"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Banner",
+      "to": "/dev/ui-react/use/Banner"
     }
   }
-}
+}~

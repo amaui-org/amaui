@@ -69,12 +69,12 @@ namespace Keyframes {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Interaction",
+      "to": "/dev/ui-react/use/Interaction"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: KeyframesContext",
+      "to": "/dev/ui-react/use/KeyframesContext"
     }
   }
-}
+}~

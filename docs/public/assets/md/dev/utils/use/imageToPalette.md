@@ -17,12 +17,12 @@ const imageToPalette: (value: string, options?: {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: hslToRgbPure",
+      "to": "/dev/utils/use/hslToRgbPure"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: is",
+      "to": "/dev/utils/use/is"
     }
   }
 }~

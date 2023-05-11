@@ -13,12 +13,12 @@ const allImagesLoaded: () => Promise<boolean | number> | boolean;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: Start",
+      "to": "/dev/utils/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: alpha",
+      "to": "/dev/utils/use/alpha"
     }
   }
 }~

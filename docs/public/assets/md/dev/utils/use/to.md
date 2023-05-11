@@ -40,12 +40,12 @@ const to: (value_: any, type?: TType, options_?: IOptions) => TTo;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: stringify",
+      "to": "/dev/utils/use/stringify"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: try",
+      "to": "/dev/utils/use/try"
     }
   }
 }~

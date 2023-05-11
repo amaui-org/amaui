@@ -28,12 +28,12 @@ default function combinationWithRepetition(value_: any[], items_?: number, optio
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: combination",
+      "to": "/dev/utils/use/combination"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: copy",
+      "to": "/dev/utils/use/copy"
     }
   }
 }~

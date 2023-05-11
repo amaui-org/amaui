@@ -24,12 +24,12 @@ const merge: <T extends unknown>(target: T, source: any, options_?: IOptions) =>
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: matchRoute",
+      "to": "/dev/utils/use/matchRoute"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: models",
+      "to": "/dev/utils/use/models"
     }
   }
 }~

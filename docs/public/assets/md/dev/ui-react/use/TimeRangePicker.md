@@ -20,12 +20,12 @@ const TimeRangePicker: React.ForwardRefExoticComponent<Omit<ITimeRangePicker, "r
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: TimePicker",
+      "to": "/dev/ui-react/use/TimePicker"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Timeline",
+      "to": "/dev/ui-react/use/Timeline"
     }
   }
-}
+}~

@@ -13,12 +13,12 @@ const numberWithCommas: (value_: string | number, delimiter?: string) => any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: models",
+      "to": "/dev/utils/use/models"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: order",
+      "to": "/dev/utils/use/order"
     }
   }
 }~

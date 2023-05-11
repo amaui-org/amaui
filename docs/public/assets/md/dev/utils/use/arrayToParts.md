@@ -13,12 +13,12 @@ const arrayToParts: (value: any[], parts?: number) => any[];
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: arrayMoveItem",
+      "to": "/dev/utils/use/arrayMoveItem"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: asyncMethodRetry",
+      "to": "/dev/utils/use/asyncMethodRetry"
     }
   }
 }~

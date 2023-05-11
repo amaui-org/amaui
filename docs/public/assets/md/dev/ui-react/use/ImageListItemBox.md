@@ -22,12 +22,12 @@ const ImageListItemBox: React.ForwardRefExoticComponent<Omit<IImageListItemBox, 
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: ImageListItem",
+      "to": "/dev/ui-react/use/ImageListItem"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Interaction",
+      "to": "/dev/ui-react/use/Interaction"
     }
   }
-}
+}~

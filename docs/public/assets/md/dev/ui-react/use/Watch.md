@@ -34,12 +34,12 @@ const Watch: React.ForwardRefExoticComponent<Omit<IWatch, "ref"> & React.RefAttr
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: ViewSplit",
+      "to": "/dev/ui-react/use/ViewSplit"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Weather",
+      "to": "/dev/ui-react/use/Weather"
     }
   }
-}
+}~

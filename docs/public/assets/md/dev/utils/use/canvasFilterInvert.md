@@ -13,12 +13,12 @@ const canvasFilterInvert: (value: number, canvas: HTMLCanvasElement) => HTMLCanv
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: canvasFilterFade",
+      "to": "/dev/utils/use/canvasFilterFade"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: canvasFilterOldPhoto",
+      "to": "/dev/utils/use/canvasFilterOldPhoto"
     }
   }
 }~

@@ -59,11 +59,11 @@ default function style(value: TValue, options_?: IOptions, responses_?: Array<IR
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Style React: string",
+      "label": "Style react: string",
       "to": "/dev/style-react/use/string"
     },
     "next": {
-      "label": "Style React: styled",
+      "label": "Style react: styled",
       "to": "/dev/style-react/use/styled"
     }
   }

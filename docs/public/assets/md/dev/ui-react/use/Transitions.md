@@ -39,12 +39,12 @@ namespace Transitions {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: useTransition",
+      "to": "/dev/ui-react/use/useTransition"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Tree",
+      "to": "/dev/ui-react/use/Tree"
     }
   }
-}
+}~

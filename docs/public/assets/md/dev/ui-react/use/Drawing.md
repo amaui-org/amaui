@@ -66,12 +66,12 @@ const Drawing: React.ForwardRefExoticComponent<Omit<IDrawing, "ref"> & React.Ref
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: DonutChart",
+      "to": "/dev/ui-react/use/DonutChart"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: DropZone",
+      "to": "/dev/ui-react/use/DropZone"
     }
   }
-}
+}~

@@ -26,12 +26,12 @@ const Grid: React.ForwardRefExoticComponent<Omit<IGrid, "ref"> & React.RefAttrib
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Focus",
+      "to": "/dev/ui-react/use/Focus"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Grow",
+      "to": "/dev/ui-react/use/Grow"
     }
   }
-}
+}~

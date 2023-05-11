@@ -13,12 +13,12 @@ const alpha: (value: string, opacity: number) => string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: allImagesLoaded",
+      "to": "/dev/utils/use/allImagesLoaded"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: arrayMoveItem",
+      "to": "/dev/utils/use/arrayMoveItem"
     }
   }
 }~

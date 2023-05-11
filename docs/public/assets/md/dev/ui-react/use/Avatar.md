@@ -26,12 +26,12 @@ const Avatar: React.ForwardRefExoticComponent<Omit<IAvatar, "ref"> & React.RefAt
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: AutoComplete",
+      "to": "/dev/ui-react/use/AutoComplete"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: AvatarGroup",
+      "to": "/dev/ui-react/use/AvatarGroup"
     }
   }
-}
+}~

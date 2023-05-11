@@ -13,12 +13,12 @@ const capitalize: (value: string) => string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: canvasFilterSaturation",
+      "to": "/dev/utils/use/canvasFilterSaturation"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: castParam",
+      "to": "/dev/utils/use/castParam"
     }
   }
 }~

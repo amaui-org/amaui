@@ -27,12 +27,12 @@ const Surface: React.ForwardRefExoticComponent<Omit<ISurface, "ref"> & React.Ref
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Stepper",
+      "to": "/dev/ui-react/use/Stepper"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Switch",
+      "to": "/dev/ui-react/use/Switch"
     }
   }
-}
+}~

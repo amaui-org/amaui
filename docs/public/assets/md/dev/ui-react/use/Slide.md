@@ -26,12 +26,12 @@ const Slide: React.ForwardRefExoticComponent<Omit<ISlide, "ref"> & React.RefAttr
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Select",
+      "to": "/dev/ui-react/use/Select"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Slider",
+      "to": "/dev/ui-react/use/Slider"
     }
   }
-}
+}~

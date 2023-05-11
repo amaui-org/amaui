@@ -22,12 +22,12 @@ const LineChart: React.ForwardRefExoticComponent<Omit<ILineChart, "ref"> & React
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Line",
+      "to": "/dev/ui-react/use/Line"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: LineChartItem",
+      "to": "/dev/ui-react/use/LineChartItem"
     }
   }
-}
+}~

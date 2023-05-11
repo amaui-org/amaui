@@ -13,11 +13,11 @@ const styled: (Element: any) => (value: TValue, options?: IOptions) => React.Ele
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Style React: style",
+      "label": "Style react: style",
       "to": "/dev/style-react/use/style"
     },
     "next": {
-      "label": "Style React: withStyle",
+      "label": "Style react: withStyle",
       "to": "/dev/style-react/use/withStyle"
     }
   }

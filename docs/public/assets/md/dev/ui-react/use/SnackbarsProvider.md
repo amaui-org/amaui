@@ -33,12 +33,12 @@ const SnackbarsProvider: React.ForwardRefExoticComponent<Omit<ISnackbarsProvider
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: SnackbarsContext",
+      "to": "/dev/ui-react/use/SnackbarsContext"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: useSnackbars",
+      "to": "/dev/ui-react/use/useSnackbars"
     }
   }
-}
+}~

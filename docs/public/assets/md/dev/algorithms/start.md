@@ -60,7 +60,7 @@ yarn build
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Icons Material React: Start",
+      "label": "Icons Material react: Start",
       "to": "/dev/icons-material-react/start"
     },
     "next": {

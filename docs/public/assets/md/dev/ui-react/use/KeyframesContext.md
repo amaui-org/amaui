@@ -13,12 +13,12 @@ const KeyframesContext: React.Context<any>;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Keyframes",
+      "to": "/dev/ui-react/use/Keyframes"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: useKeyframes",
+      "to": "/dev/ui-react/use/useKeyframes"
     }
   }
-}
+}~

@@ -20,12 +20,12 @@ const PieChart: React.ForwardRefExoticComponent<Omit<IPieChart, "ref"> & React.R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Path",
+      "to": "/dev/ui-react/use/Path"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Placeholder",
+      "to": "/dev/ui-react/use/Placeholder"
     }
   }
-}
+}~

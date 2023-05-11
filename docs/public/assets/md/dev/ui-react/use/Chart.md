@@ -148,12 +148,12 @@ const Chart: React.ForwardRefExoticComponent<Omit<IChart, "ref"> & React.RefAttr
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Carousel",
+      "to": "/dev/ui-react/use/Carousel"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Checkbox",
+      "to": "/dev/ui-react/use/Checkbox"
     }
   }
-}
+}~

@@ -13,12 +13,12 @@ const deserialize: (value: string) => any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: decrypt",
+      "to": "/dev/utils/use/decrypt"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: download",
+      "to": "/dev/utils/use/download"
     }
   }
 }~

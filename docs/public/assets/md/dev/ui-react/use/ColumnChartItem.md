@@ -33,12 +33,12 @@ const ColumnChartItem: React.ForwardRefExoticComponent<Omit<IColumnChartItem, "r
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: ColumnChart",
+      "to": "/dev/ui-react/use/ColumnChart"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: ConfirmContext",
+      "to": "/dev/ui-react/use/ConfirmContext"
     }
   }
-}
+}~

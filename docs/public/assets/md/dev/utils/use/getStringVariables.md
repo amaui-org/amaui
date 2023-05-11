@@ -33,12 +33,12 @@ const getStringVariables: (value: string, options_?: IOptions) => IGetStringVari
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: getRedirectTo",
+      "to": "/dev/utils/use/getRedirectTo"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: getURL",
+      "to": "/dev/utils/use/getURL"
     }
   }
 }~

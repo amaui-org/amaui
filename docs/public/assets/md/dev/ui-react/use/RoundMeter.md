@@ -64,12 +64,12 @@ const RoundMeter: React.ForwardRefExoticComponent<Omit<IRoundMeter, "ref"> & Rea
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: RichTextEditor",
+      "to": "/dev/ui-react/use/RichTextEditor"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: RoundProgress",
+      "to": "/dev/ui-react/use/RoundProgress"
     }
   }
-}
+}~

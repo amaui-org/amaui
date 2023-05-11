@@ -21,12 +21,12 @@ const Path: React.ForwardRefExoticComponent<Omit<IPath, "ref"> & React.RefAttrib
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Parallax",
+      "to": "/dev/ui-react/use/Parallax"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: PieChart",
+      "to": "/dev/ui-react/use/PieChart"
     }
   }
-}
+}~

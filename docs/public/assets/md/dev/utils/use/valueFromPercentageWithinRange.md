@@ -13,12 +13,12 @@ const valueFromPercentageWithinRange: (value: number, min: number, max: number, 
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: updateQueryParams",
+      "to": "/dev/utils/use/updateQueryParams"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: variation",
+      "to": "/dev/utils/use/variation"
     }
   }
 }~

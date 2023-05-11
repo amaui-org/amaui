@@ -41,12 +41,12 @@ const Menu: React.ForwardRefExoticComponent<Omit<IMenu, "ref"> & React.RefAttrib
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Masonry",
+      "to": "/dev/ui-react/use/Masonry"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: MenuDesktop",
+      "to": "/dev/ui-react/use/MenuDesktop"
     }
   }
-}
+}~

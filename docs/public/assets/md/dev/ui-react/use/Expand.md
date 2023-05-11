@@ -23,12 +23,12 @@ const Expand: React.ForwardRefExoticComponent<Omit<IExpand, "ref"> & React.RefAt
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: DropZone",
+      "to": "/dev/ui-react/use/DropZone"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Fab",
+      "to": "/dev/ui-react/use/Fab"
     }
   }
-}
+}~

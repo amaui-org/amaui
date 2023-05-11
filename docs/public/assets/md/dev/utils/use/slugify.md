@@ -21,12 +21,12 @@ const slugify: (value_: string, options_?: IOptions) => any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: simpleNormalize",
+      "to": "/dev/utils/use/simpleNormalize"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: stringify",
+      "to": "/dev/utils/use/stringify"
     }
   }
 }~

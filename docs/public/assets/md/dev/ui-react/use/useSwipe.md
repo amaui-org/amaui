@@ -37,12 +37,12 @@ const useSwipe: {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: useScroll",
+      "to": "/dev/ui-react/use/useScroll"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: utils",
+      "to": "/dev/ui-react/use/utils"
     }
   }
-}
+}~

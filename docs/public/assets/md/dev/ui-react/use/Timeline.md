@@ -21,12 +21,12 @@ const Timeline: React.ForwardRefExoticComponent<Omit<ITimeline, "ref"> & React.R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: TimeRangePicker",
+      "to": "/dev/ui-react/use/TimeRangePicker"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: TimelineItem",
+      "to": "/dev/ui-react/use/TimelineItem"
     }
   }
-}
+}~

@@ -26,12 +26,12 @@ default function is(type: string, value?: any, options_?: IOptions): any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: imageToPalette",
+      "to": "/dev/utils/use/imageToPalette"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: isBrowser",
+      "to": "/dev/utils/use/isBrowser"
     }
   }
 }~

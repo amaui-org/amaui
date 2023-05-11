@@ -50,12 +50,12 @@ const Accordion: React.ForwardRefExoticComponent<Omit<IAccordion, "ref"> & React
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Start",
+      "to": "/dev/ui-react/start"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: AdvancedTextField",
+      "to": "/dev/ui-react/use/AdvancedTextField"
     }
   }
-}
+}~

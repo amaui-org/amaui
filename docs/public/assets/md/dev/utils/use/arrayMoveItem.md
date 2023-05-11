@@ -13,12 +13,12 @@ const arrayMoveItem: (value: any[], previousIndex: number, newIndex: number) => 
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: alpha",
+      "to": "/dev/utils/use/alpha"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: arrayToParts",
+      "to": "/dev/utils/use/arrayToParts"
     }
   }
 }~

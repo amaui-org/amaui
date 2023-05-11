@@ -21,12 +21,12 @@ const getURL: (value: string, options_?: IOptions) => URL | string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: getStringVariables",
+      "to": "/dev/utils/use/getStringVariables"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: getUserLocalInfo",
+      "to": "/dev/utils/use/getUserLocalInfo"
     }
   }
 }~

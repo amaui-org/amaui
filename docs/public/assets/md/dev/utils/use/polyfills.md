@@ -73,12 +73,12 @@ const polyfills: (additions?: boolean) => void;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: pick",
+      "to": "/dev/utils/use/pick"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: promisify",
+      "to": "/dev/utils/use/promisify"
     }
   }
 }~

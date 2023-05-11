@@ -21,12 +21,12 @@ const Box: React.ForwardRefExoticComponent<Omit<IBox, "ref"> & React.RefAttribut
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: BottomSheet",
+      "to": "/dev/ui-react/use/BottomSheet"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Breadcrumbs",
+      "to": "/dev/ui-react/use/Breadcrumbs"
     }
   }
-}
+}~

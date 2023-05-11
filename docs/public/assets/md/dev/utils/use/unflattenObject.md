@@ -13,12 +13,12 @@ const unflattenObject: (object: object) => object;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: try",
+      "to": "/dev/utils/use/try"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: unique",
+      "to": "/dev/utils/use/unique"
     }
   }
 }~

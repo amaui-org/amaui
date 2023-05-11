@@ -23,12 +23,12 @@ const Breadcrumbs: React.ForwardRefExoticComponent<Omit<IBreadcrumbs, "ref"> & R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Box",
+      "to": "/dev/ui-react/use/Box"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: BubbleChart",
+      "to": "/dev/ui-react/use/BubbleChart"
     }
   }
-}
+}~

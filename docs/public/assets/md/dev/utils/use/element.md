@@ -33,12 +33,12 @@ function element(value: string | Element): IElementObject;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: download",
+      "to": "/dev/utils/use/download"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: elementToCanvas",
+      "to": "/dev/utils/use/elementToCanvas"
     }
   }
 }~

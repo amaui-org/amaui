@@ -13,12 +13,12 @@ const getRedirectTo: (value?: string) => string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: getQueryParams",
+      "to": "/dev/utils/use/getQueryParams"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: getStringVariables",
+      "to": "/dev/utils/use/getStringVariables"
     }
   }
 }~

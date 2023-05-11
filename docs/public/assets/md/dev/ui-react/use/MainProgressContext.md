@@ -13,12 +13,12 @@ const AmauiMainProgressContext: any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: ListSubheader",
+      "to": "/dev/ui-react/use/ListSubheader"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: MainProgressProvider",
+      "to": "/dev/ui-react/use/MainProgressProvider"
     }
   }
-}
+}~

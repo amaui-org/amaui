@@ -29,12 +29,12 @@ const Reset: {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Rating",
+      "to": "/dev/ui-react/use/Rating"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Reveal",
+      "to": "/dev/ui-react/use/Reveal"
     }
   }
-}
+}~

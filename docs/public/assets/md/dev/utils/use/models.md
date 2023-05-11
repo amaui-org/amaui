@@ -29,12 +29,12 @@ interface IFilter {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: merge",
+      "to": "/dev/utils/use/merge"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: numberWithCommas",
+      "to": "/dev/utils/use/numberWithCommas"
     }
   }
 }~

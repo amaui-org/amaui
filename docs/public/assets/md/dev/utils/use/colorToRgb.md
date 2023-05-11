@@ -13,12 +13,12 @@ const colorToRgb: (value: string, opacity?: number, array?: boolean) => string |
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: cleanValue",
+      "to": "/dev/utils/use/cleanValue"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: combination",
+      "to": "/dev/utils/use/combination"
     }
   }
 }~

@@ -27,12 +27,12 @@ const ClickListener: React.ForwardRefExoticComponent<Omit<IClickListener, "ref">
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Chips",
+      "to": "/dev/ui-react/use/Chips"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Clock",
+      "to": "/dev/ui-react/use/Clock"
     }
   }
-}
+}~

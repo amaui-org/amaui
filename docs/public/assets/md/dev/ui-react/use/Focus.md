@@ -32,12 +32,12 @@ const Focus: React.ForwardRefExoticComponent<Omit<IFocus, "ref"> & React.RefAttr
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: FileChoose",
+      "to": "/dev/ui-react/use/FileChoose"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Grid",
+      "to": "/dev/ui-react/use/Grid"
     }
   }
-}
+}~

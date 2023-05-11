@@ -32,12 +32,12 @@ const useScroll: {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: useMediaQuery",
+      "to": "/dev/ui-react/use/useMediaQuery"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: useSwipe",
+      "to": "/dev/ui-react/use/useSwipe"
     }
   }
-}
+}~

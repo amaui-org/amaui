@@ -89,12 +89,12 @@ const RichTextEditor: React.ForwardRefExoticComponent<Omit<IRichTextEditor, "ref
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Reveal",
+      "to": "/dev/ui-react/use/Reveal"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: RoundMeter",
+      "to": "/dev/ui-react/use/RoundMeter"
     }
   }
-}
+}~

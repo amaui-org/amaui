@@ -13,12 +13,12 @@ const updateQueryParams: (value?: {}, override?: boolean) => void;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: unique",
+      "to": "/dev/utils/use/unique"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: valueFromPercentageWithinRange",
+      "to": "/dev/utils/use/valueFromPercentageWithinRange"
     }
   }
 }~

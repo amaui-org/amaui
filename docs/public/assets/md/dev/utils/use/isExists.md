@@ -13,12 +13,12 @@ default function isExists(type: string): boolean;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: isEnvironment",
+      "to": "/dev/utils/use/isEnvironment"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: isOS",
+      "to": "/dev/utils/use/isOS"
     }
   }
 }~

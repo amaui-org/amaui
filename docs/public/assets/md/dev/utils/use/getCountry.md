@@ -13,12 +13,12 @@ const getCountry: (...args: any[]) => ICountry;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: getContrastRatio",
+      "to": "/dev/utils/use/getContrastRatio"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: getEnvironment",
+      "to": "/dev/utils/use/getEnvironment"
     }
   }
 }~

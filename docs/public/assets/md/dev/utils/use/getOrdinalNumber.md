@@ -21,12 +21,12 @@ const getOrdinalNumber: (value_: number, options_?: IOptions) => string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: getObjectValue",
+      "to": "/dev/utils/use/getObjectValue"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: getQueryParams",
+      "to": "/dev/utils/use/getQueryParams"
     }
   }
 }~

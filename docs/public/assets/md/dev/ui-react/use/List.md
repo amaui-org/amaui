@@ -28,12 +28,12 @@ const List: React.ForwardRefExoticComponent<Omit<IList, "ref"> & React.RefAttrib
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Link",
+      "to": "/dev/ui-react/use/Link"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: ListItem",
+      "to": "/dev/ui-react/use/ListItem"
     }
   }
-}
+}~

@@ -13,12 +13,12 @@ const rgbToHsl: (r_: number, g_: number, b_: number) => number[];
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: rgbToHsl",
+      "to": "/dev/utils/use/rgbToHsl"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: rgbToRgba",
+      "to": "/dev/utils/use/rgbToRgba"
     }
   }
 }~

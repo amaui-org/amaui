@@ -47,8 +47,8 @@ yarn build
   "element": "BottomNavigation",
   "props": {
     "next": {
-      "label": "UI React: Use",
-      "to": "/dev/ui-react/use"
+      "label": "UI react: Accordion",
+      "to": "/dev/ui-react/use/Accordion"
     }
   }
 }~

@@ -22,12 +22,12 @@ const debounce: (method_: TMethod, delay?: number) => IDebounceMethod;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: darken",
+      "to": "/dev/utils/use/darken"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: decode",
+      "to": "/dev/utils/use/decode"
     }
   }
 }~

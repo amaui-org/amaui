@@ -13,12 +13,12 @@ const AmauiConfirmContext: any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: ColumnChartItem",
+      "to": "/dev/ui-react/use/ColumnChartItem"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: ConfirmProvider",
+      "to": "/dev/ui-react/use/ConfirmProvider"
     }
   }
-}
+}~

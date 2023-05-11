@@ -13,12 +13,12 @@ const getContrastRatio: (valueA: string, valueB: string) => number | undefined;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: flattenObject",
+      "to": "/dev/utils/use/flattenObject"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: getCountry",
+      "to": "/dev/utils/use/getCountry"
     }
   }
 }~

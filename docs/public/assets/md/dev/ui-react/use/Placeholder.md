@@ -26,12 +26,12 @@ const Placeholder: React.ForwardRefExoticComponent<Omit<IPlaceholder, "ref"> & R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: PieChart",
+      "to": "/dev/ui-react/use/PieChart"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Portal",
+      "to": "/dev/ui-react/use/Portal"
     }
   }
-}
+}~

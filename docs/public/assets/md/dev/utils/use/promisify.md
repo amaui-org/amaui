@@ -21,12 +21,12 @@ const promisify: <T>(method: TMethod | Promise<any>, options_?: IOptions) => (..
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: polyfills",
+      "to": "/dev/utils/use/polyfills"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: quantize",
+      "to": "/dev/utils/use/quantize"
     }
   }
 }~

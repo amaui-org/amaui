@@ -13,12 +13,12 @@ default function useMainProgress(): IMainProgressProvider;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: MainProgressProvider",
+      "to": "/dev/ui-react/use/MainProgressProvider"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Markdown",
+      "to": "/dev/ui-react/use/Markdown"
     }
   }
-}
+}~

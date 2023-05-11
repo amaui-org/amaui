@@ -35,12 +35,12 @@ const AreaChartItem: React.ForwardRefExoticComponent<Omit<IAreaChartItem, "ref">
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: AreaChart",
+      "to": "/dev/ui-react/use/AreaChart"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: AutoComplete",
+      "to": "/dev/ui-react/use/AutoComplete"
     }
   }
-}
+}~

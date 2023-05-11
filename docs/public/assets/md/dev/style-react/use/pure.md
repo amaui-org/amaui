@@ -13,11 +13,11 @@ default function pure(value: TValue, options_?: IOptions): (props_?: any) => IRe
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Style React: inline",
+      "label": "Style react: inline",
       "to": "/dev/style-react/use/inline"
     },
     "next": {
-      "label": "Style React: reset",
+      "label": "Style react: reset",
       "to": "/dev/style-react/use/reset"
     }
   }

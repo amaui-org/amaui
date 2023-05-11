@@ -21,12 +21,12 @@ const setObjectValue: <T extends unknown>(object: T, keys?: string | string[], v
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: serialize",
+      "to": "/dev/utils/use/serialize"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: setStringVariables",
+      "to": "/dev/utils/use/setStringVariables"
     }
   }
 }~

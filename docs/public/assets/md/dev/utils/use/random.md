@@ -13,12 +13,12 @@ const random: (min?: number, max?: number) => number;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: quantize",
+      "to": "/dev/utils/use/quantize"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: randomString",
+      "to": "/dev/utils/use/randomString"
     }
   }
 }~

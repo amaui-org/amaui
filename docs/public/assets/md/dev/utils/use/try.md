@@ -21,12 +21,12 @@ const Try: (value: () => any, options_?: IOptions) => any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: to",
+      "to": "/dev/utils/use/to"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: unflattenObject",
+      "to": "/dev/utils/use/unflattenObject"
     }
   }
 }~

@@ -21,12 +21,12 @@ const getQueryParams: (value_?: string, paramName?: string, options_?: IOptions)
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: getOrdinalNumber",
+      "to": "/dev/utils/use/getOrdinalNumber"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: getRedirectTo",
+      "to": "/dev/utils/use/getRedirectTo"
     }
   }
 }~

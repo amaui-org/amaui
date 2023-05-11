@@ -13,12 +13,12 @@ const hasObjectPropertyValue: (object: object, keys?: string | string[]) => bool
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: hasObjectProperty",
+      "to": "/dev/utils/use/hasObjectProperty"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: hash",
+      "to": "/dev/utils/use/hash"
     }
   }
 }~

@@ -68,12 +68,12 @@ const AutoComplete: React.ForwardRefExoticComponent<Omit<IAutoComplete, "ref"> &
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: AreaChartItem",
+      "to": "/dev/ui-react/use/AreaChartItem"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Avatar",
+      "to": "/dev/ui-react/use/Avatar"
     }
   }
-}
+}~

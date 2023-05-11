@@ -13,12 +13,12 @@ const encrypt: (value_: any, privateValue: string) => string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: encode",
+      "to": "/dev/utils/use/encode"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: equalDeep",
+      "to": "/dev/utils/use/equalDeep"
     }
   }
 }~

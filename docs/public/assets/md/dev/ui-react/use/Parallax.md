@@ -34,12 +34,12 @@ const Parallax: React.ForwardRefExoticComponent<Omit<IParallax, "ref"> & React.R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: PaginationItem",
+      "to": "/dev/ui-react/use/PaginationItem"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Path",
+      "to": "/dev/ui-react/use/Path"
     }
   }
-}
+}~

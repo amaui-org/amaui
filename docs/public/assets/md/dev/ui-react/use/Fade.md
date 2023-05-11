@@ -20,12 +20,12 @@ const Fade: React.ForwardRefExoticComponent<Omit<IFade, "ref"> & React.RefAttrib
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Fab",
+      "to": "/dev/ui-react/use/Fab"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: FileChoose",
+      "to": "/dev/ui-react/use/FileChoose"
     }
   }
-}
+}~

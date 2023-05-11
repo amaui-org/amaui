@@ -25,12 +25,12 @@ const Container: React.ForwardRefExoticComponent<Omit<IContainer, "ref"> & React
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: useConfirm",
+      "to": "/dev/ui-react/use/useConfirm"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Countdown",
+      "to": "/dev/ui-react/use/Countdown"
     }
   }
-}
+}~

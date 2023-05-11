@@ -37,12 +37,12 @@ const Tabs: React.ForwardRefExoticComponent<Omit<ITabs, "ref"> & React.RefAttrib
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: TableRow",
+      "to": "/dev/ui-react/use/TableRow"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: TextField",
+      "to": "/dev/ui-react/use/TextField"
     }
   }
-}
+}~

@@ -39,12 +39,12 @@ const WindowSplit: React.ForwardRefExoticComponent<Omit<IWindowSplit, "ref"> & R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: useWidgets",
+      "to": "/dev/ui-react/use/useWidgets"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Zoom",
+      "to": "/dev/ui-react/use/Zoom"
     }
   }
-}
+}~

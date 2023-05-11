@@ -66,12 +66,12 @@ const TextField: React.ForwardRefExoticComponent<Omit<ITextField, "ref"> & React
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Tabs",
+      "to": "/dev/ui-react/use/Tabs"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: TimePicker",
+      "to": "/dev/ui-react/use/TimePicker"
     }
   }
-}
+}~

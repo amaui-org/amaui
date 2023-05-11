@@ -13,12 +13,12 @@ const equalDeep: (valueA: any, valueB: any) => boolean;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: encrypt",
+      "to": "/dev/utils/use/encrypt"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: factorial",
+      "to": "/dev/utils/use/factorial"
     }
   }
 }~

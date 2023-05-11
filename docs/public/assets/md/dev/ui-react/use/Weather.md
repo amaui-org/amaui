@@ -55,12 +55,12 @@ const Weather: React.ForwardRefExoticComponent<Omit<IWeather, "ref"> & React.Ref
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Watch",
+      "to": "/dev/ui-react/use/Watch"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: WidgetsContext",
+      "to": "/dev/ui-react/use/WidgetsContext"
     }
   }
-}
+}~

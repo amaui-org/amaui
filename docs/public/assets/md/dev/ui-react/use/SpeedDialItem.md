@@ -34,12 +34,12 @@ const SpeedDialItem: React.ForwardRefExoticComponent<Omit<ISpeedDialItem, "ref">
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: SpeedDial",
+      "to": "/dev/ui-react/use/SpeedDial"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: SpyScroll",
+      "to": "/dev/ui-react/use/SpyScroll"
     }
   }
-}
+}~

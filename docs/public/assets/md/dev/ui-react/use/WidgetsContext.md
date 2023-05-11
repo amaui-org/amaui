@@ -13,12 +13,12 @@ const AmauiWidgetsContext: any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Weather",
+      "to": "/dev/ui-react/use/Weather"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: WidgetsProvider",
+      "to": "/dev/ui-react/use/WidgetsProvider"
     }
   }
-}
+}~

@@ -27,12 +27,12 @@ default function variationWithRepetition(value_: any[], items?: number, options_
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: variation",
+      "to": "/dev/utils/use/variation"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: wait",
+      "to": "/dev/utils/use/wait"
     }
   }
 }~

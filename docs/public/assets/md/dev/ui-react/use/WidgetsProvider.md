@@ -43,12 +43,12 @@ const WidgetsProvider: React.ForwardRefExoticComponent<Omit<IWidgetsProvider, "r
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: WidgetsContext",
+      "to": "/dev/ui-react/use/WidgetsContext"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: useWidgets",
+      "to": "/dev/ui-react/use/useWidgets"
     }
   }
-}
+}~

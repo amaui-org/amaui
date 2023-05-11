@@ -13,12 +13,12 @@ const order: <T>(value: T) => T;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: numberWithCommas",
+      "to": "/dev/utils/use/numberWithCommas"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: pagination",
+      "to": "/dev/utils/use/pagination"
     }
   }
 }~

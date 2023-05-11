@@ -66,12 +66,12 @@ const Clock: React.ForwardRefExoticComponent<Omit<IClock, "ref"> & React.RefAttr
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: ClickListener",
+      "to": "/dev/ui-react/use/ClickListener"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: ColorTextField",
+      "to": "/dev/ui-react/use/ColorTextField"
     }
   }
-}
+}~

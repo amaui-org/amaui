@@ -28,12 +28,12 @@ const DropZone: React.ForwardRefExoticComponent<Omit<IDropZone, "ref"> & React.R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Drawing",
+      "to": "/dev/ui-react/use/Drawing"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Expand",
+      "to": "/dev/ui-react/use/Expand"
     }
   }
-}
+}~

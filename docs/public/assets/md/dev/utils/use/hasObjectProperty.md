@@ -13,12 +13,12 @@ const hasObjectProperty: (object: object, ...args: string[]) => boolean;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: getUserLocalInfo",
+      "to": "/dev/utils/use/getUserLocalInfo"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: hasObjectPropertyValue",
+      "to": "/dev/utils/use/hasObjectPropertyValue"
     }
   }
 }~

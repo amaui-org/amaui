@@ -21,12 +21,12 @@ const decrypt: (value_: string, privateValue: string, options_?: IOptions) => an
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: decode",
+      "to": "/dev/utils/use/decode"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: deserialize",
+      "to": "/dev/utils/use/deserialize"
     }
   }
 }~

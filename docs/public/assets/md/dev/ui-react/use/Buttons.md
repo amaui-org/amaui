@@ -49,12 +49,12 @@ const Buttons: React.ForwardRefExoticComponent<Omit<IButtons, "ref"> & React.Ref
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Button",
+      "to": "/dev/ui-react/use/Button"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Calendar",
+      "to": "/dev/ui-react/use/Calendar"
     }
   }
-}
+}~

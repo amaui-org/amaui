@@ -13,12 +13,12 @@ const hslToRgb: (value: string, opacity?: number, array?: boolean) => string | n
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: hexadecimalStringToBinary",
+      "to": "/dev/utils/use/hexadecimalStringToBinary"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: hslToRgbPure",
+      "to": "/dev/utils/use/hslToRgbPure"
     }
   }
 }~

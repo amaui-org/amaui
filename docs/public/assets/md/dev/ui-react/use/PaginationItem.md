@@ -21,12 +21,12 @@ const PaginationItem: React.ForwardRefExoticComponent<Omit<IPaginationItem, "ref
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Pagination",
+      "to": "/dev/ui-react/use/Pagination"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Parallax",
+      "to": "/dev/ui-react/use/Parallax"
     }
   }
-}
+}~

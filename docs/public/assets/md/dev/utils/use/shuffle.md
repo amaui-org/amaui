@@ -13,12 +13,12 @@ const shuffle: <T extends unknown>(value: string | T[], toShuffle?: number) => s
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: setStringVariables",
+      "to": "/dev/utils/use/setStringVariables"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: simpleNormalize",
+      "to": "/dev/utils/use/simpleNormalize"
     }
   }
 }~

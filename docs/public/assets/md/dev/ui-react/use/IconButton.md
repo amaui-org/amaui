@@ -20,12 +20,12 @@ const IconButton: React.ForwardRefExoticComponent<Omit<IIconButton, "ref"> & Rea
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Icon",
+      "to": "/dev/ui-react/use/Icon"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Image",
+      "to": "/dev/ui-react/use/Image"
     }
   }
-}
+}~

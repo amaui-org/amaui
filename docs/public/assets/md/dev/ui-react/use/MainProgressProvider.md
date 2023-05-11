@@ -56,12 +56,12 @@ const MainProgressProvider: React.ForwardRefExoticComponent<Omit<IMainProgressPr
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: MainProgressContext",
+      "to": "/dev/ui-react/use/MainProgressContext"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: useMainProgress",
+      "to": "/dev/ui-react/use/useMainProgress"
     }
   }
-}
+}~

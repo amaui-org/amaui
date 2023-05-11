@@ -19,12 +19,12 @@ const fileToValue: (file: Blob | File, type?: TType) => Promise<string | ArrayBu
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: factorial",
+      "to": "/dev/utils/use/factorial"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: flattenObject",
+      "to": "/dev/utils/use/flattenObject"
     }
   }
 }~

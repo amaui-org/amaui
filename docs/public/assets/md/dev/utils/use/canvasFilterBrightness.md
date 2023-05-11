@@ -13,12 +13,12 @@ const canvasFilterBrightness: (value: number, canvas: HTMLCanvasElement) => HTML
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: canvasCrop",
+      "to": "/dev/utils/use/canvasCrop"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: canvasFilterContrast",
+      "to": "/dev/utils/use/canvasFilterContrast"
     }
   }
 }~

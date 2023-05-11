@@ -25,12 +25,12 @@ const getFileName: (file: File, options_?: IOptions) => string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: getEnvironment",
+      "to": "/dev/utils/use/getEnvironment"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: getGoogleFontsURL",
+      "to": "/dev/utils/use/getGoogleFontsURL"
     }
   }
 }~

@@ -13,12 +13,12 @@ function factorial(value: number): number;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: equalDeep",
+      "to": "/dev/utils/use/equalDeep"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: fileToValue",
+      "to": "/dev/utils/use/fileToValue"
     }
   }
 }~

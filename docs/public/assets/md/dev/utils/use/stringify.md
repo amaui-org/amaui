@@ -13,12 +13,12 @@ const stringify: (value_: any, spaces?: number, replacer?: (property: string, va
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: slugify",
+      "to": "/dev/utils/use/slugify"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: to",
+      "to": "/dev/utils/use/to"
     }
   }
 }~

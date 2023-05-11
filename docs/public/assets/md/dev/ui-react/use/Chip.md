@@ -26,12 +26,12 @@ const Chip: React.ForwardRefExoticComponent<Omit<IChip, "ref"> & React.RefAttrib
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Checkbox",
+      "to": "/dev/ui-react/use/Checkbox"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Chips",
+      "to": "/dev/ui-react/use/Chips"
     }
   }
-}
+}~

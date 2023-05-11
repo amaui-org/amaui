@@ -27,12 +27,12 @@ default function variation(value_: any[], items_?: number, options_?: IVariation
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: valueFromPercentageWithinRange",
+      "to": "/dev/utils/use/valueFromPercentageWithinRange"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: variationWithRepetition",
+      "to": "/dev/utils/use/variationWithRepetition"
     }
   }
 }~

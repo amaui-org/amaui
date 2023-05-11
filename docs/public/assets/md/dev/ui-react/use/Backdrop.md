@@ -25,16 +25,16 @@ const Backdrop: React.ForwardRefExoticComponent<Omit<IBackdrop, "ref"> & React.R
 ```
 
 
-{
+~{
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: AvatarGroup",
+      "to": "/dev/ui-react/use/AvatarGroup"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Badge",
+      "to": "/dev/ui-react/use/Badge"
     }
   }
-}
+}~

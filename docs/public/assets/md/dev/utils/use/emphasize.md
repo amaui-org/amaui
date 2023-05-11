@@ -13,12 +13,12 @@ const emphasize: (value: string, coefficient?: number) => string | undefined;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: elementToCanvas",
+      "to": "/dev/utils/use/elementToCanvas"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: encode",
+      "to": "/dev/utils/use/encode"
     }
   }
 }~

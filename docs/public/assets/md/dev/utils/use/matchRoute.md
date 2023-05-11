@@ -13,12 +13,12 @@ const matchRoute: (value: string[], path: string) => boolean;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: lighten",
+      "to": "/dev/utils/use/lighten"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: merge",
+      "to": "/dev/utils/use/merge"
     }
   }
 }~

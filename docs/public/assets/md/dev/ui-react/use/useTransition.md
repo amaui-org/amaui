@@ -13,12 +13,12 @@ default function useTransition(): any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: TransitionContext",
+      "to": "/dev/ui-react/use/TransitionContext"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Transitions",
+      "to": "/dev/ui-react/use/Transitions"
     }
   }
-}
+}~

@@ -67,12 +67,12 @@ const LinearMeter: React.ForwardRefExoticComponent<Omit<ILinearMeter, "ref"> & R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: LineChartItem",
+      "to": "/dev/ui-react/use/LineChartItem"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: LinearProgress",
+      "to": "/dev/ui-react/use/LinearProgress"
     }
   }
-}
+}~

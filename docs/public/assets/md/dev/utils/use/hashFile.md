@@ -21,12 +21,12 @@ const hashFile: (value_: any, options_?: IOptions) => Promise<string>;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: hash",
+      "to": "/dev/utils/use/hash"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: hexToRgb",
+      "to": "/dev/utils/use/hexToRgb"
     }
   }
 }~

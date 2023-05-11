@@ -13,12 +13,12 @@ const hslToRgbPure: (h_: number, s_: number, l_: number) => number[];
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: hslToRgb",
+      "to": "/dev/utils/use/hslToRgb"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: imageToPalette",
+      "to": "/dev/utils/use/imageToPalette"
     }
   }
 }~

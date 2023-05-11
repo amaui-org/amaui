@@ -21,12 +21,12 @@ const getLeadingZerosNumber: (value_: number, options_?: IOptions) => string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: getID",
+      "to": "/dev/utils/use/getID"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: getLuminance",
+      "to": "/dev/utils/use/getLuminance"
     }
   }
 }~

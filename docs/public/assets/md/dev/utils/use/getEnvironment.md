@@ -13,12 +13,12 @@ const getEnvironment: () => typeof globalThis;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: getCountry",
+      "to": "/dev/utils/use/getCountry"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: getFileName",
+      "to": "/dev/utils/use/getFileName"
     }
   }
 }~

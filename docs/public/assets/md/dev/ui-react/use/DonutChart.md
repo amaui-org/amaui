@@ -20,12 +20,12 @@ const DonutChart: React.ForwardRefExoticComponent<Omit<IDonutChart, "ref"> & Rea
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Divider",
+      "to": "/dev/ui-react/use/Divider"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Drawing",
+      "to": "/dev/ui-react/use/Drawing"
     }
   }
-}
+}~

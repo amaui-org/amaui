@@ -13,12 +13,12 @@ const flattenObject: <T extends unknown>(object: T, output_?: T, keys_?: string,
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: fileToValue",
+      "to": "/dev/utils/use/fileToValue"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: getContrastRatio",
+      "to": "/dev/utils/use/getContrastRatio"
     }
   }
 }~

@@ -20,12 +20,12 @@ const ColorTextField: React.ForwardRefExoticComponent<Omit<IColorTextField, "ref
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Clock",
+      "to": "/dev/ui-react/use/Clock"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: ColumnChart",
+      "to": "/dev/ui-react/use/ColumnChart"
     }
   }
-}
+}~

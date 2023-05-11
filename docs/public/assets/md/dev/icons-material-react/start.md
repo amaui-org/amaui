@@ -55,11 +55,11 @@ Updates made to original icons:
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Style React: Start",
+      "label": "Style react: Start",
       "to": "/dev/style-react/start"
     },
     "next": {
-      "label": "Icons Material React: Use",
+      "label": "Icons Material react: Use",
       "to": "/dev/icons-material-react/use"
     }
   }

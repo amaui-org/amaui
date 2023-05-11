@@ -13,12 +13,12 @@ const rgbToHex: (value: string, opacity_?: number, array?: boolean) => string | 
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: removeObjectValue",
+      "to": "/dev/utils/use/removeObjectValue"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: rgbToHsl",
+      "to": "/dev/utils/use/rgbToHsl"
     }
   }
 }~

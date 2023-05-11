@@ -22,12 +22,12 @@ const Masonry: React.ForwardRefExoticComponent<Omit<IMasonry, "ref"> & React.Ref
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Markdown",
+      "to": "/dev/ui-react/use/Markdown"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Menu",
+      "to": "/dev/ui-react/use/Menu"
     }
   }
-}
+}~

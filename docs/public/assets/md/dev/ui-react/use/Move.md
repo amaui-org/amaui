@@ -25,12 +25,12 @@ const Move: React.ForwardRefExoticComponent<Omit<IMove, "ref"> & React.RefAttrib
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: ModalTitle",
+      "to": "/dev/ui-react/use/ModalTitle"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: NavigationBar",
+      "to": "/dev/ui-react/use/NavigationBar"
     }
   }
-}
+}~

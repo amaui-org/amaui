@@ -13,12 +13,12 @@ const serialize: (value: any) => string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: rgbToRgba",
+      "to": "/dev/utils/use/rgbToRgba"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: setObjectValue",
+      "to": "/dev/utils/use/setObjectValue"
     }
   }
 }~

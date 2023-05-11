@@ -21,12 +21,12 @@ const TableHeader: React.ForwardRefExoticComponent<Omit<ITableHeader, "ref"> & R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: TableHead",
+      "to": "/dev/ui-react/use/TableHead"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: TablePagination",
+      "to": "/dev/ui-react/use/TablePagination"
     }
   }
-}
+}~

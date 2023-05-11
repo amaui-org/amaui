@@ -24,12 +24,12 @@ const CardMain: React.ForwardRefExoticComponent<Omit<ICardMain, "ref"> & React.R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: CardImage",
+      "to": "/dev/ui-react/use/CardImage"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Carousel",
+      "to": "/dev/ui-react/use/Carousel"
     }
   }
-}
+}~

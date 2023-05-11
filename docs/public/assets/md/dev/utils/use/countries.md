@@ -29,12 +29,12 @@ const countries: Array<ICountry>;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: copyToClipboard",
+      "to": "/dev/utils/use/copyToClipboard"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: darken",
+      "to": "/dev/utils/use/darken"
     }
   }
 }~

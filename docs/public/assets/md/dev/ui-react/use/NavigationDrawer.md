@@ -28,12 +28,12 @@ const NavigationDrawer: React.ForwardRefExoticComponent<Omit<INavigationDrawer, 
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: NavigationBar",
+      "to": "/dev/ui-react/use/NavigationBar"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: NavigationItem",
+      "to": "/dev/ui-react/use/NavigationItem"
     }
   }
-}
+}~

@@ -13,12 +13,12 @@ const AmauiSnackbarsContext: any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Snackbar",
+      "to": "/dev/ui-react/use/Snackbar"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: SnackbarsProvider",
+      "to": "/dev/ui-react/use/SnackbarsProvider"
     }
   }
-}
+}~

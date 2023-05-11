@@ -20,12 +20,12 @@ const ToggleButtons: React.ForwardRefExoticComponent<Omit<IToggleButtons, "ref">
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: ToggleButton",
+      "to": "/dev/ui-react/use/ToggleButton"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Tooltip",
+      "to": "/dev/ui-react/use/Tooltip"
     }
   }
-}
+}~

@@ -13,12 +13,12 @@ const encode: (value_: any) => string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: emphasize",
+      "to": "/dev/utils/use/emphasize"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: encrypt",
+      "to": "/dev/utils/use/encrypt"
     }
   }
 }~

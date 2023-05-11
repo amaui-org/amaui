@@ -20,12 +20,12 @@ const BubbleChart: React.ForwardRefExoticComponent<Omit<IBubbleChart, "ref"> & R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Breadcrumbs",
+      "to": "/dev/ui-react/use/Breadcrumbs"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: BubbleChartItem",
+      "to": "/dev/ui-react/use/BubbleChartItem"
     }
   }
-}
+}~

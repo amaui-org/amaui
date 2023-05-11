@@ -13,12 +13,12 @@ const removeObjectValue: (object: object | any[], keys: string | string[]) => an
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: randomString",
+      "to": "/dev/utils/use/randomString"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: rgbToHex",
+      "to": "/dev/utils/use/rgbToHex"
     }
   }
 }~

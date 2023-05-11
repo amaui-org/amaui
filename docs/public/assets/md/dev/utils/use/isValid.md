@@ -26,12 +26,12 @@ default function isValid(type: string, value?: any, options_?: IOptions): any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: isState",
+      "to": "/dev/utils/use/isState"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: lighten",
+      "to": "/dev/utils/use/lighten"
     }
   }
 }~

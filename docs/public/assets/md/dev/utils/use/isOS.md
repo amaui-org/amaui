@@ -13,12 +13,12 @@ default function isOS(type: string, value?: any): any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: isExists",
+      "to": "/dev/utils/use/isExists"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: isResponsive",
+      "to": "/dev/utils/use/isResponsive"
     }
   }
 }~

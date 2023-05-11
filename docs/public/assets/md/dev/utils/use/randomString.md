@@ -13,12 +13,12 @@ const randomString: (length_?: number) => string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: random",
+      "to": "/dev/utils/use/random"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: removeObjectValue",
+      "to": "/dev/utils/use/removeObjectValue"
     }
   }
 }~

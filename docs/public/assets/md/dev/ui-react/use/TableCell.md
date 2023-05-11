@@ -28,12 +28,12 @@ const TableCell: React.ForwardRefExoticComponent<Omit<ITableCell, "ref"> & React
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: TableBody",
+      "to": "/dev/ui-react/use/TableBody"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: TableFooter",
+      "to": "/dev/ui-react/use/TableFooter"
     }
   }
-}
+}~

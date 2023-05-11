@@ -13,11 +13,11 @@ default function className(value_: string | TValue, props_?: any, className_?: s
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Style React: AmauiThemeProvider",
+      "label": "Style react: AmauiThemeProvider",
       "to": "/dev/style-react/use/AmauiThemeProvider"
     },
     "next": {
-      "label": "Style React: inline",
+      "label": "Style react: inline",
       "to": "/dev/style-react/use/inline"
     }
   }

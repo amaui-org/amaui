@@ -34,12 +34,12 @@ const BubbleChartItem: React.ForwardRefExoticComponent<Omit<IBubbleChartItem, "r
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: BubbleChart",
+      "to": "/dev/ui-react/use/BubbleChart"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Button",
+      "to": "/dev/ui-react/use/Button"
     }
   }
-}
+}~

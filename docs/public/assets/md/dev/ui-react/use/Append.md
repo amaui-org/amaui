@@ -73,12 +73,12 @@ const Append: {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: AdvancedTextField",
+      "to": "/dev/ui-react/use/AdvancedTextField"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: AreaChart",
+      "to": "/dev/ui-react/use/AreaChart"
     }
   }
-}
+}~

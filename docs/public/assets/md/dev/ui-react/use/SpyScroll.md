@@ -25,12 +25,12 @@ const SpyScroll: React.ForwardRefExoticComponent<Omit<ISpyScroll, "ref"> & React
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: SpeedDialItem",
+      "to": "/dev/ui-react/use/SpeedDialItem"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Step",
+      "to": "/dev/ui-react/use/Step"
     }
   }
-}
+}~

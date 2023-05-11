@@ -13,12 +13,12 @@ const checkObjectFilters: (value: object, filters?: Array<IFilter>, operator?: '
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: checkAppVersion",
+      "to": "/dev/utils/use/checkAppVersion"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: clamp",
+      "to": "/dev/utils/use/clamp"
     }
   }
 }~

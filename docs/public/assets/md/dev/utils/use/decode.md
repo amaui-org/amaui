@@ -13,12 +13,12 @@ const decode: (value_: string) => any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: debounce",
+      "to": "/dev/utils/use/debounce"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: decrypt",
+      "to": "/dev/utils/use/decrypt"
     }
   }
 }~

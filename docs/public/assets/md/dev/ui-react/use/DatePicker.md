@@ -82,12 +82,12 @@ const DatePicker: React.ForwardRefExoticComponent<Omit<IDatePicker, "ref"> & Rea
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Countdown",
+      "to": "/dev/ui-react/use/Countdown"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: DateRangePicker",
+      "to": "/dev/ui-react/use/DateRangePicker"
     }
   }
-}
+}~

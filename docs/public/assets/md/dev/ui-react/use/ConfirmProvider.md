@@ -63,12 +63,12 @@ const ConfirmProvider: React.ForwardRefExoticComponent<Omit<IConfirmProvider, "r
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: ConfirmContext",
+      "to": "/dev/ui-react/use/ConfirmContext"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: useConfirm",
+      "to": "/dev/ui-react/use/useConfirm"
     }
   }
-}
+}~

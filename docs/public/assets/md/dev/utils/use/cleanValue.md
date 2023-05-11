@@ -34,12 +34,12 @@ const cleanValue: (value_: string, options_?: IOptions) => string | any;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: clamp",
+      "to": "/dev/utils/use/clamp"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: colorToRgb",
+      "to": "/dev/utils/use/colorToRgb"
     }
   }
 }~

@@ -26,12 +26,12 @@ const AdvancedTextField: React.ForwardRefExoticComponent<Omit<IAdvancedTextField
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Accordion",
+      "to": "/dev/ui-react/use/Accordion"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Append",
+      "to": "/dev/ui-react/use/Append"
     }
   }
-}
+}~

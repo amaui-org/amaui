@@ -29,12 +29,12 @@ const unique: <T extends unknown>(object: T, ...args: string[]) => any[];
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "Utils: unflattenObject",
+      "to": "/dev/utils/use/unflattenObject"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "Utils: updateQueryParams",
+      "to": "/dev/utils/use/updateQueryParams"
     }
   }
 }~

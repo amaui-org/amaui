@@ -21,12 +21,12 @@ const Portal: React.ForwardRefExoticComponent<Omit<IPortal, "ref"> & React.RefAt
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: Placeholder",
+      "to": "/dev/ui-react/use/Placeholder"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Radio",
+      "to": "/dev/ui-react/use/Radio"
     }
   }
-}
+}~

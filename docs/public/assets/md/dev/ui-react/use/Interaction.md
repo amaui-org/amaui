@@ -38,12 +38,12 @@ const Interaction: React.ForwardRefExoticComponent<Omit<IInteraction, "ref"> & R
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: ImageListItemBox",
+      "to": "/dev/ui-react/use/ImageListItemBox"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Keyframes",
+      "to": "/dev/ui-react/use/Keyframes"
     }
   }
-}
+}~

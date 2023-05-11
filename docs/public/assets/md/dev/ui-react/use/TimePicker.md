@@ -87,12 +87,12 @@ const TimePicker: React.ForwardRefExoticComponent<Omit<ITimePicker, "ref"> & Rea
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: TextField",
+      "to": "/dev/ui-react/use/TextField"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: TimeRangePicker",
+      "to": "/dev/ui-react/use/TimeRangePicker"
     }
   }
-}
+}~

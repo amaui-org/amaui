@@ -283,12 +283,12 @@ const sanitize: (value: string) => string;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: useSwipe",
+      "to": "/dev/ui-react/use/useSwipe"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Start",
+      "to": "/dev/ui-react/start"
     }
   }
-}
+}~

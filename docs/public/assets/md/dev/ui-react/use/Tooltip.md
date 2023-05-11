@@ -56,12 +56,12 @@ const Tooltip: React.ForwardRefExoticComponent<Omit<ITooltip, "ref"> & React.Ref
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: ToggleButtons",
+      "to": "/dev/ui-react/use/ToggleButtons"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: TopAppBar",
+      "to": "/dev/ui-react/use/TopAppBar"
     }
   }
-}
+}~

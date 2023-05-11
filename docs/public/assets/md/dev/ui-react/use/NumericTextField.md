@@ -29,12 +29,12 @@ const NumericTextField: React.ForwardRefExoticComponent<Omit<INumericTextField, 
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "label": "UI react: NavigationRail",
+      "to": "/dev/ui-react/use/NavigationRail"
     },
     "next": {
-      "label": "API: Use",
-      "to": "/dev/api/use"
+      "label": "UI react: Pagination",
+      "to": "/dev/ui-react/use/Pagination"
     }
   }
-}
+}~
