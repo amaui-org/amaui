@@ -252,7 +252,13 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
   };
 
   let TransitionComponent = TransitionComponent_;
-  let TransitionComponentProps = TransitionComponentProps_;
+  let TransitionComponentProps: any = {
+    delay: {
+      enter: 70
+    },
+
+    ...TransitionComponentProps_
+  };
 
   React.useEffect(() => {
     setInit(true);
@@ -601,10 +607,6 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
       {!noExpand && children && (
         <Expand
           in={open}
-
-          delay={{
-            enter: 70
-          }}
 
           onTransition={(element: any, status: TTransitionStatus) => {
             refs.inProgressTransition.current = !['entered', 'removed'].includes(status);

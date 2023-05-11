@@ -409,7 +409,7 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
     PrimaryProps,
     SecondaryProps,
     TertiaryProps,
-    ListTransitionComponentProps = { add: true },
+    ListTransitionComponentProps: ListTransitionComponentProps_,
     ExpandProps,
     MenuProps = {
       autoSelect: true
@@ -461,6 +461,15 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
   };
 
   let RootComponent = RootComponent_;
+
+  const ListTransitionComponentProps: any = {
+    add: true,
+    delay: {
+      enter: 70
+    },
+
+    ...ListTransitionComponentProps_
+  };
 
   const list = list_ && React.Children.toArray(list_).map((item: any, index: number) => (
     React.cloneElement(item, {
@@ -910,10 +919,6 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
 
       <Expand
         in={openList}
-
-        delay={{
-          enter: 70
-        }}
 
         {...ExpandProps}
       >
