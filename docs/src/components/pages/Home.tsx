@@ -43,14 +43,24 @@ const useStyle = style(theme => ({
     padding: 'clamp(104px, 14vw, 240px) 44px clamp(104px, 14vw, 140px)'
   },
 
-  main_title: {
+  subheadline: {
     textAlign: 'center'
   },
 
-  main_text: {
+  headline: {
     maxWidth: theme.breakpoints.values.md,
     textAlign: 'center',
-    fontSize: 'clamp(2.1rem, 4vw, 4.4rem)'
+    fontSize: 'clamp(2.1rem, 4vw, 4.4rem)',
+    color: theme.palette.color.primary.main
+  },
+
+  headline_modern: {
+    maxWidth: theme.breakpoints.values.md,
+    textAlign: 'center',
+    fontSize: 'clamp(2.1rem, 4vw, 4.4rem)',
+    backgroundImage: `linear-gradient(130deg, ${theme.palette.color.primary.main} 0%, ${theme.palette.color.quaternary.main} 100%)`,
+    backgroundClip: 'text',
+    textFillColor: 'transparent'
   },
 
   text_secondary: {
@@ -405,7 +415,7 @@ export default function Root(props: any) {
             color='secondary'
 
             className={classNames([
-              classes.main_title,
+              classes.subheadline,
               classes.text_secondary
             ])}
           >
@@ -416,10 +426,10 @@ export default function Root(props: any) {
             version='d1'
 
             className={classNames([
-              classes.main_text
+              classes[`headline${init ? '_modern' : ''}`]
             ])}
           >
-            Make Modern Web & Mobile Apps Quickly <Type version='none' color='primary' Component='span' className={classes.text_primary}>100+ UI elements</Type>
+            Make Modern Web & Mobile Apps Quickly 100+ UI elements
           </Type>
 
           <Button

@@ -5,7 +5,7 @@ import merge from '@amaui/utils/merge';
 import hash from '@amaui/utils/hash';
 import isEnvironment from '@amaui/utils/isEnvironment';
 import { AmauiTheme, classNames } from '@amaui/style';
-import { IAmauiTheme } from '@amaui/style/amaui-theme';
+import { IAmauiTheme } from '@amaui/style/AmauiTheme';
 
 import AmauiThemeContext from './AmauiThemeContext';
 import useAmauiTheme from './useAmauiTheme';
