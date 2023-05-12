@@ -151,7 +151,7 @@ const Grow = React.forwardRef((props_: IGrow, ref: any) => {
           style: {
             visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
 
-            transition: `opacity ${duration(status)} ${timingFunction(status)}, transform ${duration(status, 'transform')} ${timingFunction(status)} ${addTransition ? `, ${addTransition}` : ''}`,
+            transition: `opacity ${duration(status)} ${timingFunction(status)}, transform ${duration(status, 'transform')} ${timingFunction(status)} ${status === 'exiting' ? '74ms' : '0ms'} ${addTransition ? `, ${addTransition}` : ''}`,
 
             ...styles(status),
 

@@ -187,6 +187,8 @@ export const IconDoneAnimated = (props: any) => {
       }}
 
       add={add}
+
+      enterOnAdd={false}
     >
       {(status: TTransitionStatus) => React.cloneElement(
         <span
