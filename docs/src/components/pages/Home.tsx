@@ -77,7 +77,7 @@ const useStyle = style(theme => ({
   about_wrapper: {
     width: '100%',
     padding: 'clamp(40px, 5vw, 104px) 44px',
-    background: theme.methods.palette.color.value('primary', theme.palette.light ? 99 : 95, true)
+    backgroundImage: `linear-gradient(${theme.palette.light ? '130deg' : '330deg'}, ${theme.methods.palette.color.value('primary', theme.palette.light ? 99 : 95, true)} 0%, ${theme.palette.color.quaternary.main} 100%)`,
   },
 
   about_text: {
@@ -1124,7 +1124,7 @@ export default function Root(props: any) {
             </Line>
 
             <Button
-              color={theme.palette.color.secondary[50]}
+              color='inherit'
 
               version='text'
 
