@@ -20,6 +20,7 @@ interface IInteraction extends IBaseElement {
     preselected?: boolean;
     selected?: boolean;
     dragged?: boolean;
+    pulseOnMouseDown?: boolean;
     wave_version?: 'simple';
     subscription?: AmauiSubscription;
     clear?: any;

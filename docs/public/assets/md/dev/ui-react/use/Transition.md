@@ -14,11 +14,23 @@ type TTransitionStatus = 'appended' | 'add' | 'adding' | 'added' | 'enter' | 'en
 const STATUS: Record<TTransitionStatus, TTransitionStatus>;
 ```
 
+#### ITransitionDelay
+
+```ts
+interface ITransitionDelay {
+    default?: number;
+    add?: number;
+    enter?: number;
+    exit?: number;
+}
+```
+
 #### ITransition
 
 ```ts
 interface ITransition extends Omit<IBaseElement, 'children' | 'className'> {
     in?: boolean;
+    name?: string;
     className?: boolean;
     prefix?: string;
     run?: boolean;
@@ -31,12 +43,8 @@ interface ITransition extends Omit<IBaseElement, 'children' | 'className'> {
     noAbruption?: boolean;
     removeOnExited?: boolean;
     preEnterAppendTimeout?: number;
-    timeout?: TTransitionsDurationProperties | number | {
-        default?: number;
-        add?: number;
-        enter?: number;
-        exit?: number;
-    };
+    delay?: TTransitionsDurationProperties | number | ITransitionDelay;
+    duration?: TTransitionsDurationProperties | number | ITransitionDelay;
     onTransition?: (element: HTMLElement, status: TTransitionStatus) => void;
     onInit?: (element: HTMLElement) => void;
     onAppended?: (element: HTMLElement) => void;

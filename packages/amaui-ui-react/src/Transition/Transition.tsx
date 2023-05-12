@@ -59,6 +59,8 @@ export interface ITransition extends Omit<IBaseElement, 'children' | 'className'
 
   preEnterAppendTimeout?: number;
 
+  delay?: TTransitionsDurationProperties | number | ITransitionDelay;
+
   duration?: TTransitionsDurationProperties | number | ITransitionDelay;
 
   // An all in one method

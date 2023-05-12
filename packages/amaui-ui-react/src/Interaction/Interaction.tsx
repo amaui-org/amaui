@@ -164,6 +164,7 @@ export interface IInteraction extends IBaseElement {
   preselected?: boolean;
   selected?: boolean;
   dragged?: boolean;
+  pulseOnMouseDown?: boolean;
   wave_version?: 'simple';
   subscription?: AmauiSubscription;
   clear?: any;
@@ -205,6 +206,7 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
     wave: React.useRef<any>(),
     pulse: React.useRef<any>(),
     touch: React.useRef<any>(),
+    interactions: React.useRef<any>(),
     props: React.useRef<any>()
   };
 
@@ -217,6 +219,8 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
   refs.pulse.current = pulse;
 
   refs.touch.current = touch;
+
+  refs.interactions.current = interactions;
 
   React.useEffect(() => {
     const parent = refs.root.current.parentNode;
@@ -312,7 +316,11 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
   }, [clear]);
 
   React.useEffect(() => {
-    if (pulse) addWavePulse();
+    if (pulse) {
+      if (!refs.props.current.pulseOnMouseDown && has('mouse-down')) return;
+
+      addWavePulse();
+    }
     else removeWaves();
   }, [pulse]);
 
@@ -478,7 +486,7 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
     }
   }, []);
 
-  const has = React.useCallback((value: string) => interactions.indexOf(value) > -1, [interactions]);
+  const has = React.useCallback((value: string) => refs.interactions.current.includes(value), []);
 
   const remove = React.useCallback((value: string) => setInteractions(items => [...items].filter(item => item !== value)), []);
 
@@ -524,7 +532,7 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
         TransitionProps={{
           noAbruption: true,
 
-          timeout: {
+          duration: {
             enter: 'complex',
             exit: refs.mouse.current.press < 500 ? 350 : 500
           },
