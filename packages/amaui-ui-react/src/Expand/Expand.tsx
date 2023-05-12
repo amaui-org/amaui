@@ -36,12 +36,6 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiExpand?.props?.default, ...props_ }), [props_]);
 
-  const refs = {
-    root: React.useRef<HTMLElement>(),
-    element: React.useRef<HTMLDivElement>(),
-    value: React.useRef<number>(0)
-  };
-
   const {
     in: inProp,
     prefix,
@@ -85,6 +79,15 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
 
   const [init, setInit] = React.useState(false);
 
+  const refs = {
+    root: React.useRef<HTMLElement>(),
+    element: React.useRef<HTMLDivElement>(),
+    value: React.useRef<number>(0),
+    init: React.useRef(init)
+  };
+
+  refs.init.current = init;
+
   let prop = 'height';
 
   if (orientation === 'horizontal') prop = 'width';
@@ -98,15 +101,21 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
   const childrenWithTransition = isTransition(children?.type?.displayName);
 
   const getValue = React.useCallback((element = refs.element.current) => {
-    refs.value.current = (element?.getBoundingClientRect() || {})[prop] || 0;
+    if (element) {
+      refs.value.current = (element?.getBoundingClientRect() || {})[prop] || 0;
+
+      if (refs.value.current > 120) window.document.body.append(element.cloneNode(true));
+    }
   }, [prop]);
 
   const initiate = React.useCallback(async () => {
-    await wait(44);
+    if (!refs.init.current) {
+      await wait(44);
 
-    getValue();
+      getValue();
 
-    setInit(true);
+      setInit(true);
+    }
   }, [prop]);
 
   React.useEffect(() => {
@@ -181,8 +190,10 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
         visibility: 'hidden'
       }}
     >
-      // If it's a transition make it in true
-      // so it renders immediatelly to use the value
+      {/*
+        If it's a transition make it in true
+        so it renders immediatelly to use the value
+      */}
       {React.cloneElement(children, {
         ...(childrenWithTransition && { in: true })
       })}
