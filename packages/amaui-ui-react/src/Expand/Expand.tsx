@@ -26,8 +26,6 @@ const Wrapper = React.forwardRef((props: any, ref: any) => {
 export interface IExpand extends ITransition {
   expandSize?: number;
 
-  enterDelay?: number;
-
   orientation?: 'veritcal' | 'horizontal';
 
   WrapperProps?: TPropsAny;
@@ -50,7 +48,6 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
     run,
     append,
     add,
-    addValue = 0,
     enter,
     exit,
     enterOnAdd,
@@ -75,7 +72,6 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
     onRemoved,
 
     expandSize,
-    enterDelay,
     orientation,
     WrapperProps,
 
@@ -89,25 +85,33 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
 
   const [init, setInit] = React.useState(false);
 
-  const getValue = React.useCallback((element = refs.element.current) => {
-    refs.value.current = (element?.getBoundingClientRect() || {})[prop] || 0;
+  let prop = 'height';
+
+  if (orientation === 'horizontal') prop = 'width';
+
+  const isTransition = React.useCallback((item: any) => {
+    const values = ['Transition', 'Fade', 'Grow', 'Slide', 'Zoom'];
+
+    return values.some(value => item.includes(value));
   }, []);
 
+  const childrenWithTransition = isTransition(children?.type?.displayName);
+
+  const getValue = React.useCallback((element = refs.element.current) => {
+    refs.value.current = (element?.getBoundingClientRect() || {})[prop] || 0;
+  }, [prop]);
+
   const initiate = React.useCallback(async () => {
-    if (enterDelay > 0) await wait(enterDelay);
+    await wait(44);
 
     getValue();
 
     setInit(true);
-  }, [enterDelay]);
+  }, [prop]);
 
   React.useEffect(() => {
     initiate();
   }, []);
-
-  let prop = 'height';
-
-  if (orientation === 'horizontal') prop = 'width';
 
   const styles = (status: TTransitionStatus) => {
     const styles_ = (refs.root.current && window.getComputedStyle(refs.root?.current)) || {};
@@ -159,7 +163,13 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
 
   const timingFunction = (status: TTransitionStatus) => (is('simple', timing_function) ? timing_function : timing_function[status]) || theme.transitions.timing_function.standard;
 
-  const children_: any = React.useMemo(() => <Wrapper {...WrapperProps}>{children}</Wrapper>, [children]);
+  const children_: any = (
+    <Wrapper
+      {...WrapperProps}
+    >
+      {children}
+    </Wrapper>
+  );
 
   if (!init) return (
     <div
@@ -171,7 +181,11 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
         visibility: 'hidden'
       }}
     >
-      {children_}
+      // If it's a transition make it in true
+      // so it renders immediatelly to use the value
+      {React.cloneElement(children, {
+        ...(childrenWithTransition && { in: true })
+      })}
     </div>
   );
 

@@ -662,7 +662,7 @@ export default function Library(props: any) {
       if (isAPI) {
         return (
           <Accordion
-            // openDefault
+            openDefault
 
             primary={(
               <Type version='h3' id='api'>API</Type>

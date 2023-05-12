@@ -927,8 +927,6 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
       <Expand
         in={openList}
 
-        enterDelay={ListItemDelays.Transition.enter + 14}
-
         {...ExpandProps}
       >
         <ListTransitionComponent

@@ -444,8 +444,6 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
       <Expand
         in={open}
 
-        enterDelay={AccordionDelays.Transition.enter + 14}
-
         onTransition={(element: any, status: TTransitionStatus) => {
           refs.expandInProgress.current = !['appended', 'entered', 'exited', 'removed'].includes(status);
         }}
