@@ -47,19 +47,14 @@ const useStyle = style(theme => ({
     textAlign: 'center'
   },
 
-  headline: {
-    maxWidth: theme.breakpoints.values.md,
-    textAlign: 'center',
-    fontSize: 'clamp(2.1rem, 4vw, 4.4rem)',
-    color: theme.palette.color.primary.main
-  },
-
   headline_modern: {
     maxWidth: theme.breakpoints.values.md,
     textAlign: 'center',
     fontSize: 'clamp(2.1rem, 4vw, 4.4rem)',
     backgroundImage: `linear-gradient(130deg, ${theme.palette.color.primary.main} 0%, ${theme.palette.color.quaternary.main} 100%)`,
+    '-webkit-background-clip': 'text',
     backgroundClip: 'text',
+    '-webkit-text-fill-color': 'transparent',
     textFillColor: 'transparent'
   },
 
@@ -426,7 +421,7 @@ export default function Root(props: any) {
             version='d1'
 
             className={classNames([
-              classes[`headline${init ? '_modern' : ''}`]
+              classes.headline_modern
             ])}
           >
             Make Modern Web & Mobile Apps Quickly 100+ UI elements
