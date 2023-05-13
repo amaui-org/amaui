@@ -2,6 +2,16 @@
 
 ### API
 
+#### IMethodsPaletteImageOptions
+
+```ts
+ interface IMethodsPaletteImageOptions {
+    amount?: number;
+    size?: number;
+    allowCrossOrigin?: boolean;
+}
+```
+
 #### TTone
 
 ```ts
@@ -522,11 +532,7 @@ class AmauiTheme {
     z_index: IzIndex;
     methods: {
         palette: {
-            image: (image: string, options?: {
-                amount?: number;
-                size?: number;
-                allowCrossOrigin?: boolean;
-            }) => Promise<string[]>;
+            image: (image: string, options?: IMethodsPaletteImageOptions) => Promise<string[]>;
             color: {
                 value: (version: TPaletteVersion | 'default', tone: TTone, light?: boolean, palette?: IColor) => any;
                 text: (background: string, max?: boolean, prefer?: 'light' | 'dark', maxOpacity?: string) => any;
@@ -573,7 +579,7 @@ class AmauiTheme {
     [p: string]: any;
     constructor(value?: IAmauiTheme, options?: IOptions);
     init(value_?: IAmauiTheme | AmauiTheme): void;
-    image(value_: string, other?: any): Promise<void>;
+    image(value_: string, other?: any, options?: IMethodsPaletteImageOptions): Promise<void>;
     update(value: IAmauiTheme): void;
     static get amaui_theme(): AmauiTheme;
     static get make(): {

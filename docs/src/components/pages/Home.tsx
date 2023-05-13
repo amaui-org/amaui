@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-import { random } from '@amaui/utils';
+import { is, random } from '@amaui/utils';
 import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, CardMain, Checkbox, DatePicker, DonutChart, Fab, Fade, IconButton, Line, Link, ListItem, Masonry, Radio, Rating, Reveal, Slider, Surface, Switch, Tab, Tabs, TimePicker, Tooltip, Tree, Type, useMediaQuery, Weather } from '@amaui/ui-react';
 import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
@@ -19,7 +19,7 @@ import IconMaterialEastRounded from '@amaui/icons-material-react/IconMaterialEas
 
 import Logo from '../../../public/assets/svg/logo.svg';
 
-import { images, themeImageSub } from '../../utils';
+import { images, newImagesSub, themeImageSub } from '../../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -77,7 +77,7 @@ const useStyle = style(theme => ({
   about_wrapper: {
     width: '100%',
     padding: 'clamp(40px, 5vw, 104px) 44px',
-    backgroundImage: `linear-gradient(${theme.palette.light ? '130deg' : '330deg'}, ${theme.methods.palette.color.colorToRgb(theme.palette.color.primary.main, 0.14)} 0%, ${theme.methods.palette.color.colorToRgb(theme.palette.color.secondary.main, 0.14)} 40%, ${theme.methods.palette.color.colorToRgb(theme.palette.color.quaternary.main, 0.14)} 100%)`,
+    backgroundImage: `linear-gradient(${theme.palette.light ? '130deg' : '330deg'}, ${theme.methods.palette.color.colorToRgb(theme.palette.color.primary.main, 0.14)} 0%, ${theme.methods.palette.color.colorToRgb(theme.palette.color.secondary.main, 0.14)} 40%, ${theme.methods.palette.color.colorToRgb(theme.palette.color.quaternary.main, 0.14)} 100%)`
   },
 
   about_text: {
@@ -180,12 +180,13 @@ export default function Root(props: any) {
 
   const refs = {
     storage: new AmauiStorage({ namespace: 'amaui-docs' }),
-    imageSelected: React.useRef<string>()
+    imageSelected: React.useRef<string>(),
+    images: React.useRef<any[]>([])
   };
 
   const [init, setInit] = React.useState(false);
   const [inProp, setInProp] = React.useState(false);
-  const [imageSelected, setImageSelected] = React.useState<any>('primary');
+  const [imageSelected, setImageSelected] = React.useState<string>('primary');
   const [values, setValues] = React.useState<any>({
     tree_1: true,
     tree_11: true,
@@ -193,39 +194,58 @@ export default function Root(props: any) {
     tree_13: true
   });
   const [transitioned, setTransitioned] = React.useState<any>({});
+  const [newImages, setNewImages] = React.useState<any[]>(newImagesSub.value);
   const light = useMediaQuery('(prefers-color-scheme: light)');
 
   const smallScreen = useMediaQuery('(max-width: 1100px)');
 
   refs.imageSelected.current = imageSelected;
 
-  const updateImageSelected = (value: string) => {
+  refs.images.current = [
+    ...images,
+
+    ...newImages.map((item: any, index: number) => ({
+      id: item.id,
+      label: `Random image ${index + 1}`,
+      image: item.url,
+      alt: ''
+    }))
+  ];
+
+  const get = React.useCallback((value = refs.imageSelected.current) => refs.images.current.find(item => item.id === value), []);
+
+  const updateImageSelected = (id: string) => {
+    let value = id;
+
+    if (!get(value)) value = 'primary';
+
     setImageSelected(value);
 
     themeImageSub.emit(value);
   };
 
-  React.useEffect(() => {
+  const initiate = React.useCallback(async () => {
     const imageSelected_ = refs.storage.get('image-selected');
 
-    if (imageSelected_ !== null) {
-      updateImageSelected(imageSelected_);
-    }
-
-    const imageSub = themeImageSub.subscribe((value: string) => {
-      if (value !== refs.imageSelected.current) setImageSelected(value);
-    });
-
-    // setTimeout(() => {
-    //   setInProp(true);
-    // }, 700);
+    if (imageSelected_) updateImageSelected(imageSelected_);
 
     setInit(true);
 
     setInProp(true);
+  }, []);
+
+  React.useEffect(() => {
+    initiate();
+
+    const imageSubscription = themeImageSub.subscribe((value: string) => {
+      if (value !== refs.imageSelected.current) setImageSelected(value);
+    });
+
+    const newImagesSubscription = newImagesSub.subscribe((value: any[]) => setNewImages(value));
 
     return () => {
-      imageSub.unsubscribe();
+      imageSubscription.unsubscribe();
+      newImagesSubscription.unsubscribe();
     };
     // eslint-disable-next-line
   }, []);
@@ -282,6 +302,8 @@ export default function Root(props: any) {
   const update = async (version = 'light', value: any = true) => {
     let values_ = {};
 
+    let imageToUse;
+
     switch (version) {
       case 'light':
         theme.updateWithRerender({
@@ -337,32 +359,23 @@ export default function Root(props: any) {
               }
             };
 
-            break;
-
-          case 'image-green':
-            await theme.image('/assets/image/image-green.jpg');
-
-            break;
-
-          case 'image-orange':
-            await theme.image('/assets/image/image-orange.jpg');
-
-            break;
-
-          case 'image-pink':
-            await theme.image('/assets/image/image-pink.jpg');
+            imageToUse = { id: value };
 
             break;
 
           default:
+            imageToUse = refs.images.current!.find(item => item.id === value);
+
+            if (imageToUse) await theme.image(imageToUse?.image, {}, { allowCrossOrigin: true });
+
             break;
         }
 
         theme.updateWithRerender(values_);
 
-        updateImageSelected(value);
+        updateImageSelected(imageToUse?.id);
 
-        refs.storage.add('image-selected', value);
+        refs.storage.add('image-selected', imageToUse?.id);
 
         break;
 
@@ -371,7 +384,9 @@ export default function Root(props: any) {
     }
   };
 
-  const attribution = (version: string = imageSelected) => images.find(image => image.version === version)?.alt;
+  const attribution = (id: string = imageSelected) => images.find(image => image.id === id)?.alt;
+
+  const img = get();
 
   const placeholders = [39.5, 232, 49.5, 56, 480, 501, 747.5, 421.5, 228, 108, 276, 72, 88];
 
@@ -499,7 +514,7 @@ export default function Root(props: any) {
             />
           </Tooltip>
 
-          {images.map((item: any, index: number) => (
+          {refs.images.current.map((item: any, index: number) => (
             <Tooltip
               key={index}
 
@@ -514,11 +529,11 @@ export default function Root(props: any) {
                   alt: item.alt
                 })}
 
-                onClick={() => update('image', item.version)}
+                onClick={() => update('image', item.id)}
 
                 className={classNames([
                   classes.image_option,
-                  imageSelected === item.version && classes.image_option_selected
+                  img?.id === item.id && classes.image_option_selected
                 ])}
               />
             </Tooltip>
@@ -857,7 +872,7 @@ export default function Root(props: any) {
                   <CardImage
                     alt={attribution()}
 
-                    image={[undefined, 'primary'].includes(imageSelected) ? '/assets/image/image-yellow.jpg' : `/assets/image/${imageSelected}.jpg`}
+                    image={[undefined, 'primary'].includes(img?.id) ? '/assets/image/image-yellow.jpg' : img?.image}
 
                     shape='all'
 

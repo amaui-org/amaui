@@ -40,13 +40,15 @@ export const libraries = [
 ];
 
 export const images = [
-  { version: 'primary', color: colors.yellow[500], label: 'Default theme', image: '/assets/image/image-yellow.jpg', alt: 'Photo by Felix Mittermeier' },
-  { version: 'image-green', label: 'Green leaves image to theme', image: '/assets/image/image-green.jpg', alt: 'Photo by Chris Lee on Unsplash' },
-  { version: 'image-orange', label: 'Oranges image to theme', image: '/assets/image/image-orange.jpg', alt: 'Photo by Karolina Grabowska' },
-  { version: 'image-pink', label: 'Pink Shiba Inu image to theme', image: '/assets/image/image-pink.jpg', alt: 'Photo by Anna Shvets' }
+  { id: 'primary', color: colors.yellow[500], label: 'Default theme', image: '/assets/image/image-yellow.jpg', alt: 'Photo by Felix Mittermeier' },
+  { id: 'image-green', label: 'Green leaves image to theme', image: '/assets/image/image-green.jpg', alt: 'Photo by Chris Lee on Unsplash' },
+  { id: 'image-orange', label: 'Oranges image to theme', image: '/assets/image/image-orange.jpg', alt: 'Photo by Karolina Grabowska' },
+  { id: 'image-pink', label: 'Pink Shiba Inu image to theme', image: '/assets/image/image-pink.jpg', alt: 'Photo by Anna Shvets' }
 ];
 
 export const themeImageSub = new AmauiSubscrption('primary');
+
+export const newImagesSub = new AmauiSubscrption([]);
 
 export const importIframeStyles = (iframeDocument: Document) => {
   const styleSheets = window.document.styleSheets;
@@ -70,4 +72,18 @@ export const importIframeStyles = (iframeDocument: Document) => {
 
     iframeDocument.head.append(style);
   }
+};
+
+export const imageDownload = async (url: string) => {
+  return new Promise((resolve, reject) => {
+    const img = window.document.createElement('img');
+
+    img.crossOrigin = 'Anonymous';
+
+    img.onload = () => resolve(true);
+
+    img.onerror = () => resolve(false);
+
+    img.src = url;
+  });
 };

@@ -3,7 +3,7 @@ import LinkNext from 'next/link';
 
 import Head from 'next/head';
 
-import { isEnvironment } from '@amaui/utils';
+import { isEnvironment, random } from '@amaui/utils';
 
 import { Avatar, IconButton, Line, Link, List, ListItem, ListSubheader, MenuDesktop, NavigationDrawer, SpeedDial, SpeedDialItem, Surface, Switch, Tooltip, TopAppBar, Type, useMediaQuery, useScroll } from '@amaui/ui-react';
 import { classNames, colors, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
@@ -25,7 +25,7 @@ import sidenavJSON from '../assets/json/sidenav.json';
 import Home from '../components/pages/Home';
 import Library from '../components/pages/Library';
 
-import { images, libraries as all_libraries, themeImageSub } from '../utils';
+import { images, libraries as all_libraries, themeImageSub, newImagesSub, imageDownload } from '../utils';
 import { useRouter } from 'next/router';
 
 const useStyle = styleMethod(theme => ({
@@ -270,6 +270,8 @@ function Root(props: any) {
   const theme = useAmauiTheme();
   const router = useRouter();
 
+  const { classes } = useStyle(props);
+
   const smallerScreen = useMediaQuery('(max-width: 1100px)');
   const mediumScreen = useMediaQuery('(max-width: 1540px)');
   const mobile = useMediaQuery('(pointer: coarse)');
@@ -280,16 +282,69 @@ function Root(props: any) {
   const light = useMediaQuery('(prefers-color-scheme: light)');
 
   const [init, setInit] = React.useState(false);
-  const [imageSelected, setImageSelected] = React.useState('');
+  const [imageSelected, setImageSelected] = React.useState('primary');
+  const [newImages, setNewImages] = React.useState<any[]>(newImagesSub.value);
   const [open, setOpen] = React.useState(false);
 
   const refs = {
     storage: new AmauiStorage({ namespace: 'amaui-docs' }),
     imageSelected: React.useRef<any>(),
+    images: React.useRef<any[]>([]),
     sidenavMenu: React.useRef<any>(),
     previousURL: React.useRef<string>(),
     props: React.useRef<any>()
   };
+
+  refs.imageSelected.current = imageSelected;
+
+  refs.images.current = [
+    ...images,
+
+    ...newImages.map((item: any, index: number) => ({
+      id: item.id,
+      label: `Random image ${index + 1}`,
+      image: item.url,
+      alt: ''
+    }))
+  ];
+
+  const get = React.useCallback((value = refs.imageSelected.current) => refs.images.current.find(item => item.id === value), []);
+
+  const updateImageSelected = (id: string) => {
+    let value = id;
+
+    if (!get(value)) value = 'primary';
+
+    setImageSelected(value);
+
+    themeImageSub.emit(value);
+  };
+
+  const getNewImages = React.useCallback(async () => {
+    const values: number[] = [];
+    const value = Array(4).fill(true).map(item => {
+      let id = random(1, 1044);
+
+      while (values.includes(id)) id = random(1, 1044);
+
+      return {
+        id,
+        url: `https://picsum.photos/id/${id}/800/941`
+      };
+    });
+
+    const valueUsable = [];
+
+    for (const item of value) {
+      const resolved = await imageDownload(item.url);
+
+      if (resolved) valueUsable.push(item);
+    }
+
+    newImagesSub.emit(valueUsable);
+
+    setNewImages(valueUsable);
+  }, []);
 
   React.useEffect(() => {
     if (props.url !== undefined) refs.previousURL.current = props.url;
@@ -323,24 +378,20 @@ function Root(props: any) {
 
   const [openList, setOpenList] = React.useState(resolveOpenList);
 
-  const { classes } = useStyle(props);
+  const initiate = React.useCallback(async () => {
+    if (!newImagesSub.value?.length) await getNewImages();
 
-  refs.imageSelected.current = imageSelected;
+    const imageSelected_ = refs.storage.get('image-selected');
 
-  const updateImageSelected = (value: string) => {
-    setImageSelected(value);
+    if (imageSelected_) updateImageSelected(imageSelected_);
 
-    themeImageSub.emit(value);
-  };
+    setInit(true);
+  }, []);
 
   React.useEffect(() => {
     if (window.matchMedia?.('(prefers-color-scheme: dark)')?.matches && !theme.inited) update('light', false);
 
-    const imageSelected_ = refs.storage.get('image-selected');
-
-    if (imageSelected_ !== null) {
-      update('image', imageSelected_);
-    }
+    initiate();
 
     const direction = refs.storage.get('direction');
 
@@ -362,8 +413,6 @@ function Root(props: any) {
         .catch(error => console.log('Service worker registration failed: ', error));
     }
 
-    setInit(true);
-
     return () => {
       imageSub.unsubscribe();
     };
@@ -384,6 +433,8 @@ function Root(props: any) {
 
   const update = async (version = 'light', value: any = true) => {
     let values_ = {};
+
+    let imageToUse;
 
     switch (version) {
       case 'light':
@@ -440,32 +491,23 @@ function Root(props: any) {
               }
             };
 
-            break;
-
-          case 'image-green':
-            await theme.image('/assets/image/image-green.jpg');
-
-            break;
-
-          case 'image-orange':
-            await theme.image('/assets/image/image-orange.jpg');
-
-            break;
-
-          case 'image-pink':
-            await theme.image('/assets/image/image-pink.jpg');
+            imageToUse = { id: value };
 
             break;
 
           default:
+            imageToUse = refs.images.current!.find(item => item.id === value);
+
+            if (imageToUse) await theme.image(imageToUse?.image, {}, { allowCrossOrigin: true });
+
             break;
         }
 
         theme.updateWithRerender(values_);
 
-        updateImageSelected(value);
+        updateImageSelected(imageToUse?.id);
 
-        refs.storage.add('image-selected', value);
+        refs.storage.add('image-selected', imageToUse?.id);
 
         break;
 
@@ -565,6 +607,8 @@ function Root(props: any) {
       );
     });
   }, [openList, toggleList, NavigationDrawerProps]);
+
+  const img = get();
 
   return <>
     <Head>
@@ -996,7 +1040,7 @@ function Root(props: any) {
 
         Icon={IconMaterialTempPreferencesCustomRounded}
       >
-        {[...images].reverse().map((item: any, index: number) => (
+        {[...refs.images.current].reverse().map((item: any, index: number) => (
           <SpeedDialItem
             key={index}
 
@@ -1027,12 +1071,12 @@ function Root(props: any) {
 
                   onFocus={onFocus}
 
-                  onClick={() => update('image', item.version)}
+                  onClick={() => update('image', item.id)}
 
                   className={classNames([
                     otherItem?.className,
                     classes.image_option,
-                    refs.imageSelected.current === item.version && classes.image_option_selected
+                    (img?.id === item.id) && classes.image_option_selected
                   ])}
                 />
               </Tooltip>
