@@ -379,13 +379,13 @@ function Root(props: any) {
   const [openList, setOpenList] = React.useState(resolveOpenList);
 
   const initiate = React.useCallback(async () => {
-    if (!newImagesSub.value?.length) await getNewImages();
-
     const imageSelected_ = refs.storage.get('image-selected');
 
     if (imageSelected_) updateImageSelected(imageSelected_);
 
     setInit(true);
+
+    if (!newImagesSub.value?.length) await getNewImages();
   }, []);
 
   React.useEffect(() => {
