@@ -1065,7 +1065,7 @@ export default function Root(props: any) {
             wrap='wrap'
           >
             <Line
-              gap={5}
+              gap='24px 40px'
 
               direction='row'
 
