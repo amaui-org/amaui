@@ -74,6 +74,10 @@ const useStyle = styleMethod(theme => ({
       }
     },
 
+    '& .amaui-ListItem-end-button': {
+      pointerEvents: 'none'
+    },
+
     '& .amaui-List-root': {
       gap: 4
     }
@@ -123,10 +127,10 @@ const useStyle = styleMethod(theme => ({
   },
 
   header_withNavigationDrawer: {
-    left: `calc(50% ${theme.direction === 'ltr' ? '+' : '-'} 170px)`,
+    left: `calc(50% ${theme.direction === 'ltr' ? '+' : '-'} 137px)`,
 
     '&.amaui-TopAppBar-root': {
-      width: `calc(100% - 380px)`,
+      width: `calc(100% - 354px)`,
     }
   },
 
