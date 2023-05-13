@@ -33,6 +33,7 @@ const useStyle = styleMethod(theme => ({
   root: {
     ...other,
     overflow: 'hidden',
+    // Bug fix for overflow in mobile Safari
     zIndex: '0'
   },
 
