@@ -429,10 +429,6 @@ function Root(props: any) {
   }, [light]);
 
   React.useEffect(() => {
-    update('image', imageSelected);
-  }, [imageSelected]);
-
-  React.useEffect(() => {
     setOpenList(resolveOpenList());
   }, [props.url]);
 

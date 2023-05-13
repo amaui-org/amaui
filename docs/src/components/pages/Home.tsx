@@ -254,10 +254,6 @@ export default function Root(props: any) {
     if (init) update('light', light);
   }, [light]);
 
-  React.useEffect(() => {
-    update('image', imageSelected);
-  }, [imageSelected]);
-
   const valueArea = React.useMemo(() => Array.from({ length: 7 }).map(() => [random(-40, 400), random(-40, 400)]), []);
 
   // const valueArea = React.useMemo(() => [[0, 20], [40, 140], [60, 50], [104, 104], [140, 15], [170, 70], [240, 40]], []);
