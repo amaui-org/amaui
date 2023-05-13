@@ -33,6 +33,7 @@ const useStyle = styleMethod(theme => ({
   root: {
     ...other,
     overflow: 'hidden',
+    zIndex: '0'
   },
 
   background: {
