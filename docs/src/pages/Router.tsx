@@ -626,18 +626,20 @@ function Root(props: any) {
         <link rel='apple-touch-icon' sizes='180x180' href='/assets/favicon/light/apple-touch-icon.png' />
         <link rel='icon' type='image/png' sizes='32x32' href='/assets/favicon/light/favicon-32x32.png' />
         <link rel='icon' type='image/png' sizes='16x16' href='/assets/favicon/light/favicon-16x16.png' />
-        <link rel='mask-icon' href='/assets/favicon/light/safari-pinned-tab.svg' color='#fafa00' />
         <meta name='msapplication-TileColor' content='#ffffff' />
-        <meta name='theme-color' content='#fafa00' />
+        <link rel='mask-icon' href='/assets/favicon/light/safari-pinned-tab.svg' color={theme.palette.color.primary[80]} />
+        <meta name='apple-mobile-web-app-status-bar-style' content={theme.palette.color.primary[80]} />
+        <meta name='theme-color' content={theme.palette.color.primary[80]} />
       </> :
         <>
           <link rel='manifest' href='/assets/favicon/dark/site.webmanifest' />
           <link rel='apple-touch-icon' sizes='180x180' href='/assets/favicon/dark/apple-touch-icon.png' />
           <link rel='icon' type='image/png' sizes='32x32' href='/assets/favicon/dark/favicon-32x32.png' />
           <link rel='icon' type='image/png' sizes='16x16' href='/assets/favicon/dark/favicon-16x16.png' />
-          <link rel='mask-icon' href='/assets/favicon/dark/safari-pinned-tab.svg' color='#4d4c00' />
           <meta name='msapplication-TileColor' content='#ffffff' />
-          <meta name='theme-color' content='#4d4c00' />
+          <link rel='mask-icon' href='/assets/favicon/light/safari-pinned-tab.svg' color={theme.palette.color.primary[20]} />
+          <meta name='apple-mobile-web-app-status-bar-style' content={theme.palette.color.primary[20]} />
+          <meta name='theme-color' content={theme.palette.color.primary[20]} />
         </>}
     </Head>
 
