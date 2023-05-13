@@ -95,7 +95,7 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
   const isTransition = React.useCallback((item: any) => {
     const values = ['Transition', 'Fade', 'Grow', 'Slide', 'Zoom'];
 
-    return values.some(value => item.includes(value));
+    return values.some(value => item?.includes(value));
   }, []);
 
   const childrenWithTransition = isTransition(children?.type?.displayName);
