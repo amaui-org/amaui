@@ -163,7 +163,9 @@ const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
     };
 
     // Initial
-    method();
+    setTimeout(() => {
+      method();
+    }, 14);
 
     if (refs.root.current) {
       window.addEventListener('scroll', method);
