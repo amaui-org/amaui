@@ -286,7 +286,6 @@ function Root(props: any) {
   const light = useMediaQuery('(prefers-color-scheme: light)');
 
   const [init, setInit] = React.useState(false);
-  const [imageSelected, setImageSelected] = React.useState('primary');
   const [newImages, setNewImages] = React.useState<any[]>(newImagesSub.value);
   const [open, setOpen] = React.useState(false);
 
@@ -298,6 +297,8 @@ function Root(props: any) {
     previousURL: React.useRef<string>(),
     props: React.useRef<any>()
   };
+
+  const [imageSelected, setImageSelected] = React.useState('primary');
 
   refs.imageSelected.current = imageSelected;
 
@@ -385,7 +386,7 @@ function Root(props: any) {
   const initiate = React.useCallback(async () => {
     const imageSelected_ = refs.storage.get('image-selected');
 
-    if (imageSelected_) updateImageSelected(imageSelected_);
+    update('image', imageSelected_);
 
     setInit(true);
 
@@ -424,10 +425,12 @@ function Root(props: any) {
   }, []);
 
   React.useEffect(() => {
-    if (init) {
-      update('light', light);
-    }
+    if (init) update('light', light);
   }, [light]);
+
+  React.useEffect(() => {
+    update('image', imageSelected);
+  }, [imageSelected]);
 
   React.useEffect(() => {
     setOpenList(resolveOpenList());

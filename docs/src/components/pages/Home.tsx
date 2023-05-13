@@ -227,7 +227,7 @@ export default function Root(props: any) {
   const initiate = React.useCallback(async () => {
     const imageSelected_ = refs.storage.get('image-selected');
 
-    if (imageSelected_) updateImageSelected(imageSelected_);
+    update('image', imageSelected_);
 
     setInit(true);
 
@@ -251,10 +251,12 @@ export default function Root(props: any) {
   }, []);
 
   React.useEffect(() => {
-    if (init) {
-      update('light', light);
-    }
+    if (init) update('light', light);
   }, [light]);
+
+  React.useEffect(() => {
+    update('image', imageSelected);
+  }, [imageSelected]);
 
   const valueArea = React.useMemo(() => Array.from({ length: 7 }).map(() => [random(-40, 400), random(-40, 400)]), []);
 
