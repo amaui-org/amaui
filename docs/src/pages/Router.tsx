@@ -173,7 +173,7 @@ const useStyle = styleMethod(theme => ({
 
   footer: {
     width: '100%',
-    padding: '64px 24px 24px',
+    padding: '60px 24px 24px',
     flex: '0 0 auto'
   },
 

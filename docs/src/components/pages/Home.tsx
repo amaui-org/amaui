@@ -77,7 +77,7 @@ const useStyle = style(theme => ({
   about_wrapper: {
     width: '100%',
     padding: 'clamp(40px, 5vw, 104px) 44px',
-    backgroundImage: `linear-gradient(${theme.palette.light ? '130deg' : '330deg'}, ${theme.methods.palette.color.value('primary', theme.palette.light ? 99 : 95, true)} 0%, ${theme.palette.color.quaternary.main} 100%)`,
+    backgroundImage: `linear-gradient(${theme.palette.light ? '130deg' : '330deg'}, ${theme.methods.palette.color.colorToRgb(theme.palette.color.primary.main, 0.14)} 0%, ${theme.methods.palette.color.colorToRgb(theme.palette.color.secondary.main, 0.14)} 40%, ${theme.methods.palette.color.colorToRgb(theme.palette.color.quaternary.main, 0.14)} 100%)`,
   },
 
   about_text: {
