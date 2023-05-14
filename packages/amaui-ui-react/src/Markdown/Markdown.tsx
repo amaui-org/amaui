@@ -8,6 +8,8 @@ import { IBaseElement, sanitize, staticClassName } from '../utils';
 const useStyle = styleMethod(theme => ({
   root: {
     width: '100%',
+    lineHeight: '1.5',
+    color: theme.palette.text.default.primary,
 
     '& dt': {
       marginTop: '16px',

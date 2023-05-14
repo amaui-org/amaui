@@ -265,7 +265,8 @@ const useStyle = styleMethod(theme => ({
   sidenav_headings: {
     maxHeight: '74vh',
     overflowY: 'auto',
-    marginInlineStart: -16
+    marginInlineStart: -16,
+    padding: '0 8px'
   },
 
   sidenav_heading: {
@@ -616,11 +617,7 @@ export default function Library(props: any) {
     setMarkdownAdded(true);
   }, []);
 
-  let values = value?.trim().match(/(?!^|}~)[^~]+((?!~{)|$)/ig) || [];
-
-  if (values[0]?.startsWith('#')) values[0] = `#${values[0]}`;
-
-  if (values[values.length - 1]?.endsWith('\n``')) values[values.length - 1] = values[values.length - 1] + '`';
+  let values = value?.trim().match(/(?!}~)[^~]+((?!~{))/ig) || [];
 
   if (values.length > 0 && values.length <= 2) {
     const md = (values[0].split(/### API[^~]+(?!$|~])/))[0]?.trim();
@@ -662,7 +659,7 @@ export default function Library(props: any) {
       if (isAPI) {
         return (
           <Accordion
-            openDefault
+            // openDefault
 
             primary={(
               <Type version='h3' id='api'>API</Type>
@@ -776,6 +773,8 @@ export default function Library(props: any) {
   }, []);
 
   if (!init) return null;
+
+  const order = Array.from(new Set(headings.map((item: any) => item.priority)));
 
   return <>
     <Head>
@@ -989,31 +988,35 @@ export default function Library(props: any) {
                   classes.sidenav_headings
                 ])}
               >
-                {headings.map((heading: any, index: number) => (
-                  <Type
-                    key={index}
+                {headings.map((heading: any, index: number) => {
+                  const orderIndex = order.findIndex(item => item === heading.priority);
 
-                    version='b2'
+                  return (
+                    <Type
+                      key={index}
 
-                    onClick={() => onClickSidenavHeading(heading)}
+                      version='b2'
 
-                    data-amaui-spy-scroll={heading.id}
+                      onClick={() => onClickSidenavHeading(heading)}
 
-                    Component='button'
+                      data-amaui-spy-scroll={heading.id}
 
-                    className={classNames([
-                      classes.sidenav_heading
-                    ])}
+                      Component='button'
 
-                    style={{
-                      marginLeft: (heading.priority - maxPriority + 1) * 8
-                    }}
-                  >
-                    {heading.text}
+                      className={classNames([
+                        classes.sidenav_heading
+                      ])}
 
-                    <Interaction />
-                  </Type>
-                ))}
+                      style={{
+                        marginLeft: orderIndex * 8
+                      }}
+                    >
+                      {heading.text}
+
+                      <Interaction />
+                    </Type>
+                  );
+                })}
               </Line>
             </Line>
           )}
