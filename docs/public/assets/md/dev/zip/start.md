@@ -1,4 +1,8 @@
 
+# amaui zip
+
+Library for zipping & unzipping any data.
+
 ### Add
 
 ```sh
