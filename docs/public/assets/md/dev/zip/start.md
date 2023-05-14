@@ -1,7 +1,7 @@
 
 # amaui zip
 
-Library for zipping & unzipping any data.
+Library for compressing, uncompressing any data in front end & back end.
 
 ### Add
 
@@ -15,7 +15,7 @@ More redundant and bigger in size input is, better compression will be.
 
 For small and low redundant input, you will most likely get negative compression (zipped value is larger in size, than the original input), which you can check in `response.positive` value.
 
-```javascript
+```ts
 import AmauiZip from '@amaui/zip';
 
 // Make a new zip instance

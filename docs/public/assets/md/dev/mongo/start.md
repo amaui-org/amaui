@@ -7,7 +7,7 @@ yarn add @amaui/mongo
 
 ### Use
 
-```javascript
+```ts
 import { Mongo, BaseCollection } from '@amaui/mongo';
 import { Query } from '@amaui/models';
 // Make if you wanna a config file and

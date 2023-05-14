@@ -7,7 +7,7 @@ yarn add @amaui/style
 
 ### Use
 
-```javascript
+```ts
 import { style } from '@amaui/style';
 
 const styles = style(theme => ({

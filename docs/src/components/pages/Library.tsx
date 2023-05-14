@@ -659,7 +659,7 @@ export default function Library(props: any) {
       if (isAPI) {
         return (
           <Accordion
-            // openDefault
+            openDefault={!!window.location.hash}
 
             primary={(
               <Type version='h3' id='api'>API</Type>

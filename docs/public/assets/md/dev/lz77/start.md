@@ -7,7 +7,7 @@ yarn add @amaui/lz77
 
 ### Use
 
-```javascript
+```ts
 import AmauiLz77 from '@amaui/lz77';
 
 // Make a new lz77 instance with a value

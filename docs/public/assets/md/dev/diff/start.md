@@ -7,7 +7,7 @@ yarn add @amaui/diff
 
 ### Use
 
-```javascript
+```ts
 import AmauiDiff from '@amaui/diff';
 
 // Make a new AmauiDiff instance

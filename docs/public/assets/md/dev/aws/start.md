@@ -7,7 +7,7 @@ yarn add @amaui/aws
 
 ### Use
 
-```javascript
+```ts
 import AmauiAws from '@amaui/aws';
 // Make if you wanna a config file and
 // inside of it add all the process.env aws related props

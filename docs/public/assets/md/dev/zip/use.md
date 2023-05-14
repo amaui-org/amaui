@@ -1,5 +1,7 @@
 
-### Zip
+# AmauiZip
+
+### Zipping
 
 More or less any value can be zipped, as if it's not `uint8array`, `buffer` or `string` it will be serialized, so a javascript object will get zipped as a serialized JSON, and on unzip it will be parsed back into an object. Very useful yes. :)
 
@@ -21,7 +23,7 @@ new AmauiZip(14);
 new AmauiZip({ a: 14 });
 ```
 
-### Unzip
+### Unzipping
 
 ```ts
 const zipped = new AmauiZip('Value to zip');

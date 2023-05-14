@@ -22,7 +22,7 @@ yarn add @amaui/algorithms
 
 ### Use
 
-```javascript
+```ts
 import { bubbleSort } from '@amaui/algorithms';
 
 const value = [1, 14, 7, 4];

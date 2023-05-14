@@ -15,7 +15,7 @@ yarn add @amaui/queue
 
 ### Use
 
-```javascript
+```ts
 import AmauiQueue from '@amaui/queue';
 
 // Make a new queue instance

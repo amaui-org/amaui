@@ -13,7 +13,7 @@ yarn add @amaui/graph
 
 ### Use
 
-```javascript
+```ts
 import AmauiGraph from '@amaui/graph';
 
 // Make a new graph instance

@@ -7,7 +7,7 @@ yarn add @amaui/meta
 
 ### Use
 
-```javascript
+```ts
 import AmauiMeta from '@amaui/meta';
 
 const object = {};

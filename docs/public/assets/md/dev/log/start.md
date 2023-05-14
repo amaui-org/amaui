@@ -7,7 +7,7 @@ yarn add @amaui/log
 
 ### Use
 
-```javascript
+```ts
 import AmauiLog from '@amaui/log';
 
 // Make a new log instance

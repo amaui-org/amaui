@@ -9,7 +9,7 @@ yarn add @amaui/ui-react @amaui/style-react
 
 ### Use
 
-```jsx
+```tsx
 // Import any of the ui
 import { Button } from '@amaui/ui-react';
 

@@ -14,7 +14,7 @@ yarn add @amaui/stack
 
 ### Use
 
-```javascript
+```ts
 import AmauiStack from '@amaui/stack';
 
 // Make a new stack instance

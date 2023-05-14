@@ -7,7 +7,7 @@ yarn add @amaui/cache
 
 ### Use
 
-```javascript
+```ts
 import AmauiCache from '@amaui/cache';
 
 const args = [4, { a: 4, ab: 4 }];

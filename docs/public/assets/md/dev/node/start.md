@@ -7,7 +7,7 @@ yarn add @amaui/node
 
 ### Use
 
-```javascript
+```ts
 import path from 'path';
 
 import AmauiNode from '@amaui/node';

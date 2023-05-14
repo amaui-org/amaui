@@ -7,7 +7,7 @@ yarn add @amaui/date
 
 ### Use
 
-```javascript
+```ts
 import { AmauiDate, format } from '@amaui/date';
 
 // Make a new AmauiDate instance

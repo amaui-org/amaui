@@ -7,7 +7,7 @@ yarn add @amaui/subscription
 
 ### Use
 
-```javascript
+```ts
 import AmauiSubscription from '@amaui/subscription';
 
 // Make a new subscription instance

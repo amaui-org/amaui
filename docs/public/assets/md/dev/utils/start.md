@@ -1,4 +1,8 @@
 
+# amaui utils
+
+Library with various util methods for front end & back end.
+
 ### Add
 
 ```sh
@@ -7,7 +11,7 @@ yarn add @amaui/utils
 
 ### Use
 
-```javascript
+```ts
 // Import any of the methods
 import { encode, equalDeep } from '@amaui/utils';
 
@@ -54,8 +58,8 @@ yarn build
       "to": "/dev/test/start"
     },
     "next": {
-      "label": "Utils: Use",
-      "to": "/dev/utils/use"
+      "label": "Utils: allImagesLoaded",
+      "to": "/dev/utils/use/allImagesLoaded"
     }
   }
 }~

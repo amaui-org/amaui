@@ -7,7 +7,7 @@ yarn add @amaui/request
 
 ### Use
 
-```javascript
+```ts
 import AmauiRequest from '@amaui/request';
 
 // Make a new AmauiRequest instance

@@ -14,7 +14,7 @@ yarn add @amaui/hash-table
 
 ### Use
 
-```javascript
+```ts
 import AmauiHashTable from '@amaui/hash-table';
 
 // Make a new hash table instance

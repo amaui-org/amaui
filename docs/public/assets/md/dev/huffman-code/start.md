@@ -7,7 +7,7 @@ yarn add @amaui/huffman-code
 
 ### Use
 
-```javascript
+```ts
 import AmauiHuffmanCode from '@amaui/huffman-code';
 
 // Make a new AmauiHuffmanCode instance

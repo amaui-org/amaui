@@ -12,7 +12,7 @@ yarn add @amaui/heap
 
 ### Use
 
-```javascript
+```ts
 import { AmauiHeap } from '@amaui/heap';
 
 // Make a new heap instance

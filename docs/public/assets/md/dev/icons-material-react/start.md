@@ -7,7 +7,7 @@ yarn add @amaui/icons-material-react
 
 ### Use
 
-```jsx
+```tsx
 // Import any of the ui and icons
 import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/IconMaterialPottedPlantRounded';
 

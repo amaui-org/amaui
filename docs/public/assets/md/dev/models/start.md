@@ -7,7 +7,7 @@ yarn add @amaui/models
 
 ### Use
 
-```javascript
+```ts
 import express from 'express';
 
 import { Query, Response } from '@amaui/models';

@@ -7,7 +7,7 @@ yarn add @amaui/api
 
 ### Use
 
-```javascript
+```ts
 import express from 'express';
 
 import { Route, Method, IRouteClassInstance, Routes } from '@amaui/api';

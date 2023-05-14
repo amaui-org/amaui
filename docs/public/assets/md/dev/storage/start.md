@@ -7,7 +7,7 @@ yarn add @amaui/storage
 
 ### Use
 
-```javascript
+```ts
 import AmauiStorage from '@amaui/storage';
 
 const amauiStorage = new AmauiStorage();

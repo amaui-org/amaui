@@ -7,7 +7,7 @@ yarn add @amaui/style-react
 
 ### Use
 
-```jsx
+```tsx
 // Import any of the methods
 import { style } from '@amaui/style-react';
 

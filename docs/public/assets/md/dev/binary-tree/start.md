@@ -13,7 +13,7 @@ yarn add @amaui/binary-tree
 
 ### Use
 
-```javascript
+```ts
 import { AmauiBinaryTree } from '@amaui/binary-tree';
 
 // Make a new binary tree instance

@@ -7,7 +7,7 @@ yarn add @amaui/cookie
 
 ### Use
 
-```javascript
+```ts
 import AmauiCookie from '@amaui/cookie';
 
 const amauiCookie = new AmauiCookie();

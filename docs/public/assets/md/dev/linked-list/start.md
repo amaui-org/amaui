@@ -13,7 +13,7 @@ yarn add @amaui/linked-list
 
 ### Use
 
-```javascript
+```ts
 import AmauiLinkedList from '@amaui/linked-list';
 
 // Make a new linked list instance

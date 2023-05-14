@@ -7,7 +7,7 @@ yarn add @amaui/errors
 
 ### Use
 
-```javascript
+```ts
 import { AmauiError } from '@amaui/errors';
 import AmauiLog from '@amaui/log';
 

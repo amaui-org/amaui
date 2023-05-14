@@ -15,7 +15,7 @@ In nodejs on amaui-test run errors amaui-test exits the process, so it's all goo
 
 *amaui-test.options.js*
 
-```javascript
+```ts
 module.exports = {
   imports: [
     'ts-node/register/transpile-only'
@@ -29,7 +29,7 @@ or \
 
 *package.json*
 
-```javascript
+```ts
 {
   ...
 
@@ -57,7 +57,7 @@ yarn test
 
 Make an AmauiTest instance, which will prepare the environment, write all the tests below it, and run the tests with `amauiTest.run()` method, which on errors throws an error, so if the tests passing is flow dependent, running tests will obviously stop the method having thrown an error on tests not having passed.
 
-```javascript
+```ts
 import { AmauiTest, assert } from '@amaui/test';
 import { wait } from '@amaui/utils';
 
