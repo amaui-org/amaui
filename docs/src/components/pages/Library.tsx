@@ -620,8 +620,8 @@ export default function Library(props: any) {
   let values = value?.trim().match(/(?!}~)[^~]+((?!~{))/ig) || [];
 
   if (values.length > 0 && values.length <= 2) {
-    const md = (values[0].split(/### API[^~]+(?!$|~])/))[0]?.trim();
-    let api = (values[0].match(/### API[^~]+(?!$|~])/) || [])[0]?.trim();
+    const md = (values[0].split(/## API[^~]+(?!$|~])/))[0]?.trim();
+    let api = (values[0].match(/## API[^~]+(?!$|~])/) || [])[0]?.trim();
 
     if (api?.endsWith('\n``')) api = api + '`';
 
@@ -636,7 +636,7 @@ export default function Library(props: any) {
 
       const isAPI = valueMarkdown.trim().toLowerCase().includes('# api');
 
-      if (isAPI) valueMarkdown = valueMarkdown.replace(`### API\n\n`, '');
+      if (isAPI) valueMarkdown = valueMarkdown.replace(`## API\n\n`, '');
 
       const markdown = (
         <Markdown

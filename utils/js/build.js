@@ -307,8 +307,8 @@ async function docsUpdateTypes(pathTypes, pathUse, isModules, options = {}) {
   if (values[values.length - 1]?.endsWith('\n``')) values[values.length - 1] = values[values.length - 1] + '`';
 
   if (values.length > 0 && values.length <= 2) {
-    const md = (values[0].split(/### API[^~]+(?!$|~])/))[0]?.trim();
-    const api = (values[0].match(/### API[^~]+(?!$|~])/) || [])[0]?.trim();
+    const md = (values[0].split(/## API[^~]+(?!$|~])/))[0]?.trim();
+    const api = (values[0].match(/## API[^~]+(?!$|~])/) || [])[0]?.trim();
 
     values.splice(0, 1, md, api);
 
@@ -336,7 +336,7 @@ async function docsUpdateTypes(pathTypes, pathUse, isModules, options = {}) {
       );
     });
 
-  let valueNew = `\n\n### API\n\n`;
+  let valueNew = `\n\n## API\n\n`;
 
   parts.forEach(item => {
     const partName = (item.replace('default ', '').match(/(?!default|type|interface|const|function|class) [^ \(\)\{\}\<\:]+/i) || [])[0]?.trim();

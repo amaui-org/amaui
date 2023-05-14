@@ -13,7 +13,7 @@ response;
 // true or false
 ```
 
-### API
+## API
 
 #### allImagesLoaded
 
