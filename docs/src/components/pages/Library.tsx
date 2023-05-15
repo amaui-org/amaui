@@ -776,6 +776,8 @@ export default function Library(props: any) {
 
   const order = Array.from(new Set(headings.map((item: any) => item.priority)));
 
+  order.sort();
+
   return <>
     <Head>
       <title>{title}</title>
