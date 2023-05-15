@@ -31,6 +31,10 @@ const useStyle = styleMethod(theme => ({
 
     '& .amaui_other': {
       color: 'hsl(57deg 54% 54%)'
+    },
+
+    '& .amaui-Markdown-root, & .amaui-Accordion-root': {
+      color: 'inherit'
     }
   },
 
