@@ -662,7 +662,7 @@ export default function Library(props: any) {
             openDefault={!!window.location.hash}
 
             primary={(
-              <Type version='h3' id='api'>API</Type>
+              <Type version='h2' id='api'>API</Type>
             )}
 
             className={classes.accordion}

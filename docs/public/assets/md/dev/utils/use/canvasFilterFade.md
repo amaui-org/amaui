@@ -1,4 +1,16 @@
 
+# canvasFilterFade
+
+Fades canvas pixels based on the value, and returns the same canvas element.
+
+Value is from 0 to 100.
+
+```ts
+const canvas = ...;
+
+canvasFilterFade(14, canvas);
+```
+
 
 ## API
 

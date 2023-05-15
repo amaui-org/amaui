@@ -1,4 +1,16 @@
 
+# canvasFilterInvert
+
+Inverts canvas pixels, and returns the same canvas element.
+
+Value is kept for canvasFilter methods consistency, but isn't used at the moment in this one.
+
+```ts
+const canvas = ...;
+
+canvasFilterInvert(undefined, canvas);
+```
+
 
 ## API
 

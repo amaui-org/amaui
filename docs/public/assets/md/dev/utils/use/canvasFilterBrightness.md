@@ -1,4 +1,15 @@
 
+# canvasFilterBrightness
+
+Brightens canvas pixels based on the value, and returns the same canvas element.
+
+Value is from -100 to 100.
+
+```ts
+const canvas = ...;
+
+canvasFilterBrightness(14, canvas);
+```
 
 ## API
 

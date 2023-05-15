@@ -3,7 +3,7 @@
 
 Update opacity of any color version `rgb`, `rgba`, `hsl`, `hsla`, `hex`, `hexa`.
 
-Opacity value is between 0 & 1.
+Opacity value is from 0 to 1.
 
 ```ts
 alpha('#ff8c99', 0.4);
