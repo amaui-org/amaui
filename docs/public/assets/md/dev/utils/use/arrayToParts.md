@@ -17,6 +17,8 @@ arrayToParts([1, 2, 3, 4, 5, 6, 7], 3);
 #### arrayToParts
 
 ```ts
+// defaults
+// parts: 10
 const arrayToParts: (value: any[], parts?: number) => any[];
 ```
 

@@ -25,6 +25,9 @@ catch (error) {
 #### asyncMethodRetry
 
 ```ts
+// defaults
+// retries: 4
+// timeout: 40
 const asyncMethodRetry: (method: () => Promise<any>, retries?: number, timeout?: number) => Promise<any>;
 ```
 

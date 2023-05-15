@@ -1,4 +1,21 @@
 
+# castParam
+
+Converts value as a string, into its original value type.
+
+```ts
+castParam('a');
+castParam('14');
+castParam('true');
+castParam('null');
+castParam('undefined');
+
+// a
+// 14
+// true
+// null
+// undefined
+```
 
 ## API
 
@@ -14,6 +31,8 @@ interface IOptions {
 #### castParam
 
 ```ts
+// defaults
+// options: {}
 const castParam: (value: any, options_?: IOptions) => any;
 ```
 

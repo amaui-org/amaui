@@ -1,4 +1,13 @@
 
+# capitalize
+
+Capitalizes a string value.
+
+```ts
+capitalize('value aA a');
+
+// Value aA a
+```
 
 ## API
 
