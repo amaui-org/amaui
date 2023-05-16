@@ -1,4 +1,29 @@
 
+# countries
+
+Array of most countries, with many important meta information about them.
+
+Useful for country select UI elements, and other use cases.
+
+```ts
+const Serbia = countries.find(item => item.name === 'Serbia');
+
+Serbia;
+
+// {
+//   "flag": "🇷🇸",
+//   "name": "Serbia",
+//   "full_name": "The Republic of Serbia",
+//   "sovereignty": "UN member state",
+//   "alpha-2": "RS",
+//   "alpha-3": "SRB",
+//   "numeric": "688",
+//   "subdivision": "ISO 3166-2:RS",
+//   "tlds": [
+//     "rs"
+//   ]
+// }
+```
 
 ## API
 
