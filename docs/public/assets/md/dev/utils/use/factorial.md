@@ -1,4 +1,13 @@
 
+# factorial
+
+Factorial of the value.
+
+```ts
+factorial(4);
+
+// 24
+```
 
 ## API
 

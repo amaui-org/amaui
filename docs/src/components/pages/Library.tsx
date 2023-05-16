@@ -407,25 +407,27 @@ export default function Library(props: any) {
 
   const scrollIntoView = React.useCallback((id: string) => {
     const element = window.document.getElementById(id);
-
+    console.log(1, element);
     if (element) element.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
   React.useEffect(() => {
-    // Element scroll into the view
-    if (window.location.hash) {
-      const id = window.location.hash.replace('#', '');
-
-      setTimeout(() => {
-        scrollIntoView(id);
-      }, 1400);
-    }
-
     setInit(true);
   }, []);
 
   React.useEffect(() => {
-    if (init) onUpdate();
+    if (init) {
+      onUpdate();
+
+      // Element scroll into the view
+      if (window.location.hash) {
+        const id = window.location.hash.replace('#', '');
+
+        setTimeout(() => {
+          scrollIntoView(id);
+        }, 4400);
+      }
+    }
   }, [init]);
 
   React.useEffect(() => {
@@ -589,11 +591,25 @@ export default function Library(props: any) {
     // Update all headings within the markdown inner html
     let elements = Array.from(refs.main.current?.querySelectorAll('h1, h2, h3, h4, h5, h6') || []);
 
+    const exists = (item: string) => window.document.getElementById(item);
+
     // Add url anchor to heading elements
     elements.forEach(item => {
       const text = item.textContent;
 
-      if (!item.id) item.id = slugify(text as any);
+      if (!item.id) {
+        item.id = slugify(text as any);
+
+        let counter = 1;
+
+        const elementExists = exists(item.id);
+
+        if (elementExists && elementExists !== item) {
+          while (exists(`${item.id}-${counter}`)) counter++;
+
+          item.id = `${item.id}-${counter}`;
+        }
+      }
 
       valuesHeadings.push({
         id: item.id,

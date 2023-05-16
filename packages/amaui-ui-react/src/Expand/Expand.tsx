@@ -103,8 +103,6 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
   const getValue = React.useCallback((element = refs.element.current) => {
     if (element) {
       refs.value.current = (element?.getBoundingClientRect() || {})[prop] || 0;
-
-      if (refs.value.current > 120) window.document.body.append(element.cloneNode(true));
     }
   }, [prop]);
 

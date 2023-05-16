@@ -1,4 +1,13 @@
 
+# fileToValue
+
+Reads the file, and returns an output in type provided, as a value.
+
+```ts
+await fileToValue(file, 'text');
+
+// A text in a file
+```
 
 ## API
 
