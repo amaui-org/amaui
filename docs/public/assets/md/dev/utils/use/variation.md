@@ -56,6 +56,8 @@ interface IVariationOptions {
 #### variation
 
 ```ts
+// defaults
+// items: 0
 default function variation(value_: any[], items_?: number, options_?: IVariationOptions): TVariation;
 ```
 
