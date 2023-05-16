@@ -1,4 +1,13 @@
 
+# serialize
+
+Serializes any value, while protecting against circular references, unline `JSON.stringify`.
+
+```ts
+serialize({ a: 1114 });
+
+// '{"a":1114}'
+```
 
 ## API
 

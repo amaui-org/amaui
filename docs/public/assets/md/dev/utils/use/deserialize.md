@@ -1,4 +1,13 @@
 
+# deserialize
+
+Deserializes any value, into its value type.
+
+```ts
+deserialize('{"a":1114}');
+
+// { a: 1114 }
+```
 
 ## API
 

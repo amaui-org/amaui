@@ -1,4 +1,15 @@
 
+# encode
+
+Encodes any string value into a base64 value.
+
+If value is not a string, it will be serialized prior to encoding.
+
+```ts
+encode({ a: 1114 });
+
+// eyJhIjoxMTE0fQ==
+```
 
 ## API
 
