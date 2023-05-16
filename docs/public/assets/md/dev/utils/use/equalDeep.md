@@ -1,4 +1,16 @@
 
+# equalDeep
+
+Equality match for any 2 values, even the deeply nested ones, by values not reference.
+
+```ts
+const value1 = { a: 114, ad: { a: 1114 } };
+const value2 = { a: 114, ad: { a: 1114 } };
+
+equalDeep(value1, value2);
+
+// true
+```
 
 ## API
 
