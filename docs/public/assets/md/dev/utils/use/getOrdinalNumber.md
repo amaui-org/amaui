@@ -1,4 +1,29 @@
 
+# getOrdinalNumber
+
+Returns ordinal number value, for a number as a value.
+
+```ts
+getOrdinalNumber(1);
+getOrdinalNumber(2);
+getOrdinalNumber(3);
+
+// 1st
+// 2nd
+// 3rd
+```
+
+### Options
+
+#### onlySufix
+
+Returns only sufix, without the number.
+
+```ts
+getOrdinalNumber(3, { onlySufix: true });
+
+// rd
+```
 
 ## API
 
@@ -6,6 +31,7 @@
 
 ```ts
 interface IOptions {
+    // default: false
     onlySufix?: boolean;
 }
 ```
@@ -13,6 +39,8 @@ interface IOptions {
 #### getOrdinalNumber
 
 ```ts
+// defaults
+// options: interface IOptions
 const getOrdinalNumber: (value_: number, options_?: IOptions) => string;
 ```
 
