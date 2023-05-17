@@ -83,7 +83,8 @@ const useStyle = style(theme => ({
   about_text: {
     maxWidth: theme.breakpoints.values.md,
     textAlign: 'center',
-    fontSize: 'clamp(1rem, 4vw, 1.5rem)'
+    fontSize: 'clamp(1rem, 4vw, 1.5rem)',
+    fontFamily: 'initial'
   },
 
   logo: {
@@ -1059,7 +1060,7 @@ export default function Root(props: any) {
             priority='secondary'
 
             style={{
-              marginTop: 54,
+              marginTop: 44,
               marginBottom: 12
             }}
           >
