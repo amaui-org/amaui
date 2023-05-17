@@ -1,4 +1,17 @@
 
+# getFileName
+
+Returns name of the file, with some additional options for name parsing.
+
+```ts
+getFileName(file);
+
+// Main image
+```
+
+### Options
+
+Explained with comments in the API below.
 
 ## API
 
@@ -6,10 +19,17 @@
 
 ```ts
 interface IOptions {
+    // Adds a prefix to the name
     prefix?: string;
+    // Adds a sufix to the name
     sufix?: string;
+    // Cleans the string using cleanValue util method
+    // default: true
     clean?: boolean;
+    // Capitalizes the string using capitalize util method
+    // default: true
     capitalize?: boolean;
+    // returns name with the extension
     withExt?: boolean;
 }
 ```
@@ -17,6 +37,8 @@ interface IOptions {
 #### getFileName
 
 ```ts
+// defaults
+// options: interface IOptions
 const getFileName: (file: File, options_?: IOptions) => string;
 ```
 

@@ -1,4 +1,13 @@
 
+# getEnvironment
+
+Returns main variable for the environment window for browser, global for node, or self for browser worker.
+
+```ts
+getEnvironment();
+
+// window
+```
 
 ## API
 
