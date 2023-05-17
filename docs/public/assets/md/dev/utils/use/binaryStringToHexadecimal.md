@@ -13,7 +13,6 @@ binaryStringToHexadecimal('10100100010010101011101010100101010101110101010010101
 // 00a44abaa55754aaea744
 ```
 
-
 ## API
 
 #### binaryStringToHexadecimal

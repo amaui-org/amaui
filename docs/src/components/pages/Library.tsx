@@ -736,8 +736,6 @@ export default function Library(props: any) {
 
   const withSidenav = !mediumScreen && !!headings.length;
 
-  const maxPriority = clamp(Math.max(...headings?.map((item: any) => item.priority)), 1);
-
   const Placeholders = React.useMemo(() => {
 
     return (

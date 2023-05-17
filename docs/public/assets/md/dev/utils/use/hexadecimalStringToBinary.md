@@ -1,4 +1,17 @@
 
+# hexadecimalStringToBinary
+
+Makes hexadecimal string into a binary string value.
+
+```ts
+hexadecimalStringToBinary('00a');
+hexadecimalStringToBinary('02a443');
+hexadecimalStringToBinary('00a44abaa55754aaea744');
+
+// 1010
+// 10100100010011
+// 1010010001001010101110101010010101010111010101001010101011101010011101000100
+```
 
 ## API
 
