@@ -1,4 +1,21 @@
 
+# getURL
+
+Returns a valid url string from a value.
+
+```ts
+getURL('a.com');
+getURL('https://a.com/a?a=a4');
+
+//
+// https://a.com/a?a=a4
+```
+
+### Options
+
+#### URL
+
+If true, returns URL object, otherwise url as a string value.
 
 ## API
 

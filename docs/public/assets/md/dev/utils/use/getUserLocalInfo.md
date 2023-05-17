@@ -1,4 +1,42 @@
 
+# getUserLocalInfo
+
+Returns useful user local info.
+
+```ts
+await getUserLocalInfo();
+
+// {
+//     "ip_address": "14.114.114.14",
+//     "country": {
+//         "flag": "🇷🇸",
+//         "name": "Serbia",
+//         "full_name": "The Republic of Serbia",
+//         "sovereignty": "UN member state",
+//         "alpha-2": "RS",
+//         "alpha-3": "SRB",
+//         "numeric": "688",
+//         "subdivision": "ISO 3166-2:RS",
+//         "tlds": [
+//             "rs"
+//         ]
+//     },
+//     "browser": {
+//         "name": "chrome",
+//         "version": "113.0.0.0",
+//         "major_version": "113",
+//         "agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
+//         "language": "en"
+//     },
+//     "os": {
+//         "platform": "mac"
+//     }
+// }
+```
+
+### Why?
+
+Use case to save the current user session, and know where the session is coming from, and alert the user if he is using the device on a new device, and whatnot.
 
 ## API
 
