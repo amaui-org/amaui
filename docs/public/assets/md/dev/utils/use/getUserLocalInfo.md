@@ -102,8 +102,8 @@ const getUserLocalInfo: () => Promise<UserLocalInfo>;
       "to": "/dev/utils/use/getURL"
     },
     "next": {
-      "label": "Utils: hasObjectProperty",
-      "to": "/dev/utils/use/hasObjectProperty"
+      "label": "Utils: hash",
+      "to": "/dev/utils/use/hash"
     }
   }
 }~

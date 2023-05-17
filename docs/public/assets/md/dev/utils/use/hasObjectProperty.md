@@ -13,8 +13,8 @@ const hasObjectProperty: (object: object, ...args: string[]) => boolean;
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Utils: getUserLocalInfo",
-      "to": "/dev/utils/use/getUserLocalInfo"
+      "label": "Utils: hashFile",
+      "to": "/dev/utils/use/hashFile"
     },
     "next": {
       "label": "Utils: hasObjectPropertyValue",

@@ -714,7 +714,7 @@ export default function Library(props: any) {
     switch (object?.element) {
       case 'BottomNavigation':
         return (
-          markdownAdded && <BottomNavigation {...objectProps} />
+          init && <BottomNavigation {...objectProps} />
         );
 
       case 'Example':
@@ -725,7 +725,7 @@ export default function Library(props: any) {
       default:
         break;
     }
-  }, [markdownAdded]);
+  }, [init]);
 
   const onClickSidenavHeading = React.useCallback((heading: any) => {
     const { id } = heading;

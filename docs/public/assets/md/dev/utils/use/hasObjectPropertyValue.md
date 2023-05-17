@@ -17,8 +17,8 @@ const hasObjectPropertyValue: (object: object, keys?: string | string[]) => bool
       "to": "/dev/utils/use/hasObjectProperty"
     },
     "next": {
-      "label": "Utils: hash",
-      "to": "/dev/utils/use/hash"
+      "label": "Utils: hexadecimalStringToBinary",
+      "to": "/dev/utils/use/hexadecimalStringToBinary"
     }
   }
 }~

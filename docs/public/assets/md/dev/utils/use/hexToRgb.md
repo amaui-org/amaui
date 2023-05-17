@@ -13,12 +13,12 @@ const hexToRgb: (value: string, opacity?: number, array?: boolean) => string | n
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Utils: hashFile",
-      "to": "/dev/utils/use/hashFile"
-    },
-    "next": {
       "label": "Utils: hexadecimalStringToBinary",
       "to": "/dev/utils/use/hexadecimalStringToBinary"
+    },
+    "next": {
+      "label": "Utils: hslToRgb",
+      "to": "/dev/utils/use/hslToRgb"
     }
   }
 }~
