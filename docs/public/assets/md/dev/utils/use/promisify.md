@@ -1,4 +1,24 @@
 
+# promisify
+
+Makes a regular method that accepts a callback, into a Promise method.
+
+```ts
+const method = (a, ad, method_) => {
+  setTimeout(() => {
+    if (a !== 'a') method_([a, ad], new Error('a'));
+    else (method_([a, ad]));
+  }, 400);
+};
+
+await promisify(method)('a', true);
+```
+
+### Options
+
+#### onError
+
+If to reject, or resolve on error.
 
 ## API
 
@@ -6,6 +26,7 @@
 
 ```ts
 interface IOptions {
+    // default: reject
     onError?: 'reject' | 'resolve';
 }
 ```
@@ -13,6 +34,8 @@ interface IOptions {
 #### promisify
 
 ```ts
+// defaults
+// options: interface IOptions
 const promisify: <T>(method: TMethod | Promise<any>, options_?: IOptions) => (...args: any[]) => Promise<any>;
 ```
 
