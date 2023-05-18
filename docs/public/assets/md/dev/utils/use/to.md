@@ -1,12 +1,27 @@
 
+# to
 
-## API
-
-#### types="node"
+Makes value provided into one of the types (second argument) provided.
 
 ```ts
-/// <reference types="node" />
+to('1404040', 'size-format');
+
+// 1.34 MB
 ```
+
+### Type
+
+- string: Value into string.
+- arraybuffer: Value into ArrayBuffer.
+- datauri: Value into DataUri.
+- base64: Value into Base64.
+- blob: Value into Blob.
+- buffer: Value into Buffer.
+- byte-size: Text size in bytes, as a number.
+- size: Text size in bytes, as size formated value.
+- size-format: Number into size formated value.
+
+## API
 
 #### TType
 
@@ -24,7 +39,11 @@ type TTo = ArrayBuffer | Blob | Buffer | string | number;
 
 ```ts
 interface IOptions {
+    // Used for: size, size-format
+    // default: 2
     decimals?: number;
+    // Used for: datauri
+    // default: text/plain
     mime?: string;
 }
 ```
@@ -32,6 +51,8 @@ interface IOptions {
 #### to
 
 ```ts
+// defaults
+// options: interface IOptions
 const to: (value_: any, type?: TType, options_?: IOptions) => TTo;
 ```
 

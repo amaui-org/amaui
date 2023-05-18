@@ -1,22 +1,39 @@
 
+# unique
 
-## API
+Makes a unique array of simple and/or complex values.
 
-#### *
+Referenced values are only compared based on values in those reference type values based on array of keys provided in the second argument in the method.
 
 ```ts
-/**
- * It returns an array with unique simple values
- * and / or array and object values.
- *
- * Referenced values are only compared based on
- * values in those reference type values based on array
- * of keys provided in the second argument in the method.
- *
- * Uniqueness of array and object values is separatelly
- * evaluated based on keys value and returned in the result.
- */
+const value = [
+    1,
+    14,
+    { a: { a: 1 } },
+    { a: { a: 1 }, ab: 4 },
+    { a: { a: 4 }, ab: 4 },
+    [1, 4],
+    [1, 3, 4],
+    [1, 3]
+];
+
+unique(value, 'a.a', '1');
+
+// [
+//   1,
+//   14,
+//   { a: { a: 1 } },
+//   { a: { a: 4 }, ab: 4 },
+//   [1, 4],
+//   [1, 3, 4]
+// ]
 ```
+
+### Why?
+
+Useful for making a unique list of complex objects.
+
+## API
 
 #### unique
 

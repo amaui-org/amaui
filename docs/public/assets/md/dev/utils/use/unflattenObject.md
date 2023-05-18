@@ -1,4 +1,20 @@
 
+# unflattenObject
+
+Unflattens a previously flattened object.
+
+```ts
+const value = { a: 1114, 'ad.a': 114 };
+
+unflattenObject(value);
+
+// {
+//   a: 1114,
+//   ad: {
+//       a: 114
+//   }
+// }
+```
 
 ## API
 

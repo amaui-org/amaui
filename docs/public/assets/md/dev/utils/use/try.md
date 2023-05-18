@@ -1,4 +1,19 @@
 
+# try
+
+Method as one liner for try/catch block.
+
+```ts
+Try(() => 1114);
+
+// 1114
+```
+
+### Options
+
+#### log
+
+If true, it will log the catch error, by default it's false.
 
 ## API
 
