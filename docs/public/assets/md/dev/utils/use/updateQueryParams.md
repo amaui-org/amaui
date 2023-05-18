@@ -1,4 +1,15 @@
 
+# updateQueryParams
+
+Updates query param keys with provided values.
+
+```ts
+updateQueryParams({ a: 114 });
+
+window.location.search;
+
+// ?a=114
+```
 
 ## API
 
