@@ -1,4 +1,19 @@
 
+# slugify
+
+Slugifies the string value, to use as a valid url value.
+
+```ts
+slugify('a 4 , ; a -- a   a');
+
+// a-4-a-a-a
+```
+
+### Options
+
+#### lowercase
+
+If true, the entire value will be made into a lowercase value.
 
 ## API
 
@@ -6,6 +21,7 @@
 
 ```ts
 interface IOptions {
+    // default: true
     lowercase?: boolean;
 }
 ```
@@ -13,6 +29,8 @@ interface IOptions {
 #### slugify
 
 ```ts
+// defaults
+// options: interface IOptions
 const slugify: (value_: string, options_?: IOptions) => any;
 ```
 

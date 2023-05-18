@@ -1,4 +1,30 @@
 
+# setStringVariables
+
+Updates string variables using the list of maps of which variable equals which value, into a new string with variables replaced with all the values.
+
+```ts
+setStringVariables('a {a} a [ab]', [{ key: 'a', value: 'a' }, { key: 'ab', value: 4 }]);
+
+// a a a 4
+```
+
+### Options
+
+#### getVariables
+
+If true, getStringVariables is called on the value, and then all the variable values in the string, are replaced with the mapped values.
+
+If false, value provided has to be a value already replaced with placeholders.
+
+#### cleanVariables
+
+Value forwarded to getStringVariables method.
+
+#### placeholderPrefix
+
+Value forwarded to getStringVariables method.
+
 
 ## API
 
@@ -6,8 +32,11 @@
 
 ```ts
 interface IOptions {
+    // default: true
     getVariables?: boolean;
+    // default: true
     cleanVariables?: boolean;
+    // default: _
     placeholderPrefix?: string;
 }
 ```
@@ -24,6 +53,8 @@ type TVariablesToValue = Array<{
 #### setStringVariables
 
 ```ts
+// defaults
+// options: interface IOptions
 const setStringVariables: (value: string, variablesToValue?: TVariablesToValue, options_?: IOptions) => string;
 ```
 
