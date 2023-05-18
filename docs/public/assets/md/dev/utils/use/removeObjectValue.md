@@ -1,4 +1,15 @@
 
+# removeObjectValue
+
+Removes values of an object on all provided key paths.
+
+```ts
+const value = { a: 1114, a14: [1114, { a: 1114, ad: 114 }] };
+
+removeObjectValue(value, 'a14.1.a');
+
+// { a: 1114, a14: [1114, { ad: 114 }] }
+```
 
 ## API
 
