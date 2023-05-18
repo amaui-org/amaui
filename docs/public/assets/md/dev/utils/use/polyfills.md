@@ -1,4 +1,17 @@
 
+# polyfills
+
+Adds many polyfills from various util methods from this library, and attaches them to native classes for value types, ie. String.
+
+```ts
+polyfills();
+
+'abcdefghijklmnopqrstuvwxyz'.pick(3, 4);
+
+// auyi
+```
+
+All polyfills are in the API below.
 
 ## API
 

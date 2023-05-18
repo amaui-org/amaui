@@ -1,4 +1,13 @@
 
+# pick
+
+Picks characters from a string, in length of between min & max values.
+
+```ts
+pick('abcdefghijklmnopqrstuvwxyz', 3, 4);
+
+// auyi
+```
 
 ## API
 
