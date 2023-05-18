@@ -1,4 +1,23 @@
 
+# parse
+
+Parses a value to its original value type.
+
+```ts
+parse('{ "a": 1114 }');
+
+// { a: 1114 }
+```
+
+### Options
+
+#### log
+
+If true, it will log parsing error.
+
+#### returnSame
+
+If true, returns the same value if the parse has an error.
 
 ## API
 
@@ -13,6 +32,7 @@ type TType = 'JSON';
 ```ts
 interface IOptions {
     log?: boolean;
+    // default: true
     returnSame?: boolean;
 }
 ```
@@ -20,6 +40,9 @@ interface IOptions {
 #### parse
 
 ```ts
+// defaults
+// type: 'JSON'
+// options: interface IOptions
 const parse: (value: any, type?: TType, options_?: IOptions) => any;
 ```
 

@@ -1,4 +1,13 @@
 
+# matchRoute
+
+Matches a url based on the template path provided using external libarary `path-to-regexp`'s `match` method.
+
+```ts
+matchRoute(['/amaui/:id'], '/amaui/14');
+
+// true
+```
 
 ## API
 

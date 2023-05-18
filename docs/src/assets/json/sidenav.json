@@ -1862,6 +1862,10 @@
             "url": "/dev/utils/use/merge"
           },
           {
+            "label": "models",
+            "url": "/dev/utils/use/models"
+          },
+          {
             "label": "numberWithCommas",
             "url": "/dev/utils/use/numberWithCommas"
           },
