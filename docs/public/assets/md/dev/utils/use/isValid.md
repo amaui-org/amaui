@@ -1,4 +1,46 @@
 
+# isValid
+
+Used to validate various use case values.
+
+```ts
+isValid('uuid');
+
+// true
+```
+
+### Options
+
+Options are explained with types below, where they are used.
+
+### Type
+
+- date
+- uuid
+- binary-string
+- hexadecimal-string
+- url
+- url-path
+- compare (options: valueA, valueB, operator)
+- semver
+- semver-compare (options: valueA, valueB, operator)
+- timestamp
+- mobile
+- email
+- hash
+- color-rgb
+- color-hex
+- color-hsl
+- json
+- min (options: min)
+- max (options: max)
+- min-max (options: min, max)
+- same-origin
+- js-chunk
+- http-method
+- base64
+- datauri
+
 
 ## API
 

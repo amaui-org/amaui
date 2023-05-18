@@ -1,4 +1,27 @@
 
+# isBrowser
+
+Used to validate a browser.
+
+```ts
+isBrowser('chrome');
+
+// true
+```
+
+### Type
+
+- chrome
+- opera
+- firefox
+- safari
+- edge-chromium
+- edge
+- ie
+
+### value
+
+User provided value for the method.
 
 ## API
 

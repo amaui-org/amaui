@@ -1,4 +1,24 @@
 
+# isEnvironment
+
+Use to validate the environment.
+
+```ts
+isEnvironment('browser');
+
+// true
+```
+
+### Type
+
+- browser
+- worker
+- nodejs
+- localhost
+
+### value
+
+User provided value for the method.
 
 ## API
 

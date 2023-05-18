@@ -1,4 +1,26 @@
 
+# isOS
+
+Used to validate an operating system.
+
+```ts
+isOS('mobile');
+
+// true
+```
+
+### Type
+
+- mac
+- mobile
+- android
+- ios
+- windows
+- linux
+
+### value
+
+User provided value for the method.
 
 ## API
 

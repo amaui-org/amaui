@@ -1,4 +1,18 @@
 
+ # isState
+
+ Used to validate user state in the app.
+
+ ```ts
+isState('online');
+
+// true
+```
+
+### Type
+
+- online
+- offline
 
 ## API
 

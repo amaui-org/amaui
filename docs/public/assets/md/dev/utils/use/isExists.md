@@ -1,4 +1,18 @@
 
+# isExists
+
+Used to check if some API's exist in the current environment.
+
+```ts
+isExists('Intl');
+
+// true
+```
+
+### Type
+
+- Intl
+
 
 ## API
 
