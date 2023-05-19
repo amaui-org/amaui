@@ -6,11 +6,11 @@ Makes rgb color value into a `hsl` color value.
 ```ts
 rgbToHslPure(179, 179, 0);
 rgbToHslPure(174, 214, 224);
-rgbToHslPure(174, 214, 224);
+rgbToHslPure(174, 214.14, 224.44);
 
-// hsl(60, 100%, 35%)
-// hsla(192, 45%, 78%)
-// hsla(192.414, 45.41%, 78.4%)
+// [60, 100, 35]
+// [192, 45, 78]
+// [192, 45, 78]
 ```
 
 ### Options
