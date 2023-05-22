@@ -1,4 +1,8 @@
 
+# amaui subscription
+
+Use as a subscription method where you can emit values to the subscribed methods, anywhere in your app.
+
 ### Add
 
 ```sh
@@ -12,7 +16,7 @@ import AmauiSubscription from '@amaui/subscription';
 
 // Make a new subscription instance
 // with an optional initial value
-const amauiSub = new AmauiSubscription('🙂');
+const amauiSubscription = new AmauiSubscription('🙂');
 
 // Value
 amauiSub.value;

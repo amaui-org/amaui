@@ -91,8 +91,8 @@ function request(app?: express.Application | http.Server | https.Server | string
       "to": "/dev/test/use/cli"
     },
     "next": {
-      "label": "Test: Start",
-      "to": "/dev/test/start"
+      "label": "Utils: Start",
+      "to": "/dev/utils/start"
     }
   }
 }~

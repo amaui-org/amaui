@@ -98,6 +98,36 @@ interface IOptions {
 #### optionsDefault
 
 ```ts
+// {
+//   order: 'original',
+
+//   results: {
+//     print: true,
+//     to: ['log'],
+//     at: 'auto',
+//     errors_minify: true,
+//     html: {
+//       id: 'amaui-test-results',
+//     }
+//   },
+
+//   response: {
+//     timeout: {
+//       to: 14000,
+//       middleware: 40000,
+//     },
+
+//     measurement: {
+//       slow: 74,
+//       very_slow: 140,
+//     },
+
+//     on_fail: {
+//       exit: true,
+//       error: true,
+//     },
+//   },
+// }
 const optionsDefault: IOptions;
 ```
 
