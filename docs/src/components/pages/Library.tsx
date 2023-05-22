@@ -256,7 +256,7 @@ const useStyle = styleMethod(theme => ({
 
   sidenav: {
     width: '100%',
-    maxWidth: 140,
+    maxWidth: 240,
     flex: '0 0 auto',
     position: 'sticky',
     top: '114px',

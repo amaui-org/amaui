@@ -1,4 +1,8 @@
 
+# amaui storage
+
+Methods to easily read & write into local, session storage in the browser.
+
 ### Add
 
 ```sh
