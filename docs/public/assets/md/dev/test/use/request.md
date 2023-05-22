@@ -1,4 +1,33 @@
 
+# request
+
+Accepts express application as the first argument, and starts the app on an available port in the system (may be different every time), and return an object with request method, which then you can pass any arguments to like described in the API below. \
+
+Uses `@amaui/request` library to make requests to the passed app in the localhost.
+
+### Example
+
+It makes a request with request method, and asserts the response in the response method, with equalDeep operator.
+
+```ts
+const instance = await request(app);
+
+await instance
+  .request('http://localhost:4000/success', { method: 'GET' })
+  .response({
+    response: [
+      'a'
+    ],
+    pagination: {
+      total: 4,
+      next: 'a',
+      previous: 'a1'
+    },
+    meta: {
+      status: 201
+    }
+  });
+```
 
 ## API
 
@@ -53,6 +82,7 @@ interface IAmauiTestRequest {
 function request(app?: express.Application | http.Server | https.Server | string, options_?: IOptions): Promise<IAmauiTestRequest>;
 ```
 
+
 ~{
   "element": "BottomNavigation",
   "props": {
@@ -61,8 +91,8 @@ function request(app?: express.Application | http.Server | https.Server | string
       "to": "/dev/test/use/cli"
     },
     "next": {
-      "label": "Utils: Start",
-      "to": "/dev/utils/use/start"
+      "label": "Test: Start",
+      "to": "/dev/test/start"
     }
   }
 }~

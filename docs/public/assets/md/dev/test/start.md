@@ -1,4 +1,8 @@
 
+# amaui test
+
+Testing library for front end & back end.
+
 ### Add
 
 ```sh
@@ -315,8 +319,8 @@ yarn build
       "to": "/dev/subscription/start"
     },
     "next": {
-      "label": "Test: Use",
-      "to": "/dev/test/use"
+      "label": "Test: AmauiGroup",
+      "to": "/dev/test/use/AmauiGroup"
     }
   }
 }~

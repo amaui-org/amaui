@@ -1,4 +1,8 @@
 
+# AmauiMiddleware
+
+Use to run a method priror or post running of specific methods. \
+Types of middleware methods, and order in which they run is explained in the AmauiGroup page.
 
 ## API
 
@@ -26,6 +30,7 @@ class AmauiMiddleware implements IAmauiMiddleware {
     constructor(name: string, method: TMethod);
 }
 ```
+
 
 ~{
   "element": "BottomNavigation",
