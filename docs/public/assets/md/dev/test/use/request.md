@@ -13,7 +13,7 @@ It makes a request with request method, and asserts the response in the response
 const instance = await request(app);
 
 await instance
-  .request('/query', { method: 'GET' })
+  .get('/query')
   .response({
     response: [
       'a'
