@@ -520,12 +520,6 @@ type IAssert = {
 };
 ```
 
-#### _default
-
-```ts
-const _default: IAssert;
-```
-
 
 ~{
   "element": "BottomNavigation",
