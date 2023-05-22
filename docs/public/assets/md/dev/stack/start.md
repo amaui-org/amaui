@@ -1,4 +1,8 @@
 
+# amaui stack
+
+Stack data structure.
+
 ### Add
 
 ```sh
