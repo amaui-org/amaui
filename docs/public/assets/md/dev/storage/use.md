@@ -107,6 +107,8 @@ Prefix is added on the key, as it's the same prefix added while writing the valu
 ```ts
 const amauiStorage = new AmauiStorage();
 
+amauiStorage.add('todo-1', { id: 1114 });
+
 amauiStorage.has('todo-1');
 
 // true
@@ -118,6 +120,8 @@ Removes a value from the storage, based on a key.
 
 ```ts
 const amauiStorage = new AmauiStorage();
+
+amauiStorage.add('todo-1', { id: 1114 });
 
 amauiStorage.remove('todo-1');
 ```
@@ -159,6 +163,8 @@ amauiStorage.namespace;
 
 // a_
 ```
+
+#### removeNotAllowed
 
 Instance of this class has `removeNotAllowed`, which is an array of string values, defining any key that will not be removed, on calling clear method.
 

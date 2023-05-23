@@ -1,7 +1,7 @@
 
 # amaui storage
 
-Methods to easily read & write into local, session storage in the browser.
+Local, session storage management utils.
 
 ### Add
 
