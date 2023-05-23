@@ -1,4 +1,8 @@
 
+# amaui queue
+
+Queue data structure.
+
 ### Add
 
 ```bash
