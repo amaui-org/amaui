@@ -9,17 +9,13 @@ All methods are static methods.
 
 ##### copy
 
-If true, copy of the value will be saved as a value.
-
-Default value is false.
+If true, copy of the value will be saved as a value, default value is false.
 
 #### add
 
 ##### override
 
-If true, even if key exists already during add method, it will override the existing key, value with the new value.
-
-Default value is true.
+If true, even if key exists already during add method, it will override the existing key, value with the new value, default value is true.
 
 ### Methods
 

@@ -1,4 +1,8 @@
 
+# amaui cache
+
+Cache any data, related to a key, where can can be any type of data (even a list of args), which is serialized & hashed into a key value.
+
 ### Add
 
 ```sh
