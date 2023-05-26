@@ -24,8 +24,8 @@ const amauiAmqp = new AmauiAmqp({
   exchanges: Config.amqp.rabbitmq.exchanges,
 });
 
-// Await for a channel
-await amauiAmqp.channel;
+// Await for a connection
+await amauiAmqp.connection;
 
 // Subscribe to a queue
 await amauiAmqp.subscribe('a', async message => {
