@@ -1,4 +1,8 @@
 
+# amaui amqp
+
+Utils for easier using of the amqplib, ie. rabbitmq, queue messaging service.
+
 ### Add
 
 ```bash
@@ -23,8 +27,13 @@ const amauiAmqp = new AmauiAmqp({
 // Await for a channel
 await amauiAmqp.channel;
 
+// Subscribe to a queue
+await amauiAmqp.subscribe('a', async message => {
+  ...
+});
+
 // Send to a queue
-await amauiAmqp.send('a', 'a');
+await amauiAmqp.send('a', { a: 1114 });
 
 // Check a queue
 await amauiAmqp.checkQueue();

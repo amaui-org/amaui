@@ -407,7 +407,7 @@ export default function Library(props: any) {
 
   const scrollIntoView = React.useCallback((id: string) => {
     const element = window.document.getElementById(id);
-    console.log(1, element);
+
     if (element) element.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
