@@ -87,22 +87,75 @@ await amauiAws.s3.removeMany(['a', 'a114', 'a1114']);
 
 ## API
 
-#### IOptionsAccessCredentials
+#### IConnections
 
 ```ts
-interface IOptionsAccessCredentials {
+interface IConnections {
+    s3?: aws.S3;
+}
+```
+
+#### IOptionsS3Add
+
+```ts
+interface IOptionsS3Add {
+    bucket_name?: string;
+}
+```
+
+#### IOptionsS3Get
+
+```ts
+interface IOptionsS3Get {
+    bucket_name?: string;
+    type: 'buffer' | 'json' | 'text';
+    pure?: boolean;
+}
+```
+
+#### IOptionsS3Remove
+
+```ts
+interface IOptionsS3Remove {
+    bucket_name?: string;
+    pure?: boolean;
+}
+```
+
+#### IOptionsS3RemoveMany
+
+```ts
+interface IOptionsS3RemoveMany {
+    bucket_name?: string;
+    pure?: boolean;
+}
+```
+
+#### IOptionsS3AccessCredentials
+
+```ts
+interface IOptionsS3AccessCredentials {
     accessKeyId: string;
     secretAccessKey: string;
 }
 ```
 
-#### IOptionsAccess
+#### IOptionsS3Access
 
 ```ts
-interface IOptionsAccess {
+interface IOptionsS3Access {
     endpoint: string;
-    credentials: IOptionsAccessCredentials;
+    credentials: IOptionsS3AccessCredentials;
     [p: string]: any;
+}
+```
+
+#### IOptionsS3
+
+```ts
+interface IOptionsS3 {
+    access: IOptionsS3Access;
+    bucket_name?: string;
 }
 ```
 
@@ -118,65 +171,12 @@ interface IOptionsConfig {
 }
 ```
 
-#### IOptionsAdd
-
-```ts
-interface IOptionsAdd {
-    bucket_name?: string;
-}
-```
-
-#### IOptionsGet
-
-```ts
-interface IOptionsGet {
-    bucket_name?: string;
-    type: 'buffer' | 'json' | 'text';
-    pure?: boolean;
-}
-```
-
-#### IOptionsRemove
-
-```ts
-interface IOptionsRemove {
-    bucket_name?: string;
-    pure?: boolean;
-}
-```
-
-#### IOptionsRemoveMany
-
-```ts
-interface IOptionsRemoveMany {
-    bucket_name?: string;
-    pure?: boolean;
-}
-```
-
-#### IOptionsS3
-
-```ts
-interface IOptionsS3 {
-    access: IOptionsAccess;
-    bucket_name?: string;
-}
-```
-
 #### IOptions
 
 ```ts
 interface IOptions {
     s3: IOptionsS3;
     config?: IOptionsConfig;
-}
-```
-
-#### IConnections
-
-```ts
-interface IConnections {
-    s3?: aws.S3;
 }
 ```
 
@@ -190,10 +190,10 @@ class AmauiAws {
     get connections(): IConnections;
     constructor(options: IOptions);
     get s3(): {
-        add(id: string, value_: any, options?: IOptionsAdd): Promise<aws.S3.PutObjectOutput>;
-        get(id: string, options?: IOptionsGet): Promise<aws.S3.GetObjectOutput | Buffer | string | object>;
-        remove(id: string, options?: IOptionsRemove): Promise<aws.S3.DeleteObjectOutput | boolean>;
-        removeMany(ids: string[], options?: IOptionsRemoveMany): Promise<Array<aws.S3.DeleteObjectOutput | boolean | Error>>;
+        add(id: string, value_: any, options?: IOptionsS3Add): Promise<aws.S3.PutObjectOutput>;
+        get(id: string, options?: IOptionsS3Get): Promise<aws.S3.GetObjectOutput | Buffer | string | object>;
+        remove(id: string, options?: IOptionsS3Remove): Promise<aws.S3.DeleteObjectOutput | boolean>;
+        removeMany(ids: string[], options?: IOptionsS3RemoveMany): Promise<Array<aws.S3.DeleteObjectOutput | boolean | Error>>;
     };
     private setup;
     protected response(start: number, bucket_name: string, method: string, value?: any, req?: express.Request): any;
