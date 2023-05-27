@@ -1,4 +1,8 @@
 
+# amaui binary tree
+
+Binary tree data type & its methods.
+
 ### Add
 
 ```bash
