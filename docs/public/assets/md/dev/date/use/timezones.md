@@ -7,7 +7,7 @@ Entire list of all the timezones, and their details.
 timezones;
 
 // [
-//   ...,
+//   ...
 
 //   {
 //     label: 'Europe/Belgrade (GMT+01:00)',
