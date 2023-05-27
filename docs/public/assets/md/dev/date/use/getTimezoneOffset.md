@@ -1,4 +1,15 @@
 
+# getTimezoneOffset
+
+Returns timezone offset.
+
+```ts
+const amauiDate = new AmauiDate();
+
+getTimezoneOffset(amauiDate);
+
+// +02:00
+```
 
 ## API
 

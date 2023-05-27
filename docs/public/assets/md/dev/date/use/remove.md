@@ -1,4 +1,27 @@
 
+# Remove
+
+Removes time unit to the AmauiDate value.
+
+```ts
+const amauiDate = new AmauiDate();
+
+remove(14, 'day', amauiDate);
+```
+
+### Units
+
+- millisecond
+- milliseconds
+- second
+- minute
+- hour
+- day
+- dayWeek
+- dayYear
+- week
+- month
+- year
 
 ## API
 

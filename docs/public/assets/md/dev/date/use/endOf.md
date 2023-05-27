@@ -1,4 +1,26 @@
 
+# endOf
+
+End of provided time unit, from a provided AmauiDate.
+
+```ts
+const amauiDate = new AmauiDate('2014-04-14T14:04:14.147');
+
+const value = endOf(amauiDate, 'day');
+
+format(value);
+
+// '2014-04-14T23:59:59'
+```
+
+### Units
+
+- second
+- minute
+- hour
+- day
+- month
+- year
 
 ## API
 

@@ -1,4 +1,8 @@
 
+# amaui date
+
+Utils for managing date.
+
 ### Add
 
 ```sh

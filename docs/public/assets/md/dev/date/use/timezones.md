@@ -1,4 +1,25 @@
 
+# timezones
+
+Entire list of all the timezones, and their details.
+
+```ts
+timezones;
+
+// [
+//   ...,
+
+//   {
+//     label: 'Europe/Belgrade (GMT+01:00)',
+//     code: 'Europe/Belgrade',
+//     name: '(GMT+01:00) Belgrade, Pristina, Niš, Novi Sad, Prizren',
+//     utc: '+01:00',
+//     abbr: 'CET'
+//   },
+
+//   ...
+// ]
+```
 
 ## API
 

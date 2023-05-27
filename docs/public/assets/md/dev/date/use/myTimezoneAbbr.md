@@ -1,4 +1,13 @@
 
+# myTimezoneAbbr
+
+Returns user's timezone abbreviation.
+
+```ts
+myTimezoneAbbr();
+
+// GMT+2
+```
 
 ## API
 
