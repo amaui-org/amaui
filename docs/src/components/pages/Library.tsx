@@ -654,7 +654,7 @@ export default function Library(props: any) {
     if (value_?.indexOf('{') !== 0) {
       let valueMarkdown = value_;
 
-      const isAPI = valueMarkdown.trim().toLowerCase().includes('# api');
+      const isAPI = valueMarkdown.trim().includes('# API');
 
       if (isAPI) valueMarkdown = valueMarkdown.replace(`## API\n\n`, '');
 
