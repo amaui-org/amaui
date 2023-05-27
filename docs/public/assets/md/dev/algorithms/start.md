@@ -1,4 +1,8 @@
 
+# amaui algorithms
+
+Algorithms for various use cases.
+
 ### Add
 
 ```bash

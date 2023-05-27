@@ -1,4 +1,22 @@
 
+# mergeSort
+
+Merge sort method.
+
+### Options
+
+#### ascending
+
+In what direction to sort, default true.
+
+### Example
+
+```ts
+const value = [1, 1114, 114, 14];
+
+mergeSort(value);
+```
+
 
 ## API
 
@@ -13,6 +31,7 @@ function mergeSortResolve<T = number>(array1: Array<T>, array2: Array<T>, ascend
 ```ts
 default function mergeSort<T = number>(array: Array<T>, ascending?: boolean): Array<T>;
 ```
+
 
 ~{
   "element": "BottomNavigation",

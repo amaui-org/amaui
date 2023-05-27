@@ -1,4 +1,15 @@
 
+# kmp
+
+KMP string search method.
+
+### Example
+
+```ts
+kmp('Lorem ipsum lorem', 'lorem');
+
+// true
+```
 
 ## API
 
@@ -7,6 +18,7 @@
 ```ts
 default function kmp(string: string, value: string): boolean;
 ```
+
 
 ~{
   "element": "BottomNavigation",

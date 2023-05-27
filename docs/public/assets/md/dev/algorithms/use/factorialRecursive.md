@@ -1,4 +1,21 @@
 
+# factorialRecursive
+
+Factorial recurrsive method.
+
+### Options
+
+#### cache
+
+Whether to cache results or not, if yes, returning responses for already calculated value will be instant, default true.
+
+### Example
+
+```ts
+factorialRecursive(4);
+
+// 24
+```
 
 ## API
 
@@ -15,6 +32,7 @@ interface IFactorialRecursiveOptions {
 ```ts
 default function factorialRecursive(value: number, options?: IFactorialRecursiveOptions): number;
 ```
+
 
 ~{
   "element": "BottomNavigation",

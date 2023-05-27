@@ -1,4 +1,22 @@
 
+# radixSort
+
+Radix sort method.
+
+### Options
+
+#### ascending
+
+In what direction to sort, default true.
+
+### Example
+
+```ts
+const value = [1, 1114, 114, 14];
+
+radixSort(value);
+```
+
 
 ## API
 
@@ -19,6 +37,7 @@ function getDigit(value: number, indexValue: number): number;
 ```ts
 default function radixSort<T = number>(value: Array<T>, ascending?: boolean): Array<T>;
 ```
+
 
 ~{
   "element": "BottomNavigation",

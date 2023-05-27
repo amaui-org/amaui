@@ -1,4 +1,22 @@
 
+# quickSort
+
+Quick sort method.
+
+### Options
+
+#### ascending
+
+In what direction to sort, default true.
+
+### Example
+
+```ts
+const value = [1, 1114, 114, 14];
+
+quickSort(value);
+```
+
 
 ## API
 
@@ -7,6 +25,7 @@
 ```ts
 default function quickSort<T = number>(array: Array<T>, ascending?: boolean): Array<T>;
 ```
+
 
 ~{
   "element": "BottomNavigation",
