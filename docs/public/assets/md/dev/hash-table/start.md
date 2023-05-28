@@ -1,9 +1,4 @@
 
-### Add
-
-```sh
-yarn add @amaui/hash-table
-```
 
 ### Use cases
 - Indexing data
@@ -11,6 +6,12 @@ yarn add @amaui/hash-table
 - Storage for data, for efficient quering
 - Storing relationships between data
 - etc.
+
+### Add
+
+```sh
+yarn add @amaui/hash-table
+```
 
 ### Use
 

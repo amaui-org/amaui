@@ -3,17 +3,17 @@
 
 Binary tree data type & its methods.
 
-### Add
-
-```bash
-yarn add @amaui/binary-tree
-```
-
 ### Use cases
 - Min/max heaps
 - Huffman coding, data compression
 - Machine learning, making decisions
 - etc.
+
+### Add
+
+```bash
+yarn add @amaui/binary-tree
+```
 
 ### Use
 

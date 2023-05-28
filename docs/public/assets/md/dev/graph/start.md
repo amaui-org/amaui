@@ -1,15 +1,16 @@
 
-### Add
-
-```sh
-yarn add @amaui/graph
-```
 
 ### Use cases
 - Social media network
 - Maps, roads connections, GPS
 - Search result relevancy algorithm
 - etc.
+
+### Add
+
+```sh
+yarn add @amaui/graph
+```
 
 ### Use
 

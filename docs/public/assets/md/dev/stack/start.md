@@ -3,18 +3,18 @@
 
 Stack data structure.
 
-### Add
-
-```sh
-yarn add @amaui/stack
-```
-
 ### Use cases
 - Reversing
 - Undo/redo
 - Backtracking
 - Call stack
 - etc.
+
+### Add
+
+```sh
+yarn add @amaui/stack
+```
 
 ### Use
 

@@ -1,15 +1,16 @@
 
-### Add
-
-```sh
-yarn add @amaui/linked-list
-```
 
 ### Use cases
 - Implementation of stacks
 - Efficient removal of elements
 - Reduced memory fragmentation
 - etc.
+
+### Add
+
+```sh
+yarn add @amaui/linked-list
+```
 
 ### Use
 
