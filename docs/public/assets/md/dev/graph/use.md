@@ -31,6 +31,7 @@ amauiGraph.addNode('a').addNode('b').addNode('c').addNode('d').addNode('e').addN
 
 amauiGraph.array;
 
+// [
 //    a  b  c  d  e  f  g
 // a [0, 0, 0, 0, 0, 0, 0]
 // b [0, 0, 0, 0, 0, 0, 0]
@@ -39,6 +40,7 @@ amauiGraph.array;
 // e [0, 0, 0, 0, 0, 0, 0]
 // f [0, 0, 0, 0, 0, 0, 0]
 // g [0, 0, 0, 0, 0, 0, 0]
+// ]
 ```
 
 #### Add connection
@@ -54,6 +56,7 @@ amauiGraph.addConnection('a', 'b').addConnection('a', 'c').addConnection('b', 'd
 
 amauiGraph.array;
 
+// [
 //    a  b  c  d  e  f  g
 // a [0, 1, 1, 0, 0, 0, 0]
 // b [1, 0, 0, 1, 0, 0, 0]
@@ -62,6 +65,7 @@ amauiGraph.array;
 // e [0, 0, 0, 1, 0, 1, 1]
 // f [0, 0, 0, 1, 1, 0, 1]
 // g [0, 0, 0, 0, 1, 1, 0]
+// ]
 ```
 
 ##### Connections weighted
@@ -75,6 +79,7 @@ amauiGraph.addConnection('a', 'b', 2).addConnection('a', 'c', 7).addConnection('
 
 amauiGraph.array;
 
+// [
 //    a  b  c  d  e  f  g
 // a [0, 2, 7, 0, 0, 0, 0]
 // b [2, 0, 0, 5, 0, 0, 0]
@@ -83,6 +88,7 @@ amauiGraph.array;
 // e [0, 0, 0, 14, 0, 4, 4]
 // f [0, 0, 0, 11, 4, 0, 2]
 // g [0, 0, 0, 0, 4, 2, 0]
+// ]
 ```
 
 #### Update connection
@@ -100,6 +106,7 @@ amauiGraph.updateConnection('a', 'b', 4);
 
 amauiGraph.array;
 
+// [
 //    a  b  c  d  e  f  g
 // a [0, 4, 7, 0, 0, 0, 0]
 // b [2, 0, 0, 5, 0, 0, 0]
@@ -108,6 +115,7 @@ amauiGraph.array;
 // e [0, 0, 0, 14, 0, 4, 4]
 // f [0, 0, 0, 11, 4, 0, 2]
 // g [0, 0, 0, 0, 4, 2, 0]
+// ]
 ```
 
 #### Remove node
@@ -125,6 +133,7 @@ amauiGraph.removeNode('a');
 
 amauiGraph.array;
 
+// [
 //    b  c  d  e  f  g
 // b [0, 0, 5, 0, 0, 0]
 // c [0, 0, 7, 0, 0, 0]
@@ -132,6 +141,7 @@ amauiGraph.array;
 // e [0, 0, 14, 0, 4, 4]
 // f [0, 0, 11, 4, 0, 2]
 // g [0, 0, 0, 4, 2, 0]
+// ]
 ```
 
 #### Remove connection
@@ -149,6 +159,7 @@ amauiGraph.removeConnection('a', 'b');
 
 amauiGraph.array;
 
+// [
 //    a  b  c  d  e  f  g
 // a [0, 0, 7, 0, 0, 0, 0]
 // b [0, 0, 0, 5, 0, 0, 0]
@@ -157,6 +168,7 @@ amauiGraph.array;
 // e [0, 0, 0, 14, 0, 4, 4]
 // f [0, 0, 0, 11, 4, 0, 2]
 // g [0, 0, 0, 0, 4, 2, 0]
+// ]
 ```
 
 #### Array
@@ -172,6 +184,7 @@ amauiGraph.addConnection('a', 'b', 2).addConnection('a', 'c', 7).addConnection('
 
 amauiGraph.array;
 
+// [
 //    a  b  c  d  e  f  g
 // a [0, 2, 7, 0, 0, 0, 0]
 // b [2, 0, 0, 5, 0, 0, 0]
@@ -180,6 +193,7 @@ amauiGraph.array;
 // e [0, 0, 0, 14, 0, 4, 4]
 // f [0, 0, 0, 11, 4, 0, 2]
 // g [0, 0, 0, 0, 4, 2, 0]
+// ]
 ```
 
 #### shortestPath
@@ -268,6 +282,7 @@ amauiGraph.addConnection('a', 'b', 2).addConnection('a', 'c', 7).addConnection('
 
 amauiGraph.array;
 
+// [
 //    a  b  c  d  e  f  g
 // a [0, 2, 7, 0, 0, 0, 0]
 // b [2, 0, 0, 5, 0, 0, 0]
@@ -276,6 +291,7 @@ amauiGraph.array;
 // e [0, 0, 0, 14, 0, 4, 4]
 // f [0, 0, 0, 11, 4, 0, 2]
 // g [0, 0, 0, 0, 4, 2, 0]
+// ]
 
 amauiGraph.clear();
 
