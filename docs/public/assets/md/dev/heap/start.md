@@ -1,4 +1,8 @@
 
+# amaui heap
+
+Heap value type & its methods.
+
 ### Add
 
 ```sh
