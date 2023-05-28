@@ -1,4 +1,7 @@
 
+# amaui hash table
+
+Hash table data type & its methods.
 
 ### Use cases
 - Indexing data
