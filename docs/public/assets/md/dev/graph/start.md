@@ -1,4 +1,7 @@
 
+# amaui graph
+
+Graph value type & its methods.
 
 ### Use cases
 - Social media network
