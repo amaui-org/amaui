@@ -28,6 +28,12 @@ Useful for example in the express API in the error middleware to check error nam
 - 'PermissionError' 403
 - etc.
 
+#### AmauiError
+
+```ts
+new AmauiError();
+```
+
 #### AmauiTestError
 
 ```ts
