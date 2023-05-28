@@ -1,4 +1,8 @@
 
+# amaui errors
+
+Useful error versions for various use cases, and more useful properties added to each error instance.
+
 ### Add
 
 ```sh

@@ -1,4 +1,120 @@
 
+# AmauiError
+
+Main Error class is AmauiError that extends Error, and adds onto it.
+
+```ts
+const amauiError = new AmauiError('a');
+
+amauiError.name;
+amauiError.message;
+amauiError.added_at;
+amauiError.stack;
+
+// AmauiError
+// 'a'
+// 1643893234
+// 'AmauiError: a\n    at eval (eval at evaluate (:3:2389), <anonymous>:2:31)\n    at t.default.evaluate (<anonymous>:3:2412)\n    at t.default.<anonymous> (<anonymous>:1:44)'
+```
+
+### All error version
+
+Each has a specific error class, and error name.
+
+Useful for example in the express API in the error middleware to check error name, and based on it send a specific response status code, ie:
+
+- 'ValidationError' 400
+- 'AuthenticationError' 401
+- 'PermissionError' 403
+- etc.
+
+#### AmauiTestError
+
+```ts
+new AmauiTestError();
+```
+
+#### AssertError
+
+```ts
+new AssertError();
+```
+
+#### AuthenticationError
+
+```ts
+new AuthenticationError();
+```
+
+#### AuthorizationError
+
+```ts
+new AuthorizationError();
+```
+
+#### ValidationError
+
+```ts
+new ValidationError();
+```
+
+#### NotFoundError
+
+```ts
+new NotFoundError();
+```
+
+#### PermissionError
+
+```ts
+new PermissionError();
+```
+
+#### AmauiAmqpError
+
+```ts
+new AmauiAmqpError();
+```
+
+#### AmauiAwsError
+
+```ts
+new AmauiAwsError();
+```
+
+#### AmauiMongoError
+
+```ts
+new AmauiMongoError();
+```
+
+#### ConnectionError
+
+```ts
+new ConnectionError();
+```
+
+#### DeveloperError
+
+```ts
+new DeveloperError();
+```
+
+### Custom errors
+
+You can make your own custom error by extending the main `AmauiError`.
+
+```ts
+class MyError extends AmauiError {
+
+  public constructor(value: TAmauiErrorValue = '', ...args: any[]) {
+    super(value, MyError, ...args);
+
+    this.name = 'MyError';
+  }
+
+}
+```
 
 ## API
 
