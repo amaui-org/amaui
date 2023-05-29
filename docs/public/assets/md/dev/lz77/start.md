@@ -1,4 +1,8 @@
 
+# amaui lz77
+
+LZ77 compression algorithm implementation.
+
 ### Add
 
 ```sh
