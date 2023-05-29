@@ -32,7 +32,16 @@ const useStyle = styleMethod(theme => ({
   '@p': {
     '*': {
       '&::-webkit-scrollbar': {
-        display: 'none'
+        width: 8
+      },
+
+      '&::-webkit-scrollbar-track': {
+        background: 'transparent'
+      },
+
+      '&::-webkit-scrollbar-thumb': {
+        background: 'rgb(221, 221, 221, 0.4)',
+        borderRadius: 24
       }
     },
 
@@ -70,7 +79,16 @@ const useStyle = styleMethod(theme => ({
       scrollbarWidth: 0,
 
       '&::-webkit-scrollbar': {
-        display: 'none'
+        width: 8
+      },
+
+      '&::-webkit-scrollbar-track': {
+        background: 'transparent'
+      },
+
+      '&::-webkit-scrollbar-thumb': {
+        background: 'rgb(221, 221, 221, 0.4)',
+        borderRadius: 24
       }
     },
 

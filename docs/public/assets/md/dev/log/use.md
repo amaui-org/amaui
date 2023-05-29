@@ -252,7 +252,7 @@ AmauiLog.amauilog;
 
 #### Static log methods
 
-Do the same as the instance log methods only by creating `AmauiLog` instance with default settings.
+Do the same as the instance log methods only by creating `AmauiLog` instance with default options.
 
 ##### log
 
@@ -306,10 +306,10 @@ Default values:
 AmauiLog.color('a', 'orange');
 
 // in the browser:
-// `%ca`, `color: #a9b030`
+// '%ca', 'color: #a9b030'
 
 // in the server:
-// `\x1b33ma\x1b[0m`
+// '\x1b33ma\x1b[0m'
 ```
 
 #### archiveClear
