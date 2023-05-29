@@ -57,10 +57,6 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
           background-color: transparent;
           padding: 24px 26px;
         }
-
-        body::-webkit-scrollbar {
-          display: none;
-        }
       `;
 
       iframeDocument.head?.append(styleDefault);

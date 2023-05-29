@@ -30,18 +30,23 @@ import { useRouter } from 'next/router';
 
 const useStyle = styleMethod(theme => ({
   '@p': {
-    '*': {
-      '&::-webkit-scrollbar': {
-        width: 8
-      },
+    '::-webkit-scrollbar': {
+      width: 16,
+      height: 16
+    },
 
-      '&::-webkit-scrollbar-track': {
-        background: 'transparent'
-      },
+    '::-webkit-scrollbar-track, ::-webkit-scrollbar-corner': {
+      background: 'transparent'
+    },
 
-      '&::-webkit-scrollbar-thumb': {
-        background: 'rgb(221, 221, 221, 0.4)',
-        borderRadius: 24
+    '::-webkit-scrollbar-thumb': {
+      borderRadius: 8,
+      border: '4px solid transparent',
+      backgroundClip: 'content-box',
+      backgroundColor: 'rgba(221, 221, 221, 0.4)',
+
+      '&:hover': {
+        backgroundColor: 'rgba(221, 221, 221, 0.7)'
       }
     },
 
@@ -76,20 +81,7 @@ const useStyle = styleMethod(theme => ({
 
     '& .amaui-Modal-surface': {
       overflowY: 'auto',
-      scrollbarWidth: 0,
-
-      '&::-webkit-scrollbar': {
-        width: 8
-      },
-
-      '&::-webkit-scrollbar-track': {
-        background: 'transparent'
-      },
-
-      '&::-webkit-scrollbar-thumb': {
-        background: 'rgb(221, 221, 221, 0.4)',
-        borderRadius: 24
-      }
+      scrollbarWidth: 0
     },
 
     '& .amaui-ListItem-end-button': {

@@ -1,4 +1,8 @@
 
+# amaui huffman code
+
+Huffman code algorithm implementation.
+
 ### Add
 
 ```sh
