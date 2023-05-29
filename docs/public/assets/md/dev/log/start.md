@@ -1,4 +1,11 @@
 
+# amaui log
+
+Logging utils for front end & back end.
+
+Very useful, especially for the back end logs, where you can add much more granularity to the lines that are being logged. \
+Add prefix to your log lines, to easier find when some log lines happened when debugging using your server log history.
+
 ### Add
 
 ```sh
