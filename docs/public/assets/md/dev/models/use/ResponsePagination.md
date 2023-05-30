@@ -43,8 +43,8 @@ class ResponsePagination extends Base implements IResponsePagination {
       "to": "/dev/models/use/ResponseMeta"
     },
     "next": {
-      "label": "Models: validateMongoQuery",
-      "to": "/dev/models/use/validateMongoQuery"
+      "label": "Models: base",
+      "to": "/dev/models/use/base"
     }
   }
 }~

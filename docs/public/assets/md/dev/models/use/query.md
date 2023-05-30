@@ -154,12 +154,12 @@ class Query extends Base implements IQuery {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Models: MongoQuery",
-      "to": "/dev/models/use/MongoQuery"
+      "label": "Models: models",
+      "to": "/dev/models/use/models"
     },
     "next": {
-      "label": "Models: Response",
-      "to": "/dev/models/use/Response"
+      "label": "Models: response",
+      "to": "/dev/models/use/response"
     }
   }
 }~

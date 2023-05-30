@@ -1,4 +1,8 @@
 
+# amaui models
+
+Useful classes, methods used as a default in other packages like `@amaui/mongo`.
+
 ### Add
 
 ```sh

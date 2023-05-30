@@ -26,8 +26,8 @@ class ResponseMeta extends Base implements IResponseMeta {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Models: Response",
-      "to": "/dev/models/use/Response"
+      "label": "Models: MongoQuery",
+      "to": "/dev/models/use/MongoQuery"
     },
     "next": {
       "label": "Models: ResponsePagination",

@@ -40,8 +40,8 @@ interface IQueryKeys {
       "to": "/dev/models/use/getMongoOperator"
     },
     "next": {
-      "label": "Models: MongoQuery",
-      "to": "/dev/models/use/MongoQuery"
+      "label": "Models: query",
+      "to": "/dev/models/use/query"
     }
   }
 }~

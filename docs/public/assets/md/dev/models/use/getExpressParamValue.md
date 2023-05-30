@@ -1,4 +1,13 @@
 
+# getExpressParamValue
+
+Seaches for the value of a property name in all places body, params & query.
+
+```ts
+getExpressParamValue(req, 'a');
+
+// 114
+```
 
 ## API
 
