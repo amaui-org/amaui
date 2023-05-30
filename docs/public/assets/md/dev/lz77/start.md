@@ -22,7 +22,7 @@ const amauiLz77 = new AmauiLz77('Lorem u ipsum dolor sit amet amet amet amet ame
 const response = amauiLz77.encoded;
 
 // {
-//   "value": "Lorem u ipsum dolor sit ame'5,v', consectetur adipiscing elit. Proin egestas mauris elit,'2o,a'molestie nisi semper at. Cras interdum massa nec '1d,9'rutrum. Duis commodo venenatis justo, ac porta tellus pellentesque sed. Donec et nisi aumus.'57,fl'",
+//   "value": "Lorem u ipsum dolor sit ame`5,v`, consectetur adipiscing elit. Proin egestas mauris elit,`2o,a`molestie nisi semper at. Cras interdum massa nec `1d,9`rutrum. Duis commodo venenatis justo, ac porta tellus pellentesque sed. Donec et nisi aumus.`57,fl`",
 //   "original_byte_size": 836,
 //   "value_byte_size": 250,
 //   "compression_ratio": 3.34,

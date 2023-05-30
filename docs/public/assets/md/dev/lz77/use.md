@@ -17,7 +17,7 @@ const amauiLZ77 = new AmauiLZ77('Lorem u ipsum dolor sit amet, consectetur adipi
 amauiLZ77.response;
 
 // {
-//     "value": " Lorem u ipsum dolor sit amet, consectetur adipiscing elit.Fusce'1f,8'em, facilisis sed erat'23,b'pharetra blandit augue.Sed id placerat felis, malesuada rutrum nisl.In ultrices sed mauris finibus m'1i,8'.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.Integer cursus, odio id rutrum blandit, neque velit aliquam odio, at rhoncus elit est nec erat.Proin egestas'6c,8'elit,'9d,b'molestie nisi semper at.Cras interdum massa nec m'1d,8'rutrum.Duis commodo venenatis justo, ac porta tellus pellentesque sed.Donec et nisi aumus.",
+//     "value": " Lorem u ipsum dolor sit amet, consectetur adipiscing elit.Fusce`1f,8`em, facilisis sed erat`23,b`pharetra blandit augue.Sed id placerat felis, malesuada rutrum nisl.In ultrices sed mauris finibus m`1i,8`.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.Integer cursus, odio id rutrum blandit, neque velit aliquam odio, at rhoncus elit est nec erat.Proin egestas`6c,8`elit,`9d,b`molestie nisi semper at.Cras interdum massa nec m`1d,8`rutrum.Duis commodo venenatis justo, ac porta tellus pellentesque sed.Donec et nisi aumus.",
 //     "original_byte_size": 583,
 //     "value_byte_size": 566,
 //     "compression_ratio": 1.03,
@@ -38,7 +38,7 @@ const amauiLZ77 = new AmauiLZ77('Lorem u ipsum dolor sit amet, consectetur adipi
 amauiLZ77.encoded;
 
 // {
-//     "value": " Lorem u ipsum dolor sit amet, consectetur adipiscing elit.Fusce'1f,8'em, facilisis sed erat'23,b'pharetra blandit augue.Sed id placerat felis, malesuada rutrum nisl.In ultrices sed mauris finibus m'1i,8'.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.Integer cursus, odio id rutrum blandit, neque velit aliquam odio, at rhoncus elit est nec erat.Proin egestas'6c,8'elit,'9d,b'molestie nisi semper at.Cras interdum massa nec m'1d,8'rutrum.Duis commodo venenatis justo, ac porta tellus pellentesque sed.Donec et nisi aumus.",
+//     "value": " Lorem u ipsum dolor sit amet, consectetur adipiscing elit.Fusce`1f,8`em, facilisis sed erat`23,b`pharetra blandit augue.Sed id placerat felis, malesuada rutrum nisl.In ultrices sed mauris finibus m`1i,8`.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.Integer cursus, odio id rutrum blandit, neque velit aliquam odio, at rhoncus elit est nec erat.Proin egestas`6c,8`elit,`9d,b`molestie nisi semper at.Cras interdum massa nec m`1d,8`rutrum.Duis commodo venenatis justo, ac porta tellus pellentesque sed.Donec et nisi aumus.",
 //     "original_byte_size": 583,
 //     "value_byte_size": 566,
 //     "compression_ratio": 1.03,
@@ -84,7 +84,7 @@ Returns the first available prefix that's able to be added as quotes for the coo
 ```ts
 AmauiLZ77.prefix('value');
 
-// '
+// `
 ```
 
 ### AmauiLZ77Response
