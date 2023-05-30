@@ -1,9 +1,13 @@
 
-# ResponsePagination
+# MongoResponse
 
-A class in which you can package response's pagination property value.
+A class in which you can package a response from mongo aggregation pipeline.
 
 ### Properties
+
+#### response
+
+Any value.
 
 #### next
 
@@ -37,13 +41,13 @@ How many documents have been skipped.
 
 What limit was used in the query.
 
-
 ## API
 
-#### IResponsePagination
+#### IMongoResponse
 
 ```ts
-interface IResponsePagination {
+interface IMongoResponse {
+    response: any[];
     next?: string;
     previous?: string;
     hasNext?: boolean;
@@ -55,20 +59,20 @@ interface IResponsePagination {
 }
 ```
 
-#### ResponsePagination
+#### MongoResponse
 
 ```ts
-class ResponsePagination extends Base implements IResponsePagination {
+class MongoResponse extends Base implements IMongoResponse {
+    response: any[];
     next?: string;
     previous?: string;
-    hasNext?: boolean;
     hasPrevious?: boolean;
+    hasNext?: boolean;
     length?: number;
     total?: number;
     skip?: number;
     limit?: number;
-    constructor(next?: string, previous?: string, hasNext?: boolean, hasPrevious?: boolean, length?: number, total?: number, skip?: number, limit?: number);
-    static fromMongoQuery(value: MongoQuery): ResponsePagination;
+    constructor(response?: any[], next?: string, previous?: string, hasPrevious?: boolean, hasNext?: boolean, length?: number, total?: number, skip?: number, limit?: number);
 }
 ```
 
@@ -77,12 +81,12 @@ class ResponsePagination extends Base implements IResponsePagination {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Models: ResponseMeta",
-      "to": "/dev/models/use/ResponseMeta"
+      "label": "Models: models",
+      "to": "/dev/models/use/models"
     },
     "next": {
-      "label": "Models: Response",
-      "to": "/dev/models/use/Response"
+      "label": "Models: Query",
+      "to": "/dev/models/use/Query"
     }
   }
 }~

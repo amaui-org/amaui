@@ -1,4 +1,21 @@
 
+# Response
+
+A class in which you can package your entire request's JSON response value.
+
+### Properties
+
+#### response
+
+Any value.
+
+#### meta
+
+`ResponseMeta` instance.
+
+#### pagination
+
+`ResponsePagination` instance.
 
 ## API
 
@@ -33,8 +50,8 @@ class Response extends Base {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Models: query",
-      "to": "/dev/models/use/query"
+      "label": "Models: ResponsePagination",
+      "to": "/dev/models/use/ResponsePagination"
     },
     "next": {
       "label": "Models: validateMongoQuery",

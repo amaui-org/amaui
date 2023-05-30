@@ -1,4 +1,7 @@
 
+# models
+
+Useful types for typescript, more in the API part.
 
 ## API
 
@@ -40,8 +43,8 @@ interface IQueryKeys {
       "to": "/dev/models/use/getMongoOperator"
     },
     "next": {
-      "label": "Models: query",
-      "to": "/dev/models/use/query"
+      "label": "Models: MongoResponse",
+      "to": "/dev/models/use/MongoResponse"
     }
   }
 }~

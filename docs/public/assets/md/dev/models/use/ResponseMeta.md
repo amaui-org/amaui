@@ -1,4 +1,18 @@
 
+# ResponseMeta
+
+A class in which you can package response's meta property value.
+
+### Properties
+
+#### status
+
+Request's response status code value.
+
+#### message
+
+Message for the request's response.
+
 
 ## API
 
@@ -26,8 +40,8 @@ class ResponseMeta extends Base implements IResponseMeta {
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Models: MongoQuery",
-      "to": "/dev/models/use/MongoQuery"
+      "label": "Models: Query",
+      "to": "/dev/models/use/Query"
     },
     "next": {
       "label": "Models: ResponsePagination",

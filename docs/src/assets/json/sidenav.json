@@ -1242,8 +1242,8 @@
             "url": "/dev/models/use/models"
           },
           {
-            "label": "MongoQuery",
-            "url": "/dev/models/use/MongoQuery"
+            "label": "MongoResponse",
+            "url": "/dev/models/use/MongoResponse"
           },
           {
             "label": "Query",

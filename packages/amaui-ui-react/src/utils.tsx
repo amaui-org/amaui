@@ -339,3 +339,7 @@ export const sanitize = (value: string) => {
     return value.replace(reg, (match) => (map[match]));
   }
 };
+
+export const replace = (value: string, split: string, join: string) => {
+  return value.split(split).join(join);
+};

@@ -3,7 +3,7 @@ import React from 'react';
 import { colorToRgb, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement, sanitize, staticClassName } from '../utils';
+import { IBaseElement, replace, sanitize, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -815,20 +815,6 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
 
               return `${a1}<code${addClassName('code')}${addStyle('code')}>${a2}</code>${a3}`;
             }
-          },
-          // pre
-          {
-            version: 'pre',
-            value: /([^`])`{3}(.*)\n([^`]*)`{3}([^`])/g,
-            method: (match, a1, a2, a3, a4, ...args) => {
-              const additionalClassNames = [a2, `language-${a2}`];
-
-              const valueRender = is('function', render) ? render('pre', classNames([classes['pre'], classNames([classes['pre'], elementClassNames?.['pre']]), ...additionalClassNames]), elementStyles?.['pre'], match, a1, a2, a3, a4, ...args) : undefined;
-
-              if (valueRender !== undefined) return valueRender;
-
-              return `${a1}<pre${addClassName('pre', ...additionalClassNames)}${addStyle('pre')}><code${addClassName('code')}${addStyle('code')}>${sanitize(a3)}</code></pre>${a4}`;
-            }
           }
         ];
       };
@@ -837,19 +823,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
         let result = regExpressions(options).reduce((regexResult: string, current: { version?: string; value: RegExp; method: any }) => {
           let response = regexResult;
 
-          // Extract code blocks
-          const preVars = response.match(/`{3}([\s\S]*?)`{3}/) || [];
-
-          if (!!preVars.length && !['pre'].includes(current.version)) {
-            preVars.forEach((item: any, index: number) => response = response.replace(item, `amauiVar${index}`));
-          }
-
           response = response.replace(current.value, current.method);
-
-          // Revert code blocks
-          if (!!preVars.length && !['pre'].includes(current.version)) {
-            preVars.forEach((item: any, index: number) => response = response.replace(`amauiVar${index}`, item));
-          }
 
           return response;
         }, valueNew_);
@@ -883,7 +857,32 @@ ${listItem(other_, level)}
         return valueList;
       };
 
-      valueNew = method(value_);
+      valueNew = value_;
+
+      // Extract code blocks
+      let codeBlocks = valueNew.match(/`{3}([\s\S]*?)`{3}/g) || [];
+
+      if (!!codeBlocks.length) {
+        codeBlocks.forEach((item: any, index: number) => valueNew = valueNew.replace(item, `amaui-${index}-var`));
+      }
+
+      valueNew = method(valueNew);
+
+      // Revert code blocks
+      if (!!codeBlocks.length) {
+        codeBlocks = codeBlocks
+          .map(item => item.replace(/`{3}(.*)\n([\s\S]*?)`{3}/m, (match, a1, a2, ...args) => {
+            const additionalClassNames = [a1, `language-${a1}`];
+
+            const valueRender = is('function', render) ? render('pre', classNames([classes['pre'], classNames([classes['pre'], elementClassNames?.['pre']]), ...additionalClassNames]), elementStyles?.['pre'], match, a1, a2, ...args) : undefined;
+
+            if (valueRender !== undefined) return valueRender;
+
+            return `<pre${addClassName('pre', ...additionalClassNames)}${addStyle('pre')}><code${addClassName('code')}${addStyle('code')}>${sanitize(a2)}</code></pre>`;
+          }));
+
+        codeBlocks.forEach((item, index) => valueNew = replace(valueNew, `amaui-${index}-var`, item));
+      }
     }
 
     return valueNew;
