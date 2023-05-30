@@ -20,6 +20,8 @@ const mongo = new Mongo({
   name: Config.db.mongo.name,
 });
 
+await mongo.connection;
+
 // Make a collection class
 class ACollection extends BaseCollection {
 

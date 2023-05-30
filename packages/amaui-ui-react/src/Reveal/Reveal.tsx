@@ -180,11 +180,15 @@ const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
 
   const Component = !noTransition ? Component_ : React.Fragment;
 
+  const ComponentProps = !noTransition && {
+    ...other
+  };
+
   if (!noTransition) other.in = inProp;
 
   return (
     <Component
-      {...other}
+      {...ComponentProps}
     >
       {React.cloneElement(children as any, {
         ref: (item: any) => {
