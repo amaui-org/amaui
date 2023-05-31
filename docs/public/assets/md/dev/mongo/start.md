@@ -27,27 +27,41 @@ const mongo = new Mongo({
 await mongo.connection;
 
 // Make a collection class
-class ACollection extends BaseCollection {
+class TodoCollection extends BaseCollection {
 
   public constructor() {
-    super('a', mongo);
+    super('todos', mongo);
   }
 
 }
 
-const aCollection = new ACollection();
+const todoCollection = new TodoCollection();
 
 // Add
-const value = await aCollection.addOne({ _id: new ObjectId(), a: 'a' });
+const todoCreated = await todoCollection.addOne({
+  _id: new ObjectId(),
+  name: 'todo',
+  description: 'description'
+});
 
 // Find one
-const item = await aCollection.findOne(new Query({
+const todo = await aCollection.findOne(new Query({
   queries: {
-    find: { a: value._id },
+    find: {
+      todos: {
+        _id_: todoCreated._id
+      }
+    },
   },
 }));
 
-// { _id: ObjectId('407f191e810c19729de860ea'), a: 'a' }
+todo;
+
+// {
+//   _id: ObjectId('407f191e810c19729de860ea'),
+//   name: 'todo',
+//   description: 'description'
+// }
 
 // etc.
 ```

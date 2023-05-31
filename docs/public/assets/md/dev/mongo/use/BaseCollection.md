@@ -68,7 +68,8 @@ const query = new Query({
     }
   },
 
-  limit: 14
+  limit: 14,
+  total: true
 });
 ```
 
@@ -96,6 +97,7 @@ Data schema this library assumes is an example which nicely organizes any API da
 
 ```ts
 {
+  _id: ...,
   meta: {
     created_by: User ObjectID
   },
@@ -431,6 +433,8 @@ Adds one document to the collection.
 
 If `options.add\_date: true`, by default true, it will add to `this.addedProperty` (getter), `AmauiDate.utc.unix` value.
 
+Uses mongo's `insertOne` method.
+
 ```ts
 const todoCollection = new TodoCollection();
 
@@ -456,6 +460,8 @@ await todoCollection.addOne(
 Updates one document, by providing a query, value to be set (updated) optionally, and/or mongo update operators.
 
 If `options.update\_date: true`, by default true, it will add to `this.updatedProperty` (getter), `AmauiDate.utc.unix` value.
+
+Uses mongo's `findOneAndUpdate` method.
 
 [Update mongo operators](https://www.mongodb.com/docs/manual/reference/operator/update/#update-operators-1)
 
@@ -494,6 +500,8 @@ await todoCollection.updateOne(
 
 Removes one document from the collection based on the provided query.
 
+Uses mongo's `findOneAndDelete` method.
+
 ```ts
 const todoCollection = new TodoCollection();
 
@@ -526,6 +534,8 @@ If `options.add\_date: true`, by default true, it will add to `this.addedPropert
 
 If `options.update\_date: true`, by default true, it will add to `this.updatedProperty` (getter), `AmauiDate.utc.unix` value, if document is updated & upserted.
 
+Uses mongo's `findOneAndUpdate` method, with `upsert: true` option.
+
 ```ts
 const todoCollection = new TodoCollection();
 
@@ -556,7 +566,171 @@ await todoCollection.updateOne(
 // }
 ```
 
+#### addMany
+
+Adds multiple document to the collection.
+
+If `options.add\_date: true`, by default true, it will add to `this.addedProperty` (getter), `AmauiDate.utc.unix` value, to every item.
+
+Uses mongo's `insertMany` method.
+
+```ts
+const todoCollection = new TodoCollection();
+
+await todoCollection.addMany(
+  [
+    {
+      meta,
+      data
+    },
+    {
+      meta,
+      data
+    },
+    {
+      meta,
+      data
+    }
+  ]
+);
+
+// {
+//   ...
+//
+//   insertedIds: [ ... ],
+//
+//   ...
+// }
+```
+
+#### updateMany
+
+Updates multiple documents, by providing a query, value to be set (updated) optionally, and/or mongo update operators.
+
+If `options.update\_date: true`, by default true, it will add to `this.updatedProperty` (getter), `AmauiDate.utc.unix` value, to every item.
+
+Uses mongo's `updateMany` method.
+
+[Update mongo operators](https://www.mongodb.com/docs/manual/reference/operator/update/#update-operators-1)
+
+```ts
+const todoCollection = new TodoCollection();
+
+await todoCollection.updateMany(
+  new Query({
+    queries: {
+      find: {
+        todos: {
+          name: { $regex: '^todo' }
+        }
+      }
+    }
+  }),
+  {
+    'meta.a': 114
+  }
+);
+
+// {
+//   modifiedCount: 1114
+// }
+```
+
+#### removeMany
+
+Removes multiple document from the collection based on the provided query.
+
+Uses mongo's `deleteMany` method.
+
+```ts
+const todoCollection = new TodoCollection();
+
+await todoCollection.removeMany(
+  new Query({
+    queries: {
+      find: {
+        todos: {
+          _id: { $in: [ ..., ..., ... ] }
+        }
+      }
+    }
+  })
+);
+
+// {
+//   ...
+//
+//   deletedCount: 1114
+//
+//   ...
+// }
+```
+
+#### bulkWrite
+
+Makes multiple operations in the same request in a collection.
+
+Uses mongo's `bulkWrite` method.
+
+```ts
+const todoCollection = new TodoCollection();
+
+await todoCollection.bulkWrite(
+  [
+    {
+      insertOne: {
+        document: {
+         meta,
+         data,
+         api_meta
+        }
+      }
+    },
+    {
+      updateOne: {
+        filter: {
+          _id: ...
+        },
+        update: {
+          'meta.a': 1114
+        }
+      }
+    },
+    {
+      deleteOne: {
+        filter: {
+          _id: ...
+        }
+      }
+    }
+  ]
+);
+
+// {
+//   ...
+//
+//   insertedIds: [ ... ],
+//   upsertedIds: [ ... ],
+//
+//   insertedCount: 1114,
+//   modifiedCount: 1114,
+//   upsertedCount: 1114,
+//   deletedCount: 1114,
+//
+//   ...
+// }
+```
+
 ## API
+
+#### IUpdateOrAddOptions
+
+```ts
+interface IUpdateOrAddOptions extends mongodb.FindOneAndUpdateOptions {
+    add_date?: boolean;
+    update_date?: boolean;
+}
+```
 
 #### IUpdateOptions
 
@@ -608,18 +782,21 @@ class BaseCollection {
     get updatedProperty(): string;
     get projection(): object;
     collection(name?: string, options?: mongodb.CreateCollectionOptions): Promise<mongodb.Collection>;
-    transaction(method: TMethod): Promise<void | Error>;
+    transaction(method: TMethod, options?: {
+        retries: number;
+        retriesWait: number;
+    }): Promise<void | Error>;
     count(query?: Query, options?: mongodb.CountDocumentsOptions): Promise<number>;
-    exists(value?: Array<object>, operator?: '$and' | '$or', options?: mongodb.FindOptions): Promise<boolean>;
+    exists(query: Query, options?: mongodb.FindOptions): Promise<boolean>;
     find(query: Query, options?: mongodb.FindOptions): Promise<IMongoResponse>;
     findOne(query: Query, options?: mongodb.FindOptions): Promise<any>;
     aggregate(query?: Query, options?: mongodb.AggregateOptions): Promise<Array<mongodb.Document>>;
     searchMany(query: Query, additional?: IMongoSearchManyAdditional, options?: mongodb.AggregateOptions): Promise<IMongoResponse>;
     searchOne(query: Query, additional?: IMongoSearchOneAdditional, options?: mongodb.AggregateOptions): Promise<mongodb.Document>;
+    addOne(value: any, options_?: IAddOneOptions): Promise<mongodb.Document>;
     updateOne(query: Query, value?: any, operators?: mongodb.UpdateFilter<any>, options_?: IUpdateOptions): Promise<mongodb.ModifyResult<mongodb.Document>>;
     removeOne(query: Query, options?: mongodb.FindOneAndDeleteOptions): Promise<mongodb.ModifyResult<mongodb.Document>>;
-    updateOneOrAdd(query: Query, value: any, options_?: IUpdateOptions): Promise<mongodb.ModifyResult<mongodb.Document>>;
-    addOne(value: any, options_?: IAddOneOptions): Promise<mongodb.Document>;
+    updateOneOrAdd(query: Query, value: any, options_?: IUpdateOrAddOptions): Promise<mongodb.ModifyResult<mongodb.Document>>;
     addMany(values_: any[], options_?: IAddManyOptions): Promise<Array<mongodb.Document>>;
     updateMany(query: Query, value?: any, operators?: mongodb.UpdateFilter<any>, options_?: IUpdateManyOptions): Promise<number>;
     removeMany(query: Query, options?: mongodb.DeleteOptions): Promise<number>;
