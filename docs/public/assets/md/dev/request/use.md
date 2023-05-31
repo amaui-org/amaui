@@ -523,6 +523,10 @@ await amauiRequest.post('url', Buffer.from('<a>a</a>'), {
 
 ### Other
 
+#### content-type
+
+Default `'content-type'` headers for `post`, `put` & `patch` methods options is `application/json`.
+
 #### browser
 
 In the browser `XMLHttpRequest` is used to make the requests.
