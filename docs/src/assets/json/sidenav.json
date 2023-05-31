@@ -1394,28 +1394,28 @@
         "url": "/dev/style/use",
         "menu": [
           {
-            "label": "AmauiStyleRenderer",
-            "url": "/dev/style/use/AmauiStyleRenderer"
+            "label": "AmauiStyle",
+            "url": "/dev/style/use/AmauiStyle"
           },
           {
-            "label": "AmauiStyleRuleProperty",
-            "url": "/dev/style/use/AmauiStyleRuleProperty"
+            "label": "AmauiStyleRenderer",
+            "url": "/dev/style/use/AmauiStyleRenderer"
           },
           {
             "label": "AmauiStyleRule",
             "url": "/dev/style/use/AmauiStyleRule"
           },
           {
-            "label": "AmauiStyleSheetManager",
-            "url": "/dev/style/use/AmauiStyleSheetManager"
+            "label": "AmauiStyleRuleProperty",
+            "url": "/dev/style/use/AmauiStyleRuleProperty"
           },
           {
             "label": "AmauiStyleSheet",
             "url": "/dev/style/use/AmauiStyleSheet"
           },
           {
-            "label": "AmauiStyle",
-            "url": "/dev/style/use/AmauiStyle"
+            "label": "AmauiStyleSheetManager",
+            "url": "/dev/style/use/AmauiStyleSheetManager"
           },
           {
             "label": "AmauiTheme",
@@ -1440,6 +1440,10 @@
           {
             "label": "inline",
             "url": "/dev/style/use/inline"
+          },
+          {
+            "label": "interfaces",
+            "url": "/dev/style/use/interfaces"
           },
           {
             "label": "makeClassName",

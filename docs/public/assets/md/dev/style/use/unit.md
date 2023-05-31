@@ -232,8 +232,8 @@ function unit(amauiStyle: AmauiStyle, options_?: IOptions): {
       "to": "/dev/style/use/style"
     },
     "next": {
-      "label": "Style: utils",
-      "to": "/dev/style/use/utils"
+      "label": "Style: valueObject",
+      "to": "/dev/style/use/valueObject"
     }
   }
 }~

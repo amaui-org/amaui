@@ -5,7 +5,7 @@
 #### IMethodsPaletteImageOptions
 
 ```ts
- interface IMethodsPaletteImageOptions {
+interface IMethodsPaletteImageOptions {
     amount?: number;
     size?: number;
     allowCrossOrigin?: boolean;
