@@ -1,4 +1,8 @@
 
+# amaui request
+
+Request making library for front end & back end.
+
 ### Add
 
 ```sh
