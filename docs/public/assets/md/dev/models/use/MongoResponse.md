@@ -25,7 +25,11 @@ If it has a next page.
 
 If it has a previous page.
 
-#### length
+#### sort
+
+Sort that was used for the query.
+
+#### size
 
 Number of response documents in this page.
 
@@ -43,6 +47,10 @@ What limit was used in the query.
 
 ## API
 
+#### TMongoResponseSort
+
+type TMongoResponseSort = Record<string, 1 | -1 | 'asc' | 'desc' | 'ascending' | 'descending'>;
+
 #### IMongoResponse
 
 ```ts
@@ -52,7 +60,8 @@ interface IMongoResponse {
     previous?: string;
     hasNext?: boolean;
     hasPrevious?: boolean;
-    length?: number;
+    sort?: TMongoResponseSort;
+    size?: number;
     total?: number;
     skip?: number;
     limit?: number;
@@ -68,11 +77,12 @@ class MongoResponse extends Base implements IMongoResponse {
     previous?: string;
     hasPrevious?: boolean;
     hasNext?: boolean;
-    length?: number;
+    sort?: TMongoResponseSort;
+    size?: number;
     total?: number;
     skip?: number;
     limit?: number;
-    constructor(response?: any[], next?: string, previous?: string, hasPrevious?: boolean, hasNext?: boolean, length?: number, total?: number, skip?: number, limit?: number);
+    constructor(response?: any[], next?: string, previous?: string, hasPrevious?: boolean, hasNext?: boolean, sort?: TMongoResponseSort, size?: number, total?: number, skip?: number, limit?: number);
 }
 ```
 

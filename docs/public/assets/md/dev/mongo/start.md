@@ -1,4 +1,8 @@
 
+# amaui mongo
+
+Utils for easier using of `mongodb` library.
+
 ### Add
 
 ```sh
