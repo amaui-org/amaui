@@ -147,6 +147,48 @@ Query.getMetaValue('-14', 'skip');
 // 0
 ```
 
+#### addToQuery
+
+Adds array or object of made filters to a provided collection, in the provided type property in `queries`.
+
+```ts
+const query = new Query();
+
+query.addToQuery(
+  [
+    { a: 1114 }
+  ],
+  'a',
+  'api'
+);
+
+query.addToQuery(
+  { a: 1114 },
+  'a',
+  'find'
+);
+
+query.queries;
+
+// {
+//   ...
+
+//   api: [
+//     a: [
+//       { a: 1114 }
+//     ]
+//   ],
+
+//   find: [
+//     a: {
+//       a: 1114
+//     }
+//   ],
+
+//   ...
+// }
+```
+
 #### addToAllQueries
 
 Adds array or object of made filters to all collections in the provided type property in `queries`.
@@ -185,7 +227,7 @@ query.queries;
 //   find: [
 //     a: {
 //       a: 1114
-//     }
+//     },
 //     a114: {
 //       a: 1114
 //     }
@@ -259,6 +301,12 @@ interface IRequestParams {
 interface IQueryFind {
     [key: string]: object;
 }
+```
+
+#### TQueryQueriesKey
+
+```ts
+type TQueryQueriesKey = 'search' | 'api' | 'permissions' | 'aggregate' | 'find';
 ```
 
 #### IQueryObjects
@@ -335,12 +383,15 @@ class Query extends Base implements IQuery {
     static keys: IKeys;
     static collections: string[];
     static limit: number;
+    static LIMIT_MIN: number;
+    static LIMIT_MAX: number;
     static sort: Sort;
     constructor(query?: IQuery);
     getMeta(value: IQuery): IQueryMeta;
     static getMetaValue(value: any, type?: string): any;
     static fromRequest(req: express.Request): Query;
-    addToAllQueries(filters: any[] | object, type?: string): void;
+    addToQuery(filters: any[] | object, collection: string, type?: TQueryQueriesKey): void;
+    addToAllQueries(filters: any[] | object, type?: TQueryQueriesKey): void;
 }
 ```
 
