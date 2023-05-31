@@ -17,6 +17,120 @@ Any value.
 
 `ResponsePagination` instance.
 
+### Methods
+
+You can use these static methods to create a new `Response` instance, in various use cases.
+
+#### allowed
+
+Static allowed property defining allowed keys that can be sent in a response. \
+Used in `fromObject`, `fromCreated` methods.
+
+```ts
+// fromObject
+Response.allowed.object = ['_id', 'data', 'meta', 'api_meta'];
+
+// fromCreated
+Response.allowed.created = ['_id', 'api_meta'];
+```
+
+#### fromObject
+
+Use this method if you wanna return a single result in a response.
+
+You can customize which keys are sent in a response using `Response.allowed.object`.
+
+```ts
+Response.fromObject({ _id, data, meta });
+
+// {
+//   response: {
+//     _id,
+//     data,
+//     meta
+//   },
+//   meta: {
+//     status: 200
+//   }
+// }
+```
+
+#### fromCreated
+
+Use this method if you wanna return a single result in a response, after creating an object.
+
+You can customize which keys are sent in a response using `Response.allowed.created`.
+
+```ts
+Response.fromCreated({ _id, data, meta });
+
+// {
+//   response: {
+//     _id,
+//     data,
+//     meta
+//   },
+//   meta: {
+//     status: 200
+//   }
+// }
+```
+
+#### fromQuery
+
+Use this method for packaging a response from `@amaui/mongo`'s query methods ie. `find`, `searchMany`.
+
+```ts
+const todos = await todoCollection.searchMany(...);
+
+Response.fromQuery(todos);
+
+// {
+//   response: [
+//     ...
+//   ],
+//   pagination: {
+//     next,
+//     previous,
+//     sort,
+//     size,
+//     skip,
+//     limit
+//   },
+//   meta: {
+//     status: 200
+//   }
+// }
+```
+
+#### fromAny
+
+Use this method to return a simple response, without much checks.
+
+```ts
+Response.fromAny({ _id, meta });
+
+// {
+//   response: {
+//     _id,
+//     meta
+//   },
+//   meta: {
+//     status: 200
+//   }
+// }
+```
+
+#### fromExpress
+
+Use this method to return a raw JSON response using express.
+
+```ts
+Response.fromExpress(res, { _id, meta });
+
+// Sends a request's response to the user
+```
+
 ## API
 
 #### IResponse
@@ -36,11 +150,19 @@ class Response extends Base {
     response: any;
     meta: ResponseMeta;
     pagination?: ResponsePagination;
+    static allowed: {
+        object: any[];
+        created: any[];
+    };
     constructor(response: any, meta: ResponseMeta, pagination?: ResponsePagination);
-    static fromObject(value: TObject, original?: boolean): Response;
-    static fromCreated(value: TObject): Response;
-    static fromQuery(value: MongoQuery): Response;
-    static fromAny(value: any, moreMeta?: any): Response;
+    static fromObject(value: TObject, original?: boolean, meta_?: ResponseMeta, options?: {
+        onlyKeys: boolean;
+    }): Response;
+    static fromCreated(value: TObject, meta_?: ResponseMeta, options?: {
+        onlyKeys: boolean;
+    }): Response;
+    static fromQuery(value: MongoResponse, meta_?: ResponseMeta): Response;
+    static fromAny(value: any, meta_?: ResponseMeta): Response;
     static fromExpress(res: express.Response, data?: {}, status?: number): express.Response<any, Record<string, any>>;
 }
 ```

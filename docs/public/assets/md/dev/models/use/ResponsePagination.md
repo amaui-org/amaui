@@ -21,7 +21,11 @@ If it has a next page.
 
 If it has a previous page.
 
-#### length
+#### sort
+
+Sort that was used for the query.
+
+#### size
 
 Number of response documents in this page.
 
@@ -48,7 +52,8 @@ interface IResponsePagination {
     previous?: string;
     hasNext?: boolean;
     hasPrevious?: boolean;
-    length?: number;
+    sort?: TMongoResponseSort;
+    size?: number;
     total?: number;
     skip?: number;
     limit?: number;
@@ -63,12 +68,13 @@ class ResponsePagination extends Base implements IResponsePagination {
     previous?: string;
     hasNext?: boolean;
     hasPrevious?: boolean;
-    length?: number;
+    sort?: TMongoResponseSort;
+    size?: number;
     total?: number;
     skip?: number;
     limit?: number;
-    constructor(next?: string, previous?: string, hasNext?: boolean, hasPrevious?: boolean, length?: number, total?: number, skip?: number, limit?: number);
-    static fromMongoQuery(value: MongoQuery): ResponsePagination;
+    constructor(next?: string, previous?: string, hasNext?: boolean, hasPrevious?: boolean, sort?: TMongoResponseSort, size?: number, total?: number, skip?: number, limit?: number);
+    static fromMongoQuery(value: MongoResponse): ResponsePagination;
 }
 ```
 
