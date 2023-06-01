@@ -10,7 +10,71 @@ Value provided will be merged with defaults values using `@amaui/utils`'s `merge
 In the API part you can find more information of all available information in the `AmauiTheme` instance.
 
 ```ts
-const amauiTheme = new AmauiTheme();
+const amauiTheme = new AmauiTheme({
+  palette: {
+    light: true,
+    color: {
+      primary: {
+        main: '#ff0'
+      }
+    },
+    accessibility: 'colorblind'
+  },
+  typography: {
+    font_family: {
+      primary: FONT_FAMILY.primary,
+      secondary: FONT_FAMILY.secondary,
+      tertiary: FONT_FAMILY.tertiary
+    },
+
+    values: {
+      d1: { fontFamily: FONT_FAMILY.primary },
+
+      d2: { fontFamily: FONT_FAMILY.primary },
+
+      d3: { fontFamily: FONT_FAMILY.primary },
+
+      h1: { fontFamily: FONT_FAMILY.primary },
+
+      h2: { fontFamily: FONT_FAMILY.primary },
+
+      h3: { fontFamily: FONT_FAMILY.primary },
+
+      t1: { fontFamily: FONT_FAMILY.primary },
+
+      t2: { fontFamily: FONT_FAMILY.primary },
+
+      t3: { fontFamily: FONT_FAMILY.primary },
+
+      l1: {
+        fontFamily: FONT_FAMILY.secondary,
+        fontWeight: 700
+      },
+
+      l2: {
+        fontFamily: FONT_FAMILY.secondary,
+        fontWeight: 700
+      },
+
+      l3: {
+        fontFamily: FONT_FAMILY.secondary,
+        fontWeight: 700
+      },
+
+      b1: { fontFamily: FONT_FAMILY.secondary },
+
+      b2: { fontFamily: FONT_FAMILY.secondary },
+
+      b3: { fontFamily: FONT_FAMILY.secondary },
+
+      m1: { fontFamily: FONT_FAMILY.tertiary },
+
+      m2: { fontFamily: FONT_FAMILY.tertiary },
+
+      m3: { fontFamily: FONT_FAMILY.tertiary }
+    }
+  }
+});
 ```
 
 ### Update
