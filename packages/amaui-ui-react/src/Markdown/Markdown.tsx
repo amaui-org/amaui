@@ -19,6 +19,15 @@ const useStyle = styleMethod(theme => ({
     '& dd': {
       paddingInlineStart: '16px',
       marginBottom: '16px'
+    },
+
+    '& h1, h2, h3, h4, h5, h6': {
+      display: 'flex',
+      alignItems: 'center'
+    },
+
+    '& h1 code, h2 code, h3 code, h4 code, h5 code, h6 code': {
+      margin: '0 8px'
     }
   },
 
