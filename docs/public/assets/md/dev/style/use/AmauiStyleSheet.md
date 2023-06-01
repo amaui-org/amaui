@@ -1,4 +1,74 @@
 
+# AmauiStyleSheet
+
+Used to encapsulate all of the different made selectors, and their values.
+
+### Use
+
+```ts
+const amauiStyleSheetStatic = new AmauiStyleSheet({
+  a: {
+    width: 1114
+  },
+
+  a14: {
+    background: 'yellow'
+  }
+}, options);
+
+const amauiStyleSheetDynamic = new AmauiStyleSheet({
+  a14: {
+    background: props => props.a === 1 ? 'yellow' : 'beige'
+  }
+}, options);
+```
+
+### Version
+
+#### Static
+
+Static `AmauiStyleSheet` will have all the `AmauiStyleRule`'s with static `AmauiStyleRuleProperty`'s values.
+
+#### Dynamic
+
+Dynamic `AmauiStyleSheet` will have all the `AmauiStyleRule`'s with dynamic `AmauiStyleRuleProperty`'s values.
+
+### Methods
+
+#### response
+
+Returns in an object with css property's value entire css generated from all the `AmauiStyleRule`'s.
+
+#### css
+
+Returns in a string value entire css generated from all the `AmauiStyleRule`'s.
+
+#### add
+
+Adds the made selectors & their values to the DOM.
+
+#### update
+
+Updates the entire `AmauiStyleSheet` with new rules.
+
+Based on the value provided, it will add new `AmauiStyleRule`'s, update existing ones, and remove ones that currently exist, but are not part of the new value.
+
+#### props
+
+Updates the props, and triggers updates for all `AmauiStyleRule`'s `AmauiStyleRuleProperty`'s with dynamic values of type method.
+
+```ts
+const amauiStyleSheet = new AmauiStyleSheet(value, options);
+
+// Updates props
+amauiStyleSheet.props = {
+  a: 114
+};
+```
+
+#### remove
+
+Removes the `AmauiStyleSheet` from the DOM.
 
 ## API
 

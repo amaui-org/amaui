@@ -8,34 +8,34 @@ Client command for making static css using the `css` method, in the back end.
 Options can either be in:
 - Command line arguments
   ```ts
-  yarn amaui-style --imports=ts-node/register/transpile-only --files=test/example/test/**/a.ts --package=a/package.json --log=false
+yarn amaui-style --imports=ts-node/register/transpile-only --files=test/example/test/**/a.ts --package=a/package.json --log=false
   ```
 - In `amaui-style.options.js` file.
   ```ts
-  // amaui-style.options.js
-  module.exports = {
+// amaui-style.options.js
+module.exports = {
+  imports: [
+    'ts-node/register/transpile-only'
+  ],
+  files: 'test/example/test/**/a.ts',
+  log: false
+};
+  ```
+- In `package.json`'s `amaui-style` property.
+  ```ts
+{
+  ...
+
+  'amaui-style': {
     imports: [
       'ts-node/register/transpile-only'
     ],
     files: 'test/example/test/**/a.ts',
     log: false
-  };
-  ```
-- In `package.json`'s `amaui-style` property.
-  ```ts
-    {
-      ...
+  },
 
-      'amaui-style': {
-        imports: [
-          'ts-node/register/transpile-only'
-        ],
-        files: 'test/example/test/**/a.ts',
-        log: false
-      },
-
-      ...
-    }
+  ...
+}
   ```
 
 #### imports

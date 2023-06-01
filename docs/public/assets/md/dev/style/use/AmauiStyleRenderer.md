@@ -1,8 +1,21 @@
 
+# AmauiStyleRenderer
+
+Used to insert css values to the DOM.
+
+### make
+
+Makes the element with provided element, data attributes.
+
+### add
+
+Method called to add the element into the DOM.
+
+### remove
+
+Method called to remove the element from the DOM.
 
 ## API
-
-#### AmauiStyleRenderer
 
 ```ts
 class AmauiStyleRenderer {

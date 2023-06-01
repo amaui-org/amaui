@@ -1,4 +1,17 @@
 
+# AmauiStyleRule
+
+Used for creating 1 style selector, with its css values.
+
+### Use
+
+- In the options you have to add `amauiStyle`, `amauiStyleSheet` instances as once instance of `AmauiStyleRule` is made, it will go through all properties in the value, and for make an instance of `AmauiStyleRuleProperty`, and add itself to the `AmauiStyleSheet` instance, ready to be added to the DOM.
+- It will make a class name for the property if it's not a pure rule. It will use plugins for making a class name, if they are available.
+- If optimize is true in `AmauiStyle` instance as an option, it will hash the css value of this selector, and if one already exists within `AmauiStyle` instance, it will reuse that selector, instead of making the same one all over again.
+
+```ts
+const amauiStyleRule = new AmauiStyleRule('a', { width: 1114, fontSize: '14px' }, options);
+```
 
 ## API
 
