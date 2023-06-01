@@ -1,4 +1,15 @@
 
+# colors
+
+Default color values.
+
+### Use
+
+```ts
+colors.orange.A400;
+
+// '#FF9100'
+```
 
 ## API
 

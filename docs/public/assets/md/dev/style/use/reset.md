@@ -1,4 +1,131 @@
 
+# reset
+
+Method to add all reset values for various css elements, with optionally developer provided ones as addition to the default values.
+
+### Options
+
+#### element
+
+Element which potentially has `AmauiStyle`, `AmauiTheme` instanced bound to it.
+
+#### name
+
+Name for this style, usually if `style` method is used per UI element type, name should be that element's name.
+
+#### mode
+
+Values are `regular` or `atomic`, default is `regular`.
+
+Atomic will create a class name for every unique css property, value.
+
+#### amaui\_style
+
+Add `AmauiStyle` instance it will be a part of.
+
+#### amaui\_theme
+
+Add `AmauiTheme` instance it will use.
+
+#### override
+
+If true, css selectors (properties) will fully override existing selector's values, otherwise it will just add onto the existing css properties for that selector, using `@amaui/utils`'s `merge` method, by default it's false.
+
+### Use
+
+When using reset, styles are added as pure, meaning selector is exactly what is writen, and will not be made into a class name.
+
+Usefull for any element selector, etc.
+
+```ts
+const amauiStyle = new AmauiStyle();
+
+// Plugins
+amauiStyle.plugins.add = [
+  AmauiStyle.unit,
+  AmauiStyle.sort,
+  AmauiStyle.prefix,
+  AmauiStyle.makeClassName,
+  AmauiStyle.rtl
+];
+
+const styles = reset(
+  theme => ({
+    '@keyframes a': {
+      '0%': {
+          color: 'white'
+      },
+      '40%': {
+          color: 'yellow'
+      }
+    },
+
+    a: {
+      // unit
+      width: 100,
+
+      'max-width': 100,
+
+      // Simple
+      background: '#faa',
+
+      margin: '0 14px 4px 40px',
+
+      // rtl
+      marginLeft: 41,
+      float: 'left',
+
+      // sort
+      paddingLeft: 41,
+      padding: 40,
+
+      // prefixes
+      position: 'sticky',
+      transition: 'all .4s ease',
+      maskOrigin: 'inherit',
+      maskImage: 'linear-gradient(rgba(0, 0, 0, 1.0), transparent)',
+      maskPosition: '40% 74%',
+
+      // animation
+      animation: '$a .4s ease'
+    },
+
+    meta: {
+      width: 100
+    },
+
+    main: {
+      // Function
+      background: props => props.a === 1 ? 'yellow' : 'orange'
+    }
+  }),
+  {
+    name: 'Reset',
+    amaui_style: { value: amauiStyle }
+  }
+);
+
+// Add to the dom
+const response = styles.add();
+
+response;
+
+// {
+//   ids: {
+//     static: [
+//       '1b2b0876-238b-416e-b10b-c01f8dbdfd76'
+//     ],
+//     dynamic: [
+//       '4a4e395b-2db7-4619-ad12-f17737a0d3d1'
+//     ]
+//   },
+//   classNames: { },
+//   classes: { },
+//   keyframes: {
+//     a: 'a-0'
+//   }
+// }
+```
 
 ## API
 
