@@ -111,7 +111,7 @@ export default function App(props: AppProps) {
       }
     });
   }, []);
-  console.log(valueAmauiTheme);
+
   const widgets = React.useMemo(() => [
     {
       label: 'Countdown',

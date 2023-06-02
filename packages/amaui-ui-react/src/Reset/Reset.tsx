@@ -10,9 +10,9 @@ export interface IReset extends IBaseElement {
 }
 
 const Reset = (props: IReset) => {
-  const { children } = props;
+  const { children, ...other } = props;
 
-  useReset();
+  useReset(other);
 
   return (
     <React.Fragment>
