@@ -1,7 +1,7 @@
 import React from 'react';
 
 import is from '@amaui/utils/is';
-import { AmauiStyle, makeClassName, unit, rtl, sort, valueObject } from '@amaui/style';
+import { AmauiStyle, makeClassName, unit, rtl, sort, valueObject, prefix } from '@amaui/style';
 
 import AmauiStyleContext from './AmauiStyleContext';
 
@@ -14,8 +14,9 @@ function makeAmauiStyle(element?: Element) {
   amauiStyle.plugins.add = [
     unit,
     makeClassName,
-    rtl,
+    prefix,
     sort,
+    rtl,
     valueObject
   ];
 

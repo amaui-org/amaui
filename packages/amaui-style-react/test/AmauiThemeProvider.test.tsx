@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* tslint:disable: no-shadowed-variable */
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';

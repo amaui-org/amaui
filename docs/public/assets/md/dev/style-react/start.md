@@ -1,4 +1,8 @@
 
+# amaui style react
+
+CSS in JSS styling solution for react.
+
 ### Add
 
 ```sh
@@ -14,11 +18,11 @@ import { style } from '@amaui/style-react';
 const useStyle = style(theme => ({
   '@keyframes a': {
     '0%': {
-        color: 'white',
+        color: 'white'
     },
     '40%': {
-        color: 'yellow',
-    },
+        color: 'yellow'
+    }
   },
 
   a: {
@@ -45,8 +49,8 @@ const useStyle = style(theme => ({
       maskPosition: '40% 74%',
 
       // animation
-      animation: '$a .4s ease',
-  },
+      animation: '$a .4s ease'
+  }
 }));
 
 function A(props) {
