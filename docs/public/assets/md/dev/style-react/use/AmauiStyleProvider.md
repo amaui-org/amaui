@@ -46,12 +46,12 @@ const Button = props => {
   const amauiStyle = useAmauiStyle();
 
   const onClick = React.useCallback(() => {
-    amauiStyle.updateWithRerender({ a: 1114 });
+    amauiStyle.updateWithRerender({ a: 114 });
   }, []);
 
   console.log(amauiStyle.a);
 
-  // 1114
+  // 114
 
   return (
     <button

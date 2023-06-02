@@ -976,8 +976,6 @@ const NestedTheme = () => {
   return (
     <AmauiThemeProvider
       value={amauiTheme}
-
-      addCssVariables
     >
       ...
     </AmauiThemeProvider>
@@ -1002,8 +1000,6 @@ const App = () => {
   return (
     <AmauiThemeProvider
       value={value}
-
-      addCssVariables
     >
       <NestedTheme>
         <Button />

@@ -31,7 +31,7 @@ const MyLink = styled('a')(theme => ({
   a4: {
     background: props => props.a === 1 ? 'yellow' : 'orange'
   }
-}));
+}), { name: 'My Link' });
 
 const App = () => {
 

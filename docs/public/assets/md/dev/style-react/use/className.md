@@ -18,7 +18,7 @@ Using `className`, instead of `style` method, it will inject a new style sheet i
 ```tsx
 import { className } from '@amaui/style-react';
 
-const Button = () => {
+const Button = props => {
   const classNameRoot = className(theme => ({
     a: {
       color: 'yellow'
