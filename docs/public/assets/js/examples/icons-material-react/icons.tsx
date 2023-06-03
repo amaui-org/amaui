@@ -313,6 +313,8 @@ const element = React.forwardRef((props: any, ref: any) => {
 
               selected={version === item}
 
+              color='inherit'
+
               size='small'
 
               disabled={loading || !icons[item]?.length}
