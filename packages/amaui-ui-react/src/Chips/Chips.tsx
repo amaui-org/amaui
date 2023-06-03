@@ -72,6 +72,10 @@ const Chips = React.forwardRef((props_: IChips, ref: any) => {
   const {
     size = 'regular',
 
+    gap = 1,
+    align = 'flex-start',
+    justify = 'flex-start',
+    direction = 'row',
     wrap,
 
     Component = 'div',
@@ -88,9 +92,13 @@ const Chips = React.forwardRef((props_: IChips, ref: any) => {
     <Line
       ref={ref}
 
-      gap={0}
+      gap={gap}
 
-      direction='row'
+      justify={justify}
+
+      align={align}
+
+      direction={direction}
 
       Component={Component}
 
@@ -110,7 +118,7 @@ const Chips = React.forwardRef((props_: IChips, ref: any) => {
 
       style={style}
     >
-      {(children as any).map((item: any, index: number) => React.cloneElement(item, {
+      {React.Children.toArray(children).map((item: any, index: number) => React.cloneElement(item, {
         key: index,
 
         size,

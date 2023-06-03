@@ -3,6 +3,7 @@ import React from 'react';
 import { clamp, is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
+import Icon from '../Icon';
 import Type from '../Type';
 
 import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TPropsAny, TRef, TSize, TTonal, TVersion } from '../utils';
@@ -493,12 +494,39 @@ const useStyle = styleMethod(theme => ({
     width: '100%'
   },
 
+  clear: {
+    cursor: 'pointer',
+    pointerEvents: 'all',
+    userSelect: 'none',
+    transition: theme.methods.transitions.make('transform', { duration: 'xs' }),
+
+    '&:active': {
+      transform: 'scale(0.87)'
+    }
+  },
+
   disabled: {
     opacity: '0.54',
     pointerEvents: 'none',
     cursor: 'default'
   }
 }), { name: 'amaui-TextField' });
+
+const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='CloseRounded'
+      short_name='Close'
+
+      {...props}
+    >
+      <path d="M12 13.4 7.1 18.3Q6.825 18.575 6.4 18.575Q5.975 18.575 5.7 18.3Q5.425 18.025 5.425 17.6Q5.425 17.175 5.7 16.9L10.6 12L5.7 7.1Q5.425 6.825 5.425 6.4Q5.425 5.975 5.7 5.7Q5.975 5.425 6.4 5.425Q6.825 5.425 7.1 5.7L12 10.6L16.9 5.7Q17.175 5.425 17.6 5.425Q18.025 5.425 18.3 5.7Q18.575 5.975 18.575 6.4Q18.575 6.825 18.3 7.1L13.4 12L18.3 16.9Q18.575 17.175 18.575 17.6Q18.575 18.025 18.3 18.3Q18.025 18.575 17.6 18.575Q17.175 18.575 16.9 18.3Z" />
+    </Icon>
+  );
+});
 
 export interface ITextField extends IBaseElement {
   tonal?: TTonal;
@@ -536,6 +564,7 @@ export interface ITextField extends IBaseElement {
   optionalText?: string;
   error?: boolean;
   multiline?: boolean;
+  clear?: boolean;
   rows?: number;
   minRows?: number;
   maxRows?: number;
@@ -552,6 +581,7 @@ export interface ITextField extends IBaseElement {
   inputProps?: TPropsAny;
   InputWrapperProps?: TPropsAny;
 
+  IconClear?: TElementReference;
   WrapperComponent?: TElementReference;
 }
 
@@ -576,7 +606,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
     align,
     start,
     startVerticalAlign = 'start',
-    end,
+    end: end_,
     endVerticalAlign = 'start',
     placeholder,
     fullWidth,
@@ -599,6 +629,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
     rows: rows_,
     minRows = 1,
     maxRows,
+    clear,
     focus: focus_,
     footer: footer_,
     readOnly,
@@ -612,6 +643,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
     inputProps = {},
     InputWrapperProps = {},
 
+    IconClear = IconMaterialCloseRounded,
     WrapperComponent = 'div',
 
     Component = 'div',
@@ -655,6 +687,8 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
   };
 
   const { classes } = useStyle(props);
+
+  let end = end_;
 
   let type = type_;
 
@@ -737,6 +771,17 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
     }
   };
 
+  const onClear = React.useCallback(() => {
+    if (!disabled) {
+      const valueNew = '';
+
+      // Inner controlled value
+      if (!props.hasOwnProperty('value')) setValue(valueNew);
+
+      if (is('function', onChange)) onChange(valueNew);
+    }
+  }, [disabled, onChange]);
+
   const onInputWrapperMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
     if (!disabled) {
       setMouseDown(true);
@@ -817,6 +862,20 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
   let ComponentProps: any = {};
 
   let WrapperProps: any = {};
+
+  if (value && clear) {
+    if (!Array.isArray(end)) end = [end].filter(Boolean);
+
+    (end as any).push(
+      <IconClear
+        className={classes.clear}
+
+        color='inherit'
+
+        onClick={onClear}
+      />
+    );
+  }
 
   if (footer) {
     WrapperProps = {

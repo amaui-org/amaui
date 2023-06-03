@@ -100,6 +100,8 @@ async function build() {
 
   const env = process.env.ENV;
 
+  const version = process.env.VERSION;
+
   // Prod
   await buildBabel();
 
@@ -109,7 +111,7 @@ async function build() {
   // UMD
   const heroku = Object.keys(process.env).some(item => item.toLowerCase().includes('heroku') || String(process.env[item]).toLowerCase().includes('heroku'));
 
-  if (['babel'].indexOf(env) === -1 && !heroku) await buildUMD();
+  // if (['babel'].indexOf(env) === -1 && !heroku && version !== 'icons') await buildUMD();
 
   if (log) console.log(`🌱 Build done\n`);
 }

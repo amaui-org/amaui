@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { TextField, Chips, Chip } from '@amaui/ui-react';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import { importIframeStyles } from '../../utils';
@@ -14,6 +15,13 @@ const useStyle = style(theme => ({
     height: '100vh',
     maxHeight: '400px',
     borderRadius: '8px'
+  },
+
+  hidden: {
+    height: 0,
+    width: 0,
+    opacity: 0,
+    visibility: 'hidden'
   }
 }), { name: 'IFrame' });
 
@@ -80,7 +88,19 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
     if (!init) setInit(true);
   }, [id, refs.root.current, children, theme]);
 
-  return (
+  const Hidden = [TextField, Chips, Chip];
+
+  return <>
+    {/* Import elements used in the iFrames
+    so their CSS is available within the iframe  */}
+    {Hidden.map((Item, index) => (
+      <Item
+        key={index}
+
+        className={classes.hidden}
+      />
+    ))}
+
     <iframe
       ref={refs.root}
 
@@ -105,7 +125,7 @@ const IFrame = React.forwardRef((props: any, ref: any) => {
         }
       }), iframeBody)}
     </iframe>
-  );
+  </>
 });
 
 export default IFrame;

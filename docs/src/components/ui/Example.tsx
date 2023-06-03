@@ -18,6 +18,18 @@ const useStyle = style(theme => ({
     background: 'transparent'
   },
 
+  'icons-material-react-examples-icons': {
+    height: '100%',
+
+    '& $main': {
+      flex: '1 1 auto'
+    }
+  },
+
+  'iframe-icons-material-react-examples-icons': {
+    maxHeight: '647px !important'
+  },
+
   nav: {
     position: 'fixed',
     top: 0,
@@ -245,7 +257,6 @@ const Example = React.forwardRef((props: any, ref: any) => {
 
     switch (id) {
       case 'icons-material-react-examples-icons':
-        mainSrc = mainSrc || '/assets/js/examples/icons-material-react/icons.tsx';
         Element = Dynamic(() => import('../../../public/assets/js/examples/icons-material-react/icons'));
         break;
 
@@ -419,8 +430,12 @@ const Example = React.forwardRef((props: any, ref: any) => {
       ref={ref}
 
       id={use}
+
+      className={classes[`iframe-${id}`]}
     >
       <Surface
+        ref={ref}
+
         tonal
 
         color='primary'
@@ -429,117 +444,112 @@ const Example = React.forwardRef((props: any, ref: any) => {
 
         Component={Line}
 
-        className={classes.root}
+        className={classNames([
+          className,
+          classes.root,
+          classes[id]
+        ])}
+
+        {...other}
       >
         <Line
-          ref={ref}
+          direction='row'
 
-          className={classNames([
-            className,
-            classes.root
-          ])}
+          align='center'
 
-          {...other}
+          justify='space-between'
+
+          Component='nav'
+
+          className={classes.nav}
         >
+          <Type
+            version='h3'
+          >
+            {label}
+          </Type>
+
           <Line
+            gap={0}
+
             direction='row'
 
             align='center'
 
-            justify='space-between'
-
-            Component='nav'
-
-            className={classes.nav}
+            style={{
+              position: 'relative'
+            }}
           >
-            <Type
-              version='h3'
-            >
-              {label}
-            </Type>
-
-            <Line
-              gap={0}
-
-              direction='row'
-
-              align='center'
-
-              style={{
-                position: 'relative'
-              }}
-            >
-              {files.short && (
-                <Tooltip
-                  label='Short'
-
-                  {...tooltipProps}
-                >
-                  <IconButton
-                    onClick={() => onUse('short')}
-
-                    selected={use === 'short'}
-
-                    {...optionButtonProps}
-                  >
-                    <IconMaterialDataObjectRounded />
-                  </IconButton>
-                </Tooltip>
-              )}
-
-              {files.long && (
-                <Tooltip
-                  label='Entire file'
-
-                  {...tooltipProps}
-                >
-                  <IconButton
-                    onClick={() => onUse('long')}
-
-                    selected={use === 'long'}
-
-                    {...optionButtonProps}
-                  >
-                    <IconMaterialDraftRounded />
-                  </IconButton>
-                </Tooltip>
-              )}
-
+            {files.short && (
               <Tooltip
-                label='Example'
+                label='Short'
 
                 {...tooltipProps}
               >
                 <IconButton
-                  onClick={() => onUse('example')}
+                  onClick={() => onUse('short')}
 
-                  selected={use === 'example'}
+                  selected={use === 'short'}
 
                   {...optionButtonProps}
                 >
-                  <IconMaterialTempPreferencesCustomRounded />
+                  <IconMaterialDataObjectRounded />
                 </IconButton>
               </Tooltip>
-            </Line>
-          </Line>
-
-          <Line
-            Component='main'
-
-            className={classes.main}
-          >
-            {use === 'example' && children}
-
-            {['long', 'short'].includes(use) && (
-              <Markdown
-                value={`\`\`\`jsx\n${use === 'short' ? files.short : files.long}\`\`\``}
-
-                onUpdate={onUpdate}
-
-                className={classes.markdown}
-              />
             )}
+
+            {files.long && (
+              <Tooltip
+                label='Entire file'
+
+                {...tooltipProps}
+              >
+                <IconButton
+                  onClick={() => onUse('long')}
+
+                  selected={use === 'long'}
+
+                  {...optionButtonProps}
+                >
+                  <IconMaterialDraftRounded />
+                </IconButton>
+              </Tooltip>
+            )}
+
+            <Tooltip
+              label='Example'
+
+              {...tooltipProps}
+            >
+              <IconButton
+                onClick={() => onUse('example')}
+
+                selected={use === 'example'}
+
+                {...optionButtonProps}
+              >
+                <IconMaterialTempPreferencesCustomRounded />
+              </IconButton>
+            </Tooltip>
           </Line>
+        </Line>
+
+        <Line
+          Component='main'
+
+          className={classes.main}
+        >
+          {use === 'example' && children}
+
+          {['long', 'short'].includes(use) && (
+            <Markdown
+              value={`\`\`\`jsx\n${use === 'short' ? files.short : files.long}\`\`\``}
+
+              onUpdate={onUpdate}
+
+              className={classes.markdown}
+            />
+          )}
         </Line>
       </Surface>
     </IFrame>

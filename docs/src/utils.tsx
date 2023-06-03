@@ -87,3 +87,20 @@ export const imageDownload = async (url: string) => {
     img.src = url;
   });
 };
+
+export const addScript = (id: string, url: string) => new Promise((resolve, reject) => {
+  const exists = window.document.getElementById(id);
+
+  if (exists) return resolve(true);
+
+  const script = window.document.createElement('script');
+
+  script.id = id;
+  script.src = url;
+
+  script.onload = () => resolve(true);
+  script.onerror = () => resolve(false);
+  script.onabort = () => resolve(false);
+
+  window.document.head.append(script);
+});
