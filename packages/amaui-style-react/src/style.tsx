@@ -14,9 +14,9 @@ type RecursiveRequired<T> = {
   [P in keyof T]-?: T[P] extends Function ? T[P] : RecursiveRequired<T[P]>;
 };
 
-export type AmauiThemeRequired = RecursiveRequired<AmauiTheme>;
+export type ThemeRequired = RecursiveRequired<AmauiTheme>;
 
-export type TValueMethod = (theme: AmauiThemeRequired) => TValueObject;
+export type TValueMethod = (theme: ThemeRequired) => TValueObject;
 
 export type TValue = TValueObject | TValueMethod;
 

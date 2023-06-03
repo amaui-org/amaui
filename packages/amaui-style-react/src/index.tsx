@@ -5,9 +5,9 @@ export * from '@amaui/style/AmauiTheme';
 export * from '@amaui/style/utils';
 
 // Export all other
-export * from './AmauiStyleProvider';
+export * from './StyleProvider';
 
-export * from './AmauiThemeProvider';
+export * from './ThemeProvider';
 
 export { default as reset } from './reset';
 // Alias

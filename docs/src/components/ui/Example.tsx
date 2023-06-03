@@ -244,16 +244,21 @@ const Example = React.forwardRef((props: any, ref: any) => {
     let Element: any;
 
     switch (id) {
-      case 'Zip-examples-zip':
-        mainSrc = mainSrc || '/assets/js/examples/Zip/zip.tsx';
-        shortSrc = shortSrc || '/assets/js/examples/Zip/zip.short.tsx';
-        Element = Dynamic(() => import('../../../public/assets/js/examples/Zip/zip'));
+      case 'icons-material-react-examples-icons':
+        mainSrc = mainSrc || '/assets/js/examples/icons-material-react/icons.tsx';
+        Element = Dynamic(() => import('../../../public/assets/js/examples/icons-material-react/icons'));
         break;
 
-      case 'Zip-examples-unzip':
-        mainSrc = mainSrc || '/assets/js/examples/Zip/unzip.tsx';
-        shortSrc = shortSrc || '/assets/js/examples/Zip/unzip.short.tsx';
-        Element = Dynamic(() => import('../../../public/assets/js/examples/Zip/unzip'));
+      case 'zip-examples-zip':
+        mainSrc = mainSrc || '/assets/js/examples/zip/zip.tsx';
+        shortSrc = shortSrc || '/assets/js/examples/zip/zip.short.tsx';
+        Element = Dynamic(() => import('../../../public/assets/js/examples/zip/zip'));
+        break;
+
+      case 'zip-examples-unzip':
+        mainSrc = mainSrc || '/assets/js/examples/zip/unzip.tsx';
+        shortSrc = shortSrc || '/assets/js/examples/zip/unzip.short.tsx';
+        Element = Dynamic(() => import('../../../public/assets/js/examples/zip/unzip'));
         break;
 
       default:
@@ -261,8 +266,8 @@ const Example = React.forwardRef((props: any, ref: any) => {
     }
 
     const files_ = {
-      long: (await AmauiRequest.get(mainSrc, { response: { type: 'text' } })).response,
-      short: (await AmauiRequest.get(shortSrc, { response: { type: 'text' } })).response
+      long: mainSrc && (await AmauiRequest.get(mainSrc, { response: { type: 'text' } })).response,
+      short: shortSrc && (await AmauiRequest.get(shortSrc, { response: { type: 'text' } })).response
     };
 
     // Element
@@ -464,37 +469,41 @@ const Example = React.forwardRef((props: any, ref: any) => {
                 position: 'relative'
               }}
             >
-              <Tooltip
-                label='Short'
+              {files.short && (
+                <Tooltip
+                  label='Short'
 
-                {...tooltipProps}
-              >
-                <IconButton
-                  onClick={() => onUse('short')}
-
-                  selected={use === 'short'}
-
-                  {...optionButtonProps}
+                  {...tooltipProps}
                 >
-                  <IconMaterialDataObjectRounded />
-                </IconButton>
-              </Tooltip>
+                  <IconButton
+                    onClick={() => onUse('short')}
 
-              <Tooltip
-                label='Entire file'
+                    selected={use === 'short'}
 
-                {...tooltipProps}
-              >
-                <IconButton
-                  onClick={() => onUse('long')}
+                    {...optionButtonProps}
+                  >
+                    <IconMaterialDataObjectRounded />
+                  </IconButton>
+                </Tooltip>
+              )}
 
-                  selected={use === 'long'}
+              {files.long && (
+                <Tooltip
+                  label='Entire file'
 
-                  {...optionButtonProps}
+                  {...tooltipProps}
                 >
-                  <IconMaterialDraftRounded />
-                </IconButton>
-              </Tooltip>
+                  <IconButton
+                    onClick={() => onUse('long')}
+
+                    selected={use === 'long'}
+
+                    {...optionButtonProps}
+                  >
+                    <IconMaterialDraftRounded />
+                  </IconButton>
+                </Tooltip>
+              )}
 
               <Tooltip
                 label='Example'

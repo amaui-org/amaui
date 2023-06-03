@@ -1,5 +1,5 @@
 
-# AmauiStyleProvider
+# Style
 
 Provider for `AmauiStyle` instance value.
 
@@ -10,7 +10,7 @@ Provider for `AmauiStyle` instance value.
 - All of the `AmauiStyle` classes, and plugins are also re-exported from this library, but you can import them directly from `@amaui/style` library as well.
 
 ```tsx
-import { AmauiStyleProvider, AmauiStyle, unit, sort, prefix } from '@amaui/style-react';
+import { Style, AmauiStyle, unit, sort, prefix } from '@amaui/style-react';
 
 const App = () => {
   const amauiStyle = React.useMemo(() => {
@@ -22,11 +22,11 @@ const App = () => {
   });
 
   return (
-    <AmauiStyleProvider
+    <Style
       value={amauiStyle}
     >
       ...
-    </AmauiStyleProvider>
+    </Style>
   );
 };
 ```
@@ -38,11 +38,11 @@ const App = () => {
 - On `updateWithRerender` new instance of `AmauiStyle` is made, and provided values in this method, are merged with values of the previous `AmauiStyle` instance, as new properties for the new instance.
 
 ```tsx
-import { AmauiStyleProvider, useAmauiStyle, AmauiStyle, unit, sort, prefix } from '@amaui/style-react';
+import { Style, useAmauiStyle, AmauiStyle, unit, sort, prefix } from '@amaui/style-react';
 
 const Button = props => {
   // useAmauiStyle (useContext) retrieves
-  // the nearest AmauiStyleProvider value
+  // the nearest Style value
   const amauiStyle = useAmauiStyle();
 
   const onClick = React.useCallback(() => {
@@ -74,11 +74,11 @@ const App = () => {
   });
 
   return (
-    <AmauiStyleProvider
+    <Style
       value={amauiStyle}
     >
       <Button>My button</Button>
-    </AmauiStyleProvider>
+    </Style>
   );
 };
 ```
@@ -87,22 +87,22 @@ const App = () => {
 
 #### useAmauiStyle
 
-- Using `useAmauiStyle` without the `AmauiStyleProvider` as a parent returns default `AmauiStyleContext` value, which is `AmauiStyle` instance with the default options.
+- Using `useAmauiStyle` without the `Style` as a parent returns default `StyleContext` value, which is `AmauiStyle` instance with the default options.
 
 ## API
 
-#### IAmauiStyleProvider
+#### IStyle
 
 ```ts
-interface IAmauiStyleProvider extends AmauiStyle {
+interface IStyle extends AmauiStyle {
     updateWithRerender?: (value: any) => AmauiStyle;
 }
 ```
 
-#### AmauiStyleProvider
+#### Style
 
 ```ts
-const AmauiStyleProvider: React.ForwardRefExoticComponent<Omit<any, "ref"> & React.RefAttributes<unknown>>;
+const Style: React.ForwardRefExoticComponent<Omit<any, "ref"> & React.RefAttributes<unknown>>;
 ```
 
 

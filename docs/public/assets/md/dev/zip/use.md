@@ -107,7 +107,7 @@ response;
   "element": "Example",
   "props": {
     "label": "Zip",
-    "id": "Zip-examples-zip"
+    "id": "zip-examples-zip"
   }
 }~
 
@@ -115,7 +115,7 @@ response;
   "element": "Example",
   "props": {
     "label": "Unzip",
-    "id": "Zip-examples-unzip"
+    "id": "zip-examples-unzip"
   }
 }~
 

@@ -3,7 +3,7 @@ import React from 'react';
 import is from '@amaui/utils/is';
 import { AmauiStyle, makeClassName, unit, rtl, sort, valueObject, prefix } from '@amaui/style';
 
-import AmauiStyleContext from './AmauiStyleContext';
+import StyleContext from './StyleContext';
 
 function makeAmauiStyle(element?: Element) {
   const amauiStyle = new AmauiStyle({
@@ -23,11 +23,11 @@ function makeAmauiStyle(element?: Element) {
   return amauiStyle;
 }
 
-export interface IAmauiStyleProvider extends AmauiStyle {
+export interface IStyle extends AmauiStyle {
   updateWithRerender?: (value: any) => AmauiStyle;
 }
 
-const AmauiStyleProvider = React.forwardRef((props: any, ref: any) => {
+const Style = React.forwardRef((props: any, ref: any) => {
   const {
     root = false,
 
@@ -82,7 +82,7 @@ const AmauiStyleProvider = React.forwardRef((props: any, ref: any) => {
   value.updateWithRerender = update;
 
   if (root) return (
-    <AmauiStyleContext.Provider
+    <StyleContext.Provider
       value={value}
     >
       <div
@@ -96,16 +96,16 @@ const AmauiStyleProvider = React.forwardRef((props: any, ref: any) => {
       >
         {children}
       </div>
-    </AmauiStyleContext.Provider>
+    </StyleContext.Provider>
   );
 
   return (
-    <AmauiStyleContext.Provider
+    <StyleContext.Provider
       value={value}
     >
       {children}
-    </AmauiStyleContext.Provider>
+    </StyleContext.Provider>
   );
 });
 
-export default AmauiStyleProvider;
+export default Style;

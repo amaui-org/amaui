@@ -1,7 +1,7 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
-import { AmauiStyle, AmauiStyleProvider, valueObject, prefix, rtl, unit, makeClassName } from '@amaui/style-react';
+import { AmauiStyle, Style, valueObject, prefix, sort, rtl, unit, makeClassName } from '@amaui/style-react';
 
 export default class CustomDocument extends Document {
   render() {
@@ -63,6 +63,7 @@ CustomDocument.getInitialProps = async ctx => {
   amauiStyle.plugins.add = [
     unit,
     prefix,
+    sort,
     rtl,
     valueObject,
     {
@@ -81,11 +82,11 @@ CustomDocument.getInitialProps = async ctx => {
     page({
       enhanceApp: App => props => {
         return (
-          <AmauiStyleProvider
+          <Style
             value={amauiStyle}
           >
             <App {...props} />
-          </AmauiStyleProvider>
+          </Style>
         )
       },
     });

@@ -1,5 +1,5 @@
 
-# AmauiThemeProvider
+# Theme
 
 Provider for `AmauiTheme` instance value.
 
@@ -10,7 +10,7 @@ Provider for `AmauiTheme` instance value.
 - All of the `AmauiStyle` classes are also re-exported from this library, but you can import them directly from `@amaui/style` library as well.
 
 ```tsx
-import { AmauiThemeProvider, AmauiTheme } from '@amaui/style-react';
+import { Theme, AmauiTheme } from '@amaui/style-react';
 
 const App = () => {
   const value = React.useMemo(() => {
@@ -22,11 +22,11 @@ const App = () => {
   });
 
   return (
-    <AmauiThemeProvider
+    <Theme
       value={value}
     >
       ...
-    </AmauiThemeProvider>
+    </Theme>
   );
 };
 ```
@@ -34,7 +34,7 @@ const App = () => {
 or provide your own instance.
 
 ```tsx
-import { AmauiThemeProvider, AmauiTheme } from '@amaui/style-react';
+import { Theme, AmauiTheme } from '@amaui/style-react';
 
 const App = () => {
   const amauiTheme = React.useMemo(() => {
@@ -48,11 +48,11 @@ const App = () => {
   });
 
   return (
-    <AmauiThemeProvider
+    <Theme
       value={amauiTheme}
     >
       ...
-    </AmauiThemeProvider>
+    </Theme>
   );
 };
 ```
@@ -64,11 +64,11 @@ const App = () => {
 - On `updateWithRerender` new instance of `AmauiTheme` is made, and provided values in this method, are merged with values of the previous `AmauiTheme` instance, as new properties for the new instance.
 
 ```tsx
-import { AmauiThemeProvider, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { Theme, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
 
 const Button = props => {
   // useAmauiTheme (useContext) retrieves
-  // the nearest AmauiThemeProvider value
+  // the nearest Theme value
   const amauiTheme = useAmauiTheme();
 
   const onSwitchLight = React.useCallback(() => {
@@ -100,11 +100,11 @@ const App = () => {
   });
 
   return (
-    <AmauiThemeProvider
+    <Theme
       value={value}
     >
       <Button />
-    </AmauiThemeProvider>
+    </Theme>
   );
 };
 ```
@@ -116,7 +116,7 @@ const App = () => {
 Adds all theme important properties as CSS variables into the DOM, by default it's true.
 
 ```tsx
-import { AmauiThemeProvider, AmauiTheme } from '@amaui/style-react';
+import { Theme, AmauiTheme } from '@amaui/style-react';
 
 const App = () => {
   const value = React.useMemo(() => {
@@ -128,13 +128,13 @@ const App = () => {
   });
 
   return (
-    <AmauiThemeProvider
+    <Theme
       value={value}
 
       addCssVariables
     >
       ...
-    </AmauiThemeProvider>
+    </Theme>
   );
 };
 ```
@@ -941,10 +941,10 @@ const App = () => {
 
 #### Nested themes
 
-If you have `AmauiThemeProvider` as a child element of another `AmauiThemeProvider`, the child `AmauiThemeProvider` will inherit the `AmauiTheme` instance, and add onto it it's own values.
+If you have `Theme` as a child element of another `Theme`, the child `Theme` will inherit the `AmauiTheme` instance, and add onto it it's own values.
 
 ```tsx
-import { AmauiThemeProvider, useAmauiTheme } from '@amaui/style-react';
+import { Theme, useAmauiTheme } from '@amaui/style-react';
 
 const Button = () => {
   const amauiTheme = useAmauiTheme();
@@ -974,11 +974,11 @@ const NestedTheme = () => {
   });
 
   return (
-    <AmauiThemeProvider
+    <Theme
       value={amauiTheme}
     >
       ...
-    </AmauiThemeProvider>
+    </Theme>
   );
 };
 
@@ -998,36 +998,36 @@ const App = () => {
   });
 
   return (
-    <AmauiThemeProvider
+    <Theme
       value={value}
     >
       <NestedTheme>
         <Button />
       </NestedTheme>
-    </AmauiThemeProvider>
+    </Theme>
   );
 };
 ```
 
 #### useAmauiTheme
 
-- Using `useAmauiTheme` without the `AmauiThemeProvider` as a parent returns default `AmauiThemeContext` value, which is `AmauiTheme` instance with the default options.
+- Using `useAmauiTheme` without the `Theme` as a parent returns default `ThemeContext` value, which is `AmauiTheme` instance with the default options.
 
 
 ## API
 
-#### IAmauiThemeProviderValue
+#### IThemeValue
 
 ```ts
-interface IAmauiThemeProviderValue extends AmauiThemeRequired {
+interface IThemeValue extends AmauiThemeRequired {
     updateWithRerender: (value: IAmauiTheme) => AmauiThemeRequired;
 }
 ```
 
-#### IAmauiThemeProvider
+#### ITheme
 
 ```ts
-interface IAmauiThemeProvider extends React.HTMLAttributes<any> {
+interface ITheme extends React.HTMLAttributes<any> {
     root?: boolean;
     value?: IAmauiTheme;
     addCssVariables?: boolean;
@@ -1035,10 +1035,10 @@ interface IAmauiThemeProvider extends React.HTMLAttributes<any> {
 }
 ```
 
-#### AmauiThemeProvider
+#### Theme
 
 ```ts
-const AmauiThemeProvider: React.ForwardRefExoticComponent<IAmauiThemeProvider & React.RefAttributes<unknown>>;
+const Theme: React.ForwardRefExoticComponent<ITheme & React.RefAttributes<unknown>>;
 ```
 
 
@@ -1046,8 +1046,8 @@ const AmauiThemeProvider: React.ForwardRefExoticComponent<IAmauiThemeProvider & 
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Style react: AmauiThemeProvider",
-      "to": "/dev/style-react/use/AmauiThemeProvider"
+      "label": "Style react: Theme",
+      "to": "/dev/style-react/use/Theme"
     },
     "next": {
       "label": "Style react: className",

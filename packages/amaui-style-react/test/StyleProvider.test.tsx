@@ -9,13 +9,13 @@ import { evaluate } from '../../../utils/js/test/utils';
 
 import * as AmauiStyleReact from '../src';
 
-group('@amaui/style-react/AmauiStyleProvider', () => {
+group('@amaui/style-react/Style', () => {
 
-  to('AmauiStyleContext', async () => {
+  to('StyleContext', async () => {
     const valueBrowsers = await evaluate((window: any) => {
       return [
-        !!window.AmauiStyleReact.AmauiStyleContext.Provider,
-        !!window.AmauiStyleReact.AmauiStyleContext.Consumer
+        !!window.AmauiStyleReact.StyleContext.Provider,
+        !!window.AmauiStyleReact.StyleContext.Consumer
       ];
     });
 
@@ -26,11 +26,11 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
     ]));
   });
 
-  to('AmauiStyleProvider', async () => {
+  to('Style', async () => {
     const valueBrowsers = await evaluate((window: any) => {
       const value = [];
 
-      const { AmauiStyle, useAmauiStyle, AmauiStyleProvider } = window.AmauiStyleReact;
+      const { AmauiStyle, useAmauiStyle, Style } = window.AmauiStyleReact;
 
       const A = (props) => {
         const amauiStyle = useAmauiStyle();
@@ -57,17 +57,17 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
 
         return (
           eval(window.Babel.transform(`
-            <AmauiStyleProvider value={a}>
+            <Style value={a}>
                 <A>
                   a
 
-                  <AmauiStyleProvider value={a1}>
+                  <Style value={a1}>
                     <A>
                       a1
                     </A>
-                  </AmauiStyleProvider>
+                  </Style>
                 </A>
-            </AmauiStyleProvider>
+            </Style>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
@@ -94,7 +94,7 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
     const valueBrowsers = await evaluate((window: any) => {
       const value = [];
 
-      const { AmauiStyle, useAmauiStyle, AmauiStyleProvider } = window.AmauiStyleReact;
+      const { AmauiStyle, useAmauiStyle, Style } = window.AmauiStyleReact;
 
       const A = (props) => {
         const amauiStyle = useAmauiStyle();
@@ -121,17 +121,17 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
 
         return (
           eval(window.Babel.transform(`
-            <AmauiStyleProvider value={a}>
+            <Style value={a}>
                 <A>
                   a
 
-                  <AmauiStyleProvider value={a1}>
+                  <Style value={a1}>
                     <A>
                       a1
                     </A>
-                  </AmauiStyleProvider>
+                  </Style>
                 </A>
-            </AmauiStyleProvider>
+            </Style>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
@@ -158,7 +158,7 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
     const valueBrowsers = await evaluate(async (window: any) => {
       const value = [];
 
-      const { AmauiStyle, useAmauiStyle, AmauiStyleProvider } = window.AmauiStyleReact;
+      const { AmauiStyle, useAmauiStyle, Style } = window.AmauiStyleReact;
 
       const A = (props) => {
         const amauiStyle = useAmauiStyle();
@@ -197,19 +197,19 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
 
         return (
           eval(window.Babel.transform(`
-              <AmauiStyleProvider value={a}>
+              <Style value={a}>
                   <A>
                     a
 
                     <div>
-                      <AmauiStyleProvider value={a1}>
+                      <Style value={a1}>
                         <A>
                           a1
                         </A>
-                      </AmauiStyleProvider>
+                      </Style>
                     </div>
                   </A>
-              </AmauiStyleProvider>
+              </Style>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
@@ -242,7 +242,7 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
     const valueBrowsers = await evaluate(async (window: any) => {
       const value = [];
 
-      const { AmauiStyle, useAmauiStyle, AmauiStyleProvider } = window.AmauiStyleReact;
+      const { AmauiStyle, useAmauiStyle, Style } = window.AmauiStyleReact;
 
       const A = (props) => {
         const amauiStyle = useAmauiStyle();
@@ -271,17 +271,17 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
 
         return (
           eval(window.Babel.transform(`
-            <AmauiStyleProvider value={a} dir='ltr'>
+            <Style value={a} dir='ltr'>
                 <A>
                   a
 
-                  <AmauiStyleProvider value={a1} dir='rtl'>
+                  <Style value={a1} dir='rtl'>
                     <A>
                       a1
                     </A>
-                  </AmauiStyleProvider>
+                  </Style>
                 </A>
-            </AmauiStyleProvider>
+            </Style>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
@@ -332,15 +332,15 @@ group('@amaui/style-react/AmauiStyleProvider', () => {
   group('ssr', () => {
 
     to('renderToString', async () => {
-      const { AmauiStyle, AmauiStyleProvider } = AmauiStyleReact;
+      const { AmauiStyle, Style } = AmauiStyleReact;
 
       const amauiStyle = new AmauiStyle();
 
       const App = () => {
         return (
-          <AmauiStyleProvider value={amauiStyle}>
+          <Style value={amauiStyle}>
             a
-          </AmauiStyleProvider>
+          </Style>
         );
       };
 

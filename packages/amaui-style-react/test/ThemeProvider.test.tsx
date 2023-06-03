@@ -9,13 +9,13 @@ import { evaluate } from '../../../utils/js/test/utils';
 
 import * as AmauiStyleReact from '../src';
 
-group('@amaui/style-react/AmauiThemeProvider', () => {
+group('@amaui/style-react/Theme', () => {
 
-  to('AmauiThemeContext', async () => {
+  to('ThemeContext', async () => {
     const valueBrowsers = await evaluate((window: any) => {
       return [
-        !!window.AmauiStyleReact.AmauiThemeContext.Provider,
-        !!window.AmauiStyleReact.AmauiThemeContext.Consumer
+        !!window.AmauiStyleReact.ThemeContext.Provider,
+        !!window.AmauiStyleReact.ThemeContext.Consumer
       ];
     });
 
@@ -26,11 +26,11 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
     ]));
   });
 
-  to('AmauiThemeProvider', async () => {
+  to('Theme', async () => {
     const valueBrowsers = await evaluate(async (window: any) => {
       const value = [];
 
-      const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
+      const { AmauiTheme, useAmauiTheme, Theme } = window.AmauiStyleReact;
 
       const A = (props) => {
         const amauiTheme = useAmauiTheme();
@@ -71,19 +71,19 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
         return (
           eval(window.Babel.transform(`
-            <AmauiThemeProvider value={a}>
+            <Theme value={a}>
                 <A>
                   a
 
                   <div dir='rtl'>
-                    <AmauiThemeProvider value={a1}>
+                    <Theme value={a1}>
                       <A>
                         a1
                       </A>
-                    </AmauiThemeProvider>
+                    </Theme>
                   </div>
                 </A>
-            </AmauiThemeProvider>
+            </Theme>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
@@ -137,7 +137,7 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
     const valueBrowsers = await evaluate(async (window: any) => {
       const value = [];
 
-      const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
+      const { AmauiTheme, useAmauiTheme, Theme } = window.AmauiStyleReact;
 
       const A = (props) => {
         const amauiTheme = useAmauiTheme();
@@ -178,19 +178,19 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
         return (
           eval(window.Babel.transform(`
-            <AmauiThemeProvider value={a}>
+            <Theme value={a}>
                 <A>
                   a
 
                   <div dir='rtl'>
-                    <AmauiThemeProvider value={a1}>
+                    <Theme value={a1}>
                       <A>
                         a1
                       </A>
-                    </AmauiThemeProvider>
+                    </Theme>
                   </div>
                 </A>
-            </AmauiThemeProvider>
+            </Theme>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
@@ -246,7 +246,7 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         const value = [];
 
-        const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
+        const { AmauiTheme, useAmauiTheme, Theme } = window.AmauiStyleReact;
 
         const A = (props) => {
           const amauiTheme = useAmauiTheme();
@@ -301,19 +301,19 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
           return (
             eval(window.Babel.transform(`
-                <AmauiThemeProvider value={a}>
+                <Theme value={a}>
                     <A>
                       a
 
                       <div dir='rtl'>
-                        <AmauiThemeProvider value={a1}>
+                        <Theme value={a1}>
                           <A>
                             a1
                           </A>
-                        </AmauiThemeProvider>
+                        </Theme>
                       </div>
                     </A>
-                </AmauiThemeProvider>
+                </Theme>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
@@ -338,7 +338,7 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         const value = [];
 
-        const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
+        const { AmauiTheme, useAmauiTheme, Theme } = window.AmauiStyleReact;
 
         const A = (props) => {
           const amauiTheme = useAmauiTheme();
@@ -391,19 +391,19 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
           return (
             eval(window.Babel.transform(`
-                <AmauiThemeProvider value={a}>
+                <Theme value={a}>
                     <A>
                       a
 
                       <div dir='rtl'>
-                        <AmauiThemeProvider value={a1}>
+                        <Theme value={a1}>
                           <A>
                             a1
                           </A>
-                        </AmauiThemeProvider>
+                        </Theme>
                       </div>
                     </A>
-                </AmauiThemeProvider>
+                </Theme>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
@@ -428,7 +428,7 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         const value = [];
 
-        const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
+        const { AmauiTheme, useAmauiTheme, Theme } = window.AmauiStyleReact;
 
         const A = (props) => {
           const amauiTheme = useAmauiTheme();
@@ -491,19 +491,19 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
           return (
             eval(window.Babel.transform(`
-              <AmauiThemeProvider value={a}>
+              <Theme value={a}>
                   <A>
                     a
 
                     <div dir='rtl'>
-                      <AmauiThemeProvider value={a1}>
+                      <Theme value={a1}>
                         <A>
                           a1
                         </A>
-                      </AmauiThemeProvider>
+                      </Theme>
                     </div>
                   </A>
-              </AmauiThemeProvider>
+              </Theme>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
@@ -541,7 +541,7 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
       const valueBrowsers = await evaluate(async (window: any) => {
         const value = [];
 
-        const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
+        const { AmauiTheme, useAmauiTheme, Theme } = window.AmauiStyleReact;
 
         const A = (props) => {
           const amauiTheme = useAmauiTheme();
@@ -604,19 +604,19 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
           return (
             eval(window.Babel.transform(`
-                <AmauiThemeProvider value={a}>
+                <Theme value={a}>
                     <A>
                       a
 
                       <div dir='rtl'>
-                        <AmauiThemeProvider value={a1}>
+                        <Theme value={a1}>
                           <A>
                             a1
                           </A>
-                        </AmauiThemeProvider>
+                        </Theme>
                       </div>
                     </A>
-                </AmauiThemeProvider>
+                </Theme>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
           );
         };
@@ -656,7 +656,7 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
     const valueBrowsers = await evaluate(async (window: any) => {
       window.value = [];
 
-      const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = window.AmauiStyleReact;
+      const { AmauiTheme, useAmauiTheme, Theme } = window.AmauiStyleReact;
 
       const A = (props) => {
         const amauiTheme = useAmauiTheme();
@@ -685,17 +685,17 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
 
         return (
           eval(window.Babel.transform(`
-            <AmauiThemeProvider value={a} dir='ltr'>
+            <Theme value={a} dir='ltr'>
                 <A>
                   a
 
-                  <AmauiThemeProvider value={a1} dir='rtl'>
+                  <Theme value={a1} dir='rtl'>
                     <A>
                       a1
                     </A>
-                  </AmauiThemeProvider>
+                  </Theme>
                 </A>
-            </AmauiThemeProvider>
+            </Theme>
           `, { presets: [window.Babel.availablePresets.es2015, window.Babel.availablePresets.react] }).code)
         );
       };
@@ -744,15 +744,15 @@ group('@amaui/style-react/AmauiThemeProvider', () => {
   group('ssr', () => {
 
     to('renderToString', async () => {
-      const { AmauiTheme, useAmauiTheme, AmauiThemeProvider } = AmauiStyleReact;
+      const { AmauiTheme, useAmauiTheme, Theme } = AmauiStyleReact;
 
       const amauiTheme = new AmauiTheme();
 
       const App = () => {
         return (
-          <AmauiThemeProvider value={amauiTheme}>
+          <Theme value={amauiTheme}>
             a
-          </AmauiThemeProvider>
+          </Theme>
         );
       };
 

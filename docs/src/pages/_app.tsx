@@ -5,7 +5,7 @@ import Script from 'next/script';
 
 import { isOS } from '@amaui/utils';
 import { Widgets, ScreenCapture, Timer, Countdown, Watch, Reset, MainProgress, useMediaQuery } from '@amaui/ui-react';
-import { AmauiStyleProvider, AmauiThemeProvider, valueObject, prefix, sort, rtl, unit, makeClassName, useAmauiStyle, AmauiTheme } from '@amaui/style-react';
+import { Style, Theme, valueObject, prefix, sort, rtl, unit, makeClassName, useAmauiStyle, AmauiTheme } from '@amaui/style-react';
 
 import IconMaterialTimerRounded from '@amaui/icons-material-react/build/IconMaterialTimerRounded';
 import IconMaterialVideocamRounded from '@amaui/icons-material-react/build/IconMaterialVideocamRounded';
@@ -166,10 +166,10 @@ export default function App(props: AppProps) {
     />
 
     {/* Website */}
-    <AmauiStyleProvider
+    <Style
       value={valueAmauiStyle}
     >
-      <AmauiThemeProvider
+      <Theme
         value={valueAmauiTheme}
       >
         <MainProgress>
@@ -181,7 +181,7 @@ export default function App(props: AppProps) {
             <Component {...pageProps} />
           </Widgets>
         </MainProgress>
-      </AmauiThemeProvider>
-    </AmauiStyleProvider>
+      </Theme>
+    </Style>
   </>;
 }

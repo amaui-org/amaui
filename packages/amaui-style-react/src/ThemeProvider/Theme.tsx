@@ -7,12 +7,12 @@ import isEnvironment from '@amaui/utils/isEnvironment';
 import { AmauiTheme, classNames } from '@amaui/style';
 import { IAmauiTheme } from '@amaui/style/AmauiTheme';
 
-import AmauiThemeContext from './AmauiThemeContext';
+import ThemeContext from './ThemeContext';
 import useAmauiTheme from './useAmauiTheme';
-import { AmauiThemeRequired } from '../style';
+import { ThemeRequired } from '../style';
 
-export interface IAmauiThemeProviderValue extends AmauiThemeRequired {
-  updateWithRerender: (value: IAmauiTheme) => AmauiThemeRequired;
+export interface IThemeValue extends ThemeRequired {
+  updateWithRerender: (value: IAmauiTheme) => ThemeRequired;
 }
 
 const resolveValue = (value: IAmauiTheme) => {
@@ -25,7 +25,7 @@ const resolveValue = (value: IAmauiTheme) => {
   return valueNew;
 };
 
-interface IAmauiThemeProvider extends React.HTMLAttributes<any> {
+interface ITheme extends React.HTMLAttributes<any> {
   root?: boolean;
 
   value?: IAmauiTheme;
@@ -35,7 +35,7 @@ interface IAmauiThemeProvider extends React.HTMLAttributes<any> {
   children?: any;
 }
 
-const AmauiThemeProvider = React.forwardRef((props: IAmauiThemeProvider, ref: any) => {
+const Theme = React.forwardRef((props: ITheme, ref: any) => {
   const [init, setInit] = React.useState(false);
 
   const {
@@ -61,7 +61,7 @@ const AmauiThemeProvider = React.forwardRef((props: IAmauiThemeProvider, ref: an
 
   const valueParent = useAmauiTheme() as any || {};
 
-  const [value, setValue] = React.useState<IAmauiThemeProviderValue>(() => new AmauiTheme(merge(resolveValue(is('function', valueLocal) ? (valueLocal as any)(valueParent) : valueLocal), resolveValue(valueParent), { copy: true }) as any) as any);
+  const [value, setValue] = React.useState<IThemeValue>(() => new AmauiTheme(merge(resolveValue(is('function', valueLocal) ? (valueLocal as any)(valueParent) : valueLocal), resolveValue(valueParent), { copy: true }) as any) as any);
 
   const addCssVariablesMethod = React.useCallback(() => {
     if (!refs.styleSheet.current) {
@@ -208,7 +208,7 @@ ${values.map(item => `\t${item};`).join('\n')}
 
   if (root) {
     return (
-      <AmauiThemeContext.Provider
+      <ThemeContext.Provider
         value={value}
       >
         <div
@@ -228,17 +228,17 @@ ${values.map(item => `\t${item};`).join('\n')}
         >
           {children}
         </div>
-      </AmauiThemeContext.Provider>
+      </ThemeContext.Provider>
     );
   }
 
   return (
-    <AmauiThemeContext.Provider
+    <ThemeContext.Provider
       value={value}
     >
       {children}
-    </AmauiThemeContext.Provider>
+    </ThemeContext.Provider>
   );
 });
 
-export default AmauiThemeProvider;
+export default Theme;
