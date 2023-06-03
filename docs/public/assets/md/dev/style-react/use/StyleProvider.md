@@ -19,7 +19,7 @@ const App = () => {
     instance.plugins.add = [unit, sort, prefix];
 
     return instance;
-  });
+  }, []);
 
   return (
     <Style
@@ -71,7 +71,7 @@ const App = () => {
     instance.plugins.add = [unit, sort, prefix];
 
     return instance;
-  });
+  }, []);
 
   return (
     <Style

@@ -708,12 +708,12 @@
         "url": "/dev/style-react/use",
         "menu": [
           {
-            "label": "AmauiStyleProvider",
-            "url": "/dev/style-react/use/AmauiStyleProvider"
+            "label": "StyleProvider",
+            "url": "/dev/style-react/use/StyleProvider"
           },
           {
-            "label": "AmauiThemeProvider",
-            "url": "/dev/style-react/use/AmauiThemeProvider"
+            "label": "ThemeProvider",
+            "url": "/dev/style-react/use/ThemeProvider"
           },
           {
             "label": "className",

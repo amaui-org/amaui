@@ -10,7 +10,7 @@ Provider for `AmauiTheme` instance value.
 - All of the `AmauiStyle` classes are also re-exported from this library, but you can import them directly from `@amaui/style` library as well.
 
 ```tsx
-import { Theme, AmauiTheme } from '@amaui/style-react';
+import { Theme } from '@amaui/style-react';
 
 const App = () => {
   const value = React.useMemo(() => {
@@ -19,7 +19,7 @@ const App = () => {
         light: true
       }
     };
-  });
+  }, []);
 
   return (
     <Theme
@@ -45,7 +45,7 @@ const App = () => {
     });
 
     return instance;
-  });
+  }, []);
 
   return (
     <Theme
@@ -64,7 +64,7 @@ const App = () => {
 - On `updateWithRerender` new instance of `AmauiTheme` is made, and provided values in this method, are merged with values of the previous `AmauiTheme` instance, as new properties for the new instance.
 
 ```tsx
-import { Theme, useAmauiTheme, AmauiTheme } from '@amaui/style-react';
+import { Theme, useAmauiTheme } from '@amaui/style-react';
 
 const Button = props => {
   // useAmauiTheme (useContext) retrieves
@@ -77,7 +77,7 @@ const Button = props => {
         light: !amauiTheme.palette.light
       }
     });
-  }, []);
+  }, [amauiTheme]);
 
   return (
     <button
@@ -97,7 +97,7 @@ const App = () => {
         light: true
       }
     };
-  });
+  }, []);
 
   return (
     <Theme
@@ -116,7 +116,7 @@ const App = () => {
 Adds all theme important properties as CSS variables into the DOM, by default it's true.
 
 ```tsx
-import { Theme, AmauiTheme } from '@amaui/style-react';
+import { Theme } from '@amaui/style-react';
 
 const App = () => {
   const value = React.useMemo(() => {
@@ -125,7 +125,7 @@ const App = () => {
         light: true
       }
     };
-  });
+  }, []);
 
   return (
     <Theme
@@ -961,7 +961,7 @@ const Button = () => {
 };
 
 const NestedTheme = () => {
-  const amauiTheme = React.useMemo(() => {
+  const value = React.useMemo(() => {
     return {
       palette: {
         color: {
@@ -971,11 +971,11 @@ const NestedTheme = () => {
         }
       }
     };
-  });
+  }, []);
 
   return (
     <Theme
-      value={amauiTheme}
+      value={value}
     >
       ...
     </Theme>
@@ -995,7 +995,7 @@ const App = () => {
         }
       }
     };
-  });
+  }, []);
 
   return (
     <Theme
