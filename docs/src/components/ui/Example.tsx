@@ -261,15 +261,15 @@ const Example = React.forwardRef((props: any, ref: any) => {
         break;
 
       case 'zip-examples-zip':
-        mainSrc = mainSrc || '/assets/js/examples/Zip/zip.tsx';
-        shortSrc = shortSrc || '/assets/js/examples/Zip/zip.short.tsx';
-        Element = Dynamic(() => import('../../../public/assets/js/examples/Zip/zip'));
+        mainSrc = mainSrc || '/assets/js/examples/zip/zip.tsx';
+        shortSrc = shortSrc || '/assets/js/examples/zip/zip.short.tsx';
+        Element = Dynamic(() => import('../../../public/assets/js/examples/zip/zip'));
         break;
 
       case 'zip-examples-unzip':
-        mainSrc = mainSrc || '/assets/js/examples/Zip/unzip.tsx';
-        shortSrc = shortSrc || '/assets/js/examples/Zip/unzip.short.tsx';
-        Element = Dynamic(() => import('../../../public/assets/js/examples/Zip/unzip'));
+        mainSrc = mainSrc || '/assets/js/examples/zip/unzip.tsx';
+        shortSrc = shortSrc || '/assets/js/examples/zip/unzip.short.tsx';
+        Element = Dynamic(() => import('../../../public/assets/js/examples/zip/unzip'));
         break;
 
       default:
