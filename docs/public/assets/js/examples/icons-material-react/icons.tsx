@@ -55,6 +55,8 @@ const useStyle = style(theme => ({
 
 const IconElement = React.forwardRef((props: any, ref: any) => {
   const {
+    version,
+
     children,
 
     ...other
@@ -77,14 +79,25 @@ const IconElement = React.forwardRef((props: any, ref: any) => {
   const onCopy = React.useCallback(async () => {
     clearTimeout(refs.timeout.current);
 
-    await copyToClipboard(`import ${fullName} from '@amaui/icons-material-react/${fullName};`);
+    let toAdd = {
+      name: 'Rounded',
+      url: 'rounded'
+    };
+
+    if (version.includes('Rounded')) toAdd = { name: 'Rounded', url: 'rounded' };
+
+    if (version.includes('Sharp')) toAdd = { name: 'Sharp', url: 'sharp' };
+
+    if (version.includes('Two Tone')) toAdd = { name: 'TwoTone', url: 'two-tone' };
+
+    await copyToClipboard(`import ${fullName}${toAdd.name} from '@amaui/icons-material-${toAdd.url}-react/${fullName}';`);
 
     setCopied(true);
 
     refs.timeout.current = setTimeout(() => {
       setCopied(false);
     }, 700);
-  }, []);
+  }, [version, fullName]);
 
   return (
     <Line
@@ -252,7 +265,11 @@ const element = React.forwardRef((props: any, ref: any) => {
     let items = refs.icons.current[refs.version.current] || [];
 
     // Filter
-    items = items.filter(item => !refs.search.current || item.displayName?.toLowerCase()?.includes(refs.search.current?.toLowerCase()));
+    items = items.filter(item => {
+      const name = item.displayName?.replace(/AmauiIconMaterial|Filled|W100/g, '')?.toLowerCase();
+
+      return !refs.search.current || name?.includes(refs.search.current?.toLowerCase());
+    });
 
     setValues(items);
   }, 440), []);
@@ -335,7 +352,9 @@ const element = React.forwardRef((props: any, ref: any) => {
             wrap='wrap'
           >
             {values?.map((Item: any, index) => (
-              <IconElement>
+              <IconElement
+                version={version}
+              >
                 {Item}
               </IconElement>
             ))}

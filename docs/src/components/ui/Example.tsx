@@ -6,9 +6,9 @@ import { IconButton, Line, Markdown, sanitize, Surface, Tooltip, Type } from '@a
 import { classNames, style } from '@amaui/style-react';
 import AmauiRequest from '@amaui/request';
 
-import IconMaterialTempPreferencesCustomRounded from '@amaui/icons-material-react/IconMaterialTempPreferencesCustomRounded';
-import IconMaterialDataObjectRounded from '@amaui/icons-material-react/IconMaterialDataObjectRounded';
-import IconMaterialDraftRounded from '@amaui/icons-material-react/IconMaterialDraftRounded';
+import IconMaterialTempPreferencesCustomRounded from '@amaui/icons-material-rounded-react/IconMaterialTempPreferencesCustom';
+import IconMaterialDataObjectRounded from '@amaui/icons-material-rounded-react/IconMaterialDataObject';
+import IconMaterialDraftRounded from '@amaui/icons-material-rounded-react/IconMaterialDraft';
 
 import IFrame from './IFrame';
 
@@ -528,7 +528,7 @@ const Example = React.forwardRef((props: any, ref: any) => {
 
                 {...optionButtonProps}
               >
-                <IconMaterialTempPreferencesCustomRounded />
+                <IconMaterialTempPreferencesCustomRounded size='small' />
               </IconButton>
             </Tooltip>
           </Line>

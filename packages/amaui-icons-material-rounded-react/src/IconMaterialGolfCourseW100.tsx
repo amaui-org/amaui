@@ -1,0 +1,26 @@
+import React from 'react';
+
+import { Icon, IIcon } from '@amaui/ui-react';
+
+const IconMaterialGolfCourseW100 = React.forwardRef((props: IIcon, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='GolfCourseW100'
+
+      short_name='GolfCourse'
+
+      viewBox='0 0 24 24'
+
+      {...props}
+    >
+      <path d="M19.5 20.35q-.35 0-.6-.25t-.25-.6q0-.35.25-.6t.6-.25q.35 0 .6.25t.25.6q0 .35-.25.6t-.6.25Zm-9.5 1q-2.225 0-3.787-.388Q4.65 20.575 4.65 20q0-.45 1.175-.812Q7 18.825 8.25 18.75v.7q0 .275.2.488.2.212.5.212.275 0 .488-.212.212-.213.212-.488V4.25q0-.45.35-.663.35-.212.725-.012L14.2 5.25q.425.2.437.675.013.475-.412.675l-3.875 2v10.05q2.15.125 3.575.487 1.425.363 1.425.863 0 .575-1.562.962-1.563.388-3.788.388Z"/>
+    </Icon>
+  );
+});
+
+IconMaterialGolfCourseW100.displayName = 'AmauiIconMaterialGolfCourseW100';
+
+export default IconMaterialGolfCourseW100;

@@ -9,13 +9,13 @@ import { Avatar, IconButton, Line, Link, List, ListItem, ListSubheader, MenuDesk
 import { classNames, colors, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
 
-import IconMaterialTempPreferencesCustomRounded from '@amaui/icons-material-react/IconMaterialTempPreferencesCustomRounded';
-import IconMaterialLightModeRounded from '@amaui/icons-material-react/IconMaterialLightModeRounded';
-import IconMaterialDarkModeRounded from '@amaui/icons-material-react/IconMaterialDarkModeRounded';
-import IconMaterialFormatTextdirectionLToRRounded from '@amaui/icons-material-react/IconMaterialFormatTextdirectionLToRRounded';
-import IconMaterialFormatTextdirectionRToLRounded from '@amaui/icons-material-react/IconMaterialFormatTextdirectionRToLRounded';
-import IconMaterialAutoAwesomeRounded from '@amaui/icons-material-react/IconMaterialAutoAwesomeRounded';
-import IconMaterialMenuRounded from '@amaui/icons-material-react/IconMaterialMenuRounded';
+import IconMaterialTempPreferencesCustomRounded from '@amaui/icons-material-rounded-react/IconMaterialTempPreferencesCustom';
+import IconMaterialLightModeRounded from '@amaui/icons-material-rounded-react/IconMaterialLightMode';
+import IconMaterialDarkModeRounded from '@amaui/icons-material-rounded-react/IconMaterialDarkMode';
+import IconMaterialFormatTextdirectionLToRRounded from '@amaui/icons-material-rounded-react/IconMaterialFormatTextdirectionLToR';
+import IconMaterialFormatTextdirectionRToLRounded from '@amaui/icons-material-rounded-react/IconMaterialFormatTextdirectionRToL';
+import IconMaterialAutoAwesomeRounded from '@amaui/icons-material-rounded-react/IconMaterialAutoAwesome';
+import IconMaterialMenuRounded from '@amaui/icons-material-rounded-react/IconMaterialMenu';
 
 import Logo from '../../public/assets/svg/logo.svg';
 import IconGithub from '../../public/assets/svg/github.svg';

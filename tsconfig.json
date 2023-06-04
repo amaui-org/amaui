@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "react",
     "baseUrl": "./",
     "outDir": "./build",
     "target": "ES2017",
@@ -19,11 +20,23 @@
       "@amaui/style-react/*": [
         "./packages/amaui-style-react/src/*"
       ],
-      "@amaui/icons-material-react": [
-        "./packages/amaui-icons-material-react/src"
+      "@amaui/icons-material-rounded-react": [
+        "./packages/amaui-icons-material-rounded-react/src"
       ],
-      "@amaui/icons-material-react/*": [
-        "./packages/amaui-icons-material-react/src/*"
+      "@amaui/icons-material-rounded-react/*": [
+        "./packages/amaui-icons-material-rounded-react/src/*"
+      ],
+      "@amaui/icons-material-sharp-react": [
+        "./packages/amaui-icons-material-sharp-react/src"
+      ],
+      "@amaui/icons-material-sharp-react/*": [
+        "./packages/amaui-icons-material-sharp-react/src/*"
+      ],
+      "@amaui/icons-material-two-tone-react": [
+        "./packages/amaui-icons-material-two-tone-react/src"
+      ],
+      "@amaui/icons-material-two-tone-react/*": [
+        "./packages/amaui-icons-material-two-tone-react/src/*"
       ],
       "@amaui/ui-react": [
         "./packages/amaui-ui-react/src"

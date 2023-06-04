@@ -1,0 +1,26 @@
+import React from 'react';
+
+import { Icon, IIcon } from '@amaui/ui-react';
+
+const IconMaterialVrpanoW100Filled = React.forwardRef((props: IIcon, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='VrpanoW100Filled'
+
+      short_name='Vrpano'
+
+      viewBox='0 0 24 24'
+
+      {...props}
+    >
+      <path d="M7.475 14.65q1.1-.1 2.213-.15 1.112-.05 2.312-.05 1.2 0 2.312.05 1.113.05 2.213.15.225.025.3-.125.075-.15-.05-.325L14.3 11.225q-.125-.15-.3-.15t-.3.15l-2.325 2.75-1.7-2.025q-.125-.15-.3-.15t-.3.15l-1.85 2.225q-.125.15-.05.325.075.175.3.15ZM4.25 18.3q-.375.125-.662-.037Q3.3 18.1 3.3 17.65V6.4q0-.45.288-.613.287-.162.662-.037 1.175.325 3.15.688Q9.375 6.8 12 6.8q2.65 0 4.588-.35 1.937-.35 3.112-.7.375-.125.688.037.312.163.312.613v11.25q0 .45-.312.613-.313.162-.688.037-1.175-.35-3.112-.725Q14.65 17.2 12 17.2q-2.625 0-4.6.375-1.975.375-3.15.725Z"/>
+    </Icon>
+  );
+});
+
+IconMaterialVrpanoW100Filled.displayName = 'AmauiIconMaterialVrpanoW100Filled';
+
+export default IconMaterialVrpanoW100Filled;

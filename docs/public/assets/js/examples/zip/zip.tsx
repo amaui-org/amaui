@@ -5,8 +5,8 @@ import { copyToClipboard, stringify } from '@amaui/utils';
 import { Button, IconButton, Line, TextField, Tooltip, Type } from '@amaui/ui-react';
 import { style } from '@amaui/style-react';
 
-import IconMaterialContentCopyRounded from '@amaui/icons-material-react/IconMaterialContentCopyRounded';
-import IconMaterialDoneRounded from '@amaui/icons-material-react/IconMaterialDoneRounded';
+import IconMaterialContentCopyRounded from '@amaui/icons-material-rounded-react/IconMaterialContentCopy';
+import IconMaterialDoneRounded from '@amaui/icons-material-rounded-react/IconMaterialDone';
 
 const useStyle = style(theme => ({
   root: {

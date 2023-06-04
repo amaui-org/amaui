@@ -1,0 +1,26 @@
+import React from 'react';
+
+import { Icon, IIcon } from '@amaui/ui-react';
+
+const IconMaterialShortTextFilled = React.forwardRef((props: IIcon, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='ShortTextFilled'
+
+      short_name='ShortText'
+
+      viewBox='0 0 24 24'
+
+      {...props}
+    >
+      <path d="M4 15v-2h10v2Zm0-4V9h16v2Z"/>
+    </Icon>
+  );
+});
+
+IconMaterialShortTextFilled.displayName = 'AmauiIconMaterialShortTextFilled';
+
+export default IconMaterialShortTextFilled;

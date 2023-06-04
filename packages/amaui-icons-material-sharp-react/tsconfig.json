@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./build",
+    "declaration": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "@amaui/ui-react": ["../amaui-ui-react/src"],
+      "@amaui/ui-react/*": ["../amaui-ui-react/src/*"]
+    }
+  },
+  "include": [
+    "src/**/*.tsx"
+  ]
+}

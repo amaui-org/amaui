@@ -4,8 +4,8 @@ import { useRouter } from 'next/router';
 import { classNames, style } from '@amaui/style-react';
 import { Interaction, Line, Surface, Type } from '@amaui/ui-react';
 
-import IconMaterialWestRounded from '@amaui/icons-material-react/IconMaterialWestRounded';
-import IconMaterialEastRounded from '@amaui/icons-material-react/IconMaterialEastRounded';
+import IconMaterialWestRounded from '@amaui/icons-material-rounded-react/IconMaterialWest';
+import IconMaterialEastRounded from '@amaui/icons-material-rounded-react/IconMaterialEast';
 
 const useStyle = style(theme => ({
   root: {

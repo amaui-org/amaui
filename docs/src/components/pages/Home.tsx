@@ -6,16 +6,16 @@ import { AreaChart, Avatar, Button, Card, CardFooter, CardHeader, CardImage, Car
 import { classNames, colors, style, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
 
-import IconMaterialLightModeRounded from '@amaui/icons-material-react/IconMaterialLightModeRounded';
-import IconMaterialDarkModeRounded from '@amaui/icons-material-react/IconMaterialDarkModeRounded';
-import IconMaterialFormatTextdirectionLToRRounded from '@amaui/icons-material-react/IconMaterialFormatTextdirectionLToRRounded';
-import IconMaterialFormatTextdirectionRToLRounded from '@amaui/icons-material-react/IconMaterialFormatTextdirectionRToLRounded';
-import IconMaterialPottedPlantRounded from '@amaui/icons-material-react/IconMaterialPottedPlantRounded';
-import IconMaterialFolderRounded from '@amaui/icons-material-react/IconMaterialFolderRounded';
-import IconMaterialFolderOpenRounded from '@amaui/icons-material-react/IconMaterialFolderOpenRounded';
-import IconMaterialFiberManualRecordRounded from '@amaui/icons-material-react/IconMaterialFiberManualRecordRoundedFilled';
-import IconMaterialMoreVertRounded from '@amaui/icons-material-react/IconMaterialMoreVertRounded';
-import IconMaterialEastRounded from '@amaui/icons-material-react/IconMaterialEastRounded';
+import IconMaterialLightModeRounded from '@amaui/icons-material-rounded-react/IconMaterialLightMode';
+import IconMaterialDarkModeRounded from '@amaui/icons-material-rounded-react/IconMaterialDarkMode';
+import IconMaterialFormatTextdirectionLToRRounded from '@amaui/icons-material-rounded-react/IconMaterialFormatTextdirectionLToR';
+import IconMaterialFormatTextdirectionRToLRounded from '@amaui/icons-material-rounded-react/IconMaterialFormatTextdirectionRToL';
+import IconMaterialPottedPlantRounded from '@amaui/icons-material-rounded-react/IconMaterialPottedPlant';
+import IconMaterialFolderRounded from '@amaui/icons-material-rounded-react/IconMaterialFolder';
+import IconMaterialFolderOpenRounded from '@amaui/icons-material-rounded-react/IconMaterialFolderOpen';
+import IconMaterialFiberManualRecordRounded from '@amaui/icons-material-rounded-react/IconMaterialFiberManualRecordFilled';
+import IconMaterialMoreVertRounded from '@amaui/icons-material-rounded-react/IconMaterialMoreVert';
+import IconMaterialEastRounded from '@amaui/icons-material-rounded-react/IconMaterialEast';
 
 import Logo from '../../../public/assets/svg/logo.svg';
 

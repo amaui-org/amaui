@@ -7,11 +7,11 @@ import { isOS } from '@amaui/utils';
 import { Widgets, ScreenCapture, Timer, Countdown, Watch, Reset, MainProgress, useMediaQuery } from '@amaui/ui-react';
 import { Style, Theme, valueObject, prefix, sort, rtl, unit, makeClassName, useAmauiStyle, AmauiTheme } from '@amaui/style-react';
 
-import IconMaterialTimerRounded from '@amaui/icons-material-react/build/IconMaterialTimerRounded';
-import IconMaterialVideocamRounded from '@amaui/icons-material-react/build/IconMaterialVideocamRounded';
-import IconMaterialAvTimerRounded from '@amaui/icons-material-react/build/IconMaterialAvTimerRounded';
-import IconMaterialNestClockFarsightDigitalRounded from '@amaui/icons-material-react/build/IconMaterialNestClockFarsightDigitalRounded';
-import IconMaterialNestClockFarsightAnalogRounded from '@amaui/icons-material-react/build/IconMaterialNestClockFarsightAnalogRounded';
+import IconMaterialTimerRounded from '@amaui/icons-material-rounded-react/build/IconMaterialTimer';
+import IconMaterialVideocamRounded from '@amaui/icons-material-rounded-react/build/IconMaterialVideocam';
+import IconMaterialAvTimerRounded from '@amaui/icons-material-rounded-react/build/IconMaterialAvTimer';
+import IconMaterialNestClockFarsightDigitalRounded from '@amaui/icons-material-rounded-react/build/IconMaterialNestClockFarsightDigital';
+import IconMaterialNestClockFarsightAnalogRounded from '@amaui/icons-material-rounded-react/build/IconMaterialNestClockFarsightAnalog';
 
 const FONT_FAMILY = {
   primary: ['Montserrat', 'Helvetica', 'Helvetica Neue', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'].join(', '),

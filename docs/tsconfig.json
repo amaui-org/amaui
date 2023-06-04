@@ -25,11 +25,23 @@
       "@amaui/style-react/*": [
         "../packages/amaui-style-react/build/*"
       ],
-      "@amaui/icons-material-react": [
-        "../packages/amaui-icons-material-react/build"
+      "@amaui/icons-material-rounded-react": [
+        "../packages/amaui-icons-material-rounded-react/build"
       ],
-      "@amaui/icons-material-react/*": [
-        "../packages/amaui-icons-material-react/build/*"
+      "@amaui/icons-material-rounded-react/*": [
+        "../packages/amaui-icons-material-rounded-react/build/*"
+      ],
+      "@amaui/icons-material-sharp-react": [
+        "../packages/amaui-icons-material-sharp-react/build"
+      ],
+      "@amaui/icons-material-sharp-react/*": [
+        "../packages/amaui-icons-material-sharp-react/build/*"
+      ],
+      "@amaui/icons-material-two-tone-react": [
+        "../packages/amaui-icons-material-two-tone-react/build"
+      ],
+      "@amaui/icons-material-two-tone-react/*": [
+        "../packages/amaui-icons-material-two-tone-react/build/*"
       ],
       "@amaui/ui-react": [
         "../packages/amaui-ui-react/build"

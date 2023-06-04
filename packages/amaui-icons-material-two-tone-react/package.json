@@ -1,0 +1,64 @@
+{
+  "name": "@amaui/icons-material-two-tone-react",
+  "version": "1.0.0",
+  "description": "Icons material two tone for React",
+  "repository": "https://github.com/amaui-org/amaui.git",
+  "author": "Lazar <lazareric.com@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "main": "./build/index.js",
+  "module": "./build/esm/index.js",
+  "types": "./build/index.d.ts",
+  "keywords": [
+    "icons",
+    "material",
+    "material-design",
+    "react",
+    "frontend",
+    "front-end",
+    "backend",
+    "back-end",
+    "web",
+    "browser",
+    "javascript",
+    "js",
+    "typescript",
+    "node",
+    "nodejs",
+    "library",
+    "amaui",
+    "utils"
+  ],
+  "scripts": {
+    "prebuild": "rimraf build",
+    "build": "cross-env ENV=react VERSION=icons-two-tone node ../../utils/js/build.js",
+    "release": "yarn test && yarn build && npm publish ./build",
+    "lint": "tslint -c ../../tslint.json -p tsconfig.json",
+    "type": "tsc --noEmit -p tsconfig.json",
+    "cov": "cross-env NODE_ENV=test amaui-test",
+    "test:pre": "pm2 update && pm2 delete all && pm2 start ../../utils/js/test/app.js && wait-on http://localhost:4000",
+    "test:post": "pm2 delete all",
+    "test": "yarn lint && yarn type && yarn build && yarn test:pre && yarn cov && yarn test:post",
+    "make": "node utils/js/make",
+    "docs": "node utils/js/docs",
+    "clear": "node utils/js/clear"
+  },
+  "peerDependencies": {
+    "react": "^18.1.0"
+  },
+  "dependencies": {
+    "@amaui/ui-react": "^1.1.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "build"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=12.0.0",
+    "yarn": ">=1.22"
+  }
+}
