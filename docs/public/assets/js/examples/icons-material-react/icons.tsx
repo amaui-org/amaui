@@ -352,8 +352,6 @@ const element = React.forwardRef((props: any, ref: any) => {
     updateValues();
   }, [search]);
 
-  console.log(1, visible);
-
   return (
     <Line
       ref={ref}
