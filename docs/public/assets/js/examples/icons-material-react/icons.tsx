@@ -5,6 +5,8 @@ import { copyToClipboard, debounce } from '@amaui/utils';
 import { Chips, Chip, Line, LinearProgress, TextField, Type } from '@amaui/ui-react';
 import { style } from '@amaui/style-react';
 
+import IconMaterialRefreshRounded from '@amaui/icons-material-rounded-react/IconMaterialRefresh';
+
 const useStyle = style(theme => ({
   root: {
     flex: '1 1 auto'
@@ -50,6 +52,16 @@ const useStyle = style(theme => ({
     width: '100%',
     maxWidth: 400,
     marginTop: 14
+  },
+
+  refresh: {
+    pointerEvents: 'all',
+    cursor: 'pointer',
+    transition: theme.methods.transitions.make('transform', { duration: 'xs' }),
+
+    '&:active': {
+      transform: 'scale(0.87)'
+    }
   }
 }), { name: 'icons-material-react-examples-icons' });
 
@@ -124,6 +136,10 @@ const IconElement = React.forwardRef((props: any, ref: any) => {
   );
 });
 
+const perPage = 70;
+
+const loadMoreLimit = 300;
+
 const element = React.forwardRef((props: any, ref: any) => {
   const { classes } = useStyle();
   const [icons, setIcons] = React.useState<any>({});
@@ -133,18 +149,26 @@ const element = React.forwardRef((props: any, ref: any) => {
   const [error, setError] = React.useState<any>('');
   const [version, setVersion] = React.useState('Rounded');
   const [values, setValues] = React.useState<any[]>([]);
+  const [visible, setVisible] = React.useState({ total: 1, pages: 1, page: 1, perPage, values: [], loading: false });
 
   const refs = {
     icons: React.useRef<any>(),
     search: React.useRef<any>(),
-    version: React.useRef<any>()
+    version: React.useRef<any>(),
+    values: React.useRef<any>(),
+    visible: React.useRef<any>(),
+    overflow: React.useRef<any>()
   };
 
   refs.icons.current = icons;
 
   refs.search.current = search;
 
+  refs.values.current = values;
+
   refs.version.current = version;
+
+  refs.visible.current = visible;
 
   const getRounded = React.useCallback(async () => {
     try {
@@ -261,7 +285,7 @@ const element = React.forwardRef((props: any, ref: any) => {
 
   const versions = React.useMemo(() => ['Rounded', 'Rounded Filled', 'Rounded W100', 'Rounded W100 Filled', 'Sharp', 'Sharp Filled', 'Sharp W100', 'Sharp W100 Filled', 'Two Tone'], []);
 
-  const updateValues = React.useCallback(debounce(() => {
+  const updateValues = React.useCallback(debounce((reset = true) => {
     let items = refs.icons.current[refs.version.current] || [];
 
     // Filter
@@ -271,12 +295,64 @@ const element = React.forwardRef((props: any, ref: any) => {
       return !refs.search.current || name?.includes(refs.search.current?.toLowerCase());
     });
 
+    const valuesNew = { ...refs.visible.current };
+
+    if (reset) {
+      valuesNew.page = 1;
+      valuesNew.total = items.length;
+      valuesNew.pages = Math.ceil(valuesNew.total / valuesNew.perPage);
+
+      refs.overflow.current?.scrollTo(0, 0);
+    }
+
+    valuesNew.values = items.slice(0, (valuesNew.page * valuesNew.perPage));
+
+    setVisible(previous => ({ ...previous, ...valuesNew, loading: false }));
+
     setValues(items);
   }, 440), []);
 
+  const loadMore = React.useCallback(debounce(() => {
+    const overflow = refs.overflow.current as HTMLElement;
+
+    const limit = overflow.scrollHeight - (overflow.scrollTop + overflow.clientHeight);
+
+    if (limit <= loadMoreLimit) {
+      const visible_ = refs.visible.current;
+
+      // If not in loading process at the moment
+      if (!visible_.loading) {
+        // If there are pages left to load
+        if (visible_.pages > visible_.page) {
+          const valuesNew = refs.values.current.slice(visible_.page * visible_.perPage, (visible_.page * visible_.perPage) + visible_.perPage);
+
+          setVisible(previous => ({
+            ...previous,
+
+            page: previous.page + 1,
+            values: [...previous.values, ...valuesNew],
+            loading: true
+          }));
+
+          setTimeout(() => {
+            setVisible(previous => ({ ...previous, loading: false }));
+          }, 140);
+        }
+      }
+    }
+  }, 14), []);
+
+  const onScroll = React.useCallback(loadMore, []);
+
+  React.useEffect(() => {
+    updateValues(!refs.visible.current.values.length);
+  }, [icons, version]);
+
   React.useEffect(() => {
     updateValues();
-  }, [icons, version, search]);
+  }, [search]);
+
+  console.log(1, visible);
 
   return (
     <Line
@@ -310,6 +386,16 @@ const element = React.forwardRef((props: any, ref: any) => {
 
           value={search}
 
+          end={[
+            <IconMaterialRefreshRounded
+              color='inherit'
+
+              onClick={updateValues}
+
+              className={classes.refresh}
+            />
+          ]}
+
           onChange={onSearch}
 
           className={classes.textField}
@@ -342,7 +428,11 @@ const element = React.forwardRef((props: any, ref: any) => {
         </Chips>
 
         <Line
+          ref={refs.overflow}
+
           direction='column'
+
+          onScroll={onScroll}
 
           className={classes.icons}
         >
@@ -351,7 +441,7 @@ const element = React.forwardRef((props: any, ref: any) => {
 
             wrap='wrap'
           >
-            {values?.map((Item: any, index) => (
+            {visible.values?.map((Item: any, index) => (
               <IconElement
                 version={version}
               >

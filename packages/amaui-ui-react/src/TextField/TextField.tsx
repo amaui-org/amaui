@@ -682,7 +682,8 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
     input: React.useRef<HTMLInputElement>(),
     carret: React.useRef<any>(),
     ids: {
-      label: React.useId()
+      label: React.useId(),
+      clear: React.useId()
     }
   };
 
@@ -866,8 +867,12 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
   if (value && clear) {
     if (!Array.isArray(end)) end = [end].filter(Boolean);
 
-    (end as any).push(
+    const exists = (end as any[])?.find(item => item.key === refs.ids.clear);
+
+    if (!exists) (end as any).push(
       <IconClear
+        key={refs.ids.clear}
+
         className={classes.clear}
 
         color='inherit'
