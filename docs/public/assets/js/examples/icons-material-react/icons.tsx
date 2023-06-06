@@ -385,13 +385,17 @@ const element = React.forwardRef((props: any, ref: any) => {
           value={search}
 
           end={[
-            <IconMaterialRefreshRounded
-              color='inherit'
+            ...(visible?.page > 1 ? (
+              [
+                <IconMaterialRefreshRounded
+                  color='inherit'
 
-              onClick={updateValues}
+                  onClick={updateValues}
 
-              className={classes.refresh}
-            />
+                  className={classes.refresh}
+                />
+              ]
+            ) : [])
           ]}
 
           onChange={onSearch}
