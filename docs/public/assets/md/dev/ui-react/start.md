@@ -1,10 +1,15 @@
 
 ### Add
 
-Make sure to install `@amaui/style-react` as well.
+```bash
+yarn add @amaui/ui-react
+```
+
+<br />
+Add `@amaui/style-react` peer dependency.
 
 ```bash
-yarn add @amaui/ui-react @amaui/style-react
+yarn add @amaui/style-react
 ```
 
 ### Use

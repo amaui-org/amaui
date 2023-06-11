@@ -9,6 +9,13 @@ Utils for easier using of the amqplib, ie. rabbitmq, queue messaging service.
 yarn add @amaui/amqp
 ```
 
+<br />
+Add `amqplib` peer dependency.
+
+```bash
+yarn add amqplib
+```
+
 ### Use
 
 ```ts

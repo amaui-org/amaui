@@ -9,6 +9,13 @@ Utils for easier using of `mongodb` library.
 yarn add @amaui/mongo
 ```
 
+<br />
+Add `mongodb` peer dependency.
+
+```bash
+yarn add mongodb
+```
+
 ### Use
 
 ```ts

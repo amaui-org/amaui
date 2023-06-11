@@ -9,6 +9,13 @@ Utils for easier using of `aws-sdk` library, for AWS.
 yarn add @amaui/aws
 ```
 
+<br />
+Add `@aws-sdk/client-s3` peer dependency.
+
+```bash
+yarn add @aws-sdk/client-s3
+```
+
 ### Use
 
 ```ts
