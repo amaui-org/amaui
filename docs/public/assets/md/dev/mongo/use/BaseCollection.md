@@ -17,22 +17,22 @@ class TodoCollection extends BaseCollection {
 
   public constructor('todos', mongo) { }
 
-  // default: { 'api_meta.added_at': -1 }
+  // default: { 'added_at': -1 }
   public get sort() { return { added_at: -1 } }
 
-  // default: 'api_meta.added_at'
+  // default: 'added_at'
   public get sortProperty() { return 'added_at'; }
 
   // default: -1
   public get sortAscending() { return -1; }
 
-  // default: 'api_meta.added_at'
+  // default: 'added_at'
   public get addedProperty() { return 'added_at'; }
 
-  // default: 'api_meta.updated_at'
+  // default: 'updated_at'
   public get updatedProperty() { return 'updated_at'; }
 
-  // default: { _id: 1, meta: 1, data: 1, api_meta: 1 }
+  // default: undefined
   public get projection() {
 
     return {
@@ -449,9 +449,7 @@ await todoCollection.addOne(
 //   _id: ...,
 //   data,
 //   meta,
-//   api_meta: {
-//     added_at: ...
-//   }
+//   added_at
 // }
 ```
 
@@ -490,9 +488,7 @@ await todoCollection.updateOne(
 //     a: 114
 //   },
 //   data,
-//   api_meta: {
-//     updated_at: ...
-//   }
+//   updated_at
 // }
 ```
 
@@ -559,10 +555,8 @@ await todoCollection.updateOne(
 //   meta: {
 //     a: 114
 //   },
-//   api_meta: {
-//     added_at: ...,
-//     updated_at: ...
-//   }
+//   added_at,
+//   updated_at
 // }
 ```
 
