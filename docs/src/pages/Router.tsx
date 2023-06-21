@@ -5,7 +5,7 @@ import Head from 'next/head';
 
 import { isEnvironment, random } from '@amaui/utils';
 
-import { Avatar, IconButton, Line, Link, List, ListItem, ListSubheader, MenuDesktop, NavigationDrawer, SpeedDial, SpeedDialItem, Surface, Switch, Tooltip, TopAppBar, Type, useMediaQuery, useScroll } from '@amaui/ui-react';
+import { Avatar, Line, Link, List, ListItem, ListSubheader, NavigationDrawer, SpeedDial, SpeedDialItem, Surface, Switch, Tooltip, Type, useMediaQuery } from '@amaui/ui-react';
 import { classNames, colors, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
 
@@ -14,19 +14,15 @@ import IconMaterialLightModeRounded from '@amaui/icons-material-rounded-react/Ic
 import IconMaterialDarkModeRounded from '@amaui/icons-material-rounded-react/IconMaterialDarkMode';
 import IconMaterialFormatTextdirectionLToRRounded from '@amaui/icons-material-rounded-react/IconMaterialFormatTextdirectionLToR';
 import IconMaterialFormatTextdirectionRToLRounded from '@amaui/icons-material-rounded-react/IconMaterialFormatTextdirectionRToL';
-import IconMaterialAutoAwesomeRounded from '@amaui/icons-material-rounded-react/IconMaterialAutoAwesome';
-import IconMaterialMenuRounded from '@amaui/icons-material-rounded-react/IconMaterialMenu';
-
-import Logo from '../../public/assets/svg/logo.svg';
-import IconGithub from '../../public/assets/svg/github.svg';
 
 import sidenavJSON from '../assets/json/sidenav.json';
 
 import Home from '../components/pages/Home';
 import Library from '../components/pages/Library';
 
-import { images, libraries as all_libraries, themeImageSub, newImagesSub, imageDownload } from '../utils';
+import { images, themeImageSub, newImagesSub, imageDownload } from '../utils';
 import { useRouter } from 'next/router';
+import { Header } from '../components/ui';
 
 const useStyle = styleMethod(theme => ({
   '@p': {
@@ -109,67 +105,6 @@ const useStyle = styleMethod(theme => ({
       paddingBottom: 0,
       zIndex: theme.z_index.tooltip + 2
     }
-  },
-
-  header: {
-    top: '8px',
-    left: '50%',
-    transform: 'translateX(-50%)',
-
-    '&.amaui-TopAppBar-root': {
-      width: `calc(100% - 48px)`,
-      maxWidth: theme.breakpoints.values.lg,
-      padding: 0,
-      background: 'transparent',
-      backdropFilter: 'blur(12px)',
-      borderRadius: theme.methods.shape.radius.value('xxl', 'px'),
-      transition: [
-        theme.methods.transitions.make(['transform', 'left'], { duration: 'rg' }),
-        theme.methods.transitions.make(['background', 'max-width', 'box-shadow'], { duration: 'complex' })
-      ].join(', '),
-      zIndex: theme.z_index.tooltip + 1
-    },
-
-    '& .amaui-TopAppBar-wrapper': {
-      height: 'unset',
-      padding: '12px 24px'
-    }
-  },
-
-  header_withNavigationDrawer: {
-    left: `calc(50% ${theme.direction === 'ltr' ? '+' : '-'} 137px)`,
-
-    '&.amaui-TopAppBar-root': {
-      width: `calc(100% - 354px)`,
-    }
-  },
-
-  header_not_top: {
-    '&.amaui-TopAppBar-root': {
-      maxWidth: theme.breakpoints.values.md,
-      boxShadow: theme.shadows.values.default['2']
-    }
-  },
-
-  header_down: {
-    transform: 'translate(-50%, calc(-100% - 16px))'
-  },
-
-  logo: {
-    height: '44px',
-    width: 'auto',
-    cursor: 'pointer',
-    userSelect: 'none',
-
-    '& path:nth-child(1)': {
-      fill: theme.palette.light ? 'hsl(60deg 100% 49%)' : 'hsl(60deg 100% 15%)'
-    }
-  },
-
-  icon: {
-    width: 'auto',
-    height: '24px',
-    fill: 'currentColor'
   },
 
   main: {
@@ -287,11 +222,6 @@ function Root(props: any) {
   const { classes } = useStyle(props);
 
   const smallerScreen = useMediaQuery('(max-width: 1100px)');
-  const mediumScreen = useMediaQuery('(max-width: 1540px)');
-  const mobile = useMediaQuery('(pointer: coarse)');
-
-  const scrollNotTop = useScroll({ offset: 1 });
-  const scrollDown = useScroll({ direction: 'down', offset: smallerScreen ? 40 : mediumScreen ? 100 : 200 });
 
   const light = useMediaQuery('(prefers-color-scheme: light)');
 
@@ -529,10 +459,6 @@ function Root(props: any) {
     }
   };
 
-  const libraries = React.useMemo(() => {
-    return all_libraries;
-  }, []);
-
   const propsURL = props.url !== undefined ? props.url : refs.previousURL.current;
 
   const isLibrary = propsURL?.indexOf('/dev/') === 0;
@@ -758,164 +684,9 @@ function Root(props: any) {
         ])}
       >
         {/* Header */}
-        <TopAppBar
-          start={[
-            ...((init && smallerScreen && isLibrary) ? [(
-              <IconButton
-                color='inherit'
-
-                onClick={() => setOpen(true)}
-
-                style={{
-                  marginInlineEnd: 16
-                }}
-              >
-                <IconMaterialMenuRounded />
-              </IconButton>
-            )] : []),
-
-            <LinkNext
-              href='/'
-            >
-              <span>
-                <Logo
-                  className={classNames([
-                    classes.logo
-                  ])}
-                />
-              </span>
-            </LinkNext>
-          ]}
-
-          end={[
-            <MenuDesktop
-              key={0}
-
-              WrapperMenuProps={{
-                elevation: 12,
-
-                style: {
-                  background: theme.methods.palette.color.colorToRgb(theme.palette.light ? theme.palette.background.default.secondary : theme.palette.background.default.tertiary, 94)
-                }
-              }}
-
-              items={[
-                {
-                  label: 'Libraries',
-
-                  value: 'libraries',
-
-                  menu: (
-                    <List
-                      tonal
-
-                      color='primary'
-
-                      size='regular'
-
-                      menu
-
-                      style={{
-                        maxHeight: 400,
-                        overflowY: 'auto',
-                        background: 'transparent'
-                      }}
-                    >
-                      {libraries.map((item: any, index: number) => {
-
-                        return (
-                          <ListItemNext
-                            key={index}
-
-                            href={item.url}
-
-                            menuCloseOnClick
-                          >
-                            <ListItem
-                              primary={item.name}
-
-                              selected={props.url?.indexOf(`${item.url}/`) === 0}
-
-                              color='inherit'
-
-                              {...(item.version !== undefined ? {
-                                ...(item.version === 'primary' ? {
-                                  start: (
-                                    <IconMaterialAutoAwesomeRounded
-                                      color={item.version}
-
-                                      size='small'
-                                    />
-                                  ),
-
-                                  startAlign: 'center'
-                                } : {
-                                  start: (
-                                    <IconMaterialAutoAwesomeRounded
-                                      color={item.version}
-
-                                      size='small'
-                                    />
-                                  ),
-
-                                  startAlign: 'center'
-                                })
-                              } : undefined)}
-
-                              button
-
-                              style={{
-                                minWidth: 247
-                              }}
-                            />
-                          </ListItemNext>
-                        );
-                      })}
-                    </List>
-                  )
-                }
-              ]}
-
-              AppendProps={{
-                alignment: !mobile ? 'end' : 'center'
-              }}
-            />,
-
-            <Tooltip
-              key={1}
-
-              label='amaui org'
-
-              color='inverted'
-            >
-              <IconButton
-                color='inherit'
-
-                Component='a'
-
-                href='https://github.com/amaui-org'
-
-                target='_blank'
-              >
-                <IconGithub
-                  className={classNames([
-                    classes.icon
-                  ])}
-                />
-              </IconButton>
-            </Tooltip>
-          ]}
-
-          position='fixed'
-
-          Component='header'
-
-          className={classNames([
-            classes.header,
-            init && withNavigationDrawer && classes.header_withNavigationDrawer,
-            scrollNotTop && classes.header_not_top,
-            scrollDown && classes.header_down
-          ])}
+        <Header
+          init={init}
+          setOpen={setOpen}
         />
 
         {/* Main */}
