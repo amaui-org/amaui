@@ -687,6 +687,8 @@ function Root(props: any) {
         <Header
           init={init}
           setOpen={setOpen}
+
+          {...props}
         />
 
         {/* Main */}
