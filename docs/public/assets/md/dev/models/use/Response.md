@@ -55,14 +55,56 @@ Response.fromObject({ _id, data, meta });
 // }
 ```
 
-#### fromCreated
+#### fromAdded
 
-Use this method if you wanna return a single result in a response, after creating an object.
+Use this method if you wanna return a single result in a response, after adding an object.
 
-You can customize which keys are sent in a response using `Response.allowed.created`.
+You can customize which keys are sent in a response using `Response.allowed.added`.
 
 ```ts
-Response.fromCreated({ _id, data, meta });
+Response.fromAdded({ _id, data, meta });
+
+// {
+//   response: {
+//     _id,
+//     data,
+//     meta
+//   },
+//   meta: {
+//     status: 201
+//   }
+// }
+```
+
+#### fromUpdated
+
+Use this method if you wanna return a single result in a response, after updating an object.
+
+You can customize which keys are sent in a response using `Response.allowed.updated`.
+
+```ts
+Response.fromUpdated({ _id, data, meta });
+
+// {
+//   response: {
+//     _id,
+//     data,
+//     meta
+//   },
+//   meta: {
+//     status: 200
+//   }
+// }
+```
+
+#### fromRemoved
+
+Use this method if you wanna return a single result in a response, after removing an object.
+
+You can customize which keys are sent in a response using `Response.allowed.removed`.
+
+```ts
+Response.fromRemoved({ _id, data, meta });
 
 // {
 //   response: {
