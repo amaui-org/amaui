@@ -1,2027 +1,2027 @@
 [
   {
-    "url": "/dev/ui-react",
+    "url": "/library/ui-react",
     "label": "UI React",
     "github": "/amaui/tree/main/packages/amaui-ui-react",
-    "default": "/dev/ui-react/start",
+    "default": "/library/ui-react/start",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/ui-react/start"
+        "url": "/library/ui-react/start"
       },
       {
         "label": "Use",
-        "url": "/dev/ui-react/use",
+        "url": "/library/ui-react/use",
         "menu": [
           {
             "label": "Accordion",
-            "url": "/dev/ui-react/use/Accordion"
+            "url": "/library/ui-react/use/Accordion"
           },
           {
             "label": "AdvancedTextField",
-            "url": "/dev/ui-react/use/AdvancedTextField"
+            "url": "/library/ui-react/use/AdvancedTextField"
           },
           {
             "label": "Append",
-            "url": "/dev/ui-react/use/Append"
+            "url": "/library/ui-react/use/Append"
           },
           {
             "label": "AreaChart",
-            "url": "/dev/ui-react/use/AreaChart"
+            "url": "/library/ui-react/use/AreaChart"
           },
           {
             "label": "AreaChartItem",
-            "url": "/dev/ui-react/use/AreaChartItem"
+            "url": "/library/ui-react/use/AreaChartItem"
           },
           {
             "label": "AutoComplete",
-            "url": "/dev/ui-react/use/AutoComplete"
+            "url": "/library/ui-react/use/AutoComplete"
           },
           {
             "label": "Avatar",
-            "url": "/dev/ui-react/use/Avatar"
+            "url": "/library/ui-react/use/Avatar"
           },
           {
             "label": "AvatarGroup",
-            "url": "/dev/ui-react/use/AvatarGroup"
+            "url": "/library/ui-react/use/AvatarGroup"
           },
           {
             "label": "Backdrop",
-            "url": "/dev/ui-react/use/Backdrop"
+            "url": "/library/ui-react/use/Backdrop"
           },
           {
             "label": "Badge",
-            "url": "/dev/ui-react/use/Badge"
+            "url": "/library/ui-react/use/Badge"
           },
           {
             "label": "Banner",
-            "url": "/dev/ui-react/use/Banner"
+            "url": "/library/ui-react/use/Banner"
           },
           {
             "label": "BottomAppBar",
-            "url": "/dev/ui-react/use/BottomAppBar"
+            "url": "/library/ui-react/use/BottomAppBar"
           },
           {
             "label": "BottomSheet",
-            "url": "/dev/ui-react/use/BottomSheet"
+            "url": "/library/ui-react/use/BottomSheet"
           },
           {
             "label": "Box",
-            "url": "/dev/ui-react/use/Box"
+            "url": "/library/ui-react/use/Box"
           },
           {
             "label": "Breadcrumbs",
-            "url": "/dev/ui-react/use/Breadcrumbs"
+            "url": "/library/ui-react/use/Breadcrumbs"
           },
           {
             "label": "BubbleChart",
-            "url": "/dev/ui-react/use/BubbleChart"
+            "url": "/library/ui-react/use/BubbleChart"
           },
           {
             "label": "BubbleChartItem",
-            "url": "/dev/ui-react/use/BubbleChartItem"
+            "url": "/library/ui-react/use/BubbleChartItem"
           },
           {
             "label": "Button",
-            "url": "/dev/ui-react/use/Button"
+            "url": "/library/ui-react/use/Button"
           },
           {
             "label": "Buttons",
-            "url": "/dev/ui-react/use/Buttons"
+            "url": "/library/ui-react/use/Buttons"
           },
           {
             "label": "Calendar",
-            "url": "/dev/ui-react/use/Calendar"
+            "url": "/library/ui-react/use/Calendar"
           },
           {
             "label": "CalendarMonth",
-            "url": "/dev/ui-react/use/CalendarMonth"
+            "url": "/library/ui-react/use/CalendarMonth"
           },
           {
             "label": "Card",
-            "url": "/dev/ui-react/use/Card"
+            "url": "/library/ui-react/use/Card"
           },
           {
             "label": "CardButton",
-            "url": "/dev/ui-react/use/CardButton"
+            "url": "/library/ui-react/use/CardButton"
           },
           {
             "label": "CardFooter",
-            "url": "/dev/ui-react/use/CardFooter"
+            "url": "/library/ui-react/use/CardFooter"
           },
           {
             "label": "CardHeader",
-            "url": "/dev/ui-react/use/CardHeader"
+            "url": "/library/ui-react/use/CardHeader"
           },
           {
             "label": "CardImage",
-            "url": "/dev/ui-react/use/CardImage"
+            "url": "/library/ui-react/use/CardImage"
           },
           {
             "label": "CardMain",
-            "url": "/dev/ui-react/use/CardMain"
+            "url": "/library/ui-react/use/CardMain"
           },
           {
             "label": "Carousel",
-            "url": "/dev/ui-react/use/Carousel"
+            "url": "/library/ui-react/use/Carousel"
           },
           {
             "label": "Chart",
-            "url": "/dev/ui-react/use/Chart"
+            "url": "/library/ui-react/use/Chart"
           },
           {
             "label": "Checkbox",
-            "url": "/dev/ui-react/use/Checkbox"
+            "url": "/library/ui-react/use/Checkbox"
           },
           {
             "label": "Chip",
-            "url": "/dev/ui-react/use/Chip"
+            "url": "/library/ui-react/use/Chip"
           },
           {
             "label": "Chips",
-            "url": "/dev/ui-react/use/Chips"
+            "url": "/library/ui-react/use/Chips"
           },
           {
             "label": "ClickListener",
-            "url": "/dev/ui-react/use/ClickListener"
+            "url": "/library/ui-react/use/ClickListener"
           },
           {
             "label": "Clock",
-            "url": "/dev/ui-react/use/Clock"
+            "url": "/library/ui-react/use/Clock"
           },
           {
             "label": "ColorTextField",
-            "url": "/dev/ui-react/use/ColorTextField"
+            "url": "/library/ui-react/use/ColorTextField"
           },
           {
             "label": "ColumnChart",
-            "url": "/dev/ui-react/use/ColumnChart"
+            "url": "/library/ui-react/use/ColumnChart"
           },
           {
             "label": "ColumnChartItem",
-            "url": "/dev/ui-react/use/ColumnChartItem"
+            "url": "/library/ui-react/use/ColumnChartItem"
           },
           {
             "label": "ConfirmContext",
-            "url": "/dev/ui-react/use/ConfirmContext"
+            "url": "/library/ui-react/use/ConfirmContext"
           },
           {
             "label": "ConfirmProvider",
-            "url": "/dev/ui-react/use/ConfirmProvider"
+            "url": "/library/ui-react/use/ConfirmProvider"
           },
           {
             "label": "useConfirm",
-            "url": "/dev/ui-react/use/useConfirm"
+            "url": "/library/ui-react/use/useConfirm"
           },
           {
             "label": "Container",
-            "url": "/dev/ui-react/use/Container"
+            "url": "/library/ui-react/use/Container"
           },
           {
             "label": "Countdown",
-            "url": "/dev/ui-react/use/Countdown"
+            "url": "/library/ui-react/use/Countdown"
           },
           {
             "label": "DatePicker",
-            "url": "/dev/ui-react/use/DatePicker"
+            "url": "/library/ui-react/use/DatePicker"
           },
           {
             "label": "DateRangePicker",
-            "url": "/dev/ui-react/use/DateRangePicker"
+            "url": "/library/ui-react/use/DateRangePicker"
           },
           {
             "label": "DateTimePicker",
-            "url": "/dev/ui-react/use/DateTimePicker"
+            "url": "/library/ui-react/use/DateTimePicker"
           },
           {
             "label": "DateTimeRangePicker",
-            "url": "/dev/ui-react/use/DateTimeRangePicker"
+            "url": "/library/ui-react/use/DateTimeRangePicker"
           },
           {
             "label": "Divider",
-            "url": "/dev/ui-react/use/Divider"
+            "url": "/library/ui-react/use/Divider"
           },
           {
             "label": "DonutChart",
-            "url": "/dev/ui-react/use/DonutChart"
+            "url": "/library/ui-react/use/DonutChart"
           },
           {
             "label": "Drawing",
-            "url": "/dev/ui-react/use/Drawing"
+            "url": "/library/ui-react/use/Drawing"
           },
           {
             "label": "DropZone",
-            "url": "/dev/ui-react/use/DropZone"
+            "url": "/library/ui-react/use/DropZone"
           },
           {
             "label": "Expand",
-            "url": "/dev/ui-react/use/Expand"
+            "url": "/library/ui-react/use/Expand"
           },
           {
             "label": "Fab",
-            "url": "/dev/ui-react/use/Fab"
+            "url": "/library/ui-react/use/Fab"
           },
           {
             "label": "Fade",
-            "url": "/dev/ui-react/use/Fade"
+            "url": "/library/ui-react/use/Fade"
           },
           {
             "label": "FileChoose",
-            "url": "/dev/ui-react/use/FileChoose"
+            "url": "/library/ui-react/use/FileChoose"
           },
           {
             "label": "Focus",
-            "url": "/dev/ui-react/use/Focus"
+            "url": "/library/ui-react/use/Focus"
           },
           {
             "label": "Grid",
-            "url": "/dev/ui-react/use/Grid"
+            "url": "/library/ui-react/use/Grid"
           },
           {
             "label": "Grow",
-            "url": "/dev/ui-react/use/Grow"
+            "url": "/library/ui-react/use/Grow"
           },
           {
             "label": "Icon",
-            "url": "/dev/ui-react/use/Icon"
+            "url": "/library/ui-react/use/Icon"
           },
           {
             "label": "IconButton",
-            "url": "/dev/ui-react/use/IconButton"
+            "url": "/library/ui-react/use/IconButton"
           },
           {
             "label": "Image",
-            "url": "/dev/ui-react/use/Image"
+            "url": "/library/ui-react/use/Image"
           },
           {
             "label": "ImageCrop",
-            "url": "/dev/ui-react/use/ImageCrop"
+            "url": "/library/ui-react/use/ImageCrop"
           },
           {
             "label": "ImageEdit",
-            "url": "/dev/ui-react/use/ImageEdit"
+            "url": "/library/ui-react/use/ImageEdit"
           },
           {
             "label": "ImageList",
-            "url": "/dev/ui-react/use/ImageList"
+            "url": "/library/ui-react/use/ImageList"
           },
           {
             "label": "ImageListItem",
-            "url": "/dev/ui-react/use/ImageListItem"
+            "url": "/library/ui-react/use/ImageListItem"
           },
           {
             "label": "ImageListItemBox",
-            "url": "/dev/ui-react/use/ImageListItemBox"
+            "url": "/library/ui-react/use/ImageListItemBox"
           },
           {
             "label": "Interaction",
-            "url": "/dev/ui-react/use/Interaction"
+            "url": "/library/ui-react/use/Interaction"
           },
           {
             "label": "Keyframes",
-            "url": "/dev/ui-react/use/Keyframes"
+            "url": "/library/ui-react/use/Keyframes"
           },
           {
             "label": "KeyframesContext",
-            "url": "/dev/ui-react/use/KeyframesContext"
+            "url": "/library/ui-react/use/KeyframesContext"
           },
           {
             "label": "useKeyframes",
-            "url": "/dev/ui-react/use/useKeyframes"
+            "url": "/library/ui-react/use/useKeyframes"
           },
           {
             "label": "Label",
-            "url": "/dev/ui-react/use/Label"
+            "url": "/library/ui-react/use/Label"
           },
           {
             "label": "Line",
-            "url": "/dev/ui-react/use/Line"
+            "url": "/library/ui-react/use/Line"
           },
           {
             "label": "LineChart",
-            "url": "/dev/ui-react/use/LineChart"
+            "url": "/library/ui-react/use/LineChart"
           },
           {
             "label": "LineChartItem",
-            "url": "/dev/ui-react/use/LineChartItem"
+            "url": "/library/ui-react/use/LineChartItem"
           },
           {
             "label": "LinearMeter",
-            "url": "/dev/ui-react/use/LinearMeter"
+            "url": "/library/ui-react/use/LinearMeter"
           },
           {
             "label": "LinearProgress",
-            "url": "/dev/ui-react/use/LinearProgress"
+            "url": "/library/ui-react/use/LinearProgress"
           },
           {
             "label": "Link",
-            "url": "/dev/ui-react/use/Link"
+            "url": "/library/ui-react/use/Link"
           },
           {
             "label": "List",
-            "url": "/dev/ui-react/use/List"
+            "url": "/library/ui-react/use/List"
           },
           {
             "label": "ListItem",
-            "url": "/dev/ui-react/use/ListItem"
+            "url": "/library/ui-react/use/ListItem"
           },
           {
             "label": "ListSubheader",
-            "url": "/dev/ui-react/use/ListSubheader"
+            "url": "/library/ui-react/use/ListSubheader"
           },
           {
             "label": "MainProgressContext",
-            "url": "/dev/ui-react/use/MainProgressContext"
+            "url": "/library/ui-react/use/MainProgressContext"
           },
           {
             "label": "MainProgressProvider",
-            "url": "/dev/ui-react/use/MainProgressProvider"
+            "url": "/library/ui-react/use/MainProgressProvider"
           },
           {
             "label": "useMainProgress",
-            "url": "/dev/ui-react/use/useMainProgress"
+            "url": "/library/ui-react/use/useMainProgress"
           },
           {
             "label": "Markdown",
-            "url": "/dev/ui-react/use/Markdown"
+            "url": "/library/ui-react/use/Markdown"
           },
           {
             "label": "Masonry",
-            "url": "/dev/ui-react/use/Masonry"
+            "url": "/library/ui-react/use/Masonry"
           },
           {
             "label": "Menu",
-            "url": "/dev/ui-react/use/Menu"
+            "url": "/library/ui-react/use/Menu"
           },
           {
             "label": "MenuDesktop",
-            "url": "/dev/ui-react/use/MenuDesktop"
+            "url": "/library/ui-react/use/MenuDesktop"
           },
           {
             "label": "Modal",
-            "url": "/dev/ui-react/use/Modal"
+            "url": "/library/ui-react/use/Modal"
           },
           {
             "label": "ModalFooter",
-            "url": "/dev/ui-react/use/ModalFooter"
+            "url": "/library/ui-react/use/ModalFooter"
           },
           {
             "label": "ModalHeader",
-            "url": "/dev/ui-react/use/ModalHeader"
+            "url": "/library/ui-react/use/ModalHeader"
           },
           {
             "label": "ModalIcon",
-            "url": "/dev/ui-react/use/ModalIcon"
+            "url": "/library/ui-react/use/ModalIcon"
           },
           {
             "label": "ModalMain",
-            "url": "/dev/ui-react/use/ModalMain"
+            "url": "/library/ui-react/use/ModalMain"
           },
           {
             "label": "ModalText",
-            "url": "/dev/ui-react/use/ModalText"
+            "url": "/library/ui-react/use/ModalText"
           },
           {
             "label": "ModalTitle",
-            "url": "/dev/ui-react/use/ModalTitle"
+            "url": "/library/ui-react/use/ModalTitle"
           },
           {
             "label": "Move",
-            "url": "/dev/ui-react/use/Move"
+            "url": "/library/ui-react/use/Move"
           },
           {
             "label": "NavigationBar",
-            "url": "/dev/ui-react/use/NavigationBar"
+            "url": "/library/ui-react/use/NavigationBar"
           },
           {
             "label": "NavigationDrawer",
-            "url": "/dev/ui-react/use/NavigationDrawer"
+            "url": "/library/ui-react/use/NavigationDrawer"
           },
           {
             "label": "NavigationItem",
-            "url": "/dev/ui-react/use/NavigationItem"
+            "url": "/library/ui-react/use/NavigationItem"
           },
           {
             "label": "NavigationRail",
-            "url": "/dev/ui-react/use/NavigationRail"
+            "url": "/library/ui-react/use/NavigationRail"
           },
           {
             "label": "NumericTextField",
-            "url": "/dev/ui-react/use/NumericTextField"
+            "url": "/library/ui-react/use/NumericTextField"
           },
           {
             "label": "Pagination",
-            "url": "/dev/ui-react/use/Pagination"
+            "url": "/library/ui-react/use/Pagination"
           },
           {
             "label": "PaginationItem",
-            "url": "/dev/ui-react/use/PaginationItem"
+            "url": "/library/ui-react/use/PaginationItem"
           },
           {
             "label": "Parallax",
-            "url": "/dev/ui-react/use/Parallax"
+            "url": "/library/ui-react/use/Parallax"
           },
           {
             "label": "Path",
-            "url": "/dev/ui-react/use/Path"
+            "url": "/library/ui-react/use/Path"
           },
           {
             "label": "PieChart",
-            "url": "/dev/ui-react/use/PieChart"
+            "url": "/library/ui-react/use/PieChart"
           },
           {
             "label": "Placeholder",
-            "url": "/dev/ui-react/use/Placeholder"
+            "url": "/library/ui-react/use/Placeholder"
           },
           {
             "label": "Portal",
-            "url": "/dev/ui-react/use/Portal"
+            "url": "/library/ui-react/use/Portal"
           },
           {
             "label": "Radio",
-            "url": "/dev/ui-react/use/Radio"
+            "url": "/library/ui-react/use/Radio"
           },
           {
             "label": "Radios",
-            "url": "/dev/ui-react/use/Radios"
+            "url": "/library/ui-react/use/Radios"
           },
           {
             "label": "Rating",
-            "url": "/dev/ui-react/use/Rating"
+            "url": "/library/ui-react/use/Rating"
           },
           {
             "label": "Reset",
-            "url": "/dev/ui-react/use/Reset"
+            "url": "/library/ui-react/use/Reset"
           },
           {
             "label": "Reveal",
-            "url": "/dev/ui-react/use/Reveal"
+            "url": "/library/ui-react/use/Reveal"
           },
           {
             "label": "RichTextEditor",
-            "url": "/dev/ui-react/use/RichTextEditor"
+            "url": "/library/ui-react/use/RichTextEditor"
           },
           {
             "label": "RoundMeter",
-            "url": "/dev/ui-react/use/RoundMeter"
+            "url": "/library/ui-react/use/RoundMeter"
           },
           {
             "label": "RoundProgress",
-            "url": "/dev/ui-react/use/RoundProgress"
+            "url": "/library/ui-react/use/RoundProgress"
           },
           {
             "label": "ScatterChart",
-            "url": "/dev/ui-react/use/ScatterChart"
+            "url": "/library/ui-react/use/ScatterChart"
           },
           {
             "label": "ScatterChartItem",
-            "url": "/dev/ui-react/use/ScatterChartItem"
+            "url": "/library/ui-react/use/ScatterChartItem"
           },
           {
             "label": "ScreenCapture",
-            "url": "/dev/ui-react/use/ScreenCapture"
+            "url": "/library/ui-react/use/ScreenCapture"
           },
           {
             "label": "Select",
-            "url": "/dev/ui-react/use/Select"
+            "url": "/library/ui-react/use/Select"
           },
           {
             "label": "Slide",
-            "url": "/dev/ui-react/use/Slide"
+            "url": "/library/ui-react/use/Slide"
           },
           {
             "label": "Slider",
-            "url": "/dev/ui-react/use/Slider"
+            "url": "/library/ui-react/use/Slider"
           },
           {
             "label": "Snackbar",
-            "url": "/dev/ui-react/use/Snackbar"
+            "url": "/library/ui-react/use/Snackbar"
           },
           {
             "label": "SnackbarsContext",
-            "url": "/dev/ui-react/use/SnackbarsContext"
+            "url": "/library/ui-react/use/SnackbarsContext"
           },
           {
             "label": "SnackbarsProvider",
-            "url": "/dev/ui-react/use/SnackbarsProvider"
+            "url": "/library/ui-react/use/SnackbarsProvider"
           },
           {
             "label": "useSnackbars",
-            "url": "/dev/ui-react/use/useSnackbars"
+            "url": "/library/ui-react/use/useSnackbars"
           },
           {
             "label": "SpeedDial",
-            "url": "/dev/ui-react/use/SpeedDial"
+            "url": "/library/ui-react/use/SpeedDial"
           },
           {
             "label": "SpeedDialItem",
-            "url": "/dev/ui-react/use/SpeedDialItem"
+            "url": "/library/ui-react/use/SpeedDialItem"
           },
           {
             "label": "SpyScroll",
-            "url": "/dev/ui-react/use/SpyScroll"
+            "url": "/library/ui-react/use/SpyScroll"
           },
           {
             "label": "Step",
-            "url": "/dev/ui-react/use/Step"
+            "url": "/library/ui-react/use/Step"
           },
           {
             "label": "Stepper",
-            "url": "/dev/ui-react/use/Stepper"
+            "url": "/library/ui-react/use/Stepper"
           },
           {
             "label": "Surface",
-            "url": "/dev/ui-react/use/Surface"
+            "url": "/library/ui-react/use/Surface"
           },
           {
             "label": "Switch",
-            "url": "/dev/ui-react/use/Switch"
+            "url": "/library/ui-react/use/Switch"
           },
           {
             "label": "Tab",
-            "url": "/dev/ui-react/use/Tab"
+            "url": "/library/ui-react/use/Tab"
           },
           {
             "label": "Table",
-            "url": "/dev/ui-react/use/Table"
+            "url": "/library/ui-react/use/Table"
           },
           {
             "label": "TableBody",
-            "url": "/dev/ui-react/use/TableBody"
+            "url": "/library/ui-react/use/TableBody"
           },
           {
             "label": "TableCell",
-            "url": "/dev/ui-react/use/TableCell"
+            "url": "/library/ui-react/use/TableCell"
           },
           {
             "label": "TableFooter",
-            "url": "/dev/ui-react/use/TableFooter"
+            "url": "/library/ui-react/use/TableFooter"
           },
           {
             "label": "TableHead",
-            "url": "/dev/ui-react/use/TableHead"
+            "url": "/library/ui-react/use/TableHead"
           },
           {
             "label": "TableHeader",
-            "url": "/dev/ui-react/use/TableHeader"
+            "url": "/library/ui-react/use/TableHeader"
           },
           {
             "label": "TablePagination",
-            "url": "/dev/ui-react/use/TablePagination"
+            "url": "/library/ui-react/use/TablePagination"
           },
           {
             "label": "TableRow",
-            "url": "/dev/ui-react/use/TableRow"
+            "url": "/library/ui-react/use/TableRow"
           },
           {
             "label": "Tabs",
-            "url": "/dev/ui-react/use/Tabs"
+            "url": "/library/ui-react/use/Tabs"
           },
           {
             "label": "TextField",
-            "url": "/dev/ui-react/use/TextField"
+            "url": "/library/ui-react/use/TextField"
           },
           {
             "label": "TimePicker",
-            "url": "/dev/ui-react/use/TimePicker"
+            "url": "/library/ui-react/use/TimePicker"
           },
           {
             "label": "TimeRangePicker",
-            "url": "/dev/ui-react/use/TimeRangePicker"
+            "url": "/library/ui-react/use/TimeRangePicker"
           },
           {
             "label": "Timeline",
-            "url": "/dev/ui-react/use/Timeline"
+            "url": "/library/ui-react/use/Timeline"
           },
           {
             "label": "TimelineItem",
-            "url": "/dev/ui-react/use/TimelineItem"
+            "url": "/library/ui-react/use/TimelineItem"
           },
           {
             "label": "Timer",
-            "url": "/dev/ui-react/use/Timer"
+            "url": "/library/ui-react/use/Timer"
           },
           {
             "label": "ToggleButton",
-            "url": "/dev/ui-react/use/ToggleButton"
+            "url": "/library/ui-react/use/ToggleButton"
           },
           {
             "label": "ToggleButtons",
-            "url": "/dev/ui-react/use/ToggleButtons"
+            "url": "/library/ui-react/use/ToggleButtons"
           },
           {
             "label": "Tooltip",
-            "url": "/dev/ui-react/use/Tooltip"
+            "url": "/library/ui-react/use/Tooltip"
           },
           {
             "label": "TopAppBar",
-            "url": "/dev/ui-react/use/TopAppBar"
+            "url": "/library/ui-react/use/TopAppBar"
           },
           {
             "label": "Transition",
-            "url": "/dev/ui-react/use/Transition"
+            "url": "/library/ui-react/use/Transition"
           },
           {
             "label": "TransitionContext",
-            "url": "/dev/ui-react/use/TransitionContext"
+            "url": "/library/ui-react/use/TransitionContext"
           },
           {
             "label": "useTransition",
-            "url": "/dev/ui-react/use/useTransition"
+            "url": "/library/ui-react/use/useTransition"
           },
           {
             "label": "Transitions",
-            "url": "/dev/ui-react/use/Transitions"
+            "url": "/library/ui-react/use/Transitions"
           },
           {
             "label": "Tree",
-            "url": "/dev/ui-react/use/Tree"
+            "url": "/library/ui-react/use/Tree"
           },
           {
             "label": "Type",
-            "url": "/dev/ui-react/use/Type"
+            "url": "/library/ui-react/use/Type"
           },
           {
             "label": "ViewSplit",
-            "url": "/dev/ui-react/use/ViewSplit"
+            "url": "/library/ui-react/use/ViewSplit"
           },
           {
             "label": "Watch",
-            "url": "/dev/ui-react/use/Watch"
+            "url": "/library/ui-react/use/Watch"
           },
           {
             "label": "Weather",
-            "url": "/dev/ui-react/use/Weather"
+            "url": "/library/ui-react/use/Weather"
           },
           {
             "label": "WidgetsContext",
-            "url": "/dev/ui-react/use/WidgetsContext"
+            "url": "/library/ui-react/use/WidgetsContext"
           },
           {
             "label": "WidgetsProvider",
-            "url": "/dev/ui-react/use/WidgetsProvider"
+            "url": "/library/ui-react/use/WidgetsProvider"
           },
           {
             "label": "useWidgets",
-            "url": "/dev/ui-react/use/useWidgets"
+            "url": "/library/ui-react/use/useWidgets"
           },
           {
             "label": "WindowSplit",
-            "url": "/dev/ui-react/use/WindowSplit"
+            "url": "/library/ui-react/use/WindowSplit"
           },
           {
             "label": "Zoom",
-            "url": "/dev/ui-react/use/Zoom"
+            "url": "/library/ui-react/use/Zoom"
           },
           {
             "label": "useMediaQuery",
-            "url": "/dev/ui-react/use/useMediaQuery"
+            "url": "/library/ui-react/use/useMediaQuery"
           },
           {
             "label": "useScroll",
-            "url": "/dev/ui-react/use/useScroll"
+            "url": "/library/ui-react/use/useScroll"
           },
           {
             "label": "useSwipe",
-            "url": "/dev/ui-react/use/useSwipe"
+            "url": "/library/ui-react/use/useSwipe"
           },
           {
             "label": "utils",
-            "url": "/dev/ui-react/use/utils"
+            "url": "/library/ui-react/use/utils"
           }
         ]
       }
     ]
   },
   {
-    "url": "/dev/style-react",
+    "url": "/library/style-react",
     "label": "Style React",
     "github": "/amaui/tree/main/packages/amaui-style-react",
-    "default": "/dev/style-react/start",
+    "default": "/library/style-react/start",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/style-react/start"
+        "url": "/library/style-react/start"
       },
       {
         "label": "Use",
-        "url": "/dev/style-react/use",
+        "url": "/library/style-react/use",
         "menu": [
           {
             "label": "StyleProvider",
-            "url": "/dev/style-react/use/StyleProvider"
+            "url": "/library/style-react/use/StyleProvider"
           },
           {
             "label": "ThemeProvider",
-            "url": "/dev/style-react/use/ThemeProvider"
+            "url": "/library/style-react/use/ThemeProvider"
           },
           {
             "label": "className",
-            "url": "/dev/style-react/use/className"
+            "url": "/library/style-react/use/className"
           },
           {
             "label": "inline",
-            "url": "/dev/style-react/use/inline"
+            "url": "/library/style-react/use/inline"
           },
           {
             "label": "pure",
-            "url": "/dev/style-react/use/pure"
+            "url": "/library/style-react/use/pure"
           },
           {
             "label": "reset",
-            "url": "/dev/style-react/use/reset"
+            "url": "/library/style-react/use/reset"
           },
           {
             "label": "string",
-            "url": "/dev/style-react/use/string"
+            "url": "/library/style-react/use/string"
           },
           {
             "label": "style",
-            "url": "/dev/style-react/use/style"
+            "url": "/library/style-react/use/style"
           },
           {
             "label": "styled",
-            "url": "/dev/style-react/use/styled"
+            "url": "/library/style-react/use/styled"
           },
           {
             "label": "withStyle",
-            "url": "/dev/style-react/use/withStyle"
+            "url": "/library/style-react/use/withStyle"
           }
         ]
       }
     ]
   },
   {
-    "url": "/dev/icons-material-react",
+    "url": "/library/icons-material-react",
     "label": "Icons Material React",
     "github": "/amaui/tree/main/packages/amaui-icons-material-react",
-    "default": "/dev/icons-material-react/start",
+    "default": "/library/icons-material-react/start",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/icons-material-react/start"
+        "url": "/library/icons-material-react/start"
       },
       {
         "label": "Use",
-        "url": "/dev/icons-material-react/use"
+        "url": "/library/icons-material-react/use"
       }
     ]
   },
   {
-    "url": "/dev/algorithms",
+    "url": "/library/algorithms",
     "label": "Algorithms",
     "github": "/amaui-algorithms",
-    "default": "/dev/algorithms/start",
+    "default": "/library/algorithms/start",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/algorithms/start"
+        "url": "/library/algorithms/start"
       },
       {
         "label": "Use",
-        "url": "/dev/algorithms/use",
+        "url": "/library/algorithms/use",
         "menu": [
           {
             "label": "binarySearchRecursive",
-            "url": "/dev/algorithms/use/binarySearchRecursive"
+            "url": "/library/algorithms/use/binarySearchRecursive"
           },
           {
             "label": "binarySearch",
-            "url": "/dev/algorithms/use/binarySearch"
+            "url": "/library/algorithms/use/binarySearch"
           },
           {
             "label": "bubbleSort",
-            "url": "/dev/algorithms/use/bubbleSort"
+            "url": "/library/algorithms/use/bubbleSort"
           },
           {
             "label": "factorialRecursive",
-            "url": "/dev/algorithms/use/factorialRecursive"
+            "url": "/library/algorithms/use/factorialRecursive"
           },
           {
             "label": "factorial",
-            "url": "/dev/algorithms/use/factorial"
+            "url": "/library/algorithms/use/factorial"
           },
           {
             "label": "fibonacciRecursive",
-            "url": "/dev/algorithms/use/fibonacciRecursive"
+            "url": "/library/algorithms/use/fibonacciRecursive"
           },
           {
             "label": "fibonacci",
-            "url": "/dev/algorithms/use/fibonacci"
+            "url": "/library/algorithms/use/fibonacci"
           },
           {
             "label": "insertionSort",
-            "url": "/dev/algorithms/use/insertionSort"
+            "url": "/library/algorithms/use/insertionSort"
           },
           {
             "label": "kmp",
-            "url": "/dev/algorithms/use/kmp"
+            "url": "/library/algorithms/use/kmp"
           },
           {
             "label": "longestPrefixSuffix",
-            "url": "/dev/algorithms/use/longestPrefixSuffix"
+            "url": "/library/algorithms/use/longestPrefixSuffix"
           },
           {
             "label": "mergeSort",
-            "url": "/dev/algorithms/use/mergeSort"
+            "url": "/library/algorithms/use/mergeSort"
           },
           {
             "label": "naiveSearch",
-            "url": "/dev/algorithms/use/naiveSearch"
+            "url": "/library/algorithms/use/naiveSearch"
           },
           {
             "label": "quickSort",
-            "url": "/dev/algorithms/use/quickSort"
+            "url": "/library/algorithms/use/quickSort"
           },
           {
             "label": "radixSort",
-            "url": "/dev/algorithms/use/radixSort"
+            "url": "/library/algorithms/use/radixSort"
           },
           {
             "label": "selectionSort",
-            "url": "/dev/algorithms/use/selectionSort"
+            "url": "/library/algorithms/use/selectionSort"
           }
         ]
       }
     ]
   },
   {
-    "url": "/dev/amqp",
+    "url": "/library/amqp",
     "label": "AMQP",
     "github": "/amaui-amqp",
-    "default": "/dev/amqp/start",
+    "default": "/library/amqp/start",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/amqp/start"
+        "url": "/library/amqp/start"
       },
       {
         "label": "Use",
-        "url": "/dev/amqp/use"
+        "url": "/library/amqp/use"
       }
     ]
   },
   {
-    "url": "/dev/api",
+    "url": "/library/api",
     "label": "API",
-    "default": "/dev/api/start",
+    "default": "/library/api/start",
     "github": "/amaui-api",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/api/start"
+        "url": "/library/api/start"
       },
       {
         "label": "Use",
-        "url": "/dev/api/use"
+        "url": "/library/api/use"
       }
     ]
   },
   {
-    "url": "/dev/aws",
+    "url": "/library/aws",
     "label": "AWS",
-    "default": "/dev/aws/start",
+    "default": "/library/aws/start",
     "github": "/amaui-aws",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/aws/start"
+        "url": "/library/aws/start"
       },
       {
         "label": "Use",
-        "url": "/dev/aws/use"
+        "url": "/library/aws/use"
       }
     ]
   },
   {
-    "url": "/dev/binary-tree",
+    "url": "/library/binary-tree",
     "label": "Binary Tree",
-    "default": "/dev/binary-tree/start",
+    "default": "/library/binary-tree/start",
     "github": "/amaui-binary-tree",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/binary-tree/start"
+        "url": "/library/binary-tree/start"
       },
       {
         "label": "Use",
-        "url": "/dev/binary-tree/use"
+        "url": "/library/binary-tree/use"
       }
     ]
   },
   {
-    "url": "/dev/cache",
+    "url": "/library/cache",
     "label": "Cache",
-    "default": "/dev/cache/start",
+    "default": "/library/cache/start",
     "github": "/amaui-cache",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/cache/start"
+        "url": "/library/cache/start"
       },
       {
         "label": "Use",
-        "url": "/dev/cache/use"
+        "url": "/library/cache/use"
       }
     ]
   },
   {
-    "url": "/dev/cookie",
+    "url": "/library/cookie",
     "label": "Cookie",
-    "default": "/dev/cookie/start",
+    "default": "/library/cookie/start",
     "github": "/amaui-cookie",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/cookie/start"
+        "url": "/library/cookie/start"
       },
       {
         "label": "Use",
-        "url": "/dev/cookie/use"
+        "url": "/library/cookie/use"
       }
     ]
   },
   {
-    "url": "/dev/date",
+    "url": "/library/date",
     "label": "Date",
-    "default": "/dev/date/start",
+    "default": "/library/date/start",
     "github": "/amaui-date",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/date/start"
+        "url": "/library/date/start"
       },
       {
         "label": "Use",
-        "url": "/dev/date/use",
+        "url": "/library/date/use",
         "menu": [
           {
             "label": "add",
-            "url": "/dev/date/use/add"
+            "url": "/library/date/use/add"
           },
           {
             "label": "ago",
-            "url": "/dev/date/use/ago"
+            "url": "/library/date/use/ago"
           },
           {
             "label": "AmauiDate",
-            "url": "/dev/date/use/AmauiDate"
+            "url": "/library/date/use/AmauiDate"
           },
           {
             "label": "diff",
-            "url": "/dev/date/use/diff"
+            "url": "/library/date/use/diff"
           },
           {
             "label": "duration",
-            "url": "/dev/date/use/duration"
+            "url": "/library/date/use/duration"
           },
           {
             "label": "endOf",
-            "url": "/dev/date/use/endOf"
+            "url": "/library/date/use/endOf"
           },
           {
             "label": "format",
-            "url": "/dev/date/use/format"
+            "url": "/library/date/use/format"
           },
           {
             "label": "formats",
-            "url": "/dev/date/use/formats"
+            "url": "/library/date/use/formats"
           },
           {
             "label": "getTimezoneOffset",
-            "url": "/dev/date/use/getTimezoneOffset"
+            "url": "/library/date/use/getTimezoneOffset"
           },
           {
             "label": "in",
-            "url": "/dev/date/use/in"
+            "url": "/library/date/use/in"
           },
           {
             "label": "is",
-            "url": "/dev/date/use/is"
+            "url": "/library/date/use/is"
           },
           {
             "label": "max",
-            "url": "/dev/date/use/max"
+            "url": "/library/date/use/max"
           },
           {
             "label": "min",
-            "url": "/dev/date/use/min"
+            "url": "/library/date/use/min"
           },
           {
             "label": "my",
-            "url": "/dev/date/use/my"
+            "url": "/library/date/use/my"
           },
           {
             "label": "myTimezone",
-            "url": "/dev/date/use/myTimezone"
+            "url": "/library/date/use/myTimezone"
           },
           {
             "label": "myTimezoneAbbr",
-            "url": "/dev/date/use/myTimezoneAbbr"
+            "url": "/library/date/use/myTimezoneAbbr"
           },
           {
             "label": "remove",
-            "url": "/dev/date/use/remove"
+            "url": "/library/date/use/remove"
           },
           {
             "label": "set",
-            "url": "/dev/date/use/set"
+            "url": "/library/date/use/set"
           },
           {
             "label": "startOf",
-            "url": "/dev/date/use/startOf"
+            "url": "/library/date/use/startOf"
           },
           {
             "label": "timezones",
-            "url": "/dev/date/use/timezones"
+            "url": "/library/date/use/timezones"
           }
         ]
       }
     ]
   },
   {
-    "url": "/dev/diff",
+    "url": "/library/diff",
     "label": "Diff",
-    "default": "/dev/diff/start",
+    "default": "/library/diff/start",
     "github": "/amaui-diff",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/diff/start"
+        "url": "/library/diff/start"
       },
       {
         "label": "Use",
-        "url": "/dev/diff/use"
+        "url": "/library/diff/use"
       }
     ]
   },
   {
-    "url": "/dev/errors",
+    "url": "/library/errors",
     "label": "Errors",
-    "default": "/dev/errors/start",
+    "default": "/library/errors/start",
     "github": "/amaui-errors",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/errors/start"
+        "url": "/library/errors/start"
       },
       {
         "label": "Use",
-        "url": "/dev/errors/use"
+        "url": "/library/errors/use"
       }
     ]
   },
   {
-    "url": "/dev/graph",
+    "url": "/library/graph",
     "label": "Graph",
-    "default": "/dev/graph/start",
+    "default": "/library/graph/start",
     "github": "/amaui-graph",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/graph/start"
+        "url": "/library/graph/start"
       },
       {
         "label": "Use",
-        "url": "/dev/graph/use"
+        "url": "/library/graph/use"
       }
     ]
   },
   {
-    "url": "/dev/hash-table",
+    "url": "/library/hash-table",
     "label": "Hash Table",
-    "default": "/dev/hash-table/start",
+    "default": "/library/hash-table/start",
     "github": "/amaui-hash-table",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/hash-table/start"
+        "url": "/library/hash-table/start"
       },
       {
         "label": "Use",
-        "url": "/dev/hash-table/use"
+        "url": "/library/hash-table/use"
       }
     ]
   },
   {
-    "url": "/dev/heap",
+    "url": "/library/heap",
     "label": "Heap",
-    "default": "/dev/heap/start",
+    "default": "/library/heap/start",
     "github": "/amaui-heap",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/heap/start"
+        "url": "/library/heap/start"
       },
       {
         "label": "Use",
-        "url": "/dev/heap/use"
+        "url": "/library/heap/use"
       }
     ]
   },
   {
-    "url": "/dev/huffman-code",
+    "url": "/library/huffman-code",
     "label": "Huffman Code",
-    "default": "/dev/huffman-code/start",
+    "default": "/library/huffman-code/start",
     "github": "/amaui-huffman-code",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/huffman-code/start"
+        "url": "/library/huffman-code/start"
       },
       {
         "label": "Use",
-        "url": "/dev/huffman-code/use"
+        "url": "/library/huffman-code/use"
       }
     ]
   },
   {
-    "url": "/dev/linked-list",
+    "url": "/library/linked-list",
     "label": "Linked List",
-    "default": "/dev/linked-list/start",
+    "default": "/library/linked-list/start",
     "github": "/amaui-linked-list",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/linked-list/start"
+        "url": "/library/linked-list/start"
       },
       {
         "label": "Use",
-        "url": "/dev/linked-list/use"
+        "url": "/library/linked-list/use"
       }
     ]
   },
   {
-    "url": "/dev/log",
+    "url": "/library/log",
     "label": "Log",
-    "default": "/dev/log/start",
+    "default": "/library/log/start",
     "github": "/amaui-log",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/log/start"
+        "url": "/library/log/start"
       },
       {
         "label": "Use",
-        "url": "/dev/log/use"
+        "url": "/library/log/use"
       }
     ]
   },
   {
-    "url": "/dev/lz77",
+    "url": "/library/lz77",
     "label": "LZ77",
-    "default": "/dev/lz77/start",
+    "default": "/library/lz77/start",
     "github": "/amaui-lz77",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/lz77/start"
+        "url": "/library/lz77/start"
       },
       {
         "label": "Use",
-        "url": "/dev/lz77/use"
+        "url": "/library/lz77/use"
       }
     ]
   },
   {
-    "url": "/dev/meta",
+    "url": "/library/meta",
     "label": "Meta",
-    "default": "/dev/meta/start",
+    "default": "/library/meta/start",
     "github": "/amaui-meta",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/meta/start"
+        "url": "/library/meta/start"
       },
       {
         "label": "Use",
-        "url": "/dev/meta/use"
+        "url": "/library/meta/use"
       }
     ]
   },
   {
-    "url": "/dev/models",
+    "url": "/library/models",
     "label": "Models",
-    "default": "/dev/models/start",
+    "default": "/library/models/start",
     "github": "/amaui-models",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/models/start"
+        "url": "/library/models/start"
       },
       {
         "label": "Use",
-        "url": "/dev/models/use",
+        "url": "/library/models/use",
         "menu": [
           {
             "label": "base",
-            "url": "/dev/models/use/base"
+            "url": "/library/models/use/base"
           },
           {
             "label": "getExpressParamValue",
-            "url": "/dev/models/use/getExpressParamValue"
+            "url": "/library/models/use/getExpressParamValue"
           },
           {
             "label": "getMongoFilter",
-            "url": "/dev/models/use/getMongoFilter"
+            "url": "/library/models/use/getMongoFilter"
           },
           {
             "label": "getMongoFilters",
-            "url": "/dev/models/use/getMongoFilters"
+            "url": "/library/models/use/getMongoFilters"
           },
           {
             "label": "getMongoMatch",
-            "url": "/dev/models/use/getMongoMatch"
+            "url": "/library/models/use/getMongoMatch"
           },
           {
             "label": "getMongoOperator",
-            "url": "/dev/models/use/getMongoOperator"
+            "url": "/library/models/use/getMongoOperator"
           },
           {
             "label": "models",
-            "url": "/dev/models/use/models"
+            "url": "/library/models/use/models"
           },
           {
             "label": "MongoResponse",
-            "url": "/dev/models/use/MongoResponse"
+            "url": "/library/models/use/MongoResponse"
           },
           {
             "label": "Query",
-            "url": "/dev/models/use/Query"
+            "url": "/library/models/use/Query"
           },
           {
             "label": "ResponseMeta",
-            "url": "/dev/models/use/ResponseMeta"
+            "url": "/library/models/use/ResponseMeta"
           },
           {
             "label": "ResponsePagination",
-            "url": "/dev/models/use/ResponsePagination"
+            "url": "/library/models/use/ResponsePagination"
           },
           {
             "label": "Response",
-            "url": "/dev/models/use/Response"
+            "url": "/library/models/use/Response"
           },
           {
             "label": "validateMongoQuery",
-            "url": "/dev/models/use/validateMongoQuery"
+            "url": "/library/models/use/validateMongoQuery"
           }
         ]
       }
     ]
   },
   {
-    "url": "/dev/mongo",
+    "url": "/library/mongo",
     "label": "Mongo",
-    "default": "/dev/mongo/start",
+    "default": "/library/mongo/start",
     "github": "/amaui-mongo",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/mongo/start"
+        "url": "/library/mongo/start"
       },
       {
         "label": "Use",
-        "url": "/dev/mongo/use",
+        "url": "/library/mongo/use",
         "menu": [
           {
             "label": "AmauiMongo",
-            "url": "/dev/mongo/use/AmauiMongo"
+            "url": "/library/mongo/use/AmauiMongo"
           },
           {
             "label": "BaseCollection",
-            "url": "/dev/mongo/use/BaseCollection"
+            "url": "/library/mongo/use/BaseCollection"
           },
           {
             "label": "Mongo",
-            "url": "/dev/mongo/use/Mongo"
+            "url": "/library/mongo/use/Mongo"
           }
         ]
       }
     ]
   },
   {
-    "url": "/dev/node",
+    "url": "/library/node",
     "label": "Node",
-    "default": "/dev/node/start",
+    "default": "/library/node/start",
     "github": "/amaui-node",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/node/start"
+        "url": "/library/node/start"
       },
       {
         "label": "Use",
-        "url": "/dev/node/use"
+        "url": "/library/node/use"
       }
     ]
   },
   {
-    "url": "/dev/queue",
+    "url": "/library/queue",
     "label": "Queue",
-    "default": "/dev/queue/start",
+    "default": "/library/queue/start",
     "github": "/amaui-queue",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/queue/start"
+        "url": "/library/queue/start"
       },
       {
         "label": "Use",
-        "url": "/dev/queue/use"
+        "url": "/library/queue/use"
       }
     ]
   },
   {
-    "url": "/dev/request",
+    "url": "/library/request",
     "label": "Request",
-    "default": "/dev/request/start",
+    "default": "/library/request/start",
     "github": "/amaui-request",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/request/start"
+        "url": "/library/request/start"
       },
       {
         "label": "Use",
-        "url": "/dev/request/use"
+        "url": "/library/request/use"
       }
     ]
   },
   {
-    "url": "/dev/stack",
+    "url": "/library/stack",
     "label": "Stack",
-    "default": "/dev/stack/start",
+    "default": "/library/stack/start",
     "github": "/amaui-stack",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/stack/start"
+        "url": "/library/stack/start"
       },
       {
         "label": "Use",
-        "url": "/dev/stack/use"
+        "url": "/library/stack/use"
       }
     ]
   },
   {
-    "url": "/dev/storage",
+    "url": "/library/storage",
     "label": "Storage",
-    "default": "/dev/storage/start",
+    "default": "/library/storage/start",
     "github": "/amaui-storage",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/storage/start"
+        "url": "/library/storage/start"
       },
       {
         "label": "Use",
-        "url": "/dev/storage/use"
+        "url": "/library/storage/use"
       }
     ]
   },
   {
-    "url": "/dev/style",
+    "url": "/library/style",
     "label": "Style",
-    "default": "/dev/style/start",
+    "default": "/library/style/start",
     "github": "/amaui-style",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/style/start"
+        "url": "/library/style/start"
       },
       {
         "label": "Use",
-        "url": "/dev/style/use",
+        "url": "/library/style/use",
         "menu": [
           {
             "label": "AmauiStyle",
-            "url": "/dev/style/use/AmauiStyle"
+            "url": "/library/style/use/AmauiStyle"
           },
           {
             "label": "AmauiStyleRenderer",
-            "url": "/dev/style/use/AmauiStyleRenderer"
+            "url": "/library/style/use/AmauiStyleRenderer"
           },
           {
             "label": "AmauiStyleRule",
-            "url": "/dev/style/use/AmauiStyleRule"
+            "url": "/library/style/use/AmauiStyleRule"
           },
           {
             "label": "AmauiStyleRuleProperty",
-            "url": "/dev/style/use/AmauiStyleRuleProperty"
+            "url": "/library/style/use/AmauiStyleRuleProperty"
           },
           {
             "label": "AmauiStyleSheet",
-            "url": "/dev/style/use/AmauiStyleSheet"
+            "url": "/library/style/use/AmauiStyleSheet"
           },
           {
             "label": "AmauiStyleSheetManager",
-            "url": "/dev/style/use/AmauiStyleSheetManager"
+            "url": "/library/style/use/AmauiStyleSheetManager"
           },
           {
             "label": "AmauiTheme",
-            "url": "/dev/style/use/AmauiTheme"
+            "url": "/library/style/use/AmauiTheme"
           },
           {
             "label": "classNames",
-            "url": "/dev/style/use/classNames"
+            "url": "/library/style/use/classNames"
           },
           {
             "label": "cli",
-            "url": "/dev/style/use/cli"
+            "url": "/library/style/use/cli"
           },
           {
             "label": "colors",
-            "url": "/dev/style/use/colors"
+            "url": "/library/style/use/colors"
           },
           {
             "label": "css",
-            "url": "/dev/style/use/css"
+            "url": "/library/style/use/css"
           },
           {
             "label": "inline",
-            "url": "/dev/style/use/inline"
+            "url": "/library/style/use/inline"
           },
           {
             "label": "interfaces",
-            "url": "/dev/style/use/interfaces"
+            "url": "/library/style/use/interfaces"
           },
           {
             "label": "makeClassName",
-            "url": "/dev/style/use/makeClassName"
+            "url": "/library/style/use/makeClassName"
           },
           {
             "label": "prefix",
-            "url": "/dev/style/use/prefix"
+            "url": "/library/style/use/prefix"
           },
           {
             "label": "pure",
-            "url": "/dev/style/use/pure"
+            "url": "/library/style/use/pure"
           },
           {
             "label": "reset",
-            "url": "/dev/style/use/reset"
+            "url": "/library/style/use/reset"
           },
           {
             "label": "rtl",
-            "url": "/dev/style/use/rtl"
+            "url": "/library/style/use/rtl"
           },
           {
             "label": "sort",
-            "url": "/dev/style/use/sort"
+            "url": "/library/style/use/sort"
           },
           {
             "label": "style",
-            "url": "/dev/style/use/style"
+            "url": "/library/style/use/style"
           },
           {
             "label": "unit",
-            "url": "/dev/style/use/unit"
+            "url": "/library/style/use/unit"
           },
           {
             "label": "valueObject",
-            "url": "/dev/style/use/valueObject"
+            "url": "/library/style/use/valueObject"
           }
         ]
       }
     ]
   },
   {
-    "url": "/dev/subscription",
+    "url": "/library/subscription",
     "label": "Subscription",
-    "default": "/dev/subscription/start",
+    "default": "/library/subscription/start",
     "github": "/amaui-subscription",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/subscription/start"
+        "url": "/library/subscription/start"
       },
       {
         "label": "Use",
-        "url": "/dev/subscription/use"
+        "url": "/library/subscription/use"
       }
     ]
   },
   {
-    "url": "/dev/test",
+    "url": "/library/test",
     "label": "Test",
-    "default": "/dev/test/start",
+    "default": "/library/test/start",
     "github": "/amaui-test",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/test/start"
+        "url": "/library/test/start"
       },
       {
         "label": "Use",
-        "url": "/dev/test/use",
+        "url": "/library/test/use",
         "menu": [
           {
             "label": "AmauiGroup",
-            "url": "/dev/test/use/AmauiGroup"
+            "url": "/library/test/use/AmauiGroup"
           },
           {
             "label": "AmauiMiddleware",
-            "url": "/dev/test/use/AmauiMiddleware"
+            "url": "/library/test/use/AmauiMiddleware"
           },
           {
             "label": "AmauiTest",
-            "url": "/dev/test/use/AmauiTest"
+            "url": "/library/test/use/AmauiTest"
           },
           {
             "label": "AmauiTo",
-            "url": "/dev/test/use/AmauiTo"
+            "url": "/library/test/use/AmauiTo"
           },
           {
             "label": "assert",
-            "url": "/dev/test/use/assert"
+            "url": "/library/test/use/assert"
           },
           {
             "label": "cli",
-            "url": "/dev/test/use/cli"
+            "url": "/library/test/use/cli"
           },
           {
             "label": "request",
-            "url": "/dev/test/use/request"
+            "url": "/library/test/use/request"
           }
         ]
       }
     ]
   },
   {
-    "url": "/dev/utils",
+    "url": "/library/utils",
     "label": "Utils",
-    "default": "/dev/utils/start",
+    "default": "/library/utils/start",
     "github": "/amaui-utils",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/utils/start"
+        "url": "/library/utils/start"
       },
       {
         "label": "Use",
-        "url": "/dev/utils/use",
+        "url": "/library/utils/use",
         "menu": [
           {
             "label": "allImagesLoaded",
-            "url": "/dev/utils/use/allImagesLoaded"
+            "url": "/library/utils/use/allImagesLoaded"
           },
           {
             "label": "alpha",
-            "url": "/dev/utils/use/alpha"
+            "url": "/library/utils/use/alpha"
           },
           {
             "label": "arrayMoveItem",
-            "url": "/dev/utils/use/arrayMoveItem"
+            "url": "/library/utils/use/arrayMoveItem"
           },
           {
             "label": "arrayToParts",
-            "url": "/dev/utils/use/arrayToParts"
+            "url": "/library/utils/use/arrayToParts"
           },
           {
             "label": "asyncMethodRetry",
-            "url": "/dev/utils/use/asyncMethodRetry"
+            "url": "/library/utils/use/asyncMethodRetry"
           },
           {
             "label": "binaryStringToHexadecimal",
-            "url": "/dev/utils/use/binaryStringToHexadecimal"
+            "url": "/library/utils/use/binaryStringToHexadecimal"
           },
           {
             "label": "canvasCrop",
-            "url": "/dev/utils/use/canvasCrop"
+            "url": "/library/utils/use/canvasCrop"
           },
           {
             "label": "canvasFilterBrightness",
-            "url": "/dev/utils/use/canvasFilterBrightness"
+            "url": "/library/utils/use/canvasFilterBrightness"
           },
           {
             "label": "canvasFilterContrast",
-            "url": "/dev/utils/use/canvasFilterContrast"
+            "url": "/library/utils/use/canvasFilterContrast"
           },
           {
             "label": "canvasFilterFade",
-            "url": "/dev/utils/use/canvasFilterFade"
+            "url": "/library/utils/use/canvasFilterFade"
           },
           {
             "label": "canvasFilterInvert",
-            "url": "/dev/utils/use/canvasFilterInvert"
+            "url": "/library/utils/use/canvasFilterInvert"
           },
           {
             "label": "canvasFilterOldPhoto",
-            "url": "/dev/utils/use/canvasFilterOldPhoto"
+            "url": "/library/utils/use/canvasFilterOldPhoto"
           },
           {
             "label": "canvasFilterSaturation",
-            "url": "/dev/utils/use/canvasFilterSaturation"
+            "url": "/library/utils/use/canvasFilterSaturation"
           },
           {
             "label": "capitalize",
-            "url": "/dev/utils/use/capitalize"
+            "url": "/library/utils/use/capitalize"
           },
           {
             "label": "castParam",
-            "url": "/dev/utils/use/castParam"
+            "url": "/library/utils/use/castParam"
           },
           {
             "label": "checkAppVersion",
-            "url": "/dev/utils/use/checkAppVersion"
+            "url": "/library/utils/use/checkAppVersion"
           },
           {
             "label": "checkObjectFilters",
-            "url": "/dev/utils/use/checkObjectFilters"
+            "url": "/library/utils/use/checkObjectFilters"
           },
           {
             "label": "clamp",
-            "url": "/dev/utils/use/clamp"
+            "url": "/library/utils/use/clamp"
           },
           {
             "label": "cleanValue",
-            "url": "/dev/utils/use/cleanValue"
+            "url": "/library/utils/use/cleanValue"
           },
           {
             "label": "colorToRgb",
-            "url": "/dev/utils/use/colorToRgb"
+            "url": "/library/utils/use/colorToRgb"
           },
           {
             "label": "combination",
-            "url": "/dev/utils/use/combination"
+            "url": "/library/utils/use/combination"
           },
           {
             "label": "combinationWithRepetition",
-            "url": "/dev/utils/use/combinationWithRepetition"
+            "url": "/library/utils/use/combinationWithRepetition"
           },
           {
             "label": "copy",
-            "url": "/dev/utils/use/copy"
+            "url": "/library/utils/use/copy"
           },
           {
             "label": "copyToClipboard",
-            "url": "/dev/utils/use/copyToClipboard"
+            "url": "/library/utils/use/copyToClipboard"
           },
           {
             "label": "countries",
-            "url": "/dev/utils/use/countries"
+            "url": "/library/utils/use/countries"
           },
           {
             "label": "darken",
-            "url": "/dev/utils/use/darken"
+            "url": "/library/utils/use/darken"
           },
           {
             "label": "debounce",
-            "url": "/dev/utils/use/debounce"
+            "url": "/library/utils/use/debounce"
           },
           {
             "label": "decode",
-            "url": "/dev/utils/use/decode"
+            "url": "/library/utils/use/decode"
           },
           {
             "label": "decrypt",
-            "url": "/dev/utils/use/decrypt"
+            "url": "/library/utils/use/decrypt"
           },
           {
             "label": "deserialize",
-            "url": "/dev/utils/use/deserialize"
+            "url": "/library/utils/use/deserialize"
           },
           {
             "label": "download",
-            "url": "/dev/utils/use/download"
+            "url": "/library/utils/use/download"
           },
           {
             "label": "element",
-            "url": "/dev/utils/use/element"
+            "url": "/library/utils/use/element"
           },
           {
             "label": "elementToCanvas",
-            "url": "/dev/utils/use/elementToCanvas"
+            "url": "/library/utils/use/elementToCanvas"
           },
           {
             "label": "emphasize",
-            "url": "/dev/utils/use/emphasize"
+            "url": "/library/utils/use/emphasize"
           },
           {
             "label": "encode",
-            "url": "/dev/utils/use/encode"
+            "url": "/library/utils/use/encode"
           },
           {
             "label": "encrypt",
-            "url": "/dev/utils/use/encrypt"
+            "url": "/library/utils/use/encrypt"
           },
           {
             "label": "equalDeep",
-            "url": "/dev/utils/use/equalDeep"
+            "url": "/library/utils/use/equalDeep"
           },
           {
             "label": "factorial",
-            "url": "/dev/utils/use/factorial"
+            "url": "/library/utils/use/factorial"
           },
           {
             "label": "fileToValue",
-            "url": "/dev/utils/use/fileToValue"
+            "url": "/library/utils/use/fileToValue"
           },
           {
             "label": "flattenObject",
-            "url": "/dev/utils/use/flattenObject"
+            "url": "/library/utils/use/flattenObject"
           },
           {
             "label": "getContrastRatio",
-            "url": "/dev/utils/use/getContrastRatio"
+            "url": "/library/utils/use/getContrastRatio"
           },
           {
             "label": "getCountry",
-            "url": "/dev/utils/use/getCountry"
+            "url": "/library/utils/use/getCountry"
           },
           {
             "label": "getEnvironment",
-            "url": "/dev/utils/use/getEnvironment"
+            "url": "/library/utils/use/getEnvironment"
           },
           {
             "label": "getFileName",
-            "url": "/dev/utils/use/getFileName"
+            "url": "/library/utils/use/getFileName"
           },
           {
             "label": "getGoogleFontsURL",
-            "url": "/dev/utils/use/getGoogleFontsURL"
+            "url": "/library/utils/use/getGoogleFontsURL"
           },
           {
             "label": "getID",
-            "url": "/dev/utils/use/getID"
+            "url": "/library/utils/use/getID"
           },
           {
             "label": "getLeadingZerosNumber",
-            "url": "/dev/utils/use/getLeadingZerosNumber"
+            "url": "/library/utils/use/getLeadingZerosNumber"
           },
           {
             "label": "getLuminance",
-            "url": "/dev/utils/use/getLuminance"
+            "url": "/library/utils/use/getLuminance"
           },
           {
             "label": "getObjectPropertyValue",
-            "url": "/dev/utils/use/getObjectPropertyValue"
+            "url": "/library/utils/use/getObjectPropertyValue"
           },
           {
             "label": "getObjectValue",
-            "url": "/dev/utils/use/getObjectValue"
+            "url": "/library/utils/use/getObjectValue"
           },
           {
             "label": "getOrdinalNumber",
-            "url": "/dev/utils/use/getOrdinalNumber"
+            "url": "/library/utils/use/getOrdinalNumber"
           },
           {
             "label": "getQueryParams",
-            "url": "/dev/utils/use/getQueryParams"
+            "url": "/library/utils/use/getQueryParams"
           },
           {
             "label": "getRedirectTo",
-            "url": "/dev/utils/use/getRedirectTo"
+            "url": "/library/utils/use/getRedirectTo"
           },
           {
             "label": "getStringVariables",
-            "url": "/dev/utils/use/getStringVariables"
+            "url": "/library/utils/use/getStringVariables"
           },
           {
             "label": "getURL",
-            "url": "/dev/utils/use/getURL"
+            "url": "/library/utils/use/getURL"
           },
           {
             "label": "getUserLocalInfo",
-            "url": "/dev/utils/use/getUserLocalInfo"
+            "url": "/library/utils/use/getUserLocalInfo"
           },
           {
             "label": "hash",
-            "url": "/dev/utils/use/hash"
+            "url": "/library/utils/use/hash"
           },
           {
             "label": "hashFile",
-            "url": "/dev/utils/use/hashFile"
+            "url": "/library/utils/use/hashFile"
           },
           {
             "label": "hasObjectProperty",
-            "url": "/dev/utils/use/hasObjectProperty"
+            "url": "/library/utils/use/hasObjectProperty"
           },
           {
             "label": "hasObjectPropertyValue",
-            "url": "/dev/utils/use/hasObjectPropertyValue"
+            "url": "/library/utils/use/hasObjectPropertyValue"
           },
           {
             "label": "hexadecimalStringToBinary",
-            "url": "/dev/utils/use/hexadecimalStringToBinary"
+            "url": "/library/utils/use/hexadecimalStringToBinary"
           },
           {
             "label": "hexToRgb",
-            "url": "/dev/utils/use/hexToRgb"
+            "url": "/library/utils/use/hexToRgb"
           },
           {
             "label": "hslToRgb",
-            "url": "/dev/utils/use/hslToRgb"
+            "url": "/library/utils/use/hslToRgb"
           },
           {
             "label": "hslToRgbPure",
-            "url": "/dev/utils/use/hslToRgbPure"
+            "url": "/library/utils/use/hslToRgbPure"
           },
           {
             "label": "imageToPalette",
-            "url": "/dev/utils/use/imageToPalette"
+            "url": "/library/utils/use/imageToPalette"
           },
           {
             "label": "is",
-            "url": "/dev/utils/use/is"
+            "url": "/library/utils/use/is"
           },
           {
             "label": "isBrowser",
-            "url": "/dev/utils/use/isBrowser"
+            "url": "/library/utils/use/isBrowser"
           },
           {
             "label": "isEnvironment",
-            "url": "/dev/utils/use/isEnvironment"
+            "url": "/library/utils/use/isEnvironment"
           },
           {
             "label": "isExists",
-            "url": "/dev/utils/use/isExists"
+            "url": "/library/utils/use/isExists"
           },
           {
             "label": "isOS",
-            "url": "/dev/utils/use/isOS"
+            "url": "/library/utils/use/isOS"
           },
           {
             "label": "isResponsive",
-            "url": "/dev/utils/use/isResponsive"
+            "url": "/library/utils/use/isResponsive"
           },
           {
             "label": "isState",
-            "url": "/dev/utils/use/isState"
+            "url": "/library/utils/use/isState"
           },
           {
             "label": "isValid",
-            "url": "/dev/utils/use/isValid"
+            "url": "/library/utils/use/isValid"
           },
           {
             "label": "lighten",
-            "url": "/dev/utils/use/lighten"
+            "url": "/library/utils/use/lighten"
           },
           {
             "label": "matchRoute",
-            "url": "/dev/utils/use/matchRoute"
+            "url": "/library/utils/use/matchRoute"
           },
           {
             "label": "merge",
-            "url": "/dev/utils/use/merge"
+            "url": "/library/utils/use/merge"
           },
           {
             "label": "models",
-            "url": "/dev/utils/use/models"
+            "url": "/library/utils/use/models"
           },
           {
             "label": "numberWithCommas",
-            "url": "/dev/utils/use/numberWithCommas"
+            "url": "/library/utils/use/numberWithCommas"
           },
           {
             "label": "order",
-            "url": "/dev/utils/use/order"
+            "url": "/library/utils/use/order"
           },
           {
             "label": "pagination",
-            "url": "/dev/utils/use/pagination"
+            "url": "/library/utils/use/pagination"
           },
           {
             "label": "parse",
-            "url": "/dev/utils/use/parse"
+            "url": "/library/utils/use/parse"
           },
           {
             "label": "percentageFromValueWithinRange",
-            "url": "/dev/utils/use/percentageFromValueWithinRange"
+            "url": "/library/utils/use/percentageFromValueWithinRange"
           },
           {
             "label": "permutation",
-            "url": "/dev/utils/use/permutation"
+            "url": "/library/utils/use/permutation"
           },
           {
             "label": "permutationWithRepetition",
-            "url": "/dev/utils/use/permutationWithRepetition"
+            "url": "/library/utils/use/permutationWithRepetition"
           },
           {
             "label": "pick",
-            "url": "/dev/utils/use/pick"
+            "url": "/library/utils/use/pick"
           },
           {
             "label": "polyfills",
-            "url": "/dev/utils/use/polyfills"
+            "url": "/library/utils/use/polyfills"
           },
           {
             "label": "promisify",
-            "url": "/dev/utils/use/promisify"
+            "url": "/library/utils/use/promisify"
           },
           {
             "label": "quantize",
-            "url": "/dev/utils/use/quantize"
+            "url": "/library/utils/use/quantize"
           },
           {
             "label": "random",
-            "url": "/dev/utils/use/random"
+            "url": "/library/utils/use/random"
           },
           {
             "label": "randomString",
-            "url": "/dev/utils/use/randomString"
+            "url": "/library/utils/use/randomString"
           },
           {
             "label": "removeObjectValue",
-            "url": "/dev/utils/use/removeObjectValue"
+            "url": "/library/utils/use/removeObjectValue"
           },
           {
             "label": "rgbToHex",
-            "url": "/dev/utils/use/rgbToHex"
+            "url": "/library/utils/use/rgbToHex"
           },
           {
             "label": "rgbToHsl",
-            "url": "/dev/utils/use/rgbToHsl"
+            "url": "/library/utils/use/rgbToHsl"
           },
           {
             "label": "rgbToHslPure",
-            "url": "/dev/utils/use/rgbToHslPure"
+            "url": "/library/utils/use/rgbToHslPure"
           },
           {
             "label": "rgbToRgba",
-            "url": "/dev/utils/use/rgbToRgba"
+            "url": "/library/utils/use/rgbToRgba"
           },
           {
             "label": "serialize",
-            "url": "/dev/utils/use/serialize"
+            "url": "/library/utils/use/serialize"
           },
           {
             "label": "setObjectValue",
-            "url": "/dev/utils/use/setObjectValue"
+            "url": "/library/utils/use/setObjectValue"
           },
           {
             "label": "setStringVariables",
-            "url": "/dev/utils/use/setStringVariables"
+            "url": "/library/utils/use/setStringVariables"
           },
           {
             "label": "shuffle",
-            "url": "/dev/utils/use/shuffle"
+            "url": "/library/utils/use/shuffle"
           },
           {
             "label": "simpleNormalize",
-            "url": "/dev/utils/use/simpleNormalize"
+            "url": "/library/utils/use/simpleNormalize"
           },
           {
             "label": "slugify",
-            "url": "/dev/utils/use/slugify"
+            "url": "/library/utils/use/slugify"
           },
           {
             "label": "stringify",
-            "url": "/dev/utils/use/stringify"
+            "url": "/library/utils/use/stringify"
           },
           {
             "label": "to",
-            "url": "/dev/utils/use/to"
+            "url": "/library/utils/use/to"
           },
           {
             "label": "try",
-            "url": "/dev/utils/use/try"
+            "url": "/library/utils/use/try"
           },
           {
             "label": "unflattenObject",
-            "url": "/dev/utils/use/unflattenObject"
+            "url": "/library/utils/use/unflattenObject"
           },
           {
             "label": "unique",
-            "url": "/dev/utils/use/unique"
+            "url": "/library/utils/use/unique"
           },
           {
             "label": "updateQueryParams",
-            "url": "/dev/utils/use/updateQueryParams"
+            "url": "/library/utils/use/updateQueryParams"
           },
           {
             "label": "valueFromPercentageWithinRange",
-            "url": "/dev/utils/use/valueFromPercentageWithinRange"
+            "url": "/library/utils/use/valueFromPercentageWithinRange"
           },
           {
             "label": "variation",
-            "url": "/dev/utils/use/variation"
+            "url": "/library/utils/use/variation"
           },
           {
             "label": "variationWithRepetition",
-            "url": "/dev/utils/use/variationWithRepetition"
+            "url": "/library/utils/use/variationWithRepetition"
           },
           {
             "label": "wait",
-            "url": "/dev/utils/use/wait"
+            "url": "/library/utils/use/wait"
           }
         ]
       }
     ]
   },
   {
-    "url": "/dev/zip",
+    "url": "/library/zip",
     "label": "Zip",
-    "default": "/dev/zip/start",
+    "default": "/library/zip/start",
     "github": "/amaui-zip",
     "menu": [
       {
         "label": "Start",
-        "url": "/dev/zip/start"
+        "url": "/library/zip/start"
       },
       {
         "label": "Use",
-        "url": "/dev/zip/use"
+        "url": "/library/zip/use"
       }
     ]
   }

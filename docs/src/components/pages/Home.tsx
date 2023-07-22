@@ -454,7 +454,7 @@ export default function Root(props: any) {
               <IconMaterialEastRounded />
             )}
 
-            onClick={() => router.push('/dev/ui-react')}
+            onClick={() => router.push('/library/ui-react')}
 
             style={{
               marginTop: 24

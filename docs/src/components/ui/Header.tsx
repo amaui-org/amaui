@@ -273,7 +273,7 @@ function Header(props: any) {
 
   const propsURL = props.url !== undefined ? props.url : refs.previousURL.current;
 
-  const isLibrary = propsURL?.indexOf('/dev/') === 0;
+  const isLibrary = propsURL?.indexOf('/library/') === 0;
 
   const withNavigationDrawer = isLibrary && !smallerScreen;
 
