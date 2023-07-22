@@ -386,13 +386,13 @@ export default function Library(props: any) {
   const page = React.useCallback(async (url_: string) => {
     refs.url.current = url_;
 
-    const url = url_?.split('/dev')[1];
+    const url = url_?.split('/library')[1];
 
     // Main progress
     mainProgress.start();
 
     // page md
-    const response = await AmauiRequest.get(`/assets/md/dev${url}.md`, { response: { type: 'text' } });
+    const response = await AmauiRequest.get(`/assets/md/library${url}.md`, { response: { type: 'text' } });
 
     if (response.status === 200) setValue(response.response);
     else {
