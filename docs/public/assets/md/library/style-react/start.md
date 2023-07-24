@@ -1,7 +1,7 @@
 
 # amaui style react
 
-CSS in JSS styling solution for react.
+CSS in JS styling solution for react.
 
 ### Add
 
