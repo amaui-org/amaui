@@ -74,47 +74,47 @@ const useStyle = styleMethod(theme => ({
   // Tonal
   version_filled_tonal_color_neutral: {
     color: theme.methods.palette.color.value('neutral', 10),
-    backgroundColor: theme.methods.palette.color.value('neutral', 95)
+    backgroundColor: theme.methods.palette.color.value('neutral', 90)
   },
 
   version_filled_tonal_color_primary: {
     color: theme.methods.palette.color.value('primary', 10),
-    backgroundColor: theme.methods.palette.color.value('primary', 95)
+    backgroundColor: theme.methods.palette.color.value('primary', 90)
   },
 
   version_filled_tonal_color_secondary: {
     color: theme.methods.palette.color.value('secondary', 10),
-    backgroundColor: theme.methods.palette.color.value('secondary', 95)
+    backgroundColor: theme.methods.palette.color.value('secondary', 90)
   },
 
   version_filled_tonal_color_tertiary: {
     color: theme.methods.palette.color.value('tertiary', 10),
-    backgroundColor: theme.methods.palette.color.value('tertiary', 95)
+    backgroundColor: theme.methods.palette.color.value('tertiary', 90)
   },
 
   version_filled_tonal_color_quaternary: {
     color: theme.methods.palette.color.value('quaternary', 10),
-    backgroundColor: theme.methods.palette.color.value('quaternary', 95)
+    backgroundColor: theme.methods.palette.color.value('quaternary', 90)
   },
 
   version_filled_tonal_color_info: {
     color: theme.methods.palette.color.value('info', 10),
-    backgroundColor: theme.methods.palette.color.value('info', 95)
+    backgroundColor: theme.methods.palette.color.value('info', 90)
   },
 
   version_filled_tonal_color_success: {
     color: theme.methods.palette.color.value('success', 10),
-    backgroundColor: theme.methods.palette.color.value('success', 95)
+    backgroundColor: theme.methods.palette.color.value('success', 90)
   },
 
   version_filled_tonal_color_warning: {
     color: theme.methods.palette.color.value('warning', 10),
-    backgroundColor: theme.methods.palette.color.value('warning', 95)
+    backgroundColor: theme.methods.palette.color.value('warning', 90)
   },
 
   version_filled_tonal_color_error: {
     color: theme.methods.palette.color.value('error', 10),
-    backgroundColor: theme.methods.palette.color.value('error', 95)
+    backgroundColor: theme.methods.palette.color.value('error', 90)
   },
 
   version_filled_tonal_secondary_color_neutral: {
@@ -755,7 +755,7 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
     if (tonal) {
       styles.root.color = theme.methods.palette.color.value(color as any, 10, true, palette);
 
-      if (version === 'filled') styles.root.backgroundColor = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 80 : 95, true, palette);
+      if (version === 'filled') styles.root.backgroundColor = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 80 : 90, true, palette);
 
       if (version === 'outlined') {
         styles.root.color = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 10 : 5, true, palette);
@@ -817,7 +817,7 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
         }
         else {
           styles.children.color = theme.methods.palette.color.value(color as any, 10);
-          styles.children.backgroundColor = theme.methods.palette.color.value(color as any, 95);
+          styles.children.backgroundColor = theme.methods.palette.color.value(color as any, 90);
         }
       }
     }
@@ -932,7 +932,7 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
     palette = theme.methods.color(color);
 
     if (tonal) {
-      if (version === 'filled') styles.root.backgroundColor = theme.methods.palette.color.value(color, tonal === 'secondary' ? 80 : 95, true, palette);
+      if (version === 'filled') styles.root.backgroundColor = theme.methods.palette.color.value(color, tonal === 'secondary' ? 80 : 90, true, palette);
 
       if (version === 'outlined') {
         styles.root.backgroundColor = theme.methods.palette.color.value(color, tonal === 'secondary' ? 95 : 99, true, palette);

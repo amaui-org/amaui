@@ -868,7 +868,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
       tonal: 'secondary',
       color,
       version: 'filled',
-      backgroundOpacity: theme.palette.light ? 0.24 : 0.14,
+      backgroundOpacity: 0.44,
       elevation: false,
 
       className: classNames([
