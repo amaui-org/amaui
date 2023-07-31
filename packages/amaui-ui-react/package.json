@@ -1,14 +1,14 @@
 {
   "name": "@amaui/ui-react",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "description": "UI for React",
   "repository": "https://github.com/amaui-org/amaui.git",
   "author": "Lazar <lazareric2@gmail.com>",
   "license": "MIT",
   "private": false,
-  "main": "./build/index.js",
-  "module": "./build/esm/index.js",
-  "types": "./build/index.d.ts",
+  "main": "./index.js",
+  "module": "./esm/index.js",
+  "types": "./index.d.ts",
   "keywords": [
     "ui",
     "react",
@@ -32,7 +32,7 @@
   "scripts": {
     "prebuild": "rimraf build",
     "build": "yarn lint && yarn type && cross-env ENV=react node ../../utils/js/build.js",
-    "release": "yarn test && yarn build && npm publish ./build",
+    "release": "yarn version --patch && yarn build && cd ./build && npm publish",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "type": "tsc --noEmit -p tsconfig.json",
     "cov": "cross-env NODE_ENV=test amaui-test",
@@ -56,9 +56,6 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "files": [
-    "build"
-  ],
   "sideEffects": false,
   "engines": {
     "node": ">=12.0.0",
