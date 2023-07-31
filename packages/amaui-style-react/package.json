@@ -1,6 +1,6 @@
 {
   "name": "@amaui/style-react",
-  "version": "1.1.113",
+  "version": "1.1.111",
   "description": "Amaui CSS in JS styling solution for React",
   "repository": "https://github.com/amaui-org/amaui.git",
   "author": "Lazar <lazareric2@gmail.com>",
@@ -36,7 +36,7 @@
   "scripts": {
     "prebuild": "rimraf build",
     "build": "yarn lint && yarn type && cross-env ENV=react node ../../utils/js/build.js",
-    "release": "yarn version --patch && yarn build && cd ./build && npm publish --dry-run",
+    "release": "yarn version --patch && yarn build && cd ./build && npm publish",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "type": "tsc --noEmit -p tsconfig.json",
     "cov": "cross-env NODE_ENV=test amaui-test",
