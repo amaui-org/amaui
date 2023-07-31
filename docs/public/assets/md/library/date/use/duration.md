@@ -41,11 +41,11 @@ default function duration(value: number, unitAbbr?: boolean, raw?: boolean, sepa
   "props": {
     "previous": {
       "label": "Date: diff",
-      "to": "/dev/date/use/diff"
+      "to": "/library/date/use/diff"
     },
     "next": {
       "label": "Date: endOf",
-      "to": "/dev/date/use/endOf"
+      "to": "/library/date/use/endOf"
     }
   }
 }~

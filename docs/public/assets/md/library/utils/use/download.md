@@ -27,11 +27,11 @@ const download: (name: string, data: any, type?: string) => void;
   "props": {
     "previous": {
       "label": "Utils: deserialize",
-      "to": "/dev/utils/use/deserialize"
+      "to": "/library/utils/use/deserialize"
     },
     "next": {
       "label": "Utils: element",
-      "to": "/dev/utils/use/element"
+      "to": "/library/utils/use/element"
     }
   }
 }~

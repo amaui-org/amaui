@@ -61,11 +61,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Stack: Start",
-      "to": "/dev/stack/start"
+      "to": "/library/stack/start"
     },
     "next": {
       "label": "Storage: Use",
-      "to": "/dev/storage/use"
+      "to": "/library/storage/use"
     }
   }
 }~

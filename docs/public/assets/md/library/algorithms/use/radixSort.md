@@ -44,11 +44,11 @@ default function radixSort<T = number>(value: Array<T>, ascending?: boolean): Ar
   "props": {
     "previous": {
       "label": "Algorithms: quickSort",
-      "to": "/dev/algorithms/use/quickSort"
+      "to": "/library/algorithms/use/quickSort"
     },
     "next": {
       "label": "Algorithms: selectionSort",
-      "to": "/dev/algorithms/use/selectionSort"
+      "to": "/library/algorithms/use/selectionSort"
     }
   }
 }~

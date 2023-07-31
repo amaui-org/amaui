@@ -47,11 +47,11 @@ const getQueryParams: (value_?: string, paramName?: string, options_?: IOptions)
   "props": {
     "previous": {
       "label": "Utils: getOrdinalNumber",
-      "to": "/dev/utils/use/getOrdinalNumber"
+      "to": "/library/utils/use/getOrdinalNumber"
     },
     "next": {
       "label": "Utils: getRedirectTo",
-      "to": "/dev/utils/use/getRedirectTo"
+      "to": "/library/utils/use/getRedirectTo"
     }
   }
 }~

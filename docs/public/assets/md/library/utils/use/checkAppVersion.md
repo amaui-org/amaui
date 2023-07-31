@@ -68,11 +68,11 @@ const checkAppVersion: (retries?: number, reload?: boolean) => Promise<boolean>;
   "props": {
     "previous": {
       "label": "Utils: castParam",
-      "to": "/dev/utils/use/castParam"
+      "to": "/library/utils/use/castParam"
     },
     "next": {
       "label": "Utils: checkObjectFilters",
-      "to": "/dev/utils/use/checkObjectFilters"
+      "to": "/library/utils/use/checkObjectFilters"
     }
   }
 }~

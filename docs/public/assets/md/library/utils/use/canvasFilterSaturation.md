@@ -26,11 +26,11 @@ const canvasFilterSaturation: (value: number, canvas: HTMLCanvasElement) => HTML
   "props": {
     "previous": {
       "label": "Utils: canvasFilterOldPhoto",
-      "to": "/dev/utils/use/canvasFilterOldPhoto"
+      "to": "/library/utils/use/canvasFilterOldPhoto"
     },
     "next": {
       "label": "Utils: capitalize",
-      "to": "/dev/utils/use/capitalize"
+      "to": "/library/utils/use/capitalize"
     }
   }
 }~

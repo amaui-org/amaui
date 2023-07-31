@@ -264,11 +264,11 @@ class DeveloperError extends AmauiError {
   "props": {
     "previous": {
       "label": "Errors: Start",
-      "to": "/dev/errors/start"
+      "to": "/library/errors/start"
     },
     "next": {
       "label": "Graph: Start",
-      "to": "/dev/graph/start"
+      "to": "/library/graph/start"
     }
   }
 }~

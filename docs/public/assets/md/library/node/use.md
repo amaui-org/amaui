@@ -68,11 +68,11 @@ class AmauiNode {
   "props": {
     "previous": {
       "label": "Node: Start",
-      "to": "/dev/node/start"
+      "to": "/library/node/start"
     },
     "next": {
       "label": "Queue: Start",
-      "to": "/dev/queue/start"
+      "to": "/library/queue/start"
     }
   }
 }~

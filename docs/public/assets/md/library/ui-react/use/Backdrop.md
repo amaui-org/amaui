@@ -30,11 +30,11 @@ const Backdrop: React.ForwardRefExoticComponent<Omit<IBackdrop, "ref"> & React.R
   "props": {
     "previous": {
       "label": "UI react: AvatarGroup",
-      "to": "/dev/ui-react/use/AvatarGroup"
+      "to": "/library/ui-react/use/AvatarGroup"
     },
     "next": {
       "label": "UI react: Badge",
-      "to": "/dev/ui-react/use/Badge"
+      "to": "/library/ui-react/use/Badge"
     }
   }
 }~

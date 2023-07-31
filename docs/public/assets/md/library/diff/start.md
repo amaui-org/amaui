@@ -63,11 +63,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Date: Start",
-      "to": "/dev/date/start"
+      "to": "/library/date/start"
     },
     "next": {
       "label": "Diff: Use",
-      "to": "/dev/diff/use"
+      "to": "/library/diff/use"
     }
   }
 }~

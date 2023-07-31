@@ -229,11 +229,11 @@ class AmauiCookie {
   "props": {
     "previous": {
       "label": "Cookie: Start",
-      "to": "/dev/cookie/start"
+      "to": "/library/cookie/start"
     },
     "next": {
       "label": "Date: Start",
-      "to": "/dev/date/start"
+      "to": "/library/date/start"
     }
   }
 }~

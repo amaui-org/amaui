@@ -57,11 +57,11 @@ default function binarySearchRecursive(array: Array<number>, value: number, star
   "props": {
     "previous": {
       "label": "Algorithms: binarySearch",
-      "to": "/dev/algorithms/use/binarySearch"
+      "to": "/library/algorithms/use/binarySearch"
     },
     "next": {
       "label": "Algorithms: bubbleSort",
-      "to": "/dev/algorithms/use/bubbleSort"
+      "to": "/library/algorithms/use/bubbleSort"
     }
   }
 }~

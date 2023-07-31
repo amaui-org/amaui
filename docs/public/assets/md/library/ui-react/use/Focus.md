@@ -33,11 +33,11 @@ const Focus: React.ForwardRefExoticComponent<Omit<IFocus, "ref"> & React.RefAttr
   "props": {
     "previous": {
       "label": "UI react: FileChoose",
-      "to": "/dev/ui-react/use/FileChoose"
+      "to": "/library/ui-react/use/FileChoose"
     },
     "next": {
       "label": "UI react: Grid",
-      "to": "/dev/ui-react/use/Grid"
+      "to": "/library/ui-react/use/Grid"
     }
   }
 }~

@@ -17,11 +17,11 @@ const useMediaQuery: {
   "props": {
     "previous": {
       "label": "UI react: Zoom",
-      "to": "/dev/ui-react/use/Zoom"
+      "to": "/library/ui-react/use/Zoom"
     },
     "next": {
       "label": "UI react: useScroll",
-      "to": "/dev/ui-react/use/useScroll"
+      "to": "/library/ui-react/use/useScroll"
     }
   }
 }~

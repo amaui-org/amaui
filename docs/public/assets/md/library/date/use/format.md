@@ -41,11 +41,11 @@ default function format(amauiDate?: AmauiDate, value_?: string): string;
   "props": {
     "previous": {
       "label": "Date: endOf",
-      "to": "/dev/date/use/endOf"
+      "to": "/library/date/use/endOf"
     },
     "next": {
       "label": "Date: formats",
-      "to": "/dev/date/use/formats"
+      "to": "/library/date/use/formats"
     }
   }
 }~

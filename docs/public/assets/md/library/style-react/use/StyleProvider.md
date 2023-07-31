@@ -111,11 +111,11 @@ const Style: React.ForwardRefExoticComponent<Omit<any, "ref"> & React.RefAttribu
   "props": {
     "previous": {
       "label": "Style react: Start",
-      "to": "/dev/style-react/start"
+      "to": "/library/style-react/start"
     },
     "next": {
       "label": "Style react: AmauiThemeProvider",
-      "to": "/dev/style-react/use/AmauiThemeProvider"
+      "to": "/library/style-react/use/AmauiThemeProvider"
     }
   }
 }~

@@ -65,11 +65,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Icons Material react: Start",
-      "to": "/dev/icons-material-react/start"
+      "to": "/library/icons-material-react/start"
     },
     "next": {
       "label": "Algorithms: BinarySearch",
-      "to": "/dev/algorithms/use/binarySearch"
+      "to": "/library/algorithms/use/binarySearch"
     }
   }
 }~

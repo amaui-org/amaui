@@ -80,11 +80,11 @@ Updates made to original icons:
   "props": {
     "previous": {
       "label": "Style react: Start",
-      "to": "/dev/style-react/start"
+      "to": "/library/style-react/start"
     },
     "next": {
       "label": "Icons Material react: Use",
-      "to": "/dev/icons-material-react/use"
+      "to": "/library/icons-material-react/use"
     }
   }
 }~

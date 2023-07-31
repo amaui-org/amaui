@@ -83,11 +83,11 @@ const DatePicker: React.ForwardRefExoticComponent<Omit<IDatePicker, "ref"> & Rea
   "props": {
     "previous": {
       "label": "UI react: Countdown",
-      "to": "/dev/ui-react/use/Countdown"
+      "to": "/library/ui-react/use/Countdown"
     },
     "next": {
       "label": "UI react: DateRangePicker",
-      "to": "/dev/ui-react/use/DateRangePicker"
+      "to": "/library/ui-react/use/DateRangePicker"
     }
   }
 }~

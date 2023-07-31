@@ -40,11 +40,11 @@ const rgbToHsl: (value: string, opacity?: number, array?: boolean) => string | n
   "props": {
     "previous": {
       "label": "Utils: rgbToHex",
-      "to": "/dev/utils/use/rgbToHex"
+      "to": "/library/utils/use/rgbToHex"
     },
     "next": {
       "label": "Utils: rgbToHslPure",
-      "to": "/dev/utils/use/rgbToHslPure"
+      "to": "/library/utils/use/rgbToHslPure"
     }
   }
 }~

@@ -90,11 +90,11 @@ const RichTextEditor: React.ForwardRefExoticComponent<Omit<IRichTextEditor, "ref
   "props": {
     "previous": {
       "label": "UI react: Reveal",
-      "to": "/dev/ui-react/use/Reveal"
+      "to": "/library/ui-react/use/Reveal"
     },
     "next": {
       "label": "UI react: RoundMeter",
-      "to": "/dev/ui-react/use/RoundMeter"
+      "to": "/library/ui-react/use/RoundMeter"
     }
   }
 }~

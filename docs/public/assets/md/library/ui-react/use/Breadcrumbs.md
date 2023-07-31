@@ -24,11 +24,11 @@ const Breadcrumbs: React.ForwardRefExoticComponent<Omit<IBreadcrumbs, "ref"> & R
   "props": {
     "previous": {
       "label": "UI react: Box",
-      "to": "/dev/ui-react/use/Box"
+      "to": "/library/ui-react/use/Box"
     },
     "next": {
       "label": "UI react: BubbleChart",
-      "to": "/dev/ui-react/use/BubbleChart"
+      "to": "/library/ui-react/use/BubbleChart"
     }
   }
 }~

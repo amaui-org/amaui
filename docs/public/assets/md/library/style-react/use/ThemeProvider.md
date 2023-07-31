@@ -1047,11 +1047,11 @@ const Theme: React.ForwardRefExoticComponent<ITheme & React.RefAttributes<unknow
   "props": {
     "previous": {
       "label": "Style react: Theme",
-      "to": "/dev/style-react/use/Theme"
+      "to": "/library/style-react/use/Theme"
     },
     "next": {
       "label": "Style react: className",
-      "to": "/dev/style-react/use/className"
+      "to": "/library/style-react/use/className"
     }
   }
 }~

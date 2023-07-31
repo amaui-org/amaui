@@ -23,11 +23,11 @@ const Masonry: React.ForwardRefExoticComponent<Omit<IMasonry, "ref"> & React.Ref
   "props": {
     "previous": {
       "label": "UI react: Markdown",
-      "to": "/dev/ui-react/use/Markdown"
+      "to": "/library/ui-react/use/Markdown"
     },
     "next": {
       "label": "UI react: Menu",
-      "to": "/dev/ui-react/use/Menu"
+      "to": "/library/ui-react/use/Menu"
     }
   }
 }~

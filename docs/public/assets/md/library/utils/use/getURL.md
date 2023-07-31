@@ -39,11 +39,11 @@ const getURL: (value: string, options_?: IOptions) => URL | string;
   "props": {
     "previous": {
       "label": "Utils: getStringVariables",
-      "to": "/dev/utils/use/getStringVariables"
+      "to": "/library/utils/use/getStringVariables"
     },
     "next": {
       "label": "Utils: getUserLocalInfo",
-      "to": "/dev/utils/use/getUserLocalInfo"
+      "to": "/library/utils/use/getUserLocalInfo"
     }
   }
 }~

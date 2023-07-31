@@ -91,11 +91,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Queue: Start",
-      "to": "/dev/queue/start"
+      "to": "/library/queue/start"
     },
     "next": {
       "label": "Request: Use",
-      "to": "/dev/request/use"
+      "to": "/library/request/use"
     }
   }
 }~

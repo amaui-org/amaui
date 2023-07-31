@@ -21,11 +21,11 @@ const BubbleChart: React.ForwardRefExoticComponent<Omit<IBubbleChart, "ref"> & R
   "props": {
     "previous": {
       "label": "UI react: Breadcrumbs",
-      "to": "/dev/ui-react/use/Breadcrumbs"
+      "to": "/library/ui-react/use/Breadcrumbs"
     },
     "next": {
       "label": "UI react: BubbleChartItem",
-      "to": "/dev/ui-react/use/BubbleChartItem"
+      "to": "/library/ui-react/use/BubbleChartItem"
     }
   }
 }~

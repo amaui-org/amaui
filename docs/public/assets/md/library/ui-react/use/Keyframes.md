@@ -64,11 +64,11 @@ namespace Keyframes {
   "props": {
     "previous": {
       "label": "UI react: Interaction",
-      "to": "/dev/ui-react/use/Interaction"
+      "to": "/library/ui-react/use/Interaction"
     },
     "next": {
       "label": "UI react: KeyframesContext",
-      "to": "/dev/ui-react/use/KeyframesContext"
+      "to": "/library/ui-react/use/KeyframesContext"
     }
   }
 }~

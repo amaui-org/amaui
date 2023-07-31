@@ -64,11 +64,11 @@ default function permutation(value_: any[], options_?: IPermutationOptions): TPe
   "props": {
     "previous": {
       "label": "Utils: percentageFromValueWithinRange",
-      "to": "/dev/utils/use/percentageFromValueWithinRange"
+      "to": "/library/utils/use/percentageFromValueWithinRange"
     },
     "next": {
       "label": "Utils: permutationWithRepetition",
-      "to": "/dev/utils/use/permutationWithRepetition"
+      "to": "/library/utils/use/permutationWithRepetition"
     }
   }
 }~

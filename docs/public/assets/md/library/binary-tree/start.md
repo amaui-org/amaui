@@ -76,11 +76,11 @@ yarn build
   "props": {
     "previous": {
       "label": "AWS: Start",
-      "to": "/dev/aws/start"
+      "to": "/library/aws/start"
     },
     "next": {
       "label": "Binary Tree: Use",
-      "to": "/dev/binary-tree/use"
+      "to": "/library/binary-tree/use"
     }
   }
 }~

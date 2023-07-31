@@ -64,11 +64,11 @@ default function permutationWithRepetition(value_: any[], options_?: IPermutatio
   "props": {
     "previous": {
       "label": "Utils: permutation",
-      "to": "/dev/utils/use/permutation"
+      "to": "/library/utils/use/permutation"
     },
     "next": {
       "label": "Utils: pick",
-      "to": "/dev/utils/use/pick"
+      "to": "/library/utils/use/pick"
     }
   }
 }~

@@ -22,11 +22,11 @@ const ModalHeader: React.ForwardRefExoticComponent<Omit<IModalHeader, "ref"> & R
   "props": {
     "previous": {
       "label": "UI react: ModalFooter",
-      "to": "/dev/ui-react/use/ModalFooter"
+      "to": "/library/ui-react/use/ModalFooter"
     },
     "next": {
       "label": "UI react: ModalIcon",
-      "to": "/dev/ui-react/use/ModalIcon"
+      "to": "/library/ui-react/use/ModalIcon"
     }
   }
 }~

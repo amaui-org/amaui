@@ -24,11 +24,11 @@ const Expand: React.ForwardRefExoticComponent<Omit<IExpand, "ref"> & React.RefAt
   "props": {
     "previous": {
       "label": "UI react: DropZone",
-      "to": "/dev/ui-react/use/DropZone"
+      "to": "/library/ui-react/use/DropZone"
     },
     "next": {
       "label": "UI react: Fab",
-      "to": "/dev/ui-react/use/Fab"
+      "to": "/library/ui-react/use/Fab"
     }
   }
 }~

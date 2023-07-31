@@ -25,11 +25,11 @@ const encode: (value_: any) => string;
   "props": {
     "previous": {
       "label": "Utils: emphasize",
-      "to": "/dev/utils/use/emphasize"
+      "to": "/library/utils/use/emphasize"
     },
     "next": {
       "label": "Utils: encrypt",
-      "to": "/dev/utils/use/encrypt"
+      "to": "/library/utils/use/encrypt"
     }
   }
 }~

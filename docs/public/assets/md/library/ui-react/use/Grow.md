@@ -21,11 +21,11 @@ const Grow: React.ForwardRefExoticComponent<Omit<IGrow, "ref"> & React.RefAttrib
   "props": {
     "previous": {
       "label": "UI react: Grid",
-      "to": "/dev/ui-react/use/Grid"
+      "to": "/library/ui-react/use/Grid"
     },
     "next": {
       "label": "UI react: Icon",
-      "to": "/dev/ui-react/use/Icon"
+      "to": "/library/ui-react/use/Icon"
     }
   }
 }~

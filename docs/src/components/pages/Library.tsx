@@ -162,7 +162,7 @@ const useStyle = styleMethod(theme => ({
     '& pre': {
       padding: '0',
       margin: '16px 0',
-      background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.color.primary[5],
+      background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.color.primary[10],
       boxShadow: theme.palette.light ? `0px 8px 10px 1px rgb(0 0 0 / 1%), 0px 3px 14px 2px rgb(0 0 0 / 1%), 0px 5px 5px -3px rgb(0 0 0 / 4%)` : undefined,
       maxHeight: '540px',
       position: 'relative'
@@ -173,7 +173,7 @@ const useStyle = styleMethod(theme => ({
     },
 
     '& .keyword, & .attr-name': {
-      color: theme.palette.color.primary[theme.palette.light ? 40 : 30]
+      color: theme.palette.color.primary[40]
     },
 
     '& .attr-name': {
@@ -181,19 +181,19 @@ const useStyle = styleMethod(theme => ({
     },
 
     '& .function, & .class-name, & .tag': {
-      color: theme.palette.color.primary[theme.palette.light ? 30 : 40]
+      color: theme.palette.color.primary[30]
     },
 
     '& .constant': {
-      color: theme.palette.color.secondary[theme.palette.light ? 40 : 30]
+      color: theme.palette.color.secondary[40]
     },
 
     '& .important, & .regex, & .variable': {
-      color: theme.palette.color.tertiary[theme.palette.light ? 40 : 30]
+      color: theme.palette.color.tertiary[40]
     },
 
     '& .number, & .boolean': {
-      color: theme.palette.color.quaternary[theme.palette.light ? 40 : 30]
+      color: theme.palette.color.quaternary[40]
     },
 
     '& .punctuation': {

@@ -96,11 +96,11 @@ class AmauiStyleRuleProperty {
   "props": {
     "previous": {
       "label": "Style: AmauiStyleRule",
-      "to": "/dev/style/use/AmauiStyleRule"
+      "to": "/library/style/use/AmauiStyleRule"
     },
     "next": {
       "label": "Style: AmauiStyleSheet",
-      "to": "/dev/style/use/AmauiStyleSheet"
+      "to": "/library/style/use/AmauiStyleSheet"
     }
   }
 }~

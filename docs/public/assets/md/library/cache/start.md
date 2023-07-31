@@ -54,11 +54,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Binary Tree: Start",
-      "to": "/dev/binary-tree/start"
+      "to": "/library/binary-tree/start"
     },
     "next": {
       "label": "Cache: Use",
-      "to": "/dev/cache/use"
+      "to": "/library/cache/use"
     }
   }
 }~

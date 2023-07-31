@@ -68,11 +68,11 @@ const Append: {
   "props": {
     "previous": {
       "label": "UI react: AdvancedTextField",
-      "to": "/dev/ui-react/use/AdvancedTextField"
+      "to": "/library/ui-react/use/AdvancedTextField"
     },
     "next": {
       "label": "UI react: AreaChart",
-      "to": "/dev/ui-react/use/AreaChart"
+      "to": "/library/ui-react/use/AreaChart"
     }
   }
 }~

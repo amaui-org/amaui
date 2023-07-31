@@ -67,11 +67,11 @@ default function variation(value_: any[], items_?: number, options_?: IVariation
   "props": {
     "previous": {
       "label": "Utils: valueFromPercentageWithinRange",
-      "to": "/dev/utils/use/valueFromPercentageWithinRange"
+      "to": "/library/utils/use/valueFromPercentageWithinRange"
     },
     "next": {
       "label": "Utils: variationWithRepetition",
-      "to": "/dev/utils/use/variationWithRepetition"
+      "to": "/library/utils/use/variationWithRepetition"
     }
   }
 }~

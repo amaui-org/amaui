@@ -40,11 +40,11 @@ const Interaction: React.ForwardRefExoticComponent<Omit<IInteraction, "ref"> & R
   "props": {
     "previous": {
       "label": "UI react: ImageListItemBox",
-      "to": "/dev/ui-react/use/ImageListItemBox"
+      "to": "/library/ui-react/use/ImageListItemBox"
     },
     "next": {
       "label": "UI react: Keyframes",
-      "to": "/dev/ui-react/use/Keyframes"
+      "to": "/library/ui-react/use/Keyframes"
     }
   }
 }~

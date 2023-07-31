@@ -24,11 +24,11 @@ const Reset: {
   "props": {
     "previous": {
       "label": "UI react: Rating",
-      "to": "/dev/ui-react/use/Rating"
+      "to": "/library/ui-react/use/Rating"
     },
     "next": {
       "label": "UI react: Reveal",
-      "to": "/dev/ui-react/use/Reveal"
+      "to": "/library/ui-react/use/Reveal"
     }
   }
 }~

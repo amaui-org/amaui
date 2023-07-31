@@ -278,11 +278,11 @@ const sanitize: (value: string) => string;
   "props": {
     "previous": {
       "label": "UI react: useSwipe",
-      "to": "/dev/ui-react/use/useSwipe"
+      "to": "/library/ui-react/use/useSwipe"
     },
     "next": {
       "label": "Style react: Start",
-      "to": "/dev/style-react/start"
+      "to": "/library/style-react/start"
     }
   }
 }~

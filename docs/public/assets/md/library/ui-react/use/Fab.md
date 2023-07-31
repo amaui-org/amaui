@@ -21,11 +21,11 @@ const Fab: React.ForwardRefExoticComponent<Omit<IFab, "ref"> & React.RefAttribut
   "props": {
     "previous": {
       "label": "UI react: Expand",
-      "to": "/dev/ui-react/use/Expand"
+      "to": "/library/ui-react/use/Expand"
     },
     "next": {
       "label": "UI react: Fade",
-      "to": "/dev/ui-react/use/Fade"
+      "to": "/library/ui-react/use/Fade"
     }
   }
 }~

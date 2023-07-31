@@ -21,11 +21,11 @@ const TimeRangePicker: React.ForwardRefExoticComponent<Omit<ITimeRangePicker, "r
   "props": {
     "previous": {
       "label": "UI react: TimePicker",
-      "to": "/dev/ui-react/use/TimePicker"
+      "to": "/library/ui-react/use/TimePicker"
     },
     "next": {
       "label": "UI react: Timeline",
-      "to": "/dev/ui-react/use/Timeline"
+      "to": "/library/ui-react/use/Timeline"
     }
   }
 }~

@@ -327,11 +327,11 @@ class AmauiHeap {
   "props": {
     "previous": {
       "label": "Heap: Start",
-      "to": "/dev/heap/start"
+      "to": "/library/heap/start"
     },
     "next": {
       "label": "Huffman code: Start",
-      "to": "/dev/huffman-code/start"
+      "to": "/library/huffman-code/start"
     }
   }
 }~

@@ -448,11 +448,11 @@ class AmauiAmqp {
   "props": {
     "previous": {
       "label": "AMQP: Start",
-      "to": "/dev/amqp/start"
+      "to": "/library/amqp/start"
     },
     "next": {
       "label": "API: Start",
-      "to": "/dev/api/start"
+      "to": "/library/api/start"
     }
   }
 }~

@@ -362,11 +362,11 @@ function reset(value_: TValue, options_?: IOptions): IMethodResponse;
   "props": {
     "previous": {
       "label": "Style: pure",
-      "to": "/dev/style/use/pure"
+      "to": "/library/style/use/pure"
     },
     "next": {
       "label": "Style: rtl",
-      "to": "/dev/style/use/rtl"
+      "to": "/library/style/use/rtl"
     }
   }
 }~

@@ -161,11 +161,11 @@ function style(value_: TValue, options_?: IOptions): IMethodResponse;
   "props": {
     "previous": {
       "label": "Style: sort",
-      "to": "/dev/style/use/sort"
+      "to": "/library/style/use/sort"
     },
     "next": {
       "label": "Style: unit",
-      "to": "/dev/style/use/unit"
+      "to": "/library/style/use/unit"
     }
   }
 }~

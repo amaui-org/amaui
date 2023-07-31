@@ -48,11 +48,11 @@ const ImageCrop: React.ForwardRefExoticComponent<Omit<IImageCrop, "ref"> & React
   "props": {
     "previous": {
       "label": "UI react: Image",
-      "to": "/dev/ui-react/use/Image"
+      "to": "/library/ui-react/use/Image"
     },
     "next": {
       "label": "UI react: ImageEdit",
-      "to": "/dev/ui-react/use/ImageEdit"
+      "to": "/library/ui-react/use/ImageEdit"
     }
   }
 }~

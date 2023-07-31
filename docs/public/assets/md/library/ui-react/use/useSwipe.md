@@ -38,11 +38,11 @@ const useSwipe: {
   "props": {
     "previous": {
       "label": "UI react: useScroll",
-      "to": "/dev/ui-react/use/useScroll"
+      "to": "/library/ui-react/use/useScroll"
     },
     "next": {
       "label": "UI react: utils",
-      "to": "/dev/ui-react/use/utils"
+      "to": "/library/ui-react/use/utils"
     }
   }
 }~

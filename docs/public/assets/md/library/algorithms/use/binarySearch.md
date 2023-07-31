@@ -46,11 +46,11 @@ default function binarySearch(array: Array<number>, value: number, options?: IBi
   "props": {
     "previous": {
       "label": "Algorithms: Start",
-      "to": "/dev/algorithms/start"
+      "to": "/library/algorithms/start"
     },
     "next": {
       "label": "Algorithms: binarySearchRecursive",
-      "to": "/dev/algorithms/use/binarySearchRecursive"
+      "to": "/library/algorithms/use/binarySearchRecursive"
     }
   }
 }~

@@ -22,11 +22,11 @@ const Path: React.ForwardRefExoticComponent<Omit<IPath, "ref"> & React.RefAttrib
   "props": {
     "previous": {
       "label": "UI react: Parallax",
-      "to": "/dev/ui-react/use/Parallax"
+      "to": "/library/ui-react/use/Parallax"
     },
     "next": {
       "label": "UI react: PieChart",
-      "to": "/dev/ui-react/use/PieChart"
+      "to": "/library/ui-react/use/PieChart"
     }
   }
 }~

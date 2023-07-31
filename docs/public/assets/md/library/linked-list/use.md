@@ -453,11 +453,11 @@ default class AmauiLinkedList {
   "props": {
     "previous": {
       "label": "Linked list: Start",
-      "to": "/dev/linked list/start"
+      "to": "/library/linked list/start"
     },
     "next": {
       "label": "Linked list: Start",
-      "to": "/dev/linked list/start"
+      "to": "/library/linked list/start"
     }
   }
 }~

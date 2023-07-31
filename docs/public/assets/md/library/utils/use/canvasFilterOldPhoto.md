@@ -26,11 +26,11 @@ const canvasFilterOldPhoto: (value: number, canvas: HTMLCanvasElement) => HTMLCa
   "props": {
     "previous": {
       "label": "Utils: canvasFilterInvert",
-      "to": "/dev/utils/use/canvasFilterInvert"
+      "to": "/library/utils/use/canvasFilterInvert"
     },
     "next": {
       "label": "Utils: canvasFilterSaturation",
-      "to": "/dev/utils/use/canvasFilterSaturation"
+      "to": "/library/utils/use/canvasFilterSaturation"
     }
   }
 }~

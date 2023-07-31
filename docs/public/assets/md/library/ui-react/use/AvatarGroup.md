@@ -29,11 +29,11 @@ const AvatarGroup: React.ForwardRefExoticComponent<Omit<IAvatarGroup, "ref"> & R
   "props": {
     "previous": {
       "label": "UI react: Avatar",
-      "to": "/dev/ui-react/use/Avatar"
+      "to": "/library/ui-react/use/Avatar"
     },
     "next": {
       "label": "UI react: Backdrop",
-      "to": "/dev/ui-react/use/Backdrop"
+      "to": "/library/ui-react/use/Backdrop"
     }
   }
 }~

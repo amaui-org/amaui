@@ -62,11 +62,11 @@ const to: (value_: any, type?: TType, options_?: IOptions) => TTo;
   "props": {
     "previous": {
       "label": "Utils: stringify",
-      "to": "/dev/utils/use/stringify"
+      "to": "/library/utils/use/stringify"
     },
     "next": {
       "label": "Utils: try",
-      "to": "/dev/utils/use/try"
+      "to": "/library/utils/use/try"
     }
   }
 }~

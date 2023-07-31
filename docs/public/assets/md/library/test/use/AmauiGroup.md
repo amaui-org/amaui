@@ -222,11 +222,11 @@ class AmauiGroup implements IAmauiGroup {
   "props": {
     "previous": {
       "label": "Test: Start",
-      "to": "/dev/test/start"
+      "to": "/library/test/start"
     },
     "next": {
       "label": "Test: AmauiMiddleware",
-      "to": "/dev/test/use/AmauiMiddleware"
+      "to": "/library/test/use/AmauiMiddleware"
     }
   }
 }~

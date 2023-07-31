@@ -55,11 +55,11 @@ const countries: Array<ICountry>;
   "props": {
     "previous": {
       "label": "Utils: copyToClipboard",
-      "to": "/dev/utils/use/copyToClipboard"
+      "to": "/library/utils/use/copyToClipboard"
     },
     "next": {
       "label": "Utils: darken",
-      "to": "/dev/utils/use/darken"
+      "to": "/library/utils/use/darken"
     }
   }
 }~

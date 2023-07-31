@@ -61,11 +61,11 @@ const styled: (Element: any) => (value: TValue, options?: IOptions) => React.Ele
   "props": {
     "previous": {
       "label": "Style react: style",
-      "to": "/dev/style-react/use/style"
+      "to": "/library/style-react/use/style"
     },
     "next": {
       "label": "Style react: withStyle",
-      "to": "/dev/style-react/use/withStyle"
+      "to": "/library/style-react/use/withStyle"
     }
   }
 }~

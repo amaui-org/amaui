@@ -401,11 +401,11 @@ class Query extends Base implements IQuery {
   "props": {
     "previous": {
       "label": "Models: MongoResponse",
-      "to": "/dev/models/use/MongoResponse"
+      "to": "/library/models/use/MongoResponse"
     },
     "next": {
       "label": "Models: ResponseMeta",
-      "to": "/dev/models/use/ResponseMeta"
+      "to": "/library/models/use/ResponseMeta"
     }
   }
 }~

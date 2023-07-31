@@ -149,11 +149,11 @@ class AmauiStyleRule {
   "props": {
     "previous": {
       "label": "Style: AmauiStyleRenderer",
-      "to": "/dev/style/use/AmauiStyleRenderer"
+      "to": "/library/style/use/AmauiStyleRenderer"
     },
     "next": {
       "label": "Style: AmauiStyleRuleProperty",
-      "to": "/dev/style/use/AmauiStyleRuleProperty"
+      "to": "/library/style/use/AmauiStyleRuleProperty"
     }
   }
 }~

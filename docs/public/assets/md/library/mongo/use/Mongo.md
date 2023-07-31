@@ -191,11 +191,11 @@ class Mongo {
   "props": {
     "previous": {
       "label": "Mongo: BaseCollection",
-      "to": "/dev/mongo/use/BaseCollection"
+      "to": "/library/mongo/use/BaseCollection"
     },
     "next": {
       "label": "Node: start",
-      "to": "/dev/node/start"
+      "to": "/library/node/start"
     }
   }
 }~

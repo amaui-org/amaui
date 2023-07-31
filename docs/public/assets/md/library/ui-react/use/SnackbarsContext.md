@@ -14,11 +14,11 @@ const AmauiSnackbarsContext: any;
   "props": {
     "previous": {
       "label": "UI react: Snackbar",
-      "to": "/dev/ui-react/use/Snackbar"
+      "to": "/library/ui-react/use/Snackbar"
     },
     "next": {
       "label": "UI react: SnackbarsProvider",
-      "to": "/dev/ui-react/use/SnackbarsProvider"
+      "to": "/library/ui-react/use/SnackbarsProvider"
     }
   }
 }~

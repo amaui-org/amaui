@@ -21,11 +21,11 @@ const BottomSheet: React.ForwardRefExoticComponent<Omit<IBottomSheet, "ref"> & R
   "props": {
     "previous": {
       "label": "UI react: BottomAppBar",
-      "to": "/dev/ui-react/use/BottomAppBar"
+      "to": "/library/ui-react/use/BottomAppBar"
     },
     "next": {
       "label": "UI react: Box",
-      "to": "/dev/ui-react/use/Box"
+      "to": "/library/ui-react/use/Box"
     }
   }
 }~

@@ -526,11 +526,11 @@ type IAssert = {
   "props": {
     "previous": {
       "label": "Test: AmauiTo",
-      "to": "/dev/test/use/AmauiTo"
+      "to": "/library/test/use/AmauiTo"
     },
     "next": {
       "label": "Test: cli",
-      "to": "/dev/test/use/cli"
+      "to": "/library/test/use/cli"
     }
   }
 }~

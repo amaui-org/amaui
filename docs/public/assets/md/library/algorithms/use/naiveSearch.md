@@ -26,11 +26,11 @@ default function naiveSearch(string: string, value: string): boolean;
   "props": {
     "previous": {
       "label": "Algorithms: mergeSort",
-      "to": "/dev/algorithms/use/mergeSort"
+      "to": "/library/algorithms/use/mergeSort"
     },
     "next": {
       "label": "Algorithms: quickSort",
-      "to": "/dev/algorithms/use/quickSort"
+      "to": "/library/algorithms/use/quickSort"
     }
   }
 }~

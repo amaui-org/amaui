@@ -49,11 +49,11 @@ default function className(value_: string | TValue, props_?: any, className_?: s
   "props": {
     "previous": {
       "label": "Style react: AmauiThemeProvider",
-      "to": "/dev/style-react/use/AmauiThemeProvider"
+      "to": "/library/style-react/use/AmauiThemeProvider"
     },
     "next": {
       "label": "Style react: inline",
-      "to": "/dev/style-react/use/inline"
+      "to": "/library/style-react/use/inline"
     }
   }
 }~

@@ -40,11 +40,11 @@ const rgbToHslPure: (r_: number, g_: number, b_: number) => number[];
   "props": {
     "previous": {
       "label": "Utils: rgbToHsl",
-      "to": "/dev/utils/use/rgbToHsl"
+      "to": "/library/utils/use/rgbToHsl"
     },
     "next": {
       "label": "Utils: rgbToRgba",
-      "to": "/dev/utils/use/rgbToRgba"
+      "to": "/library/utils/use/rgbToRgba"
     }
   }
 }~

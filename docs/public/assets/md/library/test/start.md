@@ -316,11 +316,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Subscription: Start",
-      "to": "/dev/subscription/start"
+      "to": "/library/subscription/start"
     },
     "next": {
       "label": "Test: AmauiGroup",
-      "to": "/dev/test/use/AmauiGroup"
+      "to": "/library/test/use/AmauiGroup"
     }
   }
 }~

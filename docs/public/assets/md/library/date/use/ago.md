@@ -25,11 +25,11 @@ default function ago(amauiDate?: AmauiDate, withSufix?: boolean): string;
   "props": {
     "previous": {
       "label": "Date: add",
-      "to": "/dev/date/use/add"
+      "to": "/library/date/use/add"
     },
     "next": {
       "label": "Date: AmauiDate",
-      "to": "/dev/date/use/AmauiDate"
+      "to": "/library/date/use/AmauiDate"
     }
   }
 }~

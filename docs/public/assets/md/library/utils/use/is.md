@@ -77,11 +77,11 @@ default function is(type: string, value?: any, options_?: IOptions): any;
   "props": {
     "previous": {
       "label": "Utils: imageToPalette",
-      "to": "/dev/utils/use/imageToPalette"
+      "to": "/library/utils/use/imageToPalette"
     },
     "next": {
       "label": "Utils: isBrowser",
-      "to": "/dev/utils/use/isBrowser"
+      "to": "/library/utils/use/isBrowser"
     }
   }
 }~

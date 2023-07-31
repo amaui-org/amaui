@@ -23,11 +23,11 @@ const getID: () => string;
   "props": {
     "previous": {
       "label": "Utils: getGoogleFontsURL",
-      "to": "/dev/utils/use/getGoogleFontsURL"
+      "to": "/library/utils/use/getGoogleFontsURL"
     },
     "next": {
       "label": "Utils: getLeadingZerosNumber",
-      "to": "/dev/utils/use/getLeadingZerosNumber"
+      "to": "/library/utils/use/getLeadingZerosNumber"
     }
   }
 }~

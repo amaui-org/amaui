@@ -40,11 +40,11 @@ const getMongoOperator: (operator: string) => string | undefined;
   "props": {
     "previous": {
       "label": "Models: getMongoMatch",
-      "to": "/dev/models/use/getMongoMatch"
+      "to": "/library/models/use/getMongoMatch"
     },
     "next": {
       "label": "Models: models",
-      "to": "/dev/models/use/models"
+      "to": "/library/models/use/models"
     }
   }
 }~

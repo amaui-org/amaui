@@ -27,11 +27,11 @@ const AdvancedTextField: React.ForwardRefExoticComponent<Omit<IAdvancedTextField
   "props": {
     "previous": {
       "label": "UI react: Accordion",
-      "to": "/dev/ui-react/use/Accordion"
+      "to": "/library/ui-react/use/Accordion"
     },
     "next": {
       "label": "UI react: Append",
-      "to": "/dev/ui-react/use/Append"
+      "to": "/library/ui-react/use/Append"
     }
   }
 }~

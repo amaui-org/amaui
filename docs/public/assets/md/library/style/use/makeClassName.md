@@ -120,11 +120,11 @@ function makeClassName(amauiStyle: AmauiStyle, options_?: IOptions): {
   "props": {
     "previous": {
       "label": "Style: interfaces",
-      "to": "/dev/style/use/interfaces"
+      "to": "/library/style/use/interfaces"
     },
     "next": {
       "label": "Style: prefix",
-      "to": "/dev/style/use/prefix"
+      "to": "/library/style/use/prefix"
     }
   }
 }~

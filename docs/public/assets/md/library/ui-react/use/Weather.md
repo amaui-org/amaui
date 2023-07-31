@@ -56,11 +56,11 @@ const Weather: React.ForwardRefExoticComponent<Omit<IWeather, "ref"> & React.Ref
   "props": {
     "previous": {
       "label": "UI react: Watch",
-      "to": "/dev/ui-react/use/Watch"
+      "to": "/library/ui-react/use/Watch"
     },
     "next": {
       "label": "UI react: WidgetsContext",
-      "to": "/dev/ui-react/use/WidgetsContext"
+      "to": "/library/ui-react/use/WidgetsContext"
     }
   }
 }~

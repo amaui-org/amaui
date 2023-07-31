@@ -29,11 +29,11 @@ const Checkbox: React.ForwardRefExoticComponent<Omit<ICheckbox, "ref"> & React.R
   "props": {
     "previous": {
       "label": "UI react: Chart",
-      "to": "/dev/ui-react/use/Chart"
+      "to": "/library/ui-react/use/Chart"
     },
     "next": {
       "label": "UI react: Chip",
-      "to": "/dev/ui-react/use/Chip"
+      "to": "/library/ui-react/use/Chip"
     }
   }
 }~

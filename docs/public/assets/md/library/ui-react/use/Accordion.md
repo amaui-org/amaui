@@ -51,11 +51,11 @@ const Accordion: React.ForwardRefExoticComponent<Omit<IAccordion, "ref"> & React
   "props": {
     "previous": {
       "label": "UI react: Start",
-      "to": "/dev/ui-react/start"
+      "to": "/library/ui-react/start"
     },
     "next": {
       "label": "UI react: AdvancedTextField",
-      "to": "/dev/ui-react/use/AdvancedTextField"
+      "to": "/library/ui-react/use/AdvancedTextField"
     }
   }
 }~

@@ -40,11 +40,11 @@ const slugify: (value_: string, options_?: IOptions) => any;
   "props": {
     "previous": {
       "label": "Utils: simpleNormalize",
-      "to": "/dev/utils/use/simpleNormalize"
+      "to": "/library/utils/use/simpleNormalize"
     },
     "next": {
       "label": "Utils: stringify",
-      "to": "/dev/utils/use/stringify"
+      "to": "/library/utils/use/stringify"
     }
   }
 }~

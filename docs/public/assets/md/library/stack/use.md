@@ -128,11 +128,11 @@ default class AmauiStack {
   "props": {
     "previous": {
       "label": "Stack: Start",
-      "to": "/dev/stack/start"
+      "to": "/library/stack/start"
     },
     "next": {
       "label": "Storage: Start",
-      "to": "/dev/storage/start"
+      "to": "/library/storage/start"
     }
   }
 }~

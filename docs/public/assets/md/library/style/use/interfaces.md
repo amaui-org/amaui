@@ -253,11 +253,11 @@ interface IAmauiStyleSheetManagerProps {
   "props": {
     "previous": {
       "label": "Style: inline",
-      "to": "/dev/style/use/inline"
+      "to": "/library/style/use/inline"
     },
     "next": {
       "label": "Style: makeClassName",
-      "to": "/dev/style/use/makeClassName"
+      "to": "/library/style/use/makeClassName"
     }
   }
 }~

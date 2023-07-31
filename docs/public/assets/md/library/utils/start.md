@@ -55,11 +55,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Test: Start",
-      "to": "/dev/test/start"
+      "to": "/library/test/start"
     },
     "next": {
       "label": "Utils: allImagesLoaded",
-      "to": "/dev/utils/use/allImagesLoaded"
+      "to": "/library/utils/use/allImagesLoaded"
     }
   }
 }~

@@ -27,11 +27,11 @@ const shuffle: <T extends unknown>(value: string | T[], toShuffle?: number) => s
   "props": {
     "previous": {
       "label": "Utils: setStringVariables",
-      "to": "/dev/utils/use/setStringVariables"
+      "to": "/library/utils/use/setStringVariables"
     },
     "next": {
       "label": "Utils: simpleNormalize",
-      "to": "/dev/utils/use/simpleNormalize"
+      "to": "/library/utils/use/simpleNormalize"
     }
   }
 }~

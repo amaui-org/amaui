@@ -26,11 +26,11 @@ const canvasFilterFade: (value_: number, canvas: HTMLCanvasElement) => HTMLCanva
   "props": {
     "previous": {
       "label": "Utils: canvasFilterContrast",
-      "to": "/dev/utils/use/canvasFilterContrast"
+      "to": "/library/utils/use/canvasFilterContrast"
     },
     "next": {
       "label": "Utils: canvasFilterInvert",
-      "to": "/dev/utils/use/canvasFilterInvert"
+      "to": "/library/utils/use/canvasFilterInvert"
     }
   }
 }~

@@ -83,11 +83,11 @@ namespace Transition {
   "props": {
     "previous": {
       "label": "UI react: TopAppBar",
-      "to": "/dev/ui-react/use/TopAppBar"
+      "to": "/library/ui-react/use/TopAppBar"
     },
     "next": {
       "label": "UI react: TransitionContext",
-      "to": "/dev/ui-react/use/TransitionContext"
+      "to": "/library/ui-react/use/TransitionContext"
     }
   }
 }~

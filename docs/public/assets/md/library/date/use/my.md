@@ -41,11 +41,11 @@ default function my(): IMy;
   "props": {
     "previous": {
       "label": "Date: min",
-      "to": "/dev/date/use/min"
+      "to": "/library/date/use/min"
     },
     "next": {
       "label": "Date: myTimezone",
-      "to": "/dev/date/use/myTimezone"
+      "to": "/library/date/use/myTimezone"
     }
   }
 }~

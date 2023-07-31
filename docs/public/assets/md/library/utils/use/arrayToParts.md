@@ -28,11 +28,11 @@ const arrayToParts: (value: any[], parts?: number) => any[];
   "props": {
     "previous": {
       "label": "Utils: arrayMoveItem",
-      "to": "/dev/utils/use/arrayMoveItem"
+      "to": "/library/utils/use/arrayMoveItem"
     },
     "next": {
       "label": "Utils: asyncMethodRetry",
-      "to": "/dev/utils/use/asyncMethodRetry"
+      "to": "/library/utils/use/asyncMethodRetry"
     }
   }
 }~

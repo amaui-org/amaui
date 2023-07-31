@@ -206,11 +206,11 @@ class AmauiAws {
   "props": {
     "previous": {
       "label": "AWS: Start",
-      "to": "/dev/aws/start"
+      "to": "/library/aws/start"
     },
     "next": {
       "label": "Binary tree: Start",
-      "to": "/dev/binary-tree/start"
+      "to": "/library/binary-tree/start"
     }
   }
 }~

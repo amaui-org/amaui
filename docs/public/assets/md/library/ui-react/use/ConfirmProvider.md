@@ -64,11 +64,11 @@ const ConfirmProvider: React.ForwardRefExoticComponent<Omit<IConfirmProvider, "r
   "props": {
     "previous": {
       "label": "UI react: ConfirmContext",
-      "to": "/dev/ui-react/use/ConfirmContext"
+      "to": "/library/ui-react/use/ConfirmContext"
     },
     "next": {
       "label": "UI react: useConfirm",
-      "to": "/dev/ui-react/use/useConfirm"
+      "to": "/library/ui-react/use/useConfirm"
     }
   }
 }~

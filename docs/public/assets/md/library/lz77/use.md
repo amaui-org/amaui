@@ -154,11 +154,11 @@ class AmauiLZ77 {
   "props": {
     "previous": {
       "label": "LZ77: Start",
-      "to": "/dev/lz77/start"
+      "to": "/library/lz77/start"
     },
     "next": {
       "label": "Meta: Start",
-      "to": "/dev/meta/start"
+      "to": "/library/meta/start"
     }
   }
 }~

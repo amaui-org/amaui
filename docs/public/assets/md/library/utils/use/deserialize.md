@@ -23,11 +23,11 @@ const deserialize: (value: string) => any;
   "props": {
     "previous": {
       "label": "Utils: decrypt",
-      "to": "/dev/utils/use/decrypt"
+      "to": "/library/utils/use/decrypt"
     },
     "next": {
       "label": "Utils: download",
-      "to": "/dev/utils/use/download"
+      "to": "/library/utils/use/download"
     }
   }
 }~

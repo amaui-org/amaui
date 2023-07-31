@@ -14,11 +14,11 @@ default function useWidgets(): IWidgetsProvider;
   "props": {
     "previous": {
       "label": "UI react: WidgetsProvider",
-      "to": "/dev/ui-react/use/WidgetsProvider"
+      "to": "/library/ui-react/use/WidgetsProvider"
     },
     "next": {
       "label": "UI react: WindowSplit",
-      "to": "/dev/ui-react/use/WindowSplit"
+      "to": "/library/ui-react/use/WindowSplit"
     }
   }
 }~

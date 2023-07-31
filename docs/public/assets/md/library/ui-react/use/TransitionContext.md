@@ -14,11 +14,11 @@ const TransitionContext: React.Context<any>;
   "props": {
     "previous": {
       "label": "UI react: Transition",
-      "to": "/dev/ui-react/use/Transition"
+      "to": "/library/ui-react/use/Transition"
     },
     "next": {
       "label": "UI react: useTransition",
-      "to": "/dev/ui-react/use/useTransition"
+      "to": "/library/ui-react/use/useTransition"
     }
   }
 }~

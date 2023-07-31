@@ -128,11 +128,11 @@ default class AmauiQueue {
   "props": {
     "previous": {
       "label": "Queue: Start",
-      "to": "/dev/queue/start"
+      "to": "/library/queue/start"
     },
     "next": {
       "label": "Request: Start",
-      "to": "/dev/request/start"
+      "to": "/library/request/start"
     }
   }
 }~

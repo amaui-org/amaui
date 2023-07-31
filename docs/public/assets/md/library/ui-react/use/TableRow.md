@@ -25,11 +25,11 @@ const TableRow: React.ForwardRefExoticComponent<Omit<ITableRow, "ref"> & React.R
   "props": {
     "previous": {
       "label": "UI react: TablePagination",
-      "to": "/dev/ui-react/use/TablePagination"
+      "to": "/library/ui-react/use/TablePagination"
     },
     "next": {
       "label": "UI react: Tabs",
-      "to": "/dev/ui-react/use/Tabs"
+      "to": "/library/ui-react/use/Tabs"
     }
   }
 }~

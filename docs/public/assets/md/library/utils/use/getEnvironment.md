@@ -23,11 +23,11 @@ const getEnvironment: () => typeof globalThis;
   "props": {
     "previous": {
       "label": "Utils: getCountry",
-      "to": "/dev/utils/use/getCountry"
+      "to": "/library/utils/use/getCountry"
     },
     "next": {
       "label": "Utils: getFileName",
-      "to": "/dev/utils/use/getFileName"
+      "to": "/library/utils/use/getFileName"
     }
   }
 }~

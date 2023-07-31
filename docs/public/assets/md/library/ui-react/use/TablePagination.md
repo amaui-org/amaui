@@ -43,11 +43,11 @@ const TablePagination: React.ForwardRefExoticComponent<Omit<ITableRow, "ref"> & 
   "props": {
     "previous": {
       "label": "UI react: TableHeader",
-      "to": "/dev/ui-react/use/TableHeader"
+      "to": "/library/ui-react/use/TableHeader"
     },
     "next": {
       "label": "UI react: TableRow",
-      "to": "/dev/ui-react/use/TableRow"
+      "to": "/library/ui-react/use/TableRow"
     }
   }
 }~

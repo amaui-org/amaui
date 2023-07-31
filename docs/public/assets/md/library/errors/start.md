@@ -69,11 +69,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Diff: Start",
-      "to": "/dev/diff/start"
+      "to": "/library/diff/start"
     },
     "next": {
       "label": "Errors: Use",
-      "to": "/dev/errors/use"
+      "to": "/library/errors/use"
     }
   }
 }~

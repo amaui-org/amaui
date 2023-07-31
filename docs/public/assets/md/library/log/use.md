@@ -510,11 +510,11 @@ class AmauiLog implements IAmauiLog {
   "props": {
     "previous": {
       "label": "Log: Start",
-      "to": "/dev/log/start"
+      "to": "/library/log/start"
     },
     "next": {
       "label": "LZ77: Start",
-      "to": "/dev/lz77/start"
+      "to": "/library/lz77/start"
     }
   }
 }~

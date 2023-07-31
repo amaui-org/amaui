@@ -28,11 +28,11 @@ const Surface: React.ForwardRefExoticComponent<Omit<ISurface, "ref"> & React.Ref
   "props": {
     "previous": {
       "label": "UI react: Stepper",
-      "to": "/dev/ui-react/use/Stepper"
+      "to": "/library/ui-react/use/Stepper"
     },
     "next": {
       "label": "UI react: Switch",
-      "to": "/dev/ui-react/use/Switch"
+      "to": "/library/ui-react/use/Switch"
     }
   }
 }~

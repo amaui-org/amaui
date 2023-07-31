@@ -89,11 +89,11 @@ yarn build
   "props": {
     "previous": {
       "label": "UI React: Start",
-      "to": "/dev/ui-react/start"
+      "to": "/library/ui-react/start"
     },
     "next": {
       "label": "Style react: AmauiStyleProvider",
-      "to": "/dev/style-react/use/AmauiStyleProvider"
+      "to": "/library/style-react/use/AmauiStyleProvider"
     }
   }
 }~

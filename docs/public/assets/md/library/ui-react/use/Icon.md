@@ -36,11 +36,11 @@ const Icon: React.ForwardRefExoticComponent<Omit<IIcon, "ref"> & React.RefAttrib
   "props": {
     "previous": {
       "label": "UI react: Grow",
-      "to": "/dev/ui-react/use/Grow"
+      "to": "/library/ui-react/use/Grow"
     },
     "next": {
       "label": "UI react: IconButton",
-      "to": "/dev/ui-react/use/IconButton"
+      "to": "/library/ui-react/use/IconButton"
     }
   }
 }~

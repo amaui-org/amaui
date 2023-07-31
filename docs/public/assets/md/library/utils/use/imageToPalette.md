@@ -55,11 +55,11 @@ const imageToPalette: (value: string, options?: {
   "props": {
     "previous": {
       "label": "Utils: hslToRgbPure",
-      "to": "/dev/utils/use/hslToRgbPure"
+      "to": "/library/utils/use/hslToRgbPure"
     },
     "next": {
       "label": "Utils: is",
-      "to": "/dev/utils/use/is"
+      "to": "/library/utils/use/is"
     }
   }
 }~

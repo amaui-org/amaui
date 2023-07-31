@@ -22,11 +22,11 @@ const Chips: React.ForwardRefExoticComponent<Omit<IChips, "ref"> & React.RefAttr
   "props": {
     "previous": {
       "label": "UI react: Chip",
-      "to": "/dev/ui-react/use/Chip"
+      "to": "/library/ui-react/use/Chip"
     },
     "next": {
       "label": "UI react: ClickListener",
-      "to": "/dev/ui-react/use/ClickListener"
+      "to": "/library/ui-react/use/ClickListener"
     }
   }
 }~

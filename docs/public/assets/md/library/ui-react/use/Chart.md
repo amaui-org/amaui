@@ -149,11 +149,11 @@ const Chart: React.ForwardRefExoticComponent<Omit<IChart, "ref"> & React.RefAttr
   "props": {
     "previous": {
       "label": "UI react: Carousel",
-      "to": "/dev/ui-react/use/Carousel"
+      "to": "/library/ui-react/use/Carousel"
     },
     "next": {
       "label": "UI react: Checkbox",
-      "to": "/dev/ui-react/use/Checkbox"
+      "to": "/library/ui-react/use/Checkbox"
     }
   }
 }~

@@ -26,11 +26,11 @@ const valueFromPercentageWithinRange: (value: number, min: number, max: number, 
   "props": {
     "previous": {
       "label": "Utils: updateQueryParams",
-      "to": "/dev/utils/use/updateQueryParams"
+      "to": "/library/utils/use/updateQueryParams"
     },
     "next": {
       "label": "Utils: variation",
-      "to": "/dev/utils/use/variation"
+      "to": "/library/utils/use/variation"
     }
   }
 }~

@@ -14,11 +14,11 @@ default function useConfirm(): IConfirmProvider;
   "props": {
     "previous": {
       "label": "UI react: ConfirmProvider",
-      "to": "/dev/ui-react/use/ConfirmProvider"
+      "to": "/library/ui-react/use/ConfirmProvider"
     },
     "next": {
       "label": "UI react: Container",
-      "to": "/dev/ui-react/use/Container"
+      "to": "/library/ui-react/use/Container"
     }
   }
 }~

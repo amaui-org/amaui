@@ -215,11 +215,11 @@ class Response extends Base {
   "props": {
     "previous": {
       "label": "Models: ResponsePagination",
-      "to": "/dev/models/use/ResponsePagination"
+      "to": "/library/models/use/ResponsePagination"
     },
     "next": {
       "label": "Models: validateMongoQuery",
-      "to": "/dev/models/use/validateMongoQuery"
+      "to": "/library/models/use/validateMongoQuery"
     }
   }
 }~

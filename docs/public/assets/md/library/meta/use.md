@@ -302,11 +302,11 @@ class AmauiMeta {
   "props": {
     "previous": {
       "label": "Meta: Start",
-      "to": "/dev/meta/start"
+      "to": "/library/meta/start"
     },
     "next": {
       "label": "Models: Start",
-      "to": "/dev/models/start"
+      "to": "/library/models/start"
     }
   }
 }~

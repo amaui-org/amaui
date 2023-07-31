@@ -172,11 +172,11 @@ class AmauiCache {
   "props": {
     "previous": {
       "label": "Cache: Start",
-      "to": "/dev/cache/start"
+      "to": "/library/cache/start"
     },
     "next": {
       "label": "Cookie: Start",
-      "to": "/dev/cookie/start"
+      "to": "/library/cookie/start"
     }
   }
 }~

@@ -67,11 +67,11 @@ function rtl(amauiStyle: AmauiStyle): {
   "props": {
     "previous": {
       "label": "Style: reset",
-      "to": "/dev/style/use/reset"
+      "to": "/library/style/use/reset"
     },
     "next": {
       "label": "Style: sort",
-      "to": "/dev/style/use/sort"
+      "to": "/library/style/use/sort"
     }
   }
 }~

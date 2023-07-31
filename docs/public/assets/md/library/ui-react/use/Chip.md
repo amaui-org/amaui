@@ -27,11 +27,11 @@ const Chip: React.ForwardRefExoticComponent<Omit<IChip, "ref"> & React.RefAttrib
   "props": {
     "previous": {
       "label": "UI react: Checkbox",
-      "to": "/dev/ui-react/use/Checkbox"
+      "to": "/library/ui-react/use/Checkbox"
     },
     "next": {
       "label": "UI react: Chips",
-      "to": "/dev/ui-react/use/Chips"
+      "to": "/library/ui-react/use/Chips"
     }
   }
 }~

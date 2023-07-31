@@ -57,11 +57,11 @@ const Tooltip: React.ForwardRefExoticComponent<Omit<ITooltip, "ref"> & React.Ref
   "props": {
     "previous": {
       "label": "UI react: ToggleButtons",
-      "to": "/dev/ui-react/use/ToggleButtons"
+      "to": "/library/ui-react/use/ToggleButtons"
     },
     "next": {
       "label": "UI react: TopAppBar",
-      "to": "/dev/ui-react/use/TopAppBar"
+      "to": "/library/ui-react/use/TopAppBar"
     }
   }
 }~

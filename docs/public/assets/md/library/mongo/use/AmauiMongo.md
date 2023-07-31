@@ -45,11 +45,11 @@ class AmauiMongo {
   "props": {
     "previous": {
       "label": "Mongo: Start",
-      "to": "/dev/mongo/start"
+      "to": "/library/mongo/start"
     },
     "next": {
       "label": "Mongo: BaseCollection",
-      "to": "/dev/mongo/use/BaseCollection"
+      "to": "/library/mongo/use/BaseCollection"
     }
   }
 }~

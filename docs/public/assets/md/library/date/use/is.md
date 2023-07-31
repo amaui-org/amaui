@@ -76,11 +76,11 @@ default function is(value: AmauiDate, query: TIsQuery, value1?: AmauiDate, unit?
   "props": {
     "previous": {
       "label": "Date: in",
-      "to": "/dev/date/use/in"
+      "to": "/library/date/use/in"
     },
     "next": {
       "label": "Date: max",
-      "to": "/dev/date/use/max"
+      "to": "/library/date/use/max"
     }
   }
 }~

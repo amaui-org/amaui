@@ -35,11 +35,11 @@ const Watch: React.ForwardRefExoticComponent<Omit<IWatch, "ref"> & React.RefAttr
   "props": {
     "previous": {
       "label": "UI react: ViewSplit",
-      "to": "/dev/ui-react/use/ViewSplit"
+      "to": "/library/ui-react/use/ViewSplit"
     },
     "next": {
       "label": "UI react: Weather",
-      "to": "/dev/ui-react/use/Weather"
+      "to": "/library/ui-react/use/Weather"
     }
   }
 }~

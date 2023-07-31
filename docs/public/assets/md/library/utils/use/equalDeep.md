@@ -26,11 +26,11 @@ const equalDeep: (valueA: any, valueB: any) => boolean;
   "props": {
     "previous": {
       "label": "Utils: encrypt",
-      "to": "/dev/utils/use/encrypt"
+      "to": "/library/utils/use/encrypt"
     },
     "next": {
       "label": "Utils: factorial",
-      "to": "/dev/utils/use/factorial"
+      "to": "/library/utils/use/factorial"
     }
   }
 }~

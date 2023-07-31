@@ -36,11 +36,11 @@ default function startOf(amauiDate_?: AmauiDate, unit?: TTimeUnits): AmauiDate;
   "props": {
     "previous": {
       "label": "Date: set",
-      "to": "/dev/date/use/set"
+      "to": "/library/date/use/set"
     },
     "next": {
       "label": "Date: timezones",
-      "to": "/dev/date/use/timezones"
+      "to": "/library/date/use/timezones"
     }
   }
 }~

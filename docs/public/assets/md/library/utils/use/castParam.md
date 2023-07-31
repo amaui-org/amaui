@@ -42,11 +42,11 @@ const castParam: (value: any, options_?: IOptions) => any;
   "props": {
     "previous": {
       "label": "Utils: capitalize",
-      "to": "/dev/utils/use/capitalize"
+      "to": "/library/utils/use/capitalize"
     },
     "next": {
       "label": "Utils: checkAppVersion",
-      "to": "/dev/utils/use/checkAppVersion"
+      "to": "/library/utils/use/checkAppVersion"
     }
   }
 }~

@@ -38,11 +38,11 @@ const Tabs: React.ForwardRefExoticComponent<Omit<ITabs, "ref"> & React.RefAttrib
   "props": {
     "previous": {
       "label": "UI react: TableRow",
-      "to": "/dev/ui-react/use/TableRow"
+      "to": "/library/ui-react/use/TableRow"
     },
     "next": {
       "label": "UI react: TextField",
-      "to": "/dev/ui-react/use/TextField"
+      "to": "/library/ui-react/use/TextField"
     }
   }
 }~

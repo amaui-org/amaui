@@ -23,11 +23,11 @@ const matchRoute: (value: string[], path: string) => boolean;
   "props": {
     "previous": {
       "label": "Utils: lighten",
-      "to": "/dev/utils/use/lighten"
+      "to": "/library/utils/use/lighten"
     },
     "next": {
       "label": "Utils: merge",
-      "to": "/dev/utils/use/merge"
+      "to": "/library/utils/use/merge"
     }
   }
 }~

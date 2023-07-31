@@ -24,11 +24,11 @@ const ImageListItem: React.ForwardRefExoticComponent<Omit<IImageListItem, "ref">
   "props": {
     "previous": {
       "label": "UI react: ImageList",
-      "to": "/dev/ui-react/use/ImageList"
+      "to": "/library/ui-react/use/ImageList"
     },
     "next": {
       "label": "UI react: ImageListItemBox",
-      "to": "/dev/ui-react/use/ImageListItemBox"
+      "to": "/library/ui-react/use/ImageListItemBox"
     }
   }
 }~

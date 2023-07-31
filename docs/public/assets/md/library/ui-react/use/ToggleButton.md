@@ -21,11 +21,11 @@ const ToggleButton: React.ForwardRefExoticComponent<Omit<IToggleButton, "ref"> &
   "props": {
     "previous": {
       "label": "UI react: Timer",
-      "to": "/dev/ui-react/use/Timer"
+      "to": "/library/ui-react/use/Timer"
     },
     "next": {
       "label": "UI react: ToggleButtons",
-      "to": "/dev/ui-react/use/ToggleButtons"
+      "to": "/library/ui-react/use/ToggleButtons"
     }
   }
 }~

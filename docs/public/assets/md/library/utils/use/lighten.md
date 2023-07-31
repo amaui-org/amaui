@@ -35,11 +35,11 @@ const lighten: (value: string, coefficient: number) => string | undefined;
   "props": {
     "previous": {
       "label": "Utils: isValid",
-      "to": "/dev/utils/use/isValid"
+      "to": "/library/utils/use/isValid"
     },
     "next": {
       "label": "Utils: matchRoute",
-      "to": "/dev/utils/use/matchRoute"
+      "to": "/library/utils/use/matchRoute"
     }
   }
 }~

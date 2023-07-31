@@ -34,11 +34,11 @@ const ColumnChartItem: React.ForwardRefExoticComponent<Omit<IColumnChartItem, "r
   "props": {
     "previous": {
       "label": "UI react: ColumnChart",
-      "to": "/dev/ui-react/use/ColumnChart"
+      "to": "/library/ui-react/use/ColumnChart"
     },
     "next": {
       "label": "UI react: ConfirmContext",
-      "to": "/dev/ui-react/use/ConfirmContext"
+      "to": "/library/ui-react/use/ConfirmContext"
     }
   }
 }~

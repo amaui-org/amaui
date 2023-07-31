@@ -33,11 +33,11 @@ interface IFilter {
   "props": {
     "previous": {
       "label": "Utils: merge",
-      "to": "/dev/utils/use/merge"
+      "to": "/library/utils/use/merge"
     },
     "next": {
       "label": "Utils: numberWithCommas",
-      "to": "/dev/utils/use/numberWithCommas"
+      "to": "/library/utils/use/numberWithCommas"
     }
   }
 }~

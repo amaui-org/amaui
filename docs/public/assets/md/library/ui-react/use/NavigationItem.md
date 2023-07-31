@@ -41,11 +41,11 @@ const NavigationItem: React.ForwardRefExoticComponent<Omit<INavigationItem, "ref
   "props": {
     "previous": {
       "label": "UI react: NavigationDrawer",
-      "to": "/dev/ui-react/use/NavigationDrawer"
+      "to": "/library/ui-react/use/NavigationDrawer"
     },
     "next": {
       "label": "UI react: NavigationRail",
-      "to": "/dev/ui-react/use/NavigationRail"
+      "to": "/library/ui-react/use/NavigationRail"
     }
   }
 }~

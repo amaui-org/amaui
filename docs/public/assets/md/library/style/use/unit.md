@@ -477,11 +477,11 @@ function unit(amauiStyle: AmauiStyle, options_?: IOptions): {
   "props": {
     "previous": {
       "label": "Style: style",
-      "to": "/dev/style/use/style"
+      "to": "/library/style/use/style"
     },
     "next": {
       "label": "Style: valueObject",
-      "to": "/dev/style/use/valueObject"
+      "to": "/library/style/use/valueObject"
     }
   }
 }~

@@ -38,11 +38,11 @@ const ViewSplit: React.ForwardRefExoticComponent<Omit<IViewSplit, "ref"> & React
   "props": {
     "previous": {
       "label": "UI react: Type",
-      "to": "/dev/ui-react/use/Type"
+      "to": "/library/ui-react/use/Type"
     },
     "next": {
       "label": "UI react: Watch",
-      "to": "/dev/ui-react/use/Watch"
+      "to": "/library/ui-react/use/Watch"
     }
   }
 }~

@@ -67,11 +67,11 @@ const Drawing: React.ForwardRefExoticComponent<Omit<IDrawing, "ref"> & React.Ref
   "props": {
     "previous": {
       "label": "UI react: DonutChart",
-      "to": "/dev/ui-react/use/DonutChart"
+      "to": "/library/ui-react/use/DonutChart"
     },
     "next": {
       "label": "UI react: DropZone",
-      "to": "/dev/ui-react/use/DropZone"
+      "to": "/library/ui-react/use/DropZone"
     }
   }
 }~

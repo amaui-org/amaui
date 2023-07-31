@@ -29,11 +29,11 @@ const DropZone: React.ForwardRefExoticComponent<Omit<IDropZone, "ref"> & React.R
   "props": {
     "previous": {
       "label": "UI react: Drawing",
-      "to": "/dev/ui-react/use/Drawing"
+      "to": "/library/ui-react/use/Drawing"
     },
     "next": {
       "label": "UI react: Expand",
-      "to": "/dev/ui-react/use/Expand"
+      "to": "/library/ui-react/use/Expand"
     }
   }
 }~

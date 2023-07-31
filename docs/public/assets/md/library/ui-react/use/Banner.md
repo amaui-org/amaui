@@ -24,11 +24,11 @@ const Banner: React.ForwardRefExoticComponent<Omit<IBanner, "ref"> & React.RefAt
   "props": {
     "previous": {
       "label": "UI react: Badge",
-      "to": "/dev/ui-react/use/Badge"
+      "to": "/library/ui-react/use/Badge"
     },
     "next": {
       "label": "UI react: BottomAppBar",
-      "to": "/dev/ui-react/use/BottomAppBar"
+      "to": "/library/ui-react/use/BottomAppBar"
     }
   }
 }~

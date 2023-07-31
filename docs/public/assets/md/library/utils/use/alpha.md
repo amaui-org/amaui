@@ -35,11 +35,11 @@ const alpha: (value: string, opacity: number) => string;
   "props": {
     "previous": {
       "label": "Utils: allImagesLoaded",
-      "to": "/dev/utils/use/allImagesLoaded"
+      "to": "/library/utils/use/allImagesLoaded"
     },
     "next": {
       "label": "Utils: arrayMoveItem",
-      "to": "/dev/utils/use/arrayMoveItem"
+      "to": "/library/utils/use/arrayMoveItem"
     }
   }
 }~

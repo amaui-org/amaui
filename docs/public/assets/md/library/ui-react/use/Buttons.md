@@ -50,11 +50,11 @@ const Buttons: React.ForwardRefExoticComponent<Omit<IButtons, "ref"> & React.Ref
   "props": {
     "previous": {
       "label": "UI react: Button",
-      "to": "/dev/ui-react/use/Button"
+      "to": "/library/ui-react/use/Button"
     },
     "next": {
       "label": "UI react: Calendar",
-      "to": "/dev/ui-react/use/Calendar"
+      "to": "/library/ui-react/use/Calendar"
     }
   }
 }~

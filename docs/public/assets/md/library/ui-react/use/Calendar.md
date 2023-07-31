@@ -63,11 +63,11 @@ const Calendar: React.ForwardRefExoticComponent<Omit<ICalendar, "ref"> & React.R
   "props": {
     "previous": {
       "label": "UI react: Buttons",
-      "to": "/dev/ui-react/use/Buttons"
+      "to": "/library/ui-react/use/Buttons"
     },
     "next": {
       "label": "UI react: CalendarMonth",
-      "to": "/dev/ui-react/use/CalendarMonth"
+      "to": "/library/ui-react/use/CalendarMonth"
     }
   }
 }~

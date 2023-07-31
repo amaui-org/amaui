@@ -26,11 +26,11 @@ const hslToRgbPure: (h_: number, s_: number, l_: number) => number[];
   "props": {
     "previous": {
       "label": "Utils: hslToRgb",
-      "to": "/dev/utils/use/hslToRgb"
+      "to": "/library/utils/use/hslToRgb"
     },
     "next": {
       "label": "Utils: imageToPalette",
-      "to": "/dev/utils/use/imageToPalette"
+      "to": "/library/utils/use/imageToPalette"
     }
   }
 }~

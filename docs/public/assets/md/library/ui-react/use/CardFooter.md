@@ -25,11 +25,11 @@ const CardFooter: React.ForwardRefExoticComponent<Omit<ICardFooter, "ref"> & Rea
   "props": {
     "previous": {
       "label": "UI react: CardButton",
-      "to": "/dev/ui-react/use/CardButton"
+      "to": "/library/ui-react/use/CardButton"
     },
     "next": {
       "label": "UI react: CardHeader",
-      "to": "/dev/ui-react/use/CardHeader"
+      "to": "/library/ui-react/use/CardHeader"
     }
   }
 }~

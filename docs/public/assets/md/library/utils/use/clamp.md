@@ -30,11 +30,11 @@ const clamp: (value: number, min?: number, max?: number) => number;
   "props": {
     "previous": {
       "label": "Utils: checkObjectFilters",
-      "to": "/dev/utils/use/checkObjectFilters"
+      "to": "/library/utils/use/checkObjectFilters"
     },
     "next": {
       "label": "Utils: cleanValue",
-      "to": "/dev/utils/use/cleanValue"
+      "to": "/library/utils/use/cleanValue"
     }
   }
 }~

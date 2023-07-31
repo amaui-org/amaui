@@ -14,11 +14,11 @@ default function useSnackbars(): ISnackbarsProvider;
   "props": {
     "previous": {
       "label": "UI react: SnackbarsProvider",
-      "to": "/dev/ui-react/use/SnackbarsProvider"
+      "to": "/library/ui-react/use/SnackbarsProvider"
     },
     "next": {
       "label": "UI react: SpeedDial",
-      "to": "/dev/ui-react/use/SpeedDial"
+      "to": "/library/ui-react/use/SpeedDial"
     }
   }
 }~

@@ -71,11 +71,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Huffman Code: Start",
-      "to": "/dev/huffman-code/start"
+      "to": "/library/huffman-code/start"
     },
     "next": {
       "label": "Linked List: Use",
-      "to": "/dev/linked-list/use"
+      "to": "/library/linked-list/use"
     }
   }
 }~

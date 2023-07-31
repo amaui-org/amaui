@@ -130,11 +130,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Models: Start",
-      "to": "/dev/models/start"
+      "to": "/library/models/start"
     },
     "next": {
       "label": "Mongo: AmauiMongo",
-      "to": "/dev/mongo/use/AmauiMongo"
+      "to": "/library/mongo/use/AmauiMongo"
     }
   }
 }~

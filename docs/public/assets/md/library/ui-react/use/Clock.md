@@ -67,11 +67,11 @@ const Clock: React.ForwardRefExoticComponent<Omit<IClock, "ref"> & React.RefAttr
   "props": {
     "previous": {
       "label": "UI react: ClickListener",
-      "to": "/dev/ui-react/use/ClickListener"
+      "to": "/library/ui-react/use/ClickListener"
     },
     "next": {
       "label": "UI react: ColorTextField",
-      "to": "/dev/ui-react/use/ColorTextField"
+      "to": "/library/ui-react/use/ColorTextField"
     }
   }
 }~

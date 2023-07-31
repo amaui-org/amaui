@@ -88,11 +88,11 @@ const TimePicker: React.ForwardRefExoticComponent<Omit<ITimePicker, "ref"> & Rea
   "props": {
     "previous": {
       "label": "UI react: TextField",
-      "to": "/dev/ui-react/use/TextField"
+      "to": "/library/ui-react/use/TextField"
     },
     "next": {
       "label": "UI react: TimeRangePicker",
-      "to": "/dev/ui-react/use/TimeRangePicker"
+      "to": "/library/ui-react/use/TimeRangePicker"
     }
   }
 }~

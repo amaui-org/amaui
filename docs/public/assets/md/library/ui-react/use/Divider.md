@@ -28,11 +28,11 @@ const Divider: React.ForwardRefExoticComponent<Omit<IDivider, "ref"> & React.Ref
   "props": {
     "previous": {
       "label": "UI react: DateTimeRangePicker",
-      "to": "/dev/ui-react/use/DateTimeRangePicker"
+      "to": "/library/ui-react/use/DateTimeRangePicker"
     },
     "next": {
       "label": "UI react: DonutChart",
-      "to": "/dev/ui-react/use/DonutChart"
+      "to": "/library/ui-react/use/DonutChart"
     }
   }
 }~

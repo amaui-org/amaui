@@ -36,11 +36,11 @@ const Image: React.ForwardRefExoticComponent<Omit<IImage, "ref"> & React.RefAttr
   "props": {
     "previous": {
       "label": "UI react: IconButton",
-      "to": "/dev/ui-react/use/IconButton"
+      "to": "/library/ui-react/use/IconButton"
     },
     "next": {
       "label": "UI react: ImageCrop",
-      "to": "/dev/ui-react/use/ImageCrop"
+      "to": "/library/ui-react/use/ImageCrop"
     }
   }
 }~

@@ -67,11 +67,11 @@ default function variationWithRepetition(value_: any[], items?: number, options_
   "props": {
     "previous": {
       "label": "Utils: variation",
-      "to": "/dev/utils/use/variation"
+      "to": "/library/utils/use/variation"
     },
     "next": {
       "label": "Utils: wait",
-      "to": "/dev/utils/use/wait"
+      "to": "/library/utils/use/wait"
     }
   }
 }~

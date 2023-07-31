@@ -36,11 +36,11 @@ default function isOS(type: string, value?: any): any;
   "props": {
     "previous": {
       "label": "Utils: isExists",
-      "to": "/dev/utils/use/isExists"
+      "to": "/library/utils/use/isExists"
     },
     "next": {
       "label": "Utils: isResponsive",
-      "to": "/dev/utils/use/isResponsive"
+      "to": "/library/utils/use/isResponsive"
     }
   }
 }~

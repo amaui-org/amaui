@@ -184,11 +184,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Storage: Start",
-      "to": "/dev/storage/start"
+      "to": "/library/storage/start"
     },
     "next": {
       "label": "Style: AmauiStyle",
-      "to": "/dev/style/use/AmauiStyle"
+      "to": "/library/style/use/AmauiStyle"
     }
   }
 }~

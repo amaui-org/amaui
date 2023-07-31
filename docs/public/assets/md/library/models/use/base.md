@@ -52,11 +52,11 @@ class Base implements IBase {
   "props": {
     "previous": {
       "label": "Models: ResponsePagination",
-      "to": "/dev/models/use/ResponsePagination"
+      "to": "/library/models/use/ResponsePagination"
     },
     "next": {
       "label": "Models: getExpressParamValue",
-      "to": "/dev/models/use/getExpressParamValue"
+      "to": "/library/models/use/getExpressParamValue"
     }
   }
 }~

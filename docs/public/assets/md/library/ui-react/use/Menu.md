@@ -42,11 +42,11 @@ const Menu: React.ForwardRefExoticComponent<Omit<IMenu, "ref"> & React.RefAttrib
   "props": {
     "previous": {
       "label": "UI react: Masonry",
-      "to": "/dev/ui-react/use/Masonry"
+      "to": "/library/ui-react/use/Masonry"
     },
     "next": {
       "label": "UI react: MenuDesktop",
-      "to": "/dev/ui-react/use/MenuDesktop"
+      "to": "/library/ui-react/use/MenuDesktop"
     }
   }
 }~

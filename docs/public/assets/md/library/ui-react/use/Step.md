@@ -41,11 +41,11 @@ const Step: React.ForwardRefExoticComponent<Omit<IStep, "ref"> & React.RefAttrib
   "props": {
     "previous": {
       "label": "UI react: SpyScroll",
-      "to": "/dev/ui-react/use/SpyScroll"
+      "to": "/library/ui-react/use/SpyScroll"
     },
     "next": {
       "label": "UI react: Stepper",
-      "to": "/dev/ui-react/use/Stepper"
+      "to": "/library/ui-react/use/Stepper"
     }
   }
 }~

@@ -37,11 +37,11 @@ default function diff(value: AmauiDate, value1: AmauiDate, unit?: TTimeUnits): n
   "props": {
     "previous": {
       "label": "Date: AmauiDate",
-      "to": "/dev/date/use/AmauiDate"
+      "to": "/library/date/use/AmauiDate"
     },
     "next": {
       "label": "Date: duration",
-      "to": "/dev/date/use/duration"
+      "to": "/library/date/use/duration"
     }
   }
 }~

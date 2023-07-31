@@ -37,11 +37,11 @@ class AmauiMiddleware implements IAmauiMiddleware {
   "props": {
     "previous": {
       "label": "Test: AmauiGroup",
-      "to": "/dev/test/use/AmauiGroup"
+      "to": "/library/test/use/AmauiGroup"
     },
     "next": {
       "label": "Test: AmauiTest",
-      "to": "/dev/test/use/AmauiTest"
+      "to": "/library/test/use/AmauiTest"
     }
   }
 }~

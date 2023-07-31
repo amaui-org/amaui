@@ -29,11 +29,11 @@ const getContrastRatio: (valueA: string, valueB: string) => number | undefined;
   "props": {
     "previous": {
       "label": "Utils: flattenObject",
-      "to": "/dev/utils/use/flattenObject"
+      "to": "/library/utils/use/flattenObject"
     },
     "next": {
       "label": "Utils: getCountry",
-      "to": "/dev/utils/use/getCountry"
+      "to": "/library/utils/use/getCountry"
     }
   }
 }~

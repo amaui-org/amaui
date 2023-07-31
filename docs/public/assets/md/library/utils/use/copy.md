@@ -37,11 +37,11 @@ const copy: (value: any, values_?: WeakSet<any>) => any;
   "props": {
     "previous": {
       "label": "Utils: combinationWithRepetition",
-      "to": "/dev/utils/use/combinationWithRepetition"
+      "to": "/library/utils/use/combinationWithRepetition"
     },
     "next": {
       "label": "Utils: copyToClipboard",
-      "to": "/dev/utils/use/copyToClipboard"
+      "to": "/library/utils/use/copyToClipboard"
     }
   }
 }~

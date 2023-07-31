@@ -14,11 +14,11 @@ const KeyframesContext: React.Context<any>;
   "props": {
     "previous": {
       "label": "UI react: Keyframes",
-      "to": "/dev/ui-react/use/Keyframes"
+      "to": "/library/ui-react/use/Keyframes"
     },
     "next": {
       "label": "UI react: useKeyframes",
-      "to": "/dev/ui-react/use/useKeyframes"
+      "to": "/library/ui-react/use/useKeyframes"
     }
   }
 }~

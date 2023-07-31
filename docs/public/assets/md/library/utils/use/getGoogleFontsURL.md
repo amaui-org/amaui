@@ -35,11 +35,11 @@ const getGoogleFontsURL: (value: Array<IGoogleFont>) => string;
   "props": {
     "previous": {
       "label": "Utils: getFileName",
-      "to": "/dev/utils/use/getFileName"
+      "to": "/library/utils/use/getFileName"
     },
     "next": {
       "label": "Utils: getID",
-      "to": "/dev/utils/use/getID"
+      "to": "/library/utils/use/getID"
     }
   }
 }~

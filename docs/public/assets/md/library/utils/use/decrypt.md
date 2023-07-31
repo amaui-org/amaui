@@ -44,11 +44,11 @@ const decrypt: (value_: string, privateValue: string, options_?: IOptions) => an
   "props": {
     "previous": {
       "label": "Utils: decode",
-      "to": "/dev/utils/use/decode"
+      "to": "/library/utils/use/decode"
     },
     "next": {
       "label": "Utils: deserialize",
-      "to": "/dev/utils/use/deserialize"
+      "to": "/library/utils/use/deserialize"
     }
   }
 }~

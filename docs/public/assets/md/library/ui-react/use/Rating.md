@@ -43,11 +43,11 @@ const Rating: React.ForwardRefExoticComponent<Omit<IRating, "ref"> & React.RefAt
   "props": {
     "previous": {
       "label": "UI react: Radios",
-      "to": "/dev/ui-react/use/Radios"
+      "to": "/library/ui-react/use/Radios"
     },
     "next": {
       "label": "UI react: Reset",
-      "to": "/dev/ui-react/use/Reset"
+      "to": "/library/ui-react/use/Reset"
     }
   }
 }~

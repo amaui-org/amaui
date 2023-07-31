@@ -21,11 +21,11 @@ const Zoom: React.ForwardRefExoticComponent<Omit<IZoom, "ref"> & React.RefAttrib
   "props": {
     "previous": {
       "label": "UI react: WindowSplit",
-      "to": "/dev/ui-react/use/WindowSplit"
+      "to": "/library/ui-react/use/WindowSplit"
     },
     "next": {
       "label": "UI react: useMediaQuery",
-      "to": "/dev/ui-react/use/useMediaQuery"
+      "to": "/library/ui-react/use/useMediaQuery"
     }
   }
 }~

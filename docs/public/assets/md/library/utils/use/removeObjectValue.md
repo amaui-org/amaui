@@ -25,11 +25,11 @@ const removeObjectValue: (object: object | any[], keys: string | string[]) => an
   "props": {
     "previous": {
       "label": "Utils: randomString",
-      "to": "/dev/utils/use/randomString"
+      "to": "/library/utils/use/randomString"
     },
     "next": {
       "label": "Utils: rgbToHex",
-      "to": "/dev/utils/use/rgbToHex"
+      "to": "/library/utils/use/rgbToHex"
     }
   }
 }~

@@ -75,11 +75,11 @@ default function reset(value?: TValue, options_?: IOptions): (props_?: any) => I
   "props": {
     "previous": {
       "label": "Style react: pure",
-      "to": "/dev/style-react/use/pure"
+      "to": "/library/style-react/use/pure"
     },
     "next": {
       "label": "Style react: string",
-      "to": "/dev/style-react/use/string"
+      "to": "/library/style-react/use/string"
     }
   }
 }~

@@ -25,11 +25,11 @@ const getMongoMatch: (query: Array<object>, operator?: TMatchOperator) => Array<
   "props": {
     "previous": {
       "label": "Models: getMongoFilters",
-      "to": "/dev/models/use/getMongoFilters"
+      "to": "/library/models/use/getMongoFilters"
     },
     "next": {
       "label": "Models: getMongoOperator",
-      "to": "/dev/models/use/getMongoOperator"
+      "to": "/library/models/use/getMongoOperator"
     }
   }
 }~

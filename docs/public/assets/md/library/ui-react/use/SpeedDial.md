@@ -46,11 +46,11 @@ const SpeedDial: React.ForwardRefExoticComponent<Omit<ISpeedDial, "ref"> & React
   "props": {
     "previous": {
       "label": "UI react: useSnackbars",
-      "to": "/dev/ui-react/use/useSnackbars"
+      "to": "/library/ui-react/use/useSnackbars"
     },
     "next": {
       "label": "UI react: SpeedDialItem",
-      "to": "/dev/ui-react/use/SpeedDialItem"
+      "to": "/library/ui-react/use/SpeedDialItem"
     }
   }
 }~

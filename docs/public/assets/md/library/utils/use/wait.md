@@ -25,11 +25,11 @@ const wait: (milliseconds?: number) => Promise<undefined>;
   "props": {
     "previous": {
       "label": "Utils: variationWithRepetition",
-      "to": "/dev/utils/use/variationWithRepetition"
+      "to": "/library/utils/use/variationWithRepetition"
     },
     "next": {
       "label": "Zip: Start",
-      "to": "/dev/zip/start"
+      "to": "/library/zip/start"
     }
   }
 }~

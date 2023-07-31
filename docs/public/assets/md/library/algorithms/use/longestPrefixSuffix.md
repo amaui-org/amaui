@@ -25,11 +25,11 @@ default function longestPrefixSuffix(value: string): Array<number>;
   "props": {
     "previous": {
       "label": "Algorithms: kmp",
-      "to": "/dev/algorithms/use/kmp"
+      "to": "/library/algorithms/use/kmp"
     },
     "next": {
       "label": "Algorithms: mergeSort",
-      "to": "/dev/algorithms/use/mergeSort"
+      "to": "/library/algorithms/use/mergeSort"
     }
   }
 }~

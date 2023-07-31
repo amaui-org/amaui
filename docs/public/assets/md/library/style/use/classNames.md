@@ -25,11 +25,11 @@ function classNames(value?: any, prefix?: string, array?: boolean): string;
   "props": {
     "previous": {
       "label": "Style: AmauiTheme",
-      "to": "/dev/style/use/AmauiTheme"
+      "to": "/library/style/use/AmauiTheme"
     },
     "next": {
       "label": "Style: cli",
-      "to": "/dev/style/use/cli"
+      "to": "/library/style/use/cli"
     }
   }
 }~

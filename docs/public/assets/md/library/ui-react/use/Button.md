@@ -50,11 +50,11 @@ const Button: React.ForwardRefExoticComponent<Omit<IButton, "ref"> & React.RefAt
   "props": {
     "previous": {
       "label": "UI react: BubbleChartItem",
-      "to": "/dev/ui-react/use/BubbleChartItem"
+      "to": "/library/ui-react/use/BubbleChartItem"
     },
     "next": {
       "label": "UI react: Buttons",
-      "to": "/dev/ui-react/use/Buttons"
+      "to": "/library/ui-react/use/Buttons"
     }
   }
 }~

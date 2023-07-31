@@ -44,11 +44,11 @@ const WidgetsProvider: React.ForwardRefExoticComponent<Omit<IWidgetsProvider, "r
   "props": {
     "previous": {
       "label": "UI react: WidgetsContext",
-      "to": "/dev/ui-react/use/WidgetsContext"
+      "to": "/library/ui-react/use/WidgetsContext"
     },
     "next": {
       "label": "UI react: useWidgets",
-      "to": "/dev/ui-react/use/useWidgets"
+      "to": "/library/ui-react/use/useWidgets"
     }
   }
 }~

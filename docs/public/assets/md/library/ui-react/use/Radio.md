@@ -27,11 +27,11 @@ const Radio: React.ForwardRefExoticComponent<Omit<IRadio, "ref"> & React.RefAttr
   "props": {
     "previous": {
       "label": "UI react: Portal",
-      "to": "/dev/ui-react/use/Portal"
+      "to": "/library/ui-react/use/Portal"
     },
     "next": {
       "label": "UI react: Radios",
-      "to": "/dev/ui-react/use/Radios"
+      "to": "/library/ui-react/use/Radios"
     }
   }
 }~

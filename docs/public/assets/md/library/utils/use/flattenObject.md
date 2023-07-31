@@ -25,11 +25,11 @@ const flattenObject: <T extends unknown>(object: T, output_?: T, keys_?: string,
   "props": {
     "previous": {
       "label": "Utils: fileToValue",
-      "to": "/dev/utils/use/fileToValue"
+      "to": "/library/utils/use/fileToValue"
     },
     "next": {
       "label": "Utils: getContrastRatio",
-      "to": "/dev/utils/use/getContrastRatio"
+      "to": "/library/utils/use/getContrastRatio"
     }
   }
 }~

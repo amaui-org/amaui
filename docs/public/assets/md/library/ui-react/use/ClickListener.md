@@ -28,11 +28,11 @@ const ClickListener: React.ForwardRefExoticComponent<Omit<IClickListener, "ref">
   "props": {
     "previous": {
       "label": "UI react: Chips",
-      "to": "/dev/ui-react/use/Chips"
+      "to": "/library/ui-react/use/Chips"
     },
     "next": {
       "label": "UI react: Clock",
-      "to": "/dev/ui-react/use/Clock"
+      "to": "/library/ui-react/use/Clock"
     }
   }
 }~

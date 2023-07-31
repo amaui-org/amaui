@@ -21,11 +21,11 @@ const ModalIcon: React.ForwardRefExoticComponent<Omit<IModalIcon, "ref"> & React
   "props": {
     "previous": {
       "label": "UI react: ModalHeader",
-      "to": "/dev/ui-react/use/ModalHeader"
+      "to": "/library/ui-react/use/ModalHeader"
     },
     "next": {
       "label": "UI react: ModalMain",
-      "to": "/dev/ui-react/use/ModalMain"
+      "to": "/library/ui-react/use/ModalMain"
     }
   }
 }~

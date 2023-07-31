@@ -23,11 +23,11 @@ default function myTimezoneAbbr(): string;
   "props": {
     "previous": {
       "label": "Date: myTimezone",
-      "to": "/dev/date/use/myTimezone"
+      "to": "/library/date/use/myTimezone"
     },
     "next": {
       "label": "Date: remove",
-      "to": "/dev/date/use/remove"
+      "to": "/library/date/use/remove"
     }
   }
 }~

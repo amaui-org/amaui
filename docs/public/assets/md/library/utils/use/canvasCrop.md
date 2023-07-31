@@ -23,11 +23,11 @@ const canvasCrop: (canvas: HTMLCanvasElement, x: number, y: number, width: numbe
   "props": {
     "previous": {
       "label": "Utils: binaryStringToHexadecimal",
-      "to": "/dev/utils/use/binaryStringToHexadecimal"
+      "to": "/library/utils/use/binaryStringToHexadecimal"
     },
     "next": {
       "label": "Utils: canvasFilterBrightness",
-      "to": "/dev/utils/use/canvasFilterBrightness"
+      "to": "/library/utils/use/canvasFilterBrightness"
     }
   }
 }~

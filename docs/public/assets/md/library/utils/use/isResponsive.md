@@ -35,11 +35,11 @@ default function isResponsive(type: string, value?: any): any;
   "props": {
     "previous": {
       "label": "Utils: isOS",
-      "to": "/dev/utils/use/isOS"
+      "to": "/library/utils/use/isOS"
     },
     "next": {
       "label": "Utils: isState",
-      "to": "/dev/utils/use/isState"
+      "to": "/library/utils/use/isState"
     }
   }
 }~

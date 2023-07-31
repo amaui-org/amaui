@@ -21,11 +21,11 @@ const ScatterChart: React.ForwardRefExoticComponent<Omit<IScatterChart, "ref"> &
   "props": {
     "previous": {
       "label": "UI react: RoundProgress",
-      "to": "/dev/ui-react/use/RoundProgress"
+      "to": "/library/ui-react/use/RoundProgress"
     },
     "next": {
       "label": "UI react: ScatterChartItem",
-      "to": "/dev/ui-react/use/ScatterChartItem"
+      "to": "/library/ui-react/use/ScatterChartItem"
     }
   }
 }~

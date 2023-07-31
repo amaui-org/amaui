@@ -22,11 +22,11 @@ const Portal: React.ForwardRefExoticComponent<Omit<IPortal, "ref"> & React.RefAt
   "props": {
     "previous": {
       "label": "UI react: Placeholder",
-      "to": "/dev/ui-react/use/Placeholder"
+      "to": "/library/ui-react/use/Placeholder"
     },
     "next": {
       "label": "UI react: Radio",
-      "to": "/dev/ui-react/use/Radio"
+      "to": "/library/ui-react/use/Radio"
     }
   }
 }~

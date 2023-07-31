@@ -67,11 +67,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Linked List: Start",
-      "to": "/dev/linked-list/start"
+      "to": "/library/linked-list/start"
     },
     "next": {
       "label": "Log: Use",
-      "to": "/dev/log/use"
+      "to": "/library/log/use"
     }
   }
 }~

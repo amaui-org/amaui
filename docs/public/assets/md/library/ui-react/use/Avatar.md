@@ -27,11 +27,11 @@ const Avatar: React.ForwardRefExoticComponent<Omit<IAvatar, "ref"> & React.RefAt
   "props": {
     "previous": {
       "label": "UI react: AutoComplete",
-      "to": "/dev/ui-react/use/AutoComplete"
+      "to": "/library/ui-react/use/AutoComplete"
     },
     "next": {
       "label": "UI react: AvatarGroup",
-      "to": "/dev/ui-react/use/AvatarGroup"
+      "to": "/library/ui-react/use/AvatarGroup"
     }
   }
 }~

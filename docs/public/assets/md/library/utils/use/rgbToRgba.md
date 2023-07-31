@@ -38,11 +38,11 @@ const rgbToRgba: (value: string, opacity?: number, array?: boolean) => string | 
   "props": {
     "previous": {
       "label": "Utils: rgbToHslPure",
-      "to": "/dev/utils/use/rgbToHslPure"
+      "to": "/library/utils/use/rgbToHslPure"
     },
     "next": {
       "label": "Utils: serialize",
-      "to": "/dev/utils/use/serialize"
+      "to": "/library/utils/use/serialize"
     }
   }
 }~

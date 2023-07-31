@@ -21,11 +21,11 @@ const DonutChart: React.ForwardRefExoticComponent<Omit<IDonutChart, "ref"> & Rea
   "props": {
     "previous": {
       "label": "UI react: Divider",
-      "to": "/dev/ui-react/use/Divider"
+      "to": "/library/ui-react/use/Divider"
     },
     "next": {
       "label": "UI react: Drawing",
-      "to": "/dev/ui-react/use/Drawing"
+      "to": "/library/ui-react/use/Drawing"
     }
   }
 }~

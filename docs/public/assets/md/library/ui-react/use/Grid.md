@@ -27,11 +27,11 @@ const Grid: React.ForwardRefExoticComponent<Omit<IGrid, "ref"> & React.RefAttrib
   "props": {
     "previous": {
       "label": "UI react: Focus",
-      "to": "/dev/ui-react/use/Focus"
+      "to": "/library/ui-react/use/Focus"
     },
     "next": {
       "label": "UI react: Grow",
-      "to": "/dev/ui-react/use/Grow"
+      "to": "/library/ui-react/use/Grow"
     }
   }
 }~

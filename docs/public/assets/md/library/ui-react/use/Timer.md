@@ -37,11 +37,11 @@ const Timer: React.ForwardRefExoticComponent<Omit<ITimer, "ref"> & React.RefAttr
   "props": {
     "previous": {
       "label": "UI react: TimelineItem",
-      "to": "/dev/ui-react/use/TimelineItem"
+      "to": "/library/ui-react/use/TimelineItem"
     },
     "next": {
       "label": "UI react: ToggleButton",
-      "to": "/dev/ui-react/use/ToggleButton"
+      "to": "/library/ui-react/use/ToggleButton"
     }
   }
 }~

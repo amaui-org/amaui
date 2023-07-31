@@ -21,11 +21,11 @@ const ListSubheader: React.ForwardRefExoticComponent<Omit<IListSubheader, "ref">
   "props": {
     "previous": {
       "label": "UI react: ListItem",
-      "to": "/dev/ui-react/use/ListItem"
+      "to": "/library/ui-react/use/ListItem"
     },
     "next": {
       "label": "UI react: MainProgressContext",
-      "to": "/dev/ui-react/use/MainProgressContext"
+      "to": "/library/ui-react/use/MainProgressContext"
     }
   }
 }~

@@ -109,11 +109,11 @@ function prefix(amauiStyle: AmauiStyle, options_?: IOptions): {
   "props": {
     "previous": {
       "label": "Style: makeClassName",
-      "to": "/dev/style/use/makeClassName"
+      "to": "/library/style/use/makeClassName"
     },
     "next": {
       "label": "Style: pure",
-      "to": "/dev/style/use/pure"
+      "to": "/library/style/use/pure"
     }
   }
 }~

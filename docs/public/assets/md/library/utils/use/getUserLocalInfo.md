@@ -99,11 +99,11 @@ const getUserLocalInfo: () => Promise<UserLocalInfo>;
   "props": {
     "previous": {
       "label": "Utils: getURL",
-      "to": "/dev/utils/use/getURL"
+      "to": "/library/utils/use/getURL"
     },
     "next": {
       "label": "Utils: hash",
-      "to": "/dev/utils/use/hash"
+      "to": "/library/utils/use/hash"
     }
   }
 }~

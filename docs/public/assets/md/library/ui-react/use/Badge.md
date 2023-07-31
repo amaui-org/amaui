@@ -28,11 +28,11 @@ const Badge: React.ForwardRefExoticComponent<Omit<IBadge, "ref"> & React.RefAttr
   "props": {
     "previous": {
       "label": "UI react: Backdrop",
-      "to": "/dev/ui-react/use/Backdrop"
+      "to": "/library/ui-react/use/Backdrop"
     },
     "next": {
       "label": "UI react: Banner",
-      "to": "/dev/ui-react/use/Banner"
+      "to": "/library/ui-react/use/Banner"
     }
   }
 }~

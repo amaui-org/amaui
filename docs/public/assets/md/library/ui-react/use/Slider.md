@@ -54,11 +54,11 @@ const Slider: React.ForwardRefExoticComponent<Omit<ISlider, "ref"> & React.RefAt
   "props": {
     "previous": {
       "label": "UI react: Slide",
-      "to": "/dev/ui-react/use/Slide"
+      "to": "/library/ui-react/use/Slide"
     },
     "next": {
       "label": "UI react: Snackbar",
-      "to": "/dev/ui-react/use/Snackbar"
+      "to": "/library/ui-react/use/Snackbar"
     }
   }
 }~

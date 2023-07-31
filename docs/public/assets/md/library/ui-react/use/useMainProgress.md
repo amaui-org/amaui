@@ -14,11 +14,11 @@ default function useMainProgress(): IMainProgressProvider;
   "props": {
     "previous": {
       "label": "UI react: MainProgressProvider",
-      "to": "/dev/ui-react/use/MainProgressProvider"
+      "to": "/library/ui-react/use/MainProgressProvider"
     },
     "next": {
       "label": "UI react: Markdown",
-      "to": "/dev/ui-react/use/Markdown"
+      "to": "/library/ui-react/use/Markdown"
     }
   }
 }~

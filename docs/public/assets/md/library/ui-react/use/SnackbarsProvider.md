@@ -34,11 +34,11 @@ const SnackbarsProvider: React.ForwardRefExoticComponent<Omit<ISnackbarsProvider
   "props": {
     "previous": {
       "label": "UI react: SnackbarsContext",
-      "to": "/dev/ui-react/use/SnackbarsContext"
+      "to": "/library/ui-react/use/SnackbarsContext"
     },
     "next": {
       "label": "UI react: useSnackbars",
-      "to": "/dev/ui-react/use/useSnackbars"
+      "to": "/library/ui-react/use/useSnackbars"
     }
   }
 }~

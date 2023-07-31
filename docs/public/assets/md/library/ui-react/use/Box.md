@@ -22,11 +22,11 @@ const Box: React.ForwardRefExoticComponent<Omit<IBox, "ref"> & React.RefAttribut
   "props": {
     "previous": {
       "label": "UI react: BottomSheet",
-      "to": "/dev/ui-react/use/BottomSheet"
+      "to": "/library/ui-react/use/BottomSheet"
     },
     "next": {
       "label": "UI react: Breadcrumbs",
-      "to": "/dev/ui-react/use/Breadcrumbs"
+      "to": "/library/ui-react/use/Breadcrumbs"
     }
   }
 }~

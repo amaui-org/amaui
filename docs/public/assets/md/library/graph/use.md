@@ -402,11 +402,11 @@ default class AmauiGraph {
   "props": {
     "previous": {
       "label": "Graph: Start",
-      "to": "/dev/graph/start"
+      "to": "/library/graph/start"
     },
     "next": {
       "label": "Hash table: Start",
-      "to": "/dev/hash-table/start"
+      "to": "/library/hash-table/start"
     }
   }
 }~

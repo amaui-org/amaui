@@ -52,11 +52,11 @@ const parse: (value: any, type?: TType, options_?: IOptions) => any;
   "props": {
     "previous": {
       "label": "Utils: pagination",
-      "to": "/dev/utils/use/pagination"
+      "to": "/library/utils/use/pagination"
     },
     "next": {
       "label": "Utils: percentageFromValueWithinRange",
-      "to": "/dev/utils/use/percentageFromValueWithinRange"
+      "to": "/library/utils/use/percentageFromValueWithinRange"
     }
   }
 }~

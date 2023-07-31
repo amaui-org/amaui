@@ -28,11 +28,11 @@ const TimelineItem: React.ForwardRefExoticComponent<Omit<ITimelineItem, "ref"> &
   "props": {
     "previous": {
       "label": "UI react: Timeline",
-      "to": "/dev/ui-react/use/Timeline"
+      "to": "/library/ui-react/use/Timeline"
     },
     "next": {
       "label": "UI react: Timer",
-      "to": "/dev/ui-react/use/Timer"
+      "to": "/library/ui-react/use/Timer"
     }
   }
 }~

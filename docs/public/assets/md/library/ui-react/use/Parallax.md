@@ -35,11 +35,11 @@ const Parallax: React.ForwardRefExoticComponent<Omit<IParallax, "ref"> & React.R
   "props": {
     "previous": {
       "label": "UI react: PaginationItem",
-      "to": "/dev/ui-react/use/PaginationItem"
+      "to": "/library/ui-react/use/PaginationItem"
     },
     "next": {
       "label": "UI react: Path",
-      "to": "/dev/ui-react/use/Path"
+      "to": "/library/ui-react/use/Path"
     }
   }
 }~

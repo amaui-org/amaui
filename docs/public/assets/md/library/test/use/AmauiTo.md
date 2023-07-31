@@ -63,11 +63,11 @@ class AmauiTo implements IAmauiTo {
   "props": {
     "previous": {
       "label": "Test: AmauiTest",
-      "to": "/dev/test/use/AmauiTest"
+      "to": "/library/test/use/AmauiTest"
     },
     "next": {
       "label": "Test: assert",
-      "to": "/dev/test/use/assert"
+      "to": "/library/test/use/assert"
     }
   }
 }~

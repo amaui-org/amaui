@@ -30,11 +30,11 @@ const LinearProgress: React.ForwardRefExoticComponent<Omit<ILinearProress, "ref"
   "props": {
     "previous": {
       "label": "UI react: LinearMeter",
-      "to": "/dev/ui-react/use/LinearMeter"
+      "to": "/library/ui-react/use/LinearMeter"
     },
     "next": {
       "label": "UI react: Link",
-      "to": "/dev/ui-react/use/Link"
+      "to": "/library/ui-react/use/Link"
     }
   }
 }~

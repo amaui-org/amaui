@@ -229,11 +229,11 @@ class AmauiStorage {
   "props": {
     "previous": {
       "label": "Storage: Start",
-      "to": "/dev/storage/start"
+      "to": "/library/storage/start"
     },
     "next": {
       "label": "Style: Start",
-      "to": "/dev/style/start"
+      "to": "/library/style/start"
     }
   }
 }~

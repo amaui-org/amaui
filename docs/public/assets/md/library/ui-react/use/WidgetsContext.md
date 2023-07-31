@@ -14,11 +14,11 @@ const AmauiWidgetsContext: any;
   "props": {
     "previous": {
       "label": "UI react: Weather",
-      "to": "/dev/ui-react/use/Weather"
+      "to": "/library/ui-react/use/Weather"
     },
     "next": {
       "label": "UI react: WidgetsProvider",
-      "to": "/dev/ui-react/use/WidgetsProvider"
+      "to": "/library/ui-react/use/WidgetsProvider"
     }
   }
 }~

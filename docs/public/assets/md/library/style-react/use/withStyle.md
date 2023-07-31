@@ -75,11 +75,11 @@ const withStyle: (Element: any) => (value: TValue, options?: IOptions) => React.
   "props": {
     "previous": {
       "label": "Style react: styled",
-      "to": "/dev/style-react/use/styled"
+      "to": "/library/style-react/use/styled"
     },
     "next": {
       "label": "Icons Material react: Start",
-      "to": "/dev/icons-material-react/start"
+      "to": "/library/icons-material-react/start"
     }
   }
 }~

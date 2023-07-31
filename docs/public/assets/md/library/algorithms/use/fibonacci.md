@@ -39,11 +39,11 @@ default function fibonacci(value: number, options?: IFibonacciOptions): number;
   "props": {
     "previous": {
       "label": "Algorithms: factorialRecursive",
-      "to": "/dev/algorithms/use/factorialRecursive"
+      "to": "/library/algorithms/use/factorialRecursive"
     },
     "next": {
       "label": "Algorithms: fibonacciRecursive",
-      "to": "/dev/algorithms/use/fibonacciRecursive"
+      "to": "/library/algorithms/use/fibonacciRecursive"
     }
   }
 }~

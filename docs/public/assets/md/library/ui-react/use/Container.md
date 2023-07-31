@@ -26,11 +26,11 @@ const Container: React.ForwardRefExoticComponent<Omit<IContainer, "ref"> & React
   "props": {
     "previous": {
       "label": "UI react: useConfirm",
-      "to": "/dev/ui-react/use/useConfirm"
+      "to": "/library/ui-react/use/useConfirm"
     },
     "next": {
       "label": "UI react: Countdown",
-      "to": "/dev/ui-react/use/Countdown"
+      "to": "/library/ui-react/use/Countdown"
     }
   }
 }~

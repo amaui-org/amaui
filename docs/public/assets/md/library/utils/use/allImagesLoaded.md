@@ -27,11 +27,11 @@ const allImagesLoaded: () => Promise<boolean | number> | boolean;
   "props": {
     "previous": {
       "label": "Utils: Start",
-      "to": "/dev/utils/start"
+      "to": "/library/utils/start"
     },
     "next": {
       "label": "Utils: alpha",
-      "to": "/dev/utils/use/alpha"
+      "to": "/library/utils/use/alpha"
     }
   }
 }~

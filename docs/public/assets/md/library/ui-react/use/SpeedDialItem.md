@@ -35,11 +35,11 @@ const SpeedDialItem: React.ForwardRefExoticComponent<Omit<ISpeedDialItem, "ref">
   "props": {
     "previous": {
       "label": "UI react: SpeedDial",
-      "to": "/dev/ui-react/use/SpeedDial"
+      "to": "/library/ui-react/use/SpeedDial"
     },
     "next": {
       "label": "UI react: SpyScroll",
-      "to": "/dev/ui-react/use/SpyScroll"
+      "to": "/library/ui-react/use/SpyScroll"
     }
   }
 }~

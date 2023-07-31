@@ -495,11 +495,11 @@ default class AmauiDate {
   "props": {
     "previous": {
       "label": "Date: ago",
-      "to": "/dev/date/use/ago"
+      "to": "/library/date/use/ago"
     },
     "next": {
       "label": "Date: diff",
-      "to": "/dev/date/use/diff"
+      "to": "/library/date/use/diff"
     }
   }
 }~

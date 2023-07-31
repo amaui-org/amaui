@@ -26,11 +26,11 @@ const random: (min?: number, max?: number) => number;
   "props": {
     "previous": {
       "label": "Utils: quantize",
-      "to": "/dev/utils/use/quantize"
+      "to": "/library/utils/use/quantize"
     },
     "next": {
       "label": "Utils: randomString",
-      "to": "/dev/utils/use/randomString"
+      "to": "/library/utils/use/randomString"
     }
   }
 }~

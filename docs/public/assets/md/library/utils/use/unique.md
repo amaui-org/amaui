@@ -47,11 +47,11 @@ const unique: <T extends unknown>(object: T, ...args: string[]) => any[];
   "props": {
     "previous": {
       "label": "Utils: unflattenObject",
-      "to": "/dev/utils/use/unflattenObject"
+      "to": "/library/utils/use/unflattenObject"
     },
     "next": {
       "label": "Utils: updateQueryParams",
-      "to": "/dev/utils/use/updateQueryParams"
+      "to": "/library/utils/use/updateQueryParams"
     }
   }
 }~

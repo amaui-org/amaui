@@ -34,11 +34,11 @@ const Label: React.ForwardRefExoticComponent<Omit<ILabel, "ref"> & React.RefAttr
   "props": {
     "previous": {
       "label": "UI react: useKeyframes",
-      "to": "/dev/ui-react/use/useKeyframes"
+      "to": "/library/ui-react/use/useKeyframes"
     },
     "next": {
       "label": "UI react: Line",
-      "to": "/dev/ui-react/use/Line"
+      "to": "/library/ui-react/use/Line"
     }
   }
 }~

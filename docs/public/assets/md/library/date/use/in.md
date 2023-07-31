@@ -37,11 +37,11 @@ default function In(to?: AmauiDate, withPrefix?: boolean, from?: AmauiDate): str
   "props": {
     "previous": {
       "label": "Date: getTimezoneOffset",
-      "to": "/dev/date/use/getTimezoneOffset"
+      "to": "/library/date/use/getTimezoneOffset"
     },
     "next": {
       "label": "Date: is",
-      "to": "/dev/date/use/is"
+      "to": "/library/date/use/is"
     }
   }
 }~

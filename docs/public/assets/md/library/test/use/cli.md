@@ -90,11 +90,11 @@ function run(argv: any): Promise<void>;
   "props": {
     "previous": {
       "label": "Test: assert",
-      "to": "/dev/test/use/assert"
+      "to": "/library/test/use/assert"
     },
     "next": {
       "label": "Test: request",
-      "to": "/dev/test/use/request"
+      "to": "/library/test/use/request"
     }
   }
 }~

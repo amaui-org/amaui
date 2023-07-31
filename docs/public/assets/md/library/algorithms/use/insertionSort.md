@@ -32,11 +32,11 @@ default function insertionSort<T = number>(value: Array<T>, ascending?: boolean)
   "props": {
     "previous": {
       "label": "Algorithms: fibonacciRecursive",
-      "to": "/dev/algorithms/use/fibonacciRecursive"
+      "to": "/library/algorithms/use/fibonacciRecursive"
     },
     "next": {
       "label": "Algorithms: kmp",
-      "to": "/dev/algorithms/use/kmp"
+      "to": "/library/algorithms/use/kmp"
     }
   }
 }~

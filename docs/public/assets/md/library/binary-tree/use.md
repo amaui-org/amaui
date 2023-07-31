@@ -326,11 +326,11 @@ class AmauiBinaryTree implements IAmauiBinaryTree {
   "props": {
     "previous": {
       "label": "Binary tree: Start",
-      "to": "/dev/binary-tree/start"
+      "to": "/library/binary-tree/start"
     },
     "next": {
       "label": "Cache: Start",
-      "to": "/dev/cache/start"
+      "to": "/library/cache/start"
     }
   }
 }~

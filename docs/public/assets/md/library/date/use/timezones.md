@@ -47,11 +47,11 @@ const timezones: Array<ITimezone>;
   "props": {
     "previous": {
       "label": "Date: startOf",
-      "to": "/dev/date/use/startOf"
+      "to": "/library/date/use/startOf"
     },
     "next": {
       "label": "Diff: Start",
-      "to": "/dev/diff/start"
+      "to": "/library/diff/start"
     }
   }
 }~

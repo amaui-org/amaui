@@ -40,11 +40,11 @@ const WindowSplit: React.ForwardRefExoticComponent<Omit<IWindowSplit, "ref"> & R
   "props": {
     "previous": {
       "label": "UI react: useWidgets",
-      "to": "/dev/ui-react/use/useWidgets"
+      "to": "/library/ui-react/use/useWidgets"
     },
     "next": {
       "label": "UI react: Zoom",
-      "to": "/dev/ui-react/use/Zoom"
+      "to": "/library/ui-react/use/Zoom"
     }
   }
 }~

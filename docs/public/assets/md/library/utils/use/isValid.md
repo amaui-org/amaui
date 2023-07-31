@@ -69,11 +69,11 @@ default function isValid(type: string, value?: any, options_?: IOptions): any;
   "props": {
     "previous": {
       "label": "Utils: isState",
-      "to": "/dev/utils/use/isState"
+      "to": "/library/utils/use/isState"
     },
     "next": {
       "label": "Utils: lighten",
-      "to": "/dev/utils/use/lighten"
+      "to": "/library/utils/use/lighten"
     }
   }
 }~

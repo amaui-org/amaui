@@ -68,11 +68,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Graph: Start",
-      "to": "/dev/graph/start"
+      "to": "/library/graph/start"
     },
     "next": {
       "label": "Hash Table: Use",
-      "to": "/dev/hash-table/use"
+      "to": "/library/hash-table/use"
     }
   }
 }~

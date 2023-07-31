@@ -29,11 +29,11 @@ const Reveal: React.ForwardRefExoticComponent<Omit<IReveal, "ref"> & React.RefAt
   "props": {
     "previous": {
       "label": "UI react: Reset",
-      "to": "/dev/ui-react/use/Reset"
+      "to": "/library/ui-react/use/Reset"
     },
     "next": {
       "label": "UI react: RichTextEditor",
-      "to": "/dev/ui-react/use/RichTextEditor"
+      "to": "/library/ui-react/use/RichTextEditor"
     }
   }
 }~

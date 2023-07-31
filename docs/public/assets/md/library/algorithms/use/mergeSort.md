@@ -38,11 +38,11 @@ default function mergeSort<T = number>(array: Array<T>, ascending?: boolean): Ar
   "props": {
     "previous": {
       "label": "Algorithms: longestPrefixSuffix",
-      "to": "/dev/algorithms/use/longestPrefixSuffix"
+      "to": "/library/algorithms/use/longestPrefixSuffix"
     },
     "next": {
       "label": "Algorithms: naiveSearch",
-      "to": "/dev/algorithms/use/naiveSearch"
+      "to": "/library/algorithms/use/naiveSearch"
     }
   }
 }~

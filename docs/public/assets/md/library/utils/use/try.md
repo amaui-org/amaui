@@ -37,11 +37,11 @@ const Try: (value: () => any, options_?: IOptions) => any;
   "props": {
     "previous": {
       "label": "Utils: to",
-      "to": "/dev/utils/use/to"
+      "to": "/library/utils/use/to"
     },
     "next": {
       "label": "Utils: unflattenObject",
-      "to": "/dev/utils/use/unflattenObject"
+      "to": "/library/utils/use/unflattenObject"
     }
   }
 }~

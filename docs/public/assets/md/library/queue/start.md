@@ -73,11 +73,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Node: Start",
-      "to": "/dev/node/start"
+      "to": "/library/node/start"
     },
     "next": {
       "label": "Queue: Use",
-      "to": "/dev/queue/use"
+      "to": "/library/queue/use"
     }
   }
 }~

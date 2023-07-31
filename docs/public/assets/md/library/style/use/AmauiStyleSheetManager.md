@@ -172,11 +172,11 @@ class AmauiStyleSheetManager {
   "props": {
     "previous": {
       "label": "Style: AmauiStyleSheet",
-      "to": "/dev/style/use/AmauiStyleSheet"
+      "to": "/library/style/use/AmauiStyleSheet"
     },
     "next": {
       "label": "Style: AmauiTheme",
-      "to": "/dev/style/use/AmauiTheme"
+      "to": "/library/style/use/AmauiTheme"
     }
   }
 }~

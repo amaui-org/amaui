@@ -35,11 +35,11 @@ const Stepper: React.ForwardRefExoticComponent<Omit<IStepper, "ref"> & React.Ref
   "props": {
     "previous": {
       "label": "UI react: Step",
-      "to": "/dev/ui-react/use/Step"
+      "to": "/library/ui-react/use/Step"
     },
     "next": {
       "label": "UI react: Surface",
-      "to": "/dev/ui-react/use/Surface"
+      "to": "/library/ui-react/use/Surface"
     }
   }
 }~

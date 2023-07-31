@@ -27,11 +27,11 @@ const Slide: React.ForwardRefExoticComponent<Omit<ISlide, "ref"> & React.RefAttr
   "props": {
     "previous": {
       "label": "UI react: Select",
-      "to": "/dev/ui-react/use/Select"
+      "to": "/library/ui-react/use/Select"
     },
     "next": {
       "label": "UI react: Slider",
-      "to": "/dev/ui-react/use/Slider"
+      "to": "/library/ui-react/use/Slider"
     }
   }
 }~

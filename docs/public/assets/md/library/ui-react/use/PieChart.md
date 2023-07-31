@@ -21,11 +21,11 @@ const PieChart: React.ForwardRefExoticComponent<Omit<IPieChart, "ref"> & React.R
   "props": {
     "previous": {
       "label": "UI react: Path",
-      "to": "/dev/ui-react/use/Path"
+      "to": "/library/ui-react/use/Path"
     },
     "next": {
       "label": "UI react: Placeholder",
-      "to": "/dev/ui-react/use/Placeholder"
+      "to": "/library/ui-react/use/Placeholder"
     }
   }
 }~

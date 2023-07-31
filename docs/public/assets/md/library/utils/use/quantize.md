@@ -34,11 +34,11 @@ const quantize: (value: Array<[number, number, number]>, amount?: number) => Arr
   "props": {
     "previous": {
       "label": "Utils: promisify",
-      "to": "/dev/utils/use/promisify"
+      "to": "/library/utils/use/promisify"
     },
     "next": {
       "label": "Utils: random",
-      "to": "/dev/utils/use/random"
+      "to": "/library/utils/use/random"
     }
   }
 }~

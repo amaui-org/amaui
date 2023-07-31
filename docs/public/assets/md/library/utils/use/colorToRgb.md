@@ -67,11 +67,11 @@ const colorToRgb: (value: string, opacity?: number, array?: boolean) => string |
   "props": {
     "previous": {
       "label": "Utils: cleanValue",
-      "to": "/dev/utils/use/cleanValue"
+      "to": "/library/utils/use/cleanValue"
     },
     "next": {
       "label": "Utils: combination",
-      "to": "/dev/utils/use/combination"
+      "to": "/library/utils/use/combination"
     }
   }
 }~

@@ -65,11 +65,11 @@ const RoundMeter: React.ForwardRefExoticComponent<Omit<IRoundMeter, "ref"> & Rea
   "props": {
     "previous": {
       "label": "UI react: RichTextEditor",
-      "to": "/dev/ui-react/use/RichTextEditor"
+      "to": "/library/ui-react/use/RichTextEditor"
     },
     "next": {
       "label": "UI react: RoundProgress",
-      "to": "/dev/ui-react/use/RoundProgress"
+      "to": "/library/ui-react/use/RoundProgress"
     }
   }
 }~

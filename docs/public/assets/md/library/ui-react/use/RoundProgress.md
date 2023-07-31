@@ -31,11 +31,11 @@ const RoundProgress: React.ForwardRefExoticComponent<Omit<IRoundProgress, "ref">
   "props": {
     "previous": {
       "label": "UI react: RoundMeter",
-      "to": "/dev/ui-react/use/RoundMeter"
+      "to": "/library/ui-react/use/RoundMeter"
     },
     "next": {
       "label": "UI react: ScatterChart",
-      "to": "/dev/ui-react/use/ScatterChart"
+      "to": "/library/ui-react/use/ScatterChart"
     }
   }
 }~

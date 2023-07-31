@@ -34,11 +34,11 @@ class AmauiStyleRenderer {
   "props": {
     "previous": {
       "label": "Style: AmauiStyle",
-      "to": "/dev/style/use/AmauiStyle"
+      "to": "/library/style/use/AmauiStyle"
     },
     "next": {
       "label": "Style: AmauiStyleRule",
-      "to": "/dev/style/use/AmauiStyleRule"
+      "to": "/library/style/use/AmauiStyleRule"
     }
   }
 }~

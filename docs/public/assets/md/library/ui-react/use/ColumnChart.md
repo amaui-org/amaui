@@ -21,11 +21,11 @@ const ColumnChart: React.ForwardRefExoticComponent<Omit<IColumnChart, "ref"> & R
   "props": {
     "previous": {
       "label": "UI react: ColorTextField",
-      "to": "/dev/ui-react/use/ColorTextField"
+      "to": "/library/ui-react/use/ColorTextField"
     },
     "next": {
       "label": "UI react: ColumnChartItem",
-      "to": "/dev/ui-react/use/ColumnChartItem"
+      "to": "/library/ui-react/use/ColumnChartItem"
     }
   }
 }~

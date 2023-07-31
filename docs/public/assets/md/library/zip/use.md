@@ -170,7 +170,7 @@ class AmauiZip {
   "props": {
     "previous": {
       "label": "Zip: Start",
-      "to": "/dev/zip/start"
+      "to": "/library/zip/start"
     }
   }
 }~

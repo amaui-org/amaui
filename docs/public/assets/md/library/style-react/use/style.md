@@ -146,11 +146,11 @@ default function style(value: TValue, options_?: IOptions, responses_?: Array<IR
   "props": {
     "previous": {
       "label": "Style react: string",
-      "to": "/dev/style-react/use/string"
+      "to": "/library/style-react/use/string"
     },
     "next": {
       "label": "Style react: styled",
-      "to": "/dev/style-react/use/styled"
+      "to": "/library/style-react/use/styled"
     }
   }
 }~

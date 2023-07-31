@@ -25,11 +25,11 @@ const updateQueryParams: (value?: {}, override?: boolean) => void;
   "props": {
     "previous": {
       "label": "Utils: unique",
-      "to": "/dev/utils/use/unique"
+      "to": "/library/utils/use/unique"
     },
     "next": {
       "label": "Utils: valueFromPercentageWithinRange",
-      "to": "/dev/utils/use/valueFromPercentageWithinRange"
+      "to": "/library/utils/use/valueFromPercentageWithinRange"
     }
   }
 }~

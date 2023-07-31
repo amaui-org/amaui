@@ -37,11 +37,11 @@ const asyncMethodRetry: (method: () => Promise<any>, retries?: number, timeout?:
   "props": {
     "previous": {
       "label": "Utils: arrayToParts",
-      "to": "/dev/utils/use/arrayToParts"
+      "to": "/library/utils/use/arrayToParts"
     },
     "next": {
       "label": "Utils: binaryStringToHexadecimal",
-      "to": "/dev/utils/use/binaryStringToHexadecimal"
+      "to": "/library/utils/use/binaryStringToHexadecimal"
     }
   }
 }~

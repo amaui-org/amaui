@@ -32,11 +32,11 @@ const getObjectPropertyValue: (object: object, keys?: string | string[]) => any;
   "props": {
     "previous": {
       "label": "Utils: getLuminance",
-      "to": "/dev/utils/use/getLuminance"
+      "to": "/library/utils/use/getLuminance"
     },
     "next": {
       "label": "Utils: getObjectValue",
-      "to": "/dev/utils/use/getObjectValue"
+      "to": "/library/utils/use/getObjectValue"
     }
   }
 }~

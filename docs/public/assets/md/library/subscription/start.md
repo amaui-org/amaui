@@ -80,11 +80,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Style: Start",
-      "to": "/dev/style/start"
+      "to": "/library/style/start"
     },
     "next": {
       "label": "Subscription: Use",
-      "to": "/dev/subscription/use"
+      "to": "/library/subscription/use"
     }
   }
 }~

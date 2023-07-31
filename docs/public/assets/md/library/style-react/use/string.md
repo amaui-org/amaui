@@ -51,11 +51,11 @@ default function string(value_: TemplateStringsArray, ...args: any[]): string;
   "props": {
     "previous": {
       "label": "Style react: reset",
-      "to": "/dev/style-react/use/reset"
+      "to": "/library/style-react/use/reset"
     },
     "next": {
       "label": "Style react: style",
-      "to": "/dev/style-react/use/style"
+      "to": "/library/style-react/use/style"
     }
   }
 }~

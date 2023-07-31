@@ -54,11 +54,11 @@ yarn build
   "props": {
     "previous": {
       "label": "LZ77: Start",
-      "to": "/dev/lz77/start"
+      "to": "/library/lz77/start"
     },
     "next": {
       "label": "Meta: Use",
-      "to": "/dev/meta/use"
+      "to": "/library/meta/use"
     }
   }
 }~

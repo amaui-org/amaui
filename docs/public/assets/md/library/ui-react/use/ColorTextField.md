@@ -21,11 +21,11 @@ const ColorTextField: React.ForwardRefExoticComponent<Omit<IColorTextField, "ref
   "props": {
     "previous": {
       "label": "UI react: Clock",
-      "to": "/dev/ui-react/use/Clock"
+      "to": "/library/ui-react/use/Clock"
     },
     "next": {
       "label": "UI react: ColumnChart",
-      "to": "/dev/ui-react/use/ColumnChart"
+      "to": "/library/ui-react/use/ColumnChart"
     }
   }
 }~

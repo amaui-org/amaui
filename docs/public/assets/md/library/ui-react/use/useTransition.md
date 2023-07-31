@@ -14,11 +14,11 @@ default function useTransition(): any;
   "props": {
     "previous": {
       "label": "UI react: TransitionContext",
-      "to": "/dev/ui-react/use/TransitionContext"
+      "to": "/library/ui-react/use/TransitionContext"
     },
     "next": {
       "label": "UI react: Transitions",
-      "to": "/dev/ui-react/use/Transitions"
+      "to": "/library/ui-react/use/Transitions"
     }
   }
 }~

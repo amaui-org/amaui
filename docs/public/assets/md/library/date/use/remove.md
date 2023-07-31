@@ -37,11 +37,11 @@ default function remove(value: number, unit: TTimeUnits, amauiDate?: AmauiDate):
   "props": {
     "previous": {
       "label": "Date: myTimezoneAbbr",
-      "to": "/dev/date/use/myTimezoneAbbr"
+      "to": "/library/date/use/myTimezoneAbbr"
     },
     "next": {
       "label": "Date: set",
-      "to": "/dev/date/use/set"
+      "to": "/library/date/use/set"
     }
   }
 }~

@@ -32,11 +32,11 @@ const hasObjectPropertyValue: (object: object, keys?: string | string[]) => bool
   "props": {
     "previous": {
       "label": "Utils: hasObjectProperty",
-      "to": "/dev/utils/use/hasObjectProperty"
+      "to": "/library/utils/use/hasObjectProperty"
     },
     "next": {
       "label": "Utils: hexadecimalStringToBinary",
-      "to": "/dev/utils/use/hexadecimalStringToBinary"
+      "to": "/library/utils/use/hexadecimalStringToBinary"
     }
   }
 }~

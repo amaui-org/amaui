@@ -50,11 +50,11 @@ const getOrdinalNumber: (value_: number, options_?: IOptions) => string;
   "props": {
     "previous": {
       "label": "Utils: getObjectValue",
-      "to": "/dev/utils/use/getObjectValue"
+      "to": "/library/utils/use/getObjectValue"
     },
     "next": {
       "label": "Utils: getQueryParams",
-      "to": "/dev/utils/use/getQueryParams"
+      "to": "/library/utils/use/getQueryParams"
     }
   }
 }~

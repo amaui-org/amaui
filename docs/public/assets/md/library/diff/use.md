@@ -231,11 +231,11 @@ class AmauiDiff {
   "props": {
     "previous": {
       "label": "Diff: Start",
-      "to": "/dev/diff/start"
+      "to": "/library/diff/start"
     },
     "next": {
       "label": "Errors: Start",
-      "to": "/dev/errors/start"
+      "to": "/library/errors/start"
     }
   }
 }~

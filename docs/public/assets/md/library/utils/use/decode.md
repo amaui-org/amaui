@@ -26,11 +26,11 @@ const decode: (value_: string) => any;
   "props": {
     "previous": {
       "label": "Utils: debounce",
-      "to": "/dev/utils/use/debounce"
+      "to": "/library/utils/use/debounce"
     },
     "next": {
       "label": "Utils: decrypt",
-      "to": "/dev/utils/use/decrypt"
+      "to": "/library/utils/use/decrypt"
     }
   }
 }~

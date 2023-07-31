@@ -36,11 +36,11 @@ default function endOf(amauiDate_?: AmauiDate, unit?: TTimeUnits): AmauiDate;
   "props": {
     "previous": {
       "label": "Date: duration",
-      "to": "/dev/date/use/duration"
+      "to": "/library/date/use/duration"
     },
     "next": {
       "label": "Date: format",
-      "to": "/dev/date/use/format"
+      "to": "/library/date/use/format"
     }
   }
 }~

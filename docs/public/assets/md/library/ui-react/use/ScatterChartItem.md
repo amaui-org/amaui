@@ -33,11 +33,11 @@ const ScatterChartItem: React.ForwardRefExoticComponent<Omit<IScatterChartItem, 
   "props": {
     "previous": {
       "label": "UI react: ScatterChart",
-      "to": "/dev/ui-react/use/ScatterChart"
+      "to": "/library/ui-react/use/ScatterChart"
     },
     "next": {
       "label": "UI react: ScreenCapture",
-      "to": "/dev/ui-react/use/ScreenCapture"
+      "to": "/library/ui-react/use/ScreenCapture"
     }
   }
 }~

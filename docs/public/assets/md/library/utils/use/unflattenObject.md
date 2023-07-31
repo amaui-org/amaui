@@ -30,11 +30,11 @@ const unflattenObject: (object: object) => object;
   "props": {
     "previous": {
       "label": "Utils: try",
-      "to": "/dev/utils/use/try"
+      "to": "/library/utils/use/try"
     },
     "next": {
       "label": "Utils: unique",
-      "to": "/dev/utils/use/unique"
+      "to": "/library/utils/use/unique"
     }
   }
 }~

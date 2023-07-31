@@ -54,11 +54,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Meta: Start",
-      "to": "/dev/meta/start"
+      "to": "/library/meta/start"
     },
     "next": {
       "label": "Models: base",
-      "to": "/dev/models/use/base"
+      "to": "/library/models/use/base"
     }
   }
 }~

@@ -35,11 +35,11 @@ const LineChartItem: React.ForwardRefExoticComponent<Omit<ILineChartItem, "ref">
   "props": {
     "previous": {
       "label": "UI react: LineChart",
-      "to": "/dev/ui-react/use/LineChart"
+      "to": "/library/ui-react/use/LineChart"
     },
     "next": {
       "label": "UI react: LinearMeter",
-      "to": "/dev/ui-react/use/LinearMeter"
+      "to": "/library/ui-react/use/LinearMeter"
     }
   }
 }~

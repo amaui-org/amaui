@@ -57,11 +57,11 @@ const MainProgressProvider: React.ForwardRefExoticComponent<Omit<IMainProgressPr
   "props": {
     "previous": {
       "label": "UI react: MainProgressContext",
-      "to": "/dev/ui-react/use/MainProgressContext"
+      "to": "/library/ui-react/use/MainProgressContext"
     },
     "next": {
       "label": "UI react: useMainProgress",
-      "to": "/dev/ui-react/use/useMainProgress"
+      "to": "/library/ui-react/use/useMainProgress"
     }
   }
 }~

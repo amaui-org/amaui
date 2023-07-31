@@ -87,11 +87,11 @@ const polyfills: (additions?: boolean) => void;
   "props": {
     "previous": {
       "label": "Utils: pick",
-      "to": "/dev/utils/use/pick"
+      "to": "/library/utils/use/pick"
     },
     "next": {
       "label": "Utils: promisify",
-      "to": "/dev/utils/use/promisify"
+      "to": "/library/utils/use/promisify"
     }
   }
 }~

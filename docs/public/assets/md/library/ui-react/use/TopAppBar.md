@@ -27,11 +27,11 @@ const TopAppBar: React.ForwardRefExoticComponent<Omit<ITopAppBar, "ref"> & React
   "props": {
     "previous": {
       "label": "UI react: Tooltip",
-      "to": "/dev/ui-react/use/Tooltip"
+      "to": "/library/ui-react/use/Tooltip"
     },
     "next": {
       "label": "UI react: Transition",
-      "to": "/dev/ui-react/use/Transition"
+      "to": "/library/ui-react/use/Transition"
     }
   }
 }~

@@ -300,11 +300,11 @@ function valueObject(amauiStyle: AmauiStyle): {
   "props": {
     "previous": {
       "label": "Style: unit",
-      "to": "/dev/style/use/unit"
+      "to": "/library/style/use/unit"
     },
     "next": {
       "label": "Subscription: Start",
-      "to": "/dev/subscription/start"
+      "to": "/library/subscription/start"
     }
   }
 }~

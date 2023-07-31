@@ -80,11 +80,11 @@ default function formats(amauiDate?: AmauiDate): Array<{
   "props": {
     "previous": {
       "label": "Date: format",
-      "to": "/dev/date/use/format"
+      "to": "/library/date/use/format"
     },
     "next": {
       "label": "Date: getTimezoneOffset",
-      "to": "/dev/date/use/getTimezoneOffset"
+      "to": "/library/date/use/getTimezoneOffset"
     }
   }
 }~

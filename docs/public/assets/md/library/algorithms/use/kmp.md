@@ -25,11 +25,11 @@ default function kmp(string: string, value: string): boolean;
   "props": {
     "previous": {
       "label": "Algorithms: insertionSort",
-      "to": "/dev/algorithms/use/insertionSort"
+      "to": "/library/algorithms/use/insertionSort"
     },
     "next": {
       "label": "Algorithms: longestPrefixSuffix",
-      "to": "/dev/algorithms/use/longestPrefixSuffix"
+      "to": "/library/algorithms/use/longestPrefixSuffix"
     }
   }
 }~

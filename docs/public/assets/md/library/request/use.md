@@ -774,11 +774,11 @@ class AmauiRequest {
   "props": {
     "previous": {
       "label": "Request: Start",
-      "to": "/dev/request/start"
+      "to": "/library/request/start"
     },
     "next": {
       "label": "Stack: Start",
-      "to": "/dev/stack/start"
+      "to": "/library/stack/start"
     }
   }
 }~

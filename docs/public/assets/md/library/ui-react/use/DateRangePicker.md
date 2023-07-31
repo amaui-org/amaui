@@ -21,11 +21,11 @@ const DateRangePicker: React.ForwardRefExoticComponent<Omit<IDateRangePicker, "r
   "props": {
     "previous": {
       "label": "UI react: DatePicker",
-      "to": "/dev/ui-react/use/DatePicker"
+      "to": "/library/ui-react/use/DatePicker"
     },
     "next": {
       "label": "UI react: DateTimePicker",
-      "to": "/dev/ui-react/use/DateTimePicker"
+      "to": "/library/ui-react/use/DateTimePicker"
     }
   }
 }~

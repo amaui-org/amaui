@@ -192,11 +192,11 @@ class AmauiSubscription implements IAmauiSubscription {
   "props": {
     "previous": {
       "label": "Subscription: Start",
-      "to": "/dev/subscription/start"
+      "to": "/library/subscription/start"
     },
     "next": {
       "label": "Test: Start",
-      "to": "/dev/test/start"
+      "to": "/library/test/start"
     }
   }
 }~

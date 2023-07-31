@@ -23,11 +23,11 @@ const getExpressParamValue: (req: express.Request, name: string) => any | undefi
   "props": {
     "previous": {
       "label": "Models: base",
-      "to": "/dev/models/use/base"
+      "to": "/library/models/use/base"
     },
     "next": {
       "label": "Models: getMongoFilter",
-      "to": "/dev/models/use/getMongoFilter"
+      "to": "/library/models/use/getMongoFilter"
     }
   }
 }~

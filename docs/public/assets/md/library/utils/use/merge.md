@@ -59,11 +59,11 @@ const merge: <T extends unknown>(target: T, source: any, options_?: IOptions) =>
   "props": {
     "previous": {
       "label": "Utils: matchRoute",
-      "to": "/dev/utils/use/matchRoute"
+      "to": "/library/utils/use/matchRoute"
     },
     "next": {
       "label": "Utils: models",
-      "to": "/dev/utils/use/models"
+      "to": "/library/utils/use/models"
     }
   }
 }~

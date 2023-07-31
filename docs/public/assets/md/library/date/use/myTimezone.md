@@ -29,11 +29,11 @@ default function myTimezone(): ITimezone;
   "props": {
     "previous": {
       "label": "Date: my",
-      "to": "/dev/date/use/my"
+      "to": "/library/date/use/my"
     },
     "next": {
       "label": "Date: myTimezoneAbbr",
-      "to": "/dev/date/use/myTimezoneAbbr"
+      "to": "/library/date/use/myTimezoneAbbr"
     }
   }
 }~

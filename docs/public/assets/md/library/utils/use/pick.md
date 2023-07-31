@@ -23,11 +23,11 @@ const pick: (value: string, min?: number, max?: number) => string;
   "props": {
     "previous": {
       "label": "Utils: permutationWithRepetition",
-      "to": "/dev/utils/use/permutationWithRepetition"
+      "to": "/library/utils/use/permutationWithRepetition"
     },
     "next": {
       "label": "Utils: polyfills",
-      "to": "/dev/utils/use/polyfills"
+      "to": "/library/utils/use/polyfills"
     }
   }
 }~

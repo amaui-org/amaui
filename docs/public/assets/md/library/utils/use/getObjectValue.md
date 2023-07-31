@@ -28,11 +28,11 @@ const getObjectValue: (object: object, ...args: string[]) => any;
   "props": {
     "previous": {
       "label": "Utils: getObjectPropertyValue",
-      "to": "/dev/utils/use/getObjectPropertyValue"
+      "to": "/library/utils/use/getObjectPropertyValue"
     },
     "next": {
       "label": "Utils: getOrdinalNumber",
-      "to": "/dev/utils/use/getOrdinalNumber"
+      "to": "/library/utils/use/getOrdinalNumber"
     }
   }
 }~

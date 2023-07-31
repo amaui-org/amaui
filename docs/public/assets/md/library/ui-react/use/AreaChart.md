@@ -24,11 +24,11 @@ const AreaChart: React.ForwardRefExoticComponent<Omit<IAreaChart, "ref"> & React
   "props": {
     "previous": {
       "label": "UI react: Append",
-      "to": "/dev/ui-react/use/Append"
+      "to": "/library/ui-react/use/Append"
     },
     "next": {
       "label": "UI react: AreaChartItem",
-      "to": "/dev/ui-react/use/AreaChartItem"
+      "to": "/library/ui-react/use/AreaChartItem"
     }
   }
 }~

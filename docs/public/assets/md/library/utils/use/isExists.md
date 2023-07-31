@@ -28,11 +28,11 @@ default function isExists(type: string): boolean;
   "props": {
     "previous": {
       "label": "Utils: isEnvironment",
-      "to": "/dev/utils/use/isEnvironment"
+      "to": "/library/utils/use/isEnvironment"
     },
     "next": {
       "label": "Utils: isOS",
-      "to": "/dev/utils/use/isOS"
+      "to": "/library/utils/use/isOS"
     }
   }
 }~

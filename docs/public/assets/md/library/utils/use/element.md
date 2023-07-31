@@ -135,11 +135,11 @@ function element(value: string | Element): IElementObject;
   "props": {
     "previous": {
       "label": "Utils: download",
-      "to": "/dev/utils/use/download"
+      "to": "/library/utils/use/download"
     },
     "next": {
       "label": "Utils: elementToCanvas",
-      "to": "/dev/utils/use/elementToCanvas"
+      "to": "/library/utils/use/elementToCanvas"
     }
   }
 }~

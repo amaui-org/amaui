@@ -752,11 +752,11 @@ class AmauiTheme {
   "props": {
     "previous": {
       "label": "Style: AmauiStyleSheetManager",
-      "to": "/dev/style/use/AmauiStyleSheetManager"
+      "to": "/library/style/use/AmauiStyleSheetManager"
     },
     "next": {
       "label": "Style: classNames",
-      "to": "/dev/style/use/classNames"
+      "to": "/library/style/use/classNames"
     }
   }
 }~

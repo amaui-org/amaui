@@ -29,11 +29,11 @@ const Card: React.ForwardRefExoticComponent<Omit<ICard, "ref"> & React.RefAttrib
   "props": {
     "previous": {
       "label": "UI react: CalendarMonth",
-      "to": "/dev/ui-react/use/CalendarMonth"
+      "to": "/library/ui-react/use/CalendarMonth"
     },
     "next": {
       "label": "UI react: CardButton",
-      "to": "/dev/ui-react/use/CardButton"
+      "to": "/library/ui-react/use/CardButton"
     }
   }
 }~

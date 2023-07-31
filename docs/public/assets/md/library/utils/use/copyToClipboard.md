@@ -29,11 +29,11 @@ const copyToClipboard: (value_: any) => Promise<void>;
   "props": {
     "previous": {
       "label": "Utils: copy",
-      "to": "/dev/utils/use/copy"
+      "to": "/library/utils/use/copy"
     },
     "next": {
       "label": "Utils: countries",
-      "to": "/dev/utils/use/countries"
+      "to": "/library/utils/use/countries"
     }
   }
 }~

@@ -320,11 +320,11 @@ const colors: {
   "props": {
     "previous": {
       "label": "Style: cli",
-      "to": "/dev/style/use/cli"
+      "to": "/library/style/use/cli"
     },
     "next": {
       "label": "Style: css",
-      "to": "/dev/style/use/css"
+      "to": "/library/style/use/css"
     }
   }
 }~

@@ -46,11 +46,11 @@ const hash: (value_: any, options_?: IOptions) => string;
   "props": {
     "previous": {
       "label": "Utils: getUserLocalInfo",
-      "to": "/dev/utils/use/getUserLocalInfo"
+      "to": "/library/utils/use/getUserLocalInfo"
     },
     "next": {
       "label": "Utils: hashFile",
-      "to": "/dev/utils/use/hashFile"
+      "to": "/library/utils/use/hashFile"
     }
   }
 }~

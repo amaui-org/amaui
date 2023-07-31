@@ -95,11 +95,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Errors: Start",
-      "to": "/dev/errors/start"
+      "to": "/library/errors/start"
     },
     "next": {
       "label": "Graph: Use",
-      "to": "/dev/graph/use"
+      "to": "/library/graph/use"
     }
   }
 }~

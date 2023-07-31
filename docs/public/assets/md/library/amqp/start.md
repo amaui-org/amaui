@@ -88,11 +88,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Algorithms: Start",
-      "to": "/dev/algorithms/start"
+      "to": "/library/algorithms/start"
     },
     "next": {
       "label": "AMQP: Use",
-      "to": "/dev/amqp/use"
+      "to": "/library/amqp/use"
     }
   }
 }~

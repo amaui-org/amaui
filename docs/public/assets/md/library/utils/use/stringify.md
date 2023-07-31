@@ -36,11 +36,11 @@ const stringify: (value_: any, spaces?: number, replacer?: (property: string, va
   "props": {
     "previous": {
       "label": "Utils: slugify",
-      "to": "/dev/utils/use/slugify"
+      "to": "/library/utils/use/slugify"
     },
     "next": {
       "label": "Utils: to",
-      "to": "/dev/utils/use/to"
+      "to": "/library/utils/use/to"
     }
   }
 }~

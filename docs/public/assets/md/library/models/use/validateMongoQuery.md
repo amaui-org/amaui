@@ -134,11 +134,11 @@ const validateMongoQuery: (value: object, keys?: IQueryKeys) => Error | boolean;
   "props": {
     "previous": {
       "label": "Models: Response",
-      "to": "/dev/models/use/Response"
+      "to": "/library/models/use/Response"
     },
     "next": {
       "label": "Mongo: Start",
-      "to": "/dev/mongo/start"
+      "to": "/library/mongo/start"
     }
   }
 }~

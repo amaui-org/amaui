@@ -31,11 +31,11 @@ const NavigationRail: React.ForwardRefExoticComponent<Omit<INavigationRail, "ref
   "props": {
     "previous": {
       "label": "UI react: NavigationItem",
-      "to": "/dev/ui-react/use/NavigationItem"
+      "to": "/library/ui-react/use/NavigationItem"
     },
     "next": {
       "label": "UI react: NumericTextField",
-      "to": "/dev/ui-react/use/NumericTextField"
+      "to": "/library/ui-react/use/NumericTextField"
     }
   }
 }~

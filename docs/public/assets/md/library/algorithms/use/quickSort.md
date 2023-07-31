@@ -32,11 +32,11 @@ default function quickSort<T = number>(array: Array<T>, ascending?: boolean): Ar
   "props": {
     "previous": {
       "label": "Algorithms: naiveSearch",
-      "to": "/dev/algorithms/use/naiveSearch"
+      "to": "/library/algorithms/use/naiveSearch"
     },
     "next": {
       "label": "Algorithms: radixSort",
-      "to": "/dev/algorithms/use/radixSort"
+      "to": "/library/algorithms/use/radixSort"
     }
   }
 }~

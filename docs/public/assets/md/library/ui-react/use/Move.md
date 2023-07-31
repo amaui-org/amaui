@@ -26,11 +26,11 @@ const Move: React.ForwardRefExoticComponent<Omit<IMove, "ref"> & React.RefAttrib
   "props": {
     "previous": {
       "label": "UI react: ModalTitle",
-      "to": "/dev/ui-react/use/ModalTitle"
+      "to": "/library/ui-react/use/ModalTitle"
     },
     "next": {
       "label": "UI react: NavigationBar",
-      "to": "/dev/ui-react/use/NavigationBar"
+      "to": "/library/ui-react/use/NavigationBar"
     }
   }
 }~

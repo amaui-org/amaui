@@ -85,11 +85,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Utils: Start",
-      "to": "/dev/utils/start"
+      "to": "/library/utils/start"
     },
     "next": {
       "label": "Zip: Use",
-      "to": "/dev/zip/use"
+      "to": "/library/zip/use"
     }
   }
 }~

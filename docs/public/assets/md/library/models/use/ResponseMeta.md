@@ -41,11 +41,11 @@ class ResponseMeta extends Base implements IResponseMeta {
   "props": {
     "previous": {
       "label": "Models: Query",
-      "to": "/dev/models/use/Query"
+      "to": "/library/models/use/Query"
     },
     "next": {
       "label": "Models: ResponsePagination",
-      "to": "/dev/models/use/ResponsePagination"
+      "to": "/library/models/use/ResponsePagination"
     }
   }
 }~

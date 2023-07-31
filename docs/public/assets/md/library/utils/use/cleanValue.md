@@ -131,11 +131,11 @@ const cleanValue: (value_: string, options_?: IOptions) => string | any;
   "props": {
     "previous": {
       "label": "Utils: clamp",
-      "to": "/dev/utils/use/clamp"
+      "to": "/library/utils/use/clamp"
     },
     "next": {
       "label": "Utils: colorToRgb",
-      "to": "/dev/utils/use/colorToRgb"
+      "to": "/library/utils/use/colorToRgb"
     }
   }
 }~

@@ -28,11 +28,11 @@ const Markdown: React.ForwardRefExoticComponent<Omit<IMarkdown, "ref"> & React.R
   "props": {
     "previous": {
       "label": "UI react: useMainProgress",
-      "to": "/dev/ui-react/use/useMainProgress"
+      "to": "/library/ui-react/use/useMainProgress"
     },
     "next": {
       "label": "UI react: Masonry",
-      "to": "/dev/ui-react/use/Masonry"
+      "to": "/library/ui-react/use/Masonry"
     }
   }
 }~

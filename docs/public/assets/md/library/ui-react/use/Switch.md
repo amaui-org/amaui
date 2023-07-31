@@ -31,11 +31,11 @@ const Switch: React.ForwardRefExoticComponent<Omit<ISwitch, "ref"> & React.RefAt
   "props": {
     "previous": {
       "label": "UI react: Surface",
-      "to": "/dev/ui-react/use/Surface"
+      "to": "/library/ui-react/use/Surface"
     },
     "next": {
       "label": "UI react: Tab",
-      "to": "/dev/ui-react/use/Tab"
+      "to": "/library/ui-react/use/Tab"
     }
   }
 }~

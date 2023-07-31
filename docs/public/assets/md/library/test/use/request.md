@@ -88,11 +88,11 @@ function request(app?: express.Application | http.Server | https.Server | string
   "props": {
     "previous": {
       "label": "Test: cli",
-      "to": "/dev/test/use/cli"
+      "to": "/library/test/use/cli"
     },
     "next": {
       "label": "Utils: Start",
-      "to": "/dev/utils/start"
+      "to": "/library/utils/start"
     }
   }
 }~

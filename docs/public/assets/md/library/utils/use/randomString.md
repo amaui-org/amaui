@@ -25,11 +25,11 @@ const randomString: (length_?: number) => string;
   "props": {
     "previous": {
       "label": "Utils: random",
-      "to": "/dev/utils/use/random"
+      "to": "/library/utils/use/random"
     },
     "next": {
       "label": "Utils: removeObjectValue",
-      "to": "/dev/utils/use/removeObjectValue"
+      "to": "/library/utils/use/removeObjectValue"
     }
   }
 }~

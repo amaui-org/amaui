@@ -50,11 +50,11 @@ const Modal: React.ForwardRefExoticComponent<Omit<IModal, "ref"> & React.RefAttr
   "props": {
     "previous": {
       "label": "UI react: MenuDesktop",
-      "to": "/dev/ui-react/use/MenuDesktop"
+      "to": "/library/ui-react/use/MenuDesktop"
     },
     "next": {
       "label": "UI react: ModalFooter",
-      "to": "/dev/ui-react/use/ModalFooter"
+      "to": "/library/ui-react/use/ModalFooter"
     }
   }
 }~

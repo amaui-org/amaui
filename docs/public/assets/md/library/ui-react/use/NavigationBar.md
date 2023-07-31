@@ -31,11 +31,11 @@ const NavigationBar: React.ForwardRefExoticComponent<Omit<INavigationBar, "ref">
   "props": {
     "previous": {
       "label": "UI react: Move",
-      "to": "/dev/ui-react/use/Move"
+      "to": "/library/ui-react/use/Move"
     },
     "next": {
       "label": "UI react: NavigationDrawer",
-      "to": "/dev/ui-react/use/NavigationDrawer"
+      "to": "/library/ui-react/use/NavigationDrawer"
     }
   }
 }~

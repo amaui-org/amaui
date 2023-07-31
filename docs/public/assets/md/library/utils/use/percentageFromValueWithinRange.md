@@ -26,11 +26,11 @@ const percentageFromValueWithinRange: (value: number, min: number, max: number, 
   "props": {
     "previous": {
       "label": "Utils: parse",
-      "to": "/dev/utils/use/parse"
+      "to": "/library/utils/use/parse"
     },
     "next": {
       "label": "Utils: permutation",
-      "to": "/dev/utils/use/permutation"
+      "to": "/library/utils/use/permutation"
     }
   }
 }~

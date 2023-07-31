@@ -58,11 +58,11 @@ const checkObjectFilters: (value: object, filters?: Array<IFilter>, operator?: '
   "props": {
     "previous": {
       "label": "Utils: checkAppVersion",
-      "to": "/dev/utils/use/checkAppVersion"
+      "to": "/library/utils/use/checkAppVersion"
     },
     "next": {
       "label": "Utils: clamp",
-      "to": "/dev/utils/use/clamp"
+      "to": "/library/utils/use/clamp"
     }
   }
 }~

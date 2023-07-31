@@ -9,7 +9,7 @@ import { importIframeStyles } from '../../utils';
 const useStyle = style(theme => ({
   root: {
     margin: '8px 0',
-    background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.color.primary[5],
+    background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.color.primary[10],
     boxShadow: theme.palette.light ? theme.shadows.values.default[12] : undefined,
     width: '100%',
     height: '100vh',

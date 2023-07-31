@@ -259,11 +259,11 @@ class AmauiStyle {
   "props": {
     "previous": {
       "label": "Style: Start",
-      "to": "/dev/style/start"
+      "to": "/library/style/start"
     },
     "next": {
       "label": "Style: AmauiStyleRenderer",
-      "to": "/dev/style/use/AmauiStyleRenderer"
+      "to": "/library/style/use/AmauiStyleRenderer"
     }
   }
 }~

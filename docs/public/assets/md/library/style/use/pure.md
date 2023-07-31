@@ -140,11 +140,11 @@ function pure(value_: TValue, options_?: IOptions): IMethodResponse;
   "props": {
     "previous": {
       "label": "Style: prefix",
-      "to": "/dev/style/use/prefix"
+      "to": "/library/style/use/prefix"
     },
     "next": {
       "label": "Style: reset",
-      "to": "/dev/style/use/reset"
+      "to": "/library/style/use/reset"
     }
   }
 }~

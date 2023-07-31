@@ -41,11 +41,11 @@ const Pagination: React.ForwardRefExoticComponent<Omit<IPagination, "ref"> & Rea
   "props": {
     "previous": {
       "label": "UI react: NumericTextField",
-      "to": "/dev/ui-react/use/NumericTextField"
+      "to": "/library/ui-react/use/NumericTextField"
     },
     "next": {
       "label": "UI react: PaginationItem",
-      "to": "/dev/ui-react/use/PaginationItem"
+      "to": "/library/ui-react/use/PaginationItem"
     }
   }
 }~

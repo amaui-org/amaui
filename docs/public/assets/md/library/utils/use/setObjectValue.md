@@ -44,11 +44,11 @@ const setObjectValue: <T extends unknown>(object: T, keys?: string | string[], v
   "props": {
     "previous": {
       "label": "Utils: serialize",
-      "to": "/dev/utils/use/serialize"
+      "to": "/library/utils/use/serialize"
     },
     "next": {
       "label": "Utils: setStringVariables",
-      "to": "/dev/utils/use/setStringVariables"
+      "to": "/library/utils/use/setStringVariables"
     }
   }
 }~

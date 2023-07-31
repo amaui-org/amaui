@@ -51,11 +51,11 @@ const getMongoFilters: (value_: IQueryObject<IFilter>, methodField?: (...args: a
   "props": {
     "previous": {
       "label": "Models: getMongoFilter",
-      "to": "/dev/models/use/getMongoFilter"
+      "to": "/library/models/use/getMongoFilter"
     },
     "next": {
       "label": "Models: getMongoMatch",
-      "to": "/dev/models/use/getMongoMatch"
+      "to": "/library/models/use/getMongoMatch"
     }
   }
 }~

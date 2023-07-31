@@ -74,11 +74,11 @@ const ListItem: React.ForwardRefExoticComponent<Omit<IListItem, "ref"> & React.R
   "props": {
     "previous": {
       "label": "UI react: List",
-      "to": "/dev/ui-react/use/List"
+      "to": "/library/ui-react/use/List"
     },
     "next": {
       "label": "UI react: ListSubheader",
-      "to": "/dev/ui-react/use/ListSubheader"
+      "to": "/library/ui-react/use/ListSubheader"
     }
   }
 }~

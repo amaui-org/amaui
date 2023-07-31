@@ -155,11 +155,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Heap: Start",
-      "to": "/dev/heap/start"
+      "to": "/library/heap/start"
     },
     "next": {
       "label": "Huffman Code: Use",
-      "to": "/dev/huffman-code/use"
+      "to": "/library/huffman-code/use"
     }
   }
 }~

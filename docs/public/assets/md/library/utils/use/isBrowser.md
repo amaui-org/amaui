@@ -37,11 +37,11 @@ default function isBrowser(type: string, value?: any): any;
   "props": {
     "previous": {
       "label": "Utils: is",
-      "to": "/dev/utils/use/is"
+      "to": "/library/utils/use/is"
     },
     "next": {
       "label": "Utils: isEnvironment",
-      "to": "/dev/utils/use/isEnvironment"
+      "to": "/library/utils/use/isEnvironment"
     }
   }
 }~

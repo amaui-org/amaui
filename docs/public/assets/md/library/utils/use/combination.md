@@ -68,11 +68,11 @@ default function combination(value_: any[], items_?: number, options_?: ICombina
   "props": {
     "previous": {
       "label": "Utils: colorToRgb",
-      "to": "/dev/utils/use/colorToRgb"
+      "to": "/library/utils/use/colorToRgb"
     },
     "next": {
       "label": "Utils: combinationWithRepetition",
-      "to": "/dev/utils/use/combinationWithRepetition"
+      "to": "/library/utils/use/combinationWithRepetition"
     }
   }
 }~

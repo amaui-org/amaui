@@ -326,11 +326,11 @@ function Delete(...args: TRouteArgs): MethodDecorator;
   "props": {
     "previous": {
       "label": "API: Start",
-      "to": "/dev/api/start"
+      "to": "/library/api/start"
     },
     "next": {
       "label": "AWS: Start",
-      "to": "/dev/aws/start"
+      "to": "/library/aws/start"
     }
   }
 }~

@@ -145,11 +145,11 @@ default class AmauiHashTable {
   "props": {
     "previous": {
       "label": "Hash table: Start",
-      "to": "/dev/hash-table/start"
+      "to": "/library/hash-table/start"
     },
     "next": {
       "label": "Heap: Start",
-      "to": "/dev/heap/start"
+      "to": "/library/heap/start"
     }
   }
 }~

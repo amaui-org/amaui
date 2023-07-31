@@ -805,11 +805,11 @@ class BaseCollection {
   "props": {
     "previous": {
       "label": "Mongo: AmauiMongo",
-      "to": "/dev/mongo/use/AmauiMongo"
+      "to": "/library/mongo/use/AmauiMongo"
     },
     "next": {
       "label": "Mongo: Mongo",
-      "to": "/dev/mongo/use/Mongo"
+      "to": "/library/mongo/use/Mongo"
     }
   }
 }~

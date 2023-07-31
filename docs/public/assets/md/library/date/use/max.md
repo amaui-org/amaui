@@ -28,11 +28,11 @@ default function max(values?: Array<AmauiDate>): AmauiDate;
   "props": {
     "previous": {
       "label": "Date: is",
-      "to": "/dev/date/use/is"
+      "to": "/library/date/use/is"
     },
     "next": {
       "label": "Date: min",
-      "to": "/dev/date/use/min"
+      "to": "/library/date/use/min"
     }
   }
 }~

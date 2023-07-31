@@ -99,11 +99,11 @@ const elementToCanvas: (element_: HTMLElement, options_?: IElementToCanvasOption
   "props": {
     "previous": {
       "label": "Utils: element",
-      "to": "/dev/utils/use/element"
+      "to": "/library/utils/use/element"
     },
     "next": {
       "label": "Utils: emphasize",
-      "to": "/dev/utils/use/emphasize"
+      "to": "/library/utils/use/emphasize"
     }
   }
 }~

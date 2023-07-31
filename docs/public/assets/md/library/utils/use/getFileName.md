@@ -48,11 +48,11 @@ const getFileName: (file: File, options_?: IOptions) => string;
   "props": {
     "previous": {
       "label": "Utils: getEnvironment",
-      "to": "/dev/utils/use/getEnvironment"
+      "to": "/library/utils/use/getEnvironment"
     },
     "next": {
       "label": "Utils: getGoogleFontsURL",
-      "to": "/dev/utils/use/getGoogleFontsURL"
+      "to": "/library/utils/use/getGoogleFontsURL"
     }
   }
 }~

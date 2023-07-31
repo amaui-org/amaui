@@ -22,11 +22,11 @@ const TableFooter: React.ForwardRefExoticComponent<Omit<ITableFooter, "ref"> & R
   "props": {
     "previous": {
       "label": "UI react: TableCell",
-      "to": "/dev/ui-react/use/TableCell"
+      "to": "/library/ui-react/use/TableCell"
     },
     "next": {
       "label": "UI react: TableHead",
-      "to": "/dev/ui-react/use/TableHead"
+      "to": "/library/ui-react/use/TableHead"
     }
   }
 }~

@@ -25,11 +25,11 @@ default function getTimezoneOffset(value?: AmauiDate, divider?: string): string;
   "props": {
     "previous": {
       "label": "Date: formats",
-      "to": "/dev/date/use/formats"
+      "to": "/library/date/use/formats"
     },
     "next": {
       "label": "Date: in",
-      "to": "/dev/date/use/in"
+      "to": "/library/date/use/in"
     }
   }
 }~

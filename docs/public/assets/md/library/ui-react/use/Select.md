@@ -29,11 +29,11 @@ const Select: React.ForwardRefExoticComponent<Omit<ISelect, "ref"> & React.RefAt
   "props": {
     "previous": {
       "label": "UI react: ScreenCapture",
-      "to": "/dev/ui-react/use/ScreenCapture"
+      "to": "/library/ui-react/use/ScreenCapture"
     },
     "next": {
       "label": "UI react: Slide",
-      "to": "/dev/ui-react/use/Slide"
+      "to": "/library/ui-react/use/Slide"
     }
   }
 }~

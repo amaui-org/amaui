@@ -226,11 +226,11 @@ function css(value__: TValue, options_?: ICSSOptions): IResponse;
   "props": {
     "previous": {
       "label": "Style: colors",
-      "to": "/dev/style/use/colors"
+      "to": "/library/style/use/colors"
     },
     "next": {
       "label": "Style: inline",
-      "to": "/dev/style/use/inline"
+      "to": "/library/style/use/inline"
     }
   }
 }~

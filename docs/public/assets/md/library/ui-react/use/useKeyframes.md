@@ -14,11 +14,11 @@ default function useKeyframes(): any;
   "props": {
     "previous": {
       "label": "UI react: KeyframesContext",
-      "to": "/dev/ui-react/use/KeyframesContext"
+      "to": "/library/ui-react/use/KeyframesContext"
     },
     "next": {
       "label": "UI react: Label",
-      "to": "/dev/ui-react/use/Label"
+      "to": "/library/ui-react/use/Label"
     }
   }
 }~

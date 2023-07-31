@@ -39,11 +39,11 @@ const Countdown: React.ForwardRefExoticComponent<Omit<ICountdown, "ref"> & React
   "props": {
     "previous": {
       "label": "UI react: Container",
-      "to": "/dev/ui-react/use/Container"
+      "to": "/library/ui-react/use/Container"
     },
     "next": {
       "label": "UI react: DatePicker",
-      "to": "/dev/ui-react/use/DatePicker"
+      "to": "/library/ui-react/use/DatePicker"
     }
   }
 }~

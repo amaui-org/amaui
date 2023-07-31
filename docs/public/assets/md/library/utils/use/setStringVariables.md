@@ -64,11 +64,11 @@ const setStringVariables: (value: string, variablesToValue?: TVariablesToValue, 
   "props": {
     "previous": {
       "label": "Utils: setObjectValue",
-      "to": "/dev/utils/use/setObjectValue"
+      "to": "/library/utils/use/setObjectValue"
     },
     "next": {
       "label": "Utils: shuffle",
-      "to": "/dev/utils/use/shuffle"
+      "to": "/library/utils/use/shuffle"
     }
   }
 }~

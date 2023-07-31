@@ -28,11 +28,11 @@ default function min(values?: Array<AmauiDate>): AmauiDate;
   "props": {
     "previous": {
       "label": "Date: max",
-      "to": "/dev/date/use/max"
+      "to": "/library/date/use/max"
     },
     "next": {
       "label": "Date: my",
-      "to": "/dev/date/use/my"
+      "to": "/library/date/use/my"
     }
   }
 }~

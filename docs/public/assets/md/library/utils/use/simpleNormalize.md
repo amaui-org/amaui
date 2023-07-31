@@ -79,11 +79,11 @@ const simpleNormalize: (value: any, options_?: IOptions) => string;
   "props": {
     "previous": {
       "label": "Utils: shuffle",
-      "to": "/dev/utils/use/shuffle"
+      "to": "/library/utils/use/shuffle"
     },
     "next": {
       "label": "Utils: slugify",
-      "to": "/dev/utils/use/slugify"
+      "to": "/library/utils/use/slugify"
     }
   }
 }~

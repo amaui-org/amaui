@@ -67,11 +67,11 @@ const TextField: React.ForwardRefExoticComponent<Omit<ITextField, "ref"> & React
   "props": {
     "previous": {
       "label": "UI react: Tabs",
-      "to": "/dev/ui-react/use/Tabs"
+      "to": "/library/ui-react/use/Tabs"
     },
     "next": {
       "label": "UI react: TimePicker",
-      "to": "/dev/ui-react/use/TimePicker"
+      "to": "/library/ui-react/use/TimePicker"
     }
   }
 }~

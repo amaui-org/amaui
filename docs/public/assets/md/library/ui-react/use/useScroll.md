@@ -33,11 +33,11 @@ const useScroll: {
   "props": {
     "previous": {
       "label": "UI react: useMediaQuery",
-      "to": "/dev/ui-react/use/useMediaQuery"
+      "to": "/library/ui-react/use/useMediaQuery"
     },
     "next": {
       "label": "UI react: useSwipe",
-      "to": "/dev/ui-react/use/useSwipe"
+      "to": "/library/ui-react/use/useSwipe"
     }
   }
 }~

@@ -29,11 +29,11 @@ const List: React.ForwardRefExoticComponent<Omit<IList, "ref"> & React.RefAttrib
   "props": {
     "previous": {
       "label": "UI react: Link",
-      "to": "/dev/ui-react/use/Link"
+      "to": "/library/ui-react/use/Link"
     },
     "next": {
       "label": "UI react: ListItem",
-      "to": "/dev/ui-react/use/ListItem"
+      "to": "/library/ui-react/use/ListItem"
     }
   }
 }~

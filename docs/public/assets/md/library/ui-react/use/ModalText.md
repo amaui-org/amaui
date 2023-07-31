@@ -21,11 +21,11 @@ const ModalText: React.ForwardRefExoticComponent<Omit<IModalText, "ref"> & React
   "props": {
     "previous": {
       "label": "UI react: ModalMain",
-      "to": "/dev/ui-react/use/ModalMain"
+      "to": "/library/ui-react/use/ModalMain"
     },
     "next": {
       "label": "UI react: ModalTitle",
-      "to": "/dev/ui-react/use/ModalTitle"
+      "to": "/library/ui-react/use/ModalTitle"
     }
   }
 }~

@@ -52,11 +52,11 @@ default function pure(value: TValue, options_?: IOptions): (props_?: any) => IRe
   "props": {
     "previous": {
       "label": "Style react: inline",
-      "to": "/dev/style-react/use/inline"
+      "to": "/library/style-react/use/inline"
     },
     "next": {
       "label": "Style react: reset",
-      "to": "/dev/style-react/use/reset"
+      "to": "/library/style-react/use/reset"
     }
   }
 }~

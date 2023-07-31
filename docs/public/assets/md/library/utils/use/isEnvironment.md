@@ -34,11 +34,11 @@ default function isEnvironment(type: string, value?: any): any;
   "props": {
     "previous": {
       "label": "Utils: isBrowser",
-      "to": "/dev/utils/use/isBrowser"
+      "to": "/library/utils/use/isBrowser"
     },
     "next": {
       "label": "Utils: isExists",
-      "to": "/dev/utils/use/isExists"
+      "to": "/library/utils/use/isExists"
     }
   }
 }~

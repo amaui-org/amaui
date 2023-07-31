@@ -25,11 +25,11 @@ const canvasFilterBrightness: (value: number, canvas: HTMLCanvasElement) => HTML
   "props": {
     "previous": {
       "label": "Utils: canvasCrop",
-      "to": "/dev/utils/use/canvasCrop"
+      "to": "/library/utils/use/canvasCrop"
     },
     "next": {
       "label": "Utils: canvasFilterContrast",
-      "to": "/dev/utils/use/canvasFilterContrast"
+      "to": "/library/utils/use/canvasFilterContrast"
     }
   }
 }~

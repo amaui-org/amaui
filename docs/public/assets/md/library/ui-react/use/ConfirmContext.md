@@ -14,11 +14,11 @@ const AmauiConfirmContext: any;
   "props": {
     "previous": {
       "label": "UI react: ColumnChartItem",
-      "to": "/dev/ui-react/use/ColumnChartItem"
+      "to": "/library/ui-react/use/ColumnChartItem"
     },
     "next": {
       "label": "UI react: ConfirmProvider",
-      "to": "/dev/ui-react/use/ConfirmProvider"
+      "to": "/library/ui-react/use/ConfirmProvider"
     }
   }
 }~

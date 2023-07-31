@@ -64,11 +64,11 @@ const MenuDesktop: React.ForwardRefExoticComponent<Omit<IMenuDesktop, "ref"> & R
   "props": {
     "previous": {
       "label": "UI react: Menu",
-      "to": "/dev/ui-react/use/Menu"
+      "to": "/library/ui-react/use/Menu"
     },
     "next": {
       "label": "UI react: Modal",
-      "to": "/dev/ui-react/use/Modal"
+      "to": "/library/ui-react/use/Modal"
     }
   }
 }~

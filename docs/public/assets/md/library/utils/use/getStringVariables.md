@@ -109,11 +109,11 @@ const getStringVariables: (value: string, options_?: IOptions) => IGetStringVari
   "props": {
     "previous": {
       "label": "Utils: getRedirectTo",
-      "to": "/dev/utils/use/getRedirectTo"
+      "to": "/library/utils/use/getRedirectTo"
     },
     "next": {
       "label": "Utils: getURL",
-      "to": "/dev/utils/use/getURL"
+      "to": "/library/utils/use/getURL"
     }
   }
 }~

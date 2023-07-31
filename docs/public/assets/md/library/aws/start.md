@@ -115,11 +115,11 @@ yarn build
   "props": {
     "previous": {
       "label": "API: Start",
-      "to": "/dev/api/start"
+      "to": "/library/api/start"
     },
     "next": {
       "label": "AWS: Use",
-      "to": "/dev/aws/use"
+      "to": "/library/aws/use"
     }
   }
 }~

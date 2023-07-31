@@ -35,11 +35,11 @@ const darken: (value: string, coefficient: number) => string | undefined;
   "props": {
     "previous": {
       "label": "Utils: countries",
-      "to": "/dev/utils/use/countries"
+      "to": "/library/utils/use/countries"
     },
     "next": {
       "label": "Utils: debounce",
-      "to": "/dev/utils/use/debounce"
+      "to": "/library/utils/use/debounce"
     }
   }
 }~

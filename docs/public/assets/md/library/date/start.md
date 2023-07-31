@@ -57,11 +57,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Cookie: Start",
-      "to": "/dev/cookie/start"
+      "to": "/library/cookie/start"
     },
     "next": {
       "label": "Date: add",
-      "to": "/dev/date/use/add"
+      "to": "/library/date/use/add"
     }
   }
 }~

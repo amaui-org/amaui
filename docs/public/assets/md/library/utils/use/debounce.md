@@ -43,11 +43,11 @@ const debounce: (method_: TMethod, delay?: number) => IDebounceMethod;
   "props": {
     "previous": {
       "label": "Utils: darken",
-      "to": "/dev/utils/use/darken"
+      "to": "/library/utils/use/darken"
     },
     "next": {
       "label": "Utils: decode",
-      "to": "/dev/utils/use/decode"
+      "to": "/library/utils/use/decode"
     }
   }
 }~

@@ -186,11 +186,11 @@ class AmauiTest {
   "props": {
     "previous": {
       "label": "Test: AmauiMiddleware",
-      "to": "/dev/test/use/AmauiMiddleware"
+      "to": "/library/test/use/AmauiMiddleware"
     },
     "next": {
       "label": "Test: AmauiTo",
-      "to": "/dev/test/use/AmauiTo"
+      "to": "/library/test/use/AmauiTo"
     }
   }
 }~

@@ -23,11 +23,11 @@ const Link: React.ForwardRefExoticComponent<Omit<ILink, "ref"> & React.RefAttrib
   "props": {
     "previous": {
       "label": "UI react: LinearProgress",
-      "to": "/dev/ui-react/use/LinearProgress"
+      "to": "/library/ui-react/use/LinearProgress"
     },
     "next": {
       "label": "UI react: List",
-      "to": "/dev/ui-react/use/List"
+      "to": "/library/ui-react/use/List"
     }
   }
 }~

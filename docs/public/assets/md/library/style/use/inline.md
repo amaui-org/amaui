@@ -124,11 +124,11 @@ function inline(value_: TValue, props?: any, options_?: IOptions): any;
   "props": {
     "previous": {
       "label": "Style: css",
-      "to": "/dev/style/use/css"
+      "to": "/library/style/use/css"
     },
     "next": {
       "label": "Style: interfaces",
-      "to": "/dev/style/use/interfaces"
+      "to": "/library/style/use/interfaces"
     }
   }
 }~

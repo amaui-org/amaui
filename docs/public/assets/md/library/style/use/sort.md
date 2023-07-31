@@ -108,11 +108,11 @@ function sort(amauiStyle: AmauiStyle, options_?: IOptions): {
   "props": {
     "previous": {
       "label": "Style: rtl",
-      "to": "/dev/style/use/rtl"
+      "to": "/library/style/use/rtl"
     },
     "next": {
       "label": "Style: style",
-      "to": "/dev/style/use/style"
+      "to": "/library/style/use/style"
     }
   }
 }~

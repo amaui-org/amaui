@@ -641,11 +641,11 @@ class AmauiHuffmanCode {
   "props": {
     "previous": {
       "label": "Huffman code: Start",
-      "to": "/dev/huffman code/start"
+      "to": "/library/huffman code/start"
     },
     "next": {
       "label": "Huffman code: Start",
-      "to": "/dev/huffman code/start"
+      "to": "/library/huffman code/start"
     }
   }
 }~

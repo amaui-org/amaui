@@ -29,11 +29,11 @@ const numberWithCommas: (value_: string | number, delimiter?: string) => any;
   "props": {
     "previous": {
       "label": "Utils: models",
-      "to": "/dev/utils/use/models"
+      "to": "/library/utils/use/models"
     },
     "next": {
       "label": "Utils: order",
-      "to": "/dev/utils/use/order"
+      "to": "/library/utils/use/order"
     }
   }
 }~

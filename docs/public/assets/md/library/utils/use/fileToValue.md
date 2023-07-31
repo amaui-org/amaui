@@ -29,11 +29,11 @@ const fileToValue: (file: Blob | File, type?: TType) => Promise<string | ArrayBu
   "props": {
     "previous": {
       "label": "Utils: factorial",
-      "to": "/dev/utils/use/factorial"
+      "to": "/library/utils/use/factorial"
     },
     "next": {
       "label": "Utils: flattenObject",
-      "to": "/dev/utils/use/flattenObject"
+      "to": "/library/utils/use/flattenObject"
     }
   }
 }~

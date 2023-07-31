@@ -40,11 +40,11 @@ namespace Transitions {
   "props": {
     "previous": {
       "label": "UI react: useTransition",
-      "to": "/dev/ui-react/use/useTransition"
+      "to": "/library/ui-react/use/useTransition"
     },
     "next": {
       "label": "UI react: Tree",
-      "to": "/dev/ui-react/use/Tree"
+      "to": "/library/ui-react/use/Tree"
     }
   }
 }~

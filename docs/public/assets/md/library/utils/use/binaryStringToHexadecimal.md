@@ -27,11 +27,11 @@ const binaryStringToHexadecimal: (value_: string) => string;
   "props": {
     "previous": {
       "label": "Utils: asyncMethodRetry",
-      "to": "/dev/utils/use/asyncMethodRetry"
+      "to": "/library/utils/use/asyncMethodRetry"
     },
     "next": {
       "label": "Utils: canvasCrop",
-      "to": "/dev/utils/use/canvasCrop"
+      "to": "/library/utils/use/canvasCrop"
     }
   }
 }~

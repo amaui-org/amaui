@@ -64,11 +64,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Cache: Start",
-      "to": "/dev/cache/start"
+      "to": "/library/cache/start"
     },
     "next": {
       "label": "Cookie: Use",
-      "to": "/dev/cookie/use"
+      "to": "/library/cookie/use"
     }
   }
 }~

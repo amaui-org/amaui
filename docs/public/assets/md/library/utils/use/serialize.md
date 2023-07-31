@@ -23,11 +23,11 @@ const serialize: (value: any) => string;
   "props": {
     "previous": {
       "label": "Utils: rgbToRgba",
-      "to": "/dev/utils/use/rgbToRgba"
+      "to": "/library/utils/use/rgbToRgba"
     },
     "next": {
       "label": "Utils: setObjectValue",
-      "to": "/dev/utils/use/setObjectValue"
+      "to": "/library/utils/use/setObjectValue"
     }
   }
 }~

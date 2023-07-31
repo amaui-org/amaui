@@ -61,11 +61,11 @@ const Line: React.ForwardRefExoticComponent<Omit<ILine, "ref"> & React.RefAttrib
   "props": {
     "previous": {
       "label": "UI react: Label",
-      "to": "/dev/ui-react/use/Label"
+      "to": "/library/ui-react/use/Label"
     },
     "next": {
       "label": "UI react: LineChart",
-      "to": "/dev/ui-react/use/LineChart"
+      "to": "/library/ui-react/use/LineChart"
     }
   }
 }~

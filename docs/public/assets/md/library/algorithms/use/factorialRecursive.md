@@ -39,11 +39,11 @@ default function factorialRecursive(value: number, options?: IFactorialRecursive
   "props": {
     "previous": {
       "label": "Algorithms: factorial",
-      "to": "/dev/algorithms/use/factorial"
+      "to": "/library/algorithms/use/factorial"
     },
     "next": {
       "label": "Algorithms: fibonacci",
-      "to": "/dev/algorithms/use/fibonacci"
+      "to": "/library/algorithms/use/fibonacci"
     }
   }
 }~

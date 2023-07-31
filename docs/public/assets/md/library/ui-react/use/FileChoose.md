@@ -46,11 +46,11 @@ const FileChoose: React.ForwardRefExoticComponent<Omit<IFileChoose, "ref"> & Rea
   "props": {
     "previous": {
       "label": "UI react: Fade",
-      "to": "/dev/ui-react/use/Fade"
+      "to": "/library/ui-react/use/Fade"
     },
     "next": {
       "label": "UI react: Focus",
-      "to": "/dev/ui-react/use/Focus"
+      "to": "/library/ui-react/use/Focus"
     }
   }
 }~

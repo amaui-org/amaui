@@ -45,11 +45,11 @@ const promisify: <T>(method: TMethod | Promise<any>, options_?: IOptions) => (..
   "props": {
     "previous": {
       "label": "Utils: polyfills",
-      "to": "/dev/utils/use/polyfills"
+      "to": "/library/utils/use/polyfills"
     },
     "next": {
       "label": "Utils: quantize",
-      "to": "/dev/utils/use/quantize"
+      "to": "/library/utils/use/quantize"
     }
   }
 }~

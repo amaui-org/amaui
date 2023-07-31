@@ -28,11 +28,11 @@ const hasObjectProperty: (object: object, ...args: string[]) => boolean;
   "props": {
     "previous": {
       "label": "Utils: hashFile",
-      "to": "/dev/utils/use/hashFile"
+      "to": "/library/utils/use/hashFile"
     },
     "next": {
       "label": "Utils: hasObjectPropertyValue",
-      "to": "/dev/utils/use/hasObjectPropertyValue"
+      "to": "/library/utils/use/hasObjectPropertyValue"
     }
   }
 }~

@@ -14,11 +14,11 @@ const AmauiMainProgressContext: any;
   "props": {
     "previous": {
       "label": "UI react: ListSubheader",
-      "to": "/dev/ui-react/use/ListSubheader"
+      "to": "/library/ui-react/use/ListSubheader"
     },
     "next": {
       "label": "UI react: MainProgressProvider",
-      "to": "/dev/ui-react/use/MainProgressProvider"
+      "to": "/library/ui-react/use/MainProgressProvider"
     }
   }
 }~

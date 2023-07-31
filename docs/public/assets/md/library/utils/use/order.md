@@ -42,11 +42,11 @@ const order: <T>(value: T) => T;
   "props": {
     "previous": {
       "label": "Utils: numberWithCommas",
-      "to": "/dev/utils/use/numberWithCommas"
+      "to": "/library/utils/use/numberWithCommas"
     },
     "next": {
       "label": "Utils: pagination",
-      "to": "/dev/utils/use/pagination"
+      "to": "/library/utils/use/pagination"
     }
   }
 }~

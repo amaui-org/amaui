@@ -27,11 +27,11 @@ const Table: React.ForwardRefExoticComponent<Omit<ITable, "ref"> & React.RefAttr
   "props": {
     "previous": {
       "label": "UI react: Tab",
-      "to": "/dev/ui-react/use/Tab"
+      "to": "/library/ui-react/use/Tab"
     },
     "next": {
       "label": "UI react: TableBody",
-      "to": "/dev/ui-react/use/TableBody"
+      "to": "/library/ui-react/use/TableBody"
     }
   }
 }~

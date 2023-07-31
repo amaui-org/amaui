@@ -25,11 +25,11 @@ const encrypt: (value_: any, privateValue: string) => string;
   "props": {
     "previous": {
       "label": "Utils: encode",
-      "to": "/dev/utils/use/encode"
+      "to": "/library/utils/use/encode"
     },
     "next": {
       "label": "Utils: equalDeep",
-      "to": "/dev/utils/use/equalDeep"
+      "to": "/library/utils/use/equalDeep"
     }
   }
 }~

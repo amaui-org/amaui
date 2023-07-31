@@ -36,11 +36,11 @@ const emphasize: (value: string, coefficient?: number) => string | undefined;
   "props": {
     "previous": {
       "label": "Utils: elementToCanvas",
-      "to": "/dev/utils/use/elementToCanvas"
+      "to": "/library/utils/use/elementToCanvas"
     },
     "next": {
       "label": "Utils: encode",
-      "to": "/dev/utils/use/encode"
+      "to": "/library/utils/use/encode"
     }
   }
 }~

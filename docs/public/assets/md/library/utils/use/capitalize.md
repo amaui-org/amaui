@@ -23,11 +23,11 @@ const capitalize: (value: string) => string;
   "props": {
     "previous": {
       "label": "Utils: canvasFilterSaturation",
-      "to": "/dev/utils/use/canvasFilterSaturation"
+      "to": "/library/utils/use/canvasFilterSaturation"
     },
     "next": {
       "label": "Utils: castParam",
-      "to": "/dev/utils/use/castParam"
+      "to": "/library/utils/use/castParam"
     }
   }
 }~

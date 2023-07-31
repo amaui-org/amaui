@@ -53,7 +53,7 @@ yarn build
   "props": {
     "next": {
       "label": "UI react: Accordion",
-      "to": "/dev/ui-react/use/Accordion"
+      "to": "/library/ui-react/use/Accordion"
     }
   }
 }~

@@ -39,11 +39,11 @@ default function factorial(value: number, options?: IFactorialOptions): number;
   "props": {
     "previous": {
       "label": "Algorithms: bubbleSort",
-      "to": "/dev/algorithms/use/bubbleSort"
+      "to": "/library/algorithms/use/bubbleSort"
     },
     "next": {
       "label": "Algorithms: factorialRecursive",
-      "to": "/dev/algorithms/use/factorialRecursive"
+      "to": "/library/algorithms/use/factorialRecursive"
     }
   }
 }~

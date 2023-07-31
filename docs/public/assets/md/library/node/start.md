@@ -53,11 +53,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Mongo: Start",
-      "to": "/dev/mongo/start"
+      "to": "/library/mongo/start"
     },
     "next": {
       "label": "Node: Use",
-      "to": "/dev/node/use"
+      "to": "/library/node/use"
     }
   }
 }~

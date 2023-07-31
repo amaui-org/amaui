@@ -40,11 +40,11 @@ const hashFile: (value_: any, options_?: IOptions) => Promise<string>;
   "props": {
     "previous": {
       "label": "Utils: hash",
-      "to": "/dev/utils/use/hash"
+      "to": "/library/utils/use/hash"
     },
     "next": {
       "label": "Utils: hasObjectProperty",
-      "to": "/dev/utils/use/hasObjectProperty"
+      "to": "/library/utils/use/hasObjectProperty"
     }
   }
 }~

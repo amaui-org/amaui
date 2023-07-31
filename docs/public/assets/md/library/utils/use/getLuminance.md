@@ -25,11 +25,11 @@ const getLuminance: (value: string) => number;
   "props": {
     "previous": {
       "label": "Utils: getLeadingZerosNumber",
-      "to": "/dev/utils/use/getLeadingZerosNumber"
+      "to": "/library/utils/use/getLeadingZerosNumber"
     },
     "next": {
       "label": "Utils: getObjectPropertyValue",
-      "to": "/dev/utils/use/getObjectPropertyValue"
+      "to": "/library/utils/use/getObjectPropertyValue"
     }
   }
 }~

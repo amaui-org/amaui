@@ -52,11 +52,11 @@ const Tree: React.ForwardRefExoticComponent<Omit<ITree, "ref"> & React.RefAttrib
   "props": {
     "previous": {
       "label": "UI react: Transitions",
-      "to": "/dev/ui-react/use/Transitions"
+      "to": "/library/ui-react/use/Transitions"
     },
     "next": {
       "label": "UI react: Type",
-      "to": "/dev/ui-react/use/Type"
+      "to": "/library/ui-react/use/Type"
     }
   }
 }~

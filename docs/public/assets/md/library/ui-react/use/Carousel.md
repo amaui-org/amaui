@@ -109,11 +109,11 @@ const Carousel: React.ForwardRefExoticComponent<Omit<ICarousel, "ref"> & React.R
   "props": {
     "previous": {
       "label": "UI react: CardMain",
-      "to": "/dev/ui-react/use/CardMain"
+      "to": "/library/ui-react/use/CardMain"
     },
     "next": {
       "label": "UI react: Chart",
-      "to": "/dev/ui-react/use/Chart"
+      "to": "/library/ui-react/use/Chart"
     }
   }
 }~

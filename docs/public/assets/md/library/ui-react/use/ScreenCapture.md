@@ -49,11 +49,11 @@ const ScreenCapture: React.ForwardRefExoticComponent<Omit<IScreenCapture, "ref">
   "props": {
     "previous": {
       "label": "UI react: ScatterChartItem",
-      "to": "/dev/ui-react/use/ScatterChartItem"
+      "to": "/library/ui-react/use/ScatterChartItem"
     },
     "next": {
       "label": "UI react: Select",
-      "to": "/dev/ui-react/use/Select"
+      "to": "/library/ui-react/use/Select"
     }
   }
 }~

@@ -30,11 +30,11 @@ const NumericTextField: React.ForwardRefExoticComponent<Omit<INumericTextField, 
   "props": {
     "previous": {
       "label": "UI react: NavigationRail",
-      "to": "/dev/ui-react/use/NavigationRail"
+      "to": "/library/ui-react/use/NavigationRail"
     },
     "next": {
       "label": "UI react: Pagination",
-      "to": "/dev/ui-react/use/Pagination"
+      "to": "/library/ui-react/use/Pagination"
     }
   }
 }~

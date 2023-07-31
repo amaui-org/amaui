@@ -40,11 +40,11 @@ interface IQueryKeys {
   "props": {
     "previous": {
       "label": "Models: getMongoOperator",
-      "to": "/dev/models/use/getMongoOperator"
+      "to": "/library/models/use/getMongoOperator"
     },
     "next": {
       "label": "Models: MongoResponse",
-      "to": "/dev/models/use/MongoResponse"
+      "to": "/library/models/use/MongoResponse"
     }
   }
 }~

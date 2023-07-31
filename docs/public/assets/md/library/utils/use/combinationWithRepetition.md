@@ -68,11 +68,11 @@ default function combinationWithRepetition(value_: any[], items_?: number, optio
   "props": {
     "previous": {
       "label": "Utils: combination",
-      "to": "/dev/utils/use/combination"
+      "to": "/library/utils/use/combination"
     },
     "next": {
       "label": "Utils: copy",
-      "to": "/dev/utils/use/copy"
+      "to": "/library/utils/use/copy"
     }
   }
 }~

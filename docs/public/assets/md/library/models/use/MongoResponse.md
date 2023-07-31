@@ -92,11 +92,11 @@ class MongoResponse extends Base implements IMongoResponse {
   "props": {
     "previous": {
       "label": "Models: models",
-      "to": "/dev/models/use/models"
+      "to": "/library/models/use/models"
     },
     "next": {
       "label": "Models: Query",
-      "to": "/dev/models/use/Query"
+      "to": "/library/models/use/Query"
     }
   }
 }~

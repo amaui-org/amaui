@@ -36,11 +36,11 @@ const Snackbar: React.ForwardRefExoticComponent<Omit<ISnackbar, "ref"> & React.R
   "props": {
     "previous": {
       "label": "UI react: Slider",
-      "to": "/dev/ui-react/use/Slider"
+      "to": "/library/ui-react/use/Slider"
     },
     "next": {
       "label": "UI react: SnackbarsContext",
-      "to": "/dev/ui-react/use/SnackbarsContext"
+      "to": "/library/ui-react/use/SnackbarsContext"
     }
   }
 }~

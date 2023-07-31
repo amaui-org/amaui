@@ -23,11 +23,11 @@ function factorial(value: number): number;
   "props": {
     "previous": {
       "label": "Utils: equalDeep",
-      "to": "/dev/utils/use/equalDeep"
+      "to": "/library/utils/use/equalDeep"
     },
     "next": {
       "label": "Utils: fileToValue",
-      "to": "/dev/utils/use/fileToValue"
+      "to": "/library/utils/use/fileToValue"
     }
   }
 }~

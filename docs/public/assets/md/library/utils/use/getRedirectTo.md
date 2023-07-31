@@ -29,11 +29,11 @@ const getRedirectTo: (value?: string) => string;
   "props": {
     "previous": {
       "label": "Utils: getQueryParams",
-      "to": "/dev/utils/use/getQueryParams"
+      "to": "/library/utils/use/getQueryParams"
     },
     "next": {
       "label": "Utils: getStringVariables",
-      "to": "/dev/utils/use/getStringVariables"
+      "to": "/library/utils/use/getStringVariables"
     }
   }
 }~

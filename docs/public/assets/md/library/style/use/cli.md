@@ -90,11 +90,11 @@ amaui-style
   "props": {
     "previous": {
       "label": "Style: classNames",
-      "to": "/dev/style/use/classNames"
+      "to": "/library/style/use/classNames"
     },
     "next": {
       "label": "Style: colors",
-      "to": "/dev/style/use/colors"
+      "to": "/library/style/use/colors"
     }
   }
 }~

@@ -21,11 +21,11 @@ const IconButton: React.ForwardRefExoticComponent<Omit<IIconButton, "ref"> & Rea
   "props": {
     "previous": {
       "label": "UI react: Icon",
-      "to": "/dev/ui-react/use/Icon"
+      "to": "/library/ui-react/use/Icon"
     },
     "next": {
       "label": "UI react: Image",
-      "to": "/dev/ui-react/use/Image"
+      "to": "/library/ui-react/use/Image"
     }
   }
 }~

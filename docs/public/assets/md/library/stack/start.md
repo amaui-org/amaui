@@ -72,11 +72,11 @@ yarn build
   "props": {
     "previous": {
       "label": "Request: Start",
-      "to": "/dev/request/start"
+      "to": "/library/request/start"
     },
     "next": {
       "label": "Stack: Use",
-      "to": "/dev/stack/use"
+      "to": "/library/stack/use"
     }
   }
 }~

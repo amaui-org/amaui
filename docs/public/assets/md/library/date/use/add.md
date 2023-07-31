@@ -37,11 +37,11 @@ default function add(value: number, unit: TTimeUnits, amauiDate_?: AmauiDate): A
   "props": {
     "previous": {
       "label": "Date: Start",
-      "to": "/dev/date/start"
+      "to": "/library/date/start"
     },
     "next": {
       "label": "Date: ago",
-      "to": "/dev/date/use/ago"
+      "to": "/library/date/use/ago"
     }
   }
 }~
