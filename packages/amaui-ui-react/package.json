@@ -1,14 +1,14 @@
 {
   "name": "@amaui/ui-react",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "description": "UI for React",
   "repository": "https://github.com/amaui-org/amaui.git",
   "author": "Lazar <lazareric2@gmail.com>",
   "license": "MIT",
   "private": false,
-  "main": "./index.js",
-  "module": "./esm/index.js",
-  "types": "./index.d.ts",
+  "main": "./build/index.js",
+  "module": "./build/esm/index.js",
+  "types": "./build/index.d.ts",
   "keywords": [
     "ui",
     "react",
@@ -41,21 +41,24 @@
     "test": "yarn lint && yarn type && yarn build && yarn test:pre && yarn cov && yarn test:post"
   },
   "peerDependencies": {
-    "@amaui/style-react": "^1.1.0",
+    "@amaui/style-react": "^1.1.111",
     "react": "^18.1.0"
   },
   "dependencies": {
     "@amaui/date": "^1.0.11434",
     "@amaui/subscription": "^1.0.11151",
-    "@amaui/utils": "^1.1.0"
+    "@amaui/utils": "^1.1.1"
   },
   "devDependencies": {
-    "@amaui/style-react": "^1.1.0"
+    "@amaui/style-react": "^1.1.111"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
+  "files": [
+    "build"
+  ],
   "sideEffects": false,
   "engines": {
     "node": ">=12.0.0",
