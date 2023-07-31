@@ -1,6 +1,6 @@
 {
   "name": "@amaui/icons-material-sharp-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Icons material sharp for React",
   "repository": "https://github.com/amaui-org/amaui.git",
   "author": "Lazar <lazareric.com@gmail.com>",
@@ -32,7 +32,7 @@
   "scripts": {
     "prebuild": "rimraf build",
     "build": "cross-env ENV=react VERSION=icons-sharp node ../../utils/js/build.js",
-    "release": "yarn test && yarn build && npm publish ./build",
+    "release": "yarn version --patch && yarn build && cd ./build && npm publish",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "type": "tsc --noEmit -p tsconfig.json",
     "cov": "cross-env NODE_ENV=test amaui-test",
@@ -47,7 +47,7 @@
     "react": "^18.1.0"
   },
   "dependencies": {
-    "@amaui/ui-react": "^1.1.1"
+    "@amaui/ui-react": "^1.1.13"
   },
   "publishConfig": {
     "access": "public",
