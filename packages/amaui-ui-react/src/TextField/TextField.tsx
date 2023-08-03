@@ -723,8 +723,11 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
     setTimeout(() => {
       if (refs.carret.current) {
         // Carret restore previous value
-        refs.input.current.selectionStart = refs.carret.current.start;
-        refs.input.current.selectionEnd = refs.carret.current.end;
+        try {
+          refs.input.current.selectionStart = refs.carret.current.start;
+          refs.input.current.selectionEnd = refs.carret.current.end;
+        }
+        catch (error) { }
       }
     });
   }, [value]);
