@@ -14,6 +14,12 @@ const useStyle = styleMethod(theme => ({
     boxSizing: 'border-box'
   },
 
+  // flex
+  flex: { flex: '1 1 auto' },
+
+  // full width
+  fullWidth: { width: '100%' },
+
   // display
   display_inherit: { display: 'inherit' },
 
@@ -184,6 +190,8 @@ const Line = React.forwardRef((props_: ILine, ref: any) => {
     columnGap: columnGap_,
     divider: divider_,
     wrap: wrap_,
+    flex: flex_,
+    fullWidth: fullWidth_,
 
     DividerProps,
 
@@ -206,6 +214,8 @@ const Line = React.forwardRef((props_: ILine, ref: any) => {
   const columnGap = valueBreakpoints(columnGap_, undefined, breakpoints, theme);
   const divider = valueBreakpoints(divider_, undefined, breakpoints, theme);
   const wrap = valueBreakpoints(wrap_, undefined, breakpoints, theme);
+  const flex = valueBreakpoints(flex_, undefined, breakpoints, theme);
+  const fullWidth = valueBreakpoints(fullWidth_, undefined, breakpoints, theme);
 
   const styles: any = {
     root: {
@@ -253,7 +263,9 @@ const Line = React.forwardRef((props_: ILine, ref: any) => {
         classes[`justify_${justify}`],
         classes[`gap_${String(gap).replace('.', '')}`],
         classes[`rowGap_${String(rowGap).replace('.', '')}`],
-        classes[`columnGap_${String(columnGap).replace('.', '')}`]
+        classes[`columnGap_${String(columnGap).replace('.', '')}`],
+        flex && classes.flex,
+        fullWidth && classes.fullWidth
       ])}
 
       style={{

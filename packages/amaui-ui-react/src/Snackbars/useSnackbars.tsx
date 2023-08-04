@@ -1,10 +1,10 @@
 import React from 'react';
 
 import SnackbarsContext from './SnackbarsContext';
-import { ISnackbarsProvider } from './SnackbarsProvider';
+import { ISnackbars } from './SnackbarsProvider';
 
-export default function useSnackbars(): ISnackbarsProvider {
-  const value = React.useContext<ISnackbarsProvider>(SnackbarsContext);
+export default function useSnackbars(): ISnackbars {
+  const value = React.useContext<ISnackbars>(SnackbarsContext);
 
   return value;
 }

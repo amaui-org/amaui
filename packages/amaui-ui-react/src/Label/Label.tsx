@@ -32,7 +32,7 @@ export interface ILabel extends ILine {
   version?: TVersion;
   size?: TSize;
 
-  position?: 'start' | 'bottom' | 'end';
+  position?: 'start' | 'top' | 'bottom' | 'end';
 
   input?: TElement;
 
@@ -75,6 +75,7 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
     disabled,
 
     TypeProps,
+    TextProps,
 
     Component = 'label',
 
@@ -115,9 +116,9 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
 
   const Input = input !== undefined ? input : children[0];
 
-  const Text = label !== undefined ? label : children[1];
+  const Text = label !== undefined ? label : children.slice(1);
 
-  const inlineElement = ['amaui-Checkbox', 'amaui-Radio', 'amaui-Switch'].includes(Input?.type?.displayName);
+  const inlineElement = ['checkbox', 'radio', 'switch'].some(item => Input?.type?.displayName?.toLowerCase().includes(item));
 
   const padding = !['amaui-Checkbox', 'amaui-Radio'].includes(Input?.type?.displayName);
 
@@ -190,13 +191,15 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
         disabled
       })}
 
-      {Text !== undefined && is('simple', Text) ? (
+      {(Text as any[])?.length === 1 && is('simple', (Text as any[])[0]) ? (
         <Type
           version={size === 'regular' ? 'b2' : size === 'large' ? 'b1' : 'b3'}
 
           id={refs.ids.label}
 
           {...TypeProps}
+
+          {...TextProps}
 
           className={classNames([
             staticClassName('Label', theme) && [
@@ -208,11 +211,23 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
             disabled && classes.text_disabled
           ])}
         >
-          {Text}
+          {Text[0]}
         </Type>
-      ) : React.cloneElement(Text, {
-        id: refs.ids.label
-      })}
+      ) : (
+        <Line
+          direction='row'
+
+          id={refs.ids.label}
+
+          {...TextProps}
+        >
+          {(Text as any).map((item: any, index: number) => is('simple', item) ?
+            <React.Fragment key={index}>{item}</React.Fragment> :
+
+            React.cloneElement(item as any, { key: index })
+          )}
+        </Line>
+      )}
     </Line>
   );
 });

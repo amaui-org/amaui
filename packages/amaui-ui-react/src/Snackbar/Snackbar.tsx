@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { is, getID } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Grow from '../Grow';
@@ -116,12 +116,16 @@ export interface ISnackbar extends ISurface {
   TransitionComponentProps?: TPropsAny;
 }
 
+const timeouts = {};
+
 const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSnackbar?.props?.default, ...props_ }), [props_]);
 
   const {
+    id = getID(),
+
     tonal = true,
     color = 'primary',
     size = 'regular',
@@ -157,7 +161,6 @@ const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
 
   const refs = {
     root: React.useRef<any>(),
-    timeout: React.useRef<any>(),
     timeoutStart: React.useRef<any>(),
     timeoutLeftOver: React.useRef<any>(),
     autoHideDuration: React.useRef<any>()
@@ -170,19 +173,21 @@ const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
   const end = React.Children.toArray(end_);
 
   const addTimeout = (value = autoHideDuration) => {
-    refs.timeout.current = setTimeout(() => onClose(), value);
+    clearTimeout(timeouts[id]);
+
+    timeouts[id] = setTimeout(() => onClose(), value);
 
     refs.timeoutStart.current = new Date().getTime();
   };
 
   const removeTimeout = () => {
-    clearTimeout(refs.timeout.current);
+    clearTimeout(timeouts[id]);
 
     refs.timeoutLeftOver.current = refs.autoHideDuration.current - (new Date().getTime() - refs.timeoutStart.current);
   };
 
   const onMouseEnter = React.useCallback((event: React.MouseEvent<any>) => {
-    if (refs.timeout.current !== undefined) removeTimeout();
+    if (timeouts[id] !== undefined) removeTimeout();
 
     if (is('function', onMouseEnter_)) onMouseEnter_(event);
   }, [onMouseEnter_]);
@@ -203,35 +208,17 @@ const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
     };
 
     const onTabBlur = () => {
-      if (refs.timeout.current !== undefined) removeTimeout();
-    };
-
-    const onBlur = (event: FocusEvent) => {
-      if (refs.timeoutLeftOver.current !== undefined) addTimeout(refs.timeoutLeftOver.current);
-    };
-
-    const onFocus = (event: FocusEvent) => {
-      if (refs.root.current?.contains(event.target)) {
-        if (refs.timeout.current !== undefined) removeTimeout();
-      }
+      if (timeouts[id] !== undefined) removeTimeout();
     };
 
     window.addEventListener('focus', onTabFocus);
 
     window.addEventListener('blur', onTabBlur);
 
-    window.document.addEventListener('focusin', onFocus);
-
-    window.document.addEventListener('focusout', onBlur);
-
     return () => {
       window.removeEventListener('focus', onTabFocus);
 
       window.removeEventListener('blur', onTabBlur);
-
-      window.document.removeEventListener('focusin', onFocus);
-
-      window.document.removeEventListener('focusout', onBlur);
     };
   }, []);
 
@@ -240,9 +227,9 @@ const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
       if (autoHide && props.open !== undefined) addTimeout();
     }
     else {
-      clearTimeout(refs.timeout.current);
+      clearTimeout(timeouts[id]);
 
-      refs.timeout.current = refs.timeoutStart.current = refs.timeoutLeftOver.current = undefined;
+      timeouts[id] = refs.timeoutStart.current = refs.timeoutLeftOver.current = undefined;
     }
   }, [open, autoHide]);
 

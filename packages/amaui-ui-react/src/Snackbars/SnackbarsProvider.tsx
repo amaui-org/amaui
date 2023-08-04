@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { getID, is } from '@amaui/utils';
+import { is, unique } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Snackbar from '../Snackbar';
+import { ISnackbar } from '../Snackbar/Snackbar';
 import SnackbarsContext from './SnackbarsContext';
 import Slide from '../Slide';
 import Expand from '../Expand';
@@ -11,8 +12,8 @@ import Line from '../Line';
 
 import { IBaseElement, staticClassName, TPropsAny } from '../utils';
 
-export interface ISnackbarsProvider {
-  add: (value: any) => void;
+export interface ISnackbars {
+  add: (value: ISnackbar) => void;
   remove: (value: 'first' | 'last' | string) => void;
 }
 
@@ -65,7 +66,7 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-SnackbarsProvider' });
 
-export interface ISnackbarsProvider extends IBaseElement {
+export interface ISnackbars extends IBaseElement {
   max?: number;
   position?: 'top' | 'bottom';
   alignment?: 'start' | 'left' | 'center' | 'right' | 'end';
@@ -73,7 +74,7 @@ export interface ISnackbarsProvider extends IBaseElement {
   SnackbarProps?: TPropsAny;
 }
 
-const SnackbarsProvider = React.forwardRef((props_: ISnackbarsProvider, ref: any) => {
+const SnackbarsProvider = React.forwardRef((props_: ISnackbars, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSnackbarsProvider?.props?.default, ...props_ }), [props_]);
@@ -106,7 +107,7 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbarsProvider, ref: any
 
   const refs = {
     root: React.useRef<HTMLElement>(),
-    value: React.useRef<ISnackbarsProvider>({} as any),
+    value: React.useRef<ISnackbars>({} as any),
     open: React.useRef<any>(),
     preOpen: React.useRef<any>()
   };
@@ -133,7 +134,7 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbarsProvider, ref: any
     if (toAdd > 0 && !!refs.preOpen.current.length) {
       const itemsToAdd = refs.preOpen.current.slice(0, toAdd);
 
-      setPreOpen(itemsPreOpen => [...itemsPreOpen].slice(toAdd));
+      setPreOpen(itemsPreOpen => unique([...itemsPreOpen], 'id').slice(toAdd));
 
       if (itemsToAdd.length) setOpen(() => {
         const itemsNew = [...refs.open.current];
@@ -141,14 +142,14 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbarsProvider, ref: any
         if (position === 'top') itemsNew.push(...itemsToAdd);
         else if (position === 'bottom') itemsNew.unshift(...itemsToAdd);
 
-        return itemsNew;
+        return unique(itemsNew, 'id');
       });
     }
   }, [open.length]);
 
-  const add = (value: any) => {
+  const add = (value: ISnackbar) => {
     const value_ = {
-      id: getID(),
+      id: new Date().getTime(),
 
       in: true,
       expand: true,
@@ -160,7 +161,7 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbarsProvider, ref: any
 
     // Pre open
     if (is('number', max) && open.length >= max) {
-      setPreOpen(previous => [...previous, value_]);
+      setPreOpen(previous => unique([...previous, value_], 'id'));
     }
     // Open
     else {
@@ -170,7 +171,7 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbarsProvider, ref: any
         if (position === 'top') itemsNew.push(value_);
         else if (position === 'bottom') itemsNew.unshift(value_);
 
-        return itemsNew;
+        return unique(itemsNew, 'id');
       });
     }
 
@@ -189,37 +190,37 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbarsProvider, ref: any
 
   const onClose = (id: string) => {
     setOpen(items => {
-      const itemsNew = [...items];
+      const itemsNew = unique([...items], 'id');
 
       const item = itemsNew.find(item_ => item_.id === id);
 
       if (item) item.in = false;
 
-      return itemsNew;
+      return unique(itemsNew, 'id');
     });
   };
 
   const onSnackbarExited = (id: string) => {
     setOpen(items => {
-      const itemsNew = [...items];
+      const itemsNew = unique([...items], 'id');
 
       const item = itemsNew.find(item_ => item_.id === id);
 
       if (item) item.expand = false;
 
-      return itemsNew;
+      return unique(itemsNew, 'id');
     });
   };
 
   const onExpandExited = (id: string) => {
     setOpen(items => {
-      const itemsNew = [...items];
+      const itemsNew = unique([...items], 'id');
 
       const index = itemsNew.findIndex(item_ => item_.id === id);
 
       if (index > -1) itemsNew.splice(index, 1);
 
-      return itemsNew;
+      return unique(itemsNew, 'id');
     });
   };
 
@@ -261,6 +262,8 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbarsProvider, ref: any
           >
             <Snackbar
               key={item.id}
+
+              id={item.id}
 
               open={item.in}
 
