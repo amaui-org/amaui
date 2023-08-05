@@ -19,6 +19,25 @@ const useStyle = styleMethod(theme => ({
     opacity: theme.palette.visual_contrast.default.opacity.disabled
   },
 
+  error_color: {
+    color: [theme.palette.light ? theme.palette.color.error[40] : theme.palette.color.error[80], '!important']
+  },
+
+  footer: {
+    marginTop: '4px',
+    paddingInline: '16px'
+  },
+
+  footer_version_text: {
+    paddingInline: '0'
+  },
+
+  helperText: {
+    display: 'inline-flex',
+    color: theme.palette.text.default.secondary,
+    userSelect: 'none'
+  },
+
   disabled: {
     cursor: 'default',
     pointerEvents: 'none'
@@ -41,6 +60,10 @@ export interface ILabel extends ILine {
   valueDefault?: boolean;
   checked?: boolean;
   onChange?: (value: boolean, event?: React.ChangeEvent<any>) => any;
+
+  error?: boolean;
+  helperText?: string;
+  footer?: TElement;
 
   disabled?: boolean;
 
@@ -71,6 +94,10 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
     checked,
     valueDefault,
     onChange,
+
+    error,
+    helperText,
+    footer: footer_,
 
     disabled,
 
@@ -130,104 +157,152 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
 
   if (position === undefined) position = inlineElement ? 'start' : 'bottom';
 
+  const footer = footer_ || helperText;
+
   return (
     <Line
-      ref={ref}
+      gap={0}
 
-      gap={!padding ? 0 : 1}
-
-      direction={['top', 'bottom'].includes(position) ? position === 'bottom' ? 'column-reverse' : 'column' : position === 'end' ? 'row-reverse' : 'row'}
-
-      align={align}
-
-      justify={justify}
-
-      role='group'
-
-      aria-labelledby={refs.ids.label}
-
-      aria-disabled={disabled}
-
-      disabled={disabled}
-
-      Component={Component}
-
-      className={classNames([
-        staticClassName('Label', theme) && [
-          'amaui-Label-root',
-          disabled && `amaui-Label-disabled`
-        ],
-
-        className,
-        classes.root,
-        disabled && classes.disabled
-      ])}
-
-      {...other}
+      direction='column'
     >
-      {Input && React.cloneElement(Input, {
-        className: classNames([
+      <Line
+        ref={ref}
+
+        gap={!padding ? 0 : 1}
+
+        direction={['top', 'bottom'].includes(position) ? position === 'bottom' ? 'column-reverse' : 'column' : position === 'end' ? 'row-reverse' : 'row'}
+
+        align={align}
+
+        justify={justify}
+
+        role='group'
+
+        aria-labelledby={refs.ids.label}
+
+        aria-disabled={disabled}
+
+        disabled={disabled}
+
+        Component={Component}
+
+        className={classNames([
           staticClassName('Label', theme) && [
-            'amaui-Label-input'
+            'amaui-Label-root',
+            disabled && `amaui-Label-disabled`
           ],
 
-          classes.input
-        ]),
+          className,
+          classes.root,
+          disabled && classes.disabled
+        ])}
 
-        tonal: Input?.props?.tonal !== undefined ? Input.props.tonal : tonal,
-
-        color: Input?.props?.color !== undefined ? Input.props.color : color,
-
-        colorUnchecked: Input?.props?.colorUnchecked !== undefined ? Input.props.colorUnchecked : colorUnchecked,
-
-        version: Input?.props?.version !== undefined ? Input.props.version : version,
-
-        size: Input?.props?.size !== undefined ? Input.props.size : size,
-
-        onChange: onUpdate,
-
-        checked: value,
-
-        disabled
-      })}
-
-      {(Text as any[])?.length === 1 && is('simple', (Text as any[])[0]) ? (
-        <Type
-          version={size === 'regular' ? 'b2' : size === 'large' ? 'b1' : 'b3'}
-
-          id={refs.ids.label}
-
-          {...TypeProps}
-
-          {...TextProps}
-
-          className={classNames([
+        {...other}
+      >
+        {Input && React.cloneElement(Input, {
+          className: classNames([
             staticClassName('Label', theme) && [
-              'amaui-Label-text'
+              'amaui-Label-input'
             ],
 
-            TypeProps?.className,
-            classes.text,
-            disabled && classes.text_disabled
-          ])}
-        >
-          {Text[0]}
-        </Type>
-      ) : (
-        <Line
-          direction='row'
+            classes.input
+          ]),
 
-          id={refs.ids.label}
+          tonal: Input?.props?.tonal !== undefined ? Input.props.tonal : tonal,
 
-          {...TextProps}
-        >
-          {(Text as any).map((item: any, index: number) => is('simple', item) ?
-            <React.Fragment key={index}>{item}</React.Fragment> :
+          color: Input?.props?.color !== undefined ? Input.props.color : color,
 
-            React.cloneElement(item as any, { key: index })
-          )}
-        </Line>
-      )}
+          colorUnchecked: Input?.props?.colorUnchecked !== undefined ? Input.props.colorUnchecked : colorUnchecked,
+
+          version: Input?.props?.version !== undefined ? Input.props.version : version,
+
+          size: Input?.props?.size !== undefined ? Input.props.size : size,
+
+          onChange: onUpdate,
+
+          checked: value,
+
+          disabled
+        })}
+
+        {(Text as any[])?.length === 1 && is('simple', (Text as any[])[0]) ? (
+          <Type
+            version={size === 'regular' ? 'b2' : size === 'large' ? 'b1' : 'b3'}
+
+            id={refs.ids.label}
+
+            {...TypeProps}
+
+            {...TextProps}
+
+            className={classNames([
+              staticClassName('Label', theme) && [
+                'amaui-Label-text'
+              ],
+
+              TypeProps?.className,
+              classes.text,
+              disabled && classes.text_disabled
+            ])}
+          >
+            {Text[0]}
+          </Type>
+        ) : (
+          <Line
+            direction='row'
+
+            id={refs.ids.label}
+
+            {...TextProps}
+          >
+            {(Text as any).map((item: any, index: number) => is('simple', item) ?
+              <React.Fragment key={index}>{item}</React.Fragment> :
+
+              React.cloneElement(item as any, { key: index })
+            )}
+          </Line>
+        )}
+      </Line>
+
+      {footer && <>
+        {(helperText !== undefined) && (
+          <Line
+            gap={2}
+
+            direction='row'
+
+            justify='space-between'
+
+            className={classNames([
+              staticClassName('Label', theme) && [
+                'amaui-Label-footer'
+              ],
+
+              classes.footer
+            ])}
+          >
+            {helperText && (
+              <Type
+                version='b3'
+
+                className={classNames([
+                  staticClassName('Label', theme) && [
+                    'amaui-Label-helper-text',
+                    error && 'amaui-Label-error'
+                  ],
+
+                  classes.helperText,
+                  error && classes.error_color
+                ])}
+              >
+                {helperText}
+              </Type>
+            )}
+          </Line>
+        )}
+
+        {footer_}
+      </>}
     </Line>
   );
 });

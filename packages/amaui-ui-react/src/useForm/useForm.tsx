@@ -12,6 +12,8 @@ export interface IUseFormValuesProperty {
   touched?: boolean;
   error?: string;
   required?: boolean;
+  capitalize?: boolean;
+  propertyNameUpdate?: (value: any) => string;
 }
 
 export type IUseFormValues = Record<string, IUseFormValuesProperty>;
@@ -79,7 +81,9 @@ const useForm = (props: IUseForm) => {
       if (autoValidate) {
         // Validate the property
         if (property.required && !property.value) {
-          property.error = `${capitalize(property.property!)} is required`;
+          const name = is('function', property.propertyNameUpdate) ? property.propertyNameUpdate(property.property!) : property.capitalize !== false ? capitalize(property.property!) : property.property!;
+
+          property.error = `${name} is required`;
         }
         else {
           property.error = undefined;
@@ -148,7 +152,9 @@ const useForm = (props: IUseForm) => {
 
       // Validate the property
       if (property.required && !property.value) {
-        property.error = `${capitalize(property.property!)} is required`;
+        const name = is('function', property.propertyNameUpdate) ? property.propertyNameUpdate(property.property!) : property.capitalize !== false ? capitalize(property.property!) : property.property!;
+
+        property.error = `${name} is required`;
       }
       else {
         property.error = undefined;

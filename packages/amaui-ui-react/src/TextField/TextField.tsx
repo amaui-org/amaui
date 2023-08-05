@@ -5,6 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Icon from '../Icon';
 import Type from '../Type';
+import Line from '../Line';
 
 import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TPropsAny, TRef, TSize, TTonal, TVersion } from '../utils';
 
@@ -338,11 +339,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   footer: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    gap: '16px',
     marginTop: '4px',
-    padding: `0 16px`
+    paddingInline: '16px'
   },
 
   footer_version_text: {
@@ -1277,7 +1275,13 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
       {footer && <>
         {(helperText !== undefined || counter !== undefined || required) && (
-          <div
+          <Line
+            gap={2}
+
+            direction='row'
+
+            justify='space-between'
+
             className={classNames([
               staticClassName('TextField', theme) && [
                 'amaui-TextField-footer'
@@ -1321,7 +1325,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
                 {value?.length || 0}/{counter}
               </Type>
             )}
-          </div>
+          </Line>
         )}
 
         {footer_}
