@@ -1276,8 +1276,6 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
       </Component>
 
       {footer && <>
-        {footer_}
-
         {(helperText !== undefined || counter !== undefined || required) && (
           <div
             className={classNames([
@@ -1325,6 +1323,8 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
             )}
           </div>
         )}
+
+        {footer_}
       </>}
     </Wrapper>
   );
