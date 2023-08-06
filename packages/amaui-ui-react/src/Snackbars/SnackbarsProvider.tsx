@@ -228,6 +228,12 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbars, ref: any) => {
 
   refs.value.current.remove = remove;
 
+  let align = 'center';
+
+  if (['start', 'left'].includes(alignment)) align = 'flex-start';
+
+  if (['right', 'end'].includes(alignment)) align = 'flex-end';
+
   return (
     <SnackbarsContext.Provider value={refs.value.current}>
       {children}
@@ -235,7 +241,7 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbars, ref: any) => {
       <Line
         ref={ref}
 
-        align={position === 'top' ? 'flex-start' : 'flex-end'}
+        align={align}
 
         gap={0}
 
