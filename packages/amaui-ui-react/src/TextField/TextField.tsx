@@ -568,6 +568,7 @@ export interface ITextField extends IBaseElement {
   maxRows?: number;
   focus?: boolean;
   footer?: TElement;
+  restoreSelection?: boolean;
   readOnly?: boolean;
   disabled?: boolean;
 
@@ -630,6 +631,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
     clear,
     focus: focus_,
     footer: footer_,
+    restoreSelection = true,
     readOnly,
     disabled,
 
@@ -679,6 +681,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
   const refs = {
     input: React.useRef<HTMLInputElement>(),
     carret: React.useRef<any>(),
+    restoreSelection: React.useRef(restoreSelection),
     ids: {
       label: React.useId(),
       clear: React.useId()
@@ -702,6 +705,8 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
     }
   };
 
+  refs.restoreSelection.current = restoreSelection;
+
   React.useEffect(() => {
     const htmlObserver = new MutationObserver(() => setRow(rowValue));
 
@@ -719,7 +724,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
   React.useEffect(() => {
     setTimeout(() => {
-      if (refs.carret.current) {
+      if (refs.restoreSelection.current && refs.carret.current) {
         // Carret restore previous value
         try {
           refs.input.current.selectionStart = refs.carret.current.start;
