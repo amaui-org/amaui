@@ -13,11 +13,12 @@ import { staticClassName, TElement, TPropsAny, TSize } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    zIndex: theme.z_index.app_bar,
+    position: 'relative',
     height: '100%',
     width: '80px',
     padding: '40px 0',
-    overflow: 'auto'
+    overflow: 'auto',
+    zIndex: theme.z_index.app_bar
   },
 
   size_small: { width: '72px' },
