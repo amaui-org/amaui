@@ -10,8 +10,10 @@ import { staticClassName, TElevation, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    cursor: 'default',
-    overflow: 'hidden'
+    '&.amaui-Button-root': {
+      cursor: 'default',
+      overflow: 'hidden'
+    }
   },
 
   square: {
