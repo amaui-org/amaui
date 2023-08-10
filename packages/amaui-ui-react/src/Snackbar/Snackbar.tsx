@@ -104,6 +104,7 @@ export interface ISnackbar extends ISurface {
   alignment?: 'start' | 'left' | 'center' | 'right' | 'end';
   autoHide?: boolean;
   autoHideDuration?: number;
+  resumeFromStart?: boolean;
   fixed?: boolean;
   closeButton?: boolean;
 
@@ -140,6 +141,7 @@ const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
     autoHide = true,
     autoHideDuration = 4000,
     fixed = props.open !== undefined,
+    resumeFromStart = true,
     closeButton = true,
 
     onMouseEnter: onMouseEnter_,
@@ -172,19 +174,25 @@ const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
 
   const end = React.Children.toArray(end_);
 
-  const addTimeout = (value = autoHideDuration) => {
+  const onClose = React.useCallback(() => {
+    if (is('function', onClose_)) onClose_();
+  }, [onClose_]);
+
+  const addTimeout = React.useCallback((value = autoHideDuration) => {
     clearTimeout(timeouts[id]);
 
     timeouts[id] = setTimeout(() => onClose(), value);
 
     refs.timeoutStart.current = new Date().getTime();
-  };
+  }, [autoHideDuration, timeouts, onClose]);
 
-  const removeTimeout = () => {
+  const removeTimeout = React.useCallback(() => {
     clearTimeout(timeouts[id]);
 
-    refs.timeoutLeftOver.current = refs.autoHideDuration.current - (new Date().getTime() - refs.timeoutStart.current);
-  };
+    const start = resumeFromStart ? refs.autoHideDuration.current : (refs.timeoutLeftOver.current !== undefined ? refs.timeoutLeftOver.current : refs.autoHideDuration.current);
+
+    refs.timeoutLeftOver.current = start - (new Date().getTime() - refs.timeoutStart.current);
+  }, [resumeFromStart]);
 
   const onMouseEnter = React.useCallback((event: React.MouseEvent<any>) => {
     if (timeouts[id] !== undefined) removeTimeout();
@@ -197,10 +205,6 @@ const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
 
     if (is('function', onMouseLeave_)) onMouseLeave_(event);
   }, [onMouseLeave_]);
-
-  const onClose = React.useCallback(() => {
-    if (is('function', onClose_)) onClose_();
-  }, [onClose_]);
 
   React.useEffect(() => {
     const onTabFocus = () => {
