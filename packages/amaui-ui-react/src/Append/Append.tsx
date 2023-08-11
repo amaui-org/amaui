@@ -94,6 +94,11 @@ const Append = (props_: IAppend) => {
 
   refs.alignment.current = alignment_;
 
+  if (theme.direction === 'rtl' && ['top', 'bottom'].includes(position_)) {
+    if (alignment_ === 'start') refs.alignment.current = 'end';
+    else if (alignment_ === 'end') refs.alignment.current = 'start';
+  }
+
   refs.position.current = position_;
 
   refs.portal.current = portal;
@@ -300,9 +305,7 @@ const Append = (props_: IAppend) => {
     // add window.document.body as an only value
     if (!scrollableParents.length) scrollableParents.push(window.document.body);
 
-    const { position, inset, switch: switched } = value;
-
-    let { alignment } = value;
+    const { position, alignment, inset, switch: switched } = value;
 
     const { rect } = values__;
 
@@ -322,11 +325,6 @@ const Append = (props_: IAppend) => {
     const rootRight = portal ? rect.root.right : rectOffset.root.x + rect.root.width;
 
     const parent_ = (parentElement !== undefined ? parentElement : portal ? window.document.body : refs.root.current?.parentElement)?.getBoundingClientRect();
-
-    if (theme.direction === 'rtl' && ['top', 'bottom'].includes(position)) {
-      if (alignment === 'start') alignment = 'end';
-      else if (alignment === 'end') alignment = 'start';
-    }
 
     // Top, Bottom
     if (['top', 'bottom'].includes(position)) {
