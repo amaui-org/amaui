@@ -21,13 +21,13 @@ const useStyle = styleMethod(theme => ({
     whiteSpace: 'nowrap'
   },
 
-  labelRoot_position_top: { paddingBottom: '16px' },
+  labelRoot_position_top: { paddingBlock: '16px' },
 
-  labelRoot_position_bottom: { paddingTop: '16px' },
+  labelRoot_position_bottom: { paddingBlock: '16px' },
 
-  labelRoot_position_left: { paddingRight: '16px' },
+  labelRoot_position_left: { paddingInline: '16px' },
 
-  labelRoot_position_right: { paddingLeft: '16px' },
+  labelRoot_position_right: { paddingInline: '16px' },
 
   labelRoot_noMargin: { padding: '0' },
 
