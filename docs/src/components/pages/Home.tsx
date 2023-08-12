@@ -111,7 +111,7 @@ const useStyle = style(theme => ({
       transform: 'scale(0.91)'
     },
 
-    '&.amaui-Avatar-root': {
+    '&.amaui-Avatar-root.amaui-Button-root': {
       cursor: 'pointer'
     }
   },

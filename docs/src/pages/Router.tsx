@@ -49,7 +49,7 @@ const useStyle = styleMethod(theme => ({
     body: {
       fontFamily: theme.typography.font_family.secondary,
       color: theme.palette.text.default.primary,
-      backgroundColor: theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.primary.secondary
+      backgroundColor: theme.palette.light ? theme.palette.color.primary[99] : theme.palette.color.primary[5]
     }
   },
 
@@ -76,7 +76,7 @@ const useStyle = styleMethod(theme => ({
     paddingBottom: 100,
 
     '& .amaui-Modal-surface': {
-      overflowY: 'auto',
+      overflowY: 'scroll',
       scrollbarWidth: 0
     },
 
@@ -137,7 +137,7 @@ const useStyle = styleMethod(theme => ({
       transform: 'scale(0.91)'
     },
 
-    '&.amaui-Avatar-root': {
+    '&.amaui-Avatar-root.amaui-Button-root': {
       cursor: 'pointer'
     }
   },
@@ -828,7 +828,73 @@ function Root(props: any) {
 
         Icon={IconMaterialTempPreferencesCustomRounded}
       >
-        {[...refs.images.current].reverse().map((item: any, index: number) => (
+        <SpeedDialItem
+          render={({ onBlur, onFocus, TooltipProps, ...otherItem }: any) => (
+            <Tooltip
+              label={theme.palette.light ? 'Light theme' : 'Dark theme'}
+
+              portal={false}
+
+              nowrap
+
+              {...TooltipProps}
+            >
+              <Switch
+                {...otherItem}
+
+                onBlur={onBlur}
+
+                onFocus={onFocus}
+
+                color='primary'
+
+                OnIcon={<IconMaterialLightModeRounded />}
+
+                OffIcon={<IconMaterialDarkModeRounded />}
+
+                checked={theme.palette.light}
+
+                onChange={(value: boolean) => update('light', value)}
+              />
+            </Tooltip>
+          )}
+        />
+
+        <SpeedDialItem
+          render={({ onBlur, onFocus, TooltipProps, ...otherItem }: any) => (
+            <Tooltip
+              label={theme.direction === 'ltr' ? 'Left to right' : 'Right to left'}
+
+              portal={false}
+
+              nowrap
+
+              {...TooltipProps}
+            >
+              <Switch
+                {...otherItem}
+
+                version='text'
+
+                onBlur={onBlur}
+
+                onFocus={onFocus}
+
+                color='primary'
+
+                OnIcon={<IconMaterialFormatTextdirectionLToRRounded />}
+
+                OffIcon={<IconMaterialFormatTextdirectionRToLRounded />}
+
+                checked={theme.direction === 'ltr'}
+
+                onChange={(value: boolean) => update('direction', value)}
+              />
+            </Tooltip>
+          )}
+        />
+
+        {[...refs.images.current].map((item: any, index: number) => (
           <SpeedDialItem
             key={index}
 
@@ -871,72 +937,6 @@ function Root(props: any) {
             )}
           />
         ))}
-
-        <SpeedDialItem
-          render={({ onBlur, onFocus, TooltipProps, ...otherItem }: any) => (
-            <Tooltip
-              label={theme.direction === 'ltr' ? 'Left to right' : 'Right to left'}
-
-              portal={false}
-
-              nowrap
-
-              {...TooltipProps}
-            >
-              <Switch
-                {...otherItem}
-
-                version='text'
-
-                onBlur={onBlur}
-
-                onFocus={onFocus}
-
-                color='primary'
-
-                OnIcon={<IconMaterialFormatTextdirectionLToRRounded />}
-
-                OffIcon={<IconMaterialFormatTextdirectionRToLRounded />}
-
-                checked={theme.direction === 'ltr'}
-
-                onChange={(value: boolean) => update('direction', value)}
-              />
-            </Tooltip>
-          )}
-        />
-
-        <SpeedDialItem
-          render={({ onBlur, onFocus, TooltipProps, ...otherItem }: any) => (
-            <Tooltip
-              label={theme.palette.light ? 'Light theme' : 'Dark theme'}
-
-              portal={false}
-
-              nowrap
-
-              {...TooltipProps}
-            >
-              <Switch
-                {...otherItem}
-
-                onBlur={onBlur}
-
-                onFocus={onFocus}
-
-                color='primary'
-
-                OnIcon={<IconMaterialLightModeRounded />}
-
-                OffIcon={<IconMaterialDarkModeRounded />}
-
-                checked={theme.palette.light}
-
-                onChange={(value: boolean) => update('light', value)}
-              />
-            </Tooltip>
-          )}
-        />
       </SpeedDial>
     </Surface>
   </>;

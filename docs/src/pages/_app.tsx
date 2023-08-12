@@ -144,7 +144,7 @@ export default function App(props: AppProps) {
       label: 'Regular Clock',
       Icon: IconMaterialNestClockFarsightDigitalRounded,
       element: <Watch />
-    }
+    },
   ], [screenCaptureSupported]);
 
   return <>
@@ -174,7 +174,7 @@ export default function App(props: AppProps) {
       >
         <MainProgress>
           <Widgets
-            widgets={widgets}
+            widgets={widgets.reverse()}
           >
             <Reset />
 
