@@ -245,7 +245,9 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
         <SpeedDial
           ref={ref}
 
-          direction='bottom'
+          direction='top'
+
+          position='bottom'
 
           alignment='start'
 

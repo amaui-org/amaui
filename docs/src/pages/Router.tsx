@@ -822,7 +822,9 @@ function Root(props: any) {
 
       {/* SpeedDial */}
       <SpeedDial
-        direction='bottom'
+        direction='top'
+
+        position='bottom'
 
         alignment='end'
 

@@ -1,6 +1,6 @@
 {
   "name": "@amaui/ui-react",
-  "version": "1.1.34",
+  "version": "1.1.35",
   "description": "UI for React",
   "repository": "https://github.com/amaui-org/amaui.git",
   "author": "Lazar <lazareric2@gmail.com>",
@@ -47,7 +47,7 @@
   "dependencies": {
     "@amaui/date": "^1.0.11434",
     "@amaui/subscription": "^1.0.11151",
-    "@amaui/utils": "^1.1.1"
+    "@amaui/utils": "^1.1.2"
   },
   "devDependencies": {
     "@amaui/style-react": "^1.1.111"
