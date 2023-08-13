@@ -573,7 +573,7 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
 
             in={open}
 
-            delay={(((open && !reverse) || (!open && reverse)) ? children.length - 1 - index : index) * 40}
+            delay={(((open && !reverse) || (!open && reverse)) ? children.length - 1 - index : index) * 30}
 
             append
 
