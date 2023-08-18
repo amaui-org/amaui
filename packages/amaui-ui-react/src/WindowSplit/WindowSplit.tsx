@@ -142,6 +142,10 @@ export interface IWindowSplit extends ILine {
   iconButton?: TElement;
   orientation?: 'vertical' | 'horizontal';
 
+  noDivider?: boolean;
+
+  focus?: boolean;
+
   onFocus?: (event: React.FocusEvent<any>) => any;
   onBlur?: (event: React.FocusEvent<any>) => any;
   onMouseEnter?: (event: React.MouseEvent<any>) => any;
@@ -175,6 +179,10 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
 
     iconButton,
     orientation = 'horizontal',
+
+    noDivider,
+
+    focus: focus_ = false,
 
     onFocus: onFocus_,
     onBlur: onBlur_,
@@ -461,9 +469,11 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
 
       justify='center'
 
-      onFocus={onFocus}
+      {...(focus_ && {
+        onFocus,
 
-      onBlur={onBlur}
+        onBlur
+      })}
 
       onKeyDown={onKeyDown}
 
@@ -474,14 +484,14 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
       className={classNames([
         staticClassName('WindowSplit', theme) && [
           'amaui-WindowSplit-root',
-          focus && `amaui-Button-focus`,
-          mouseDown && `amaui-Button-mouse-down`,
+          focus && `amaui-WindowSplit-focus`,
+          mouseDown && `amaui-WindowSplit-mouse-down`,
         ],
 
         className,
         classes.root,
         mouseDown && classes[`mouseDown_orientation_${orientation}`],
-        focus && !mouseDown && classes.focus
+        focus_ && focus && !mouseDown && classes.focus
       ])}
 
       {...other}
@@ -554,37 +564,39 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
         )}
       </Line>
 
-      <Divider
-        onTouchStart={onTouchStart}
+      {!noDivider && (
+        <Divider
+          onTouchStart={onTouchStart}
 
-        onMouseDown={(event: React.MouseEvent<any>) => {
-          onMouseDown();
+          onMouseDown={(event: React.MouseEvent<any>) => {
+            onMouseDown();
 
-          if (is('function', DividerProps?.onMouseDown)) IconButtonProps.onMouseDown(event);
-        }}
+            if (is('function', DividerProps?.onMouseDown)) IconButtonProps.onMouseDown(event);
+          }}
 
-        orientation={orientation === 'vertical' ? 'horizontal' : 'vertical'}
+          orientation={orientation === 'vertical' ? 'horizontal' : 'vertical'}
 
-        {...DividerProps}
+          {...DividerProps}
 
-        className={classNames([
-          staticClassName('WindowSplit', theme) && [
-            'amaui-WindowSplit-divider'
-          ],
+          className={classNames([
+            staticClassName('WindowSplit', theme) && [
+              'amaui-WindowSplit-divider'
+            ],
 
-          DividerProps?.className,
-          classes.divider,
-          classes[`divider_orientation_${orientation}`]
-        ])}
+            DividerProps?.className,
+            classes.divider,
+            classes[`divider_orientation_${orientation}`]
+          ])}
 
-        style={{
-          ...styles.divider,
+          style={{
+            ...styles.divider,
 
-          ...DividerProps?.style
-        }}
-      />
+            ...DividerProps?.style
+          }}
+        />
+      )}
 
-      {iconButton && (
+      {iconButton && !noDivider && (
         (iconButtonComponent && React.cloneElement(iconButtonComponent as any, {
           className: classNames([
             staticClassName('WindowSplit', theme) && [
