@@ -1,7 +1,7 @@
 import React from 'react';
 
 import is from '@amaui/utils/is';
-import { useAmauiTheme } from '@amaui/style-react';
+import { classNames, useAmauiTheme } from '@amaui/style-react';
 
 import { ITransition, Transition, TTransitionStatus } from '..';
 
@@ -222,6 +222,11 @@ const Slide = React.forwardRef((props_: ISlide, ref: any) => {
               else (children as any).ref.current = item;
             }
           },
+
+          className: classNames([
+            className,
+            children?.props?.className
+          ]),
 
           style: {
             transition: `transform ${duration(status)} ${timingFunction(status)} ${addTransition ? `, ${addTransition}` : ''}`,

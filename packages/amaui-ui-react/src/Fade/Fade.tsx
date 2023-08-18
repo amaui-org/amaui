@@ -1,7 +1,7 @@
 import React from 'react';
 
 import is from '@amaui/utils/is';
-import { useAmauiTheme } from '@amaui/style-react';
+import { classNames, useAmauiTheme } from '@amaui/style-react';
 
 import { ITransition, Transition, TTransitionStatus } from '..';
 
@@ -144,6 +144,11 @@ const Fade = React.forwardRef((props_: IFade, ref: any) => {
               else (children as any).ref.current = item;
             }
           },
+
+          className: classNames([
+            className,
+            children?.props?.className
+          ]),
 
           style: {
             visibility: status === 'exited' && !inProp ? 'hidden' : undefined,

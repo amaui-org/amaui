@@ -1,7 +1,7 @@
 import React from 'react';
 
 import is from '@amaui/utils/is';
-import { useAmauiTheme } from '@amaui/style-react';
+import { classNames, useAmauiTheme } from '@amaui/style-react';
 
 import { Transition, TTransitionStatus, ITransition } from '../';
 
@@ -137,6 +137,11 @@ const Zoom = React.forwardRef((props_: IZoom, ref: any) => {
               else (children as any).ref.current = item;
             }
           },
+
+          className: classNames([
+            className,
+            children?.props?.className
+          ]),
 
           style: {
             visibility: status === 'exited' && !inProp ? 'hidden' : undefined,
