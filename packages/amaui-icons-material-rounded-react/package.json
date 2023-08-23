@@ -32,7 +32,7 @@
   "scripts": {
     "prebuild": "rimraf build",
     "build": "cross-env ENV=react VERSION=icons-rounded node ../../utils/js/build.js",
-    "release": "yarn version --patch --no-git-tag-version && yarn build && cd ./build && npm publish",
+    "release": "yarn build && yarn version --patch --no-git-tag-version && yarn build && cd ./build && npm publish",
     "lint": "tslint -c ../../tslint.json -p tsconfig.json",
     "type": "tsc --noEmit -p tsconfig.json",
     "cov": "cross-env NODE_ENV=test amaui-test",
