@@ -436,6 +436,8 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
 
                   indicatorPosition='end'
 
+                  parent={refs.root.current}
+
                   TreeProps={{
                     className: classNames([
                       staticClassName('Timer', theme) && [

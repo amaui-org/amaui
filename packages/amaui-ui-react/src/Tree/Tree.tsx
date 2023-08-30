@@ -153,6 +153,7 @@ export interface ITree extends Omit<IBaseElement, 'children'> {
 
   noPadding?: boolean;
 
+  parent?: HTMLElement;
   parentDisabled?: boolean;
   disabled?: boolean;
 
@@ -616,7 +617,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
         <Expand
           in={open}
 
-          parent={refs.root.current}
+          parent={parent || refs.root.current}
 
           onTransition={(element: any, status: TTransitionStatus) => {
             refs.inProgressTransition.current = !['entered', 'removed'].includes(status);
