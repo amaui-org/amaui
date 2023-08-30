@@ -61,6 +61,38 @@ async function buildBabel(variant = 'esm') {
   if (response) console.log(response);
 }
 
+async function buildUMD() {
+  const { log } = cache;
+
+  const env = {
+    BABEL_ENV: 'esm',
+  };
+  const rollup = path.resolve(__dirname, '../../rollup.config.js');
+
+  const arguments = [
+    '-c',
+    rollup,
+  ];
+
+  const cmd = ['rollup', ...arguments].join(' ');
+
+  if (log) console.log(`\n🌱 Running ${cmd}\n`);
+
+  const [error, response] = await exec(cmd, { env: { ...process.env, ...env } });
+
+  if (error) {
+    console.error(error);
+
+    if (response) console.error(response);
+
+    console.log();
+
+    throw new Error();
+  }
+
+  if (response) console.log(response.slice(1, -1));
+}
+
 async function build() {
   const { log } = cache;
 
@@ -71,6 +103,11 @@ async function build() {
 
   // Node
   await buildBabel('node');
+
+  // UMD
+  // only for
+  // amaui-style-react
+  if (moduleFolder.includes('style')) await buildUMD();
 
   if (log) console.log(`🌱 Build done\n`);
 }
