@@ -106,7 +106,7 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbars, ref: any) => {
   const { classes } = useStyle(props);
 
   const refs = {
-    root: React.useRef<HTMLElement>(),
+    root: React.useRef<any>(),
     value: React.useRef<ISnackbars>({} as any),
     open: React.useRef<any>(),
     preOpen: React.useRef<any>()
@@ -239,7 +239,14 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbars, ref: any) => {
       {children}
 
       <Line
-        ref={ref}
+        ref={item => {
+          if (ref) {
+            if (is('function', ref)) ref(item);
+            else if (ref?.current) ref.current = item;
+          }
+
+          refs.root.current = item;
+        }}
 
         align={align}
 
@@ -263,6 +270,8 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbars, ref: any) => {
             key={item.id}
 
             in={item.expand}
+
+            parent={refs.root.current}
 
             onExited={() => onExpandExited(item.id)}
           >

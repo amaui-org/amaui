@@ -24,6 +24,12 @@ const Wrapper = React.forwardRef((props: any, ref: any) => {
 });
 
 export interface IExpand extends ITransition {
+  // required
+  // in order to properly
+  // evaluate the height of the children
+  // relative to width of the parent
+  parent: HTMLElement;
+
   expandSize?: number;
 
   orientation?: 'veritcal' | 'horizontal';
@@ -38,6 +44,11 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
 
   const {
     in: inProp,
+
+    // required
+    // html element reference
+    parent,
+
     prefix,
     run,
     append,
@@ -178,6 +189,8 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
     </Wrapper>
   );
 
+  if (!parent) return null;
+
   if (!init) return (
     <div
       ref={refs.element}
@@ -185,7 +198,10 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
       style={{
         position: 'fixed',
         left: '114%',
-        visibility: 'hidden'
+        visibility: 'hidden',
+        // add with of an actual parent
+        // at the moment,
+        width: (parent as HTMLElement).clientWidth
       }}
     >
       {/*

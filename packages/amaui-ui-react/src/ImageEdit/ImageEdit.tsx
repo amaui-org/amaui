@@ -522,6 +522,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
 
   const refs = {
     root: React.useRef<any>(),
+    option: React.useRef<any>(),
     value: React.useRef<any>(),
     valueCopy: React.useRef<any>(),
     canvasMain: React.useRef<HTMLCanvasElement>(),
@@ -1463,7 +1464,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
       ref={item => {
         if (ref) {
           if (is('function', ref)) ref(item);
-          else ref.current = item;
+          else if (ref?.current) ref.current = item;
         }
 
         refs.root.current = item;
@@ -1562,12 +1563,16 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
         <Expand
           in={!!open}
 
+          parent={refs.root.current}
+
           style={{
             width: '100%'
           }}
         >
           <Line
             gap={0}
+
+            ref={refs.option}
 
             direction='column'
 
@@ -1582,6 +1587,8 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
             {openedOption === 'filters' && <>
               <Expand
                 in={!!filterValue}
+
+                parent={refs.option.current}
 
                 style={{
                   width: '100%'

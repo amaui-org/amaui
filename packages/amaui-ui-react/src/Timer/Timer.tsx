@@ -197,6 +197,7 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
   const [value, setValue] = React.useState<number>(0);
 
   const refs = {
+    root: React.useRef<any>(),
     start: React.useRef<number>(0),
     valuePaused: React.useRef<any>(0),
     value: React.useRef<any>(),
@@ -333,7 +334,14 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
 
   return (
     <Surface
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else if (ref?.current) ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       tonal={tonal}
 
@@ -397,6 +405,8 @@ const Timer = React.forwardRef((props_: ITimer, ref: any) => {
       {/* Flags */}
       <Expand
         in={expand}
+
+        parent={refs.root.current}
 
         onExited={onExited}
 

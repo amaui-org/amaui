@@ -629,22 +629,6 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
 
   if (href) RootComponent = 'a';
 
-  let addValue = 0;
-
-  const method = (children_: any) => {
-    const items = React.Children.toArray(children_);
-
-    items.forEach((item: any) => {
-      if (item?.type?.displayName === 'amaui-Accordion') addValue = 1;
-
-      method(item?.props?.children);
-    });
-  };
-
-  if (list) {
-    method(list);
-  }
-
   const isSelected = selected !== undefined ? selected : openMenu || openList;
 
   const colorToUse = isSelected ? colorSelected : color;
@@ -656,7 +640,7 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
       ref={item => {
         if (ref) {
           if (is('function', ref)) ref(item);
-          else ref.current = item;
+          else if (ref?.current) ref.current = item;
         }
 
         refs.root.current = item;
@@ -926,6 +910,8 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
 
       <Expand
         in={openList}
+
+        parent={refs.root.current}
 
         {...ExpandProps}
       >

@@ -423,7 +423,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
       ref={item => {
         if (ref) {
           if (is('function', ref)) ref(item);
-          else ref.current = item;
+          else if (ref?.current) ref.current = item;
         }
 
         refs.root.current = item;
@@ -615,6 +615,8 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
       {!noExpand && children && (
         <Expand
           in={open}
+
+          parent={refs.root.current}
 
           onTransition={(element: any, status: TTransitionStatus) => {
             refs.inProgressTransition.current = !['entered', 'removed'].includes(status);

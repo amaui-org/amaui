@@ -230,6 +230,7 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
   const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
 
   const refs = {
+    root: React.useRef<any>(),
     ids: {
       button: React.useId(),
       data: React.useId()
@@ -276,7 +277,14 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
 
   return (
     <Surface
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else if (ref?.current) ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       tonal={tonal}
 
@@ -443,6 +451,8 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
 
       <Expand
         in={open}
+
+        parent={refs.root.current}
 
         onTransition={(element: any, status: TTransitionStatus) => {
           refs.expandInProgress.current = !['appended', 'entered', 'exited', 'removed'].includes(status);
