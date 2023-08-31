@@ -49,10 +49,7 @@ class TodoCollection extends BaseCollection {
 
 #### Query
 
-For all queries `Query` model is used from `@amaui/models` library.
-
-Most of the methods expect `Query` instance as an argument to perform the query. \
-You can find for each method an example of what it expects.
+For all queries either use object, or array (for aggregate pipeline) or `Query` model from `@amaui/models` library.
 
 ```ts
 const query = new Query({
@@ -90,32 +87,6 @@ Query has most of the used properties packed inside of itself.
 Additionally `query.queries` value `{ search, api, permissions, aggregate, find }` all cover various use cases, as there are use cases where for a single query results we might have to query multiple collections, so that's the main reason `Query` has an ability to package multiple collections query objects within 1 `Query` instance.
 
 When you get used to it, it's very useful, and it won't require much maintenance, if at all, as you scale your API in the future.
-
-#### Modeling data
-
-Data schema this library assumes is an example which nicely organizes any API data (with small nested overhead), but obviously in the collection class getters define how ever your own data models look like, what properties they have, and for what.
-
-```ts
-{
-  _id: ...,
-  meta: {
-    created_by: User ObjectID
-  },
-  // any
-  data: {
-    ...
-  },
-  // any, used for db scale
-  // to make specific indexes
-  namespace: {
-    ...
-  },
-  api_meta: {
-    added_at: Date | number,
-    updated_at: Date | number
-  }
-}
-```
 
 #### Other
 
@@ -173,17 +144,9 @@ Uses mongo's `count` method.
 ```ts
 const todoCollection = new TodoCollection();
 
-await todoCollection.count(
-  new Query({
-    queries: {
-      find: {
-        todos: {
-          name: { $regex: '^todo' }
-        }
-      }
-    }
-  })
-);
+await todoCollection.count({
+  name: { $regex: '^todo' }
+});
 
 // 1114
 ```
@@ -197,17 +160,9 @@ Uses mongo's `findOne` method.
 ```ts
 const todoCollection = new TodoCollection();
 
-await todoCollection.exists(
-  new Query({
-    queries: {
-      find: {
-        todos: {
-          name: { $regex: '^todo' }
-        }
-      }
-    }
-  })
-);
+await todoCollection.exists({
+  name: { $regex: '^todo' }
+});
 
 // true
 ```
@@ -224,13 +179,22 @@ Uses mongo's `find` method.
 const todoCollection = new TodoCollection();
 
 await todoCollection.find(
+  {
+    name: 'Todo 14'
+  },
+  {
+    skip: 40,
+    limit: 14,
+    total: true
+  }
+);
+
+// or
+
+await todoCollection.find(
   new Query({
-    queries: {
-      find: {
-        todos: {
-          name: { $regex: '^todo' }
-        }
-      }
+    query: {
+      name: { $regex: '^todo' }
     },
 
     skip: 40,
@@ -259,17 +223,9 @@ Uses mongo's `findOne` method.
 ```ts
 const todoCollection = new TodoCollection();
 
-await todoCollection.findOne(
-  new Query({
-    queries: {
-      find: {
-        todos: {
-          name: { $regex: '^todo' }
-        }
-      }
-    }
-  })
-);
+await todoCollection.findOne({
+  name: { $regex: '^todo' }
+});
 
 // {
 //   _id: ...
@@ -289,31 +245,47 @@ const todoCollection = new TodoCollection();
 
 await todoCollection.aggregate(
   new Query({
-    queries: {
-      aggregate: {
-        todos: [
-          {
-            $match: {
-              name: { $regex: '^todo' }
-            }
-          },
+    query: [
+      {
+        $match: {
+          name: { $regex: '^todo' }
+        }
+      },
 
-          {
-            $limit: 14
-          },
+      {
+        $limit: 14
+      },
 
-          {
-            $project: {
-              _id: 1,
-              name: 1,
-              description: 1
-            }
-          }
-        ]
+      {
+        $project: {
+          _id: 1,
+          name: 1,
+          description: 1
+        }
       }
-    }
+    ]
   })
 );
+
+await todoCollection.aggregate([
+  {
+    $match: {
+      name: { $regex: '^todo' }
+    }
+  },
+
+  {
+    $limit: 14
+  },
+
+  {
+    $project: {
+      _id: 1,
+      name: 1,
+      description: 1
+    }
+  }
+]);
 
 // [
 //   {
@@ -349,6 +321,40 @@ Order of queries in the aggregation pipeline:
 
 ```ts
 const todoCollection = new TodoCollection();
+
+await todoCollection.searchMany(
+  [
+    {
+      $match: {
+        name: { $regex: '^todo' }
+      }
+    }
+  ],
+  {
+    skip: 14,
+    limit: 14,
+    total: true
+  }
+);
+
+// or
+
+await todoCollection.searchMany(
+  new Query({
+    query: [
+      {
+        $match: {
+          name: { $regex: '^todo' }
+        }
+      }
+    ],
+
+    next: ...,
+    total: true
+  })
+);
+
+// or
 
 await todoCollection.searchMany(
   new Query({
@@ -399,6 +405,32 @@ Search one method utilizes almost entirely the same flow as `searchMany` method,
 const todoCollection = new TodoCollection();
 
 await todoCollection.searchOne(
+  [
+    {
+      $match: {
+        name: { $regex: '^todo' }
+      }
+    }
+  ]
+);
+
+// or
+
+await todoCollection.searchOne(
+  new Query({
+    query: [
+      {
+        $match: {
+          name: { $regex: '^todo' }
+        }
+      }
+    ]
+  })
+);
+
+// or
+
+await todoCollection.searchOne(
   new Query({
     queries: {
       search: {
@@ -440,15 +472,13 @@ const todoCollection = new TodoCollection();
 
 await todoCollection.addOne(
   {
-    meta,
-    data
+    name
   }
 );
 
 // {
 //   _id: ...,
-//   data,
-//   meta,
+//   name,
 //   added_at
 // }
 ```
@@ -467,27 +497,18 @@ Uses mongo's `findOneAndUpdate` method.
 const todoCollection = new TodoCollection();
 
 await todoCollection.updateOne(
-  new Query({
-    queries: {
-      find: {
-        todos: {
-          name: { $regex: '^todo' }
-        }
-      }
-    }
-  }),
   {
-    'meta.a': 114
+    _id: ...
+  },
+  {
+    'name': 'Au 114'
   }
 );
 
 // {
 //   _id: ...,
-//   meta: {
-//     created_by: ...,
-//     a: 114
-//   },
-//   data,
+//   name: 'Au 114',
+//   added_at,
 //   updated_at
 // }
 ```
@@ -501,17 +522,9 @@ Uses mongo's `findOneAndDelete` method.
 ```ts
 const todoCollection = new TodoCollection();
 
-await todoCollection.removeOne(
-  new Query({
-    queries: {
-      find: {
-        todos: {
-          _id: ...
-        }
-      }
-    }
-  })
-);
+await todoCollection.removeOne({
+  _id: ...
+});
 
 // {
 //   ...
@@ -535,16 +548,10 @@ Uses mongo's `findOneAndUpdate` method, with `upsert: true` option.
 ```ts
 const todoCollection = new TodoCollection();
 
-await todoCollection.updateOne(
-  new Query({
-    queries: {
-      find: {
-        todos: {
-          name: { $regex: '^todo' }
-        }
-      }
-    }
-  }),
+await todoCollection.updateOneOrAdd(
+  {
+    name: { $regex: '^todo' }
+  },
   {
     'meta.a': 114
   }
@@ -574,16 +581,13 @@ const todoCollection = new TodoCollection();
 await todoCollection.addMany(
   [
     {
-      meta,
-      data
+      name: '...'
     },
     {
-      meta,
-      data
+      name: '...'
     },
     {
-      meta,
-      data
+      name: '...'
     }
   ]
 );
@@ -611,22 +615,21 @@ Uses mongo's `updateMany` method.
 const todoCollection = new TodoCollection();
 
 await todoCollection.updateMany(
-  new Query({
-    queries: {
-      find: {
-        todos: {
-          name: { $regex: '^todo' }
-        }
-      }
-    }
-  }),
   {
-    'meta.a': 114
+    name: { $regex: '^todo' }
+  },
+  {
+    name: 'A 114',
+    'meta.a': 114,
+
+    $inc: {
+      a: 114
+    }
   }
 );
 
 // {
-//   modifiedCount: 1114
+//   modifiedCount: 114
 // }
 ```
 
@@ -640,15 +643,9 @@ Uses mongo's `deleteMany` method.
 const todoCollection = new TodoCollection();
 
 await todoCollection.removeMany(
-  new Query({
-    queries: {
-      find: {
-        todos: {
-          _id: { $in: [ ..., ..., ... ] }
-        }
-      }
-    }
-  })
+  {
+    _id: { $in: [ ..., ..., ... ] }
+  }
 );
 
 // {
@@ -674,9 +671,8 @@ await todoCollection.bulkWrite(
     {
       insertOne: {
         document: {
-         meta,
-         data,
-         api_meta
+         _id,
+         name
         }
       }
     },
@@ -706,16 +702,24 @@ await todoCollection.bulkWrite(
 //   insertedIds: [ ... ],
 //   upsertedIds: [ ... ],
 //
-//   insertedCount: 1114,
-//   modifiedCount: 1114,
-//   upsertedCount: 1114,
-//   deletedCount: 1114,
+//   insertedCount: 114,
+//   modifiedCount: 114,
+//   upsertedCount: 114,
+//   deletedCount: 114,
 //
 //   ...
 // }
 ```
 
 ## API
+
+#### IUpdateFilters
+
+```ts
+interface IUpdateFilters extends mongodb.UpdateFilter<unknown> {
+    [p: string]: any;
+}
+```
 
 #### IUpdateOrAddOptions
 
@@ -754,7 +758,40 @@ interface IAddOneOptions extends mongodb.InsertOneOptions {
 
 ```ts
 interface IAddManyOptions extends mongodb.BulkWriteOptions {
+    original?: boolean;
     add_date?: boolean;
+}
+```
+
+#### IFindOptions
+
+```ts
+interface IFindOptions extends mongodb.FindOptions {
+    total?: boolean;
+    sort?: any;
+    projection?: any;
+}
+```
+
+#### ISearchOne
+
+```ts
+interface ISearchOne extends mongodb.AggregateOptions {
+    projection?: any;
+}
+```
+
+#### ISearchManyOptions
+
+```ts
+interface ISearchManyOptions extends mongodb.AggregateOptions {
+    total?: boolean;
+    limit?: number;
+    skip?: number;
+    sort?: any;
+    next?: any;
+    previous?: any;
+    projection?: any;
 }
 ```
 
@@ -764,38 +801,46 @@ interface IAddManyOptions extends mongodb.BulkWriteOptions {
 class BaseCollection {
     protected collectionName: string;
     mongo: Mongo;
+    Model?: IClass;
+    defaults?: TDefaults;
     private db_;
     protected collections: Record<string, mongodb.Collection>;
     protected amalog: AmauiLog;
-    constructor(collectionName: string, mongo: Mongo);
-    get db(): Promise<mongodb.Db>;
+    static defaults: TDefaults;
+    constructor(collectionName: string, mongo: Mongo, Model?: IClass, defaults?: TDefaults);
     get sort(): Record<string, number>;
     get sortProperty(): string;
     get sortAscending(): number;
     get addedProperty(): string;
     get updatedProperty(): string;
     get projection(): object;
+    get db(): Promise<mongodb.Db>;
     collection(name?: string, options?: mongodb.CreateCollectionOptions): Promise<mongodb.Collection>;
     transaction(method: TMethod, options?: {
         retries: number;
         retriesWait: number;
-    }): Promise<void | Error>;
-    count(query?: Query, options?: mongodb.CountDocumentsOptions): Promise<number>;
-    exists(query: Query, options?: mongodb.FindOptions): Promise<boolean>;
-    find(query: Query, options?: mongodb.FindOptions): Promise<IMongoResponse>;
-    findOne(query: Query, options?: mongodb.FindOptions): Promise<any>;
-    aggregate(query?: Query, options?: mongodb.AggregateOptions): Promise<Array<mongodb.Document>>;
-    searchMany(query: Query, additional?: IMongoSearchManyAdditional, options?: mongodb.AggregateOptions): Promise<IMongoResponse>;
-    searchOne(query: Query, additional?: IMongoSearchOneAdditional, options?: mongodb.AggregateOptions): Promise<mongodb.Document>;
-    addOne(value: any, options_?: IAddOneOptions): Promise<mongodb.Document>;
-    updateOne(query: Query, value?: any, operators?: mongodb.UpdateFilter<any>, options_?: IUpdateOptions): Promise<mongodb.ModifyResult<mongodb.Document>>;
-    removeOne(query: Query, options?: mongodb.FindOneAndDeleteOptions): Promise<mongodb.ModifyResult<mongodb.Document>>;
-    updateOneOrAdd(query: Query, value: any, options_?: IUpdateOrAddOptions): Promise<mongodb.ModifyResult<mongodb.Document>>;
-    addMany(values_: any[], options_?: IAddManyOptions): Promise<Array<mongodb.Document>>;
-    updateMany(query: Query, value?: any, operators?: mongodb.UpdateFilter<any>, options_?: IUpdateManyOptions): Promise<number>;
-    removeMany(query: Query, options?: mongodb.DeleteOptions): Promise<number>;
-    bulkWrite(values?: mongodb.AnyBulkWriteOperation[], options_?: mongodb.BulkWriteOptions): Promise<Array<mongodb.Document>>;
+    }): Promise<any>;
+    count(query?: any, options?: mongodb.CountDocumentsOptions): Promise<number>;
+    exists(query: any, options?: mongodb.FindOptions): Promise<boolean>;
+    find(query: any, options?: IFindOptions): Promise<IMongoResponse>;
+    findOne(query: any, options?: mongodb.FindOptions): Promise<IModel>;
+    aggregate(query?: any, options?: mongodb.AggregateOptions): Promise<Array<IModel>>;
+    searchMany(query: any, additional?: IMongoSearchManyAdditional, options?: ISearchManyOptions): Promise<IMongoResponse>;
+    searchOne(query: any, additional?: IMongoSearchOneAdditional, options?: ISearchOne): Promise<IModel>;
+    addOne(value_: any, options_?: IAddOneOptions): Promise<IModel>;
+    updateOne(query: any, value: IUpdateFilters, options_?: IUpdateOptions): Promise<IModel>;
+    removeOne(query: any, options?: mongodb.FindOneAndDeleteOptions): Promise<mongodb.ModifyResult<IModel>>;
+    updateOneOrAdd(query: any, value: any, options_?: IUpdateOrAddOptions): Promise<IModel>;
+    addMany(values_: any[], options_?: IAddManyOptions): Promise<Array<IModel>>;
+    updateMany(query: any, value: IUpdateFilters, options_?: IUpdateManyOptions): Promise<number>;
+    removeMany(query: any, options?: mongodb.DeleteOptions): Promise<number>;
+    bulkWrite(values?: mongodb.AnyBulkWriteOperation[], options_?: mongodb.BulkWriteOptions): Promise<mongodb.BulkWriteResult>;
+    protected toModel(value: any): any;
     protected response(start: number, collection: mongodb.Collection, method: string, value?: any, req?: express.Request): any;
+    query(query: any, aggregate?: boolean): any;
+    getDefaults(method: TMethods): void;
+    static value(value: any): any;
+    static isAmauiQuery(value: any): any;
 }
 ```
 

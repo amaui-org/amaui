@@ -20,7 +20,6 @@ yarn add mongodb
 
 ```ts
 import { Mongo, BaseCollection } from '@amaui/mongo';
-import { Query } from '@amaui/models';
 // Make if you wanna a config file and
 // inside of it add all the process.env related props
 import Config from './config';
@@ -46,28 +45,21 @@ const todoCollection = new TodoCollection();
 
 // Add
 const todoCreated = await todoCollection.addOne({
-  _id: new ObjectId(),
   name: 'todo',
   description: 'description'
 });
 
 // Find one
-const todo = await aCollection.findOne(new Query({
-  queries: {
-    find: {
-      todos: {
-        _id_: todoCreated._id
-      }
-    },
-  },
-}));
+const todo = await aCollection.findOne({
+  _id: todoCreated._id
+});
 
 todo;
 
 // {
 //   _id: ObjectId('407f191e810c19729de860ea'),
 //   name: 'todo',
-//   description: 'description'
+//   description: 'description',
 //   added_at: 1777044477
 // }
 
