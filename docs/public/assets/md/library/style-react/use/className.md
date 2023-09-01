@@ -48,8 +48,8 @@ default function className(value_: string | TValue, props_?: any, className_?: s
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Style react: AmauiThemeProvider",
-      "to": "/library/style-react/use/AmauiThemeProvider"
+      "label": "Style react: ThemeProvider",
+      "to": "/library/style-react/use/ThemeProvider"
     },
     "next": {
       "label": "Style react: inline",

@@ -1046,8 +1046,8 @@ const Theme: React.ForwardRefExoticComponent<ITheme & React.RefAttributes<unknow
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Style react: Theme",
-      "to": "/library/style-react/use/Theme"
+      "label": "Style react: StyleProvider",
+      "to": "/library/style-react/use/StyleProvider"
     },
     "next": {
       "label": "Style react: className",
