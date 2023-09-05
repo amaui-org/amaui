@@ -5,29 +5,10 @@ import capitalize from '@amaui/utils/capitalize';
 import setObjectValue from '@amaui/utils/setObjectValue';
 import { ValidationError } from '@amaui/errors';
 
-export interface IUseFormValuesProperty {
-  property: string;
-  value?: string;
-  validation?: IUseFormValidation | IUseFormValidation[];
-  touched?: boolean;
-  error?: string;
-  required?: boolean;
-  capitalize?: boolean;
-  propertyNameUpdate?: (value: any) => string;
-}
-
-export type IUseFormValues = Record<string, IUseFormValuesProperty>;
-
-export interface IForm {
-  value: any;
-  values: IUseFormValues;
-  valid: boolean;
-}
-
-export type IUseFormValidation = (property: IUseFormValuesProperty, form: IForm) => void | Error | Promise<void | Error>;
+import validateModel, { IValidateVales } from './validate';
 
 export interface IUseForm {
-  values: Record<string, IUseFormValuesProperty>;
+  values: IValidateVales;
 
   autoValidate?: boolean;
 
@@ -69,7 +50,7 @@ const useForm = (props: IUseForm) => {
 
     if (!property) {
       values[property_] = {
-        property: property_,
+        name: property_,
         value: value_,
         touched: true
       };
@@ -81,7 +62,7 @@ const useForm = (props: IUseForm) => {
       if (autoValidate) {
         // Validate the property
         if (property.required && !property.value) {
-          const name = is('function', property.propertyNameUpdate) ? property.propertyNameUpdate(property.property!) : property.capitalize !== false ? capitalize(property.property!) : property.property!;
+          const name = is('function', property.propertyNameUpdate) ? property.propertyNameUpdate(property.name!) : property.capitalize !== false ? capitalize(property.name!) : property.name!;
 
           property.error = `${name} is required`;
         }
@@ -89,15 +70,11 @@ const useForm = (props: IUseForm) => {
           property.error = undefined;
 
           // validations
-          const validations = (is('array', property.validation) ? property.validation! : [property.validation] as any).filter(Boolean);
-
-          for (const validation of validations) {
-            try {
-              await validation(property, formNew);
-            }
-            catch (error) {
-              property.error = (error as ValidationError).message;
-            }
+          try {
+            await validateModel(property, property_, formNew);
+          }
+          catch (error) {
+            property.error = (error as ValidationError).message;
           }
         }
       }
@@ -152,7 +129,7 @@ const useForm = (props: IUseForm) => {
 
       // Validate the property
       if (property.required && !property.value) {
-        const name = is('function', property.propertyNameUpdate) ? property.propertyNameUpdate(property.property!) : property.capitalize !== false ? capitalize(property.property!) : property.property!;
+        const name = is('function', property.propertyNameUpdate) ? property.propertyNameUpdate(property.name!) : property.capitalize !== false ? capitalize(property.name!) : property.name!;
 
         property.error = `${name} is required`;
       }
@@ -160,17 +137,13 @@ const useForm = (props: IUseForm) => {
         property.error = undefined;
 
         // validations
-        const validations = (is('array', property.validation) ? property.validation! : [property.validation] as any).filter(Boolean);
+        try {
+          await validateModel(property, item, formNew);
 
-        for (const validation of validations) {
-          try {
-            await validation(property, formNew);
-
-            property.error = undefined;
-          }
-          catch (error) {
-            property.error = (error as ValidationError).message;
-          }
+          property.error = undefined;
+        }
+        catch (error) {
+          property.error = (error as ValidationError).message;
         }
       }
     }
