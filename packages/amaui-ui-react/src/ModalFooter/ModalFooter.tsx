@@ -2,13 +2,12 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
+import Line from '../Line';
+
 import { IBaseElement, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
     paddingTop: theme.methods.space.value('md', 'px')
   }
 }), { name: 'amaui-ModalFooter' });
@@ -33,17 +32,17 @@ const ModalFooter = React.forwardRef((props_: IModalFooter, ref: any) => {
     ...other
   } = props;
 
-  const styles: any = {
-    root: {
-
-    }
-  };
-
-  if (React.Children.toArray(children).length > 1) styles.root.alignItems = 'center';
-
   return (
-    <div
+    <Line
       ref={ref}
+
+      direction='row'
+
+      align='center'
+
+      justify='space-between'
+
+      fullWidth
 
       className={classNames([
         staticClassName('ModalFooter', theme) && [
@@ -54,16 +53,10 @@ const ModalFooter = React.forwardRef((props_: IModalFooter, ref: any) => {
         classes.root
       ])}
 
-      style={{
-        ...style,
-
-        ...styles.root
-      }}
-
       {...other}
     >
       {children}
-    </div>
+    </Line>
   );
 });
 

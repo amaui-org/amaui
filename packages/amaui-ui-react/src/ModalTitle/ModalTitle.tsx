@@ -3,15 +3,14 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
+import Line from '../Line';
 import { IType } from '../Type/Type';
 
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start'
+
   }
 }), { name: 'amaui-ModalTitle' });
 
@@ -35,12 +34,16 @@ const ModalTitle = React.forwardRef((props_: IModalTitle, ref: any) => {
   } = props;
 
   return (
-    <Type
+    <Line
       ref={ref}
+
+      align='flex-start'
 
       version='t1'
 
       id='amaui-modal-title'
+
+      Component={Type}
 
       className={classNames([
         staticClassName('ModalTitle', theme) && [
@@ -54,7 +57,7 @@ const ModalTitle = React.forwardRef((props_: IModalTitle, ref: any) => {
       {...other}
     >
       {children}
-    </Type>
+    </Line>
   );
 });
 

@@ -8,10 +8,6 @@ import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    gap: '16px',
     paddingBottom: '16px'
   }
 }), { name: 'amaui-ModalHeader' });
@@ -28,49 +24,35 @@ const ModalHeader = React.forwardRef((props_: IModalHeader, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
-    align,
-
     className,
-    style,
 
     children,
 
     ...other
   } = props;
 
-  const styles: any = {
-    root: {
-
-    }
-  };
-
-  if (React.Children.toArray(children).length > 1) styles.root.alignItems = align !== undefined ? align : 'center';
-
   return (
     <Line
       ref={ref}
 
-      gap={0}
+      gap={2}
 
       direction='column'
 
-      align='flex-start'
+      align='center'
+
+      justify='center'
+
+      fullWidth
 
       className={classNames([
         staticClassName('ModalHeader', theme) && [
-          'amaui-ModalHeader-root',
-          align && `amaui-ModalHeader-align-${align}`
+          'amaui-ModalHeader-root'
         ],
 
         className,
         classes.root
       ])}
-
-      style={{
-        ...style,
-
-        ...styles.root
-      }}
 
       {...other}
     >

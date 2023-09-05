@@ -3,15 +3,14 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
+import Line from '../Line';
 import { IType } from '../Type/Type';
 
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start'
+
   }
 }), { name: 'amaui-ModalText' });
 
@@ -35,12 +34,16 @@ const ModalText = React.forwardRef((props_: IModalText, ref: any) => {
   } = props;
 
   return (
-    <Type
+    <Line
       ref={ref}
+
+      align='center'
 
       version='b2'
 
       id='amaui-modal-text'
+
+      Component={Type}
 
       className={classNames([
         staticClassName('ModalText', theme) && [
@@ -54,7 +57,7 @@ const ModalText = React.forwardRef((props_: IModalText, ref: any) => {
       {...other}
     >
       {children}
-    </Type>
+    </Line>
   );
 });
 

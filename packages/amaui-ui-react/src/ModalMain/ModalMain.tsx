@@ -2,15 +2,13 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
+import Line from '../Line';
+
 import { IBaseElement, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    overflowY: 'auto',
-    flex: '1 1 auto'
+    overflowY: 'auto'
   }
 }), { name: 'amaui-ModalMain' });
 
@@ -27,24 +25,21 @@ const ModalMain = React.forwardRef((props_: IModalMain, ref: any) => {
 
   const {
     className,
-    style,
 
     children,
 
     ...other
   } = props;
 
-  const styles: any = {
-    root: {
+  let align = 'flex-start';
 
-    }
-  };
-
-  if (React.Children.toArray(children).length > 1) styles.root.alignItems = 'center';
+  if (React.Children.toArray(children).length > 1) align = 'center';
 
   return (
-    <div
+    <Line
       ref={ref}
+
+      align={align}
 
       className={classNames([
         staticClassName('ModalMain', theme) && [
@@ -55,16 +50,12 @@ const ModalMain = React.forwardRef((props_: IModalMain, ref: any) => {
         classes.root
       ])}
 
-      style={{
-        ...style,
-
-        ...styles.root
-      }}
+      flex
 
       {...other}
     >
       {children}
-    </div>
+    </Line>
   );
 });
 
