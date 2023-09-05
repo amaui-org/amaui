@@ -389,6 +389,8 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
 
               tabIndex='-1'
 
+              {...SurfaceProps}
+
               className={classNames([
                 staticClassName('Modal', theme) && [
                   'amaui-Modal-surface'
@@ -405,8 +407,6 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
               ])}
 
               onKeyDown={onKeyDown}
-
-              {...SurfaceProps}
             >
               {children}
             </Surface>
