@@ -3,9 +3,9 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
+import List from '../List';
 import Tooltip from '../Tooltip';
 import ClickListener from '../ClickListener';
-import List from '../List';
 import { ITooltip } from '../Tooltip/Tooltip';
 
 import { staticClassName, TPropsAny } from '../utils';

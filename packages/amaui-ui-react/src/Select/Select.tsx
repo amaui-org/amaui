@@ -39,6 +39,10 @@ const useStyle = styleMethod(theme => ({
     }
   },
 
+  wrapper: {
+    position: 'relative'
+  },
+
   inputWrapper: {
     cursor: 'pointer',
 
@@ -94,6 +98,10 @@ const useStyle = styleMethod(theme => ({
 
   arrow_open: {
     transform: 'rotate(-180deg)'
+  },
+
+  menu_autoWidth: {
+    width: '100%'
   },
 
   open: {
@@ -165,7 +173,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
     sufix,
     start,
     end,
-    autoWidth,
+    autoWidth = true,
     getLabel,
     chip,
     readOnly,
@@ -380,7 +388,8 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
 
       className={classNames([
         staticClassName('Select', theme) && [
-          'amaui-Select-wrapper'
+          'amaui-Select-wrapper',
+          classes.wrapper
         ]
       ])}
     >
@@ -527,18 +536,9 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
           maxWidth='unset'
 
           AppendProps={{
-            ...(!autoWidth ? {
-              alignment: 'start',
-
-              additional: (rects: any) => {
-
-                return {
-                  style: {
-                    minWidth: rects?.root?.width
-                  }
-                };
-              }
-            } : undefined)
+            ...(!autoWidth && {
+              alignment: 'start'
+            })
           }}
 
           ModalProps={{
@@ -562,6 +562,11 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
           }}
 
           {...MenuProps}
+
+          className={classNames([
+            MenuProps?.className,
+            autoWidth && classes.menu_autoWidth
+          ])}
         >
           {children.map((item: any, index: number) => (
             React.cloneElement(item, {
