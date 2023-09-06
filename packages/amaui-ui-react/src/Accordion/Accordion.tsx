@@ -109,7 +109,6 @@ const useStyle = styleMethod(theme => ({
   },
 
   iconButton: {
-    alignSelf: 'flex-start',
     flex: '0 0 auto'
   },
 
@@ -188,8 +187,8 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAccordion?.props?.default, ...props_ }), [props_]);
 
   const {
-    tonal = false,
-    color = 'default',
+    tonal = true,
+    color = 'primary',
     elevation = 0,
 
     primary,
