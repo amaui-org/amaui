@@ -22,6 +22,7 @@ const useStyle = styleMethod(theme => ({
     '& .amaui-overflow-y': {
       height: '0px',
       flex: '1 1 auto',
+      overflowX: 'hidden',
       overflowY: 'auto'
     }
   },
