@@ -67,6 +67,7 @@ export interface ILabel extends ILine {
 
   disabled?: boolean;
 
+  LabelProps?: TPropsAny;
   TypeProps?: TPropsAny;
 }
 
@@ -101,6 +102,7 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
 
     disabled,
 
+    LabelProps,
     TypeProps,
     TextProps,
 
@@ -164,6 +166,8 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
       gap={0}
 
       direction='column'
+
+      {...other}
     >
       <Line
         ref={ref}
@@ -186,18 +190,19 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
 
         Component={Component}
 
+        {...LabelProps}
+
         className={classNames([
           staticClassName('Label', theme) && [
             'amaui-Label-root',
             disabled && `amaui-Label-disabled`
           ],
 
+          LabelProps?.className,
           className,
           classes.root,
           disabled && classes.disabled
         ])}
-
-        {...other}
       >
         {Input && React.cloneElement(Input, {
           className: classNames([
