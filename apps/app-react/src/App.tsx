@@ -17,7 +17,7 @@ import IconMaterialUndoRounded from '@amaui/icons-material-react/build/IconMater
 import IconMaterialCutRounded from '@amaui/icons-material-react/build/IconMaterialCutRounded';
 import IconMaterialContentCopyRounded from '@amaui/icons-material-react/build/IconMaterialContentCopyRounded';
 import IconMaterialContentPasteRounded from '@amaui/icons-material-react/build/IconMaterialContentPasteRounded';
-import IconMaterialCloudRounded from '@amaui/icons-material-react/build/IconMaterialCloudRounded';
+import IconMaterialCloudRounded from '@amaui/icons-<material-react/build/IconMaterialCloudRounded';
 import IconMaterialArrowRightRounded from '@amaui/icons-material-react/build/IconMaterialArrowRightRounded';
 import IconMaterialArrowBackRounded from '@amaui/icons-material-react/build/IconMaterialArrowBackRounded';
 import IconMaterialSentimentDissatisfiedRounded from '@amaui/icons-material-react/build/IconMaterialSentimentDissatisfiedRounded';
