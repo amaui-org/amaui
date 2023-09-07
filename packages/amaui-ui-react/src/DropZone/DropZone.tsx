@@ -40,6 +40,12 @@ const useStyle = styleMethod(theme => ({
       borderRadius: theme.methods.shape.radius.value('lg', 'px'),
       cursor: 'pointer'
     }
+  },
+
+  disabled: {
+    opacity: '0.4',
+    cursor: 'default',
+    pointerEvents: 'none'
   }
 }), { name: 'amaui-DropZone' });
 
@@ -108,6 +114,8 @@ const DropZone = React.forwardRef((props_: IDropZone, ref: any) => {
     onDragOver: onDragOver_,
     onDragEnter: onDragEnter_,
     onDragLeave: onDragLeave_,
+
+    disabled,
 
     className,
 
@@ -287,7 +295,8 @@ const DropZone = React.forwardRef((props_: IDropZone, ref: any) => {
         ],
 
         className,
-        classes.root
+        classes.root,
+        disabled && classes.disabled
       ])}
 
       ComponentProps={{

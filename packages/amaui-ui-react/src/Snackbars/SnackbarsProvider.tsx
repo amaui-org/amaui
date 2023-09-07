@@ -20,7 +20,7 @@ export interface ISnackbars {
 const useStyle = styleMethod(theme => ({
   root: {
     position: 'fixed',
-    zIndex: theme.z_index.modal,
+    zIndex: theme.z_index.modal + 114,
   },
 
   position_top: {
