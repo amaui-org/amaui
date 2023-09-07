@@ -12,7 +12,8 @@ const useStyle = styleMethod(theme => ({
   root: {
     '&.amaui-Button-root': {
       cursor: 'default',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      borderRadius: '50%'
     }
   },
 

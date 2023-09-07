@@ -85,19 +85,19 @@ const useStyle = styleMethod(theme => ({
   fullWidth: { width: `calc(100% - ${theme.methods.space.value('xl') * 2}px)` },
 
   // minWidth
-  minWidth_xxs: { minWidth: `320px` },
+  minWidth_xxs: { minWidth: 'clamp(0px, 320px, 100vw)' },
 
-  minWidth_xs: { minWidth: `400px` },
+  minWidth_xs: { minWidth: 'clamp(0px, 400px, 100vw)' },
 
-  minWidth_sm: { minWidth: `480px` },
+  minWidth_sm: { minWidth: 'clamp(0px, 480px, 100vw)' },
 
-  minWidth_rg: { minWidth: `560px` },
+  minWidth_rg: { minWidth: 'clamp(0px, 560px, 100vw)' },
 
-  minWidth_lg: { minWidth: `800px` },
+  minWidth_lg: { minWidth: 'clamp(0px, 800px, 100vw)' },
 
-  minWidth_xl: { minWidth: `1120px` },
+  minWidth_xl: { minWidth: 'clamp(0px, 1120px, 100vw)' },
 
-  minWidth_xxl: { minWidth: `1360px` },
+  minWidth_xxl: { minWidth: 'clamp(0px, 1360px, 100vw)' },
 
   minWidth_unset: { minWidth: `unset` },
 
@@ -425,8 +425,8 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
         className={classNames([
           staticClassName('Modal', theme) && [
             'amaui-Modal-root',
-            open && `amaui-Modal-open`,
-            focus && `amaui-Modal-focus`
+            open && `amaui - Modal - open`,
+            focus && `amaui - Modal - focus`
           ],
 
           className,
@@ -454,7 +454,8 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
 
                 className={classNames([
                   staticClassName('Modal', theme) && [
-                    'amaui-Modal-background'
+                    'amaui-Modal-background',
+                    backgroundInvisible && 'amaui-Modal-background-invisible'
                   ],
 
                   classes.background,
