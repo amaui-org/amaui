@@ -23,18 +23,12 @@ const useStyle = styleMethod(theme => ({
 
   imageWrapper: {
     display: 'inline-flex',
-    width: '1em',
-    height: '1em'
+    height: '100%',
+    width: '100%'
   },
 
   image: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)'
+    objectFit: 'cover'
   }
 }), { name: 'amaui-Avatar' });
 
