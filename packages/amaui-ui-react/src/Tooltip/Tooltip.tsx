@@ -176,6 +176,8 @@ export interface ITooltip extends Omit<IModal, 'maxWidth'> {
 
   open?: boolean;
 
+  openDefault?: boolean;
+
   label?: TElement;
 
   parent?: THTMLElement;
@@ -194,6 +196,7 @@ export interface ITooltip extends Omit<IModal, 'maxWidth'> {
   transformOriginSwitch?: string;
   transformOriginRtl?: string;
   transformOriginRtlSwitch?: string;
+  click?: boolean;
   touch?: boolean;
   longPress?: boolean;
   hover?: boolean;
@@ -226,6 +229,8 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
 
     open: open_,
 
+    openDefault,
+
     label,
 
     parent,
@@ -244,10 +249,11 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
     transformOriginSwitch,
     transformOriginRtl,
     transformOriginRtlSwitch,
+    click,
     touch: touch_ = true,
     longPress: longPress_ = false,
     hover: hover_ = true,
-    focus: focus_ = true,
+    focus: focus_ = false,
     inset,
     nowrap,
     follow,
@@ -276,7 +282,7 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
   } = props;
 
   const [init, setInit] = React.useState(false);
-  const [open, setOpen] = React.useState(open_);
+  const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
   const [hover, setHover] = React.useState(false);
   const [touch, setTouch] = React.useState(false);
   const [focus, setFocus] = React.useState(false);
@@ -286,12 +292,17 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
 
   const refs = {
     open: React.useRef(false),
+    inProp: React.useRef(inProp),
     longPress: React.useRef(false),
     longPressTimer: React.useRef<any>(),
     props: React.useRef<any>()
   };
 
   refs.props.current = props;
+
+  refs.open.current = open;
+
+  refs.inProp.current = inProp;
 
   const { classes } = useStyle(props);
 
@@ -388,7 +399,7 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
 
     if (!inProp) setInProp(true);
 
-    if (is('function', onOpen_) && open) onOpen_();
+    if (is('function', onOpen_) && !open) onOpen_();
   };
 
   const onClose = () => {
@@ -398,6 +409,15 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
 
     if (is('function', onExited)) onExited();
   };
+
+  const onPreClose = () => {
+    if (!refs.inProp.current) onClose();
+    else setInProp(false);
+  };
+
+  const onClick = React.useCallback(() => {
+    !refs.open.current ? onOpen() : onPreClose();
+  }, [onOpen, onPreClose]);
 
   React.useEffect(() => {
     setInit(true);
@@ -412,10 +432,7 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
       refs.open.current = open_;
 
       if (open_) onOpen();
-      else {
-        if (!inProp) onClose();
-        else setInProp(false);
-      }
+      else onPreClose();
     }
   }, [open_]);
 
@@ -648,6 +665,8 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
       {children && (
         React.cloneElement(children, {
           onMouseMove,
+
+          ...(click && { onClick }),
 
           onFocus,
           onBlur,

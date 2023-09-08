@@ -950,6 +950,8 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
 
           anchorElement={refs.root.current}
 
+          menuItems={menu}
+
           transformOrigin='left top'
 
           transformOriginSwitch='right top'
@@ -965,9 +967,7 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
           onMouseEnter={onMouseEnter}
 
           {...MenuProps}
-        >
-          {menu}
-        </Menu>
+        />
       )}
     </Surface>
   );

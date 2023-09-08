@@ -9,7 +9,11 @@ import { staticClassName, TSize } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    display: 'table-row-group'
+    display: 'table-row-group',
+
+    '& .amaui-TableRow-root:last-child hr': {
+      display: 'none'
+    }
   }
 }), { name: 'amaui-TableBody' });
 

@@ -13,11 +13,8 @@ const useStyle = styleMethod(theme => ({
     display: 'table-cell',
     position: 'relative',
     zIndex: '1',
-    ...theme.typography.values.b2,
 
-    '& .amaui-Divider-root': {
-      margin: '0px'
-    }
+    ...theme.typography.values.b2
   },
 
   value: {
@@ -37,11 +34,20 @@ const useStyle = styleMethod(theme => ({
   },
 
   head: {
-    fontWeight: '500'
+    fontWeight: 'bold'
   },
 
   body: {
 
+  },
+
+  divider: {
+    '&.amaui-Divider-root': {
+      position: 'absolute',
+      left: '0px',
+      bottom: '0px',
+      margin: '0px'
+    }
   },
 
   noWeight: {
@@ -132,6 +138,11 @@ const TableCell = React.forwardRef((props_: ITableCell, ref: any) => {
         color='inherit'
 
         {...DividerProps}
+
+        className={classNames([
+          DividerProps?.className,
+          classes.divider
+        ])}
       />
     </Component>
   );

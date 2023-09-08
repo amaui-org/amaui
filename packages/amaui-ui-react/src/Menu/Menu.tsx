@@ -8,7 +8,7 @@ import Tooltip from '../Tooltip';
 import ClickListener from '../ClickListener';
 import { ITooltip } from '../Tooltip/Tooltip';
 
-import { staticClassName, TPropsAny } from '../utils';
+import { staticClassName, TElement, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -41,6 +41,10 @@ export const MENUS = {
 export interface IMenu extends ITooltip {
   open?: boolean;
 
+  openDefault?: boolean;
+
+  menuItems?: Array<TElement>;
+
   include?: Array<Element>;
   autoSelect?: boolean;
   autoSelectOnBlur?: boolean;
@@ -61,7 +65,13 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMenu?.props?.default, ...props_ }), [props_]);
 
   const {
-    open,
+    open: open_,
+
+    openDefault,
+
+    label,
+
+    menuItems,
 
     arrow,
     anchor,
@@ -74,6 +84,7 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
 
     onSelect,
 
+    onOpen: onOpen_,
     onClose: onClose_,
 
     ListProps,
@@ -88,6 +99,7 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
 
   const id = React.useId();
 
+  const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
   const [preselected, setPreselected] = React.useState<any>();
 
   const { classes } = useStyle(props);
@@ -95,6 +107,7 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
   const refs = {
     root: React.useRef<any>(),
     id: React.useRef<any>(),
+    main: React.useRef<any>(),
     props: React.useRef<any>(),
     preselected: React.useRef<any>(),
     include: React.useRef<any>([])
@@ -204,11 +217,23 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
     };
   }, [open]);
 
+  React.useEffect(() => {
+    if (open !== open_) setOpen(open_);
+  }, [open_]);
+
   const onMouseLeave = React.useCallback(() => {
     setPreselected('');
   }, []);
 
+  const onOpen = () => {
+    if (open_ === undefined) setOpen(true);
+
+    if (is('function', onOpen_)) onOpen_();
+  };
+
   const onClose = () => {
+    if (open_ === undefined) setOpen(false);
+
     if (refs.props.current.autoSelectOnBlur) {
       const item: any = React.Children.toArray(refs.props.current.children)[refs.preselected.current];
 
@@ -217,7 +242,7 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
 
     setPreselected('');
 
-    if (is('function', refs.props.current.onClose)) refs.props.current.onClose();
+    if (is('function', onClose_)) onClose_();
   };
 
   const Wrapper = closeOnClickAway ? ClickListener : React.Fragment;
@@ -227,7 +252,7 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
   if (closeOnClickAway) {
     WrapperProps.onClickOutside = onClose;
 
-    WrapperProps.include = refs.include.current;
+    WrapperProps.include = [refs.main.current, ...(refs.include.current || [])].filter(Boolean);
   }
 
   if (open) MENUS.add(id);
@@ -265,7 +290,7 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
 
         anchorElement={anchorElement}
 
-        label={children && (
+        label={label || (menuItems && (
           <List
             menu
 
@@ -277,7 +302,7 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
 
             {...ListProps}
           >
-            {React.Children.toArray(children).map((item: any, index: number) => (
+            {React.Children.toArray(menuItems).map((item: any, index: number) => (
               React.cloneElement(item, {
                 key: item.key || index,
 
@@ -318,7 +343,9 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
               })
             ))}
           </List>
-        )}
+        ))}
+
+        click
 
         arrow={arrow}
 
@@ -330,18 +357,31 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
 
         noMargin={!arrow}
 
+        onOpen={onOpen}
+
+        onClose={onClose}
+
         ModalProps={{
           background: true,
           backgroundInvisible: true,
           freezeScroll: false,
 
-          onClose,
-
           ...ModalProps
         }}
 
         {...other}
-      />
+      >
+        {children && React.cloneElement(children, {
+          ref: item => {
+            if (children.ref) {
+              if (is('function', children.ref)) children.ref(item);
+              else children.ref.current = item;
+            }
+
+            refs.main.current = item;
+          }
+        })}
+      </Tooltip>
     </Wrapper>
   );
 });

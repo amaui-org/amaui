@@ -535,6 +535,31 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
 
           maxWidth='unset'
 
+          menuItems={children.map((item: any, index: number) => (
+            React.cloneElement(item, {
+              key: index,
+
+              role: 'option',
+
+              selected: multiple ? value.includes(item.props?.value) : value === item.props?.value,
+
+              preselected: !(multiple ? value.includes(item.props?.value) : value === item.props?.value),
+
+              onMouseUp,
+
+              onMouseDown,
+
+              onClick: (event: React.MouseEvent) => {
+                if (multiple && value.includes(item.props?.value)) onUnselect(item.props?.value);
+                else onSelect(item.props?.value);
+
+                if (is('function', item.props?.onClick)) item.props?.onClick(event);
+
+                if (!multiple) setOpen(false);
+              }
+            })
+          ))}
+
           AppendProps={{
             ...(!autoWidth && {
               alignment: 'start'
@@ -567,32 +592,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
             MenuProps?.className,
             autoWidth && classes.menu_autoWidth
           ])}
-        >
-          {children.map((item: any, index: number) => (
-            React.cloneElement(item, {
-              key: index,
-
-              role: 'option',
-
-              selected: multiple ? value.includes(item.props?.value) : value === item.props?.value,
-
-              preselected: !(multiple ? value.includes(item.props?.value) : value === item.props?.value),
-
-              onMouseUp,
-
-              onMouseDown,
-
-              onClick: (event: React.MouseEvent) => {
-                if (multiple && value.includes(item.props?.value)) onUnselect(item.props?.value);
-                else onSelect(item.props?.value);
-
-                if (is('function', item.props?.onClick)) item.props?.onClick(event);
-
-                if (!multiple) setOpen(false);
-              }
-            })
-          ))}
-        </Menu>
+        />
       )}
     </Line>
   );

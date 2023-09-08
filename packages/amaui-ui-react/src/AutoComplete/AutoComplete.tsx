@@ -912,6 +912,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
           anchorElement={refs.root.current}
 
+          menuItems={renderList()}
+
           transformOrigin='center top'
 
           transformOriginSwitch='center bottom'
@@ -961,9 +963,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
           }}
 
           {...MenuProps}
-        >
-          {renderList()}
-        </Menu>
+        />
       )}
     </Line>
   );
