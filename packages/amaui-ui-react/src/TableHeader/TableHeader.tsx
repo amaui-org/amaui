@@ -2,6 +2,7 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
+import Line from '../Line';
 import Surface from '../Surface';
 import { ISurface } from '../Surface/Surface';
 
@@ -39,7 +40,7 @@ const TableHeader = React.forwardRef((props_: ITableHeader, ref: any) => {
     color = 'themed',
     size = 'regular',
 
-    Component = 'div',
+    Component = Line,
 
     className,
 
@@ -51,14 +52,14 @@ const TableHeader = React.forwardRef((props_: ITableHeader, ref: any) => {
   const { classes } = useStyle(props);
 
   return (
-    <Surface
+    <Component
       ref={ref}
 
       tonal={tonal}
 
       color={color}
 
-      Component={Component}
+      Component={Surface}
 
       className={classNames([
         staticClassName('TableHeader', theme) && [
@@ -73,7 +74,7 @@ const TableHeader = React.forwardRef((props_: ITableHeader, ref: any) => {
       {...other}
     >
       {children}
-    </Surface>
+    </Component>
   );
 });
 
