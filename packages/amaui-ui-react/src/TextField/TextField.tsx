@@ -402,7 +402,7 @@ const useStyle = styleMethod(theme => ({
 
   icon_vertical_align_center: {
     alignSelf: 'center',
-    paddingBlock: '0px'
+    paddingBlock: '0px !important'
   },
 
   icon_vertical_align_end: {
