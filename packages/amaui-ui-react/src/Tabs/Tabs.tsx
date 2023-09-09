@@ -185,6 +185,8 @@ export interface ITabs extends Omit<ISurface, 'version'> {
   valueDefault?: number;
   onChange?: (value: number) => any;
 
+  isActive: (value: string, tabValue: string) => boolean;
+
   activateOnFocus?: boolean;
 
   align?: TLineAlign;
@@ -221,6 +223,8 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
     valueDefault,
 
     onChange: onChange_,
+
+    isActive,
 
     activateOnFocus,
 
@@ -268,6 +272,7 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
     props: React.useRef<any>(),
     mobile: React.useRef<any>(),
     version: React.useRef<any>(),
+    isActive: React.useRef<any>(),
     initialLineUpdateTimeout: React.useRef<any>()
   };
 
@@ -278,6 +283,8 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
   refs.mobile.current = mobile;
 
   refs.version.current = version;
+
+  refs.isActive.current = isActive;
 
   refs.initialLineUpdateTimeout.current = initialLineUpdateTimeout;
 
@@ -363,8 +370,8 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
     refs.tabsRoot.current.scrollTo(moveValue_);
   };
 
-  const updateLine = (valueItem: string | number = refs.value.current) => {
-    const tab: HTMLElement = refs.tabs.current.find(item => String(item.value) === String(valueItem));
+  const updateLine = (valueProp: string | number = refs.value.current) => {
+    const tab: HTMLElement = refs.tabs.current.find(item => is('function', refs.isActive.current) ? refs.isActive.current(valueProp, item.value) : String(item.value) === String(valueProp));
 
     if (tab) {
       const rect = {
@@ -588,7 +595,7 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
 
               activateOnFocus: item.props.activateOnFocus !== undefined ? item.props.activateOnFocus : activateOnFocus,
 
-              active: valueItem === value,
+              active: is('function', refs.isActive.current) ? refs.isActive.current(value, valueItem) : value === valueItem,
 
               onClick: (event: React.MouseEvent<any>) => {
                 onChange(valueItem, index);
