@@ -128,7 +128,7 @@ const useForm = (props: IUseForm) => {
       const property = values[item];
 
       // Validate the property
-      if (property.required && !property.value) {
+      if (property.required && property.value === undefined) {
         const name = is('function', property.propertyNameUpdate) ? property.propertyNameUpdate(property.name!) : property.capitalize !== false ? capitalize(property.name!) : property.name!;
 
         property.error = `${name} is required`;
@@ -155,7 +155,7 @@ const useForm = (props: IUseForm) => {
         !prop.error &&
         (
           !prop.required ||
-          prop.value
+          prop.value !== undefined
         )
       );
     });
