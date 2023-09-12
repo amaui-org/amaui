@@ -862,7 +862,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
   if (tonal) styles.background.color = theme.methods.palette.color.value(color as any, 20, true, palette);
 
-  const footer = (footer_ || helperText !== undefined || counter !== undefined || required);
+  const footer = (footer_ || !!helperText || counter !== undefined || required);
 
   const Wrapper = footer ? WrapperComponent : React.Fragment;
 
@@ -1279,7 +1279,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
       </Component>
 
       {footer && <>
-        {(helperText !== undefined || counter !== undefined || required) && (
+        {(!!helperText || counter !== undefined || required) && (
           <Line
             gap={2}
 
