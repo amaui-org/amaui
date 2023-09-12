@@ -581,6 +581,7 @@ export interface ITextField extends IBaseElement {
   InputWrapperProps?: TPropsAny;
 
   IconClear?: TElementReference;
+  InputComponent?: TElementReference;
   WrapperComponent?: TElementReference;
 }
 
@@ -644,6 +645,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
     InputWrapperProps = {},
 
     IconClear = IconMaterialCloseRounded,
+    InputComponent: InputComponent_,
     WrapperComponent = 'div',
 
     Component = 'div',
@@ -952,6 +954,10 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
     }
   }
 
+  // override the input element
+  // with a custom value
+  if (InputComponent_) InputComponent = InputComponent_;
+
   const valueWithData = value !== undefined && String(value);
 
   return (
@@ -1171,6 +1177,8 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
           {children}
 
           <InputComponent
+            {...inputProps}
+
             ref={item => {
               if (ref) {
                 if (is('function', ref)) ref(item);
@@ -1178,9 +1186,12 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
               }
 
               refs.input.current = item;
-            }}
 
-            {...inputProps}
+              if (inputProps.ref) {
+                if (is('function', inputProps.ref)) inputProps.ref(item);
+                else inputProps.ref.current = item;
+              }
+            }}
 
             className={classNames([
               staticClassName('TextField', theme) && [

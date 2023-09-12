@@ -9,7 +9,7 @@ import { staticClassName, TColor, TElevation, TTonal, TVersion } from '../utils'
 
 const useStyle = styleMethod(theme => ({
   root: {
-    margin: '24px'
+    padding: '24px'
   }
 }), { name: 'amaui-CardFooter' });
 
@@ -46,7 +46,7 @@ const CardFooter = React.forwardRef((props_: ICardFooter, ref: any) => {
     <Line
       ref={ref}
 
-      Component={Component}
+      gap={1}
 
       direction='row'
 
@@ -56,7 +56,9 @@ const CardFooter = React.forwardRef((props_: ICardFooter, ref: any) => {
 
       justify='flex-end'
 
-      gap={1}
+      fullWidth
+
+      Component={Component}
 
       className={classNames([
         staticClassName('CardFooter', theme) && [

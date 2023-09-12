@@ -415,7 +415,7 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
     else setInProp(false);
   };
 
-  const onClick = React.useCallback(() => {
+  const onClick = React.useCallback((event: Event) => {
     !refs.open.current ? onOpen() : onPreClose();
   }, [onOpen, onPreClose]);
 
@@ -666,7 +666,14 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
         React.cloneElement(children, {
           onMouseMove,
 
-          ...(click && { onClick }),
+          ...(click && {
+            onClick: (event: Event) => {
+              console.log(1111, children, children?.props);
+              if (is('function', children?.props?.onClick)) children?.props?.onClick(event);
+
+              onClick(event);
+            }
+          }),
 
           onFocus,
           onBlur,

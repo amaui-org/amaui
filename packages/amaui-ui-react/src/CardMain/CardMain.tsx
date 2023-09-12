@@ -9,7 +9,7 @@ import { staticClassName, TColor, TElevation, TTonal, TVersion } from '../utils'
 
 const useStyle = styleMethod(theme => ({
   root: {
-    margin: '24px'
+    padding: '24px'
   }
 }), { name: 'amaui-CardMain' });
 
@@ -45,6 +45,8 @@ const CardMain = React.forwardRef((props_: ICardMain, ref: any) => {
   return (
     <Line
       ref={ref}
+
+      fullWidth
 
       Component={Component}
 

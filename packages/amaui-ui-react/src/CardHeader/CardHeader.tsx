@@ -9,7 +9,7 @@ import { staticClassName, TColor, TElevation, TTonal, TVersion } from '../utils'
 
 const useStyle = styleMethod(theme => ({
   root: {
-    margin: '24px'
+    padding: '24px'
   }
 }), { name: 'amaui-CardHeader' });
 
@@ -46,13 +46,15 @@ const CardHeader = React.forwardRef((props_: ICardHeader, ref: any) => {
     <Line
       ref={ref}
 
-      Component={Component}
-
       direction='row'
 
       align='center'
 
       justify='center'
+
+      fullWidth
+
+      Component={Component}
 
       className={classNames([
         staticClassName('CardHeader', theme) && [

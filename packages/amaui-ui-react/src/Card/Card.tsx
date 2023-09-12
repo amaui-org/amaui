@@ -8,13 +8,14 @@ import Interaction from '../Interaction';
 
 import { staticClassName, TPropsAny } from '../utils';
 import { ISurface } from '../Surface/Surface';
+import Line from '../Line';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    display: 'inline-block',
+    position: 'relative',
     borderRadius: `${theme.shape.radius.unit * 3}px`,
     maxWidth: '340px',
-    position: 'relative',
+    overflow: 'hidden',
     transition: theme.methods.transitions.make('border-radius'),
 
     // reset
@@ -119,6 +120,8 @@ const Card = React.forwardRef((props_: ICard, ref: any) => {
     <Surface
       ref={ref}
 
+      gap={0}
+
       tabIndex={(href || button) && !disabled ? 0 : undefined}
 
       color={color}
@@ -137,7 +140,11 @@ const Card = React.forwardRef((props_: ICard, ref: any) => {
 
       disabled={disabled}
 
-      Component={Component}
+      AdditionalProps={{
+        Component
+      }}
+
+      Component={Line}
 
       className={classNames([
         staticClassName('Card', theme) && [
