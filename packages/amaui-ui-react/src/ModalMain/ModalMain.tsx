@@ -8,7 +8,11 @@ import { IBaseElement, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    overflowY: 'auto'
+    overflowY: 'auto',
+    // important
+    // using flex: 1 1 auto, with overflowY: auto
+    // it will properly make it overflow auto
+    height: '0px'
   }
 }), { name: 'amaui-ModalMain' });
 
