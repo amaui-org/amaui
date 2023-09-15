@@ -133,59 +133,67 @@ const validate = async (model: IValidateModelValue, property: string, form: IFor
   }
 
   // is
-  const is_ = ((is('array', model.is) ? model.is : [model.is]) as IValidateModelValueIs[]).filter(Boolean);
+  if (model.is !== undefined) {
+    const is_ = ((is('array', model.is) ? model.is : [model.is]) as IValidateModelValueIs[]).filter(Boolean);
 
-  for (const item of is_) {
-    const itemType = item?.type || item;
-    const itemOptions = item?.options || undefined;
+    for (const item of is_) {
+      const itemType = item?.type || item;
+      const itemOptions = item?.options || undefined;
 
-    const response = is(itemType as TIsType, value, itemOptions);
+      const response = is(itemType as TIsType, value, itemOptions);
 
-    if (!response) onValidateError(options, model, model.messages?.is || `${name} has to be a valid ${cleanValue(itemType as string)}`);
+      if (!response) onValidateError(options, model, model.messages?.is || `${name} has to be a valid ${cleanValue(itemType as string)}`);
+    }
   }
 
   // is valid
-  const isValid_ = ((is('array', model.isValid) ? model.isValid : [model.isValid]) as IValidateModelValueIsValid[]).filter(Boolean);
+  if (model.isValid !== undefined) {
+    const isValid_ = ((is('array', model.isValid) ? model.isValid : [model.isValid]) as IValidateModelValueIsValid[]).filter(Boolean);
 
-  for (const item of isValid_) {
-    const itemType = item?.type || item;
-    const itemOptions = item?.options || undefined;
+    for (const item of isValid_) {
+      const itemType = item?.type || item;
+      const itemOptions = item?.options || undefined;
 
-    const response = isValid(itemType as TIsValidType, value, itemOptions);
+      const response = isValid(itemType as TIsValidType, value, itemOptions);
 
-    if (!response) onValidateError(options, model, model.messages?.isValid || `${name} has to be a valid ${cleanValue(itemType as string)}`);
+      if (!response) onValidateError(options, model, model.messages?.isValid || `${name} has to be a valid ${cleanValue(itemType as string)}`);
+    }
   }
 
   // of
-  const of_ = ((is('array', model.of) ? model.of : [model.of]) as IValidateModelValueIs[]).filter(Boolean);
+  if (model.of !== undefined) {
+    const of_ = ((is('array', model.of) ? model.of : [model.of]) as IValidateModelValueIs[]).filter(Boolean);
 
-  if (is('array', value)) {
-    const response = value.every(valueItem => {
-      return of_.some(item => {
-        const itemType = item?.type || item;
-        const itemOptions = item?.options || undefined;
+    if (is('array', value)) {
+      const response = value.every(valueItem => {
+        return of_.some(item => {
+          const itemType = item?.type || item;
+          const itemOptions = item?.options || undefined;
 
-        return is(itemType as any, valueItem, itemOptions);
+          return is(itemType as any, valueItem, itemOptions);
+        });
       });
-    });
 
-    if (!response) onValidateError(options, model, model.messages?.of || `${name} items have to be one of ${of_.map(item => item?.type || item).join(', ')}`);
+      if (!response) onValidateError(options, model, model.messages?.of || `${name} items have to be one of ${of_.map(item => item?.type || item).join(', ')}`);
+    }
   }
 
   // ofValid
-  const ofValid = ((is('array', model.ofValid) ? model.ofValid : [model.ofValid]) as IValidateModelValueIs[]).filter(Boolean);
+  if (model.ofValid !== undefined) {
+    const ofValid = ((is('array', model.ofValid) ? model.ofValid : [model.ofValid]) as IValidateModelValueIs[]).filter(Boolean);
 
-  if (is('array', value)) {
-    const response = value.every(valueItem => {
-      return ofValid.some(item => {
-        const itemType = item?.type || item;
-        const itemOptions = item?.options || undefined;
+    if (is('array', value)) {
+      const response = value.every(valueItem => {
+        return ofValid.some(item => {
+          const itemType = item?.type || item;
+          const itemOptions = item?.options || undefined;
 
-        return isValid(itemType as any, valueItem, itemOptions);
+          return isValid(itemType as any, valueItem, itemOptions);
+        });
       });
-    });
 
-    if (!response) onValidateError(options, model, model.messages?.ofValid || `${name} items have to be one of valid ${ofValid.map(item => item?.type || item).join(', ')}`);
+      if (!response) onValidateError(options, model, model.messages?.ofValid || `${name} items have to be one of valid ${ofValid.map(item => item?.type || item).join(', ')}`);
+    }
   }
 
   // equal

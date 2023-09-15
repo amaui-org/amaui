@@ -209,7 +209,9 @@ const useForm = (props: IUseForm) => {
 
     clear,
     validate,
-    onChange
+    onChange,
+
+    updateForm: setForm
   };
 };
 
