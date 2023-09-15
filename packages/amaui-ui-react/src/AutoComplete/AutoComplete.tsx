@@ -28,6 +28,10 @@ const useStyle = styleMethod(theme => ({
     }
   },
 
+  wrapper: {
+    position: 'relative'
+  },
+
   input_: {
     alignSelf: 'center'
   },
@@ -81,6 +85,10 @@ const useStyle = styleMethod(theme => ({
   },
 
   open: {},
+
+  menu_autoWidth: {
+    width: '100%'
+  },
 
   readOnly: {
     '&.amaui-TextField-input-wrapper': {
@@ -187,6 +195,7 @@ export interface IAutoComplete extends ITextField {
   ChipGroupProps?: TPropsAny;
   ListProps?: TPropsAny;
   MenuProps?: TPropsAny;
+  IconButtonProps?: TPropsAny;
 }
 
 const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
@@ -214,7 +223,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     sufix,
     start,
     end,
-    autoWidth,
+    autoWidth = true,
     readOnly,
     getLabel,
     renderValues: renderValues_,
@@ -245,6 +254,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     ChipGroupProps,
     ListProps,
     MenuProps,
+    IconButtonProps,
 
     className,
     style,
@@ -688,7 +698,13 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
         <IconButton
           onClick={onClear}
 
+          size='small'
+
+          fontSize={24}
+
           aria-label='Input clear'
+
+          {...IconButtonProps}
         >
           <IconClear />
         </IconButton>
@@ -699,6 +715,10 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
         onClick={onClickArrowDown}
 
+        size='small'
+
+        fontSize={24}
+
         aria-expanded={open}
 
         aria-controls={refs.ids.list}
@@ -706,6 +726,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
         InteractionProps={{
           clear: !!(multiple ? value.length : valueInput)
         }}
+
+        {...IconButtonProps}
       >
         <IconMaterialArrowDropDownRounded
           className={classNames([
@@ -728,7 +750,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
       className={classNames([
         staticClassName('AutoComplete', theme) && [
           'amaui-AutoComplete-wrapper'
-        ]
+        ],
+        classes.wrapper
       ])}
     >
       <TextField
@@ -894,77 +917,71 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
         {multiple && chip && !!value.length && renderValues(value, onUnselect)}
       </TextField>
 
-      {children && (
-        <Menu
-          ref={refs.menu}
+      <Menu
+        ref={refs.menu}
 
-          open={open}
+        open={open}
 
-          autoSelectOnBlur={autoSelectOnBlur}
+        autoSelectOnBlur={autoSelectOnBlur}
 
-          onSelect={onSelect}
+        onSelect={onSelect}
 
-          portal={false}
+        portal={false}
 
-          onClose={() => onClose(false)}
+        onClose={() => onClose(false)}
 
-          onExited={onExited}
+        anchorElement={refs.root.current}
 
-          anchorElement={refs.root.current}
+        onExited={onExited}
 
-          menuItems={renderList()}
+        menuItems={renderList()}
 
-          transformOrigin='center top'
+        transformOrigin='center top'
 
-          transformOriginSwitch='center bottom'
+        transformOriginSwitch='center bottom'
 
-          maxWidth='unset'
+        maxWidth='unset'
 
-          AppendProps={{
-            ...(!autoWidth ? {
-              alignment: 'start',
+        AppendProps={{
+          ...(!autoWidth && {
+            alignment: 'start'
+          })
+        }}
 
-              additional: (rects: any) => {
+        ModalProps={{
+          // focus: !MenuProps.portal
 
-                return {
-                  style: {
-                    minWidth: rects?.root?.width
-                  }
-                };
-              }
-            } : undefined)
-          }}
+          freezeScroll: false
+        }}
 
-          ModalProps={{
-            // focus: !MenuProps.portal
+        ListProps={{
+          menu: true,
 
-            freezeScroll: false
-          }}
+          paddingVertical: (is('function', groupBy) && !!options.length) ? 'none' : undefined,
 
-          ListProps={{
-            menu: true,
+          size,
 
-            paddingVertical: (is('function', groupBy) && !!options.length) ? 'none' : undefined,
+          role: 'listbox',
 
-            size,
+          id: refs.ids.list,
 
-            role: 'listbox',
+          'aria-label': label,
 
-            id: refs.ids.list,
+          ...ListProps,
 
-            'aria-label': label,
+          className: classNames([
+            ListProps?.className,
+            classes.list
+          ]),
+        }}
 
-            ...ListProps,
+        {...MenuProps}
 
-            className: classNames([
-              ListProps?.className,
-              classes.list
-            ]),
-          }}
-
-          {...MenuProps}
-        />
-      )}
+        className={classNames([
+          MenuProps?.className,
+          autoWidth && classes.menu_autoWidth
+        ])}
+      />
     </Line>
   );
 });
