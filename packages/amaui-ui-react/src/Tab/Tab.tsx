@@ -28,17 +28,40 @@ const useStyle = styleMethod(theme => ({
     position: 'relative',
     flex: '0 0 auto',
     alignSelf: 'stretch',
-    minWidth: '70px',
-    maxWidth: '240px',
-    padding: '16px 32px',
     userSelect: 'none',
     cursor: 'pointer',
     opacity: theme.palette.visual_contrast.default.opacity.secondary,
     transition: theme.methods.transitions.make('opacity')
   },
 
-  type: {
+  size_small: {
+    padding: '12px 24px',
+    minWidth: '40px',
+    maxWidth: '200px'
+  },
+
+  size_regular: {
+    padding: '16px 32px',
+    minWidth: '70px',
+    maxWidth: '240px'
+  },
+
+  size_large: {
+    padding: '20px 40px',
+    minWidth: '100px',
+    maxWidth: '280px'
+  },
+
+  type_small: {
+    maxHeight: '2rem'
+  },
+
+  type_regular: {
     maxHeight: '2.15rem'
+  },
+
+  type_large: {
+    maxHeight: '2.6rem'
   },
 
   line: {
@@ -58,6 +81,8 @@ const useStyle = styleMethod(theme => ({
 
 export interface ITab extends Omit<ISurface, 'version'> {
   version?: 'primary' | 'secondary';
+
+  size?: 'small' | 'regular' | 'large';
 
   value?: number;
   onChange?: (value: number, index: number) => any;
@@ -92,6 +117,8 @@ const Tab = React.forwardRef((props_: ITab, ref: any) => {
     color = 'primary',
 
     version = 'primary',
+
+    size = 'regular',
 
     value,
     onChange,
@@ -144,6 +171,11 @@ const Tab = React.forwardRef((props_: ITab, ref: any) => {
     LineProps.direction = iconPosition === 'start' ? 'row' : iconPosition === 'top' ? 'column' : iconPosition === 'end' ? 'row-reverse' : 'column-reverse';
   }
 
+  let typeVersion = 'l2';
+
+  if (size === 'large') typeVersion = 'l1';
+  else if (size === 'small') typeVersion = 'l3';
+
   return (
     <Surface
       ref={ref}
@@ -162,6 +194,8 @@ const Tab = React.forwardRef((props_: ITab, ref: any) => {
 
       aria-selected={active}
 
+      data-amaui-tab-value={value}
+
       Component={Component}
 
       className={classNames([
@@ -173,6 +207,7 @@ const Tab = React.forwardRef((props_: ITab, ref: any) => {
 
         className,
         classes.root,
+        classes[`size_${size}`],
         active && classes.active,
         disabled && classes.disabled
       ])}
@@ -208,14 +243,14 @@ const Tab = React.forwardRef((props_: ITab, ref: any) => {
         {label !== undefined && (
           is('simple', label) ? (
             <Type
-              version='l2'
+              version={typeVersion}
 
               className={classNames([
                 staticClassName('Tab', theme) && [
                   'amaui-Tab-type'
                 ],
 
-                classes.type
+                classes[`type_${size}`]
               ])}
             >
               {label}
@@ -226,14 +261,14 @@ const Tab = React.forwardRef((props_: ITab, ref: any) => {
         {children !== undefined && (
           is('simple', children) ? (
             <Type
-              version='l2'
+              version={typeVersion}
 
               className={classNames([
                 staticClassName('Tab', theme) && [
                   'amaui-Tab-type'
                 ],
 
-                classes.type
+                classes[`type_${size}`]
               ])}
             >
               {children}

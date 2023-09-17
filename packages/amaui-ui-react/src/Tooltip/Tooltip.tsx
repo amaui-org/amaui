@@ -668,7 +668,6 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
 
           ...(click && {
             onClick: (event: Event) => {
-              console.log(1111, children, children?.props);
               if (is('function', children?.props?.onClick)) children?.props?.onClick(event);
 
               onClick(event);

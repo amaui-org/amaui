@@ -16,9 +16,20 @@ import { staticClassName, TElementReference, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    minHeight: '44px',
     position: 'relative',
     overflow: 'hidden'
+  },
+
+  size_small: {
+    minHeight: '39px'
+  },
+
+  size_regular: {
+    minHeight: '44px'
+  },
+
+  size_large: {
+    minHeight: '62px'
   },
 
   tabs: {
@@ -58,25 +69,69 @@ const useStyle = styleMethod(theme => ({
     zIndex: '1'
   },
 
-  line_version_primary_orientation_horizontal: {
+  line_version_primary_size_small_orientation_horizontal: {
+    height: '2px',
+    bottom: '0',
+    borderRadius: '16px 16px 0 0'
+  },
+
+  line_version_primary_size_regular_orientation_horizontal: {
     height: '3px',
     bottom: '0',
     borderRadius: '16px 16px 0 0'
   },
 
-  line_version_primary_orientation_vertical: {
+  line_version_primary_size_large_orientation_horizontal: {
+    height: '4px',
+    bottom: '0',
+    borderRadius: '16px 16px 0 0'
+  },
+
+  line_version_primary_size_small_orientation_vertical: {
+    width: '2px',
+    insetInlineEnd: '0',
+    borderRadius: '16px 0 0 16px'
+  },
+
+  line_version_primary_size_regular_orientation_vertical: {
     width: '3px',
     insetInlineEnd: '0',
     borderRadius: '16px 0 0 16px'
   },
 
-  line_version_secondary_orientation_horizontal: {
+  line_version_primary_size_large_orientation_vertical: {
+    width: '4px',
+    insetInlineEnd: '0',
+    borderRadius: '16px 0 0 16px'
+  },
+
+  line_version_secondary_size_small_orientation_horizontal: {
+    height: '1px',
+    bottom: '0'
+  },
+
+  line_version_secondary_size_regular_orientation_horizontal: {
     height: '2px',
     bottom: '0'
   },
 
-  line_version_secondary_orientation_vertical: {
+  line_version_secondary_size_large_orientation_horizontal: {
+    height: '3px',
+    bottom: '0'
+  },
+
+  line_version_secondary_size_small_orientation_vertical: {
+    width: '1px',
+    insetInlineEnd: '0'
+  },
+
+  line_version_secondary_size_regular_orientation_vertical: {
     width: '2px',
+    insetInlineEnd: '0'
+  },
+
+  line_version_secondary_size_large_orientation_vertical: {
+    width: '3px',
     insetInlineEnd: '0'
   },
 
@@ -193,11 +248,15 @@ export interface ITabs extends Omit<ISurface, 'version'> {
   justify?: TLineJustify;
   orientation?: 'vertical' | 'horizontal';
 
+  size?: 'small' | 'regular' | 'large';
+
   initialLineUpdateTimeout?: number;
 
   arrows?: boolean;
   arrowsMobile?: boolean;
   fixed?: boolean;
+
+  noDivider?: boolean;
 
   IconStart?: TElementReference;
   IconEnd?: TElementReference;
@@ -232,11 +291,15 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
     justify = 'flex-start',
     orientation = 'horizontal',
 
+    size = 'regular',
+
     initialLineUpdateTimeout = 0,
 
     arrows,
     arrowsMobile,
     fixed,
+
+    noDivider,
 
     IconStart = IconMaterialNavigateBeforeRounded,
     IconEnd = IconMaterialNavigateNextRounded,
@@ -267,7 +330,6 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
   const refs = {
     root: React.useRef<any>(),
     tabsRoot: React.useRef<any>(),
-    tabs: React.useRef<any>([]),
     value: React.useRef<any>(),
     props: React.useRef<any>(),
     mobile: React.useRef<any>(),
@@ -371,7 +433,9 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
   };
 
   const updateLine = (valueProp: string | number = refs.value.current) => {
-    const tab: HTMLElement = refs.tabs.current.find(item => is('function', refs.isActive.current) ? refs.isActive.current(valueProp, item.value) : String(item.value) === String(valueProp));
+    const tabs = Array.from((refs.tabsRoot.current as HTMLElement)?.querySelectorAll(`[data-amaui-tab-value]`) || []) as HTMLElement[];
+
+    const tab: HTMLElement = tabs.find(item => is('function', refs.isActive.current) ? refs.isActive.current(valueProp, item.dataset.amauiTabValue) : String(item.dataset.amauiTabValue) === String(valueProp));
 
     if (tab) {
       const rect = {
@@ -501,6 +565,7 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
         SurfaceProps?.className,
         className,
         classes.root,
+        classes[`size_${size}`],
         classes[`orientation_${orientation}`],
         fixed && classes.fixed
       ])}
@@ -509,22 +574,24 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
     >
       {useArrows && ArrowPre}
 
-      <Divider
-        tonal={tonal}
+      {!noDivider && (
+        <Divider
+          tonal={tonal}
 
-        color={color}
+          color={color}
 
-        orientation={orientation}
+          orientation={orientation}
 
-        className={classNames([
-          staticClassName('Tabs', theme) && [
-            'amaui-Tabs-divider'
-          ],
+          className={classNames([
+            staticClassName('Tabs', theme) && [
+              'amaui-Tabs-divider'
+            ],
 
-          classes.divider,
-          classes[`divider_orientation_${orientation}`]
-        ])}
-      />
+            classes.divider,
+            classes[`divider_orientation_${orientation}`]
+          ])}
+        />
+      )}
 
       <Line
         ref={refs.tabsRoot}
@@ -555,7 +622,7 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
             ],
 
             classes.line,
-            classes[`line_version_${version}_orientation_${orientation}`],
+            classes[`line_version_${version}_size_${size}_orientation_${orientation}`],
             orientation === 'vertical' && theme.direction === 'rtl' && classes[`line_version_${version}_orientation_vertical_rtl`]
           ])}
 
@@ -566,28 +633,18 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
           }}
         />
 
-        {React.Children.toArray(children).map((item: any, index: number) => {
+        {React.Children.toArray(children).filter((item: any) => item?.type?.displayName?.endsWith('Tab')).map((item: any, index: number) => {
           const valueItem = item.props.value !== undefined ? item.props.value : index;
 
           return (
             React.cloneElement(item, {
-              ref: item_ => {
-                if (children.length !== refs.tabs.current.length) {
-                  if (!refs.tabs.current.includes(item_)) {
-                    item_.value = valueItem;
-
-                    refs.tabs.current.push(item_);
-                  }
-
-                  refs.tabs.current = refs.tabs.current.filter(Boolean);
-                }
-              },
-
               tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
 
               color: item.props.color !== undefined ? item.props.color : color,
 
               version: item.props.version !== undefined ? item.props.version : version,
+
+              size: item.props.size !== undefined ? item.props.size : size,
 
               index,
 
