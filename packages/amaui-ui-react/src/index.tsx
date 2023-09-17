@@ -466,6 +466,9 @@ export * from './DonutChart';
 export { default as Move } from './Move';
 export * from './Move';
 
+export { default as DragAndDropList } from './DragAndDropList';
+export * from './DragAndDropList';
+
 export { default as Clock } from './Clock';
 export * from './Clock';
 
