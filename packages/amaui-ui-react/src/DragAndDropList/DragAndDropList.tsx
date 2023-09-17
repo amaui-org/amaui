@@ -143,6 +143,8 @@ const DragAndDropList = React.forwardRef((props_: IDragAndDropList, ref: any) =>
     const over = event.currentTarget;
     const dragging: any = draggedIsElement ? refs.dragging.current : window.document.body.querySelector(`[data-amaui-drag-and-drop-list-value="${refs.dragging.current}"]`);
 
+    if (!(over && dragging)) return;
+
     if (precise) {
       if (over !== dragging) {
         const rectOver = {
