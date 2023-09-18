@@ -425,8 +425,8 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
         className={classNames([
           staticClassName('Modal', theme) && [
             'amaui-Modal-root',
-            open && `amaui - Modal - open`,
-            focus && `amaui - Modal - focus`
+            open && `amaui-Modal-open`,
+            focus && `amaui-Modal-focus`
           ],
 
           className,
