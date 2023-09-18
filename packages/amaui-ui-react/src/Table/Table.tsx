@@ -6,12 +6,11 @@ import Surface from '../Surface';
 import { ISurface } from '../Surface/Surface';
 
 import { staticClassName, TElement, TElementReference, TPropsAny, TSize } from '../utils';
+import Line from '../Line/Line';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    display: 'table',
     borderRadius: `${theme.shape.radius.unit * 2}px`,
-    width: '100%',
     overflow: 'hidden',
 
     ...theme.typography.values.b2
@@ -22,6 +21,10 @@ const useStyle = styleMethod(theme => ({
     width: '100%',
     borderCollapse: 'collapse',
     borderSpacing: '0px'
+  },
+
+  wrapper: {
+    overflowX: 'auto'
   }
 }), { name: 'amaui-Table' });
 
@@ -68,8 +71,18 @@ const Table = React.forwardRef((props_: ITable, ref: any) => {
   const { classes } = useStyle(props);
 
   return (
-    <Surface
+    <Line
       ref={ref}
+
+      gap={0}
+
+      direction='column'
+
+      align='unset'
+
+      justify='unset'
+
+      fullWidth
 
       tonal={tonal}
 
@@ -77,7 +90,11 @@ const Table = React.forwardRef((props_: ITable, ref: any) => {
 
       elevation={elevation}
 
-      Component={Component}
+      Component={Surface}
+
+      AdditionalProps={{
+        Component
+      }}
 
       className={classNames([
         staticClassName('Table', theme) && [
@@ -140,7 +157,7 @@ const Table = React.forwardRef((props_: ITable, ref: any) => {
 
         size: (footer as any).props.size !== undefined ? (footer as any).props.size : size
       })}
-    </Surface>
+    </Line>
   );
 });
 
