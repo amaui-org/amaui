@@ -132,6 +132,11 @@ const validate = async (model: IValidateModelValue, property: string, form: IFor
     if (response === undefined) onValidateError(options, model, model.messages?.required || `${name} is required`);
   }
 
+  // only validate
+  // if value is not undefined
+  // as it is optional
+  if (value === undefined) return;
+
   // is
   if (model.is !== undefined) {
     const is_ = ((is('array', model.is) ? model.is : [model.is]) as IValidateModelValueIs[]).filter(Boolean);

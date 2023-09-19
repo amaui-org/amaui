@@ -403,6 +403,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
     const [from, to] = valueNew as [AmauiDate, AmauiDate];
 
+    if (!(from || to)) return '';
+
     const method = (item: AmauiDate) => {
       let formatValue = '';
 

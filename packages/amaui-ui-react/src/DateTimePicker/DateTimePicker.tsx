@@ -257,6 +257,8 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
     const [from, to] = valueNew as [AmauiDate, AmauiDate];
 
+    if (!(from || to)) return '';
+
     const method = (item: AmauiDate) => {
       let formatValue = `${formatMethod(item, 'DD')}/${formatMethod(item, 'MM')}/${formatMethod(item, 'YYYY')}`;
 

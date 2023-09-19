@@ -13,6 +13,16 @@ const useStyle = styleMethod(theme => ({
 
   },
 
+  row: {
+    '& > *': {
+      flex: '1 1 auto'
+    },
+
+    '& .amaui-TextField-root': {
+      width: '100%'
+    }
+  },
+
   footer: {
     marginTop: '8px'
   }
@@ -22,6 +32,7 @@ export interface IFormRow extends IBaseElement {
   name?: string | TElement;
   description?: string | TElement;
 
+  row?: boolean;
   footer?: TElement;
 }
 
@@ -34,6 +45,7 @@ const FormRow = React.forwardRef((props_: IFormRow, ref: any) => {
     name,
     description,
 
+    row,
     footer,
 
     Component = Line,
@@ -67,7 +79,8 @@ const FormRow = React.forwardRef((props_: IFormRow, ref: any) => {
         ],
 
         className,
-        classes.root
+        classes.root,
+        row && classes.row
       ])}
 
       {...other}

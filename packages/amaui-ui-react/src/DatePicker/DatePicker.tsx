@@ -255,7 +255,7 @@ export interface IDatePicker extends ILine {
   IconButtonProps?: TPropsAny;
   AdvancedTextFieldProps?: TPropsAny;
   ActionButtonProps?: TPropsAny;
-  ModalProp?: TPropsAny;
+  ModalProps?: TPropsAny;
 }
 
 const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
@@ -360,6 +360,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     let result = '';
 
     const [from, to] = valueNew;
+
+    if (!(from || to)) return '';
 
     const method = (item: AmauiDate) => `${format(item, 'DD')}/${format(item, 'MM')}/${format(item, 'YYYY')}`;
 
