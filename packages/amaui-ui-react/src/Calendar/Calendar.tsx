@@ -243,7 +243,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
     menu = 'month-year',
     range,
-    now = true,
+    now,
     calendars = props.range ? 2 : 1,
     min,
     max,

@@ -303,7 +303,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     onChangeSelecting,
 
     range,
-    now = true,
+    now,
     label,
     min,
     max,
@@ -1411,7 +1411,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
         <Tooltip
           open={open}
 
-          portal={false}
+          portal
 
           anchorElement={refs.root.current}
 

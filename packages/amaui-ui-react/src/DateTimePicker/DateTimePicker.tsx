@@ -183,7 +183,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
     label,
 
     range,
-    now = true,
+    now,
     static: static_,
     min,
     max,
@@ -990,7 +990,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
         <Tooltip
           open={open}
 
-          portal={false}
+          portal
 
           anchorElement={refs.root.current}
 

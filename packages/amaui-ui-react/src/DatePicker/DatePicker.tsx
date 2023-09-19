@@ -286,7 +286,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     onChangeCalendar,
 
     range,
-    now = true,
+    now,
     static: static_,
     openMobile = 'select',
     placeholder: placeholder_,
@@ -1240,7 +1240,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         <Tooltip
           open={open}
 
-          portal={false}
+          portal
 
           anchorElement={refs.root.current}
 

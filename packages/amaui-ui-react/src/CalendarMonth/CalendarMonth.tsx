@@ -251,7 +251,9 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
   });
   const [calendar, setCalendar] = React.useState((calendarDefault !== undefined ? calendarDefault : calendar_) || new AmauiDate());
 
-  const month: AmauiDate = calendar || value[0];
+  let month: AmauiDate = calendar || value[0];
+
+  if (!month?.valid) month = new AmauiDate();
 
   const refs = {
     id: React.useRef<string>(`${(month).year} ${(month).month}`),
