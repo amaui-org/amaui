@@ -13,6 +13,10 @@ const useStyle = styleMethod(theme => ({
 
   },
 
+  aside: {
+    flex: '0 0 auto'
+  },
+
   row: {
     '& > *': {
       flex: '1 1 auto'
@@ -32,8 +36,17 @@ export interface IFormRow extends IBaseElement {
   name?: string | TElement;
   description?: string | TElement;
 
+  start?: any;
+  end?: any;
+
   row?: boolean;
   footer?: TElement;
+
+  HeaderProps?: any;
+  TextProps?: any;
+  AsideProps?: any;
+  StartProps?: any;
+  EndProps?: any;
 }
 
 const FormRow = React.forwardRef((props_: IFormRow, ref: any) => {
@@ -45,10 +58,19 @@ const FormRow = React.forwardRef((props_: IFormRow, ref: any) => {
     name,
     description,
 
+    start,
+    end,
+
     row,
     footer,
 
     Component = Line,
+
+    HeaderProps,
+    TextProps,
+    AsideProps,
+    StartProps,
+    EndProps,
 
     className,
 
@@ -58,6 +80,18 @@ const FormRow = React.forwardRef((props_: IFormRow, ref: any) => {
   } = props;
 
   const { classes } = useStyle(props);
+
+  const text = (name || description);
+
+  const actions = (start || end);
+
+  const header = text || actions;
+
+  let justify = 'unset';
+
+  if (start && end && !text) justify = 'space-between';
+
+  if (!start && !text && end) justify = 'flex-end';
 
   return (
     <Component
@@ -85,29 +119,77 @@ const FormRow = React.forwardRef((props_: IFormRow, ref: any) => {
 
       {...other}
     >
-      {(name || description) && (
+      {header && (
         <Line
-          gap={0.5}
+          direction='row'
 
-          direction='column'
+          align='flex-start'
+
+          justify={justify}
 
           fullWidth
-        >
-          {name && (is('string', name) ? (
-            <Type
-              version='l2'
-            >
-              {name}
-            </Type>
-          ) : name)}
 
-          {description && (is('string', description) ? (
-            <Type
-              version='b3'
+          {...HeaderProps}
+        >
+          {start && (
+            <Line
+              {...AsideProps}
+
+              {...StartProps}
+
+              className={classNames([
+                AsideProps?.className,
+                StartProps?.className,
+                classes.aside
+              ])}
             >
-              {description}
-            </Type>
-          ) : description)}
+              {start}
+            </Line>
+          )}
+
+          {text && (
+            <Line
+              gap={0.5}
+
+              direction='column'
+
+              flex
+
+              {...TextProps}
+            >
+              {name && (is('string', name) ? (
+                <Type
+                  version='l2'
+                >
+                  {name}
+                </Type>
+              ) : name)}
+
+              {description && (is('string', description) ? (
+                <Type
+                  version='b3'
+                >
+                  {description}
+                </Type>
+              ) : description)}
+            </Line>
+          )}
+
+          {end && (
+            <Line
+              {...AsideProps}
+
+              {...EndProps}
+
+              className={classNames([
+                AsideProps?.className,
+                EndProps?.className,
+                classes.aside
+              ])}
+            >
+              {end}
+            </Line>
+          )}
         </Line>
       )}
 
