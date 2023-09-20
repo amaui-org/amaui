@@ -18,7 +18,7 @@ const useStyle = styleMethod(theme => ({
       flex: '1 1 auto'
     },
 
-    '& .amaui-TextField-root': {
+    '& .amaui-TextField-root, & .amaui-TextField-wrapper': {
       width: '100%'
     }
   },
