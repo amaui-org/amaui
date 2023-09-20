@@ -612,6 +612,10 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
       onUpdate(valueNew as any);
     }
 
+    if (!valueNew_) {
+      onUpdate([null, null] as any);
+    }
+
     // Update input for free typing
     setInput(valueNew_);
   }, []);

@@ -569,6 +569,10 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
       onUpdateCalendar(valueNew[0]);
     }
 
+    if (!valueNew_) {
+      onUpdate([null, null] as any);
+    }
+
     // Update input for free typing
     setInput(valueNew_);
   }, []);

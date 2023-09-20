@@ -42,9 +42,10 @@ const useForm = (props: IUseForm) => {
     const formNew = { ...refs.form.current };
 
     const {
-      value,
       values
     } = formNew;
+
+    const value = {};
 
     const property = values[property_];
 
@@ -107,6 +108,7 @@ const useForm = (props: IUseForm) => {
 
       return {
         ...previous,
+
         value,
         values,
         valid
@@ -118,8 +120,7 @@ const useForm = (props: IUseForm) => {
     const formNew = { ...refs.form.current };
 
     const {
-      value,
-      values
+      values,
     } = formNew;
 
     const properties = Object.keys(values);
