@@ -109,6 +109,10 @@ const useStyle = styleMethod(theme => ({
     padding: '0 8px'
   },
 
+  fullWidth: {
+    width: '100%'
+  },
+
   disabled: {
     '&.amaui-TextField-input-wrapper': {
       cursor: 'default'
@@ -192,6 +196,7 @@ export interface IAutoComplete extends ITextField {
   filterOutSelectedOptions?: boolean;
   selectOnFocus?: boolean;
   clearOnBlur?: boolean;
+  fullWidth?: boolean;
 
   disabled?: boolean;
 
@@ -257,6 +262,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     selectOnFocus,
     clearOnBlur,
     chip,
+    fullWidth,
 
     disabled,
 
@@ -476,6 +482,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
   const onChangeInput = (valueNew: any) => {
     if (!disabled && !readOnly) {
       updateOptions(valueNew);
+
+      if (!open) setOpen(true);
 
       // Inner controlled value
       if (!props.hasOwnProperty('valueInput')) setValueInput(valueNew);
@@ -782,7 +790,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
         staticClassName('AutoComplete', theme) && [
           'amaui-AutoComplete-wrapper'
         ],
-        classes.wrapper
+        classes.wrapper,
+        fullWidth && classes.fullWidth
       ])}
     >
       <TextField
