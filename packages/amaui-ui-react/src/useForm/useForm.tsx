@@ -187,7 +187,7 @@ const useForm = (props: IUseForm) => {
       values[item] = {
         ...property,
 
-        value: '',
+        value: undefined,
         touched: false,
         error: ''
       };

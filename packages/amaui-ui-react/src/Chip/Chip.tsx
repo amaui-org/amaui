@@ -12,7 +12,9 @@ import { IButton } from '../Button/Button';
 
 const useStyle = styleMethod(theme => ({
   root: {
-
+    '& .amaui-Icon-root': {
+      pointerEvents: 'unset !important'
+    }
   },
 }), { name: 'amaui-Chip' });
 
