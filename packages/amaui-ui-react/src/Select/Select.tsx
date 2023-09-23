@@ -110,6 +110,10 @@ const useStyle = styleMethod(theme => ({
     }
   },
 
+  fullWidth: {
+    width: '100%'
+  },
+
   readOnly: {
     '&.amaui-TextField-root': {
       cursor: 'default'
@@ -143,6 +147,7 @@ export interface ISelect extends ITextField {
   multiple?: boolean;
   autoWidth?: boolean;
   getLabel?: (item: TElement, props: any) => TElement;
+  fullWidth?: boolean;
   chip?: boolean;
 
   renderValues?: (value: string | string[]) => TElement;
@@ -175,6 +180,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
     end,
     autoWidth = true,
     getLabel,
+    fullWidth,
     chip,
     readOnly,
     disabled,
@@ -389,7 +395,8 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
       className={classNames([
         staticClassName('Select', theme) && [
           'amaui-Select-wrapper',
-          classes.wrapper
+          classes.wrapper,
+          fullWidth && classes.fullWidth
         ]
       ])}
     >

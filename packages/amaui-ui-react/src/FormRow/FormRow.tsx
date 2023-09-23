@@ -43,6 +43,7 @@ export interface IFormRow extends IBaseElement {
   footer?: TElement;
 
   HeaderProps?: any;
+  MainProps?: any;
   TextProps?: any;
   AsideProps?: any;
   StartProps?: any;
@@ -67,6 +68,7 @@ const FormRow = React.forwardRef((props_: IFormRow, ref: any) => {
     Component = Line,
 
     HeaderProps,
+    MainProps,
     TextProps,
     AsideProps,
     StartProps,
@@ -113,8 +115,7 @@ const FormRow = React.forwardRef((props_: IFormRow, ref: any) => {
         ],
 
         className,
-        classes.root,
-        row && classes.row
+        classes.root
       ])}
 
       {...other}
@@ -193,7 +194,30 @@ const FormRow = React.forwardRef((props_: IFormRow, ref: any) => {
         </Line>
       )}
 
-      {children}
+      <Line
+        gap={2}
+
+        direction={row ? 'row' : 'column'}
+
+        justify='unset'
+
+        align='unset'
+
+        fullWidth
+
+        className={classNames([
+          staticClassName('FormRow', theme) && [
+            'amaui-FormRow-main'
+          ],
+
+          MainProps?.className,
+          row && classes.row
+        ])}
+
+        {...MainProps}
+      >
+        {children}
+      </Line>
 
       {footer && (
         <Line

@@ -6,6 +6,7 @@ import setObjectValue from '@amaui/utils/setObjectValue';
 import { ValidationError } from '@amaui/errors';
 
 import validateModel, { IValidateVales } from './validate';
+import { getObjectValue } from '@amaui/utils';
 
 export interface IUseForm {
   values: IValidateVales;
@@ -38,6 +39,41 @@ const useForm = (props: IUseForm) => {
 
   refs.form.current = form;
 
+  const init = React.useCallback(() => {
+    const formNew = { ...refs.form.current };
+
+    const {
+      values
+    } = formNew;
+
+    const value = {};
+
+    const properties = Object.keys(values);
+
+    properties.forEach(item => {
+      const valueProperty = values[item];
+
+      if (valueProperty?.value !== undefined) {
+        setObjectValue(value, item, valueProperty.value);
+      }
+    });
+
+    // update
+    setForm(previous => {
+
+      return {
+        ...previous,
+
+        value
+      };
+    });
+  }, []);
+
+  React.useEffect(() => {
+    // init
+    init();
+  }, []);
+
   const onChange = React.useCallback(async (property_: string, value_: any) => {
     const formNew = { ...refs.form.current };
 
@@ -51,7 +87,7 @@ const useForm = (props: IUseForm) => {
 
     if (!property) {
       values[property_] = {
-        name: property_,
+        name: property_?.split('.')?.slice(-1)[0],
         value: value_,
         touched: true
       };
@@ -208,9 +244,10 @@ const useForm = (props: IUseForm) => {
   return {
     ...form,
 
-    clear,
+    init,
     validate,
     onChange,
+    clear,
 
     updateForm: setForm
   };
