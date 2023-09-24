@@ -6,7 +6,7 @@ import setObjectValue from '@amaui/utils/setObjectValue';
 import { ValidationError } from '@amaui/errors';
 
 import validateModel, { IValidateVales } from './validate';
-import { getObjectValue } from '@amaui/utils';
+import { copy } from '@amaui/utils';
 
 export interface IUseForm {
   values: IValidateVales;
@@ -54,7 +54,7 @@ const useForm = (props: IUseForm) => {
       const valueProperty = values[item];
 
       if (valueProperty?.value !== undefined) {
-        setObjectValue(value, item, valueProperty.value);
+        setObjectValue(value, item, copy(valueProperty.value));
       }
     });
 
@@ -74,7 +74,7 @@ const useForm = (props: IUseForm) => {
     init();
   }, []);
 
-  const onChange = React.useCallback(async (property_: string, value_: any) => {
+  const onChange = React.useCallback(async (property_: string, value_: any, propertyNested?: any) => {
     const formNew = { ...refs.form.current };
 
     const {
@@ -87,32 +87,32 @@ const useForm = (props: IUseForm) => {
 
     if (!property) {
       values[property_] = {
-        name: property_?.split('.')?.slice(-1)[0],
-        value: value_,
+        name: (propertyNested || property_)?.split('.')?.slice(-1)[0],
         touched: true
       };
     }
-    else {
-      property.value = value_;
-      property.touched = true;
 
-      if (autoValidate) {
-        // Validate the property
-        if (property.required && !property.value) {
-          const name = is('function', property.propertyNameUpdate) ? property.propertyNameUpdate(property.name!) : property.capitalize !== false ? capitalize(property.name!) : property.name!;
+    if (!propertyNested) property.value = value_;
+    else setObjectValue(property.value, propertyNested, value_);
 
-          property.error = `${name} is required`;
+    property.touched = true;
+
+    if (autoValidate) {
+      // Validate the property
+      if (property.required && !property.value) {
+        const name = is('function', property.propertyNameUpdate) ? property.propertyNameUpdate(property.name!) : property.capitalize !== false ? capitalize(property.name!) : property.name!;
+
+        property.error = `${name} is required`;
+      }
+      else {
+        property.error = undefined;
+
+        // validations
+        try {
+          await validateModel(property, property_, formNew);
         }
-        else {
-          property.error = undefined;
-
-          // validations
-          try {
-            await validateModel(property, property_, formNew);
-          }
-          catch (error) {
-            property.error = (error as ValidationError).message;
-          }
+        catch (error) {
+          property.error = (error as ValidationError).message;
         }
       }
     }
@@ -135,7 +135,7 @@ const useForm = (props: IUseForm) => {
       const valueProperty = values[item];
 
       if (valueProperty?.value !== undefined) {
-        setObjectValue(value, item, valueProperty.value);
+        setObjectValue(value, item, copy(valueProperty.value));
       }
     });
 
