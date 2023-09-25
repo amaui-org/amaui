@@ -199,10 +199,6 @@ const FormRow = React.forwardRef((props_: IFormRow, ref: any) => {
 
         direction={row ? 'row' : 'column'}
 
-        justify='unset'
-
-        align='unset'
-
         fullWidth
 
         className={classNames([

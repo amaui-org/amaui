@@ -278,7 +278,7 @@ const Form = React.forwardRef((props_: IForm, ref: any) => {
             >
               {name && (is('string', name) ? (
                 <Type
-                  version='l2'
+                  version='t2'
                 >
                   {name}
                 </Type>
@@ -286,7 +286,7 @@ const Form = React.forwardRef((props_: IForm, ref: any) => {
 
               {description && (is('string', description) ? (
                 <Type
-                  version='b3'
+                  version='b2'
                 >
                   {description}
                 </Type>

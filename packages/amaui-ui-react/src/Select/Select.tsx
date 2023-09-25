@@ -153,6 +153,7 @@ export interface ISelect extends ITextField {
   renderValues?: (value: string | string[]) => TElement;
 
   ChipGroupProps?: TPropsAny;
+  WrapperProps?: TPropsAny;
   ListProps?: TPropsAny;
   MenuProps?: TPropsAny;
 }
@@ -188,6 +189,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
     renderValues: renderValues_,
 
     ChipGroupProps,
+    WrapperProps,
     ListProps,
     MenuProps,
 
@@ -392,11 +394,15 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
 
       direction='column'
 
+      fullWidth={fullWidth}
+
+      {...WrapperProps}
+
       className={classNames([
         staticClassName('Select', theme) && [
           'amaui-Select-wrapper',
-          classes.wrapper,
-          fullWidth && classes.fullWidth
+          WrapperProps?.className,
+          classes.wrapper
         ]
       ])}
     >
@@ -431,6 +437,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
           className,
           classes.root,
           open && classes.open,
+          fullWidth && classes.fullWidth,
           disabled && classes.disabled
         ])}
 
