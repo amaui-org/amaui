@@ -157,7 +157,8 @@ const element = React.forwardRef((props: any, ref: any) => {
     version: React.useRef<any>(),
     values: React.useRef<any>(),
     visible: React.useRef<any>(),
-    overflow: React.useRef<any>()
+    overflow: React.useRef<any>(),
+    timeout: React.useRef<any>()
   };
 
   refs.icons.current = icons;
@@ -334,7 +335,9 @@ const element = React.forwardRef((props: any, ref: any) => {
             loading: true
           }));
 
-          setTimeout(() => {
+          clearTimeout(refs.timeout.current);
+
+          refs.timeout.current = setTimeout(() => {
             setVisible(previous => ({ ...previous, loading: false }));
           }, 140);
         }
