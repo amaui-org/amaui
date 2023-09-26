@@ -119,6 +119,9 @@ export interface IPagination extends ILine {
   next?: boolean;
   last?: boolean;
 
+  disableSelected?: boolean;
+  disabled?: boolean;
+
   renderItem?: (value: number, item: string | number, index: number) => TElement;
 
   IconFirst?: TElementReference;
@@ -151,6 +154,9 @@ const Pagination = React.forwardRef((props_: IPagination, ref: any) => {
     next = true,
     last = false,
     renderItem: renderItem_,
+
+    disableSelected = true,
+    disabled,
 
     IconFirst = IconMaterialFirstPageRounded,
     IconBefore = IconMaterialNavigateBeforeRounded,
@@ -216,6 +222,8 @@ const Pagination = React.forwardRef((props_: IPagination, ref: any) => {
         onClick={() => onChange(item as number)}
 
         selected={value__ === item}
+
+        disabled={disabled || value__ === item && disableSelected}
       >
         {item}
       </PaginationItem>
