@@ -391,9 +391,6 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   const onUpdateValue = (valueNew: any) => {
     setValue(valueNew);
 
-    // Update calendar
-    onUpdateCalendar(valueNew[0]);
-
     // Update input
     setInput(valueToInput(valueNew));
 
