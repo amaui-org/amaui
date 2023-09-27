@@ -42,7 +42,8 @@ const useStyle = styleMethod(theme => ({
   actions: {
     width: '100%',
     padding: '0px 8px 12px 12px',
-    flex: '0 0 auto'
+    flex: '0 0 auto',
+    overflowX: 'auto'
   },
 
   mode: {
@@ -251,6 +252,7 @@ export interface IDatePicker extends ILine {
   IconEnter?: TElementReference;
   IconClose?: TElementReference;
 
+  WrapperProps?: TPropsAny;
   CalendarProps?: TPropsAny;
   CalendarPropsDesktop?: TPropsAny;
   CalendarPropsMobile?: TPropsAny;
@@ -269,7 +271,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   const breakpoints = {};
 
   theme.breakpoints.keys.sort((a, b) => theme.breakpoints.values[b] - theme.breakpoints.values[a]).forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(`(min - width: ${theme.breakpoints.values[key]}px)`);
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(`(min-width: ${theme.breakpoints.values[key]}px)`);
   });
 
   const { classes } = useStyle(props);
@@ -329,6 +331,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     IconEnter = IconMaterialEditRounded,
     IconClose = IconMaterialCloseRounded,
 
+    WrapperProps,
     CalendarProps,
     CalendarPropsDesktop,
     CalendarPropsMobile,
@@ -637,8 +640,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     setInputModal(valueNew_);
   }, []);
 
-  const onMode = React.useCallback(() => {
-    setMode(previous => previous === 'select' ? 'input' : 'select');
+  const onMode = React.useCallback((mode_: 'input' | 'select' = openMobile) => {
+    setMode(() => mode_);
   }, []);
 
   const mask = [
@@ -922,7 +925,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                   color='inherit'
 
-                  onClick={onMode}
+                  onClick={() => onMode('input')}
 
                   aria-label='Enter date'
                 >
@@ -966,7 +969,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
                   color='inherit'
 
-                  onClick={onMode}
+                  onClick={() => onMode('select')}
 
                   aria-label='Choose date'
                 >
@@ -1228,9 +1231,12 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
       direction='column'
 
+      {...WrapperProps}
+
       className={classNames([
         staticClassName('DatePicker', theme) && [
           'amaui-DatePicker-root',
+          WrapperProps?.className,
           range && `amaui-DatePicker-range`,
           readOnly && `amaui-DatePicker-read-only`,
           disabled && `amaui-DatePicker-disabled`

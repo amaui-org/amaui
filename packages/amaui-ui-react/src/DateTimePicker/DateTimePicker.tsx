@@ -168,7 +168,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
   const breakpoints = {};
 
   theme.breakpoints.keys.sort((a, b) => theme.breakpoints.values[b] - theme.breakpoints.values[a]).forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(`(min - width: ${theme.breakpoints.values[key]}px)`);
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(`(min-width: ${theme.breakpoints.values[key]}px)`);
   });
 
   const { classes } = useStyle(props);

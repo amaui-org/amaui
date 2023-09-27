@@ -152,8 +152,8 @@ export interface ISelect extends ITextField {
 
   renderValues?: (value: string | string[]) => TElement;
 
-  ChipGroupProps?: TPropsAny;
   WrapperProps?: TPropsAny;
+  ChipGroupProps?: TPropsAny;
   ListProps?: TPropsAny;
   MenuProps?: TPropsAny;
 }
@@ -188,8 +188,8 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
 
     renderValues: renderValues_,
 
-    ChipGroupProps,
     WrapperProps,
+    ChipGroupProps,
     ListProps,
     MenuProps,
 
@@ -216,6 +216,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
 
   const refs = {
     root: React.useRef<any>(),
+    wrapper: React.useRef<any>(),
     menu: React.useRef<any>(),
     input: React.useRef<any>(),
     ids: {
@@ -398,6 +399,15 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
 
       {...WrapperProps}
 
+      ref={item => {
+        if (WrapperProps?.ref) {
+          if (is('function', WrapperProps.ref)) WrapperProps.ref(item);
+          else WrapperProps.ref.current = item;
+        }
+
+        refs.wrapper.current = item;
+      }}
+
       className={classNames([
         staticClassName('Select', theme) && [
           'amaui-Select-wrapper',
@@ -422,7 +432,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
 
         onFocus={onFocus}
 
-        enabled={open || focus || mouseDown || !!(is('array', value) ? value.length : value)}
+        enabled={open || focus || mouseDown || !!(is('array', value) ? value.length : value !== undefined)}
 
         focus={open || focus || mouseDown}
 

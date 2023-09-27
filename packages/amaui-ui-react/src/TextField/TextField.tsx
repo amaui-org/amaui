@@ -7,7 +7,8 @@ import Icon from '../Icon';
 import Type from '../Type';
 import Line from '../Line';
 
-import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TPropsAny, TRef, TSize, TTonal, TVersion } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TPropsAny, TRef, TSize, TTonal, TVersion, valueBreakpoints } from '../utils';
+import useMediaQuery from '../useMediaQuery';
 
 const other_ = {
   pointerEvents: 'none',
@@ -590,6 +591,12 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTextField?.props?.default, ...props_ }), [props_]);
 
+  const breakpoints = {};
+
+  theme.breakpoints.keys.sort((a, b) => theme.breakpoints.values[b] - theme.breakpoints.values[a]).forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(`(min-width: ${theme.breakpoints.values[key]}px)`);
+  });
+
   const {
     tonal = true,
     color = 'primary',
@@ -609,7 +616,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
     end: end_,
     endVerticalAlign = 'start',
     placeholder,
-    fullWidth,
+    fullWidth: fullWidth_,
     helperText,
     counter,
     prefix,
@@ -660,6 +667,8 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
     ...other
   } = props;
+
+  const fullWidth = valueBreakpoints(fullWidth_, undefined, breakpoints, theme);
 
   const rowValue = () => {
     const htmlFontSize = isEnvironment('browser') ? +window.getComputedStyle(window.document.documentElement).fontSize.slice(0, -2) : 16;
@@ -998,7 +1007,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
           ComponentProps.className,
           classes.root,
           classes[`color_${color}`],
-          fullWidth && !footer && classes.fullWidth,
+          fullWidth && classes.fullWidth,
           error && (hover ? classes.error_hover_color : classes.error_color),
           !footer && disabled && classes.disabled
         ])}
