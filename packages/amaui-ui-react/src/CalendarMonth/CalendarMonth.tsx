@@ -39,7 +39,8 @@ const useStyle = style(theme => ({
   day: {
     width: '40px',
     height: '40px',
-    flex: '1 1 auto'
+    flex: '1 1 auto',
+    position: 'relative'
   },
 
   day_out: {

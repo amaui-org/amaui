@@ -132,6 +132,8 @@ export interface IDateTimePicker extends Omit<IAdvancedTextField, 'version'> {
   hour?: boolean;
   minute?: boolean;
   second?: boolean;
+  today?: boolean;
+  clear?: boolean;
   placeholder?: string;
   readOnly?: boolean;
   disabled?: boolean;
@@ -139,6 +141,7 @@ export interface IDateTimePicker extends Omit<IAdvancedTextField, 'version'> {
   onClose?: (event: React.MouseEvent<any>) => any;
   onCancel?: (event: React.MouseEvent<any>) => any;
   onToday?: (event: React.MouseEvent<any>) => any;
+  onClear?: (event: React.MouseEvent<any>) => any;
   onOk?: (event: React.MouseEvent<any>) => any;
 
   Icon?: TElementReference;
@@ -198,6 +201,8 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
     hour = true,
     minute = true,
     second = false,
+    today,
+    clear = true,
     placeholder: placeholder_,
     readOnly,
     disabled,
@@ -206,6 +211,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
     onClose: onClose_,
     onToday: onToday_,
+    onClear: onClear_,
     onCancel: onCancel_,
     onOk: onOk_,
 
@@ -300,6 +306,13 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
     else version = 'desktop';
   }
 
+  const onUpdateValue = (valueNew: any) => {
+    setValue(valueNew);
+
+    // Update input
+    setInput(valueToInput(valueNew));
+  };
+
   const errorCheck = React.useCallback((valueNew: any = value) => {
     // Error
     setError((valueNew || []).some((item: any, index: number) => !valid(item)));
@@ -313,7 +326,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
   // Value
   React.useEffect(() => {
-    if (value_ !== undefined && value_ !== value) setValue(is('array', value_) ? value_ as any : [value_]);
+    if (value_ !== undefined && value_ !== value) onUpdateValue(is('array', value_) ? value_ as any : [value_]);
   }, [value_]);
 
   const onUpdate = React.useCallback((valueNew: AmauiDate) => {
@@ -451,6 +464,20 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
     if (is('function', onToday_)) onToday_(event);
   }, [input, range, onToday_]);
+
+  const onClear = React.useCallback((event: React.MouseEvent) => {
+    const valueNew = [];
+
+    // Update value
+    onUpdate(valueNew as any);
+
+    // Update input
+    setInput(valueToInput(valueNew));
+
+    onClose(event);
+
+    if (is('function', onClear_)) onClear_(event);
+  }, [onClear_]);
 
   const onOk = React.useCallback((event: React.MouseEvent) => {
     // Error
@@ -722,21 +749,49 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
         classes.footer
       ])}
     >
-      <Tooltip
-        label={tab === 'date' ? 'Time' : 'Date'}
+      <Line
+        gap={0}
+
+        direction='row'
+
+        align='center'
       >
-        <IconButton
-          tonal={tonal}
-
-          color='inherit'
-
-          onClick={onPickSwitch}
-
-          aria-label={tab === 'date' ? 'Time' : 'Date'}
+        <Tooltip
+          label={tab === 'date' ? 'Time' : 'Date'}
         >
-          {tab === 'date' ? <IconTime /> : <IconDate />}
-        </IconButton>
-      </Tooltip>
+          <IconButton
+            tonal={tonal}
+
+            color='inherit'
+
+            onClick={onPickSwitch}
+
+            aria-label={tab === 'date' ? 'Time' : 'Date'}
+          >
+            {tab === 'date' ? <IconTime /> : <IconDate />}
+          </IconButton>
+        </Tooltip>
+
+        {today && (
+          <Button
+            onClick={onToday}
+
+            {...ButtonProps}
+          >
+            Today
+          </Button>
+        )}
+
+        {clear && (
+          <Button
+            onClick={onClear}
+
+            {...ButtonProps}
+          >
+            Clear
+          </Button>
+        )}
+      </Line>
 
       <Line
         gap={0}

@@ -242,6 +242,8 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
   minute?: boolean;
   second?: boolean;
   switch?: boolean | Record<TValueBreakpoints, boolean>;
+  today?: boolean;
+  clear?: boolean;
   placeholder?: string;
   heading?: boolean;
   actions?: boolean;
@@ -323,6 +325,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     second = false,
     switch: switch__,
     static: static_,
+    today,
+    clear = true,
     placeholder: placeholder_,
     heading: heading_ = true,
     actions: actions_ = true,
@@ -335,6 +339,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     onClose: onClose_,
     onCancel: onCancel_,
     onNow: onNow_,
+    onToday: onToday_,
+    onClear: onClear_,
     onOk: onOk_,
 
     renderValue,
@@ -436,6 +442,12 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     else version = 'desktop';
   }
 
+  const onUpdateValue = (valueNew: any) => {
+    setValue(valueNew);
+
+    setDayTime(valueNew.map(item => formatMethod(item, 'a')));
+  };
+
   const errorCheck = React.useCallback((valueNew: any = value) => {
     // Error
     setError((valueNew || []).some((item: any, index: number) => !valid(item)));
@@ -449,13 +461,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
   // Value
   React.useEffect(() => {
-    if (value_ !== undefined && value_ !== value) {
-      const valueNew = (is('array', value_) ? value_ : [value_]) as any;
-
-      setValue(valueNew);
-
-      setDayTime(valueNew.map(item => formatMethod(item, 'a')));
-    }
+    if (value_ !== undefined && value_ !== value) onUpdateValue((is('array', value_) ? value_ : [value_]) as any);
   }, [value_]);
 
   const onUpdate = React.useCallback((valueNew_: AmauiDate) => {
@@ -683,6 +689,42 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     // Update dayTime
     setDayTime(valueNew.map(item => formatMethod(item, 'a')));
   }, [input]);
+
+  const onToday = React.useCallback((event: React.MouseEvent) => {
+    const valueNew: any = [new AmauiDate()];
+
+    if (range) valueNew.push(new AmauiDate());
+
+    // Update value
+    onUpdate(valueNew as any);
+
+    // Update input
+    setInput(valueToInput(valueNew));
+
+    // Update dayTime
+    setDayTime(valueNew.map(item => formatMethod(item, 'a')));
+
+    onClose(event);
+
+    if (is('function', onToday_)) onToday_(event);
+  }, [input, range, onToday_]);
+
+  const onClear = React.useCallback((event: React.MouseEvent) => {
+    const valueNew: any = [];
+
+    // Update value
+    onUpdate(valueNew as any);
+
+    // Update input
+    setInput(valueToInput(valueNew));
+
+    // Update dayTime
+    setDayTime(valueNew.map(item => formatMethod(item, 'a')));
+
+    onClose(event);
+
+    if (is('function', onClear_)) onClear_(event);
+  }, [onClear_]);
 
   const onOk = React.useCallback((event?: React.MouseEvent) => {
     // Error
@@ -1273,22 +1315,52 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
             classes.footer
           ])}
         >
-          {switch_ && (
-            <Tooltip
-              label={mode === 'select' ? 'Enter time' : 'Select time'}
+          {(switch_ || today || clear) && (
+            <Line
+              gap={0}
+
+              direction='row'
+
+              align='center'
             >
-              <IconButton
-                tonal={tonal}
+              {switch_ && (
+                <Tooltip
+                  label={mode === 'select' ? 'Enter time' : 'Select time'}
+                >
+                  <IconButton
+                    tonal={tonal}
 
-                color='inherit'
+                    color='inherit'
 
-                onClick={onModeSwitch}
+                    onClick={onModeSwitch}
 
-                aria-label={mode === 'select' ? 'Enter time' : 'Select time'}
-              >
-                {mode === 'select' ? <IconEnter /> : <Icon_ />}
-              </IconButton>
-            </Tooltip>
+                    aria-label={mode === 'select' ? 'Enter time' : 'Select time'}
+                  >
+                    {mode === 'select' ? <IconEnter /> : <Icon_ />}
+                  </IconButton>
+                </Tooltip>
+              )}
+
+              {today && (
+                <Button
+                  onClick={onToday}
+
+                  {...ButtonProps}
+                >
+                  Now
+                </Button>
+              )}
+
+              {clear && (
+                <Button
+                  onClick={onClear}
+
+                  {...ButtonProps}
+                >
+                  Clear
+                </Button>
+              )}
+            </Line>
           )}
 
           <Line

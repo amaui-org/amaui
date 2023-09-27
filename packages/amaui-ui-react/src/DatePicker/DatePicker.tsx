@@ -231,6 +231,8 @@ export interface IDatePicker extends ILine {
   label?: TElement;
   labelFrom?: string;
   labelTo?: string;
+  today?: boolean;
+  clear?: boolean;
   fullScreen?: boolean;
   heading?: boolean;
   actions?: boolean;
@@ -241,6 +243,7 @@ export interface IDatePicker extends ILine {
   onClose?: (event: React.MouseEvent<any>) => any;
   onCancel?: (event: React.MouseEvent<any>) => any;
   onToday?: (event: React.MouseEvent<any>) => any;
+  onClear?: (event: React.MouseEvent<any>) => any;
   onOk?: (event: React.MouseEvent<any>) => any;
 
   Icon?: TElementReference;
@@ -254,7 +257,7 @@ export interface IDatePicker extends ILine {
   TooltipProps?: TPropsAny;
   IconButtonProps?: TPropsAny;
   AdvancedTextFieldProps?: TPropsAny;
-  ActionButtonProps?: TPropsAny;
+  ButtonProps?: TPropsAny;
   ModalProps?: TPropsAny;
 }
 
@@ -305,6 +308,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     weekStartDay = 'Monday',
     switch: switch__,
     fullScreen,
+    today,
+    clear = true,
     heading: heading_ = true,
     actions: actions_ = true,
     readOnly,
@@ -315,6 +320,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     onClick: onClick_,
     onClose: onClose_,
     onToday: onToday_,
+    onClear: onClear_,
     onCancel: onCancel_,
     onOk: onOk_,
 
@@ -329,7 +335,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     IconButtonProps,
     AdvancedTextFieldProps,
     TooltipProps,
-    ActionButtonProps,
+    ButtonProps,
     ModalProps,
 
     className,
@@ -382,6 +388,19 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     else version = 'desktop';
   }
 
+  const onUpdateValue = (valueNew: any) => {
+    setValue(valueNew);
+
+    // Update calendar
+    onUpdateCalendar(valueNew[0]);
+
+    // Update input
+    setInput(valueToInput(valueNew));
+
+    // Update input modal
+    setInputModal(valueToInput(valueNew));
+  };
+
   const errorCheck = React.useCallback((valueNew: any = value) => {
     // Error
     setError((valueNew || []).some((item: any, index: number) => !valid(item)));
@@ -395,7 +414,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
   // Value
   React.useEffect(() => {
-    if (value_ !== undefined && value_ !== value) setValue(is('array', value_) ? value_ as any : [value_]);
+    if (value_ !== undefined && value_ !== value) onUpdateValue(is('array', value_) ? value_ as any : [value_]);
   }, [value_]);
 
   // Calendar
@@ -496,6 +515,28 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
     if (is('function', onToday_)) onToday_(event);
   }, [input, range, onToday_]);
+
+  const onClear = React.useCallback((event: React.MouseEvent) => {
+    const dateNow = new AmauiDate();
+
+    const valueNew = [];
+
+    // Update value
+    onUpdate(valueNew as any);
+
+    // Update calendar
+    onUpdateCalendar(dateNow);
+
+    // Update input
+    setInput(valueToInput(valueNew));
+
+    // Update input modal
+    setInputModal(valueToInput(valueNew));
+
+    onClose(event);
+
+    if (is('function', onClear_)) onClear_(event);
+  }, [onClear_]);
 
   const onOk = React.useCallback((event: React.MouseEvent) => {
     // Error
@@ -642,11 +683,12 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
   placeholder = placeholder_ || placeholder;
 
-  const actionButtonsProps = {
+  const buttonProps = {
     tonal,
     color,
     version: 'text',
-    ...ActionButtonProps
+
+    ...ButtonProps
   };
 
   const actions = (
@@ -665,13 +707,35 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         classes.actions
       ])}
     >
-      <Button
-        onClick={onToday}
+      {(today || clear) && (
+        <Line
+          gap={0}
 
-        {...actionButtonsProps}
-      >
-        Today
-      </Button>
+          direction='row'
+
+          align='center'
+        >
+          {today && (
+            <Button
+              onClick={onToday}
+
+              {...buttonProps}
+            >
+              Today
+            </Button>
+          )}
+
+          {clear && (
+            <Button
+              onClick={onClear}
+
+              {...buttonProps}
+            >
+              Clear
+            </Button>
+          )}
+        </Line>
+      )}
 
       <Line
         gap={0}
@@ -683,7 +747,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         <Button
           onClick={onCancel}
 
-          {...actionButtonsProps}
+          {...buttonProps}
         >
           Cancel
         </Button>
@@ -691,7 +755,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         <Button
           onClick={onOk}
 
-          {...actionButtonsProps}
+          {...buttonProps}
         >
           Ok
         </Button>
@@ -803,7 +867,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
             <Button
               onClick={onOk}
 
-              {...actionButtonsProps}
+              {...buttonProps}
             >
               Save
             </Button>
