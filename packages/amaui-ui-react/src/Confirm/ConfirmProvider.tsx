@@ -97,12 +97,12 @@ const ConfirmProvider = React.forwardRef((props_: IConfirmProvider, ref: any) =>
 
   refs.props.current = props;
 
-  const open = React.useCallback((value?: IConfirmOpen) => {
+  const open = React.useCallback((value?: IConfirmOpen): Promise<any> => {
     if (!openModal) {
       refs.modal.current = { ...value };
 
       // Defaults
-      refs.modal.current.title = value?.title !== undefined ? value?.title : 'Confirmation';
+      refs.modal.current.name = value?.name !== undefined ? value?.name : 'Confirmation';
       refs.modal.current.description = value?.description !== undefined ? value?.description : 'Are you sure you want to proceed?';
 
       if (refs.modal.current.buttons?.negative?.text === undefined) setObjectValue(refs.modal.current, 'buttons.negative.text', '');
@@ -134,7 +134,7 @@ const ConfirmProvider = React.forwardRef((props_: IConfirmProvider, ref: any) =>
       if (is('function', onClose)) onClose();
 
       // Resolve or reject
-      if (confirm) refs.promise.resolve.current?.(true);
+      if (confirm) refs.promise.resolve.current?.(confirm);
       else !refs.modal.current.throwError ? refs.promise.resolve.current?.(false) : refs.promise.reject.current?.();
 
       refs.promise.resolve.current = undefined;
@@ -143,7 +143,7 @@ const ConfirmProvider = React.forwardRef((props_: IConfirmProvider, ref: any) =>
   }, [openModal, onClose]);
 
   const {
-    title,
+    name,
     description,
 
     buttons,
@@ -191,9 +191,9 @@ const ConfirmProvider = React.forwardRef((props_: IConfirmProvider, ref: any) =>
           modal({ resolve: refs.promise.resolve.current, reject: refs.promise.reject.current }) :
           (
             <>
-              {title !== false && (
+              {name !== false && (
                 <ModalHeader>
-                  <ModalTitle>{title || 'Confirmation'}</ModalTitle>
+                  <ModalTitle>{name || 'Confirmation'}</ModalTitle>
                 </ModalHeader>
               )}
 
@@ -209,7 +209,7 @@ const ConfirmProvider = React.forwardRef((props_: IConfirmProvider, ref: any) =>
 
                   tonal
 
-                  onClick={close}
+                  onClick={() => close(false)}
 
                   {...ButtonNegativeProps}
                 >

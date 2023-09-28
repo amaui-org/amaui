@@ -56,6 +56,8 @@ const ModalMain = React.forwardRef((props_: IModalMain, ref: any) => {
 
       flex
 
+      fullWidth
+
       {...other}
     >
       {children}

@@ -3,7 +3,6 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
-import Line from '../Line';
 import { IType } from '../Type/Type';
 
 import { staticClassName } from '../utils';
@@ -34,16 +33,14 @@ const ModalText = React.forwardRef((props_: IModalText, ref: any) => {
   } = props;
 
   return (
-    <Line
+    <Type
       ref={ref}
-
-      align='center'
 
       version='b2'
 
-      id='amaui-modal-text'
+      align='center'
 
-      Component={Type}
+      id='amaui-modal-text'
 
       className={classNames([
         staticClassName('ModalText', theme) && [
@@ -57,7 +54,7 @@ const ModalText = React.forwardRef((props_: IModalText, ref: any) => {
       {...other}
     >
       {children}
-    </Line>
+    </Type>
   );
 });
 
