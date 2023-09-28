@@ -258,6 +258,45 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
   if (open) MENUS.add(id);
   else MENUS.remove(id);
 
+  const methodItem = (item: any, index: number) => ({
+    key: item.key || index,
+
+    role: 'menuitem',
+
+    menuId: id,
+
+    onClose,
+
+    // Only if button or href value
+    ...(((item.props?.button || item.props?.href) && !item.props.disabled) ? {
+      onMouseEnter: () => {
+        setPreselected(index);
+      },
+
+      onMouseLeave: () => {
+        setPreselected('');
+      },
+
+      preselected: index === preselected,
+
+      onClick: (event: React.MouseEvent<any>) => {
+        if (is('function', item.props?.onClick)) item.props?.onClick(event);
+
+        if (item.props?.menuCloseOnClick) onClose();
+      },
+
+      onKeyDown: (event: React.KeyboardEvent<any>) => {
+        if (event.target === event.currentTarget && event.key === 'Enter') {
+          if (is('function', item.props?.onClick)) item.props?.onClick();
+
+          if (is('function', item.props?.onKeyDown)) item.props?.onKeyDown(event);
+
+          if (item.props?.menuCloseOnClick) onClose();
+        }
+      }
+    } : {})
+  });
+
   return (
     <Wrapper
       {...WrapperProps}
@@ -290,7 +329,7 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
 
         anchorElement={anchorElement}
 
-        label={label || (menuItems && (
+        label={label ? is('function', label) ? (label as any)(methodItem) : label : (menuItems && (
           <List
             menu
 
@@ -303,44 +342,7 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
             {...ListProps}
           >
             {React.Children.toArray(menuItems).map((item: any, index: number) => (
-              React.cloneElement(item, {
-                key: item.key || index,
-
-                role: 'menuitem',
-
-                menuId: id,
-
-                onClose,
-
-                // Only if button or href value
-                ...(((item.props?.button || item.props?.href) && !item.props.disabled) ? {
-                  onMouseEnter: () => {
-                    setPreselected(index);
-                  },
-
-                  onMouseLeave: () => {
-                    setPreselected('');
-                  },
-
-                  preselected: index === preselected,
-
-                  onClick: (event: React.MouseEvent<any>) => {
-                    if (is('function', item.props?.onClick)) item.props?.onClick(event);
-
-                    if (item.props?.menuCloseOnClick) onClose();
-                  },
-
-                  onKeyDown: (event: React.KeyboardEvent<any>) => {
-                    if (event.target === event.currentTarget && event.key === 'Enter') {
-                      if (is('function', item.props?.onClick)) item.props?.onClick();
-
-                      if (is('function', item.props?.onKeyDown)) item.props?.onKeyDown(event);
-
-                      if (item.props?.menuCloseOnClick) onClose();
-                    }
-                  }
-                } : {})
-              })
+              React.cloneElement(item, methodItem(item, index))
             ))}
           </List>
         ))}
