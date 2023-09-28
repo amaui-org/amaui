@@ -8,7 +8,7 @@ import Tooltip from '../Tooltip';
 import ClickListener from '../ClickListener';
 import { ITooltip } from '../Tooltip/Tooltip';
 
-import { staticClassName, TElement, TPropsAny } from '../utils';
+import { staticClassName, TElement, THTMLElement, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -45,7 +45,10 @@ export interface IMenu extends ITooltip {
 
   menuItems?: Array<TElement>;
 
-  include?: Array<Element>;
+  include?: Array<THTMLElement>;
+  includeParentQueries?: Array<string>;
+  includeQueries?: Array<string>;
+
   autoSelect?: boolean;
   autoSelectOnBlur?: boolean;
   resetKeyboardNavigation?: boolean;
@@ -76,11 +79,14 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
     arrow,
     anchor,
     anchorElement,
-    include,
     autoSelect,
     autoSelectOnBlur,
     resetKeyboardNavigation = false,
     closeOnClickAway = true,
+
+    include = [],
+    includeParentQueries = [],
+    includeQueries = [],
 
     onSelect,
 
@@ -252,7 +258,11 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
   if (closeOnClickAway) {
     WrapperProps.onClickOutside = onClose;
 
-    WrapperProps.include = [refs.main.current, ...(refs.include.current || [])].filter(Boolean);
+    WrapperProps.include = [refs.main.current, ...(refs.include.current || []), ...include].filter(Boolean);
+
+    WrapperProps.includeParentQueries = includeParentQueries;
+
+    WrapperProps.includeQueries = includeQueries;
   }
 
   if (open) MENUS.add(id);

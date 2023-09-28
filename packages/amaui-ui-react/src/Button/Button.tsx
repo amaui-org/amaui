@@ -62,7 +62,7 @@ const useStyle = styleMethod(theme => ({
 
   // icon
   icon: {
-    borderRadius: `calc(${theme.shape.radius.unit / 8} * 1em)`,
+    borderRadius: `calc(${theme.shape.radius.unit / 8} * 2em)`,
     padding: '0'
   },
 
@@ -299,6 +299,7 @@ export interface IButton extends Omit<ISurface, 'elevation'> {
   value?: any;
   noIconRootFontSize?: boolean;
   firstLevelChildren?: TElement;
+  noFontSize?: boolean;
 
   disabled?: boolean;
 
@@ -344,6 +345,7 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
     value,
     noIconRootFontSize,
     firstLevelChildren,
+    noFontSize,
 
     disabled: disabled_,
 
@@ -397,18 +399,20 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
 
   // Size
   if (size === 'small') {
-    styles.Icon.fontSize = '15px';
+    if (!noFontSize) styles.Icon.fontSize = '15px';
 
     TypeProps.version = 'l3';
   }
 
   if (size === 'large') {
-    styles.Icon.fontSize = '22px';
+    if (!noFontSize) styles.Icon.fontSize = '22px';
 
     TypeProps.version = 'l1';
   }
 
-  if (fontSize !== undefined) styles.Icon.fontSize = fontSize;
+  if (fontSize !== undefined) {
+    if (!noFontSize) styles.Icon.fontSize = fontSize;
+  }
 
   let children_ = children;
 
@@ -420,29 +424,48 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
       children_ = is('array', children_) ?
         (children_ as any).filter(Boolean).map(
           (item: any, index: number) => is('string', item.type) ?
-            React.cloneElement(item, { key: index }) :
-            React.cloneElement(item, { key: index, size: iconFontSize !== undefined ? iconFontSize : (item.props as any).size !== undefined ? (item.props as any).size : size as any / 1.667 } as any)
+            React.cloneElement(item, {
+              key: index
+            }) :
+            React.cloneElement(item, {
+              key: index,
+              size: !noFontSize ? iconFontSize !== undefined ? iconFontSize : (item.props as any).size !== undefined ? (item.props as any).size : size as any / 1.667 : undefined
+            } as any)
         ) :
-        React.cloneElement(children_ as any, { size: iconFontSize !== undefined ? iconFontSize : (children_ as any).props?.size !== undefined ? (children_ as any).props.size : size as any / 1.667 });
+        React.cloneElement(children_ as any, {
+          size: !noFontSize ? iconFontSize !== undefined ? iconFontSize : (children_ as any).props?.size !== undefined ? (children_ as any).props.size : size as any / 1.667 : undefined
+        });
 
       styles.root.width = size;
       styles.root.height = size;
-      styles.root.fontSize = size as any / 1.667;
 
-      if (!noIconRootFontSize) styles.iconRoot.fontSize = size;
+      if (!noFontSize) {
+        styles.root.fontSize = size as any / 1.667;
+
+        if (!noIconRootFontSize) styles.iconRoot.fontSize = size;
+      }
     }
     else {
       children_ = is('array', children_) ?
         (children_ as any).filter(Boolean).map(
           (item: any, index: number) => is('string', item.type) ?
-            React.cloneElement(item, { key: index }) :
-            React.cloneElement(item, { key: index, size: iconFontSize !== undefined ? iconFontSize : (children_ as any).props?.size !== undefined ? (children_ as any).props?.size : (size === 'large' ? 'medium' : size) } as any)
+            React.cloneElement(item, {
+              key: index
+            }) :
+            React.cloneElement(item, {
+              key: index,
+              size: !noFontSize ? iconFontSize !== undefined ? iconFontSize : (children_ as any).props?.size !== undefined ? (children_ as any).props?.size : (size === 'large' ? 'medium' : size) : undefined
+            } as any)
         ) :
-        React.cloneElement((children_ as any), { size: iconFontSize !== undefined ? iconFontSize : (children_ as any).props?.size !== undefined ? (children_ as any).props?.size : (size === 'large' ? 'medium' : size) });
+        React.cloneElement((children_ as any), {
+          size: !noFontSize ? iconFontSize !== undefined ? iconFontSize : (children_ as any).props?.size !== undefined ? (children_ as any).props?.size : (size === 'large' ? 'medium' : size) : undefined
+        });
 
-      styles.root.fontSize = iconSizeToFontSize(size === 'large' ? 'medium' : size);
+      if (!noFontSize) {
+        styles.root.fontSize = iconSizeToFontSize(size === 'large' ? 'medium' : size);
 
-      if (!noIconRootFontSize) styles.iconRoot.fontSize = size === 'small' ? 30 : size === 'regular' ? 40 : 50;
+        if (!noIconRootFontSize) styles.iconRoot.fontSize = size === 'small' ? 30 : size === 'regular' ? 40 : 50;
+      }
     }
   }
 

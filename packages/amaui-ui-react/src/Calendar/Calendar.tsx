@@ -20,14 +20,45 @@ import PaginationItem from '../PaginationItem';
 import { IconDoneAnimated } from '../Buttons/Buttons';
 import { ICalenarDays, TCalendarMonthCalendar, TCalendarMonthValue } from '../CalendarMonth/CalendarMonth';
 
-import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TTonal } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TSize, TTonal } from '../utils';
 import { TTransitionStatus } from '../Transition';
 
 const useStyle = style(theme => ({
   root: {
     borderRadius: theme.methods.shape.radius.value(4, 'px'),
-    width: '320px',
     overflow: 'hidden'
+  },
+
+  size_small: {
+    width: '275px',
+
+    '& .amaui-ListItem-root': {
+      minHeight: '40px'
+    },
+
+    '& .amaui-ListItem-inset': {
+      paddingInlineStart: '50px'
+    }
+  },
+
+  size_regular: {
+    width: '320px',
+
+    '& .amaui-ListItem-root': {
+      minHeight: '50px'
+    }
+  },
+
+  size_large: {
+    width: '375px',
+
+    '& .amaui-ListItem-root': {
+      minHeight: '60px'
+    },
+
+    '& .amaui-ListItem-inset': {
+      paddingInlineStart: '68px'
+    }
   },
 
   range: {
@@ -75,9 +106,7 @@ const useStyle = style(theme => ({
   },
 
   listItem: {
-    '& .amaui-ListItem-root': {
-      minHeight: '50px'
-    }
+
   },
 
   list_version_year: {
@@ -138,6 +167,7 @@ export interface ICalendar extends IBaseElement {
   color?: TColor;
 
   version?: 'regular' | 'year';
+  size?: TSize;
 
   value?: TCalendarMonthValue;
   valueDefault?: TCalendarMonthValue;
@@ -146,6 +176,9 @@ export interface ICalendar extends IBaseElement {
   calendar?: TCalendarMonthCalendar;
   calendarDefault?: TCalendarMonthCalendar;
   onChangeCalendar?: (value: TCalendarMonthCalendar) => any;
+
+  start?: any;
+  end?: any;
 
   menu?: 'month-year' | 'month';
   now?: boolean;
@@ -233,6 +266,8 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
     version = 'regular',
 
+    size = 'regular',
+
     value: value_,
     valueDefault,
     onChange,
@@ -240,6 +275,9 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
     calendar: calendar_,
     calendarDefault,
     onChangeCalendar,
+
+    start,
+    end,
 
     menu = 'month-year',
     range,
@@ -263,6 +301,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
     CalendarMonthProps,
     OptionButtonProps,
+    PaginationItemsProps,
 
     className,
 
@@ -462,6 +501,8 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
                     now={now}
 
+                    size={size}
+
                     range={range}
 
                     offset={index}
@@ -582,6 +623,8 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
                       now={now}
 
+                      size={size}
+
                       range={range}
 
                       offset={index}
@@ -646,11 +689,15 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
         className,
         classes.root,
+        classes[`size_${size}`],
         range && classes.range
       ])}
 
       {...other}
     >
+      {/* Start */}
+      {start}
+
       {/* Header */}
       <Line
         gap={0.5}
@@ -684,13 +731,17 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
               <IconButton
                 onClick={() => move(false)}
 
+                size={size}
+
                 aria-label='Previous month'
 
                 disabled={open || (+year <= 1970 && month === 'Jan')}
 
                 {...optionButtonProps}
               >
-                <IconPrevious />
+                <IconPrevious
+                  size={size}
+                />
               </IconButton>
             </Fade>
 
@@ -701,11 +752,15 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
               fontSize={24}
 
+              size={size}
+
               end={(
                 <Fade
                   in={open !== 'year'}
                 >
                   <IconDropDown
+                    size={size}
+
                     className={classNames([
                       staticClassName('Calendar', theme) && [
                         'amaui-Calendar-arrow'
@@ -741,13 +796,17 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
               <IconButton
                 onClick={() => move()}
 
+                size={size}
+
                 aria-label='Next month'
 
                 disabled={open || (+year === 2099 && month === 'Dec')}
 
                 {...optionButtonProps}
               >
-                <IconNext />
+                <IconNext
+                  size={size}
+                />
               </IconButton>
             </Fade>
           </Line>
@@ -766,13 +825,17 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
               <IconButton
                 onClick={() => move(false, 'year')}
 
+                size={size}
+
                 aria-label='Previous year'
 
                 disabled={open || +year <= 1970}
 
                 {...optionButtonProps}
               >
-                <IconPrevious />
+                <IconPrevious
+                  size={size}
+                />
               </IconButton>
             </Fade>
 
@@ -783,11 +846,15 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
               fontSize={24}
 
+              size={size}
+
               end={(
                 <Fade
                   in={open !== 'month'}
                 >
                   <IconDropDown
+                    size={size}
+
                     className={classNames([
                       staticClassName('Calendar', theme) && [
                         'amaui-Calendar-arrow'
@@ -823,13 +890,17 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
               <IconButton
                 onClick={() => move(true, 'year')}
 
+                size={size}
+
                 aria-label='Next year'
 
                 disabled={open || +year === 2099}
 
                 {...optionButtonProps}
               >
-                <IconNext />
+                <IconNext
+                  size={size}
+                />
               </IconButton>
             </Fade>
           </Line>
@@ -840,6 +911,8 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
             color='inherit'
 
+            size={size}
+
             version='text'
 
             onClick={() => onOpen('year')}
@@ -848,6 +921,8 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
             end={(
               <IconDropDown
+                size={size}
+
                 className={classNames([
                   staticClassName('Calendar', theme) && [
                     'amaui-Calendar-arrow'
@@ -889,13 +964,17 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
                 color='inherit'
 
+                size={size}
+
                 onClick={() => move(false, menu_month_previous_unit || 'month')}
 
                 aria-label='Previous month'
 
                 disabled={open || (+year === 1970 && month === 'Jan')}
               >
-                <IconPrevious />
+                <IconPrevious
+                  size={size}
+                />
               </IconButton>
             </Fade>
 
@@ -907,13 +986,17 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
                 color='inherit'
 
+                size={size}
+
                 onClick={() => move(true, menu_month_next_unit || 'month')}
 
                 aria-label='Next month'
 
                 disabled={open || (+year === 2099 && month === 'Dec')}
               >
-                <IconNext />
+                <IconNext
+                  size={size}
+                />
               </IconButton>
             </Fade>
           </Line>
@@ -986,6 +1069,8 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
                     startAlign='center'
 
+                    size={size}
+
                     start={selected ? (
                       <IconDoneAnimated
                         in
@@ -993,6 +1078,8 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
                         add
 
                         simple
+
+                        size={size}
                       />
                     ) : undefined}
 
@@ -1007,6 +1094,10 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
                     selected={selected}
 
                     button
+
+                    PrimaryProps={{
+                      version: size === 'regular' ? 'b2' : size === 'small' ? 'b3' : 'b1'
+                    }}
 
                     data-value={index}
 
@@ -1073,6 +1164,8 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
                         startAlign='center'
 
+                        size={size}
+
                         start={selected ? (
                           <IconDoneAnimated
                             in
@@ -1080,6 +1173,8 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
                             add
 
                             simple
+
+                            size={size}
                           />
                         ) : undefined}
 
@@ -1094,6 +1189,10 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
                         )}
 
                         button
+
+                        PrimaryProps={{
+                          version: size === 'regular' ? 'b2' : size === 'small' ? 'b3' : 'b1'
+                        }}
 
                         data-value={yearValue}
 
@@ -1147,6 +1246,8 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
                         color='inherit'
 
+                        size={size}
+
                         InteractionProps={{
                           background: false
                         }}
@@ -1169,11 +1270,14 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
                           )
                         )}
 
+                        {...PaginationItemsProps}
+
                         className={classNames([
                           staticClassName('Calendar', theme) && [
                             'amaui-Calendar-day-version-year'
                           ],
 
+                          PaginationItemsProps?.className,
                           classes.day_version_year
                         ])}
 
@@ -1181,7 +1285,9 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
                           ...(selected ? {
                             color: theme.methods.palette.color.value(undefined, 90, true, palette),
                             backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
-                          } : undefined)
+                          } : undefined),
+
+                          ...PaginationItemsProps?.style
                         }}
                       >
                         {yearValue}
@@ -1194,7 +1300,10 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
           </Surface>
         )
       }
-    </Surface >
+
+      {/* End */}
+      {end}
+    </Surface>
   );
 });
 

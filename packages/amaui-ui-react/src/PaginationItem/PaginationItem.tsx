@@ -84,6 +84,8 @@ const PaginationItem = React.forwardRef((props_: IPaginationItem, ref) => {
 
       icon
 
+      noFontSize
+
       className={classNames([
         staticClassName('PaginationItem', theme) && [
           'amaui-PaginationItem-root'

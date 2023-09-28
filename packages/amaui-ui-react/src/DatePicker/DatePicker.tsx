@@ -22,7 +22,7 @@ import Calendar from '../Calendar';
 import { TCalendarUnit } from '../Calendar/Calendar';
 import { TCalendarMonthCalendar, TCalendarMonthValue } from '../CalendarMonth/CalendarMonth';
 
-import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TValueBreakpoints, valueBreakpoints } from '../utils';
+import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TSize, TTonal, TValueBreakpoints, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -205,6 +205,8 @@ export interface IDatePicker extends ILine {
 
   version?: 'auto' | 'mobile' | 'desktop';
 
+  size?: TSize;
+
   value?: TCalendarMonthValue;
   valueDefault?: TCalendarMonthValue;
   onChange?: (value: TCalendarMonthValue) => any;
@@ -281,6 +283,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     color = 'primary',
 
     version: version_ = 'auto',
+
+    size = 'regular',
 
     value: value_,
     valueDefault,
@@ -1066,6 +1070,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
           now={now}
 
+          size={size}
+
           range={range}
 
           calendars={1}
@@ -1120,6 +1126,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
             color={color}
 
             version='outlined'
+
+            size={size}
 
             label={label}
 
@@ -1186,6 +1194,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
       onChangeCalendar={onCalendarChangeCalendar}
 
       now={now}
+
+      size={size}
 
       range={range}
 
@@ -1261,6 +1271,8 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
         color={color}
 
         version='outlined'
+
+        size={size}
 
         label={label}
 

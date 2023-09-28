@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, element, TMethod } from '@amaui/utils';
+import { is, element } from '@amaui/utils';
 import { classNames, useAmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, matches, THTMLElement } from '../utils';
@@ -33,9 +33,7 @@ const ClickListener = React.forwardRef((props_: IClickListener, ref: any) => {
     touchEvent = 'onTouchEnd',
 
     include = [],
-
     includeParentQueries = [],
-
     includeQueries = [],
 
     onClickInside,

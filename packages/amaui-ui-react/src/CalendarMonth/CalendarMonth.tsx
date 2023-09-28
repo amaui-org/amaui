@@ -11,14 +11,25 @@ import PaginationItem from '../PaginationItem';
 import Transitions from '../Transitions';
 import Transition, { TTransitionStatus } from '../Transition';
 
-import { IBaseElement, staticClassName, TColor, TPropsAny, TTonal } from '../utils';
+import { IBaseElement, staticClassName, TColor, TPropsAny, TSize, TTonal } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
     // for transition
-    height: '300px',
     overflow: 'hidden',
     position: 'relative'
+  },
+
+  size_small: {
+    height: '250px'
+  },
+
+  size_regular: {
+    height: '300px'
+  },
+
+  size_large: {
+    height: '370px'
   },
 
   root_no_labels: {
@@ -30,17 +41,43 @@ const useStyle = style(theme => ({
   },
 
   dayName: {
-    width: '40px',
-    height: '40px',
     flex: '1 1 auto',
     userSelect: 'none'
   },
 
-  day: {
+  dayName_size_small: {
+    width: '30px',
+    height: '30px'
+  },
+
+  dayName_size_regular: {
     width: '40px',
-    height: '40px',
+    height: '40px'
+  },
+
+  dayName_size_large: {
+    width: '50px',
+    height: '50px'
+  },
+
+  day: {
     flex: '1 1 auto',
     position: 'relative'
+  },
+
+  day_size_small: {
+    width: '30px',
+    height: '30px'
+  },
+
+  day_size_regular: {
+    width: '40px',
+    height: '40px'
+  },
+
+  day_size_large: {
+    width: '50px',
+    height: '50px'
   },
 
   day_out: {
@@ -178,6 +215,8 @@ export interface ICalenarDays extends IBaseElement {
   tonal?: TTonal;
   color?: TColor;
 
+  size?: TSize;
+
   value?: TCalendarMonthValue;
   valueDefault?: TCalendarMonthValue;
   onChange?: (value: TCalendarMonthValue) => any;
@@ -200,6 +239,7 @@ export interface ICalenarDays extends IBaseElement {
   valid?: (value: AmauiDate, version: 'day' | 'month' | 'year') => boolean;
   renderDay?: (value: AmauiDate, props: any, today: boolean, weekend: boolean, selected: boolean, outside: boolean) => React.ReactNode;
 
+  PaginationItemProps?: TPropsAny;
   TransitionProps?: TPropsAny;
   TransitionsProps?: TPropsAny;
 }
@@ -214,6 +254,8 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
   const {
     tonal = true,
     color = 'primary',
+
+    size = 'regular',
 
     value: value_,
     valueDefault,
@@ -237,6 +279,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
     valid: valid_,
     renderDay,
 
+    PaginationItemProps,
     TransitionProps,
     TransitionsProps,
 
@@ -525,6 +568,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
         className,
         classes.root,
+        classes[`size_${size}`],
         classes[`move_${refs.move.current}`],
         !labels && classes.root_no_labels
       ])}
@@ -573,7 +617,8 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
                   'amaui-CalendarMonth-day-name'
                 ],
 
-                classes.dayName
+                classes.dayName,
+                classes[`dayName_size_${size}`]
               ])}
             >
               {day}
@@ -679,6 +724,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
                                 ],
 
                                 classes.day,
+                                classes[`day_size_${size}`],
                                 classes[`day_${day.in ? 'in' : 'out'}`],
                                 (!day.in && !outside) && classes.day_out_no,
                                 !day.selectedSame && range && [
@@ -708,6 +754,8 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
 
                                     color='inherit'
 
+                                    size={size}
+
                                     InteractionProps={{
                                       background: false
                                     }}
@@ -719,6 +767,8 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
                                     }}
 
                                     aria-label={format(day.amauiDate, 'DD-MM-YYYY')}
+
+                                    {...PaginationItemProps}
 
                                     className={classNames([
                                       staticClassName('CalendarMonth', theme) && [
@@ -733,6 +783,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
                                         day.end && 'amaui-CalendarMonth-day-end'
                                       ],
 
+                                      PaginationItemProps?.className,
                                       classes.dayValue
                                     ])}
 
@@ -744,7 +795,9 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
                                       ...(day.selected ? {
                                         color: theme.methods.palette.color.value(undefined, 90, true, palette),
                                         backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
-                                      } : undefined)
+                                      } : undefined),
+
+                                      ...PaginationItemProps?.style
                                     }}
 
                                     {...propsDay}

@@ -707,7 +707,11 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
             isSelected && `amaui-ListItem-selected`,
             hover && `amaui-ListItem-hover`,
             focus && `amaui-ListItem-focus`,
-            disabled && `amaui-ListItem-disabled`
+            disabled && `amaui-ListItem-disabled`,
+            inset && !start && `amaui-ListItem-inset`,
+            menuItem && [
+              inset && `amaui-ListItem-menu-item-inset`
+            ],
           ],
 
           classes.root,
