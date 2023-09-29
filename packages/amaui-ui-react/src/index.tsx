@@ -489,3 +489,6 @@ export * from './Page';
 
 export { default as useQuery } from './useQuery';
 export * from './useQuery';
+
+export { default as AudioRecorder } from './AudioRecorder';
+export * from './AudioRecorder';
