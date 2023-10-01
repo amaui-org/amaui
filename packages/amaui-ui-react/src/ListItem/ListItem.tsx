@@ -316,6 +316,7 @@ export interface IListItem extends ISurface {
   tabIndex?: string | number;
   menuCloseOnClick?: boolean;
   listCloseOnClick?: boolean;
+  interaction?: boolean;
   indicator?: boolean;
   noOutline?: boolean;
   disabled?: boolean;
@@ -393,6 +394,7 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
     tabIndex,
     menuCloseOnClick,
     listCloseOnClick,
+    interaction,
     indicator = true,
     noOutline,
     disabled,
@@ -737,7 +739,7 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
 
         {...RootProps}
       >
-        {(href || button) && (
+        {(href || button || interaction) && (
           <Interaction
             border={false}
 
