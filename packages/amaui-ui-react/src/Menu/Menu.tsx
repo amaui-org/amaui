@@ -56,6 +56,7 @@ export interface IMenu extends ITooltip {
 
   onSelect?: (value: any) => any;
 
+  onOpen?: () => any;
   onClose?: () => any;
 
   ListProps?: TPropsAny;

@@ -141,6 +141,7 @@ export interface IWindowSplit extends ILine {
   iconButton?: TElement;
   orientation?: 'vertical' | 'horizontal';
 
+  noKeyboard?: boolean;
   noDivider?: boolean;
 
   focus?: boolean;
@@ -179,6 +180,7 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
     iconButton,
     orientation = 'horizontal',
 
+    noKeyboard,
     noDivider,
 
     focus: focus_ = false,
@@ -474,7 +476,7 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
         onBlur
       })}
 
-      onKeyDown={onKeyDown}
+      onKeyDown={!noKeyboard ? onKeyDown : undefined}
 
       id={refs.ids.root}
 
