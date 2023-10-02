@@ -83,12 +83,13 @@ const useStyle = styleMethod(theme => ({
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     opacity: '0',
     transition: theme.methods.transitions.make('opacity'),
     borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
     width: '100%',
     cursor: 'text',
+
     ...theme.typography.values.b2
   },
 

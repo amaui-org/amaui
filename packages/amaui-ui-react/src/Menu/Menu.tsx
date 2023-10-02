@@ -48,6 +48,7 @@ export interface IMenu extends ITooltip {
   include?: Array<THTMLElement>;
   includeParentQueries?: Array<string>;
   includeQueries?: Array<string>;
+  ignoreNonExisting?: boolean;
 
   autoSelect?: boolean;
   autoSelectOnBlur?: boolean;
@@ -88,6 +89,7 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
     include = [],
     includeParentQueries = [],
     includeQueries = [],
+    ignoreNonExisting,
 
     onSelect,
 
@@ -264,6 +266,8 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
     WrapperProps.includeParentQueries = includeParentQueries;
 
     WrapperProps.includeQueries = includeQueries;
+
+    WrapperProps.ignoreNonExisting = ignoreNonExisting;
   }
 
   if (open) MENUS.add(id);

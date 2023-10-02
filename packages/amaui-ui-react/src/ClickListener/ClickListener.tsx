@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, element } from '@amaui/utils';
+import { is, element, Try } from '@amaui/utils';
 import { classNames, useAmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, matches, THTMLElement } from '../utils';
@@ -17,6 +17,8 @@ export interface IClickListener extends IBaseElement {
   includeParentQueries?: Array<string>;
 
   includeQueries?: Array<string>;
+
+  ignoreNonExisting: boolean;
 
   onClickInside?: () => any;
 
@@ -36,6 +38,8 @@ const ClickListener = React.forwardRef((props_: IClickListener, ref: any) => {
     includeParentQueries = [],
     includeQueries = [],
 
+    ignoreNonExisting = true,
+
     onClickInside,
     onClickOutside,
 
@@ -48,7 +52,8 @@ const ClickListener = React.forwardRef((props_: IClickListener, ref: any) => {
     root: React.useRef<HTMLElement>(),
     include: React.useRef<any>(),
     includeQueries: React.useRef<any>(),
-    includeParentQueries: React.useRef<any>()
+    includeParentQueries: React.useRef<any>(),
+    ignoreNonExisting: React.useRef<any>()
   };
 
   refs.include.current = include;
@@ -57,17 +62,22 @@ const ClickListener = React.forwardRef((props_: IClickListener, ref: any) => {
 
   refs.includeParentQueries.current = includeParentQueries;
 
+  refs.ignoreNonExisting.current = ignoreNonExisting;
+
   React.useEffect(() => {
     const onMethod = (event: MouseEvent) => {
       if (refs.root.current) {
         const elementParents = element(event.target as any).parents();
+
+        const exists = Try(() => window.document.body.contains(event.target as any));
 
         if (
           (
             refs.root.current.contains(event.target as any) ||
             refs.include.current.map(item => item?.current || item).filter(Boolean).some(item => item.contains?.(event.target)) ||
             refs.includeParentQueries.current.some((query: string) => elementParents.some(item => matches(item)(query))) ||
-            refs.includeQueries.current.some((query: string) => matches(event.target)(query))
+            refs.includeQueries.current.some((query: string) => matches(event.target)(query)) ||
+            (!exists && refs.ignoreNonExisting.current)
           )
         ) {
           if (is('function', onClickInside)) onClickInside();
