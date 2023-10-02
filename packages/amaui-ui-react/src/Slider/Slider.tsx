@@ -494,6 +494,9 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
     readOnly,
     disabled,
 
+    onMouseDown: onMouseDown_,
+    onTouchStart: onTouchStart_,
+
     IconButtonProps,
     TooltipProps,
 
@@ -845,7 +848,23 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
 
       move(x, y);
     }
-  }, [disabled, readOnly]);
+
+    if (is('function', onMouseDown_)) onMouseDown_(event);
+  }, [disabled, readOnly, onMouseDown_]);
+
+  const onTouchStart = React.useCallback((event: React.TouchEvent<any> | React.MouseEvent<any>) => {
+    if (!disabled && !readOnly) {
+      setMouseDown(true);
+
+      const x = (event as React.MouseEvent<any>).clientX ? (event as React.MouseEvent<any>).clientX : (event as React.TouchEvent<any>).touches?.[0]?.clientX;
+
+      const y = (event as React.MouseEvent<any>).clientY ? (event as React.MouseEvent<any>).clientY : (event as React.TouchEvent<any>).touches?.[0]?.clientY;
+
+      move(x, y);
+    }
+
+    if (is('function', onMouseDown_)) onMouseDown_(event);
+  }, [disabled, readOnly, onTouchStart_]);
 
   const styles: any = {
     root: {
@@ -983,7 +1002,7 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
 
       onBlur={onBlur}
 
-      onTouchStart={onMouseDown}
+      onTouchStart={onTouchStart}
 
       onMouseDown={onMouseDown}
 
