@@ -74,7 +74,7 @@ const useForm = (props: IUseForm) => {
     init();
   }, []);
 
-  const onChange = React.useCallback(async (property_: string, value_: any, propertyNested?: any) => {
+  const onChange = React.useCallback(async (...args: [Array<[string, any, any?]>] | [string, any, any?]) => {
     const formNew = { ...refs.form.current };
 
     const {
@@ -83,36 +83,42 @@ const useForm = (props: IUseForm) => {
 
     const value = {};
 
-    const property = values[property_];
+    const valuesArgs = is('array', args[0]) ? args[0] : [args];
 
-    if (!property) {
-      values[property_] = {
-        name: (propertyNested || property_)?.split('.')?.slice(-1)[0],
-        touched: true
-      };
-    }
+    for (const arg of valuesArgs) {
+      const [property_, value_, propertyNested] = arg;
 
-    if (!propertyNested) property.value = value_;
-    else setObjectValue(property.value, propertyNested, value_);
+      const property = values[property_];
 
-    property.touched = true;
-
-    if (autoValidate) {
-      // Validate the property
-      if (property.required && !property.value) {
-        const name = is('function', property.propertyNameUpdate) ? property.propertyNameUpdate(property.name!) : property.capitalize !== false ? capitalize(property.name!) : property.name!;
-
-        property.error = `${name} is required`;
+      if (!property) {
+        values[property_] = {
+          name: (propertyNested || property_)?.split('.')?.slice(-1)[0],
+          touched: true
+        };
       }
-      else {
-        property.error = undefined;
 
-        // validations
-        try {
-          await validateModel(property, property_, formNew);
+      if (!propertyNested) property.value = value_;
+      else setObjectValue(property.value, propertyNested, value_);
+
+      property.touched = true;
+
+      if (autoValidate) {
+        // Validate the property
+        if (property.required && !property.value) {
+          const name = is('function', property.propertyNameUpdate) ? property.propertyNameUpdate(property.name!) : property.capitalize !== false ? capitalize(property.name!) : property.name!;
+
+          property.error = `${name} is required`;
         }
-        catch (error) {
-          property.error = (error as ValidationError).message;
+        else {
+          property.error = undefined;
+
+          // validations
+          try {
+            await validateModel(property, property_, formNew);
+          }
+          catch (error) {
+            property.error = (error as ValidationError).message;
+          }
         }
       }
     }

@@ -241,6 +241,12 @@ const useStyle = styleMethod(theme => ({
     padding: '0px'
   },
 
+  noBackground: {
+    '&.amaui-Surface-root': {
+      background: 'none'
+    }
+  },
+
   disabled: {
     pointerEvents: 'none',
     userSelect: 'none',
@@ -318,6 +324,7 @@ export interface IListItem extends ISurface {
   listCloseOnClick?: boolean;
   interaction?: boolean;
   indicator?: boolean;
+  noBackground?: boolean;
   noOutline?: boolean;
   disabled?: boolean;
 
@@ -397,6 +404,7 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
     interaction,
     indicator = true,
     noOutline,
+    noBackground,
     disabled,
 
     onClick: onClick_,
@@ -726,6 +734,7 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
           ],
           (href || button) && classes.button,
           noPadding && classes.noPadding,
+          noBackground && classes.noBackground,
           disabled && classes.disabled
         ])}
 

@@ -60,6 +60,12 @@ const useStyle = styleMethod(theme => ({
 
   noMaxWidth: {
     maxWidth: 'unset'
+  },
+
+  noBackground: {
+    '&.amaui-Surface-root': {
+      background: 'none'
+    }
   }
 }), { name: 'amaui-List' });
 
@@ -73,6 +79,7 @@ export interface IList extends ISurface {
   indent?: number;
   paddingHorizontal?: 'both' | 'start' | 'end' | 'none';
   paddingVertical?: 'both' | 'start' | 'end' | 'none';
+  noBackground?: boolean;
 
   SurfaceProps?: any;
 }
@@ -99,6 +106,7 @@ const List = React.forwardRef((props_: IList, ref: any) => {
     indent,
     paddingHorizontal = 'none',
     paddingVertical = 'both',
+    noBackground,
 
     onMenuDesktopClose,
 
@@ -159,7 +167,8 @@ const List = React.forwardRef((props_: IList, ref: any) => {
         classes[`padding_vertical_${paddingVertical}`],
         classes[`padding_horizontal_${paddingHorizontal}`],
         menu && classes.menu,
-        noMaxWidth && classes.noMaxWidth
+        noMaxWidth && classes.noMaxWidth,
+        noBackground && classes.noBackground
       ])}
 
       style={{
