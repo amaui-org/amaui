@@ -4,6 +4,12 @@ export * from './utils';
 export { default as Reset } from './Reset';
 export * from './Reset';
 
+export { default as AudioPlayer } from './AudioPlayer';
+export * from './AudioPlayer';
+
+export { default as AudioRecorder } from './AudioRecorder';
+export * from './AudioRecorder';
+
 export { default as Transition } from './Transition';
 export * from './Transition';
 
@@ -489,6 +495,3 @@ export * from './Page';
 
 export { default as useQuery } from './useQuery';
 export * from './useQuery';
-
-export { default as AudioRecorder } from './AudioRecorder';
-export * from './AudioRecorder';
