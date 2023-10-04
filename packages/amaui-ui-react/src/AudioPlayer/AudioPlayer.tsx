@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, getLeadingZerosNumber } from '@amaui/utils';
+import { clamp, getLeadingZerosNumber, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import { duration as durationMethod } from '@amaui/date';
 
@@ -161,6 +161,7 @@ const IconMaterialVolumeOffRounded = React.forwardRef((props: any, ref) => {
 export interface IAudioPlayer extends IBaseElement {
   name?: string;
   src?: string;
+  duration?: number;
 
   tonal?: TTonal;
   color?: TColor;
@@ -205,6 +206,8 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
     name,
 
     src,
+
+    duration: duration_,
 
     tonal = true,
     color = 'default',
@@ -420,9 +423,11 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
     audio.addEventListener('loadedmetadata', () => {
       const value = audio!.duration;
 
-      setDuration(value);
+      if (!is('number', duration_) && is('number', value)) {
+        setDuration(value);
 
-      setLoaded(true);
+        setLoaded(true);
+      }
     });
 
     audio.addEventListener('ended', () => {
@@ -443,8 +448,14 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
     // start MediaSession
     startMediaSession();
 
+    if (is('number', duration_)) {
+      setDuration(duration_);
+
+      setLoaded(true);
+    }
+
     audio.src = src;
-  }, [src, startMediaSession]);
+  }, [src, duration_, startMediaSession]);
 
   const onMouseEnter = React.useCallback(() => {
     setVolumeVisible(true);
