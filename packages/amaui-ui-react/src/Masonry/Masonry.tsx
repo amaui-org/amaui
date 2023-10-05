@@ -68,7 +68,7 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
 
   const gap = valueBreakpoints(gap_, 2, breakpoints, theme);
 
-  const columns = valueBreakpoints(columns_, { xs: 1, sm: 2, md: 3, lg: 4, xl: 5, default: 3 }, breakpoints, theme);
+  const columns = valueBreakpoints(columns_, { xxs: 1, xs: 2, sm: 3, md: 4, lg: 5, xl: 6, xxl: 7, default: 4 }, breakpoints, theme);
 
   refs.gap.current = gap;
 

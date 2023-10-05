@@ -334,9 +334,9 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
         ])}
       >
         <Grid
-          gap={{ xs: 0.5, sm: 3 }}
+          gap={{ xxs: 0.5, sm: 3 }}
 
-          direction={{ xs: 'column', sm: 'row' }}
+          direction={{ xxs: 'column', sm: 'row' }}
 
           line
 

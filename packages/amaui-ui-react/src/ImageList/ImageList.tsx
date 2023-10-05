@@ -84,7 +84,7 @@ const ImageList = React.forwardRef((props_: IImageList, ref: any) => {
   const gap = valueBreakpoints(gap_, 0.5, breakpoints, theme);
   const rowGap = valueBreakpoints(rowGap_, undefined, breakpoints, theme);
   const columnGap = valueBreakpoints(columnGap_, undefined, breakpoints, theme);
-  const columns = valueBreakpoints(columns_, { xs: 1, sm: 2, md: 3, lg: 4, xl: 5, default: 3 }, breakpoints, theme);
+  const columns = valueBreakpoints(columns_, { xxs: 1, xs: 2, sm: 3, md: 4, lg: 5, xl: 6, xxl: 7, default: 4 }, breakpoints, theme);
 
   if (['standard', 'quilted', 'vowen'].includes(version)) {
     styles.root.gridTemplateColumns = `repeat(${columns}, 1fr)`;
