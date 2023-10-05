@@ -1,15 +1,14 @@
 import React from 'react';
 
-import is from '@amaui/utils/is';
-import capitalize from '@amaui/utils/capitalize';
-import setObjectValue from '@amaui/utils/setObjectValue';
+import { capitalize, copy, is, setObjectValue } from '@amaui/utils';
 import { ValidationError } from '@amaui/errors';
 
 import validateModel, { IValidateVales } from './validate';
-import { copy } from '@amaui/utils';
 
 export interface IUseForm {
   values: IValidateVales;
+
+  validate?: (values: IValidateVales, form: any) => boolean;
 
   autoValidate?: boolean;
 
@@ -20,6 +19,8 @@ export interface IUseForm {
 const useForm = (props: IUseForm) => {
   const {
     values: values_ = {},
+
+    validate: validate_,
 
     autoValidate,
 
@@ -125,7 +126,7 @@ const useForm = (props: IUseForm) => {
 
     const properties = Object.keys(values);
 
-    const valid = autoValidate ? properties.every((item: string) => {
+    let valid = autoValidate ? properties.every((item: string) => {
       const prop = values[item];
 
       return (
@@ -136,6 +137,8 @@ const useForm = (props: IUseForm) => {
         )
       );
     }) : formNew.valid;
+
+    if (autoValidate && is('function', validate_)) valid = valid && validate_(values, formNew);
 
     properties.forEach(item => {
       const valueProperty = values[item];
@@ -156,7 +159,7 @@ const useForm = (props: IUseForm) => {
         valid
       };
     });
-  }, [autoValidate]);
+  }, [autoValidate, validate_]);
 
   const validate = React.useCallback(async () => {
     const formNew = { ...refs.form.current };
@@ -191,7 +194,7 @@ const useForm = (props: IUseForm) => {
       }
     }
 
-    const valid = properties.every((item: string) => {
+    let valid = properties.every((item: string) => {
       const prop = values[item];
 
       return (
@@ -202,6 +205,8 @@ const useForm = (props: IUseForm) => {
         )
       );
     });
+
+    if (is('function', validate_)) valid = valid && validate_(values, formNew);
 
     // update
     setForm(previous => {
@@ -214,7 +219,7 @@ const useForm = (props: IUseForm) => {
     });
 
     return valid;
-  }, []);
+  }, [validate_]);
 
   const clear = React.useCallback(() => {
     const formNew = { ...refs.form.current };

@@ -682,20 +682,22 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
 
       Component={Component}
 
+      {...WrapperProps}
+
       className={classNames([
         staticClassName('ListItem', theme) && [
           'amaui-ListItem-wrapper'
         ],
 
+        WrapperProps?.className,
         className,
-        classes.wrapper
+        classes.wrapper,
+        noBackground && classes.noBackground
       ])}
 
       noOutline={noOutline}
 
       style={styles.wrapper}
-
-      {...WrapperProps}
 
       {...other}
     >
@@ -734,7 +736,6 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
           ],
           (href || button) && classes.button,
           noPadding && classes.noPadding,
-          noBackground && classes.noBackground,
           disabled && classes.disabled
         ])}
 
