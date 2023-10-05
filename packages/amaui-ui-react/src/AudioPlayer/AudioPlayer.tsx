@@ -364,15 +364,20 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
   }, []);
 
   const onPlay = React.useCallback(() => {
-    setPlay(true);
+    try {
+      setPlay(true);
 
-    refs.audio.current!.play();
+      refs.audio.current!.play();
 
-    // start MediaSession
-    if (refs.startMediaSessionOnPlay.current) refs.startMediaSession.current();
+      // start MediaSession
+      if (refs.startMediaSessionOnPlay.current) refs.startMediaSession.current();
 
-    // update MediaSession
-    refs.updateMediaSession.current();
+      // update MediaSession
+      refs.updateMediaSession.current();
+    }
+    catch (error) {
+      console.error(`AudioPlayer`, error);
+    }
   }, []);
 
   const onPause = React.useCallback(() => {
