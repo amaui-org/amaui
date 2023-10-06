@@ -235,7 +235,9 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
 
         const partPercentage = percentageFromValueWithinRange(item.values[0] as number, 0, valueTotal);
 
-        const part = total * (partPercentage / 100);
+        let part = total * (partPercentage / 100);
+
+        if (partPercentage === 100) part -= 0.0001;
 
         const startInner = angleToCoordinates(anglePreviousInner, center, center, radius * innerOffset);
 
