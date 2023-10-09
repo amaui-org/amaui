@@ -81,11 +81,11 @@ const useStyle = styleMethod(theme => ({
 
 export interface IGrid extends ILine {
   auto?: boolean;
-  line?: boolean;
 
   columns?: number | Record<TValueBreakpoints, number>;
 
   offsets?: Record<TValueBreakpoints, number>;
+
   values?: Record<TValueBreakpoints, number>;
 
   RootProps?: TPropsAny;
@@ -106,10 +106,10 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
 
   const {
     auto,
-    line,
+
     wrap = 'wrap',
 
-    columns = 10,
+    columns = 12,
 
     gap: gap_,
     rowGap: rowGap_,
@@ -122,7 +122,7 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
 
     RootProps,
 
-    Component: Component_ = 'div',
+    Component = 'div',
 
     style,
     className,
@@ -135,7 +135,7 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
   const gap = valueBreakpoints(gap_, 2, breakpoints, theme);
   const rowGap = valueBreakpoints(rowGap_, undefined, breakpoints, theme);
   const columnGap = valueBreakpoints(columnGap_, undefined, breakpoints, theme);
-  const direction = valueBreakpoints(direction_, 'row', breakpoints, theme);
+  const direction = valueBreakpoints(direction_, 'column', breakpoints, theme);
 
   const styles: any = {
     root: {
@@ -155,22 +155,20 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
     if (!valuesGaps.includes(gap)) styles.root.gap = is('string', gap) ? gap : `${gap * theme.space.unit}px`;
   }
 
-  let Component = Component_;
+  other.wrap = wrap;
 
-  if (line) {
-    Component = Line;
+  other.gap = gap;
 
-    other.wrap = wrap;
-    other.gap = gap;
-    other.columnGap = columnGap;
-    other.direction = direction;
-  }
+  other.columnGap = columnGap;
+
+  other.direction = direction;
 
   // Width
   const breakpoint = values && Object.keys(breakpoints).find(item => values && !!values[item] && breakpoints[item]);
 
-  let width = values?.[breakpoint] || columns;
-  const offset = offsets?.[breakpoint] || 0;
+  let width = values?.[breakpoint] || values?.default || columns;
+
+  const offset = offsets?.[breakpoint] || offsets?.default || 0;
 
   const valueGap = columnGap !== undefined ? columnGap : gap;
 
@@ -182,8 +180,10 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
   if (offset > 0) styles.root.marginInlineStart = `${(offset / (columns as number)) * 100}%`;
 
   return (
-    <Component
+    <Line
       ref={ref}
+
+      Component={Component}
 
       className={classNames([
         staticClassName('Grid', theme) && [
@@ -217,7 +217,7 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
           ...other
         })
       ))}
-    </Component>
+    </Line>
   );
 });
 
