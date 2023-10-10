@@ -795,7 +795,7 @@ function Root(props: any) {
           <Type
             version='b3'
           >
-            Copyright © 2022 Lazar Eric
+            Copyright © 2022 Lazar Erić
           </Type>
 
           <Line

@@ -1048,7 +1048,7 @@ export default function Root(props: any) {
               classes.about_text
             ])}
           >
-            I am Lazar Eric, maker of amaui. I made amaui ecosystem of front-end & back-end tools, including UI React library with 100+ UI elements, based on newest Material Design 3, all a 100% Open source and free to use, as I want to push our market forward.
+            I am Lazar Erić, maker of amaui. I made amaui ecosystem of front-end & back-end tools, including UI React library with 100+ UI elements, based on newest Material Design 3, all a 100% Open source and free to use, as I want to push our market forward.
             <br /> <br />
 
             Waste less time on building tools, and more on making modern apps quickly, with quality.
