@@ -619,13 +619,15 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
       else if (is('string', image)) makeImage(image);
     }
 
-    window.addEventListener('keydown', method);
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    rootDocument.addEventListener('keydown', method);
 
     setInit(true);
 
     return () => {
       // Clean up
-      window.removeEventListener('keydown', method);
+      rootDocument.removeEventListener('keydown', method);
     };
   }, []);
 
@@ -687,7 +689,9 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
   const makeImage = async (valueNew: any = refs.value.current) => {
     const img = await imageMethod(valueNew);
 
-    const canvas = window.document.createElement('canvas');
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    const canvas = rootDocument.createElement('canvas');
 
     canvas.width = img.width;
 
@@ -699,7 +703,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
     onChange(canvas);
 
     // Image copy
-    const copy = window.document.createElement('canvas');
+    const copy = rootDocument.createElement('canvas');
 
     copy.width = canvas.width;
 
@@ -711,8 +715,10 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
   };
 
   const updateResize = debounce(async (width: number, height: number) => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     // Update value copy
-    const canvas = window.document.createElement('canvas');
+    const canvas = rootDocument.createElement('canvas');
 
     if (width > 1 && height > 1) {
       canvas.width = width;
@@ -806,12 +812,14 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
   };
 
   const updateQuality = debounce(async (valueNew: any) => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     // Update copy value
     const uri = value.toDataURL('image/jpeg', valueNew / 100);
 
     const img = await imageMethod(uri);
 
-    const canvas = window.document.createElement('canvas');
+    const canvas = rootDocument.createElement('canvas');
 
     canvas.width = img.width;
 
@@ -853,6 +861,8 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
   };
 
   const onReset = (imageReset = true, valueCopyReset = true, resizeReset = true) => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     setOpen(false);
     setQuality(100);
     setAspectRatio('');
@@ -864,7 +874,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
     if (resizeReset) setResize([value?.width, value?.height]);
 
     if (valueCopyReset) {
-      const canvas = window.document.createElement('canvas');
+      const canvas = rootDocument.createElement('canvas');
 
       canvas.width = refs.value.current.width;
 
@@ -895,8 +905,10 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
   };
 
   const onSave = () => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     // Make value copy into value
-    let canvas = window.document.createElement('canvas');
+    let canvas = rootDocument.createElement('canvas');
 
     canvas.width = refs.valueCopy.current.width;
 
@@ -929,7 +941,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
     // Update value
     onChange(canvas);
 
-    const canvasCopy = window.document.createElement('canvas');
+    const canvasCopy = rootDocument.createElement('canvas');
 
     canvasCopy.width = canvas.width;
 
@@ -953,11 +965,13 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
   };
 
   const onCancel = () => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     // Reset to unopen
     onReset(false);
 
     // Make value copy into value
-    const canvas = window.document.createElement('canvas');
+    const canvas = rootDocument.createElement('canvas');
 
     canvas.width = refs.value.current.width;
 

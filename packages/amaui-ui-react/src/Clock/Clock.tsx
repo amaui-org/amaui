@@ -298,22 +298,24 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
       }
     };
 
-    window.addEventListener('mouseup', onMouseUp);
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
 
-    window.addEventListener('mousemove', onMouseMove);
+    rootDocument.addEventListener('mouseup', onMouseUp);
 
-    window.addEventListener('touchend', onMouseUp);
+    rootDocument.addEventListener('mousemove', onMouseMove);
 
-    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    rootDocument.addEventListener('touchend', onMouseUp);
+
+    rootDocument.addEventListener('touchmove', onTouchMove, { passive: true });
 
     return () => {
-      window.removeEventListener('mousemove', onMouseMove);
+      rootDocument.removeEventListener('mousemove', onMouseMove);
 
-      window.removeEventListener('mouseup', onMouseUp);
+      rootDocument.removeEventListener('mouseup', onMouseUp);
 
-      window.removeEventListener('touchmove', onTouchMove);
+      rootDocument.removeEventListener('touchmove', onTouchMove);
 
-      window.removeEventListener('touchend', onMouseUp);
+      rootDocument.removeEventListener('touchend', onMouseUp);
     };
   }, []);
 

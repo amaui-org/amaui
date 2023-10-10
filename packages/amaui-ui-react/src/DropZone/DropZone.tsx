@@ -128,6 +128,7 @@ const DropZone = React.forwardRef((props_: IDropZone, ref: any) => {
   const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
 
   const refs = {
+    root: React.useRef<any>(),
     value: React.useRef<any>(),
     label: React.useRef<any>(),
     input: React.useRef<HTMLInputElement>(),
@@ -157,12 +158,14 @@ const DropZone = React.forwardRef((props_: IDropZone, ref: any) => {
       }
     };
 
-    window.addEventListener('keydown', method);
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    rootDocument.addEventListener('keydown', method);
 
     setInit(true);
 
     return () => {
-      window.removeEventListener('keydown', method);
+      rootDocument.removeEventListener('keydown', method);
     };
   }, []);
 
@@ -261,7 +264,14 @@ const DropZone = React.forwardRef((props_: IDropZone, ref: any) => {
 
   return (
     <FileChoose
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       inputRef={refs.input}
 

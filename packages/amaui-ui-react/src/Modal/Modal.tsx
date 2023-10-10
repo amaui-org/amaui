@@ -234,6 +234,7 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
   const [inProp, setInProp] = React.useState(open_);
 
   const refs = {
+    root: React.useRef<any>(),
     focus: React.useRef<HTMLDivElement>(),
     freezeScroll: React.useRef<any>(),
     interval: React.useRef<any>()
@@ -247,12 +248,16 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
     open: () => {
       MODALS_OPEN++;
 
-      if (freezeScroll) window.document.body.style.overflow = 'hidden';
+      const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+      if (freezeScroll) rootDocument.body.style.overflow = 'hidden';
     },
     close: () => {
       MODALS_OPEN--;
 
-      if (MODALS_OPEN <= 0 && freezeScroll) window.document.body.style.removeProperty('overflow');
+      const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+      if (MODALS_OPEN <= 0 && freezeScroll) rootDocument.body.style.removeProperty('overflow');
     }
   };
 
@@ -269,12 +274,14 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
   };
 
   React.useEffect(() => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     if (open) modal.open();
 
     // Bug clean up fix
     refs.interval.current = setInterval(() => {
-      if (MODALS_OPEN <= 0 && refs.freezeScroll.current && window.document.body.style.overflow === 'hidden') {
-        window.document.body.style.removeProperty('overflow');
+      if (MODALS_OPEN <= 0 && refs.freezeScroll.current && rootDocument.body.style.overflow === 'hidden') {
+        rootDocument.body.style.removeProperty('overflow');
       }
     }, 1400);
 
@@ -316,7 +323,9 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
   };
 
   if (portal) {
-    if (isEnvironment('browser')) PortalProps.element = window.document.body;
+    const rootDocumentElement = refs.root.current?.ownerDocument || window.document;
+
+    if (isEnvironment('browser')) PortalProps.element = rootDocumentElement.body;
   }
 
   const FocusComponent = focus ? Focus : React.Fragment;
@@ -420,7 +429,14 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
       {...PortalProps}
     >
       <Component
-        ref={ref}
+        ref={item => {
+          if (ref) {
+            if (is('function', ref)) ref(item);
+            else ref.current = item;
+          }
+
+          refs.root.current = item;
+        }}
 
         className={classNames([
           staticClassName('Modal', theme) && [

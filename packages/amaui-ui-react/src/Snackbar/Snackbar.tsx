@@ -215,14 +215,16 @@ const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
       if (timeouts[id] !== undefined) removeTimeout();
     };
 
-    window.addEventListener('focus', onTabFocus);
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
 
-    window.addEventListener('blur', onTabBlur);
+    rootDocument.addEventListener('focus', onTabFocus);
+
+    rootDocument.addEventListener('blur', onTabBlur);
 
     return () => {
-      window.removeEventListener('focus', onTabFocus);
+      rootDocument.removeEventListener('focus', onTabFocus);
 
-      window.removeEventListener('blur', onTabBlur);
+      rootDocument.removeEventListener('blur', onTabBlur);
     };
   }, []);
 

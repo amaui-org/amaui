@@ -65,7 +65,9 @@ export const image = (uri: string): Promise<HTMLImageElement> => new Promise((re
 });
 
 export const canvasBrightness = (value: number, mainCanvas: HTMLCanvasElement, valueCopy: HTMLCanvasElement) => {
-  const canvas = window.document.createElement('canvas');
+  const rootDocument = mainCanvas?.ownerDocument || window.document;
+
+  const canvas = rootDocument.createElement('canvas');
 
   canvas.width = valueCopy.width;
 
@@ -83,7 +85,9 @@ export const canvasBrightness = (value: number, mainCanvas: HTMLCanvasElement, v
 };
 
 export const canvasContrast = (value: number, mainCanvas: HTMLCanvasElement, valueCopy: HTMLCanvasElement) => {
-  const canvas = window.document.createElement('canvas');
+  const rootDocument = mainCanvas?.ownerDocument || window.document;
+
+  const canvas = rootDocument.createElement('canvas');
 
   canvas.width = valueCopy.width;
 
@@ -101,7 +105,9 @@ export const canvasContrast = (value: number, mainCanvas: HTMLCanvasElement, val
 };
 
 export const canvasSaturation = (value: number, mainCanvas: HTMLCanvasElement, valueCopy: HTMLCanvasElement) => {
-  const canvas = window.document.createElement('canvas');
+  const rootDocument = mainCanvas?.ownerDocument || window.document;
+
+  const canvas = rootDocument.createElement('canvas');
 
   canvas.width = valueCopy.width;
 
@@ -119,7 +125,9 @@ export const canvasSaturation = (value: number, mainCanvas: HTMLCanvasElement, v
 };
 
 export const canvasFade = (value: number, mainCanvas: HTMLCanvasElement, valueCopy: HTMLCanvasElement) => {
-  const canvas = window.document.createElement('canvas');
+  const rootDocument = mainCanvas?.ownerDocument || window.document;
+
+  const canvas = rootDocument.createElement('canvas');
 
   canvas.width = valueCopy.width;
 
@@ -137,7 +145,9 @@ export const canvasFade = (value: number, mainCanvas: HTMLCanvasElement, valueCo
 };
 
 export const canvasInvert = (value: number, mainCanvas: HTMLCanvasElement, valueCopy: HTMLCanvasElement) => {
-  const canvas = window.document.createElement('canvas');
+  const rootDocument = mainCanvas?.ownerDocument || window.document;
+
+  const canvas = rootDocument.createElement('canvas');
 
   canvas.width = valueCopy.width;
 
@@ -155,7 +165,9 @@ export const canvasInvert = (value: number, mainCanvas: HTMLCanvasElement, value
 };
 
 export const canvasOldPhoto = (value: number, mainCanvas: HTMLCanvasElement, valueCopy: HTMLCanvasElement) => {
-  const canvas = window.document.createElement('canvas');
+  const rootDocument = mainCanvas?.ownerDocument || window.document;
+
+  const canvas = rootDocument.createElement('canvas');
 
   canvas.width = valueCopy.width;
 
@@ -173,7 +185,9 @@ export const canvasOldPhoto = (value: number, mainCanvas: HTMLCanvasElement, val
 };
 
 export const print = (element: HTMLElement) => {
-  const clone = window.document.cloneNode(true) as any;
+  const rootDocument = element?.ownerDocument || window.document;
+
+  const clone = rootDocument.cloneNode(true) as any;
 
   clone.body.innerHTML = '';
 
@@ -197,7 +211,9 @@ export const print = (element: HTMLElement) => {
 };
 
 export const save = (element: HTMLElement) => {
-  const clone = window.document.cloneNode(true) as any;
+  const rootDocument = element?.ownerDocument || window.document;
+
+  const clone = rootDocument.cloneNode(true) as any;
 
   clone.body.innerHTML = '';
 
@@ -207,7 +223,7 @@ export const save = (element: HTMLElement) => {
 
   clone.body.append(elementClone);
 
-  download(`${window.document.title}.html`, clone.documentElement.innerHTML, 'text/html');
+  download(`${rootDocument.title}.html`, clone.documentElement.innerHTML, 'text/html');
 };
 
 export const matches = (value: any) => {
@@ -342,4 +358,28 @@ export const sanitize = (value: string) => {
 
 export const replace = (value: string, split: string, join: string) => {
   return value.split(split).join(join);
+};
+
+export const importIframeStyles = (iframeDocument: Document) => {
+  const styleSheets = window.document.styleSheets;
+
+  for (const styleSheet of Array.from(styleSheets)) {
+    if (!(styleSheet.ownerNode as any).amaui) {
+      iframeDocument.head.append((styleSheet.ownerNode as any)?.cloneNode(true));
+
+      continue;
+    }
+
+    let css = '';
+
+    const rules = styleSheet?.cssRules;
+
+    for (const rule of Array.from(rules)) css += rule.cssText;
+
+    const style = window.document.createElement('style');
+
+    style.innerHTML = css;
+
+    iframeDocument.head.append(style);
+  }
 };

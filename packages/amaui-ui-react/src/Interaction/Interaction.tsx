@@ -278,13 +278,15 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
       removeWaves();
     };
 
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     if (parent) {
       parent.addEventListener('mousedown', onMouseDown);
       parent.addEventListener('touchstart', onMouseDown, { passive: true });
       parent.addEventListener('mouseup', onMouseUp);
-      window.document.addEventListener('mouseup', onMouseUp);
+      rootDocument.addEventListener('mouseup', onMouseUp);
       parent.addEventListener('touchend', onMouseUp, { passive: true });
-      window.document.addEventListener('touchend', onMouseUp, { passive: true });
+      rootDocument.addEventListener('touchend', onMouseUp, { passive: true });
       parent.addEventListener('mouseenter', onMouseIn);
       // parent.addEventListener('touchstart', onMouseIn, { passive: true });
       parent.addEventListener('mouseleave', onMouseOut);
@@ -298,9 +300,9 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
         parent.removeEventListener('mousedown', onMouseDown);
         parent.removeEventListener('touchstart', onMouseDown);
         parent.removeEventListener('mouseup', onMouseUp);
-        window.document.removeEventListener('mouseup', onMouseUp);
+        rootDocument.removeEventListener('mouseup', onMouseUp);
         parent.removeEventListener('touchend', onMouseUp);
-        window.document.removeEventListener('touchend', onMouseUp);
+        rootDocument.removeEventListener('touchend', onMouseUp);
         parent.removeEventListener('mouseenter', onMouseIn);
         parent.removeEventListener('touchstart', onMouseIn);
         parent.removeEventListener('mouseleave', onMouseOut);

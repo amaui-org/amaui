@@ -1043,6 +1043,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
   const [selection, setSelection] = React.useState<DOMRect>();
 
   const refs = {
+    root: React.useRef<any>(),
     value: React.useRef<any>(),
     range: React.useRef<any>(),
     inputValues: React.useRef<any>(),
@@ -1111,7 +1112,11 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
     }
   }, [selection]);
 
-  const query = (command: string) => parse(window.document.queryCommandValue(command));
+  const query = (command: string) => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    return parse(rootDocument.queryCommandValue(command));
+  };
 
   const includesMinMenu = (...args) => args.some(item => refs.miniMenuInclude.current.includes(item));
 
@@ -1157,6 +1162,8 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
   };
 
   const paste = async () => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     const value_ = await navigator.clipboard.read();
 
     if (value_) {
@@ -1168,15 +1175,17 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         values += await valueItem.text();
       }
 
-      window.document.execCommand('insertHTML', undefined, values);
+      rootDocument.execCommand('insertHTML', undefined, values);
     }
   };
 
   const method = React.useCallback((command: string) => (argument: any) => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     switch (command) {
       // updates
       case 'italic':
-        window.document.execCommand('italic');
+        rootDocument.execCommand('italic');
 
         if (query('italic')) setSelected(values => [...values, 'italic']);
         else setSelected(values => values.filter(item => item !== 'italic'));
@@ -1184,7 +1193,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'underline':
-        window.document.execCommand('underline');
+        rootDocument.execCommand('underline');
 
         if (query('underline')) setSelected(values => [...values, 'underline']);
         else setSelected(values => values.filter(item => item !== 'underline'));
@@ -1192,7 +1201,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'bold':
-        window.document.execCommand('bold');
+        rootDocument.execCommand('bold');
 
         if (query('bold')) setSelected(values => [...values, 'bold']);
         else setSelected(values => values.filter(item => item !== 'bold'));
@@ -1200,7 +1209,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'strike-line':
-        window.document.execCommand('strikeThrough');
+        rootDocument.execCommand('strikeThrough');
 
         if (query('strikeThrough')) setSelected(values => [...values, 'strike-line']);
         else setSelected(values => values.filter(item => item !== 'strike-line'));
@@ -1208,7 +1217,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'align-left':
-        window.document.execCommand('justifyLeft');
+        rootDocument.execCommand('justifyLeft');
 
         if (query('justifyLeft')) setSelected(values => [...values.filter(item => !item.includes('align')), 'align-left']);
         else setSelected(values => values.filter(item => item !== 'align-left'));
@@ -1216,7 +1225,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'align-center':
-        window.document.execCommand('justifyCenter');
+        rootDocument.execCommand('justifyCenter');
 
         if (query('justifyCenter')) setSelected(values => [...values.filter(item => !item.includes('align')), 'align-center']);
         else setSelected(values => values.filter(item => item !== 'align-center'));
@@ -1224,7 +1233,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'align-right':
-        window.document.execCommand('justifyRight');
+        rootDocument.execCommand('justifyRight');
 
         if (query('justifyRight')) setSelected(values => [...values.filter(item => !item.includes('align')), 'align-right']);
         else setSelected(values => values.filter(item => item !== 'align-right'));
@@ -1232,7 +1241,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'align-justify':
-        window.document.execCommand('justifyFull');
+        rootDocument.execCommand('justifyFull');
 
         if (query('justifyFull')) setSelected(values => [...values.filter(item => !item.includes('align')), 'align-justify']);
         else setSelected(values => values.filter(item => item !== 'align-justify'));
@@ -1240,7 +1249,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'superscript':
-        window.document.execCommand('superscript');
+        rootDocument.execCommand('superscript');
 
         if (query('superscript')) setSelected(values => [...values, 'superscript']);
         else setSelected(values => values.filter(item => item !== 'superscript'));
@@ -1248,7 +1257,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'subscript':
-        window.document.execCommand('subscript');
+        rootDocument.execCommand('subscript');
 
         if (query('subscript')) setSelected(values => [...values, 'subscript']);
         else setSelected(values => values.filter(item => item !== 'subscript'));
@@ -1256,58 +1265,58 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'indent':
-        window.document.execCommand('indent');
+        rootDocument.execCommand('indent');
 
         break;
 
       case 'outdent':
-        window.document.execCommand('outdent');
+        rootDocument.execCommand('outdent');
 
         break;
 
       case 'font-version':
-        window.document.execCommand('formatBlock', undefined, argument);
+        rootDocument.execCommand('formatBlock', undefined, argument);
 
         break;
 
       case 'font-family':
-        window.document.execCommand('styleWithCSS', true);
+        rootDocument.execCommand('styleWithCSS', true);
 
-        window.document.execCommand('fontName', undefined, argument);
+        rootDocument.execCommand('fontName', undefined, argument);
 
-        window.document.execCommand('styleWithCSS', false);
+        rootDocument.execCommand('styleWithCSS', false);
 
         break;
 
       case 'font-size':
-        window.document.execCommand('styleWithCSS', true);
+        rootDocument.execCommand('styleWithCSS', true);
 
-        window.document.execCommand('fontSize', undefined, argument);
+        rootDocument.execCommand('fontSize', undefined, argument);
 
-        window.document.execCommand('styleWithCSS', false);
+        rootDocument.execCommand('styleWithCSS', false);
 
         break;
 
       case 'font-color':
-        window.document.execCommand('styleWithCSS', true);
+        rootDocument.execCommand('styleWithCSS', true);
 
-        window.document.execCommand('foreColor', undefined, argument);
+        rootDocument.execCommand('foreColor', undefined, argument);
 
-        window.document.execCommand('styleWithCSS', false);
+        rootDocument.execCommand('styleWithCSS', false);
 
         break;
 
       case 'font-background':
-        window.document.execCommand('styleWithCSS', true);
+        rootDocument.execCommand('styleWithCSS', true);
 
-        window.document.execCommand('backColor', undefined, argument);
+        rootDocument.execCommand('backColor', undefined, argument);
 
-        window.document.execCommand('styleWithCSS', false);
+        rootDocument.execCommand('styleWithCSS', false);
 
         break;
 
       case 'list-ordered':
-        window.document.execCommand('insertOrderedList');
+        rootDocument.execCommand('insertOrderedList');
 
         if (query('insertOrderedList')) setSelected(values => [...values.filter(item => !item.includes('list')), 'list-ordered']);
         else setSelected(values => values.filter(item => item !== 'list-ordered'));
@@ -1315,7 +1324,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'list-unordered':
-        window.document.execCommand('insertUnorderedList');
+        rootDocument.execCommand('insertUnorderedList');
 
         if (query('insertUnorderedList')) setSelected(values => [...values.filter(item => !item.includes('list')), 'list-unordered']);
         else setSelected(values => values.filter(item => item !== 'list-unordered'));
@@ -1323,69 +1332,69 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'horizontal-rule':
-        window.document.execCommand('insertHorizontalRule');
+        rootDocument.execCommand('insertHorizontalRule');
 
         break;
 
       case 'link-add':
-        window.document.execCommand('createLink', undefined, argument);
+        rootDocument.execCommand('createLink', undefined, argument);
 
         break;
 
       case 'link-remove':
-        window.document.execCommand('unlink');
+        rootDocument.execCommand('unlink');
 
         break;
 
       case 'image':
-        window.document.execCommand('insertImage', undefined, argument);
+        rootDocument.execCommand('insertImage', undefined, argument);
 
         break;
 
       case 'html':
-        window.document.execCommand('insertHTML', undefined, argument);
+        rootDocument.execCommand('insertHTML', undefined, argument);
 
         break;
 
       // actions
       case 'copy':
-        window.document.execCommand('copy');
+        rootDocument.execCommand('copy');
 
         break;
 
       case 'cut':
-        window.document.execCommand('cut');
+        rootDocument.execCommand('cut');
 
         break;
 
       case 'paste':
-        if (window.document.queryCommandSupported('paste')) window.document.execCommand('paste');
+        if (rootDocument.queryCommandSupported('paste')) rootDocument.execCommand('paste');
         else paste();
 
         break;
 
       case 'delete':
-        window.document.execCommand('delete');
+        rootDocument.execCommand('delete');
 
         break;
 
       case 'clear':
-        window.document.execCommand('removeFormat');
+        rootDocument.execCommand('removeFormat');
 
         break;
 
       case 'select-all':
-        window.document.execCommand('selectAll');
+        rootDocument.execCommand('selectAll');
 
         break;
 
       case 'undo':
-        window.document.execCommand('undo');
+        rootDocument.execCommand('undo');
 
         break;
 
       case 'redo':
-        window.document.execCommand('redo');
+        rootDocument.execCommand('redo');
 
         break;
 
@@ -3354,7 +3363,14 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
   return (
     <Line
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       gap={0}
 

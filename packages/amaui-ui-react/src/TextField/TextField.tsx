@@ -671,8 +671,21 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
   const fullWidth = valueBreakpoints(fullWidth_, undefined, breakpoints, theme);
 
+  const refs = {
+    root: React.useRef<any>(),
+    input: React.useRef<HTMLInputElement>(),
+    carret: React.useRef<any>(),
+    restoreSelection: React.useRef(restoreSelection),
+    ids: {
+      label: React.useId(),
+      clear: React.useId()
+    }
+  };
+
   const rowValue = () => {
-    const htmlFontSize = isEnvironment('browser') ? +window.getComputedStyle(window.document.documentElement).fontSize.slice(0, -2) : 16;
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    const htmlFontSize = isEnvironment('browser') ? +window.getComputedStyle(rootDocument.documentElement).fontSize.slice(0, -2) : 16;
     const padding = size === 'small' ? 28 : size === 'regular' ? 36 : 44;
 
     const row_ = Math.round(htmlFontSize * 0.875 * 1.4285714285714286);
@@ -689,16 +702,6 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
   const [hover, setHover] = React.useState(false);
   const [row, setRow] = React.useState(rowValue);
   const [rows, setRows] = React.useState<any>(1);
-
-  const refs = {
-    input: React.useRef<HTMLInputElement>(),
-    carret: React.useRef<any>(),
-    restoreSelection: React.useRef(restoreSelection),
-    ids: {
-      label: React.useId(),
-      clear: React.useId()
-    }
-  };
 
   const { classes } = useStyle(props);
 
@@ -720,15 +723,17 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
   refs.restoreSelection.current = restoreSelection;
 
   React.useEffect(() => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     const htmlObserver = new MutationObserver(() => setRow(rowValue));
 
-    htmlObserver.observe(window.document.documentElement, { attributes: true, attributeFilter: ['style'] });
+    htmlObserver.observe(rootDocument.documentElement, { attributes: true, attributeFilter: ['style'] });
 
-    window.addEventListener('mouseup', onInputWrapperMouseUp as any);
+    rootDocument.addEventListener('mouseup', onInputWrapperMouseUp as any);
 
     return () => {
       // Clean up
-      window.removeEventListener('mouseup', onInputWrapperMouseUp as any);
+      rootDocument.removeEventListener('mouseup', onInputWrapperMouseUp as any);
 
       htmlObserver.disconnect();
     };
@@ -905,7 +910,14 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
       ...other
     };
 
-    WrapperProps.ref = rootRef;
+    WrapperProps.ref = item => {
+      if (rootRef) {
+        if (is('function', rootRef)) (rootRef as any)(item);
+        else rootRef.current = item;
+      }
+
+      refs.root.current = item;
+    };
 
     WrapperProps['className'] = classNames([
       staticClassName('TextField', theme) && [
@@ -929,7 +941,14 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
       ...other
     };
 
-    ComponentProps.ref = rootRef;
+    ComponentProps.ref = item => {
+      if (rootRef) {
+        if (is('function', rootRef)) (rootRef as any)(item);
+        else rootRef.current = item;
+      }
+
+      refs.root.current = item;
+    };
 
     ComponentProps.className = className;
 

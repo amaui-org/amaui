@@ -167,13 +167,15 @@ const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
       method();
     }, 14);
 
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     if (refs.root.current) {
-      window.addEventListener('scroll', method);
+      rootDocument.addEventListener('scroll', method);
     }
 
     return () => {
       if (refs.root.current) {
-        window.removeEventListener('scroll', method);
+        rootDocument.removeEventListener('scroll', method);
       }
     };
   }, []);

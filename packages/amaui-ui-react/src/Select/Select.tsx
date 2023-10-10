@@ -235,11 +235,13 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
       if (event.key === 'Escape') onClose();
     };
 
-    window.addEventListener('keydown', method);
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    rootDocument.addEventListener('keydown', method);
 
     return () => {
       // Clean up
-      window.removeEventListener('keydown', method);
+      rootDocument.removeEventListener('keydown', method);
     };
   }, []);
 

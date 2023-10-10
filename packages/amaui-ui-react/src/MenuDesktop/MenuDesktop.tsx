@@ -462,10 +462,12 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
       }
     };
 
-    window.document.addEventListener('keydown', method);
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    rootDocument.addEventListener('keydown', method);
 
     return () => {
-      window.document.removeEventListener('keydown', method);
+      rootDocument.removeEventListener('keydown', method);
     };
   }, []);
 

@@ -316,6 +316,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
   };
 
   React.useEffect(() => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     const method = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         if (clearOnEscape) onClear();
@@ -324,17 +326,17 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
       }
     };
 
-    window.addEventListener('keydown', method);
+    rootDocument.addEventListener('keydown', method);
 
-    window.addEventListener('mouseup', onMouseUp as any);
+    rootDocument.addEventListener('mouseup', onMouseUp as any);
 
     setInit(true);
 
     return () => {
       // Clean up
-      window.removeEventListener('mouseup', onMouseUp as any);
+      rootDocument.removeEventListener('mouseup', onMouseUp as any);
 
-      window.removeEventListener('keydown', method);
+      rootDocument.removeEventListener('keydown', method);
     };
   }, []);
 

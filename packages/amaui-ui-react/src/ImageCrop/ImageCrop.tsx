@@ -1027,32 +1027,34 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
       }
     };
 
-    window.addEventListener('keydown', method);
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
 
-    window.addEventListener('mousemove', onMouseMove);
+    rootDocument.addEventListener('keydown', method);
 
-    window.addEventListener('mouseup', onMouseUp);
+    rootDocument.addEventListener('mousemove', onMouseMove);
 
-    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    rootDocument.addEventListener('mouseup', onMouseUp);
 
-    window.addEventListener('touchend', onMouseUp);
+    rootDocument.addEventListener('touchmove', onTouchMove, { passive: true });
+
+    rootDocument.addEventListener('touchend', onMouseUp);
 
     return () => {
       // Clean up
-      window.removeEventListener('keydown', method);
+      rootDocument.removeEventListener('keydown', method);
 
-      window.removeEventListener('mousemove', onMouseMove);
+      rootDocument.removeEventListener('mousemove', onMouseMove);
 
-      window.removeEventListener('mouseup', onMouseUp);
+      rootDocument.removeEventListener('mouseup', onMouseUp);
 
-      window.removeEventListener('touchmove', onTouchMove);
+      rootDocument.removeEventListener('touchmove', onTouchMove);
 
-      window.removeEventListener('touchend', onMouseUp);
+      rootDocument.removeEventListener('touchend', onMouseUp);
 
       if (refs.image.current) {
         setImage('' as any);
 
-        if (window.document.body.style.overflow === 'hidden') window.document.body.style.removeProperty('overflow');
+        if (rootDocument.body.style.overflow === 'hidden') rootDocument.body.style.removeProperty('overflow');
       }
     };
   }, []);
@@ -1145,7 +1147,9 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
   const makeImage = async (value: any = image) => {
     const img = await imageMethod(value);
 
-    const canvas = window.document.createElement('canvas');
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    const canvas = rootDocument.createElement('canvas');
 
     const rootRect = refs.root.current.getBoundingClientRect();
 

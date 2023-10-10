@@ -1153,16 +1153,18 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
     observer.observe(refs.root.current);
 
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('touchmove', onTouchMove);
-    window.addEventListener('touchend', onWrapperMouseLeave);
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    rootDocument.addEventListener('mousemove', onMouseMove);
+    rootDocument.addEventListener('touchmove', onTouchMove);
+    rootDocument.addEventListener('touchend', onWrapperMouseLeave);
 
     return () => {
       observer.disconnect();
 
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('touchmove', onTouchMove);
-      window.removeEventListener('touchend', onWrapperMouseLeave);
+      rootDocument.removeEventListener('mousemove', onMouseMove);
+      rootDocument.removeEventListener('touchmove', onTouchMove);
+      rootDocument.removeEventListener('touchend', onWrapperMouseLeave);
     };
   }, []);
 

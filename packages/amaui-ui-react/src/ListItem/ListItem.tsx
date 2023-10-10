@@ -562,10 +562,12 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
       }
     };
 
-    window.addEventListener('keydown', onKeyDown);
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    rootDocument.addEventListener('keydown', onKeyDown);
 
     return () => {
-      window.removeEventListener('keydown', onKeyDown);
+      rootDocument.removeEventListener('keydown', onKeyDown);
     };
   }, []);
 

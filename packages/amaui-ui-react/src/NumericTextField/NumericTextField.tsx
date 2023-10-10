@@ -104,6 +104,7 @@ const NumericTextField = React.forwardRef((props_: INumericTextField, ref: any) 
   const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
 
   const refs = {
+    root: React.useRef<any>(),
     value: React.useRef<any>(),
     focus: React.useRef<any>(),
     min: React.useRef<any>(),
@@ -170,11 +171,13 @@ const NumericTextField = React.forwardRef((props_: INumericTextField, ref: any) 
       }
     };
 
-    window.addEventListener('keydown', method);
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    rootDocument.addEventListener('keydown', method);
 
     return () => {
       // Clean up
-      window.removeEventListener('keydown', method);
+      rootDocument.removeEventListener('keydown', method);
     };
   }, []);
 
@@ -298,7 +301,14 @@ const NumericTextField = React.forwardRef((props_: INumericTextField, ref: any) 
 
   return (
     <AdvancedTextField
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       value={value}
 

@@ -122,16 +122,20 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
 
       element.addEventListener('touchstart', onTouchStart, { passive: true });
 
-      window.document.addEventListener('touchend', onTouchEnd, { passive: true });
-      window.document.addEventListener('touchmove', onTouchMoveMethod, { passive: true });
+      const rootDocument = element?.ownerDocument || window.document;
+
+      rootDocument.addEventListener('touchend', onTouchEnd, { passive: true });
+      rootDocument.addEventListener('touchmove', onTouchMoveMethod, { passive: true });
     }
 
     return () => {
       // Remove previous event listeners
       if (element) element.removeEventListener('touchstart', onTouchStart);
 
-      window.document.removeEventListener('touchend', onTouchEnd);
-      window.document.removeEventListener('touchmove', onTouchMoveMethod);
+      const rootDocument = element?.ownerDocument || window.document;
+
+      rootDocument.removeEventListener('touchend', onTouchEnd);
+      rootDocument.removeEventListener('touchmove', onTouchMoveMethod);
     };
   }, [element]);
 

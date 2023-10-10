@@ -65,11 +65,13 @@ const ClickListener = React.forwardRef((props_: IClickListener, ref: any) => {
   refs.ignoreNonExisting.current = ignoreNonExisting;
 
   React.useEffect(() => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     const onMethod = (event: MouseEvent) => {
       if (refs.root.current) {
         const elementParents = element(event.target as any).parents();
 
-        const exists = Try(() => window.document.body.contains(event.target as any));
+        const exists = Try(() => rootDocument.body.contains(event.target as any));
 
         if (
           (
@@ -88,14 +90,14 @@ const ClickListener = React.forwardRef((props_: IClickListener, ref: any) => {
       }
     };
 
-    if (mouseEvent) window.document.addEventListener(resolve(mouseEvent), onMethod);
+    if (mouseEvent) rootDocument.addEventListener(resolve(mouseEvent), onMethod);
 
-    if (touchEvent) window.document.addEventListener(resolve(touchEvent), onMethod, { passive: true });
+    if (touchEvent) rootDocument.addEventListener(resolve(touchEvent), onMethod, { passive: true });
 
     return () => {
-      if (mouseEvent) window.document.removeEventListener(resolve(mouseEvent), onMethod);
+      if (mouseEvent) rootDocument.removeEventListener(resolve(mouseEvent), onMethod);
 
-      if (touchEvent) window.document.removeEventListener(resolve(mouseEvent), onMethod);
+      if (touchEvent) rootDocument.removeEventListener(resolve(mouseEvent), onMethod);
     };
   }, []);
 

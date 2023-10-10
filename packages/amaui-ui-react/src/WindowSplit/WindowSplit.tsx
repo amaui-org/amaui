@@ -312,18 +312,20 @@ const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
       }
     };
 
-    window.document.addEventListener('mouseup', onMouseUp);
-    window.document.addEventListener('mousemove', onMouseMove);
-    window.document.addEventListener('touchend', onMouseUp, { passive: true });
-    window.document.addEventListener('touchmove', onTouchMove);
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    rootDocument.addEventListener('mouseup', onMouseUp);
+    rootDocument.addEventListener('mousemove', onMouseMove);
+    rootDocument.addEventListener('touchend', onMouseUp, { passive: true });
+    rootDocument.addEventListener('touchmove', onTouchMove);
 
     setInit(true);
 
     return () => {
-      window.document.removeEventListener('mouseup', onMouseUp);
-      window.document.removeEventListener('touchend', onMouseUp);
-      window.document.removeEventListener('mousemove', onMouseMove);
-      window.document.addEventListener('touchmove', onTouchMove);
+      rootDocument.removeEventListener('mouseup', onMouseUp);
+      rootDocument.removeEventListener('touchend', onMouseUp);
+      rootDocument.removeEventListener('mousemove', onMouseMove);
+      rootDocument.removeEventListener('touchmove', onTouchMove);
     };
   }, []);
 

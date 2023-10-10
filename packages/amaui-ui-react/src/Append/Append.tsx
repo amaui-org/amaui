@@ -141,16 +141,18 @@ const Append = (props_: IAppend) => {
   }, []);
 
   React.useEffect(() => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     make();
 
     // Scroll
-    window.addEventListener('scroll', onScroll, true);
+    rootDocument.addEventListener('scroll', onScroll, true);
 
     // Init
     setInit(true);
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
+      rootDocument.removeEventListener('scroll', onScroll);
     };
   }, []);
 
@@ -278,6 +280,8 @@ const Append = (props_: IAppend) => {
   ) => {
     if (!values__ || (values__.rect.element.width === 0 && values__.rect.element.height === 0)) return;
 
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     const wrapperRect = (overflow || switch_) && (refs.root.current || refs.element.current).parentElement.getBoundingClientRect();
 
     const scrollableParents = element_(refs.root.current).parents().filter(item => {
@@ -302,8 +306,8 @@ const Append = (props_: IAppend) => {
     });
 
     // If no parents, ie. anchor
-    // add window.document.body as an only value
-    if (!scrollableParents.length) scrollableParents.push(window.document.body);
+    // add rootDocument.body as an only value
+    if (!scrollableParents.length) scrollableParents.push(rootDocument.body);
 
     const { position, alignment, inset, switch: switched } = value;
 
@@ -324,7 +328,7 @@ const Append = (props_: IAppend) => {
     const rootBottom = portal ? rect.root.bottom : rectOffset.root.y + rect.root.height;
     const rootRight = portal ? rect.root.right : rectOffset.root.x + rect.root.width;
 
-    const parent_ = (parentElement !== undefined ? parentElement : portal ? window.document.body : refs.root.current?.parentElement)?.getBoundingClientRect();
+    const parent_ = (parentElement !== undefined ? parentElement : portal ? rootDocument.body : refs.root.current?.parentElement)?.getBoundingClientRect();
 
     // Top, Bottom
     if (['top', 'bottom'].includes(position)) {
@@ -368,9 +372,9 @@ const Append = (props_: IAppend) => {
 
     // Absolute position
     if (portal) {
-      values_.y += window.document.documentElement.scrollTop;
+      values_.y += rootDocument.documentElement.scrollTop;
 
-      values_.x += window.document.documentElement.scrollLeft;
+      values_.x += rootDocument.documentElement.scrollLeft;
     }
 
     // Overflow
@@ -381,8 +385,8 @@ const Append = (props_: IAppend) => {
       // or unfollow them if unfollow is true
       if (portal) rectOffset = rect;
 
-      const top = (portal ? window.document.documentElement.scrollTop : 0);
-      const left = (portal ? window.document.documentElement.scrollLeft : 0);
+      const top = (portal ? rootDocument.documentElement.scrollTop : 0);
+      const left = (portal ? rootDocument.documentElement.scrollLeft : 0);
 
       const rootY_ = !portal ? wrapperRect.y + rectOffset.root.y : rect.root.y;
       const valueY = !portal ? wrapperRect.y + values_.y : values_.y;
@@ -676,13 +680,15 @@ const Append = (props_: IAppend) => {
 
   const PortalComponentProps: any = {};
 
+  const rootDocumentElement = refs.root.current?.ownerDocument || window.document;
+
   if (portal && isEnvironment('browser')) {
-    PortalComponentProps.element = window.document.body;
+    PortalComponentProps.element = rootDocumentElement.body;
 
     // relative
-    window.document.body.style.position = window.document.body.style.position || 'relative';
+    rootDocumentElement.body.style.position = rootDocumentElement.body.style.position || 'relative';
 
-    window.document.body.style.margin = window.document.body.style.margin || '0';
+    rootDocumentElement.body.style.margin = rootDocumentElement.body.style.margin || '0';
   }
 
   return (

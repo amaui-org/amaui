@@ -69,7 +69,7 @@ const useStyle = styleMethod(theme => ({
     height: '100%',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
-    backgroundSize: 'contain'
+    backgroundSize: 'cover'
   },
 
   carousel: {
@@ -1021,15 +1021,17 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
     observer.observe(refs.root.current);
 
-    window.addEventListener('keydown', onKeyDown);
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
 
-    window.addEventListener('mouseup', onMouseUp);
+    rootDocument.addEventListener('keydown', onKeyDown);
 
-    window.addEventListener('mousemove', onMouseMove);
+    rootDocument.addEventListener('mouseup', onMouseUp);
 
-    window.addEventListener('touchend', onMouseUp);
+    rootDocument.addEventListener('mousemove', onMouseMove);
 
-    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    rootDocument.addEventListener('touchend', onMouseUp);
+
+    rootDocument.addEventListener('touchmove', onTouchMove, { passive: true });
 
     setInit(true);
 
@@ -1038,15 +1040,15 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
     return () => {
       observer.disconnect();
 
-      window.removeEventListener('keydown', onKeyDown);
+      rootDocument.removeEventListener('keydown', onKeyDown);
 
-      window.removeEventListener('mousemove', onMouseMove);
+      rootDocument.removeEventListener('mousemove', onMouseMove);
 
-      window.removeEventListener('mouseup', onMouseUp);
+      rootDocument.removeEventListener('mouseup', onMouseUp);
 
-      window.removeEventListener('touchmove', onTouchMove);
+      rootDocument.removeEventListener('touchmove', onTouchMove);
 
-      window.removeEventListener('touchend', onMouseUp);
+      rootDocument.removeEventListener('touchend', onMouseUp);
     };
   }, []);
 

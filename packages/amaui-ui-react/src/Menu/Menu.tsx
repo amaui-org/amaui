@@ -195,12 +195,14 @@ const Menu = React.forwardRef((props_: IMenu, ref: any) => {
       }
     };
 
-    window.document.addEventListener('keydown', onKeyDown);
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    rootDocument.addEventListener('keydown', onKeyDown);
 
     return () => {
       MENUS.remove(refs.id.current);
 
-      window.document.removeEventListener('keydown', onKeyDown);
+      rootDocument.removeEventListener('keydown', onKeyDown);
     };
   }, []);
 

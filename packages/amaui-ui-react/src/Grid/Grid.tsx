@@ -107,7 +107,7 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
   const {
     auto,
 
-    wrap = 'wrap',
+    wrap,
 
     columns = 12,
 

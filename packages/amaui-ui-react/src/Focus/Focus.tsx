@@ -82,12 +82,14 @@ const Focus = React.forwardRef((props_: IFocus, ref: any) => {
   };
 
   React.useEffect(() => {
-    window.addEventListener('keydown', onKeyDownUp);
-    window.addEventListener('keyup', onKeyDownUp);
+    const rootDocument = refs.focusStart.current?.ownerDocument || window.document;
+
+    rootDocument.addEventListener('keydown', onKeyDownUp);
+    rootDocument.addEventListener('keyup', onKeyDownUp);
 
     return () => {
-      window.removeEventListener('keydown', onKeyDownUp);
-      window.removeEventListener('keyup', onKeyDownUp);
+      rootDocument.removeEventListener('keydown', onKeyDownUp);
+      rootDocument.removeEventListener('keyup', onKeyDownUp);
     };
   }, []);
 

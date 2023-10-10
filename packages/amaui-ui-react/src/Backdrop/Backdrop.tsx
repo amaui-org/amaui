@@ -41,19 +41,6 @@ const useStyle = styleMethod(theme => ({
 
 let BACKDROPS_OPEN = 0;
 
-const backdrop = {
-  open: () => {
-    BACKDROPS_OPEN++;
-
-    window.document.body.style.overflow = 'hidden';
-  },
-  close: () => {
-    BACKDROPS_OPEN--;
-
-    if (!BACKDROPS_OPEN) window.document.body.style.removeProperty('overflow');
-  }
-};
-
 export interface IBackdrop extends ILine {
   open?: boolean;
   invisible?: boolean;
@@ -102,7 +89,9 @@ const Backdrop = React.forwardRef((props_: IBackdrop, ref: any) => {
   const [open, setOpen] = React.useState(open_);
   const [inProp, setInProp] = React.useState(open_);
   const { classes } = useStyle(props);
+
   const refs = {
+    root: React.useRef<any>(),
     focus: React.useRef<HTMLDivElement>()
   };
 
@@ -112,6 +101,23 @@ const Backdrop = React.forwardRef((props_: IBackdrop, ref: any) => {
 
   const onKeyDown = (event: KeyboardEvent) => {
     if (event.key === 'Escape' && !disableKeyboardClose) onClose();
+  };
+
+  const backdrop = {
+    open: () => {
+      BACKDROPS_OPEN++;
+
+      const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+      rootDocument.body.style.overflow = 'hidden';
+    },
+    close: () => {
+      BACKDROPS_OPEN--;
+
+      const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+      if (!BACKDROPS_OPEN) rootDocument.body.style.removeProperty('overflow');
+    }
   };
 
   React.useEffect(() => {
@@ -146,7 +152,14 @@ const Backdrop = React.forwardRef((props_: IBackdrop, ref: any) => {
 
   return (
     <Line
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       gap={0}
 

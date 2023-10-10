@@ -261,6 +261,7 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
   const [updating, setUpdating] = React.useState<any>(false);
 
   const refs = {
+    root: React.useRef<any>(),
     audio: React.useRef<HTMLAudioElement>(),
     controls: React.useRef<any>(),
     duration: React.useRef<any>(),
@@ -421,7 +422,9 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
   const init = React.useCallback(() => {
     setLoaded(false);
 
-    refs.audio.current = window.document.createElement('audio');
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    refs.audio.current = rootDocument.createElement('audio');
 
     const audio = refs.audio.current;
 
@@ -545,7 +548,14 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
 
   return (
     <Line
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       gap={1}
 

@@ -280,6 +280,8 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
   }, [open_]);
 
   const onKeyDown = (event: React.KeyboardEvent<any>) => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     if (level === 0) {
       let allElements = [];
 
@@ -292,7 +294,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
       switch (event.key) {
         case 'ArrowUp':
         case 'ArrowDown':
-          index = clamp(allElements.findIndex(item => item === window.document.activeElement), 0);
+          index = clamp(allElements.findIndex(item => item === rootDocument.activeElement), 0);
 
           event.key === 'ArrowDown' ? index++ : index--;
 

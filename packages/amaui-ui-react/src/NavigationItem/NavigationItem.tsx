@@ -197,6 +197,7 @@ const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
   const [mouseDown, setMouseDown] = React.useState(false);
 
   const refs = {
+    root: React.useRef<any>(),
     props: React.useRef<any>(),
     hover: React.useRef<any>()
   };
@@ -222,10 +223,12 @@ const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
       }
     };
 
-    window.document.addEventListener('mouseup', onMouseUp);
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    rootDocument.addEventListener('mouseup', onMouseUp);
 
     return () => {
-      window.document.removeEventListener('mouseup', onMouseUp);
+      rootDocument.removeEventListener('mouseup', onMouseUp);
     };
   }, []);
 
@@ -378,7 +381,14 @@ const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
         {...other}
       >
         <Line
-          ref={ref}
+          ref={item => {
+            if (ref) {
+              if (is('function', ref)) ref(item);
+              else ref.current = item;
+            }
+
+            refs.root.current = item;
+          }}
 
           direction='column'
 

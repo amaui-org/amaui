@@ -189,6 +189,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   const [supported, setSupported] = React.useState(true);
 
   const refs = {
+    root: React.useRef<any>(),
     canvas: React.useRef<any>(),
     canvasSelectorValue: React.useRef<any>(),
     element: React.useRef<HTMLVideoElement>()
@@ -209,6 +210,8 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   }, [touch, onInit_]);
 
   React.useEffect(() => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     const method = (event: KeyboardEvent) => {
       switch (event.key) {
         case 'V':
@@ -252,18 +255,18 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
       }
     };
 
-    window.addEventListener('keydown', method);
+    rootDocument.addEventListener('keydown', method);
 
     onInit();
 
     return () => {
       // Clean up
-      window.removeEventListener('keydown', method);
+      rootDocument.removeEventListener('keydown', method);
 
       if (refs.canvas.current) {
         setCanvas('' as any);
 
-        if (window.document.body.style.overflow === 'hidden') window.document.body.style.removeProperty('overflow');
+        if (rootDocument.body.style.overflow === 'hidden') rootDocument.body.style.removeProperty('overflow');
       }
     };
   }, []);
@@ -275,13 +278,15 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   }, [name_]);
 
   React.useEffect(() => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     if (canvas) {
-      window.document.body.style.overflow = 'hidden';
+      rootDocument.body.style.overflow = 'hidden';
     }
     else {
       setCanvasSelectorValue(false);
 
-      if (window.document.body.style.overflow === 'hidden') window.document.body.style.removeProperty('overflow');
+      if (rootDocument.body.style.overflow === 'hidden') rootDocument.body.style.removeProperty('overflow');
     }
   }, [canvas]);
 
@@ -293,6 +298,8 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   };
 
   const trackToValue = React.useCallback(async (track: MediaStreamTrack, version: TTrackValueVersion = 'canvas') => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     const canvasElement = document.createElement('canvas');
 
     const { width, height } = track.getSettings();
@@ -301,7 +308,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
     canvasElement.height = height || window.innerHeight;
 
     // Hide elements
-    const elements = Array.from(window.document.body.querySelectorAll('.amaui-ScreenCapture-root')).map(element => {
+    const elements = Array.from(rootDocument.body.querySelectorAll('.amaui-ScreenCapture-root')).map((element: HTMLElement) => {
       if (element.parentElement.classList.contains('amaui-Move-root')) return element.parentElement;
 
       return element;
@@ -326,7 +333,9 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   }, [type, quality]);
 
   const make = React.useCallback(async (version: TTrackValueVersion = 'image', options: any = {}) => {
-    refs.element.current = window.document.createElement('video');
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    refs.element.current = rootDocument.createElement('video');
 
     let tracks: MediaStreamTrack[];
 
@@ -394,7 +403,9 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   //   setLoading(items => [...items, 'entirePage']);
 
   //   try {
-  //     await elementToCanvas(window.document.body, {
+  //     const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+  //     await elementToCanvas(rootDocument.body, {
   //       response: 'download',
 
   //       filter: ['.amaui-Widgets-root', '#amaui-screen-capture'],
@@ -494,9 +505,18 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
 
   if (!supported) return null;
 
+  const rootDocumentElement = refs.root.current?.ownerDocument || window.document;
+
   return (
     <Surface
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       id='amaui-screen-capture'
 
@@ -623,7 +643,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
 
       {canvas && (
         <Portal
-          element={window.document.body}
+          element={rootDocumentElement.body}
         >
           <div
             className={classNames([

@@ -445,6 +445,8 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
   if (!tooltipLabel) TooltipProps.open = false;
 
   const onKeyDown = (event: React.KeyboardEvent<any>) => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
     let allElements = [];
 
     if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
@@ -471,7 +473,7 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
       case 'ArrowUp':
       case 'ArrowDown':
         if (lineItemsDirection.includes('column')) {
-          let index = clamp(allElements.findIndex(item => item === window.document.activeElement), 0);
+          let index = clamp(allElements.findIndex(item => item === rootDocument.activeElement), 0);
 
           event.key === 'ArrowUp' ? index++ : index--;
 
@@ -484,7 +486,7 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
       case 'ArrowLeft':
       case 'ArrowRight':
         if (lineItemsDirection.includes('row')) {
-          let index = clamp(allElements.findIndex(item => item === window.document.activeElement), 0);
+          let index = clamp(allElements.findIndex(item => item === rootDocument.activeElement), 0);
 
           event.key === 'ArrowLeft' ? index++ : index--;
 

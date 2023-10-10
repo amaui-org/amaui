@@ -309,6 +309,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
   } = props;
 
   const refs = {
+    root: React.useRef<any>(),
     month: React.useRef<HTMLElement>(),
     year: React.useRef<HTMLElement>(),
     inProgressTransition: React.useRef<boolean>()
@@ -417,7 +418,9 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
     // Scroll to the value
     setTimeout(() => {
       Try(() => {
-        let item: any = window.document.body.querySelector('[data-month-from]');
+        const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+        let item: any = rootDocument.body.querySelector('[data-month-from]');
 
         if (item) {
           item = item.parentElement.parentElement;
@@ -676,7 +679,14 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
   return (
     <Surface
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       tonal={tonal}
 

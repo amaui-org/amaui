@@ -122,7 +122,9 @@ const SpyScroll = React.forwardRef((props_: ISpyScroll, ref: any) => {
       // Find first active id
       let id: string;
 
-      Try(() => id = refs.props.current.ids.find((item: string) => methodElement(window.document.querySelector(`#${item}`.replace('##', '#')))));
+      const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+      Try(() => id = refs.props.current.ids.find((item: string) => methodElement(rootDocument.querySelector(`#${item}`.replace('##', '#')))));
 
       if (id && refs.root.current) {
         // Update all elements in root
@@ -182,13 +184,15 @@ const SpyScroll = React.forwardRef((props_: ISpyScroll, ref: any) => {
     // Initial
     method();
 
+    const rootDocumentElement = refs.root.current?.ownerDocument || window.document;
+
     if (refs.root.current) {
-      window.addEventListener('scroll', method);
+      rootDocumentElement.addEventListener('scroll', method);
     }
 
     return () => {
       if (refs.root.current) {
-        window.removeEventListener('scroll', method);
+        rootDocumentElement.removeEventListener('scroll', method);
       }
     };
   }, []);
