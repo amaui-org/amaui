@@ -56,39 +56,75 @@ const useStyle = styleMethod(theme => ({
   // Version
   version_d1: { ...theme.typography.values.d1 },
 
+  version_d1_responsive: { fontSize: `clamp(40px, 2.8274vw, ${theme.typography.values.d1.fontSize})` },
+
   version_d2: { ...theme.typography.values.d2 },
+
+  version_d2_responsive: { fontSize: `clamp(36px, 2.232vw, ${theme.typography.values.d2.fontSize})` },
 
   version_d3: { ...theme.typography.values.d3 },
 
+  version_d3_responsive: { fontSize: `clamp(32px, 1.736vw, ${theme.typography.values.d3.fontSize})` },
+
   version_h1: { ...theme.typography.values.h1 },
+
+  version_h1_responsive: { fontSize: `clamp(28px, 1.5874vw, ${theme.typography.values.h1.fontSize})` },
 
   version_h2: { ...theme.typography.values.h2 },
 
+  version_h2_responsive: { fontSize: `clamp(24px, 1.3394vw, ${theme.typography.values.h2.fontSize})` },
+
   version_h3: { ...theme.typography.values.h3 },
+
+  version_h3_responsive: { fontSize: `clamp(20px, 1.1904vw, ${theme.typography.values.h3.fontSize})` },
 
   version_t1: { ...theme.typography.values.t1 },
 
+  version_t1_responsive: { fontSize: `clamp(18px, 1.0415vw, ${theme.typography.values.t1.fontSize})` },
+
   version_t2: { ...theme.typography.values.t2 },
+
+  version_t2_responsive: { fontSize: `clamp(16px, 0.7935vw, ${theme.typography.values.t2.fontSize})` },
 
   version_t3: { ...theme.typography.values.t3 },
 
+  version_t3_responsive: { fontSize: `clamp(14px, 0.6944vw, ${theme.typography.values.t3.fontSize})` },
+
   version_l1: { ...theme.typography.values.l1 },
+
+  version_l1_responsive: { fontSize: `clamp(16px, 0.7935vw, ${theme.typography.values.l1.fontSize})` },
 
   version_l2: { ...theme.typography.values.l2 },
 
+  version_l2_responsive: { fontSize: `clamp(14px, 0.6944vw, ${theme.typography.values.l2.fontSize})` },
+
   version_l3: { ...theme.typography.values.l3 },
+
+  version_l3_responsive: { fontSize: `clamp(12px, 0.5954vw, ${theme.typography.values.l3.fontSize})` },
 
   version_b1: { ...theme.typography.values.b1 },
 
+  version_b1_responsive: { fontSize: `clamp(16px, 0.7935vw, ${theme.typography.values.b1.fontSize})` },
+
   version_b2: { ...theme.typography.values.b2 },
+
+  version_b2_responsive: { fontSize: `clamp(14px, 0.6944vw, ${theme.typography.values.b2.fontSize})` },
 
   version_b3: { ...theme.typography.values.b3 },
 
+  version_b3_responsive: { fontSize: `clamp(12px, 0.5954vw, ${theme.typography.values.b3.fontSize})` },
+
   version_m1: { ...theme.typography.values.m1 },
+
+  version_m1_responsive: { fontSize: `clamp(16px, 0.7935vw, ${theme.typography.values.m1.fontSize})` },
 
   version_m2: { ...theme.typography.values.m2 },
 
+  version_m2_responsive: { fontSize: `clamp(14px, 0.6944vw, ${theme.typography.values.m2.fontSize})` },
+
   version_m3: { ...theme.typography.values.m3 },
+
+  version_m3_responsive: { fontSize: `clamp(12px, 0.5954vw, ${theme.typography.values.m3.fontSize})` },
 
   disabled: {
     pointerEvents: 'none',
@@ -99,6 +135,8 @@ const useStyle = styleMethod(theme => ({
 
 export interface IType extends IBaseElement {
   color?: TColor;
+
+  responsive?: boolean;
 
   priority?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
 
@@ -118,6 +156,8 @@ const Type = React.forwardRef((props_: IType, ref: any) => {
 
   const {
     color = 'inherit',
+
+    responsive = true,
 
     priority,
 
@@ -179,6 +219,7 @@ const Type = React.forwardRef((props_: IType, ref: any) => {
         className,
         classes.root,
         classes[`version_${version}`],
+        responsive && classes[`version_${version}_responsive`],
         classes[`color_${color}`],
         priority && classes[`priority_${priority}`],
         disabled && classes.disabled

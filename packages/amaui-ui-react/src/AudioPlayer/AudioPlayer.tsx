@@ -760,8 +760,6 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
 
                     max={1}
 
-                    size={size}
-
                     orientation='horizontal'
 
                     onMouseEnter={onMouseEnter}
@@ -769,6 +767,8 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
                     onMouseLeave={onMouseLeave}
 
                     {...sliderProps}
+
+                    size={['small', 'regular'].includes(size) ? 'small' : 'regular'}
 
                     {...VolumeProps}
 
