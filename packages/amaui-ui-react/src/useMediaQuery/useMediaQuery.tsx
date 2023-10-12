@@ -2,8 +2,19 @@ import React from 'react';
 
 import { isEnvironment } from '@amaui/utils';
 
-const useMediaQuery = (props: string) => {
-  const [response, setResponse] = React.useState<MediaQueryList | MediaQueryListEvent>(isEnvironment('browser') && window.matchMedia(props));
+export interface IOptionsUseMediaQuery {
+  element?: any;
+  window?: Window;
+}
+
+const useMediaQuery = (props: string, options?: IOptionsUseMediaQuery) => {
+  const rootDocument = options?.element?.ownerDocument || window.document;
+
+  // iframeWindow
+  // workaround for matchMedia on the iframe window
+  const windowElement = isEnvironment('browser') && (rootDocument?.iframeWindow || window);
+
+  const [response, setResponse] = React.useState<MediaQueryList | MediaQueryListEvent>(windowElement?.matchMedia(props));
 
   const refs = {
     mediaQuery: React.useRef<MediaQueryList>()
@@ -15,8 +26,8 @@ const useMediaQuery = (props: string) => {
   React.useEffect(() => {
     if (refs.mediaQuery.current) refs.mediaQuery.current.removeEventListener('change', method);
 
-    if (isEnvironment('browser')) {
-      refs.mediaQuery.current = window.matchMedia(props);
+    if (windowElement) {
+      refs.mediaQuery.current = windowElement.matchMedia(props);
 
       // Add new event listener
       refs.mediaQuery.current.addEventListener('change', method);
@@ -29,7 +40,7 @@ const useMediaQuery = (props: string) => {
       // Remove event listener
       if (refs.mediaQuery.current) refs.mediaQuery.current.removeEventListener('change', method);
     };
-  }, [props]);
+  }, [props, windowElement]);
 
   return response?.matches;
 };

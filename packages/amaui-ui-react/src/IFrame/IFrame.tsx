@@ -62,6 +62,11 @@ const IFrame = React.forwardRef((props_: IIFrame, ref: any) => {
     if (iframeDocument) {
       const rootDocument = refs.root.current?.ownerDocument || window.document;
 
+      // Add iframe ref to iframe document
+      (iframeDocument as any).iframe = refs.root.current;
+
+      (iframeDocument as any).iframeWindow = refs.root.current?.contentWindow;
+
       // Head
       iframeDocument.head?.replaceWith(rootDocument.createElement('head'));
 

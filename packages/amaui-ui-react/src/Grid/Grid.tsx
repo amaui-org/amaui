@@ -104,13 +104,6 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
     if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(`(min-width: ${theme.breakpoints.values[key]}px)`);
   });
 
-  const responsiveValues = {
-    mobile: useMediaQuery(`(max-width: 767px)`),
-    tablet: useMediaQuery(`(min-width: 768px) and (max-width: 1199px)`),
-    laptop: useMediaQuery(`(min-width: 1200px) and (max-width: 1919px)`),
-    desktop: useMediaQuery(`(min-width: 1920px)`)
-  };
-
   const { classes } = useStyle(props);
 
   const {
@@ -147,7 +140,15 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
   const rowGap = valueBreakpoints(rowGap_, undefined, breakpoints, theme);
   const columnGap = valueBreakpoints(columnGap_, undefined, breakpoints, theme);
   const direction = valueBreakpoints(direction_, 'column', breakpoints, theme);
-  const responsive = valueBreakpoints(direction_, undefined, breakpoints, theme);
+  const responsive = valueBreakpoints(responsive_, undefined, breakpoints, theme);
+
+  const refs = {
+    root: React.useRef<any>()
+  };
+
+  const responsiveValues = {
+    mobile: useMediaQuery(`(max-width: 767px)`, { element: refs.root.current })
+  };
 
   const styles: any = {
     root: {
@@ -182,20 +183,19 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
 
   // responsive
   // value provided, override
-  const isResponsive = responsive && responsiveValues.mobile && direction?.includes('row');
-
-  if (isResponsive) {
-    width = 12;
-
-    other.direction = 'column';
-  }
+  const isResponsive = responsive && responsiveValues.mobile;
 
   const offset = offsets?.[breakpoint] || offsets?.default || 0;
 
   const valueGap = columnGap !== undefined ? columnGap : gap;
 
   if (auto) width = undefined;
+  else if (isResponsive) width = '100%';
   else width = `calc(${(width / (columns as number)) * 100}% - ${(valueGap * theme.space.unit)}px)`;
+
+  if (isResponsive) {
+    other.direction = 'column';
+  }
 
   styles.root.width = width;
 
@@ -203,7 +203,14 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
 
   return (
     <Line
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       Component={Component}
 
@@ -231,14 +238,10 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
       {...RootProps}
     >
       {React.Children.toArray(children).map((item: any) => (
-        React.cloneElement(item, item.type?.displayName !== 'Grid' ? {} : {
+        React.cloneElement(item, !item.type?.displayName?.includes('Grid') ? {} : {
           gap,
           rowGap,
           columnGap,
-
-          ...(isResponsive && {
-            values: 12
-          }),
 
           ...other
         })
