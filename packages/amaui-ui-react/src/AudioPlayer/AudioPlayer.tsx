@@ -778,7 +778,15 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
                       {!muted ? <IconVolume /> : <IconVolumeMuted />}
                     </IconButton>
 
-                    {volumeVisible && (
+                    <Expand
+                      in={volumeVisible}
+
+                      parent={refs.controls.current}
+
+                      orientation='horizontal'
+
+                      className={classes.volumeExpand}
+                    >
                       <Slider
                         value={volume}
 
@@ -802,7 +810,7 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
                           classes.volume
                         ])}
                       />
-                    )}
+                    </Expand>
                   </Line>
 
                   <Line

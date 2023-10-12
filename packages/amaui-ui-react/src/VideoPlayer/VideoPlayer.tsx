@@ -8,6 +8,7 @@ import Line from '../Line';
 import Surface from '../Surface';
 import Slider from '../Slider';
 import IconButton from '../IconButton';
+import Expand from '../Expand';
 import Type from '../Type';
 import Icon from '../Icon';
 
@@ -299,7 +300,7 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
     duration: duration_,
 
     tonal = true,
-    color = 'default',
+    color,
     size = 'regular',
 
     start,
@@ -572,36 +573,39 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
     };
 
     const methodMouseMove = () => {
-      clearTimeout(refs.timeoutMouseMoved.current);
+      if (refs.play.current) {
+        clearTimeout(refs.timeoutMouseMoved.current);
 
-      setMouseMoved({
-        moved: true,
-        unix: AmauiDate.unix
-      });
-
-      refs.timeoutMouseMoved.current = setTimeout(() => {
         setMouseMoved({
-          moved: false,
+          moved: true,
           unix: AmauiDate.unix
         });
-      }, 4000);
+
+        refs.timeoutMouseMoved.current = setTimeout(() => {
+          setMouseMoved({
+            moved: false,
+            unix: AmauiDate.unix
+          });
+        }, 4000);
+      }
     };
 
-    rootDocument.addEventListener('mousemove', methodMouseMove);
+    refs.root.current?.addEventListener('mousemove', methodMouseMove);
 
-    rootDocument.addEventListener('touchstart', methodMouseMove);
+    refs.root.current?.addEventListener('touchstart', methodMouseMove);
 
-    rootDocument.addEventListener('touchmove', methodMouseMove);
+    refs.root.current?.addEventListener('touchmove', methodMouseMove);
 
     rootDocument.addEventListener('fullscreenchange', methodFullScreen);
 
     video.src = src;
+
     return () => {
-      rootDocument.removeEventListener('mousemove', methodMouseMove);
+      refs.root.current?.removeEventListener('mousemove', methodMouseMove);
 
-      rootDocument.removeEventListener('touchstart', methodMouseMove);
+      refs.root.current?.removeEventListener('touchstart', methodMouseMove);
 
-      rootDocument.removeEventListener('touchmove', methodMouseMove);
+      refs.root.current?.removeEventListener('touchmove', methodMouseMove);
 
       rootDocument.removeEventListener('fullscreenchange', methodFullScreen);
     };
@@ -798,7 +802,7 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
 
           tonal={tonal}
 
-          color={color}
+          color={color !== undefined ? color : theme.palette.light ? 'inverted' : 'default'}
 
           Component={Line}
 
@@ -931,7 +935,15 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
                     {!muted ? <IconVolume /> : <IconVolumeMuted />}
                   </IconButton>
 
-                  {volumeVisible && (
+                  <Expand
+                    in={volumeVisible}
+
+                    parent={refs.controls.current}
+
+                    orientation='horizontal'
+
+                    className={classes.volumeExpand}
+                  >
                     <Slider
                       value={volume}
 
@@ -955,7 +967,7 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
                         classes.volume
                       ])}
                     />
-                  )}
+                  </Expand>
                 </Line>
 
                 <Line
