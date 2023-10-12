@@ -492,7 +492,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
   if (free && momentum === undefined) momentum = true;
 
   const [init, setInit] = React.useState<any>();
-  const [items, setItems] = React.useState([]);
+  const [items, setItems] = React.useState(items_ || []);
   const [value, setValue] = React.useState<any>(valueDefault !== undefined ? valueDefault : value_);
   const [hover, setHover] = React.useState<any>();
   const [mouseDown, setMouseDown] = React.useState<any>();
@@ -1067,8 +1067,8 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
   }, [items, onUpdateItems]);
 
   React.useEffect(() => {
-    if (init) setItems(items_);
-  }, [id]);
+    setItems(items_);
+  }, [id, items_]);
 
   const onPrevious = () => onUpdate('previous');
 
