@@ -4,8 +4,8 @@ import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
-import useMediaQuery from '../useMediaQuery';
 import { ILine } from '../Line/Line';
+import useMediaQuery from '../useMediaQuery';
 
 import { staticClassName, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
 
@@ -86,6 +86,8 @@ export interface IGrid extends ILine {
 
   offsets?: Record<TValueBreakpoints, number>;
 
+  responsive?: boolean;
+
   values?: Record<TValueBreakpoints, number>;
 
   RootProps?: TPropsAny;
@@ -101,6 +103,13 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
   theme.breakpoints.keys.sort((a, b) => theme.breakpoints.values[b] - theme.breakpoints.values[a]).forEach(key => {
     if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(`(min-width: ${theme.breakpoints.values[key]}px)`);
   });
+
+  const responsiveValues = {
+    mobile: useMediaQuery(`(max-width: 767px)`),
+    tablet: useMediaQuery(`(min-width: 768px) and (max-width: 1199px)`),
+    laptop: useMediaQuery(`(min-width: 1200px) and (max-width: 1919px)`),
+    desktop: useMediaQuery(`(min-width: 1920px)`)
+  };
 
   const { classes } = useStyle(props);
 
@@ -120,6 +129,8 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
     offsets,
     values,
 
+    responsive: responsive_,
+
     RootProps,
 
     Component = 'div',
@@ -136,6 +147,7 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
   const rowGap = valueBreakpoints(rowGap_, undefined, breakpoints, theme);
   const columnGap = valueBreakpoints(columnGap_, undefined, breakpoints, theme);
   const direction = valueBreakpoints(direction_, 'column', breakpoints, theme);
+  const responsive = valueBreakpoints(direction_, undefined, breakpoints, theme);
 
   const styles: any = {
     root: {
@@ -166,7 +178,17 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
   // Width
   const breakpoint = values && Object.keys(breakpoints).find(item => values && !!values[item] && breakpoints[item]);
 
-  let width = values?.[breakpoint] || values?.default || columns;
+  let width = values?.[breakpoint] || values?.default || (is('number', values) && values) || columns;
+
+  // responsive
+  // value provided, override
+  const isResponsive = responsive && responsiveValues.mobile && direction?.includes('row');
+
+  if (isResponsive) {
+    width = 12;
+
+    other.direction = 'column';
+  }
 
   const offset = offsets?.[breakpoint] || offsets?.default || 0;
 
@@ -204,15 +226,19 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
         ...style
       }}
 
-      {...RootProps}
-
       {...other}
+
+      {...RootProps}
     >
       {React.Children.toArray(children).map((item: any) => (
         React.cloneElement(item, item.type?.displayName !== 'Grid' ? {} : {
           gap,
           rowGap,
           columnGap,
+
+          ...(isResponsive && {
+            values: 12
+          }),
 
           ...other
         })
