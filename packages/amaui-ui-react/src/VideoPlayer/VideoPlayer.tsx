@@ -6,7 +6,6 @@ import { duration as durationMethod } from '@amaui/date';
 
 import Line from '../Line';
 import Surface from '../Surface';
-import Placeholder from '../Placeholder';
 import Slider from '../Slider';
 import IconButton from '../IconButton';
 import Expand from '../Expand';
@@ -24,8 +23,15 @@ const useStyle = styleMethod(theme => ({
 
   },
 
-  audio: {
+  wrapperFullScreen: {
+    height: '100%'
+  },
 
+  video: {
+    background: 'black',
+    flex: '1 1 auto',
+    cursor: 'pointer',
+    userSelect: 'none'
   },
 
   size_small: {
@@ -40,16 +46,20 @@ const useStyle = styleMethod(theme => ({
     borderRadius: theme.methods.shape.radius.value(2)
   },
 
+  fullScreen: {
+    borderRadius: 0
+  },
+
   controls_size_small: {
-    padding: '4px 8px'
+    padding: '6px 8px 4px'
   },
 
   controls_size_regular: {
-    padding: '8px 12px'
+    padding: '12px 12px 8px'
   },
 
   controls_size_large: {
-    padding: '12px 16px'
+    padding: '18px 16px 12px'
   },
 
   wrapperTimeline: {
@@ -89,7 +99,7 @@ const useStyle = styleMethod(theme => ({
   placeholder: {
 
   }
-}), { name: 'amaui-AudioPlayer' });
+}), { name: 'amaui-VideoPlayer' });
 
 const IconMaterialPlayArrowRounded = React.forwardRef((props: any, ref) => {
 
@@ -174,9 +184,42 @@ const IconMaterialVolumeOffRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-export interface IAudioPlayer extends IBaseElement {
+const IconMaterialFullscreenRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='FullscreenRounded'
+      short_name='Fullscreen'
+
+      {...props}
+    >
+      <path d="M6 19Q5.575 19 5.287 18.712Q5 18.425 5 18V15Q5 14.575 5.287 14.287Q5.575 14 6 14Q6.425 14 6.713 14.287Q7 14.575 7 15V17H9Q9.425 17 9.713 17.288Q10 17.575 10 18Q10 18.425 9.713 18.712Q9.425 19 9 19ZM6 10Q5.575 10 5.287 9.712Q5 9.425 5 9V6Q5 5.575 5.287 5.287Q5.575 5 6 5H9Q9.425 5 9.713 5.287Q10 5.575 10 6Q10 6.425 9.713 6.713Q9.425 7 9 7H7V9Q7 9.425 6.713 9.712Q6.425 10 6 10ZM15 19Q14.575 19 14.288 18.712Q14 18.425 14 18Q14 17.575 14.288 17.288Q14.575 17 15 17H17V15Q17 14.575 17.288 14.287Q17.575 14 18 14Q18.425 14 18.712 14.287Q19 14.575 19 15V18Q19 18.425 18.712 18.712Q18.425 19 18 19ZM18 10Q17.575 10 17.288 9.712Q17 9.425 17 9V7H15Q14.575 7 14.288 6.713Q14 6.425 14 6Q14 5.575 14.288 5.287Q14.575 5 15 5H18Q18.425 5 18.712 5.287Q19 5.575 19 6V9Q19 9.425 18.712 9.712Q18.425 10 18 10Z" />
+    </Icon>
+  );
+});
+
+const IconMaterialFullscreenExitRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='FullscreenExitRounded'
+      short_name='FullscreenExit'
+
+      {...props}
+    >
+      <path d="M9 19Q8.575 19 8.288 18.712Q8 18.425 8 18V16H6Q5.575 16 5.287 15.712Q5 15.425 5 15Q5 14.575 5.287 14.287Q5.575 14 6 14H9Q9.425 14 9.713 14.287Q10 14.575 10 15V18Q10 18.425 9.713 18.712Q9.425 19 9 19ZM6 10Q5.575 10 5.287 9.712Q5 9.425 5 9Q5 8.575 5.287 8.287Q5.575 8 6 8H8V6Q8 5.575 8.288 5.287Q8.575 5 9 5Q9.425 5 9.713 5.287Q10 5.575 10 6V9Q10 9.425 9.713 9.712Q9.425 10 9 10ZM15 19Q14.575 19 14.288 18.712Q14 18.425 14 18V15Q14 14.575 14.288 14.287Q14.575 14 15 14H18Q18.425 14 18.712 14.287Q19 14.575 19 15Q19 15.425 18.712 15.712Q18.425 16 18 16H16V18Q16 18.425 15.713 18.712Q15.425 19 15 19ZM15 10Q14.575 10 14.288 9.712Q14 9.425 14 9V6Q14 5.575 14.288 5.287Q14.575 5 15 5Q15.425 5 15.713 5.287Q16 5.575 16 6V8H18Q18.425 8 18.712 8.287Q19 8.575 19 9Q19 9.425 18.712 9.712Q18.425 10 18 10Z" />
+    </Icon>
+  );
+});
+
+export interface IVideoPlayer extends IBaseElement {
   name?: string;
   src?: string;
+  mime?: string;
   duration?: number;
 
   tonal?: TTonal;
@@ -190,6 +233,7 @@ export interface IAudioPlayer extends IBaseElement {
 
   forward?: boolean;
   backward?: boolean;
+  fullScreen?: boolean;
 
   startMediaSessionOnPlay?: boolean;
 
@@ -213,15 +257,17 @@ export interface IAudioPlayer extends IBaseElement {
   SliderProps?: TPropsAny;
 }
 
-const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
+const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAudioPlayer?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiVideoPlayer?.props?.default, ...props_ }), [props_]);
 
   const {
     name,
 
     src,
+
+    mime,
 
     duration: duration_,
 
@@ -236,6 +282,7 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
 
     forward,
     backward,
+    fullScreen: fullScreen_ = true,
 
     startMediaSessionOnPlay,
 
@@ -247,6 +294,8 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
     IconBackward = IconMaterialForwardMediaRounded,
     IconVolume = IconMaterialVolumeDownAltRounded,
     IconVolumeMuted = IconMaterialVolumeOffRounded,
+    IconFullScreen = IconMaterialFullscreenRounded,
+    IconFullScreenExit = IconMaterialFullscreenExitRounded,
 
     PlayButtonProps,
     ForwardButtonProps,
@@ -257,6 +306,7 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
     TimelineProps,
     VolumeProps,
     SliderProps,
+    FullScreenButtonProps,
 
     className,
 
@@ -275,10 +325,11 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
   const [volume, setVolume] = React.useState(1);
   const [volumeVisible, setVolumeVisible] = React.useState(false);
   const [updating, setUpdating] = React.useState<any>(false);
+  const [fullScreen, setFullScreen] = React.useState(false);
 
   const refs = {
     root: React.useRef<any>(),
-    audio: React.useRef<HTMLAudioElement>(),
+    video: React.useRef<HTMLVideoElement>(),
     controls: React.useRef<any>(),
     duration: React.useRef<any>(),
     time: React.useRef<any>(),
@@ -350,13 +401,13 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
   const onVolumeChange = React.useCallback((value: number) => {
     setVolume(value);
 
-    refs.audio.current!.volume = value;
+    refs.video.current!.volume = value;
   }, []);
 
   const onTimeChange = React.useCallback((value: number) => {
     setTime(value);
 
-    refs.audio.current!.currentTime = value;
+    refs.video.current!.currentTime = value;
 
     // update MediaSession
     refs.updateMediaSession.current();
@@ -384,7 +435,7 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
     try {
       setPlay(true);
 
-      refs.audio.current!.play();
+      refs.video.current!.play();
 
       // start MediaSession
       if (refs.startMediaSessionOnPlay.current) refs.startMediaSession.current();
@@ -393,34 +444,34 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
       refs.updateMediaSession.current();
     }
     catch (error) {
-      console.error(`AudioPlayer`, error);
+      console.error(`videoPlayer`, error);
     }
   }, []);
 
   const onPause = React.useCallback(() => {
     setPlay(false);
 
-    refs.audio.current!.pause();
+    refs.video.current!.pause();
   }, []);
 
   const onStop = React.useCallback(() => {
     setPlay(false);
 
-    refs.audio.current!.pause();
+    refs.video.current!.pause();
 
-    refs.audio.current!.currentTime = 0;
+    refs.video.current!.currentTime = 0;
   }, []);
 
   const onMute = React.useCallback(() => {
     setMuted(true);
 
-    refs.audio.current!.muted = true;
+    refs.video.current!.muted = true;
   }, []);
 
   const onUnmute = React.useCallback(() => {
     setMuted(false);
 
-    refs.audio.current!.muted = false;
+    refs.video.current!.muted = false;
   }, []);
 
   refs.onPlay.current = onPlay;
@@ -438,14 +489,10 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
   const init = React.useCallback(() => {
     setLoaded(false);
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const video = refs.video.current as HTMLVideoElement;
 
-    refs.audio.current = rootDocument.createElement('audio');
-
-    const audio = refs.audio.current;
-
-    audio.addEventListener('loadedmetadata', () => {
-      const value = audio!.duration;
+    video.addEventListener('loadedmetadata', () => {
+      const value = video!.duration;
 
       if (!is('number', duration_) && is('number', value)) {
         setDuration(value);
@@ -454,12 +501,12 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
       }
     });
 
-    audio.addEventListener('ended', () => {
+    video.addEventListener('ended', () => {
       refs.onStop.current();
     });
 
-    audio.addEventListener('timeupdate', () => {
-      const value = audio.currentTime;
+    video.addEventListener('timeupdate', () => {
+      const value = video.currentTime;
 
       if (!refs.updating.current && refs.time.current !== value) {
         setTime(value);
@@ -478,7 +525,26 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
       setLoaded(true);
     }
 
-    audio.src = src;
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    const method = () => {
+      if (rootDocument.fullscreenElement) {
+        setFullScreen(true);
+      }
+      else {
+        setFullScreen(false);
+      }
+    };
+
+    rootDocument.addEventListener('fullscreenchange', method);
+
+    video.src = src;
+
+    // video.load();
+
+    return () => {
+      rootDocument.removeEventListener('fullscreenchange', method);
+    };
   }, [src, duration_, startMediaSession]);
 
   const onMouseEnter = React.useCallback(() => {
@@ -502,6 +568,38 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
 
     if (updatingPrevious === 'play') onPlay();
   }, [onPlay]);
+
+  const onFullScreen = React.useCallback(async () => {
+    const root = refs.root.current;
+
+    try {
+      if (root.requestFullscreen) await root.requestFullscreen();
+      else if ((root as any).webkitRequestFullscreen) await (root as any).webkitRequestFullscreen();
+      else if ((root as any).msRequestFullscreen) await (root as any).msRequestFullscreen();
+    }
+    catch (error) { }
+  }, []);
+
+  const onFullScreenExit = React.useCallback(async () => {
+    const rootDocument = refs.root.current?.ownerDocument || window.document;
+
+    try {
+      if (rootDocument.exitFullscreen) await rootDocument.exitFullscreen();
+      else if ((rootDocument as any).webkitExitFullscreen) await (rootDocument as any).webkitExitFullscreen();
+      else if ((rootDocument as any).msExitFullscreen) await (rootDocument as any).msExitFullscreen();
+    }
+    catch (error) { }
+  }, []);
+
+  const onVideoClick = React.useCallback((event: any) => {
+    if (event.detail === 1) {
+      !play ? onPlay() : onPause();
+    }
+
+    if (event.detail === 2) {
+      !fullScreen ? onFullScreen() : onFullScreenExit();
+    }
+  }, [play, fullScreen, onPlay, onPause, onFullScreen, onFullScreenExit]);
 
   React.useEffect(() => {
     // init
@@ -586,99 +684,117 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
       Component={Component}
 
       className={classNames([
-        staticClassName('AudioPlayer', theme) && [
-          `amaui-AudioPlayer-root`
+        staticClassName('VideoPlayer', theme) && [
+          `amaui-VideoPlayer-root`
         ],
 
         className,
         classes.root,
-        classes[`size_${size}`]
+        classes[`size_${size}`],
+        fullScreen && classes.fullScreen
       ])}
 
       {...other}
     >
-      {!loaded && (
-        <Placeholder
-          height={size === 'large' ? 94 : size === 'regular' ? 76 : 58}
+      <Surface
+        gap={0}
 
-          width='100%'
+        tonal={tonal}
 
-          animation='wave'
+        color={color}
 
-          className={classes.placeholder}
-        />
-      )}
+        direction='column'
 
-      {loaded && (
-        <Surface
+        align='unset'
+
+        justify='unset'
+
+        fullWidth
+
+        Component={Line}
+
+        className={classNames([
+          classes.wrapper,
+          fullScreen && classes.wrapperFullScreen
+        ])}
+      >
+        {start}
+
+        <video
+          ref={refs.video as any}
+
+          onClick={onVideoClick}
+
+          controls={false}
+
+          className={classNames([
+            classes.video,
+            fullScreen && classes.videoFullScreen
+          ])}
+        >
+          <source src={src} type={mime} />
+        </video>
+
+        <Line
           gap={0}
-
-          tonal={tonal}
-
-          color={color}
-
-          direction='column'
-
-          align='unset'
-
-          justify='unset'
 
           fullWidth
 
-          Component={Line}
-
           className={classNames([
-            classes.wrapper
+            classes[`controls_size_${size}`]
           ])}
         >
-          {start}
-
-          {/* Controls */}
           <Line
-            gap={0}
+            fullWidth
+
+            className={classes.wrapperTimeline}
+          >
+            <Slider
+              value={time}
+
+              onChange={onTimeChange}
+
+              min={0}
+
+              max={10}
+
+              onMouseDown={onUpdating}
+
+              onTouchStart={onUpdating}
+
+              onMouseUp={onUpdatingDone}
+
+              onToucheEnd={onUpdatingDone}
+
+              {...sliderProps}
+
+              {...TimelineProps}
+
+              className={classNames([
+                sliderProps?.className,
+                TimelineProps?.className,
+                classes.timeline
+              ])}
+            />
+          </Line>
+
+          <Line
+            ref={refs.controls}
+
+            direction='row'
+
+            align='center'
 
             fullWidth
 
             className={classNames([
-              classes[`controls_size_${size}`]
+              classes.controls
             ])}
           >
-            <Line
-              fullWidth
-
-              className={classes.wrapperTimeline}
-            >
-              <Slider
-                value={time}
-
-                onChange={onTimeChange}
-
-                min={0}
-
-                max={duration}
-
-                onMouseDown={onUpdating}
-
-                onTouchStart={onUpdating}
-
-                onMouseUp={onUpdatingDone}
-
-                onToucheEnd={onUpdatingDone}
-
-                {...sliderProps}
-
-                {...TimelineProps}
-
-                className={classNames([
-                  sliderProps?.className,
-                  TimelineProps?.className,
-                  classes.timeline
-                ])}
-              />
-            </Line>
+            {startControls}
 
             <Line
-              ref={refs.controls}
+              gap={1}
 
               direction='row'
 
@@ -687,96 +803,96 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
               justify='space-between'
 
               fullWidth
-
-              className={classNames([
-                classes.controls
-              ])}
             >
-              {startControls}
-
               <Line
-                gap={1}
+                gap={1.5}
 
                 direction='row'
 
                 align='center'
-
-                justify='space-between'
-
-                fullWidth
               >
                 <Line
-                  gap={1.5}
+                  gap={0}
 
                   direction='row'
 
                   align='center'
                 >
-                  <Line
-                    gap={0}
+                  <IconButton
+                    onClick={play ? onPause : onPlay}
 
-                    direction='row'
+                    {...iconButtonProps}
 
-                    align='center'
+                    {...PlayButtonProps}
                   >
+                    {play ? <IconPause /> : <IconPlay />}
+                  </IconButton>
+
+                  {backward && (
                     <IconButton
-                      onClick={play ? onPause : onPlay}
+                      onClick={onBackward}
 
                       {...iconButtonProps}
 
-                      {...PlayButtonProps}
+                      {...BackwardButtonProps}
                     >
-                      {play ? <IconPause /> : <IconPlay />}
+                      <IconBackward
+                        style={{
+                          transform: 'rotateY(180deg)'
+                        }}
+                      />
                     </IconButton>
+                  )}
 
-                    {backward && (
-                      <IconButton
-                        onClick={onBackward}
-
-                        {...iconButtonProps}
-
-                        {...BackwardButtonProps}
-                      >
-                        <IconBackward
-                          style={{
-                            transform: 'rotateY(180deg)'
-                          }}
-                        />
-                      </IconButton>
-                    )}
-
-                    {forward && (
-                      <IconButton
-                        onClick={onForward}
-
-                        {...iconButtonProps}
-
-                        {...ForwardButtonProps}
-                      >
-                        <IconForward
-
-                        />
-                      </IconButton>
-                    )}
-
+                  {forward && (
                     <IconButton
-                      onClick={muted ? onUnmute : onMute}
-
-                      onMouseEnter={onMouseEnter}
-
-                      onMouseLeave={onMouseLeave}
+                      onClick={onForward}
 
                       {...iconButtonProps}
 
-                      {...VolumeButtonProps}
+                      {...ForwardButtonProps}
                     >
-                      {!muted ? <IconVolume /> : <IconVolumeMuted />}
+                      <IconForward
+
+                      />
                     </IconButton>
+                  )}
 
-                    <Expand
-                      in={volumeVisible}
+                  <IconButton
+                    onClick={muted ? onUnmute : onMute}
 
-                      parent={refs.controls.current}
+                    onMouseEnter={onMouseEnter}
+
+                    onMouseLeave={onMouseLeave}
+
+                    {...iconButtonProps}
+
+                    {...VolumeButtonProps}
+                  >
+                    {!muted ? <IconVolume /> : <IconVolumeMuted />}
+                  </IconButton>
+
+                  <Expand
+                    in={volumeVisible}
+
+                    parent={refs.controls.current}
+
+                    orientation='horizontal'
+
+                    onMouseEnter={onMouseEnter}
+
+                    onMouseLeave={onMouseLeave}
+
+                    className={classes.volumeExpand}
+                  >
+                    <Slider
+                      value={volume}
+
+                      onChange={onVolumeChange}
+
+                      min={0}
+
+                      max={1}
 
                       orientation='horizontal'
 
@@ -784,77 +900,79 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
 
                       onMouseLeave={onMouseLeave}
 
-                      className={classes.volumeExpand}
-                    >
-                      <Slider
-                        value={volume}
+                      {...sliderProps}
 
-                        onChange={onVolumeChange}
+                      size={['small', 'regular'].includes(size) ? 'small' : 'regular'}
 
-                        min={0}
+                      {...VolumeProps}
 
-                        max={1}
+                      className={classNames([
+                        sliderProps?.className,
+                        VolumeProps?.className,
+                        classes.volume
+                      ])}
+                    />
+                  </Expand>
+                </Line>
 
-                        orientation='horizontal'
+                <Line
+                  gap={0.5}
 
-                        onMouseEnter={onMouseEnter}
+                  direction='row'
 
-                        onMouseLeave={onMouseLeave}
-
-                        {...sliderProps}
-
-                        size={['small', 'regular'].includes(size) ? 'small' : 'regular'}
-
-                        {...VolumeProps}
-
-                        className={classNames([
-                          sliderProps?.className,
-                          VolumeProps?.className,
-                          classes.volume
-                        ])}
-                      />
-                    </Expand>
-                  </Line>
-
-                  <Line
-                    gap={0.5}
-
-                    direction='row'
-
-                    align='center'
+                  align='center'
+                >
+                  <Type
+                    {...typeProps}
                   >
-                    <Type
-                      {...typeProps}
-                    >
-                      {durationToValue(durationMethod(time * 1000, false, true))}
-                    </Type>
+                    {durationToValue(durationMethod(time * 1000, false, true))}
+                  </Type>
 
-                    <Type
-                      {...typeProps}
-                    >
-                      /
-                    </Type>
+                  <Type
+                    {...typeProps}
+                  >
+                    /
+                  </Type>
 
-                    <Type
-                      {...typeProps}
-                    >
-                      {durationToValue(durationMethod(duration * 1000, false, true))}
-                    </Type>
-                  </Line>
+                  <Type
+                    {...typeProps}
+                  >
+                    {durationToValue(durationMethod(duration * 1000, false, true))}
+                  </Type>
                 </Line>
               </Line>
 
-              {endControls}
-            </Line>
-          </Line>
+              <Line
+                gap={0.5}
 
-          {end}
-        </Surface>
-      )}
+                direction='row'
+
+                align='center'
+              >
+                {fullScreen_ && (
+                  <IconButton
+                    onClick={!fullScreen ? onFullScreen : onFullScreenExit}
+
+                    {...iconButtonProps}
+
+                    {...FullScreenButtonProps}
+                  >
+                    {fullScreen ? <IconFullScreenExit /> : <IconFullScreen />}
+                  </IconButton>
+                )}
+              </Line>
+            </Line>
+
+            {endControls}
+          </Line>
+        </Line>
+
+        {end}
+      </Surface>
     </Line>
   );
 });
 
-AudioPlayer.displayName = 'amaui-AudioPlayer';
+VideoPlayer.displayName = 'amaui-VideoPlayer';
 
-export default AudioPlayer;
+export default VideoPlayer;

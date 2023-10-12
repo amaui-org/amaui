@@ -7,6 +7,9 @@ export * from './Reset';
 export { default as AudioPlayer } from './AudioPlayer';
 export * from './AudioPlayer';
 
+export { default as VideoPlayer } from './VideoPlayer';
+export * from './VideoPlayer';
+
 export { default as AudioRecorder } from './AudioRecorder';
 export * from './AudioRecorder';
 
