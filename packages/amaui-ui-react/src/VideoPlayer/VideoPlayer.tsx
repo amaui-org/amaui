@@ -2,13 +2,12 @@ import React from 'react';
 
 import { clamp, getLeadingZerosNumber, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
-import { duration as durationMethod } from '@amaui/date';
+import { AmauiDate, duration as durationMethod } from '@amaui/date';
 
 import Line from '../Line';
 import Surface from '../Surface';
 import Slider from '../Slider';
 import IconButton from '../IconButton';
-import Expand from '../Expand';
 import Type from '../Type';
 import Icon from '../Icon';
 
@@ -16,6 +15,7 @@ import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TS
 
 const useStyle = styleMethod(theme => ({
   root: {
+    position: 'relative',
     overflow: 'hidden'
   },
 
@@ -24,7 +24,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   wrapperFullScreen: {
-    height: '100%'
+    height: '100vh',
+    width: '100vw'
   },
 
   video: {
@@ -35,19 +36,40 @@ const useStyle = styleMethod(theme => ({
   },
 
   size_small: {
-    borderRadius: theme.methods.shape.radius.value(0.5)
+    borderRadius: theme.methods.shape.radius.value(0.5, 'px')
   },
 
   size_regular: {
-    borderRadius: theme.methods.shape.radius.value(1.5)
+    borderRadius: theme.methods.shape.radius.value(1.5, 'px')
   },
 
   size_large: {
-    borderRadius: theme.methods.shape.radius.value(2)
+    borderRadius: theme.methods.shape.radius.value(2, 'px')
   },
 
   fullScreen: {
-    borderRadius: 0
+    borderRadius: '0px'
+  },
+
+  controls: {
+    position: 'absolute',
+    bottom: '0px',
+    left: '0px',
+    width: '100%',
+    transition: theme.methods.transitions.make('opacity'),
+
+    '&.amaui-Surface-root': {
+      background: 'linear-gradient(0deg, rgb(0, 0, 0, 0.24), transparent)'
+    }
+  },
+
+  controlsHiddden: {
+    opacity: 0,
+    pointerEvents: 'none'
+  },
+
+  controlsFullScreen: {
+
   },
 
   controls_size_small: {
@@ -74,18 +96,18 @@ const useStyle = styleMethod(theme => ({
   volume: {
     flex: '1 1 auto',
     width: '100vw',
-    maxWidth: 54,
-    height: 24,
+    maxWidth: '54px',
+    height: '24px',
 
     '&.amaui-Slider-root': {
-      borderRadius: 0,
+      borderRadius: '0px',
 
       '& .amaui-Slider-rail': {
-        borderRadius: 0
+        borderRadius: '0px'
       },
 
       '& .amaui-Slider-track': {
-        borderRadius: 0
+        borderRadius: '0px'
       }
     }
   },
@@ -331,6 +353,7 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
   const [volumeVisible, setVolumeVisible] = React.useState(false);
   const [updating, setUpdating] = React.useState<any>(false);
   const [fullScreen, setFullScreen] = React.useState(false);
+  const [mouseMoved, setMouseMoved] = React.useState<any>();
 
   const refs = {
     root: React.useRef<any>(),
@@ -348,7 +371,10 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
     onStop: React.useRef<any>(),
     startMediaSession: React.useRef<any>(),
     updateMediaSession: React.useRef<any>(),
-    startMediaSessionOnPlay: React.useRef<any>()
+    startMediaSessionOnPlay: React.useRef<any>(),
+    fullScreen: React.useRef(fullScreen),
+    mouseMoved: React.useRef(mouseMoved),
+    timeoutMouseMoved: React.useRef<any>()
   };
 
   refs.duration.current = duration;
@@ -360,6 +386,10 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
   refs.updating.current = updating;
 
   refs.startMediaSessionOnPlay.current = startMediaSessionOnPlay;
+
+  refs.fullScreen.current = fullScreen;
+
+  refs.mouseMoved.current = mouseMoved;
 
   const startMediaSession = React.useCallback(() => {
     if ('mediaSession' in navigator) {
@@ -532,7 +562,7 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
 
     const rootDocument = refs.root.current?.ownerDocument || window.document;
 
-    const method = () => {
+    const methodFullScreen = () => {
       if (rootDocument.fullscreenElement) {
         setFullScreen(true);
       }
@@ -541,14 +571,39 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
       }
     };
 
-    rootDocument.addEventListener('fullscreenchange', method);
+    const methodMouseMove = () => {
+      clearTimeout(refs.timeoutMouseMoved.current);
+
+      setMouseMoved({
+        moved: true,
+        unix: AmauiDate.unix
+      });
+
+      refs.timeoutMouseMoved.current = setTimeout(() => {
+        setMouseMoved({
+          moved: false,
+          unix: AmauiDate.unix
+        });
+      }, 4000);
+    };
+
+    rootDocument.addEventListener('mousemove', methodMouseMove);
+
+    rootDocument.addEventListener('touchstart', methodMouseMove);
+
+    rootDocument.addEventListener('touchmove', methodMouseMove);
+
+    rootDocument.addEventListener('fullscreenchange', methodFullScreen);
 
     video.src = src;
-
-    // video.load();
-
     return () => {
-      rootDocument.removeEventListener('fullscreenchange', method);
+      rootDocument.removeEventListener('mousemove', methodMouseMove);
+
+      rootDocument.removeEventListener('touchstart', methodMouseMove);
+
+      rootDocument.removeEventListener('touchmove', methodMouseMove);
+
+      rootDocument.removeEventListener('fullscreenchange', methodFullScreen);
     };
   }, [src, duration_, startMediaSession]);
 
@@ -701,12 +756,8 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
 
       {...other}
     >
-      <Surface
+      <Line
         gap={0}
-
-        tonal={tonal}
-
-        color={color}
 
         direction='column'
 
@@ -715,8 +766,6 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
         justify='unset'
 
         fullWidth
-
-        Component={Line}
 
         className={classNames([
           classes.wrapper,
@@ -740,13 +789,24 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
           <source src={src} type={mime} />
         </video>
 
-        <Line
+        <Surface
+          ref={refs.controls}
+
           gap={0}
 
           fullWidth
 
+          tonal={tonal}
+
+          color={color}
+
+          Component={Line}
+
           className={classNames([
-            classes[`controls_size_${size}`]
+            classes.controls,
+            classes[`controls_size_${size}`],
+            fullScreen && classes.controlsFullScreen,
+            !mouseMoved?.moved && play && classes.controlsHiddden
           ])}
         >
           <Line
@@ -784,17 +844,13 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
           </Line>
 
           <Line
-            ref={refs.controls}
-
             direction='row'
 
             align='center'
 
             fullWidth
 
-            className={classNames([
-              classes.controls
-            ])}
+            onMouseLeave={onMouseLeave}
           >
             {startControls}
 
@@ -868,8 +924,6 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
 
                     onMouseEnter={onMouseEnter}
 
-                    onMouseLeave={onMouseLeave}
-
                     {...iconButtonProps}
 
                     {...VolumeButtonProps}
@@ -877,19 +931,7 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
                     {!muted ? <IconVolume /> : <IconVolumeMuted />}
                   </IconButton>
 
-                  <Expand
-                    in={volumeVisible}
-
-                    parent={refs.controls.current}
-
-                    orientation='horizontal'
-
-                    onMouseEnter={onMouseEnter}
-
-                    onMouseLeave={onMouseLeave}
-
-                    className={classes.volumeExpand}
-                  >
+                  {volumeVisible && (
                     <Slider
                       value={volume}
 
@@ -900,10 +942,6 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
                       max={1}
 
                       orientation='horizontal'
-
-                      onMouseEnter={onMouseEnter}
-
-                      onMouseLeave={onMouseLeave}
 
                       {...sliderProps}
 
@@ -917,7 +955,7 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
                         classes.volume
                       ])}
                     />
-                  </Expand>
+                  )}
                 </Line>
 
                 <Line
@@ -975,11 +1013,11 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
 
             {endControls}
           </Line>
-        </Line>
+        </Surface>
 
         {end}
-      </Surface>
-    </Line>
+      </Line>
+    </Line >
   );
 });
 

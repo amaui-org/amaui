@@ -29,15 +29,15 @@ const useStyle = styleMethod(theme => ({
   },
 
   size_small: {
-    borderRadius: theme.methods.shape.radius.value(0.5)
+    borderRadius: theme.methods.shape.radius.value(0.5, 'px')
   },
 
   size_regular: {
-    borderRadius: theme.methods.shape.radius.value(1.5)
+    borderRadius: theme.methods.shape.radius.value(1.5, 'px')
   },
 
   size_large: {
-    borderRadius: theme.methods.shape.radius.value(2)
+    borderRadius: theme.methods.shape.radius.value(2, 'px')
   },
 
   controls_size_small: {
@@ -57,25 +57,25 @@ const useStyle = styleMethod(theme => ({
   },
 
   timeline: {
-    height: 20,
+    height: '20px',
     width: '100%'
   },
 
   volume: {
     flex: '1 1 auto',
     width: '100vw',
-    maxWidth: 54,
-    height: 24,
+    maxWidth: '54px',
+    height: '24px',
 
     '&.amaui-Slider-root': {
-      borderRadius: 0,
+      borderRadius: '0px',
 
       '& .amaui-Slider-rail': {
-        borderRadius: 0
+        borderRadius: '0px'
       },
 
       '& .amaui-Slider-track': {
-        borderRadius: 0
+        borderRadius: '0px'
       }
     }
   },
@@ -693,6 +693,8 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
 
               fullWidth
 
+              onMouseLeave={onMouseLeave}
+
               className={classNames([
                 classes.controls
               ])}
@@ -769,8 +771,6 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
 
                       onMouseEnter={onMouseEnter}
 
-                      onMouseLeave={onMouseLeave}
-
                       {...iconButtonProps}
 
                       {...VolumeButtonProps}
@@ -778,19 +778,7 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
                       {!muted ? <IconVolume /> : <IconVolumeMuted />}
                     </IconButton>
 
-                    <Expand
-                      in={volumeVisible}
-
-                      parent={refs.controls.current}
-
-                      orientation='horizontal'
-
-                      onMouseEnter={onMouseEnter}
-
-                      onMouseLeave={onMouseLeave}
-
-                      className={classes.volumeExpand}
-                    >
+                    {volumeVisible && (
                       <Slider
                         value={volume}
 
@@ -801,10 +789,6 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
                         max={1}
 
                         orientation='horizontal'
-
-                        onMouseEnter={onMouseEnter}
-
-                        onMouseLeave={onMouseLeave}
 
                         {...sliderProps}
 
@@ -818,7 +802,7 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
                           classes.volume
                         ])}
                       />
-                    </Expand>
+                    )}
                   </Line>
 
                   <Line
