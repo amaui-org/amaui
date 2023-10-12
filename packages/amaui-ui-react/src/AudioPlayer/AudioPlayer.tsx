@@ -86,6 +86,11 @@ const useStyle = styleMethod(theme => ({
     height: '100%'
   },
 
+  time: {
+    cursor: 'default',
+    userSelect: 'none'
+  },
+
   placeholder: {
 
   }
@@ -822,6 +827,11 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
                     direction='row'
 
                     align='center'
+
+                    className={classNames([
+                      'amaui-Audio-time',
+                      classes.time
+                    ])}
                   >
                     <Type
                       {...typeProps}

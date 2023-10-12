@@ -96,6 +96,11 @@ const useStyle = styleMethod(theme => ({
     height: '100%'
   },
 
+  time: {
+    cursor: 'default',
+    userSelect: 'none'
+  },
+
   placeholder: {
 
   }
@@ -921,6 +926,11 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
                   direction='row'
 
                   align='center'
+
+                  className={classNames([
+                    'amaui-Audio-time',
+                    classes.time
+                  ])}
                 >
                   <Type
                     {...typeProps}
