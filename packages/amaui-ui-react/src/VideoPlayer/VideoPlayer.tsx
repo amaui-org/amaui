@@ -655,9 +655,9 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
         if (quality?.meta?.resolution) urlNew += `?version=${quality?.meta?.resolution}`;
       }
 
-      refs.video.current.src = urlNew;
-
       const currentTime = refs.video.current.currentTime;
+
+      refs.video.current.src = urlNew;
 
       refs.video.current.load();
 
