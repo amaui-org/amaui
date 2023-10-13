@@ -222,9 +222,14 @@ export interface IAudioPlayer extends IBaseElement {
   end?: any;
   startControls?: any;
   endControls?: any;
+  startButtons?: any;
+  endButtons?: any;
+  startEnd?: any;
+  endEnd?: any;
 
   forward?: boolean;
   backward?: boolean;
+  quality?: boolean;
 
   startMediaSessionOnPlay?: boolean;
 
@@ -273,9 +278,14 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
     end,
     startControls,
     endControls,
+    startButtons,
+    endButtons,
+    startButtonsEnd,
+    endButtonsEnd,
 
     forward,
     backward,
+    quality: quality_ = true,
 
     startMediaSessionOnPlay,
 
@@ -727,12 +737,8 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
 
       {...other}
     >
-      <Surface
+      <Line
         gap={0}
-
-        tonal={tonal}
-
-        color={color}
 
         direction='column'
 
@@ -741,8 +747,6 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
         justify='unset'
 
         fullWidth
-
-        Component={Line}
 
         className={classNames([
           classes.wrapper
@@ -768,6 +772,8 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
             classes[`controls_size_${size}`]
           ])}
         >
+          {startControls}
+
           <Line
             fullWidth
 
@@ -819,7 +825,7 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
               classes.controls
             ])}
           >
-            {startControls}
+            {startButtons}
 
             <Line
               gap={1}
@@ -974,36 +980,46 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
 
                 className={classes.endControls}
               >
-                <Menu
-                  menuItems={getQualityMenuItems()}
+                {startButtonsEnd}
 
-                  position='top'
+                {quality_ && (
+                  <Menu
+                    menuItems={getQualityMenuItems()}
 
-                  portal={false}
+                    position='top'
 
-                  ListProps={{
-                    size: 'small'
-                  }}
+                    switch={false}
 
-                  {...QualityMenuProps}
-                >
-                  <IconButton
-                    {...iconButtonProps}
+                    portal={false}
 
-                    {...QualityButtonProps}
+                    ListProps={{
+                      size: 'small'
+                    }}
+
+                    {...QualityMenuProps}
                   >
-                    <IconQuality />
-                  </IconButton>
-                </Menu>
+                    <IconButton
+                      {...iconButtonProps}
+
+                      {...QualityButtonProps}
+                    >
+                      <IconQuality />
+                    </IconButton>
+                  </Menu>
+                )}
+
+                {endButtonsEnd}
               </Line>
             </Line>
 
-            {endControls}
+            {endButtons}
           </Line>
+
+          {endControls}
         </Surface>
 
         {end}
-      </Surface>
+      </Line>
     </Line>
   );
 });

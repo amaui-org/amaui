@@ -283,9 +283,14 @@ export interface IVideoPlayer extends IBaseElement {
   end?: any;
   startControls?: any;
   endControls?: any;
+  startButtons?: any;
+  endButtons?: any;
+  startEnd?: any;
+  endEnd?: any;
 
   forward?: boolean;
   backward?: boolean;
+  quality?: boolean;
   fullScreen?: boolean;
 
   startMediaSessionOnPlay?: boolean;
@@ -337,9 +342,14 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
     end,
     startControls,
     endControls,
+    startButtons,
+    endButtons,
+    startButtonsEnd,
+    endButtonsEnd,
 
     forward,
     backward,
+    quality: quality_ = true,
     fullScreen: fullScreen_ = true,
 
     startMediaSessionOnPlay,
@@ -957,6 +967,8 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
             !mouseMoved?.moved && play && classes.controlsHiddden
           ])}
         >
+          {startControls}
+
           <Line
             fullWidth
 
@@ -1000,7 +1012,7 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
 
             onMouseLeave={onMouseLeave}
           >
-            {startControls}
+            {startButtons}
 
             <Line
               gap={1}
@@ -1155,27 +1167,33 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
 
                 className={classes.endControls}
               >
-                <Menu
-                  menuItems={getQualityMenuItems()}
+                {startButtonsEnd}
 
-                  position='top'
+                {quality_ && (
+                  <Menu
+                    menuItems={getQualityMenuItems()}
 
-                  portal={false}
+                    position='top'
 
-                  ListProps={{
-                    size: 'small'
-                  }}
+                    switch={false}
 
-                  {...QualityMenuProps}
-                >
-                  <IconButton
-                    {...iconButtonProps}
+                    portal={false}
 
-                    {...QualityButtonProps}
+                    ListProps={{
+                      size: 'small'
+                    }}
+
+                    {...QualityMenuProps}
                   >
-                    <IconQuality />
-                  </IconButton>
-                </Menu>
+                    <IconButton
+                      {...iconButtonProps}
+
+                      {...QualityButtonProps}
+                    >
+                      <IconQuality />
+                    </IconButton>
+                  </Menu>
+                )}
 
                 {fullScreen_ && (
                   <IconButton
@@ -1188,11 +1206,15 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
                     {fullScreen ? <IconFullScreenExit /> : <IconFullScreen />}
                   </IconButton>
                 )}
+
+                {endButtonsEnd}
               </Line>
             </Line>
 
-            {endControls}
+            {endButtons}
           </Line>
+
+          {endControls}
         </Surface>
 
         {end}
