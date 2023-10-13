@@ -12,11 +12,14 @@ import IconButton from '../IconButton';
 import Expand from '../Expand';
 import Type from '../Type';
 import Icon from '../Icon';
+import Menu from '../Menu';
+import ListItem from '../ListItem';
 
 import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TSize, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
+    position: 'relative',
     overflow: 'hidden'
   },
 
@@ -40,16 +43,20 @@ const useStyle = styleMethod(theme => ({
     borderRadius: theme.methods.shape.radius.value(2, 'px')
   },
 
+  controls: {
+
+  },
+
   controls_size_small: {
-    padding: '4px 8px'
+    padding: '6px 8px 4px'
   },
 
   controls_size_regular: {
-    padding: '8px 12px'
+    padding: '12px 12px 8px'
   },
 
   controls_size_large: {
-    padding: '12px 16px'
+    padding: '18px 16px 12px'
   },
 
   wrapperTimeline: {
@@ -89,6 +96,10 @@ const useStyle = styleMethod(theme => ({
   time: {
     cursor: 'default',
     userSelect: 'none'
+  },
+
+  endControls: {
+    position: 'relative'
   },
 
   placeholder: {
@@ -179,9 +190,28 @@ const IconMaterialVolumeOffRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+const IconMaterialHighQualityRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <Icon
+      ref={ref}
+
+      name='HighQualityRounded'
+      short_name='HighQuality'
+
+      {...props}
+    >
+      <path d="M6.75 15Q7.075 15 7.287 14.787Q7.5 14.575 7.5 14.25V13H9.5V14.25Q9.5 14.575 9.713 14.787Q9.925 15 10.25 15Q10.575 15 10.788 14.787Q11 14.575 11 14.25V9.75Q11 9.425 10.788 9.212Q10.575 9 10.25 9Q9.925 9 9.713 9.212Q9.5 9.425 9.5 9.75V11.5H7.5V9.75Q7.5 9.425 7.287 9.212Q7.075 9 6.75 9Q6.425 9 6.213 9.212Q6 9.425 6 9.75V14.25Q6 14.575 6.213 14.787Q6.425 15 6.75 15ZM15.5 16.5Q15.825 16.5 16.038 16.288Q16.25 16.075 16.25 15.75V15H17Q17.425 15 17.712 14.712Q18 14.425 18 14V10Q18 9.575 17.712 9.287Q17.425 9 17 9H14Q13.575 9 13.288 9.287Q13 9.575 13 10V14Q13 14.425 13.288 14.712Q13.575 15 14 15H14.75V15.75Q14.75 16.075 14.963 16.288Q15.175 16.5 15.5 16.5ZM14.5 13.5Q14.5 13.5 14.5 13.5Q14.5 13.5 14.5 13.5V10.5Q14.5 10.5 14.5 10.5Q14.5 10.5 14.5 10.5H16.5Q16.5 10.5 16.5 10.5Q16.5 10.5 16.5 10.5V13.5Q16.5 13.5 16.5 13.5Q16.5 13.5 16.5 13.5ZM4 20Q3.175 20 2.588 19.413Q2 18.825 2 18V6Q2 5.175 2.588 4.588Q3.175 4 4 4H20Q20.825 4 21.413 4.588Q22 5.175 22 6V18Q22 18.825 21.413 19.413Q20.825 20 20 20ZM4 18Q4 18 4 18Q4 18 4 18V6Q4 6 4 6Q4 6 4 6Q4 6 4 6Q4 6 4 6V18Q4 18 4 18Q4 18 4 18ZM4 18H20Q20 18 20 18Q20 18 20 18V6Q20 6 20 6Q20 6 20 6H4Q4 6 4 6Q4 6 4 6V18Q4 18 4 18Q4 18 4 18Z" />
+    </Icon>
+  );
+});
+
 export interface IAudioPlayer extends IBaseElement {
   name?: string;
   src?: string;
+  mime?: string;
+  meta?: any;
+  versions?: any;
   duration?: number;
 
   tonal?: TTonal;
@@ -206,6 +236,7 @@ export interface IAudioPlayer extends IBaseElement {
   IconBackward?: TElementReference;
   IconVolume?: TElementReference;
   IconVolumeMuted?: TElementReference;
+  IconQuality?: TElementReference;
 
   PlayButtonProps?: TPropsAny;
   ForwardButtonProps?: TPropsAny;
@@ -216,6 +247,8 @@ export interface IAudioPlayer extends IBaseElement {
   TimelineProps?: TPropsAny;
   VolumeProps?: TPropsAny;
   SliderProps?: TPropsAny;
+  QualityButtonProps?: TPropsAny;
+  QualityMenuProps?: TPropsAny;
 }
 
 const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
@@ -225,8 +258,10 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
 
   const {
     name,
-
     src,
+    meta,
+    versions,
+    mime,
 
     duration: duration_,
 
@@ -252,6 +287,7 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
     IconBackward = IconMaterialForwardMediaRounded,
     IconVolume = IconMaterialVolumeDownAltRounded,
     IconVolumeMuted = IconMaterialVolumeOffRounded,
+    IconQuality = IconMaterialHighQualityRounded,
 
     PlayButtonProps,
     ForwardButtonProps,
@@ -262,6 +298,8 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
     TimelineProps,
     VolumeProps,
     SliderProps,
+    QualityButtonProps,
+    QualityMenuProps,
 
     className,
 
@@ -280,6 +318,7 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
   const [volume, setVolume] = React.useState(1);
   const [volumeVisible, setVolumeVisible] = React.useState(false);
   const [updating, setUpdating] = React.useState<any>(false);
+  const [quality, setQuality] = React.useState<any>();
 
   const refs = {
     root: React.useRef<any>(),
@@ -351,6 +390,8 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
   refs.startMediaSession.current = startMediaSession;
 
   refs.updateMediaSession.current = updateMediaSession;
+
+  const durationTime = duration_ || meta?.duration;
 
   const onVolumeChange = React.useCallback((value: number) => {
     setVolume(value);
@@ -452,7 +493,7 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
     audio.addEventListener('loadedmetadata', () => {
       const value = audio!.duration;
 
-      if (!is('number', duration_) && is('number', value)) {
+      if (!is('number', durationTime) && is('number', value)) {
         setDuration(value);
 
         setLoaded(true);
@@ -477,14 +518,40 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
     // start MediaSession
     startMediaSession();
 
-    if (is('number', duration_)) {
-      setDuration(duration_);
+    if (is('number', durationTime)) {
+      setDuration(durationTime);
 
       setLoaded(true);
     }
 
     audio.src = src;
-  }, [src, duration_, startMediaSession]);
+  }, [src, durationTime, startMediaSession]);
+
+  React.useEffect(() => {
+    if (loaded) {
+      let urlNew = src;
+
+      if (quality) {
+        if (quality?.meta?.resolution) urlNew += `?version=${quality?.meta?.resolution}`;
+      }
+
+      const currentTime = refs.audio.current.currentTime;
+
+      const playing = refs.play.current;
+
+      // pause
+      if (playing) refs.onPause.current();
+
+      refs.audio.current.src = urlNew;
+
+      refs.audio.current.load();
+
+      refs.audio.current.currentTime = currentTime;
+
+      // play
+      if (playing) refs.onPlay.current();
+    }
+  }, [quality]);
 
   const onMouseEnter = React.useCallback(() => {
     setVolumeVisible(true);
@@ -545,6 +612,64 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
     return value;
   };
 
+  const onQuality = React.useCallback((version: any) => {
+    setQuality(version);
+  }, []);
+
+  const getQualityMenuItems = () => {
+    const itemProps = {
+      menuCloseOnClick: true,
+      button: true,
+      size: 'small'
+    };
+
+    const items = [
+      <ListItem
+        key='original'
+
+        primary={(
+          <Type
+            version='b3'
+          >
+            original
+          </Type>
+        )}
+
+        onClick={() => quality ? onQuality(null) : undefined}
+
+        selected={!quality}
+
+        {...itemProps}
+      />
+    ];
+
+    // versions?.forEach((version: any, index: number) => {
+    //   const isSelected = quality?.id === version?.id;
+
+    //   items.push(
+    //     <ListItem
+    //       key={index}
+
+    //       primary={(
+    //         <Type
+    //           version='b3'
+    //         >
+    //           {version?.meta?.resolution}p
+    //         </Type>
+    //       )}
+
+    //       onClick={() => !isSelected ? onQuality(version) : undefined}
+
+    //       selected={isSelected}
+
+    //       {...itemProps}
+    //     />
+    //   );
+    // });
+
+    return items;
+  };
+
   const typeProps: any = {
     version: size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3',
 
@@ -602,88 +727,102 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
 
       {...other}
     >
-      {!loaded && (
-        <Placeholder
-          height={size === 'large' ? 94 : size === 'regular' ? 76 : 58}
+      <Surface
+        gap={0}
 
-          width='100%'
+        tonal={tonal}
 
-          animation='wave'
+        color={color}
 
-          className={classes.placeholder}
-        />
-      )}
+        direction='column'
 
-      {loaded && (
+        align='unset'
+
+        justify='unset'
+
+        fullWidth
+
+        Component={Line}
+
+        className={classNames([
+          classes.wrapper
+        ])}
+      >
+        {start}
+
         <Surface
+          ref={refs.controls}
+
           gap={0}
+
+          fullWidth
 
           tonal={tonal}
 
           color={color}
 
-          direction='column'
-
-          align='unset'
-
-          justify='unset'
-
-          fullWidth
-
           Component={Line}
 
           className={classNames([
-            classes.wrapper
+            classes.controls,
+            classes[`controls_size_${size}`]
           ])}
         >
-          {start}
-
-          {/* Controls */}
           <Line
-            gap={0}
+            fullWidth
+
+            className={classes.wrapperTimeline}
+          >
+            <Slider
+              value={time}
+
+              onChange={onTimeChange}
+
+              min={0}
+
+              max={duration}
+
+              onMouseDown={onUpdating}
+
+              onTouchStart={onUpdating}
+
+              onMouseUp={onUpdatingDone}
+
+              onToucheEnd={onUpdatingDone}
+
+              {...sliderProps}
+
+              {...TimelineProps}
+
+              className={classNames([
+                sliderProps?.className,
+                TimelineProps?.className,
+                classes.timeline
+              ])}
+            />
+          </Line>
+
+          <Line
+            ref={refs.controls}
+
+            direction='row'
+
+            align='center'
+
+            justify='space-between'
 
             fullWidth
 
+            onMouseLeave={onMouseLeave}
+
             className={classNames([
-              classes[`controls_size_${size}`]
+              classes.controls
             ])}
           >
-            <Line
-              fullWidth
-
-              className={classes.wrapperTimeline}
-            >
-              <Slider
-                value={time}
-
-                onChange={onTimeChange}
-
-                min={0}
-
-                max={duration}
-
-                onMouseDown={onUpdating}
-
-                onTouchStart={onUpdating}
-
-                onMouseUp={onUpdatingDone}
-
-                onToucheEnd={onUpdatingDone}
-
-                {...sliderProps}
-
-                {...TimelineProps}
-
-                className={classNames([
-                  sliderProps?.className,
-                  TimelineProps?.className,
-                  classes.timeline
-                ])}
-              />
-            </Line>
+            {startControls}
 
             <Line
-              ref={refs.controls}
+              gap={1}
 
               direction='row'
 
@@ -692,167 +831,179 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
               justify='space-between'
 
               fullWidth
-
-              onMouseLeave={onMouseLeave}
-
-              className={classNames([
-                classes.controls
-              ])}
             >
-              {startControls}
-
               <Line
-                gap={1}
+                gap={1.5}
 
                 direction='row'
 
                 align='center'
-
-                justify='space-between'
-
-                fullWidth
               >
                 <Line
-                  gap={1.5}
+                  gap={0}
 
                   direction='row'
 
                   align='center'
                 >
-                  <Line
-                    gap={0}
+                  <IconButton
+                    onClick={play ? onPause : onPlay}
 
-                    direction='row'
+                    {...iconButtonProps}
 
-                    align='center'
+                    {...PlayButtonProps}
                   >
+                    {play ? <IconPause /> : <IconPlay />}
+                  </IconButton>
+
+                  {backward && (
                     <IconButton
-                      onClick={play ? onPause : onPlay}
+                      onClick={onBackward}
 
                       {...iconButtonProps}
 
-                      {...PlayButtonProps}
+                      {...BackwardButtonProps}
                     >
-                      {play ? <IconPause /> : <IconPlay />}
+                      <IconBackward
+                        style={{
+                          transform: 'rotateY(180deg)'
+                        }}
+                      />
                     </IconButton>
+                  )}
 
-                    {backward && (
-                      <IconButton
-                        onClick={onBackward}
-
-                        {...iconButtonProps}
-
-                        {...BackwardButtonProps}
-                      >
-                        <IconBackward
-                          style={{
-                            transform: 'rotateY(180deg)'
-                          }}
-                        />
-                      </IconButton>
-                    )}
-
-                    {forward && (
-                      <IconButton
-                        onClick={onForward}
-
-                        {...iconButtonProps}
-
-                        {...ForwardButtonProps}
-                      >
-                        <IconForward
-
-                        />
-                      </IconButton>
-                    )}
-
+                  {forward && (
                     <IconButton
-                      onClick={muted ? onUnmute : onMute}
-
-                      onMouseEnter={onMouseEnter}
+                      onClick={onForward}
 
                       {...iconButtonProps}
 
-                      {...VolumeButtonProps}
+                      {...ForwardButtonProps}
                     >
-                      {!muted ? <IconVolume /> : <IconVolumeMuted />}
+                      <IconForward
+
+                      />
                     </IconButton>
+                  )}
 
-                    <Expand
-                      in={volumeVisible}
+                  <IconButton
+                    onClick={muted ? onUnmute : onMute}
 
-                      parent={refs.controls.current}
+                    onMouseEnter={onMouseEnter}
+
+                    {...iconButtonProps}
+
+                    {...VolumeButtonProps}
+                  >
+                    {!muted ? <IconVolume /> : <IconVolumeMuted />}
+                  </IconButton>
+
+                  <Expand
+                    in={volumeVisible}
+
+                    parent={refs.controls.current}
+
+                    orientation='horizontal'
+
+                    className={classes.volumeExpand}
+                  >
+                    <Slider
+                      value={volume}
+
+                      onChange={onVolumeChange}
+
+                      min={0}
+
+                      max={1}
 
                       orientation='horizontal'
 
-                      className={classes.volumeExpand}
-                    >
-                      <Slider
-                        value={volume}
+                      {...sliderProps}
 
-                        onChange={onVolumeChange}
+                      size={['small', 'regular'].includes(size) ? 'small' : 'regular'}
 
-                        min={0}
+                      {...VolumeProps}
 
-                        max={1}
+                      className={classNames([
+                        sliderProps?.className,
+                        VolumeProps?.className,
+                        classes.volume
+                      ])}
+                    />
+                  </Expand>
+                </Line>
 
-                        orientation='horizontal'
+                <Line
+                  gap={0.5}
 
-                        {...sliderProps}
+                  direction='row'
 
-                        size={['small', 'regular'].includes(size) ? 'small' : 'regular'}
+                  align='center'
 
-                        {...VolumeProps}
-
-                        className={classNames([
-                          sliderProps?.className,
-                          VolumeProps?.className,
-                          classes.volume
-                        ])}
-                      />
-                    </Expand>
-                  </Line>
-
-                  <Line
-                    gap={0.5}
-
-                    direction='row'
-
-                    align='center'
-
-                    className={classNames([
-                      'amaui-Audio-time',
-                      classes.time
-                    ])}
+                  className={classNames([
+                    'amaui-Audio-time',
+                    classes.time
+                  ])}
+                >
+                  <Type
+                    {...typeProps}
                   >
-                    <Type
-                      {...typeProps}
-                    >
-                      {durationToValue(durationMethod(time * 1000, false, true))}
-                    </Type>
+                    {durationToValue(durationMethod(time * 1000, false, true))}
+                  </Type>
 
-                    <Type
-                      {...typeProps}
-                    >
-                      /
-                    </Type>
+                  <Type
+                    {...typeProps}
+                  >
+                    /
+                  </Type>
 
-                    <Type
-                      {...typeProps}
-                    >
-                      {durationToValue(durationMethod(duration * 1000, false, true))}
-                    </Type>
-                  </Line>
+                  <Type
+                    {...typeProps}
+                  >
+                    {durationToValue(durationMethod(duration * 1000, false, true))}
+                  </Type>
                 </Line>
               </Line>
 
-              {endControls}
-            </Line>
-          </Line>
+              <Line
+                gap={0.5}
 
-          {end}
+                direction='row'
+
+                align='center'
+
+                className={classes.endControls}
+              >
+                <Menu
+                  menuItems={getQualityMenuItems()}
+
+                  position='top'
+
+                  portal={false}
+
+                  ListProps={{
+                    size: 'small'
+                  }}
+
+                  {...QualityMenuProps}
+                >
+                  <IconButton
+                    {...iconButtonProps}
+
+                    {...QualityButtonProps}
+                  >
+                    <IconQuality />
+                  </IconButton>
+                </Menu>
+              </Line>
+            </Line>
+
+            {endControls}
+          </Line>
         </Surface>
-      )}
+
+        {end}
+      </Surface>
     </Line>
   );
 });

@@ -11,10 +11,10 @@ import IconButton from '../IconButton';
 import Expand from '../Expand';
 import Type from '../Type';
 import Icon from '../Icon';
-
-import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TSize, TTonal } from '../utils';
 import Menu from '../Menu';
 import ListItem from '../ListItem';
+
+import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TSize, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -296,9 +296,9 @@ export interface IVideoPlayer extends IBaseElement {
   IconPause?: TElementReference;
   IconForward?: TElementReference;
   IconBackward?: TElementReference;
-  IconQuality?: TElementReference;
   IconVolume?: TElementReference;
   IconVolumeMuted?: TElementReference;
+  IconQuality?: TElementReference;
 
   PlayButtonProps?: TPropsAny;
   ForwardButtonProps?: TPropsAny;
@@ -389,6 +389,7 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
   const [fullScreen, setFullScreen] = React.useState(false);
   const [mouseMoved, setMouseMoved] = React.useState<any>();
   const [quality, setQuality] = React.useState<any>();
+  const [posterShow, setPosterShow] = React.useState(true);
 
   const refs = {
     root: React.useRef<any>(),
@@ -657,13 +658,26 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
 
       const currentTime = refs.video.current.currentTime;
 
+      const playing = refs.play.current;
+
+      // pause
+      if (playing) refs.onPause.current();
+
+      // poster remove
+      setPosterShow(false);
+
+      refs.video.current.poster = '';
+
       refs.video.current.src = urlNew;
 
       refs.video.current.load();
 
       refs.video.current.currentTime = currentTime;
+
+      // play
+      if (playing) refs.onPlay.current();
     }
-  }, [src, quality]);
+  }, [quality]);
 
   const onMouseEnter = React.useCallback(() => {
     setVolumeVisible(true);
@@ -911,7 +925,7 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
 
           onClick={onVideoClick}
 
-          poster={poster}
+          poster={posterShow ? poster : undefined}
 
           controls={false}
 
@@ -1183,7 +1197,7 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
 
         {end}
       </Line>
-    </Line >
+    </Line>
   );
 });
 
