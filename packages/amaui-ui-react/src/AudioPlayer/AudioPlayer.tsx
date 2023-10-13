@@ -19,8 +19,7 @@ import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TS
 
 const useStyle = styleMethod(theme => ({
   root: {
-    position: 'relative',
-    overflow: 'hidden'
+    position: 'relative'
   },
 
   wrapper: {
@@ -32,15 +31,15 @@ const useStyle = styleMethod(theme => ({
   },
 
   size_small: {
-    borderRadius: theme.methods.shape.radius.value(0.5, 'px')
+
   },
 
   size_regular: {
-    borderRadius: theme.methods.shape.radius.value(1.5, 'px')
+
   },
 
   size_large: {
-    borderRadius: theme.methods.shape.radius.value(2, 'px')
+
   },
 
   controls: {
@@ -48,14 +47,17 @@ const useStyle = styleMethod(theme => ({
   },
 
   controls_size_small: {
+    borderRadius: theme.methods.shape.radius.value(0.5, 'px'),
     padding: '6px 8px 4px'
   },
 
   controls_size_regular: {
+    borderRadius: theme.methods.shape.radius.value(1.5, 'px'),
     padding: '12px 12px 8px'
   },
 
   controls_size_large: {
+    borderRadius: theme.methods.shape.radius.value(2, 'px'),
     padding: '18px 16px 12px'
   },
 
