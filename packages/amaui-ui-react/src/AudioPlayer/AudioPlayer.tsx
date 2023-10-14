@@ -6,7 +6,6 @@ import { duration as durationMethod } from '@amaui/date';
 
 import Line from '../Line';
 import Surface from '../Surface';
-import Placeholder from '../Placeholder';
 import Slider from '../Slider';
 import IconButton from '../IconButton';
 import Expand from '../Expand';
@@ -23,7 +22,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   wrapper: {
-
+    borderRadius: 'inherit'
   },
 
   audio: {
@@ -31,33 +30,30 @@ const useStyle = styleMethod(theme => ({
   },
 
   size_small: {
-
+    borderRadius: theme.methods.shape.radius.value(0.5, 'px')
   },
 
   size_regular: {
-
+    borderRadius: theme.methods.shape.radius.value(1.5, 'px')
   },
 
   size_large: {
-
+    borderRadius: theme.methods.shape.radius.value(2, 'px')
   },
 
   controls: {
-
+    borderRadius: 'inherit'
   },
 
   controls_size_small: {
-    borderRadius: theme.methods.shape.radius.value(0.5, 'px'),
     padding: '6px 8px 4px'
   },
 
   controls_size_regular: {
-    borderRadius: theme.methods.shape.radius.value(1.5, 'px'),
     padding: '12px 12px 8px'
   },
 
   controls_size_large: {
-    borderRadius: theme.methods.shape.radius.value(2, 'px'),
     padding: '18px 16px 12px'
   },
 

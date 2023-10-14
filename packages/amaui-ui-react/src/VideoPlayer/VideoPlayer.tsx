@@ -18,12 +18,11 @@ import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TS
 
 const useStyle = styleMethod(theme => ({
   root: {
-    position: 'relative',
-    overflow: 'hidden'
+    position: 'relative'
   },
 
   wrapper: {
-
+    borderRadius: 'inherit'
   },
 
   wrapperFullScreen: {
@@ -34,6 +33,7 @@ const useStyle = styleMethod(theme => ({
   video: {
     background: 'black',
     flex: '1 1 auto',
+    borderRadius: 'inherit',
     cursor: 'pointer',
     userSelect: 'none'
   },
@@ -59,6 +59,7 @@ const useStyle = styleMethod(theme => ({
     bottom: '0px',
     left: '0px',
     width: '100%',
+    borderRadius: 'inherit',
     transition: theme.methods.transitions.make('opacity'),
 
     '&.amaui-Surface-root': {
