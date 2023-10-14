@@ -93,6 +93,8 @@ export interface IWatch extends Omit<ISurface, 'version'> {
 
   size?: TSize;
 
+  start?: boolean;
+
   timeVisible?: boolean;
   timeOfDayVisible?: boolean;
   dateVisible?: boolean;
@@ -127,6 +129,8 @@ const Watch = React.forwardRef((props_: IWatch, ref: any) => {
 
     size = 'regular',
 
+    start = true,
+
     timeVisible = true,
     timeOfDayVisible = true,
     dateVisible = true,
@@ -155,19 +159,25 @@ const Watch = React.forwardRef((props_: IWatch, ref: any) => {
 
   const refs = {
     value: React.useRef<any>(),
-    animationFrame: React.useRef<any>()
+    interval: React.useRef<any>()
   };
 
   const [value, setValue] = React.useState(AmauiDate.milliseconds);
 
   const update = () => {
-    setValue(AmauiDate.milliseconds);
+    clearInterval(refs.interval.current);
 
-    refs.animationFrame.current = requestAnimationFrame(update);
+    if (start) {
+      // 71 fps
+      // up to 60fps mostly
+      refs.interval.current = setInterval(() => {
+        setValue(AmauiDate.milliseconds);
+      }, 14);
+    }
   };
 
   const clear = () => {
-    cancelAnimationFrame(refs.animationFrame.current);
+    clearInterval(refs.interval.current);
   };
 
   const marks: any = {
@@ -277,7 +287,7 @@ const Watch = React.forwardRef((props_: IWatch, ref: any) => {
       // Clean up
       clear();
     };
-  }, []);
+  }, [start]);
 
   return (
     <Surface
