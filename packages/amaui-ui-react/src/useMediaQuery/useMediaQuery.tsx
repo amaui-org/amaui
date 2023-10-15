@@ -8,11 +8,11 @@ export interface IOptionsUseMediaQuery {
 }
 
 const useMediaQuery = (props: string, options?: IOptionsUseMediaQuery) => {
-  const rootDocument = options?.element?.ownerDocument || window.document;
+  const rootDocument = (options?.element?.ownerDocument || window.document) as Document;
 
   // iframeWindow
   // workaround for matchMedia on the iframe window
-  const windowElement = isEnvironment('browser') && (rootDocument?.iframeWindow || window);
+  const windowElement = isEnvironment('browser') && (rootDocument?.defaultView || (rootDocument as any)?.iframeWindow || window);
 
   const [response, setResponse] = React.useState<MediaQueryList | MediaQueryListEvent>(windowElement?.matchMedia(props));
 
