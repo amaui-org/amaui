@@ -84,6 +84,8 @@ const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
       if (refs.root.current) {
         const rect = refs.root.current.getBoundingClientRect();
 
+        const rootWindow = refs.root.current?.ownerDocument?.defaultView || window;
+
         // Reveal
         if (!refs.in.current) {
           const offset_ = refs.props.current.offsetReveal !== undefined ? refs.props.current.offsetReveal : refs.props.current.offset !== undefined ? refs.props.current.offset : 0;
@@ -92,52 +94,52 @@ const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
             // Top
             (
               // Top
-              (rect.top - offset_ < window.innerHeight && rect.top - offset_ > 0) &&
+              (rect.top - offset_ < rootWindow.innerHeight && rect.top - offset_ > 0) &&
 
               (
                 // Left
-                (rect.left - offset_ < window.innerWidth && rect.left - offset_ > 0) ||
+                (rect.left - offset_ < rootWindow.innerWidth && rect.left - offset_ > 0) ||
                 // Right
-                (rect.left - offset_ < window.innerWidth && rect.right + offset_ > 0)
+                (rect.left - offset_ < rootWindow.innerWidth && rect.right + offset_ > 0)
               )
             ) ||
 
             // Left
             (
               // Left
-              (rect.left - offset_ < window.innerWidth && rect.left - offset_ > 0) &&
+              (rect.left - offset_ < rootWindow.innerWidth && rect.left - offset_ > 0) &&
 
               (
                 // Top
-                (rect.top - offset_ < window.innerHeight && rect.top - offset_ > 0) ||
+                (rect.top - offset_ < rootWindow.innerHeight && rect.top - offset_ > 0) ||
                 // Bottom
-                (rect.top - offset_ < window.innerHeight && rect.bottom + offset_ > 0)
+                (rect.top - offset_ < rootWindow.innerHeight && rect.bottom + offset_ > 0)
               )
             ) ||
 
             // Right
             (
               // Right
-              (rect.left - offset_ < window.innerWidth && rect.right + offset_ > 0) &&
+              (rect.left - offset_ < rootWindow.innerWidth && rect.right + offset_ > 0) &&
 
               (
                 // Top
-                (rect.top - offset_ < window.innerHeight && rect.top - offset_ > 0) ||
+                (rect.top - offset_ < rootWindow.innerHeight && rect.top - offset_ > 0) ||
                 // Bottom
-                (rect.top - offset_ < window.innerHeight && rect.bottom + offset_ > 0)
+                (rect.top - offset_ < rootWindow.innerHeight && rect.bottom + offset_ > 0)
               )
             ) ||
 
             // Bottom
             (
               // Bottom
-              (rect.top - offset_ < window.innerHeight && rect.bottom + offset_ > 0) &&
+              (rect.top - offset_ < rootWindow.innerHeight && rect.bottom + offset_ > 0) &&
 
               (
                 // Left
-                (rect.left - offset_ < window.innerWidth && rect.left - offset_ > 0) ||
+                (rect.left - offset_ < rootWindow.innerWidth && rect.left - offset_ > 0) ||
                 // Right
-                (rect.left - offset_ < window.innerWidth && rect.right + offset_ > 0)
+                (rect.left - offset_ < rootWindow.innerWidth && rect.right + offset_ > 0)
               )
             )
           ) updateIn(true);
@@ -153,10 +155,10 @@ const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
             rect.right + offset_ < 0 ||
 
             // Right
-            rect.left - offset_ > window.innerWidth ||
+            rect.left - offset_ > rootWindow.innerWidth ||
 
             // Bottom
-            rect.top - offset_ > window.innerHeight
+            rect.top - offset_ > rootWindow.innerHeight
           ) updateIn(false);
         }
       }
@@ -182,11 +184,11 @@ const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
 
   const Component = !noTransition ? Component_ : React.Fragment;
 
+  if (!noTransition) other.in = inProp;
+
   const ComponentProps = !noTransition && {
     ...other
   };
-
-  if (!noTransition) other.in = inProp;
 
   return (
     <Component
