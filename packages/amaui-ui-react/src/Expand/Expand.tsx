@@ -30,6 +30,8 @@ export interface IExpand extends ITransition {
   // relative to width of the parent
   parent: HTMLElement;
 
+  value?: number;
+
   expandSize?: number;
 
   orientation?: 'veritcal' | 'horizontal';
@@ -44,6 +46,8 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
 
   const {
     in: inProp,
+
+    value: valueProvided,
 
     // required
     // html element reference
@@ -111,8 +115,10 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
 
   const childrenWithTransition = isTransition(children?.type?.displayName);
 
-  const getValue = React.useCallback((element = refs.element.current) => {
-    if (element) {
+  const getValue = React.useCallback((wrapper = refs.element.current) => {
+    if (wrapper) {
+      const element = wrapper?.children?.[0];
+
       refs.value.current = (element?.getBoundingClientRect() || {})[prop] || 0;
     }
   }, [prop]);
@@ -137,7 +143,7 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
     const allStyles = {
       appended: {
         position: 'fixed',
-        left: '114%',
+        left: '1114%',
         visibility: 'hidden'
       },
 
@@ -147,7 +153,7 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
         overflow: 'hidden'
       },
       entering: {
-        [prop]: `${refs.value.current}px`,
+        [prop]: `${valueProvided !== undefined ? valueProvided : refs.value.current}px`,
         overflow: 'hidden'
       },
       entered: {
@@ -189,30 +195,34 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
     </Wrapper>
   );
 
-  if (!parent) return null;
+  if (valueProvided === undefined) {
+    if (!parent) return null;
 
-  if (!init) return (
-    <div
-      ref={refs.element}
+    if (!init) return (
+      <div
+        ref={refs.element}
 
-      style={{
-        position: 'fixed',
-        left: '114%',
-        visibility: 'hidden',
-        // add with of an actual parent
-        // at the moment,
-        width: (parent as HTMLElement).clientWidth
-      }}
-    >
-      {/*
+        style={{
+          position: 'fixed',
+          left: '1114%',
+          visibility: 'hidden',
+
+          // add with of an actual parent
+          // at the moment,
+          width: (parent as HTMLElement).clientWidth,
+          height: (parent as HTMLElement).clientHeight
+        }}
+      >
+        {/*
         If it's a transition make it in true
         so it renders immediatelly to use the value
       */}
-      {React.cloneElement(children, {
-        ...(childrenWithTransition && { in: true })
-      })}
-    </div>
-  );
+        {React.cloneElement(children, {
+          ...(childrenWithTransition && { in: true })
+        })}
+      </div>
+    );
+  }
 
   return (
     <Transition
