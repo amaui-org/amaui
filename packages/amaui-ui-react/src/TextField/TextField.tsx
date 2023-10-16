@@ -496,7 +496,7 @@ const useStyle = styleMethod(theme => ({
 
   clear: {
     cursor: 'pointer',
-    pointerEvents: 'all',
+    pointerEvents: 'all !important',
     userSelect: 'none',
     transition: theme.methods.transitions.make('transform', { duration: 'xs' }),
 

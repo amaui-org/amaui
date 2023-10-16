@@ -956,7 +956,8 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
       { label: 'Verdana', value: `Verdana, sans-serif` },
       { label: 'Helvetica', value: `Helvetica, sans-serif` },
       { label: 'Georgia', value: `Georgia, sans-serif` },
-      { label: 'Roboto', value: `Roboto, sans-serif` }
+      { label: 'Roboto', value: `Roboto, sans-serif` },
+      { label: 'DM Sans', value: `DM Sans, sans-serif` }
     ],
 
     addFontFamilies = [],
@@ -1954,7 +1955,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
     // Font family
     const fontFamily = query('fontName');
 
-    const fontFamilyValue = font_families.find(item_ => fontFamily?.includes(item_.label)) || font_families.find(item_ => item_.label === 'Roboto');
+    const fontFamilyValue = font_families.find(item_ => fontFamily?.includes(item_.label)) || font_families.find(item_ => item_.label === 'DM Sans');
 
     inputValues_['font-family'] = fontFamilyValue?.value;
 
@@ -2041,7 +2042,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
       <Select
         label='Font Family'
 
-        valueDefault={font_families.find(item => item.label.includes('Roboto')).value}
+        valueDefault={font_families.find(item => item.label.includes('DM Sans')).value}
 
         value={inputValues['font-family']}
 
