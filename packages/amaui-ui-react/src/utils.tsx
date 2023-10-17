@@ -1,5 +1,5 @@
 import { is, canvasFilterBrightness, canvasFilterContrast, canvasFilterSaturation, canvasFilterFade, canvasFilterInvert, canvasFilterOldPhoto, download, clamp } from '@amaui/utils';
-import { TPaletteVersion } from '@amaui/style-react';
+import { TBreakpoint, TPaletteVersion } from '@amaui/style-react';
 
 export function reflow(element: HTMLElement) {
   element?.offsetHeight;
@@ -335,7 +335,7 @@ export interface IBaseElement {
 
 export type TMethodTransition = (element?: THTMLElement) => any;
 
-export type TValueBreakpoints = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'default';
+export type TValueBreakpoints = TBreakpoint | 'default';
 
 export const sanitize = (value: string) => {
   if (value) {

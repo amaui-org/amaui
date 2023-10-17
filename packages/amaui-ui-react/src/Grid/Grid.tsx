@@ -181,7 +181,9 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
   other.direction = direction;
 
   // Width
-  const breakpoint = values && Object.keys(breakpoints).find(item => values && !!values[item] && breakpoints[item]);
+  // first smallest to largest
+  // that is true
+  const breakpoint = is('object', values) && ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'default'].find(item => !!values[item] && breakpoints[item]);
 
   let width = values?.[breakpoint] || values?.default || (is('number', values) && values) || columns;
 
