@@ -188,6 +188,12 @@ export interface IAutoComplete extends ITextField {
   autoSelectOnBlur?: boolean;
   blurOnSelect?: boolean;
   noOptions?: boolean;
+  noOptionsObject?: any;
+  startOptionsObject?: any;
+  endOptionsObject?: any;
+  noOptionsElement?: any;
+  startOptionsElement?: any;
+  endOptionsElement?: any;
   openOnFocus?: boolean;
   closeOnSelect?: boolean;
   clearOnEscape?: boolean;
@@ -202,7 +208,7 @@ export interface IAutoComplete extends ITextField {
 
   IconClear?: TElementReference;
 
-  ChipGroupProps?: TPropsAny;
+  ChipProps?: TPropsAny;
   ListProps?: TPropsAny;
   MenuProps?: TPropsAny;
   IconButtonProps?: TPropsAny;
@@ -253,6 +259,12 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     autoSelectOnBlur,
     blurOnSelect = false,
     noOptions,
+    noOptionsObject,
+    startOptionsObject,
+    noOptionsElement,
+    startOptionsElement,
+    endOptionsElement,
+    endOptionsObject,
     openOnFocus = true,
     closeOnSelect = true,
     clearOnEscape,
@@ -268,7 +280,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
     IconClear = IconMaterialCloseRounded,
 
-    ChipGroupProps,
+    ChipProps,
     ListProps,
     MenuProps,
     IconButtonProps,
@@ -379,7 +391,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     else optionsValue = is('function', filter) ? filter(valueInputNew, options_) : options_.filter(option => isEqualToInput(valueInputNew, option));
 
     if (!optionsValue.length) {
-      if (noOptions) optionsValue.push({ label: 'No options', version: 'text', noOptions: true });
+      if (noOptions) optionsValue.push(noOptionsObject !== undefined ? noOptionsObject : { primary: 'No options', version: 'text', noOptions: true });
       else {
         setOpen(false);
 
@@ -387,6 +399,12 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
         return;
       }
+    }
+
+    if (!loading) {
+      if (startOptionsObject) optionsValue.unshift(startOptionsObject);
+
+      if (endOptionsObject) optionsValue.push(endOptionsObject);
     }
 
     setOptions(optionsValue);
@@ -568,6 +586,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
             <Chip
               key={index}
 
+              {...ChipProps}
+
               {...other_}
             >
               {renderValue(item)}
@@ -627,7 +647,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
   const getLabel = (item: any) => is('function', getLabel_) ? getLabel_(item) : item?.name || item?.label || item?.value;
 
   const renderOptionValue = (values: any) => {
-    return values.map((item: any, index: number) => {
+    const result = values.map((item: any, index: number) => {
       let other_: any = {};
 
       const button = item.version === undefined || item.version === 'button';
@@ -669,6 +689,12 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
       other_.onMouseDown = onMouseDown;
 
+      if (item.noOptions) {
+        if (noOptionsElement) return React.cloneElement(noOptionsElement, {
+          key: 'noOptions'
+        });
+      }
+
       return (
         is('function', renderOption) ?
           renderOption(item, index, { ...other_, ...item.props }) :
@@ -686,6 +712,12 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
           />
       );
     });
+
+    if (startOptionsElement) result.unshift(React.cloneElement(startOptionsElement, { key: 'startOptionsElement' }));
+
+    if (endOptionsElement) result.push(React.cloneElement(endOptionsElement, { key: 'endOptionsElement' }));
+
+    return result;
   };
 
   const renderList = () => {
