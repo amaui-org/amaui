@@ -55,8 +55,8 @@ const ScatterChartItem = React.forwardRef((props_: IScatterChartItem, ref: any) 
 
   const breakpoints = {};
 
-  theme.breakpoints.keys.sort((a, b) => theme.breakpoints.values[b] - theme.breakpoints.values[a]).forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(`(min-width: ${theme.breakpoints.values[key]}px)`);
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
   });
 
   const { classes } = useStyle(props);
