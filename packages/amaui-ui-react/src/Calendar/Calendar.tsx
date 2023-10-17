@@ -326,7 +326,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
   // Value
   React.useEffect(() => {
-    if (value_ !== undefined && value_ !== value) setValue((is('array', value_) ? value_ : [value_]) as any);
+    if (value_ !== undefined && value_ !== value) setValue(((is('array', value_) ? value_ : [value_] as any).filter(Boolean)));
   }, [value_]);
 
   // Calendar

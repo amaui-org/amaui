@@ -326,7 +326,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
   // Value
   React.useEffect(() => {
-    if (value_ !== undefined && value_ !== value) onUpdateValue(is('array', value_) ? value_ as any : [value_]);
+    if (value_ !== undefined && value_ !== value) onUpdateValue(((is('array', value_) ? value_ : [value_] as any).filter(Boolean)));
   }, [value_]);
 
   const onUpdate = React.useCallback((valueNew: AmauiDate) => {

@@ -335,7 +335,7 @@ export interface IBaseElement {
 
 export type TMethodTransition = (element?: THTMLElement) => any;
 
-export type TValueBreakpoints = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'default';
+export type TValueBreakpoints = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'default';
 
 export const sanitize = (value: string) => {
   if (value) {

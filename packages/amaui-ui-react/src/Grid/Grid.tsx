@@ -117,6 +117,10 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
     rowGap: rowGap_,
     columnGap: columnGap_,
 
+    parentGap,
+    parentRowGap,
+    parentColumnGap,
+
     direction: direction_,
 
     offsets,
@@ -187,11 +191,16 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
 
   const offset = offsets?.[breakpoint] || offsets?.default || 0;
 
-  const valueGap = columnGap !== undefined ? columnGap : gap;
+  const valueGap = parentColumnGap !== undefined ? parentColumnGap : parentGap;
+
+  const part = width / (columns as number);
+
+  const partGap = (valueGap * theme.space.unit) - ((valueGap * theme.space.unit) * part);
 
   if (auto) width = undefined;
   else if (isResponsive) width = '100%';
-  else width = `calc(${(width / (columns as number)) * 100}% - ${(valueGap * theme.space.unit)}px)`;
+  else if (width === columns) width = '100%';
+  else width = `calc(${part * 100}% - ${partGap}px)`;
 
   if (isResponsive) {
     other.direction = 'column';
@@ -239,11 +248,11 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
     >
       {React.Children.toArray(children).map((item: any) => (
         React.cloneElement(item, !item.type?.displayName?.includes('Grid') ? {} : {
-          gap,
-          rowGap,
-          columnGap,
-
-          ...other
+          ...(other.direction === 'row' && {
+            parentGap: gap,
+            parentRowGap: rowGap,
+            parentColumnGap: columnGap
+          })
         })
       ))}
     </Line>

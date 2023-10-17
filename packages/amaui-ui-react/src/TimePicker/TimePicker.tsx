@@ -461,7 +461,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
   // Value
   React.useEffect(() => {
-    if (value_ !== undefined && value_ !== value) onUpdateValue((is('array', value_) ? value_ : [value_]) as any);
+    if (value_ !== undefined && value_ !== value) onUpdateValue(((is('array', value_) ? value_ : [value_] as any).filter(Boolean)));
   }, [value_]);
 
   const onUpdate = React.useCallback((valueNew_: AmauiDate) => {

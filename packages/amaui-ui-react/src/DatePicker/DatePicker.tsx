@@ -418,7 +418,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
   // Value
   React.useEffect(() => {
-    if (value_ !== undefined && value_ !== value) onUpdateValue(is('array', value_) ? value_ as any : [value_]);
+    if (value_ !== undefined && value_ !== value) onUpdateValue(((is('array', value_) ? value_ : [value_] as any).filter(Boolean)));
   }, [value_]);
 
   // Calendar
@@ -486,16 +486,37 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
   }, [onClose_]);
 
   const onReset = React.useCallback(() => {
-    const valueNew = inputToValue() as any;
+    let valueNew: any = inputToValue();
 
-    // Update value
-    onUpdate(valueNew);
+    const isValid = valueNew && (valueNew?.[0] as AmauiDate)?.valid;
 
-    // Update calendar
-    onUpdateCalendar(valueNew[0]);
+    if (isValid) {
+      // Update value
+      onUpdate(valueNew);
 
-    // Update input modal
-    setInputModal(input);
+      // Update calendar
+      onUpdateCalendar(valueNew[0]);
+
+      // Update input modal
+      setInputModal(input);
+    }
+    else {
+      const dateNow = new AmauiDate();
+
+      valueNew = [];
+
+      // Update value
+      onUpdate(valueNew as any);
+
+      // Update calendar
+      onUpdateCalendar(dateNow);
+
+      // Update input
+      setInput(valueToInput(valueNew));
+
+      // Update input modal
+      setInputModal(valueToInput(valueNew));
+    }
   }, [input]);
 
   const onToday = React.useCallback((event: React.MouseEvent) => {
