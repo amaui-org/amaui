@@ -89,13 +89,15 @@ const useForm = (props: IUseForm) => {
     for (const arg of valuesArgs) {
       const [property_, value_, propertyNested] = arg;
 
-      const property = values[property_];
+      let property = values[property_];
 
       if (!property) {
         values[property_] = {
           name: (propertyNested || property_)?.split('.')?.slice(-1)[0],
           touched: true
         };
+
+        property = values[property_];
       }
 
       if (!propertyNested) property.value = value_;
