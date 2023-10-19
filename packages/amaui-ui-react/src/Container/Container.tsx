@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
@@ -100,12 +101,6 @@ const Container = React.forwardRef((props_: IContainer, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiContainer?.props?.default, ...props_ }), [props_]);
 
-  const breakpoints = {};
-
-  theme.breakpoints.keys.forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
-  });
-
   const { classes } = useStyle(props);
 
   const {
@@ -129,6 +124,16 @@ const Container = React.forwardRef((props_: IContainer, ref: any) => {
     ...other
   } = props;
 
+  const refs = {
+    root: React.useRef<any>()
+  };
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
+  });
+
   const alignment = valueBreakpoints(alignment_, 'center', breakpoints, theme);
   const paddingVertical = valueBreakpoints(paddingVertical_, 'none', breakpoints, theme);
   const paddingHorizontal = valueBreakpoints(paddingHorizontal_, 'both', breakpoints, theme);
@@ -149,7 +154,14 @@ const Container = React.forwardRef((props_: IContainer, ref: any) => {
 
   return (
     <Line
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       gap={0}
 

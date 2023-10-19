@@ -65,12 +65,6 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPieChart?.props?.default, ...props_ }), [props_]);
 
-  const breakpoints = {};
-
-  theme.breakpoints.keys.forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
-  });
-
   const { classes } = useStyle(props);
 
   const {
@@ -99,13 +93,8 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
     ...other
   } = props;
 
-  const animate = valueBreakpoints(animate_, true, breakpoints, theme);
-  const animateTimeout = valueBreakpoints(animateTimeout_, 140, breakpoints, theme);
-
-  const [value, setValue] = React.useState<any>();
-  const [init, setInit] = React.useState<any>();
-
   const refs = {
+    root: React.useRef<any>(),
     rects: React.useRef<any>(),
     pathStyle: React.useRef<any>(),
     animate: React.useRef<any>(),
@@ -113,6 +102,18 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
     init: React.useRef<any>(),
     theme: React.useRef<any>()
   };
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
+  });
+
+  const animate = valueBreakpoints(animate_, true, breakpoints, theme);
+  const animateTimeout = valueBreakpoints(animateTimeout_, 140, breakpoints, theme);
+
+  const [value, setValue] = React.useState<any>();
+  const [init, setInit] = React.useState<any>();
 
   refs.theme.current = theme;
 
@@ -552,7 +553,14 @@ const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
 
   return (
     <Chart
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       tonal={tonal}
 

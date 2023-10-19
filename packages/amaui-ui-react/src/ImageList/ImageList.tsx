@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import useMediaQuery from '../useMediaQuery';
@@ -48,12 +49,6 @@ const ImageList = React.forwardRef((props_: IImageList, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageList?.props?.default, ...props_ }), [props_]);
 
-  const breakpoints = {};
-
-  theme.breakpoints.keys.forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
-  });
-
   const { classes } = useStyle(props);
 
   const {
@@ -74,17 +69,27 @@ const ImageList = React.forwardRef((props_: IImageList, ref: any) => {
     ...other
   } = props;
 
+  const refs = {
+    root: React.useRef<any>()
+  };
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
+  });
+
+  const gap = valueBreakpoints(gap_, 0.5, breakpoints, theme);
+  const rowGap = valueBreakpoints(rowGap_, undefined, breakpoints, theme);
+  const columnGap = valueBreakpoints(columnGap_, undefined, breakpoints, theme);
+  const columns = valueBreakpoints(columns_, { xxs: 1, xs: 2, sm: 3, md: 4, lg: 5, xl: 6, xxl: 7, default: 4 }, breakpoints, theme);
+
   const styles: any = {
     root: {
 
     },
     item: {}
   };
-
-  const gap = valueBreakpoints(gap_, 0.5, breakpoints, theme);
-  const rowGap = valueBreakpoints(rowGap_, undefined, breakpoints, theme);
-  const columnGap = valueBreakpoints(columnGap_, undefined, breakpoints, theme);
-  const columns = valueBreakpoints(columns_, { xxs: 1, xs: 2, sm: 3, md: 4, lg: 5, xl: 6, xxl: 7, default: 4 }, breakpoints, theme);
 
   if (['standard', 'quilted', 'vowen'].includes(version)) {
     styles.root.gridTemplateColumns = `repeat(${columns}, 1fr)`;
@@ -112,7 +117,14 @@ const ImageList = React.forwardRef((props_: IImageList, ref: any) => {
   const WrapperProps: any = {};
 
   if (version === 'masonry') {
-    WrapperProps.ref = ref;
+    WrapperProps.ref = item => {
+      if (ref) {
+        if (is('function', ref)) ref(item);
+        else ref.current = item;
+      }
+
+      refs.root.current = item;
+    };
 
     WrapperProps.style = {
       ...style
@@ -123,7 +135,14 @@ const ImageList = React.forwardRef((props_: IImageList, ref: any) => {
     };
   }
   else {
-    other.ref = ref;
+    other.ref = item => {
+      if (ref) {
+        if (is('function', ref)) ref(item);
+        else ref.current = item;
+      }
+
+      refs.root.current = item;
+    };
 
     other.style = {
       ...styles.root,

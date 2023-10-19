@@ -72,12 +72,6 @@ const Breadcrumbs = React.forwardRef((props_: IBreadcrumbs, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBreadcrumbs?.props?.default, ...props_ }), [props_]);
 
-  const breakpoints = {};
-
-  theme.breakpoints.keys.forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
-  });
-
   const { classes } = useStyle(props);
 
   const {
@@ -103,6 +97,16 @@ const Breadcrumbs = React.forwardRef((props_: IBreadcrumbs, ref: any) => {
 
     ...other
   } = props;
+
+  const refs = {
+    root: React.useRef<any>()
+  };
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
+  });
 
   let max = valueBreakpoints(max_, undefined, breakpoints, theme);
 
@@ -190,7 +194,14 @@ const Breadcrumbs = React.forwardRef((props_: IBreadcrumbs, ref: any) => {
 
   return (
     <Line
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       gap={1}
 

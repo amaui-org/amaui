@@ -484,12 +484,6 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiChart?.props?.default, ...props_ }), [props_]);
 
-  const breakpoints = {};
-
-  theme.breakpoints.keys.forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
-  });
-
   const { classes } = useStyle(props);
 
   const {
@@ -668,6 +662,31 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
     ...other
   } = props;
 
+  const refs = {
+    root: React.useRef<any>(),
+    wrapper: React.useRef<any>(),
+    svg: React.useRef<any>(),
+    defs: React.useRef<any>(),
+    minMax: React.useRef<any>(),
+    rects: React.useRef<any>(),
+    guidelines: React.useRef<any>(),
+    guidelinesIn: React.useRef<any>(),
+    guidelinesPosition: React.useRef<any>(),
+    guidelinesAppend: React.useRef<any>(),
+    hover: React.useRef<any>(),
+    allValues: React.useRef<any>([]),
+    values: React.useRef<any>([]),
+    visible: React.useRef<any>([]),
+    appendStyle: React.useRef<any>({}),
+    theme: React.useRef<any>([])
+  };
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
+  });
+
   const nameX = valueBreakpoints(nameX_, undefined, breakpoints, theme);
   const nameY = valueBreakpoints(nameY_, undefined, breakpoints, theme);
 
@@ -750,25 +769,6 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
   const [guidelinesIn, setGuidelineIn] = React.useState(false);
   const [guidelinesPosition, setGuidelinePosition] = React.useState<any>({});
   const [hover, setHover] = React.useState(false);
-
-  const refs = {
-    root: React.useRef<any>(),
-    wrapper: React.useRef<any>(),
-    svg: React.useRef<any>(),
-    defs: React.useRef<any>(),
-    minMax: React.useRef<any>(),
-    rects: React.useRef<any>(),
-    guidelines: React.useRef<any>(),
-    guidelinesIn: React.useRef<any>(),
-    guidelinesPosition: React.useRef<any>(),
-    guidelinesAppend: React.useRef<any>(),
-    hover: React.useRef<any>(),
-    allValues: React.useRef<any>([]),
-    values: React.useRef<any>([]),
-    visible: React.useRef<any>([]),
-    appendStyle: React.useRef<any>({}),
-    theme: React.useRef<any>([])
-  };
 
   refs.rects.current = rects;
 

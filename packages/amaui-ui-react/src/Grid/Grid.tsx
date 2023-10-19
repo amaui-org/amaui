@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
@@ -98,12 +98,6 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiGrid?.props?.default, ...props_ }), [props_]);
 
-  const breakpoints = {};
-
-  theme.breakpoints.keys.forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
-  });
-
   const { classes } = useStyle(props);
 
   const {
@@ -140,15 +134,22 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
     ...other
   } = props;
 
+  const refs = {
+    root: React.useRef<any>(),
+    responsiveIFrame: React.useRef<any>({})
+  };
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
+  });
+
   const gap = valueBreakpoints(gap_, 2, breakpoints, theme);
   const rowGap = valueBreakpoints(rowGap_, undefined, breakpoints, theme);
   const columnGap = valueBreakpoints(columnGap_, undefined, breakpoints, theme);
   const direction = valueBreakpoints(direction_, 'column', breakpoints, theme);
   const responsive = valueBreakpoints(responsive_, undefined, breakpoints, theme);
-
-  const refs = {
-    root: React.useRef<any>()
-  };
 
   const responsiveValues = {
     mobile: useMediaQuery(`(max-width: 767px)`, { element: refs.root.current })
@@ -183,7 +184,7 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
   // Width
   // first smallest to largest
   // that is true
-  const breakpoint = is('object', values) && ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'default'].find(item => !!values[item] && breakpoints[item]);
+  const breakpoint = is('object', values) && ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'].find(item => !!values[item] && breakpoints[item]);
 
   let width = values?.[breakpoint] || values?.default || (is('number', values) && values) || columns;
 
@@ -193,7 +194,7 @@ const Grid = React.forwardRef((props_: IGrid, ref: any) => {
 
   const offset = offsets?.[breakpoint] || offsets?.default || 0;
 
-  const valueGap = parentColumnGap !== undefined ? parentColumnGap : parentGap;
+  const valueGap = (parentColumnGap !== undefined ? parentColumnGap : parentGap) || 0;
 
   const part = width / (columns as number);
 

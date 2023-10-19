@@ -325,12 +325,6 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCarousel?.props?.default, ...props_ }), [props_]);
 
-  const breakpoints = {};
-
-  theme.breakpoints.keys.forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
-  });
-
   const { classes } = useStyle(props);
 
   const {
@@ -461,6 +455,48 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
     ...other
   } = props;
 
+  const refs = {
+    root: React.useRef<any>(),
+    item: React.useRef<any>(),
+    items: React.useRef<any>(),
+    value: React.useRef<any>(),
+    autoPlayTimeout: React.useRef<any>(),
+    autoPlay: React.useRef<any>(),
+    carousel: React.useRef<any>(),
+    mouseDown: React.useRef<any>(),
+    focus: React.useRef<any>(),
+    gap: React.useRef<any>(),
+    previousMouseEvent: React.useRef<any>(),
+    move: React.useRef<any>(),
+    moveValue: React.useRef<any>(),
+    moveItems: React.useRef<any>(),
+    moveBeyondEdge: React.useRef<any>(),
+    free: React.useRef<any>(),
+    swipe: React.useRef<any>(),
+    mouseDownPosition: React.useRef<any>(),
+    mouseDownStart: React.useRef<any>(),
+    mouseDownDuration: React.useRef<any>(),
+    orientation: React.useRef<any>(),
+    version: React.useRef<any>(),
+    itemSize: React.useRef<any>(),
+    itemsLength: React.useRef<any>(),
+    momentum: React.useRef<any>(),
+    round: React.useRef<any>(),
+    velocity: React.useRef<any>(),
+    momentumID: React.useRef<any>(),
+    width: React.useRef<any>(),
+    onInit: React.useRef<any>(),
+    ids: {
+      items: React.useId()
+    }
+  };
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
+  });
+
   const version = valueBreakpoints(version_, 'regular', breakpoints, theme);
   const orientation = valueBreakpoints(orientation_, 'horizontal', breakpoints, theme);
   const itemSize = valueBreakpoints(itemSize_, undefined, breakpoints, theme);
@@ -497,42 +533,6 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
   const [hover, setHover] = React.useState<any>();
   const [mouseDown, setMouseDown] = React.useState<any>();
   const [focus, setFocus] = React.useState<any>();
-
-  const refs = {
-    root: React.useRef<any>(),
-    item: React.useRef<any>(),
-    items: React.useRef<any>(),
-    value: React.useRef<any>(),
-    autoPlayTimeout: React.useRef<any>(),
-    autoPlay: React.useRef<any>(),
-    carousel: React.useRef<any>(),
-    mouseDown: React.useRef<any>(),
-    focus: React.useRef<any>(),
-    gap: React.useRef<any>(),
-    previousMouseEvent: React.useRef<any>(),
-    move: React.useRef<any>(),
-    moveValue: React.useRef<any>(),
-    moveItems: React.useRef<any>(),
-    moveBeyondEdge: React.useRef<any>(),
-    free: React.useRef<any>(),
-    swipe: React.useRef<any>(),
-    mouseDownPosition: React.useRef<any>(),
-    mouseDownStart: React.useRef<any>(),
-    mouseDownDuration: React.useRef<any>(),
-    orientation: React.useRef<any>(),
-    version: React.useRef<any>(),
-    itemSize: React.useRef<any>(),
-    itemsLength: React.useRef<any>(),
-    momentum: React.useRef<any>(),
-    round: React.useRef<any>(),
-    velocity: React.useRef<any>(),
-    momentumID: React.useRef<any>(),
-    width: React.useRef<any>(),
-    onInit: React.useRef<any>(),
-    ids: {
-      items: React.useId()
-    }
-  };
 
   const styles: any = {
     carousel: {}

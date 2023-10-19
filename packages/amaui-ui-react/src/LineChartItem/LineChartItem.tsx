@@ -56,12 +56,6 @@ const LineChartItem = React.forwardRef((props_: ILineChartItem, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLineChartItem?.props?.default, ...props_ }), [props_]);
 
-  const breakpoints = {};
-
-  theme.breakpoints.keys.forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
-  });
-
   const { classes } = useStyle(props);
 
   const {
@@ -101,12 +95,6 @@ const LineChartItem = React.forwardRef((props_: ILineChartItem, ref: any) => {
     ...other
   } = props;
 
-  const animate = valueBreakpoints(animate_, true, breakpoints, theme);
-  const animateTimeout = valueBreakpoints(animateTimeout_, 140, breakpoints, theme);
-
-  const [value, setValue] = React.useState<any>();
-  const [init, setInit] = React.useState<any>();
-
   const refs = {
     minMax: React.useRef<any>(),
     smooth: React.useRef<any>(),
@@ -118,6 +106,17 @@ const LineChartItem = React.forwardRef((props_: ILineChartItem, ref: any) => {
     init: React.useRef<any>()
   };
 
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.path.current });
+  });
+
+  const animate = valueBreakpoints(animate_, true, breakpoints, theme);
+  const animateTimeout = valueBreakpoints(animateTimeout_, 140, breakpoints, theme);
+
+  const [value, setValue] = React.useState<any>();
+  const [init, setInit] = React.useState<any>();
   refs.theme.current = theme;
 
   refs.smooth.current = smooth;

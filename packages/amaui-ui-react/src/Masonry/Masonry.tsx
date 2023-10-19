@@ -30,12 +30,6 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMasonry?.props?.default, ...props_ }), [props_]);
 
-  const breakpoints = {};
-
-  theme.breakpoints.keys.forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
-  });
-
   const {
     gap: gap_,
     columns: columns_,
@@ -56,6 +50,12 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
     columns: React.useRef<any>(),
     init: React.useRef<any>()
   };
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
+  });
 
   refs.init.current = init;
 

@@ -39,12 +39,6 @@ const Parallax = React.forwardRef((props_: IParallax, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiParallax?.props?.default, ...props_ }), [props_]);
 
-  const breakpoints = {};
-
-  theme.breakpoints.keys.forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
-  });
-
   const { classes } = useStyle(props);
 
   const {
@@ -73,10 +67,6 @@ const Parallax = React.forwardRef((props_: IParallax, ref: any) => {
     ...other
   } = props;
 
-  const [value, setValue] = React.useState(0);
-
-  const disabled = valueBreakpoints(disabled_, false, breakpoints, theme);
-
   const refs = {
     root: React.useRef<any>(),
     value: React.useRef<any>(),
@@ -85,6 +75,16 @@ const Parallax = React.forwardRef((props_: IParallax, ref: any) => {
     rate: React.useRef<any>(),
     disabled: React.useRef<any>()
   };
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
+  });
+
+  const disabled = valueBreakpoints(disabled_, false, breakpoints, theme);
+
+  const [value, setValue] = React.useState(0);
 
   refs.value.current = value;
 

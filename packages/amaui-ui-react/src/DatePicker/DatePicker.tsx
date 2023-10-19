@@ -270,12 +270,6 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDatePicker?.props?.default, ...props__ }), [props__]);
 
-  const breakpoints = {};
-
-  theme.breakpoints.keys.forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
-  });
-
   const { classes } = useStyle(props);
 
   const {
@@ -350,12 +344,18 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
     ...other
   } = props;
 
-  const switch_ = valueBreakpoints(switch__, true, breakpoints, theme);
-  const useHelperText = valueBreakpoints(useHelperText_, undefined, breakpoints, theme);
-
   const refs = {
     root: React.useRef<any>()
   };
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
+  });
+
+  const switch_ = valueBreakpoints(switch__, true, breakpoints, theme);
+  const useHelperText = valueBreakpoints(useHelperText_, undefined, breakpoints, theme);
 
   const touch = useMediaQuery('(pointer: coarse)');
 

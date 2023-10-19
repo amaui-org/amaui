@@ -282,12 +282,6 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTimePicker?.props?.default, ...props__ }), [props__]);
 
-  const breakpoints = {};
-
-  theme.breakpoints.keys.forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
-  });
-
   const { classes } = useStyle(props);
 
   const {
@@ -368,17 +362,23 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     ...other
   } = props;
 
-  const switch_ = valueBreakpoints(switch__, true, breakpoints, theme);
-  const orientation = valueBreakpoints(orientation_, 'vertical', breakpoints, theme);
-  const autoNext = valueBreakpoints(autoNext_, undefined, breakpoints, theme);
-  const autoCloseOnLast = valueBreakpoints(autoCloseOnLast_, undefined, breakpoints, theme);
-
   const refs = {
     root: React.useRef<any>(),
     mode: React.useRef<any>(),
     value: React.useRef<any>(),
     dayTime: React.useRef<any>()
   };
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
+  });
+
+  const switch_ = valueBreakpoints(switch__, true, breakpoints, theme);
+  const orientation = valueBreakpoints(orientation_, 'vertical', breakpoints, theme);
+  const autoNext = valueBreakpoints(autoNext_, undefined, breakpoints, theme);
+  const autoCloseOnLast = valueBreakpoints(autoCloseOnLast_, undefined, breakpoints, theme);
 
   const touch = useMediaQuery('(pointer: coarse)');
 

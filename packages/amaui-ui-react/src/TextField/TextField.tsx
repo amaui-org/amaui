@@ -592,12 +592,6 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTextField?.props?.default, ...props_ }), [props_]);
 
-  const breakpoints = {};
-
-  theme.breakpoints.keys.forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
-  });
-
   const {
     tonal = true,
     color = 'primary',
@@ -669,8 +663,6 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
     ...other
   } = props;
 
-  const fullWidth = valueBreakpoints(fullWidth_, undefined, breakpoints, theme);
-
   const refs = {
     root: React.useRef<any>(),
     input: React.useRef<HTMLInputElement>(),
@@ -681,6 +673,14 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
       clear: React.useId()
     }
   };
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
+  });
+
+  const fullWidth = valueBreakpoints(fullWidth_, undefined, breakpoints, theme);
 
   const rowValue = () => {
     const rootDocument = refs.root.current?.ownerDocument || window.document;

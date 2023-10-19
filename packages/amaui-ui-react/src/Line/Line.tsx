@@ -172,12 +172,6 @@ const Line = React.forwardRef((props_: ILine, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLine?.props?.default, ...props_ }), [props_]);
 
-  const breakpoints = {};
-
-  theme.breakpoints.keys.forEach(key => {
-    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key]);
-  });
-
   const { classes } = useStyle(props);
 
   const {
@@ -204,6 +198,16 @@ const Line = React.forwardRef((props_: ILine, ref: any) => {
 
     ...other
   } = props;
+
+  const refs = {
+    root: React.useRef<any>()
+  };
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
+  });
 
   const display = valueBreakpoints(display_, 'flex', breakpoints, theme);
   const align = valueBreakpoints(align_, 'flex-start', breakpoints, theme);
@@ -247,7 +251,14 @@ const Line = React.forwardRef((props_: ILine, ref: any) => {
 
   return (
     <Component
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       className={classNames([
         staticClassName('Line', theme) && [
