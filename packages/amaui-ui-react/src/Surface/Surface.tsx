@@ -695,6 +695,10 @@ const useStyle = styleMethod(theme => ({
     backgroundImage: !theme.palette.light ? 'linear-gradient(rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.28))' : undefined,
   },
 
+  noBackground: {
+    background: 'none'
+  },
+
   noOutline: {
     boxShadow: 'none'
   }
@@ -707,6 +711,8 @@ export interface ISurface extends IBaseElement {
   elevation?: TElevation;
 
   backgroundOpacity?: number;
+
+  noBackground?: boolean;
   noOutline?: boolean;
 
   AdditionalProps?: TPropsAny;
@@ -726,6 +732,8 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
     elevation,
 
     backgroundOpacity,
+
+    noBackground,
     noOutline,
 
     AdditionalProps,
@@ -965,6 +973,7 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
         classes[`version_${version}_color_${color}`],
         classes[`elevation_${elevation}`],
         tonal && classes[`version_${version}_tonal_${is('string', tonal) ? `${tonal}_` : ''}color_${color}`],
+        noBackground && classes.noBackground,
         noOutline && classes.noOutline
       ])}
 

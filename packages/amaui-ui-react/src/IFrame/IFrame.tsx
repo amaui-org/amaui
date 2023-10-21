@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
 
 import { IBaseElement, TPropsAny, importIframeStyles, staticClassName } from '../utils';
-import { is } from '@amaui/utils';
 
 const useStyle = styleMethod(theme => ({
   root: {

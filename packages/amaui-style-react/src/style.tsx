@@ -26,18 +26,32 @@ export interface IResponseStyle extends IMethodResponse {
 
 export const propsAreNew = (props: any) => props && Object.keys(props).reduce((result, item) => result += item + String(props[item]), '');
 
-export default function style(value: TValue, options_: IOptions = {}, responses_?: Array<IResponseStyle>) {
+export interface IOptionsStyle extends IOptions {
+  remove?: boolean;
+}
+
+export default function style(value: TValue, options_: IOptionsStyle = {}, responses_?: Array<IResponseStyle>) {
   const responses: Array<IResponseStyle> = responses_ || [];
 
-  const { name } = options_;
+  const {
+    name,
+    remove = true
+  } = options_;
 
   function useStyle(props_?: any) {
     const amauiStyle = useAmauiStyle();
     const amauiTheme = useAmauiTheme();
 
     const refs = {
-      update: React.useRef<any>()
+      update: React.useRef<any>(),
+      remove: React.useRef(remove),
+      amauiStyle: React.useRef(amauiStyle),
+      amauiTheme: React.useRef(amauiTheme)
     };
+
+    refs.amauiStyle.current = amauiStyle;
+
+    refs.amauiTheme.current = amauiTheme;
 
     const resolve = (theme: any = amauiTheme) => {
       let valueNew: any = value;
@@ -144,15 +158,25 @@ export default function style(value: TValue, options_: IOptions = {}, responses_
 
       // Clean up
       return () => {
+        // If in the iframe
+        // don't remove the elements by default
+        let toRemove = refs.remove.current;
+
+        if (!options_?.hasOwnProperty('remove')) {
+          const rootDocument: any = refs.amauiStyle.current.element?.ownerDocument || refs.amauiTheme.current.element?.ownerDocument;
+
+          if (rootDocument?.iframeWindow) toRemove = false;
+        }
+
         // Remove
-        response?.remove(values?.ids?.dynamic);
+        if (toRemove) response?.remove(values?.ids?.dynamic);
 
         // Refresh
         refs.update.current = 'refresh';
 
         // Remove response from the responses
         // if users is 0 in amauiStyleSheetManager
-        if (!response?.amaui_style_sheet_manager?.users) {
+        if (toRemove && !response?.amaui_style_sheet_manager?.users) {
           const index = responses.findIndex((item: any) => item.amauiTheme.id === amauiTheme.id);
 
           if (index > -1) {

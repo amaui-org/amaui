@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, isEnvironment } from '@amaui/utils';
+import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
