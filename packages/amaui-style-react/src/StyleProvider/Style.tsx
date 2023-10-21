@@ -31,6 +31,8 @@ const Style = React.forwardRef((props: any, ref: any) => {
   const {
     root = false,
 
+    remove,
+
     value: value_,
 
     children,
@@ -45,12 +47,16 @@ const Style = React.forwardRef((props: any, ref: any) => {
   const [value, setValue] = React.useState(() => {
     if (value_ === undefined || !(value_ instanceof AmauiStyle)) return makeAmauiStyle();
 
-    return value_ as AmauiStyle;
+    (value_ as AmauiStyle).remove = remove;
+
+    return (value_ as AmauiStyle);
   });
 
   React.useEffect(() => {
     if (refs.root.current) {
       value.element = refs.root.current;
+
+      value.remove = remove;
 
       // Init
       value.init();
@@ -67,6 +73,8 @@ const Style = React.forwardRef((props: any, ref: any) => {
   const update = (updateValue: any) => {
     if (updateValue !== undefined) {
       const valueNew = new AmauiStyle();
+
+      valueNew.remove = remove;
 
       Object.keys(value).forEach((prop: any) => valueNew[prop] = value[prop]);
 

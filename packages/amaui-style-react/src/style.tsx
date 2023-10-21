@@ -35,7 +35,7 @@ export default function style(value: TValue, options_: IOptionsStyle = {}, respo
 
   const {
     name,
-    remove = true
+    remove
   } = options_;
 
   function useStyle(props_?: any) {
@@ -160,13 +160,7 @@ export default function style(value: TValue, options_: IOptionsStyle = {}, respo
       return () => {
         // If in the iframe
         // don't remove the elements by default
-        let toRemove = refs.remove.current;
-
-        if (!options_?.hasOwnProperty('remove')) {
-          const rootDocument: any = refs.amauiStyle.current.element?.ownerDocument || refs.amauiTheme.current.element?.ownerDocument;
-
-          if (rootDocument?.iframeWindow) toRemove = false;
-        }
+        const toRemove = refs.remove.current !== undefined ? refs.remove.current : refs.amauiStyle.current.remove !== undefined ? refs.amauiStyle.current.remove : true;
 
         // Remove
         if (toRemove) response?.remove(values?.ids?.dynamic);
