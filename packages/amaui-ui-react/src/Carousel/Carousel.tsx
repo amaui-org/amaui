@@ -119,7 +119,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   arrow: {
-    position: 'absolute'
+    position: 'absolute !important'
   },
 
   arrow_previous: {},
