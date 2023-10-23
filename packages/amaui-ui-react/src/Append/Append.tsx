@@ -115,8 +115,9 @@ const Append = (props_: IAppend) => {
 
   const onScroll = React.useCallback((event: any) => {
     // Only if it's parent's scroll event
-    if (event.target.contains(refs.root.current) && anchor === undefined) make();
+    // if (event.target.contains(refs.root.current) && anchor === undefined) make();
 
+    make();
   }, [anchor]);
 
   const observerMethod = React.useCallback((mutations: Array<MutationRecord>) => {
@@ -141,18 +142,18 @@ const Append = (props_: IAppend) => {
   }, []);
 
   React.useEffect(() => {
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootWindow = refs.root.current?.ownerDocument?.defaultView || window;
 
     make();
 
     // Scroll
-    rootDocument.addEventListener('scroll', onScroll, true);
+    rootWindow.addEventListener('scroll', onScroll, true);
 
     // Init
     setInit(true);
 
     return () => {
-      rootDocument.removeEventListener('scroll', onScroll);
+      rootWindow.removeEventListener('scroll', onScroll);
     };
   }, []);
 

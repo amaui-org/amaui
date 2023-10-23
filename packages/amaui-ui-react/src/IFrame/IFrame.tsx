@@ -153,6 +153,8 @@ const IFrame = React.forwardRef((props_: IIFrame, ref: any) => {
         {...other}
       >
         {init && iframeBody && ReactDOM.createPortal(React.cloneElement(children as any, {
+          iframeRef: refs.root.current,
+
           style: {
             ...(children as any)?.props.style,
 

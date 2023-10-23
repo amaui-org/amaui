@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, parse } from '@amaui/utils';
+import { is, isEnvironment, parse } from '@amaui/utils';
 import { classNames, colors, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
@@ -1078,7 +1078,9 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
       drawingSelect: React.useRef<any>(),
       drawingPalette: React.useRef<any>(),
       code: React.useRef<any>()
-    }
+    },
+    rootDocument: React.useRef<Document>(),
+    rootWindow: React.useRef<Window>()
   };
 
   refs.inputValues.current = inputValues;
@@ -1091,13 +1093,21 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
   refs.miniMenuInclude.current = miniMenuInclude;
 
+  const rootDocument = isEnvironment('browser') && (refs.root.current?.ownerDocument || window.document);
+
+  const rootWindow = rootDocument && (rootDocument.defaultView || window);
+
+  refs.rootDocument.current = rootDocument;
+
+  refs.rootWindow.current = rootWindow;
+
   React.useEffect(() => {
     // Add value as innerHTML
     refs.value.current.innerHTML = value;
   }, [value]);
 
   React.useEffect(() => {
-    const selection_ = window.getSelection();
+    const selection_ = refs.rootWindow.current.getSelection();
 
     if (
       selection_.anchorNode &&
@@ -1114,9 +1124,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
   }, [selection]);
 
   const query = (command: string) => {
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
-
-    return parse(rootDocument.queryCommandValue(command));
+    return parse(refs.rootDocument.current.queryCommandValue(command));
   };
 
   const includesMinMenu = (...args) => args.some(item => refs.miniMenuInclude.current.includes(item));
@@ -1163,8 +1171,6 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
   };
 
   const paste = async () => {
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
-
     const value_ = await navigator.clipboard.read();
 
     if (value_) {
@@ -1176,17 +1182,15 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         values += await valueItem.text();
       }
 
-      rootDocument.execCommand('insertHTML', undefined, values);
+      refs.rootDocument.current.execCommand('insertHTML', undefined, values);
     }
   };
 
   const method = React.useCallback((command: string) => (argument: any) => {
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
-
     switch (command) {
       // updates
       case 'italic':
-        rootDocument.execCommand('italic');
+        refs.rootDocument.current.execCommand('italic');
 
         if (query('italic')) setSelected(values => [...values, 'italic']);
         else setSelected(values => values.filter(item => item !== 'italic'));
@@ -1194,7 +1198,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'underline':
-        rootDocument.execCommand('underline');
+        refs.rootDocument.current.execCommand('underline');
 
         if (query('underline')) setSelected(values => [...values, 'underline']);
         else setSelected(values => values.filter(item => item !== 'underline'));
@@ -1202,7 +1206,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'bold':
-        rootDocument.execCommand('bold');
+        refs.rootDocument.current.execCommand('bold');
 
         if (query('bold')) setSelected(values => [...values, 'bold']);
         else setSelected(values => values.filter(item => item !== 'bold'));
@@ -1210,7 +1214,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'strike-line':
-        rootDocument.execCommand('strikeThrough');
+        refs.rootDocument.current.execCommand('strikeThrough');
 
         if (query('strikeThrough')) setSelected(values => [...values, 'strike-line']);
         else setSelected(values => values.filter(item => item !== 'strike-line'));
@@ -1218,7 +1222,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'align-left':
-        rootDocument.execCommand('justifyLeft');
+        refs.rootDocument.current.execCommand('justifyLeft');
 
         if (query('justifyLeft')) setSelected(values => [...values.filter(item => !item.includes('align')), 'align-left']);
         else setSelected(values => values.filter(item => item !== 'align-left'));
@@ -1226,7 +1230,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'align-center':
-        rootDocument.execCommand('justifyCenter');
+        refs.rootDocument.current.execCommand('justifyCenter');
 
         if (query('justifyCenter')) setSelected(values => [...values.filter(item => !item.includes('align')), 'align-center']);
         else setSelected(values => values.filter(item => item !== 'align-center'));
@@ -1234,7 +1238,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'align-right':
-        rootDocument.execCommand('justifyRight');
+        refs.rootDocument.current.execCommand('justifyRight');
 
         if (query('justifyRight')) setSelected(values => [...values.filter(item => !item.includes('align')), 'align-right']);
         else setSelected(values => values.filter(item => item !== 'align-right'));
@@ -1242,7 +1246,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'align-justify':
-        rootDocument.execCommand('justifyFull');
+        refs.rootDocument.current.execCommand('justifyFull');
 
         if (query('justifyFull')) setSelected(values => [...values.filter(item => !item.includes('align')), 'align-justify']);
         else setSelected(values => values.filter(item => item !== 'align-justify'));
@@ -1250,7 +1254,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'superscript':
-        rootDocument.execCommand('superscript');
+        refs.rootDocument.current.execCommand('superscript');
 
         if (query('superscript')) setSelected(values => [...values, 'superscript']);
         else setSelected(values => values.filter(item => item !== 'superscript'));
@@ -1258,7 +1262,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'subscript':
-        rootDocument.execCommand('subscript');
+        refs.rootDocument.current.execCommand('subscript');
 
         if (query('subscript')) setSelected(values => [...values, 'subscript']);
         else setSelected(values => values.filter(item => item !== 'subscript'));
@@ -1266,58 +1270,58 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'indent':
-        rootDocument.execCommand('indent');
+        refs.rootDocument.current.execCommand('indent');
 
         break;
 
       case 'outdent':
-        rootDocument.execCommand('outdent');
+        refs.rootDocument.current.execCommand('outdent');
 
         break;
 
       case 'font-version':
-        rootDocument.execCommand('formatBlock', undefined, argument);
+        refs.rootDocument.current.execCommand('formatBlock', undefined, argument);
 
         break;
 
       case 'font-family':
-        rootDocument.execCommand('styleWithCSS', true);
+        refs.rootDocument.current.execCommand('styleWithCSS', true);
 
-        rootDocument.execCommand('fontName', undefined, argument);
+        refs.rootDocument.current.execCommand('fontName', undefined, argument);
 
-        rootDocument.execCommand('styleWithCSS', false);
+        refs.rootDocument.current.execCommand('styleWithCSS', false);
 
         break;
 
       case 'font-size':
-        rootDocument.execCommand('styleWithCSS', true);
+        refs.rootDocument.current.execCommand('styleWithCSS', true);
 
-        rootDocument.execCommand('fontSize', undefined, argument);
+        refs.rootDocument.current.execCommand('fontSize', undefined, argument);
 
-        rootDocument.execCommand('styleWithCSS', false);
+        refs.rootDocument.current.execCommand('styleWithCSS', false);
 
         break;
 
       case 'font-color':
-        rootDocument.execCommand('styleWithCSS', true);
+        refs.rootDocument.current.execCommand('styleWithCSS', true);
 
-        rootDocument.execCommand('foreColor', undefined, argument);
+        refs.rootDocument.current.execCommand('foreColor', undefined, argument);
 
-        rootDocument.execCommand('styleWithCSS', false);
+        refs.rootDocument.current.execCommand('styleWithCSS', false);
 
         break;
 
       case 'font-background':
-        rootDocument.execCommand('styleWithCSS', true);
+        refs.rootDocument.current.execCommand('styleWithCSS', true);
 
-        rootDocument.execCommand('backColor', undefined, argument);
+        refs.rootDocument.current.execCommand('backColor', undefined, argument);
 
-        rootDocument.execCommand('styleWithCSS', false);
+        refs.rootDocument.current.execCommand('styleWithCSS', false);
 
         break;
 
       case 'list-ordered':
-        rootDocument.execCommand('insertOrderedList');
+        refs.rootDocument.current.execCommand('insertOrderedList');
 
         if (query('insertOrderedList')) setSelected(values => [...values.filter(item => !item.includes('list')), 'list-ordered']);
         else setSelected(values => values.filter(item => item !== 'list-ordered'));
@@ -1325,7 +1329,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'list-unordered':
-        rootDocument.execCommand('insertUnorderedList');
+        refs.rootDocument.current.execCommand('insertUnorderedList');
 
         if (query('insertUnorderedList')) setSelected(values => [...values.filter(item => !item.includes('list')), 'list-unordered']);
         else setSelected(values => values.filter(item => item !== 'list-unordered'));
@@ -1333,69 +1337,69 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         break;
 
       case 'horizontal-rule':
-        rootDocument.execCommand('insertHorizontalRule');
+        refs.rootDocument.current.execCommand('insertHorizontalRule');
 
         break;
 
       case 'link-add':
-        rootDocument.execCommand('createLink', undefined, argument);
+        refs.rootDocument.current.execCommand('createLink', undefined, argument);
 
         break;
 
       case 'link-remove':
-        rootDocument.execCommand('unlink');
+        refs.rootDocument.current.execCommand('unlink');
 
         break;
 
       case 'image':
-        rootDocument.execCommand('insertImage', undefined, argument);
+        refs.rootDocument.current.execCommand('insertImage', undefined, argument);
 
         break;
 
       case 'html':
-        rootDocument.execCommand('insertHTML', undefined, argument);
+        refs.rootDocument.current.execCommand('insertHTML', undefined, argument);
 
         break;
 
       // actions
       case 'copy':
-        rootDocument.execCommand('copy');
+        refs.rootDocument.current.execCommand('copy');
 
         break;
 
       case 'cut':
-        rootDocument.execCommand('cut');
+        refs.rootDocument.current.execCommand('cut');
 
         break;
 
       case 'paste':
-        if (rootDocument.queryCommandSupported('paste')) rootDocument.execCommand('paste');
+        if (refs.rootDocument.current.queryCommandSupported('paste')) refs.rootDocument.current.execCommand('paste');
         else paste();
 
         break;
 
       case 'delete':
-        rootDocument.execCommand('delete');
+        refs.rootDocument.current.execCommand('delete');
 
         break;
 
       case 'clear':
-        rootDocument.execCommand('removeFormat');
+        refs.rootDocument.current.execCommand('removeFormat');
 
         break;
 
       case 'select-all':
-        rootDocument.execCommand('selectAll');
+        refs.rootDocument.current.execCommand('selectAll');
 
         break;
 
       case 'undo':
-        rootDocument.execCommand('undo');
+        refs.rootDocument.current.execCommand('undo');
 
         break;
 
       case 'redo':
-        rootDocument.execCommand('redo');
+        refs.rootDocument.current.execCommand('redo');
 
         break;
 
@@ -1577,7 +1581,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
   }, []);
 
   const onMouseDown = React.useCallback(() => {
-    const selection_ = window.getSelection();
+    const selection_ = refs.rootWindow.current.getSelection();
 
     if (
       selection_.anchorNode &&
@@ -1587,7 +1591,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
   const onMouseUp = React.useCallback(() => {
     if (refs.range.current) {
-      const selection_ = window.getSelection();
+      const selection_ = refs.rootWindow.current.getSelection();
 
       selection_.removeAllRanges();
       selection_.addRange(refs.range.current);
@@ -1713,7 +1717,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
                   onClick={() => {
                     if (refs.range.current) {
-                      const selection_ = window.getSelection();
+                      const selection_ = refs.rootWindow.current.getSelection();
 
                       selection_.removeAllRanges();
                       selection_.addRange(refs.range.current);
@@ -1781,7 +1785,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
             onClick={() => {
               if (refs.range.current) {
-                const selection_ = window.getSelection();
+                const selection_ = refs.rootWindow.current.getSelection();
 
                 selection_.removeAllRanges();
                 selection_.addRange(refs.range.current);
@@ -1975,7 +1979,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
     queryValueUpdate();
 
     setTimeout(() => {
-      const selection_ = window.getSelection();
+      const selection_ = refs.rootWindow.current.getSelection();
 
       if (!selection_.anchorNode || !refs.value.current.contains(selection_.anchorNode)) return setSelection('' as any);
 
@@ -2516,7 +2520,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
       </WrapperToggleButton>
     ),
 
-    'link-ordered': (
+    'list-ordered': (
       <WrapperToggleButton
         label='List Ordered'
       >
@@ -2533,7 +2537,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
         )}
       </WrapperToggleButton>
     ),
-    'link-unordered': (
+    'list-unordered': (
       <WrapperToggleButton
         label='List Unordered'
       >
@@ -2590,7 +2594,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
               onClick={() => {
                 if (refs.range.current) {
-                  const selection_ = window.getSelection();
+                  const selection_ = refs.rootWindow.current.getSelection();
 
                   selection_.removeAllRanges();
                   selection_.addRange(refs.range.current);
@@ -2652,7 +2656,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
               onClick={() => {
                 if (refs.range.current) {
-                  const selection_ = window.getSelection();
+                  const selection_ = refs.rootWindow.current.getSelection();
 
                   selection_.removeAllRanges();
                   selection_.addRange(refs.range.current);
@@ -2732,7 +2736,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
               onClick={() => {
                 if (refs.range.current) {
-                  const selection_ = window.getSelection();
+                  const selection_ = refs.rootWindow.current.getSelection();
 
                   selection_.removeAllRanges();
                   selection_.addRange(refs.range.current);
@@ -2890,7 +2894,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
                   onClick={() => {
                     if (refs.range.current) {
-                      const selection_ = window.getSelection();
+                      const selection_ = refs.rootWindow.current.getSelection();
 
                       selection_.removeAllRanges();
                       selection_.addRange(refs.range.current);
@@ -2974,7 +2978,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
               onClick={() => {
                 if (refs.range.current) {
-                  const selection_ = window.getSelection();
+                  const selection_ = refs.rootWindow.current.getSelection();
 
                   selection_.removeAllRanges();
                   selection_.addRange(refs.range.current);
@@ -3034,7 +3038,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
               onClick={() => {
                 if (refs.range.current) {
-                  const selection_ = window.getSelection();
+                  const selection_ = refs.rootWindow.current.getSelection();
 
                   selection_.removeAllRanges();
                   selection_.addRange(refs.range.current);
@@ -3094,7 +3098,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
               onClick={() => {
                 if (refs.range.current) {
-                  const selection_ = window.getSelection();
+                  const selection_ = refs.rootWindow.current.getSelection();
 
                   selection_.removeAllRanges();
                   selection_.addRange(refs.range.current);
@@ -3218,7 +3222,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
                   onClick={() => {
                     if (refs.range.current) {
-                      const selection_ = window.getSelection();
+                      const selection_ = refs.rootWindow.current.getSelection();
 
                       selection_.removeAllRanges();
                       selection_.addRange(refs.range.current);
@@ -3305,7 +3309,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
 
               onClick={() => {
                 if (refs.range.current) {
-                  const selection_ = window.getSelection();
+                  const selection_ = refs.rootWindow.current.getSelection();
 
                   selection_.removeAllRanges();
                   selection_.addRange(refs.range.current);
@@ -3523,9 +3527,9 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
                 <ToggleButtons
                   {...ToggleButtonsProps}
                 >
-                  {includes('list-ordered') && updateElements['link-ordered']}
+                  {includes('list-ordered') && updateElements['list-ordered']}
 
-                  {includes('list-unordered') && updateElements['link-unordered']}
+                  {includes('list-unordered') && updateElements['list-unordered']}
                 </ToggleButtons>
               )}
 
