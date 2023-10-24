@@ -196,6 +196,7 @@ export interface IAutoComplete extends ITextField {
   endOptionsElement?: any;
   openOnFocus?: boolean;
   closeOnSelect?: boolean;
+  clearInputOnSelect?: boolean;
   clearOnEscape?: boolean;
   groupBy?: (value: TAutoCompleteOption) => string;
   limit?: number;
@@ -266,13 +267,14 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     endOptionsElement,
     endOptionsObject,
     openOnFocus = true,
-    closeOnSelect = true,
+    closeOnSelect,
     clearOnEscape,
     groupBy,
     limit,
     filterOutSelectedOptions,
     selectOnFocus,
     clearOnBlur,
+    clearInputOnSelect,
     chip,
     fullWidth,
 
@@ -522,6 +524,14 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     }
   }, []);
 
+  const onClearInput = React.useCallback((refocus = true) => {
+    if (!disabled && !readOnly) {
+      onChangeInput('');
+
+      if (refocus) refs.input.current.focus();
+    }
+  }, []);
+
   const isEqual = (value1: any, value2: any) => is('function', equal) ? equal(value1, value2) : getValue(value1) === getValue(value2);
 
   const isEqualToInput = (inputValue: string = refs.valueInput.current, item: any) => is('function', equalInput) ? equalInput(inputValue, item) : getText(item)?.toLowerCase().includes(inputValue?.toLowerCase());
@@ -534,7 +544,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     if (!selected) {
       onChange(!multiple ? valueNew : [...values, valueNew]);
 
-      if (!multiple) onChangeInput(getText(valueNew));
+      if (!multiple) clearInputOnSelect ? onClearInput() : onChangeInput(getText(valueNew));
+      else if (clearInputOnSelect) onClearInput();
     }
   };
 
@@ -670,14 +681,12 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
             if (is('function', item.props?.onClick)) item.props?.onClick(event);
 
-            if (!multiple) {
-              if (blurOnSelect) {
-                if (closeOnSelect) setOpen(false);
+            if (blurOnSelect) {
+              if (closeOnSelect) setOpen(false);
 
-                refs.input.current.blur();
-              }
-              else if (closeOnSelect) onClose();
+              refs.input.current.blur();
             }
+            else if (closeOnSelect) onClose();
           }
         };
       }
