@@ -213,6 +213,7 @@ export interface IAutoComplete extends ITextField {
   ListProps?: TPropsAny;
   MenuProps?: TPropsAny;
   IconButtonProps?: TPropsAny;
+  InputProps?: TPropsAny;
 }
 
 const getText = (value: any) => value?.name || value?.label || value?.primary || value?.secondary || value?.tertiary || value?.children || value;
@@ -286,6 +287,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     ListProps,
     MenuProps,
     IconButtonProps,
+    InputProps,
 
     className,
     style,
@@ -941,13 +943,16 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
         }}
 
         inputProps={{
-          className: classNames([
-            multiple && classes.input_
-          ]),
-
           disabled: multiple,
 
-          readOnly: multiple
+          readOnly: multiple,
+
+          ...InputProps,
+
+          className: classNames([
+            InputProps?.className,
+            multiple && classes.input_
+          ])
         }}
 
         style={{
