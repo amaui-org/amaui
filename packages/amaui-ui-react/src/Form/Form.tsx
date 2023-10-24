@@ -7,7 +7,7 @@ import Line from '../Line';
 import Accordion from '../Accordion';
 import Type from '../Type';
 
-import { IBaseElement, TElement, staticClassName } from '../utils';
+import { IBaseElement, TElement, TSize, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -47,7 +47,15 @@ const useStyle = styleMethod(theme => ({
     }
   },
 
-  form_accordion: {
+  size_small_form_accordion: {
+    marginTop: '16px'
+  },
+
+  size_regular_form_accordion: {
+    marginTop: '24px'
+  },
+
+  size_large_form_accordion: {
     marginTop: '32px'
   }
 }), { name: 'amaui-Form' });
@@ -60,16 +68,26 @@ export interface IForm extends IBaseElement {
   name?: string | TElement;
   description?: string | TElement;
 
+  size?: TSize;
+
   start?: any;
   end?: any;
 
   footer?: TElement;
+
+  onSubmit?: (event: SubmitEvent) => any;
+
+  ComponentForm?: any;
+
+  wrapper?: any;
 
   HeaderProps?: any;
   TextProps?: any;
   AsideProps?: any;
   StartProps?: any;
   EndProps?: any;
+  AccordionProps?: any;
+  AccordionMainProps?: any;
 }
 
 const Form = React.forwardRef((props_: IForm, ref: any) => {
@@ -80,23 +98,33 @@ const Form = React.forwardRef((props_: IForm, ref: any) => {
   const {
     accordion,
 
-    divider = true,
+    divider,
 
     name,
     description,
+
+    size = 'regular',
 
     start,
     end,
 
     footer,
 
+    onSubmit: onSubmit_,
+
     Component = Line,
+
+    ComponentForm: ComponentForm_,
 
     HeaderProps,
     TextProps,
     AsideProps,
     StartProps,
     EndProps,
+    AccordionProps,
+    AccordionMainProps,
+
+    wrapper,
 
     className,
 
@@ -106,6 +134,8 @@ const Form = React.forwardRef((props_: IForm, ref: any) => {
   } = props;
 
   const { classes } = useStyle(props);
+
+  const ComponentForm = ComponentForm_ !== undefined ? ComponentForm_ : wrapper ? 'div' : 'form';
 
   const text = (name || description);
 
@@ -119,10 +149,14 @@ const Form = React.forwardRef((props_: IForm, ref: any) => {
 
   if (!start && !text && end) justify = 'flex-end';
 
+  const onSubmit = ComponentForm === 'form' ? onSubmit_ || React.useCallback((event: SubmitEvent) => {
+    event.preventDefault();
+  }, []) : undefined;
+
   const elements = {
     name: name && (is('string', name) ? (
       <Type
-        version='t2'
+        version={size === 'large' ? 't1' : size === 'regular' ? 'l1' : 'l2'}
       >
         {name}
       </Type>
@@ -130,7 +164,7 @@ const Form = React.forwardRef((props_: IForm, ref: any) => {
 
     description: description && (is('string', description) ? (
       <Type
-        version='b2'
+        version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3'}
       >
         {description}
       </Type>
@@ -160,11 +194,19 @@ const Form = React.forwardRef((props_: IForm, ref: any) => {
 
         mainPaddingHorizontal='none'
 
+        HeaderProps={{
+          direction: 'column',
+          gap: size === 'large' ? 1 : size === 'regular' ? 0.5 : 0.5
+        }}
+
+        {...AccordionProps}
+
         className={classNames([
           staticClassName('Form', theme) && [
             'amaui-Form-root'
           ],
 
+          AccordionProps?.className,
           className,
           classes.root,
           classes.root_accordion,
@@ -176,7 +218,7 @@ const Form = React.forwardRef((props_: IForm, ref: any) => {
         <Line
           ref={ref}
 
-          gap={4}
+          gap={size === 'large' ? 3 : size === 'regular' ? 2.5 : 2}
 
           direction='column'
 
@@ -184,11 +226,18 @@ const Form = React.forwardRef((props_: IForm, ref: any) => {
 
           align='flex-start'
 
-          Component='form'
+          Component={ComponentForm}
+
+          onSubmit={onSubmit}
 
           fullWidth
 
-          className={classes.form_accordion}
+          {...AccordionMainProps}
+
+          className={classNames([
+            AccordionMainProps?.className,
+            classes[`size_${size}_form_accordion`]
+          ])}
         >
           {children}
 
@@ -214,7 +263,7 @@ const Form = React.forwardRef((props_: IForm, ref: any) => {
     <Component
       ref={ref}
 
-      gap={4}
+      gap={size === 'large' ? 3 : size === 'regular' ? 2.5 : 2}
 
       direction='column'
 
@@ -222,7 +271,9 @@ const Form = React.forwardRef((props_: IForm, ref: any) => {
 
       align='flex-start'
 
-      Component='form'
+      Component={ComponentForm}
+
+      onSubmit={onSubmit}
 
       fullWidth
 
@@ -268,7 +319,7 @@ const Form = React.forwardRef((props_: IForm, ref: any) => {
 
           {text && (
             <Line
-              gap={0.5}
+              gap={size === 'large' ? 1 : size === 'regular' ? 0.5 : 0.5}
 
               direction='column'
 
@@ -276,21 +327,9 @@ const Form = React.forwardRef((props_: IForm, ref: any) => {
 
               {...TextProps}
             >
-              {name && (is('string', name) ? (
-                <Type
-                  version='t2'
-                >
-                  {name}
-                </Type>
-              ) : name)}
+              {elements.name}
 
-              {description && (is('string', description) ? (
-                <Type
-                  version='b2'
-                >
-                  {description}
-                </Type>
-              ) : description)}
+              {elements.description}
             </Line>
           )}
 

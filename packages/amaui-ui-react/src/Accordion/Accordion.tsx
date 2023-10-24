@@ -169,6 +169,7 @@ export interface IAccordion extends IBaseElement {
   ExpandProps?: TPropsAny;
   TransitionComponentProps?: TPropsAny;
   WrapperHeaderProps?: TPropsAny;
+  HeaderProps?: TPropsAny;
   IconButtonProps?: TPropsAny;
 
   ExpandIcon?: TElementReference;
@@ -217,6 +218,7 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
     ExpandProps,
     TransitionComponentProps: TransitionComponentProps_,
     WrapperHeaderProps,
+    HeaderProps,
     IconButtonProps,
 
     className,
@@ -334,22 +336,31 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
         ])}
       >
         <Grid
-          gap={{ xxs: 0.5, sm: 3 }}
+          gap={{
+            xxs: 0.5,
+            xs: 0.5,
+            default: 3
+          }}
 
-          direction={{ xxs: 'column', sm: 'row' }}
+          direction={{
+            xxs: 'column',
+            xs: 'column',
+            default: 'row'
+          }}
 
-          line
+          {...HeaderProps}
 
           className={classNames([
             staticClassName('Accordion', theme) && [
               'amaui-Accordion-header'
             ],
 
+            HeaderProps?.className,
             classes.header
           ])}
         >
           <Grid
-            values={{ sm: !secondary ? 10 : 3 }}
+            values={{ sm: !secondary ? 12 : 3 }}
           >
             {is('simple', primary) ? (
               <Type
