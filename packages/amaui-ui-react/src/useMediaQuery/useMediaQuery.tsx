@@ -10,13 +10,13 @@ export interface IOptionsUseMediaQuery {
 const useMediaQuery = (props: string, options?: IOptionsUseMediaQuery) => {
   const element = options?.element;
 
-  const rootDocument = (options?.element?.ownerDocument || window.document) as Document;
+  const rootDocument = isEnvironment('browser') && (options?.element?.ownerDocument || window.document) as Document;
 
   // iframeWindow
   // workaround for matchMedia on the iframe window
   const windowElement = isEnvironment('browser') && (rootDocument?.defaultView || (rootDocument as any)?.iframeWindow || window);
 
-  const [response, setResponse] = React.useState<MediaQueryList | MediaQueryListEvent>(windowElement?.matchMedia(props));
+  const [response, setResponse] = React.useState<MediaQueryList | MediaQueryListEvent>(isEnvironment('browser') && windowElement?.matchMedia(props));
   const [matches, setMatches] = React.useState(response?.matches);
 
   const refs = {
@@ -37,7 +37,7 @@ const useMediaQuery = (props: string, options?: IOptionsUseMediaQuery) => {
   React.useEffect(() => {
     if (refs.mediaQuery.current) refs.mediaQuery.current.removeEventListener('change', method);
 
-    if (windowElement) {
+    if (isEnvironment('browser') && windowElement) {
       refs.mediaQuery.current = windowElement.matchMedia(props);
 
       // Add new event listener
