@@ -204,6 +204,10 @@ const NavigationDrawer = React.forwardRef((props_: INavigationDrawer, ref: any) 
 
           refs.background.current.style.opacity = `${valuePercentageSwipe / 100}`;
         }
+        else {
+          // Add transition
+          refs.background.current.style.transition = theme.methods.transitions.make('opacity', { duration: 'xs' });
+        }
       }
     }
   }, [version, swipeValue?.value, swipeValue?.position]);
