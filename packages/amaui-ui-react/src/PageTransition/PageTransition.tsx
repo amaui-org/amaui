@@ -43,6 +43,8 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-PageTransition' });
 
 export interface IPageTransition extends IBaseElement {
+  add?: boolean;
+
   classNames?: {
     in?: string;
     out?: string;
@@ -55,6 +57,8 @@ const PageTransition = React.forwardRef((props_: IPageTransition, ref: any) => {
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPageTransition?.props?.default, ...props_ }), [props_]);
 
   const {
+    add,
+
     classNames: classNames_,
 
     onAnimationEnd: onAnimationEnd_,
@@ -73,7 +77,7 @@ const PageTransition = React.forwardRef((props_: IPageTransition, ref: any) => {
   const location = useLocation();
 
   const [locationUsed, setLocationUsed] = React.useState(location);
-  const [transition, setTransition] = React.useState<'in' | 'out'>('in');
+  const [transition, setTransition] = React.useState<'in' | 'out'>(add ? 'in' : undefined);
 
   const refs = {
     location: React.useRef(location),
