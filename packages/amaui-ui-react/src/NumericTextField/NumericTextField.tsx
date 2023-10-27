@@ -272,7 +272,7 @@ const NumericTextField = React.forwardRef((props_: INumericTextField, ref: any) 
 
   const iconButtonProps = {
     size: 24,
-    fontSize: 24
+    fontSize: '1.5rem'
   };
 
   if (decrement) end.push(

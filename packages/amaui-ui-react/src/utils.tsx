@@ -10,14 +10,14 @@ export const staticClassName = (name: string, theme: any) => {
 };
 
 export const iconSizeToFontSize = (value: string | number) => {
-  let fontSize: any = '24px';
+  let fontSize: any = '1.5rem';
 
-  if (value === 'very small') fontSize = '12px';
-  else if (value === 'small') fontSize = '18px';
-  else if (value === 'regular') fontSize = '24px';
-  else if (value === 'medium') fontSize = '30px';
-  else if (value === 'large') fontSize = '36px';
-  else if (value === 'very large') fontSize = '42px';
+  if (value === 'very small') fontSize = '0.75rem';
+  else if (value === 'small') fontSize = '1.125rem';
+  else if (value === 'regular') fontSize = '1.5rem';
+  else if (value === 'medium') fontSize = '1.875rem';
+  else if (value === 'large') fontSize = '2.25rem';
+  else if (value === 'very large') fontSize = '2.625rem';
   else if (value !== undefined) fontSize = value;
 
   return fontSize;

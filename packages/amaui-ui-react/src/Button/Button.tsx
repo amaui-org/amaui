@@ -394,18 +394,18 @@ const Button = React.forwardRef((props_: IButton, ref: any) => {
     border: {},
     iconRoot: {},
     label: { margin: 0 },
-    Icon: { fontSize: '17px' }
+    Icon: { fontSize: '1.0625rem' }
   };
 
   // Size
   if (size === 'small') {
-    if (!noFontSize) styles.Icon.fontSize = '15px';
+    if (!noFontSize) styles.Icon.fontSize = '0.9375rem';
 
     TypeProps.version = 'l3';
   }
 
   if (size === 'large') {
-    if (!noFontSize) styles.Icon.fontSize = '22px';
+    if (!noFontSize) styles.Icon.fontSize = '1.375rem';
 
     TypeProps.version = 'l1';
   }

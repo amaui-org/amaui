@@ -39,7 +39,7 @@ const useStyle = styleMethod(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     pointerEvents: 'none',
-    fontSize: '48px'
+    fontSize: '3rem'
   },
 
   // Version
@@ -52,13 +52,13 @@ const useStyle = styleMethod(theme => ({
   },
 
   // Size
-  size_extra_small: { fontSize: '16px' },
+  size_extra_small: { fontSize: '1rem' },
 
-  size_small: { fontSize: '24px' },
+  size_small: { fontSize: '1.5rem' },
 
-  size_regular: { fontSize: '48px' },
+  size_regular: { fontSize: '3rem' },
 
-  size_large: { fontSize: '56px' },
+  size_large: { fontSize: '3.5rem' },
 
   // Color
   color_default: { color: theme.palette.text.default.primary },
