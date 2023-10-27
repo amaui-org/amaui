@@ -501,3 +501,6 @@ export * from './Page';
 
 export { default as useQuery } from './useQuery';
 export * from './useQuery';
+
+export { default as PageTransition } from './PageTransition';
+export * from './PageTransition';
