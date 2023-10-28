@@ -183,14 +183,14 @@ const IconItem = (props: any) => {
     }
   };
 
-  let fontSize = '24px';
+  let fontSize = '1.5rem';
 
-  if (size === 'very small') fontSize = '12px';
-  else if (size === 'small') fontSize = '18px';
-  else if (size === 'regular') fontSize = '24px';
-  else if (size === 'medium') fontSize = '36px';
-  else if (size === 'large') fontSize = '48px';
-  else if (size === 'very large') fontSize = '60px';
+  if (size === 'very small') fontSize = '0.75rem';
+  else if (size === 'small') fontSize = '1.125rem';
+  else if (size === 'regular') fontSize = '1.5rem';
+  else if (size === 'medium') fontSize = '2.25rem';
+  else if (size === 'large') fontSize = '3rem';
+  else if (size === 'very large') fontSize = '3.75rem';
   else if (size !== undefined) fontSize = `${size}${!String(size).includes('px') ? 'px' : ''}`;
 
   styles.root.fontSize = `calc(${fontSize} * 0.75)`;
@@ -237,7 +237,7 @@ const Checkbox = React.forwardRef((props_: ICheckbox, ref: any) => {
     color = 'primary',
     version = 'text',
 
-    colorIndeterminate = props.color,
+    colorIndeterminate = props.color || 'primary',
     colorUnchecked = 'default',
 
     valueDefault,
@@ -322,13 +322,13 @@ const Checkbox = React.forwardRef((props_: ICheckbox, ref: any) => {
     // Text
     // Outlined
     if (['text', 'outlined', undefined].includes(version)) {
-      styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color_, 30, true, palette);
+      styles.iconBox.color = theme.methods.palette.color.value(color_, 30, true, palette);
 
-      styles.iconDone.color = styles.iconDone.color = theme.methods.palette.color.value(color_, 90, true, palette);
+      styles.iconDone.color = theme.methods.palette.color.value(color_, 90, true, palette);
     }
 
     // Outlined
-    if (version === 'outlined') styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color_, 50, true, palette);
+    if (version === 'outlined') styles.iconBox.color = theme.methods.palette.color.value(color_, 50, true, palette);
 
     // Filled
     if (version === 'filled') styles.iconDone.color = theme.methods.palette.color.value(color_, 90, true, palette);
