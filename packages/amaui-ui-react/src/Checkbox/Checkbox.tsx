@@ -281,6 +281,14 @@ const Checkbox = React.forwardRef((props_: ICheckbox, ref: any) => {
   };
 
   React.useEffect(() => {
+    if (indeterminate_ !== undefined && indeterminate_ !== refs.indeterminate.current) {
+      setIndeterminate(indeterminate_);
+
+      if (indeterminate_) setValue(false);
+    }
+  }, [indeterminate_]);
+
+  React.useEffect(() => {
     if (checked !== undefined && checked !== refs.value.current) {
       setValue(checked);
 
