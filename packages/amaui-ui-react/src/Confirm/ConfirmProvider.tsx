@@ -42,7 +42,7 @@ export interface IConfirmPromiseArgument {
 }
 
 export interface IConfirmProvider {
-  open: (value?: IConfirmOpen) => void;
+  open: (value?: IConfirmOpen) => Promise<any>;
   close: (confirmed?: boolean) => void;
 }
 
