@@ -178,7 +178,7 @@ export interface IAutoComplete extends ITextField {
   equal?: (value1: any, value2: any) => boolean;
   equalInput?: (input: string, value: any) => boolean;
   renderValues?: (value: TAutoCompleteValue, onUnselect: (value: string) => any) => TElement;
-  renderChip?: (value: any, props: TPropsAny) => TElement;
+  renderChip?: (item: any, value: any, props: TPropsAny) => TElement;
   renderOption?: (item: TAutoCompleteOption, index: number, props: TPropsAny) => TElement;
   chip?: boolean;
   filter?: (value: string, options: Array<TAutoCompleteOption>) => Array<TAutoCompleteOption>;
@@ -593,7 +593,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
             input: true
           };
 
-          if (is('function', renderChip)) return renderChip(renderValue(item), other_);
+          if (is('function', renderChip)) return renderChip(item, renderValue(item), other_);
 
           return (
             <Chip
