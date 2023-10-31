@@ -109,10 +109,6 @@ const useStyle = styleMethod(theme => ({
     padding: '0 8px'
   },
 
-  fullWidth: {
-    width: '100%'
-  },
-
   disabled: {
     '&.amaui-TextField-input-wrapper': {
       cursor: 'default'
@@ -209,6 +205,7 @@ export interface IAutoComplete extends ITextField {
 
   IconClear?: TElementReference;
 
+  WrapperProps?: TPropsAny;
   ChipProps?: TPropsAny;
   ListProps?: TPropsAny;
   MenuProps?: TPropsAny;
@@ -283,6 +280,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
     IconClear = IconMaterialCloseRounded,
 
+    WrapperProps,
     ChipProps,
     ListProps,
     MenuProps,
@@ -316,6 +314,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     valueInput: React.useRef<any>(),
     menu: React.useRef<any>(),
     input: React.useRef<HTMLInputElement>(),
+    optionsProps: React.useRef(options_),
     ids: {
       list: React.useId()
     }
@@ -324,6 +323,8 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
   refs.value.current = value;
 
   refs.valueInput.current = valueInput;
+
+  refs.optionsProps.current = options_;
 
   const styles: any = {
     root: {
@@ -357,7 +358,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
   }, []);
 
   React.useEffect(() => {
-    const option = (options_ || []).find(item_ => isEqualToInput(refs.valueInput.current, item_));
+    const option = (refs.optionsProps.current || []).find(item_ => isEqualToInput(refs.valueInput.current, item_));
 
     if (!!valueInput?.length && !open && !option && !disabled && !readOnly) setOpen(!free);
   }, [valueInput, free]);
@@ -378,21 +379,21 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     }
   }, [loading]);
 
-  const optionsPropsUpdated = options_?.reduce((item: any, result) => result += item?.value !== undefined ? item?.value : item, '');
+  const optionsPropsUpdated = refs.optionsProps.current?.reduce((item: any, result) => result += item?.value !== undefined ? item?.value : item, '');
 
   React.useEffect(() => {
-    updateOptions(undefined, options_);
+    updateOptions(undefined, refs.optionsProps.current);
   }, [optionsPropsUpdated]);
 
   const updateOptions = (valueInputNew: any = refs.valueInput.current, newOptions: any = undefined) => {
-    let optionsValue = options_;
+    let optionsValue = refs.optionsProps.current;
 
     // reset
     setFree(false);
 
     if (loading) optionsValue = [{ label: 'Loading...', version: 'text' }];
     else if (newOptions) optionsValue = newOptions;
-    else optionsValue = is('function', filter) ? filter(valueInputNew, options_) : options_.filter(option => isEqualToInput(valueInputNew, option));
+    else optionsValue = is('function', filter) ? filter(valueInputNew, refs.optionsProps.current) : refs.optionsProps.current.filter(option => isEqualToInput(valueInputNew, option));
 
     if (!optionsValue.length) {
       if (noOptions) optionsValue.push(noOptionsObject !== undefined ? noOptionsObject : { primary: 'No options', version: 'text', noOptions: true });
@@ -487,11 +488,11 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
   const onExited = () => {
     if (!disabled && !readOnly) {
       if (!open) {
-        const option = (options_ || []).find(item_ => isEqualToInput(refs.valueInput.current, item_));
+        const option = (refs.optionsProps.current || []).find(item_ => isEqualToInput(refs.valueInput.current, item_));
 
         // Update options to all values
         // if value is one of the option values
-        if (option || !refs.valueInput.current || options[0]?.noOptions) updateOptions(undefined, options_);
+        if (option || !refs.valueInput.current || options[0]?.noOptions) updateOptions(undefined, refs.optionsProps.current);
       }
     }
   };
@@ -831,12 +832,16 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
 
       direction='column'
 
+      fullWidth={fullWidth}
+
+      {...WrapperProps}
+
       className={classNames([
         staticClassName('AutoComplete', theme) && [
           'amaui-AutoComplete-wrapper'
         ],
-        classes.wrapper,
-        fullWidth && classes.fullWidth
+        WrapperProps?.className,
+        classes.wrapper
       ])}
     >
       <TextField
