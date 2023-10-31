@@ -3,9 +3,9 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
-import { IChip } from '../Chip/Chip';
+import Chip, { IChip } from '../Chip/Chip';
 
-import { staticClassName, TSize } from '../utils';
+import { staticClassName, TElement, TPropsAny } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -30,15 +30,15 @@ const useStyle = styleMethod(theme => ({
   },
 
   size_small: {
-    columnGap: '6px'
+    // columnGap: '6px'
   },
 
   size_regular: {
-    columnGap: '8px'
+    // columnGap: '8px'
   },
 
   size_large: {
-    columnGap: '10px'
+    // columnGap: '10px'
   },
 
   wrap: {
@@ -46,20 +46,25 @@ const useStyle = styleMethod(theme => ({
   },
 
   wrap_small: {
-    rowGap: '12px'
+    // rowGap: '12px'
   },
 
   wrap_regular: {
-    rowGap: '16px'
+    // rowGap: '16px'
   },
 
   wrap_large: {
-    rowGap: '20px'
+    // rowGap: '20px'
   }
 }), { name: 'amaui-Chips' });
 
 export interface IChips extends IChip {
-  wrap?: boolean;
+  total?: number;
+  max?: number;
+
+  AdditionalChip?: TElement;
+
+  AdditionalChipProps?: TPropsAny;
 }
 
 const Chips = React.forwardRef((props_: IChips, ref: any) => {
@@ -78,15 +83,66 @@ const Chips = React.forwardRef((props_: IChips, ref: any) => {
     direction = 'row',
     wrap,
 
+    total,
+    max,
+
+    showAllDefault,
+
+    onMoreShowAll = true,
+
+    AdditionalChip,
+
+    AdditionalChipProps = {},
+
     Component = 'div',
 
     className,
+
     style,
 
-    children,
+    children: children_,
 
     ...other
   } = props;
+
+  const [showAll, setShowAll] = React.useState(showAllDefault !== undefined ? showAllDefault : false);
+
+  const onClickMore = React.useCallback(() => {
+    setShowAll(true);
+  }, []);
+
+  let children = React.Children.toArray(children_);
+
+  if (!showAll) {
+    children = children.slice(0, max || (children_ as any).length);
+
+    if ((total !== undefined && total - (children_ as any).length >= 1) || max < (children_ as any).length) {
+      let value: any;
+
+      if ((total !== undefined && total - (children_ as any).length >= 1)) value = `+${total - (children_ as any).length}`;
+      else value = `+${Math.abs((children_ as any).length - max)}`;
+
+      if (!AdditionalChipProps.TypeProps) AdditionalChipProps.TypeProps = {};
+
+      AdditionalChipProps.TypeProps.size = '0.44em';
+
+      children.push(
+        (AdditionalChip as any) ||
+
+        <Chip
+          color='neutral'
+
+          {...other}
+
+          {...AdditionalChipProps}
+
+          onClick={onMoreShowAll ? onClickMore : undefined}
+        >
+          {value}
+        </Chip>
+      );
+    }
+  }
 
   return (
     <Line
@@ -100,6 +156,8 @@ const Chips = React.forwardRef((props_: IChips, ref: any) => {
 
       direction={direction}
 
+      wrap={wrap}
+
       Component={Component}
 
       className={classNames([
@@ -110,7 +168,7 @@ const Chips = React.forwardRef((props_: IChips, ref: any) => {
         className,
         classes.root,
         classes[`size_${size}`],
-        wrap && [
+        wrap === 'wrap' && [
           classes.wrap,
           classes[`wrap_${size}`]
         ]
