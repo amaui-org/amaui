@@ -568,7 +568,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
     return getLabel(item ? item?.props : itemValue);
   };
 
-  const renderValues = renderValues_ || ((value__ = value, onUnselectMethod = onUnselect) => {
+  const renderValues = renderValues_ || ((value__ = refs.value.current, onUnselectMethod = onUnselect) => {
     if (multiple) {
       if (chip) {
         let values = value__;
