@@ -11,7 +11,6 @@ import { staticClassName, TValueBreakpoints, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    width: '100%',
     position: 'relative'
   },
 
@@ -22,7 +21,10 @@ const useStyle = styleMethod(theme => ({
 
 export interface IMasonry extends Omit<ILine, 'gap'> {
   gap?: number | Record<TValueBreakpoints, number>;
+
   columns?: number | Record<TValueBreakpoints, number>;
+
+  NoMasonryProps?: any;
 }
 
 const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
@@ -32,12 +34,16 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
 
   const {
     gap: gap_,
+
     columns: columns_,
 
     className,
+
     style,
 
-    children,
+    NoMasonryProps,
+
+    children: children_,
 
     ...other
   } = props;
@@ -48,7 +54,8 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
     root: React.useRef<any>(),
     gap: React.useRef<any>(),
     columns: React.useRef<any>(),
-    init: React.useRef<any>()
+    init: React.useRef<any>(),
+    useMasonry: React.useRef<any>()
   };
 
   const breakpoints = {};
@@ -74,7 +81,17 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
 
   refs.columns.current = columns;
 
+  const children = React.Children.toArray(children_);
+
+  let useMasonry = true;
+
+  if (columns === 1 || children.length < columns) useMasonry = false;
+
+  refs.useMasonry.current = useMasonry;
+
   const update = () => {
+    if (!refs.useMasonry.current) return;
+
     if (refs.root.current) {
       // Get all children
       const elements = Array.from(refs.root.current.children).slice(0, refs.columns.current > 1 ? -(refs.columns.current - 1) : undefined);
@@ -162,6 +179,62 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
     styles.root.visibility = 'hidden';
   }
 
+  if (!useMasonry) {
+    styles.item.width = columns === 1 ? '100%' : `calc(${100 / columns}% - ${(gap * theme.space.unit * (columns - 1)) / columns}px)`;
+
+    return (
+      <Line
+        ref={item => {
+          if (ref) {
+            if (is('function', ref)) ref(item);
+            else ref.current = item;
+          }
+
+          refs.root.current = item;
+        }}
+
+        direction='row'
+
+        wrap='wrap'
+
+        fullWidth
+
+        {...NoMasonryProps}
+
+        className={classNames([
+          staticClassName('Masonry', theme) && [
+            'amaui-Masonry-root',
+            'amaui-Masonry-noMasonry'
+          ],
+
+          NoMasonryProps?.className,
+          className,
+          classes.root
+        ])}
+
+        style={{
+          ...style,
+
+          ...NoMasonryProps?.style
+        }}
+
+        {...other}
+      >
+        {children.map((item: any, index: number) => (
+          React.cloneElement(item, {
+            key: index,
+
+            style: {
+              ...styles.item,
+
+              ...item.props.style
+            }
+          })
+        ))}
+      </Line>
+    );
+  }
+
   return (
     <Line
       ref={item => {
@@ -180,6 +253,8 @@ const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
       justify='unset'
 
       direction='column'
+
+      fullWidth
 
       className={classNames([
         staticClassName('Masonry', theme) && [
