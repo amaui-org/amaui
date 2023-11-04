@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, isEnvironment, element as element_, clamp } from '@amaui/utils';
+import { is, isEnvironment, element as element_, clamp, wait } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
 import Portal from '../Portal';
@@ -227,10 +227,26 @@ const Append = (props_: IAppend) => {
     }
   }, [values]);
 
-  const getValues = () => {
-    if (!((refs.root.current || anchor) && refs.element.current)) return;
+  const getBoundingRect = React.useCallback((elementHTML: HTMLElement): Promise<DOMRect> => new Promise(async (resolve, reject) => {
+    if (!elementHTML?.getBoundingClientRect) return;
 
-    const wrapperRect = (refs.root.current || refs.element.current)?.parentElement?.getBoundingClientRect();
+    let tries = 5;
+
+    while (tries) {
+      const valueRect = elementHTML.getBoundingClientRect();
+
+      if (valueRect?.height && valueRect?.width) return resolve(valueRect);
+
+      tries--;
+
+      await wait(40);
+    }
+  }), []);
+
+  const getValues = async () => {
+    if (!((refs.root.current || refs.anchor.current) && refs.element.current)) return;
+
+    const wrapperRect = await getBoundingRect((refs.root.current || refs.element.current)?.parentElement);
 
     if (!wrapperRect) return;
 
@@ -250,8 +266,8 @@ const Append = (props_: IAppend) => {
     const anchor_ = resolve();
 
     const rect = {
-      root: anchor_ || refs.root.current.getBoundingClientRect(),
-      element: refs.element.current.getBoundingClientRect()
+      root: anchor_ || await getBoundingRect(refs.root.current),
+      element: await getBoundingRect(refs.element.current)
     };
 
     const rectOffset = {
@@ -275,11 +291,13 @@ const Append = (props_: IAppend) => {
     };
   };
 
-  const make = (
+  const make = async (
     value = { position: refs.position.current, alignment: refs.alignment.current, inset: inset_, switch: false },
-    values__ = getValues()
+    valueMeasurements_?: any
   ) => {
-    if (!values__ || (values__.rect.element.width === 0 && values__.rect.element.height === 0)) return;
+    const valueMeasurements = valueMeasurements_ !== undefined ? valueMeasurements_ : await getValues();
+
+    if (!valueMeasurements || (valueMeasurements.rect.element.width === 0 && valueMeasurements.rect.element.height === 0)) return;
 
     const rootDocument = refs.root.current?.ownerDocument || window.document;
 
@@ -312,9 +330,9 @@ const Append = (props_: IAppend) => {
 
     const { position, alignment, inset, switch: switched } = value;
 
-    const { rect } = values__;
+    const { rect } = valueMeasurements;
 
-    let { rectOffset } = values__;
+    let { rectOffset } = valueMeasurements;
 
     // We need both root and element refs
     // to make our values for it
