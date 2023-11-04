@@ -539,7 +539,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
   }
 
   // noTransition
-  refs.noTransition.current = noTransition || monthSame;
+  refs.noTransition.current = monthSame;
 
   // Update previous
   if (refs.id.current !== `${month.year} ${month.month}`) {
@@ -552,6 +552,178 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
   }
 
   const weeks = arrayToParts(days, 7);
+
+  const getCalendar = (status?: TTransitionStatus) => {
+
+    return (
+      <Surface
+        tonal={tonal}
+
+        color={color}
+      >
+        {({ palette }) => (
+          <Line
+            gap={0.5}
+
+            direction='column'
+
+            align='unset'
+
+            justify='unset'
+
+            className={classNames([
+              staticClassName('CalendarMonth', theme) && [
+                'amaui-CalendarMonth-weeks'
+              ],
+
+              classes.weeks,
+              status && [`weeks_${status}`],
+              !labels && classes.weeks_no_labels
+            ])}
+          >
+            {weeks.map((week: any, index: number) => (
+              // Week
+              <Line
+                key={index}
+
+                gap={0}
+
+                direction='row'
+
+                align='unset'
+
+                justify='space-between'
+
+                className={classNames([
+                  staticClassName('CalendarMonth', theme) && [
+                    'amaui-CalendarMonth-week'
+                  ],
+
+                  classes.week
+                ])}
+              >
+                {week.map((day: any, index_: number) => {
+                  const propsDay = {
+                    onClick: () => onUpdate(day.amauiDate, day.start || day.end ? -1 : undefined),
+
+                    disabled: (
+                      (!day.in && !outside) ||
+
+                      !valid(day.amauiDate, 'day') ||
+
+                      // not prior to 1970, we may potentially update this in the future
+                      day.amauiDate.year < 1970
+                    )
+                  };
+
+                  return (
+                    <Line
+                      key={index_}
+
+                      direction='row'
+
+                      align='center'
+
+                      justify='center'
+
+                      className={classNames([
+                        staticClassName('CalendarMonth', theme) && [
+                          'amaui-CalendarMonth-day',
+                          `amaui-CalendarMonth-day-${day.in ? 'in' : 'out'}`
+                        ],
+
+                        classes.day,
+                        classes[`day_size_${size}`],
+                        classes[`day_${day.in ? 'in' : 'out'}`],
+                        (!day.in && !outside) && classes.day_out_no,
+                        !day.selectedSame && range && [
+                          (day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && classes.dayStart,
+                          (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside)) && classes.dayEnd,
+                          ((day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside))) && classes.dayStartEnd,
+                          (day.selected && day.selectedIndex === 0 && !day.selectedSame) && classes.dayStartSelected,
+                          (day.selected && day.selectedIndex === 1 && !day.selectedSame) && classes.dayEndSelected
+                        ]
+                      ])}
+
+                      style={{
+                        ...(range && !day.selected && !day.selectedSame && day.between ? {
+                          background: theme.methods.palette.color.value(undefined, 80, true, palette)
+                        } : undefined),
+
+                        ...(range && day.selected && !day.selectedSame ? {
+                          color: theme.methods.palette.color.value(undefined, 80, true, palette)
+                        } : undefined)
+                      }}
+                    >
+                      {is('function', renderDay) ?
+                        renderDay(day.amauiDate, propsDay, day.today, day.weekend, day.selected, outside) :
+                        (
+                          <PaginationItem
+                            tonal={tonal}
+
+                            color='inherit'
+
+                            size={size}
+
+                            InteractionProps={{
+                              background: false
+                            }}
+
+                            TypeProps={{
+                              version: 'b3',
+
+                              priority: !day.selected ? !day.weekend ? 'primary' : 'secondary' : undefined
+                            }}
+
+                            aria-label={format(day.amauiDate, 'DD-MM-YYYY')}
+
+                            {...PaginationItemProps}
+
+                            className={classNames([
+                              staticClassName('CalendarMonth', theme) && [
+                                'amaui-CalendarMonth-day-value',
+                                day.in && 'amaui-CalendarMonth-day-in',
+                                day.dayWeek && 'amaui-CalendarMonth-day-day-week',
+                                day.weekend && 'amaui-CalendarMonth-day-weekend',
+                                day.today && 'amaui-CalendarMonth-day-today',
+                                day.between && 'amaui-CalendarMonth-day-between',
+                                day.selected && 'amaui-CalendarMonth-day-selected',
+                                day.start && 'amaui-CalendarMonth-day-start',
+                                day.end && 'amaui-CalendarMonth-day-end'
+                              ],
+
+                              PaginationItemProps?.className,
+                              classes.dayValue
+                            ])}
+
+                            style={{
+                              ...(day.today ? {
+                                boxShadow: `inset 0px 0px 0px 1px ${palette[40]}`
+                              } : undefined),
+
+                              ...(day.selected ? {
+                                color: theme.methods.palette.color.value(undefined, 90, true, palette),
+                                backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
+                              } : undefined),
+
+                              ...PaginationItemProps?.style
+                            }}
+
+                            {...propsDay}
+                          >
+                            {day.value}
+                          </PaginationItem>
+                        )}
+                    </Line>
+                  );
+                })}
+              </Line>
+            ))}
+          </Line>
+        )}
+      </Surface>
+    );
+  };
 
   return (
     <Line
@@ -628,195 +800,31 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
       )}
 
       {/* Weeks */}
-      <Transitions
-        id={refs.id.current}
+      {noTransition && (
+        getCalendar()
+      )}
 
-        mode='in-out-follow'
+      {!noTransition && (
+        <Transitions
+          id={refs.id.current}
 
-        switch
+          mode='in-out-follow'
 
-        {...TransitionsProps}
-      >
-        <Transition
-          key={id}
+          switch
 
-          in
-
-          {...TransitionProps}
+          {...TransitionsProps}
         >
-          {(status: TTransitionStatus) => {
+          <Transition
+            key={id}
 
-            return (
-              <Surface
-                tonal={tonal}
+            in
 
-                color={color}
-              >
-                {({ palette }) => (
-                  <Line
-                    gap={0.5}
-
-                    direction='column'
-
-                    align='unset'
-
-                    justify='unset'
-
-                    className={classNames([
-                      staticClassName('CalendarMonth', theme) && [
-                        'amaui-CalendarMonth-weeks'
-                      ],
-
-                      classes.weeks,
-                      [`weeks_${status}`],
-                      !labels && classes.weeks_no_labels
-                    ])}
-                  >
-                    {weeks.map((week: any, index: number) => (
-                      // Week
-                      <Line
-                        key={index}
-
-                        gap={0}
-
-                        direction='row'
-
-                        align='unset'
-
-                        justify='space-between'
-
-                        className={classNames([
-                          staticClassName('CalendarMonth', theme) && [
-                            'amaui-CalendarMonth-week'
-                          ],
-
-                          classes.week
-                        ])}
-                      >
-                        {week.map((day: any, index_: number) => {
-                          const propsDay = {
-                            onClick: () => onUpdate(day.amauiDate, day.start || day.end ? -1 : undefined),
-
-                            disabled: (
-                              (!day.in && !outside) ||
-
-                              !valid(day.amauiDate, 'day') ||
-
-                              // not prior to 1970, we may potentially update this in the future
-                              day.amauiDate.year < 1970
-                            )
-                          };
-
-                          return (
-                            <Line
-                              key={index_}
-
-                              direction='row'
-
-                              align='center'
-
-                              justify='center'
-
-                              className={classNames([
-                                staticClassName('CalendarMonth', theme) && [
-                                  'amaui-CalendarMonth-day',
-                                  `amaui-CalendarMonth-day-${day.in ? 'in' : 'out'}`
-                                ],
-
-                                classes.day,
-                                classes[`day_size_${size}`],
-                                classes[`day_${day.in ? 'in' : 'out'}`],
-                                (!day.in && !outside) && classes.day_out_no,
-                                !day.selectedSame && range && [
-                                  (day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && classes.dayStart,
-                                  (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside)) && classes.dayEnd,
-                                  ((day.dayWeek === 1 || (day.selected && day.selectedIndex === 0) || (day.start && !outside)) && (day.dayWeek === 0 || (day.selected && day.selectedIndex === 1) || (day.end && !outside))) && classes.dayStartEnd,
-                                  (day.selected && day.selectedIndex === 0 && !day.selectedSame) && classes.dayStartSelected,
-                                  (day.selected && day.selectedIndex === 1 && !day.selectedSame) && classes.dayEndSelected
-                                ]
-                              ])}
-
-                              style={{
-                                ...(range && !day.selected && !day.selectedSame && day.between ? {
-                                  background: theme.methods.palette.color.value(undefined, 80, true, palette)
-                                } : undefined),
-
-                                ...(range && day.selected && !day.selectedSame ? {
-                                  color: theme.methods.palette.color.value(undefined, 80, true, palette)
-                                } : undefined)
-                              }}
-                            >
-                              {is('function', renderDay) ?
-                                renderDay(day.amauiDate, propsDay, day.today, day.weekend, day.selected, outside) :
-                                (
-                                  <PaginationItem
-                                    tonal={tonal}
-
-                                    color='inherit'
-
-                                    size={size}
-
-                                    InteractionProps={{
-                                      background: false
-                                    }}
-
-                                    TypeProps={{
-                                      version: 'b3',
-
-                                      priority: !day.selected ? !day.weekend ? 'primary' : 'secondary' : undefined
-                                    }}
-
-                                    aria-label={format(day.amauiDate, 'DD-MM-YYYY')}
-
-                                    {...PaginationItemProps}
-
-                                    className={classNames([
-                                      staticClassName('CalendarMonth', theme) && [
-                                        'amaui-CalendarMonth-day-value',
-                                        day.in && 'amaui-CalendarMonth-day-in',
-                                        day.dayWeek && 'amaui-CalendarMonth-day-day-week',
-                                        day.weekend && 'amaui-CalendarMonth-day-weekend',
-                                        day.today && 'amaui-CalendarMonth-day-today',
-                                        day.between && 'amaui-CalendarMonth-day-between',
-                                        day.selected && 'amaui-CalendarMonth-day-selected',
-                                        day.start && 'amaui-CalendarMonth-day-start',
-                                        day.end && 'amaui-CalendarMonth-day-end'
-                                      ],
-
-                                      PaginationItemProps?.className,
-                                      classes.dayValue
-                                    ])}
-
-                                    style={{
-                                      ...(day.today ? {
-                                        boxShadow: `inset 0px 0px 0px 1px ${palette[40]}`
-                                      } : undefined),
-
-                                      ...(day.selected ? {
-                                        color: theme.methods.palette.color.value(undefined, 90, true, palette),
-                                        backgroundColor: theme.methods.palette.color.value(undefined, 40, true, palette)
-                                      } : undefined),
-
-                                      ...PaginationItemProps?.style
-                                    }}
-
-                                    {...propsDay}
-                                  >
-                                    {day.value}
-                                  </PaginationItem>
-                                )}
-                            </Line>
-                          );
-                        })}
-                      </Line>
-                    ))}
-                  </Line>
-                )}
-              </Surface>
-            );
-          }}
-        </Transition>
-      </Transitions>
+            {...TransitionProps}
+          >
+            {getCalendar}
+          </Transition>
+        </Transitions>
+      )}
     </Line>
   );
 });
