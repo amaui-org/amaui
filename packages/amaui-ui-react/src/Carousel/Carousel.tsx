@@ -280,6 +280,10 @@ export interface ICarousel extends Omit<ISurface, 'version'> {
   // on mobile visible
   progressVisibility?: 'hover' | 'visible' | Record<TValueBreakpoints, 'hover' | 'visible'>;
 
+  start?: any;
+
+  end?: any;
+
   noTransition?: boolean | Record<TValueBreakpoints, boolean>;
 
   onUpdatePosition?: (value: ICarouselValue) => any;
@@ -406,6 +410,10 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
     // on mobile visible
     progressVisibility: progressVisibility_,
+
+    start: start_,
+
+    end: end_,
 
     noTransition: noTransition_,
 
@@ -1350,6 +1358,8 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
       {...other}
     >
+      {start_}
+
       {/* Version regular */}
       {version === 'regular' && (
         <Line
@@ -1735,6 +1745,8 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
           )}
         </ArrowNextTransitionComponent_>
       )}
+
+      {end_}
     </Surface>
   );
 });
