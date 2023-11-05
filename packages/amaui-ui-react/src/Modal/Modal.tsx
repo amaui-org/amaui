@@ -323,7 +323,7 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
   };
 
   if (portal) {
-    const rootDocumentElement = refs.root.current?.ownerDocument || window.document;
+    const rootDocumentElement = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     if (isEnvironment('browser')) PortalProps.element = rootDocumentElement.body;
   }

@@ -142,7 +142,7 @@ const Append = (props_: IAppend) => {
   }, []);
 
   React.useEffect(() => {
-    const rootWindow = refs.root.current?.ownerDocument?.defaultView || window;
+    const rootWindow = isEnvironment('browser') ? (refs.root.current?.ownerDocument?.defaultView || window) : undefined;
 
     make();
 
@@ -699,7 +699,7 @@ const Append = (props_: IAppend) => {
 
   const PortalComponentProps: any = {};
 
-  const rootDocumentElement = refs.root.current?.ownerDocument || window.document;
+  const rootDocumentElement = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
   if (portal && isEnvironment('browser')) {
     PortalComponentProps.element = rootDocumentElement.body;

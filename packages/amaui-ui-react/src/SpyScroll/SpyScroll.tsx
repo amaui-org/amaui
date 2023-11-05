@@ -184,7 +184,7 @@ const SpyScroll = React.forwardRef((props_: ISpyScroll, ref: any) => {
     // Initial
     method();
 
-    const rootDocumentElement = refs.root.current?.ownerDocument || window.document;
+    const rootDocumentElement = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     if (refs.root.current) {
       rootDocumentElement.addEventListener('scroll', method);

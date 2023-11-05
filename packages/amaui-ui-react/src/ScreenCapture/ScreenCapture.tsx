@@ -505,7 +505,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
 
   if (!supported) return null;
 
-  const rootDocumentElement = refs.root.current?.ownerDocument || window.document;
+  const rootDocumentElement = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
   return (
     <Surface

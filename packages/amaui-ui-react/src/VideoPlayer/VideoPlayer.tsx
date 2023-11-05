@@ -740,7 +740,7 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
       setLoaded(true);
     }
 
-    const rootDocument = (refs.root.current?.ownerDocument || window.document) as Document;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) as Document : undefined;
 
     const methodPictureInPicture = () => {
       if (rootDocument.pictureInPictureElement) {
@@ -898,7 +898,7 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
   }, []);
 
   const onPictureInPictureExit = React.useCallback(async () => {
-    const rootDocument = (refs.root.current?.ownerDocument || window.document) as Document;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) as Document : undefined;
 
     try {
       if (rootDocument.exitPictureInPicture) await rootDocument.exitPictureInPicture();

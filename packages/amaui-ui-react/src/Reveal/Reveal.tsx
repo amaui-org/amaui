@@ -84,7 +84,7 @@ const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
       if (refs.root.current) {
         const rect = refs.root.current.getBoundingClientRect();
 
-        const rootWindow = refs.root.current?.ownerDocument?.defaultView || window;
+        const rootWindow = isEnvironment('browser') ? (refs.root.current?.ownerDocument?.defaultView || window) : undefined;
 
         // Reveal
         if (!refs.in.current) {
