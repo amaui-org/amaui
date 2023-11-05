@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, copyToClipboard, is } from '@amaui/utils';
+import { clamp, copyToClipboard, is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
@@ -447,6 +447,8 @@ const Share = React.forwardRef((props_: IShare, ref: any) => {
   }, []);
 
   const onClick = React.useCallback(async (item: any, event: MouseEvent) => {
+    if (!isEnvironment('browser')) return;
+
     clearTimeout(refs.copyTimeout.current);
 
     const values: any = {
