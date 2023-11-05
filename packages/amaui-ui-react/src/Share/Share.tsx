@@ -352,6 +352,8 @@ const IconMaterialMoreHoriz = React.forwardRef((props: IIcon, ref) => {
 });
 
 const Share = React.forwardRef((props_: IShare, ref: any) => {
+  const theme = useAmauiTheme();
+
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiShare?.props?.default, ...props_ }), [props_]);
 
   const {
@@ -411,8 +413,6 @@ const Share = React.forwardRef((props_: IShare, ref: any) => {
   } = props;
 
   const { classes } = useStyle();
-
-  const theme = useAmauiTheme();
 
   const mobile = useMediaQuery('(pointer: coarse)');
 
