@@ -65,7 +65,7 @@ const ClickListener = React.forwardRef((props_: IClickListener, ref: any) => {
   refs.ignoreNonExisting.current = ignoreNonExisting;
 
   React.useEffect(() => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     const onMethod = (event: MouseEvent) => {
       if (refs.root.current) {

@@ -445,7 +445,7 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
   if (!tooltipLabel) TooltipProps.open = false;
 
   const onKeyDown = (event: React.KeyboardEvent<any>) => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     let allElements = [];
 

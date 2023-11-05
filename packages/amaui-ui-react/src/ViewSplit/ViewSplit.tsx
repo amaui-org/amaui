@@ -349,7 +349,7 @@ const ViewSplit = React.forwardRef((props_: IViewSplit, ref: any) => {
 
     method();
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     rootDocument.addEventListener('mouseup', onMouseUp);
     rootDocument.addEventListener('mousemove', onMouseMove);

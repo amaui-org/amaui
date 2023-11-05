@@ -298,7 +298,7 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
       }
     };
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     rootDocument.addEventListener('mouseup', onMouseUp);
 

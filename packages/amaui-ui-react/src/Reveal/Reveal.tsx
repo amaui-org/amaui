@@ -169,7 +169,7 @@ const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
       method();
     }, 14);
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     if (refs.root.current) {
       rootDocument.addEventListener('scroll', method);

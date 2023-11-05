@@ -462,7 +462,7 @@ const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
       }
     };
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     rootDocument.addEventListener('keydown', method);
 

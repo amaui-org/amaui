@@ -1029,7 +1029,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
     observer.observe(refs.root.current);
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     rootDocument.addEventListener('keydown', onKeyDown);
 

@@ -619,7 +619,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
       else if (is('string', image)) makeImage(image);
     }
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     rootDocument.addEventListener('keydown', method);
 
@@ -689,7 +689,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
   const makeImage = async (valueNew: any = refs.value.current) => {
     const img = await imageMethod(valueNew);
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     const canvas = rootDocument.createElement('canvas');
 
@@ -715,7 +715,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
   };
 
   const updateResize = debounce(async (width: number, height: number) => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     // Update value copy
     const canvas = rootDocument.createElement('canvas');
@@ -812,7 +812,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
   };
 
   const updateQuality = debounce(async (valueNew: any) => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     // Update copy value
     const uri = value.toDataURL('image/jpeg', valueNew / 100);
@@ -861,7 +861,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
   };
 
   const onReset = (imageReset = true, valueCopyReset = true, resizeReset = true) => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     setOpen(false);
     setQuality(100);
@@ -905,7 +905,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
   };
 
   const onSave = () => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     // Make value copy into value
     let canvas = rootDocument.createElement('canvas');
@@ -965,7 +965,7 @@ const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
   };
 
   const onCancel = () => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     // Reset to unopen
     onReset(false);

@@ -418,7 +418,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
     // Scroll to the value
     setTimeout(() => {
       Try(() => {
-        const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+        const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
         let item: any = rootDocument.body.querySelector('[data-month-from]');
 

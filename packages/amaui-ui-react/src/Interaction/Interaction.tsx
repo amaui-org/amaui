@@ -278,7 +278,7 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
       removeWaves();
     };
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     if (parent) {
       parent.addEventListener('mousedown', onMouseDown);

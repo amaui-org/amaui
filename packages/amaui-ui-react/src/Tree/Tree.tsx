@@ -280,7 +280,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
   }, [open_]);
 
   const onKeyDown = (event: React.KeyboardEvent<any>) => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     if (level === 0) {
       let allElements = [];

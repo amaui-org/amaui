@@ -248,14 +248,14 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
     open: () => {
       MODALS_OPEN++;
 
-      const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+      const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
       if (freezeScroll) rootDocument.body.style.overflow = 'hidden';
     },
     close: () => {
       MODALS_OPEN--;
 
-      const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+      const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
       if (MODALS_OPEN <= 0 && freezeScroll) rootDocument.body.style.removeProperty('overflow');
     }
@@ -274,7 +274,7 @@ const Modal = React.forwardRef((props_: IModal, ref: any) => {
   };
 
   React.useEffect(() => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     if (open) modal.open();
 

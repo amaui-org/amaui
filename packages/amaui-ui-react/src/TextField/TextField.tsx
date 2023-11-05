@@ -683,7 +683,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
   const fullWidth = valueBreakpoints(fullWidth_, undefined, breakpoints, theme);
 
   const rowValue = () => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     const htmlFontSize = isEnvironment('browser') ? +window.getComputedStyle(rootDocument.documentElement).fontSize.slice(0, -2) : 16;
     const padding = size === 'small' ? 28 : size === 'regular' ? 36 : 44;
@@ -723,7 +723,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
   refs.restoreSelection.current = restoreSelection;
 
   React.useEffect(() => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     const htmlObserver = new MutationObserver(() => setRow(rowValue));
 

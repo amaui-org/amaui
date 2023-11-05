@@ -86,7 +86,7 @@ const DragAndDropList = React.forwardRef((props_: IDragAndDropList, ref: any) =>
       }
     };
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     rootDocument.body.addEventListener('mouseup', onMouseUp);
 
@@ -100,7 +100,7 @@ const DragAndDropList = React.forwardRef((props_: IDragAndDropList, ref: any) =>
   }, [onDraggedElement]);
 
   const img = React.useMemo(() => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     const element = rootDocument.createElement('img');
 
@@ -145,7 +145,7 @@ const DragAndDropList = React.forwardRef((props_: IDragAndDropList, ref: any) =>
   const onDragOver = () => (event: any) => {
     event.preventDefault();
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     const over = event.currentTarget;
     const dragging: any = draggedIsElement ? refs.dragging.current : rootDocument.body.querySelector(`[data-amaui-drag-and-drop-list-value="${refs.dragging.current}"]`);

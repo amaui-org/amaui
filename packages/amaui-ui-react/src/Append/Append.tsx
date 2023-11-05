@@ -299,7 +299,7 @@ const Append = (props_: IAppend) => {
 
     if (!valueMeasurements || (valueMeasurements.rect.element.width === 0 && valueMeasurements.rect.element.height === 0)) return;
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     const wrapperRect = (overflow || switch_) && (refs.root.current || refs.element.current).parentElement.getBoundingClientRect();
 

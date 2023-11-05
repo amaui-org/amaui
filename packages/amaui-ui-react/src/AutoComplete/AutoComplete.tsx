@@ -333,7 +333,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
   };
 
   React.useEffect(() => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     const method = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {

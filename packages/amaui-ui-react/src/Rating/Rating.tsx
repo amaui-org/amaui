@@ -276,7 +276,7 @@ const Rating = React.forwardRef((props_: IRating, ref: any) => {
       }
     };
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     rootDocument.addEventListener('mouseup', onMouseUp);
     rootDocument.addEventListener('mousemove', onMouseMove);

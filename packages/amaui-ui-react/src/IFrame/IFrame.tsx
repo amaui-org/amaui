@@ -60,7 +60,7 @@ const IFrame = React.forwardRef((props_: IIFrame, ref: any) => {
 
   const refresh = React.useCallback(() => {
     if (iframeDocument) {
-      const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+      const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
       // Add iframe ref to iframe document
       (iframeDocument as any).iframe = refs.root.current;

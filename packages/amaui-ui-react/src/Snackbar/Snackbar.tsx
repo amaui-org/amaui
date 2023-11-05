@@ -215,7 +215,7 @@ const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
       if (timeouts[id] !== undefined) removeTimeout();
     };
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     rootDocument.addEventListener('focus', onTabFocus);
 

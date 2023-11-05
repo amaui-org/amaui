@@ -655,7 +655,7 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
       }
     };
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     rootDocument.addEventListener('mouseup', onMouseUp);
     rootDocument.addEventListener('mousemove', onMouseMove);

@@ -1027,7 +1027,7 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
       }
     };
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     rootDocument.addEventListener('keydown', method);
 
@@ -1147,7 +1147,7 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
   const makeImage = async (value: any = image) => {
     const img = await imageMethod(value);
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     const canvas = rootDocument.createElement('canvas');
 

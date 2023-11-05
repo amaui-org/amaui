@@ -576,7 +576,7 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
   const init = React.useCallback(() => {
     setLoaded(false);
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     refs.audio.current = rootDocument.createElement('audio');
 

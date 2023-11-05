@@ -1153,7 +1153,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
     observer.observe(refs.root.current);
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     rootDocument.addEventListener('mousemove', onMouseMove);
     rootDocument.addEventListener('touchmove', onTouchMove);

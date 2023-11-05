@@ -235,7 +235,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
       if (event.key === 'Escape') onClose();
     };
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     rootDocument.addEventListener('keydown', method);
 

@@ -223,7 +223,7 @@ const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
       }
     };
 
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     rootDocument.addEventListener('mouseup', onMouseUp);
 

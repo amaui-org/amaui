@@ -107,14 +107,14 @@ const Backdrop = React.forwardRef((props_: IBackdrop, ref: any) => {
     open: () => {
       BACKDROPS_OPEN++;
 
-      const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+      const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
       rootDocument.body.style.overflow = 'hidden';
     },
     close: () => {
       BACKDROPS_OPEN--;
 
-      const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+      const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
       if (!BACKDROPS_OPEN) rootDocument.body.style.removeProperty('overflow');
     }

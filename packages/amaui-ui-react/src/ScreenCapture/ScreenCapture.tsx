@@ -210,7 +210,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   }, [touch, onInit_]);
 
   React.useEffect(() => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     const method = (event: KeyboardEvent) => {
       switch (event.key) {
@@ -278,7 +278,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   }, [name_]);
 
   React.useEffect(() => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     if (canvas) {
       rootDocument.body.style.overflow = 'hidden';
@@ -298,7 +298,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   };
 
   const trackToValue = React.useCallback(async (track: MediaStreamTrack, version: TTrackValueVersion = 'canvas') => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     const canvasElement = document.createElement('canvas');
 
@@ -333,7 +333,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   }, [type, quality]);
 
   const make = React.useCallback(async (version: TTrackValueVersion = 'image', options: any = {}) => {
-    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
     refs.element.current = rootDocument.createElement('video');
 
@@ -403,7 +403,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
   //   setLoading(items => [...items, 'entirePage']);
 
   //   try {
-  //     const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+  //     const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
   //     await elementToCanvas(rootDocument.body, {
   //       response: 'download',

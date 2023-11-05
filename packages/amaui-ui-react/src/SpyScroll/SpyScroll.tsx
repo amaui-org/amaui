@@ -122,7 +122,7 @@ const SpyScroll = React.forwardRef((props_: ISpyScroll, ref: any) => {
       // Find first active id
       let id: string;
 
-      const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
+      const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
 
       Try(() => id = refs.props.current.ids.find((item: string) => methodElement(rootDocument.querySelector(`#${item}`.replace('##', '#')))));
 
