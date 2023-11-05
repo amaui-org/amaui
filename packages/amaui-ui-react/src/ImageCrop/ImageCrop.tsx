@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, clamp } from '@amaui/utils';
+import { is, clamp, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Tooltip from '../Tooltip';
@@ -1027,7 +1027,7 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
       }
     };
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     rootDocument.addEventListener('keydown', method);
 
@@ -1147,7 +1147,7 @@ const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
   const makeImage = async (value: any = image) => {
     const img = await imageMethod(value);
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     const canvas = rootDocument.createElement('canvas');
 

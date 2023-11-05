@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, clamp, numberWithCommas } from '@amaui/utils';
+import { is, clamp, numberWithCommas, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import AdvancedTextField from '../AdvancedTextField';
@@ -171,7 +171,7 @@ const NumericTextField = React.forwardRef((props_: INumericTextField, ref: any) 
       }
     };
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     rootDocument.addEventListener('keydown', method);
 

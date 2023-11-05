@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, equalDeep, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
+import { clamp, equalDeep, is, isEnvironment, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import IconButton from '../IconButton';
@@ -655,7 +655,7 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
       }
     };
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     rootDocument.addEventListener('mouseup', onMouseUp);
     rootDocument.addEventListener('mousemove', onMouseMove);

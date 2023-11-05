@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, unique } from '@amaui/utils';
+import { is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -333,7 +333,7 @@ const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
   };
 
   React.useEffect(() => {
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     const method = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, unique, clamp, debounce, equalDeep, TMethod } from '@amaui/utils';
+import { is, unique, clamp, debounce, equalDeep, TMethod, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import AmauiSubscription from '@amaui/subscription';
 
@@ -1029,7 +1029,7 @@ const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
 
     observer.observe(refs.root.current);
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     rootDocument.addEventListener('keydown', onKeyDown);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { element, is } from '@amaui/utils';
+import { element, is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, staticClassName } from '../utils';
@@ -170,7 +170,7 @@ const Move = React.forwardRef((props_: IMove, ref: any) => {
       }
     }
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     rootDocument.addEventListener('mouseup', onMouseUp);
 

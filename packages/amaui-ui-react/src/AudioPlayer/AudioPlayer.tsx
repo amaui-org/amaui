@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, getLeadingZerosNumber, is } from '@amaui/utils';
+import { clamp, getLeadingZerosNumber, is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import { duration as durationMethod } from '@amaui/date';
 
@@ -576,7 +576,7 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
   const init = React.useCallback(() => {
     setLoaded(false);
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     refs.audio.current = rootDocument.createElement('audio');
 

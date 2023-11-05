@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, is, valueFromPercentageWithinRange } from '@amaui/utils';
+import { clamp, is, isEnvironment, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, staticClassName, TColor, TElement, TSize, TTonal } from '../utils';
@@ -276,7 +276,7 @@ const Rating = React.forwardRef((props_: IRating, ref: any) => {
       }
     };
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     rootDocument.addEventListener('mouseup', onMouseUp);
     rootDocument.addEventListener('mousemove', onMouseMove);

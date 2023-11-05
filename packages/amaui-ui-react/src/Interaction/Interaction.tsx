@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, getID, debounce } from '@amaui/utils';
+import { is, getID, debounce, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import AmauiSubscription from '@amaui/subscription/amaui-subscription';
 
@@ -278,7 +278,7 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
       removeWaves();
     };
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     if (parent) {
       parent.addEventListener('mousedown', onMouseDown);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { castParam, clamp, copy, is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
+import { castParam, clamp, copy, is, isEnvironment, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style as styleMethod, TColorValues, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
@@ -1153,7 +1153,7 @@ const Chart = React.forwardRef((props_: IChart, ref: any) => {
 
     observer.observe(refs.root.current);
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     rootDocument.addEventListener('mousemove', onMouseMove);
     rootDocument.addEventListener('touchmove', onTouchMove);

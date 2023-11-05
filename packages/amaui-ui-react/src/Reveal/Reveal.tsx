@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
@@ -169,7 +169,7 @@ const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
       method();
     }, 14);
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     if (refs.root.current) {
       rootDocument.addEventListener('scroll', method);

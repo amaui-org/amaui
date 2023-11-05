@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
-import { clamp, getLeadingZerosNumber, is, unique } from '@amaui/utils';
+import { clamp, getLeadingZerosNumber, is, isEnvironment, unique } from '@amaui/utils';
 import { AmauiDate, format as formatMethod, is as isAmauiDate, set } from '@amaui/date';
 
 import RoundMeter from '../RoundMeter';
@@ -298,7 +298,7 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
       }
     };
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     rootDocument.addEventListener('mouseup', onMouseUp);
 

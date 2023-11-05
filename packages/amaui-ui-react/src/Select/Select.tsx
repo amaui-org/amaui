@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, unique } from '@amaui/utils';
+import { is, isEnvironment, unique } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -235,7 +235,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
       if (event.key === 'Escape') onClose();
     };
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     rootDocument.addEventListener('keydown', method);
 

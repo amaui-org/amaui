@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, unique, Try } from '@amaui/utils';
+import { is, unique, Try, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, staticClassName, TStyle } from '../utils';
@@ -122,7 +122,7 @@ const SpyScroll = React.forwardRef((props_: ISpyScroll, ref: any) => {
       // Find first active id
       let id: string;
 
-      const rootDocument = refs.root.current?.ownerDocument || window.document;
+      const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
       Try(() => id = refs.props.current.ids.find((item: string) => methodElement(rootDocument.querySelector(`#${item}`.replace('##', '#')))));
 

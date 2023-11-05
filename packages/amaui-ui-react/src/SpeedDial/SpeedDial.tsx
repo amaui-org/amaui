@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, clamp, element, isBrowser } from '@amaui/utils';
+import { is, clamp, element, isBrowser, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Zoom from '../Zoom';
@@ -445,7 +445,7 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
   if (!tooltipLabel) TooltipProps.open = false;
 
   const onKeyDown = (event: React.KeyboardEvent<any>) => {
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     let allElements = [];
 

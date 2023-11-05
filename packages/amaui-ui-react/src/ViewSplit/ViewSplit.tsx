@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, clamp, valueFromPercentageWithinRange } from '@amaui/utils';
+import { is, clamp, valueFromPercentageWithinRange, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
@@ -349,7 +349,7 @@ const ViewSplit = React.forwardRef((props_: IViewSplit, ref: any) => {
 
     method();
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     rootDocument.addEventListener('mouseup', onMouseUp);
     rootDocument.addEventListener('mousemove', onMouseMove);

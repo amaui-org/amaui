@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, TMethod } from '@amaui/utils';
+import { is, isEnvironment, TMethod } from '@amaui/utils';
 import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
@@ -107,14 +107,14 @@ const Backdrop = React.forwardRef((props_: IBackdrop, ref: any) => {
     open: () => {
       BACKDROPS_OPEN++;
 
-      const rootDocument = refs.root.current?.ownerDocument || window.document;
+      const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
       rootDocument.body.style.overflow = 'hidden';
     },
     close: () => {
       BACKDROPS_OPEN--;
 
-      const rootDocument = refs.root.current?.ownerDocument || window.document;
+      const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
       if (!BACKDROPS_OPEN) rootDocument.body.style.removeProperty('overflow');
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, is } from '@amaui/utils';
+import { clamp, is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Checkbox from '../Checkbox';
@@ -280,7 +280,7 @@ const Tree = React.forwardRef((props_: ITree, ref: any) => {
   }, [open_]);
 
   const onKeyDown = (event: React.KeyboardEvent<any>) => {
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     if (level === 0) {
       let allElements = [];

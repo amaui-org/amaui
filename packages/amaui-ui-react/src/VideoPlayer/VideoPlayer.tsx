@@ -876,7 +876,7 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
   }, []);
 
   const onFullScreenExit = React.useCallback(async () => {
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     try {
       if (rootDocument.exitFullscreen) await rootDocument.exitFullscreen();

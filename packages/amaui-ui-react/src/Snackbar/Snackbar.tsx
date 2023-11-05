@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, getID } from '@amaui/utils';
+import { is, getID, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Grow from '../Grow';
@@ -215,7 +215,7 @@ const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
       if (timeouts[id] !== undefined) removeTimeout();
     };
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     rootDocument.addEventListener('focus', onTabFocus);
 

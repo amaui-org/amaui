@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, element, Try } from '@amaui/utils';
+import { is, element, Try, isEnvironment } from '@amaui/utils';
 import { classNames, useAmauiTheme } from '@amaui/style-react';
 
 import { IBaseElement, matches, THTMLElement } from '../utils';
@@ -65,7 +65,7 @@ const ClickListener = React.forwardRef((props_: IClickListener, ref: any) => {
   refs.ignoreNonExisting.current = ignoreNonExisting;
 
   React.useEffect(() => {
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     const onMethod = (event: MouseEvent) => {
       if (refs.root.current) {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, is, Try } from '@amaui/utils';
+import { clamp, is, isEnvironment, Try } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import { AmauiDate, add, remove, format, TTimeUnits, set } from '@amaui/date';
 
@@ -418,7 +418,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
     // Scroll to the value
     setTimeout(() => {
       Try(() => {
-        const rootDocument = refs.root.current?.ownerDocument || window.document;
+        const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
         let item: any = rootDocument.body.querySelector('[data-month-from]');
 

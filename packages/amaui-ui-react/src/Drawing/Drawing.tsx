@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { elementToCanvas, is } from '@amaui/utils';
+import { elementToCanvas, is, isEnvironment } from '@amaui/utils';
 import { classNames, colors, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Select from '../Select';
@@ -442,7 +442,7 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
       setMove(valueNew);
     };
 
-    const rootDocument = refs.root.current?.ownerDocument || window.document;
+    const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
     rootDocument.addEventListener('mouseup', onMouseUp);
     rootDocument.addEventListener('mousemove', onMouseMove);

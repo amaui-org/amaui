@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { is } from '@amaui/utils';
+import { is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
@@ -60,7 +60,7 @@ const IFrame = React.forwardRef((props_: IIFrame, ref: any) => {
 
   const refresh = React.useCallback(() => {
     if (iframeDocument) {
-      const rootDocument = refs.root.current?.ownerDocument || window.document;
+      const rootDocument = isEnvironment('browser') ? refs.root.current?.ownerDocument || window.document : undefined;
 
       // Add iframe ref to iframe document
       (iframeDocument as any).iframe = refs.root.current;
