@@ -504,3 +504,6 @@ export * from './useQuery';
 
 export { default as PageTransition } from './PageTransition';
 export * from './PageTransition';
+
+export { default as Share } from './Share';
+export * from './Share';
