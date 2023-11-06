@@ -106,8 +106,8 @@ const useStyle = styleMethod(theme => ({
 
   noImage: {
     width: '100vw',
-    maxWidth: 240,
-    height: 240,
+    maxWidth: '240px',
+    aspectRatio: '1 / 1',
     background: theme.palette.background.default.primary,
     cursor: 'default',
     userSelect: 'none'
