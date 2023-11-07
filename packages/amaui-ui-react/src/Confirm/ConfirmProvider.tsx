@@ -17,7 +17,7 @@ import { IBaseElement, staticClassName } from '../utils';
 export interface IConfirmOpen {
   modal?: (promise: IConfirmPromiseArgument) => React.ReactElement;
 
-  title?: string | boolean | React.ReactElement;
+  name?: string | boolean | React.ReactElement;
   description?: string | React.ReactElement;
   buttons?: {
     positive?: {
