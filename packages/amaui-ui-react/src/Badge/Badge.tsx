@@ -21,7 +21,9 @@ const useStyle = styleMethod(theme => ({
     pointerEvents: 'none',
     userSelect: 'none',
 
-    ...theme.typography.values.l3
+    ...theme.typography.values.l3,
+
+    fontSize: `${10 / 16}rem`
   },
 
   // Vertical & horizontal
@@ -112,6 +114,8 @@ const Badge = React.forwardRef((props_: IBadge, ref: any) => {
 
   if (max !== undefined && value > max) value = `${max}+`;
 
+  const useValue = value !== undefined || indicator;
+
   return (
     <Component
       ref={ref}
@@ -129,29 +133,31 @@ const Badge = React.forwardRef((props_: IBadge, ref: any) => {
     >
       {children}
 
-      <Surface
-        tonal={tonal}
+      {useValue && (
+        <Surface
+          tonal={tonal}
 
-        color={color}
+          color={color}
 
-        Component='span'
+          Component='span'
 
-        className={classNames([
-          staticClassName('Badge', theme) && [
-            'amaui-Badge-badge'
-          ],
+          className={classNames([
+            staticClassName('Badge', theme) && [
+              'amaui-Badge-badge'
+            ],
 
-          classes.badge,
-          classes[`vertical_${vertical}`],
-          classes[`horizontal_${horizontal}`],
-          classes[`vertical_horizontal_${vertical}_${horizontal}`],
-          indicator && classes.indicator
-        ])}
+            classes.badge,
+            classes[`vertical_${vertical}`],
+            classes[`horizontal_${horizontal}`],
+            classes[`vertical_horizontal_${vertical}_${horizontal}`],
+            indicator && classes.indicator
+          ])}
 
-        style={styles.badge}
-      >
-        {value}
-      </Surface>
+          style={styles.badge}
+        >
+          {value}
+        </Surface>
+      )}
     </Component>
   );
 });
