@@ -126,6 +126,28 @@ const useStyle = styleMethod(theme => ({
 
   version_m3_responsive: { fontSize: `clamp(0.75rem, 0.5954vw, ${theme.typography.values.m3.fontSize})` },
 
+  align_left: { textAlign: 'left' },
+
+  align_start: { textAlign: 'start' },
+
+  align_center: { textAlign: 'center' },
+
+  align_end: { textAlign: 'end' },
+
+  align_right: { textAlign: 'right' },
+
+  align_unset: { textAlign: 'unset' },
+
+  transform_uppercase: { textTransform: 'uppercase' },
+
+  transform_lowercase: { textTransform: 'lowercase' },
+
+  transform_capitalize: { textTransform: 'capitalize' },
+
+  transform_unset: { textTransform: 'unset' },
+
+  fullWidth: { width: '100%' },
+
   disabled: {
     pointerEvents: 'none',
     userSelect: 'none',
@@ -142,7 +164,13 @@ export interface IType extends IBaseElement {
 
   version?: TTypographyItem;
 
+  transform?: 'uppercase' | 'lowercase' | 'capitalize' | 'unset';
+
+  align?: 'left' | 'start' | 'center' | 'end' | 'right' | 'unset';
+
   size?: string | number;
+
+  fullWidth?: boolean;
 
   disabled?: boolean;
 }
@@ -163,13 +191,20 @@ const Type = React.forwardRef((props_: IType, ref: any) => {
 
     version = 'b2',
 
+    align,
+
+    transform,
+
     size,
+
+    fullWidth,
 
     disabled,
 
     Component: Component_,
 
     className,
+
     style,
 
     children,
@@ -222,6 +257,9 @@ const Type = React.forwardRef((props_: IType, ref: any) => {
         responsive && classes[`version_${version}_responsive`],
         classes[`color_${color}`],
         priority && classes[`priority_${priority}`],
+        align && classes[`align_${align}`],
+        transform && classes[`transform_${transform}`],
+        fullWidth && classes.fullWidth_,
         disabled && classes.disabled
       ])}
 
