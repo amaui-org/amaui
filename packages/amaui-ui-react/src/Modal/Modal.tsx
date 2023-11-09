@@ -85,19 +85,19 @@ const useStyle = styleMethod(theme => ({
   fullWidth: { width: `calc(100% - ${theme.methods.space.value('xl') * 2}px)` },
 
   // minWidth
-  minWidth_xxs: { minWidth: 'clamp(0px, 320px, 100vw)' },
+  minWidth_xxs: { minWidth: 'clamp(0px, 320px, calc(100vw - 48px))' },
 
-  minWidth_xs: { minWidth: 'clamp(0px, 400px, 100vw)' },
+  minWidth_xs: { minWidth: 'clamp(0px, 400px, calc(100vw - 48px))' },
 
-  minWidth_sm: { minWidth: 'clamp(0px, 480px, 100vw)' },
+  minWidth_sm: { minWidth: 'clamp(0px, 480px, calc(100vw - 48px))' },
 
-  minWidth_rg: { minWidth: 'clamp(0px, 560px, 100vw)' },
+  minWidth_rg: { minWidth: 'clamp(0px, 560px, calc(100vw - 48px))' },
 
-  minWidth_lg: { minWidth: 'clamp(0px, 800px, 100vw)' },
+  minWidth_lg: { minWidth: 'clamp(0px, 800px, calc(100vw - 48px))' },
 
-  minWidth_xl: { minWidth: 'clamp(0px, 1120px, 100vw)' },
+  minWidth_xl: { minWidth: 'clamp(0px, 1120px, calc(100vw - 48px))' },
 
-  minWidth_xxl: { minWidth: 'clamp(0px, 1360px, 100vw)' },
+  minWidth_xxl: { minWidth: 'clamp(0px, 1360px, calc(100vw - 48px))' },
 
   minWidth_unset: { minWidth: `unset` },
 
