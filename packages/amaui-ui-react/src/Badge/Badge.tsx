@@ -14,9 +14,9 @@ const useStyle = styleMethod(theme => ({
 
   badge: {
     position: 'absolute',
-    padding: `4px 6px 3px`,
+    padding: '2px 6px',
     lineHeight: '1px',
-    borderRadius: `${theme.shape.radius.unit * 1.25}px`,
+    borderRadius: '140px',
     transition: theme.methods.transitions.make('transform'),
     pointerEvents: 'none',
     userSelect: 'none',
