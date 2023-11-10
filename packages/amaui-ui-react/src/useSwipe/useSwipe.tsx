@@ -1,12 +1,14 @@
 import React from 'react';
 
-import { clamp, percentageFromValueWithinRange } from '@amaui/utils';
+import { clamp, merge, percentageFromValueWithinRange } from '@amaui/utils';
 
 export interface IOptionsUseSwipe {
   open?: boolean;
   min?: number;
   direction?: 'top' | 'left' | 'right' | 'bottom';
   touchAnywhere?: boolean;
+  flick?: boolean;
+  flickTreshold?: number;
 }
 
 export interface IResponseUseSwipe {
@@ -15,9 +17,16 @@ export interface IResponseUseSwipe {
   position?: string;
 }
 
-const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
+const optionsDefault: IOptionsUseSwipe = {
+  flick: true,
+  flickTreshold: 140
+};
+
+const useSwipe = (element: HTMLElement, options_: IOptionsUseSwipe = {}) => {
   const [response, setResponse] = React.useState<IResponseUseSwipe>();
   const [touch, setTouch] = React.useState<TouchEvent | boolean>(false);
+
+  const options = merge(options_, optionsDefault);
 
   const refs = {
     rect: React.useRef<any>(),
@@ -25,7 +34,8 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
     options: React.useRef(options),
     response: React.useRef<any>(),
     touch: React.useRef<any>(),
-    previous: React.useRef<any>()
+    previous: React.useRef<any>(),
+    previousMouseMove: React.useRef<any>()
   };
 
   refs.options.current = options;
@@ -71,13 +81,28 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
 
     const { min, max } = getMinMax();
 
-    newResponse.value = (['left', 'top'].includes(refs.options.current.direction) ? newResponse.valuePercentage < 50 : newResponse.valuePercentage > 50) ? min : max;
+    let isFlick = false;
 
-    newResponse.position = newResponse.valuePercentage < 50 ? 'min' : 'max';
+    if (refs.options.current.flick) {
+      const now = new Date().getTime();
+
+      const flick = (now - refs.previousMouseMove.current <= refs.options.current.flickTreshold) && (newResponse.valuePercentage < 100);
+
+      if (flick) isFlick = true;
+    }
+
+    newResponse.value = (
+      (['left', 'top'].includes(refs.options.current.direction) && (newResponse.valuePercentage < 50 || isFlick)) ||
+      (['right', 'bottom'].includes(refs.options.current.direction) && (newResponse.valuePercentage > 50 && !isFlick))
+    ) ? min : max;
+
+    newResponse.position = (newResponse.valuePercentage < 50 || isFlick) ? 'min' : 'max';
 
     newResponse.min = min;
 
     newResponse.max = max;
+
+    newResponse.flick = isFlick;
 
     refs.previous.current = undefined;
 
@@ -129,6 +154,9 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
 
     // Only value move at touchmove
     newResponse.position = undefined;
+
+    // previous mouse move
+    refs.previousMouseMove.current = new Date().getTime();
 
     setResponse(newResponse);
   }, [element, response]);
