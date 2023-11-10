@@ -160,22 +160,39 @@ const NavigationDrawer = React.forwardRef((props_: INavigationDrawer, ref: any) 
       const position = swipeValue.position;
 
       if (position !== undefined) {
+        let value_: any;
+
+        if (direction === 'top') value_ = `translateY(${valueSwipe}px)`;
+
+        if (direction === 'left') value_ = `translateX(${valueSwipe}px)`;
+
+        if (direction === 'right') value_ = `translateX(${valueSwipe}px)`;
+
+        if (direction === 'bottom') value_ = `translateY(${valueSwipe}px)`;
+
+        // Add transitions
+        if (refs.modal.current) {
+          refs.modal.current.style.transition = theme.methods.transitions.make('transform', { duration: 'xs' });
+
+          refs.modal.current.style.transform = value_;
+        }
+
+        if (refs.background.current) {
+          refs.background.current.style.transition = theme.methods.transitions.make('opacity', { duration: 'xs' });
+        }
+
         if (position === 'min') {
-          if (refs.modal.current) onClose();
+          if (refs.background.current) {
+            refs.background.current.style.opacity = '0';
+          }
+
+          if (refs.modal.current) setTimeout(() => {
+            onClose();
+          }, theme.transitions.duration.xs + 14);
         }
 
         if (position === 'max') {
-          if (refs.modal.current) {
-            // Add transition
-            refs.modal.current.style.transition = theme.methods.transitions.make('transform', { duration: 'xs' });
-
-            refs.modal.current.style.transform = 'translate(0, 0)';
-          }
-
           if (refs.background.current) {
-            // Add transition
-            refs.background.current.style.transition = theme.methods.transitions.make('opacity', { duration: 'xs' });
-
             refs.background.current.style.opacity = '1';
           }
         }

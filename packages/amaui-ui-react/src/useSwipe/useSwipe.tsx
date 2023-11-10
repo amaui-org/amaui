@@ -34,10 +34,50 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
 
   const onTouchStart = React.useCallback((event: TouchEvent) => setTouch(event), []);
 
+  const getMinMax = React.useCallback(() => {
+    let min: number;
+    let max: number;
+
+    const optionsMin = refs.options.current.min || 0;
+
+    if (refs.options.current.direction === 'top') {
+      min = refs.rect.current.top;
+      max = refs.rect.current.bottom - optionsMin;
+    }
+
+    if (refs.options.current.direction === 'left') {
+      min = refs.rect.current.left;
+      max = refs.rect.current.right - optionsMin;
+    }
+
+    if (refs.options.current.direction === 'right') {
+      min = window.innerWidth - refs.rect.current.left - optionsMin;
+      max = min + refs.rect.current.width - optionsMin;
+    }
+
+    if (refs.options.current.direction === 'bottom') {
+      min = window.innerHeight - refs.rect.current.top - optionsMin;
+      max = min + refs.rect.current.height - optionsMin;
+    }
+
+    return {
+      min,
+      max
+    };
+  }, []);
+
   const onTouchEnd = React.useCallback(() => {
     const newResponse = { ...refs.response.current };
 
+    const { min, max } = getMinMax();
+
+    newResponse.value = (['left', 'top'].includes(refs.options.current.direction) ? newResponse.valuePercentage < 50 : newResponse.valuePercentage > 50) ? min : max;
+
     newResponse.position = newResponse.valuePercentage < 50 ? 'min' : 'max';
+
+    newResponse.min = min;
+
+    newResponse.max = max;
 
     refs.previous.current = undefined;
 
@@ -58,38 +98,28 @@ const useSwipe = (element: HTMLElement, options: IOptionsUseSwipe = {}) => {
 
     // value
     let value_: number;
-    let min: number;
-    let max: number;
 
-    const optionsMin = refs.options.current.min || 0;
+    const { min, max } = getMinMax();
 
     if (refs.options.current.direction === 'top') {
-      min = refs.rect.current.top;
-      max = refs.rect.current.bottom - optionsMin;
-
       value_ = top - y;
     }
 
     if (refs.options.current.direction === 'left') {
-      min = refs.rect.current.left;
-      max = refs.rect.current.right - optionsMin;
-
       value_ = left - x;
     }
 
     if (refs.options.current.direction === 'right') {
-      min = window.innerWidth - refs.rect.current.left - optionsMin;
-      max = min + refs.rect.current.width - optionsMin;
-
       value_ = width - (window.innerWidth - left) - x;
     }
 
     if (refs.options.current.direction === 'bottom') {
-      min = window.innerHeight - refs.rect.current.top - optionsMin;
-      max = min + refs.rect.current.height - optionsMin;
-
       value_ = height - (window.innerHeight - top) - y;
     }
+
+    newResponse.min = min;
+
+    newResponse.max = max;
 
     newResponse.value = clamp(value_, min, max);
 
