@@ -129,9 +129,20 @@ const useStyle = style(theme => ({
   weeks: {
     width: '100%',
     position: 'absolute',
-    top: '40px',
     left: '0px',
     transition: theme.methods.transitions.make(['opacity', 'transform'])
+  },
+
+  weeks_size_small: {
+    top: '30px'
+  },
+
+  weeks_size_regular: {
+    top: '40px'
+  },
+
+  weeks_size_large: {
+    top: '50px'
   },
 
   weeks_no_labels: {
@@ -190,6 +201,11 @@ const useStyle = style(theme => ({
     '&:hover': {
       boxShadow: 'inset 0px 0px 0px 1px currentColor'
     }
+  },
+
+  disabled: {
+    opacity: '0.54',
+    pointerEvents: 'none'
   }
 }), { name: 'amaui-CalendarMonth' });
 
@@ -235,9 +251,11 @@ export interface ICalenarDays extends IBaseElement {
   max?: AmauiDate;
   validate?: (value: AmauiDate) => boolean;
   labels?: boolean;
+  dayNamesFull?: boolean;
 
   valid?: (value: AmauiDate, version: 'day' | 'month' | 'year') => boolean;
   renderDay?: (value: AmauiDate, props: any, today: boolean, weekend: boolean, selected: boolean, outside: boolean) => React.ReactNode;
+  renderDayName?: (order: number) => any;
 
   PaginationItemProps?: TPropsAny;
   TransitionProps?: TPropsAny;
@@ -274,10 +292,14 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
     max,
     validate,
     labels = true,
+    dayNamesFull,
     noTransition,
 
     valid: valid_,
     renderDay,
+    renderDayName,
+
+    disabled,
 
     PaginationItemProps,
     TransitionProps,
@@ -392,10 +414,24 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
     if (is('function', onChange)) onChange((!range ? valueNew[0] : valueNew) as any);
   }, [value, range, offset, calendar, onChange]);
 
-  const dayNames = ['M', 'T', 'W', 'T', 'F', 'S'];
+  const dayNames = [1, 2, 3, 4, 5, 6];
 
-  if (weekStartDay === 'Monday') dayNames.push('S');
-  else dayNames.unshift('S');
+  if (weekStartDay === 'Monday') dayNames.push(7);
+  else dayNames.unshift(7);
+
+  const renderDayNameMethod = is('function', renderDayName) ? renderDayName : (order_: number) => {
+    const values = {
+      1: dayNamesFull ? 'Monday' : 'M',
+      2: dayNamesFull ? 'Tuesday' : 'T',
+      3: dayNamesFull ? 'Wednesday' : 'W',
+      4: dayNamesFull ? 'Thursday' : 'T',
+      5: dayNamesFull ? 'Friday' : 'F',
+      6: dayNamesFull ? 'Saturday' : 'S',
+      7: dayNamesFull ? 'Sunday' : 'S'
+    };
+
+    return values[order_];
+  };
 
   const days = [];
 
@@ -577,6 +613,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
               ],
 
               classes.weeks,
+              classes[`weeks_size_${size}`],
               status && [`weeks_${status}`],
               !labels && classes.weeks_no_labels
             ])}
@@ -742,7 +779,8 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
         classes.root,
         classes[`size_${size}`],
         classes[`move_${refs.move.current}`],
-        !labels && classes.root_no_labels
+        !labels && classes.root_no_labels,
+        disabled && classes.disabled
       ])}
 
       {...(isMonthFrom && { 'data-month-from': true })}
@@ -770,7 +808,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
             classes.dayNames
           ])}
         >
-          {dayNames.map((day: string, index: number) => (
+          {dayNames.map((day: number, index: number) => (
             <Line
               key={index}
 
@@ -793,7 +831,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
                 classes[`dayName_size_${size}`]
               ])}
             >
-              {day}
+              {renderDayNameMethod(day)}
             </Line>
           ))}
         </Line>
