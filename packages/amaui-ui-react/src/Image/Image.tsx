@@ -39,44 +39,48 @@ const useStyle = styleMethod(theme => ({
     }
   },
 
-  alignment_description_start: {
+  align_description_start: {
     textAlign: 'start'
   },
 
-  alignment_description_left: {
+  align_description_left: {
     textAlign: 'left'
   },
 
-  alignment_description_center: {
+  align_description_center: {
     textAlign: 'center'
   },
 
-  alignment_description_right: {
+  align_description_right: {
     textAlign: 'right'
   },
 
-  alignment_description_end: {
+  align_description_end: {
     textAlign: 'end'
   },
 
-  alignment_start: {
-    marginInlineStart: 'auto'
+  align_start: {
+    marginInlineEnd: 'auto'
   },
 
-  alignment_left: {
+  align_left: {
     marginLeft: 'auto'
   },
 
-  alignment_center: {
+  align_center: {
     marginInline: 'auto'
   },
 
-  alignment_right: {
+  align_right: {
     marginRight: 'auto'
   },
 
-  alignment_end: {
-    marginInlineEnd: 'auto'
+  align_end: {
+    marginInlineStart: 'auto'
+  },
+
+  align_unset: {
+    marginInline: 'unset'
   },
 
   responsive: {
@@ -141,12 +145,12 @@ export interface IImage extends IBaseElement {
   sources?: Array<string>;
   alt?: string;
   description?: string;
-  alignmentDescription?: 'start' | 'left' | 'center' | 'right' | 'end';
+  alignDescription?: 'start' | 'left' | 'center' | 'right' | 'end';
 
   width?: number;
   height?: number;
 
-  alignment?: 'start' | 'left' | 'center' | 'right' | 'end';
+  align?: 'start' | 'left' | 'center' | 'right' | 'end';
   responsive?: boolean;
   fullWidth?: boolean;
   maxWidth?: 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'unset';
@@ -174,12 +178,12 @@ const Image = React.forwardRef((props_: IImage, ref: any) => {
     sources,
     alt,
     description,
-    alignmentDescription = 'start',
+    alignDescription = 'start',
 
     width,
     height,
 
-    alignment = 'center',
+    align,
     responsive = true,
     fullWidth,
     maxWidth,
@@ -386,7 +390,7 @@ const Image = React.forwardRef((props_: IImage, ref: any) => {
             DescriptionProps?.className,
             className,
             classes.figcaption,
-            classes[`alignment_description_${alignmentDescription}`]
+            classes[`align_description_${alignDescription}`]
           ])}
         >
           {description}
@@ -415,7 +419,7 @@ const Image = React.forwardRef((props_: IImage, ref: any) => {
 
         className,
         classes.root,
-        classes[`alignment_${alignment}`],
+        classes[`align_${align}`],
         responsive && classes.responsive,
         maxWidth && classes[`maxWidth_${maxWidth}`],
         fullWidth && classes.fullWidth,
