@@ -1048,7 +1048,11 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
         classes.button,
         classes[`button_size_${size}`]
-      ])
+      ]),
+
+      style: {
+        color: theme.palette.text.default.primary
+      }
     };
 
     const separator = (
@@ -1331,6 +1335,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
       align='center'
 
       Component={Line}
+
+      {...MainProps}
 
       className={classNames([
         staticClassName('TimePicker', theme) && [
