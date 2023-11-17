@@ -800,16 +800,16 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
   else {
     if (version === 'filled') {
       if (color === 'themed') {
-        styles.children.color = theme.palette.text.default.primary;
         styles.children.backgroundColor = theme.palette.light ? theme.palette.background.default.primary : theme.palette.background.default.quaternary;
+        styles.children.color = theme.methods.palette.color.text(styles.children.backgroundColor, true, 'light');
       }
       else if (color === 'inverted') {
-        styles.children.color = theme.palette.background.default.primary;
         styles.children.backgroundColor = theme.palette.light ? theme.palette.background.dark.primary : theme.palette.background.light.primary;
+        styles.children.color = theme.methods.palette.color.text(styles.children.backgroundColor, true, 'light');
       }
       else if (color === 'default') {
-        styles.children.color = theme.palette.text.default.primary;
         styles.children.backgroundColor = theme.palette.background.default.primary;
+        styles.children.color = theme.methods.palette.color.text(styles.children.backgroundColor, true, 'light');
       }
       else if (color === 'inherit') {
         styles.children.color = 'inherit';

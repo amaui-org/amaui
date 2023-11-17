@@ -581,6 +581,7 @@ export interface ITextField extends IBaseElement {
 
   inputProps?: TPropsAny;
   InputWrapperProps?: TPropsAny;
+  HelperTextProps?: TPropsAny;
 
   IconClear?: TElementReference;
   InputComponent?: TElementReference;
@@ -645,6 +646,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
     inputProps = {},
     InputWrapperProps = {},
+    HelperTextProps,
 
     IconClear = IconMaterialCloseRounded,
     InputComponent: InputComponent_,
@@ -1340,12 +1342,15 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
               <Type
                 version='b3'
 
+                {...HelperTextProps}
+
                 className={classNames([
                   staticClassName('TextField', theme) && [
                     'amaui-TextField-helper-text',
                     error && 'amaui-TextField-error'
                   ],
 
+                  HelperTextProps?.className,
                   classes.helperText,
                   error && classes.error_color
                 ])}

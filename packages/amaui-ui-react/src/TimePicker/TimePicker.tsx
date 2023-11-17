@@ -25,54 +25,41 @@ import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
 import Tabs from '../Tabs';
 import Tab from '../Tab';
 
-import { staticClassName, TElementReference, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
+import { staticClassName, TElementReference, TPropsAny, TSize, TValueBreakpoints, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
 
   },
 
-  main: {
-    marginInline: '24px',
-    borderRadius: '28px',
-    width: `calc(100vw - 48px)`
+  main: {},
+
+  main_size_small: {
+    borderRadius: '20px',
   },
 
-  main_orientation_vertical: {
-    maxWidth: '330px'
+  main_size_regular: {
+    borderRadius: '28px'
   },
 
-  main_orientation_vertical_3: {
-    maxWidth: '450px'
-  },
-
-  main_orientation_horizontal: {
-    maxWidth: '510px'
-  },
-
-  main_orientation_horizontal_3: {
-    maxWidth: '650px'
-  },
-
-  main_input_2_12: {
-    maxWidth: '330px'
-  },
-
-  main_input_3_12: {
-    maxWidth: '450px'
-  },
-
-  main_input_2_24: {
-    maxWidth: '270px'
-  },
-
-  main_input_3_24: {
-    maxWidth: '390px'
+  main_size_large: {
+    borderRadius: '36px'
   },
 
   heading: {
-    padding: '24px 24px 0',
     width: '100%'
+  },
+
+  heading_size_small: {
+    padding: '16px 16px 0'
+  },
+
+  heading_size_regular: {
+    padding: '24px 24px 0'
+  },
+
+  heading_size_large: {
+    padding: '32px 32px 0'
   },
 
   inputs: {
@@ -80,17 +67,61 @@ const useStyle = styleMethod(theme => ({
   },
 
   middle: {
-    width: '100%',
+    width: '100%'
+  },
+
+  middle_size_small: {
+    padding: '0 16px',
+    marginTop: '16px'
+  },
+
+  middle_size_regular: {
+    padding: '0 24px',
     marginTop: '24px'
   },
 
+  middle_size_large: {
+    padding: '0 32px',
+    marginTop: '32px'
+  },
+
   input: {
-    maxWidth: '96px',
     flex: '1 1 auto',
+
+    '& .amaui-TextField-helper-text': {
+      color: theme.palette.text.default.primary
+    }
+  },
+
+  input_size_small: {
+    maxWidth: '72px',
 
     '& .amaui-TextField-input-wrapper': {
       paddingInline: '0px',
-      paddingBlock: '11px 8px',
+      paddingBlock: '8px 4px',
+      height: '64px'
+    },
+
+    '& .amaui-TextField-input': {
+      ...theme.typography.values.d3,
+
+      lineHeight: '1',
+
+      textAlign: 'center'
+    },
+
+    '& .amaui-TextField-footer': {
+      marginTop: '4px',
+      padding: '0px'
+    }
+  },
+
+  input_size_regular: {
+    maxWidth: '96px',
+
+    '& .amaui-TextField-input-wrapper': {
+      paddingInline: '0px',
+      paddingBlock: '12px 8px',
       height: '72px'
     },
 
@@ -105,22 +136,55 @@ const useStyle = styleMethod(theme => ({
     '& .amaui-TextField-footer': {
       marginTop: '8px',
       padding: '0px'
+    }
+  },
+
+  input_size_large: {
+    maxWidth: '120px',
+
+    '& .amaui-TextField-input-wrapper': {
+      paddingInline: '0px',
+      paddingBlock: '16px 12px',
+      height: '80px'
     },
 
-    '& .amaui-TextField-helper-text': {
-      color: theme.palette.text.default.primary
+    '& .amaui-TextField-input': {
+      ...theme.typography.values.d1,
+
+      lineHeight: '1',
+
+      textAlign: 'center'
+    },
+
+    '& .amaui-TextField-footer': {
+      marginTop: '12px',
+      padding: '0px'
     }
   },
 
   button: {
-    height: '72px',
-    width: '96px',
     padding: '0',
     paddingTop: '3px',
     borderRadius: theme.methods.shape.radius.value('sm', 'px'),
     cursor: 'pointer',
     userSelect: 'none',
-    flex: '1 1',
+    flex: '1 1'
+  },
+
+  button_size_small: {
+    height: '64px',
+    width: '82px',
+
+    '& .amaui-Button-label': {
+      ...theme.typography.values.d3,
+
+      lineHeight: '1',
+    }
+  },
+
+  button_size_regular: {
+    height: '72px',
+    width: '96px',
 
     '& .amaui-Button-label': {
       ...theme.typography.values.d2,
@@ -129,8 +193,18 @@ const useStyle = styleMethod(theme => ({
     }
   },
 
+  button_size_large: {
+    height: '96px',
+    width: '110px',
+
+    '& .amaui-Button-label': {
+      ...theme.typography.values.d1,
+
+      lineHeight: '1',
+    }
+  },
+
   inputSeparator: {
-    marginTop: '7px',
     paddingInline: '6px',
     userSelect: 'none'
   },
@@ -141,18 +215,31 @@ const useStyle = styleMethod(theme => ({
     }
   },
 
-  toggleButtons_input: {
+  toggleButtons_orientation_vertical_size_small: {
+    width: '44px',
+    height: '64px'
+  },
+
+  toggleButtons_orientation_vertical_size_regular: {
     width: '52px',
     height: '72px'
   },
 
-  toggleButtons_orientation_vertical: {
-    width: '52px',
-    height: '72px'
+  toggleButtons_orientation_vertical_size_large: {
+    width: '60px',
+    height: '80px'
   },
 
-  toggleButtons_orientation_horizontal: {
+  toggleButtons_orientation_horizontal_size_small: {
+    height: '30px'
+  },
+
+  toggleButtons_orientation_horizontal_size_regular: {
     height: '38px'
+  },
+
+  toggleButtons_orientation_horizontal_size_large: {
+    height: '46px'
   },
 
   toggleButton: {
@@ -167,10 +254,21 @@ const useStyle = styleMethod(theme => ({
     marginTop: 12
   },
 
-  footer: {
-    width: '100%',
-    padding: '0px 8px 12px 12px',
+  footer: {},
+
+  footer_size_small: {
+    padding: '0px 8px 8px',
+    marginTop: '16px'
+  },
+
+  footer_size_regular: {
+    padding: '0px 16px 16px',
     marginTop: '24px'
+  },
+
+  footer_size_large: {
+    padding: '0px 24px 24px',
+    marginTop: '32px'
   }
 }), { name: 'amaui-TimePicker' });
 
@@ -220,6 +318,8 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
   selecting?: TTimePickerSelecting;
   selectingDefault?: TTimePickerSelecting;
   onChangeSelecting?: (value: TTimePickerSelecting) => any;
+
+  size?: TSize;
 
   now?: boolean;
   range?: boolean;
@@ -297,6 +397,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
     selecting: selecting_,
     selectingDefault,
     onChangeSelecting,
+
+    size = 'regular',
 
     range,
     now,
@@ -835,8 +937,18 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
   placeholder = placeholder_ || placeholder;
 
+  const iconProps = {
+    size
+  };
+
   const clock = (index = 0) => (
     <Clock
+      tonal={tonal}
+
+      color={color}
+
+      size={size}
+
       format={format}
 
       value={value[index]}
@@ -878,6 +990,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
         color={color}
 
+        size={size}
+
         version='text'
 
         onClick={onOpen}
@@ -888,7 +1002,9 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
         {...IconButtonProps}
       >
-        <Icon_ />
+        <Icon_
+          {...iconProps}
+        />
       </IconButton>
     );
   }
@@ -898,7 +1014,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
       tonal,
       color,
       version: 'outlined',
-      size: 'large',
+      size,
 
       className: classNames([
         staticClassName('TimePicker', theme) && [
@@ -906,31 +1022,38 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
         ],
 
         classes.input,
-        classes[`input_version_${version}`]
+        classes[`input_version_${version}`],
+        classes[`input_size_${size}`]
       ]),
+
+      HelperTextProps: {
+        version: size === 'large' ? 'b2' : size === 'regular' ? 'b3' : 'b3'
+      },
 
       ...InputProps
     };
 
     const buttonProps = {
       tonal: 'secondary',
-      color,
+      color: 'default',
       version: 'filled',
       backgroundOpacity: 0.44,
       elevation: false,
+      size,
 
       className: classNames([
         staticClassName('TimePicker', theme) && [
           'amaui-TimePicker-button'
         ],
 
-        classes.button
+        classes.button,
+        classes[`button_size_${size}`]
       ])
     };
 
     const separator = (
       <Type
-        version='d2'
+        version={size === 'large' ? 'd1' : size === 'regular' ? 'd2' : 'd3'}
 
         className={classNames([
           staticClassName('TimePicker', theme) && [
@@ -939,12 +1062,19 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
           classes.inputSeparator
         ])}
+
+        style={{
+          ...(mode !== 'select' && {
+            marginTop: -24
+          })
+        }}
       >
         :
       </Type>
     );
 
     const buttons = [];
+
     const inputs = [];
 
     if (hour) {
@@ -1069,6 +1199,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
   };
 
   const toggleButtonProps = {
+    size,
     icon: false,
 
     ...ToggleButtonProps,
@@ -1108,9 +1239,9 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
           direction={orientationValue === 'vertical' ? 'row' : 'column'}
 
-          align='unset'
-
           justify='center'
+
+          align='unset'
 
           className={classNames([
             staticClassName('TimePicker', theme) && [
@@ -1125,9 +1256,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
             direction='row'
 
-            wrap='wrap'
-
-            align='flex-start'
+            align='center'
 
             justify='center'
           >
@@ -1136,11 +1265,9 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
           {format === '12' && (
             <ToggleButtons
-              tonal={tonal}
-
-              color='inherit'
-
               version='outlined'
+
+              size={size}
 
               orientation={orientationValue}
 
@@ -1161,7 +1288,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
                 ToggleButtonsProps?.className,
                 classes.toggleButtons,
-                classes[`toggleButtons_orientation_${orientationValue}`]
+                classes[`toggleButtons_orientation_${orientationValue}_size_${size}`]
               ])}
             >
               <ToggleButton
@@ -1212,21 +1339,21 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
         MainProps?.className,
         classes.main,
-        classes[`main_orientation_${orientationValue}${(hour && minute && second) ? '_3' : ''}`],
-        mode === 'input' && classes[`main_input_${(hour && minute && second) ? 3 : 2}_${format}`]
+        classes[`main_size_${size}`]
       ])}
     >
       {/* Heading */}
       {heading_ && (
         <Type
-          version='l2'
+          version={size === 'large' ? 'l1' : size === 'regular' ? 'l2' : 'l3'}
 
           className={classNames([
             staticClassName('TimePicker', theme) && [
               'amaui-TimePicker-heading'
             ],
 
-            classes.heading
+            classes.heading,
+            classes[`heading_size_${size}`]
           ])}
         >
           {heading}
@@ -1290,7 +1417,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
           ],
 
           MiddleProps?.className,
-          classes.middle
+          classes.middle,
+          classes[`middle_size_${size}`]
         ])}
       >
         {elementValues[tab]}
@@ -1301,18 +1429,19 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
         <Line
           direction='row'
 
-          wrap='wrap'
-
           align='center'
 
           justify={switch_ ? 'space-between' : 'flex-end'}
+
+          fullWidth
 
           className={classNames([
             staticClassName('TimePicker', theme) && [
               'amaui-TimePicker-footer'
             ],
 
-            classes.footer
+            classes.footer,
+            classes[`footer_size_${size}`]
           ])}
         >
           {(switch_ || today || clear) && (
@@ -1332,11 +1461,13 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
                     color='inherit'
 
+                    size={size}
+
                     onClick={onModeSwitch}
 
                     aria-label={mode === 'select' ? 'Enter time' : 'Select time'}
                   >
-                    {mode === 'select' ? <IconEnter /> : <Icon_ />}
+                    {mode === 'select' ? <IconEnter {...iconProps} /> : <Icon_  {...iconProps} />}
                   </IconButton>
                 </Tooltip>
               )}
@@ -1344,6 +1475,10 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
               {today && (
                 <Button
                   onClick={onToday}
+
+                  version='text'
+
+                  size={size}
 
                   {...ButtonProps}
                 >
@@ -1354,6 +1489,10 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
               {clear && (
                 <Button
                   onClick={onClear}
+
+                  version='text'
+
+                  size={size}
 
                   {...ButtonProps}
                 >
@@ -1377,6 +1516,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
               version='text'
 
+              size={size}
+
               onClick={onCancel}
 
               {...ButtonProps}
@@ -1390,6 +1531,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
               color={color}
 
               version='text'
+
+              size={size}
 
               onClick={onOk}
 
@@ -1441,6 +1584,8 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
         color={color}
 
         version='outlined'
+
+        size={size}
 
         label={label}
 

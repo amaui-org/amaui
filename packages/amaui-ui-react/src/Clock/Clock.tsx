@@ -2,12 +2,12 @@ import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import { clamp, getLeadingZerosNumber, is, isEnvironment, unique } from '@amaui/utils';
-import { AmauiDate, format as formatMethod, is as isAmauiDate, set } from '@amaui/date';
+import { AmauiDate, is as isAmauiDate, set } from '@amaui/date';
 
 import RoundMeter from '../RoundMeter';
 import Path from '../Path';
 
-import { IBaseElement, staticClassName, TColor, TTonal } from '../utils';
+import { IBaseElement, staticClassName, TColor, TSize, TTonal } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -50,6 +50,8 @@ export interface IClock extends IBaseElement {
   selectingDefault?: TClockUnit;
   onChangeSelecting?: (value: TClockUnit) => any;
 
+  size?: TSize;
+
   format?: TClockFormat;
   dayTime?: TClockDayTime;
   hour?: boolean;
@@ -77,6 +79,8 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
   const {
     tonal = true,
     color = 'primary',
+
+    size = 'regular',
 
     value: value_,
     valueDefault,
@@ -418,6 +422,12 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
   }, [onClick_]);
 
   const palette = React.useMemo(() => {
+    if (['inherit', 'default'].includes(color)) return theme.methods.color(theme.palette.text.default.primary);
+
+    if (color === 'themed') return theme.methods.color(theme.palette.text.default.secondary);
+
+    if (color === 'inverted') return theme.methods.color(theme.palette.background.default.primary);
+
     return theme.methods.color((theme.palette.color[color] as any)?.main as string || color);
   }, [color, theme]);
 
@@ -562,6 +572,8 @@ const Clock = React.forwardRef((props__: IClock, ref: any) => {
       tonal={tonal}
 
       color={color}
+
+      size={size}
 
       labels={labels}
 
