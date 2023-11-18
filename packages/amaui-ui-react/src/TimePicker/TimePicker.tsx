@@ -1035,7 +1035,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
     const buttonProps = {
       tonal: 'secondary',
-      color: 'default',
+      color: !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'default' : color,
       version: 'filled',
       backgroundOpacity: 0.44,
       elevation: false,

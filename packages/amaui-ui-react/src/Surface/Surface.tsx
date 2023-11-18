@@ -755,7 +755,7 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
 
   let color: any = color_;
 
-  let palette: any = {};
+  let palette: any;
 
   if (!theme.palette.color[color] && !['themed', 'inverted', 'default', 'inherit'].includes(color)) {
     palette = theme.methods.color(color);
@@ -951,6 +951,18 @@ const Surface = React.forwardRef((props_: ISurface, ref: any) => {
     }
 
     if (styles.root.backgroundColor) styles.root.backgroundColor = theme.methods.palette.color.colorToRgb(styles.root.backgroundColor, backgroundOpacity);
+  }
+
+  if (!palette) {
+    let paletteColor: string = theme.palette.text.default.primary;
+
+    if (['default', 'inherit'].includes(color)) paletteColor = theme.palette.text.default.primary;
+
+    if (['themed'].includes(color)) paletteColor = theme.palette.text.default.secondary;
+
+    if (['inverted'].includes(color)) paletteColor = theme.palette.background.default.primary;
+
+    palette = theme.methods.color(paletteColor);
   }
 
   if (is('function', children)) return (children as any)({ ...styles.children, palette });
