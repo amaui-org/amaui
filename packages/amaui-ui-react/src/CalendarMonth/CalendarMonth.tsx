@@ -254,7 +254,7 @@ export interface ICalenarDays extends IBaseElement {
   dayNamesFull?: boolean;
 
   valid?: (value: AmauiDate, version: 'day' | 'month' | 'year') => boolean;
-  renderDay?: (value: AmauiDate, props: any, today: boolean, weekend: boolean, selected: boolean, outside: boolean) => React.ReactNode;
+  renderDay?: (value: AmauiDate, props: any, day: any, outside: boolean) => React.ReactNode;
   renderDayName?: (order: number) => any;
 
   PaginationItemProps?: TPropsAny;
@@ -693,7 +693,7 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
                       }}
                     >
                       {is('function', renderDay) ?
-                        renderDay(day.amauiDate, propsDay, day.today, day.weekend, day.selected, outside) :
+                        renderDay(day.amauiDate, propsDay, day, outside) :
                         (
                           <PaginationItem
                             tonal={tonal}
