@@ -130,7 +130,7 @@ const Chips = React.forwardRef((props_: IChips, ref: any) => {
         (AdditionalChip as any) ||
 
         <Chip
-          color='neutral'
+          color='default'
 
           {...other}
 
