@@ -32,10 +32,10 @@ const useStyle = styleMethod(theme => ({
   },
 
   version_standard: {
-    // '&.amaui-Modal-root': {
-    //   position: 'unset',
-    //   inset: 'unset'
-    // },
+    '&.amaui-Modal-root': {
+      position: 'unset',
+      inset: 'unset'
+    },
 
     '& .amaui-Modal-surface': {
       position: 'relative'
