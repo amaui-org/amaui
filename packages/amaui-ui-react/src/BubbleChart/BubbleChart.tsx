@@ -53,7 +53,7 @@ export interface IBubbleChart extends IChart {
 
 }
 
-const BubbleChart = React.forwardRef((props_: IBubbleChart, ref: any) => {
+const BubbleChart: React.FC<IBubbleChart> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBubbleChart?.props?.default, ...props_ }), [props_]);

@@ -56,7 +56,7 @@ export interface ICardImage extends IBaseElement {
   marginHorizontal?: boolean;
 }
 
-const CardImage = React.forwardRef((props_: ICardImage, ref: any) => {
+const CardImage: React.FC<ICardImage> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCardImage?.props?.default, ...props_ }), [props_]);

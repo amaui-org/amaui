@@ -28,7 +28,7 @@ export interface IAdvancedTextField extends ITextField {
   TextFieldProps?: TPropsAny;
 }
 
-const AdvancedTextField = React.forwardRef((props_: IAdvancedTextField, ref: any) => {
+const AdvancedTextField: React.FC<IAdvancedTextField> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAdvancedTextField?.props?.default, ...props_ }), [props_]);
@@ -165,7 +165,7 @@ const AdvancedTextField = React.forwardRef((props_: IAdvancedTextField, ref: any
 
             // Only if new values are added
             // do not use on removing values
-            if (added && value__?.length >= value?.length && maskProactive) {
+            if (added && String(value__)?.length >= String(value)?.length && maskProactive) {
               const items: any[] = maskConstsFromIndex(i + 1);
 
               items.forEach((item: any) => valueNew += item);

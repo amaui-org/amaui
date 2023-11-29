@@ -180,7 +180,7 @@ export interface IViewSplit extends ILine {
   DividerProps?: TPropsAny;
 }
 
-const ViewSplit = React.forwardRef((props_: IViewSplit, ref: any) => {
+const ViewSplit: React.FC<IViewSplit> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiViewSplit?.props?.default, ...props_ }), [props_]);

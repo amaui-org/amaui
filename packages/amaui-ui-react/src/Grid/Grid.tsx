@@ -79,21 +79,23 @@ const useStyle = styleMethod(theme => ({
   'columnGap_16': { columnGap: `${16 * theme.space.unit}px` }
 }), { name: 'amaui-Grid' });
 
+export type IGridValues = Record<TValueBreakpoints, number>;
+
 export interface IGrid extends ILine {
   auto?: boolean;
 
-  columns?: number | Record<TValueBreakpoints, number>;
+  columns?: number | IGridValues;
 
-  offsets?: Record<TValueBreakpoints, number>;
+  offsets?: IGridValues;
 
   responsive?: boolean;
 
-  values?: Record<TValueBreakpoints, number>;
+  values?: IGridValues;
 
   RootProps?: TPropsAny;
 }
 
-const Grid = React.forwardRef((props_: IGrid, ref: any) => {
+const Grid: React.FC<IGrid> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiGrid?.props?.default, ...props_ }), [props_]);

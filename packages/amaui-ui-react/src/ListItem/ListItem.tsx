@@ -357,7 +357,7 @@ const ListItemDelays = {
   }
 };
 
-const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
+const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiListItem?.props?.default, ...props_ }), [props_]);
@@ -968,7 +968,7 @@ const ListItem = React.forwardRef((props_: IListItem, ref: any) => {
 
           anchorElement={refs.root.current}
 
-          menuItems={menu}
+          menuItems={menu as any}
 
           transformOrigin='left top'
 

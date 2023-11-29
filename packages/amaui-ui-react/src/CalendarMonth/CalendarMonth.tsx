@@ -10,8 +10,9 @@ import Type from '../Type';
 import PaginationItem from '../PaginationItem';
 import Transitions from '../Transitions';
 import Transition, { TTransitionStatus } from '../Transition';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName, TColor, TPropsAny, TSize, TTonal } from '../utils';
+import { staticClassName, TColor, TPropsAny, TSize, TTonal } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -227,7 +228,7 @@ export interface ICalendarMonthValuesValue {
 
 export type TCalendarMonthValues = [ICalendarMonthValuesValue, ICalendarMonthValuesValue];
 
-export interface ICalenarDays extends IBaseElement {
+export interface ICalenarDays extends ILine {
   tonal?: TTonal;
   color?: TColor;
 
@@ -262,7 +263,7 @@ export interface ICalenarDays extends IBaseElement {
   TransitionsProps?: TPropsAny;
 }
 
-const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
+const CalendarMonth: React.FC<ICalenarDays> = React.forwardRef((props__, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCalendarMonth?.props?.default, ...props__ }), [props__]);
@@ -590,7 +591,6 @@ const CalendarMonth = React.forwardRef((props__: ICalenarDays, ref: any) => {
   const weeks = arrayToParts(days, 7);
 
   const getCalendar = (status?: TTransitionStatus) => {
-
     return (
       <Surface
         tonal={tonal}

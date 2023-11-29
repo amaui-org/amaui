@@ -11,9 +11,10 @@ import IconButton from '../IconButton';
 import Grid from '../Grid';
 import Line from '../Line';
 import Type from '../Type';
-
-import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TElevation, TPropsAny, TTonal } from '../utils';
 import { ITransition, TTransitionStatus } from '../Transition';
+import { ISurface } from '../Surface/Surface';
+
+import { staticClassName, TColor, TElement, TElementReference, TElevation, TPropsAny, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -143,7 +144,7 @@ const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
 
 type TPadding = 'start' | 'end' | 'both' | 'none';
 
-export interface IAccordion extends IBaseElement {
+export interface IAccordion extends ISurface {
   tonal?: TTonal;
   color?: TColor;
   elevation?: TElevation;
@@ -182,7 +183,7 @@ const AccordionDelays = {
   }
 };
 
-const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
+const Accordion: React.FC<IAccordion> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAccordion?.props?.default, ...props_ }), [props_]);
@@ -340,13 +341,13 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
             xxs: 0.5,
             xs: 0.5,
             default: 3
-          }}
+          } as any}
 
           direction={{
             xxs: 'column',
             xs: 'column',
             default: 'row'
-          }}
+          } as any}
 
           {...HeaderProps}
 
@@ -360,7 +361,7 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
           ])}
         >
           <Grid
-            values={{ sm: !secondary ? 12 : 3 }}
+            values={{ sm: !secondary ? 12 : 3 } as any}
           >
             {is('simple', primary) ? (
               <Type
@@ -393,7 +394,7 @@ const Accordion = React.forwardRef((props_: IAccordion, ref: any) => {
 
           {secondary && (
             <Grid
-              values={{ sm: 7 }}
+              values={{ sm: 7 } as any}
             >
               {is('simple', secondary) ? (
                 <Type

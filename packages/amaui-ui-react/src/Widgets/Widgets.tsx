@@ -5,7 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import SpeedDial from '../SpeedDial';
 import SpeedDialItem from '../SpeedDialItem';
-import WidgetsContext from './WidgetsContext';
+import WidgetsContext from './Context';
 import Transition, { TTransitionStatus } from '../Transition';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
@@ -13,7 +13,7 @@ import Move from '../Move';
 
 import { IBaseElement, staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
 
-export interface IWidgetsProvider {
+export interface IWidgets {
   open: (value?: string) => void;
   openAll: () => void;
 
@@ -100,7 +100,7 @@ const useStyle = styleMethod(theme => ({
       position: 'absolute'
     }
   }
-}), { name: 'amaui-WidgetsProvider' });
+}), { name: 'amaui-Widgets' });
 
 const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 
@@ -134,7 +134,7 @@ const IconMaterialWidgetsRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-export interface IWidgetsProvider extends IBaseElement {
+export interface IWidgets extends IBaseElement {
   widgets?: TElement;
 
   position?: 'top' | 'bottom';
@@ -156,10 +156,10 @@ export interface IWidgetsProvider extends IBaseElement {
   IconCloseItem?: TElementReference;
 }
 
-const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) => {
+const Widgets: React.FC<IWidgets> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiWidgetsProvider?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiWidgets?.props?.default, ...props_ }), [props_]);
 
   const {
     widgets,
@@ -192,7 +192,7 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
   const [openItems, setOpenItems] = React.useState([]);
 
   const refs = {
-    value: React.useRef<IWidgetsProvider>({} as any),
+    value: React.useRef<IWidgets>({} as any),
     props: React.useRef<any>()
   };
 
@@ -277,7 +277,7 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
         {widgetsToUse.map((item: any, index: number) => {
           const valueItem = item.value !== undefined ? item.value : item.label;
 
-          const WidgetWrapper = Move;
+          const WidgetWrapper: any = Move;
 
           const WidgetWrapperProps = {
             version: 'fixed',
@@ -362,6 +362,6 @@ const WidgetsProvider = React.forwardRef((props_: IWidgetsProvider, ref: any) =>
   );
 });
 
-WidgetsProvider.displayName = 'amaui-WidgetsProvider';
+Widgets.displayName = 'amaui-Widgets';
 
-export default WidgetsProvider;
+export default Widgets;

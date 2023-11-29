@@ -7,9 +7,10 @@ import Line from '../Line';
 import Image from '../Image';
 import Icon from '../Icon';
 import IconButton from '../IconButton';
-import { IBaseElement, staticClassName, TElementReference } from '../utils';
 import Backdrop from '../Backdrop';
 import Interaction from '../Interaction';
+import { ILine } from '../Line/Line';
+import { staticClassName, TElementReference } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -186,7 +187,7 @@ const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-export interface IImageGallery extends IBaseElement {
+export interface IImageGallery extends ILine {
   version?: 'regular' | 'modal';
 
   open?: boolean;
@@ -216,7 +217,7 @@ export interface IImageGallery extends IBaseElement {
   IconClose?: TElementReference;
 }
 
-const ImageGallery = React.forwardRef((props_: IImageGallery, ref: any) => {
+const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageGallery?.props?.default, ...props_ }), [props_]);

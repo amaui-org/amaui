@@ -34,7 +34,7 @@ export interface IParallax extends IBaseElement {
   disabled?: boolean | Record<TValueBreakpoints, boolean>;
 }
 
-const Parallax = React.forwardRef((props_: IParallax, ref: any) => {
+const Parallax: React.FC<IParallax> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiParallax?.props?.default, ...props_ }), [props_]);

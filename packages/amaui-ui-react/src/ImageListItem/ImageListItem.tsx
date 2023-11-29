@@ -34,7 +34,7 @@ export interface IImageListItem extends ILine {
   version?: 'standard' | 'vowen' | 'masonry';
 }
 
-const ImageListItem = React.forwardRef((props_: IImageListItem, ref: any) => {
+const ImageListItem: React.FC<IImageListItem> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageListItem?.props?.default, ...props_ }), [props_]);
@@ -103,7 +103,7 @@ const ImageListItem = React.forwardRef((props_: IImageListItem, ref: any) => {
 
       justify='center'
 
-      Component={Component}
+      Component={Component as string}
 
       className={classNames([
         staticClassName('ImageListItem', theme) && [

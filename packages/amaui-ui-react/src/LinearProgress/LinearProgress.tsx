@@ -267,7 +267,7 @@ export interface ILinearProress extends IBaseElement {
   reverse?: boolean;
 }
 
-const LinearProgress = React.forwardRef((props_: ILinearProress, ref: any) => {
+const LinearProgress: React.FC<ILinearProress> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLinearProgress?.props?.default, ...props_ }), [props_]);

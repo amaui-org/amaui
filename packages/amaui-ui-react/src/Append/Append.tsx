@@ -48,7 +48,7 @@ export interface IAppend {
   [property: string]: any;
 }
 
-const Append = (props_: IAppend) => {
+const Append: React.FC<IAppend> = (props_) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAppend?.props?.default, ...props_ }), [props_]);

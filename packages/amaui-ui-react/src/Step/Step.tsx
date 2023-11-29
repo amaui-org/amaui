@@ -120,7 +120,7 @@ export interface IStep extends ILine {
   DividerProps?: TPropsAny;
 }
 
-const Step = React.forwardRef((props_: IStep, ref: any) => {
+const Step: React.FC<IStep> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiStep?.props?.default, ...props_ }), [props_]);
@@ -205,7 +205,7 @@ const Step = React.forwardRef((props_: IStep, ref: any) => {
 
       justify='center'
 
-      Component={Component}
+      Component={Component as any}
 
       className={classNames([
         staticClassName('Step', theme) && [

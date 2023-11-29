@@ -87,7 +87,7 @@ export interface INavigationDrawer extends IModal {
   TransitionComponentProps?: TPropsAny;
 }
 
-const NavigationDrawer = React.forwardRef((props_: INavigationDrawer, ref: any) => {
+const NavigationDrawer: React.FC<INavigationDrawer> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiNavigationDrawer?.props?.default, ...props_ }), [props_]);

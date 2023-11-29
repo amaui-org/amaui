@@ -3,7 +3,7 @@ import React from 'react';
 import is from '@amaui/utils/is';
 import { AmauiStyle, makeClassName, unit, rtl, sort, valueObject, prefix } from '@amaui/style';
 
-import StyleContext from './StyleContext';
+import StyleContext from './Context';
 
 function makeAmauiStyle(element?: Element) {
   const amauiStyle = new AmauiStyle({
@@ -27,7 +27,7 @@ export interface IStyle extends AmauiStyle {
   updateWithRerender?: (value: any) => AmauiStyle;
 }
 
-const Style = React.forwardRef((props: any, ref: any) => {
+const Style: React.FC<IStyle> = React.forwardRef((props, ref: any) => {
   const {
     root = false,
 

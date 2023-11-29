@@ -168,7 +168,7 @@ export interface ITree extends Omit<IBaseElement, 'children'> {
   IconArrow?: TElementReference;
   TransitionComponent?: TElementReference;
 
-  children: any;
+  children?: any;
 }
 
 const TreeDelays = {
@@ -177,7 +177,7 @@ const TreeDelays = {
   }
 };
 
-const Tree = React.forwardRef((props_: ITree, ref: any) => {
+const Tree: React.FC<ITree> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTree?.props?.default, ...props_ }), [props_]);

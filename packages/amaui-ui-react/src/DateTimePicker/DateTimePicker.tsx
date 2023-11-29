@@ -160,7 +160,7 @@ export interface IDateTimePicker extends Omit<IAdvancedTextField, 'version'> {
   MainProps?: TPropsAny;
 }
 
-const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => {
+const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDateTimePicker?.props?.default, ...props__ }), [props__]);
@@ -251,7 +251,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
     return ((is('array', valueResult) ? valueResult : [valueResult]) as Array<AmauiDate>).filter(Boolean);
   });
-  const [calendar, setCalendar] = React.useState(value[0]);
+  const [calendar, setCalendar] = React.useState<AmauiDate>(value[0]);
   const [open, setOpen] = React.useState(false);
   const [error, setError] = React.useState(false);
   const [tab, setTab] = React.useState('date');
@@ -833,7 +833,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
   const heading = (range ? (tab === 'date' ? headingTextDateRange : headingTextTimeRange) : (tab === 'date' ? headingTextDate : headingTextTime)) || headingText;
 
-  const PickerProps = {
+  const PickerProps: any = {
     tonal,
     color,
 
@@ -1069,7 +1069,7 @@ const DateTimePicker = React.forwardRef((props__: IDateTimePicker, ref: any) => 
 
           label={(
             <ClickListener
-              onClickOutside={onCancel}
+              onClickOutside={onCancel as any}
 
               includeParentQueries={['.amaui-TimePicker-main', '.amaui-Calendar-list']}
             >

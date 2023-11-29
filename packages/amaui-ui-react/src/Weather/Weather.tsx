@@ -290,7 +290,7 @@ export interface IWeather extends ISurface {
   IconProps?: TPropsAny;
 }
 
-const Weather = React.forwardRef((props_: IWeather, ref: any) => {
+const Weather: React.FC<IWeather> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiWeather?.props?.default, ...props_ }), [props_]);

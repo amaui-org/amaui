@@ -8,6 +8,7 @@ import Surface from '../Surface';
 
 import { staticClassName } from '../utils';
 import { ISurface } from '../Surface/Surface';
+import { INavigationItemVersion } from '../NavigationItem/NavigationItem';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -25,15 +26,17 @@ const useStyle = styleMethod(theme => ({
 
 export type TNavigationBarValue = Array<string>;
 
-export interface INavigationBar extends ISurface {
+export interface INavigationBar extends Omit<ISurface, 'version'> {
   value?: TNavigationBarValue;
   valueDefault?: TNavigationBarValue;
   onChange?: (value: TNavigationBarValue) => any;
 
+  version?: INavigationItemVersion;
+
   fixed?: boolean;
 }
 
-const NavigationBar = React.forwardRef((props_: INavigationBar, ref: any) => {
+const NavigationBar: React.FC<INavigationBar> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiNavigationBar?.props?.default, ...props_ }), [props_]);

@@ -163,7 +163,7 @@ export interface IImage extends IBaseElement {
   DescriptionProps?: TPropsAny;
 }
 
-const Image = React.forwardRef((props_: IImage, ref: any) => {
+const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImage?.props?.default, ...props_ }), [props_]);

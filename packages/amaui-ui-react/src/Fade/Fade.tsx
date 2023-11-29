@@ -9,7 +9,7 @@ export interface IFade extends ITransition {
 
 }
 
-const Fade = React.forwardRef((props_: IFade, ref: any) => {
+const Fade: React.FC<IFade> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiFade?.props?.default, ...props_ }), [props_]);

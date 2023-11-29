@@ -154,7 +154,7 @@ export interface IRoundProgress extends IBaseElement {
   pathBackgroundProps?: TPropsAny;
 }
 
-const RoundProgress = React.forwardRef((props_: IRoundProgress, ref: any) => {
+const RoundProgress: React.FC<IRoundProgress> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRoundProgress?.props?.default, ...props_ }), [props_]);

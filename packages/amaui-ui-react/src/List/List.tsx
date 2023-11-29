@@ -84,7 +84,7 @@ export interface IList extends ISurface {
   SurfaceProps?: any;
 }
 
-const List = React.forwardRef((props_: IList, ref: any) => {
+const List: React.FC<IList> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiList?.props?.default, ...props_ }), [props_]);

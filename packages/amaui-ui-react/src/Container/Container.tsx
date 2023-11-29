@@ -96,7 +96,7 @@ export interface IContainer extends ILine {
   maxWidth?: 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'unset' | Record<TValueBreakpoints, 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'unset'>;
 }
 
-const Container = React.forwardRef((props_: IContainer, ref: any) => {
+const Container: React.FC<IContainer> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiContainer?.props?.default, ...props_ }), [props_]);

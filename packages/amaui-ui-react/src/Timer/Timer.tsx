@@ -152,7 +152,7 @@ export interface ITimer extends ISurface {
   IconProps?: TPropsAny;
 }
 
-const Timer = React.forwardRef((props_: ITimer, ref: any) => {
+const Timer: React.FC<ITimer> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTimer?.props?.default, ...props_ }), [props_]);

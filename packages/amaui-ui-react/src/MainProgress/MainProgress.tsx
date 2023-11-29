@@ -5,7 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Fade from '../Fade';
 import LinearProgress from '../LinearProgress';
-import MainProgressContext from './MainProgressContext';
+import MainProgressContext from './Context';
 
 import { staticClassName, TElementReference, TPropsAny } from '../utils';
 import { ILinearProress } from '../LinearProgress/LinearProgress';
@@ -15,7 +15,7 @@ export interface IMainProgressStartArgument {
   color?: string;
 }
 
-export interface IMainProgressProvider {
+export interface IMainProgress {
   start: (value?: IMainProgressStartArgument) => void;
   increment: () => void;
   update: (value: number) => void;
@@ -50,9 +50,9 @@ const useStyle = styleMethod(theme => ({
   position_bottom: {
     bottom: '0'
   }
-}), { name: 'amaui-MainProgressProvider' });
+}), { name: 'amaui-MainProgress' });
 
-export interface IMainProgressProvider extends ILinearProress {
+export interface IMainProgress extends ILinearProress {
   min?: number;
   max?: number;
 
@@ -78,10 +78,10 @@ export interface IMainProgressProvider extends ILinearProress {
   TransitionComponentProps?: TPropsAny;
 }
 
-const MainProgressProvider = React.forwardRef((props_: IMainProgressProvider, ref: any) => {
+const MainProgress: React.FC<IMainProgress> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMainProgressProvider?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMainProgress?.props?.default, ...props_ }), [props_]);
 
   const {
     min = 0,
@@ -119,7 +119,7 @@ const MainProgressProvider = React.forwardRef((props_: IMainProgressProvider, re
   const [value, setValue] = React.useState(min);
 
   const refs = {
-    value_: React.useRef<IMainProgressProvider>({} as any),
+    value_: React.useRef<IMainProgress>({} as any),
     value: React.useRef<number>(),
     min: React.useRef<number>(),
     max: React.useRef<number>(),
@@ -295,6 +295,6 @@ const MainProgressProvider = React.forwardRef((props_: IMainProgressProvider, re
   );
 });
 
-MainProgressProvider.displayName = 'amaui-MainProgressProvider';
+MainProgress.displayName = 'amaui-MainProgress';
 
-export default MainProgressProvider;
+export default MainProgress;

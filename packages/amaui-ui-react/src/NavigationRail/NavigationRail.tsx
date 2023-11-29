@@ -8,6 +8,7 @@ import Surface from '../Surface';
 import Divider from '../Divider';
 import NavigationBar from '../NavigationBar';
 import { ISurface } from '../Surface/Surface';
+import { INavigationItemVersion } from '../NavigationItem/NavigationItem';
 
 import { staticClassName, TElement, TPropsAny, TSize } from '../utils';
 
@@ -59,13 +60,15 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-NavigationRail' });
 
-export interface INavigationRail extends ISurface {
+export interface INavigationRail extends Omit<ISurface, 'version'> {
   size?: TSize;
 
   value?: any;
   valueDefault?: any;
 
   onChange?: (value: any) => any;
+
+  version?: INavigationItemVersion;
 
   justify?: 'start' | 'center' | 'end';
 
@@ -79,7 +82,7 @@ export interface INavigationRail extends ISurface {
   DividerProps?: TPropsAny;
 }
 
-const NavigationRail = React.forwardRef((props_: INavigationRail, ref: any) => {
+const NavigationRail: React.FC<INavigationRail> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiNavigationRail?.props?.default, ...props_ }), [props_]);

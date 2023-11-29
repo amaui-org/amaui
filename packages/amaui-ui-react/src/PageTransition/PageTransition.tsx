@@ -5,8 +5,9 @@ import { hash, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   '@keyframes fadeIn': {
@@ -42,7 +43,7 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-PageTransition' });
 
-export interface IPageTransition extends IBaseElement {
+export interface IPageTransition extends ILine {
   add?: boolean;
 
   classNames?: {
@@ -51,7 +52,7 @@ export interface IPageTransition extends IBaseElement {
   };
 }
 
-const PageTransition = React.forwardRef((props_: IPageTransition, ref: any) => {
+const PageTransition: React.FC<IPageTransition> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPageTransition?.props?.default, ...props_ }), [props_]);

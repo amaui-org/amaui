@@ -42,16 +42,16 @@ export interface ILineChartItem extends IChart {
 
   values?: TChartValueValues;
 
-  updateDefs: TMethod;
+  updateDefs?: TMethod;
 
-  updateLegend: TMethod;
+  updateLegend?: TMethod;
 
   smooth?: boolean;
 
   smoothRatio?: number;
 }
 
-const LineChartItem = React.forwardRef((props_: ILineChartItem, ref: any) => {
+const LineChartItem: React.FC<ILineChartItem> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLineChartItem?.props?.default, ...props_ }), [props_]);

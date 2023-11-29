@@ -20,7 +20,7 @@ export interface ICardMain extends ILine {
   elevation?: TElevation;
 }
 
-const CardMain = React.forwardRef((props_: ICardMain, ref: any) => {
+const CardMain: React.FC<ICardMain> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCardMain?.props?.default, ...props_ }), [props_]);

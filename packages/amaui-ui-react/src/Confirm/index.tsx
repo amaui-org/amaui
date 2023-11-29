@@ -1,6 +1,6 @@
 
-export { default } from './ConfirmProvider';
+export { default } from './Confirm';
 
-export { default as AmauiConfirmContext } from './ConfirmContext';
-export { default as AmauiConfirmProvider } from './ConfirmProvider';
+export { default as ConfirmContext } from './Context';
+export { default as Confirm } from './Confirm';
 export { default as useConfirm } from './useConfirm';

@@ -320,7 +320,7 @@ export interface IImageCrop extends IBaseElement {
   TooltipProps?: TPropsAny;
 }
 
-const ImageCrop = React.forwardRef((props_: IImageCrop, ref: any) => {
+const ImageCrop: React.FC<IImageCrop> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageCrop?.props?.default, ...props_ }), [props_]);

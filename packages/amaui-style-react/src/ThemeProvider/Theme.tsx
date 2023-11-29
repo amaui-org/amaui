@@ -7,7 +7,7 @@ import isEnvironment from '@amaui/utils/isEnvironment';
 import { AmauiTheme, classNames } from '@amaui/style';
 import { IAmauiTheme } from '@amaui/style/AmauiTheme';
 
-import ThemeContext from './ThemeContext';
+import ThemeContext from './Context';
 import useAmauiTheme from './useAmauiTheme';
 import { ThemeRequired } from '../style';
 
@@ -35,7 +35,7 @@ interface ITheme extends React.HTMLAttributes<any> {
   children?: any;
 }
 
-const Theme = React.forwardRef((props: ITheme, ref: any) => {
+const Theme: React.FC<ITheme> = React.forwardRef((props, ref: any) => {
   const [init, setInit] = React.useState(false);
 
   const {

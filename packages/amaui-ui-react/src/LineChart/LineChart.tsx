@@ -21,7 +21,7 @@ export interface ILineChart extends IChart {
   smoothRatio?: number;
 }
 
-const LineChart = React.forwardRef((props_: ILineChart, ref: any) => {
+const LineChart: React.FC<ILineChart> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLineChart?.props?.default, ...props_ }), [props_]);

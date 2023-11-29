@@ -217,7 +217,7 @@ const getText = (value: any) => value?.name || value?.label || value?.primary ||
 
 const getValue = (value: any) => value?.value !== undefined ? value.value : value;
 
-const AutoComplete = React.forwardRef((props_: IAutoComplete, ref: any) => {
+const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAutoComplete?.props?.default, ...props_ }), [props_]);

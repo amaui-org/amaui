@@ -17,7 +17,7 @@ export interface ITransitions {
   children?: any;
 }
 
-function Transitions(props_: ITransitions) {
+const Transitions: React.FC<ITransitions> = (props_) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTransitions?.props?.default, ...props_ }), [props_]);
@@ -295,7 +295,7 @@ function Transitions(props_: ITransitions) {
   }
 
   return children_;
-}
+};
 
 Transitions.displayName = 'amaui-Transitions';
 

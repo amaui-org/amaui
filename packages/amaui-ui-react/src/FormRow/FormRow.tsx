@@ -5,8 +5,9 @@ import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-re
 
 import Line from '../Line';
 import Type from '../Type';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, TElement, staticClassName } from '../utils';
+import { TElement, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -32,7 +33,7 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-FormRow' });
 
-export interface IFormRow extends IBaseElement {
+export interface IFormRow extends ILine {
   name?: string | TElement;
   description?: string | TElement;
 
@@ -50,7 +51,7 @@ export interface IFormRow extends IBaseElement {
   EndProps?: any;
 }
 
-const FormRow = React.forwardRef((props_: IFormRow, ref: any) => {
+const FormRow: React.FC<IFormRow> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiFormRow?.props?.default, ...props_ }), [props_]);

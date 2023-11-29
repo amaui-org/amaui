@@ -17,7 +17,7 @@ export interface IToggleButtons extends IButtons {
 
 }
 
-const ToggleButtons = React.forwardRef((props_: IToggleButtons, ref: any) => {
+const ToggleButtons: React.FC<IToggleButtons> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiToggleButtons?.props?.default, ...props_ }), [props_]);

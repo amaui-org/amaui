@@ -210,7 +210,7 @@ export interface ISwitch extends IBaseElement {
   disabled?: boolean;
 }
 
-const Switch = React.forwardRef((props_: ISwitch, ref: any) => {
+const Switch: React.FC<ISwitch> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSwitch?.props?.default, ...props_ }), [props_]);

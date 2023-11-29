@@ -86,7 +86,7 @@ export interface IStepper extends ILine {
   DividerProps?: TPropsAny;
 }
 
-const Stepper = React.forwardRef((props_: IStepper, ref: any) => {
+const Stepper: React.FC<IStepper> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiStepper?.props?.default, ...props_ }), [props_]);

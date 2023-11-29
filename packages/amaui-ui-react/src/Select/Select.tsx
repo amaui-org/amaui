@@ -158,7 +158,7 @@ export interface ISelect extends ITextField {
   MenuProps?: TPropsAny;
 }
 
-const Select = React.forwardRef((props_: ISelect, ref: any) => {
+const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSelect?.props?.default, ...props_ }), [props_]);
@@ -334,7 +334,7 @@ const Select = React.forwardRef((props_: ISelect, ref: any) => {
       if (chip) {
         return (
           <ChipGroup
-            wrap
+            wrap='wrap'
 
             size={size}
 

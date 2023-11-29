@@ -265,7 +265,7 @@ export interface IDatePicker extends ILine {
   ModalProps?: TPropsAny;
 }
 
-const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
+const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDatePicker?.props?.default, ...props__ }), [props__]);
@@ -359,10 +359,10 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
   const touch = useMediaQuery('(pointer: coarse)');
 
-  const [value, setValue] = React.useState(() => {
+  const [value, setValue] = React.useState<[AmauiDate, AmauiDate]>((): [AmauiDate, AmauiDate] => {
     const valueResult = (valueDefault !== undefined ? valueDefault : value_) || (now && (range ? [new AmauiDate(), new AmauiDate()] : [new AmauiDate()]));
 
-    return ((is('array', valueResult) ? valueResult : [valueResult]) as Array<AmauiDate>).filter(Boolean);
+    return ((is('array', valueResult) ? valueResult : [valueResult]) as Array<AmauiDate>).filter(Boolean) as any;
   });
   const [calendar, setCalendar] = React.useState((calendarDefault !== undefined ? calendarDefault : calendar_) || new AmauiDate());
   const [open, setOpen] = React.useState(false);
@@ -1364,7 +1364,7 @@ const DatePicker = React.forwardRef((props__: IDatePicker, ref: any) => {
 
           label={(
             <ClickListener
-              onClickOutside={onCancel}
+              onClickOutside={onCancel as any}
 
               includeParentQueries={['.amaui-Calendar-list']}
             >

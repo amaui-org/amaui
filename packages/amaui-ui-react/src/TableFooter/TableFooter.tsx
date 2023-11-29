@@ -29,7 +29,7 @@ export interface ITableFooter extends ISurface {
   size?: TSize;
 }
 
-const TableFooter = React.forwardRef((props_: ITableFooter, ref: any) => {
+const TableFooter: React.FC<ITableFooter> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTableFooter?.props?.default, ...props_ }), [props_]);

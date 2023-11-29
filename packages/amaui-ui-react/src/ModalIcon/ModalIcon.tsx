@@ -8,7 +8,7 @@ export interface IModalIcon extends IIcon {
 
 }
 
-const ModalIcon = React.forwardRef((props_: IModalIcon, ref: any) => {
+const ModalIcon: React.FC<IModalIcon> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModalIcon?.props?.default, ...props_ }), [props_]);

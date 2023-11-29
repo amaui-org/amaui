@@ -95,7 +95,7 @@ export interface ILink extends Omit<IType, 'color'> {
   underline?: true | 'hover';
 }
 
-const Link = React.forwardRef((props_: ILink, ref: any) => {
+const Link: React.FC<ILink> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLink?.props?.default, ...props_ }), [props_]);

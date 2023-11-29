@@ -204,7 +204,7 @@ export interface IMenuDesktop extends ILine {
   WrapperMenuProps?: TPropsAny;
 }
 
-const MenuDesktop = React.forwardRef((props_: IMenuDesktop, ref: any) => {
+const MenuDesktop: React.FC<IMenuDesktop> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMenuDesktop?.props?.default, ...props_ }), [props_]);

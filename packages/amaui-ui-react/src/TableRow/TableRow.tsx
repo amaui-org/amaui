@@ -46,7 +46,7 @@ export interface ITableRow extends ISurface {
   position?: 'head' | 'body';
 }
 
-const TableRow = React.forwardRef((props_: ITableRow, ref: any) => {
+const TableRow: React.FC<ITableRow> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTableRow?.props?.default, ...props_ }), [props_]);

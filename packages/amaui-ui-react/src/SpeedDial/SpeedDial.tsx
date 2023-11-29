@@ -9,7 +9,7 @@ import Fab from '../Fab';
 import Icon from '../Icon';
 import Tooltip from '../Tooltip';
 import Line from '../Line';
-import { ILine } from '../Line/Line';
+import { ILine, TLineDirection } from '../Line/Line';
 
 import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TVersion } from '../utils';
 
@@ -183,7 +183,7 @@ export interface ISpeedDial extends Omit<ILine, 'direction'> {
   SpeeDialItemTransitionComponentProps?: TPropsAny;
 }
 
-const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
+const SpeedDial: React.FC<ISpeedDial> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSpeedDial?.props?.default, ...props_ }), [props_]);
@@ -251,7 +251,7 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
   };
 
   const direction = direction_;
-  let SpeeDialItemTransitionComponent = SpeeDialItemTransitionComponent_;
+  let SpeeDialItemTransitionComponent: any = SpeeDialItemTransitionComponent_;
 
   if (tooltipOpen) SpeeDialItemTransitionComponent = Fade;
 
@@ -323,10 +323,10 @@ const SpeedDial = React.forwardRef((props_: ISpeedDial, ref: any) => {
     }
   }, [disabled]);
 
-  let lineDirection = 'row';
+  let lineDirection: TLineDirection = 'row';
   // Safari bug *-reverse using gap
   // let lineItemsDirection = 'row-reverse';
-  let lineItemsDirection = !isBrowser('safari') ? 'row-reverse' : 'row';
+  let lineItemsDirection: TLineDirection = !isBrowser('safari') ? 'row-reverse' : 'row';
 
   let directionToUse = direction;
 

@@ -175,7 +175,7 @@ export interface IType extends IBaseElement {
   disabled?: boolean;
 }
 
-const Type = React.forwardRef((props_: IType, ref: any) => {
+const Type: React.FC<IType> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiType?.props?.default, ...props_ }), [props_]);

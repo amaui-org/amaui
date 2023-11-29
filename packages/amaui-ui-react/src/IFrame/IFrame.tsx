@@ -5,8 +5,9 @@ import { is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, TPropsAny, importIframeStyles, staticClassName } from '../utils';
+import { TPropsAny, importIframeStyles, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -22,13 +23,13 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-IFrame' });
 
-export interface IIFrame extends IBaseElement {
+export interface IIFrame extends ILine {
   id?: string;
 
   WrapperProps?: TPropsAny;
 }
 
-const IFrame = React.forwardRef((props_: IIFrame, ref: any) => {
+const IFrame: React.FC<IIFrame> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiIFrame?.props?.default, ...props_ }), [props_]);

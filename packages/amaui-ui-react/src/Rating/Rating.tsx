@@ -125,7 +125,7 @@ export interface IRating extends IBaseElement {
   iconActive?: TElement;
 }
 
-const Rating = React.forwardRef((props_: IRating, ref: any) => {
+const Rating: React.FC<IRating> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRating?.props?.default, ...props_ }), [props_]);

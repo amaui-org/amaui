@@ -113,7 +113,7 @@ export interface IWatch extends Omit<ISurface, 'version'> {
   ModernProps?: TPropsAny;
 }
 
-const Watch = React.forwardRef((props_: IWatch, ref: any) => {
+const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiWatch?.props?.default, ...props_ }), [props_]);

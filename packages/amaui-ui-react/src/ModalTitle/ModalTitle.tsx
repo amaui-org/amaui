@@ -17,7 +17,7 @@ export interface IModalTitle extends IType {
 
 }
 
-const ModalTitle = React.forwardRef((props_: IModalTitle, ref: any) => {
+const ModalTitle: React.FC<IModalTitle> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModalTitle?.props?.default, ...props_ }), [props_]);

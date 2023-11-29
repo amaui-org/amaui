@@ -230,7 +230,7 @@ export interface IMarkdown extends IBaseElement {
   onStart: () => any;
 }
 
-const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
+const Markdown: React.FC<IMarkdown> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMarkdown?.props?.default, ...props_ }), [props_]);
@@ -258,7 +258,7 @@ const Markdown = React.forwardRef((props_: IMarkdown, ref: any) => {
   } = props;
 
   const refs = {
-    root: React.useRef<HTMLElement>()
+    root: React.useRef<any>()
   };
 
   const [init, setInit] = React.useState(false);

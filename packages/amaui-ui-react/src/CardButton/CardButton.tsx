@@ -26,7 +26,7 @@ export interface ICardButton extends IBaseElement {
   InteractionProps?: TPropsAny;
 }
 
-const CardButton = React.forwardRef((props_: ICardButton, ref: any) => {
+const CardButton: React.FC<ICardButton> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCardButton?.props?.default, ...props_ }), [props_]);

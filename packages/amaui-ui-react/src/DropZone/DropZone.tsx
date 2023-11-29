@@ -79,7 +79,7 @@ export interface IDropZone extends IFileChoose {
   onDragLeave?: (event: React.DragEvent<any>) => any;
 }
 
-const DropZone = React.forwardRef((props_: IDropZone, ref: any) => {
+const DropZone: React.FC<IDropZone> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDropZone?.props?.default, ...props_ }), [props_]);

@@ -1,5 +1,5 @@
 
-export { default } from './MainProgressProvider';
-export { default as AmauiMainProgressContext } from './MainProgressContext';
-export { default as AmauiMainProgressProvider } from './MainProgressProvider';
+export { default } from './MainProgress';
+export { default as MainProgressContext } from './Context';
+export { default as MainProgress } from './MainProgress';
 export { default as useMainProgress } from './useMainProgress';

@@ -112,7 +112,7 @@ export interface ILinearMeter extends IBaseElement {
   LineProgressProps?: TPropsAny;
 }
 
-const LinearMeter = React.forwardRef((props_: ILinearMeter, ref: any) => {
+const LinearMeter: React.FC<ILinearMeter> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLinearMeter?.props?.default, ...props_ }), [props_]);

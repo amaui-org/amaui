@@ -8,8 +8,9 @@ import Type from '../Type';
 import Icon from '../Icon';
 import IconButton from '../IconButton';
 import useMediaQuery from '../useMediaQuery';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName, TElement, valueBreakpoints } from '../utils';
+import { staticClassName, TElement, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -59,7 +60,7 @@ const IconMaterialMoreHorizRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-export interface IBreadcrumbs extends IBaseElement {
+export interface IBreadcrumbs extends ILine {
   separator?: TElement | string;
 
   max?: number;
@@ -67,7 +68,7 @@ export interface IBreadcrumbs extends IBaseElement {
   renderMore?: (onExpandMore: () => void) => TElement;
 }
 
-const Breadcrumbs = React.forwardRef((props_: IBreadcrumbs, ref: any) => {
+const Breadcrumbs: React.FC<IBreadcrumbs> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBreadcrumbs?.props?.default, ...props_ }), [props_]);

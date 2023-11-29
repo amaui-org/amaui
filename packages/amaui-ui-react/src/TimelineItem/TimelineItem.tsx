@@ -82,10 +82,10 @@ export interface ITimelineItem extends ILine {
   IconProps?: TPropsAny;
 
   Icon?: TElementReference;
-  Divider?: TElementReference;
+  Divider?: any;
 }
 
-const TimelineItem = React.forwardRef((props_: ITimelineItem, ref: any) => {
+const TimelineItem: React.FC<ITimelineItem> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTimelineItem?.props?.default, ...props_ }), [props_]);

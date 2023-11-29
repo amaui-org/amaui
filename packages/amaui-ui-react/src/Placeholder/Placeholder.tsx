@@ -100,7 +100,7 @@ export interface IPlaceholder extends Omit<IBaseElement, 'version'> {
   text?: boolean;
 }
 
-const Placeholder = React.forwardRef((props_: IPlaceholder, ref: any) => {
+const Placeholder: React.FC<IPlaceholder> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPlaceholder?.props?.default, ...props_ }), [props_]);

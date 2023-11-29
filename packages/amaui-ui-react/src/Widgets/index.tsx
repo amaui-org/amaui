@@ -1,6 +1,6 @@
 
-export { default } from './WidgetsProvider';
+export { default } from './Widgets';
 
-export { default as AmauiWidgetsContext } from './WidgetsContext';
-export { default as AmauiWidgetsProvider } from './WidgetsProvider';
+export { default as WidgetsContext } from './Context';
+export { default as Widgets } from './Widgets';
 export { default as useWidgets } from './useWidgets';

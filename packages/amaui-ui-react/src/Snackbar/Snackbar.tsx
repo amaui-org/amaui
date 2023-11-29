@@ -10,7 +10,7 @@ import Surface from '../Surface';
 import IconButton from '../IconButton';
 import Line from '../Line';
 
-import { IBaseElement, staticClassName, TElement, TElementReference, TPropsAny, TSize } from '../utils';
+import { staticClassName, TElement, TElementReference, TPropsAny, TSize } from '../utils';
 import { ISurface } from '../Surface/Surface';
 
 const useStyle = styleMethod(theme => ({
@@ -119,7 +119,7 @@ export interface ISnackbar extends ISurface {
 
 const timeouts = {};
 
-const Snackbar = React.forwardRef((props_: ISnackbar, ref: any) => {
+const Snackbar: React.FC<ISnackbar> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSnackbar?.props?.default, ...props_ }), [props_]);

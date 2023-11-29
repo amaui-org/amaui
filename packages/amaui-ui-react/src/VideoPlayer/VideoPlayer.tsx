@@ -13,8 +13,9 @@ import Type from '../Type';
 import Icon from '../Icon';
 import Menu from '../Menu';
 import ListItem from '../ListItem';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TSize, TTonal } from '../utils';
+import { staticClassName, TColor, TElementReference, TPropsAny, TSize, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -351,7 +352,7 @@ const IconMaterialArrowBackIosRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-export interface IVideoPlayer extends IBaseElement {
+export interface IVideoPlayer extends ILine {
   name?: string;
   src?: string;
   mime?: string;
@@ -415,7 +416,7 @@ export interface IVideoPlayer extends IBaseElement {
   FullScreenButtonProps?: TPropsAny;
 }
 
-const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
+const VideoPlayer: React.FC<IVideoPlayer> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiVideoPlayer?.props?.default, ...props_ }), [props_]);
@@ -966,7 +967,7 @@ const VideoPlayer = React.forwardRef((props_: IVideoPlayer, ref: any) => {
   }, []);
 
   const getSettingsMenuItems = () => {
-    const itemProps = {
+    const itemProps: any = {
       button: true,
       startAlign: 'center',
       endAlign: 'center',

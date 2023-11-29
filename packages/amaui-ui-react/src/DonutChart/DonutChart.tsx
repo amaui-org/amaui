@@ -21,7 +21,7 @@ export interface IDonutChart extends IPieChart {
 
 }
 
-const DonutChart = React.forwardRef((props_: IDonutChart, ref: any) => {
+const DonutChart: React.FC<IDonutChart> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDonutChart?.props?.default, ...props_ }), [props_]);

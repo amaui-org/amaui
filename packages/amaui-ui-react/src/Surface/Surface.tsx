@@ -704,7 +704,7 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-Surface' });
 
-export interface ISurface extends IBaseElement {
+export interface ISurface extends Omit<IBaseElement, 'children'> {
   tonal?: TTonal;
   color?: TColor;
   version?: TVersion;
@@ -716,9 +716,11 @@ export interface ISurface extends IBaseElement {
   noOutline?: boolean;
 
   AdditionalProps?: TPropsAny;
+
+  children?: any;
 }
 
-const Surface = React.forwardRef((props_: ISurface, ref: any) => {
+const Surface: React.FC<ISurface> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSurface?.props?.default, ...props_ }), [props_]);

@@ -64,7 +64,7 @@ export interface INumericTextField extends IAdvancedTextField {
   IconButtonProps?: TPropsAny;
 }
 
-const NumericTextField = React.forwardRef((props_: INumericTextField, ref: any) => {
+const NumericTextField: React.FC<INumericTextField> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiNumericTextField?.props?.default, ...props_ }), [props_]);

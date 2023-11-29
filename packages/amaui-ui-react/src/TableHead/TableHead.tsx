@@ -25,7 +25,7 @@ export interface ITableHead extends ISurface {
   sticky?: boolean;
 }
 
-const TableHead = React.forwardRef((props_: ITableHead, ref: any) => {
+const TableHead: React.FC<ITableHead> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTableHead?.props?.default, ...props_ }), [props_]);

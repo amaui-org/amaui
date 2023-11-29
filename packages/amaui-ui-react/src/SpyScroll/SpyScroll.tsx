@@ -21,7 +21,7 @@ export interface ISpyScroll extends IBaseElement {
   addStyle?: TStyle;
 }
 
-const SpyScroll = React.forwardRef((props_: ISpyScroll, ref: any) => {
+const SpyScroll: React.FC<ISpyScroll> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSpyScroll?.props?.default, ...props_ }), [props_]);

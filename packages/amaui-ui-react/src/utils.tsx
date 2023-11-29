@@ -306,7 +306,7 @@ export type TSizeAny = TSize | number;
 
 export type TElevation = 0 | 1 | 2 | 3 | 4 | 6 | 8 | 9 | 12 | 16 | 24;
 
-export type TElementReference = React.ForwardRefExoticComponent<Pick<any, string | number | symbol> & React.RefAttributes<unknown>>;
+export type TElementReference = string | React.FC<any> | (React.ForwardRefExoticComponent<any>);
 
 export type TElement = React.ReactNode | React.ReactNode[] | React.ReactElement<any, string | React.JSXElementConstructor<any>>;
 
@@ -323,7 +323,7 @@ export type TChildren = React.ReactNode | React.ReactNode[];
 export type TRef = React.MutableRefObject<any>;
 
 export interface IBaseElement {
-  Component?: TElementReference;
+  Component?: any;
 
   className?: string;
   style?: TStyle;

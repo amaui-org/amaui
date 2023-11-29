@@ -44,7 +44,7 @@ export interface IChip extends IButton {
   onUnselected?: () => any;
 }
 
-const Chip = React.forwardRef((props_: IChip, ref: any) => {
+const Chip: React.FC<IChip> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiChip?.props?.default, ...props_ }), [props_]);

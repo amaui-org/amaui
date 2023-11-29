@@ -13,8 +13,9 @@ import Type from '../Type';
 import Icon from '../Icon';
 import Menu from '../Menu';
 import ListItem from '../ListItem';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TSize, TTonal } from '../utils';
+import { staticClassName, TColor, TElementReference, TPropsAny, TSize, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -264,7 +265,7 @@ const IconMaterialArrowBackIosRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-export interface IAudioPlayer extends IBaseElement {
+export interface IAudioPlayer extends ILine {
   name?: string;
   src?: string;
   mime?: string;
@@ -320,7 +321,7 @@ export interface IAudioPlayer extends IBaseElement {
   QualityButtonProps?: TPropsAny;
 }
 
-const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
+const AudioPlayer: React.FC<IAudioPlayer> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAudioPlayer?.props?.default, ...props_ }), [props_]);
@@ -721,7 +722,7 @@ const AudioPlayer = React.forwardRef((props_: IAudioPlayer, ref: any) => {
   }, []);
 
   const getSettingsMenuItems = () => {
-    const itemProps = {
+    const itemProps: any = {
       button: true,
       startAlign: 'center',
       endAlign: 'center',

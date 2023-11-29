@@ -28,7 +28,7 @@ export interface IDragAndDropList extends IBaseElement {
   onDragStart?: (item: any, event: DragEvent) => any;
 }
 
-const DragAndDropList = React.forwardRef((props_: IDragAndDropList, ref: any) => {
+const DragAndDropList: React.FC<IDragAndDropList> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDragAndDropList?.props?.default, ...props_ }), [props_]);

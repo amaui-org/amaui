@@ -79,7 +79,7 @@ export interface IBadge extends IBaseElement {
   indicator?: boolean;
 }
 
-const Badge = React.forwardRef((props_: IBadge, ref: any) => {
+const Badge: React.FC<IBadge> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBadge?.props?.default, ...props_ }), [props_]);

@@ -4,7 +4,7 @@ import { is, TMethod, setObjectValue } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Button from '../Button';
-import ConfirmContext from './ConfirmContext';
+import ConfirmContext from './Context';
 import ModalHeader from '../ModalHeader';
 import ModalFooter from '../ModalFooter';
 import ModalTitle from '../ModalTitle';
@@ -41,7 +41,7 @@ export interface IConfirmPromiseArgument {
   reject: TMethod;
 }
 
-export interface IConfirmProvider {
+export interface IConfirmValue {
   open: (value?: IConfirmOpen) => Promise<any>;
   close: (confirmed?: boolean) => void;
 }
@@ -50,9 +50,9 @@ const useStyle = styleMethod(theme => ({
   root: {
 
   }
-}), { name: 'amaui-ConfirmProvider' });
+}), { name: 'amaui-Confirm' });
 
-export interface IConfirmProvider extends IBaseElement {
+export interface IConfirm extends IBaseElement {
   throwError?: boolean;
 
   onOpen?: () => any;
@@ -60,15 +60,16 @@ export interface IConfirmProvider extends IBaseElement {
   onClose?: () => any;
 }
 
-const ConfirmProvider = React.forwardRef((props_: IConfirmProvider, ref: any) => {
+const Confirm: React.FC<IConfirm> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiConfirmProvider?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiConfirm?.props?.default, ...props_ }), [props_]);
 
   const {
     throwError,
 
     onOpen,
+
     onClose,
 
     className,
@@ -81,7 +82,7 @@ const ConfirmProvider = React.forwardRef((props_: IConfirmProvider, ref: any) =>
   const [openModal, setOpenModal] = React.useState(false);
 
   const refs = {
-    value: React.useRef<IConfirmProvider>({} as any),
+    value: React.useRef<IConfirmValue>({} as any),
 
     modal: React.useRef<IConfirmOpen>(),
 
@@ -236,6 +237,6 @@ const ConfirmProvider = React.forwardRef((props_: IConfirmProvider, ref: any) =>
   );
 });
 
-ConfirmProvider.displayName = 'amaui-ConfirmProvider';
+Confirm.displayName = 'amaui-Confirm';
 
-export default ConfirmProvider;
+export default Confirm;

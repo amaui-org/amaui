@@ -17,7 +17,7 @@ export interface IDateRangePicker extends IDatePicker {
 
 }
 
-const DateRangePicker = React.forwardRef((props_: IDateRangePicker, ref: any) => {
+const DateRangePicker: React.FC<IDateRangePicker> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDateRangePicker?.props?.default, ...props_ }), [props_]);

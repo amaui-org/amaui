@@ -159,7 +159,7 @@ export interface IWindowSplit extends ILine {
   DividerProps?: TPropsAny;
 }
 
-const WindowSplit = React.forwardRef((props_: IWindowSplit, ref: any) => {
+const WindowSplit: React.FC<IWindowSplit> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiWindowSplit?.props?.default, ...props_ }), [props_]);

@@ -44,12 +44,12 @@ export interface IColumnChartItem extends IChart {
 
   width?: number;
 
-  updateDefs: TMethod;
+  updateDefs?: TMethod;
 
-  updateLegend: TMethod;
+  updateLegend?: TMethod;
 }
 
-const ColumnChartItem = React.forwardRef((props_: IColumnChartItem, ref: any) => {
+const ColumnChartItem: React.FC<IColumnChartItem> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiColumnChartItem?.props?.default, ...props_ }), [props_]);

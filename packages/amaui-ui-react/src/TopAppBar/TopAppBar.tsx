@@ -117,7 +117,7 @@ export interface ITopAppBar extends Omit<ISurface, 'version'> {
   position?: 'relative' | 'absolute' | 'static' | 'position' | 'unset';
 }
 
-const TopAppBar = React.forwardRef((props_: ITopAppBar, ref: any) => {
+const TopAppBar: React.FC<ITopAppBar> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTopAppBar?.props?.default, ...props_ }), [props_]);

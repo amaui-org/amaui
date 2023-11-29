@@ -116,7 +116,7 @@ export interface IRadio extends IIconButton {
   disabled?: boolean;
 }
 
-const Radio = React.forwardRef((props_: IRadio, ref: any) => {
+const Radio: React.FC<IRadio> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRadio?.props?.default, ...props_ }), [props_]);

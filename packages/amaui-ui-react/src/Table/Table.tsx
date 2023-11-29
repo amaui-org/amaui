@@ -40,7 +40,7 @@ export interface ITable extends ISurface {
   WrapperComponent?: TElementReference;
 }
 
-const Table = React.forwardRef((props_: ITable, ref: any) => {
+const Table: React.FC<ITable> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTable?.props?.default, ...props_ }), [props_]);
@@ -90,7 +90,7 @@ const Table = React.forwardRef((props_: ITable, ref: any) => {
 
       elevation={elevation}
 
-      Component={Surface}
+      Component={Surface as any}
 
       AdditionalProps={{
         Component

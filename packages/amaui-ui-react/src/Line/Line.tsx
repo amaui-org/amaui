@@ -138,9 +138,9 @@ const useStyle = styleMethod(theme => ({
   'columnGap_16': { columnGap: `${16 * theme.space.unit}px` }
 }), { name: 'amaui-Line' });
 
-export type TLineAlign = 'inherit' | 'initial' | 'flex-start' | 'center' | 'flex-end' | 'baseline' | 'stretch';
+export type TLineAlign = 'inherit' | 'initial' | 'flex-start' | 'center' | 'flex-end' | 'baseline' | 'stretch' | 'unset';
 
-export type TLineJustify = 'inherit' | 'initial' | 'flex-start' | 'center' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly';
+export type TLineJustify = 'inherit' | 'initial' | 'flex-start' | 'center' | 'flex-end' | 'space-around' | 'space-between' | 'space-evenly' | 'unset';
 
 export type TLineDirection = 'inherit' | 'row' | 'row-reverse' | 'column' | 'column-reverse';
 
@@ -167,7 +167,7 @@ export interface ILine extends IBaseElement {
   DividerProps?: TPropsAny;
 }
 
-const Line = React.forwardRef((props_: ILine, ref: any) => {
+const Line: React.FC<ILine> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLine?.props?.default, ...props_ }), [props_]);

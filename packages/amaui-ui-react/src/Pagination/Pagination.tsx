@@ -130,7 +130,7 @@ export interface IPagination extends ILine {
   IconLast?: TElementReference;
 }
 
-const Pagination = React.forwardRef((props_: IPagination, ref: any) => {
+const Pagination: React.FC<IPagination> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPagination?.props?.default, ...props_ }), [props_]);

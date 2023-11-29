@@ -15,7 +15,7 @@ export interface IBox extends IBaseElement {
   styles?: string | TValue;
 }
 
-const Box = React.forwardRef((props_: IBox, ref: any) => {
+const Box: React.FC<IBox> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBox?.props?.default, ...props_ }), [props_]);

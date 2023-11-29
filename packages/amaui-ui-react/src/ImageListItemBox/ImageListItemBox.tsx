@@ -32,7 +32,7 @@ export interface IImageListItemBox extends IListItem {
   backgroundOpacity?: number;
 }
 
-const ImageListItemBox = React.forwardRef((props_: IImageListItemBox, ref: any) => {
+const ImageListItemBox: React.FC<IImageListItemBox> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageListItemBox?.props?.default, ...props_ }), [props_]);

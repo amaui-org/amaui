@@ -124,7 +124,7 @@ export interface IRoundMeter extends IBaseElement {
   ArcProgressProps?: TPropsAny;
 }
 
-const RoundMeter = React.forwardRef((props_: IRoundMeter, ref: any) => {
+const RoundMeter: React.FC<IRoundMeter> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRoundMeter?.props?.default, ...props_ }), [props_]);

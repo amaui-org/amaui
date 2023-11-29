@@ -536,11 +536,11 @@ export interface ITextField extends IBaseElement {
 
   rootRef?: TRef;
 
-  valueDefault?: string;
-  value?: string;
+  valueDefault?: string | number;
+  value?: string | number;
   onChange?: (value: any, event?: React.ChangeEvent<HTMLInputElement>) => any;
 
-  label?: string;
+  label?: any;
   align?: 'start' | 'end';
   start?: TElement;
   startVerticalAlign?: 'start' | 'center' | 'end';
@@ -1372,7 +1372,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
                   error && classes.error_color
                 ])}
               >
-                {value?.length || 0}/{counter}
+                {String(value)?.length || 0}/{counter}
               </Type>
             )}
           </Line>

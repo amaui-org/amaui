@@ -57,7 +57,7 @@ export interface IBackdrop extends ILine {
   onClose?: TMethod;
 }
 
-const Backdrop = React.forwardRef((props_: IBackdrop, ref: any) => {
+const Backdrop: React.FC<IBackdrop> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBackdrop?.props?.default, ...props_ }), [props_]);

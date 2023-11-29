@@ -17,7 +17,7 @@ export interface ITimeRangePicker extends ITimePicker {
 
 }
 
-const TimeRangePicker = React.forwardRef((props_: ITimeRangePicker, ref: any) => {
+const TimeRangePicker: React.FC<ITimeRangePicker> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTimeRangePicker?.props?.default, ...props_ }), [props_]);

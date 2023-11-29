@@ -242,7 +242,7 @@ export interface IDrawing extends ISurface {
   ColorTextFieldProps?: TPropsAny;
 }
 
-const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
+const Drawing: React.FC<IDrawing> = React.forwardRef((props__, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDrawing?.props?.default, ...props__ }), [props__]);
@@ -1186,7 +1186,7 @@ const Drawing = React.forwardRef((props__: IDrawing, ref: any) => {
                         <ClickListener
                           onClickOutside={() => updateOpen('size', false)}
 
-                          include={[refs.elements.size]}
+                          include={[refs.elements.size as any]}
                         >
                           <Line
                             gap={1}

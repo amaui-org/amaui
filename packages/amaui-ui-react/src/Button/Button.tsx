@@ -278,7 +278,7 @@ export interface IButton extends Omit<ISurface, 'elevation'> {
   size?: TSizeAny;
 
   fullWidth?: boolean;
-  fontSize?: number;
+  fontSize?: string | number;
   selected?: boolean;
   iconSelected?: TElement;
   start?: TElement;
@@ -312,7 +312,7 @@ export interface IButton extends Omit<ISurface, 'elevation'> {
   IconWrapperProps?: TPropsAny;
 }
 
-const Button = React.forwardRef((props_: IButton, ref: any) => {
+const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiButton?.props?.default, ...props_ }), [props_]);

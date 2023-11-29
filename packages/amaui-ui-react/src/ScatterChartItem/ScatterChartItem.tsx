@@ -43,12 +43,12 @@ export interface IScatterChartItem extends IChart {
 
   values?: TChartValueValues;
 
-  updateDefs: TMethod;
+  updateDefs?: TMethod;
 
-  updateLegend: TMethod;
+  updateLegend?: TMethod;
 }
 
-const ScatterChartItem = React.forwardRef((props_: IScatterChartItem, ref: any) => {
+const ScatterChartItem: React.FC<IScatterChartItem> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiScatterChartItem?.props?.default, ...props_ }), [props_]);

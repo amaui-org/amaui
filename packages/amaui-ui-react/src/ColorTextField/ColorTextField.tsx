@@ -50,7 +50,7 @@ export interface IColorTextField extends ITextField {
 
 }
 
-const ColorTextField = React.forwardRef((props_: IColorTextField, ref: any) => {
+const ColorTextField: React.FC<IColorTextField> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiColorTextField?.props?.default, ...props_ }), [props_]);

@@ -128,7 +128,7 @@ export interface IScreenCapture extends ISurface {
   ImageCropProps?: TPropsAny;
 }
 
-const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
+const ScreenCapture: React.FC<IScreenCapture> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiScreenCapture?.props?.default, ...props_ }), [props_]);
@@ -497,7 +497,7 @@ const ScreenCapture = React.forwardRef((props_: IScreenCapture, ref: any) => {
     fullWidth: true
   };
 
-  const tooltipProps = {
+  const tooltipProps: any = {
     position: 'top',
     portal: false,
     interactive: false

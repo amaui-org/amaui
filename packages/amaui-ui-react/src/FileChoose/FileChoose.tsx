@@ -9,8 +9,9 @@ import IconButton from '../IconButton';
 import Tree from '../Tree';
 import Line from '../Line';
 import Icon from '../Icon';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TRef, TTonal } from '../utils';
+import { staticClassName, TColor, TElementReference, TPropsAny, TRef, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -119,7 +120,7 @@ const IconMaterialFolderOpenRounded = React.forwardRef((props: any, ref) => {
 
 export type TFileChooseValue = File | Array<File>;
 
-export interface IFileChoose extends IBaseElement {
+export interface IFileChoose extends ILine {
   tonal?: TTonal;
   color?: TColor;
 
@@ -152,7 +153,7 @@ export interface IFileChoose extends IBaseElement {
   ComponentProps?: TPropsAny;
 }
 
-const FileChoose = React.forwardRef((props_: IFileChoose, ref: any) => {
+const FileChoose: React.FC<IFileChoose> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiFileChoose?.props?.default, ...props_ }), [props_]);
@@ -260,7 +261,7 @@ const FileChoose = React.forwardRef((props_: IFileChoose, ref: any) => {
     if (is('function', onClick)) onClick(event);
   };
 
-  const Wrapper = files ? Line : React.Fragment;
+  const Wrapper: any = files ? Line : React.Fragment;
 
   const WrapperProps = files ? {
     ref,
@@ -430,7 +431,7 @@ const FileChoose = React.forwardRef((props_: IFileChoose, ref: any) => {
 
                       priority='secondary'
                     >
-                      {to(item.size, 'size-format')}
+                      {to(item.size, 'size-format') as any}
                     </Type>
                   </Line>
                 )}

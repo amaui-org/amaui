@@ -52,7 +52,7 @@ export interface ISpeedDialItem extends IIconButton {
   TooltipProps?: TPropsAny;
 }
 
-const SpeedDialItem = React.forwardRef((props_: ISpeedDialItem, ref: any) => {
+const SpeedDialItem: React.FC<ISpeedDialItem> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSpeedDialItem?.props?.default, ...props_ }), [props_]);

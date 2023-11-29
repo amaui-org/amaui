@@ -23,7 +23,7 @@ const Wrapper = React.forwardRef((props: any, ref: any) => {
   );
 });
 
-export interface IExpand extends ITransition {
+export interface IExpand extends Omit<ITransition, 'className'> {
   // required
   // in order to properly
   // evaluate the height of the children
@@ -37,9 +37,11 @@ export interface IExpand extends ITransition {
   orientation?: 'veritcal' | 'horizontal';
 
   WrapperProps?: TPropsAny;
+
+  className?: string;
 }
 
-const Expand = React.forwardRef((props_: IExpand, ref: any) => {
+const Expand: React.FC<IExpand> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiExpand?.props?.default, ...props_ }), [props_]);
@@ -228,7 +230,7 @@ const Expand = React.forwardRef((props_: IExpand, ref: any) => {
     <Transition
       removeOnExited
 
-      {...props}
+      {...props as any}
     >
       {(status: TTransitionStatus, ref_) => {
         // If children update

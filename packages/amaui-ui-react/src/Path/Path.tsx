@@ -14,7 +14,7 @@ export interface IPath extends IBaseElement {
   value?: any;
 }
 
-const Path = React.forwardRef((props_: IPath, ref: any) => {
+const Path: React.FC<IPath> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPath?.props?.default, ...props_ }), [props_]);

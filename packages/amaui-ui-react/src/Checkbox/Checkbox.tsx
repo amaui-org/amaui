@@ -227,7 +227,7 @@ export interface ICheckbox extends IIconButton {
   disabled?: boolean;
 }
 
-const Checkbox = React.forwardRef((props_: ICheckbox, ref: any) => {
+const Checkbox: React.FC<ICheckbox> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.amauiCheckbox?.props?.default }), [props_]);

@@ -10,8 +10,9 @@ import Path from '../Path';
 import Append from '../Append';
 import Grow from '../Grow';
 import useMediaQuery from '../useMediaQuery';
+import { ISurface } from '../Surface/Surface';
 
-import { staticClassName, valueBreakpoints, minMaxBetweenNumbers, IBaseElement, TTonal, TColor, TElementAny, TStyle, TElement, TPropsAny, TValueBreakpoints } from '../utils';
+import { staticClassName, valueBreakpoints, minMaxBetweenNumbers, TTonal, TColor, TElementAny, TStyle, TElement, TPropsAny, TValueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -334,7 +335,7 @@ export interface IChartValue {
   values: TChartValueValues | Array<TChartValueValues>;
 }
 
-export interface IChart extends IBaseElement {
+export interface IChart extends ISurface {
   tonal?: TTonal;
   color?: TColor;
   title?: TElementAny;
@@ -452,10 +453,10 @@ export interface IChart extends IBaseElement {
   noMain?: boolean;
 
   // Methods
-  tooltipRender: (values: IChartValue) => any;
-  tooltipGroupRender: (groups: Array<IChartValue>, groupsSorted: string[]) => any;
-  labelRender: (value: IChartValue) => any;
-  labelResolve: (value: number, axes: 'x' | 'y', item: IChartValue, version?: 'group' | 'individual') => string;
+  tooltipRender?: (values: IChartValue) => any;
+  tooltipGroupRender?: (groups: Array<IChartValue>, groupsSorted: string[]) => any;
+  labelRender?: (value: IChartValue) => any;
+  labelResolve?: (value: number, axes: 'x' | 'y', item: IChartValue, version?: 'group' | 'individual') => string;
   onUpdateRects?: (rects: {
     wrapper: DOMRect;
     svg: DOMRect;
@@ -479,7 +480,7 @@ export interface IChart extends IBaseElement {
   WrapperProps?: TPropsAny;
 }
 
-const Chart = React.forwardRef((props_: IChart, ref: any) => {
+const Chart: React.FC<IChart> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiChart?.props?.default, ...props_ }), [props_]);

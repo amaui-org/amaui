@@ -6,8 +6,9 @@ import { AmauiDate, is as isAmauiDate, set } from '@amaui/date';
 
 import RoundMeter from '../RoundMeter';
 import Path from '../Path';
+import { IRoundMeter } from '../RoundMeter/RoundMeter';
 
-import { IBaseElement, staticClassName, TColor, TSize, TTonal } from '../utils';
+import { staticClassName, TColor, TSize, TTonal } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -38,7 +39,7 @@ export type TClockUnit = 'hour' | 'minute' | 'second';
 
 export type TClockDayTime = 'am' | 'pm';
 
-export interface IClock extends IBaseElement {
+export interface IClock extends IRoundMeter {
   tonal?: TTonal;
   color?: TColor;
 
@@ -69,7 +70,7 @@ export interface IClock extends IBaseElement {
   onDoneSelecting?: (value: TClockValue, selecting: TClockUnit) => any;
 }
 
-const Clock = React.forwardRef((props__: IClock, ref: any) => {
+const Clock: React.FC<IClock> = React.forwardRef((props__, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiClock?.props?.default, ...props__ }), [props__]);

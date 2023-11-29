@@ -43,7 +43,7 @@ export interface IPaginationItem extends IButton {
   TypeProps?: TPropsAny;
 }
 
-const PaginationItem = React.forwardRef((props_: IPaginationItem, ref) => {
+const PaginationItem: React.FC<IPaginationItem> = React.forwardRef((props_, ref) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPaginationItem?.props?.default, ...props_ }), [props_]);

@@ -3,7 +3,8 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
-import Chip, { IChip } from '../Chip/Chip';
+import Chip from '../Chip/Chip';
+import { ILine } from '../Line/Line';
 
 import { staticClassName, TElement, TPropsAny } from '../utils';
 
@@ -58,7 +59,7 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-Chips' });
 
-export interface IChips extends IChip {
+export interface IChips extends ILine {
   total?: number;
   max?: number;
 
@@ -67,7 +68,7 @@ export interface IChips extends IChip {
   AdditionalChipProps?: TPropsAny;
 }
 
-const Chips = React.forwardRef((props_: IChips, ref: any) => {
+const Chips: React.FC<IChips> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiChips?.props?.default, ...props_ }), [props_]);

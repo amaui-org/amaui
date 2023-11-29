@@ -20,7 +20,7 @@ export interface ICardFooter extends ILine {
   elevation?: TElevation;
 }
 
-const CardFooter = React.forwardRef((props_: ICardFooter, ref: any) => {
+const CardFooter: React.FC<ICardFooter> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCardFooter?.props?.default, ...props_ }), [props_]);

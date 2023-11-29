@@ -4,7 +4,7 @@ import { is, wait } from '@amaui/utils';
 import AmauiSubscription from '@amaui/subscription';
 import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amaui/style-react';
 
-import TransitionContext from './TransitionContext';
+import TransitionContext from './Context';
 import { IBaseElement, reflow } from '../utils';
 
 export type TTransitionStatus = 'appended' | 'add' | 'adding' | 'added' | 'enter' | 'entering' | 'entered' | 'exit' | 'exiting' | 'exited' | 'removed';
@@ -89,7 +89,7 @@ export interface ITransition extends Omit<IBaseElement, 'children' | 'className'
   [p: string]: any;
 }
 
-function Transition(props_: ITransition) {
+const Transition: React.FC<ITransition> = (props_) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTransition?.props?.default, ...props_ }), [props_]);
@@ -532,7 +532,7 @@ function Transition(props_: ITransition) {
       }
     </TransitionContext.Provider>
   );
-}
+};
 
 Transition.displayName = 'amaui-Transition';
 

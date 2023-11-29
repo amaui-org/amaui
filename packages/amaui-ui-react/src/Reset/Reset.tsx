@@ -9,7 +9,7 @@ export interface IReset extends IBaseElement {
 
 }
 
-const Reset = (props: IReset) => {
+const Reset: React.FC<IReset> = (props) => {
   const { children, ...other } = props;
 
   useReset(other);

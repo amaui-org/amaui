@@ -27,7 +27,7 @@ export interface IMasonry extends Omit<ILine, 'gap'> {
   NoMasonryProps?: any;
 }
 
-const Masonry = React.forwardRef((props_: IMasonry, ref: any) => {
+const Masonry: React.FC<IMasonry> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMasonry?.props?.default, ...props_ }), [props_]);

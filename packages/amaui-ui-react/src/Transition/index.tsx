@@ -1,4 +1,4 @@
-export { default as TransitionContext } from './TransitionContext';
+export { default as TransitionContext } from './Context';
 export { default as useTransition } from './useTransition';
 
 export * from './Transition';

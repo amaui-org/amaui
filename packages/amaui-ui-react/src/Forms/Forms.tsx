@@ -3,8 +3,9 @@ import React from 'react';
 import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -12,11 +13,11 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-Forms' });
 
-export interface IForms extends IBaseElement {
+export interface IForms extends ILine {
   divider?: boolean;
 }
 
-const Forms = React.forwardRef((props_: IForms, ref: any) => {
+const Forms: React.FC<IForms> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiForms?.props?.default, ...props_ }), [props_]);

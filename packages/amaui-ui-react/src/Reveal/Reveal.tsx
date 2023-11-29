@@ -4,8 +4,9 @@ import { is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Fade from '../Fade';
+import { IFade } from '../Fade/Fade';
 
-import { IBaseElement, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -13,7 +14,7 @@ const useStyle = styleMethod(theme => ({
   },
 }), { name: 'amaui-Reveal' });
 
-export interface IReveal extends IBaseElement {
+export interface IReveal extends IFade {
   inDefault?: boolean;
 
   offset?: number;
@@ -29,7 +30,7 @@ export interface IReveal extends IBaseElement {
   noTransition?: boolean;
 }
 
-const Reveal = React.forwardRef((props_: IReveal, ref: any) => {
+const Reveal: React.FC<IReveal> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiReveal?.props?.default, ...props_ }), [props_]);

@@ -3,8 +3,9 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -12,11 +13,11 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-ModalFooter' });
 
-export interface IModalFooter extends IBaseElement {
+export interface IModalFooter extends ILine {
 
 }
 
-const ModalFooter = React.forwardRef((props_: IModalFooter, ref: any) => {
+const ModalFooter: React.FC<IModalFooter> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModalFooter?.props?.default, ...props_ }), [props_]);

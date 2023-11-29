@@ -7,7 +7,7 @@ import Type from '../Type';
 import Line from '../Line';
 
 import { staticClassName, TColor, TElement, TPropsAny, TSize, TTonal, TVersion } from '../utils';
-import { ILine } from '../Line/Line';
+import { ILine, TLineAlign } from '../Line/Line';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -71,7 +71,7 @@ export interface ILabel extends ILine {
   TypeProps?: TPropsAny;
 }
 
-const Label = React.forwardRef((props_: ILabel, ref: any) => {
+const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLabel?.props?.default, ...props_ }), [props_]);
@@ -151,7 +151,7 @@ const Label = React.forwardRef((props_: ILabel, ref: any) => {
 
   const padding = !['amaui-Checkbox', 'amaui-Radio'].includes(Input?.type?.displayName);
 
-  let align = 'center';
+  let align: TLineAlign = 'center';
 
   const justify = 'center';
 

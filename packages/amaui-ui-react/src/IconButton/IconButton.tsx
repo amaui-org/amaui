@@ -17,7 +17,7 @@ export interface IIconButton extends IButton {
 
 }
 
-const IconButton = React.forwardRef((props_: IIconButton, ref: any) => {
+const IconButton: React.FC<IIconButton> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiIconButton?.props?.default, ...props_ }), [props_]);

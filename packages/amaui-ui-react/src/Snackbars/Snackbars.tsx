@@ -5,10 +5,11 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Snackbar from '../Snackbar';
 import { ISnackbar } from '../Snackbar/Snackbar';
-import SnackbarsContext from './SnackbarsContext';
+import SnackbarsContext from './Context';
 import Slide from '../Slide';
 import Expand from '../Expand';
 import Line from '../Line';
+import { TLineAlign } from '../Line/Line';
 
 import { IBaseElement, staticClassName, TPropsAny } from '../utils';
 
@@ -64,7 +65,7 @@ const useStyle = styleMethod(theme => ({
     insetInlineEnd: '24px',
     insetInlineStart: 'auto'
   }
-}), { name: 'amaui-SnackbarsProvider' });
+}), { name: 'amaui-Snackbars' });
 
 export interface ISnackbars extends IBaseElement {
   max?: number;
@@ -74,10 +75,10 @@ export interface ISnackbars extends IBaseElement {
   SnackbarProps?: TPropsAny;
 }
 
-const SnackbarsProvider = React.forwardRef((props_: ISnackbars, ref: any) => {
+const Snackbars: React.FC<ISnackbars> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSnackbarsProvider?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSnackbars?.props?.default, ...props_ }), [props_]);
 
   const {
     max = 4,
@@ -228,7 +229,7 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbars, ref: any) => {
 
   refs.value.current.remove = remove;
 
-  let align = 'center';
+  let align: TLineAlign = 'center';
 
   if (['start', 'left'].includes(alignment)) align = 'flex-start';
 
@@ -312,6 +313,6 @@ const SnackbarsProvider = React.forwardRef((props_: ISnackbars, ref: any) => {
   );
 });
 
-SnackbarsProvider.displayName = 'amaui-SnackbarsProvider';
+Snackbars.displayName = 'amaui-Snackbars';
 
-export default SnackbarsProvider;
+export default Snackbars;

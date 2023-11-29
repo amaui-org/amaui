@@ -10,7 +10,7 @@ export interface IPortal extends IBaseElement {
   element?: Element | DocumentFragment;
 }
 
-const Portal = React.forwardRef((props_: IPortal, ref: any) => {
+const Portal: React.FC<IPortal> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPortal?.props?.default, ...props_ }), [props_]);

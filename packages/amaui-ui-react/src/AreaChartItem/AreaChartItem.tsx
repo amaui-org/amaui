@@ -57,9 +57,9 @@ export interface IAreaChartItem extends IChart {
 
   values?: TChartValueValues;
 
-  updateDefs: TMethod;
+  updateDefs?: TMethod;
 
-  updateLegend: TMethod;
+  updateLegend?: TMethod;
 
   smooth?: boolean;
 
@@ -68,7 +68,7 @@ export interface IAreaChartItem extends IChart {
   linearGradient?: boolean;
 }
 
-const AreaChartItem = React.forwardRef((props_: IAreaChartItem, ref: any) => {
+const AreaChartItem: React.FC<IAreaChartItem> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAreaChartItem?.props?.default, ...props_ }), [props_]);

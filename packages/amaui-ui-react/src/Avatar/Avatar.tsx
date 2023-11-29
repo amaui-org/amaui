@@ -44,7 +44,7 @@ export interface IAvatar extends Omit<IButton, 'elevation'> {
   InteractionProps?: TPropsAny;
 }
 
-const Avatar = React.forwardRef((props_: IAvatar, ref) => {
+const Avatar: React.FC<IAvatar> = React.forwardRef((props_, ref) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAvatar?.props?.default, ...props_ }), [props_]);
@@ -126,7 +126,7 @@ const Avatar = React.forwardRef((props_: IAvatar, ref) => {
 
       tonal={tonal}
 
-      elevation={elevation}
+      elevation={elevation as any}
 
       version={version}
 

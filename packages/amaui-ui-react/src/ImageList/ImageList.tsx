@@ -44,7 +44,7 @@ export interface IImageList extends IBaseElement {
   columns?: number | Record<TValueBreakpoints, number>;
 }
 
-const ImageList = React.forwardRef((props_: IImageList, ref: any) => {
+const ImageList: React.FC<IImageList> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageList?.props?.default, ...props_ }), [props_]);

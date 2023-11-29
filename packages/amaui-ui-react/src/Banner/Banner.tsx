@@ -56,7 +56,7 @@ export interface IBanner extends IBaseElement {
   actions?: TElement;
 }
 
-const Banner = React.forwardRef((props_: IBanner, ref: any) => {
+const Banner: React.FC<IBanner> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBanner?.props?.default, ...props_ }), [props_]);
@@ -108,11 +108,11 @@ const Banner = React.forwardRef((props_: IBanner, ref: any) => {
 
         values={{
           md: 2
-        }}
+        } as any}
 
         offsets={{
           md: 1
-        }}
+        } as any}
       >
         {actions}
       </Grid>

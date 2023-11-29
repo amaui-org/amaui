@@ -21,7 +21,7 @@ export interface IListSubheader extends IListItem {
 
 }
 
-const ListSubheader = React.forwardRef((props_: IListSubheader, ref: any) => {
+const ListSubheader: React.FC<IListSubheader> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiListSubheader?.props?.default, ...props_ }), [props_]);

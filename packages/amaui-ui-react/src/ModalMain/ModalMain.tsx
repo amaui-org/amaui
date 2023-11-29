@@ -3,6 +3,7 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
+import { ILine, TLineAlign } from '../Line/Line';
 
 import { IBaseElement, staticClassName } from '../utils';
 
@@ -16,11 +17,11 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-ModalMain' });
 
-export interface IModalMain extends IBaseElement {
+export interface IModalMain extends ILine {
 
 }
 
-const ModalMain = React.forwardRef((props_: IModalMain, ref: any) => {
+const ModalMain: React.FC<IModalMain> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModalMain?.props?.default, ...props_ }), [props_]);
@@ -35,7 +36,7 @@ const ModalMain = React.forwardRef((props_: IModalMain, ref: any) => {
     ...other
   } = props;
 
-  let align = 'flex-start';
+  let align: TLineAlign = 'flex-start';
 
   if (React.Children.toArray(children).length > 1) align = 'center';
 

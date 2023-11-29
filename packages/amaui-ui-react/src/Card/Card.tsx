@@ -57,7 +57,7 @@ export interface ICard extends ISurface {
   InteractionProps?: TPropsAny;
 }
 
-const Card = React.forwardRef((props_: ICard, ref: any) => {
+const Card: React.FC<ICard> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCard?.props?.default, ...props_ }), [props_]);

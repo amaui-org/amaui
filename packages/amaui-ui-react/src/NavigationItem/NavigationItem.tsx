@@ -8,8 +8,9 @@ import Type from '../Type';
 import Fade from '../Fade';
 import Line from '../Line';
 import Tooltip from '../Tooltip';
+import { ITooltip } from '../Tooltip/Tooltip';
 
-import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TVersion } from '../utils';
+import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -124,7 +125,9 @@ const useStyle = styleMethod(theme => ({
 
 // Long press label in tooltip
 
-export interface INavigationItem extends IBaseElement {
+export type INavigationItemVersion = 'regular' | 'auto';
+
+export interface INavigationItem extends ITooltip {
   tonal?: TTonal;
   color?: TColor;
   version?: 'regular' | 'auto';
@@ -151,7 +154,7 @@ export interface INavigationItem extends IBaseElement {
   IconWrapperProps?: TPropsAny;
 }
 
-const NavigationItem = React.forwardRef((props_: INavigationItem, ref: any) => {
+const NavigationItem: React.FC<INavigationItem> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiNavigationItem?.props?.default, ...props_ }), [props_]);

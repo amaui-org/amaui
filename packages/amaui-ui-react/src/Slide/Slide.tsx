@@ -14,7 +14,7 @@ export interface ISlide extends ITransition {
   delay?: number;
 }
 
-const Slide = React.forwardRef((props_: ISlide, ref: any) => {
+const Slide: React.FC<ISlide> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSlide?.props?.default, ...props_ }), [props_]);

@@ -23,7 +23,7 @@ export interface IFocus extends IBaseElement {
 
 }
 
-const Focus = React.forwardRef((props_: IFocus, ref: any) => {
+const Focus: React.FC<IFocus> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiFocus?.props?.default, ...props_ }), [props_]);

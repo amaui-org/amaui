@@ -9,8 +9,9 @@ import IconButton from '../IconButton';
 import Line from '../Line';
 import Tooltip from '../Tooltip';
 import Type from '../Type';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, TElement, TElementReference, staticClassName } from '../utils';
+import { TElement, TElementReference, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -37,7 +38,7 @@ export interface IPageForward {
   label?: string;
 }
 
-export interface IPage extends IBaseElement {
+export interface IPage extends ILine {
   back?: IPageForward;
   forward?: IPageForward;
 
@@ -81,7 +82,7 @@ const IconMaterialArrowForwardRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const Page = React.forwardRef((props_: IPage, ref: any) => {
+const Page: React.FC<IPage> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPage?.props?.default, ...props_ }), [props_]);

@@ -4,7 +4,7 @@ import { is, wait } from '@amaui/utils';
 import AmauiSubscription from '@amaui/subscription';
 import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amaui/style-react';
 
-import KeyframesContext from './KeyframesContext';
+import KeyframesContext from './Context';
 
 import { IBaseElement, reflow, TRef } from '../utils';
 
@@ -51,7 +51,7 @@ export interface IKeyframes extends Omit<IBaseElement, 'className'> {
   onRemoved?: (element: HTMLElement) => void;
 }
 
-function Keyframes(props_: IKeyframes) {
+const Keyframes: React.FC<IKeyframes> = (props_) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiKeyframes?.props?.default, ...props_ }), [props_]);
@@ -276,7 +276,7 @@ function Keyframes(props_: IKeyframes) {
       }
     </KeyframesContext.Provider>
   );
-}
+};
 
 Keyframes.displayName = 'amaui-Keyframes';
 

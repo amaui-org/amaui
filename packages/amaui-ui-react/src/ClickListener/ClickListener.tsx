@@ -18,14 +18,14 @@ export interface IClickListener extends IBaseElement {
 
   includeQueries?: Array<string>;
 
-  ignoreNonExisting: boolean;
+  ignoreNonExistin?: boolean;
 
   onClickInside?: () => any;
 
   onClickOutside?: () => any;
 }
 
-const ClickListener = React.forwardRef((props_: IClickListener, ref: any) => {
+const ClickListener: React.FC<IClickListener> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiClickListener?.props?.default, ...props_ }), [props_]);

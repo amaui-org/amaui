@@ -136,7 +136,7 @@ export interface IModal extends IBaseElement {
   mainRef?: TRef;
   backgroundRef?: TRef;
 
-  partialyOpened?: number;
+  partialyOpened?: boolean | number;
 
   minWidth?: 'xss' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'xxl';
 
@@ -171,7 +171,7 @@ export interface IModal extends IBaseElement {
   TransitionComponent?: TElementReference;
 }
 
-const Modal = React.forwardRef((props_: IModal, ref: any) => {
+const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModal?.props?.default, ...props_ }), [props_]);

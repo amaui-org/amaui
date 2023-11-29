@@ -377,7 +377,7 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
   AdvancedTextFieldProps?: TPropsAny;
 }
 
-const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
+const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTimePicker?.props?.default, ...props__ }), [props__]);
@@ -1010,7 +1010,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
   }
 
   const makeInputs = (index = 0) => {
-    const inputProps = {
+    const inputProps: any = {
       tonal,
       color,
       version: 'outlined',
@@ -1334,7 +1334,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
       align='center'
 
-      Component={Line}
+      Component={Line as any}
 
       {...MainProps}
 
@@ -1658,7 +1658,7 @@ const TimePicker = React.forwardRef((props__: ITimePicker, ref: any) => {
 
           label={(
             <ClickListener
-              onClickOutside={onCancel}
+              onClickOutside={onCancel as any}
 
               includeParentQueries={['.amaui-TimePicker-main']}
             >

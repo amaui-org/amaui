@@ -16,22 +16,22 @@ const useStyle = styleMethod(theme => ({
     inset: '0px auto auto 0px'
   },
 
-  labelRoot: {
+  nameRoot: {
     pointerEvents: 'all',
     whiteSpace: 'nowrap'
   },
 
-  labelRoot_position_top: { paddingBlock: '16px' },
+  nameRoot_position_top: { paddingBlock: '16px' },
 
-  labelRoot_position_bottom: { paddingBlock: '16px' },
+  nameRoot_position_bottom: { paddingBlock: '16px' },
 
-  labelRoot_position_left: { paddingInline: '16px' },
+  nameRoot_position_left: { paddingInline: '16px' },
 
-  labelRoot_position_right: { paddingInline: '16px' },
+  nameRoot_position_right: { paddingInline: '16px' },
 
-  labelRoot_noMargin: { padding: '0' },
+  nameRoot_noMargin: { padding: '0' },
 
-  label: {
+  name: {
     ...theme.typography.values.b3,
 
     borderRadius: `${clamp(theme.shape.radius.unit / 2, 0, 8)}px`,
@@ -178,6 +178,7 @@ export interface ITooltip extends Omit<IModal, 'maxWidth'> {
 
   openDefault?: boolean;
 
+  name?: TElement;
   label?: TElement;
 
   parent?: THTMLElement;
@@ -190,7 +191,7 @@ export interface ITooltip extends Omit<IModal, 'maxWidth'> {
   arrow?: boolean;
   anchor?: DOMRect;
   anchorElement?: THTMLElement;
-  noMargin?: string;
+  noMargin?: boolean;
   classNameSwitch?: string;
   transformOrigin?: string;
   transformOriginSwitch?: string;
@@ -218,7 +219,7 @@ export interface ITooltip extends Omit<IModal, 'maxWidth'> {
   LabelProps?: TPropsAny;
 }
 
-const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
+const Tooltip: React.FC<ITooltip> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTooltip?.props?.default, ...props_ }), [props_]);
@@ -231,6 +232,7 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
 
     openDefault,
 
+    name,
     label,
 
     parent,
@@ -307,8 +309,8 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
   const { classes } = useStyle(props);
 
   const styles: any = {
-    label: {},
-    labelRoot: {}
+    name: {},
+    nameRoot: {}
   };
 
   const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
@@ -479,6 +481,8 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
     if (position === 'bottom') return 'top';
   };
 
+  const nameValue = name || label;
+
   return (
     <Append
       open={open}
@@ -508,13 +512,13 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
         const switched = items.values.switch;
 
         if (!rtl) {
-          styles.labelRoot.transformOrigin = (!switched ? transformOrigin : transformOriginSwitch) || transformOrigin;
+          styles.nameRoot.transformOrigin = (!switched ? transformOrigin : transformOriginSwitch) || transformOrigin;
         }
         else {
-          styles.labelRoot.transformOrigin = (!switched ? transformOriginRtl : transformOriginRtlSwitch) || transformOriginRtl;
+          styles.nameRoot.transformOrigin = (!switched ? transformOriginRtl : transformOriginRtlSwitch) || transformOriginRtl;
         }
 
-        if (!styles.labelRoot.transformOrigin) styles.labelRoot.transformOrigin = transformOrigin;
+        if (!styles.nameRoot.transformOrigin) styles.nameRoot.transformOrigin = transformOrigin;
 
         return (
           <Modal
@@ -591,24 +595,24 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
               <div
                 role='tooltip'
 
-                aria-label={is('simple', label) ? label as any : undefined}
+                aria-label={is('simple', nameValue) ? nameValue as any : undefined}
 
                 className={classNames([
                   staticClassName('Tooltip', theme) && [
-                    'amaui-Tooltip-label-root'
+                    'amaui-Tooltip-name-root'
                   ],
 
-                  classes.labelRoot,
-                  classes[`labelRoot_position_${resolvePosition(items.values.switch)}`],
+                  classes.nameRoot,
+                  classes[`nameRoot_position_${resolvePosition(items.values.switch)}`],
                   classes[`maxWidth_${maxWidth}`],
-                  noMargin && classes.labelRoot_noMargin,
+                  noMargin && classes.nameRoot_noMargin,
                   fullWidth && classes.fullWidth,
                   nowrap && classes.nowrap
                 ])}
 
-                style={styles.labelRoot}
+                style={styles.nameRoot}
               >
-                {is('simple', label) ?
+                {is('simple', nameValue) ?
                   <Surface
                     tonal={tonal}
 
@@ -618,11 +622,11 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
 
                     className={classNames([
                       staticClassName('Tooltip', theme) && [
-                        'amaui-Tooltip-label'
+                        'amaui-Tooltip-name'
                       ],
 
                       LabelProps?.className,
-                      classes.label,
+                      classes.name,
                       arrow && [
                         classes.arrow,
                         classes[`arrow_position_${position}_alignment_${alignment}`]
@@ -630,7 +634,7 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
                     ])}
 
                     style={{
-                      ...styles.label,
+                      ...styles.name,
 
                       ...LabelProps?.style
                     }}
@@ -638,17 +642,17 @@ const Tooltip = React.forwardRef((props_: ITooltip, ref: any) => {
                     <span
                       className={classNames([
                         staticClassName('Tooltip', theme) && [
-                          'amaui-Tooltip-label-text'
+                          'amaui-Tooltip-name-text'
                         ],
                       ])}
                     >
-                      {label}
+                      {nameValue}
                     </span>
                   </Surface> :
 
-                  React.cloneElement(label as any, {
+                  React.cloneElement(nameValue as any, {
                     className: classNames([
-                      (label as any)?.props?.className,
+                      (nameValue as any)?.props?.className,
                       arrow && [
                         classes.arrow,
                         classes[`arrow_position_${position}_alignment_${alignment}`]

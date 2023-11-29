@@ -4,13 +4,15 @@ import { getLeadingZerosNumber, is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import { AmauiDate, duration } from '@amaui/date';
 
-import { IBaseElement, staticClassName, TElementReference, TPropsAny, TSize } from '../utils';
 import Line from '../Line';
 import Fade from '../Fade';
 import Type from '../Type';
 import Tooltip from '../Tooltip';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
+import { ILine } from '../Line/Line';
+
+import { staticClassName, TElementReference, TPropsAny, TSize } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   '@keyframes pulse': {
@@ -51,7 +53,7 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-AudioRecorder' });
 
-export interface IAudioRecorder extends IBaseElement {
+export interface IAudioRecorder extends ILine {
   size?: TSize;
 
   pause?: boolean;
@@ -161,7 +163,7 @@ const IconMaterialStopRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const AudioRecorder = React.forwardRef((props_: IAudioRecorder, ref: any) => {
+const AudioRecorder: React.FC<IAudioRecorder> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAudioRecorder?.props?.default, ...props_ }), [props_]);

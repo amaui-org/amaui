@@ -21,7 +21,7 @@ export interface ITableBody extends ISurface {
   size?: TSize;
 }
 
-const TableBody = React.forwardRef((props_: ITableBody, ref: any) => {
+const TableBody: React.FC<ITableBody> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTableBody?.props?.default, ...props_ }), [props_]);

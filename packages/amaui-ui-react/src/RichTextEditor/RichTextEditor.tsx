@@ -906,7 +906,7 @@ export interface IRichTextEditor extends ILine {
   ColorTextFieldProps?: TPropsAny;
 }
 
-const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => {
+const RichTextEditor: React.FC<IRichTextEditor> = React.forwardRef((props__, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRichTextEditor?.props?.default, ...props__ }), [props__]);
@@ -2261,7 +2261,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
           <ClickListener
             onClickOutside={() => updateOpen('colorMiniMenu', false)}
 
-            include={[refs.miniMenuElements.color]}
+            include={[refs.miniMenuElements.color as any]}
           >
             <Palette
               ref={refs.miniMenuElements.colorPalette}
@@ -2349,7 +2349,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
           <ClickListener
             onClickOutside={() => updateOpen('backgroundMiniMenu', false)}
 
-            include={[refs.miniMenuElements.background]}
+            include={[refs.miniMenuElements.background as any]}
           >
             <Palette
               ref={refs.miniMenuElements.backgroundPalette}
@@ -2641,7 +2641,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
           <ClickListener
             onClickOutside={() => updateOpen('linkMiniMenu', false)}
 
-            include={[refs.miniMenuElements.linkAdd]}
+            include={[refs.miniMenuElements.linkAdd as any]}
           >
             <Input
               ref={refs.miniMenuElements.linkAddInput}
@@ -3860,7 +3860,7 @@ const RichTextEditor = React.forwardRef((props__: IRichTextEditor, ref: any) => 
                 }}
               >
                 <Fade
-                  in={selection}
+                  in={!!selection}
 
                   add
                 >

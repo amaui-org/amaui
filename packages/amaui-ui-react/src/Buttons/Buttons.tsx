@@ -248,7 +248,7 @@ export interface IButtons extends ILine {
   disabled?: boolean;
 }
 
-const Buttons = React.forwardRef((props_: IButtons, ref: any) => {
+const Buttons: React.FC<IButtons> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiButtons?.props?.default, ...props_ }), [props_]);

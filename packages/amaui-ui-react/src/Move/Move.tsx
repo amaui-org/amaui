@@ -22,7 +22,7 @@ export interface IMove extends IBaseElement {
   onTouchStart?: (event: React.TouchEvent<any>) => any;
 }
 
-const Move = React.forwardRef((props_: IMove, ref: any) => {
+const Move: React.FC<IMove> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMove?.props?.default, ...props_ }), [props_]);

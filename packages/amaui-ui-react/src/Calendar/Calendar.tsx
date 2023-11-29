@@ -19,9 +19,10 @@ import Carousel from '../Carousel';
 import PaginationItem from '../PaginationItem';
 import { IconDoneAnimated } from '../Buttons/Buttons';
 import { ICalenarDays, TCalendarMonthCalendar, TCalendarMonthValue } from '../CalendarMonth/CalendarMonth';
-
-import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TSize, TTonal } from '../utils';
 import { TTransitionStatus } from '../Transition';
+import { ISurface } from '../Surface/Surface';
+
+import { staticClassName, TColor, TElementReference, TPropsAny, TSize, TTonal } from '../utils';
 
 const useStyle = style(theme => ({
   root: {
@@ -162,7 +163,7 @@ export type TGetAmauiDates = (value: TCalendarMonthValue, calendar: TCalendarMon
 
 export type TCalendarUnit = 'day' | 'month' | 'year';
 
-export interface ICalendar extends IBaseElement {
+export interface ICalendar extends Omit<ISurface, 'version'> {
   tonal?: TTonal;
   color?: TColor;
 
@@ -202,7 +203,7 @@ export interface ICalendar extends IBaseElement {
 
   CalendarMonthProps?: any;
   CalendarDayProps?: ICalenarDays;
-  OptionButtonProps: any;
+  OptionButtonProps?: any;
 }
 
 const IconMaterialNavigateBeforeRounded = React.forwardRef((props: any, ref) => {
@@ -253,7 +254,7 @@ const IconMaterialArrowDropDownRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
-const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
+const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCalendar?.props?.default, ...props__ }), [props__]);
@@ -980,7 +981,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
                 aria-label='Previous month'
 
-                disabled={open || (+year === 1970 && month === 'Jan')}
+                disabled={!!(open || (+year === 1970 && month === 'Jan'))}
               >
                 <IconPrevious
                   size={size}
@@ -1002,7 +1003,7 @@ const Calendar = React.forwardRef((props__: ICalendar, ref: any) => {
 
                 aria-label='Next month'
 
-                disabled={open || (+year === 2099 && month === 'Dec')}
+                disabled={!!(open || (+year === 2099 && month === 'Dec'))}
               >
                 <IconNext
                   size={size}

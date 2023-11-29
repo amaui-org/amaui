@@ -240,7 +240,7 @@ export interface ITabs extends Omit<ISurface, 'version'> {
   valueDefault?: number;
   onChange?: (value: number) => any;
 
-  isActive: (value: string, tabValue: string) => boolean;
+  isActive?: (value: string, tabValue: string) => boolean;
 
   activateOnFocus?: boolean;
 
@@ -267,7 +267,7 @@ export interface ITabs extends Omit<ISurface, 'version'> {
   SurfaceProps?: TPropsAny;
 }
 
-const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
+const Tabs: React.FC<ITabs> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTabs?.props?.default, ...props_ }), [props_]);
@@ -549,7 +549,7 @@ const Tabs = React.forwardRef((props_: ITabs, ref: any) => {
 
       aria-orientation={orientation}
 
-      Component={Line}
+      Component={Line as any}
 
       AdditionalProps={{
         Component

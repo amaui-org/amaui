@@ -122,7 +122,7 @@ export interface ITableRow extends ILine {
   IconLast?: TElementReference;
 }
 
-const TablePagination = React.forwardRef((props_: ITableRow, ref: any) => {
+const TablePagination: React.FC<ITableRow> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTablePagination?.props?.default, ...props_ }), [props_]);

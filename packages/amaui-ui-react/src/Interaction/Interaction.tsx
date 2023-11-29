@@ -173,7 +173,7 @@ export interface IInteraction extends IBaseElement {
   disabled?: boolean;
 }
 
-const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
+const Interaction: React.FC<IInteraction> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiInteraction?.props?.default, ...props_ }), [props_]);
@@ -408,6 +408,7 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
             duration='complex'
 
             enterOnAdd
+
             className
           >
             <span
@@ -458,6 +459,7 @@ const Interaction = React.forwardRef((props_: IInteraction, ref: any) => {
             duration='complex'
 
             enterOnAdd
+
             className
           >
             <span

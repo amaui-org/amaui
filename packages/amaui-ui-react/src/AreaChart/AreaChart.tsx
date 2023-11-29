@@ -22,7 +22,7 @@ export interface IAreaChart extends IChart {
   linearGradient?: boolean;
 }
 
-const AreaChart = React.forwardRef((props_: IAreaChart, ref: any) => {
+const AreaChart: React.FC<IAreaChart> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAreaChart?.props?.default, ...props_ }), [props_]);

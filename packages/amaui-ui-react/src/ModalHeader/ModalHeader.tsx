@@ -16,7 +16,7 @@ export interface IModalHeader extends ILine {
   align?: TLineAlign;
 }
 
-const ModalHeader = React.forwardRef((props_: IModalHeader, ref: any) => {
+const ModalHeader: React.FC<IModalHeader> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModalHeader?.props?.default, ...props_ }), [props_]);

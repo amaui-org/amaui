@@ -14,6 +14,7 @@ import Interaction from '../Interaction';
 import Menu from '../Menu';
 import BottomSheet from '../BottomSheet';
 import List from '../List';
+import { ILine } from '../Line/Line';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -101,7 +102,7 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-Share' });
 
-export interface IShare extends IBaseElement {
+export interface IShare extends ILine {
   version?: 'fixed' | 'absolute' | 'static';
 
   position?: 'start' | 'end' | 'top' | 'bottom';
@@ -351,7 +352,7 @@ const IconMaterialMoreHoriz = React.forwardRef((props: IIcon, ref) => {
   );
 });
 
-const Share = React.forwardRef((props_: IShare, ref: any) => {
+const Share: React.FC<IShare> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiShare?.props?.default, ...props_ }), [props_]);

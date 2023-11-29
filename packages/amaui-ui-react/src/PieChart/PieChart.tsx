@@ -60,7 +60,7 @@ export interface IPieChart extends IChart {
 
 }
 
-const PieChart = React.forwardRef((props_: IPieChart, ref: any) => {
+const PieChart: React.FC<IPieChart> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPieChart?.props?.default, ...props_ }), [props_]);

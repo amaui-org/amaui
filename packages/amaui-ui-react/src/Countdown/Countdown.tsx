@@ -185,7 +185,7 @@ export interface ICountdown extends Omit<ISurface, 'version'> {
   IconProps?: TPropsAny;
 }
 
-const Countdown = React.forwardRef((props_: ICountdown, ref: any) => {
+const Countdown: React.FC<ICountdown> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCountdown?.props?.default, ...props_ }), [props_]);

@@ -17,7 +17,7 @@ export interface IModalText extends IType {
 
 }
 
-const ModalText = React.forwardRef((props_: IModalText, ref: any) => {
+const ModalText: React.FC<IModalText> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModalText?.props?.default, ...props_ }), [props_]);

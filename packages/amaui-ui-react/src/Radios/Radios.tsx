@@ -44,7 +44,7 @@ export interface IRadios extends ILine {
   LabelProps?: TPropsAny;
 }
 
-const Radios = React.forwardRef((props_: IRadios, ref: any) => {
+const Radios: React.FC<IRadios> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRadios?.props?.default, ...props_ }), [props_]);

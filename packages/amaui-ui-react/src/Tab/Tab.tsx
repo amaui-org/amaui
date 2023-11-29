@@ -105,7 +105,7 @@ export interface ITab extends Omit<ISurface, 'version'> {
   LineProps?: TPropsAny;
 }
 
-const Tab = React.forwardRef((props_: ITab, ref: any) => {
+const Tab: React.FC<ITab> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTab?.props?.default, ...props_ }), [props_]);
@@ -243,7 +243,7 @@ const Tab = React.forwardRef((props_: ITab, ref: any) => {
         {label !== undefined && (
           is('simple', label) ? (
             <Type
-              version={typeVersion}
+              version={typeVersion as any}
 
               className={classNames([
                 staticClassName('Tab', theme) && [
@@ -261,7 +261,7 @@ const Tab = React.forwardRef((props_: ITab, ref: any) => {
         {children !== undefined && (
           is('simple', children) ? (
             <Type
-              version={typeVersion}
+              version={typeVersion as any}
 
               className={classNames([
                 staticClassName('Tab', theme) && [

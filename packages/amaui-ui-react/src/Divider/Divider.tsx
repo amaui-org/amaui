@@ -152,7 +152,7 @@ export interface IDivider extends ISurface {
   flex?: boolean;
 }
 
-const Divider = React.forwardRef((props_: IDivider, ref: any) => {
+const Divider: React.FC<IDivider> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDivider?.props?.default, ...props_ }), [props_]);

@@ -462,7 +462,7 @@ export interface ISlider extends IBaseElement {
   TooltipProps?: TPropsAny;
 }
 
-const Slider = React.forwardRef((props_: ISlider, ref: any) => {
+const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSlider?.props?.default, ...props_ }), [props_]);
@@ -522,7 +522,7 @@ const Slider = React.forwardRef((props_: ISlider, ref: any) => {
   const [focusButton, setFocusButton] = React.useState<any>(false);
 
   const refs = {
-    root: React.useRef<HTMLSpanElement>(),
+    root: React.useRef<any>(),
     value: React.useRef<any>(),
     props: React.useRef<any>(),
     mouseDown: React.useRef<any>(),

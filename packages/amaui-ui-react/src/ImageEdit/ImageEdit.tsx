@@ -427,7 +427,7 @@ export interface IImageEdit extends ILine {
   IconButtonProps?: TPropsAny;
 }
 
-const ImageEdit = React.forwardRef((props_: IImageEdit, ref: any) => {
+const ImageEdit: React.FC<IImageEdit> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageEdit?.props?.default, ...props_ }), [props_]);

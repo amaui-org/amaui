@@ -324,7 +324,7 @@ export interface ICarousel extends Omit<ISurface, 'version'> {
   ItemWrapperProps?: TPropsAny;
 }
 
-const Carousel = React.forwardRef((props_: ICarousel, ref: any) => {
+const Carousel: React.FC<ICarousel> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCarousel?.props?.default, ...props_ }), [props_]);

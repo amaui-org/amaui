@@ -53,7 +53,7 @@ export interface IIcon extends IBaseElement {
   disabled?: boolean;
 }
 
-const Icon = React.forwardRef((props_: IIcon, ref: any) => {
+const Icon: React.FC<IIcon> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiIcon?.props?.default, ...props_ }), [props_]);

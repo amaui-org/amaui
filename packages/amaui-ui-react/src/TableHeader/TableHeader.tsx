@@ -30,7 +30,7 @@ export interface ITableHeader extends ISurface {
   size?: TSize;
 }
 
-const TableHeader = React.forwardRef((props_: ITableHeader, ref: any) => {
+const TableHeader: React.FC<ITableHeader> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTableHeader?.props?.default, ...props_ }), [props_]);
@@ -59,7 +59,7 @@ const TableHeader = React.forwardRef((props_: ITableHeader, ref: any) => {
 
       color={color}
 
-      Component={Surface}
+      Component={Surface as any}
 
       className={classNames([
         staticClassName('TableHeader', theme) && [

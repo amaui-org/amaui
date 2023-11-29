@@ -111,7 +111,7 @@ export interface IBottomAppBar extends ISurface {
   noTransition?: boolean;
 }
 
-const BottomAppBar = React.forwardRef((props_: IBottomAppBar, ref: any) => {
+const BottomAppBar: React.FC<IBottomAppBar> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBottomAppBar?.props?.default, ...props_ }), [props_]);

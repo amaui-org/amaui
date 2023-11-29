@@ -6,8 +6,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Line from '../Line';
 import Accordion from '../Accordion';
 import Type from '../Type';
+import { ILine } from '../Line/Line';
 
-import { IBaseElement, TElement, TSize, staticClassName } from '../utils';
+import { TElement, TSize, staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -60,7 +61,7 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-Form' });
 
-export interface IForm extends IBaseElement {
+export interface IForm extends ILine {
   accordion?: boolean;
 
   divider?: boolean;
@@ -90,7 +91,7 @@ export interface IForm extends IBaseElement {
   AccordionMainProps?: any;
 }
 
-const Form = React.forwardRef((props_: IForm, ref: any) => {
+const Form: React.FC<IForm> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiForm?.props?.default, ...props_ }), [props_]);
