@@ -270,7 +270,7 @@ export interface IWeather extends ISurface {
 
   temperature?: TTemperature;
 
-  values: {
+  values?: {
     dayTime?: TWeatherDayTime;
 
     weather?: TWeather;

@@ -158,9 +158,9 @@ export interface ILine extends IBaseElement {
 
   wrap?: TLineWrap | Record<TValueBreakpoints, TLineWrap>;
 
-  gap?: number | Record<TValueBreakpoints, number>;
-  rowGap?: number | Record<TValueBreakpoints, number>;
-  columnGap?: number | Record<TValueBreakpoints, number>;
+  gap?: string | number | Record<TValueBreakpoints, string | number>;
+  rowGap?: string | number | Record<TValueBreakpoints, string | number>;
+  columnGap?: string | number | Record<TValueBreakpoints, string | number>;
 
   divider?: boolean | Record<TValueBreakpoints, boolean>;
 

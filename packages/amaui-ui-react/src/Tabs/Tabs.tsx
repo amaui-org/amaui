@@ -644,6 +644,8 @@ const Tabs: React.FC<ITabs> = React.forwardRef((props_, ref: any) => {
 
               version: item.props.version !== undefined ? item.props.version : version,
 
+              value: item.props.value !== undefined ? item.props.value : index,
+
               size: item.props.size !== undefined ? item.props.size : size,
 
               index,

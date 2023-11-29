@@ -115,13 +115,13 @@ const Chips: React.FC<IChips> = React.forwardRef((props_, ref: any) => {
   let children = React.Children.toArray(children_);
 
   if (!showAll) {
-    children = children.slice(0, max || (children_ as any).length);
+    children = children.slice(0, max || (children as any).length);
 
-    if ((total !== undefined && total - (children_ as any).length >= 1) || max < (children_ as any).length) {
+    if ((total !== undefined && total - (children as any).length >= 1) || max < (children as any).length) {
       let value: any;
 
-      if ((total !== undefined && total - (children_ as any).length >= 1)) value = `+${total - (children_ as any).length}`;
-      else value = `+${Math.abs((children_ as any).length - max)}`;
+      if ((total !== undefined && total - (children as any).length >= 1)) value = `+${total - (children as any).length}`;
+      else value = `+${Math.abs((children as any).length - max)}`;
 
       if (!AdditionalChipProps.TypeProps) AdditionalChipProps.TypeProps = {};
 

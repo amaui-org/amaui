@@ -225,9 +225,9 @@ export interface IMarkdown extends IBaseElement {
 
   elementStyles?: Record<string, string>;
 
-  onAdded: () => any;
-  onUpdate: () => any;
-  onStart: () => any;
+  onAdded?: () => any;
+  onUpdate?: () => any;
+  onStart?: () => any;
 }
 
 const Markdown: React.FC<IMarkdown> = React.forwardRef((props_, ref: any) => {

@@ -687,9 +687,9 @@ export default function Library(props: any) {
 
             className={classes.accordion}
 
-            expandedMarginVertical='unset'
+            expandedMarginVertical='none'
 
-            expandedHeaderPaddingVertical='unset'
+            expandedHeaderPaddingVertical='none'
 
             headerPaddingHorizontal='none'
 

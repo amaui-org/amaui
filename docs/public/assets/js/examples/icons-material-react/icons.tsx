@@ -21,7 +21,7 @@ const useStyle = style(theme => ({
   },
 
   icon: {
-    width: 104,
+    width: 99,
     height: 121,
     padding: 14,
     cursor: 'pointer',

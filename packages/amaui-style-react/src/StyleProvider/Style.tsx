@@ -23,7 +23,7 @@ function makeAmauiStyle(element?: Element) {
   return amauiStyle;
 }
 
-export interface IStyle extends AmauiStyle {
+export interface IStyle extends Partial<AmauiStyle> {
   updateWithRerender?: (value: any) => AmauiStyle;
 }
 

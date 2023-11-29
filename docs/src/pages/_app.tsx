@@ -36,7 +36,7 @@ export default function App(props: AppProps) {
 
   const valueAmauiStyle = useAmauiStyle();
 
-  valueAmauiStyle.plugins.add = [
+  valueAmauiStyle.plugins!.add = [
     unit,
     prefix,
     sort,
@@ -174,7 +174,7 @@ export default function App(props: AppProps) {
       >
         <MainProgress>
           <Widgets
-            widgets={widgets.reverse()}
+            widgets={widgets.reverse() as any}
           >
             <Reset />
 

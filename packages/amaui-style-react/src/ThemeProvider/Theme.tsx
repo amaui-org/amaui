@@ -25,7 +25,7 @@ const resolveValue = (value: IAmauiTheme) => {
   return valueNew;
 };
 
-interface ITheme extends React.HTMLAttributes<any> {
+export interface ITheme extends React.HTMLAttributes<any> {
   root?: boolean;
 
   value?: IAmauiTheme;

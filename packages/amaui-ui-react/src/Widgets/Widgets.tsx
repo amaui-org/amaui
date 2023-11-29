@@ -13,7 +13,7 @@ import Move from '../Move';
 
 import { IBaseElement, staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
 
-export interface IWidgets {
+export interface IWidgetsValue {
   open: (value?: string) => void;
   openAll: () => void;
 
@@ -192,7 +192,7 @@ const Widgets: React.FC<IWidgets> = React.forwardRef((props_, ref: any) => {
   const [openItems, setOpenItems] = React.useState([]);
 
   const refs = {
-    value: React.useRef<IWidgets>({} as any),
+    value: React.useRef<IWidgetsValue>({} as any),
     props: React.useRef<any>()
   };
 

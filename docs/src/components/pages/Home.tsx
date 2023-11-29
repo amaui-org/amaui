@@ -48,7 +48,7 @@ const useStyle = style(theme => ({
   },
 
   headline_modern: {
-    maxWidth: theme.breakpoints.values.md,
+    maxWidth: theme.breakpoints.values.lg,
     textAlign: 'center',
     fontSize: 'clamp(2.1rem, 4vw, 4.4rem)',
     backgroundImage: `linear-gradient(130deg, ${theme.palette.color.primary.main} 0%, ${theme.palette.color.quaternary.main} 100%)`,
@@ -129,6 +129,10 @@ const useStyle = style(theme => ({
   card: {
     maxWidth: 'unset !important',
 
+    '&.amaui-Card-root': {
+      overflow: 'visible'
+    },
+
     '&:hover': {
       '& $cardImage': {
         boxShadow: theme.shadows.values.default[24],
@@ -195,7 +199,7 @@ export default function Root(props: any) {
     tree_13: true
   });
   const [transitioned, setTransitioned] = React.useState<any>({});
-  const [newImages, setNewImages] = React.useState<any[]>(newImagesSub.value);
+  const [newImages, setNewImages] = React.useState<any>(newImagesSub.value);
   const light = useMediaQuery('(prefers-color-scheme: light)');
 
   const smallScreen = useMediaQuery('(max-width: 1100px)');
@@ -579,6 +583,8 @@ export default function Root(props: any) {
               className={classes.masonry}
 
               gap={4}
+
+              columns={{ xxs: 1, xs: 2, sm: 2, md: 3, lg: 3, xl: 4, default: 5 } as any}
             >
               <Button
                 tonal
@@ -814,9 +820,11 @@ export default function Root(props: any) {
               <TimePicker
                 switch={false}
 
-                className={classes.timePicker}
+                clear={false}
 
                 static
+
+                className={classes.timePicker}
               />
 
               <Card
@@ -971,7 +979,7 @@ export default function Root(props: any) {
               />
 
               <DonutChart
-                values={valueDonut}
+                values={valueDonut as any}
 
                 animateTimeout={700}
               />

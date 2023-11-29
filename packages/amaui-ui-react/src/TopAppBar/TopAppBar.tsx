@@ -114,7 +114,7 @@ export interface ITopAppBar extends Omit<ISurface, 'version'> {
   title?: TElement;
   start?: TElement;
   end?: TElement;
-  position?: 'relative' | 'absolute' | 'static' | 'position' | 'unset';
+  position?: 'relative' | 'absolute' | 'static' | 'fixed' | 'unset';
 }
 
 const TopAppBar: React.FC<ITopAppBar> = React.forwardRef((props_, ref: any) => {

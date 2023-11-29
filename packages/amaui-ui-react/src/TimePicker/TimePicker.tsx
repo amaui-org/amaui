@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { AmauiDate, format as formatMethod, set, is as isAmauiDate } from '@amaui/date';
+import { AmauiDate, format as formatDate, set, is as isAmauiDate } from '@amaui/date';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -497,7 +497,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
   const [open, setOpen] = React.useState(false);
   const [mode, setMode] = React.useState((touch ? openMobile : openDesktop) || 'select');
   const [error, setError] = React.useState(false);
-  const [dayTime, setDayTime] = React.useState<Array<'am' | 'pm'>>(Array.from({ length: 2 }).map(item => formatMethod(new AmauiDate(), 'a') as any));
+  const [dayTime, setDayTime] = React.useState<Array<'am' | 'pm'>>(Array.from({ length: 2 }).map(item => formatDate(new AmauiDate(), 'a') as any));
   const [tab, setTab] = React.useState(0);
 
   refs.value.current = value;
@@ -525,7 +525,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
       if (format === '12') formatValue += ` a`;
 
-      return formatMethod(item, formatValue);
+      return formatDate(item, formatValue);
     };
 
     result += `${method(from)}`;
@@ -547,7 +547,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
   const onUpdateValue = (valueNew: any) => {
     setValue(valueNew);
 
-    setDayTime(valueNew.map(item => formatMethod(item, 'a')));
+    setDayTime(valueNew.map(item => formatDate(item, 'a')));
   };
 
   const errorCheck = React.useCallback((valueNew: any = value) => {
@@ -700,7 +700,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
     if (to) to = textToAmauiDate(to);
 
-    valueNew = [from, to].filter(Boolean) as any;
+    valueNew = [from, to].filter(Boolean).filter((item: AmauiDate) => item?.valid) as any;
 
     return valueNew as unknown as TTimePickerValue;
   }, [input]);
@@ -789,7 +789,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
     onUpdate(valueNew);
 
     // Update dayTime
-    setDayTime(valueNew.map(item => formatMethod(item, 'a')));
+    setDayTime(valueNew.map(item => formatDate(item, 'a')));
   }, [input]);
 
   const onToday = React.useCallback((event: React.MouseEvent) => {
@@ -804,7 +804,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
     setInput(valueToInput(valueNew));
 
     // Update dayTime
-    setDayTime(valueNew.map(item => formatMethod(item, 'a')));
+    setDayTime(valueNew.map(item => formatDate(item, 'a')));
 
     onClose(event);
 
@@ -821,7 +821,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
     setInput(valueToInput(valueNew));
 
     // Update dayTime
-    setDayTime(valueNew.map(item => formatMethod(item, 'a')));
+    setDayTime(valueNew.map(item => formatDate(item, 'a')));
 
     onClose(event);
 
@@ -839,7 +839,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
     setInput(valueToInput(refs.value.current));
 
     // Update dayTime
-    setDayTime(refs.value.current.map(item => formatMethod(item, 'a')));
+    setDayTime(refs.value.current.map(item => formatDate(item, 'a')));
 
     onClose(event);
 
@@ -951,9 +951,9 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
       format={format}
 
-      value={value[index]}
+      value={value[index] || new AmauiDate()}
 
-      dayTime={dayTime[index]}
+      dayTime={dayTime[index] || formatDate(new AmauiDate(), 'a') as any}
 
       selecting={selecting[index]}
 
@@ -1035,7 +1035,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
     const buttonProps = {
       tonal: 'secondary',
-      color: !['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'default' : color,
+      color: ['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'default' : color,
       version: 'filled',
       backgroundOpacity: 0.44,
       elevation: false,
@@ -1090,7 +1090,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
           onClick={() => onUpdateSelecting('hour', index)}
         >
-          {formatMethod(value[index], format === '12' ? 'hh' : 'HH')}
+          {formatDate(value[index], format === '12' ? 'hh' : 'HH')}
         </Button>
       );
 
@@ -1098,7 +1098,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
         <AdvancedTextField
           helperText='Hour'
 
-          value={formatMethod(value[index], format === '12' ? 'hh' : 'HH')}
+          value={formatDate(value[index], format === '12' ? 'hh' : 'HH')}
 
           onChange={(valueNew: any) => onInputModalChange(valueNew, 'hour', index)}
 
@@ -1135,7 +1135,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
           onClick={() => onUpdateSelecting('minute', index)}
         >
-          {formatMethod(value[index], 'mm')}
+          {formatDate(value[index], 'mm')}
         </Button>
       );
 
@@ -1143,7 +1143,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
         <AdvancedTextField
           helperText='Minute'
 
-          value={formatMethod(value[index], 'mm')}
+          value={formatDate(value[index], 'mm')}
 
           onChange={(valueNew: any) => onInputModalChange(valueNew, 'minute', index)}
 
@@ -1174,7 +1174,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
           onClick={() => onUpdateSelecting('second', index)}
         >
-          {formatMethod(value[index], 'ss')}
+          {formatDate(value[index], 'ss')}
         </Button>
       );
 
@@ -1182,7 +1182,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
         <AdvancedTextField
           helperText='Second'
 
-          value={formatMethod(value[index], 'ss')}
+          value={formatDate(value[index], 'ss')}
 
           onChange={(valueNew: any) => onInputModalChange(valueNew, 'second', index)}
 
@@ -1220,8 +1220,10 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
   const orientationValue = mode === 'select' ? orientation : 'vertical';
 
+  const timeValue = !!value.filter(Boolean).length ? value : [new AmauiDate()];
+
   const elementValues = (
-    value.map((item, index: number) => (
+    timeValue.map((item, index: number) => (
       <Line
         key={index}
 
@@ -1275,7 +1277,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
               orientation={orientationValue}
 
-              value={dayTime[index]}
+              value={dayTime[index] || formatDate(new AmauiDate(), 'a') as any}
 
               onChange={valueNew => updateDayTime(valueNew, index)}
 
@@ -1437,7 +1439,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
           align='center'
 
-          justify={switch_ ? 'space-between' : 'flex-end'}
+          justify='space-between'
 
           fullWidth
 
@@ -1450,63 +1452,61 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
             classes[`footer_size_${size}`]
           ])}
         >
-          {(switch_ || today || clear) && (
-            <Line
-              gap={0}
+          <Line
+            gap={0}
 
-              direction='row'
+            direction='row'
 
-              align='center'
-            >
-              {switch_ && (
-                <Tooltip
-                  label={mode === 'select' ? 'Enter time' : 'Select time'}
-                >
-                  <IconButton
-                    tonal={tonal}
+            align='center'
+          >
+            {switch_ && (
+              <Tooltip
+                label={mode === 'select' ? 'Enter time' : 'Select time'}
+              >
+                <IconButton
+                  tonal={tonal}
 
-                    color='inherit'
-
-                    size={size}
-
-                    onClick={onModeSwitch}
-
-                    aria-label={mode === 'select' ? 'Enter time' : 'Select time'}
-                  >
-                    {mode === 'select' ? <IconEnter {...iconProps} /> : <Icon_  {...iconProps} />}
-                  </IconButton>
-                </Tooltip>
-              )}
-
-              {today && (
-                <Button
-                  onClick={onToday}
-
-                  version='text'
+                  color='inherit'
 
                   size={size}
 
-                  {...ButtonProps}
+                  onClick={onModeSwitch}
+
+                  aria-label={mode === 'select' ? 'Enter time' : 'Select time'}
                 >
-                  Now
-                </Button>
-              )}
+                  {mode === 'select' ? <IconEnter {...iconProps} /> : <Icon_  {...iconProps} />}
+                </IconButton>
+              </Tooltip>
+            )}
 
-              {clear && (
-                <Button
-                  onClick={onClear}
+            {today && (
+              <Button
+                onClick={onToday}
 
-                  version='text'
+                version='text'
 
-                  size={size}
+                size={size}
 
-                  {...ButtonProps}
-                >
-                  Clear
-                </Button>
-              )}
-            </Line>
-          )}
+                {...ButtonProps}
+              >
+                Now
+              </Button>
+            )}
+
+            {clear && (
+              <Button
+                onClick={onClear}
+
+                version='text'
+
+                size={size}
+
+                {...ButtonProps}
+              >
+                Clear
+              </Button>
+            )}
+          </Line>
 
           <Line
             gap={0}

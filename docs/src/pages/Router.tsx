@@ -91,7 +91,7 @@ const useStyle = styleMethod(theme => ({
 
   navigationDrawer_desktop: {
     '&.amaui-Modal-root': {
-      position: 'fixed',
+      position: 'fixed !important',
       top: 0,
       insetInlineStart: 0,
       height: '100vh',
@@ -226,7 +226,7 @@ function Root(props: any) {
   const light = useMediaQuery('(prefers-color-scheme: light)');
 
   const [init, setInit] = React.useState(false);
-  const [newImages, setNewImages] = React.useState<any[]>(newImagesSub.value);
+  const [newImages, setNewImages] = React.useState<any>(newImagesSub.value);
   const [open, setOpen] = React.useState(false);
 
   const refs = {
@@ -286,7 +286,7 @@ function Root(props: any) {
       if (resolved) valueUsable.push(item);
     }
 
-    newImagesSub.emit(valueUsable);
+    newImagesSub.emit(valueUsable as any);
 
     setNewImages(valueUsable);
   }, []);
@@ -749,7 +749,7 @@ function Root(props: any) {
 
                 target='_blank'
 
-                color={theme.palette.color.secondary[50]}
+                color={theme.palette.color.secondary[50] as any}
               >
                 MIT license
               </Link>

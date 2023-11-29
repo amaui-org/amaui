@@ -415,7 +415,7 @@ const Example = React.forwardRef((props: any, ref: any) => {
     init();
   }, []);
 
-  const optionButtonProps = {
+  const optionButtonProps: any = {
     color: 'inherit',
     version: 'text',
     size: 'small'

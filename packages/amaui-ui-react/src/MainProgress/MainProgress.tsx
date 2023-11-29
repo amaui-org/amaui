@@ -15,7 +15,7 @@ export interface IMainProgressStartArgument {
   color?: string;
 }
 
-export interface IMainProgress {
+export interface IMainProgressValue {
   start: (value?: IMainProgressStartArgument) => void;
   increment: () => void;
   update: (value: number) => void;
@@ -119,7 +119,7 @@ const MainProgress: React.FC<IMainProgress> = React.forwardRef((props_, ref: any
   const [value, setValue] = React.useState(min);
 
   const refs = {
-    value_: React.useRef<IMainProgress>({} as any),
+    value_: React.useRef<IMainProgressValue>({} as any),
     value: React.useRef<number>(),
     min: React.useRef<number>(),
     max: React.useRef<number>(),

@@ -6,7 +6,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Keyframes from '../Keyframes';
 import IconButton from '../IconButton';
 
-import { IBaseElement, staticClassName, TColor, TElementReference, TRef, TSize, TTonal } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TRef, TSize, TTonal } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -204,8 +204,8 @@ export interface ISwitch extends IBaseElement {
   checked?: boolean;
   onChange?: (value: boolean, event: React.ChangeEvent<any>) => any;
 
-  OnIcon?: TElementReference;
-  OffIcon?: TElementReference;
+  OnIcon?: TElement;
+  OffIcon?: TElement;
 
   disabled?: boolean;
 }

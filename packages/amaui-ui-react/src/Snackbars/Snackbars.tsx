@@ -13,7 +13,7 @@ import { TLineAlign } from '../Line/Line';
 
 import { IBaseElement, staticClassName, TPropsAny } from '../utils';
 
-export interface ISnackbars {
+export interface ISnackbarsValue {
   add: (value: ISnackbar) => void;
   remove: (value: 'first' | 'last' | string) => void;
 }
@@ -108,7 +108,7 @@ const Snackbars: React.FC<ISnackbars> = React.forwardRef((props_, ref: any) => {
 
   const refs = {
     root: React.useRef<any>(),
-    value: React.useRef<ISnackbars>({} as any),
+    value: React.useRef<ISnackbarsValue>({} as any),
     open: React.useRef<any>(),
     preOpen: React.useRef<any>()
   };
