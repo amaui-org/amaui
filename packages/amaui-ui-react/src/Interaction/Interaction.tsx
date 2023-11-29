@@ -2,7 +2,7 @@ import React from 'react';
 
 import { is, getID, debounce, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
-import AmauiSubscription from '@amaui/subscription/amaui-subscription';
+import AmauiSubscription from '@amaui/subscription/AmauiSubscription';
 
 import { Transition, Transitions, TTransitionStatus, useMediaQuery } from '..';
 
