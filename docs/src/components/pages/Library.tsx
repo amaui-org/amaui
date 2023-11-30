@@ -894,12 +894,12 @@ export default function Library(props: any) {
 
             style={{
               ...((withSidenav && minMediumScreen) && {
-                // width: `calc(100% - 180px)`
+                width: `calc(100% - 280px)`
               }),
 
               ...((withSidenav && useMiddleMargin) && {
-                // width: `calc(100% - 180px)`,
-                // marginInlineStart: 180
+                width: `calc(100% - 280px)`,
+                marginInlineStart: 280
               })
             }}
           >
