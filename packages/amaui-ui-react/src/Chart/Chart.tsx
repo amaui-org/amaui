@@ -365,19 +365,19 @@ export interface IChart extends ISurface {
 
     [property: string]: string;
   };
-  nameX?: boolean | Record<TValueBreakpoints, boolean>;
-  nameY?: boolean | Record<TValueBreakpoints, boolean>;
+  nameX?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  nameY?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
   // Tooltip
-  tooltip?: boolean | Record<TValueBreakpoints, boolean>;
-  tooltipIndividually?: boolean | Record<TValueBreakpoints, boolean>;
-  tooltipCloseOnMouseLeave?: boolean | Record<TValueBreakpoints, boolean>;
-  elementTooltip?: boolean | Record<TValueBreakpoints, boolean>;
+  tooltip?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  tooltipIndividually?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  tooltipCloseOnMouseLeave?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  elementTooltip?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
   // Guideline
-  guidelines?: 'both' | 'vertical' | 'horizontal' | Record<TValueBreakpoints, 'both' | 'vertical' | 'horizontal'>;
-  guidelinesAppend?: boolean | Record<TValueBreakpoints, boolean>;
-  guidelinesDisplayInactive?: boolean | Record<TValueBreakpoints, boolean>;
+  guidelines?: 'both' | 'vertical' | 'horizontal' | Partial<Record<TValueBreakpoints, 'both' | 'vertical' | 'horizontal'>>;
+  guidelinesAppend?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  guidelinesDisplayInactive?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
   // Animate
   animate?: boolean;
@@ -387,7 +387,7 @@ export interface IChart extends ISurface {
   additionalLines?: TElement;
 
   // Legend
-  legend?: 'auto' | false | TElement | Record<TValueBreakpoints, 'auto' | false | TElement>;
+  legend?: 'auto' | false | TElement | Partial<Record<TValueBreakpoints, 'auto' | false | TElement>>;
   legendManageVisibility?: boolean;
   legendPosition?: 'top' | 'bottom';
 
@@ -396,59 +396,59 @@ export interface IChart extends ISurface {
     value?: number;
 
     label?: string | number;
-  }> | Record<TValueBreakpoints, 'auto' | false | Array<{
+  }> | Partial<Record<TValueBreakpoints, 'auto' | false | Array<{
     value?: number;
 
     label?: string | number;
-  }>>;
-  labelsX?: boolean | Record<TValueBreakpoints, boolean>;
-  labelsY?: boolean | Record<TValueBreakpoints, boolean>;
-  labelDecimalPlaces?: number | Record<TValueBreakpoints, number>;
-  labelsAutoNumber?: number | Record<TValueBreakpoints, number>;
-  labelsYAutoNumber?: number | Record<TValueBreakpoints, number>;
-  labelsXAutoNumber?: number | Record<TValueBreakpoints, number>;
+  }>>>;
+  labelsX?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  labelsY?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  labelDecimalPlaces?: number | Partial<Record<TValueBreakpoints, number>>;
+  labelsAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
+  labelsYAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
+  labelsXAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
 
   // Marks
-  marks?: 'auto' | false | Array<{ value?: number; }> | Record<TValueBreakpoints, 'auto' | false | Array<{ value?: number; }>>;
-  marksX?: boolean | Record<TValueBreakpoints, boolean>;
-  marksY?: boolean | Record<TValueBreakpoints, boolean>;
-  marksAutoNumber?: number | Record<TValueBreakpoints, number>;
-  marksYAutoNumber?: number | Record<TValueBreakpoints, number>;
-  marksXAutoNumber?: number | Record<TValueBreakpoints, number>;
+  marks?: 'auto' | false | Array<{ value?: number; }> | Partial<Record<TValueBreakpoints, 'auto' | false | Array<{ value?: number; }>>>;
+  marksX?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  marksY?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  marksAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
+  marksYAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
+  marksXAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
 
   // Grid
-  grid?: 'auto' | false | Array<{ value?: number; }> | Record<TValueBreakpoints, 'auto' | false | Array<{ value?: number; }>>;
-  gridX?: boolean | Record<TValueBreakpoints, boolean>;
-  gridY?: boolean | Record<TValueBreakpoints, boolean>;
-  gridAutoNumber?: number | Record<TValueBreakpoints, number>;
-  gridYAutoNumber?: number | Record<TValueBreakpoints, number>;
-  gridXAutoNumber?: number | Record<TValueBreakpoints, number>;
+  grid?: 'auto' | false | Array<{ value?: number; }> | Partial<Record<TValueBreakpoints, 'auto' | false | Array<{ value?: number; }>>>;
+  gridX?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  gridY?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  gridAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
+  gridYAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
+  gridXAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
 
   // Points
-  points?: boolean | Record<TValueBreakpoints, boolean>;
-  pointsVisibility?: 'hover' | 'visible' | 'hidden' | Record<TValueBreakpoints, 'hover' | 'visible' | 'hidden'>;
+  points?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  pointsVisibility?: 'hover' | 'visible' | 'hidden' | Partial<Record<TValueBreakpoints, 'hover' | 'visible' | 'hidden'>>;
 
   // Borders
-  borders?: boolean | Record<TValueBreakpoints, boolean>;
-  borderStart?: boolean | Record<TValueBreakpoints, boolean>;
-  borderLeft?: boolean | Record<TValueBreakpoints, boolean>;
-  borderEnd?: boolean | Record<TValueBreakpoints, boolean>;
-  borderRight?: boolean | Record<TValueBreakpoints, boolean>;
-  borderTop?: boolean | Record<TValueBreakpoints, boolean>;
-  borderBottom?: boolean | Record<TValueBreakpoints, boolean>;
+  borders?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  borderStart?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  borderLeft?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  borderEnd?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  borderRight?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  borderTop?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  borderBottom?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
   // Min, max
-  minX?: number | Record<TValueBreakpoints, number>;
-  maxX?: number | Record<TValueBreakpoints, number>;
-  minY?: number | Record<TValueBreakpoints, number>;
-  maxY?: number | Record<TValueBreakpoints, number>;
-  minMaxPadding?: number | Record<TValueBreakpoints, number>;
-  minPadding?: number | Record<TValueBreakpoints, number>;
-  maxPadding?: number | Record<TValueBreakpoints, number>;
-  minPaddingX?: number | Record<TValueBreakpoints, number>;
-  minPaddingY?: number | Record<TValueBreakpoints, number>;
-  maxPaddingX?: number | Record<TValueBreakpoints, number>;
-  maxPaddingY?: number | Record<TValueBreakpoints, number>;
+  minX?: number | Partial<Record<TValueBreakpoints, number>>;
+  maxX?: number | Partial<Record<TValueBreakpoints, number>>;
+  minY?: number | Partial<Record<TValueBreakpoints, number>>;
+  maxY?: number | Partial<Record<TValueBreakpoints, number>>;
+  minMaxPadding?: number | Partial<Record<TValueBreakpoints, number>>;
+  minPadding?: number | Partial<Record<TValueBreakpoints, number>>;
+  maxPadding?: number | Partial<Record<TValueBreakpoints, number>>;
+  minPaddingX?: number | Partial<Record<TValueBreakpoints, number>>;
+  minPaddingY?: number | Partial<Record<TValueBreakpoints, number>>;
+  maxPaddingX?: number | Partial<Record<TValueBreakpoints, number>>;
+  maxPaddingY?: number | Partial<Record<TValueBreakpoints, number>>;
 
   noMain?: boolean;
 

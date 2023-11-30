@@ -206,7 +206,7 @@ export interface IImageGallery extends ILine {
 
   overflow?: boolean;
 
-  arrows: boolean;
+  arrows?: boolean;
 
   ImageProps?: any;
   ImageWrapperProps?: any;

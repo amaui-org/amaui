@@ -199,7 +199,6 @@ export interface IAutoComplete extends ITextField {
   filterOutSelectedOptions?: boolean;
   selectOnFocus?: boolean;
   clearOnBlur?: boolean;
-  fullWidth?: boolean;
 
   disabled?: boolean;
 
@@ -579,12 +578,12 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
           const other_ = {
             key: index,
 
-            onClick: (event: React.MouseEvent<any>) => {
+            onClick: (event: MouseEvent) => {
               event.preventDefault();
               event.stopPropagation();
             },
 
-            onRemove: (event: React.MouseEvent<any>) => {
+            onRemove: (event: MouseEvent) => {
               event.preventDefault();
               event.stopPropagation();
 

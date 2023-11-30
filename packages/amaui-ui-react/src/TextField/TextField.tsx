@@ -7,7 +7,7 @@ import Icon from '../Icon';
 import Type from '../Type';
 import Line from '../Line';
 
-import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TPropsAny, TRef, TSize, TTonal, TVersion, valueBreakpoints } from '../utils';
+import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TPropsAny, TRef, TSize, TTonal, TValueBreakpoints, TVersion, valueBreakpoints } from '../utils';
 import useMediaQuery from '../useMediaQuery';
 
 const other_ = {
@@ -547,7 +547,7 @@ export interface ITextField extends IBaseElement {
   end?: TElement;
   endVerticalAlign?: 'start' | 'center' | 'end';
   placeholder?: string;
-  fullWidth?: boolean;
+  fullWidth?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
   helperText?: string;
   counter?: number;
   prefix?: string;

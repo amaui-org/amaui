@@ -368,7 +368,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   tooltip: {
-    '& .amaui-Tooltip-label': {
+    '& .amaui-Tooltip-name': {
       padding: '0',
       lineHeight: '0',
       minWidth: '30px',
@@ -377,7 +377,7 @@ const useStyle = styleMethod(theme => ({
       borderRadius: '50% 50% 50% 0px',
       transform: 'rotate(-45deg)',
 
-      '& .amaui-Tooltip-label-text': {
+      '& .amaui-Tooltip-name-text': {
         position: 'absolute',
         top: '50%',
         left: '50%',
@@ -386,33 +386,33 @@ const useStyle = styleMethod(theme => ({
     },
 
     '&.amaui-Tooltip-position-left': {
-      '& .amaui-Tooltip-label': {
+      '& .amaui-Tooltip-name': {
         borderRadius: '50% 50% 0px 50%'
       }
     },
 
     '&.amaui-Tooltip-position-right': {
-      '& .amaui-Tooltip-label': {
+      '& .amaui-Tooltip-name': {
         borderRadius: '0px 50% 50% 50%'
       }
     }
   },
 
   tooltip_switch_orientation_horizontal_ltr: {
-    '& .amaui-Tooltip-label': {
+    '& .amaui-Tooltip-name': {
       transform: 'rotate(135deg)',
 
-      '& .amaui-Tooltip-label-text': {
+      '& .amaui-Tooltip-name-text': {
         transform: 'translate(-50%, -50%) rotate(-135deg)'
       }
     }
   },
 
   tooltip_switch_orientation_horizontal_rtl: {
-    '& .amaui-Tooltip-label': {
+    '& .amaui-Tooltip-name': {
       transform: 'rotate(135deg)',
 
-      '& .amaui-Tooltip-label-text': {
+      '& .amaui-Tooltip-name-text': {
         transform: 'translate(-50%, -50%) rotate(-135deg)'
       }
     }

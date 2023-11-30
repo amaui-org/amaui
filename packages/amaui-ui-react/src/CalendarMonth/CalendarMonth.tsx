@@ -245,7 +245,7 @@ export interface ICalenarDays extends ILine {
   now?: boolean;
   outside?: boolean;
   range?: boolean;
-  weekStartDay: 'Monday' | 'Sunday';
+  weekStartDay?: 'Monday' | 'Sunday';
   noTransition?: boolean;
   offset?: number;
   min?: AmauiDate;

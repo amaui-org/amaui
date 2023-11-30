@@ -131,7 +131,7 @@ const zip = React.forwardRef((props: any, ref: any) => {
               align='center'
             >
               <Type
-                version='h4'
+                version='h3'
               >
                 Zipped
               </Type>
@@ -168,7 +168,7 @@ const zip = React.forwardRef((props: any, ref: any) => {
             gap={1}
           >
             <Type
-              version='h4'
+              version='h3'
             >
               Compression
             </Type>
@@ -186,7 +186,7 @@ const zip = React.forwardRef((props: any, ref: any) => {
             }}
           >
             <Type
-              version='h4'
+              version='h3'
             >
               Result
             </Type>

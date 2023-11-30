@@ -31,7 +31,7 @@ export interface IParallax extends IBaseElement {
 
   transition?: string;
 
-  disabled?: boolean | Record<TValueBreakpoints, boolean>;
+  disabled?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 }
 
 const Parallax: React.FC<IParallax> = React.forwardRef((props_, ref: any) => {

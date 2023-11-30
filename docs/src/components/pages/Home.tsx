@@ -584,7 +584,7 @@ export default function Root(props: any) {
 
               gap={4}
 
-              columns={{ xxs: 1, xs: 1, sm: 1, md: 2, lg: 3, xl: 4, default: 5 } as any}
+              columns={{ xxs: 1, xs: 1, sm: 1, md: 2, lg: 3, xl: 4, default: 5 }}
             >
               <Button
                 tonal

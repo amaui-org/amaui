@@ -128,7 +128,7 @@ const unzip = React.forwardRef((props: any, ref: any) => {
               align='center'
             >
               <Type
-                version='h4'
+                version='h3'
               >
                 Unzipped
               </Type>
@@ -169,7 +169,7 @@ const unzip = React.forwardRef((props: any, ref: any) => {
             }}
           >
             <Type
-              version='h4'
+              version='h3'
             >
               Result
             </Type>

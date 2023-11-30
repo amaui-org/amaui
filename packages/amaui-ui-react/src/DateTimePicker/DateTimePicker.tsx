@@ -127,7 +127,7 @@ export interface IDateTimePicker extends Omit<IAdvancedTextField, 'version'> {
   headingTextTimeRange?: string;
   headingTextDate?: string;
   headingTextDateRange?: string;
-  useHelperText?: boolean | Record<TValueBreakpoints, boolean>;
+  useHelperText?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
   format?: '12' | '24';
   hour?: boolean;
   minute?: boolean;

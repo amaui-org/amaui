@@ -202,7 +202,7 @@ export type TCarouselItem = string | null | TElement | { element: TElement; };
 export type TCarouseOnUpdate = (to: string | number, values: TCarouselItem[]) => any;
 
 export interface ICarousel extends Omit<ISurface, 'version'> {
-  version?: 'regular' | 'transition' | Record<TValueBreakpoints, 'regular' | 'transition'>;
+  version?: 'regular' | 'transition' | Partial<Record<TValueBreakpoints, 'regular' | 'transition'>>;
 
   valueDefault?: ICarouselValue;
   value?: ICarouselValue;
@@ -218,33 +218,33 @@ export interface ICarousel extends Omit<ISurface, 'version'> {
   // and a transition element
   items?: Array<TCarouselItem>;
 
-  orientation?: 'vertical' | 'horizontal' | Record<TValueBreakpoints, 'vertical' | 'horizontal'>;
+  orientation?: 'vertical' | 'horizontal' | Partial<Record<TValueBreakpoints, 'vertical' | 'horizontal'>>;
 
-  itemSize?: 'auto' | Record<TValueBreakpoints, 'auto' | false>;
+  itemSize?: 'auto' | Partial<Record<TValueBreakpoints, 'auto' | false>>;
 
-  gap?: number | Record<TValueBreakpoints, number>;
+  gap?: number | Partial<Record<TValueBreakpoints, number>>;
 
-  move?: boolean | Record<TValueBreakpoints, boolean>;
+  move?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
   // How much in value to move on move
-  moveValue?: number | Record<TValueBreakpoints, number>;
+  moveValue?: number | Partial<Record<TValueBreakpoints, number>>;
 
   // How many items to move on move
-  moveItems?: number | Record<TValueBreakpoints, number>;
+  moveItems?: number | Partial<Record<TValueBreakpoints, number>>;
 
-  moveBeyondEdge?: boolean | Record<TValueBreakpoints, boolean>;
+  moveBeyondEdge?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
-  free?: boolean | Record<TValueBreakpoints, boolean>;
+  free?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
-  swipe?: boolean | Record<TValueBreakpoints, boolean>;
+  swipe?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
-  background?: boolean | Record<TValueBreakpoints, boolean>;
+  background?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
   index?: number;
 
-  autoPlay?: boolean | Record<TValueBreakpoints, boolean>;
+  autoPlay?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
-  autoHeight?: boolean | Record<TValueBreakpoints, boolean>;
+  autoHeight?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
   autoHeightDelay?: number;
 
@@ -252,13 +252,13 @@ export interface ICarousel extends Omit<ISurface, 'version'> {
 
   pauseOnHover?: boolean;
 
-  round?: boolean | Record<TValueBreakpoints, boolean>;
+  round?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
-  arrows?: boolean | Record<TValueBreakpoints, boolean>;
+  arrows?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
   mouseScroll?: boolean;
 
-  momentum?: boolean | Record<TValueBreakpoints, boolean>;
+  momentum?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
   // AmauiSubscription methods
   previousSub?: AmauiSubscription;
@@ -266,25 +266,25 @@ export interface ICarousel extends Omit<ISurface, 'version'> {
   updateSub?: AmauiSubscription;
 
   // on mobile visible
-  arrowsVisibility?: 'hover' | 'visible' | Record<TValueBreakpoints, 'hover' | 'visible'>;
+  arrowsVisibility?: 'hover' | 'visible' | Partial<Record<TValueBreakpoints, 'hover' | 'visible'>>;
 
-  arrowHideOnStartEnd?: boolean | Record<TValueBreakpoints, boolean>;
+  arrowHideOnStartEnd?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
   renderProgress?: (update: TCarouseOnUpdate) => TElement;
 
   renderArrowPrevious?: (update: () => any) => TElement;
   renderArrowNext?: (update: () => any) => TElement;
 
-  progress?: boolean | Record<TValueBreakpoints, boolean>;
+  progress?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
   // on mobile visible
-  progressVisibility?: 'hover' | 'visible' | Record<TValueBreakpoints, 'hover' | 'visible'>;
+  progressVisibility?: 'hover' | 'visible' | Partial<Record<TValueBreakpoints, 'hover' | 'visible'>>;
 
   start?: any;
 
   end?: any;
 
-  noTransition?: boolean | Record<TValueBreakpoints, boolean>;
+  noTransition?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
   onUpdatePosition?: (value: ICarouselValue) => any;
 

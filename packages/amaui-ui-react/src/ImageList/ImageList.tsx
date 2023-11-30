@@ -38,10 +38,10 @@ const useStyle = styleMethod(theme => ({
 export interface IImageList extends IBaseElement {
   version?: 'standard' | 'vowen' | 'masonry';
 
-  gap?: number | Record<TValueBreakpoints, number>;
-  rowGap?: number | Record<TValueBreakpoints, number>;
-  columnGap?: number | Record<TValueBreakpoints, number>;
-  columns?: number | Record<TValueBreakpoints, number>;
+  gap?: number | Partial<Record<TValueBreakpoints, number>>;
+  rowGap?: number | Partial<Record<TValueBreakpoints, number>>;
+  columnGap?: number | Partial<Record<TValueBreakpoints, number>>;
+  columns?: number | Partial<Record<TValueBreakpoints, number>>;
 }
 
 const ImageList: React.FC<IImageList> = React.forwardRef((props_, ref: any) => {

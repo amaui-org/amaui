@@ -229,8 +229,8 @@ export interface IDatePicker extends ILine {
   modeModalSubHeadingTextRange?: string;
   selectModeHeadingText?: string;
   inputModeHeadingText?: string;
-  switch?: boolean | Record<TValueBreakpoints, boolean>;
-  useHelperText?: boolean | Record<TValueBreakpoints, boolean>;
+  switch?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  useHelperText?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
   label?: TElement;
   labelFrom?: string;
   labelTo?: string;

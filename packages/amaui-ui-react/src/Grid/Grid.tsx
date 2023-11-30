@@ -79,7 +79,7 @@ const useStyle = styleMethod(theme => ({
   'columnGap_16': { columnGap: `${16 * theme.space.unit}px` }
 }), { name: 'amaui-Grid' });
 
-export type IGridValues = Record<TValueBreakpoints, number>;
+export type IGridValues = Partial<Record<TValueBreakpoints, number>>;
 
 export interface IGrid extends ILine {
   auto?: boolean;

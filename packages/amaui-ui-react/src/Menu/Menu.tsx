@@ -38,10 +38,14 @@ export const MENUS = {
   }
 };
 
-export interface IMenu extends ITooltip {
+export interface IMenu extends Omit<ITooltip, 'name' | 'label'> {
   open?: boolean;
 
   openDefault?: boolean;
+
+  name?: ((method: (item: any, index: number) => any) => any) | TElement;
+
+  label?: ((method: (item: any, index: number) => any) => any) | TElement;
 
   menuItems?: Array<TElement>;
 
@@ -73,6 +77,8 @@ const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {
     open: open_,
 
     openDefault,
+
+    name,
 
     label,
 
@@ -314,6 +320,8 @@ const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {
     } : {})
   });
 
+  const nameValue = name || label;
+
   return (
     <Wrapper
       {...WrapperProps}
@@ -346,7 +354,7 @@ const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {
 
         anchorElement={anchorElement}
 
-        label={label ? is('function', label) ? (label as any)(methodItem) : label : (menuItems && (
+        label={nameValue ? is('function', nameValue) ? (nameValue as any)(methodItem) : nameValue : (menuItems && (
           <List
             menu
 
@@ -388,7 +396,7 @@ const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {
           ...ModalProps
         }}
 
-        {...other}
+        {...other as any}
       >
         {children && React.cloneElement(children, {
           ref: item => {

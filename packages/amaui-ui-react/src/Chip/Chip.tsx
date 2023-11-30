@@ -38,8 +38,8 @@ export interface IChip extends IButton {
   input?: boolean;
   filter?: boolean;
 
-  onClick?: (event: React.MouseEvent<any>) => any;
-  onRemove?: (event: React.MouseEvent<any>) => any;
+  onClick?: (event: MouseEvent) => any;
+  onRemove?: (event: MouseEvent) => any;
   onSelected?: () => any;
   onUnselected?: () => any;
 }
@@ -87,7 +87,7 @@ const Chip: React.FC<IChip> = React.forwardRef((props_, ref: any) => {
 
   if (input) {
     OtherProps.end = <IconMaterialCloseSharp
-      onClick={(event: React.MouseEvent<any>) => {
+      onClick={(event: MouseEvent) => {
         if (is('function', onRemove)) onRemove(event);
       }}
     />;
@@ -141,7 +141,7 @@ const Chip: React.FC<IChip> = React.forwardRef((props_, ref: any) => {
 
       color={color || (tonal ? 'neutral' : 'default')}
 
-      onClick={(event: React.MouseEvent<any>) => {
+      onClick={(event: MouseEvent) => {
         onSelect();
 
         // Invoke items on click method

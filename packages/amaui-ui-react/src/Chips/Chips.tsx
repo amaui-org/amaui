@@ -61,6 +61,7 @@ const useStyle = styleMethod(theme => ({
 
 export interface IChips extends ILine {
   total?: number;
+
   max?: number;
 
   AdditionalChip?: TElement;
@@ -133,11 +134,11 @@ const Chips: React.FC<IChips> = React.forwardRef((props_, ref: any) => {
         <Chip
           color='default'
 
-          {...other}
+          {...other as any}
 
           {...AdditionalChipProps}
 
-          onClick={onMoreShowAll ? onClickMore : undefined}
+          onClick={(onMoreShowAll ? onClickMore : undefined) as any}
         >
           {value}
         </Chip>

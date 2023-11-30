@@ -236,11 +236,11 @@ const IconMaterialNavigateBeforeRounded = React.forwardRef((props: any, ref) => 
 export interface ITabs extends Omit<ISurface, 'version'> {
   version?: 'primary' | 'secondary';
 
-  value?: number;
-  valueDefault?: number;
-  onChange?: (value: number) => any;
+  value?: any;
+  valueDefault?: any;
+  onChange?: (value: any) => any;
 
-  isActive?: (value: string, tabValue: string) => boolean;
+  isActive?: (value: any, tabValue: any) => boolean;
 
   activateOnFocus?: boolean;
 

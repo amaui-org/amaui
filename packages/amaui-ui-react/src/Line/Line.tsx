@@ -149,20 +149,22 @@ export type TLineWrap = 'inherit' | 'wrap' | 'nowrap' | 'wrap-reverse';
 export type TLineDisplay = 'inherit' | 'flex' | 'inline-flex';
 
 export interface ILine extends IBaseElement {
-  display?: TLineDisplay | Record<TValueBreakpoints, TLineDisplay>;
+  display?: TLineDisplay | Partial<Record<TValueBreakpoints, TLineDisplay>>;
 
-  direction?: TLineDirection | Record<TValueBreakpoints, TLineDirection>;
+  direction?: TLineDirection | Partial<Record<TValueBreakpoints, TLineDirection>>;
 
-  align?: TLineAlign | Record<TValueBreakpoints, TLineAlign>;
-  justify?: TLineJustify | Record<TValueBreakpoints, TLineJustify>;
+  align?: TLineAlign | Partial<Record<TValueBreakpoints, TLineAlign>>;
+  justify?: TLineJustify | Partial<Record<TValueBreakpoints, TLineJustify>>;
 
-  wrap?: TLineWrap | Record<TValueBreakpoints, TLineWrap>;
+  wrap?: TLineWrap | Partial<Record<TValueBreakpoints, TLineWrap>>;
 
-  gap?: string | number | Record<TValueBreakpoints, string | number>;
-  rowGap?: string | number | Record<TValueBreakpoints, string | number>;
-  columnGap?: string | number | Record<TValueBreakpoints, string | number>;
+  gap?: string | number | Partial<Record<TValueBreakpoints, string | number>>;
+  rowGap?: string | number | Partial<Record<TValueBreakpoints, string | number>>;
+  columnGap?: string | number | Partial<Record<TValueBreakpoints, string | number>>;
 
-  divider?: boolean | Record<TValueBreakpoints, boolean>;
+  fullWidth?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+
+  divider?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
   DividerProps?: TPropsAny;
 }

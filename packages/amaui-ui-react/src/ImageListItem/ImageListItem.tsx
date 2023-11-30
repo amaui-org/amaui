@@ -29,8 +29,8 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-ImageListItem' });
 
 export interface IImageListItem extends ILine {
-  rows?: number | Record<TValueBreakpoints, number>;
-  columns?: number | Record<TValueBreakpoints, number>;
+  rows?: number | Partial<Record<TValueBreakpoints, number>>;
+  columns?: number | Partial<Record<TValueBreakpoints, number>>;
   version?: 'standard' | 'vowen' | 'masonry';
 }
 

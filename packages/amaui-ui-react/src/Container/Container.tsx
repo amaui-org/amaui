@@ -85,15 +85,15 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Container' });
 
 export interface IContainer extends ILine {
-  alignment?: 'start' | 'center' | 'end' | Record<TValueBreakpoints, 'start' | 'center' | 'end'>;
+  alignment?: 'start' | 'center' | 'end' | Partial<Record<TValueBreakpoints, 'start' | 'center' | 'end'>>;
 
-  paddingVertical?: 'both' | 'start' | 'end' | 'none' | Record<TValueBreakpoints, 'both' | 'start' | 'end' | 'none'>;
+  paddingVertical?: 'both' | 'start' | 'end' | 'none' | Partial<Record<TValueBreakpoints, 'both' | 'start' | 'end' | 'none'>>;
 
-  paddingHorizontal?: 'both' | 'start' | 'end' | 'none' | Record<TValueBreakpoints, 'both' | 'start' | 'end' | 'none'>;
+  paddingHorizontal?: 'both' | 'start' | 'end' | 'none' | Partial<Record<TValueBreakpoints, 'both' | 'start' | 'end' | 'none'>>;
 
-  fullWidth?: boolean | Record<TValueBreakpoints, boolean>;
+  fullWidth?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
 
-  maxWidth?: 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'unset' | Record<TValueBreakpoints, 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'unset'>;
+  maxWidth?: 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'unset' | Partial<Record<TValueBreakpoints, 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'unset'>>;
 }
 
 const Container: React.FC<IContainer> = React.forwardRef((props_, ref: any) => {

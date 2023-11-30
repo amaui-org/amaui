@@ -147,7 +147,6 @@ export interface ISelect extends ITextField {
   multiple?: boolean;
   autoWidth?: boolean;
   getLabel?: (item: TElement, props: any) => TElement;
-  fullWidth?: boolean;
   chip?: boolean;
 
   renderValues?: (value: string | string[]) => TElement;
