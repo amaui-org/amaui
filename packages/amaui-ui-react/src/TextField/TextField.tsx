@@ -574,6 +574,7 @@ export interface ITextField extends IBaseElement {
   readOnly?: boolean;
   disabled?: boolean;
 
+  onInput?: (event: InputEvent) => any;
   onFocus?: (event: React.FocusEvent<any>) => any;
   onBlur?: (event: React.FocusEvent<any>) => any;
   onMouseEnter?: (event: React.MouseEvent<any>) => any;
@@ -639,6 +640,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
     readOnly,
     disabled,
 
+    onInput: onInput_,
     onFocus: onFocus_,
     onBlur: onBlur_,
     onMouseEnter: onMouseEnter_,
@@ -764,15 +766,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
     if (focus_ !== focus && focus_ !== undefined) setFocus(focus_);
   }, [focus_]);
 
-  const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = event.target.value;
-
-    // Carret save previous value
-    refs.carret.current = { start: refs.input.current.selectionStart, end: refs.input.current.selectionEnd };
-
-    // Only restore if it's not regular carret value
-    if (refs.carret.current.start === inputValue.length) refs.carret.current = undefined;
-
+  const onUpdateRows = () => {
     if (multiline && row !== undefined) {
       const heightValue = refs.input.current.style.height;
 
@@ -788,6 +782,18 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
       setRows(newRows);
     }
+  };
+
+  const onUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+
+    // Carret save previous value
+    refs.carret.current = { start: refs.input.current.selectionStart, end: refs.input.current.selectionEnd };
+
+    // Only restore if it's not regular carret value
+    if (refs.carret.current.start === inputValue.length) refs.carret.current = undefined;
+
+    onUpdateRows();
 
     if (!disabled && inputValue !== value) {
       // Inner controlled value
@@ -795,6 +801,12 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
       if (is('function', onChange)) onChange(inputValue, event);
     }
+  };
+
+  const onInput = (event: InputEvent) => {
+    onUpdateRows();
+
+    if (is('function', onInput_)) onInput_(event);
   };
 
   const onClear = React.useCallback(() => {
@@ -988,6 +1000,11 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
   // override the input element
   // with a custom value
   if (InputComponent_) InputComponent = InputComponent_;
+
+  // onInput
+  if (!['input', 'textarea'].includes(InputComponent)) {
+    inputProps.onInput = onInput;
+  }
 
   const valueWithData = value !== undefined && String(value);
 
