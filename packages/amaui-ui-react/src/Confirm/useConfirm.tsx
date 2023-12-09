@@ -1,10 +1,10 @@
 import React from 'react';
 
 import ConfirmContext from './Context';
-import { IConfirm } from './Confirm';
+import { IConfirmValue } from './Confirm';
 
-export default function useConfirm(): IConfirm {
-  const value = React.useContext<IConfirm>(ConfirmContext);
+export default function useConfirm(): IConfirmValue {
+  const value = React.useContext<IConfirmValue>(ConfirmContext);
 
   return value;
 }

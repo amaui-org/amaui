@@ -1,10 +1,10 @@
 import React from 'react';
 
 import MainProgressContext from './Context';
-import { IMainProgress } from './MainProgress';
+import { IMainProgressValue } from './MainProgress';
 
-export default function useMainProgress(): IMainProgress {
-  const value = React.useContext<IMainProgress>(MainProgressContext);
+export default function useMainProgress(): IMainProgressValue {
+  const value = React.useContext<IMainProgressValue>(MainProgressContext);
 
   return value;
 }

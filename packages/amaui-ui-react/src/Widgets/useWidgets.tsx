@@ -1,10 +1,10 @@
 import React from 'react';
 
 import WidgetsContext from './Context';
-import { IWidgets } from './Widgets';
+import { IWidgetsValue } from './Widgets';
 
-export default function useWidgets(): IWidgets {
-  const value = React.useContext<IWidgets>(WidgetsContext);
+export default function useWidgets(): IWidgetsValue {
+  const value = React.useContext<IWidgetsValue>(WidgetsContext);
 
   return value;
 }
