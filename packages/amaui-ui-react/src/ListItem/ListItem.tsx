@@ -348,6 +348,7 @@ export interface IListItem extends ISurface {
   TertiaryProps?: TPropsAny;
   ListTransitionComponentProps?: TPropsAny;
   ExpandProps?: TPropsAny;
+  MainProps?: TPropsAny;
   MenuProps?: TPropsAny;
 }
 
@@ -427,6 +428,7 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
     TertiaryProps,
     ListTransitionComponentProps: ListTransitionComponentProps_,
     ExpandProps,
+    MainProps,
     MenuProps = {
       autoSelect: true
     },
@@ -791,11 +793,14 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
         )}
 
         <span
+          {...MainProps}
+
           className={classNames([
             staticClassName('ListItem', theme) && [
               'amaui-ListItem-middle'
             ],
 
+            MainProps?.className,
             classes.middle,
             menuItem && classes.menuItem_middle,
             disabled && classes.middle_disabled
