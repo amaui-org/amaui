@@ -350,6 +350,9 @@ export interface IListItem extends ISurface {
   ExpandProps?: TPropsAny;
   MainProps?: TPropsAny;
   MenuProps?: TPropsAny;
+  AsideProps?: TPropsAny;
+  AsideStartProps?: TPropsAny;
+  AsideEndProps?: TPropsAny;
 }
 
 const ListItemDelays = {
@@ -429,6 +432,9 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
     ListTransitionComponentProps: ListTransitionComponentProps_,
     ExpandProps,
     MainProps,
+    AsideProps,
+    AsideStartProps,
+    AsideEndProps,
     MenuProps = {
       autoSelect: true
     },
@@ -769,6 +775,10 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
 
         {start && (
           <span
+            {...AsideProps}
+
+            {...AsideStartProps}
+
             className={classNames([
               staticClassName('ListItem', theme) && [
                 'amaui-ListItem-aside',
@@ -776,6 +786,8 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
                 `amaui-ListItem-start-${['amaui-Avatar', 'amaui-IconButton', 'amaui-Checkbox', 'amaui-Radio'].includes((start as any)?.type?.displayName) ? 'button' : ['amaui-Switch'].includes((start as any)?.type?.displayName) ? 'switch' : 'icon'}`
               ],
 
+              AsideProps?.className,
+              AsideStartProps?.className,
               classes.aside,
               classes.start,
               classes[`align_${startAlign}`],
@@ -905,6 +917,10 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
 
         {end && (
           <span
+            {...AsideProps}
+
+            {...AsideEndProps}
+
             className={classNames([
               staticClassName('ListItem', theme) && [
                 'amaui-ListItem-aside',
@@ -912,6 +928,8 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
                 `amaui-ListItem-end-${['amaui-Avatar', 'amaui-IconButton', 'amaui-Checkbox', 'amaui-Radio'].includes((end as any)?.type?.displayName) ? 'button' : ['amaui-Switch'].includes((end as any)?.type?.displayName) ? 'switch' : 'icon'}`
               ],
 
+              AsideProps?.className,
+              AsideEndProps?.classname,
               classes.aside,
               classes.end,
               classes[`align_${endAlign}`],
