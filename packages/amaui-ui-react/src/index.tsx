@@ -510,3 +510,6 @@ export * from './ImageGallery';
 
 export { default as Share } from './Share';
 export * from './Share';
+
+export { default as Emojis } from './Emojis';
+export * from './Emojis';

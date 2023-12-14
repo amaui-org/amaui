@@ -17,8 +17,12 @@ export interface ISpyScroll extends IBaseElement {
   offset?: number;
   offsetStart?: number;
 
+  parent?: HTMLElement;
+
   addClassName?: string;
   addStyle?: TStyle;
+
+  onActive?: (value: string) => any;
 }
 
 const SpyScroll: React.FC<ISpyScroll> = React.forwardRef((props_, ref: any) => {
@@ -35,6 +39,10 @@ const SpyScroll: React.FC<ISpyScroll> = React.forwardRef((props_, ref: any) => {
     addClassName,
     addStyle,
 
+    onActive,
+
+    parent,
+
     className,
     style,
 
@@ -46,75 +54,116 @@ const SpyScroll: React.FC<ISpyScroll> = React.forwardRef((props_, ref: any) => {
   const refs = {
     root: React.useRef<HTMLElement>(),
     active: React.useRef<Array<HTMLElement>>([]),
-    props: React.useRef<any>()
+    parent: React.useRef<HTMLElement>(parent),
+    props: React.useRef<any>(),
+    onActive: React.useRef(onActive)
   };
 
   const { classes } = useStyle(props);
 
   refs.props.current = props;
 
+  refs.parent.current = parent;
+
+  refs.onActive.current = onActive;
+
   React.useEffect(() => {
     // Listen to window scroll value
     const methodElement = (element: HTMLElement) => {
       if (element) {
-        const rect = element.getBoundingClientRect();
+        if (refs.parent.current) {
+          const rect = element.getBoundingClientRect();
 
-        // SpyScroll
-        const offset_ = refs.props.current.offsetStart !== undefined ? refs.props.current.offsetStart : refs.props.current.offset !== undefined ? refs.props.current.offset : 0;
+          const parentScrollTop = refs.parent.current.scrollTop;
+          const parentScrollLeft = refs.parent.current.scrollLeft;
 
-        if (
-          // Top
-          (
+          const offsetTop = element.offsetTop;
+          const offsetLeft = element.offsetLeft;
+
+          if (
+            // vertically
+            (
+              (refs.parent.current.scrollHeight > refs.parent.current.clientHeight) &&
+              (
+                offsetTop <= parentScrollTop &&
+                parentScrollTop < offsetTop + rect.height
+              )
+            ) ||
+
+            // horizontally
+            (
+              (refs.parent.current.scrollWidth > refs.parent.current.clientWidth) &&
+              (
+                offsetLeft <= parentScrollLeft &&
+                parentScrollLeft < offsetLeft + rect.width
+              )
+            )
+          ) return true;
+        }
+        else {
+          const rect = element.getBoundingClientRect();
+
+          // SpyScroll
+          const offset_ = refs.props.current.offsetStart !== undefined ? refs.props.current.offsetStart : refs.props.current.offset !== undefined ? refs.props.current.offset : 0;
+
+          const height = refs.parent.current ? refs.parent.current.clientHeight : window.innerHeight;
+
+          const width = refs.parent.current ? refs.parent.current.clientWidth : window.innerWidth;
+
+          if (
             // Top
-            (rect.top - offset_ < window.innerHeight && rect.top - offset_ > 0) &&
-
             (
-              // Left
-              (rect.left - offset_ < window.innerWidth && rect.left - offset_ > 0) ||
-              // Right
-              (rect.left - offset_ < window.innerWidth && rect.right + offset_ > 0)
-            )
-          ) ||
+              // Top
+              (rect.top - offset_ < height && rect.top - offset_ > 0) &&
 
-          // Left
-          (
+              (
+                // Left
+                (rect.left - offset_ < width && rect.left - offset_ > 0) ||
+                // Right
+                (rect.left - offset_ < width && rect.right + offset_ > 0)
+              )
+            ) ||
+
             // Left
-            (rect.left - offset_ < window.innerWidth && rect.left - offset_ > 0) &&
-
-            (
-              // Top
-              (rect.top - offset_ < window.innerHeight && rect.top - offset_ > 0) ||
-              // Bottom
-              (rect.top - offset_ < window.innerHeight && rect.bottom + offset_ > 0)
-            )
-          ) ||
-
-          // Right
-          (
-            // Right
-            (rect.left - offset_ < window.innerWidth && rect.right + offset_ > 0) &&
-
-            (
-              // Top
-              (rect.top - offset_ < window.innerHeight && rect.top - offset_ > 0) ||
-              // Bottom
-              (rect.top - offset_ < window.innerHeight && rect.bottom + offset_ > 0)
-            )
-          ) ||
-
-          // Bottom
-          (
-            // Bottom
-            (rect.top - offset_ < window.innerHeight && rect.bottom + offset_ > 0) &&
-
             (
               // Left
-              (rect.left - offset_ < window.innerWidth && rect.left - offset_ > 0) ||
+              (rect.left - offset_ < width && rect.left - offset_ > 0) &&
+
+              (
+                // Top
+                (rect.top - offset_ < height && rect.top - offset_ > 0) ||
+                // Bottom
+                (rect.top - offset_ < height && rect.bottom + offset_ > 0)
+              )
+            ) ||
+
+            // Right
+            (
               // Right
-              (rect.left - offset_ < window.innerWidth && rect.right + offset_ > 0)
+              (rect.left - offset_ < width && rect.right + offset_ > 0) &&
+
+              (
+                // Top
+                (rect.top - offset_ < height && rect.top - offset_ > 0) ||
+                // Bottom
+                (rect.top - offset_ < height && rect.bottom + offset_ > 0)
+              )
+            ) ||
+
+            // Bottom
+            (
+              // Bottom
+              (rect.top - offset_ < height && rect.bottom + offset_ > 0) &&
+
+              (
+                // Left
+                (rect.left - offset_ < width && rect.left - offset_ > 0) ||
+                // Right
+                (rect.left - offset_ < width && rect.right + offset_ > 0)
+              )
             )
-          )
-        ) return true;
+          ) return true;
+        }
       }
     };
 
@@ -122,9 +171,9 @@ const SpyScroll: React.FC<ISpyScroll> = React.forwardRef((props_, ref: any) => {
       // Find first active id
       let id: string;
 
-      const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
+      const rootElement_ = isEnvironment('browser') ? refs.parent.current || (refs.root.current?.ownerDocument || window.document) : undefined;
 
-      Try(() => id = refs.props.current.ids.find((item: string) => methodElement(rootDocument.querySelector(`#${item}`.replace('##', '#')))));
+      Try(() => id = refs.props.current.ids.find((item: string) => methodElement(rootElement_.querySelector(`#${item}`.replace('##', '#')))));
 
       if (id && refs.root.current) {
         // Update all elements in root
@@ -163,6 +212,9 @@ const SpyScroll: React.FC<ISpyScroll> = React.forwardRef((props_, ref: any) => {
             });
           }
         }
+
+        // onActive
+        if (is('function', refs.onActive.current)) refs.onActive.current(id);
       }
       else {
         // Remove active className and style from
@@ -184,18 +236,18 @@ const SpyScroll: React.FC<ISpyScroll> = React.forwardRef((props_, ref: any) => {
     // Initial
     method();
 
-    const rootDocumentElement = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
+    const rootElement = isEnvironment('browser') ? refs.parent.current || (refs.root.current?.ownerDocument || window.document) : undefined;
 
     if (refs.root.current) {
-      rootDocumentElement.addEventListener('scroll', method);
+      rootElement.addEventListener('scroll', method);
     }
 
     return () => {
       if (refs.root.current) {
-        rootDocumentElement.removeEventListener('scroll', method);
+        rootElement.removeEventListener('scroll', method);
       }
     };
-  }, []);
+  }, [parent]);
 
   return (
     <React.Fragment>
