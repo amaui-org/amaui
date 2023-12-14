@@ -611,7 +611,7 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
     start,
     startVerticalAlign = 'start',
     end: end_,
-    endVerticalAlign = 'start',
+    endVerticalAlign: endVerticalAlign_ = 'start',
     placeholder,
     fullWidth: fullWidth_,
     helperText,
@@ -683,6 +683,8 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
   theme.breakpoints.keys.forEach(key => {
     if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
   });
+
+  let endVerticalAlign = endVerticalAlign_;
 
   const fullWidth = valueBreakpoints(fullWidth_, undefined, breakpoints, theme);
 
@@ -906,17 +908,21 @@ const TextField = React.forwardRef((props_: ITextField, ref: any) => {
 
     const exists = (end as any[])?.find(item => item.key === refs.ids.clear);
 
-    if (!exists) (end as any).push(
-      <IconClear
-        key={refs.ids.clear}
+    if (!exists) {
+      if (props.endVerticalAlign === undefined) endVerticalAlign = 'center';
 
-        className={classes.clear}
+      (end as any).push(
+        <IconClear
+          key={refs.ids.clear}
 
-        color='inherit'
+          className={classes.clear}
 
-        onClick={onClear}
-      />
-    );
+          color='inherit'
+
+          onClick={onClear}
+        />
+      );
+    }
   }
 
   if (footer) {

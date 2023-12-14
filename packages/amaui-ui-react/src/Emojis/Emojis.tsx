@@ -93,6 +93,12 @@ const useStyle = styleMethod(theme => ({
     background: 'transparent'
   },
 
+  tabs: {
+    '& .amaui-Tabs-tabs': {
+      minWidth: '100%'
+    }
+  },
+
   tab: {
     '&.amaui-Tab-root': {
       minWidth: 'unset'
@@ -407,7 +413,7 @@ const Emojis: React.FC<IEmojis> = React.forwardRef((props_, ref: any) => {
 
   const onChangeSearch = React.useCallback(debounce((valueNew: any) => {
     setSearch(valueNew);
-  }, 2400), []);
+  }, 140), []);
 
   const onChangeTabs = React.useCallback((valueNew: any) => {
     setTab(valueNew);
@@ -490,13 +496,9 @@ const Emojis: React.FC<IEmojis> = React.forwardRef((props_, ref: any) => {
                 <TextField
                   label='Search'
 
-                  value={search}
-
                   onChange={onChangeSearch}
 
                   size={['small', 'regular'].includes(size) ? 'small' : 'regular'}
-
-                  endVerticalAlign='center'
 
                   fullWidth
 
@@ -504,7 +506,7 @@ const Emojis: React.FC<IEmojis> = React.forwardRef((props_, ref: any) => {
                 />
               )}
 
-              {tabs_ && (
+              {tabs_ && !!categoriesUsed.length && (
                 <Tabs
                   valueDefault={tab}
 
@@ -517,6 +519,8 @@ const Emojis: React.FC<IEmojis> = React.forwardRef((props_, ref: any) => {
                   initialLineUpdateTimeout={440}
 
                   noDivider
+
+                  className={classes.tabs}
                 >
                   {tabs.map((item, index) => (
                     <Tab
