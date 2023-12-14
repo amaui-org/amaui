@@ -24,6 +24,8 @@ const useStyle = styleMethod(theme => ({
   wrapper: {
     height: '70vh',
     width: '70vw',
+    borderRadius: 16,
+    boxShadow: 'rgba(0, 0, 0, 0.07) 0px 4px 32px 0px',
     overflow: 'hidden'
   },
 
@@ -405,7 +407,7 @@ const Emojis: React.FC<IEmojis> = React.forwardRef((props_, ref: any) => {
 
   const onChangeSearch = React.useCallback(debounce((valueNew: any) => {
     setSearch(valueNew);
-  }, 1400), []);
+  }, 2400), []);
 
   const onChangeTabs = React.useCallback((valueNew: any) => {
     setTab(valueNew);
