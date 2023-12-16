@@ -77,6 +77,8 @@ export interface IBadge extends IBaseElement {
   vertical?: 'top' | 'bottom';
   horizontal?: 'left' | 'right';
   indicator?: boolean;
+
+  element?: any;
 }
 
 const Badge: React.FC<IBadge> = React.forwardRef((props_, ref: any) => {
@@ -97,6 +99,8 @@ const Badge: React.FC<IBadge> = React.forwardRef((props_, ref: any) => {
     horizontal = 'right',
     indicator,
 
+    element,
+
     Component = 'span',
 
     className,
@@ -114,7 +118,19 @@ const Badge: React.FC<IBadge> = React.forwardRef((props_, ref: any) => {
 
   if (max !== undefined && value > max) value = `${max}+`;
 
-  const useValue = value !== undefined || indicator;
+  const useValue = value !== undefined || indicator || element;
+
+  const classesBadge = classNames([
+    staticClassName('Badge', theme) && [
+      'amaui-Badge-badge'
+    ],
+
+    classes.badge,
+    classes[`vertical_${vertical}`],
+    classes[`horizontal_${horizontal}`],
+    classes[`vertical_horizontal_${vertical}_${horizontal}`],
+    indicator && classes.indicator
+  ]);
 
   return (
     <Component
@@ -133,7 +149,12 @@ const Badge: React.FC<IBadge> = React.forwardRef((props_, ref: any) => {
     >
       {children}
 
-      {useValue && (
+      {useValue && (element ? React.cloneElement(element, {
+        className: classNames([
+          classesBadge,
+          element.props?.className
+        ])
+      }) : (
         <Surface
           tonal={tonal}
 
@@ -141,23 +162,13 @@ const Badge: React.FC<IBadge> = React.forwardRef((props_, ref: any) => {
 
           Component='span'
 
-          className={classNames([
-            staticClassName('Badge', theme) && [
-              'amaui-Badge-badge'
-            ],
-
-            classes.badge,
-            classes[`vertical_${vertical}`],
-            classes[`horizontal_${horizontal}`],
-            classes[`vertical_horizontal_${vertical}_${horizontal}`],
-            indicator && classes.indicator
-          ])}
+          className={classesBadge}
 
           style={styles.badge}
         >
           {value}
         </Surface>
-      )}
+      ))}
     </Component>
   );
 });

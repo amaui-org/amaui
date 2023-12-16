@@ -64,9 +64,27 @@ const useStyle = styleMethod(theme => ({
   },
 
   emoji: {
+    position: 'relative',
     textAlign: 'center',
     cursor: 'pointer',
     transition: theme.methods.transitions.make('transform'),
+
+    '&$emoji_selected': {
+      '&::before': {
+        content: '""',
+        position: 'absolute',
+        width: 'calc(100% + 4px)',
+        height: 'auto',
+        aspectRatio: '1/1',
+        background: theme.palette.background.primary.quaternary,
+        inset: '0',
+        borderRadius: '50%',
+        zIndex: '0',
+        left: '50%',
+        transform: 'translate(-50%)',
+        top: '-1px'
+      }
+    },
 
     '&:active': {
       transform: 'scale(0.94)'
@@ -86,6 +104,11 @@ const useStyle = styleMethod(theme => ({
   emoji_size_large: {
     fontSize: '2.5rem',
     width: 40
+  },
+
+  unicode: {
+    position: 'relative',
+    zIndex: 1
   },
 
   subheader: {
@@ -269,6 +292,8 @@ export interface IEmojis extends IMenu {
 
   categories?: IEmojiCategory[];
 
+  selected?: string[];
+
   onSelect?: (value: IEmoji) => any;
 
   search?: boolean;
@@ -336,6 +361,8 @@ const Emojis: React.FC<IEmojis> = React.forwardRef((props_, ref: any) => {
     emojis = emojis_list,
 
     categories = EMOJI_CATEGORIES,
+
+    selected,
 
     size = 'regular',
 
@@ -604,10 +631,15 @@ const Emojis: React.FC<IEmojis> = React.forwardRef((props_, ref: any) => {
 
                       className={classNames([
                         classes.emoji,
-                        classes[`emoji_size_${size}`]
+                        classes[`emoji_size_${size}`],
+                        selected?.includes(emoji.unicode) && classes.emoji_selected
                       ])}
                     >
-                      {emoji.unicode}
+                      <span
+                        className={classes.unicode}
+                      >
+                        {emoji.unicode}
+                      </span>
                     </span>
                   ))}
                 </Line>
