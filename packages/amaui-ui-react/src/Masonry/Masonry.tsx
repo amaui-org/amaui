@@ -163,7 +163,7 @@ const Masonry: React.FC<IMasonry> = React.forwardRef((props_, ref: any) => {
     };
   }, []);
 
-  React.useEffect(method as any, [gap, columns]);
+  React.useEffect(method as any, [children.length, gap, columns]);
 
   styles.item.margin = 0;
 
