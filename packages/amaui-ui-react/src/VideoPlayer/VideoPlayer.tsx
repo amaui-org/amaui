@@ -1319,6 +1319,10 @@ const VideoPlayer: React.FC<IVideoPlayer> = React.forwardRef((props_, ref: any) 
             fullWidth
 
             onMouseLeave={onMouseLeave}
+
+            style={{
+              color: theme.palette.color[color] ? theme.palette.color[color][90] : theme.palette.color.neutral[90]
+            }}
           >
             {startButtons}
 
