@@ -19,7 +19,8 @@ import { staticClassName, TColor, TElementReference, TPropsAny, TSize, TTonal } 
 
 const useStyle = styleMethod(theme => ({
   root: {
-    position: 'relative'
+    position: 'relative',
+    minWidth: '254px'
   },
 
   wrapper: {

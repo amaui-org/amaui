@@ -86,65 +86,65 @@ const useStyle = styleMethod(theme => ({
 
   // Color
   // rail
-  rail_color_default: { background: theme.methods.palette.color.value('default', 80) },
+  rail_color_default: { background: theme.palette.color.neutral[theme.palette.light ? 70 : 20] },
 
-  rail_color_neutral: { background: theme.methods.palette.color.value('default', 80) },
+  rail_color_neutral: { background: theme.palette.color.neutral[theme.palette.light ? 70 : 20] },
 
-  rail_color_primary: { background: theme.methods.palette.color.value('primary', 80) },
+  rail_color_primary: { background: theme.palette.color.primary[theme.palette.light ? 70 : 20] },
 
-  rail_color_secondary: { background: theme.methods.palette.color.value('secondary', 80) },
+  rail_color_secondary: { background: theme.palette.color.secondary[theme.palette.light ? 70 : 20] },
 
-  rail_color_tertiary: { background: theme.methods.palette.color.value('tertiary', 80) },
+  rail_color_tertiary: { background: theme.palette.color.tertiary[theme.palette.light ? 70 : 20] },
 
-  rail_color_quaternary: { background: theme.methods.palette.color.value('quaternary', 80) },
+  rail_color_quaternary: { background: theme.palette.color.quaternary[theme.palette.light ? 70 : 20] },
 
-  rail_color_info: { background: theme.methods.palette.color.value('info', 80) },
+  rail_color_info: { background: theme.palette.color.info[theme.palette.light ? 70 : 20] },
 
-  rail_color_success: { background: theme.methods.palette.color.value('success', 80) },
+  rail_color_success: { background: theme.palette.color.success[theme.palette.light ? 70 : 20] },
 
-  rail_color_warning: { background: theme.methods.palette.color.value('warning', 80) },
+  rail_color_warning: { background: theme.palette.color.warning[theme.palette.light ? 70 : 20] },
 
-  rail_color_error: { background: theme.methods.palette.color.value('error', 80) },
+  rail_color_error: { background: theme.palette.color.error[theme.palette.light ? 70 : 20] },
 
   // track
-  track_color_default: { background: theme.methods.palette.color.value('neutral', 0) },
+  track_color_default: { background: theme.palette.color.neutral[50] },
 
-  track_color_neutral: { background: theme.palette.color.neutral.main },
+  track_color_neutral: { background: theme.palette.color.neutral[50] },
 
-  track_color_primary: { background: theme.palette.color.primary.main },
+  track_color_primary: { background: theme.palette.color.primary[50] },
 
-  track_color_secondary: { background: theme.palette.color.secondary.main },
+  track_color_secondary: { background: theme.palette.color.secondary[50] },
 
-  track_color_tertiary: { background: theme.palette.color.tertiary.main },
+  track_color_tertiary: { background: theme.palette.color.tertiary[50] },
 
-  track_color_quaternary: { background: theme.palette.color.quaternary.main },
+  track_color_quaternary: { background: theme.palette.color.quaternary[50] },
 
-  track_color_info: { background: theme.palette.color.info.main },
+  track_color_info: { background: theme.palette.color.info[50] },
 
-  track_color_success: { background: theme.palette.color.success.main },
+  track_color_success: { background: theme.palette.color.success[50] },
 
-  track_color_warning: { background: theme.palette.color.warning.main },
+  track_color_warning: { background: theme.palette.color.warning[50] },
 
-  track_color_error: { background: theme.palette.color.error.main },
+  track_color_error: { background: theme.palette.color.error[50] },
 
   // Tonal
-  track_tonal_color_neutral: { background: theme.methods.palette.color.value('default', 70) },
+  track_tonal_color_neutral: { background: theme.palette.color.neutral[50] },
 
-  track_tonal_color_primary: { background: theme.methods.palette.color.value('primary', 70) },
+  track_tonal_color_primary: { background: theme.palette.color.primary[50] },
 
-  track_tonal_color_secondary: { background: theme.methods.palette.color.value('secondary', 70) },
+  track_tonal_color_secondary: { background: theme.palette.color.secondary[50] },
 
-  track_tonal_color_tertiary: { background: theme.methods.palette.color.value('tertiary', 70) },
+  track_tonal_color_tertiary: { background: theme.palette.color.tertiary[50] },
 
-  track_tonal_color_quaternary: { background: theme.methods.palette.color.value('quaternary', 70) },
+  track_tonal_color_quaternary: { background: theme.palette.color.quaternary[50] },
 
-  track_tonal_color_info: { background: theme.methods.palette.color.value('info', 70) },
+  track_tonal_color_info: { background: theme.palette.color.info[50] },
 
-  track_tonal_color_success: { background: theme.methods.palette.color.value('success', 70) },
+  track_tonal_color_success: { background: theme.palette.color.success[50] },
 
-  track_tonal_color_warning: { background: theme.methods.palette.color.value('warning', 70) },
+  track_tonal_color_warning: { background: theme.palette.color.warning[50] },
 
-  track_tonal_color_error: { background: theme.methods.palette.color.value('error', 70) },
+  track_tonal_color_error: { background: theme.palette.color.error[50] },
 
   // iconButton
   iconButton_color_default: {
@@ -530,6 +530,8 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
     focusButton: React.useRef<any>(),
     direction: React.useRef<any>(),
     iconButtons: React.useRef<Array<any>>([]),
+    min: React.useRef(min),
+    max: React.useRef(max)
   };
 
   refs.value.current = value;
@@ -544,6 +546,10 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
 
   refs.direction.current = theme.direction;
 
+  refs.min.current = min;
+
+  refs.max.current = max;
+
   const { classes } = useStyle(props);
 
   let color = color_;
@@ -553,32 +559,32 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
   const valueDecimals = (String(precision).includes('e-') ? +String(precision).split('e-')[1] : String(precision).split('.')[1]?.length) || 0;
 
   const valuePrecision = (valueMouse: number, mouseDownButtonUpdate = false) => {
-    let value__ = valueFromPercentageWithinRange(valueMouse * 100, min, max);
+    let value__ = valueFromPercentageWithinRange(valueMouse * 100, refs.min.current, refs.max.current);
 
-    if (refs.direction.current === 'rtl' && orientation === 'horizontal') value__ = (max + min) - value__;
+    if (refs.direction.current === 'rtl' && orientation === 'horizontal') value__ = (refs.max.current + refs.min.current) - value__;
 
-    if (value__ <= min) return min;
+    if (value__ <= refs.min.current) return refs.min.current;
 
-    if (value__ >= max) return max;
+    if (value__ >= refs.max.current) return refs.max.current;
 
     // previous value
-    let previous = clamp(+(value__ - (value__ % precision)).toFixed(valueDecimals), min, max);
+    let previous = clamp(+(value__ - (value__ % precision)).toFixed(valueDecimals), refs.min.current, refs.max.current);
 
     if (value__ < 0) previous -= precision;
 
     if (onlyMarks && is('array', marks)) {
       const previousMark = marks.map(item => item.value).sort((a, b) => b - a).find(item => item <= value__);
 
-      previous = previousMark !== undefined ? previousMark : min;
+      previous = previousMark !== undefined ? previousMark : refs.min.current;
     }
 
     // next value
-    let next = clamp(+(previous + precision).toFixed(valueDecimals), min, max);
+    let next = clamp(+(previous + precision).toFixed(valueDecimals), refs.min.current, refs.max.current);
 
     if (onlyMarks && is('array', marks)) {
       const nextMark = marks.map(item => item.value).sort((a, b) => a - b).find(item => item >= value__);
 
-      next = nextMark !== undefined ? nextMark : max;
+      next = nextMark !== undefined ? nextMark : refs.max.current;
     }
 
     const valueNew = value__ < previous + ((next - previous) / 2) ? previous : next;
@@ -723,21 +729,21 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
     let value__ = is('array', valueNew) ? valueNew[index] : valueNew;
 
     // previous value
-    let previous = clamp(+(value__ - precision).toFixed(valueDecimals), min, max);
+    let previous = clamp(+(value__ - precision).toFixed(valueDecimals), refs.min.current, refs.max.current);
 
     if (onlyMarks && is('array', marks)) {
       const previousMark = marks.map(item => item.value).sort((a, b) => b - a).find(item => item < value__);
 
-      previous = previousMark !== undefined ? previousMark : min;
+      previous = previousMark !== undefined ? previousMark : refs.min.current;
     }
 
     // next value
-    let next = clamp(+(value__ + precision).toFixed(valueDecimals), min, max);
+    let next = clamp(+(value__ + precision).toFixed(valueDecimals), refs.min.current, refs.max.current);
 
     if (onlyMarks && is('array', marks)) {
       const nextMark = marks.map(item => item.value).sort((a, b) => a - b).find(item => item > value__);
 
-      next = nextMark !== undefined ? nextMark : max;
+      next = nextMark !== undefined ? nextMark : refs.max.current;
     }
 
     value__ = forward ? next : previous;
@@ -787,8 +793,8 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
             if (is('array', refs.value.current)) {
               valueNew = [...refs.value.current];
 
-              valueNew[0] = min;
-            } else valueNew = min;
+              valueNew[0] = refs.min.current;
+            } else valueNew = refs.min.current;
 
             if (!props.hasOwnProperty('value')) setValue(valueNew);
 
@@ -800,8 +806,8 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
             if (is('array', refs.value.current)) {
               valueNew = [...refs.value.current];
 
-              valueNew[valueNew.length - 1] = max;
-            } else valueNew = max;
+              valueNew[valueNew.length - 1] = refs.max.current;
+            } else valueNew = refs.max.current;
 
             if (!props.hasOwnProperty('value')) setValue(valueNew);
 
@@ -884,7 +890,7 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
   const palette = !theme.palette.color[color] && theme.methods.color(color);
 
   if (!theme.palette.color[color] && color !== 'default') {
-    styles.markRail.background = styles.rail.background = theme.methods.palette.color.value(undefined, 90, true, palette);
+    styles.markRail.background = styles.rail.background = theme.methods.palette.color.value(undefined, theme.palette.light ? 50 : 90, true, palette);
 
     styles.label.background = styles.markTrack.background = styles.icon.background = styles.track.background = styles.iconButton.color = !tonal ? palette.main : theme.methods.palette.color.value(undefined, 70, true, palette);
 
@@ -900,19 +906,19 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
   const valueValue = (value__: any = values[0]) => {
     let valueNew = value__;
 
-    if (value__ === min) valueNew = 0;
+    if (value__ === refs.min.current) valueNew = 0;
 
-    else if (value__ === max) valueNew = 100;
+    else if (value__ === refs.max.current) valueNew = 100;
 
-    else valueNew = percentageFromValueWithinRange(value__, min, max);
+    else valueNew = percentageFromValueWithinRange(value__, refs.min.current, refs.max.current);
 
     return valueNew;
   };
 
   const valueMark = (value__: any) => {
-    if (value__ === min) return 0;
+    if (value__ === refs.min.current) return 0;
 
-    if (value__ === max) return `calc(100% - 2px)`;
+    if (value__ === refs.max.current) return `calc(100% - 2px)`;
 
     return `calc(${valueValue(value__)}% - 1px)`;
   };
@@ -958,25 +964,25 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
     }
   }
 
-  const marksValue = Math.ceil((max - min) / precision);
+  const marksValue = Math.ceil((refs.max.current - refs.min.current) / precision);
 
   let marks_ = [];
 
   if (marks) {
     if (is('array', marks)) marks_ = marks;
     else if (marksValue <= 1e3) {
-      let markSum = min;
+      let markSum = refs.min.current;
       let index = 1;
 
-      marks_.push({ value: min, label: min });
+      marks_.push({ value: refs.min.current, label: refs.min.current });
 
-      while (markSum <= max) {
-        markSum = min + (precision * index++);
+      while (markSum <= refs.max.current) {
+        markSum = refs.min.current + (precision * index++);
 
-        if (markSum < max) marks_.push({ value: markSum, label: markSum });
+        if (markSum < refs.max.current) marks_.push({ value: markSum, label: markSum });
       }
 
-      marks_.push({ value: max, label: max });
+      marks_.push({ value: refs.max.current, label: refs.max.current });
     }
   }
 

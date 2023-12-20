@@ -113,7 +113,11 @@ const useStyle = styleMethod(theme => ({
 
   subheader: {
     backdropFilter: 'blur(2px)',
-    background: 'transparent'
+    background: 'transparent',
+
+    '&.amaui-ListSubheader-root': {
+      zIndex: 14
+    }
   },
 
   tabs: {

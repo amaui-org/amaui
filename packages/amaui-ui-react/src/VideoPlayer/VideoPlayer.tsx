@@ -1289,7 +1289,7 @@ const VideoPlayer: React.FC<IVideoPlayer> = React.forwardRef((props_, ref: any) 
 
               min={0}
 
-              max={10}
+              max={duration}
 
               onMouseDown={onUpdating}
 
