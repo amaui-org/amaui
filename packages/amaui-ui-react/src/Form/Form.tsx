@@ -195,6 +195,10 @@ const Form: React.FC<IForm> = React.forwardRef((props_, ref: any) => {
 
         mainPaddingHorizontal='none'
 
+        start={start}
+
+        end={end}
+
         HeaderProps={{
           direction: 'column',
           gap: size === 'large' ? 1 : size === 'regular' ? 0.5 : 0.5

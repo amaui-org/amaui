@@ -152,6 +152,9 @@ export interface IAccordion extends ISurface {
   primary?: TElement;
   secondary?: TElement;
 
+  start?: any;
+  end?: any;
+
   openDefault?: boolean;
   open?: boolean;
   onChange?: (open: boolean) => any;
@@ -172,6 +175,8 @@ export interface IAccordion extends ISurface {
   WrapperHeaderProps?: TPropsAny;
   HeaderProps?: TPropsAny;
   IconButtonProps?: TPropsAny;
+  StartProps?: TPropsAny;
+  EndProps?: TPropsAny;
 
   ExpandIcon?: TElementReference;
   TransitionComponent?: TElementReference;
@@ -195,6 +200,9 @@ const Accordion: React.FC<IAccordion> = React.forwardRef((props_, ref: any) => {
 
     primary,
     secondary,
+
+    start,
+    end,
 
     openDefault,
     open: open_,
@@ -221,6 +229,8 @@ const Accordion: React.FC<IAccordion> = React.forwardRef((props_, ref: any) => {
     WrapperHeaderProps,
     HeaderProps,
     IconButtonProps,
+    StartProps,
+    EndProps,
 
     className,
 
@@ -336,6 +346,8 @@ const Accordion: React.FC<IAccordion> = React.forwardRef((props_, ref: any) => {
           ]
         ])}
       >
+        {start}
+
         <Grid
           gap={{
             xxs: 0.5,
@@ -427,37 +439,49 @@ const Accordion: React.FC<IAccordion> = React.forwardRef((props_, ref: any) => {
           )}
         </Grid>
 
-        {!noExpandButton && (
-          <IconButton
-            color='inherit'
+        <Line
+          gap={0}
 
-            aria-label={primary || secondary}
+          direction='row'
 
-            aria-controls={refs.ids.data}
+          align='center'
 
-            aria-expanded={open}
+          {...EndProps}
+        >
+          {end}
 
-            id={refs.ids.button}
+          {!noExpandButton && (
+            <IconButton
+              color='inherit'
 
-            {...IconButtonProps}
+              aria-label={primary || secondary}
 
-            className={classNames([
-              staticClassName('Accordion', theme) && [
-                'amaui-Accordion-icon-button'
-              ],
+              aria-controls={refs.ids.data}
 
-              IconButtonProps?.className,
-              classes.iconButton
-            ])}
-          >
-            <ExpandIcon
+              aria-expanded={open}
+
+              id={refs.ids.button}
+
+              {...IconButtonProps}
+
               className={classNames([
-                classes.icon,
-                open && classes.icon_open
+                staticClassName('Accordion', theme) && [
+                  'amaui-Accordion-icon-button'
+                ],
+
+                IconButtonProps?.className,
+                classes.iconButton
               ])}
-            />
-          </IconButton>
-        )}
+            >
+              <ExpandIcon
+                className={classNames([
+                  classes.icon,
+                  open && classes.icon_open
+                ])}
+              />
+            </IconButton>
+          )}
+        </Line>
       </Line>
 
       <Expand
