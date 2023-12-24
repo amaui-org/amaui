@@ -589,7 +589,7 @@ export interface ITextField extends IBaseElement {
   WrapperComponent?: TElementReference;
 }
 
-const TextField = React.forwardRef((props_: ITextField, ref: any) => {
+const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTextField?.props?.default, ...props_ }), [props_]);

@@ -164,6 +164,9 @@ export interface ISpeedDial extends Omit<ILine, 'direction'> {
   closeOnClick?: boolean;
   tooltipOpen?: boolean;
 
+  start?: any;
+  end?: any;
+
   noRotate?: boolean;
 
   tooltipLabel?: TElement;
@@ -179,6 +182,7 @@ export interface ISpeedDial extends Omit<ILine, 'direction'> {
 
   TooltipProps?: TPropsAny;
   FabProps?: TPropsAny;
+  FabWrapperProps?: TPropsAny;
   FabTransitionComponentProps?: TPropsAny;
   SpeeDialItemTransitionComponentProps?: TPropsAny;
 }
@@ -206,6 +210,9 @@ const SpeedDial: React.FC<ISpeedDial> = React.forwardRef((props_, ref: any) => {
     closeOnClick,
     tooltipOpen,
 
+    start,
+    end,
+
     noRotate,
 
     tooltipLabel,
@@ -226,6 +233,7 @@ const SpeedDial: React.FC<ISpeedDial> = React.forwardRef((props_, ref: any) => {
     FabProps = {
       elevation: false
     },
+    FabWrapperProps,
     FabTransitionComponentProps,
     SpeeDialItemTransitionComponentProps,
 
@@ -503,6 +511,8 @@ const SpeedDial: React.FC<ISpeedDial> = React.forwardRef((props_, ref: any) => {
 
   const reverse = lineDirection.includes('reverse') || lineItemsDirection.includes('reverse');
 
+  const elementsChildren = React.Children.toArray(children);
+
   return (
     <Line
       ref={item => {
@@ -544,79 +554,89 @@ const SpeedDial: React.FC<ISpeedDial> = React.forwardRef((props_, ref: any) => {
 
       {...other}
     >
-      <Line
-        ref={refs.line}
+      {!!elementsChildren.length && (
+        <Line
+          ref={refs.line}
 
-        gap={1}
+          gap={1}
 
-        direction={lineItemsDirection}
+          direction={lineItemsDirection}
 
-        align='center'
+          align='center'
 
-        justify='center'
+          justify='center'
 
-        onMouseEnter={onMouseEnter}
+          onMouseEnter={onMouseEnter}
 
-        onMouseLeave={onMouseLeave}
+          onMouseLeave={onMouseLeave}
 
-        className={classNames([
-          staticClassName('SpeedDial', theme) && [
-            `amaui-SpeedDial-items`
-          ],
+          className={classNames([
+            staticClassName('SpeedDial', theme) && [
+              `amaui-SpeedDial-items`
+            ],
 
-          classes.items,
-          classes[`items_position_${linePosition}`],
-          open && classes.items_open
-        ])}
-      >
-        {React.Children.toArray(children).map((item: any, index: number) => (
-          <SpeeDialItemTransitionComponent
-            key={index}
+            classes.items,
+            classes[`items_position_${linePosition}`],
+            open && classes.items_open
+          ])}
+        >
+          {elementsChildren.map((item: any, index: number) => (
+            <SpeeDialItemTransitionComponent
+              key={index}
 
-            in={open}
+              in={open}
 
-            delay={(((open && !reverse) || (!open && reverse)) ? children.length - 1 - index : index) * 30}
+              delay={(((open && !reverse) || (!open && reverse)) ? children.length - 1 - index : index) * 30}
 
-            append
+              append
 
-            add
+              add
 
-            removeOnExited
+              removeOnExited
 
-            addTransition={theme.methods.transitions.make('box-shadow')}
+              addTransition={theme.methods.transitions.make('box-shadow')}
 
-            {...SpeeDialItemTransitionComponentProps}
-          >
-            {React.cloneElement(item, {
-              open,
+              {...SpeeDialItemTransitionComponentProps}
+            >
+              {React.cloneElement(item, {
+                open,
 
-              tonal,
-              color,
-              version,
+                tonal,
+                color,
+                version,
 
-              tooltipOpen,
+                tooltipOpen,
 
-              onClick: (event: React.MouseEvent<any>) => {
-                if (item.props.closeOnClick !== undefined ? item.props.closeOnClick : closeOnClick) onClose();
+                onClick: (event: React.MouseEvent<any>) => {
+                  if (item.props.closeOnClick !== undefined ? item.props.closeOnClick : closeOnClick) onClose();
 
-                if (is('function', item.props.onClick)) item.props.onClick(event);
-              },
+                  if (is('function', item.props.onClick)) item.props.onClick(event);
+                },
 
-              onBlur,
-              onFocus,
+                onBlur,
+                onFocus,
 
-              TooltipProps: { ...TooltipProps }
-            })}
-          </SpeeDialItemTransitionComponent>
-        ))}
-      </Line>
+                TooltipProps: { ...TooltipProps }
+              })}
+            </SpeeDialItemTransitionComponent>
+          ))}
+        </Line>
+      )}
 
       <FabTransitionComponent
         in={inProp}
 
         {...FabTransitionComponentProps}
       >
-        <div>
+        <Line
+          gap={1}
+
+          direction='column'
+
+          {...FabWrapperProps}
+        >
+          {start}
+
           <Tooltip
             label={tooltipLabel}
 
@@ -685,7 +705,9 @@ const SpeedDial: React.FC<ISpeedDial> = React.forwardRef((props_, ref: any) => {
               </IconWrapper>
             </Fab>
           </Tooltip>
-        </div>
+
+          {end}
+        </Line>
       </FabTransitionComponent>
     </Line>
   );
