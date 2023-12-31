@@ -1,6 +1,6 @@
 {
   "name": "@amaui/icons-material-sharp-react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Icons material sharp for React",
   "repository": "https://github.com/amaui-org/amaui.git",
   "author": "Lazar <lazareric.com@gmail.com>",
@@ -47,7 +47,7 @@
     "react": "^18.1.0"
   },
   "dependencies": {
-    "@amaui/ui-react": "^1.1.13"
+    "@amaui/ui-react": "^1.1.253"
   },
   "publishConfig": {
     "access": "public",
