@@ -483,13 +483,13 @@ const ScreenCapture: React.FC<IScreenCapture> = React.forwardRef((props_, ref: a
     setCanvasSelectorValue(values);
   }, []);
 
-  const iconButtonProps = {
+  const iconButtonProps: any = {
     tonal,
     color: 'inherit',
     elevation: false
   };
 
-  const textFieldProps = {
+  const textFieldProps: any = {
     tonal,
     color: 'inherit',
     version: 'text',

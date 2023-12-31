@@ -846,14 +846,14 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
       <TextField
         ref={refs.input}
 
-        rootRef={item => {
+        rootRef={(item => {
           if (ref) {
             if (is('function', ref)) ref(item);
             else ref.current = item;
           }
 
           refs.root.current = item;
-        }}
+        }) as any}
 
         onBlur={onBlur}
 
@@ -1070,7 +1070,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
           autoWidth && classes.menu_autoWidth
         ])}
       />
-    </Line>
+    </Line >
   );
 });
 
