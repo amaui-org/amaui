@@ -31,12 +31,17 @@ export interface IRadios extends ILine {
   version?: TVersion;
   size?: TSize;
 
+  name?: TElement;
   label?: TElement;
 
   uncheck?: boolean;
 
-  valueDefault?: any;
-  value?: any;
+  valueDefault?: boolean;
+  checkedDefault?: boolean;
+
+  value?: boolean;
+  checked?: boolean;
+
   onChange?: (value: any) => any;
 
   disabled?: boolean;
@@ -58,7 +63,8 @@ const Radios: React.FC<IRadios> = React.forwardRef((props_, ref: any) => {
     version = 'text',
     size = 'regular',
 
-    label,
+    name,
+    label: label_,
 
     uncheck = true,
 
@@ -66,8 +72,12 @@ const Radios: React.FC<IRadios> = React.forwardRef((props_, ref: any) => {
     align = 'center',
     justify = 'center',
 
-    valueDefault,
+    valueDefault: valueDefault_,
+    checkedDefault: checkedDefault_,
+
     value: value_,
+    checked: checked_,
+
     onChange,
 
     disabled,
@@ -83,7 +93,10 @@ const Radios: React.FC<IRadios> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
+  const checkedDefault = valueDefault_ !== undefined ? valueDefault_ : checkedDefault_;
+  const checked = value_ !== undefined ? value_ : checked_;
+
+  const [value, setValue] = React.useState(checkedDefault !== undefined ? checkedDefault : value_);
 
   const refs = {
     value: React.useRef<any>(),
@@ -94,9 +107,11 @@ const Radios: React.FC<IRadios> = React.forwardRef((props_, ref: any) => {
 
   refs.value.current = value;
 
+  const label = name !== undefined ? name : label_;
+
   React.useEffect(() => {
-    if (value_ !== undefined && value_ !== refs.value.current) setValue(value_);
-  }, [value_]);
+    if (checked !== undefined && checked !== refs.value.current) setValue(checked);
+  }, [checked]);
 
   const children: any[] = React.Children.toArray(children_);
 

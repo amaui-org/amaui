@@ -233,7 +233,7 @@ const Tooltip: React.FC<ITooltip> = React.forwardRef((props_, ref: any) => {
     openDefault,
 
     name,
-    label,
+    label: label_,
 
     parent,
     position = 'bottom',
@@ -312,6 +312,8 @@ const Tooltip: React.FC<ITooltip> = React.forwardRef((props_, ref: any) => {
     name: {},
     nameRoot: {}
   };
+
+  const label = name !== undefined ? name : label_;
 
   const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
     if (longPress_) refs.longPressTimer.current = setTimeout(() => setLongPress(true), 700);
@@ -481,8 +483,6 @@ const Tooltip: React.FC<ITooltip> = React.forwardRef((props_, ref: any) => {
     if (position === 'bottom') return 'top';
   };
 
-  const nameValue = name || label;
-
   return (
     <Append
       open={open}
@@ -595,7 +595,7 @@ const Tooltip: React.FC<ITooltip> = React.forwardRef((props_, ref: any) => {
               <div
                 role='tooltip'
 
-                aria-label={is('simple', nameValue) ? nameValue as any : undefined}
+                aria-label={is('simple', label) ? label as any : undefined}
 
                 className={classNames([
                   staticClassName('Tooltip', theme) && [
@@ -612,7 +612,7 @@ const Tooltip: React.FC<ITooltip> = React.forwardRef((props_, ref: any) => {
 
                 style={styles.nameRoot}
               >
-                {is('simple', nameValue) ?
+                {is('simple', label) ?
                   <Surface
                     tonal={tonal}
 
@@ -646,13 +646,13 @@ const Tooltip: React.FC<ITooltip> = React.forwardRef((props_, ref: any) => {
                         ],
                       ])}
                     >
-                      {nameValue}
+                      {label}
                     </span>
                   </Surface> :
 
-                  React.cloneElement(nameValue as any, {
+                  React.cloneElement(label as any, {
                     className: classNames([
-                      (nameValue as any)?.props?.className,
+                      (label as any)?.props?.className,
                       arrow && [
                         classes.arrow,
                         classes[`arrow_position_${position}_alignment_${alignment}`]

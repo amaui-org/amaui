@@ -33,6 +33,7 @@ const useStyle = styleMethod(theme => ({
 export interface ISpeedDialItem extends IIconButton {
   open?: boolean;
 
+  name?: TElement;
   label?: TElement;
   tooltipOpen?: boolean;
   closeOnClick?: boolean;
@@ -62,7 +63,9 @@ const SpeedDialItem: React.FC<ISpeedDialItem> = React.forwardRef((props_, ref: a
   const {
     open,
 
-    label,
+    name,
+    label: label_,
+
     tooltipOpen,
     closeOnClick,
 
@@ -90,6 +93,8 @@ const SpeedDialItem: React.FC<ISpeedDialItem> = React.forwardRef((props_, ref: a
   delete TooltipProps.open;
 
   if (tooltipOpen) TooltipProps.open = true;
+
+  const label = name !== undefined ? name : label_;
 
   return (
     <Component

@@ -35,6 +35,7 @@ const useStyle = styleMethod(theme => ({
 
 export interface IPageForward {
   to?: string;
+  name?: string;
   label?: string;
 }
 
@@ -127,7 +128,7 @@ const Page: React.FC<IPage> = React.forwardRef((props_, ref: any) => {
     >
       {back ? (
         <Tooltip
-          label={back?.label || 'Back'}
+          name={(back?.name !== undefined ? back.name : back?.label) || 'Back'}
         >
           <IconButton
             onClick={() => navigate(back?.to)}
@@ -141,7 +142,7 @@ const Page: React.FC<IPage> = React.forwardRef((props_, ref: any) => {
 
       {forward ? (
         <Tooltip
-          label={forward?.label || 'Forward'}
+          name={(forward?.name !== undefined ? forward.name : forward?.label) || 'Forward'}
         >
           <IconButton
             onClick={() => navigate(forward?.to)}

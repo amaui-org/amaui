@@ -218,8 +218,12 @@ export interface ICheckbox extends IIconButton {
   colorIndeterminate?: TColor;
   colorUnchecked?: TColor;
 
-  valueDefault?: any;
+  valueDefault?: boolean;
+  checkedDefault?: boolean;
+
+  value?: boolean;
   checked?: boolean;
+
   onChange?: (value: boolean, event: React.ChangeEvent<any>) => any;
 
   indeterminate?: boolean;
@@ -240,8 +244,12 @@ const Checkbox: React.FC<ICheckbox> = React.forwardRef((props_, ref: any) => {
     colorIndeterminate = props.color || 'primary',
     colorUnchecked = 'default',
 
-    valueDefault,
-    checked,
+    valueDefault: valueDefault_,
+    checkedDefault: checkedDefault_,
+
+    value: value_,
+    checked: checked_,
+
     onChange,
 
     indeterminate: indeterminate_,
@@ -259,7 +267,10 @@ const Checkbox: React.FC<ICheckbox> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : checked) || false);
+  const checkedDefault = valueDefault_ !== undefined ? valueDefault_ : checkedDefault_;
+  const checked = value_ !== undefined ? value_ : checked_;
+
+  const [value, setValue] = React.useState((checkedDefault !== undefined ? checkedDefault : checked) || false);
   const [indeterminate, setIndeterminate] = React.useState(!value && indeterminate_);
 
   const refs = {

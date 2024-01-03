@@ -201,7 +201,11 @@ export interface ISwitch extends IBaseElement {
   inputRef?: TRef;
 
   valueDefault?: boolean;
+  checkedDefault?: boolean;
+
+  value?: boolean;
   checked?: boolean;
+
   onChange?: (value: boolean, event: React.ChangeEvent<any>) => any;
 
   OnIcon?: TElement;
@@ -222,8 +226,12 @@ const Switch: React.FC<ISwitch> = React.forwardRef((props_, ref: any) => {
 
     inputRef,
 
-    valueDefault,
-    checked,
+    valueDefault: valueDefault_,
+    checkedDefault: checkedDefault_,
+
+    value: value_,
+    checked: checked_,
+
     onChange,
 
     OnIcon,
@@ -245,7 +253,10 @@ const Switch: React.FC<ISwitch> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : checked) || false);
+  const checkedDefault = valueDefault_ !== undefined ? valueDefault_ : checkedDefault_;
+  const checked = value_ !== undefined ? value_ : checked_;
+
+  const [value, setValue] = React.useState((checkedDefault !== undefined ? checkedDefault : checked) || false);
 
   const refs = {
     value: React.useRef<any>(),

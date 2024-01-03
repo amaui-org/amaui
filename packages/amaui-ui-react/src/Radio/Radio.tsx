@@ -109,8 +109,12 @@ export interface IRadio extends IIconButton {
 
   colorUnchecked?: TColor;
 
-  valueDefault?: any;
+  valueDefault?: boolean;
+  checkedDefault?: boolean;
+
+  value?: boolean;
   checked?: boolean;
+
   onChange?: (value: boolean, event: React.ChangeEvent<any>) => any;
 
   disabled?: boolean;
@@ -130,8 +134,12 @@ const Radio: React.FC<IRadio> = React.forwardRef((props_, ref: any) => {
 
     colorUnchecked = 'default',
 
-    valueDefault,
-    checked,
+    valueDefault: valueDefault_,
+    checkedDefault: checkedDefault_,
+
+    value: value_,
+    checked: checked_,
+
     onChange,
 
     disabled,
@@ -145,7 +153,10 @@ const Radio: React.FC<IRadio> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : checked) || false);
+  const checkedDefault = valueDefault_ !== undefined ? valueDefault_ : checkedDefault_;
+  const checked = value_ !== undefined ? value_ : checked_;
+
+  const [value, setValue] = React.useState((checkedDefault !== undefined ? checkedDefault : checked) || false);
 
   const refs = {
     value: React.useRef<any>(),

@@ -160,6 +160,7 @@ export type TMenuDesktopValue = string | number;
 export type TMenuDesktopItem = {
   value?: TMenuDesktopValue;
   label?: TElement;
+  name?: TElement;
   menu?: TElement;
   disabled?: boolean;
 };
@@ -626,7 +627,7 @@ const MenuDesktop: React.FC<IMenuDesktop> = React.forwardRef((props_, ref: any) 
 
                   {...TypeProps}
                 >
-                  {item.label}
+                  {item.name !== undefined ? item.name : item.label}
                 </Type>
 
                 {!!item.menu && (

@@ -56,9 +56,14 @@ export interface ILabel extends ILine {
   input?: TElement;
 
   label?: TElement;
+  name?: TElement;
 
   valueDefault?: boolean;
+  checkedDefault?: boolean;
+
+  value?: boolean;
   checked?: boolean;
+
   onChange?: (value: boolean, event?: React.ChangeEvent<any>) => any;
 
   error?: boolean;
@@ -90,10 +95,15 @@ const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {
 
     input,
 
-    label,
+    name,
+    label: label_,
 
-    checked,
-    valueDefault,
+    valueDefault: valueDefault_,
+    checkedDefault: checkedDefault_,
+
+    value: value_,
+    checked: checked_,
+
     onChange,
 
     error,
@@ -115,7 +125,10 @@ const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : checked) || false);
+  const checkedDefault = valueDefault_ !== undefined ? valueDefault_ : checkedDefault_;
+  const checked = value_ !== undefined ? value_ : checked_;
+
+  const [value, setValue] = React.useState((checkedDefault !== undefined ? checkedDefault : checked) || false);
 
   const refs = {
     value: React.useRef<any>(),
@@ -126,7 +139,9 @@ const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {
 
   refs.value.current = value;
 
-  const onUpdate = (value_: any, event: React.ChangeEvent<HTMLInputElement>) => {
+  const label = name !== undefined ? name : label_;
+
+  const onUpdate = (value__: any, event: React.ChangeEvent<HTMLInputElement>) => {
     if (!disabled && event) {
       // Inner controlled checkbox
       if (!props.hasOwnProperty('checked')) setValue(event.target.checked);

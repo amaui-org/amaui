@@ -90,6 +90,7 @@ export interface ITab extends Omit<ISurface, 'version'> {
   active?: boolean;
   index?: number;
 
+  name?: TElement;
   label?: TElement;
 
   icon?: TElement;
@@ -126,7 +127,8 @@ const Tab: React.FC<ITab> = React.forwardRef((props_, ref: any) => {
     active,
     index,
 
-    label,
+    name,
+    label: label_,
 
     icon,
     iconPosition = 'start',
@@ -150,6 +152,8 @@ const Tab: React.FC<ITab> = React.forwardRef((props_, ref: any) => {
   } = props;
 
   const [focus, setFocus] = React.useState(false);
+
+  const label = name !== undefined ? name : label_;
 
   const onBlur = React.useCallback((event: React.FocusEvent<any>) => {
     if (!disabled) setFocus(false);

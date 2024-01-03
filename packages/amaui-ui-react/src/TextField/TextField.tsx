@@ -540,6 +540,7 @@ export interface ITextField extends IBaseElement {
   value?: string | number;
   onChange?: (value: any, event?: React.ChangeEvent<HTMLInputElement>) => any;
 
+  name?: any;
   label?: any;
   align?: 'start' | 'end';
   start?: TElement;
@@ -555,7 +556,6 @@ export interface ITextField extends IBaseElement {
   noPrefixMargin?: boolean;
   noSufixMargin?: boolean;
   enabled?: boolean;
-  name?: string;
   autoFocus?: boolean;
   autoComplete?: boolean;
   type?: React.HTMLInputTypeAttribute;
@@ -606,7 +606,8 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
     value: value_,
     onChange,
 
-    label,
+    name,
+    label: label_,
     align,
     start,
     startVerticalAlign = 'start',
@@ -621,7 +622,6 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
     noPrefixMargin,
     noSufixMargin,
     enabled,
-    name,
     autoFocus,
     autoComplete,
     type: type_ = 'text',
@@ -683,6 +683,8 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
   theme.breakpoints.keys.forEach(key => {
     if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
   });
+
+  const label = name !== undefined ? name : label_;
 
   let endVerticalAlign = endVerticalAlign_;
 
@@ -1269,8 +1271,6 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
             value={value !== undefined ? value : ''}
 
             type={type}
-
-            name={name}
 
             autoFocus={autoFocus}
 

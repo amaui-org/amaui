@@ -134,6 +134,7 @@ export interface INavigationItem extends ITooltip {
 
   value?: any;
   vertical?: boolean;
+  name?: TElement;
   label?: TElement;
   icon?: TElement;
   iconSelected?: TElement;
@@ -168,6 +169,7 @@ const NavigationItem: React.FC<INavigationItem> = React.forwardRef((props_, ref:
 
     value,
     vertical,
+    name,
     label,
     icon,
     iconSelected,
@@ -490,7 +492,7 @@ const NavigationItem: React.FC<INavigationItem> = React.forwardRef((props_, ref:
 
                 style={styles.label}
               >
-                {label}
+                {name !== undefined ? name : label}
               </Type>
             </LabelWrapper>
           )}

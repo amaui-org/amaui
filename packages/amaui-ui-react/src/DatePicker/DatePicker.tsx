@@ -231,6 +231,9 @@ export interface IDatePicker extends ILine {
   inputModeHeadingText?: string;
   switch?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
   useHelperText?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  name?: TElement;
+  nameFrom?: string;
+  nameTo?: string;
   label?: TElement;
   labelFrom?: string;
   labelTo?: string;
@@ -297,9 +300,12 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
     min,
     max,
     validate,
-    label,
-    labelFrom = `Date from`,
-    labelTo = `Date to`,
+    name,
+    nameFrom,
+    nameTo,
+    label: label_,
+    labelFrom: labelFrom_ = `Date from`,
+    labelTo: labelTo_ = `Date to`,
     modeModalSubHeadingText = 'Select date',
     modeModalSubHeadingTextRange = `Date from${SEPARATOR}Date to`,
     selectModeHeadingText = 'Select date',
@@ -353,6 +359,10 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
   theme.breakpoints.keys.forEach(key => {
     if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
   });
+
+  const label = name !== undefined ? name : label_;
+  const labelFrom = nameFrom !== undefined ? nameFrom : labelFrom_;
+  const labelTo = nameTo !== undefined ? nameTo : labelTo_;
 
   const switch_ = valueBreakpoints(switch__, true, breakpoints, theme);
   const useHelperText = valueBreakpoints(useHelperText_, undefined, breakpoints, theme);
