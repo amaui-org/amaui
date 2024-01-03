@@ -722,8 +722,15 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
     tonal,
     color,
     version: 'text',
+    size,
 
     ...ButtonProps
+  };
+
+  const iconButtonProps = {
+    size,
+
+    ...IconButtonProps
   };
 
   const actions = (
@@ -815,7 +822,7 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
 
         disabled={disabled || readOnly}
 
-        {...IconButtonProps}
+        {...iconButtonProps}
       >
         <Icon_ />
       </IconButton>
@@ -895,6 +902,8 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
               onClick={onClose}
 
               aria-label='Close'
+
+              {...iconButtonProps}
             >
               <IconClose />
             </IconButton>
@@ -963,6 +972,8 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
                   onClick={() => onMode('input')}
 
                   aria-label='Enter date'
+
+                  {...iconButtonProps}
                 >
                   <IconEnter />
                 </IconButton>
@@ -1007,6 +1018,8 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
                   onClick={() => onMode('select')}
 
                   aria-label='Choose date'
+
+                  {...iconButtonProps}
                 >
                   <Icon_ />
                 </IconButton>
@@ -1316,6 +1329,8 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
         onChange={onInputChange}
 
         helperText={useHelperText ? placeholder : undefined}
+
+        endVerticalAlign='center'
 
         error={error}
 

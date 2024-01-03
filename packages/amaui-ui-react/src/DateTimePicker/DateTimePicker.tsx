@@ -197,6 +197,7 @@ const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref
     second = false,
     today,
     clear = true,
+    size,
     placeholder: placeholder_,
     readOnly,
     disabled,
@@ -443,10 +444,23 @@ const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref
   }, []);
 
   const onReset = React.useCallback(() => {
-    const valueNew = inputToValue() as any;
+    let valueNew = inputToValue() as any;
 
-    // Update value
-    onUpdate(valueNew);
+    const isValid = valueNew && (valueNew?.[0] as AmauiDate)?.valid;
+
+    if (isValid) {
+      // Update value
+      onUpdate(valueNew);
+    }
+    else {
+      valueNew = [];
+
+      // Update value
+      onUpdate(valueNew as any);
+
+      // Update input
+      setInput(valueToInput(valueNew));
+    }
   }, [input]);
 
   const onToday = React.useCallback((event: React.MouseEvent) => {
@@ -731,6 +745,21 @@ const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref
 
   placeholder = placeholder_ || placeholder;
 
+  const buttonProps = {
+    tonal,
+    color,
+    version: 'text',
+    size,
+
+    ...ButtonProps
+  };
+
+  const iconButtonProps = {
+    size,
+
+    ...IconButtonProps
+  };
+
   const actions = (
     <Line
       direction='row'
@@ -767,6 +796,8 @@ const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref
             onClick={onPickSwitch}
 
             aria-label={tab === 'date' ? 'Time' : 'Date'}
+
+            {...iconButtonProps}
           >
             {tab === 'date' ? <IconTime /> : <IconDate />}
           </IconButton>
@@ -776,7 +807,7 @@ const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref
           <Button
             onClick={onToday}
 
-            {...ButtonProps}
+            {...buttonProps}
           >
             Today
           </Button>
@@ -786,7 +817,7 @@ const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref
           <Button
             onClick={onClear}
 
-            {...ButtonProps}
+            {...buttonProps}
           >
             Clear
           </Button>
@@ -809,7 +840,7 @@ const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref
 
           onClick={onCancel}
 
-          {...ButtonProps}
+          {...buttonProps}
         >
           Cancel
         </Button>
@@ -823,7 +854,7 @@ const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref
 
           onClick={onOk}
 
-          {...ButtonProps}
+          {...buttonProps}
         >
           Ok
         </Button>
@@ -916,6 +947,8 @@ const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref
 
             onChangeCalendar={onChangeCalendar}
 
+            size={size}
+
             {...PickerProps}
           />
         ) : (
@@ -927,6 +960,8 @@ const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref
             minute={minute}
 
             second={second}
+
+            size={size}
 
             {...PickerProps}
           />
@@ -955,7 +990,7 @@ const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref
 
         disabled={disabled || readOnly}
 
-        {...IconButtonProps}
+        {...iconButtonProps}
       >
         <Icon_ />
       </IconButton>
@@ -1013,6 +1048,8 @@ const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref
         onChange={onInputChange}
 
         helperText={useHelperText ? placeholder : undefined}
+
+        endVerticalAlign='center'
 
         error={error}
 

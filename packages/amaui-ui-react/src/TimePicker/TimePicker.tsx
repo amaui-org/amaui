@@ -660,7 +660,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
   }, [value, actions_, selecting]);
 
   const resolve = React.useCallback((valueNew = refs.value.current, dayTimeNew = refs.dayTime.current) => {
-    const values = valueNew.map((item: AmauiDate, index: number) => {
+    const values = valueNew.filter(Boolean).map((item: AmauiDate, index: number) => {
       // Resolve the range value
       const valueHour = item.hour;
 
@@ -941,6 +941,21 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
     size
   };
 
+  const buttonProps = {
+    tonal,
+    color,
+    version: 'text',
+    size,
+
+    ...ButtonProps
+  };
+
+  const iconButtonProps = {
+    size,
+
+    ...IconButtonProps
+  };
+
   const clock = (index = 0) => (
     <Clock
       tonal={tonal}
@@ -1000,7 +1015,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
         disabled={disabled || readOnly}
 
-        {...IconButtonProps}
+        {...iconButtonProps}
       >
         <Icon_
           {...iconProps}
@@ -1033,7 +1048,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
       ...InputProps
     };
 
-    const buttonProps = {
+    const buttonProps_ = {
       tonal: 'secondary',
       color: ['themed', 'inverted', 'default', 'inherit'].includes(color) ? 'default' : color,
       version: 'filled',
@@ -1084,7 +1099,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
     if (hour) {
       buttons.push(
         <Button
-          {...buttonProps}
+          {...buttonProps_}
 
           selected={selecting[index] === 'hour'}
 
@@ -1129,7 +1144,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
       buttons.push(
         <Button
-          {...buttonProps}
+          {...buttonProps_}
 
           selected={selecting[index] === 'minute'}
 
@@ -1168,7 +1183,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
       buttons.push(
         <Button
-          {...buttonProps}
+          {...buttonProps_}
 
           selected={selecting[index] === 'second'}
 
@@ -1324,6 +1339,125 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
   const heading = mode === 'select' ? !range ? selectModalSubHeadingText : selectModalSubHeadingTextRange : !range ? inputModalSubHeadingText : inputModalSubHeadingTextRange;
 
+  const actions = (
+    <Line
+      direction='row'
+
+      align='center'
+
+      justify='space-between'
+
+      fullWidth
+
+      className={classNames([
+        staticClassName('TimePicker', theme) && [
+          'amaui-TimePicker-footer'
+        ],
+
+        classes.footer,
+        classes[`footer_size_${size}`]
+      ])}
+    >
+      <Line
+        gap={0}
+
+        direction='row'
+
+        align='center'
+      >
+        {switch_ && (
+          <Tooltip
+            label={mode === 'select' ? 'Enter time' : 'Select time'}
+          >
+            <IconButton
+              tonal={tonal}
+
+              color='inherit'
+
+              size={size}
+
+              onClick={onModeSwitch}
+
+              aria-label={mode === 'select' ? 'Enter time' : 'Select time'}
+
+              {...iconButtonProps}
+            >
+              {mode === 'select' ? <IconEnter {...iconProps} /> : <Icon_  {...iconProps} />}
+            </IconButton>
+          </Tooltip>
+        )}
+
+        {today && (
+          <Button
+            onClick={onToday}
+
+            version='text'
+
+            size={size}
+
+            {...buttonProps}
+          >
+            Now
+          </Button>
+        )}
+
+        {clear && (
+          <Button
+            onClick={onClear}
+
+            version='text'
+
+            size={size}
+
+            {...buttonProps}
+          >
+            Clear
+          </Button>
+        )}
+      </Line>
+
+      <Line
+        gap={0}
+
+        direction='row'
+
+        align='center'
+      >
+        <Button
+          tonal={tonal}
+
+          color={color}
+
+          version='text'
+
+          size={size}
+
+          onClick={onCancel}
+
+          {...buttonProps}
+        >
+          Cancel
+        </Button>
+
+        <Button
+          tonal={tonal}
+
+          color={color}
+
+          version='text'
+
+          size={size}
+
+          onClick={onOk}
+
+          {...buttonProps}
+        >
+          Ok
+        </Button>
+      </Line>
+    </Line>
+  );
+
   const element = (
     <Surface
       tonal={tonal}
@@ -1433,122 +1567,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
       </Line>
 
       {/* Actions */}
-      {actions_ && (
-        <Line
-          direction='row'
-
-          align='center'
-
-          justify='space-between'
-
-          fullWidth
-
-          className={classNames([
-            staticClassName('TimePicker', theme) && [
-              'amaui-TimePicker-footer'
-            ],
-
-            classes.footer,
-            classes[`footer_size_${size}`]
-          ])}
-        >
-          <Line
-            gap={0}
-
-            direction='row'
-
-            align='center'
-          >
-            {switch_ && (
-              <Tooltip
-                label={mode === 'select' ? 'Enter time' : 'Select time'}
-              >
-                <IconButton
-                  tonal={tonal}
-
-                  color='inherit'
-
-                  size={size}
-
-                  onClick={onModeSwitch}
-
-                  aria-label={mode === 'select' ? 'Enter time' : 'Select time'}
-                >
-                  {mode === 'select' ? <IconEnter {...iconProps} /> : <Icon_  {...iconProps} />}
-                </IconButton>
-              </Tooltip>
-            )}
-
-            {today && (
-              <Button
-                onClick={onToday}
-
-                version='text'
-
-                size={size}
-
-                {...ButtonProps}
-              >
-                Now
-              </Button>
-            )}
-
-            {clear && (
-              <Button
-                onClick={onClear}
-
-                version='text'
-
-                size={size}
-
-                {...ButtonProps}
-              >
-                Clear
-              </Button>
-            )}
-          </Line>
-
-          <Line
-            gap={0}
-
-            direction='row'
-
-            align='center'
-          >
-            <Button
-              tonal={tonal}
-
-              color={color}
-
-              version='text'
-
-              size={size}
-
-              onClick={onCancel}
-
-              {...ButtonProps}
-            >
-              Cancel
-            </Button>
-
-            <Button
-              tonal={tonal}
-
-              color={color}
-
-              version='text'
-
-              size={size}
-
-              onClick={onOk}
-
-              {...ButtonProps}
-            >
-              Ok
-            </Button>
-          </Line>
-        </Line>
-      )}
+      {actions_ && actions}
     </Surface>
   );
 
@@ -1602,6 +1621,8 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
         value={input}
 
         onChange={onInputChange}
+
+        endVerticalAlign='center'
 
         error={error}
 
