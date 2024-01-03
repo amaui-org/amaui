@@ -1051,6 +1051,8 @@ const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref
 
         endVerticalAlign='center'
 
+        size={size}
+
         error={error}
 
         readOnly={readOnly}
