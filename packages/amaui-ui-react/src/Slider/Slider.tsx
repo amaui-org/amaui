@@ -8,6 +8,7 @@ import Tooltip from '../Tooltip';
 import Zoom from '../Zoom';
 
 import { IBaseElement, staticClassName, TColor, TElement, TPropsAny, TSize, TTonal } from '../utils';
+import Type from '../Type';
 
 const rail = {
   position: 'absolute',
@@ -337,7 +338,6 @@ const useStyle = styleMethod(theme => ({
 
   label: {
     position: 'absolute',
-    ...theme.typography.values.b2,
     transition: theme.methods.transitions.make('color', { duration: 'xs' }),
     color: theme.palette.text.default.secondary
   },
@@ -459,6 +459,7 @@ export interface ISlider extends IBaseElement {
   disabled?: boolean;
 
   IconButtonProps?: TPropsAny;
+  LabelProps?: TPropsAny;
   TooltipProps?: TPropsAny;
 }
 
@@ -498,6 +499,7 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
     onTouchStart: onTouchStart_,
 
     IconButtonProps,
+    LabelProps,
     TooltipProps,
 
     Component = 'span',
@@ -1149,14 +1151,19 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
           ])}
         >
           {marks_.map((item: any, index: number) => (
-            <span
+            <Type
               key={index}
+
+              version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3'}
+
+              {...LabelProps}
 
               className={classNames([
                 staticClassName('Slider', theme) && [
                   'amaui-Slider-label'
                 ],
 
+                LabelProps?.className,
                 classes.label,
                 classes[`label_orientation_${orientation}`],
                 theme.direction === 'rtl' && classes[`label_orientation_${orientation}_rtl`],
@@ -1164,11 +1171,13 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
               ])}
 
               style={{
-                [propInset]: valueMark(item.value)
+                [propInset]: valueMark(item.value),
+
+                ...LabelProps?.style
               }}
             >
               {item.label}
-            </span>
+            </Type>
           ))}
         </span>
       )}
