@@ -179,6 +179,12 @@ const FormRow: React.FC<IFormRow> = React.forwardRef((props_, ref: any) => {
 
           {end && (
             <Line
+              gap={0}
+
+              direction='row'
+
+              align='center'
+
               {...AsideProps}
 
               {...EndProps}
