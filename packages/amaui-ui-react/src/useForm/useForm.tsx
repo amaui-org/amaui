@@ -10,6 +10,7 @@ export interface IUseForm {
 
   validate?: (values: IValidateVales, form: any) => boolean;
 
+  rerenderOnUpdate?: boolean;
   autoValidate?: boolean;
 
   valueDefault?: any;
@@ -21,6 +22,8 @@ const useForm = (props: IUseForm) => {
     values: values_ = {},
 
     validate: validate_,
+
+    rerenderOnUpdate = true,
 
     autoValidate,
 
@@ -35,7 +38,10 @@ const useForm = (props: IUseForm) => {
   });
 
   const refs = {
-    form: React.useRef(form)
+    form: React.useRef(form),
+    value: React.useRef(copy(valueDefault !== undefined ? valueDefault : {})),
+    values: React.useRef(copy(values_ || {})),
+    valid: React.useRef(validDefault !== undefined ? validDefault : false)
   };
 
   refs.form.current = form;
@@ -78,9 +84,7 @@ const useForm = (props: IUseForm) => {
   const onChange = React.useCallback(async (...args: [Array<[string, any, any?]>] | [string, any, any?]) => {
     const formNew = { ...refs.form.current };
 
-    const {
-      values
-    } = formNew;
+    const values = rerenderOnUpdate ? formNew.values : refs.values.current;
 
     const value = {};
 
@@ -138,7 +142,7 @@ const useForm = (props: IUseForm) => {
           prop.value
         )
       );
-    }) : formNew.valid;
+    }) : (rerenderOnUpdate ? formNew.valid : refs.valid.current);
 
     if (autoValidate && is('function', validate_)) valid = valid && validate_(values, formNew);
 
@@ -151,17 +155,24 @@ const useForm = (props: IUseForm) => {
     });
 
     // update
-    setForm(previous => {
+    if (rerenderOnUpdate) {
+      setForm(previous => {
 
-      return {
-        ...previous,
+        return {
+          ...previous,
 
-        value,
-        values,
-        valid
-      };
-    });
-  }, [autoValidate, validate_]);
+          value,
+          values,
+          valid
+        };
+      });
+    }
+    else {
+      refs.value.current = value;
+      refs.values.current = values;
+      refs.valid.current = valid;
+    }
+  }, [rerenderOnUpdate, autoValidate, validate_]);
 
   const validate = React.useCallback(async () => {
     const formNew = { ...refs.form.current };
@@ -256,6 +267,10 @@ const useForm = (props: IUseForm) => {
 
   return {
     ...form,
+
+    value: rerenderOnUpdate ? form.value : refs.value.current,
+    values: rerenderOnUpdate ? form.values : refs.values.current,
+    valid: rerenderOnUpdate ? form.valid : refs.valid.current,
 
     init,
     validate,
