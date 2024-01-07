@@ -17,6 +17,10 @@ export interface IUseForm {
   validDefault?: boolean;
 }
 
+export interface IUseFormOnChangeOptions {
+  rerenderOnUpdate?: boolean;
+}
+
 const useForm = (props: IUseForm) => {
   const {
     values: values_ = {},
@@ -81,14 +85,18 @@ const useForm = (props: IUseForm) => {
     init();
   }, []);
 
-  const onChange = React.useCallback(async (...args: [Array<[string, any, any?]>] | [string, any, any?]) => {
+  const onChange = React.useCallback(async (...args: [Array<[string, any, any?, IUseFormOnChangeOptions?]>] | [string, any, any?, IUseFormOnChangeOptions?]) => {
     const formNew = { ...refs.form.current };
-
-    const values = rerenderOnUpdate ? formNew.values : refs.values.current;
 
     const value = {};
 
     const valuesArgs = is('array', args[0]) ? args[0] : [args];
+
+    const options = (valuesArgs[0][3] || {}) as IUseFormOnChangeOptions;
+
+    const rerenderOnUpdate_ = options.rerenderOnUpdate !== undefined ? options.rerenderOnUpdate : rerenderOnUpdate;
+
+    const values = refs.values.current;
 
     for (const arg of valuesArgs) {
       const [property_, value_, propertyNested] = arg;
@@ -142,7 +150,7 @@ const useForm = (props: IUseForm) => {
           prop.value
         )
       );
-    }) : (rerenderOnUpdate ? formNew.valid : refs.valid.current);
+    }) : refs.valid.current;
 
     if (autoValidate && is('function', validate_)) valid = valid && validate_(values, formNew);
 
@@ -155,7 +163,11 @@ const useForm = (props: IUseForm) => {
     });
 
     // update
-    if (rerenderOnUpdate) {
+    refs.value.current = value;
+    refs.values.current = values;
+    refs.valid.current = valid;
+
+    if (rerenderOnUpdate_) {
       setForm(previous => {
 
         return {
@@ -166,11 +178,6 @@ const useForm = (props: IUseForm) => {
           valid
         };
       });
-    }
-    else {
-      refs.value.current = value;
-      refs.values.current = values;
-      refs.valid.current = valid;
     }
   }, [rerenderOnUpdate, autoValidate, validate_]);
 
