@@ -70,6 +70,8 @@ const useForm = (props: IUseForm) => {
     });
 
     // update
+    refs.value.current = value;
+
     setForm(previous => {
 
       return {
@@ -184,9 +186,9 @@ const useForm = (props: IUseForm) => {
   const validate = React.useCallback(async () => {
     const formNew = { ...refs.form.current };
 
-    const {
-      values,
-    } = formNew;
+    const values = refs.values.current;
+
+    const value = {};
 
     const properties = Object.keys(values);
 
@@ -228,11 +230,26 @@ const useForm = (props: IUseForm) => {
 
     if (is('function', validate_)) valid = valid && validate_(values, formNew);
 
+    // value
+    properties.forEach(item => {
+      const valueProperty = values[item];
+
+      if (valueProperty?.value !== undefined) {
+        setObjectValue(value, item, copy(valueProperty.value));
+      }
+    });
+
     // update
+    refs.value.current = value;
+    refs.values.current = values;
+    refs.valid.current = valid;
+
     setForm(previous => {
 
       return {
         ...previous,
+
+        value,
         values,
         valid
       };
@@ -261,13 +278,17 @@ const useForm = (props: IUseForm) => {
     });
 
     // update
+    refs.value.current = valueDefault !== undefined ? valueDefault : {};
+    refs.values.current = values;
+    refs.valid.current = validDefault !== undefined ? validDefault : false;
+
     setForm(previous => {
 
       return {
         ...previous,
-        value: valueDefault !== undefined ? valueDefault : {},
+        value: refs.value.current,
         values,
-        valid: validDefault !== undefined ? validDefault : false
+        valid: refs.valid.current
       };
     });
   }, [valueDefault, validDefault]);
