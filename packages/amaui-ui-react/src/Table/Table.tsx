@@ -20,11 +20,13 @@ const useStyle = styleMethod(theme => ({
     display: 'table',
     width: '100%',
     borderCollapse: 'collapse',
-    borderSpacing: '0px'
+    borderSpacing: '0px',
+    background: 'inherit'
   },
 
   wrapper: {
-    overflowX: 'auto'
+    overflowX: 'auto',
+    background: 'inherit'
   }
 }), { name: 'amaui-Table' });
 

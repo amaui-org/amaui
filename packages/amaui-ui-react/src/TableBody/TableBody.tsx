@@ -10,6 +10,7 @@ import { staticClassName, TSize } from '../utils';
 const useStyle = styleMethod(theme => ({
   root: {
     display: 'table-row-group',
+    background: 'inherit',
 
     '& .amaui-TableRow-root:last-child hr': {
       display: 'none'

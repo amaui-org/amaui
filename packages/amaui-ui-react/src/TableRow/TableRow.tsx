@@ -108,7 +108,7 @@ const TableRow: React.FC<ITableRow> = React.forwardRef((props_, ref: any) => {
 
           justify: item.props.justify !== undefined ? item.props.justify : index === 0 ? 'flex-start' : 'flex-end',
 
-          position: (index === 0 && position === 'body') ? 'head' : position,
+          position: props.position !== undefined ? props.position : (index === 0 && position === 'body') ? 'head' : position,
 
           noWeight: (index === 0 && position === 'body')
         })
