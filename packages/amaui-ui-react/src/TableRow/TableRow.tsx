@@ -19,7 +19,7 @@ const useStyle = styleMethod(theme => ({
       background: 'currentColor',
       opacity: '0',
       transition: theme.methods.transitions.make('opacity', { duration: 'xxs' }),
-      zIndex: '0'
+      zIndex: '17'
     }
   },
 
