@@ -10,29 +10,19 @@ import { staticClassName, TSize } from '../utils';
 const useStyle = styleMethod(theme => ({
   root: {
     display: 'table-row',
-    position: 'relative',
-
-    '&::before': {
-      content: "''",
-      position: 'absolute',
-      inset: '0',
-      background: 'currentColor',
-      opacity: '0',
-      transition: theme.methods.transitions.make('opacity', { duration: 'xxs' }),
-      zIndex: '17'
-    }
+    position: 'relative'
   },
 
   hover: {
     '&:hover': {
-      '&::before': {
+      '& .amaui-TableCell-root::before': {
         opacity: theme.palette.visual_contrast.default.opacity.hover
       }
     }
   },
 
   selected: {
-    '&::before': {
+    '& .amaui-TableCell-root::before': {
       opacity: [theme.palette.visual_contrast.default.opacity.selected, '!important']
     }
   }

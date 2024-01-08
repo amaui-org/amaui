@@ -16,7 +16,17 @@ const useStyle = styleMethod(theme => ({
     zIndex: '1',
     background: 'inherit',
 
-    ...theme.typography.values.b2
+    ...theme.typography.values.b2,
+
+    '&::before': {
+      content: "''",
+      position: 'absolute',
+      inset: '0',
+      background: 'currentColor',
+      opacity: '0',
+      transition: theme.methods.transitions.make('opacity', { duration: 'xxs' }),
+      zIndex: '-1'
+    }
   },
 
   value: {
