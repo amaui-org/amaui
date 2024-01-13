@@ -7,6 +7,7 @@ import Line from '../Line';
 import { ILine } from '../Line/Line';
 
 import { staticClassName, TColor, TPropsAny, TTonal, TVersion } from '../utils';
+import { clamp } from '@amaui/utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -76,7 +77,7 @@ export interface IStepper extends ILine {
   dividerColorActive?: TColor;
 
   active?: number;
-  completed?: boolean;
+  completed?: Record<any, boolean>;
 
   stepDirection?: 'row' | 'column';
   orientation?: 'vertical' | 'horizontal';
@@ -94,6 +95,8 @@ const Stepper: React.FC<IStepper> = React.forwardRef((props_, ref: any) => {
   const { classes } = useStyle(props);
 
   const {
+    gap = 2,
+
     tonal = true,
     color = 'default',
     version = 'text',
@@ -119,14 +122,28 @@ const Stepper: React.FC<IStepper> = React.forwardRef((props_, ref: any) => {
 
     className,
 
+    style,
+
     children,
 
     ...other
   } = props;
 
+  const steps = React.Children.toArray(children);
+
+  const width = `calc(${100 / steps.length}% - ${(clamp(+gap - 1, 0) * 8)}px)`;
+
+  const styleItem: any = {};
+
+  if (orientation === 'horizontal') {
+    styleItem.width = width;
+  }
+
   return (
     <Line
       ref={ref}
+
+      gap={gap}
 
       direction={orientation === 'horizontal' ? 'row' : 'column'}
 
@@ -146,52 +163,57 @@ const Stepper: React.FC<IStepper> = React.forwardRef((props_, ref: any) => {
         classes[`orientation_${orientation}`]
       ])}
 
+      style={style}
+
       {...other}
     >
-      {React.Children.toArray(children)
-        .map((item: any, index: number) => {
-          const active_ = active === index;
+      {steps.map((item: any, index: number) => {
+        const active_ = active === index;
 
-          const other_: any = {};
+        const other_: any = {};
 
-          if ((!active_ && !free)) other_.disabled = true;
+        if ((!active_ && !free)) other_.disabled = true;
 
-          return React.cloneElement(item, {
-            step: index + 1,
+        return React.cloneElement(item, {
+          step: index + 1,
 
-            tonal,
+          tonal,
 
-            color,
+          color,
 
-            version,
+          version,
 
-            activeStep: active,
+          activeStep: active,
 
-            active: active_,
+          active: active_,
 
-            iconColor: item.props.iconColor !== undefined ? item.props.iconColor : iconColor,
+          iconColor: item.props.iconColor !== undefined ? item.props.iconColor : iconColor,
 
-            iconColorActive: item.props.iconColorActive !== undefined ? item.props.iconColorActive : iconColorActive,
+          iconColorActive: item.props.iconColorActive !== undefined ? item.props.iconColorActive : iconColorActive,
 
-            dividerColor: item.props.dividerColor !== undefined ? item.props.dividerColor : dividerColor,
+          dividerColor: item.props.dividerColor !== undefined ? item.props.dividerColor : dividerColor,
 
-            dividerColorActive: item.props.dividerColorActive !== undefined ? item.props.dividerColorActive : dividerColorActive,
+          dividerColorActive: item.props.dividerColorActive !== undefined ? item.props.dividerColorActive : dividerColorActive,
 
-            orientation: item.props.orientation !== undefined ? item.props.orientation : orientation,
+          orientation: item.props.orientation !== undefined ? item.props.orientation : orientation,
 
-            stepDirection: item.props.stepDirection !== undefined ? item.props.stepDirection : stepDirection,
+          stepDirection: item.props.stepDirection !== undefined ? item.props.stepDirection : stepDirection,
 
-            completed: item.props.completed !== undefined ? item.props.completed : completed?.[index],
+          completed: item.props.completed !== undefined ? item.props.completed : completed?.[index],
 
-            divider: item.props.divider !== undefined ? item.props.divider : individualDividers,
+          divider: item.props.divider !== undefined ? item.props.divider : individualDividers,
 
-            className: classNames([
-              (!active_ && !free) && classes.inactive
-            ]),
+          className: classNames([
+            (!active_ && !free) && classes.inactive
+          ]),
 
-            ...other
-          });
-        })
+          style: {
+            ...styleItem,
+
+            ...item.props.style
+          }
+        });
+      })
         .flatMap((item: any, index: number) => {
           const active_ = active >= index + 1;
 

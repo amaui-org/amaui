@@ -17,11 +17,7 @@ import { staticClassName, TColor, TElement, TPropsAny, TTonal, TVersion } from '
 const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
-    transition: theme.methods.transitions.make('opacity'),
-
-    '&.amaui-Line-root': {
-      width: 'unset'
-    }
+    transition: theme.methods.transitions.make('opacity')
   },
 
   icon: {
