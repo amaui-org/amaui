@@ -118,7 +118,7 @@ const Labels: React.FC<ILabels> = React.forwardRef((props_, ref: any) => {
   const onUpdate = React.useCallback((valueNew_: any) => {
     const valueNew = valueNew_;
 
-    const value__ = refs.value.current;
+    const value__ = [...refs.value.current];
 
     const index = value__.findIndex(item => item === valueNew);
 
