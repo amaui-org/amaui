@@ -562,7 +562,8 @@ const Tooltip: React.FC<ITooltip> = React.forwardRef((props_, ref: any) => {
                 touch && 'amaui-Tooltip-touch',
                 longPress && 'amaui-Tooltip-long-press',
                 hover && 'amaui-Tooltip-hover',
-                focus && 'amaui-Tooltip-focus'
+                focus && 'amaui-Tooltip-focus',
+                `amaui-Tooltip-position-${position}`
               ],
 
               className,

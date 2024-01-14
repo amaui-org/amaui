@@ -22,9 +22,9 @@ const useStyle = styleMethod(theme => ({
     cursor: 'default',
     userSelect: 'none'
   }
-}), { name: 'amaui-Radios' });
+}), { name: 'amaui-Labels' });
 
-export interface IRadios extends ILine {
+export interface ILabels extends ILine {
   tonal?: TTonal;
   color?: TColor;
   colorUnchecked?: TColor;
@@ -34,13 +34,11 @@ export interface IRadios extends ILine {
   name?: TElement;
   label?: TElement;
 
-  uncheck?: boolean;
+  valueDefault?: any[];
+  checkedDefault?: any[];
 
-  valueDefault?: any;
-  checkedDefault?: any;
-
-  value?: any;
-  checked?: any;
+  value?: any[];
+  checked?: any[];
 
   onChange?: (value: any) => any;
 
@@ -50,10 +48,10 @@ export interface IRadios extends ILine {
   LabelProps?: TPropsAny;
 }
 
-const Radios: React.FC<IRadios> = React.forwardRef((props_, ref: any) => {
+const Labels: React.FC<ILabels> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRadios?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLabels?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -66,8 +64,6 @@ const Radios: React.FC<IRadios> = React.forwardRef((props_, ref: any) => {
 
     name,
     label: label_,
-
-    uncheck = true,
 
     direction = 'column',
     align = 'center',
@@ -98,7 +94,9 @@ const Radios: React.FC<IRadios> = React.forwardRef((props_, ref: any) => {
   const checkedDefault = valueDefault_ !== undefined ? valueDefault_ : checkedDefault_;
   const checked = value_ !== undefined ? value_ : checked_;
 
-  const [value, setValue] = React.useState(checkedDefault !== undefined ? checkedDefault : value_);
+  const valueDefault__ = (checkedDefault !== undefined ? checkedDefault : value_) || [];
+
+  const [value, setValue] = React.useState(is('array', valueDefault__) ? valueDefault__ : [valueDefault__]);
 
   const refs = {
     value: React.useRef<any>(),
@@ -118,14 +116,19 @@ const Radios: React.FC<IRadios> = React.forwardRef((props_, ref: any) => {
   const children: any[] = React.Children.toArray(children_);
 
   const onUpdate = React.useCallback((valueNew_: any) => {
-    let valueNew = valueNew_;
+    const valueNew = valueNew_;
 
-    if (uncheck && refs.value.current === valueNew) valueNew = '';
+    const value__ = refs.value.current;
 
-    if (!props.hasOwnProperty('value')) setValue(valueNew);
+    const index = value__.findIndex(item => item === valueNew);
 
-    if (is('function', onChange)) onChange(valueNew);
-  }, [uncheck]);
+    if (index > -1) value__.splice(index, 1);
+    else value__.push(valueNew);
+
+    if (!props.hasOwnProperty('value')) setValue(value__);
+
+    if (is('function', onChange)) onChange(value__);
+  }, []);
 
   return (
     <Line
@@ -146,9 +149,9 @@ const Radios: React.FC<IRadios> = React.forwardRef((props_, ref: any) => {
       Component={Component}
 
       className={classNames([
-        staticClassName('Radios', theme) && [
-          'amaui-Radios-root',
-          disabled && `amaui-Radios-disabled`
+        staticClassName('Labels', theme) && [
+          'amaui-Labels-root',
+          disabled && `amaui-Labels-disabled`
         ],
 
         className,
@@ -166,8 +169,8 @@ const Radios: React.FC<IRadios> = React.forwardRef((props_, ref: any) => {
         {...LabelProps}
 
         className={classNames([
-          staticClassName('Radios', theme) && [
-            'amaui-Radios-label'
+          staticClassName('Labels', theme) && [
+            'amaui-Labels-label'
           ],
 
           LabelProps?.className,
@@ -193,7 +196,7 @@ const Radios: React.FC<IRadios> = React.forwardRef((props_, ref: any) => {
           React.cloneElement(item, {
             key: index,
 
-            checked: item.props.value === value,
+            checked: value.includes(item.props.value),
 
             onChange: () => onUpdate(item.props.value),
 
@@ -215,6 +218,6 @@ const Radios: React.FC<IRadios> = React.forwardRef((props_, ref: any) => {
   );
 });
 
-Radios.displayName = 'amaui-Radios';
+Labels.displayName = 'amaui-Labels';
 
-export default Radios;
+export default Labels;

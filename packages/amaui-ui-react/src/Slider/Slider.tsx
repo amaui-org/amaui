@@ -37,6 +37,20 @@ const useStyle = styleMethod(theme => ({
     touchAction: 'none'
   },
 
+  root_orientation_horizontal: {
+    width: '100vw',
+    maxWidth: 400,
+    height: 4,
+    margin: '16px 0 28px'
+  },
+
+  root_orientation_vertical: {
+    height: '100vh',
+    maxHeight: 240,
+    width: 4,
+    margin: '0 16px 0 28px'
+  },
+
   rail: {
     ...rail
   },
@@ -1043,6 +1057,7 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
         classes.root,
         classes[`color_${color}`],
         tonal && classes[`tonal_color_${color}`],
+        classes[`root_orientation_${orientation}`],
         noButtons && focus && classes.focus_outline,
         square && classes.square,
         readOnly && classes.readOnly,

@@ -64,17 +64,22 @@ const useStyle = styleMethod(theme => ({
   },
 
   timeline: {
-    height: '20px',
-    width: '100%'
+    '&.amaui-Slider-root': {
+      height: '20px !important',
+      width: '100% !important',
+      margin: 'unset !important',
+      maxWidth: 'unset !important'
+    }
   },
 
   volume: {
     flex: '1 1 auto',
-    width: '100vw',
-    maxWidth: '54px',
-    height: '24px',
 
     '&.amaui-Slider-root': {
+      height: '24px !important',
+      width: '100vw !important',
+      maxWidth: '54px !important',
+      margin: 'unset !important',
       borderRadius: '0px',
 
       '& .amaui-Slider-rail': {

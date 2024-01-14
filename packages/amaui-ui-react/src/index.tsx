@@ -379,6 +379,9 @@ export * from './RichTextEditor';
 export { default as Label } from './Label';
 export * from './Label';
 
+export { default as Labels } from './Labels';
+export * from './Labels';
+
 export { default as Timer } from './Timer';
 export * from './Timer';
 

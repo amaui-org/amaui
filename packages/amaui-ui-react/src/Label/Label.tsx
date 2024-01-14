@@ -58,11 +58,10 @@ export interface ILabel extends ILine {
   label?: TElement;
   name?: TElement;
 
-  valueDefault?: boolean;
   checkedDefault?: boolean;
 
-  value?: boolean;
-  checked?: boolean;
+  value?: any;
+  checked?: any;
 
   onChange?: (value: boolean, event?: React.ChangeEvent<any>) => any;
 
@@ -98,7 +97,6 @@ const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {
     name,
     label: label_,
 
-    valueDefault: valueDefault_,
     checkedDefault: checkedDefault_,
 
     value: value_,
@@ -125,8 +123,8 @@ const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const checkedDefault = valueDefault_ !== undefined ? valueDefault_ : checkedDefault_;
-  const checked = value_ !== undefined ? value_ : checked_;
+  const checkedDefault = checkedDefault_;
+  const checked = checked_;
 
   const [value, setValue] = React.useState((checkedDefault !== undefined ? checkedDefault : checked) || false);
 
