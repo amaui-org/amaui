@@ -1235,7 +1235,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
   const orientationValue = mode === 'select' ? orientation : 'vertical';
 
-  const timeValue = !!value.filter(Boolean).length ? value : [new AmauiDate()];
+  const timeValue = range ? [0, 1] : [0];
 
   const elementValues = (
     timeValue.map((item, index: number) => (
