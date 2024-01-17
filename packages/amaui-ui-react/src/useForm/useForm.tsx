@@ -259,39 +259,28 @@ const useForm = (props: IUseForm) => {
   }, [validate_]);
 
   const clear = React.useCallback(() => {
-    const formNew = { ...refs.form.current };
+    const formNew = {
+      ...refs.form.current,
 
-    const values = {};
-
-    const keys = Object.keys(formNew.values);
-
-    keys.forEach(item => {
-      const property = formNew.values[item];
-
-      values[item] = {
-        ...property,
-
-        value: undefined,
-        touched: false,
-        error: ''
-      };
-    });
+      value: valueDefault !== undefined ? valueDefault : {},
+      values: values_ || {},
+      valid: validDefault !== undefined ? validDefault : false
+    };
 
     // update
-    refs.value.current = valueDefault !== undefined ? valueDefault : {};
-    refs.values.current = values;
-    refs.valid.current = validDefault !== undefined ? validDefault : false;
+    refs.value.current = formNew.value;
+    refs.values.current = formNew.values;
+    refs.valid.current = formNew.valid;
 
     setForm(previous => {
 
       return {
         ...previous,
-        value: refs.value.current,
-        values,
-        valid: refs.valid.current
+
+        ...formNew
       };
     });
-  }, [valueDefault, validDefault]);
+  }, [values_, valueDefault, validDefault]);
 
   return {
     ...form,
