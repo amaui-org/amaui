@@ -76,6 +76,7 @@ export interface IList extends ISurface {
   menuOpen?: boolean;
 
   noMaxWidth?: boolean;
+  noChildrenTransform?: boolean;
   indent?: number;
   paddingHorizontal?: 'both' | 'start' | 'end' | 'none';
   paddingVertical?: 'both' | 'start' | 'end' | 'none';
@@ -107,6 +108,7 @@ const List: React.FC<IList> = React.forwardRef((props_, ref: any) => {
     paddingHorizontal = 'none',
     paddingVertical = 'both',
     noBackground,
+    noChildrenTransform,
 
     onMenuDesktopClose,
 
@@ -177,7 +179,7 @@ const List: React.FC<IList> = React.forwardRef((props_, ref: any) => {
         ...styles.root
       }}
     >
-      {React.Children.toArray(children).map((item: any, index: number) => {
+      {noChildrenTransform ? children : React.Children.toArray(children).map((item: any, index: number) => {
 
         return React.cloneElement(item, {
           key: index,

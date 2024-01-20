@@ -103,7 +103,7 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Share' });
 
 export interface IShare extends ILine {
-  version?: 'fixed' | 'absolute' | 'static';
+  version?: 'fixed' | 'absolute' | 'static' | 'menu-items';
 
   position?: 'start' | 'end' | 'top' | 'bottom';
 
@@ -142,6 +142,8 @@ export interface IShare extends ILine {
   itemProps?: (item: any, index: number) => any;
 
   onOpen?: (value: any, event: MouseEvent) => any;
+
+  ListItemProps?: any;
 
   IconFacebook?: any;
   IconX?: any;
@@ -352,7 +354,7 @@ const IconMaterialMoreHoriz = React.forwardRef((props: IIcon, ref) => {
   );
 });
 
-const Share: React.FC<IShare> = React.forwardRef((props_, ref: any) => {
+const Share: React.FC<IShare> = React.forwardRef((props_, ref: any): any => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiShare?.props?.default, ...props_ }), [props_]);
@@ -393,6 +395,8 @@ const Share: React.FC<IShare> = React.forwardRef((props_, ref: any) => {
     render,
 
     onOpen,
+
+    ListItemProps,
 
     IconFacebook = IconCustomFacebook,
     IconX = IconCustomX,
@@ -455,7 +459,7 @@ const Share: React.FC<IShare> = React.forwardRef((props_, ref: any) => {
     const values: any = {
       name: refs.name.current !== undefined ? refs.name.current : window.document.title,
       description: refs.description.current !== undefined ? refs.description.current : '',
-      url: window.location.href
+      url: refs.url.current !== undefined ? refs.url.current : window.location.href
     };
 
     const valuesEncoded: any = {};
@@ -562,7 +566,7 @@ const Share: React.FC<IShare> = React.forwardRef((props_, ref: any) => {
 
   if (visible) visibleOptions = visibleOptions.filter(item => visible.map(item_ => item_?.toLowerCase()).includes(item.name.toLowerCase()));
 
-  const moreOptions = allowedOptions.filter(item => !visibleOptions.find(item_ => item.name === item_.name));
+  const moreOptions = version === 'menu-items' ? [...allowedOptions] : allowedOptions.filter(item => !visibleOptions.find(item_ => item.name === item_.name));
 
   if (['top', 'bottom'].includes(position)) other.direction = other.direction || 'row';
 
@@ -601,8 +605,12 @@ const Share: React.FC<IShare> = React.forwardRef((props_, ref: any) => {
         {...item}
 
         {...itemProps?.(item, index)}
+
+        {...ListItemProps}
       />
     ));
+
+  if (version === 'menu-items') return menuItemsMoreOptions;
 
   const AppendProps: any = {};
 

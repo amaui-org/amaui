@@ -366,7 +366,7 @@ const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {
 
             {...ListProps}
           >
-            {React.Children.toArray(menuItems).map((item: any, index: number) => (
+            {ListProps?.noChildrenTransform ? menuItems : React.Children.toArray(menuItems).map((item: any, index: number) => (
               React.cloneElement(item, methodItem(item, index))
             ))}
           </List>
