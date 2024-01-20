@@ -272,9 +272,9 @@ const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {
 
     WrapperProps.include = [refs.main.current, ...(refs.include.current || []), ...include].filter(Boolean);
 
-    WrapperProps.includeParentQueries = [...includeParentQueries, refs.menuClassName.current];
+    WrapperProps.includeParentQueries = [...includeParentQueries, `.${refs.menuClassName.current}`];
 
-    WrapperProps.includeQueries = [...includeQueries, refs.menuClassName.current];
+    WrapperProps.includeQueries = [...includeQueries, `.${refs.menuClassName.current}`];
 
     WrapperProps.ignoreNonExisting = ignoreNonExisting;
   }
