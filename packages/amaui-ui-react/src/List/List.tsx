@@ -103,7 +103,7 @@ const List: React.FC<IList> = React.forwardRef((props_, ref: any) => {
     menu,
     menuOpen,
 
-    noMaxWidth = true,
+    noMaxWidth,
     indent,
     paddingHorizontal = 'none',
     paddingVertical = 'both',

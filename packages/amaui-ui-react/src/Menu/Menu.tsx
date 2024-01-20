@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is, isEnvironment } from '@amaui/utils';
-import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
+import { style as styleMethod, classNames, useAmauiTheme, getID } from '@amaui/style-react';
 
 import List from '../List';
 import Tooltip from '../Tooltip';
@@ -125,7 +125,8 @@ const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {
     main: React.useRef<any>(),
     props: React.useRef<any>(),
     preselected: React.useRef<any>(),
-    include: React.useRef<any>([])
+    include: React.useRef<any>([]),
+    menuClassName: React.useRef(`a-${new Date().getTime()}`)
   };
 
   refs.id.current = id;
@@ -271,9 +272,9 @@ const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {
 
     WrapperProps.include = [refs.main.current, ...(refs.include.current || []), ...include].filter(Boolean);
 
-    WrapperProps.includeParentQueries = includeParentQueries;
+    WrapperProps.includeParentQueries = [...includeParentQueries, refs.menuClassName.current];
 
-    WrapperProps.includeQueries = includeQueries;
+    WrapperProps.includeQueries = [...includeQueries, refs.menuClassName.current];
 
     WrapperProps.ignoreNonExisting = ignoreNonExisting;
   }
@@ -287,6 +288,15 @@ const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {
     role: 'menuitem',
 
     menuId: id,
+
+    MenuProps: {
+      ...item.props?.MenuProps,
+
+      className: classNames([
+        item.props?.MenuProps?.className,
+        refs.menuClassName.current
+      ])
+    },
 
     onClose,
 

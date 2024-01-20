@@ -633,7 +633,7 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
       setHover(false);
       setFocus(false);
 
-      if (is('function', onClose_)) onClose_();
+      // if (is('function', onClose_)) onClose_();
     }
   }, []);
 
@@ -643,7 +643,7 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
       setHover(false);
       setFocus(false);
 
-      if (is('function', onClose_)) onClose_();
+      // if (is('function', onClose_)) onClose_();
     }
   }, []);
 
