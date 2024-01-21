@@ -163,6 +163,7 @@ const optionsDefault: IOptions;
 ```ts
 class AmauiAmqp {
     client_: IRedisClient;
+    clientSubscriber: IRedisClient;
     connected: boolean;
     private amalog;
     private options_;
