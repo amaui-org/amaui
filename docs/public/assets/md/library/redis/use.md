@@ -33,7 +33,7 @@ await amauiRedis.client;
 
 #### disconnect
 
-Closes the connection to the service.
+Closes the connection to the database.
 
 ```ts
 const amauiRedis = new AmauiRedis(options);
@@ -91,7 +91,7 @@ await amauiRedis.publish('a', { a: 14 });
 
 #### subscribe  
 
-Subscribes a method for receiving messages from a 1 or more channels 
+Subscribes a method for receiving messages from 1 or more channels 
 
 ```ts
 const amauiRedis = new AmauiRedis(options);
@@ -112,7 +112,7 @@ await amauiRedis.publish('a', { a: 14 });
 
 #### reset
 
-Removes all queues, exchanges mentioned in the options, and emits a `reset` subscription event.
+Removes all the redis data, and emits a `reset` subscription event.
 
 ```ts
 const amauiRedis = new AmauiRedis(options);
@@ -181,6 +181,7 @@ class AmauiAmqp {
         serialize: boolean;
     }): Promise<any>;
     get client(): Promise<IRedisClient>;
+    connection: Promise<IRedisClient>;
     get disconnect(): Promise<void>;
     connect(): Promise<IRedisClient | undefined>;
     reset(): Promise<any>;

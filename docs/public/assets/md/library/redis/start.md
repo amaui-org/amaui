@@ -1,5 +1,5 @@
 
-# amaui amqp
+# amaui redis
 
 Utils for easier using of the redis, memory database.
 
@@ -24,9 +24,9 @@ import AmauiRedis from '@amaui/redis';
 // inside of it add all the process.env related props
 import Config from './config';
 
-// Make a new amqp instance
+// Make a new redis instance
 const amauiRedis = new AmauiRedis({
-  uri: Config.amqp.redis.uri
+  uri: Config.redis.uri
 });
 
 // Await for a connection
