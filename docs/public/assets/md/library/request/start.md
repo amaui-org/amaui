@@ -90,8 +90,8 @@ yarn build
   "element": "BottomNavigation",
   "props": {
     "previous": {
-      "label": "Queue: Start",
-      "to": "/library/queue/start"
+      "label": "Redis: Start",
+      "to": "/library/redis/start"
     },
     "next": {
       "label": "Request: Use",

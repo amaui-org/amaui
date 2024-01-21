@@ -131,8 +131,8 @@ default class AmauiQueue {
       "to": "/library/queue/start"
     },
     "next": {
-      "label": "Request: Start",
-      "to": "/library/request/start"
+      "label": "Redis: Start",
+      "to": "/library/redis/start"
     }
   }
 }~

@@ -862,6 +862,22 @@
     ]
   },
   {
+    "url": "/library/redis",
+    "label": "Redis",
+    "github": "/amaui-redis",
+    "default": "/library/redis/start",
+    "menu": [
+      {
+        "label": "Start",
+        "url": "/library/redis/start"
+      },
+      {
+        "label": "Use",
+        "url": "/library/redis/use"
+      }
+    ]
+  },
+  {
     "url": "/library/api",
     "label": "API",
     "default": "/library/api/start",

@@ -23,6 +23,7 @@ export const libraries = [
     { name: 'Models', url: '/library/models', github: '/amaui-models' },
     { name: 'Mongo', url: '/library/mongo', github: '/amaui-mongo' },
     { name: 'Node', url: '/library/node', github: '/amaui-node' },
+    { name: 'Redis', url: '/library/redis', github: '/amaui-redis' },
     { name: 'Request', url: '/library/request', github: '/amaui-request' },
     { name: 'Storage', url: '/library/storage', github: '/amaui-storage' },
     { name: 'Style', url: '/library/style', github: '/amaui-style' },
