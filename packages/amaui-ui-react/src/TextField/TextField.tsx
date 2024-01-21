@@ -2,6 +2,7 @@ import React from 'react';
 
 import { clamp, is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import AmauiSubscription from '@amaui/subscription';
 
 import Icon from '../Icon';
 import Type from '../Type';
@@ -573,6 +574,7 @@ export interface ITextField extends IBaseElement {
   restoreSelection?: boolean;
   readOnly?: boolean;
   disabled?: boolean;
+  subscription?: AmauiSubscription;
 
   onInput?: (event: InputEvent) => any;
   onFocus?: (event: React.FocusEvent<any>) => any;
@@ -636,6 +638,7 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
     clear,
     focus: focus_,
     footer: footer_,
+    subscription,
     restoreSelection = true,
     readOnly,
     disabled,
@@ -769,6 +772,18 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
   React.useEffect(() => {
     if (focus_ !== focus && focus_ !== undefined) setFocus(focus_);
   }, [focus_]);
+
+  React.useEffect(() => {
+    const method = (event: string) => {
+      if (event === 'clear') onClear();
+    };
+
+    if (subscription) subscription.subscribe(method);
+
+    return () => {
+      if (subscription) subscription.unsubscribe(method);
+    };
+  }, [subscription]);
 
   const onUpdateRows = () => {
     if (multiline && row !== undefined) {
