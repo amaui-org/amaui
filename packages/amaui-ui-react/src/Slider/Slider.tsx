@@ -335,6 +335,7 @@ const useStyle = styleMethod(theme => ({
 
   labels: {
     position: 'absolute',
+    whiteSpace: 'nowrap',
     userSelect: 'none'
   },
 
