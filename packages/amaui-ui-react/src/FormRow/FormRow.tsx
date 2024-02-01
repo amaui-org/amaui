@@ -100,7 +100,7 @@ const FormRow: React.FC<IFormRow> = React.forwardRef((props_, ref: any) => {
     <Component
       ref={ref}
 
-      gap={2}
+      gap={1}
 
       direction='column'
 
@@ -125,7 +125,7 @@ const FormRow: React.FC<IFormRow> = React.forwardRef((props_, ref: any) => {
         <Line
           direction='row'
 
-          align='flex-start'
+          align='center'
 
           justify={justify}
 

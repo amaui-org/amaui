@@ -158,7 +158,7 @@ const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {
 
   const Input = input !== undefined ? input : children[0];
 
-  const Text = label !== undefined ? label : children.slice(1);
+  const Text = label !== undefined ? label : name !== undefined ? name : children.slice(1);
 
   const inlineElement = ['checkbox', 'radio', 'switch'].some(item => Input?.type?.displayName?.toLowerCase().includes(item));
 
@@ -273,7 +273,7 @@ const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {
 
             {...TextProps}
           >
-            {(Text as any).map((item: any, index: number) => is('simple', item) ?
+            {(Text as any)?.map((item: any, index: number) => is('simple', item) ?
               <React.Fragment key={index}>{item}</React.Fragment> :
 
               React.cloneElement(item as any, { key: index })

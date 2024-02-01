@@ -298,7 +298,7 @@ const Form: React.FC<IForm> = React.forwardRef((props_, ref: any) => {
         <Line
           direction='row'
 
-          align='flex-start'
+          align='center'
 
           justify={justify}
 
