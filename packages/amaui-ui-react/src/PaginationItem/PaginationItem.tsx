@@ -57,9 +57,7 @@ const PaginationItem: React.FC<IPaginationItem> = React.forwardRef((props_, ref)
     elevation = false,
     size = 'regular',
 
-    TypeProps = {
-      version: props.size === 'large' ? 'b1' : props.size === 'small' ? 'b3' : 'b2'
-    },
+    TypeProps,
 
     className,
 
