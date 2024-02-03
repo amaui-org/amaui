@@ -102,6 +102,7 @@ const useStyle = style(theme => ({
     overflowY: 'auto',
 
     '&.amaui-List-root': {
+      maxWidth: 'unset !important',
       boxShadow: 'none'
     }
   },
@@ -296,6 +297,8 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
 
     belowCalendars,
 
+    disabled,
+
     IconPrevious = IconMaterialNavigateBeforeRounded,
     IconNext = IconMaterialNavigateNextRounded,
     IconDropDown = IconMaterialArrowDropDownRounded,
@@ -303,6 +306,9 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
     CalendarMonthProps,
     OptionButtonProps,
     PaginationItemsProps,
+
+    renderDay,
+    renderDayName,
 
     className,
 
@@ -362,7 +368,7 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
   }, [value]);
 
   const onCalendarMonthChangeCalendar = React.useCallback((valueNew: TCalendarMonthCalendar) => {
-    if (valueNew !== calendar) onUpdateCalendar(valueNew as any);
+    onUpdateCalendar(valueNew as any);
   }, [calendar]);
 
   const valid = React.useCallback((...args: [AmauiDate, any]) => {
@@ -374,7 +380,7 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
   const move = React.useCallback((next = true, unit: TTimeUnits = 'month') => {
     if (refs.inProgressTransition.current) return;
 
-    setCalendar((next ? add : remove)(1, unit, calendar));
+    onUpdateCalendar((next ? add : remove)(1, unit, calendar));
   }, [calendar]);
 
   const onOpen = React.useCallback((valueUpdate: 'month' | 'year' = 'month') => {
@@ -437,6 +443,14 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
   const onTransition = React.useCallback((element: any, status: TTransitionStatus) => {
     refs.inProgressTransition.current = !['entered', 'exited', 'removed'].includes(status);
   }, []);
+
+  const calendarMonthProps: any = {
+    renderDay,
+    renderDayName,
+    disabled,
+
+    ...CalendarMonthProps
+  };
 
   const main = () => {
     switch (version) {
@@ -521,7 +535,7 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
 
                     noTransition
 
-                    {...CalendarMonthProps}
+                    {...calendarMonthProps}
 
                     onChange={onCalendarMonthChange}
 
@@ -536,7 +550,7 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
                         'amaui-Calendar-calendar-days'
                       ],
 
-                      CalendarMonthProps?.className,
+                      calendarMonthProps?.className,
                       classes.calendar
                     ])}
                   />
@@ -639,7 +653,7 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
 
                       validate={validate}
 
-                      {...CalendarMonthProps}
+                      {...calendarMonthProps}
 
                       onChange={onCalendarMonthChange}
 
@@ -654,7 +668,7 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
                           'amaui-Calendar-calendar-days'
                         ],
 
-                        CalendarMonthProps?.className,
+                        calendarMonthProps?.className,
                         classes.calendar
                       ])}
                     />
