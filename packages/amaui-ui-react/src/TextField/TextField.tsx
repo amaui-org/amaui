@@ -639,7 +639,7 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
     focus: focus_,
     footer: footer_,
     subscription,
-    restoreSelection = true,
+    restoreSelection = false,
     readOnly,
     disabled,
 
@@ -814,12 +814,10 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
 
     onUpdateRows();
 
-    if (!disabled && inputValue !== value) {
-      // Inner controlled value
-      if (!props.hasOwnProperty('value')) setValue(inputValue);
+    // Inner controlled value
+    setValue(inputValue);
 
-      if (is('function', onChange)) onChange(inputValue, event);
-    }
+    if (is('function', onChange)) onChange(inputValue, event);
   };
 
   const onInput = (event: InputEvent) => {
