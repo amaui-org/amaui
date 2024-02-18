@@ -34,6 +34,8 @@ const ClickListener: React.FC<IClickListener> = React.forwardRef((props_, ref: a
     mouseEvent = 'onClick',
     touchEvent = 'onTouchEnd',
 
+    contextMenu = true,
+
     include = [],
     includeParentQueries = [],
     includeQueries = [],
@@ -94,12 +96,16 @@ const ClickListener: React.FC<IClickListener> = React.forwardRef((props_, ref: a
 
     if (touchEvent) rootDocument.addEventListener(resolve(touchEvent), onMethod, { passive: true });
 
+    if (contextMenu) rootDocument.addEventListener('contextmenu', onMethod);
+
     return () => {
       if (mouseEvent) rootDocument.removeEventListener(resolve(mouseEvent), onMethod);
 
       if (touchEvent) rootDocument.removeEventListener(resolve(mouseEvent), onMethod);
+
+      if (contextMenu) rootDocument.removeEventListener('contextmenu', onMethod);
     };
-  }, []);
+  }, [mouseEvent, touchEvent, contextMenu]);
 
   return (
     <React.Fragment>
