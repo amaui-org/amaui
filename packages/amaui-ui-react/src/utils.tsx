@@ -511,6 +511,12 @@ export const stringToColor = (value: string) => {
   return color;
 };
 
-export const innerHTMLToText = (value: string) => Try(() => encodeURIComponent(value));
+export const innerHTMLToText = (value: string) => Try(() => {
+  const unsafe = [' ', '"', '<', '>', '{', '}', '|', '\\', '^', '`'];
+
+  if (!unsafe.some(item => value.includes(item))) return value;
+
+  return encodeURIComponent(value);
+});
 
 export const textToInnerHTML = (value: any = '') => Try(() => (decodeURIComponent(value) as any).replaceAll('&nbsp;', ' '));
