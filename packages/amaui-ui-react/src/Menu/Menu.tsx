@@ -66,6 +66,8 @@ export interface IMenu extends Omit<ITooltip, 'name' | 'label'> {
 
   ListProps?: TPropsAny;
   ModalProps?: TPropsAny;
+  WrapperProps?: TPropsAny;
+  ClickListenerProps?: TPropsAny;
 }
 
 const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {
@@ -104,6 +106,8 @@ const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {
 
     ListProps,
     ModalProps,
+    WrapperProps: WrapperProps_,
+    ClickListenerProps,
 
     className,
 
@@ -265,7 +269,9 @@ const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {
 
   const Wrapper = closeOnClickAway ? ClickListener : React.Fragment;
 
-  const WrapperProps: any = {};
+  let WrapperProps: any = {
+    ...WrapperProps_
+  };
 
   if (closeOnClickAway) {
     WrapperProps.onClickOutside = onClose;
@@ -277,6 +283,12 @@ const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {
     WrapperProps.includeQueries = [...includeQueries, `.${refs.menuClassName.current}`];
 
     WrapperProps.ignoreNonExisting = ignoreNonExisting;
+
+    WrapperProps = {
+      ...WrapperProps,
+
+      ...ClickListenerProps
+    };
   }
 
   if (open) MENUS.add(id);
