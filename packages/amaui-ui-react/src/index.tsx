@@ -516,3 +516,6 @@ export * from './Share';
 
 export { default as Emojis } from './Emojis';
 export * from './Emojis';
+
+export { default as SmartTextField } from './SmartTextField';
+export * from './SmartTextField';

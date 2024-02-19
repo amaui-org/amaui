@@ -1,4 +1,4 @@
-import { is, canvasFilterBrightness, canvasFilterContrast, canvasFilterSaturation, canvasFilterFade, canvasFilterInvert, canvasFilterOldPhoto, download, clamp } from '@amaui/utils';
+import { is, canvasFilterBrightness, canvasFilterContrast, canvasFilterSaturation, canvasFilterFade, canvasFilterInvert, canvasFilterOldPhoto, download, clamp, Try } from '@amaui/utils';
 import { TBreakpoint, TPaletteVersion } from '@amaui/style-react';
 
 export function reflow(element: HTMLElement) {
@@ -391,3 +391,126 @@ export const getOverflowParent = (element: HTMLElement): HTMLElement => {
 
   return getOverflowParent(element.parentElement);
 };
+
+export const keyboardStandardCommands = ['a', 'c', 'v', 'y', 'z'];
+
+export const keyboardStyleCommands = ['b', 'i', 'u'];
+
+export const caret: any = {};
+
+if (window.getSelection && document.createRange) {
+  // Saves caret position(s)
+  caret.save = function (container: any) {
+    const selection = window.getSelection();
+
+    if (!(selection && selection.rangeCount > 0)) return;
+
+    const range = window.getSelection()?.getRangeAt(0);
+
+    if (!range) return;
+
+    const preSelectionRange = range.cloneRange();
+
+    preSelectionRange.selectNodeContents(container);
+    preSelectionRange.setEnd(range.startContainer, range.startOffset);
+
+    const start = preSelectionRange.toString().length;
+
+    return {
+      start: start,
+      end: start + range.toString().length
+    };
+  };
+
+  // Restores caret position(s)
+  caret.restore = function (container: any, savedElement: any) {
+    let charIndex = 0;
+    const range = document.createRange();
+
+    range.setStart(container, 0);
+    range.collapse(true);
+
+    const nodeStack = [container];
+    let node;
+    let foundStart = false;
+    let stop = false;
+
+    // tslint:disable-next-line
+    while (!stop && (node = nodeStack.pop())) {
+      if (node.nodeType === 3) {
+        const nextCharIndex = charIndex + node.length;
+
+        if (!foundStart && savedElement.start >= charIndex && savedElement.start <= nextCharIndex) {
+          range.setStart(node, savedElement.start - charIndex);
+          foundStart = true;
+        }
+
+        if (foundStart && savedElement.end >= charIndex && savedElement.end <= nextCharIndex) {
+          range.setEnd(node, savedElement.end - charIndex);
+          stop = true;
+        }
+
+        charIndex = nextCharIndex;
+      } else {
+        let i = node.childNodes.length;
+
+        while (i--) {
+          nodeStack.push(node.childNodes[i]);
+        }
+      }
+    }
+
+    const selection = window.getSelection();
+
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+  };
+}
+else if ((process as any).window && (window.document as any).selection && (window.document.body as any).createTextRange) {
+  // Saves caret position(s)
+  caret.save = function (container: any) {
+    const selectedTextRange = (window.document as any).selection.createRange();
+    const preSelectionTextRange = (window.document.body as any).createTextRange();
+
+    preSelectionTextRange.moveToElementText(container);
+    preSelectionTextRange.setEndPoint("EndToStart", selectedTextRange);
+
+    const start = preSelectionTextRange.text.length;
+
+    return {
+      start: start,
+      end: start + selectedTextRange.text.length
+    };
+  };
+
+  // Restores caret position(s)
+  caret.restore = function (container: any, savedElement: any) {
+    const textRange = (window.document.body as any).createTextRange();
+
+    textRange.moveToElementText(container);
+    textRange.collapse(true);
+    textRange.moveEnd("character", savedElement.end);
+    textRange.moveStart("character", savedElement.start);
+    textRange.select();
+  };
+}
+
+export const stringToColor = (value: string) => {
+  let hash = 0;
+
+  value.split('').forEach(item => hash = item.charCodeAt(0) + ((hash << 5) - hash));
+
+  let color = '#';
+
+  for (let i = 0; i < 3; i++) {
+    const value_ = (hash >> (i * 8)) & 0xff;
+
+    color += value_.toString(16).padStart(2, '0');
+  }
+
+  return color;
+};
+
+export const innerHTMLToText = (value: string) => Try(() => encodeURIComponent(value));
+
+export const textToInnerHTML = (value: any = '') => Try(() => (decodeURIComponent(value) as any).replaceAll('&nbsp;', ' '));
