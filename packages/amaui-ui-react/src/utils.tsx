@@ -1,4 +1,4 @@
-import { is, canvasFilterBrightness, canvasFilterContrast, canvasFilterSaturation, canvasFilterFade, canvasFilterInvert, canvasFilterOldPhoto, download, clamp, Try } from '@amaui/utils';
+import { is, canvasFilterBrightness, canvasFilterContrast, canvasFilterSaturation, canvasFilterFade, canvasFilterInvert, canvasFilterOldPhoto, download, clamp, Try, isEnvironment } from '@amaui/utils';
 import { TBreakpoint, TPaletteVersion } from '@amaui/style-react';
 
 export function reflow(element: HTMLElement) {
@@ -398,101 +398,103 @@ export const keyboardStyleCommands = ['b', 'i', 'u'];
 
 export const caret: any = {};
 
-if (window.getSelection && document.createRange) {
-  // Saves caret position(s)
-  caret.save = function (container: any) {
-    const selection = window.getSelection();
+if (isEnvironment('browser')) {
+  if (window.getSelection && document.createRange) {
+    // Saves caret position(s)
+    caret.save = function (container: any) {
+      const selection = window.getSelection();
 
-    if (!(selection && selection.rangeCount > 0)) return;
+      if (!(selection && selection.rangeCount > 0)) return;
 
-    const range = window.getSelection()?.getRangeAt(0);
+      const range = window.getSelection()?.getRangeAt(0);
 
-    if (!range) return;
+      if (!range) return;
 
-    const preSelectionRange = range.cloneRange();
+      const preSelectionRange = range.cloneRange();
 
-    preSelectionRange.selectNodeContents(container);
-    preSelectionRange.setEnd(range.startContainer, range.startOffset);
+      preSelectionRange.selectNodeContents(container);
+      preSelectionRange.setEnd(range.startContainer, range.startOffset);
 
-    const start = preSelectionRange.toString().length;
+      const start = preSelectionRange.toString().length;
 
-    return {
-      start: start,
-      end: start + range.toString().length
+      return {
+        start: start,
+        end: start + range.toString().length
+      };
     };
-  };
 
-  // Restores caret position(s)
-  caret.restore = function (container: any, savedElement: any) {
-    let charIndex = 0;
-    const range = document.createRange();
+    // Restores caret position(s)
+    caret.restore = function (container: any, savedElement: any) {
+      let charIndex = 0;
+      const range = document.createRange();
 
-    range.setStart(container, 0);
-    range.collapse(true);
+      range.setStart(container, 0);
+      range.collapse(true);
 
-    const nodeStack = [container];
-    let node;
-    let foundStart = false;
-    let stop = false;
+      const nodeStack = [container];
+      let node;
+      let foundStart = false;
+      let stop = false;
 
-    // tslint:disable-next-line
-    while (!stop && (node = nodeStack.pop())) {
-      if (node.nodeType === 3) {
-        const nextCharIndex = charIndex + node.length;
+      // tslint:disable-next-line
+      while (!stop && (node = nodeStack.pop())) {
+        if (node.nodeType === 3) {
+          const nextCharIndex = charIndex + node.length;
 
-        if (!foundStart && savedElement.start >= charIndex && savedElement.start <= nextCharIndex) {
-          range.setStart(node, savedElement.start - charIndex);
-          foundStart = true;
-        }
+          if (!foundStart && savedElement.start >= charIndex && savedElement.start <= nextCharIndex) {
+            range.setStart(node, savedElement.start - charIndex);
+            foundStart = true;
+          }
 
-        if (foundStart && savedElement.end >= charIndex && savedElement.end <= nextCharIndex) {
-          range.setEnd(node, savedElement.end - charIndex);
-          stop = true;
-        }
+          if (foundStart && savedElement.end >= charIndex && savedElement.end <= nextCharIndex) {
+            range.setEnd(node, savedElement.end - charIndex);
+            stop = true;
+          }
 
-        charIndex = nextCharIndex;
-      } else {
-        let i = node.childNodes.length;
+          charIndex = nextCharIndex;
+        } else {
+          let i = node.childNodes.length;
 
-        while (i--) {
-          nodeStack.push(node.childNodes[i]);
+          while (i--) {
+            nodeStack.push(node.childNodes[i]);
+          }
         }
       }
-    }
 
-    const selection = window.getSelection();
+      const selection = window.getSelection();
 
-    selection?.removeAllRanges();
-    selection?.addRange(range);
-  };
-}
-else if ((process as any).window && (window.document as any).selection && (window.document.body as any).createTextRange) {
-  // Saves caret position(s)
-  caret.save = function (container: any) {
-    const selectedTextRange = (window.document as any).selection.createRange();
-    const preSelectionTextRange = (window.document.body as any).createTextRange();
-
-    preSelectionTextRange.moveToElementText(container);
-    preSelectionTextRange.setEndPoint("EndToStart", selectedTextRange);
-
-    const start = preSelectionTextRange.text.length;
-
-    return {
-      start: start,
-      end: start + selectedTextRange.text.length
+      selection?.removeAllRanges();
+      selection?.addRange(range);
     };
-  };
+  }
+  else if ((process as any).window && (window.document as any).selection && (window.document.body as any).createTextRange) {
+    // Saves caret position(s)
+    caret.save = function (container: any) {
+      const selectedTextRange = (window.document as any).selection.createRange();
+      const preSelectionTextRange = (window.document.body as any).createTextRange();
 
-  // Restores caret position(s)
-  caret.restore = function (container: any, savedElement: any) {
-    const textRange = (window.document.body as any).createTextRange();
+      preSelectionTextRange.moveToElementText(container);
+      preSelectionTextRange.setEndPoint("EndToStart", selectedTextRange);
 
-    textRange.moveToElementText(container);
-    textRange.collapse(true);
-    textRange.moveEnd("character", savedElement.end);
-    textRange.moveStart("character", savedElement.start);
-    textRange.select();
-  };
+      const start = preSelectionTextRange.text.length;
+
+      return {
+        start: start,
+        end: start + selectedTextRange.text.length
+      };
+    };
+
+    // Restores caret position(s)
+    caret.restore = function (container: any, savedElement: any) {
+      const textRange = (window.document.body as any).createTextRange();
+
+      textRange.moveToElementText(container);
+      textRange.collapse(true);
+      textRange.moveEnd("character", savedElement.end);
+      textRange.moveStart("character", savedElement.start);
+      textRange.select();
+    };
+  }
 }
 
 export const stringToColor = (value: string) => {
