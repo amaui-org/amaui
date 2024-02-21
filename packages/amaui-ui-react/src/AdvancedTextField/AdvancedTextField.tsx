@@ -204,6 +204,8 @@ const AdvancedTextField: React.FC<IAdvancedTextField> = React.forwardRef((props_
 
       onChange={onChange}
 
+      controlled
+
       className={classNames([
         staticClassName('AdvancedTextField', theme) && [
           'amaui-AdvancedTextField-root'

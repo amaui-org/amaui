@@ -571,6 +571,7 @@ export interface ITextField extends IBaseElement {
   maxRows?: number;
   focus?: boolean;
   footer?: TElement;
+  controlled?: boolean;
   restoreSelection?: boolean;
   readOnly?: boolean;
   disabled?: boolean;
@@ -639,6 +640,7 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
     focus: focus_,
     footer: footer_,
     subscription,
+    controlled,
     restoreSelection = false,
     readOnly,
     disabled,
@@ -675,11 +677,14 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
     input: React.useRef<HTMLInputElement>(),
     carret: React.useRef<any>(),
     restoreSelection: React.useRef(restoreSelection),
+    controlled: React.useRef(controlled),
     ids: {
       label: React.useId(),
       clear: React.useId()
     }
   };
+
+  refs.controlled.current = controlled;
 
   const breakpoints = {};
 
@@ -815,7 +820,7 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
     onUpdateRows();
 
     // Inner controlled value
-    setValue(inputValue);
+    if (!refs.controlled.current) setValue(inputValue);
 
     if (is('function', onChange)) onChange(inputValue, event);
   };
@@ -831,7 +836,7 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
       const valueNew = '';
 
       // Inner controlled value
-      if (!props.hasOwnProperty('value')) setValue(valueNew);
+      if (!refs.controlled.current) setValue(valueNew);
 
       if (is('function', onChange)) onChange(valueNew);
     }
