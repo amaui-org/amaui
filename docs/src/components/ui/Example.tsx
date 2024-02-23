@@ -142,6 +142,7 @@ const useStyle = style(theme => ({
       background: theme.palette.light ? theme.palette.background.default.primary : theme.palette.color.primary[10],
       // boxShadow: theme.palette.light ? theme.shadows.values.default[12] : undefined,
       // maxHeight: '540px',
+      height: 'auto !important',
       position: 'relative'
     },
 
