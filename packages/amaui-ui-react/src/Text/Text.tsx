@@ -5,7 +5,6 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import { IBaseElement, TPropsAny, staticClassName, textToInnerHTML, valueBreakpoints } from '../utils';
 
 import useMediaQuery from '../useMediaQuery';
-import SmartTextField from '../SmartTextField';
 import Type from '../Type';
 import Line from '../Line';
 
@@ -46,8 +45,6 @@ export interface IText extends IBaseElement {
 
   responsive?: boolean;
 
-  edit?: boolean;
-
   divider?: boolean;
 
   top?: any;
@@ -56,7 +53,6 @@ export interface IText extends IBaseElement {
   end?: any;
 
   TypeProps?: TPropsAny;
-  InputProps?: TPropsAny;
   HorizontalProps?: TPropsAny;
 }
 
@@ -72,8 +68,6 @@ const Text: React.FC<IText> = React.forwardRef((props, ref: any) => {
 
     responsive = true,
 
-    edit,
-
     divider,
 
     top,
@@ -82,7 +76,6 @@ const Text: React.FC<IText> = React.forwardRef((props, ref: any) => {
     end,
 
     TypeProps,
-    InputProps,
     HorizontalProps,
 
     className,
@@ -120,7 +113,7 @@ const Text: React.FC<IText> = React.forwardRef((props, ref: any) => {
 
   value = is('string', value) ? textToInnerHTML(value) : '';
 
-  let main = (
+  const main = (
     <Type
       version='b2'
 
@@ -142,40 +135,6 @@ const Text: React.FC<IText> = React.forwardRef((props, ref: any) => {
       }}
     />
   );
-
-  if (edit) {
-    main = (
-      <SmartTextField
-        placeholder='Text'
-
-        valueDefault={value}
-
-        edit
-
-        multiline
-
-        {...InputProps}
-
-        className={classNames([
-          staticClassName('Text', theme) && [
-            'amaui-Text-type',
-            'amaui-Text-input'
-          ],
-
-          InputProps?.className,
-          classes.type,
-          divider && classes.divider,
-          classes[`column_${columns}`]
-        ])}
-
-        additional={{
-          version: 'b2',
-
-          ...InputProps?.additional
-        }}
-      />
-    );
-  }
 
   return (
     <Line

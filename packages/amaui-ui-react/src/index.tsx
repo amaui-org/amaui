@@ -522,3 +522,9 @@ export * from './SmartTextField';
 
 export { default as Text } from './Text';
 export * from './Text';
+
+export { default as Section } from './Section';
+export * from './Section';
+
+export { default as SectionTextMedia } from './SectionTextMedia';
+export * from './SectionTextMedia';
