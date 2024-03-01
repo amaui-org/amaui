@@ -528,3 +528,6 @@ export * from './Section';
 
 export { default as SectionTextMedia } from './SectionTextMedia';
 export * from './SectionTextMedia';
+
+export { default as MoreOptions } from './MoreOptions';
+export * from './MoreOptions';
