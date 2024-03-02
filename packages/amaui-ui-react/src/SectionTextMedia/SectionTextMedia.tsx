@@ -15,6 +15,14 @@ import { TPropsAny, TValueBreakpoints, staticClassName, textToInnerHTML } from '
 const useStyle = styleMethod(theme => ({
   root: {
 
+  },
+
+  wrapperRow: {
+    '&.amaui-Line-direction-row': {
+      '& > *': {
+        width: '50%'
+      }
+    }
   }
 }), { name: 'amaui-SectionTextMedia' });
 
@@ -24,17 +32,12 @@ export interface ISectionTextMedia extends ISection {
 
   mediaPosition?: 'top' | 'left' | 'right' | 'bottom';
 
-  image?: any;
-  video?: any;
-  audio?: any;
+  media?: any;
 
   MainProps?: TPropsAny;
   TitleProps?: TPropsAny;
   WrapperProps?: TPropsAny;
   TextProps?: TPropsAny;
-  ImageProps?: TPropsAny;
-  AudioProps?: TPropsAny;
-  VideoProps?: TPropsAny;
   MediaProps?: TPropsAny;
 }
 
@@ -53,17 +56,12 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
 
     mediaPosition = 'top',
 
-    image,
-    audio,
-    video,
+    media,
 
     MainProps,
     TitleProps,
     WrapperProps,
     TextProps,
-    ImageProps,
-    AudioProps,
-    VideoProps,
     MediaProps,
 
     className,
@@ -75,7 +73,7 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
     root: React.useRef<any>()
   };
 
-  let media: any;
+  let mediaElement: any;
 
   const mediaProps: any = {
     size,
@@ -85,56 +83,52 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
     ...MediaProps
   };
 
-  if (image) {
-    media = (
+  const mime = media?.mime || '';
+
+  if (mime.includes('image')) {
+    mediaElement = (
       <Image
-        src={is('string', image) ? image : image?.src}
+        src={is('string', media) ? media : media?.src}
 
         {...mediaProps}
-
-        {...ImageProps}
       />
     );
   }
 
-  if (audio) {
-    media = (
+  if (mime.includes('audio')) {
+    mediaElement = (
       <AudioPlayer
-        src={is('string', audio) ? audio : audio?.src}
+        src={is('string', media) ? media : media?.src}
 
-        name={audio?.name}
+        name={media?.name}
 
-        meta={audio?.meta}
+        meta={media?.meta}
 
-        versions={audio?.versions}
+        versions={media?.versions}
 
-        mime={audio?.mime}
+        mime={media?.mime}
 
         {...mediaProps}
-
-        {...AudioProps}
       />
     );
   }
 
-  if (video) {
-    media = (
+  if (mime.includes('video')) {
+    mediaElement = (
       <VideoPlayer
-        src={is('string', video) ? video : video?.src}
+        src={is('string', media) ? media : media?.src}
 
-        name={video?.name}
+        name={media?.name}
 
-        meta={video?.meta}
+        meta={media?.meta}
 
-        versions={video?.versions}
+        versions={media?.versions}
 
-        thumbnails={video?.thumbnails}
+        thumbnails={media?.thumbnails}
 
-        mime={video?.mime}
+        mime={media?.mime}
 
         {...mediaProps}
-
-        {...VideoProps}
       />
     );
   }
@@ -200,31 +194,40 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
             default: ['left', 'right'].includes(mediaPosition) ? 'row' : 'column'
           }}
 
-          align={['left', 'right'].includes(mediaPosition) ? 'center' : 'flex-start'}
+          align={['left', 'right'].includes(mediaPosition) ? 'center' : 'center'}
 
           justify={['left', 'right'].includes(mediaPosition) ? 'flex-start' : 'center'}
 
           fullWidth
 
           {...WrapperProps}
+
+          className={classNames([
+            classes.wrapper,
+            media && classes.wrapperRow
+          ])}
         >
-          {['top', 'left'].includes(mediaPosition) && media}
+          {['top', 'left'].includes(mediaPosition) && mediaElement}
 
           {is('string', description) && (
             <Text
-              version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3'}
-
               align='center'
 
-              columns={2}
+              columns={1}
 
               {...TextProps}
+
+              TypeProps={{
+                ...TextProps?.TypeProps,
+
+                version: size === 'large' ? 'b1' : [undefined, 'regular'].includes(size as any) ? 'b2' : 'b3'
+              }}
 
               value={description}
             />
           )}
 
-          {['bottom', 'right'].includes(mediaPosition) && media}
+          {['bottom', 'right'].includes(mediaPosition) && mediaElement}
         </Line>
       </Line>
     </Section>

@@ -264,7 +264,8 @@ const Line: React.FC<ILine> = React.forwardRef((props_, ref: any) => {
 
       className={classNames([
         staticClassName('Line', theme) && [
-          'amaui-Line-root'
+          'amaui-Line-root',
+          `amaui-Line-direction-${direction}`
         ],
 
         className,
