@@ -88,7 +88,7 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
   if (image) {
     media = (
       <Image
-        src={image}
+        src={is('string', image) ? image : image?.src}
 
         {...mediaProps}
 
@@ -100,7 +100,15 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
   if (audio) {
     media = (
       <AudioPlayer
-        src={audio}
+        src={is('string', audio) ? audio : audio?.src}
+
+        name={audio?.name}
+
+        meta={audio?.meta}
+
+        versions={audio?.versions}
+
+        mime={audio?.mime}
 
         {...mediaProps}
 
@@ -112,7 +120,17 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
   if (video) {
     media = (
       <VideoPlayer
-        src={video}
+        src={is('string', video) ? video : video?.src}
+
+        name={video?.name}
+
+        meta={video?.meta}
+
+        versions={video?.versions}
+
+        thumbnails={video?.thumbnails}
+
+        mime={video?.mime}
 
         {...mediaProps}
 
