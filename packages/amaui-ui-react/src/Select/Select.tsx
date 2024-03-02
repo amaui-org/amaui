@@ -322,7 +322,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
     const item: any = children.find((item_: any) => item_.props?.value === values);
 
     const getItemLabel = getLabel || (() => {
-      return (item.props?.label || item.props?.primary || item.props?.secondary || item.props?.tertiary || item.props?.children);
+      return (item.props?.name || item.props?.label || item.props?.primary || item.props?.secondary || item.props?.tertiary || (item.props?.value !== undefined ? item.props?.value : item.props?.children));
     });
 
     return item ? getItemLabel(item, props) : value;
@@ -357,7 +357,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
         );
       }
 
-      return value.map(item => renderValue(item)).join(', ');
+      return value.flatMap(item => [renderValue(item), ', ']);
     }
 
     return renderValue(value);

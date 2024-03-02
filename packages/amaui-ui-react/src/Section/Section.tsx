@@ -87,24 +87,28 @@ const useStyle = styleMethod(theme => ({
     padding: '224px 64px'
   },
 
-  maxWidth_xs: {
+  maxWidth_extra_small: {
     maxWidth: '480px'
   },
 
-  maxWidth_sm: {
+  maxWidth_small: {
     maxWidth: '768px'
   },
 
-  maxWidth_rg: {
+  maxWidth_regular: {
     maxWidth: '1024px'
   },
 
-  maxWidth_lg: {
+  maxWidth_large: {
     maxWidth: '1440px'
   },
 
-  maxWidth_xl: {
+  maxWidth_extra_large: {
     maxWidth: '1920px'
+  },
+
+  maxWidth_extra_extra_large: {
+    maxWidth: '2400px'
   },
 
   background: {
@@ -384,7 +388,7 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
   const margin = valueBreakpoints(margin_, false, breakpoints, theme);
   const marginVertical = valueBreakpoints(marginVertical_, false, breakpoints, theme);
   const padding = valueBreakpoints(padding_, true, breakpoints, theme);
-  const maxWidth = valueBreakpoints(maxWidth_, 'rg', breakpoints, theme);
+  const maxWidth = valueBreakpoints(maxWidth_, 'regular', breakpoints, theme);
 
   let styleBackground: any = {};
 
@@ -488,7 +492,7 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
           className,
           classes.root,
           margin && (classes[`margin_${margin}`] || classes[`margin_${size}`]),
-          marginVertical && (classes[`margin_vertical_${marginVertical}`] || classes[`margin_vertical_${size}`]),
+          (!margin && marginVertical) && (classes[`margin_vertical_${marginVertical}`] || classes[`margin_vertical_${size}`]),
           padding && (classes[`padding_${padding}`] || classes[`padding_${size}`])
         ])}
 
