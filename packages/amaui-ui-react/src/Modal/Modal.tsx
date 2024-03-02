@@ -236,11 +236,14 @@ const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {
   const refs = {
     root: React.useRef<any>(),
     focus: React.useRef<HTMLDivElement>(),
+    open: React.useRef(open),
     freezeScroll: React.useRef<any>(),
     interval: React.useRef<any>()
   };
 
   const { classes } = useStyle(props);
+
+  refs.open.current = open;
 
   refs.freezeScroll.current = freezeScroll;
 
@@ -270,6 +273,8 @@ const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {
   };
 
   const onKeyDown = (event: KeyboardEvent) => {
+    if (!refs.open.current) return;
+
     if (event.key === 'Escape' && !disableKeyboardClose) {
       event.stopPropagation();
 
