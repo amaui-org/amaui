@@ -1,6 +1,7 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { Location, useLocation } from 'react-router-dom';
 
+import { hash } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
@@ -100,27 +101,35 @@ const PageTransition: React.FC<IPageTransition> = React.forwardRef((props_, ref:
     out: classNames_?.out || classes.out
   };
 
+  const hashLocation = React.useCallback((value: Location) => {
+    return hash([
+      value.hash,
+      value.pathname,
+      value.search
+    ]);
+  }, []);
+
   const onUpdate = React.useCallback(async () => {
     if (refs.inProgress.current) return;
 
-    clearTimeout(refs.timeout.current);
+    if (hashLocation(location) !== hashLocation(locationUsed)) {
+      setTransition('out');
 
-    refs.inProgress.current = true;
+      clearTimeout(refs.timeout.current);
 
-    setTransition('out');
+      refs.timeout.current = setTimeout(() => {
+        setLocationUsed(refs.location.current);
 
-    refs.timeout.current = setTimeout(() => {
-      setLocationUsed({ ...refs.location.current });
+        setTransition('in');
 
-      setTransition('in');
-
-      refs.inProgress.current = false;
-    }, refs.duration.current);
-  }, [location]);
+        refs.inProgress.current = false;
+      }, refs.duration.current);
+    }
+  }, [location, locationUsed]);
 
   React.useEffect(() => {
     onUpdate();
-  }, [location]);
+  }, [location, locationUsed]);
 
   return (
     <Line
