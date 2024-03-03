@@ -531,3 +531,6 @@ export * from './SectionTextMedia';
 
 export { default as MoreOptions } from './MoreOptions';
 export * from './MoreOptions';
+
+export { default as useSubscription } from './useSubscription';
+export * from './useSubscription';
