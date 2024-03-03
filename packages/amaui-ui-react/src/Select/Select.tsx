@@ -357,7 +357,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
         );
       }
 
-      return value.flatMap(item => [renderValue(item), ', ']);
+      return value.flatMap((item, index) => [renderValue(item), ...(index < value.length - 1 ? [', '] : [])]);
     }
 
     return renderValue(value);
