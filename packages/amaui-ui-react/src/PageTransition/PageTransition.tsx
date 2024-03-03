@@ -1,7 +1,6 @@
 import React from 'react';
-import { Location, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-import { hash, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
@@ -46,6 +45,8 @@ const useStyle = styleMethod(theme => ({
 export interface IPageTransition extends ILine {
   add?: boolean;
 
+  duration?: number;
+
   classNames?: {
     in?: string;
     out?: string;
@@ -62,7 +63,7 @@ const PageTransition: React.FC<IPageTransition> = React.forwardRef((props_, ref:
 
     classNames: classNames_,
 
-    onAnimationEnd: onAnimationEnd_,
+    duration = 254,
 
     Component = 'div',
 
@@ -82,39 +83,44 @@ const PageTransition: React.FC<IPageTransition> = React.forwardRef((props_, ref:
 
   const refs = {
     location: React.useRef(location),
-    transition: React.useRef(transition)
+    transition: React.useRef(transition),
+    inProgress: React.useRef(false),
+    timeout: React.useRef<NodeJS.Timeout>(),
+    duration: React.useRef(duration)
   };
 
   refs.location.current = location;
 
   refs.transition.current = transition;
 
+  refs.duration.current = duration;
+
   const classNamesToUse = {
     in: classNames_?.in || classes.in,
     out: classNames_?.out || classes.out
   };
 
-  const hashLocation = React.useCallback((value: Location) => {
-    return hash([
-      value.hash,
-      value.pathname,
-      value.search
-    ]);
-  }, []);
+  const onUpdate = React.useCallback(async () => {
+    if (refs.inProgress.current) return;
 
-  React.useEffect(() => {
-    if (hashLocation(location) !== hashLocation(locationUsed)) setTransition('out');
-  }, [location, locationUsed]);
+    clearTimeout(refs.timeout.current);
 
-  const onAnimationEnd = React.useCallback((event: AnimationEvent) => {
-    if (refs.transition.current === 'out') {
-      setLocationUsed(refs.location.current);
+    refs.inProgress.current = true;
+
+    setTransition('out');
+
+    refs.timeout.current = setTimeout(() => {
+      setLocationUsed({ ...refs.location.current });
 
       setTransition('in');
-    }
 
-    if (is('function', onAnimationEnd_)) onAnimationEnd_(event);
-  }, [onAnimationEnd_]);
+      refs.inProgress.current = false;
+    }, refs.duration.current);
+  }, [location]);
+
+  React.useEffect(() => {
+    onUpdate();
+  }, [location]);
 
   return (
     <Line
@@ -134,7 +140,8 @@ const PageTransition: React.FC<IPageTransition> = React.forwardRef((props_, ref:
 
       className={classNames([
         staticClassName('PageTransition', theme) && [
-          `amaui-PageTransition-root`
+          `amaui-PageTransition-root`,
+          `amaui-PageTransition-transition-${transition}`
         ],
 
         className,
@@ -143,8 +150,6 @@ const PageTransition: React.FC<IPageTransition> = React.forwardRef((props_, ref:
       ])}
 
       {...other}
-
-      onAnimationEnd={onAnimationEnd}
     >
       {React.cloneElement(children as any, {
         location: locationUsed
