@@ -4,7 +4,7 @@ import { clamp, copyToClipboard, is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
-import { IBaseElement, staticClassName, TSize } from '../utils';
+import { staticClassName, TSize } from '../utils';
 import Icon, { IIcon } from '../Icon';
 import useMediaQuery from '../useMediaQuery';
 import Type from '../Type';

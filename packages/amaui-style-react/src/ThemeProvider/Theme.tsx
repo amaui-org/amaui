@@ -15,12 +15,22 @@ export interface IThemeValue extends ThemeRequired {
   updateWithRerender: (value: IAmauiTheme) => ThemeRequired;
 }
 
-const resolveValue = (value: IAmauiTheme) => {
-  const toFilterOut = ['id', 'element', 'subscriptions'];
+const hashValue = (value: AmauiTheme) => {
+  const allowed = ['direction', 'preference', 'mode', 'palette', 'shape', 'breakpoints', 'space', 'shadows', 'typography', 'transitions', 'z_index'];
 
-  const valueNew: any = {};
+  const valueNew = {};
 
-  Object.keys(value).filter((item: any) => toFilterOut.indexOf(item) === -1).forEach((item: any) => valueNew[item] = value[item]);
+  Object.keys(value).filter(item => allowed.includes(item)).forEach(item => valueNew[item] = value[item]);
+
+  return hash(valueNew);
+};
+
+const resolveValue = (value: AmauiTheme) => {
+  const notAllowed = ['subscriptions', 'id', 'element', 'updateWithRerender'];
+
+  const valueNew = {};
+
+  Object.keys(value).filter(item => !notAllowed.includes(item)).forEach(item => valueNew[item] = value[item]);
 
   return valueNew;
 };
@@ -183,7 +193,7 @@ ${values.map(item => `\t${item};`).join('\n')}
 
       setValue(amauiTheme);
     }
-  }, [hash(resolveValue(valueLocal as any)), valueParent?.palette?.light]);
+  }, [hashValue(valueLocal as any), valueParent?.palette?.light]);
 
   const update = (updateValue: IAmauiTheme) => {
     if (updateValue !== undefined) {

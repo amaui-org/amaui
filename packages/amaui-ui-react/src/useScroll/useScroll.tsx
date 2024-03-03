@@ -1,45 +1,64 @@
 import React from 'react';
 
-import { isEnvironment } from '@amaui/utils';
-
 export type TUseScrollDirection = 'up' | 'down';
 
 export interface IUseScroll {
   offset?: number;
   direction?: TUseScrollDirection;
   target?: HTMLElement | Window;
+  element?: any;
 }
 
 const useScroll = (props: IUseScroll) => {
   const {
     offset,
     direction,
-    target = isEnvironment('browser') && window
+    element,
+    target
   } = props;
 
   const [response, setResponse] = React.useState<boolean>(false);
+  const [root, setRoot] = React.useState<HTMLElement | Window>();
 
   const refs = {
+    root: React.useRef(root),
     previous: React.useRef<any>(0),
     offset: React.useRef<number>(),
-    direction: React.useRef<TUseScrollDirection>()
+    direction: React.useRef<TUseScrollDirection>(),
+    response: React.useRef(response)
   };
 
+  refs.root.current = root;
+
   refs.offset.current = offset;
+
   refs.direction.current = direction;
 
-  const method = React.useCallback(() => {
-    const value = (target as HTMLElement).scrollTop !== undefined ? (target as HTMLElement).scrollTop : (target as Window).scrollY;
+  refs.response.current = response;
 
-    let newResponse = true;
+  // Root
+  React.useEffect(() => {
+    const rootNew = target || element?.ownerDocument?.defaultView || window;
+
+    setRoot(rootNew);
+
+    refs.root.current = rootNew;
+  }, [target, element]);
+
+  const method = React.useCallback(() => {
+    if (!refs.root.current) return;
+
+    const value = (refs.root.current as HTMLElement)?.scrollTop !== undefined ? (refs.root.current as HTMLElement).scrollTop : (refs.root.current as unknown as Window)?.scrollY!;
+
+    let responseNew = true;
 
     // Direction
-    if (refs.direction.current !== undefined) newResponse = newResponse && ((refs.direction.current === 'down' && value > refs.previous.current) || (refs.direction.current === 'up' && value < refs.previous.current));
+    if (refs.direction.current !== undefined) responseNew = responseNew && ((refs.direction.current === 'down' && value > refs.previous.current) || (refs.direction.current === 'up' && value < refs.previous.current));
 
     // Offset
-    if (refs.offset.current !== undefined) newResponse = newResponse && (value > refs.offset.current);
+    if (refs.offset.current !== undefined) responseNew = responseNew && (value > refs.offset.current);
 
-    setResponse(newResponse);
+    if (refs.response.current !== responseNew) setResponse(responseNew);
 
     // Previous
     refs.previous.current = value;
@@ -47,15 +66,15 @@ const useScroll = (props: IUseScroll) => {
 
   React.useEffect(() => {
     // Add new event listener
-    if (target) target.addEventListener('scroll', method);
+    if (root) root.addEventListener('scroll', method);
 
     method();
 
     return () => {
       // Remove previous event listener
-      if (target) target.removeEventListener('scroll', method);
+      if (root) root.removeEventListener('scroll', method);
     };
-  }, [target]);
+  }, [root]);
 
   return response;
 };
