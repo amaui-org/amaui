@@ -176,8 +176,6 @@ const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModal?.props?.default, ...props_ }), [props_]);
 
-  const mobile = useMediaQuery('(max-width: 767px)');
-
   const {
     tonal = true,
     color = 'primary',
@@ -191,7 +189,7 @@ const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {
 
     partialyOpened,
 
-    minWidth = !mobile ? 'sm' : undefined,
+    minWidth: minWidth_,
     maxWidth: maxWidth_ = 'rg',
 
     fullScreen,
@@ -230,6 +228,8 @@ const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
+  const { classes } = useStyle(props);
+
   const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
   const [inProp, setInProp] = React.useState(open_);
 
@@ -241,7 +241,9 @@ const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {
     interval: React.useRef<any>()
   };
 
-  const { classes } = useStyle(props);
+  const mobile = useMediaQuery('(max-width: 767px)', { element: refs.root.current });
+
+  const minWidth = !mobile ? 'sm' : undefined;
 
   refs.open.current = open;
 

@@ -318,8 +318,6 @@ const Tabs: React.FC<ITabs> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const mobile = useMediaQuery('(pointer: coarse)');
-
   const setMoveValue = React.useState<any>({})[1];
   const [init, setInit] = React.useState(false);
   const [lineValues, setLineValues] = React.useState<any>({});
@@ -337,6 +335,8 @@ const Tabs: React.FC<ITabs> = React.forwardRef((props_, ref: any) => {
     isActive: React.useRef<any>(),
     initialLineUpdateTimeout: React.useRef<any>()
   };
+
+  const mobile = useMediaQuery('(pointer: coarse)', { element: refs.root.current });
 
   refs.value.current = value;
 
@@ -531,7 +531,14 @@ const Tabs: React.FC<ITabs> = React.forwardRef((props_, ref: any) => {
 
   return (
     <Surface
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       tonal={tonal}
 

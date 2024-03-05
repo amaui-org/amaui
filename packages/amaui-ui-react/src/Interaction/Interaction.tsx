@@ -196,11 +196,12 @@ const Interaction: React.FC<IInteraction> = React.forwardRef((props_, ref: any) 
     className
   } = props;
 
+  const { classes } = useStyle(props);
+
   const [init, setInit] = React.useState(false);
   const [interactions, setInteractions] = React.useState([]);
   const [border, setBorder] = React.useState(false);
   const [waves, setWaves] = React.useState([]);
-  const touch = useMediaQuery('(pointer: coarse)');
 
   const refs = {
     root: React.useRef<HTMLElement>(),
@@ -212,7 +213,7 @@ const Interaction: React.FC<IInteraction> = React.forwardRef((props_, ref: any) 
     props: React.useRef<any>()
   };
 
-  const { classes } = useStyle(props);
+  const touch = useMediaQuery('(pointer: coarse)', { element: refs.root.current });
 
   refs.props.current = props;
 

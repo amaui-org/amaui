@@ -90,14 +90,10 @@ const List: React.FC<IList> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiList?.props?.default, ...props_ }), [props_]);
 
-  const mobile = useMediaQuery('(max-width: 767px)');
-
-  const { classes } = useStyle(props);
-
   const {
     tonal = true,
     color = 'themed',
-    size = mobile ? 'small' : 'regular',
+    size: size_,
     elevation = (props.menu && theme.palette.light) ? 2 : 0,
 
     menu,
@@ -124,6 +120,16 @@ const List: React.FC<IList> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
+  const { classes } = useStyle(props);
+
+  const refs = {
+    root: React.useRef<any>()
+  };
+
+  const mobile = useMediaQuery('(max-width: 767px)', { element: refs.root.current });
+
+  const size = mobile ? 'small' : 'regular';
+
   const styles: any = {
     root: {
 
@@ -134,7 +140,14 @@ const List: React.FC<IList> = React.forwardRef((props_, ref: any) => {
 
   return (
     <Surface
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       tonal={tonal}
 

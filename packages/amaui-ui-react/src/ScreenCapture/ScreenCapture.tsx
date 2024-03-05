@@ -178,8 +178,6 @@ const ScreenCapture: React.FC<IScreenCapture> = React.forwardRef((props_, ref: a
     ...other
   } = props;
 
-  const touch = useMediaQuery('(pointer: coarse)');
-
   const [init, setInit] = React.useState(false);
   const [name, setName] = React.useState(nameDefault !== undefined ? nameDefault : name_);
   const [loading, setLoading] = React.useState([]);
@@ -194,6 +192,8 @@ const ScreenCapture: React.FC<IScreenCapture> = React.forwardRef((props_, ref: a
     canvasSelectorValue: React.useRef<any>(),
     element: React.useRef<HTMLVideoElement>()
   };
+
+  const touch = useMediaQuery('(pointer: coarse)', { element: refs.root.current });
 
   refs.canvas.current = canvas;
 

@@ -419,12 +419,11 @@ const Share: React.FC<IShare> = React.forwardRef((props_, ref: any): any => {
 
   const { classes } = useStyle();
 
-  const mobile = useMediaQuery('(pointer: coarse)');
-
   const [open, setOpen] = React.useState(false);
   const [copied, setCopied] = React.useState<any>();
 
   const refs = {
+    root: React.useRef<any>(),
     name: React.useRef(name),
     description: React.useRef(description),
     url: React.useRef(url),
@@ -432,6 +431,8 @@ const Share: React.FC<IShare> = React.forwardRef((props_, ref: any): any => {
     onOpen: React.useRef(onOpen),
     copyTimeout: React.useRef<any>()
   };
+
+  const mobile = useMediaQuery('(pointer: coarse)', { element: refs.root.current });
 
   refs.name.current = name;
 

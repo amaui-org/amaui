@@ -245,7 +245,7 @@ const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref
 
   const useHelperText = valueBreakpoints(useHelperText_, undefined, breakpoints, theme);
 
-  const touch = useMediaQuery('(pointer: coarse)');
+  const touch = useMediaQuery('(pointer: coarse)', { element: refs.root.current });
 
   const [value, setValue] = React.useState(() => {
     const valueResult = (valueDefault !== undefined ? valueDefault : value_) || (now && (range ? [new AmauiDate(), new AmauiDate()] : [new AmauiDate()]));

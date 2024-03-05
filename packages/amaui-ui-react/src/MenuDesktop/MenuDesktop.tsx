@@ -255,8 +255,6 @@ const MenuDesktop: React.FC<IMenuDesktop> = React.forwardRef((props_, ref: any) 
     ...other
   } = props;
 
-  const mobile = useMediaQuery('(pointer: coarse)');
-
   const [init, setInit] = React.useState(false);
   const [open, setOpen] = React.useState<any>();
   const [inProp, setInProp] = React.useState<any>();
@@ -281,6 +279,8 @@ const MenuDesktop: React.FC<IMenuDesktop> = React.forwardRef((props_, ref: any) 
     anchorElement: React.useRef<HTMLElement>(),
     wrapper: React.useRef<any>()
   };
+
+  const mobile = useMediaQuery('(pointer: coarse)', { element: refs.root.current });
 
   refs.open.current = open;
 
