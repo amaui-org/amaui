@@ -102,19 +102,36 @@ const useStyle = styleMethod(theme => ({
     position: 'fixed'
   },
 
+  position_sticky: {
+    position: 'sticky',
+    top: '8px'
+  },
+
   position_unset: {
     position: 'unset'
+  },
+
+  center: {
+    margin: '8px auto'
+  },
+
+  center_absolute: {
+    top: '8px',
+    left: '50%',
+    transform: 'translateX(-50%)'
   }
 }), { name: 'amaui-TopAppBar' });
 
 export interface ITopAppBar extends Omit<ISurface, 'version'> {
+  position?: 'relative' | 'absolute' | 'static' | 'sticky' | 'fixed' | 'unset';
   version?: 'small' | 'center' | 'medium' | 'large';
   size?: TSize;
+
+  center?: boolean;
 
   title?: TElement;
   start?: TElement;
   end?: TElement;
-  position?: 'relative' | 'absolute' | 'static' | 'fixed' | 'unset';
 }
 
 const TopAppBar: React.FC<ITopAppBar> = React.forwardRef((props_, ref: any) => {
@@ -129,6 +146,8 @@ const TopAppBar: React.FC<ITopAppBar> = React.forwardRef((props_, ref: any) => {
     color = 'primary',
     version = 'small',
     size = 'regular',
+
+    center = true,
 
     title: title_,
     start: start_,
@@ -260,7 +279,8 @@ const TopAppBar: React.FC<ITopAppBar> = React.forwardRef((props_, ref: any) => {
 
         className,
         classes.root,
-        position && classes[`position_${position}`]
+        position && classes[`position_${position}`],
+        center && classes[`center${['absolute', 'fixed'].includes(position) ? '_absolute' : ''}`]
       ])}
 
       {...other}
