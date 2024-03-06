@@ -14,7 +14,7 @@ import { BottomNavigation, Example } from '../ui';
 const useStyle = styleMethod(theme => ({
   root: {
     paddingInline: 40,
-    marginTop: 'clamp(40px, 7vw, 114px)',
+    marginTop: 'clamp(40px, 4vw, 114px)',
     marginInline: 'auto',
 
     '& .amaui_string': {
