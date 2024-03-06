@@ -72,7 +72,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   size_regular: {
-    padding: `${theme.methods.space.value('rg', 'px')} ${theme.methods.space.value('rg', 'px')}`,
+    padding: `${theme.methods.space.value('rg')}px ${theme.methods.space.value('rg')}px`,
     minHeight: '40px'
   },
 
@@ -82,18 +82,15 @@ const useStyle = styleMethod(theme => ({
   },
 
   menuItem_size_small: {
-    padding: `${theme.methods.space.value('sm') * 0.5}px ${theme.methods.space.value('rg', 'px') * 0.75}`,
-    minHeight: 'unset'
+    padding: `${theme.methods.space.value('sm') * 0.5}px ${theme.methods.space.value('rg') * 0.75}px`
   },
 
   menuItem_size_regular: {
-    padding: `${theme.methods.space.value('sm', 'px') * 0.75} ${theme.methods.space.value('rg', 'px')}`,
-    minHeight: 'unset'
+    padding: `${theme.methods.space.value('sm') * 0.75}px ${theme.methods.space.value('rg')}px`
   },
 
   menuItem_size_large: {
-    padding: `${theme.methods.space.value('sm') * 1}px ${theme.methods.space.value('rg', 'px') * 1.25}`,
-    minHeight: 'unset'
+    padding: `${theme.methods.space.value('sm') * 1}px ${theme.methods.space.value('rg') * 1.25}px`
   },
 
   inset_size_small: {
