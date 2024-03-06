@@ -82,17 +82,17 @@ const useStyle = styleMethod(theme => ({
   },
 
   menuItem_size_small: {
-    padding: `${theme.methods.space.value('sm') * 0.5}px ${theme.methods.space.value('rg', 'px')}`,
+    padding: `${theme.methods.space.value('sm') * 0.5}px ${theme.methods.space.value('rg', 'px') * 0.75}`,
     minHeight: 'unset'
   },
 
   menuItem_size_regular: {
-    padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`,
+    padding: `${theme.methods.space.value('sm', 'px') * 0.75} ${theme.methods.space.value('rg', 'px')}`,
     minHeight: 'unset'
   },
 
   menuItem_size_large: {
-    padding: `${theme.methods.space.value('sm') * 1.5}px ${theme.methods.space.value('rg', 'px')}`,
+    padding: `${theme.methods.space.value('sm') * 1}px ${theme.methods.space.value('rg', 'px') * 1.25}`,
     minHeight: 'unset'
   },
 
