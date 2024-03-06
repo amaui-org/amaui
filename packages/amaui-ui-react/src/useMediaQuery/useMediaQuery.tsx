@@ -1,15 +1,17 @@
 import React from 'react';
 
+import { isEnvironment } from '@amaui/utils';
+
 export interface IOptionsUseMediaQuery {
-  element: any;
+  element?: any;
   initial?: boolean;
 }
 
-const useMediaQuery = (props: string, options: IOptionsUseMediaQuery) => {
+const useMediaQuery = (props: string, options?: IOptionsUseMediaQuery) => {
   const element = options?.element;
 
   const [root, setRoot] = React.useState<Window>();
-  const [matches, setMatches] = React.useState(options?.initial);
+  const [matches, setMatches] = React.useState(options?.initial !== undefined ? options.initial : (isEnvironment('browser') && (element?.ownerDocument?.defaultView || window)?.matchMedia(props)?.matches));
 
   const refs = {
     root: React.useRef(root),

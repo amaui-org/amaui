@@ -90,7 +90,13 @@ const Masonry: React.FC<IMasonry> = React.forwardRef((props_, ref: any) => {
   refs.useMasonry.current = useMasonry;
 
   const update = () => {
-    if (!refs.useMasonry.current) return;
+    if (!refs.useMasonry.current) {
+      if (refs.root.current) {
+        refs.root.current.style.removeProperty('height');
+      }
+
+      return;
+    }
 
     if (refs.root.current) {
       // Get all children
@@ -193,6 +199,8 @@ const Masonry: React.FC<IMasonry> = React.forwardRef((props_, ref: any) => {
           refs.root.current = item;
         }}
 
+        gap={gap}
+
         direction='row'
 
         wrap='wrap'
@@ -214,6 +222,8 @@ const Masonry: React.FC<IMasonry> = React.forwardRef((props_, ref: any) => {
 
         style={{
           ...style,
+
+          height: 'auto',
 
           ...NoMasonryProps?.style
         }}
@@ -245,6 +255,8 @@ const Masonry: React.FC<IMasonry> = React.forwardRef((props_, ref: any) => {
 
         refs.root.current = item;
       }}
+
+      gap={gap}
 
       wrap='wrap'
 
