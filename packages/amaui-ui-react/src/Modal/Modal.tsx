@@ -243,7 +243,7 @@ const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {
 
   const mobile = useMediaQuery('(max-width: 767px)', { element: refs.root.current });
 
-  const minWidth = !mobile ? 'sm' : undefined;
+  const minWidth = minWidth_ !== undefined ? minWidth_ : !mobile ? 'sm' : undefined;
 
   refs.open.current = open;
 

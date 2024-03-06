@@ -310,6 +310,9 @@ export interface ISection extends ILine {
 
   maxWidth?: ISize | boolean | Partial<Partial<Record<TValueBreakpoints, ISize | boolean>>>;
 
+  start?: any;
+  end?: any;
+
   MainProps?: TPropsAny;
   TitleProps?: TPropsAny;
   DescriptionProps?: TPropsAny;
@@ -356,6 +359,9 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
     padding: padding_,
 
     maxWidth: maxWidth_,
+
+    start,
+    end,
 
     MainProps,
     RevealProps,
@@ -498,6 +504,8 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
 
         {...other}
       >
+        {start}
+
         <div
           className={classNames([
             classes.background,
@@ -605,6 +613,8 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
         >
           {children}
         </Line>
+
+        {end}
       </Line>
     </Wrapper>
   );

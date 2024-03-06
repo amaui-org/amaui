@@ -28,7 +28,7 @@ const useStyle = styleMethod(theme => ({
 
 export interface ISectionTextMedia extends ISection {
   title?: string | Partial<Record<TValueBreakpoints, string>>;
-  text?: string | Partial<Record<TValueBreakpoints, string>>;
+  description?: string | Partial<Record<TValueBreakpoints, string>>;
 
   mediaPosition?: 'top' | 'left' | 'right' | 'bottom';
 

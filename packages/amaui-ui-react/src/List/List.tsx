@@ -128,7 +128,7 @@ const List: React.FC<IList> = React.forwardRef((props_, ref: any) => {
 
   const mobile = useMediaQuery('(max-width: 767px)', { element: refs.root.current });
 
-  const size = mobile ? 'small' : 'regular';
+  const size = size_ !== undefined ? size_ : mobile ? 'small' : 'regular';
 
   const styles: any = {
     root: {
