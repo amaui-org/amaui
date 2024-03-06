@@ -82,15 +82,18 @@ const useStyle = styleMethod(theme => ({
   },
 
   menuItem_size_small: {
-    padding: `${theme.methods.space.value('sm') * 0.5}px ${theme.methods.space.value('rg', 'px')}`
+    padding: `${theme.methods.space.value('sm') * 0.5}px ${theme.methods.space.value('rg', 'px')}`,
+    minHeight: 'unset'
   },
 
   menuItem_size_regular: {
-    padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`
+    padding: `${theme.methods.space.value('sm', 'px')} ${theme.methods.space.value('rg', 'px')}`,
+    minHeight: 'unset'
   },
 
   menuItem_size_large: {
-    padding: `${theme.methods.space.value('sm') * 1.5}px ${theme.methods.space.value('rg', 'px')}`
+    padding: `${theme.methods.space.value('sm') * 1.5}px ${theme.methods.space.value('rg', 'px')}`,
+    minHeight: 'unset'
   },
 
   inset_size_small: {
@@ -391,7 +394,7 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
     preselected,
     selected,
     start,
-    startAlign = 'start',
+    startAlign = props.menuItem ? 'center' : 'start',
     end: end_,
     endAlign = 'center',
     size = 'regular',
@@ -737,7 +740,7 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
           ],
 
           classes.root,
-          classes[`size_${size}`],
+          !menuItem && classes[`size_${size}`],
           classes[`shape_${shape}_position_${shapePosition}`],
           inset && !start && classes[`inset_size_${size}`],
           menuItem && [
