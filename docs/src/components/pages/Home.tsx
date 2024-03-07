@@ -40,7 +40,7 @@ const useStyle = style(theme => ({
 
   main_wrapper: {
     width: '100%',
-    padding: 'clamp(104px, 10vw, 240px) 44px clamp(104px, 14vw, 140px)'
+    padding: 'clamp(104px, 14vw, 240px) 44px clamp(104px, 14vw, 140px)'
   },
 
   subheadline: {
