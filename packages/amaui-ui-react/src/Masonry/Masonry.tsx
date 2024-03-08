@@ -12,10 +12,6 @@ import { staticClassName, TValueBreakpoints, valueBreakpoints } from '../utils';
 const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative'
-  },
-
-  lineBreak: {
-    flex: '1 1 100%'
   }
 }), { name: 'amaui-Masonry' });
 
@@ -299,15 +295,15 @@ const Masonry: React.FC<IMasonry> = React.forwardRef((props_, ref: any) => {
 
       {/* Line break */}
       {columns > 1 && new Array(columns - 1).fill(true).map((item: any, index: number) => (
-        <div
+        <Line
           key={index}
+
+          flex
 
           className={classNames([
             staticClassName('Masonry', theme) && [
               'amaui-Masonry-line-break'
-            ],
-
-            classes.lineBreak
+            ]
           ])}
 
           style={{
