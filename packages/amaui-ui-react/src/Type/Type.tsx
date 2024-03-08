@@ -259,7 +259,7 @@ const Type: React.FC<IType> = React.forwardRef((props_, ref: any) => {
         priority && classes[`priority_${priority}`],
         align && classes[`align_${align}`],
         transform && classes[`transform_${transform}`],
-        fullWidth && classes.fullWidth_,
+        fullWidth && classes.fullWidth,
         disabled && classes.disabled
       ])}
 
