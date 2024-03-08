@@ -295,10 +295,8 @@ const Masonry: React.FC<IMasonry> = React.forwardRef((props_, ref: any) => {
 
       {/* Line break */}
       {columns > 1 && new Array(columns - 1).fill(true).map((item: any, index: number) => (
-        <Line
+        <div
           key={index}
-
-          flex
 
           className={classNames([
             staticClassName('Masonry', theme) && [
@@ -307,6 +305,7 @@ const Masonry: React.FC<IMasonry> = React.forwardRef((props_, ref: any) => {
           ])}
 
           style={{
+            flex: '1 1 100%',
             order: index + 1
           }}
         />
