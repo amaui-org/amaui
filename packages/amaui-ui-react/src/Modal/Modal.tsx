@@ -232,6 +232,7 @@ const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {
 
   const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
   const [inProp, setInProp] = React.useState(open_);
+  const [portalElement, setPortalElement] = React.useState<any>();
 
   const refs = {
     root: React.useRef<any>(),
@@ -334,7 +335,7 @@ const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {
   };
 
   if (portal) {
-    const rootDocumentElement = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
+    const rootDocumentElement = isEnvironment('browser') ? ((portalElement || refs.root.current)?.ownerDocument || window.document) : undefined;
 
     if (isEnvironment('browser')) PortalProps.element = rootDocumentElement.body;
   }
@@ -447,6 +448,8 @@ const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {
           }
 
           refs.root.current = item;
+
+          setPortalElement(item);
         }}
 
         className={classNames([

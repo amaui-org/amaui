@@ -24,6 +24,7 @@ const useStyle = styleMethod(theme => ({
     margin: '0',
     overflow: 'visible',
     textTransform: 'none',
+    flex: '0 0 auto',
 
     display: 'inline-flex',
     justifyContent: 'space-around',
