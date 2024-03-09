@@ -178,7 +178,7 @@ export type IMediasMediaVersion = 'image' | 'audio' | 'video' | 'other';
 export interface IMedias extends ILine {
   size?: 'small' | 'regular' | 'large';
 
-  values?: IMediasItem[];
+  values?: IMediasItem | IMediasItem[];
 
   imageGallery?: boolean;
 
@@ -211,7 +211,7 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
   const {
     size = 'regular',
 
-    values = [],
+    values: values_ = [],
 
     imageGallery = true,
 
@@ -246,6 +246,8 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
     root: React.useRef<HTMLElement>()
   };
 
+  const values = is('array', values_) ? values_ : [values_];
+
   const onOpen = React.useCallback((index: number) => {
     setOpen({
       index
@@ -268,7 +270,7 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
       other: []
     };
 
-    values.filter(Boolean).forEach(item => {
+    (values as any).filter(Boolean).forEach(item => {
       const media = item.value;
 
       if (media) {
