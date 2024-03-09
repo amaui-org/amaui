@@ -262,6 +262,7 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState<any>(0);
   const [moveValue, setMoveValue] = React.useState<any>();
+  const [imageRef, setImageRef] = React.useState<HTMLImageElement>();
 
   const refs = {
     more: React.useRef<any>(),
@@ -466,11 +467,7 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
   }, []);
 
   React.useEffect(() => {
-    const image = refs.image.current as HTMLImageElement;
-
-    if (!image) return;
-
-    image.addEventListener('wheel', onWheel, { passive: false });
+    if (imageRef) imageRef.addEventListener('wheel', onWheel, { passive: false });
 
     window.addEventListener('mousemove', onMouseMove);
 
@@ -479,7 +476,7 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
     window.addEventListener('touchend', onMouseUp);
 
     return () => {
-      image.removeEventListener('wheel', onWheel);
+      if (imageRef) imageRef.removeEventListener('wheel', onWheel);
 
       window.removeEventListener('mousemove', onMouseMove);
 
@@ -487,7 +484,7 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
 
       window.removeEventListener('touchend', onMouseUp);
     };
-  }, [loaded]);
+  }, [imageRef]);
 
   const onScroll = React.useCallback((event: WheelEvent) => {
     if (arrows) {
@@ -598,7 +595,11 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
         }}
       >
         <Image
-          ref={refs.image}
+          ref={(item: any) => {
+            refs.image.current = item;
+
+            setImageRef(item);
+          }}
 
           src={media?.url || media}
 
