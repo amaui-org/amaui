@@ -137,7 +137,8 @@ const useStyle = styleMethod(theme => ({
     display: 'inline-flex',
     position: 'relative',
     textTransform: 'capitalize',
-    whiteSpace: 'nowrap',
+    whiteSpace: 'normal',
+    wordBreak: 'break-word',
     alignItems: 'center',
     gap: '8px',
     width: '100%'
