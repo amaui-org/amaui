@@ -136,7 +136,7 @@ const useStyle = styleMethod(theme => ({
     aspectRatio: '3 / 4',
     cursor: 'pointer',
     userSelect: 'none',
-    background: theme.palette.background.secondary.secondary,
+    background: theme.palette.background.secondary.tertiary,
     boxShadow: theme.shadows.values.default[1]
   },
 
@@ -546,6 +546,8 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
       }}
 
       gap={size === 'large' ? 3 : size === 'regular' ? 2 : 1.5}
+
+      fullWidth
 
       className={classNames([
         staticClassName('Medias', theme) && [
