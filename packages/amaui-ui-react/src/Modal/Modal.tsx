@@ -330,14 +330,18 @@ const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {
 
   const PortalComponent: any = portal ? Portal : React.Fragment;
 
-  const PortalProps = {
-    ...(portal && PortalProps_)
-  };
+  let PortalProps: any = {};
 
   if (portal) {
     const rootDocumentElement = isEnvironment('browser') ? ((portalElement || refs.root.current)?.ownerDocument || window.document) : undefined;
 
     if (isEnvironment('browser')) PortalProps.element = rootDocumentElement.body;
+
+    PortalProps = {
+      ...PortalProps,
+
+      ...PortalProps_
+    };
   }
 
   const FocusComponent = focus ? Focus : React.Fragment;
