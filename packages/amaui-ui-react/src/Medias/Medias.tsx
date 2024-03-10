@@ -75,29 +75,29 @@ const useStyle = styleMethod(theme => ({
   },
 
   imageWrapper_size_small: {
-    width: '174px'
+    maxWidth: '174px',
+    width: '90vw'
   },
 
   imageWrapper_size_regular: {
-    width: '214px'
+    maxWidth: '214px',
+    width: '90vw'
   },
 
   imageWrapper_size_large: {
-    width: '254px'
+    maxWidth: '254px',
+    width: '90vw'
   },
 
   image_size_small: {
-    width: '174px',
     borderRadius: theme.methods.shape.radius.value(1)
   },
 
   image_size_regular: {
-    width: '214px',
     borderRadius: theme.methods.shape.radius.value(2)
   },
 
   image_size_large: {
-    width: '254px',
     borderRadius: theme.methods.shape.radius.value(3)
   },
 
@@ -140,18 +140,6 @@ const useStyle = styleMethod(theme => ({
     boxShadow: theme.shadows.values.default[1]
   },
 
-  other_size_small: {
-    borderRadius: theme.methods.shape.radius.value(1)
-  },
-
-  other_size_regular: {
-    borderRadius: theme.methods.shape.radius.value(2)
-  },
-
-  other_size_large: {
-    borderRadius: theme.methods.shape.radius.value(3)
-  },
-
   otherWrapper_size_small: {
     maxWidth: '74px',
     width: '90vw'
@@ -165,6 +153,18 @@ const useStyle = styleMethod(theme => ({
   otherWrapper_size_large: {
     maxWidth: '114px',
     width: '90vw'
+  },
+
+  other_size_small: {
+    borderRadius: theme.methods.shape.radius.value(1)
+  },
+
+  other_size_regular: {
+    borderRadius: theme.methods.shape.radius.value(2)
+  },
+
+  other_size_large: {
+    borderRadius: theme.methods.shape.radius.value(3)
   }
 }), { name: 'amaui-Medias' });
 
@@ -326,7 +326,7 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
             WrapperProps?.className,
             classes.wrapper,
             classes.wrapper_image,
-            classes[`wrapper_size_${size}`]
+            classes[`imageWrapper_size_${size}`]
           ])}
         >
           <Line
