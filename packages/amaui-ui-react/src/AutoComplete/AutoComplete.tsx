@@ -212,7 +212,11 @@ export interface IAutoComplete extends ITextField {
   InputProps?: TPropsAny;
 }
 
-const getText = (value: any) => value?.name || value?.label || value?.primary || value?.secondary || value?.tertiary || value?.children || value;
+const getText = (value: any) => {
+  const value_ = value?.value || value?.name || value?.label || value?.primary || value?.secondary || value?.tertiary || value?.children || value;
+
+  return is('simple', value_) ? String(value_) : '';
+};
 
 const getValue = (value: any) => value?.value !== undefined ? value.value : value;
 
