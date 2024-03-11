@@ -216,17 +216,17 @@ const useStyle = styleMethod(theme => ({
   },
 
   toggleButtons_orientation_vertical_size_small: {
-    width: '44px',
+    minWidth: '48px',
     height: '64px'
   },
 
   toggleButtons_orientation_vertical_size_regular: {
-    width: '52px',
+    minWidth: '56px',
     height: '72px'
   },
 
   toggleButtons_orientation_vertical_size_large: {
-    width: '60px',
+    minWidth: '68px',
     height: '80px'
   },
 
