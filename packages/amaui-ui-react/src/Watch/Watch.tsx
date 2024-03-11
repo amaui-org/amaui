@@ -15,6 +15,7 @@ import { angleToCoordinates, staticClassName, TElement, TPropsAny, TSize } from 
 
 const useStyle = styleMethod(theme => ({
   root: {
+    position: 'relative',
     userSelect: 'none'
   },
 
@@ -102,8 +103,8 @@ export interface IWatch extends Omit<ISurface, 'version'> {
   timeFormatString?: string;
   dateFormatString?: string;
 
-  renderTime?: (value: number) => TElement;
-  renderDate?: (value: number) => TElement;
+  renderTime?: (value: AmauiDate) => TElement;
+  renderDate?: (value: AmauiDate) => TElement;
 
   shadow?: boolean;
 
@@ -159,133 +160,132 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
 
   const refs = {
     value: React.useRef<any>(),
-    interval: React.useRef<any>()
+    requestAnimationFrameID: React.useRef<any>()
   };
 
-  const [value, setValue] = React.useState(AmauiDate.milliseconds);
+  const [value, setValue] = React.useState<AmauiDate>(AmauiDate.amauiDate);
 
-  const update = () => {
-    clearInterval(refs.interval.current);
+  const update = React.useCallback(() => {
+    setValue(AmauiDate.amauiDate);
 
-    if (start) {
-      // 71 fps
-      // up to 60fps mostly
-      refs.interval.current = setInterval(() => {
-        setValue(AmauiDate.milliseconds);
-      }, 14);
-    }
-  };
+    refs.requestAnimationFrameID.current = requestAnimationFrame(update);
+  }, []);
 
-  const clear = () => {
-    clearInterval(refs.interval.current);
-  };
+  const marks: any = React.useMemo(() => {
+    return {
+      analog: unique([
+        // Hours
+        ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+          height: 8,
 
-  const marks: any = {
-    analog: unique([
-      // Hours
-      ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-        height: 8,
+          padding: 4,
 
-        padding: 4,
+          position: index * (100 / 12)
+        }))),
 
-        position: index * (100 / 12)
-      }))),
+        // Minutes
+        ...(Array.from({ length: 60 }).map((item: any, index: number) => ({
+          height: 4,
 
-      // Minutes
-      ...(Array.from({ length: 60 }).map((item: any, index: number) => ({
-        height: 4,
+          padding: 4,
 
-        padding: 4,
+          position: index * (100 / 60)
+        }))),
+      ], 'position')
+    };
+  }, []);
 
-        position: index * (100 / 60)
-      }))),
-    ], 'position')
-  };
+  const labels: any = React.useMemo(() => {
 
-  const labels: any = {
-    analog: unique([
-      // Hours
-      ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
-        value: index === 0 ? 12 : index,
+    return {
+      analog: unique([
+        // Hours
+        ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
+          value: index === 0 ? 12 : index,
 
-        padding: 12,
+          padding: 12,
 
-        style: {
-          fontSize: 14
+          style: {
+            fontSize: 14
+          },
+
+          position: index * (100 / 12)
+        })))
+      ], 'position'),
+
+      'minimal': unique([
+        // Hours
+        {
+          value: 12,
+
+          padding: 7,
+
+          style: {
+            lineHeight: 1,
+            letterSpacing: 0,
+            fontSize: 87,
+            fontWeight: 900
+          },
+
+          position: 0 * (100 / 12)
         },
+        {
+          value: 3,
 
-        position: index * (100 / 12)
-      })))
-    ], 'position'),
+          padding: 7,
 
-    'minimal': unique([
-      // Hours
-      {
-        value: 12,
+          style: {
+            lineHeight: 1,
+            letterSpacing: 0,
+            fontSize: 87,
+            fontWeight: 900
+          },
 
-        padding: 7,
-
-        style: {
-          lineHeight: 1,
-          letterSpacing: 0,
-          fontSize: 87,
-          fontWeight: 900
+          position: 3 * (100 / 12)
         },
+        {
+          value: 6,
 
-        position: 0 * (100 / 12)
-      },
-      {
-        value: 3,
+          padding: 7,
 
-        padding: 7,
+          style: {
+            lineHeight: 1,
+            letterSpacing: 0,
+            fontSize: 87,
+            fontWeight: 900
+          },
 
-        style: {
-          lineHeight: 1,
-          letterSpacing: 0,
-          fontSize: 87,
-          fontWeight: 900
+          position: 6 * (100 / 12)
         },
+        {
+          value: 9,
 
-        position: 3 * (100 / 12)
-      },
-      {
-        value: 6,
+          padding: 7,
 
-        padding: 7,
+          style: {
+            lineHeight: 1,
+            letterSpacing: 0,
+            fontSize: 87,
+            fontWeight: 900
+          },
 
-        style: {
-          lineHeight: 1,
-          letterSpacing: 0,
-          fontSize: 87,
-          fontWeight: 900
-        },
-
-        position: 6 * (100 / 12)
-      },
-      {
-        value: 9,
-
-        padding: 7,
-
-        style: {
-          lineHeight: 1,
-          letterSpacing: 0,
-          fontSize: 87,
-          fontWeight: 900
-        },
-
-        position: 9 * (100 / 12)
-      }
-    ], 'position')
-  };
+          position: 9 * (100 / 12)
+        }
+      ], 'position')
+    };
+  }, []);
 
   React.useEffect(() => {
-    // Update
-    update();
+    if (!start) {
+      cancelAnimationFrame(refs.requestAnimationFrameID.current);
+    }
+    else {
+      refs.requestAnimationFrameID.current = requestAnimationFrame(update);
+    }
 
     return () => {
       // Clean up
-      clear();
+      cancelAnimationFrame(refs.requestAnimationFrameID.current);
     };
   }, [start]);
 
@@ -347,7 +347,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
                     <Type
                       version='h2'
                     >
-                      {format(new AmauiDate(value), timeFormatString)}
+                      {format(value, timeFormatString)}
                     </Type>
                   )
                 )}
@@ -359,7 +359,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
 
                       priority='secondary'
                     >
-                      {format(new AmauiDate(value), dateFormatString)}
+                      {format(value, dateFormatString)}
                     </Type>
                   )
                 )}
@@ -406,7 +406,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
                       fontSize: 11
                     }}
                   >
-                    {format(new AmauiDate(value), `A`)}
+                    {format(value, `A`)}
                   </text>
                 )}
 
@@ -414,7 +414,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
                 <Path
                   Component='rect'
 
-                  value={(100 / 12) * new AmauiDate(value).hour}
+                  value={(100 / 12) * value.hour}
 
                   x={120}
 
@@ -435,7 +435,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
                 <Path
                   Component='rect'
 
-                  value={(100 / 60) * new AmauiDate(value).minute}
+                  value={(100 / 60) * value.minute}
 
                   x={120}
 
@@ -456,7 +456,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
                 <Path
                   d={`M 120 120 L ${angleToCoordinates(0, 120, 120, 115).x} ${angleToCoordinates(0, 120, 120, 115).y}`}
 
-                  value={(100 / 60) * new AmauiDate(value).second}
+                  value={(100 / 60) * value.second}
 
                   style={{
                     transformOrigin: '50% 50%',
@@ -512,7 +512,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
                 <Path
                   d={`M 120 114 L 170 114 A 1 1 0 0 1 170 126 L 120 126 A 1 1 0 0 1 120 114`}
 
-                  value={(100 / 12) * new AmauiDate(value).hour}
+                  value={(100 / 12) * value.hour}
 
                   style={{
                     transformOrigin: '50% 50%',
@@ -525,7 +525,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
                 <Path
                   d={`M 120 118 L 217 118 A 1 1 0 0 1 217 122 L 120 122 A 1 1 0 0 1 120 118`}
 
-                  value={(100 / 60) * new AmauiDate(value).minute}
+                  value={(100 / 60) * value.minute}
 
                   style={{
                     transformOrigin: '50% 50%',
@@ -538,7 +538,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
                 <Path
                   d={`M 120 119.5 L 217 119.5 A 1 1 0 0 1 217 120.5 L 120 120.5 A 1 1 0 0 1 120 119.5`}
 
-                  value={(100 / 60) * new AmauiDate(value).second}
+                  value={(100 / 60) * value.second}
 
                   style={{
                     transformOrigin: '50% 50%',
@@ -601,7 +601,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
                 <Path
                   Component='g'
 
-                  value={(100 / 60) * new AmauiDate(value).second}
+                  value={(100 / 60) * value.second}
 
                   style={{
                     transformOrigin: 'center'
@@ -630,7 +630,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
                       fontSize: 19
                     }}
                   >
-                    {format(new AmauiDate(value), `d DD`)}
+                    {format(value, `d DD`)}
                   </text>
                 </Path>
 
@@ -638,7 +638,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
                 <Path
                   d={`M 120 114 L 170 114 A 1 1 0 0 1 170 126 L 120 126 A 1 1 0 0 1 120 114`}
 
-                  value={(100 / 12) * new AmauiDate(value).hour}
+                  value={(100 / 12) * value.hour}
 
                   style={{
                     transformOrigin: '50% 50%',
@@ -651,7 +651,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
                 <Path
                   d={`M 120 114 L 194 114 A 1 1 0 0 1 194 126 L 120 126 A 1 1 0 0 1 120 114`}
 
-                  value={(100 / 60) * new AmauiDate(value).minute}
+                  value={(100 / 60) * value.minute}
 
                   style={{
                     transformOrigin: '50% 50%',
@@ -670,7 +670,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
 
                   cy='120'
 
-                  value={(100 / 60) * new AmauiDate(value).second}
+                  value={(100 / 60) * value.second}
 
                   style={{
                     stroke: 'none',

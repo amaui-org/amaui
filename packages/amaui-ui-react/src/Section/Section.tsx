@@ -482,7 +482,7 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
           refs.root.current = item;
         }}
 
-        gap={7}
+        gap={4}
 
         direction='column'
 

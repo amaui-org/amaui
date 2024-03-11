@@ -44,7 +44,7 @@ export interface ISectionTextMedia extends ISection {
 const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSection?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSectionTextMedia?.props?.default, ...props_ }), [props_]);
 
   const { classes } = useStyle(props);
 
@@ -147,7 +147,7 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
       size={size}
 
       className={classNames([
-        staticClassName('Section', theme) && [
+        staticClassName('SectionTextMedia', theme) && [
           'amaui-SectionTextMedia-root'
         ],
 

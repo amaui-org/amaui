@@ -2,6 +2,7 @@ import React from 'react';
 
 import { clamp, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { IMedia } from '@amaui/api-utils';
 
 import Line from '../Line';
 import Image from '../Image';
@@ -46,7 +47,7 @@ const useStyle = styleMethod(theme => ({
     zIndex: 1
   },
 
-  main: {
+  main_version_modal: {
     height: 0,
     padding: 40,
     zIndex: 0,
@@ -55,6 +56,18 @@ const useStyle = styleMethod(theme => ({
       maxHeight: '100%',
       // pointerEvents: 'none'
     }
+  },
+
+  main_version_regular_size_small: {
+    height: '340px'
+  },
+
+  main_version_regular_size_regular: {
+    height: '540px'
+  },
+
+  main_version_regular_size_large: {
+    height: '740px'
   },
 
   noOverflow: {
@@ -187,16 +200,27 @@ const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
   );
 });
 
+export interface IImageGalleryItem extends IMedia {
+  url?: string;
+  urlSmall?: string;
+
+  // alias
+  src?: string;
+  srcSmall?: string;
+}
+
 export interface IImageGallery extends ILine {
   version?: 'regular' | 'modal';
 
   open?: boolean;
 
+  size?: 'small' | 'regular' | 'large';
+
   onClose?: () => any;
 
   value?: number;
 
-  items?: any[];
+  items?: IImageGalleryItem[];
 
   incrementZoom?: number;
 
@@ -224,6 +248,8 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
 
   const {
     version = 'modal',
+
+    size = 'regular',
 
     open: open_,
 
@@ -569,7 +595,8 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
           'amaui-ImageGallery-main'
         ],
 
-        classes.main,
+        classes[`main_version_${version}`],
+        classes[`main_version_${version}_size_${size}`],
         !overflow && classes.noOverflow
       ])}
     >
@@ -678,7 +705,7 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
                 ])}
 
                 style={{
-                  backgroundImage: `url('${item?.urlSmall || item?.url || item}')`
+                  backgroundImage: `url('${item?.urlSmall || item?.srcSmall || item?.url || item?.src || item}')`
                 }}
               >
                 <Interaction />
