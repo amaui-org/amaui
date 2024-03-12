@@ -3,16 +3,30 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import ListItem from '../ListItem';
 import Section, { ISection } from '../Section/Section';
+import ListItem from '../ListItem';
 import Timeline from '../Timeline';
 import TimelineItem from '../TimelineItem';
 import Type from '../Type';
-import { TPropsAny, staticClassName } from '../utils';
+import { TPropsAny, staticClassName, textToInnerHTML } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
 
+  },
+
+  timeline: {
+
+  },
+
+  timelineItem: {
+    '&.amaui-TimelineItem-root': {
+      width: '100%'
+    },
+
+    '& .amaui-TimelineItem-aside': {
+      width: 'calc(50% - 6px)'
+    }
   }
 }), { name: 'amaui-SectionTimeline' });
 
@@ -32,9 +46,11 @@ export interface ISectionTimeline extends ISection {
   TitleProps?: TPropsAny;
   HeadingProps?: TPropsAny;
   DescriptionProps?: TPropsAny;
+  ItemStartProps?: TPropsAny;
+  ItemEndProps?: TPropsAny;
 }
 
-const Element: React.FC<ISectionTimeline> = React.forwardRef((props_, ref: any) => {
+const SectionTimeline: React.FC<ISectionTimeline> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSectionTimeline?.props?.default, ...props_ }), [props_]);
@@ -51,6 +67,8 @@ const Element: React.FC<ISectionTimeline> = React.forwardRef((props_, ref: any) 
     TitleProps,
     HeadingProps,
     DescriptionProps,
+    ItemStartProps,
+    ItemEndProps,
 
     className,
 
@@ -84,7 +102,18 @@ const Element: React.FC<ISectionTimeline> = React.forwardRef((props_, ref: any) 
       {...other}
     >
       <Timeline
+        fullWidth
+
         {...TimelineProps}
+
+        className={classNames([
+          staticClassName('SectionTimeline', theme) && [
+            'amaui-SectionTimeline-timeline'
+          ],
+
+          TimelineProps?.className,
+          classes.timeline
+        ])}
       >
         {values?.map((item, index: number) => (
           <TimelineItem
@@ -94,10 +123,23 @@ const Element: React.FC<ISectionTimeline> = React.forwardRef((props_, ref: any) 
               <Type
                 version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3'}
 
-                {...TitleProps}
-              >
-                {item.title}
-              </Type>
+                align='right'
+
+                {...ItemStartProps}
+
+                className={classNames([
+                  staticClassName('SectionTimeline', theme) && [
+                    'amaui-SectionTimeline-item-start'
+                  ],
+
+                  ItemStartProps?.className,
+                  classes.start
+                ])}
+
+                dangerouslySetInnerHTML={{
+                  __html: textToInnerHTML(item.title)
+                }}
+              />
             ) : item.title}
 
             end={(
@@ -109,9 +151,11 @@ const Element: React.FC<ISectionTimeline> = React.forwardRef((props_, ref: any) 
                     version={size === 'large' ? 'l1' : size === 'regular' ? 'l2' : 'l3'}
 
                     {...HeadingProps}
-                  >
-                    {item.heading}
-                  </Type>
+
+                    dangerouslySetInnerHTML={{
+                      __html: textToInnerHTML(item.heading)
+                    }}
+                  />
                 ) : item.heading}
 
                 secondary={is('string', item.description) ? (
@@ -119,16 +163,40 @@ const Element: React.FC<ISectionTimeline> = React.forwardRef((props_, ref: any) 
                     version={size === 'large' ? 'b2' : size === 'regular' ? 'b3' : 'b3'}
 
                     {...DescriptionProps}
-                  >
-                    {item.description}
-                  </Type>
+
+                    dangerouslySetInnerHTML={{
+                      __html: textToInnerHTML(item.description)
+                    }}
+                  />
                 ) : item.description}
+
+                noBackground
+
+                {...ItemEndProps}
+
+                className={classNames([
+                  staticClassName('SectionTimeline', theme) && [
+                    'amaui-SectionTimeline-item-end'
+                  ],
+
+                  ItemEndProps?.className,
+                  classes.end
+                ])}
 
                 noPadding
               />
             )}
 
             {...TimelineItemProps}
+
+            className={classNames([
+              staticClassName('SectionTimeline', theme) && [
+                'amaui-SectionTimeline-timeline-item'
+              ],
+
+              TimelineItemProps?.className,
+              classes.timelineItem
+            ])}
           />
         ))}
       </Timeline>
@@ -136,6 +204,6 @@ const Element: React.FC<ISectionTimeline> = React.forwardRef((props_, ref: any) 
   );
 });
 
-Element.displayName = 'amaui-SectionTimeline';
+SectionTimeline.displayName = 'amaui-SectionTimeline';
 
-export default Element;
+export default SectionTimeline;

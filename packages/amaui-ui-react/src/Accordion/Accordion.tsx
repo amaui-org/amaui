@@ -487,6 +487,10 @@ const Accordion: React.FC<IAccordion> = React.forwardRef((props_, ref: any) => {
       <Expand
         in={open}
 
+        add={openDefault}
+
+        enterOnAdd
+
         parent={refs.root.current}
 
         onTransition={(element: any, status: TTransitionStatus) => {
