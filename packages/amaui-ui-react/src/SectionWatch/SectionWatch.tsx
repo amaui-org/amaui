@@ -34,14 +34,6 @@ const Element: React.FC<ISectionWatch> = React.forwardRef((props_, ref: any) => 
   const { classes } = useStyle(props);
 
   const {
-    tonal = true,
-
-    version = 'modern',
-
-    size = 'regular',
-
-    color = 'primary',
-
     WatchProps,
 
     className,
@@ -80,14 +72,6 @@ const Element: React.FC<ISectionWatch> = React.forwardRef((props_, ref: any) => 
       {...other}
     >
       <Watch
-        tonal={tonal}
-
-        version={version}
-
-        size={size}
-
-        color={color}
-
         {...WatchProps}
       />
     </Section>

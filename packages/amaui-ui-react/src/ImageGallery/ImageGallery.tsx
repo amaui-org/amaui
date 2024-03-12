@@ -83,7 +83,11 @@ const useStyle = styleMethod(theme => ({
     position: 'relative',
     height: 0,
     // zIndex: 1,
-    transition: theme.methods.transitions.make(['transform'], { duration: 100, timing_function: 'ease' as any })
+    transition: theme.methods.transitions.make(['transform'], { duration: 100, timing_function: 'ease' as any }),
+
+    '& .amaui-Image-root': {
+      maxHeight: '100%'
+    }
   },
 
   itemsWrapper: {
