@@ -6,12 +6,15 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Button from '../Button';
 import Icon from '../Icon';
 import { IconDoneAnimated } from '../Buttons/Buttons';
-
-import { staticClassName } from '../utils';
 import { IButton } from '../Button/Button';
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
+    '&.amaui-Button-root': {
+      maxWidth: '100%'
+    },
+
     '& .amaui-Icon-root': {
       pointerEvents: 'unset !important'
     }

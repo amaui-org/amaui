@@ -523,12 +523,6 @@ export * from './SmartTextField';
 export { default as Text } from './Text';
 export * from './Text';
 
-export { default as Section } from './Section';
-export * from './Section';
-
-export { default as SectionTextMedia } from './SectionTextMedia';
-export * from './SectionTextMedia';
-
 export { default as MoreOptions } from './MoreOptions';
 export * from './MoreOptions';
 
@@ -546,3 +540,39 @@ export * from './Properties';
 
 export { default as Medias } from './Medias';
 export * from './Medias';
+
+export { default as Section } from './Section';
+export * from './Section';
+
+export { default as Links } from './Links';
+export * from './Links';
+
+export { default as SectionBoxes } from './SectionBoxes';
+export * from './SectionBoxes';
+
+export { default as SectionCards } from './SectionCards';
+export * from './SectionCards';
+
+export { default as SectionCarousel } from './SectionCarousel';
+export * from './SectionCarousel';
+
+export { default as SectionContact } from './SectionContact';
+export * from './SectionContact';
+
+export { default as SectionImageGallery } from './SectionImageGallery';
+export * from './SectionImageGallery';
+
+export { default as SectionLogos } from './SectionLogos';
+export * from './SectionLogos';
+
+export { default as SectionMedia } from './SectionMedia';
+export * from './SectionMedia';
+
+export { default as SectionTextMedia } from './SectionTextMedia';
+export * from './SectionTextMedia';
+
+export { default as SectionTimeline } from './SectionTimeline';
+export * from './SectionTimeline';
+
+export { default as SectionWatch } from './SectionWatch';
+export * from './SectionWatch';
