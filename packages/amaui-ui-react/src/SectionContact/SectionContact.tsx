@@ -299,7 +299,7 @@ const Element: React.FC<ISectionContact> = React.forwardRef((props_, ref: any) =
 
               {summary && (
                 <Type
-                  version='b2'
+                  version='b3'
 
                   dangerouslySetInnerHTML={{
                     __html: textToInnerHTML(summary)
