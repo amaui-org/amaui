@@ -240,6 +240,7 @@ const Accordion: React.FC<IAccordion> = React.forwardRef((props_, ref: any) => {
   } = props;
 
   const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
+  const [parent, setParent] = React.useState();
 
   const refs = {
     root: React.useRef<any>(),
@@ -296,6 +297,8 @@ const Accordion: React.FC<IAccordion> = React.forwardRef((props_, ref: any) => {
         }
 
         refs.root.current = item;
+
+        setParent(item);
       }}
 
       tonal={tonal}
@@ -487,11 +490,7 @@ const Accordion: React.FC<IAccordion> = React.forwardRef((props_, ref: any) => {
       <Expand
         in={open}
 
-        add={openDefault}
-
-        enterOnAdd
-
-        parent={refs.root.current}
+        parent={parent}
 
         onTransition={(element: any, status: TTransitionStatus) => {
           refs.expandInProgress.current = !['appended', 'entered', 'exited', 'removed'].includes(status);

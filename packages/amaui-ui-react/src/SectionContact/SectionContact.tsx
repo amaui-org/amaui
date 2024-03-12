@@ -9,7 +9,7 @@ import Properties from '../Properties';
 import Section, { ISection } from '../Section/Section';
 import Type from '../Type';
 import useMediaQuery from '../useMediaQuery';
-import { TPropsAny, staticClassName } from '../utils';
+import { TPropsAny, staticClassName, textToInnerHTML } from '../utils';
 
 const IconMaterialMapRounded = React.forwardRef((props: IIcon, ref) => {
 
@@ -281,7 +281,7 @@ const Element: React.FC<ISectionContact> = React.forwardRef((props_, ref: any) =
                   version='t1'
 
                   dangerouslySetInnerHTML={{
-                    __html: heading
+                    __html: textToInnerHTML(heading)
                   }}
 
                   {...HeadingProps}
@@ -301,10 +301,8 @@ const Element: React.FC<ISectionContact> = React.forwardRef((props_, ref: any) =
                 <Type
                   version='b2'
 
-                  priority='secondary'
-
                   dangerouslySetInnerHTML={{
-                    __html: summary
+                    __html: textToInnerHTML(summary)
                   }}
 
                   {...SummaryProps}
