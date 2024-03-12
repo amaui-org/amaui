@@ -30,11 +30,8 @@ const useStyle = styleMethod(theme => ({
     flex: '0 0 auto',
     width: '100%',
     userSelect: 'none',
-    transition: theme.methods.transitions.make('transform'),
 
     '&:active': {
-      transform: 'scale(0.94)',
-
       '& $background': {
         borderRadius: theme.methods.shape.radius.value(5)
       }
@@ -364,8 +361,6 @@ const Element: React.FC<ISectionCards> = React.forwardRef((props_, ref: any) => 
       }}
 
       maxWidth={false}
-
-      padding={false}
 
       className={classNames([
         staticClassName('SectionCards', theme) && [
