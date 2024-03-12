@@ -339,7 +339,11 @@ export type TMethodTransition = (element?: THTMLElement) => any;
 export type TValueBreakpoints = TBreakpoint | 'default';
 
 export interface IMediaObject extends IMedia {
-  src: string;
+  url: string;
+  urlSmall?: string;
+
+  // alias
+  src?: string;
   srcSmall?: string;
 }
 
