@@ -28,9 +28,22 @@ const useStyle = styleMethod(theme => ({
   },
 
   version_regular: {
-    minWidth: '204px',
-    padding: '24px 40px',
     borderRadius: theme.methods.shape.radius.value('rg', 'px')
+  },
+
+  version_regular_size_small: {
+    minWidth: '174px',
+    padding: '16px 32px'
+  },
+
+  version_regular_size_regular: {
+    minWidth: '204px',
+    padding: '24px 40px'
+  },
+
+  version_regular_size_large: {
+    minWidth: '234px',
+    padding: '32px 48px'
   },
 
   shadow_version_regular: {
@@ -307,6 +320,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
         className,
         classes.root,
         classes[`version_${version.replace('-', '_')}`],
+        classes[`version_${version.replace('-', '_')}_size_${size}`],
         shadow && classes[`shadow_version_${version.replace('-', '_')}`]
       ])}
 
@@ -345,7 +359,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
                 {timeVisible && (
                   is('function', renderTime) ? renderTime(value) : (
                     <Type
-                      version='h2'
+                      version={size === 'large' ? 'h1' : size === 'regular' ? 'h2' : 'h3'}
                     >
                       {format(value, timeFormatString)}
                     </Type>
@@ -355,7 +369,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
                 {dateVisible && (
                   is('function', renderDate) ? renderDate(value) : (
                     <Type
-                      version='b3'
+                      version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3'}
 
                       priority='secondary'
                     >

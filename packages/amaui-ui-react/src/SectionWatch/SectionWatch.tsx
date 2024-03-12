@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { TPaletteVersion, classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Section, { ISection } from '../Section/Section';
 import Watch from '../Watch';
@@ -15,9 +15,13 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-SectionWatch' });
 
 export interface ISectionWatch extends ISection {
+  tonal?: boolean;
+
   version?: 'regular' | 'analog' | 'modern' | 'minimal';
 
   size?: TSize;
+
+  color?: TPaletteVersion;
 
   WatchProps?: IWatch;
 }
@@ -30,9 +34,15 @@ const Element: React.FC<ISectionWatch> = React.forwardRef((props_, ref: any) => 
   const { classes } = useStyle(props);
 
   const {
+    tonal = true,
+
     version = 'modern',
 
     size = 'regular',
+
+    color = 'primary',
+
+    WatchProps,
 
     className,
 
@@ -70,9 +80,15 @@ const Element: React.FC<ISectionWatch> = React.forwardRef((props_, ref: any) => 
       {...other}
     >
       <Watch
+        tonal={tonal}
+
         version={version}
 
         size={size}
+
+        color={color}
+
+        {...WatchProps}
       />
     </Section>
   );
