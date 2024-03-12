@@ -51,6 +51,8 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-SectionLogos' });
 
 export interface ISectionLogos extends ISection {
+  values?: IMediaObject[];
+
   version?: 'regular';
 
   size?: 'small' | 'regular' | 'large';
@@ -58,8 +60,6 @@ export interface ISectionLogos extends ISection {
   gray?: boolean;
 
   name?: boolean;
-
-  values?: IMediaObject[];
 
   ItemProps?: TPropsAny;
   WrapperProps?: TPropsAny;

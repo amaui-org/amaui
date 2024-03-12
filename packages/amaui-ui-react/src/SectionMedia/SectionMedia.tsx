@@ -142,6 +142,8 @@ const Element: React.FC<ISectionMedia> = React.forwardRef((props_, ref: any) => 
 
         fullWidth
 
+        {...MediaProps}
+
         {...ImageProps}
 
         className={classNames([
@@ -150,6 +152,7 @@ const Element: React.FC<ISectionMedia> = React.forwardRef((props_, ref: any) => 
             'amaui-SectionMedia-item-image'
           ],
 
+          MediaProps?.className,
           ImageProps?.className
         ])}
       />
@@ -160,6 +163,8 @@ const Element: React.FC<ISectionMedia> = React.forwardRef((props_, ref: any) => 
 
         {...value}
 
+        {...MediaProps}
+
         {...AudioProps}
 
         className={classNames([
@@ -168,6 +173,7 @@ const Element: React.FC<ISectionMedia> = React.forwardRef((props_, ref: any) => 
             'amaui-SectionMedia-item-audio'
           ],
 
+          MediaProps?.className,
           AudioProps?.className
         ])}
       />
@@ -178,6 +184,8 @@ const Element: React.FC<ISectionMedia> = React.forwardRef((props_, ref: any) => 
 
         {...value}
 
+        {...MediaProps}
+
         {...VideoProps}
 
         className={classNames([
@@ -186,6 +194,7 @@ const Element: React.FC<ISectionMedia> = React.forwardRef((props_, ref: any) => 
             'amaui-SectionMedia-item-video'
           ],
 
+          MediaProps?.className,
           VideoProps?.className
         ])}
       />
@@ -213,6 +222,8 @@ const Element: React.FC<ISectionMedia> = React.forwardRef((props_, ref: any) => 
 
           fullWidth
 
+          {...MediaProps}
+
           {...OtherProps}
 
           className={classNames([
@@ -221,6 +232,7 @@ const Element: React.FC<ISectionMedia> = React.forwardRef((props_, ref: any) => 
               'amaui-SectionMedia-item-other'
             ],
 
+            MediaProps?.className,
             OtherProps?.className,
             classes.other,
             classes[`other_size_${size}`]
