@@ -7,7 +7,7 @@ import Line, { ILine } from '../Line/Line';
 import Type from '../Type';
 import Reveal from '../Reveal';
 import useMediaQuery from '../useMediaQuery';
-import { TPropsAny, TValueBreakpoints, staticClassName, textToInnerHTML, valueBreakpoints } from '../utils';
+import { IMediaObject, TPropsAny, TValueBreakpoints, staticClassName, textToInnerHTML, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -295,8 +295,8 @@ export interface ISection extends ILine {
   backgroundColor?: TPaletteVersion;
   backgroundGradient?: TPaletteVersion[];
 
-  backgroundImage?: any;
-  backgroundVideo?: any;
+  backgroundImage?: IMediaObject;
+  backgroundVideo?: IMediaObject;
 
   overlay?: TPaletteVersion;
   overlayBlur?: number | boolean;
@@ -431,7 +431,7 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
   }
 
   if (backgroundImage) {
-    const url = backgroundImage;
+    const url = backgroundImage?.url || backgroundImage?.src || backgroundImage?.urlSmall || backgroundImage?.srcSmall || (is('string', backgroundImage) ? backgroundImage as any : '');
 
     if (url) {
       styleBackground = {
@@ -454,7 +454,7 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
     };
   }
 
-  const urlVideo = backgroundVideo;
+  const urlVideo = backgroundVideo?.url || backgroundVideo?.src || backgroundVideo?.urlSmall || backgroundVideo?.srcSmall || (is('string', backgroundVideo) ? backgroundVideo as any : '');
 
   const Wrapper = reveal ? Reveal : React.Fragment;
 
@@ -497,9 +497,9 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
 
           className,
           classes.root,
-          margin && (classes[`margin_${margin}`] || classes[`margin_${size}`]),
-          !margin && marginVertical && (classes[`margin_vertical_${marginVertical}`] || classes[`margin_vertical_${size}`]),
-          classes[`padding_${padding}`] || classes[`padding_${size}`]
+          (margin !== false) && margin && (classes[`margin_${margin}`] || classes[`margin_${size}`]),
+          (marginVertical !== false) && !margin && marginVertical && (classes[`margin_vertical_${marginVertical}`] || classes[`margin_vertical_${size}`]),
+          (padding !== false) && classes[`padding_${padding}`] || classes[`padding_${size}`]
         ])}
 
         {...other}
