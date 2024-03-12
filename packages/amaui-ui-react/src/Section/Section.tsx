@@ -497,9 +497,9 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
 
           className,
           classes.root,
-          (margin !== false) && margin && (classes[`margin_${margin}`] || classes[`margin_${size}`]),
-          (marginVertical !== false) && !margin && marginVertical && (classes[`margin_vertical_${marginVertical}`] || classes[`margin_vertical_${size}`]),
-          (padding !== false) && classes[`padding_${padding}`] || classes[`padding_${size}`]
+          (margin !== false) && (margin && (classes[`margin_${margin}`] || classes[`margin_${size}`])),
+          (marginVertical !== false) && (!margin && marginVertical && (classes[`margin_vertical_${marginVertical}`] || classes[`margin_vertical_${size}`])),
+          (padding !== false) && (classes[`padding_${padding}`] || classes[`padding_${size}`])
         ])}
 
         {...other}

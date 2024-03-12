@@ -302,8 +302,6 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
             <Type
               version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3'}
 
-              priority='secondary'
-
               align='center'
 
               fullWidth
