@@ -94,7 +94,8 @@ const useStyle = style(theme => ({
   },
 
   links: {
-    marginTop: '40px'
+    marginTop: '40px',
+    padding: '0 24px'
   },
 
   linkWrapper: {
@@ -104,7 +105,8 @@ const useStyle = style(theme => ({
   link: {
     '&.amaui-Button-root': {
       whiteSpace: 'normal',
-      wordBreak: 'break-word'
+      wordBreak: 'break-word',
+      flex: '1 1 auto !important'
     }
   },
 
@@ -163,7 +165,7 @@ const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
 
     links,
 
-    share,
+    share = true,
 
     start,
     end,
@@ -179,7 +181,7 @@ const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
   const confirm = useConfirm();
 
   const onOpenLink = React.useCallback(async (item: ILinksItem): Promise<any> => {
-    const confirmed = item.sensitivity ? await confirm.open({
+    const confirmed = (item.sensitivity && !['none'].includes(item.sensitivity as any)) ? await confirm.open({
       name: 'Sensitive URL',
       description: `This is URL might contain sensitive information, confirm you are 18+ to continue.`
     }) : true;
@@ -272,6 +274,8 @@ const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
 
                 align='center'
 
+                fullWidth
+
                 dangerouslySetInnerHTML={{
                   __html: textToInnerHTML(name)
                 }}
@@ -285,6 +289,8 @@ const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
                 version='b2'
 
                 align='center'
+
+                fullWidth
 
                 dangerouslySetInnerHTML={{
                   __html: textToInnerHTML(short_description)
@@ -325,7 +331,9 @@ const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
                 <Button
                   tonal
 
-                  version='filled'
+                  {...item.props}
+
+                  version={[undefined, 'default'].includes(item.version) ? 'outlined' : 'filled'}
 
                   elevation={item.version === 'primary'}
 
@@ -334,8 +342,6 @@ const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
                   fullWidth
 
                   onClick={() => onOpenLink(item)}
-
-                  {...item.props}
 
                   className={classNames([
                     `amaui-Links-link-version-${item.version}`,
@@ -391,14 +397,22 @@ const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
 
                       button
 
-                      disabled={!(item.share)}
+                      disabled={!item.share}
                     />
                   ]}
                 >
                   <IconButton
                     size='small'
 
-                    className={classes.more}
+                    className={classNames([
+                      staticClassName('Links', theme) && [
+                        'amaui-Links-more'
+                      ],
+
+                      classes.more
+                    ])}
+
+                    disabled={!item.share}
                   >
                     <IconMore />
                   </IconButton>
