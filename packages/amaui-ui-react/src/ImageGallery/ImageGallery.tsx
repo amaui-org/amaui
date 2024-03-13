@@ -584,6 +584,8 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
     event.preventDefault();
   }, []);
 
+  const url = media?.url || media?.src || media?.urlSmall || media?.srcSmall || (is('string', media) ? media : '');
+
   const main = <>
     <Line
       justify='center'
@@ -625,29 +627,31 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
           ...ImageWrapperProps?.style
         }}
       >
-        <Image
-          ref={(item: any) => {
-            refs.image.current = item;
+        {url && (
+          <Image
+            ref={(item: any) => {
+              refs.image.current = item;
 
-            setImageRef(item);
-          }}
+              setImageRef(item);
+            }}
 
-          src={media?.url || media}
+            src={url}
 
-          alt={media?.name}
+            alt={media?.name}
 
-          onMouseDown={onMouseDown}
+            onMouseDown={onMouseDown}
 
-          onMouseUp={onMouseUp}
+            onMouseUp={onMouseUp}
 
-          onTouchStart={onMouseDown}
+            onTouchStart={onMouseDown}
 
-          onTouchEnd={onMouseUp}
+            onTouchEnd={onMouseUp}
 
-          onDragStart={onDragStartImage}
+            onDragStart={onDragStartImage}
 
-          {...ImageProps}
-        />
+            {...ImageProps}
+          />
+        )}
       </Line>
     </Line>
 

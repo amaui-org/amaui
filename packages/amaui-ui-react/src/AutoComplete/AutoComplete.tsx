@@ -213,7 +213,7 @@ export interface IAutoComplete extends ITextField {
 }
 
 const getText = (value: any) => {
-  const value_ = value?.value || value?.name || value?.label || value?.primary || value?.secondary || value?.tertiary || value?.children || value;
+  const value_ = value?.name || value?.label || value?.primary || value?.secondary || value?.tertiary || value?.children || value?.value || value;
 
   return is('simple', value_) ? String(value_) : '';
 };
