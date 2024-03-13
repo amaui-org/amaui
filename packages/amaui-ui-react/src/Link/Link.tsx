@@ -1,10 +1,11 @@
 import React from 'react';
 
-import { IColor, classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
 import { IType } from '../Type/Type';
 import { staticClassName } from '../utils';
+import { IColor } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -145,7 +146,7 @@ const Link: React.FC<ILink> = React.forwardRef((props_, ref: any) => {
   }, []);
 
   const color = color_;
-  let palette: IColor;
+  let palette: any;
 
   if (!classes[`color_${color}`]) {
     styles.root.color = color;
