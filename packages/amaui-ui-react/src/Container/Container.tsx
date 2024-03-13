@@ -7,7 +7,8 @@ import Line from '../Line';
 import { ILine } from '../Line/Line';
 import useMediaQuery from '../useMediaQuery';
 
-import { staticClassName, TValueBreakpoints, valueBreakpoints } from '../utils';
+import { staticClassName, valueBreakpoints } from '../utils';
+import { IValueBreakpoints } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -85,15 +86,15 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Container' });
 
 export interface IContainer extends ILine {
-  alignment?: 'start' | 'center' | 'end' | Partial<Record<TValueBreakpoints, 'start' | 'center' | 'end'>>;
+  alignment?: 'start' | 'center' | 'end' | Partial<Record<IValueBreakpoints, 'start' | 'center' | 'end'>>;
 
-  paddingVertical?: 'both' | 'start' | 'end' | 'none' | Partial<Record<TValueBreakpoints, 'both' | 'start' | 'end' | 'none'>>;
+  paddingVertical?: 'both' | 'start' | 'end' | 'none' | Partial<Record<IValueBreakpoints, 'both' | 'start' | 'end' | 'none'>>;
 
-  paddingHorizontal?: 'both' | 'start' | 'end' | 'none' | Partial<Record<TValueBreakpoints, 'both' | 'start' | 'end' | 'none'>>;
+  paddingHorizontal?: 'both' | 'start' | 'end' | 'none' | Partial<Record<IValueBreakpoints, 'both' | 'start' | 'end' | 'none'>>;
 
-  fullWidth?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  fullWidth?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
-  maxWidth?: 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'unset' | Partial<Record<TValueBreakpoints, 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'unset'>>;
+  maxWidth?: 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'unset' | Partial<Record<IValueBreakpoints, 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'unset'>>;
 }
 
 const Container: React.FC<IContainer> = React.forwardRef((props_, ref: any) => {

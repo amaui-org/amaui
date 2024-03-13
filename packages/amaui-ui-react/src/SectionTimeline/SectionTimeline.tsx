@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { is, textToInnerHTML } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Section, { ISection } from '../Section/Section';
@@ -8,7 +8,8 @@ import ListItem from '../ListItem';
 import Timeline from '../Timeline';
 import TimelineItem from '../TimelineItem';
 import Type from '../Type';
-import { TPropsAny, staticClassName, textToInnerHTML } from '../utils';
+import { staticClassName } from '../utils';
+import { IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -41,13 +42,13 @@ export interface ISectionTimeline extends ISection {
 
   values?: ISectionTimelineItem[];
 
-  TimelineProps?: TPropsAny;
-  TimelineItemProps?: TPropsAny;
-  TitleProps?: TPropsAny;
-  HeadingProps?: TPropsAny;
-  DescriptionProps?: TPropsAny;
-  ItemStartProps?: TPropsAny;
-  ItemEndProps?: TPropsAny;
+  TimelineProps?: IPropsAny;
+  TimelineItemProps?: IPropsAny;
+  TitleProps?: IPropsAny;
+  HeadingProps?: IPropsAny;
+  DescriptionProps?: IPropsAny;
+  ItemStartProps?: IPropsAny;
+  ItemEndProps?: IPropsAny;
 }
 
 const SectionTimeline: React.FC<ISectionTimeline> = React.forwardRef((props_, ref: any) => {

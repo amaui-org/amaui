@@ -21,8 +21,8 @@ import { ILine } from '../Line/Line';
 import Calendar from '../Calendar';
 import { TCalendarUnit } from '../Calendar/Calendar';
 import { TCalendarMonthCalendar, TCalendarMonthValue } from '../CalendarMonth/CalendarMonth';
-
-import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TSize, TTonal, TValueBreakpoints, valueBreakpoints } from '../utils';
+import { valueBreakpoints, staticClassName } from '../utils';
+import { ITonal, IColor, ISize, IValueBreakpoints, IElement, IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -200,12 +200,12 @@ export const SEPARATOR_SYMBOL = `–`;
 export const SEPARATOR = ` ${SEPARATOR_SYMBOL} `;
 
 export interface IDatePicker extends ILine {
-  tonal?: TTonal;
-  color?: TColor;
+  tonal?: ITonal;
+  color?: IColor;
 
   version?: 'auto' | 'mobile' | 'desktop';
 
-  size?: TSize;
+  size?: ISize;
 
   value?: TCalendarMonthValue;
   valueDefault?: TCalendarMonthValue;
@@ -229,12 +229,12 @@ export interface IDatePicker extends ILine {
   modeModalSubHeadingTextRange?: string;
   selectModeHeadingText?: string;
   inputModeHeadingText?: string;
-  switch?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  useHelperText?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  name?: TElement;
+  switch?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  useHelperText?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  name?: IElement;
   nameFrom?: string;
   nameTo?: string;
-  label?: TElement;
+  label?: IElement;
   labelFrom?: string;
   labelTo?: string;
   today?: boolean;
@@ -252,20 +252,20 @@ export interface IDatePicker extends ILine {
   onClear?: (event: React.MouseEvent<any>) => any;
   onOk?: (event: React.MouseEvent<any>) => any;
 
-  Icon?: TElementReference;
-  IconCheck?: TElementReference;
-  IconEnter?: TElementReference;
-  IconClose?: TElementReference;
+  Icon?: IElementReference;
+  IconCheck?: IElementReference;
+  IconEnter?: IElementReference;
+  IconClose?: IElementReference;
 
-  WrapperProps?: TPropsAny;
-  CalendarProps?: TPropsAny;
-  CalendarPropsDesktop?: TPropsAny;
-  CalendarPropsMobile?: TPropsAny;
-  TooltipProps?: TPropsAny;
-  IconButtonProps?: TPropsAny;
-  AdvancedTextFieldProps?: TPropsAny;
-  ButtonProps?: TPropsAny;
-  ModalProps?: TPropsAny;
+  WrapperProps?: IPropsAny;
+  CalendarProps?: IPropsAny;
+  CalendarPropsDesktop?: IPropsAny;
+  CalendarPropsMobile?: IPropsAny;
+  TooltipProps?: IPropsAny;
+  IconButtonProps?: IPropsAny;
+  AdvancedTextFieldProps?: IPropsAny;
+  ButtonProps?: IPropsAny;
+  ModalProps?: IPropsAny;
 }
 
 const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) => {

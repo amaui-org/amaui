@@ -4,7 +4,7 @@ import { is, isEnvironment, element as element_, clamp, wait } from '@amaui/util
 import { useAmauiTheme } from '@amaui/style-react';
 
 import Portal from '../Portal';
-import { TChildren, THTMLElement, TStyle } from '../utils';
+import { IChildren, IHTMLElement, IStyle } from '../types';
 
 const valuesDefault = {
   x: 0,
@@ -27,7 +27,7 @@ export interface IAppend {
   portal?: boolean;
   accelerated?: boolean;
   anchor?: DOMRect;
-  anchorElement?: THTMLElement;
+  anchorElement?: IHTMLElement;
   offset?: TAppendPadding;
   padding?: TAppendPadding;
   paddingUnfollow?: TAppendPadding;
@@ -37,13 +37,13 @@ export interface IAppend {
   switch?: boolean;
   overflow?: boolean;
   unfollow?: boolean;
-  style?: TStyle;
+  style?: IStyle;
   update?: any;
   element?: any;
-  parent?: THTMLElement;
+  parent?: IHTMLElement;
   additional?: (rects: { root: DOMRect; element: DOMRect; }, rectsOffset: { root: DOMRect; element: DOMRect; }) => any;
 
-  children?: TChildren;
+  children?: IChildren;
 
   [property: string]: any;
 }

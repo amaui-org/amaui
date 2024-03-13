@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { is, textToInnerHTML } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Text from '../Text';
@@ -10,7 +10,8 @@ import AudioPlayer from '../AudioPlayer';
 import VideoPlayer from '../VideoPlayer';
 import Line from '../Line';
 import Type from '../Type';
-import { TPropsAny, TValueBreakpoints, staticClassName, textToInnerHTML } from '../utils';
+import { staticClassName } from '../utils';
+import { IValueBreakpoints, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -27,18 +28,18 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-SectionTextMedia' });
 
 export interface ISectionTextMedia extends ISection {
-  title?: string | Partial<Record<TValueBreakpoints, string>>;
-  description?: string | Partial<Record<TValueBreakpoints, string>>;
+  title?: string | Partial<Record<IValueBreakpoints, string>>;
+  description?: string | Partial<Record<IValueBreakpoints, string>>;
 
   mediaPosition?: 'top' | 'left' | 'right' | 'bottom';
 
   media?: any;
 
-  MainProps?: TPropsAny;
-  TitleProps?: TPropsAny;
-  WrapperProps?: TPropsAny;
-  TextProps?: TPropsAny;
-  MediaProps?: TPropsAny;
+  MainProps?: IPropsAny;
+  TitleProps?: IPropsAny;
+  WrapperProps?: IPropsAny;
+  TextProps?: IPropsAny;
+  MediaProps?: IPropsAny;
 }
 
 const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, ref: any) => {

@@ -11,7 +11,8 @@ import Line from '../Line';
 import Section, { ISection } from '../Section/Section';
 import Type from '../Type';
 import VideoPlayer from '../VideoPlayer';
-import { IMediaObject, TPropsAny, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
+import { IMediaObject, IPropsAny } from '../types';
 
 const IconMaterialDraft = React.forwardRef((props: IIcon, ref) => {
 
@@ -87,11 +88,11 @@ export interface ISectionMedia extends ISection {
 
   IconDocument?: any;
 
-  MediaProps?: TPropsAny;
-  ImageProps?: TPropsAny;
-  AudioProps?: TPropsAny;
-  VideoProps?: TPropsAny;
-  OtherProps?: TPropsAny;
+  MediaProps?: IPropsAny;
+  ImageProps?: IPropsAny;
+  AudioProps?: IPropsAny;
+  VideoProps?: IPropsAny;
+  OtherProps?: IPropsAny;
 }
 
 const Element: React.FC<ISectionMedia> = React.forwardRef((props_, ref: any) => {

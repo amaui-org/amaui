@@ -6,9 +6,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import IconButton from '../IconButton';
 import Tooltip from '../Tooltip';
 import Zoom from '../Zoom';
-
-import { IBaseElement, staticClassName, TColor, TElement, TPropsAny, TSize, TTonal } from '../utils';
 import Type from '../Type';
+import { staticClassName } from '../utils';
+import { IBaseElement, ITonal, IColor, ISize, IElement, IPropsAny } from '../types';
 
 const rail = {
   position: 'absolute',
@@ -443,9 +443,9 @@ const useStyle = styleMethod(theme => ({
 export type TSliderValue = number | Array<number>;
 
 export interface ISlider extends IBaseElement {
-  tonal?: TTonal;
-  color?: TColor;
-  size?: TSize;
+  tonal?: ITonal;
+  color?: IColor;
+  size?: ISize;
 
   value?: TSliderValue;
   valueDefault?: TSliderValue;
@@ -456,7 +456,7 @@ export interface ISlider extends IBaseElement {
   marks?: Array<{
     value?: number;
 
-    label?: TElement;
+    label?: IElement;
   }>;
   precision?: number;
   min?: number;
@@ -464,8 +464,8 @@ export interface ISlider extends IBaseElement {
   tooltip?: 'always' | boolean;
   labels?: boolean;
   onlyMarks?: boolean;
-  labelTooltipResolve?: (value: number) => TElement;
-  iconButtonPositionResolve?: (value: number, normalized: number, size: TSize) => string;
+  labelTooltipResolve?: (value: number) => IElement;
+  iconButtonPositionResolve?: (value: number, normalized: number, size: ISize) => string;
   noTrack?: boolean;
   noButtons?: boolean;
   square?: boolean;
@@ -473,9 +473,9 @@ export interface ISlider extends IBaseElement {
   readOnly?: boolean;
   disabled?: boolean;
 
-  IconButtonProps?: TPropsAny;
-  LabelProps?: TPropsAny;
-  TooltipProps?: TPropsAny;
+  IconButtonProps?: IPropsAny;
+  LabelProps?: IPropsAny;
+  TooltipProps?: IPropsAny;
 }
 
 const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {

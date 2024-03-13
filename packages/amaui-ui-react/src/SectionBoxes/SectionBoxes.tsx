@@ -1,14 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { is } from '@amaui/utils';
+import { is, textToInnerHTML } from '@amaui/utils';
 import { TPaletteVersion, classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Section, { ISection } from '../Section/Section';
 import Line from '../Line';
 import Type from '../Type';
 import Button from '../Button';
-import { IMediaObject, TPropsAny, staticClassName, textToInnerHTML } from '../utils';
+import { staticClassName } from '../utils';
+import { IMediaObject, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -113,8 +114,8 @@ export interface ISectionBoxes extends ISection {
 
   responsive?: boolean;
 
-  ItemProps?: TPropsAny;
-  ItemsProps?: TPropsAny;
+  ItemProps?: IPropsAny;
+  ItemsProps?: IPropsAny;
 }
 
 const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => {

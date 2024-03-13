@@ -11,8 +11,8 @@ import Append from '../Append';
 import Grow from '../Grow';
 import useMediaQuery from '../useMediaQuery';
 import { ISurface } from '../Surface/Surface';
-
-import { staticClassName, valueBreakpoints, minMaxBetweenNumbers, TTonal, TColor, TElementAny, TStyle, TElement, TPropsAny, TValueBreakpoints } from '../utils';
+import { valueBreakpoints, staticClassName, minMaxBetweenNumbers } from '../utils';
+import { IColor, IStyle, ITonal, IElementAny, IElement, IValueBreakpoints, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -325,10 +325,10 @@ const useStyle = styleMethod(theme => ({
 export type TChartValueValues = Array<any>;
 
 export interface IChartValue {
-  color?: TColor;
+  color?: IColor;
   tone?: TColorValues;
   name?: string;
-  style?: TStyle;
+  style?: IStyle;
 
   percentage?: string | number;
 
@@ -336,26 +336,26 @@ export interface IChartValue {
 }
 
 export interface IChart extends ISurface {
-  tonal?: TTonal;
-  color?: TColor;
-  title?: TElementAny;
-  subtitle?: TElementAny;
+  tonal?: ITonal;
+  color?: IColor;
+  title?: IElementAny;
+  subtitle?: IElementAny;
 
   // Values
   values?: Array<IChartValue>;
 
   // Defs
-  defs?: TElement;
+  defs?: IElement;
 
   // Pre
-  pre?: TElement;
+  pre?: IElement;
 
   // Elements
   elements?: Array<{
     item: IChartValue;
 
-    element?: TElement;
-    elements?: TElement;
+    element?: IElement;
+    elements?: IElement;
   }>;
 
   // Names
@@ -365,29 +365,29 @@ export interface IChart extends ISurface {
 
     [property: string]: string;
   };
-  nameX?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  nameY?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  nameX?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  nameY?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
   // Tooltip
-  tooltip?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  tooltipIndividually?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  tooltipCloseOnMouseLeave?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  elementTooltip?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  tooltip?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  tooltipIndividually?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  tooltipCloseOnMouseLeave?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  elementTooltip?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
   // Guideline
-  guidelines?: 'both' | 'vertical' | 'horizontal' | Partial<Record<TValueBreakpoints, 'both' | 'vertical' | 'horizontal'>>;
-  guidelinesAppend?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  guidelinesDisplayInactive?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  guidelines?: 'both' | 'vertical' | 'horizontal' | Partial<Record<IValueBreakpoints, 'both' | 'vertical' | 'horizontal'>>;
+  guidelinesAppend?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  guidelinesDisplayInactive?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
   // Animate
   animate?: boolean;
   animateTimeout?: number;
 
   // Additional lines
-  additionalLines?: TElement;
+  additionalLines?: IElement;
 
   // Legend
-  legend?: 'auto' | false | TElement | Partial<Record<TValueBreakpoints, 'auto' | false | TElement>>;
+  legend?: 'auto' | false | IElement | Partial<Record<IValueBreakpoints, 'auto' | false | IElement>>;
   legendManageVisibility?: boolean;
   legendPosition?: 'top' | 'bottom';
 
@@ -396,59 +396,59 @@ export interface IChart extends ISurface {
     value?: number;
 
     label?: string | number;
-  }> | Partial<Record<TValueBreakpoints, 'auto' | false | Array<{
+  }> | Partial<Record<IValueBreakpoints, 'auto' | false | Array<{
     value?: number;
 
     label?: string | number;
   }>>>;
-  labelsX?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  labelsY?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  labelDecimalPlaces?: number | Partial<Record<TValueBreakpoints, number>>;
-  labelsAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
-  labelsYAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
-  labelsXAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
+  labelsX?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  labelsY?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  labelDecimalPlaces?: number | Partial<Record<IValueBreakpoints, number>>;
+  labelsAutoNumber?: number | Partial<Record<IValueBreakpoints, number>>;
+  labelsYAutoNumber?: number | Partial<Record<IValueBreakpoints, number>>;
+  labelsXAutoNumber?: number | Partial<Record<IValueBreakpoints, number>>;
 
   // Marks
-  marks?: 'auto' | false | Array<{ value?: number; }> | Partial<Record<TValueBreakpoints, 'auto' | false | Array<{ value?: number; }>>>;
-  marksX?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  marksY?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  marksAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
-  marksYAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
-  marksXAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
+  marks?: 'auto' | false | Array<{ value?: number; }> | Partial<Record<IValueBreakpoints, 'auto' | false | Array<{ value?: number; }>>>;
+  marksX?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  marksY?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  marksAutoNumber?: number | Partial<Record<IValueBreakpoints, number>>;
+  marksYAutoNumber?: number | Partial<Record<IValueBreakpoints, number>>;
+  marksXAutoNumber?: number | Partial<Record<IValueBreakpoints, number>>;
 
   // Grid
-  grid?: 'auto' | false | Array<{ value?: number; }> | Partial<Record<TValueBreakpoints, 'auto' | false | Array<{ value?: number; }>>>;
-  gridX?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  gridY?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  gridAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
-  gridYAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
-  gridXAutoNumber?: number | Partial<Record<TValueBreakpoints, number>>;
+  grid?: 'auto' | false | Array<{ value?: number; }> | Partial<Record<IValueBreakpoints, 'auto' | false | Array<{ value?: number; }>>>;
+  gridX?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  gridY?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  gridAutoNumber?: number | Partial<Record<IValueBreakpoints, number>>;
+  gridYAutoNumber?: number | Partial<Record<IValueBreakpoints, number>>;
+  gridXAutoNumber?: number | Partial<Record<IValueBreakpoints, number>>;
 
   // Points
-  points?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  pointsVisibility?: 'hover' | 'visible' | 'hidden' | Partial<Record<TValueBreakpoints, 'hover' | 'visible' | 'hidden'>>;
+  points?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  pointsVisibility?: 'hover' | 'visible' | 'hidden' | Partial<Record<IValueBreakpoints, 'hover' | 'visible' | 'hidden'>>;
 
   // Borders
-  borders?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  borderStart?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  borderLeft?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  borderEnd?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  borderRight?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  borderTop?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  borderBottom?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  borders?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  borderStart?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  borderLeft?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  borderEnd?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  borderRight?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  borderTop?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  borderBottom?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
   // Min, max
-  minX?: number | Partial<Record<TValueBreakpoints, number>>;
-  maxX?: number | Partial<Record<TValueBreakpoints, number>>;
-  minY?: number | Partial<Record<TValueBreakpoints, number>>;
-  maxY?: number | Partial<Record<TValueBreakpoints, number>>;
-  minMaxPadding?: number | Partial<Record<TValueBreakpoints, number>>;
-  minPadding?: number | Partial<Record<TValueBreakpoints, number>>;
-  maxPadding?: number | Partial<Record<TValueBreakpoints, number>>;
-  minPaddingX?: number | Partial<Record<TValueBreakpoints, number>>;
-  minPaddingY?: number | Partial<Record<TValueBreakpoints, number>>;
-  maxPaddingX?: number | Partial<Record<TValueBreakpoints, number>>;
-  maxPaddingY?: number | Partial<Record<TValueBreakpoints, number>>;
+  minX?: number | Partial<Record<IValueBreakpoints, number>>;
+  maxX?: number | Partial<Record<IValueBreakpoints, number>>;
+  minY?: number | Partial<Record<IValueBreakpoints, number>>;
+  maxY?: number | Partial<Record<IValueBreakpoints, number>>;
+  minMaxPadding?: number | Partial<Record<IValueBreakpoints, number>>;
+  minPadding?: number | Partial<Record<IValueBreakpoints, number>>;
+  maxPadding?: number | Partial<Record<IValueBreakpoints, number>>;
+  minPaddingX?: number | Partial<Record<IValueBreakpoints, number>>;
+  minPaddingY?: number | Partial<Record<IValueBreakpoints, number>>;
+  maxPaddingX?: number | Partial<Record<IValueBreakpoints, number>>;
+  maxPaddingY?: number | Partial<Record<IValueBreakpoints, number>>;
 
   noMain?: boolean;
 
@@ -463,21 +463,21 @@ export interface IChart extends ISurface {
   }) => any;
 
   // Element Props
-  SvgProps?: TPropsAny;
-  TypeProps?: TPropsAny;
-  TitleProps?: TPropsAny;
-  SubtitleProps?: TPropsAny;
-  PathProps?: TPropsAny;
-  PointsProps?: TPropsAny;
-  PointProps?: TPropsAny;
-  HeaderProps?: TPropsAny;
-  AppendProps?: TPropsAny;
-  AdditionalLineProps?: TPropsAny;
-  AdditionalLinesProps?: TPropsAny;
-  LegendProps?: TPropsAny;
-  LegendItemProps?: TPropsAny;
-  GuidelineProps?: TPropsAny;
-  WrapperProps?: TPropsAny;
+  SvgProps?: IPropsAny;
+  TypeProps?: IPropsAny;
+  TitleProps?: IPropsAny;
+  SubtitleProps?: IPropsAny;
+  PathProps?: IPropsAny;
+  PointsProps?: IPropsAny;
+  PointProps?: IPropsAny;
+  HeaderProps?: IPropsAny;
+  AppendProps?: IPropsAny;
+  AdditionalLineProps?: IPropsAny;
+  AdditionalLinesProps?: IPropsAny;
+  LegendProps?: IPropsAny;
+  LegendItemProps?: IPropsAny;
+  GuidelineProps?: IPropsAny;
+  WrapperProps?: IPropsAny;
 }
 
 const Chart: React.FC<IChart> = React.forwardRef((props_, ref: any) => {

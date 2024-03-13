@@ -9,8 +9,8 @@ import Fade from '../Fade';
 import Transitions from '../Transitions';
 import Icon from '../Icon';
 import { ISurface } from '../Surface/Surface';
-
-import { staticClassName, TElementReference, TPropsAny, TSize } from '../utils';
+import { staticClassName } from '../utils';
+import { ISize, IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -260,7 +260,7 @@ export type TWeather = 'clear' | 'partly clear' | 'rainy' | 'partly rainy' | 'sn
 export type TTemperature = number;
 
 export interface IWeather extends ISurface {
-  size?: TSize;
+  size?: ISize;
 
   shadow?: boolean;
 
@@ -281,13 +281,13 @@ export interface IWeather extends ISurface {
   // Once every 1 hour
   interval?: number;
 
-  IconDay?: TElementReference;
-  IconNight?: TElementReference;
-  IconCloud?: TElementReference;
-  IconRain?: TElementReference;
-  IconSnow?: TElementReference;
+  IconDay?: IElementReference;
+  IconNight?: IElementReference;
+  IconCloud?: IElementReference;
+  IconRain?: IElementReference;
+  IconSnow?: IElementReference;
 
-  IconProps?: TPropsAny;
+  IconProps?: IPropsAny;
 }
 
 const Weather: React.FC<IWeather> = React.forwardRef((props_, ref: any) => {

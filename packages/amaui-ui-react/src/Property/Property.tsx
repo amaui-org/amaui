@@ -6,7 +6,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Line, { ILine } from '../Line/Line';
 import useMediaQuery from '../useMediaQuery';
 import Type from '../Type';
-import { TPropsAny, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
+import { IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -49,10 +50,10 @@ export interface IProperty extends ILine {
 
   mediaQuery?: string;
 
-  ItemProps?: TPropsAny;
-  NameProps?: TPropsAny;
-  NameWrapperProps?: TPropsAny;
-  ValueProps?: TPropsAny;
+  ItemProps?: IPropsAny;
+  NameProps?: IPropsAny;
+  NameWrapperProps?: IPropsAny;
+  ValueProps?: IPropsAny;
 }
 
 const Property: React.FC<IProperty> = React.forwardRef((props_, ref: any) => {

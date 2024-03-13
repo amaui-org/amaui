@@ -10,8 +10,9 @@ import AudioPlayer from '../AudioPlayer';
 import VideoPlayer from '../VideoPlayer';
 import Portal from '../Portal';
 import ImageGallery from '../ImageGallery';
-import { IMediaObject, TPropsAny, staticClassName } from '../utils';
 import Icon, { IIcon } from '../Icon';
+import { staticClassName } from '../utils';
+import { IMediaObject, IPropsAny } from '../types';
 
 const IconMaterialDraft = React.forwardRef((props: IIcon, ref) => {
 
@@ -188,17 +189,17 @@ export interface IMedias extends ILine {
 
   IconDocument?: any;
 
-  NameProps?: TPropsAny;
-  WrapperProps?: TPropsAny;
-  ImageProps?: TPropsAny;
-  AudioProps?: TPropsAny;
-  VideoProps?: TPropsAny;
-  OtherProps?: TPropsAny;
-  ItemsProps?: TPropsAny;
-  ImageItemsProps?: TPropsAny;
-  AudioItemsProps?: TPropsAny;
-  VideoItemsProps?: TPropsAny;
-  OtherItemsProps?: TPropsAny;
+  NameProps?: IPropsAny;
+  WrapperProps?: IPropsAny;
+  ImageProps?: IPropsAny;
+  AudioProps?: IPropsAny;
+  VideoProps?: IPropsAny;
+  OtherProps?: IPropsAny;
+  ItemsProps?: IPropsAny;
+  ImageItemsProps?: IPropsAny;
+  AudioItemsProps?: IPropsAny;
+  VideoItemsProps?: IPropsAny;
+  OtherItemsProps?: IPropsAny;
 }
 
 const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {

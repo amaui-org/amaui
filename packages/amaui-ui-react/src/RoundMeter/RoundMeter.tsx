@@ -4,8 +4,8 @@ import { clamp, is, parse, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
-
-import { angleToCoordinates, IBaseElement, staticClassName, TColor, TElement, TPropsAny, TSize, TStyle, TTonal } from '../utils';
+import { angleToCoordinates, staticClassName } from '../utils';
+import { IBaseElement, ITonal, IColor, ISize, IStyle, IElement, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -56,9 +56,9 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-RoundMeter' });
 
 export interface IRoundMeter extends IBaseElement {
-  tonal?: TTonal;
-  color?: TColor;
-  size?: TSize;
+  tonal?: ITonal;
+  color?: IColor;
+  size?: ISize;
 
   // in how many parts boundary is separated in
   parts?: number;
@@ -99,7 +99,7 @@ export interface IRoundMeter extends IBaseElement {
     value?: number;
     position?: number;
     padding?: number;
-    style?: TStyle;
+    style?: IStyle;
 
     [property: string]: any;
   }>;
@@ -108,20 +108,20 @@ export interface IRoundMeter extends IBaseElement {
 
   childrenPosition?: 'pre' | 'pre-marks' | 'pre-labels' | 'post';
 
-  additional?: TElement;
+  additional?: IElement;
 
-  textProps?: TPropsAny;
-  pathProps?: TPropsAny;
+  textProps?: IPropsAny;
+  pathProps?: IPropsAny;
 
-  SvgProps?: TPropsAny;
-  MarkProps?: TPropsAny;
-  LabelProps?: TPropsAny;
-  BackgroundProps?: TPropsAny;
-  BorderProps?: TPropsAny;
-  ArcProps?: TPropsAny;
-  ArcMainProps?: TPropsAny;
-  ArcsProgressProps?: TPropsAny;
-  ArcProgressProps?: TPropsAny;
+  SvgProps?: IPropsAny;
+  MarkProps?: IPropsAny;
+  LabelProps?: IPropsAny;
+  BackgroundProps?: IPropsAny;
+  BorderProps?: IPropsAny;
+  ArcProps?: IPropsAny;
+  ArcMainProps?: IPropsAny;
+  ArcsProgressProps?: IPropsAny;
+  ArcProgressProps?: IPropsAny;
 }
 
 const RoundMeter: React.FC<IRoundMeter> = React.forwardRef((props_, ref: any) => {

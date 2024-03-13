@@ -8,8 +8,8 @@ import Slide from '../Slide';
 import useSwipe from '../useSwipe';
 import { IOptionsUseSwipe, IResponseUseSwipe } from '../useSwipe/useSwipe';
 import { IModal } from '../Modal/Modal';
-
-import { staticClassName, TMethodTransition, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IMethodTransition, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -82,9 +82,9 @@ export interface INavigationDrawer extends IModal {
   swipeTouchAnywhere?: boolean;
   swipeBackgroundFollow?: boolean;
   min?: number;
-  removeOnExited?: TMethodTransition;
+  removeOnExited?: IMethodTransition;
 
-  TransitionComponentProps?: TPropsAny;
+  TransitionComponentProps?: IPropsAny;
 }
 
 const NavigationDrawer: React.FC<INavigationDrawer> = React.forwardRef((props_, ref: any) => {

@@ -6,8 +6,8 @@ import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-re
 import Line from '../Line';
 import Type from '../Type';
 import { ILine } from '../Line/Line';
-
-import { TElement, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
+import { IElement } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -34,14 +34,14 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-FormRow' });
 
 export interface IFormRow extends ILine {
-  name?: string | TElement;
-  description?: string | TElement;
+  name?: string | IElement;
+  description?: string | IElement;
 
   start?: any;
   end?: any;
 
   row?: boolean;
-  footer?: TElement;
+  footer?: IElement;
 
   HeaderProps?: any;
   MainProps?: any;

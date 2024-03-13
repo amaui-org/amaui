@@ -10,8 +10,8 @@ import Line from '../Line';
 import Tooltip from '../Tooltip';
 import Type from '../Type';
 import { ILine } from '../Line/Line';
-
-import { TElement, TElementReference, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
+import { IElement, IElementReference } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -45,10 +45,10 @@ export interface IPage extends ILine {
 
   noHeader?: boolean;
 
-  name?: string | TElement;
+  name?: string | IElement;
 
-  IconBack?: TElementReference;
-  IconForward?: TElementReference;
+  IconBack?: IElementReference;
+  IconForward?: IElementReference;
 }
 
 const IconMaterialArrowBackRounded = React.forwardRef((props: any, ref) => {

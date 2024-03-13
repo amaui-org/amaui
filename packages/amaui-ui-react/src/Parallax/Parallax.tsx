@@ -4,8 +4,8 @@ import { is, clamp } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import useMediaQuery from '../useMediaQuery';
-
-import { IBaseElement, staticClassName, TPropsAny, TStyle, TValueBreakpoints, valueBreakpoints } from '../utils';
+import { valueBreakpoints, staticClassName } from '../utils';
+import { IBaseElement, IPropsAny, IStyle, IValueBreakpoints } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -21,7 +21,7 @@ export interface IParallax extends IBaseElement {
   // element
   root?: Element | DocumentFragment;
 
-  render?: (value: number, root: Element | DocumentFragment, rate: number, scrollDirection: TParallaxDirection, transformDirection: TParallaxDirection, transition: string, props: TPropsAny) => TStyle;
+  render?: (value: number, root: Element | DocumentFragment, rate: number, scrollDirection: TParallaxDirection, transformDirection: TParallaxDirection, transition: string, props: IPropsAny) => IStyle;
 
   // value or a method
   rate?: number | ((value: number) => number);
@@ -31,7 +31,7 @@ export interface IParallax extends IBaseElement {
 
   transition?: string;
 
-  disabled?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  disabled?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 }
 
 const Parallax: React.FC<IParallax> = React.forwardRef((props_, ref: any) => {

@@ -10,8 +10,8 @@ import Line from '../Line';
 import Icon from '../Icon';
 import Interaction from '../Interaction';
 import { IFileChoose } from '../FileChoose/FileChoose';
-
-import { staticClassName, TElement, TVersion } from '../utils';
+import { staticClassName } from '../utils';
+import { IElement, IVersion } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -66,9 +66,9 @@ const IconMaterialCloudUploadRounded = React.forwardRef((props: any, ref) => {
 });
 
 export interface IDropZone extends IFileChoose {
-  version?: TVersion;
+  version?: IVersion;
 
-  start?: TElement;
+  start?: IElement;
 
   onFocus?: (event: React.FocusEvent<any>) => any;
   onBlur?: (event: React.FocusEvent<any>) => any;

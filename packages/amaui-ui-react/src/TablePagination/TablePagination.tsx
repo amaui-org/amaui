@@ -10,8 +10,8 @@ import ListItem from '../ListItem';
 import Icon from '../Icon';
 import IconButton from '../IconButton';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, TColor, TElementReference, TSize, TTonal, TVersion } from '../utils';
+import { staticClassName } from '../utils';
+import { IColor, IElementReference, ISize, ITonal, IVersion } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -92,11 +92,11 @@ const IconMaterialNavigateBeforeRounded = React.forwardRef((props: any, ref) => 
 });
 
 export interface ITableRow extends ILine {
-  tonal?: TTonal;
-  color?: TColor;
-  version?: TVersion;
+  tonal?: ITonal;
+  color?: IColor;
+  version?: IVersion;
   elevation?: boolean;
-  size?: TSize;
+  size?: ISize;
 
   page?: number;
   pageDefault?: number;
@@ -116,10 +116,10 @@ export interface ITableRow extends ILine {
   next?: boolean;
   last?: boolean;
 
-  IconFirst?: TElementReference;
-  IconBefore?: TElementReference;
-  IconNext?: TElementReference;
-  IconLast?: TElementReference;
+  IconFirst?: IElementReference;
+  IconBefore?: IElementReference;
+  IconNext?: IElementReference;
+  IconLast?: IElementReference;
 }
 
 const TablePagination: React.FC<ITableRow> = React.forwardRef((props_, ref: any) => {

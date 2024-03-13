@@ -10,8 +10,8 @@ import Tree from '../Tree';
 import Line from '../Line';
 import Icon from '../Icon';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, TColor, TElementReference, TPropsAny, TRef, TTonal } from '../utils';
+import { staticClassName } from '../utils';
+import { ITonal, IColor, IRef, IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -121,10 +121,10 @@ const IconMaterialFolderOpenRounded = React.forwardRef((props: any, ref) => {
 export type TFileChooseValue = File | Array<File>;
 
 export interface IFileChoose extends ILine {
-  tonal?: TTonal;
-  color?: TColor;
+  tonal?: ITonal;
+  color?: IColor;
 
-  inputRef?: TRef;
+  inputRef?: IRef;
 
   max?: number;
   allowedTypes?: Array<string>;
@@ -146,11 +146,11 @@ export interface IFileChoose extends ILine {
 
   onChange?: (value: TFileChooseValue) => any;
 
-  IconStart?: TElementReference;
+  IconStart?: IElementReference;
 
-  inputProps?: TPropsAny;
-  WrapperProps?: TPropsAny;
-  ComponentProps?: TPropsAny;
+  inputProps?: IPropsAny;
+  WrapperProps?: IPropsAny;
+  ComponentProps?: IPropsAny;
 }
 
 const FileChoose: React.FC<IFileChoose> = React.forwardRef((props_, ref: any) => {

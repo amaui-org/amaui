@@ -11,8 +11,8 @@ import Tooltip from '../Tooltip';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, TElementReference, TPropsAny, TSize } from '../utils';
+import { staticClassName } from '../utils';
+import { IElementReference, IPropsAny, ISize } from '../types';
 
 const useStyle = styleMethod(theme => ({
   '@keyframes pulse': {
@@ -54,7 +54,7 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-AudioRecorder' });
 
 export interface IAudioRecorder extends ILine {
-  size?: TSize;
+  size?: ISize;
 
   pause?: boolean;
 
@@ -64,11 +64,11 @@ export interface IAudioRecorder extends ILine {
   loading?: any;
   disabled?: any;
 
-  Icon?: TElementReference;
-  IconConfirm?: TElementReference;
-  IconStart?: TElementReference;
-  IconPause?: TElementReference;
-  IconStop?: TElementReference;
+  Icon?: IElementReference;
+  IconConfirm?: IElementReference;
+  IconStart?: IElementReference;
+  IconPause?: IElementReference;
+  IconStop?: IElementReference;
 
   onConfirm?: (value: Blob) => any;
   onData?: (value: Blob) => any;
@@ -78,9 +78,9 @@ export interface IAudioRecorder extends ILine {
   onStop?: (event: React.MouseEvent<any>) => any;
   onError?: (error: Error) => any;
 
-  TooltipProps?: TPropsAny;
-  IconButtonProps?: TPropsAny;
-  IconProps?: TPropsAny;
+  TooltipProps?: IPropsAny;
+  IconButtonProps?: IPropsAny;
+  IconProps?: IPropsAny;
 }
 
 const IconMaterialMicRounded = React.forwardRef((props: any, ref) => {

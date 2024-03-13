@@ -5,10 +5,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Line from '../Line';
 import Surface from '../Surface';
-
-import { staticClassName } from '../utils';
 import { ISurface } from '../Surface/Surface';
 import { INavigationItemVersion } from '../NavigationItem/NavigationItem';
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {

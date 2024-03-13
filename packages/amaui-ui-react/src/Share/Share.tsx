@@ -4,7 +4,6 @@ import { clamp, copyToClipboard, is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line from '../Line';
-import { staticClassName, TSize } from '../utils';
 import Icon, { IIcon } from '../Icon';
 import useMediaQuery from '../useMediaQuery';
 import Type from '../Type';
@@ -15,6 +14,8 @@ import Menu from '../Menu';
 import BottomSheet from '../BottomSheet';
 import List from '../List';
 import { ILine } from '../Line/Line';
+import { staticClassName } from '../utils';
+import { ISize } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -107,7 +108,7 @@ export interface IShare extends ILine {
 
   position?: 'start' | 'end' | 'top' | 'bottom';
 
-  size?: TSize;
+  size?: ISize;
 
   name?: string;
 

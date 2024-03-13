@@ -5,8 +5,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import IconButton from '../IconButton';
 import { IIconButton } from '../IconButton/IconButton';
-
-import { iconSizeToFontSize, staticClassName, TColor, TRef } from '../utils';
+import { iconSizeToFontSize, staticClassName } from '../utils';
+import { IRef, IColor } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -105,9 +105,9 @@ const IconItem = (props: any) => {
 };
 
 export interface IRadio extends IIconButton {
-  inputRef?: TRef;
+  inputRef?: IRef;
 
-  colorUnchecked?: TColor;
+  colorUnchecked?: IColor;
 
   valueDefault?: boolean;
   checkedDefault?: boolean;

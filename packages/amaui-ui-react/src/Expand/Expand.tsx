@@ -3,7 +3,8 @@ import React from 'react';
 import { is, wait } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
-import { ITransition, TPropsAny, Transition, TTransitionStatus } from '..';
+import { ITransition, Transition, TTransitionStatus } from '..';
+import { IPropsAny } from '../types';
 
 const Wrapper = React.forwardRef((props: any, ref: any) => {
   const {
@@ -36,7 +37,7 @@ export interface IExpand extends Omit<ITransition, 'className'> {
 
   orientation?: 'veritcal' | 'horizontal';
 
-  WrapperProps?: TPropsAny;
+  WrapperProps?: IPropsAny;
 
   className?: string;
 }

@@ -5,9 +5,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Type from '../Type';
 import Line from '../Line';
-
-import { staticClassName, TColor, TElement, TPropsAny, TSize, TTonal, TVersion } from '../utils';
 import { ILine, TLineAlign } from '../Line/Line';
+import { staticClassName } from '../utils';
+import { ITonal, IColor, IVersion, ISize, IElement, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -45,18 +45,18 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Label' });
 
 export interface ILabel extends ILine {
-  tonal?: TTonal;
-  color?: TColor;
-  colorUnchecked?: TColor;
-  version?: TVersion;
-  size?: TSize;
+  tonal?: ITonal;
+  color?: IColor;
+  colorUnchecked?: IColor;
+  version?: IVersion;
+  size?: ISize;
 
   position?: 'start' | 'top' | 'bottom' | 'end';
 
-  input?: TElement;
+  input?: IElement;
 
-  label?: TElement;
-  name?: TElement;
+  label?: IElement;
+  name?: IElement;
 
   checkedDefault?: boolean;
 
@@ -67,12 +67,12 @@ export interface ILabel extends ILine {
 
   error?: boolean;
   helperText?: string;
-  footer?: TElement;
+  footer?: IElement;
 
   disabled?: boolean;
 
-  LabelProps?: TPropsAny;
-  TypeProps?: TPropsAny;
+  LabelProps?: IPropsAny;
+  TypeProps?: IPropsAny;
 }
 
 const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {

@@ -8,8 +8,8 @@ import Focus from '../Focus';
 import Fade from '../Fade';
 import Surface from '../Surface';
 import useMediaQuery from '../useMediaQuery';
-
-import { IBaseElement, staticClassName, TColor, TElementReference, TPropsAny, TRef, TSize, TTonal } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement, IColor, IElementReference, IPropsAny, IRef, ISize, ITonal } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -126,15 +126,15 @@ let MODALS_OPEN = 0;
 // 1. Add padding right for freezeScroll for the scroll bar if it exists and width that it is
 
 export interface IModal extends IBaseElement {
-  tonal?: TTonal;
-  color?: TColor;
-  size?: TSize;
+  tonal?: ITonal;
+  color?: IColor;
+  size?: ISize;
 
   open?: boolean;
   openDefault?: boolean;
 
-  mainRef?: TRef;
-  backgroundRef?: TRef;
+  mainRef?: IRef;
+  backgroundRef?: IRef;
 
   partialyOpened?: boolean | number;
 
@@ -161,14 +161,14 @@ export interface IModal extends IBaseElement {
 
   onClose?: TMethod;
 
-  NoSurfaceProps?: TPropsAny;
-  SurfaceProps?: TPropsAny;
-  BackgroundProps?: TPropsAny;
-  PortalProps?: TPropsAny;
-  TransitionComponentProps?: TPropsAny;
+  NoSurfaceProps?: IPropsAny;
+  SurfaceProps?: IPropsAny;
+  BackgroundProps?: IPropsAny;
+  PortalProps?: IPropsAny;
+  TransitionComponentProps?: IPropsAny;
 
-  BackgroundComponent?: TElementReference;
-  TransitionComponent?: TElementReference;
+  BackgroundComponent?: IElementReference;
+  TransitionComponent?: IElementReference;
 }
 
 const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {

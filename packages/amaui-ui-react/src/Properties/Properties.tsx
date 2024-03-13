@@ -4,7 +4,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Line, { ILine } from '../Line/Line';
 import Property from '../Property';
-import { TPropsAny, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
+import { IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -52,7 +53,7 @@ export interface IProperties extends ILine {
 
   maxWidth?: 'extra_small' | 'small' | 'regular' | 'large' | 'extra_large' | 'extra_extra_large';
 
-  PropertyProps?: TPropsAny;
+  PropertyProps?: IPropsAny;
 }
 
 const Properties: React.FC<IProperties> = React.forwardRef((props_, ref: any) => {

@@ -4,7 +4,6 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import TimePicker from '../TimePicker';
 import { ITimePicker } from '../TimePicker/TimePicker';
-
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({

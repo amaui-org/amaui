@@ -5,7 +5,6 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import TextField from '../TextField';
 import { ITextField } from '../TextField/TextField';
-
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({

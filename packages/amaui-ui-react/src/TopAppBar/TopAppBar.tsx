@@ -7,8 +7,8 @@ import Line from '../Line';
 import Surface from '../Surface';
 import Type from '../Type';
 import { ISurface } from '../Surface/Surface';
-
-import { staticClassName, TElement, TSize } from '../utils';
+import { staticClassName } from '../utils';
+import { ISize, IElement } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -125,13 +125,13 @@ const useStyle = styleMethod(theme => ({
 export interface ITopAppBar extends Omit<ISurface, 'version'> {
   position?: 'relative' | 'absolute' | 'static' | 'sticky' | 'fixed' | 'unset';
   version?: 'small' | 'center' | 'medium' | 'large';
-  size?: TSize;
+  size?: ISize;
 
   center?: boolean;
 
-  title?: TElement;
-  start?: TElement;
-  end?: TElement;
+  title?: IElement;
+  start?: IElement;
+  end?: IElement;
 }
 
 const TopAppBar: React.FC<ITopAppBar> = React.forwardRef((props_, ref: any) => {

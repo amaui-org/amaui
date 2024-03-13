@@ -5,10 +5,10 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Surface from '../Surface';
 import Interaction from '../Interaction';
-
-import { staticClassName, TPropsAny } from '../utils';
 import { ISurface } from '../Surface/Surface';
 import Line from '../Line';
+import { staticClassName } from '../utils';
+import { IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -54,7 +54,7 @@ export interface ICard extends ISurface {
   onFocus?: (event: React.FocusEvent<any>) => any;
   onBlur?: (event: React.FocusEvent<any>) => any;
 
-  InteractionProps?: TPropsAny;
+  InteractionProps?: IPropsAny;
 }
 
 const Card: React.FC<ICard> = React.forwardRef((props_, ref: any) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { is, textToInnerHTML } from '@amaui/utils';
 import { TPaletteVersion, classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon, { IIcon } from '../Icon';
@@ -9,7 +9,8 @@ import Properties from '../Properties';
 import Section, { ISection } from '../Section/Section';
 import Type from '../Type';
 import useMediaQuery from '../useMediaQuery';
-import { TPropsAny, staticClassName, textToInnerHTML } from '../utils';
+import { staticClassName } from '../utils';
+import { IPropsAny } from '../types';
 
 const IconMaterialMapRounded = React.forwardRef((props: IIcon, ref) => {
 
@@ -114,10 +115,10 @@ export interface ISectionContact extends ISection {
   IconPhone?: any;
   IconEmail?: any;
 
-  MapProps?: TPropsAny;
-  HeadingProps?: TPropsAny;
-  SummaryProps?: TPropsAny;
-  PropertiesProps?: TPropsAny;
+  MapProps?: IPropsAny;
+  HeadingProps?: IPropsAny;
+  SummaryProps?: IPropsAny;
+  PropertiesProps?: IPropsAny;
 }
 
 const Element: React.FC<ISectionContact> = React.forwardRef((props_, ref: any) => {

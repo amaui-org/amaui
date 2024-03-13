@@ -10,8 +10,8 @@ import Icon from '../Icon';
 import Tooltip from '../Tooltip';
 import Line from '../Line';
 import { ILine, TLineDirection } from '../Line/Line';
-
-import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TVersion } from '../utils';
+import { staticClassName } from '../utils';
+import { ITonal, IColor, IVersion, IElement, IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -146,9 +146,9 @@ const IconWrapper = (props: any) => {
 };
 
 export interface ISpeedDial extends Omit<ILine, 'direction'> {
-  tonal?: TTonal;
-  color?: TColor;
-  version?: TVersion;
+  tonal?: ITonal;
+  color?: IColor;
+  version?: IVersion;
 
   open?: boolean;
   openDefault?: boolean;
@@ -169,22 +169,22 @@ export interface ISpeedDial extends Omit<ILine, 'direction'> {
 
   noRotate?: boolean;
 
-  tooltipLabel?: TElement;
+  tooltipLabel?: IElement;
 
   onKeyDown?: (event: React.KeyboardEvent<any>) => any;
 
   disabled?: boolean;
 
-  IconOpen?: TElementReference;
-  Icon?: TElementReference;
-  FabTransitionComponent?: TElementReference;
-  SpeeDialItemTransitionComponent?: TElementReference;
+  IconOpen?: IElementReference;
+  Icon?: IElementReference;
+  FabTransitionComponent?: IElementReference;
+  SpeeDialItemTransitionComponent?: IElementReference;
 
-  TooltipProps?: TPropsAny;
-  FabProps?: TPropsAny;
-  FabWrapperProps?: TPropsAny;
-  FabTransitionComponentProps?: TPropsAny;
-  SpeeDialItemTransitionComponentProps?: TPropsAny;
+  TooltipProps?: IPropsAny;
+  FabProps?: IPropsAny;
+  FabWrapperProps?: IPropsAny;
+  FabTransitionComponentProps?: IPropsAny;
+  SpeeDialItemTransitionComponentProps?: IPropsAny;
 }
 
 const SpeedDial: React.FC<ISpeedDial> = React.forwardRef((props_, ref: any) => {

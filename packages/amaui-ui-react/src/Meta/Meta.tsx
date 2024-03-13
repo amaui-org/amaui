@@ -6,7 +6,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Type from '../Type';
 import Line from '../Line';
 import { ILine } from '../Line/Line';
-import { TPropsAny, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
+import { IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -23,8 +24,8 @@ export interface IMeta extends ILine {
 
   separator?: any;
 
-  ItemProps?: TPropsAny;
-  SeparatorProps?: TPropsAny;
+  ItemProps?: IPropsAny;
+  SeparatorProps?: IPropsAny;
 }
 
 const Meta: React.FC<IMeta> = React.forwardRef((props_, ref: any) => {

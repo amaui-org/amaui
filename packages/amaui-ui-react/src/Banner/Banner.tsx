@@ -5,8 +5,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import ListItem from '../ListItem';
 import Grid from '../Grid';
 import Line from '../Line';
-
-import { IBaseElement, staticClassName, TElement, TSize } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement, IElement, ISize } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -50,10 +50,10 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Banner' });
 
 export interface IBanner extends IBaseElement {
-  size?: TSize;
+  size?: ISize;
 
   maxWidth?: string | number;
-  actions?: TElement;
+  actions?: IElement;
 }
 
 const Banner: React.FC<IBanner> = React.forwardRef((props_, ref: any) => {

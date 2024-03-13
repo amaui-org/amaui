@@ -4,9 +4,9 @@ import { is, numberWithCommas, Try } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import TextField from '../TextField';
-
-import { staticClassName, TPropsAny } from '../utils';
 import { ITextField } from '../TextField/TextField';
+import { staticClassName } from '../utils';
+import { IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -25,7 +25,7 @@ export interface IAdvancedTextField extends ITextField {
 
   thousandSeparator?: ',' | '.';
 
-  TextFieldProps?: TPropsAny;
+  TextFieldProps?: IPropsAny;
 }
 
 const AdvancedTextField: React.FC<IAdvancedTextField> = React.forwardRef((props_, ref: any) => {

@@ -5,7 +5,6 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Fade from '../Fade';
 import { IFade } from '../Fade/Fade';
-
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({

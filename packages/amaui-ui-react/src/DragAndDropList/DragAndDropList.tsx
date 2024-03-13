@@ -3,7 +3,7 @@ import React from 'react';
 import { debounce, equalDeep, is, isEnvironment } from '@amaui/utils';
 import { style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement } from '../utils';
+import { IBaseElement } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {

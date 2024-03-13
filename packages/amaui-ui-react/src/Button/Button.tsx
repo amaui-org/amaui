@@ -8,8 +8,8 @@ import Interaction from '../Interaction';
 import RoundProgress from '../RoundProgress';
 import Type from '../Type';
 import { ISurface } from '../Surface/Surface';
-
-import { iconSizeToFontSize, staticClassName, TElement, TElementReference, TPropsAny, TSizeAny } from '../utils';
+import { iconSizeToFontSize, staticClassName } from '../utils';
+import { IElement, IElementReference, IPropsAny, ISizeAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -277,22 +277,22 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Button' });
 
 export interface IButton extends Omit<ISurface, 'elevation'> {
-  size?: TSizeAny;
+  size?: ISizeAny;
 
   fullWidth?: boolean;
   fontSize?: string | number;
   selected?: boolean;
-  iconSelected?: TElement;
-  start?: TElement;
-  startSelected?: TElement;
-  end?: TElement;
-  endSelected?: TElement;
+  iconSelected?: IElement;
+  start?: IElement;
+  startSelected?: IElement;
+  end?: IElement;
+  endSelected?: IElement;
   elevation?: boolean;
   backgroundOpacity?: number;
   align?: 'start' | 'center' | 'end';
   loading?: boolean;
-  loadingLabel?: TElement;
-  loadingIcon?: TElement;
+  loadingLabel?: IElement;
+  loadingIcon?: IElement;
   loadingIconPosition?: 'start' | 'center' | 'end';
   fab?: boolean;
   chip?: boolean;
@@ -300,7 +300,7 @@ export interface IButton extends Omit<ISurface, 'elevation'> {
   focus?: boolean;
   value?: any;
   noIconRootFontSize?: boolean;
-  firstLevelChildren?: TElement;
+  firstLevelChildren?: IElement;
   noFontSize?: boolean;
 
   disabled?: boolean;
@@ -308,10 +308,10 @@ export interface IButton extends Omit<ISurface, 'elevation'> {
   onFocus?: (event: React.FocusEvent<any>) => any;
   onBlur?: (event: React.FocusEvent<any>) => any;
 
-  IconWrapperComponent?: TElementReference;
+  IconWrapperComponent?: IElementReference;
 
-  InteractionProps?: TPropsAny;
-  IconWrapperProps?: TPropsAny;
+  InteractionProps?: IPropsAny;
+  IconWrapperProps?: IPropsAny;
 }
 
 const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {

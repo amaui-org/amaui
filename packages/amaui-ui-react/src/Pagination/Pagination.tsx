@@ -9,8 +9,8 @@ import Line from '../Line';
 import IconButton from '../IconButton';
 import PaginationItem from '../PaginationItem';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, TColor, TElement, TElementReference, TSize, TTonal, TVersion } from '../utils';
+import { staticClassName } from '../utils';
+import { ITonal, IColor, IVersion, ISize, IElement, IElementReference } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -100,11 +100,11 @@ const IconMaterialNavigateBeforeRounded = React.forwardRef((props: any, ref) => 
 });
 
 export interface IPagination extends ILine {
-  tonal?: TTonal;
-  color?: TColor;
-  version?: TVersion;
+  tonal?: ITonal;
+  color?: IColor;
+  version?: IVersion;
   elevation?: boolean;
-  size?: TSize;
+  size?: ISize;
 
   value?: number;
   valueDefault?: number;
@@ -122,12 +122,12 @@ export interface IPagination extends ILine {
   disableSelected?: boolean;
   disabled?: boolean;
 
-  renderItem?: (value: number, item: string | number, index: number) => TElement;
+  renderItem?: (value: number, item: string | number, index: number) => IElement;
 
-  IconFirst?: TElementReference;
-  IconBefore?: TElementReference;
-  IconNext?: TElementReference;
-  IconLast?: TElementReference;
+  IconFirst?: IElementReference;
+  IconBefore?: IElementReference;
+  IconNext?: IElementReference;
+  IconLast?: IElementReference;
 }
 
 const Pagination: React.FC<IPagination> = React.forwardRef((props_, ref: any) => {

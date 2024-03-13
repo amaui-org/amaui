@@ -5,7 +5,8 @@ import AmauiSubscription from '@amaui/subscription';
 import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amaui/style-react';
 
 import TransitionContext from './Context';
-import { IBaseElement, reflow } from '../utils';
+import { reflow } from '../utils';
+import { IBaseElement } from '../types';
 
 export type TTransitionStatus = 'appended' | 'add' | 'adding' | 'added' | 'enter' | 'entering' | 'entered' | 'exit' | 'exiting' | 'exited' | 'removed';
 

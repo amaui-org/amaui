@@ -9,8 +9,8 @@ import Fade from '../Fade';
 import Line from '../Line';
 import Tooltip from '../Tooltip';
 import { ITooltip } from '../Tooltip/Tooltip';
-
-import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal } from '../utils';
+import { staticClassName } from '../utils';
+import { ITonal, IColor, IElement, IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -128,20 +128,20 @@ const useStyle = styleMethod(theme => ({
 export type INavigationItemVersion = 'regular' | 'auto';
 
 export interface INavigationItem extends ITooltip {
-  tonal?: TTonal;
-  color?: TColor;
+  tonal?: ITonal;
+  color?: IColor;
   version?: 'regular' | 'auto';
 
   value?: any;
   vertical?: boolean;
-  name?: TElement;
-  label?: TElement;
-  icon?: TElement;
-  iconSelected?: TElement;
+  name?: IElement;
+  label?: IElement;
+  icon?: IElement;
+  iconSelected?: IElement;
   selected?: boolean;
   disabled?: boolean;
 
-  IconWrapperComponent?: TElementReference;
+  IconWrapperComponent?: IElementReference;
 
   onFocus?: (event: React.FocusEvent<any>) => any;
   onBlur?: (event: React.FocusEvent<any>) => any;
@@ -151,8 +151,8 @@ export interface INavigationItem extends ITooltip {
   onMouseLeave?: (event: React.MouseEvent<any>) => any;
   onTouchStart?: (event: React.TouchEvent<any>) => any;
 
-  TooltipProps?: TPropsAny;
-  IconWrapperProps?: TPropsAny;
+  TooltipProps?: IPropsAny;
+  IconWrapperProps?: IPropsAny;
 }
 
 const NavigationItem: React.FC<INavigationItem> = React.forwardRef((props_, ref: any) => {

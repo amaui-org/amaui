@@ -6,7 +6,8 @@ import { TPaletteVersion, classNames, style as styleMethod, useAmauiTheme } from
 import Section, { ISection } from '../Section/Section';
 import Watch from '../Watch';
 import { IWatch } from '../Watch/Watch';
-import { TSize, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
+import { ISize } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -19,7 +20,7 @@ export interface ISectionWatch extends ISection {
 
   version?: 'regular' | 'analog' | 'modern' | 'minimal';
 
-  size?: TSize;
+  size?: ISize;
 
   color?: TPaletteVersion;
 

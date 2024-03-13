@@ -24,8 +24,8 @@ import { TClockUnit } from '../Clock/Clock';
 import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
 import Tabs from '../Tabs';
 import Tab from '../Tab';
-
-import { staticClassName, TElementReference, TPropsAny, TSize, TValueBreakpoints, valueBreakpoints } from '../utils';
+import { valueBreakpoints, staticClassName } from '../utils';
+import { ISize, IValueBreakpoints, IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -319,7 +319,7 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
   selectingDefault?: TTimePickerSelecting;
   onChangeSelecting?: (value: TTimePickerSelecting) => any;
 
-  size?: TSize;
+  size?: ISize;
 
   now?: boolean;
   range?: boolean;
@@ -328,20 +328,20 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
   validate?: (value: AmauiDate) => boolean;
   min?: AmauiDate;
   max?: AmauiDate;
-  autoNext?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
-  autoCloseOnLast?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  autoNext?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
+  autoCloseOnLast?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
   openMobile?: 'input' | 'select';
   openDesktop?: 'input' | 'select';
   selectModalSubHeadingText?: string;
   selectModalSubHeadingTextRange?: string;
   inputModalSubHeadingText?: string;
   inputModalSubHeadingTextRange?: string;
-  orientation?: 'vertical' | 'horizontal' | Partial<Record<TValueBreakpoints, 'vertical' | 'horizontal'>>;
+  orientation?: 'vertical' | 'horizontal' | Partial<Record<IValueBreakpoints, 'vertical' | 'horizontal'>>;
   format?: '12' | '24';
   hour?: boolean;
   minute?: boolean;
   second?: boolean;
-  switch?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  switch?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
   today?: boolean;
   clear?: boolean;
   placeholder?: string;
@@ -358,23 +358,23 @@ export interface ITimePicker extends Omit<IAdvancedTextField, 'version'> {
 
   renderValue?: (value: AmauiDate, version: TClockUnit, x: number, y: number, valueNumber: number, otherProps: any) => React.ReactNode;
 
-  Icon?: TElementReference;
-  IconEnter?: TElementReference;
+  Icon?: IElementReference;
+  IconEnter?: IElementReference;
 
-  MainProps?: TPropsAny;
-  ModalProps?: TPropsAny;
-  MiddleProps?: TPropsAny;
-  ButtonProps?: TPropsAny;
-  TooltipProps?: TPropsAny;
-  ToggleButtonsProps?: TPropsAny;
-  ToggleButtonProps?: TPropsAny;
-  IconButtonProps?: TPropsAny;
-  InputProps?: TPropsAny;
-  ClockProps?: TPropsAny;
-  TabsProps?: TPropsAny;
-  TabFromProps?: TPropsAny;
-  TabToProps?: TPropsAny;
-  AdvancedTextFieldProps?: TPropsAny;
+  MainProps?: IPropsAny;
+  ModalProps?: IPropsAny;
+  MiddleProps?: IPropsAny;
+  ButtonProps?: IPropsAny;
+  TooltipProps?: IPropsAny;
+  ToggleButtonsProps?: IPropsAny;
+  ToggleButtonProps?: IPropsAny;
+  IconButtonProps?: IPropsAny;
+  InputProps?: IPropsAny;
+  ClockProps?: IPropsAny;
+  TabsProps?: IPropsAny;
+  TabFromProps?: IPropsAny;
+  TabToProps?: IPropsAny;
+  AdvancedTextFieldProps?: IPropsAny;
 }
 
 const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) => {

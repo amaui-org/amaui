@@ -15,8 +15,8 @@ import Line from '../Line';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
 import { ISurface } from '../Surface/Surface';
-
-import { staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IElement, IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -163,7 +163,7 @@ const IconMaterialStopRounded = React.forwardRef((props: any, ref) => {
 export interface ICountdown extends Omit<ISurface, 'version'> {
   version?: 'linear' | 'round';
 
-  renderValue?: (value: string) => TElement;
+  renderValue?: (value: string) => IElement;
   icon?: boolean;
 
   onStart?: (event: React.MouseEvent<any>) => any;
@@ -171,18 +171,18 @@ export interface ICountdown extends Omit<ISurface, 'version'> {
   onStop?: (event: React.MouseEvent<any>) => any;
   onResume?: (event: React.MouseEvent<any>) => any;
 
-  Icon?: TElementReference;
-  IconStart?: TElementReference;
-  IconPause?: TElementReference;
-  IconStop?: TElementReference;
+  Icon?: IElementReference;
+  IconStart?: IElementReference;
+  IconPause?: IElementReference;
+  IconStop?: IElementReference;
 
-  TreeProps?: TPropsAny;
-  TooltipProps?: TPropsAny;
-  RoundProgressProps?: TPropsAny;
-  NumericTextFieldProps?: TPropsAny;
-  IconButtonProps?: TPropsAny;
-  LinearProgressProps?: TPropsAny;
-  IconProps?: TPropsAny;
+  TreeProps?: IPropsAny;
+  TooltipProps?: IPropsAny;
+  RoundProgressProps?: IPropsAny;
+  NumericTextFieldProps?: IPropsAny;
+  IconButtonProps?: IPropsAny;
+  LinearProgressProps?: IPropsAny;
+  IconProps?: IPropsAny;
 }
 
 const Countdown: React.FC<ICountdown> = React.forwardRef((props_, ref: any) => {

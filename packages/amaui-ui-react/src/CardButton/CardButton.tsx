@@ -4,8 +4,8 @@ import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Interaction from '../Interaction';
-
-import { IBaseElement, staticClassName, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -23,7 +23,7 @@ export interface ICardButton extends IBaseElement {
   onFocus?: (event: React.FocusEvent<any>) => any;
   onBlur?: (event: React.FocusEvent<any>) => any;
 
-  InteractionProps?: TPropsAny;
+  InteractionProps?: IPropsAny;
 }
 
 const CardButton: React.FC<ICardButton> = React.forwardRef((props_, ref: any) => {

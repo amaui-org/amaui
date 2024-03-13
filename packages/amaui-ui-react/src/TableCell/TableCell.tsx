@@ -6,8 +6,8 @@ import { clamp, is } from '@amaui/utils';
 import Line from '../Line';
 import Divider from '../Divider';
 import { TLineAlign, TLineJustify } from '../Line/Line';
-
-import { getOverflowParent, IBaseElement, staticClassName, TColor, TPropsAny, TSize, TTonal } from '../utils';
+import { getOverflowParent, staticClassName } from '../utils';
+import { IBaseElement, ITonal, IColor, ISize, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -90,9 +90,9 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-TableCell' });
 
 export interface ITableCell extends IBaseElement {
-  tonal?: TTonal;
-  color?: TColor;
-  size?: TSize;
+  tonal?: ITonal;
+  color?: IColor;
+  size?: ISize;
 
   position?: 'head' | 'body';
   align?: TLineAlign;
@@ -103,7 +103,7 @@ export interface ITableCell extends IBaseElement {
   stickyPosition?: 'left' | 'right';
   stickyOffset?: number;
 
-  DividerProps?: TPropsAny;
+  DividerProps?: IPropsAny;
 }
 
 const TableCell: React.FC<ITableCell> = React.forwardRef((props_, ref: any) => {

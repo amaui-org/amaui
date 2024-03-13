@@ -3,7 +3,8 @@ import React from 'react';
 import { colorToRgb, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement, replace, sanitize, staticClassName } from '../utils';
+import { replace, sanitize, staticClassName } from '../utils';
+import { IBaseElement } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {

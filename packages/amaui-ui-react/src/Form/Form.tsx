@@ -7,8 +7,8 @@ import Line from '../Line';
 import Accordion from '../Accordion';
 import Type from '../Type';
 import { ILine } from '../Line/Line';
-
-import { TElement, TSize, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
+import { IElement, ISize } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -66,15 +66,15 @@ export interface IForm extends ILine {
 
   divider?: boolean;
 
-  name?: string | TElement;
-  description?: string | TElement;
+  name?: string | IElement;
+  description?: string | IElement;
 
-  size?: TSize;
+  size?: ISize;
 
   start?: any;
   end?: any;
 
-  footer?: TElement;
+  footer?: IElement;
 
   onSubmit?: (event: SubmitEvent) => any;
 

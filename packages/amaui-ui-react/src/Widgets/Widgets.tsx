@@ -10,8 +10,8 @@ import Transition, { TTransitionStatus } from '../Transition';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
 import Move from '../Move';
-
-import { IBaseElement, staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement, IElement, IPropsAny, IElementReference } from '../types';
 
 export interface IWidgetsValue {
   open: (value?: string) => void;
@@ -135,7 +135,7 @@ const IconMaterialWidgetsRounded = React.forwardRef((props: any, ref) => {
 });
 
 export interface IWidgets extends IBaseElement {
-  widgets?: TElement;
+  widgets?: IElement;
 
   position?: 'top' | 'bottom';
 
@@ -149,11 +149,11 @@ export interface IWidgets extends IBaseElement {
   onClose?: (value: string) => any;
   onCloseAll?: () => any;
 
-  SpeedDialProps?: TPropsAny;
-  MoveProps?: TPropsAny;
+  SpeedDialProps?: IPropsAny;
+  MoveProps?: IPropsAny;
 
-  Icon?: TElementReference;
-  IconCloseItem?: TElementReference;
+  Icon?: IElementReference;
+  IconCloseItem?: IElementReference;
 }
 
 const Widgets: React.FC<IWidgets> = React.forwardRef((props_, ref: any) => {
@@ -237,7 +237,7 @@ const Widgets: React.FC<IWidgets> = React.forwardRef((props_, ref: any) => {
 
   refs.value.current.closeAll = closeAll;
 
-  const widgetsToUse = [...((widgets || []) as Array<TElement>)].reverse();
+  const widgetsToUse = [...((widgets || []) as Array<IElement>)].reverse();
 
   return (
     <WidgetsContext.Provider value={refs.value.current}>

@@ -7,8 +7,8 @@ import Line from '../Line';
 import Focus from '../Focus';
 import Fade from '../Fade';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, TElementReference, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -48,11 +48,11 @@ export interface IBackdrop extends ILine {
   disableKeyboardClose?: boolean;
   disableBackgroundClose?: boolean;
 
-  BackgroundComponent?: TElementReference;
-  ModalComponent?: TElementReference;
+  BackgroundComponent?: IElementReference;
+  ModalComponent?: IElementReference;
 
-  BackgroundProps?: TPropsAny;
-  ModalProps?: TPropsAny;
+  BackgroundProps?: IPropsAny;
+  ModalProps?: IPropsAny;
 
   onClose?: TMethod;
 }

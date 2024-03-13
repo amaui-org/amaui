@@ -5,8 +5,8 @@ import AmauiSubscription from '@amaui/subscription';
 import { classNames, useAmauiTheme, TTransitionsDurationProperties } from '@amaui/style-react';
 
 import KeyframesContext from './Context';
-
-import { IBaseElement, reflow, TRef } from '../utils';
+import { reflow } from '../utils';
+import { IBaseElement, IRef } from '../types';
 
 export type TKeyframesStatus = 'appended' | 'add' | 'adding' | 'added' | 'removed';
 
@@ -16,7 +16,7 @@ export interface IKeyframe {
 }
 
 export interface IKeyframes extends Omit<IBaseElement, 'className'> {
-  ref?: TRef;
+  ref?: IRef;
 
   className?: boolean;
 

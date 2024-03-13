@@ -5,8 +5,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Line from '../Line';
 import Avatar from '../Avatar';
 import { IAvatar } from '../Avatar/Avatar';
-
-import { staticClassName, TColor, TElement, TPropsAny, TSizeAny, TTonal } from '../utils';
+import { staticClassName } from '../utils';
+import { IColor, IElement, IPropsAny, ISizeAny, ITonal } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -29,17 +29,17 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-AvatarGroup' });
 
 export interface IAvatarGroup extends IAvatar {
-  tonal?: TTonal;
-  color?: TColor;
-  size?: TSizeAny;
+  tonal?: ITonal;
+  color?: IColor;
+  size?: ISizeAny;
 
   total?: number;
   max?: number;
   disabled?: boolean;
 
-  AdditionalAvatar?: TElement;
+  AdditionalAvatar?: IElement;
 
-  AdditionalAvatarProps?: TPropsAny;
+  AdditionalAvatarProps?: IPropsAny;
 }
 
 const AvatarGroup: React.FC<IAvatarGroup> = React.forwardRef((props_, ref: any) => {

@@ -4,8 +4,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Line from '../Line';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, TColor, TElevation, TTonal, TVersion } from '../utils';
+import { staticClassName } from '../utils';
+import { IColor, IElevation, ITonal, IVersion } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -14,10 +14,10 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-CardFooter' });
 
 export interface ICardFooter extends ILine {
-  tonal?: TTonal;
-  color?: TColor;
-  version?: TVersion;
-  elevation?: TElevation;
+  tonal?: ITonal;
+  color?: IColor;
+  version?: IVersion;
+  elevation?: IElevation;
 }
 
 const CardFooter: React.FC<ICardFooter> = React.forwardRef((props_, ref: any) => {

@@ -15,8 +15,8 @@ import RoundProgress from '../RoundProgress';
 import ListSubheader from '../ListSubheader';
 import Line from '../Line';
 import { ITextField } from '../TextField/TextField';
-
-import { staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IElement, IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -173,9 +173,9 @@ export interface IAutoComplete extends ITextField {
   getLabel?: (item: any) => any;
   equal?: (value1: any, value2: any) => boolean;
   equalInput?: (input: string, value: any) => boolean;
-  renderValues?: (value: TAutoCompleteValue, onUnselect: (value: string) => any) => TElement;
-  renderChip?: (item: any, value: any, props: TPropsAny) => TElement;
-  renderOption?: (item: TAutoCompleteOption, index: number, props: TPropsAny) => TElement;
+  renderValues?: (value: TAutoCompleteValue, onUnselect: (value: string) => any) => IElement;
+  renderChip?: (item: any, value: any, props: IPropsAny) => IElement;
+  renderOption?: (item: TAutoCompleteOption, index: number, props: IPropsAny) => IElement;
   chip?: boolean;
   filter?: (value: string, options: Array<TAutoCompleteOption>) => Array<TAutoCompleteOption>;
   options?: Array<TAutoCompleteOption>;
@@ -202,14 +202,14 @@ export interface IAutoComplete extends ITextField {
 
   disabled?: boolean;
 
-  IconClear?: TElementReference;
+  IconClear?: IElementReference;
 
-  WrapperProps?: TPropsAny;
-  ChipProps?: TPropsAny;
-  ListProps?: TPropsAny;
-  MenuProps?: TPropsAny;
-  IconButtonProps?: TPropsAny;
-  InputProps?: TPropsAny;
+  WrapperProps?: IPropsAny;
+  ChipProps?: IPropsAny;
+  ListProps?: IPropsAny;
+  MenuProps?: IPropsAny;
+  IconButtonProps?: IPropsAny;
+  InputProps?: IPropsAny;
 }
 
 const getText = (value: any) => {

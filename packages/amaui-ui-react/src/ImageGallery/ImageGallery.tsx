@@ -11,7 +11,8 @@ import IconButton from '../IconButton';
 import Backdrop from '../Backdrop';
 import Interaction from '../Interaction';
 import { ILine } from '../Line/Line';
-import { staticClassName, TElementReference } from '../utils';
+import { staticClassName } from '../utils';
+import { IElementReference } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -240,9 +241,9 @@ export interface IImageGallery extends ILine {
   ImageWrapperProps?: any;
   IconButtonProps?: any;
 
-  IconStart?: TElementReference;
-  IconEnd?: TElementReference;
-  IconClose?: TElementReference;
+  IconStart?: IElementReference;
+  IconEnd?: IElementReference;
+  IconClose?: IElementReference;
 }
 
 const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any) => {

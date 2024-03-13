@@ -1,6 +1,6 @@
 import { is, canvasFilterBrightness, canvasFilterContrast, canvasFilterSaturation, canvasFilterFade, canvasFilterInvert, canvasFilterOldPhoto, download, clamp, Try, isEnvironment } from '@amaui/utils';
-import { TBreakpoint, TPaletteVersion } from '@amaui/style-react';
-import { IMedia } from '@amaui/api-utils';
+
+import { IPoint } from './types';
 
 export function reflow(element: HTMLElement) {
   element?.offsetHeight;
@@ -244,9 +244,7 @@ export const angleToCoordinates = (degrees: number, centerX: number, centerY: nu
   };
 };
 
-type TPoint = [number, number];
-
-export const line = (pointA: TPoint, pointB: TPoint) => {
+export const line = (pointA: IPoint, pointB: IPoint) => {
   const lengthX = pointB[0] - pointA[0];
   const lengthY = pointB[1] - pointA[1];
 
@@ -256,7 +254,7 @@ export const line = (pointA: TPoint, pointB: TPoint) => {
   };
 };
 
-export const controlPoint = (current: TPoint, previous_: TPoint, next_: TPoint, reverse = false, smoothRatio = 0.14) => {
+export const controlPoint = (current: IPoint, previous_: IPoint, next_: IPoint, reverse = false, smoothRatio = 0.14) => {
   const previous = previous_ || current;
   const next = next_ || current;
 
@@ -286,66 +284,6 @@ export const minMaxBetweenNumbers = (value = 10, min = 0, max = 100) => {
 
   return values;
 };
-
-export type TTonal = true | false | 'secondary';
-
-type RGB = `rgb(${number}, ${number}, ${number})`;
-type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
-type HSL = `hsl(${number}, ${number}, ${number})`;
-type HSLA = `hsla(${number}, ${number}, ${number}, ${number})`;
-type HEX = `#${string}`;
-
-type Color = RGB | RGBA | HSL | HSLA | HEX;
-
-export type TColor = 'default' | 'themed' | 'inverted' | 'inherit' | TPaletteVersion | Color;
-
-export type TVersion = 'filled' | 'outlined' | 'outlined-without-background' | 'text';
-
-export type TSize = 'small' | 'regular' | 'large';
-
-export type TSizeAny = TSize | number;
-
-export type TElevation = 0 | 1 | 2 | 3 | 4 | 6 | 8 | 9 | 12 | 16 | 24;
-
-export type TElementReference = string | React.FC<any> | (React.ForwardRefExoticComponent<any>);
-
-export type TElement = React.ReactNode | React.ReactNode[] | React.ReactElement<any, string | React.JSXElementConstructor<any>>;
-
-export type TElementAny = TElement | string | number | boolean | null | undefined;
-
-export type THTMLElement = Element | HTMLElement;
-
-export type TPropsAny = Record<string, any>;
-
-export type TStyle = React.CSSProperties | undefined;
-
-export type TChildren = React.ReactNode | React.ReactNode[];
-
-export type TRef = React.MutableRefObject<any>;
-
-export interface IBaseElement {
-  Component?: any;
-
-  className?: string;
-  style?: TStyle;
-
-  children?: TChildren;
-
-  [property: string]: any;
-}
-
-export type TMethodTransition = (element?: THTMLElement) => any;
-
-export type TValueBreakpoints = TBreakpoint | 'default';
-
-export interface IMediaObject extends IMedia {
-  url: string;
-  urlSmall?: string;
-
-  // alias
-  src?: string;
-  srcSmall?: string;
-}
 
 export const sanitize = (value: string) => {
   if (value) {
@@ -506,29 +444,3 @@ if (isEnvironment('browser')) {
     };
   }
 }
-
-export const stringToColor = (value: string) => {
-  let hash = 0;
-
-  value.split('').forEach(item => hash = item.charCodeAt(0) + ((hash << 5) - hash));
-
-  let color = '#';
-
-  for (let i = 0; i < 3; i++) {
-    const value_ = (hash >> (i * 8)) & 0xff;
-
-    color += value_.toString(16).padStart(2, '0');
-  }
-
-  return color;
-};
-
-export const innerHTMLToText = (value: string) => Try(() => {
-  const unsafe = [' ', '"', '<', '>', '{', '}', '|', '\\', '^', '`'];
-
-  if (!unsafe.some(item => value.includes(item))) return value;
-
-  return encodeURIComponent(value);
-});
-
-export const textToInnerHTML = (value: any = '') => Try(() => (decodeURIComponent(value) as any).replaceAll('&nbsp;', ' '));

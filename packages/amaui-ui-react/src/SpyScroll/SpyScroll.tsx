@@ -3,7 +3,8 @@ import React from 'react';
 import { is, unique, Try, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement, staticClassName, TStyle } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement, IStyle } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -20,7 +21,7 @@ export interface ISpyScroll extends IBaseElement {
   parent?: HTMLElement;
 
   addClassName?: string;
-  addStyle?: TStyle;
+  addStyle?: IStyle;
 
   onActive?: (value: string) => any;
 }

@@ -3,7 +3,8 @@ import React from 'react';
 import { is, unique } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
-import { STATUS, TPropsAny, TTransitionStatus } from '..';
+import { STATUS, TTransitionStatus } from '..';
+import { IPropsAny } from '../types';
 
 export type TTransitionsMode = 'in-out' | 'in-out-follow' | 'out-in';
 
@@ -12,7 +13,7 @@ export interface ITransitions {
   mode?: TTransitionsMode;
   switch?: boolean;
 
-  TransitionProps?: TPropsAny;
+  TransitionProps?: IPropsAny;
 
   children?: any;
 }

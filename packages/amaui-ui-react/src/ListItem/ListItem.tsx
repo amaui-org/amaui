@@ -13,8 +13,8 @@ import List from '../List';
 import Fade from '../Fade';
 import IconButton from '../IconButton';
 import { ISurface } from '../Surface/Surface';
-
-import { staticClassName, TColor, TElement, TElementReference, THTMLElement, TPropsAny, TSize } from '../utils';
+import { staticClassName } from '../utils';
+import { IColor, IElement, ISize, IHTMLElement, IElementReference, IPropsAny } from '../types';
 
 const overflow = {
   width: '100%',
@@ -286,9 +286,9 @@ const IconMaterialArrowRightRounded = React.forwardRef((props: any, ref) => {
 });
 
 export interface IListItem extends ISurface {
-  colorSelected?: TColor;
+  colorSelected?: IColor;
 
-  menu?: TElement;
+  menu?: IElement;
   menuId?: string;
 
   menuOpen?: boolean;
@@ -300,25 +300,25 @@ export interface IListItem extends ISurface {
   openListDefault?: boolean;
 
   menuItem?: boolean;
-  list?: TElement;
+  list?: IElement;
   inset?: boolean;
-  primary?: TElement;
-  secondary?: TElement;
-  tertiary?: TElement;
+  primary?: IElement;
+  secondary?: IElement;
+  tertiary?: IElement;
   preselected?: boolean;
   selected?: boolean;
-  start?: TElement;
+  start?: IElement;
   startAlign?: 'start' | 'center' | 'end';
-  end?: TElement;
+  end?: IElement;
   endAlign?: 'start' | 'center' | 'end';
-  size?: TSize;
+  size?: ISize;
   noPadding?: boolean;
   href?: string;
   button?: boolean;
   shape?: 'round';
   shapePosition?: 'both' | 'start' | 'end' | 'none';
-  footer?: TElement;
-  include?: Array<THTMLElement>;
+  footer?: IElement;
+  include?: Array<IHTMLElement>;
   tabIndex?: string | number;
   menuCloseOnClick?: boolean;
   listCloseOnClick?: boolean;
@@ -335,24 +335,24 @@ export interface IListItem extends ISurface {
   onMouseLeave?: (event: React.MouseEvent<any>) => any;
   onClose?: () => any;
 
-  RootComponent?: TElementReference;
-  ExpandIcon?: TElementReference;
-  ListTransitionComponent?: TElementReference;
+  RootComponent?: IElementReference;
+  ExpandIcon?: IElementReference;
+  ListTransitionComponent?: IElementReference;
 
-  WrapperProps?: TPropsAny;
-  ListProps?: TPropsAny;
-  RootProps?: TPropsAny;
-  InteractionProps?: TPropsAny;
-  PrimaryProps?: TPropsAny;
-  SecondaryProps?: TPropsAny;
-  TertiaryProps?: TPropsAny;
-  ListTransitionComponentProps?: TPropsAny;
-  ExpandProps?: TPropsAny;
-  MainProps?: TPropsAny;
-  MenuProps?: TPropsAny;
-  AsideProps?: TPropsAny;
-  AsideStartProps?: TPropsAny;
-  AsideEndProps?: TPropsAny;
+  WrapperProps?: IPropsAny;
+  ListProps?: IPropsAny;
+  RootProps?: IPropsAny;
+  InteractionProps?: IPropsAny;
+  PrimaryProps?: IPropsAny;
+  SecondaryProps?: IPropsAny;
+  TertiaryProps?: IPropsAny;
+  ListTransitionComponentProps?: IPropsAny;
+  ExpandProps?: IPropsAny;
+  MainProps?: IPropsAny;
+  MenuProps?: IPropsAny;
+  AsideProps?: IPropsAny;
+  AsideStartProps?: IPropsAny;
+  AsideEndProps?: IPropsAny;
 }
 
 const ListItemDelays = {

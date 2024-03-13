@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { is } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement } from '../utils';
+import { IBaseElement } from '../types';
 
 export interface IPortal extends IBaseElement {
   element?: Element | DocumentFragment;

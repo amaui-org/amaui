@@ -7,7 +7,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Line from '../Line';
 import { ILine } from '../Line/Line';
 
-import { TPropsAny, importIframeStyles, staticClassName } from '../utils';
+import { importIframeStyles, staticClassName } from '../utils';
+import { IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -26,7 +27,7 @@ const useStyle = styleMethod(theme => ({
 export interface IIFrame extends ILine {
   id?: string;
 
-  WrapperProps?: TPropsAny;
+  WrapperProps?: IPropsAny;
 }
 
 const IFrame: React.FC<IIFrame> = React.forwardRef((props_, ref: any) => {

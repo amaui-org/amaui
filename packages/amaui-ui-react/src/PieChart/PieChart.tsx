@@ -10,7 +10,6 @@ import Type from '../Type';
 import useMediaQuery from '../useMediaQuery';
 import Surface from '../Surface';
 import { IChart } from '../Chart/Chart';
-
 import { angleToCoordinates, staticClassName, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({

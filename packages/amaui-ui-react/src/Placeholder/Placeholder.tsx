@@ -3,8 +3,8 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
-
-import { IBaseElement, staticClassName, TColor } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement, IColor } from '../types';
 
 const useStyle = styleMethod(theme => ({
   '@keyframes move': {
@@ -91,7 +91,7 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Placeholder' });
 
 export interface IPlaceholder extends Omit<IBaseElement, 'version'> {
-  color?: TColor;
+  color?: IColor;
   version?: 'rectangle' | 'rounded' | 'circle';
 
   width?: string | number;

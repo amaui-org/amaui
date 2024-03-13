@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { is, textToInnerHTML } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
-import { IBaseElement, TPropsAny, staticClassName, textToInnerHTML, valueBreakpoints } from '../utils';
 
 import useMediaQuery from '../useMediaQuery';
 import Type from '../Type';
 import Line from '../Line';
+import { valueBreakpoints, staticClassName } from '../utils';
+import { IBaseElement, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -52,8 +53,8 @@ export interface IText extends IBaseElement {
   start?: any;
   end?: any;
 
-  TypeProps?: TPropsAny;
-  HorizontalProps?: TPropsAny;
+  TypeProps?: IPropsAny;
+  HorizontalProps?: IPropsAny;
 }
 
 const Text: React.FC<IText> = React.forwardRef((props, ref: any) => {

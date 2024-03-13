@@ -4,7 +4,6 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Type from '../Type';
 import { IType } from '../Type/Type';
-
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({

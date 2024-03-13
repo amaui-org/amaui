@@ -5,8 +5,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Button from '../Button';
 import Type from '../Type';
 import { IButton } from '../Button/Button';
-
-import { staticClassName, TElevation, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IElevation, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -38,10 +38,10 @@ export interface IAvatar extends Omit<IButton, 'elevation'> {
   image?: string;
   alt?: string;
   square?: boolean;
-  elevation?: TElevation;
+  elevation?: IElevation;
 
-  TypeProps?: TPropsAny;
-  InteractionProps?: TPropsAny;
+  TypeProps?: IPropsAny;
+  InteractionProps?: IPropsAny;
 }
 
 const Avatar: React.FC<IAvatar> = React.forwardRef((props_, ref) => {

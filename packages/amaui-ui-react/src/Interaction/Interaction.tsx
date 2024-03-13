@@ -4,9 +4,8 @@ import { is, getID, debounce, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import AmauiSubscription from '@amaui/subscription/AmauiSubscription';
 
-import { Transition, Transitions, TTransitionStatus, useMediaQuery } from '..';
-
-import { IBaseElement, staticClassName } from '../utils';
+import { staticClassName, Transition, Transitions, TTransitionStatus, useMediaQuery } from '..';
+import { IBaseElement } from '../types';
 
 const other = {
   pointerEvents: 'none',

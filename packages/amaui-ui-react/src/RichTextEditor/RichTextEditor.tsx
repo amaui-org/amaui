@@ -24,8 +24,8 @@ import Divider from '../Divider';
 import ListItem from '../ListItem';
 import Line from '../Line';
 import { ILine } from '../Line/Line';
-
-import { print, save, staticClassName, TColor, TElement, TElementReference, TPropsAny, TTonal, TVersion } from '../utils';
+import { print, save, staticClassName } from '../utils';
+import { ITonal, IColor, IVersion, IPropsAny, IElement, IElementReference } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -807,14 +807,14 @@ const IconMaterialDrawRounded = React.forwardRef((props: any, ref) => {
 });
 
 export interface IRichTextEditor extends ILine {
-  tonal?: TTonal;
-  color?: TColor;
-  version?: TVersion;
+  tonal?: ITonal;
+  color?: IColor;
+  version?: IVersion;
 
   value?: string;
   onChange?: (event: React.ChangeEvent<any>) => any;
 
-  render?: (version: string, props: TPropsAny, value: string, update: (command: string) => any) => TElement;
+  render?: (version: string, props: IPropsAny, value: string, update: (command: string) => any) => IElement;
 
   miniMenu?: boolean;
 
@@ -839,71 +839,71 @@ export interface IRichTextEditor extends ILine {
   }>;
 
   // Update
-  IconItalic?: TElementReference;
-  IconUnderline?: TElementReference;
-  IconBold?: TElementReference;
-  IconStrikeLine?: TElementReference;
+  IconItalic?: IElementReference;
+  IconUnderline?: IElementReference;
+  IconBold?: IElementReference;
+  IconStrikeLine?: IElementReference;
 
-  IconColor?: TElementReference;
-  IconBackground?: TElementReference;
+  IconColor?: IElementReference;
+  IconBackground?: IElementReference;
 
-  IconAlignLeft?: TElementReference;
-  IconAlignCenter?: TElementReference;
-  IconAlignRight?: TElementReference;
-  IconAlignJustify?: TElementReference;
+  IconAlignLeft?: IElementReference;
+  IconAlignCenter?: IElementReference;
+  IconAlignRight?: IElementReference;
+  IconAlignJustify?: IElementReference;
 
-  IconIndent?: TElementReference;
-  IconOutdent?: TElementReference;
+  IconIndent?: IElementReference;
+  IconOutdent?: IElementReference;
 
-  IconSuperscript?: TElementReference;
-  IconSubscript?: TElementReference;
+  IconSuperscript?: IElementReference;
+  IconSubscript?: IElementReference;
 
-  IconListOrdered?: TElementReference;
-  IconListUnordered?: TElementReference;
+  IconListOrdered?: IElementReference;
+  IconListUnordered?: IElementReference;
 
-  IconHorizontalRule?: TElementReference;
+  IconHorizontalRule?: IElementReference;
 
-  IconLinkAdd?: TElementReference;
-  IconLinkRemove?: TElementReference;
+  IconLinkAdd?: IElementReference;
+  IconLinkRemove?: IElementReference;
 
-  IconQuote?: TElementReference;
-  IconImage?: TElementReference;
-  IconVideo?: TElementReference;
-  IconVideoYoutube?: TElementReference;
-  IconTable?: TElementReference;
-  IconCode?: TElementReference;
-  IconDrawing?: TElementReference;
+  IconQuote?: IElementReference;
+  IconImage?: IElementReference;
+  IconVideo?: IElementReference;
+  IconVideoYoutube?: IElementReference;
+  IconTable?: IElementReference;
+  IconCode?: IElementReference;
+  IconDrawing?: IElementReference;
 
   // Action
-  IconCopy?: TElementReference;
-  IconCut?: TElementReference;
-  IconPaste?: TElementReference;
+  IconCopy?: IElementReference;
+  IconCut?: IElementReference;
+  IconPaste?: IElementReference;
 
-  IconDelete?: TElementReference;
+  IconDelete?: IElementReference;
 
-  IconClear?: TElementReference;
-  IconSelectAll?: TElementReference;
+  IconClear?: IElementReference;
+  IconSelectAll?: IElementReference;
 
-  IconSave?: TElementReference;
-  IconPrint?: TElementReference;
+  IconSave?: IElementReference;
+  IconPrint?: IElementReference;
 
-  IconUndo?: TElementReference;
-  IconRedo?: TElementReference;
+  IconUndo?: IElementReference;
+  IconRedo?: IElementReference;
 
-  AppendProps?: TPropsAny;
-  ToolbarProps?: TPropsAny;
-  ToolbarUpdatesProps?: TPropsAny;
-  ToolbarActionsProps?: TPropsAny;
-  ToggleButtonProps?: TPropsAny;
-  ToggleButtonsProps?: TPropsAny;
-  DividerProps?: TPropsAny;
-  SelectProps?: TPropsAny;
-  ListItemProps?: TPropsAny;
-  TooltipProps?: TPropsAny;
-  MiniMenuProps?: TPropsAny;
-  DrawingProps?: TPropsAny;
-  IconProps?: TPropsAny;
-  ColorTextFieldProps?: TPropsAny;
+  AppendProps?: IPropsAny;
+  ToolbarProps?: IPropsAny;
+  ToolbarUpdatesProps?: IPropsAny;
+  ToolbarActionsProps?: IPropsAny;
+  ToggleButtonProps?: IPropsAny;
+  ToggleButtonsProps?: IPropsAny;
+  DividerProps?: IPropsAny;
+  SelectProps?: IPropsAny;
+  ListItemProps?: IPropsAny;
+  TooltipProps?: IPropsAny;
+  MiniMenuProps?: IPropsAny;
+  DrawingProps?: IPropsAny;
+  IconProps?: IPropsAny;
+  ColorTextFieldProps?: IPropsAny;
 }
 
 const RichTextEditor: React.FC<IRichTextEditor> = React.forwardRef((props__, ref: any) => {

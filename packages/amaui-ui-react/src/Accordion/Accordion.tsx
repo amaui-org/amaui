@@ -13,8 +13,8 @@ import Line from '../Line';
 import Type from '../Type';
 import { ITransition, TTransitionStatus } from '../Transition';
 import { ISurface } from '../Surface/Surface';
-
-import { staticClassName, TColor, TElement, TElementReference, TElevation, TPropsAny, TTonal } from '../utils';
+import { staticClassName } from '../utils';
+import { IColor, IElement, IElementReference, IElevation, IPropsAny, ITonal } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -145,12 +145,12 @@ const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
 type TPadding = 'start' | 'end' | 'both' | 'none';
 
 export interface IAccordion extends ISurface {
-  tonal?: TTonal;
-  color?: TColor;
-  elevation?: TElevation;
+  tonal?: ITonal;
+  color?: IColor;
+  elevation?: IElevation;
 
-  primary?: TElement;
-  secondary?: TElement;
+  primary?: IElement;
+  secondary?: IElement;
 
   start?: any;
   end?: any;
@@ -170,16 +170,16 @@ export interface IAccordion extends ISurface {
   noTransition?: boolean;
   disabled?: boolean;
 
-  ExpandProps?: TPropsAny;
-  TransitionComponentProps?: TPropsAny;
-  WrapperHeaderProps?: TPropsAny;
-  HeaderProps?: TPropsAny;
-  IconButtonProps?: TPropsAny;
-  StartProps?: TPropsAny;
-  EndProps?: TPropsAny;
+  ExpandProps?: IPropsAny;
+  TransitionComponentProps?: IPropsAny;
+  WrapperHeaderProps?: IPropsAny;
+  HeaderProps?: IPropsAny;
+  IconButtonProps?: IPropsAny;
+  StartProps?: IPropsAny;
+  EndProps?: IPropsAny;
 
-  ExpandIcon?: TElementReference;
-  TransitionComponent?: TElementReference;
+  ExpandIcon?: IElementReference;
+  TransitionComponent?: IElementReference;
 }
 
 const AccordionDelays = {

@@ -19,9 +19,9 @@ import Append from '../Append';
 import Fade from '../Fade';
 import Line from '../Line';
 import Icon from '../Icon';
-
-import { staticClassName, TElement, TElementReference, TPropsAny, TRef } from '../utils';
 import { ISurface } from '../Surface/Surface';
+import { staticClassName } from '../utils';
+import { IElement, IElementReference, IPropsAny, IRef } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -192,9 +192,9 @@ export type TDrawingValue = Array<{
 }>;
 
 export interface IDrawing extends ISurface {
-  render?: (element: string, props: TPropsAny, value: TDrawingValue) => TElement;
+  render?: (element: string, props: IPropsAny, value: TDrawingValue) => IElement;
 
-  svgRef?: TRef;
+  svgRef?: IRef;
 
   updates?: boolean;
   actions?: boolean;
@@ -220,26 +220,26 @@ export interface IDrawing extends ISurface {
   onClear?: (event?: React.MouseEvent<any>) => any;
   onDownload?: (event?: React.MouseEvent<any>) => any;
 
-  IconClear?: TElementReference;
-  IconDownload?: TElementReference;
-  IconSize?: TElementReference;
-  IconStrokeColor?: TElementReference;
+  IconClear?: IElementReference;
+  IconDownload?: IElementReference;
+  IconSize?: IElementReference;
+  IconStrokeColor?: IElementReference;
 
-  IconProps?: TPropsAny;
-  SizeProps?: TPropsAny;
-  AppendProps?: TPropsAny;
-  ToolbarProps?: TPropsAny;
-  ToolbarUpdatesProps?: TPropsAny;
-  ToolbarActionsProps?: TPropsAny;
-  ToggleButtonProps?: TPropsAny;
-  ToggleButtonsProps?: TPropsAny;
-  DividerProps?: TPropsAny;
-  SelectProps?: TPropsAny;
-  ListItemProps?: TPropsAny;
-  TooltipProps?: TPropsAny;
-  PaletteProps?: TPropsAny;
-  IconButtonProps?: TPropsAny;
-  ColorTextFieldProps?: TPropsAny;
+  IconProps?: IPropsAny;
+  SizeProps?: IPropsAny;
+  AppendProps?: IPropsAny;
+  ToolbarProps?: IPropsAny;
+  ToolbarUpdatesProps?: IPropsAny;
+  ToolbarActionsProps?: IPropsAny;
+  ToggleButtonProps?: IPropsAny;
+  ToggleButtonsProps?: IPropsAny;
+  DividerProps?: IPropsAny;
+  SelectProps?: IPropsAny;
+  ListItemProps?: IPropsAny;
+  TooltipProps?: IPropsAny;
+  PaletteProps?: IPropsAny;
+  IconButtonProps?: IPropsAny;
+  ColorTextFieldProps?: IPropsAny;
 }
 
 const Drawing: React.FC<IDrawing> = React.forwardRef((props__, ref: any) => {

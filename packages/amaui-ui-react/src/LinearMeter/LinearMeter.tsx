@@ -4,8 +4,8 @@ import { clamp, is, parse } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
-
-import { IBaseElement, staticClassName, TColor, TElement, TPropsAny, TSize, TStyle, TTonal } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement, ITonal, IColor, ISize, IStyle, IElement, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -40,10 +40,10 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-LinearMeter' });
 
 export interface ILinearMeter extends IBaseElement {
-  tonal?: TTonal;
-  color?: TColor;
+  tonal?: ITonal;
+  color?: IColor;
 
-  size?: TSize;
+  size?: ISize;
 
   parts?: number;
 
@@ -91,25 +91,25 @@ export interface ILinearMeter extends IBaseElement {
     value?: number;
     position?: number;
     padding?: number;
-    style?: TStyle;
+    style?: IStyle;
 
     [property: string]: any;
   }>;
 
-  additional?: TElement;
+  additional?: IElement;
 
-  textProps?: TPropsAny;
-  pathProps?: TPropsAny;
+  textProps?: IPropsAny;
+  pathProps?: IPropsAny;
 
-  SvgProps?: TPropsAny;
-  MarkProps?: TPropsAny;
-  LabelProps?: TPropsAny;
-  BackgroundProps?: TPropsAny;
-  BorderProps?: TPropsAny;
-  LineProps?: TPropsAny;
-  LineMainProps?: TPropsAny;
-  LinesProgressProps?: TPropsAny;
-  LineProgressProps?: TPropsAny;
+  SvgProps?: IPropsAny;
+  MarkProps?: IPropsAny;
+  LabelProps?: IPropsAny;
+  BackgroundProps?: IPropsAny;
+  BorderProps?: IPropsAny;
+  LineProps?: IPropsAny;
+  LineMainProps?: IPropsAny;
+  LinesProgressProps?: IPropsAny;
+  LineProgressProps?: IPropsAny;
 }
 
 const LinearMeter: React.FC<ILinearMeter> = React.forwardRef((props_, ref: any) => {

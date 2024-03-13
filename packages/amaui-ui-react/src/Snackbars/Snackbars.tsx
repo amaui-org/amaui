@@ -10,8 +10,8 @@ import Slide from '../Slide';
 import Expand from '../Expand';
 import Line from '../Line';
 import { TLineAlign } from '../Line/Line';
-
-import { IBaseElement, staticClassName, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement, IPropsAny } from '../types';
 
 export interface ISnackbarsValue {
   add: (value: ISnackbar) => void;
@@ -72,7 +72,7 @@ export interface ISnackbars extends IBaseElement {
   position?: 'top' | 'bottom';
   alignment?: 'start' | 'left' | 'center' | 'right' | 'end';
 
-  SnackbarProps?: TPropsAny;
+  SnackbarProps?: IPropsAny;
 }
 
 const Snackbars: React.FC<ISnackbars> = React.forwardRef((props_, ref: any) => {

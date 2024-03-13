@@ -8,8 +8,8 @@ import Line from '../Line';
 import Type from '../Type';
 import Surface from '../Surface';
 import { IChart } from '../Chart/Chart';
-import { staticClassName } from '../utils';
 import BubbleChartItem from '../BubbleChartItem';
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {

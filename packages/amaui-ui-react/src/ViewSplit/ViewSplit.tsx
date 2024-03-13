@@ -8,8 +8,8 @@ import Divider from '../Divider';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, TColor, TElement, TPropsAny, TTonal } from '../utils';
+import { staticClassName } from '../utils';
+import { ITonal, IColor, IElement, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -155,8 +155,8 @@ const IconMaterialSwapVertRounded = React.forwardRef((props: any, ref) => {
 });
 
 export interface IViewSplit extends ILine {
-  tonal?: TTonal;
-  color?: TColor;
+  tonal?: ITonal;
+  color?: IColor;
 
   valueDefault?: number;
   value?: number;
@@ -172,12 +172,12 @@ export interface IViewSplit extends ILine {
   onMouseEnter?: (event: React.MouseEvent<any>) => any;
   onMouseLeave?: (event: React.MouseEvent<any>) => any;
 
-  iconButtonComponent?: TElement;
-  iconOrientationHorizontal?: TElement;
-  iconOrientationVertical?: TElement;
+  iconButtonComponent?: IElement;
+  iconOrientationHorizontal?: IElement;
+  iconOrientationVertical?: IElement;
 
-  IconButtonProps?: TPropsAny;
-  DividerProps?: TPropsAny;
+  IconButtonProps?: IPropsAny;
+  DividerProps?: IPropsAny;
 }
 
 const ViewSplit: React.FC<IViewSplit> = React.forwardRef((props_, ref: any) => {

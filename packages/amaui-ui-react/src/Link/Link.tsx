@@ -1,11 +1,10 @@
 import React from 'react';
 
-import { classNames, IColor, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { IColor, classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Type from '../Type';
-
-import { staticClassName, TColor } from '../utils';
 import { IType } from '../Type/Type';
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -90,7 +89,7 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Link' });
 
 export interface ILink extends Omit<IType, 'color'> {
-  color?: TColor;
+  color?: IColor;
 
   underline?: true | 'hover';
 }
@@ -151,7 +150,7 @@ const Link: React.FC<ILink> = React.forwardRef((props_, ref: any) => {
   if (!classes[`color_${color}`]) {
     styles.root.color = color;
 
-    palette = theme.methods.color(color);
+    palette = theme.methods.color(color as any);
 
     if (tonal) styles.root.color = theme.methods.palette.color.value(undefined, 30, true, palette);
   }

@@ -14,8 +14,8 @@ import Line from '../Line';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
 import { ISurface } from '../Surface/Surface';
-
-import { staticClassName, TElementReference, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -140,16 +140,16 @@ export interface ITimer extends ISurface {
   onStop?: (event: React.MouseEvent<any>) => any;
   onResume?: (event: React.MouseEvent<any>) => any;
 
-  Icon?: TElementReference;
-  IconStart?: TElementReference;
-  IconPause?: TElementReference;
-  IconFlag?: TElementReference;
-  IconStop?: TElementReference;
+  Icon?: IElementReference;
+  IconStart?: IElementReference;
+  IconPause?: IElementReference;
+  IconFlag?: IElementReference;
+  IconStop?: IElementReference;
 
-  TreeProps?: TPropsAny;
-  TooltipProps?: TPropsAny;
-  IconButtonProps?: TPropsAny;
-  IconProps?: TPropsAny;
+  TreeProps?: IPropsAny;
+  TooltipProps?: IPropsAny;
+  IconButtonProps?: IPropsAny;
+  IconProps?: IPropsAny;
 }
 
 const Timer: React.FC<ITimer> = React.forwardRef((props_, ref: any) => {

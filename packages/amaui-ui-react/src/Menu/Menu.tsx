@@ -7,8 +7,8 @@ import List from '../List';
 import Tooltip from '../Tooltip';
 import ClickListener from '../ClickListener';
 import { ITooltip } from '../Tooltip/Tooltip';
-
-import { staticClassName, TElement, THTMLElement, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IElement, IHTMLElement, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -43,13 +43,13 @@ export interface IMenu extends Omit<ITooltip, 'name' | 'label'> {
 
   openDefault?: boolean;
 
-  name?: ((method: (item: any, index: number) => any) => any) | TElement;
+  name?: ((method: (item: any, index: number) => any) => any) | IElement;
 
-  label?: ((method: (item: any, index: number) => any) => any) | TElement;
+  label?: ((method: (item: any, index: number) => any) => any) | IElement;
 
-  menuItems?: Array<TElement>;
+  menuItems?: Array<IElement>;
 
-  include?: Array<THTMLElement>;
+  include?: Array<IHTMLElement>;
   includeParentQueries?: Array<string>;
   includeQueries?: Array<string>;
   ignoreNonExisting?: boolean;
@@ -64,10 +64,10 @@ export interface IMenu extends Omit<ITooltip, 'name' | 'label'> {
   onOpen?: () => any;
   onClose?: () => any;
 
-  ListProps?: TPropsAny;
-  ModalProps?: TPropsAny;
-  WrapperProps?: TPropsAny;
-  ClickListenerProps?: TPropsAny;
+  ListProps?: IPropsAny;
+  ModalProps?: IPropsAny;
+  WrapperProps?: IPropsAny;
+  ClickListenerProps?: IPropsAny;
 }
 
 const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {

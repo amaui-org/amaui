@@ -11,8 +11,8 @@ import ModalTitle from '../ModalTitle';
 import ModalMain from '../ModalMain';
 import ModalText from '../ModalText';
 import Modal from '../Modal';
-
-import { IBaseElement, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement } from '../types';
 
 export interface IConfirmOpen {
   modal?: (promise: IConfirmPromiseArgument) => React.ReactElement;

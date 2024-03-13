@@ -7,8 +7,8 @@ import Surface from '../Surface';
 import useMediaQuery from '../useMediaQuery';
 import { ISurface } from '../Surface/Surface';
 import Line from '../Line';
-
-import { staticClassName, TElement, TSize } from '../utils';
+import { staticClassName } from '../utils';
+import { ISize, IElement } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -70,9 +70,9 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-List' });
 
 export interface IList extends ISurface {
-  size?: TSize;
+  size?: ISize;
 
-  menu?: TElement;
+  menu?: IElement;
   menuOpen?: boolean;
 
   noMaxWidth?: boolean;

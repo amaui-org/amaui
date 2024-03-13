@@ -7,8 +7,8 @@ import { IconDoneAnimated } from '../Buttons/Buttons';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
 import { IIconButton } from '../IconButton/IconButton';
-
-import { staticClassName, TColor, TRef } from '../utils';
+import { staticClassName } from '../utils';
+import { IRef, IColor } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -213,10 +213,10 @@ const IconItem = (props: any) => {
 };
 
 export interface ICheckbox extends IIconButton {
-  inputRef?: TRef;
+  inputRef?: IRef;
 
-  colorIndeterminate?: TColor;
-  colorUnchecked?: TColor;
+  colorIndeterminate?: IColor;
+  colorUnchecked?: IColor;
 
   valueDefault?: boolean;
   checkedDefault?: boolean;

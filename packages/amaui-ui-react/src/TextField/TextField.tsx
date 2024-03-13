@@ -8,8 +8,9 @@ import Icon from '../Icon';
 import Type from '../Type';
 import Line from '../Line';
 
-import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TPropsAny, TRef, TSize, TTonal, TValueBreakpoints, TVersion, valueBreakpoints } from '../utils';
 import useMediaQuery from '../useMediaQuery';
+import { valueBreakpoints, staticClassName } from '../utils';
+import { IBaseElement, ITonal, IColor, IVersion, ISize, IRef, IElement, IValueBreakpoints, IPropsAny, IElementReference } from '../types';
 
 const other_ = {
   pointerEvents: 'none',
@@ -530,12 +531,12 @@ const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 });
 
 export interface ITextField extends IBaseElement {
-  tonal?: TTonal;
-  color?: TColor;
-  version?: TVersion;
-  size?: TSize;
+  tonal?: ITonal;
+  color?: IColor;
+  version?: IVersion;
+  size?: ISize;
 
-  rootRef?: TRef;
+  rootRef?: IRef;
 
   valueDefault?: string | number;
   value?: string | number;
@@ -544,12 +545,12 @@ export interface ITextField extends IBaseElement {
   name?: any;
   label?: any;
   align?: 'start' | 'end';
-  start?: TElement;
+  start?: IElement;
   startVerticalAlign?: 'start' | 'center' | 'end';
-  end?: TElement;
+  end?: IElement;
   endVerticalAlign?: 'start' | 'center' | 'end';
   placeholder?: string;
-  fullWidth?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  fullWidth?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
   helperText?: string;
   counter?: number;
   prefix?: string;
@@ -570,7 +571,7 @@ export interface ITextField extends IBaseElement {
   minRows?: number;
   maxRows?: number;
   focus?: boolean;
-  footer?: TElement;
+  footer?: IElement;
   controlled?: boolean;
   restoreSelection?: boolean;
   readOnly?: boolean;
@@ -583,13 +584,13 @@ export interface ITextField extends IBaseElement {
   onMouseEnter?: (event: React.MouseEvent<any>) => any;
   onMouseLeave?: (event: React.MouseEvent<any>) => any;
 
-  inputProps?: TPropsAny;
-  InputWrapperProps?: TPropsAny;
-  HelperTextProps?: TPropsAny;
+  inputProps?: IPropsAny;
+  InputWrapperProps?: IPropsAny;
+  HelperTextProps?: IPropsAny;
 
-  IconClear?: TElementReference;
-  InputComponent?: TElementReference;
-  WrapperComponent?: TElementReference;
+  IconClear?: IElementReference;
+  InputComponent?: IElementReference;
+  WrapperComponent?: IElementReference;
 }
 
 const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {

@@ -4,7 +4,6 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import ListItem from '../ListItem';
 import { IListItem } from '../ListItem/ListItem';
-
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({

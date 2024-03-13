@@ -9,7 +9,6 @@ import Line from '../Line';
 import Type from '../Type';
 import useMediaQuery from '../useMediaQuery';
 import { IChart, TChartValueValues } from '../Chart/Chart';
-
 import { staticClassName, valueBreakpoints } from '../utils';
 
 const useStyle = styleMethod(theme => ({

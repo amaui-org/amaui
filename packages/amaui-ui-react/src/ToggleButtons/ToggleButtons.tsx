@@ -4,7 +4,6 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Buttons from '../Buttons';
 import { IButtons } from '../Buttons/Buttons';
-
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({

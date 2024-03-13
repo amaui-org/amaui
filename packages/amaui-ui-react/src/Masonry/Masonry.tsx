@@ -6,8 +6,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import useMediaQuery from '../useMediaQuery';
 import Line from '../Line';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, TValueBreakpoints, valueBreakpoints } from '../utils';
+import { valueBreakpoints, staticClassName } from '../utils';
+import { IValueBreakpoints } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -16,9 +16,9 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Masonry' });
 
 export interface IMasonry extends Omit<ILine, 'gap'> {
-  gap?: number | Partial<Record<TValueBreakpoints, number>>;
+  gap?: number | Partial<Record<IValueBreakpoints, number>>;
 
-  columns?: number | Partial<Record<TValueBreakpoints, number>>;
+  columns?: number | Partial<Record<IValueBreakpoints, number>>;
 
   NoMasonryProps?: any;
 }

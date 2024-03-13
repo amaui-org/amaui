@@ -3,7 +3,8 @@ import React from 'react';
 import { clamp, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement, staticClassName, TColor, TTonal } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement, ITonal, IColor } from '../types';
 
 const other_ = {
   position: 'absolute',
@@ -257,8 +258,8 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-LinearProgress' });
 
 export interface ILinearProress extends IBaseElement {
-  tonal?: TTonal;
-  color?: TColor;
+  tonal?: ITonal;
+  color?: IColor;
 
   value?: number | { progress?: number; buffer?: number; };
 

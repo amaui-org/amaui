@@ -5,9 +5,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Icon, { IIcon } from '../Icon';
 import Type from '../Type';
 import Surface from '../Surface';
-
-import { IBaseElement, staticClassName, TColor, TPropsAny, TTonal } from '../utils';
 import Line from '../Line';
+import { staticClassName } from '../utils';
+import { IBaseElement, ITonal, IColor, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -138,8 +138,8 @@ const IconMaterialBrokenImage = React.forwardRef((props: IIcon, ref) => {
 });
 
 export interface IImage extends IBaseElement {
-  tonal?: TTonal;
-  color?: TColor;
+  tonal?: ITonal;
+  color?: IColor;
 
   src?: string;
   sources?: Array<string>;
@@ -159,8 +159,8 @@ export interface IImage extends IBaseElement {
 
   IconNoImage?: any;
 
-  NoImageProps?: TPropsAny;
-  DescriptionProps?: TPropsAny;
+  NoImageProps?: IPropsAny;
+  DescriptionProps?: IPropsAny;
 }
 
 const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {

@@ -2,7 +2,8 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {

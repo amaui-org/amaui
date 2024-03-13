@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { reset } from '@amaui/style-react';
-import { IBaseElement } from '../utils';
+
+import { IBaseElement } from '../types';
 
 const useReset = reset();
 

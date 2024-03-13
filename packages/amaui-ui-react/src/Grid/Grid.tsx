@@ -6,8 +6,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Line from '../Line';
 import { ILine } from '../Line/Line';
 import useMediaQuery from '../useMediaQuery';
-
-import { staticClassName, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
+import { valueBreakpoints, staticClassName } from '../utils';
+import { IValueBreakpoints, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -79,7 +79,7 @@ const useStyle = styleMethod(theme => ({
   'columnGap_16': { columnGap: `${16 * theme.space.unit}px` }
 }), { name: 'amaui-Grid' });
 
-export type IGridValues = Partial<Record<TValueBreakpoints, number>>;
+export type IGridValues = Partial<Record<IValueBreakpoints, number>>;
 
 export interface IGrid extends ILine {
   auto?: boolean;
@@ -92,7 +92,7 @@ export interface IGrid extends ILine {
 
   values?: IGridValues;
 
-  RootProps?: TPropsAny;
+  RootProps?: IPropsAny;
 }
 
 const Grid: React.FC<IGrid> = React.forwardRef((props_, ref: any) => {

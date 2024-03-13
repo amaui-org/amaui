@@ -2,7 +2,8 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement, staticClassName, TColor, TElevation, TTonal, TVersion } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement, ITonal, IColor, IVersion, IElevation } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -45,10 +46,10 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-CardImage' });
 
 export interface ICardImage extends IBaseElement {
-  tonal?: TTonal;
-  color?: TColor;
-  version?: TVersion;
-  elevation?: TElevation;
+  tonal?: ITonal;
+  color?: IColor;
+  version?: IVersion;
+  elevation?: IElevation;
 
   alt?: string;
   image?: string;

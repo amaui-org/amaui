@@ -6,8 +6,8 @@ import Line from '../Line';
 import Surface from '../Surface';
 import Transition, { TTransitionStatus } from '../Transition';
 import { ISurface } from '../Surface/Surface';
-
-import { staticClassName, TElement, TSize } from '../utils';
+import { staticClassName } from '../utils';
+import { IElement, ISize } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -104,9 +104,9 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-BottomAppBar' });
 
 export interface IBottomAppBar extends ISurface {
-  size?: TSize;
+  size?: ISize;
 
-  main?: TElement;
+  main?: IElement;
   fixed?: boolean;
   noTransition?: boolean;
 }

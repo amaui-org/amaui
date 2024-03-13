@@ -14,8 +14,8 @@ import Line from '../Line';
 import Icon from '../Icon';
 import { ILine } from '../Line/Line';
 import useMediaQuery from '../useMediaQuery';
-
-import { staticClassName, TColor, TElement, TElementReference, TPropsAny, TStyle, TTonal, TVersion } from '../utils';
+import { staticClassName } from '../utils';
+import { IElement, ITonal, IStyle, IElementReference, IPropsAny, IVersion, IColor } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -159,16 +159,16 @@ export type TMenuDesktopValue = string | number;
 
 export type TMenuDesktopItem = {
   value?: TMenuDesktopValue;
-  label?: TElement;
-  name?: TElement;
-  menu?: TElement;
+  label?: IElement;
+  name?: IElement;
+  menu?: IElement;
   disabled?: boolean;
 };
 
 export interface IMenuDesktop extends ILine {
-  tonal?: TTonal;
-  color?: TColor;
-  version?: TVersion;
+  tonal?: ITonal;
+  color?: IColor;
+  version?: IVersion;
 
   items?: Array<TMenuDesktopItem>;
 
@@ -186,23 +186,23 @@ export interface IMenuDesktop extends ILine {
   menuTransition?: boolean;
 
   menuTransitionClassName?: (status: TTransitionStatus, open: TMenuDesktopValue) => string;
-  menuTransitionStyle?: (status: TTransitionStatus, open: TMenuDesktopValue) => TStyle;
+  menuTransitionStyle?: (status: TTransitionStatus, open: TMenuDesktopValue) => IStyle;
 
   onOpen?: () => any;
   onClose?: () => any;
 
   onChange?: (value: TMenuDesktopValue) => any;
 
-  TransitionComponent?: TElementReference;
-  IconIndicator?: TElementReference;
+  TransitionComponent?: IElementReference;
+  IconIndicator?: IElementReference;
 
-  AppendProps?: TPropsAny;
-  TypeProps?: TPropsAny;
-  ItemProps?: TPropsAny;
-  IconProps?: TPropsAny;
-  TransitionComponentProps?: TPropsAny;
-  WrapperProps?: TPropsAny;
-  WrapperMenuProps?: TPropsAny;
+  AppendProps?: IPropsAny;
+  TypeProps?: IPropsAny;
+  ItemProps?: IPropsAny;
+  IconProps?: IPropsAny;
+  TransitionComponentProps?: IPropsAny;
+  WrapperProps?: IPropsAny;
+  WrapperMenuProps?: IPropsAny;
 }
 
 const MenuDesktop: React.FC<IMenuDesktop> = React.forwardRef((props_, ref: any) => {

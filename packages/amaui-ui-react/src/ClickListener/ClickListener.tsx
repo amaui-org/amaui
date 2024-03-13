@@ -3,7 +3,8 @@ import React from 'react';
 import { is, element, Try, isEnvironment } from '@amaui/utils';
 import { classNames, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement, matches, THTMLElement } from '../utils';
+import { matches } from '../utils';
+import { IBaseElement, IHTMLElement } from '../types';
 
 const resolve = (value: string) => value.replace(/^on/, '').toLowerCase();
 
@@ -12,7 +13,7 @@ export interface IClickListener extends IBaseElement {
 
   touchEvent?: 'onTouchStart' | 'onTouchEnd' | 'onTouchMove';
 
-  include?: Array<THTMLElement>;
+  include?: Array<IHTMLElement>;
 
   includeParentQueries?: Array<string>;
 

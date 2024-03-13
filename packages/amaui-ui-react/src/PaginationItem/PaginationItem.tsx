@@ -6,8 +6,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Type from '../Type';
 import Button from '../Button';
 import { IButton } from '../Button/Button';
-
-import { staticClassName, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -40,7 +40,7 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-PaginationItem' });
 
 export interface IPaginationItem extends IButton {
-  TypeProps?: TPropsAny;
+  TypeProps?: IPropsAny;
 }
 
 const PaginationItem: React.FC<IPaginationItem> = React.forwardRef((props_, ref) => {

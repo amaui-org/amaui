@@ -4,7 +4,6 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import NavigationDrawer from '../NavigationDrawer';
 import { INavigationDrawer } from '../NavigationDrawer/NavigationDrawer';
-
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({

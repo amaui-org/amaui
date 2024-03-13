@@ -9,9 +9,9 @@ import Type from '../Type';
 import Surface from '../Surface';
 import IconButton from '../IconButton';
 import Line from '../Line';
-
-import { staticClassName, TElement, TElementReference, TPropsAny, TSize } from '../utils';
 import { ISurface } from '../Surface/Surface';
+import { staticClassName } from '../utils';
+import { ISize, IElement, IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -94,12 +94,12 @@ const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 });
 
 export interface ISnackbar extends ISurface {
-  size?: TSize;
+  size?: ISize;
 
   open?: boolean;
 
-  primary?: TElement;
-  end?: TElement;
+  primary?: IElement;
+  end?: IElement;
   position?: 'top' | 'bottom';
   alignment?: 'start' | 'left' | 'center' | 'right' | 'end';
   autoHide?: boolean;
@@ -112,9 +112,9 @@ export interface ISnackbar extends ISurface {
   onMouseLeave?: (event: React.MouseEvent<any>) => any;
   onClose?: () => any;
 
-  TransitionComponent?: TElementReference;
+  TransitionComponent?: IElementReference;
 
-  TransitionComponentProps?: TPropsAny;
+  TransitionComponentProps?: IPropsAny;
 }
 
 const timeouts = {};

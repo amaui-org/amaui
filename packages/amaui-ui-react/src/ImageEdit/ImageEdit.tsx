@@ -17,8 +17,8 @@ import Chip from '../Chip';
 import Icon from '../Icon';
 import Line from '../Line';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, image as imageMethod, canvasBrightness, canvasContrast, canvasSaturation, canvasFade, canvasInvert, canvasOldPhoto, TPropsAny, TElementReference, TTonal, TColor, TElement } from '../utils';
+import { canvasBrightness, staticClassName, image as imageMethod, canvasContrast, canvasSaturation, canvasFade, canvasInvert, canvasOldPhoto } from '../utils';
+import { IElementReference, IElement, ITonal, IColor, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -352,19 +352,19 @@ const IconMaterialNightlightRounded = React.forwardRef((props: any, ref) => {
 
 export type TImageEditFilter = {
   label?: string;
-  Icon?: TElementReference;
+  Icon?: IElementReference;
   value?: string;
 
   method: (value: number, mainCanvas: HTMLCanvasElement, valueCopy: HTMLCanvasElement) => HTMLCanvasElement;
 
-  renderIconButton: (value: string, selected: boolean, onChangeFilter: TMethod) => TElement;
+  renderIconButton: (value: string, selected: boolean, onChangeFilter: TMethod) => IElement;
 
-  renderSlider: (value: string, filterValuesCopy: any, onFilterSliderChange: TMethod) => TElement;
+  renderSlider: (value: string, filterValuesCopy: any, onFilterSliderChange: TMethod) => IElement;
 };
 
 export interface IImageEdit extends ILine {
-  tonal?: TTonal;
-  color?: TColor;
+  tonal?: ITonal;
+  color?: IColor;
 
   image?: string | HTMLCanvasElement;
 
@@ -396,35 +396,35 @@ export interface IImageEdit extends ILine {
 
   resizeAspectRatio?: boolean;
 
-  renderOption?: (item?: { label: string; value: string; Icon: TElementReference; }, selected?: boolean, openOption?: (value: any) => any) => TElement;
+  renderOption?: (item?: { label: string; value: string; Icon: IElementReference; }, selected?: boolean, openOption?: (value: any) => any) => IElement;
   renderOptionClear?: (onReset: (imageReset: boolean, valueCopyReset: boolean, resizeReset: boolean) => any) => any;
   renderSave?: (onSave: () => any) => any;
   renderCancel?: (onSave: () => any) => any;
-  renderSlider?: (value: string, filterValuesCopy: any, onFilterSliderChange: TMethod) => TElement;
+  renderSlider?: (value: string, filterValuesCopy: any, onFilterSliderChange: TMethod) => IElement;
   renderDownload?: (onDownload: () => any) => any;
-  renderInput?: (value: HTMLCanvasElement, valueCopy: HTMLCanvasElement, resize: Array<number>, onChange: (value: string, ...args: any[]) => any, property?: string) => TElement;
+  renderInput?: (value: HTMLCanvasElement, valueCopy: HTMLCanvasElement, resize: Array<number>, onChange: (value: string, ...args: any[]) => any, property?: string) => IElement;
 
-  IconBrightness?: TElementReference;
-  IconContrast?: TElementReference;
-  IconSaturation?: TElementReference;
-  IconFade?: TElementReference;
-  IconInvert?: TElementReference;
-  IconOldPhoto?: TElementReference;
+  IconBrightness?: IElementReference;
+  IconContrast?: IElementReference;
+  IconSaturation?: IElementReference;
+  IconFade?: IElementReference;
+  IconInvert?: IElementReference;
+  IconOldPhoto?: IElementReference;
 
-  IconSave?: TElementReference;
-  IconCancel?: TElementReference;
-  IconClear?: TElementReference;
-  IconCrop?: TElementReference;
-  IconFilters?: TElementReference;
-  IconResize?: TElementReference;
-  IconQuality?: TElementReference;
-  IconDownload?: TElementReference;
+  IconSave?: IElementReference;
+  IconCancel?: IElementReference;
+  IconClear?: IElementReference;
+  IconCrop?: IElementReference;
+  IconFilters?: IElementReference;
+  IconResize?: IElementReference;
+  IconQuality?: IElementReference;
+  IconDownload?: IElementReference;
 
-  ChipProps?: TPropsAny;
-  SliderProps?: TPropsAny;
-  TooltipProps?: TPropsAny;
-  ImageCropProps?: TPropsAny;
-  IconButtonProps?: TPropsAny;
+  ChipProps?: IPropsAny;
+  SliderProps?: IPropsAny;
+  TooltipProps?: IPropsAny;
+  ImageCropProps?: IPropsAny;
+  IconButtonProps?: IPropsAny;
 }
 
 const ImageEdit: React.FC<IImageEdit> = React.forwardRef((props_, ref: any) => {

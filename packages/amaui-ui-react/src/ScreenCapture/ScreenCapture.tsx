@@ -14,8 +14,8 @@ import Icon from '../Icon';
 import useMediaQuery from '../useMediaQuery';
 import { IconDoneAnimated } from '../Buttons/Buttons';
 import { ISurface } from '../Surface/Surface';
-
-import { staticClassName, TElementReference, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -117,15 +117,15 @@ export interface IScreenCapture extends ISurface {
   onFreeSave?: (event: React.MouseEvent<any> | KeyboardEvent) => any;
   onFreeClose?: (event: React.MouseEvent<any> | KeyboardEvent) => any;
 
-  IconView?: TElementReference;
-  IconEntirePage?: TElementReference;
-  IconFree?: TElementReference;
-  IconDownload?: TElementReference;
+  IconView?: IElementReference;
+  IconEntirePage?: IElementReference;
+  IconFree?: IElementReference;
+  IconDownload?: IElementReference;
 
-  TextFieldProps?: TPropsAny;
-  TooltipProps?: TPropsAny;
-  IconButtonProps?: TPropsAny;
-  ImageCropProps?: TPropsAny;
+  TextFieldProps?: IPropsAny;
+  TooltipProps?: IPropsAny;
+  IconButtonProps?: IPropsAny;
+  ImageCropProps?: IPropsAny;
 }
 
 const ScreenCapture: React.FC<IScreenCapture> = React.forwardRef((props_, ref: any) => {

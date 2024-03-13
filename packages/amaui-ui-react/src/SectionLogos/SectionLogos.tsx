@@ -6,7 +6,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Line from '../Line';
 import Section, { ISection } from '../Section/Section';
 import Type from '../Type';
-import { IMediaObject, TPropsAny, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
+import { IMediaObject, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -61,8 +62,8 @@ export interface ISectionLogos extends ISection {
 
   name?: boolean;
 
-  ItemProps?: TPropsAny;
-  WrapperProps?: TPropsAny;
+  ItemProps?: IPropsAny;
+  WrapperProps?: IPropsAny;
 }
 
 const Element: React.FC<ISectionLogos> = React.forwardRef((props_, ref: any) => {

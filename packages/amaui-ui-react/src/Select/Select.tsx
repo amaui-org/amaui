@@ -10,9 +10,9 @@ import TextField from '../TextField';
 import ChipGroup from '../Chips';
 import IconButton from '../IconButton';
 import Line from '../Line';
-
-import { staticClassName, TElement, TPropsAny } from '../utils';
 import { ITextField } from '../TextField/TextField';
+import { staticClassName } from '../utils';
+import { IElement, IPropsAny } from '../types';
 
 const overflow = {
   width: '100%',
@@ -146,15 +146,15 @@ const IconMaterialArrowDropDownRounded = React.forwardRef((props: any, ref) => {
 export interface ISelect extends ITextField {
   multiple?: boolean;
   autoWidth?: boolean;
-  getLabel?: (item: TElement, props: any) => TElement;
+  getLabel?: (item: IElement, props: any) => IElement;
   chip?: boolean;
 
-  renderValues?: (value: string | string[]) => TElement;
+  renderValues?: (value: string | string[]) => IElement;
 
-  WrapperProps?: TPropsAny;
-  ChipGroupProps?: TPropsAny;
-  ListProps?: TPropsAny;
-  MenuProps?: TPropsAny;
+  WrapperProps?: IPropsAny;
+  ChipGroupProps?: IPropsAny;
+  ListProps?: IPropsAny;
+  MenuProps?: IPropsAny;
 }
 
 const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {

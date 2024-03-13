@@ -1,13 +1,13 @@
 import React from 'react';
 
+import { clamp } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Divider from '../Divider';
 import Line from '../Line';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, TColor, TPropsAny, TTonal, TVersion } from '../utils';
-import { clamp } from '@amaui/utils';
+import { staticClassName } from '../utils';
+import { ITonal, IColor, IVersion, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -66,15 +66,15 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Stepper' });
 
 export interface IStepper extends ILine {
-  tonal?: TTonal;
-  color?: TColor;
-  version?: TVersion;
+  tonal?: ITonal;
+  color?: IColor;
+  version?: IVersion;
 
-  iconColor?: TColor;
-  iconColorActive?: TColor;
+  iconColor?: IColor;
+  iconColorActive?: IColor;
 
-  dividerColor?: TColor;
-  dividerColorActive?: TColor;
+  dividerColor?: IColor;
+  dividerColorActive?: IColor;
 
   active?: number;
   completed?: Record<any, boolean>;
@@ -84,7 +84,7 @@ export interface IStepper extends ILine {
   dividerActive?: boolean;
   individualDividers?: boolean;
 
-  DividerProps?: TPropsAny;
+  DividerProps?: IPropsAny;
 }
 
 const Stepper: React.FC<IStepper> = React.forwardRef((props_, ref: any) => {

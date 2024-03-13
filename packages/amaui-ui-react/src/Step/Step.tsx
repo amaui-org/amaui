@@ -11,8 +11,8 @@ import Surface from '../Surface';
 import ListItem from '../ListItem';
 import Line from '../Line';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, TColor, TElement, TPropsAny, TTonal, TVersion } from '../utils';
+import { staticClassName } from '../utils';
+import { ITonal, IColor, IVersion, IElement, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -89,31 +89,31 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Step' });
 
 export interface IStep extends ILine {
-  tonal?: TTonal;
-  color?: TColor;
-  version?: TVersion;
+  tonal?: ITonal;
+  color?: IColor;
+  version?: IVersion;
 
-  iconColor?: TColor;
-  iconColorActive?: TColor;
+  iconColor?: IColor;
+  iconColorActive?: IColor;
 
-  dividerColor?: TColor;
-  dividerColorActive?: TColor;
+  dividerColor?: IColor;
+  dividerColorActive?: IColor;
 
   step?: number;
   activeStep?: number;
   active?: boolean;
   completed?: boolean;
-  primary?: TElement;
-  secondary?: TElement;
+  primary?: IElement;
+  secondary?: IElement;
   stepDirection?: 'row' | 'column';
   orientation?: 'vertical' | 'horizontal';
   button?: boolean;
   divider?: boolean;
 
-  renderIcon?: (step: number, active: boolean, completed: boolean, activeStep: number) => TElement;
+  renderIcon?: (step: number, active: boolean, completed: boolean, activeStep: number) => IElement;
 
-  ListItemProps?: TPropsAny;
-  DividerProps?: TPropsAny;
+  ListItemProps?: IPropsAny;
+  DividerProps?: IPropsAny;
 }
 
 const Step: React.FC<IStep> = React.forwardRef((props_, ref: any) => {

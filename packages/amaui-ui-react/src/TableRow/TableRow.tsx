@@ -4,8 +4,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Surface from '../Surface';
 import { ISurface } from '../Surface/Surface';
-
-import { staticClassName, TSize } from '../utils';
+import { staticClassName } from '../utils';
+import { ISize } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -29,7 +29,7 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-TableRow' });
 
 export interface ITableRow extends ISurface {
-  size?: TSize;
+  size?: ISize;
 
   hover?: boolean;
   selected?: boolean;

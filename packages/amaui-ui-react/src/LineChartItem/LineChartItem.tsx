@@ -2,15 +2,14 @@ import React from 'react';
 
 import { is, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
+import { TMethod } from '@amaui/models';
 
 import Path from '../Path';
 import Line from '../Line';
 import Type from '../Type';
 import useMediaQuery from '../useMediaQuery';
 import { IChart, TChartValueValues } from '../Chart/Chart';
-
 import { controlPoint, staticClassName, valueBreakpoints } from '../utils';
-import { TMethod } from '@amaui/models';
 
 const useStyle = styleMethod(theme => ({
   root: {

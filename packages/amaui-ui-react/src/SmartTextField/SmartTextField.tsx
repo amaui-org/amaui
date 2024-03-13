@@ -1,12 +1,10 @@
 import React from 'react';
 
-import { is, isEnvironment, parse } from '@amaui/utils';
+import { innerHTMLToText, is, isEnvironment, parse, stringToColor, textToInnerHTML } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import TextField, { ITextField } from '../TextField/TextField';
 import Icon, { IIcon } from '../Icon';
-
-import { caret, iconSizeToFontSize, innerHTMLToText, keyboardStyleCommands, sanitize, staticClassName, stringToColor, TColor, textToInnerHTML, TRef } from '../utils';
 import Line from '../Line';
 import List from '../List';
 import ListItem from '../ListItem';
@@ -21,6 +19,7 @@ import ToggleButton from '../ToggleButton';
 import ClickListener from '../ClickListener';
 import ToggleButtons from '../ToggleButtons';
 import Menu from '../Menu';
+import { sanitize, caret, keyboardStyleCommands, staticClassName } from '../utils';
 
 const IconMaterialFormatItalicRounded = React.forwardRef((props: IIcon, ref) => {
 

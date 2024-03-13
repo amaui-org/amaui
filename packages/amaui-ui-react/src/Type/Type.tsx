@@ -2,7 +2,8 @@ import React from 'react';
 
 import { classNames, style as styleMethod, TTypographyItem, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement, staticClassName, TColor } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement, IColor } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -156,7 +157,7 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Type' });
 
 export interface IType extends IBaseElement {
-  color?: TColor;
+  color?: IColor;
 
   responsive?: boolean;
 

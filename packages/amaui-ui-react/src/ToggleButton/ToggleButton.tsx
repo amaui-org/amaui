@@ -4,7 +4,6 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Chip from '../Chip';
 import { IChip } from '../Chip/Chip';
-
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({

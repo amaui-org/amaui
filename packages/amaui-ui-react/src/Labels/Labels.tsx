@@ -6,8 +6,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Type from '../Type';
 import Line from '../Line';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, TColor, TElement, TPropsAny, TSize, TTonal, TVersion } from '../utils';
+import { staticClassName } from '../utils';
+import { ITonal, IColor, IVersion, ISize, IElement, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -25,14 +25,14 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Labels' });
 
 export interface ILabels extends ILine {
-  tonal?: TTonal;
-  color?: TColor;
-  colorUnchecked?: TColor;
-  version?: TVersion;
-  size?: TSize;
+  tonal?: ITonal;
+  color?: IColor;
+  colorUnchecked?: IColor;
+  version?: IVersion;
+  size?: ISize;
 
-  name?: TElement;
-  label?: TElement;
+  name?: IElement;
+  label?: IElement;
 
   valueDefault?: any[];
   checkedDefault?: any[];
@@ -44,8 +44,8 @@ export interface ILabels extends ILine {
 
   disabled?: boolean;
 
-  WrapperProps?: TPropsAny;
-  LabelProps?: TPropsAny;
+  WrapperProps?: IPropsAny;
+  LabelProps?: IPropsAny;
 }
 
 const Labels: React.FC<ILabels> = React.forwardRef((props_, ref: any) => {

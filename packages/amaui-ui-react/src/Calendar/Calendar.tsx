@@ -21,8 +21,8 @@ import { IconDoneAnimated } from '../Buttons/Buttons';
 import { ICalenarDays, TCalendarMonthCalendar, TCalendarMonthValue } from '../CalendarMonth/CalendarMonth';
 import { TTransitionStatus } from '../Transition';
 import { ISurface } from '../Surface/Surface';
-
-import { staticClassName, TColor, TElementReference, TPropsAny, TSize, TTonal } from '../utils';
+import { staticClassName } from '../utils';
+import { IColor, IElementReference, IPropsAny, ISize, ITonal } from '../types';
 
 const useStyle = style(theme => ({
   root: {
@@ -160,16 +160,16 @@ const useStyle = style(theme => ({
   }
 }), { name: 'amaui-Calendar' });
 
-export type TGetAmauiDates = (value: TCalendarMonthValue, calendar: TCalendarMonthCalendar, props: TPropsAny) => Array<{ value: AmauiDate }>;
+export type TGetAmauiDates = (value: TCalendarMonthValue, calendar: TCalendarMonthCalendar, props: IPropsAny) => Array<{ value: AmauiDate }>;
 
 export type TCalendarUnit = 'day' | 'month' | 'year';
 
 export interface ICalendar extends Omit<ISurface, 'version'> {
-  tonal?: TTonal;
-  color?: TColor;
+  tonal?: ITonal;
+  color?: IColor;
 
   version?: 'regular' | 'year';
-  size?: TSize;
+  size?: ISize;
 
   value?: TCalendarMonthValue;
   valueDefault?: TCalendarMonthValue;
@@ -198,9 +198,9 @@ export interface ICalendar extends Omit<ISurface, 'version'> {
 
   belowCalendars?: any;
 
-  IconPrevious?: TElementReference;
-  IconNext?: TElementReference;
-  IconDropDown?: TElementReference;
+  IconPrevious?: IElementReference;
+  IconNext?: IElementReference;
+  IconDropDown?: IElementReference;
 
   CalendarMonthProps?: any;
   CalendarDayProps?: ICalenarDays;

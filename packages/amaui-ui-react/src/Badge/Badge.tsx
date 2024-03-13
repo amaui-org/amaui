@@ -3,8 +3,8 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Surface from '../Surface';
-
-import { IBaseElement, staticClassName, TColor, TTonal } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement, IColor, ITonal } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -68,8 +68,8 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Badge' });
 
 export interface IBadge extends IBaseElement {
-  tonal?: TTonal;
-  color?: TColor;
+  tonal?: ITonal;
+  color?: IColor;
 
   value?: number;
 

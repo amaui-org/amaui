@@ -4,7 +4,6 @@ import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-re
 
 import Line from '../Line';
 import { ILine } from '../Line/Line';
-
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({

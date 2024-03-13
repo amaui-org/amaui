@@ -6,8 +6,8 @@ import Surface from '../Surface';
 import Divider from '../Divider';
 import Line from '../Line';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IElement, IPropsAny, IElementReference } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -75,13 +75,13 @@ const useStyle = styleMethod(theme => ({
 export interface ITimelineItem extends ILine {
   orientation?: 'vertical' | 'horizontal';
 
-  start?: TElement;
-  end?: TElement;
+  start?: IElement;
+  end?: IElement;
 
-  DividerProps?: TPropsAny;
-  IconProps?: TPropsAny;
+  DividerProps?: IPropsAny;
+  IconProps?: IPropsAny;
 
-  Icon?: TElementReference;
+  Icon?: IElementReference;
   Divider?: any;
 }
 

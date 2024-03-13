@@ -11,8 +11,8 @@ import PaginationItem from '../PaginationItem';
 import Transitions from '../Transitions';
 import Transition, { TTransitionStatus } from '../Transition';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, TColor, TPropsAny, TSize, TTonal } from '../utils';
+import { staticClassName } from '../utils';
+import { IColor, IPropsAny, ISize, ITonal } from '../types';
 
 const useStyle = style(theme => ({
   root: {
@@ -229,10 +229,10 @@ export interface ICalendarMonthValuesValue {
 export type TCalendarMonthValues = [ICalendarMonthValuesValue, ICalendarMonthValuesValue];
 
 export interface ICalenarDays extends ILine {
-  tonal?: TTonal;
-  color?: TColor;
+  tonal?: ITonal;
+  color?: IColor;
 
-  size?: TSize;
+  size?: ISize;
 
   value?: TCalendarMonthValue;
   valueDefault?: TCalendarMonthValue;
@@ -258,9 +258,9 @@ export interface ICalenarDays extends ILine {
   renderDay?: (value: AmauiDate, props: any, day: any, outside: boolean) => React.ReactNode;
   renderDayName?: (order: number) => any;
 
-  PaginationItemProps?: TPropsAny;
-  TransitionProps?: TPropsAny;
-  TransitionsProps?: TPropsAny;
+  PaginationItemProps?: IPropsAny;
+  TransitionProps?: IPropsAny;
+  TransitionsProps?: IPropsAny;
 }
 
 const CalendarMonth: React.FC<ICalenarDays> = React.forwardRef((props__, ref: any) => {

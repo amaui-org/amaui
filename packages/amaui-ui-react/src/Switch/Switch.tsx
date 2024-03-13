@@ -5,8 +5,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Keyframes from '../Keyframes';
 import IconButton from '../IconButton';
-
-import { IBaseElement, staticClassName, TColor, TElement, TElementReference, TRef, TSize, TTonal } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement, ITonal, IColor, ISize, IRef, IElement } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -194,11 +194,11 @@ const Icon = (props: any) => {
 };
 
 export interface ISwitch extends IBaseElement {
-  tonal?: TTonal;
-  color?: TColor;
-  size?: TSize;
+  tonal?: ITonal;
+  color?: IColor;
+  size?: ISize;
 
-  inputRef?: TRef;
+  inputRef?: IRef;
 
   valueDefault?: boolean;
   checkedDefault?: boolean;
@@ -208,8 +208,8 @@ export interface ISwitch extends IBaseElement {
 
   onChange?: (value: boolean, event: React.ChangeEvent<any>) => any;
 
-  OnIcon?: TElement;
-  OffIcon?: TElement;
+  OnIcon?: IElement;
+  OffIcon?: IElement;
 
   disabled?: boolean;
 }

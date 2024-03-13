@@ -6,9 +6,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Fade from '../Fade';
 import LinearProgress from '../LinearProgress';
 import MainProgressContext from './Context';
-
-import { staticClassName, TElementReference, TPropsAny } from '../utils';
 import { ILinearProress } from '../LinearProgress/LinearProgress';
+import { staticClassName } from '../utils';
+import { IElementReference, IPropsAny } from '../types';
 
 export interface IMainProgressStartArgument {
   tonal?: boolean;
@@ -73,9 +73,9 @@ export interface IMainProgress extends ILinearProress {
   fixed?: boolean;
   position?: 'top' | 'bottom';
 
-  TransitionComponent?: TElementReference;
+  TransitionComponent?: IElementReference;
 
-  TransitionComponentProps?: TPropsAny;
+  TransitionComponentProps?: IPropsAny;
 }
 
 const MainProgress: React.FC<IMainProgress> = React.forwardRef((props_, ref: any) => {

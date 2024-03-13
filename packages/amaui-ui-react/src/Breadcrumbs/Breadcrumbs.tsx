@@ -10,7 +10,8 @@ import IconButton from '../IconButton';
 import useMediaQuery from '../useMediaQuery';
 import { ILine } from '../Line/Line';
 
-import { staticClassName, TElement, valueBreakpoints } from '../utils';
+import { staticClassName, valueBreakpoints } from '../utils';
+import { IElement } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -61,11 +62,11 @@ const IconMaterialMoreHorizRounded = React.forwardRef((props: any, ref) => {
 });
 
 export interface IBreadcrumbs extends ILine {
-  separator?: TElement | string;
+  separator?: IElement | string;
 
   max?: number;
 
-  renderMore?: (onExpandMore: () => void) => TElement;
+  renderMore?: (onExpandMore: () => void) => IElement;
 }
 
 const Breadcrumbs: React.FC<IBreadcrumbs> = React.forwardRef((props_, ref: any) => {

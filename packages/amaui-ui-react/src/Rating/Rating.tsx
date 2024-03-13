@@ -3,9 +3,9 @@ import React from 'react';
 import { clamp, is, isEnvironment, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement, staticClassName, TColor, TElement, TSize, TTonal } from '../utils';
-
 import Icon from '../Icon';
+import { staticClassName } from '../utils';
+import { IBaseElement, ITonal, IColor, ISize, IElement } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -96,10 +96,10 @@ const IconMaterialGradeRoundedFilled = React.forwardRef((props: any, ref) => {
 });
 
 export interface IRating extends IBaseElement {
-  tonal?: TTonal;
-  color?: TColor;
-  colorInactive?: TColor;
-  size?: TSize;
+  tonal?: ITonal;
+  color?: IColor;
+  colorInactive?: IColor;
+  size?: ISize;
 
   value?: number;
   valueDefault?: number;
@@ -115,14 +115,14 @@ export interface IRating extends IBaseElement {
   readOnly?: boolean;
   disabled?: boolean;
 
-  icon?: TElement;
+  icon?: IElement;
   icons?: {
-    default?: TElement;
+    default?: IElement;
 
-    [property: number | string]: TElement;
+    [property: number | string]: IElement;
   };
-  iconInactive?: TElement;
-  iconActive?: TElement;
+  iconInactive?: IElement;
+  iconActive?: IElement;
 }
 
 const Rating: React.FC<IRating> = React.forwardRef((props_, ref: any) => {

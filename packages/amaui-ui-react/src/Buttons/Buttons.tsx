@@ -7,8 +7,8 @@ import Icon from '../Icon';
 import Transition, { TTransitionStatus } from '../Transition';
 import Line from '../Line';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, TColor, TSize, TTonal, TVersion } from '../utils';
+import { staticClassName } from '../utils';
+import { IColor, ISize, ITonal, IVersion } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -227,11 +227,11 @@ export const IconDoneAnimated = (props: any) => {
 };
 
 export interface IButtons extends ILine {
-  tonal?: TTonal;
-  color?: TColor;
-  version?: TVersion;
-  colorSelected?: TColor;
-  size?: TSize;
+  tonal?: ITonal;
+  color?: IColor;
+  version?: IVersion;
+  colorSelected?: IColor;
+  size?: ISize;
 
   value?: any;
   valueDefault?: any;

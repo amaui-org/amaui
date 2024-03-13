@@ -8,8 +8,8 @@ import Modal from '../Modal';
 import Append from '../Append';
 import Surface from '../Surface';
 import { IModal } from '../Modal/Modal';
-
-import { staticClassName, TColor, TElement, TElementReference, THTMLElement, TMethodTransition, TPropsAny, TTonal } from '../utils';
+import { staticClassName } from '../utils';
+import { IColor, IElement, IElementReference, IHTMLElement, IMethodTransition, IPropsAny, ITonal } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -171,17 +171,17 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Tooltip' });
 
 export interface ITooltip extends Omit<IModal, 'maxWidth'> {
-  tonal?: TTonal;
-  color?: TColor;
+  tonal?: ITonal;
+  color?: IColor;
 
   open?: boolean;
 
   openDefault?: boolean;
 
-  name?: TElement;
-  label?: TElement;
+  name?: IElement;
+  label?: IElement;
 
-  parent?: THTMLElement;
+  parent?: IHTMLElement;
   position?: 'top' | 'left' | 'bottom' | 'right';
   switch?: boolean;
   alignment?: 'start' | 'center' | 'end';
@@ -190,7 +190,7 @@ export interface ITooltip extends Omit<IModal, 'maxWidth'> {
   maxWidth?: 'xxs' | 'xs' | 'sm' | 'rg' | 'lg' | 'xl' | 'xxl' | 'unset';
   arrow?: boolean;
   anchor?: DOMRect;
-  anchorElement?: THTMLElement;
+  anchorElement?: IHTMLElement;
   noMargin?: boolean;
   classNameSwitch?: string;
   transformOrigin?: string;
@@ -209,14 +209,14 @@ export interface ITooltip extends Omit<IModal, 'maxWidth'> {
 
   onOpen?: () => any;
   onClose?: () => any;
-  onExited?: TMethodTransition;
+  onExited?: IMethodTransition;
 
-  TransitionComponent?: TElementReference;
+  TransitionComponent?: IElementReference;
 
-  TransitionComponentProps?: TPropsAny;
-  AppendProps?: TPropsAny;
-  ModalProps?: TPropsAny;
-  LabelProps?: TPropsAny;
+  TransitionComponentProps?: IPropsAny;
+  AppendProps?: IPropsAny;
+  ModalProps?: IPropsAny;
+  LabelProps?: IPropsAny;
 }
 
 const Tooltip: React.FC<ITooltip> = React.forwardRef((props_, ref: any) => {

@@ -5,7 +5,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Icon from '../Icon';
 import IconButton from '../IconButton';
 import Menu, { IMenu } from '../Menu/Menu';
-import { TPropsAny, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
+import { IPropsAny } from '../types';
 
 const IconMaterialMoreVert = React.forwardRef((props: any, ref) => {
 
@@ -39,7 +40,7 @@ const useStyle = styleMethod(theme => ({
 export interface IMoreOptions extends IMenu {
   Icon?: any;
 
-  IconButtonProps?: TPropsAny;
+  IconButtonProps?: IPropsAny;
 }
 
 const MoreOptions: React.FC<IMoreOptions> = React.forwardRef((props_, ref: any) => {

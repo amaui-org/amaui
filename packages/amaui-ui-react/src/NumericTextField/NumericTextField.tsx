@@ -7,8 +7,8 @@ import AdvancedTextField from '../AdvancedTextField';
 import IconButton from '../IconButton';
 import Icon from '../Icon';
 import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
-
-import { staticClassName, TElementReference, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -58,10 +58,10 @@ export interface INumericTextField extends IAdvancedTextField {
   incrementValue?: number;
   decrementValue?: number;
 
-  IconIncrement?: TElementReference;
-  IconDecrement?: TElementReference;
+  IconIncrement?: IElementReference;
+  IconDecrement?: IElementReference;
 
-  IconButtonProps?: TPropsAny;
+  IconButtonProps?: IPropsAny;
 }
 
 const NumericTextField: React.FC<INumericTextField> = React.forwardRef((props_, ref: any) => {

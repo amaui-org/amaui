@@ -5,9 +5,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Line from '../Line';
 import useMediaQuery from '../useMediaQuery';
-
-import { staticClassName, TValueBreakpoints, valueBreakpoints } from '../utils';
 import { ILine } from '../Line/Line';
+import { valueBreakpoints, staticClassName } from '../utils';
+import { IValueBreakpoints } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -29,8 +29,8 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-ImageListItem' });
 
 export interface IImageListItem extends ILine {
-  rows?: number | Partial<Record<TValueBreakpoints, number>>;
-  columns?: number | Partial<Record<TValueBreakpoints, number>>;
+  rows?: number | Partial<Record<IValueBreakpoints, number>>;
+  columns?: number | Partial<Record<IValueBreakpoints, number>>;
   version?: 'standard' | 'vowen' | 'masonry';
 }
 

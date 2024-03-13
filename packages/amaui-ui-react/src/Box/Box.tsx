@@ -3,7 +3,8 @@ import React from 'react';
 import { TValue } from '@amaui/style';
 import { style as styleMethod, classNames, useAmauiTheme, className as classNameMethod } from '@amaui/style-react';
 
-import { IBaseElement, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {

@@ -3,7 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement } from '../utils';
+import { IBaseElement } from '../types';
 
 const KEYCODES = {
   tab: 'Tab'

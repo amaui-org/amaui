@@ -23,8 +23,8 @@ import { TCalendarUnit } from '../Calendar/Calendar';
 import { TClockUnit } from '../Clock/Clock';
 import Button from '../Button';
 import Type from '../Type';
-
-import { staticClassName, TColor, TElementReference, TPropsAny, TTonal, TValueBreakpoints, valueBreakpoints } from '../utils';
+import { valueBreakpoints, staticClassName } from '../utils';
+import { ITonal, IColor, IValueBreakpoints, IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -106,8 +106,8 @@ const IconMaterialScheduleRounded = React.forwardRef((props: any, ref) => {
 export type TDateTimePicker = AmauiDate;
 
 export interface IDateTimePicker extends Omit<IAdvancedTextField, 'version'> {
-  tonal?: TTonal;
-  color?: TColor;
+  tonal?: ITonal;
+  color?: IColor;
 
   version?: 'auto' | 'mobile' | 'desktop';
 
@@ -127,7 +127,7 @@ export interface IDateTimePicker extends Omit<IAdvancedTextField, 'version'> {
   headingTextTimeRange?: string;
   headingTextDate?: string;
   headingTextDateRange?: string;
-  useHelperText?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  useHelperText?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
   format?: '12' | '24';
   hour?: boolean;
   minute?: boolean;
@@ -144,20 +144,20 @@ export interface IDateTimePicker extends Omit<IAdvancedTextField, 'version'> {
   onClear?: (event: React.MouseEvent<any>) => any;
   onOk?: (event: React.MouseEvent<any>) => any;
 
-  Icon?: TElementReference;
-  IconDate?: TElementReference;
-  IconTime?: TElementReference;
+  Icon?: IElementReference;
+  IconDate?: IElementReference;
+  IconTime?: IElementReference;
 
-  ModalProps?: TPropsAny;
-  TooltipProps?: TPropsAny;
-  AdvancedTextFieldProps?: TPropsAny;
-  DatePickerProps?: TPropsAny;
-  TimePickerProps?: TPropsAny;
-  IconButtonProps?: TPropsAny;
-  ButtonProps?: TPropsAny;
-  PickerProps?: TPropsAny;
-  MiddleProps?: TPropsAny;
-  MainProps?: TPropsAny;
+  ModalProps?: IPropsAny;
+  TooltipProps?: IPropsAny;
+  AdvancedTextFieldProps?: IPropsAny;
+  DatePickerProps?: IPropsAny;
+  TimePickerProps?: IPropsAny;
+  IconButtonProps?: IPropsAny;
+  ButtonProps?: IPropsAny;
+  PickerProps?: IPropsAny;
+  MiddleProps?: IPropsAny;
+  MainProps?: IPropsAny;
 }
 
 const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref: any) => {

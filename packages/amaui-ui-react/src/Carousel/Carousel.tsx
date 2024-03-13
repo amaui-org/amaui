@@ -11,9 +11,9 @@ import IconButton from '../IconButton';
 import Transitions from '../Transitions';
 import Surface from '../Surface';
 import useMediaQuery from '../useMediaQuery';
-
-import { staticClassName, TElement, TElementReference, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
 import { ISurface } from '../Surface/Surface';
+import { valueBreakpoints, staticClassName } from '../utils';
+import { IElement, IValueBreakpoints, IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -197,12 +197,12 @@ export interface ICarouselValue {
   y?: number;
 }
 
-export type TCarouselItem = string | null | TElement | { element: TElement; };
+export type TCarouselItem = string | null | IElement | { element: IElement; };
 
 export type TCarouseOnUpdate = (to: string | number, values: TCarouselItem[]) => any;
 
 export interface ICarousel extends Omit<ISurface, 'version'> {
-  version?: 'regular' | 'transition' | Partial<Record<TValueBreakpoints, 'regular' | 'transition'>>;
+  version?: 'regular' | 'transition' | Partial<Record<IValueBreakpoints, 'regular' | 'transition'>>;
 
   valueDefault?: ICarouselValue;
   value?: ICarouselValue;
@@ -218,33 +218,33 @@ export interface ICarousel extends Omit<ISurface, 'version'> {
   // and a transition element
   items?: Array<TCarouselItem>;
 
-  orientation?: 'vertical' | 'horizontal' | Partial<Record<TValueBreakpoints, 'vertical' | 'horizontal'>>;
+  orientation?: 'vertical' | 'horizontal' | Partial<Record<IValueBreakpoints, 'vertical' | 'horizontal'>>;
 
-  itemSize?: 'auto' | Partial<Record<TValueBreakpoints, 'auto' | false>>;
+  itemSize?: 'auto' | Partial<Record<IValueBreakpoints, 'auto' | false>>;
 
-  gap?: number | Partial<Record<TValueBreakpoints, number>>;
+  gap?: number | Partial<Record<IValueBreakpoints, number>>;
 
-  move?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  move?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
   // How much in value to move on move
-  moveValue?: number | Partial<Record<TValueBreakpoints, number>>;
+  moveValue?: number | Partial<Record<IValueBreakpoints, number>>;
 
   // How many items to move on move
-  moveItems?: number | Partial<Record<TValueBreakpoints, number>>;
+  moveItems?: number | Partial<Record<IValueBreakpoints, number>>;
 
-  moveBeyondEdge?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  moveBeyondEdge?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
-  free?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  free?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
-  swipe?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  swipe?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
-  background?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  background?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
   index?: number;
 
-  autoPlay?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  autoPlay?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
-  autoHeight?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  autoHeight?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
   autoHeightDelay?: number;
 
@@ -252,13 +252,13 @@ export interface ICarousel extends Omit<ISurface, 'version'> {
 
   pauseOnHover?: boolean;
 
-  round?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  round?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
-  arrows?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  arrows?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
   mouseScroll?: boolean;
 
-  momentum?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  momentum?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
   // AmauiSubscription methods
   previousSub?: AmauiSubscription;
@@ -266,25 +266,25 @@ export interface ICarousel extends Omit<ISurface, 'version'> {
   updateSub?: AmauiSubscription;
 
   // on mobile visible
-  arrowsVisibility?: 'hover' | 'visible' | Partial<Record<TValueBreakpoints, 'hover' | 'visible'>>;
+  arrowsVisibility?: 'hover' | 'visible' | Partial<Record<IValueBreakpoints, 'hover' | 'visible'>>;
 
-  arrowHideOnStartEnd?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  arrowHideOnStartEnd?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
-  renderProgress?: (update: TCarouseOnUpdate) => TElement;
+  renderProgress?: (update: TCarouseOnUpdate) => IElement;
 
-  renderArrowPrevious?: (update: () => any) => TElement;
-  renderArrowNext?: (update: () => any) => TElement;
+  renderArrowPrevious?: (update: () => any) => IElement;
+  renderArrowNext?: (update: () => any) => IElement;
 
-  progress?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  progress?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
   // on mobile visible
-  progressVisibility?: 'hover' | 'visible' | Partial<Record<TValueBreakpoints, 'hover' | 'visible'>>;
+  progressVisibility?: 'hover' | 'visible' | Partial<Record<IValueBreakpoints, 'hover' | 'visible'>>;
 
   start?: any;
 
   end?: any;
 
-  noTransition?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  noTransition?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
   onUpdatePosition?: (value: ICarouselValue) => any;
 
@@ -297,31 +297,31 @@ export interface ICarousel extends Omit<ISurface, 'version'> {
   onMouseEnte?: (event: React.MouseEvent<any>) => any;
   onMouseLeave?: (event: React.MouseEvent<any>) => any;
 
-  TransitionComponent?: TElementReference;
+  TransitionComponent?: IElementReference;
 
-  ProgressTransitionComponent?: TElementReference;
+  ProgressTransitionComponent?: IElementReference;
 
-  ArrowTransitionComponent?: TElementReference;
-  ArrowPreviousTransitionComponent?: TElementReference;
-  ArrowNextTransitionComponent?: TElementReference;
+  ArrowTransitionComponent?: IElementReference;
+  ArrowPreviousTransitionComponent?: IElementReference;
+  ArrowNextTransitionComponent?: IElementReference;
 
-  IconButtonPrevious?: TElement;
-  IconButtonNext?: TElement;
+  IconButtonPrevious?: IElement;
+  IconButtonNext?: IElement;
 
-  IconPrevious?: TElementReference;
-  IconNext?: TElementReference;
+  IconPrevious?: IElementReference;
+  IconNext?: IElementReference;
 
-  ArrowProps?: TPropsAny;
-  ArrowPreviousProps?: TPropsAny;
-  ArrowNextProps?: TPropsAny;
-  CarouselProps?: TPropsAny;
-  TransitionsProps?: TPropsAny;
-  TransitionComponentProps?: TPropsAny;
-  ArrowTransitionComponentProps?: TPropsAny;
-  ArrowPreviousTransitionComponentProps?: TPropsAny;
-  ArrowNextTransitionComponentProps?: TPropsAny;
-  ProgressTransitionComponentProps?: TPropsAny;
-  ItemWrapperProps?: TPropsAny;
+  ArrowProps?: IPropsAny;
+  ArrowPreviousProps?: IPropsAny;
+  ArrowNextProps?: IPropsAny;
+  CarouselProps?: IPropsAny;
+  TransitionsProps?: IPropsAny;
+  TransitionComponentProps?: IPropsAny;
+  ArrowTransitionComponentProps?: IPropsAny;
+  ArrowPreviousTransitionComponentProps?: IPropsAny;
+  ArrowNextTransitionComponentProps?: IPropsAny;
+  ProgressTransitionComponentProps?: IPropsAny;
+  ItemWrapperProps?: IPropsAny;
 }
 
 const Carousel: React.FC<ICarousel> = React.forwardRef((props_, ref: any) => {

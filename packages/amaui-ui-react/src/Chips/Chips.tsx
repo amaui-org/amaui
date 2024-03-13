@@ -5,8 +5,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Line from '../Line';
 import Chip from '../Chip/Chip';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, TElement, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IElement, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -64,9 +64,9 @@ export interface IChips extends ILine {
 
   max?: number;
 
-  AdditionalChip?: TElement;
+  AdditionalChip?: IElement;
 
-  AdditionalChipProps?: TPropsAny;
+  AdditionalChipProps?: IPropsAny;
 }
 
 const Chips: React.FC<IChips> = React.forwardRef((props_, ref: any) => {

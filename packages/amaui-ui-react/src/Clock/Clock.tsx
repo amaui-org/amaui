@@ -7,8 +7,8 @@ import { AmauiDate, is as isAmauiDate, set } from '@amaui/date';
 import RoundMeter from '../RoundMeter';
 import Path from '../Path';
 import { IRoundMeter } from '../RoundMeter/RoundMeter';
-
-import { staticClassName, TColor, TSize, TTonal } from '../utils';
+import { staticClassName } from '../utils';
+import { ITonal, IColor, ISize } from '../types';
 
 const useStyle = style(theme => ({
   root: {
@@ -40,8 +40,8 @@ export type TClockUnit = 'hour' | 'minute' | 'second';
 export type TClockDayTime = 'am' | 'pm';
 
 export interface IClock extends IRoundMeter {
-  tonal?: TTonal;
-  color?: TColor;
+  tonal?: ITonal;
+  color?: IColor;
 
   value?: TClockValue;
   valueDefault?: TClockValue;
@@ -51,7 +51,7 @@ export interface IClock extends IRoundMeter {
   selectingDefault?: TClockUnit;
   onChangeSelecting?: (value: TClockUnit) => any;
 
-  size?: TSize;
+  size?: ISize;
 
   format?: TClockFormat;
   dayTime?: TClockDayTime;

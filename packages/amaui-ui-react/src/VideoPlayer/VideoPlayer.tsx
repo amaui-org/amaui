@@ -14,8 +14,8 @@ import Icon from '../Icon';
 import Menu from '../Menu';
 import ListItem from '../ListItem';
 import { ILine } from '../Line/Line';
-
-import { staticClassName, TColor, TElementReference, TPropsAny, TSize, TTonal } from '../utils';
+import { staticClassName } from '../utils';
+import { ITonal, IColor, ISize, IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -366,9 +366,9 @@ export interface IVideoPlayer extends ILine {
   thumbnails?: any;
   duration?: number;
 
-  tonal?: TTonal;
-  color?: TColor;
-  size?: TSize;
+  tonal?: ITonal;
+  color?: IColor;
+  size?: ISize;
 
   start?: any;
   end?: any;
@@ -391,34 +391,34 @@ export interface IVideoPlayer extends ILine {
 
   disabled?: boolean;
 
-  IconPlay?: TElementReference;
-  IconPause?: TElementReference;
-  IconForward?: TElementReference;
-  IconBackward?: TElementReference;
-  IconVolume?: TElementReference;
-  IconVolumeMuted?: TElementReference;
-  IconBack?: TElementReference;
-  IconSettings?: TElementReference;
-  IconQuality?: TElementReference;
-  IconPlaybackSpeed?: TElementReference;
-  IconPictureInPicture?: TElementReference;
-  IconFullScreen?: TElementReference;
-  IconFullScreenExit?: TElementReference;
+  IconPlay?: IElementReference;
+  IconPause?: IElementReference;
+  IconForward?: IElementReference;
+  IconBackward?: IElementReference;
+  IconVolume?: IElementReference;
+  IconVolumeMuted?: IElementReference;
+  IconBack?: IElementReference;
+  IconSettings?: IElementReference;
+  IconQuality?: IElementReference;
+  IconPlaybackSpeed?: IElementReference;
+  IconPictureInPicture?: IElementReference;
+  IconFullScreen?: IElementReference;
+  IconFullScreenExit?: IElementReference;
 
-  PlayButtonProps?: TPropsAny;
-  ForwardButtonProps?: TPropsAny;
-  BackwardButtonProps?: TPropsAny;
-  VolumeButtonProps?: TPropsAny;
-  IconButtonProps?: TPropsAny;
-  TypeProps?: TPropsAny;
-  TimelineProps?: TPropsAny;
-  VolumeProps?: TPropsAny;
-  SliderProps?: TPropsAny;
-  SettingsButtonProps?: TPropsAny;
-  SettingsMenuProps?: TPropsAny;
-  QualityButtonProps?: TPropsAny;
-  PictureInPictureButtonProps?: TPropsAny;
-  FullScreenButtonProps?: TPropsAny;
+  PlayButtonProps?: IPropsAny;
+  ForwardButtonProps?: IPropsAny;
+  BackwardButtonProps?: IPropsAny;
+  VolumeButtonProps?: IPropsAny;
+  IconButtonProps?: IPropsAny;
+  TypeProps?: IPropsAny;
+  TimelineProps?: IPropsAny;
+  VolumeProps?: IPropsAny;
+  SliderProps?: IPropsAny;
+  SettingsButtonProps?: IPropsAny;
+  SettingsMenuProps?: IPropsAny;
+  QualityButtonProps?: IPropsAny;
+  PictureInPictureButtonProps?: IPropsAny;
+  FullScreenButtonProps?: IPropsAny;
 }
 
 const VideoPlayer: React.FC<IVideoPlayer> = React.forwardRef((props_, ref: any) => {

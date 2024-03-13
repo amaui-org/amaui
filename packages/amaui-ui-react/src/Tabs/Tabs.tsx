@@ -11,8 +11,8 @@ import useMediaQuery from '../useMediaQuery';
 import Divider from '../Divider';
 import { ISurface } from '../Surface/Surface';
 import { TLineAlign, TLineJustify } from '../Line/Line';
-
-import { staticClassName, TElementReference, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -258,13 +258,13 @@ export interface ITabs extends Omit<ISurface, 'version'> {
 
   noDivider?: boolean;
 
-  IconStart?: TElementReference;
-  IconEnd?: TElementReference;
+  IconStart?: IElementReference;
+  IconEnd?: IElementReference;
 
-  IconTop?: TElementReference;
-  IconBottom?: TElementReference;
+  IconTop?: IElementReference;
+  IconBottom?: IElementReference;
 
-  SurfaceProps?: TPropsAny;
+  SurfaceProps?: IPropsAny;
 }
 
 const Tabs: React.FC<ITabs> = React.forwardRef((props_, ref: any) => {

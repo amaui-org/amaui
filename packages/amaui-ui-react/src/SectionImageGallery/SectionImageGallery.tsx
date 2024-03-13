@@ -6,7 +6,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import ImageGallery from '../ImageGallery';
 import { IImageGallery } from '../ImageGallery/ImageGallery';
 import Section, { ISection } from '../Section/Section';
-import { IMediaObject, staticClassName } from '../utils';
+import { staticClassName } from '../utils';
+import { IMediaObject } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {

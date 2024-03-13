@@ -3,7 +3,8 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement, staticClassName, TColor, TPropsAny, TSize, TTonal } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement, IColor, IPropsAny, ISize, ITonal } from '../types';
 
 const noShrinkStrokeDashOffset = 194;
 
@@ -139,9 +140,9 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-RoundProgress' });
 
 export interface IRoundProgress extends IBaseElement {
-  tonal?: TTonal;
-  color?: TColor;
-  size?: TSize;
+  tonal?: ITonal;
+  color?: IColor;
+  size?: ISize;
 
   version?: 'determinate' | 'indeterminate';
 
@@ -150,8 +151,8 @@ export interface IRoundProgress extends IBaseElement {
   thickness?: number;
   rounded?: boolean;
 
-  pathProps?: TPropsAny;
-  pathBackgroundProps?: TPropsAny;
+  pathProps?: IPropsAny;
+  pathBackgroundProps?: IPropsAny;
 }
 
 const RoundProgress: React.FC<IRoundProgress> = React.forwardRef((props_, ref: any) => {

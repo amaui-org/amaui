@@ -4,7 +4,6 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import DateTimePicker from '../DateTimePicker';
 import { IDateTimePicker } from '../DateTimePicker/DateTimePicker';
-
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({

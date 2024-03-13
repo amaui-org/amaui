@@ -5,8 +5,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Surface from '../Surface';
 import { ISurface } from '../Surface/Surface';
-
-import { getOverflowParent, staticClassName, TSize } from '../utils';
+import { getOverflowParent, staticClassName } from '../utils';
+import { ISize } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -27,7 +27,7 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-TableHead' });
 
 export interface ITableHead extends ISurface {
-  size?: TSize;
+  size?: ISize;
 
   sticky?: boolean;
 

@@ -12,7 +12,9 @@ import Menu from '../Menu';
 import ListItem from '../ListItem';
 import Share from '../Share';
 import IconButton from '../IconButton';
-import { IBaseElement, IMediaObject, staticClassName, textToInnerHTML } from '../utils';
+import { textToInnerHTML } from '@amaui/utils';
+import { staticClassName } from '../utils';
+import { IBaseElement, IMediaObject } from '../types';
 
 const IconMaterialShareRounded = React.forwardRef((props: IIcon, ref) => {
 

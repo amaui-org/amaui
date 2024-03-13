@@ -3,7 +3,6 @@ import React from 'react';
 import { is, debounce, clamp, capitalize } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { staticClassName } from '../utils';
 import { emojis_list } from '.';
 import Menu, { IMenu } from '../Menu/Menu';
 import Line from '../Line';
@@ -16,6 +15,7 @@ import Tab from '../Tab';
 import Type from '../Type';
 import Icon from '../Icon';
 import Surface from '../Surface';
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {

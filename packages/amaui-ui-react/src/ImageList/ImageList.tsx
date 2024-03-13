@@ -4,8 +4,8 @@ import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import useMediaQuery from '../useMediaQuery';
-
-import { IBaseElement, staticClassName, TValueBreakpoints, valueBreakpoints } from '../utils';
+import { valueBreakpoints, staticClassName } from '../utils';
+import { IBaseElement, IValueBreakpoints } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -38,10 +38,10 @@ const useStyle = styleMethod(theme => ({
 export interface IImageList extends IBaseElement {
   version?: 'standard' | 'vowen' | 'masonry';
 
-  gap?: number | Partial<Record<TValueBreakpoints, number>>;
-  rowGap?: number | Partial<Record<TValueBreakpoints, number>>;
-  columnGap?: number | Partial<Record<TValueBreakpoints, number>>;
-  columns?: number | Partial<Record<TValueBreakpoints, number>>;
+  gap?: number | Partial<Record<IValueBreakpoints, number>>;
+  rowGap?: number | Partial<Record<IValueBreakpoints, number>>;
+  columnGap?: number | Partial<Record<IValueBreakpoints, number>>;
+  columns?: number | Partial<Record<IValueBreakpoints, number>>;
 }
 
 const ImageList: React.FC<IImageList> = React.forwardRef((props_, ref: any) => {

@@ -11,9 +11,9 @@ import Expand from '../Expand';
 import Interaction from '../Interaction';
 import Line from '../Line';
 import Icon from '../Icon';
-
-import { IBaseElement, staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
 import { TTransitionStatus } from '../Transition';
+import { staticClassName } from '../utils';
+import { IBaseElement, IElement, IPropsAny, IElementReference } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -141,11 +141,11 @@ export interface ITree extends Omit<IBaseElement, 'children'> {
 
   level?: number;
 
-  icon?: TElement;
-  iconOpen?: TElement;
-  start?: TElement;
-  middle?: TElement;
-  end?: TElement;
+  icon?: IElement;
+  iconOpen?: IElement;
+  start?: IElement;
+  middle?: IElement;
+  end?: IElement;
 
   button?: boolean;
   noTransition?: boolean;
@@ -157,16 +157,16 @@ export interface ITree extends Omit<IBaseElement, 'children'> {
   parentDisabled?: boolean;
   disabled?: boolean;
 
-  ExpandProps?: TPropsAny;
-  MainProps?: TPropsAny;
-  StartProps?: TPropsAny;
-  MiddleProps?: TPropsAny;
-  EndProps?: TPropsAny;
-  IndicatorProps?: TPropsAny;
-  TransitionComponentProps?: TPropsAny;
+  ExpandProps?: IPropsAny;
+  MainProps?: IPropsAny;
+  StartProps?: IPropsAny;
+  MiddleProps?: IPropsAny;
+  EndProps?: IPropsAny;
+  IndicatorProps?: IPropsAny;
+  TransitionComponentProps?: IPropsAny;
 
-  IconArrow?: TElementReference;
-  TransitionComponent?: TElementReference;
+  IconArrow?: IElementReference;
+  TransitionComponent?: IElementReference;
 
   children?: any;
 }

@@ -4,9 +4,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Surface from '../Surface';
 import { ISurface } from '../Surface/Surface';
-
-import { staticClassName, TElement, TElementReference, TPropsAny, TSize } from '../utils';
 import Line from '../Line/Line';
+import { staticClassName } from '../utils';
+import { ISize, IElement, IPropsAny, IElementReference } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -31,15 +31,15 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Table' });
 
 export interface ITable extends ISurface {
-  size?: TSize;
+  size?: ISize;
 
-  header?: TElement;
-  footer?: TElement;
+  header?: IElement;
+  footer?: IElement;
 
-  WrapperComponentProps?: TPropsAny;
+  WrapperComponentProps?: IPropsAny;
 
-  TableComponent?: TElementReference;
-  WrapperComponent?: TElementReference;
+  TableComponent?: IElementReference;
+  WrapperComponent?: IElementReference;
 }
 
 const Table: React.FC<ITable> = React.forwardRef((props_, ref: any) => {

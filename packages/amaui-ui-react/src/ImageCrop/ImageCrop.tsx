@@ -4,8 +4,8 @@ import { is, clamp, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Tooltip from '../Tooltip';
-
-import { staticClassName, image as imageMethod, IBaseElement, TPropsAny } from '../utils';
+import { staticClassName, image as imageMethod } from '../utils';
+import { IBaseElement, IPropsAny } from '../types';
 
 const dot = {
   display: 'inline-block',
@@ -317,7 +317,7 @@ export interface IImageCrop extends IBaseElement {
   onFocus?: (event: React.FocusEvent<any>) => any;
   onBlur?: (event: React.FocusEvent<any>) => any;
 
-  TooltipProps?: TPropsAny;
+  TooltipProps?: IPropsAny;
 }
 
 const ImageCrop: React.FC<IImageCrop> = React.forwardRef((props_, ref: any) => {

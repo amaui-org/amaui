@@ -2,7 +2,8 @@ import React from 'react';
 
 import { AmauiTheme, classNames, style as styleMethod, TTone, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement, iconSizeToFontSize, staticClassName, TColor, TTonal } from '../utils';
+import { iconSizeToFontSize, staticClassName } from '../utils';
+import { IBaseElement, ITonal, IColor } from '../types';
 
 export const rtl_icons = [
   'ArrowForwardIos', 'ArrowBackIos', 'ArrowBack', 'ArrowForward', 'ArrowLeft', 'ArrowRight', 'AssignmentReturn', 'CallMade', 'CallMissedOutgoing', 'ChevronLeft', 'ChevronRight', 'DeviceUnknown', 'FeaturedPlayList', 'FlightLand', 'FormatIndentIncrease', 'Functions', 'Input', 'Label', 'LastPage', 'LiveHelp', 'NavigateBefore', 'Note', 'QueueMusic', 'ReplyAll', 'ShortText', 'StarHalf', 'Toc', 'Undo', 'WrapText', 'FirstPage', 'LastPage', 'NavigateNext', 'NavigateBefore'
@@ -37,8 +38,8 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Icon' });
 
 export interface IIcon extends IBaseElement {
-  tonal?: TTonal;
-  color?: TColor;
+  tonal?: ITonal;
+  color?: IColor;
   size?: 'very small' | 'small' | 'regular' | 'medium' | 'large' | 'very large' | number;
 
   tone?: TTone;

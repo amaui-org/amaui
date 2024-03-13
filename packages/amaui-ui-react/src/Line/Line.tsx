@@ -6,7 +6,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Divider from '../Divider';
 import useMediaQuery from '../useMediaQuery';
 
-import { IBaseElement, staticClassName, TPropsAny, TValueBreakpoints, valueBreakpoints } from '../utils';
+import { staticClassName, valueBreakpoints } from '../utils';
+import { IBaseElement, IPropsAny, IValueBreakpoints } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -149,24 +150,24 @@ export type TLineWrap = 'inherit' | 'wrap' | 'nowrap' | 'wrap-reverse';
 export type TLineDisplay = 'inherit' | 'flex' | 'inline-flex';
 
 export interface ILine extends IBaseElement {
-  display?: TLineDisplay | Partial<Record<TValueBreakpoints, TLineDisplay>>;
+  display?: TLineDisplay | Partial<Record<IValueBreakpoints, TLineDisplay>>;
 
-  direction?: TLineDirection | Partial<Record<TValueBreakpoints, TLineDirection>>;
+  direction?: TLineDirection | Partial<Record<IValueBreakpoints, TLineDirection>>;
 
-  align?: TLineAlign | Partial<Record<TValueBreakpoints, TLineAlign>>;
-  justify?: TLineJustify | Partial<Record<TValueBreakpoints, TLineJustify>>;
+  align?: TLineAlign | Partial<Record<IValueBreakpoints, TLineAlign>>;
+  justify?: TLineJustify | Partial<Record<IValueBreakpoints, TLineJustify>>;
 
-  wrap?: TLineWrap | Partial<Record<TValueBreakpoints, TLineWrap>>;
+  wrap?: TLineWrap | Partial<Record<IValueBreakpoints, TLineWrap>>;
 
-  gap?: string | number | Partial<Record<TValueBreakpoints, string | number>>;
-  rowGap?: string | number | Partial<Record<TValueBreakpoints, string | number>>;
-  columnGap?: string | number | Partial<Record<TValueBreakpoints, string | number>>;
+  gap?: string | number | Partial<Record<IValueBreakpoints, string | number>>;
+  rowGap?: string | number | Partial<Record<IValueBreakpoints, string | number>>;
+  columnGap?: string | number | Partial<Record<IValueBreakpoints, string | number>>;
 
-  fullWidth?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  fullWidth?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
-  divider?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  divider?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
-  DividerProps?: TPropsAny;
+  DividerProps?: IPropsAny;
 }
 
 const Line: React.FC<ILine> = React.forwardRef((props_, ref: any) => {

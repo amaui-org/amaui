@@ -10,8 +10,8 @@ import Surface from '../Surface';
 import RoundMeter from '../RoundMeter';
 import Line from '../Line';
 import { ISurface } from '../Surface/Surface';
-
-import { angleToCoordinates, staticClassName, TElement, TPropsAny, TSize } from '../utils';
+import { staticClassName, angleToCoordinates } from '../utils';
+import { ISize, IElement, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -105,7 +105,7 @@ const useStyle = styleMethod(theme => ({
 export interface IWatch extends Omit<ISurface, 'version'> {
   version?: 'regular' | 'analog' | 'modern' | 'minimal';
 
-  size?: TSize;
+  size?: ISize;
 
   start?: boolean;
 
@@ -116,15 +116,15 @@ export interface IWatch extends Omit<ISurface, 'version'> {
   timeFormatString?: string;
   dateFormatString?: string;
 
-  renderTime?: (value: AmauiDate) => TElement;
-  renderDate?: (value: AmauiDate) => TElement;
+  renderTime?: (value: AmauiDate) => IElement;
+  renderDate?: (value: AmauiDate) => IElement;
 
   shadow?: boolean;
 
-  AnalogProps?: TPropsAny;
-  RegularProps?: TPropsAny;
-  MinimalProps?: TPropsAny;
-  ModernProps?: TPropsAny;
+  AnalogProps?: IPropsAny;
+  RegularProps?: IPropsAny;
+  MinimalProps?: IPropsAny;
+  ModernProps?: IPropsAny;
 }
 
 const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {

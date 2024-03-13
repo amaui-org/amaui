@@ -1,13 +1,14 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { is, textToInnerHTML } from '@amaui/utils';
 import { TPaletteVersion, classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line, { ILine } from '../Line/Line';
 import Type from '../Type';
 import Reveal from '../Reveal';
 import useMediaQuery from '../useMediaQuery';
-import { IMediaObject, TPropsAny, TValueBreakpoints, staticClassName, textToInnerHTML, valueBreakpoints } from '../utils';
+import { valueBreakpoints, staticClassName } from '../utils';
+import { IValueBreakpoints, IMediaObject, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -285,10 +286,10 @@ export type ISize = 'extra_small' | 'small' | 'regular' | 'large' | 'extra_large
 export interface ISection extends ILine {
   themed?: boolean;
 
-  title?: string | Partial<Record<TValueBreakpoints, string>>;
-  description?: string | Partial<Record<TValueBreakpoints, string>>;
+  title?: string | Partial<Record<IValueBreakpoints, string>>;
+  description?: string | Partial<Record<IValueBreakpoints, string>>;
 
-  show?: boolean | Partial<Record<TValueBreakpoints, boolean>>;
+  show?: boolean | Partial<Record<IValueBreakpoints, boolean>>;
 
   reveal?: boolean;
 
@@ -301,24 +302,24 @@ export interface ISection extends ILine {
   overlay?: TPaletteVersion;
   overlayBlur?: number | boolean;
 
-  size?: ISize | Partial<Partial<Record<TValueBreakpoints, ISize>>>;
+  size?: ISize | Partial<Partial<Record<IValueBreakpoints, ISize>>>;
 
-  margin?: ISize | boolean | Partial<Partial<Record<TValueBreakpoints, ISize | boolean>>>;
-  marginVertical?: ISize | boolean | Partial<Partial<Record<TValueBreakpoints, ISize | boolean>>>;
+  margin?: ISize | boolean | Partial<Partial<Record<IValueBreakpoints, ISize | boolean>>>;
+  marginVertical?: ISize | boolean | Partial<Partial<Record<IValueBreakpoints, ISize | boolean>>>;
 
-  padding?: ISize | boolean | Partial<Partial<Record<TValueBreakpoints, ISize | boolean>>>;
+  padding?: ISize | boolean | Partial<Partial<Record<IValueBreakpoints, ISize | boolean>>>;
 
-  maxWidth?: ISize | boolean | Partial<Partial<Record<TValueBreakpoints, ISize | boolean>>>;
+  maxWidth?: ISize | boolean | Partial<Partial<Record<IValueBreakpoints, ISize | boolean>>>;
 
   start?: any;
   end?: any;
 
-  MainProps?: TPropsAny;
-  TitleProps?: TPropsAny;
-  DescriptionProps?: TPropsAny;
-  HeaderProps?: TPropsAny;
-  RevealProps?: TPropsAny;
-  AdditionalProps?: TPropsAny;
+  MainProps?: IPropsAny;
+  TitleProps?: IPropsAny;
+  DescriptionProps?: IPropsAny;
+  HeaderProps?: IPropsAny;
+  RevealProps?: IPropsAny;
+  AdditionalProps?: IPropsAny;
 }
 
 const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {

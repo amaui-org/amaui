@@ -3,7 +3,8 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { IBaseElement, staticClassName, TColor, TElevation, TPropsAny, TTonal, TVersion } from '../utils';
+import { staticClassName } from '../utils';
+import { IBaseElement, ITonal, IColor, IVersion, IElevation, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -705,17 +706,17 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Surface' });
 
 export interface ISurface extends Omit<IBaseElement, 'children'> {
-  tonal?: TTonal;
-  color?: TColor;
-  version?: TVersion;
-  elevation?: TElevation;
+  tonal?: ITonal;
+  color?: IColor;
+  version?: IVersion;
+  elevation?: IElevation;
 
   backgroundOpacity?: number;
 
   noBackground?: boolean;
   noOutline?: boolean;
 
-  AdditionalProps?: TPropsAny;
+  AdditionalProps?: IPropsAny;
 
   children?: any;
 }

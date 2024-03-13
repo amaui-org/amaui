@@ -9,8 +9,8 @@ import Divider from '../Divider';
 import NavigationBar from '../NavigationBar';
 import { ISurface } from '../Surface/Surface';
 import { INavigationItemVersion } from '../NavigationItem/NavigationItem';
-
-import { staticClassName, TElement, TPropsAny, TSize } from '../utils';
+import { staticClassName } from '../utils';
+import { ISize, IElement, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -61,7 +61,7 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-NavigationRail' });
 
 export interface INavigationRail extends Omit<ISurface, 'version'> {
-  size?: TSize;
+  size?: ISize;
 
   value?: any;
   valueDefault?: any;
@@ -74,12 +74,12 @@ export interface INavigationRail extends Omit<ISurface, 'version'> {
 
   border?: boolean;
 
-  header?: TElement;
+  header?: IElement;
 
   fixed?: boolean;
 
-  NavigationBarProps?: TPropsAny;
-  DividerProps?: TPropsAny;
+  NavigationBarProps?: IPropsAny;
+  DividerProps?: IPropsAny;
 }
 
 const NavigationRail: React.FC<INavigationRail> = React.forwardRef((props_, ref: any) => {

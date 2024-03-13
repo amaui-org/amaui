@@ -7,9 +7,9 @@ import Type from '../Type';
 import Surface from '../Surface';
 import Line from '../Line';
 import Interaction from '../Interaction';
-
-import { staticClassName, TElement, TPropsAny } from '../utils';
 import { ISurface } from '../Surface/Surface';
+import { staticClassName } from '../utils';
+import { IElement, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -90,10 +90,10 @@ export interface ITab extends Omit<ISurface, 'version'> {
   active?: boolean;
   index?: number;
 
-  name?: TElement;
-  label?: TElement;
+  name?: IElement;
+  label?: IElement;
 
-  icon?: TElement;
+  icon?: IElement;
   iconPosition?: 'start' | 'top' | 'bottom' | 'end';
 
   activateOnFocus?: boolean;
@@ -103,7 +103,7 @@ export interface ITab extends Omit<ISurface, 'version'> {
   onBlur?: (event: React.FocusEvent<any>) => any;
   onFocus?: (event: React.FocusEvent<any>) => any;
 
-  LineProps?: TPropsAny;
+  LineProps?: IPropsAny;
 }
 
 const Tab: React.FC<ITab> = React.forwardRef((props_, ref: any) => {

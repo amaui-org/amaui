@@ -6,8 +6,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Tooltip from '../Tooltip';
 import IconButton from '../IconButton';
 import { IIconButton } from '../IconButton/IconButton';
-
-import { staticClassName, TElement, TElementReference, TPropsAny } from '../utils';
+import { staticClassName } from '../utils';
+import { IElement, IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -33,8 +33,8 @@ const useStyle = styleMethod(theme => ({
 export interface ISpeedDialItem extends IIconButton {
   open?: boolean;
 
-  name?: TElement;
-  label?: TElement;
+  name?: IElement;
+  label?: IElement;
   tooltipOpen?: boolean;
   closeOnClick?: boolean;
 
@@ -43,14 +43,14 @@ export interface ISpeedDialItem extends IIconButton {
     onFocus: (event: React.FocusEvent<any>) => any;
     TooltipProps: any;
     [p: string]: any;
-  }) => TElement;
+  }) => IElement;
 
   onBlur?: (event: React.FocusEvent<any>) => any;
   onFocus?: (event: React.FocusEvent<any>) => any;
 
-  Icon?: TElementReference;
+  Icon?: IElementReference;
 
-  TooltipProps?: TPropsAny;
+  TooltipProps?: IPropsAny;
 }
 
 const SpeedDialItem: React.FC<ISpeedDialItem> = React.forwardRef((props_, ref: any) => {

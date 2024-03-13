@@ -4,9 +4,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Type from '../Type';
 import Surface from '../Surface';
-
-import { staticClassName } from '../utils';
 import { ISurface } from '../Surface/Surface';
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
