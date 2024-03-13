@@ -172,8 +172,8 @@ const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
     start,
     end,
 
-    IconMore = IconMaterialShareRounded,
-    IconShare = IconMaterialMoreVertRounded,
+    IconMore = IconMaterialMoreVertRounded,
+    IconShare = IconMaterialShareRounded,
 
     className,
 
