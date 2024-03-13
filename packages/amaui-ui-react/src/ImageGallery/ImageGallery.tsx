@@ -142,7 +142,7 @@ const useStyle = styleMethod(theme => ({
 
   itemSelected: {
     border: '2px solid !important',
-    borderColor: theme.methods.palette.color.value('secondary', 30)
+    borderColor: `${theme.methods.palette.color.value('secondary', 30)} !important`
   },
 
   arrow: {
