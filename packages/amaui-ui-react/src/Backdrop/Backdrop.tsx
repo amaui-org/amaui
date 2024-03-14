@@ -100,7 +100,11 @@ const Backdrop: React.FC<IBackdrop> = React.forwardRef((props_, ref: any) => {
   };
 
   const onKeyDown = (event: KeyboardEvent) => {
-    if (event.key === 'Escape' && !disableKeyboardClose) onClose();
+    if (event.key === 'Escape' && !disableKeyboardClose) {
+      event.stopPropagation();
+
+      onClose();
+    }
   };
 
   const backdrop = {
