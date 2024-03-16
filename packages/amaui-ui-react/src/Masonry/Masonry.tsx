@@ -20,6 +20,8 @@ export interface IMasonry extends Omit<ILine, 'gap'> {
 
   columns?: number | Partial<Record<IValueBreakpoints, number>>;
 
+  noMasonry?: boolean;
+
   NoMasonryProps?: any;
 }
 
@@ -36,6 +38,8 @@ const Masonry: React.FC<IMasonry> = React.forwardRef((props_, ref: any) => {
     className,
 
     style,
+
+    noMasonry,
 
     NoMasonryProps,
 
@@ -82,6 +86,8 @@ const Masonry: React.FC<IMasonry> = React.forwardRef((props_, ref: any) => {
   let useMasonry = true;
 
   if (columns === 1 || children.length < columns) useMasonry = false;
+
+  if (noMasonry) useMasonry = false;
 
   refs.useMasonry.current = useMasonry;
 
