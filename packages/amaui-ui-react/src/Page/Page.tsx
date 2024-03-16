@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { is } from '@amaui/utils';
+import { is, isEnvironment } from '@amaui/utils';
 import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import Icon from '../Icon';
@@ -110,7 +110,7 @@ const Page: React.FC<IPage> = React.forwardRef((props_, ref: any) => {
 
   const { classes } = useStyle(props);
 
-  const navigate = useNavigate();
+  const navigate = isEnvironment('browser') && useNavigate();
 
   const IconButtonProps = {
     color: 'inherit'
