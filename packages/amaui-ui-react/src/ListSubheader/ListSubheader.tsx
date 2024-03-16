@@ -10,9 +10,12 @@ const useStyle = styleMethod(theme => ({
   root: {
     top: '0',
     position: 'sticky',
-    fontWeight: '500',
     zIndex: '1',
-    userSelect: 'none'
+    userSelect: 'none',
+
+    '& .amaui-Type-root': {
+      fontWeight: 'bold',
+    }
   }
 }), { name: 'amaui-ListSubheader' });
 
