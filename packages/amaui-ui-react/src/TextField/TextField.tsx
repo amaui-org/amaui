@@ -368,7 +368,8 @@ const useStyle = styleMethod(theme => ({
   // Start and end icon
   icon: {
     display: 'inline-flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    flex: '0 0 auto'
   },
 
   icon_size_small: {
