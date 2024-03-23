@@ -1054,10 +1054,6 @@ const AudioPlayer: React.FC<IAudioPlayer> = React.forwardRef((props_, ref: any) 
             onMouseLeave={onMouseLeave}
 
             className={classes.bottomControls}
-
-            style={{
-              color: theme.palette.color[color] ? theme.palette.color[color][90] : theme.palette.color.neutral[90]
-            }}
           >
             {startButtons}
 
