@@ -15,9 +15,7 @@ import { IMediaObject, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    '&.amaui-Section-root': {
-      padding: '0'
-    }
+
   },
 
   size_small: {
@@ -414,7 +412,7 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
 
       maxWidth={false}
 
-      padding={false}
+      padding={!values?.length}
 
       className={classNames([
         staticClassName('SectionCarousel', theme) && [

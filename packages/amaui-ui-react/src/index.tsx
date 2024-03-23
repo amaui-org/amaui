@@ -576,3 +576,6 @@ export * from './SectionTimeline';
 
 export { default as SectionWatch } from './SectionWatch';
 export * from './SectionWatch';
+
+export { default as SectionAction } from './SectionAction';
+export * from './SectionAction';
