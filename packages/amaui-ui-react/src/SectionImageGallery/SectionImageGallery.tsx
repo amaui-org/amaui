@@ -68,15 +68,17 @@ const Element: React.FC<ISectionImageGallery> = React.forwardRef((props_, ref: a
 
       {...other}
     >
-      <ImageGallery
-        version='regular'
+      {!!values?.length && (
+        <ImageGallery
+          version='regular'
 
-        items={values}
+          items={values}
 
-        value={value}
+          value={value}
 
-        {...ImageGalleryProps}
-      />
+          {...ImageGalleryProps}
+        />
+      )}
     </Section>
   );
 });

@@ -144,6 +144,15 @@ const useStyle = styleMethod(theme => ({
 
   placeholder: {
 
+  },
+
+  bottomControls: {
+    scrollbarWidth: 'none',
+    overflow: 'auto hidden',
+
+    '&::-webkit-scrollbar': {
+      display: 'none'
+    }
   }
 }), { name: 'amaui-VideoPlayer' });
 
@@ -1325,6 +1334,8 @@ const VideoPlayer: React.FC<IVideoPlayer> = React.forwardRef((props_, ref: any) 
 
             onMouseLeave={onMouseLeave}
 
+            className={classes.bottomControls}
+
             style={{
               color: theme.palette.color[color] ? theme.palette.color[color][90] : theme.palette.color.neutral[90]
             }}
@@ -1348,6 +1359,10 @@ const VideoPlayer: React.FC<IVideoPlayer> = React.forwardRef((props_, ref: any) 
                 direction='row'
 
                 align='center'
+
+                style={{
+                  flex: '0 0 auto'
+                }}
               >
                 <Line
                   gap={0}

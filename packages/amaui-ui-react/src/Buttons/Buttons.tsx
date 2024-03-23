@@ -291,6 +291,12 @@ const Buttons: React.FC<IButtons> = React.forwardRef((props_, ref: any) => {
 
   const { classes } = useStyle(props);
 
+  const refs = {
+    noCheckIcon: React.useRef(noCheckIcon)
+  };
+
+  refs.noCheckIcon.current = noCheckIcon;
+
   React.useEffect(() => {
     setInit(true);
   }, []);
@@ -321,7 +327,7 @@ const Buttons: React.FC<IButtons> = React.forwardRef((props_, ref: any) => {
           (select === 'multiple' && selected.length > 1)
         )
       ) {
-        if (!noCheckIcon) {
+        if (!refs.noCheckIcon.current) {
           setPreSelected(items => items.filter(item => item !== itemProps.value));
         }
         else {
@@ -330,7 +336,7 @@ const Buttons: React.FC<IButtons> = React.forwardRef((props_, ref: any) => {
       }
       else {
         if (select === 'single') {
-          if (!noCheckIcon) {
+          if (!refs.noCheckIcon.current) {
             setPreSelected([itemProps.value]);
 
             valueNew = [...selected, itemProps.value];
@@ -338,7 +344,7 @@ const Buttons: React.FC<IButtons> = React.forwardRef((props_, ref: any) => {
           else valueNew = [itemProps.value];
         }
         if (select === 'multiple') {
-          if (!noCheckIcon) {
+          if (!refs.noCheckIcon.current) {
             setPreSelected(items => unique([...items, itemProps.value]));
 
             valueNew = unique([...selected, itemProps.value]);
@@ -389,13 +395,13 @@ const Buttons: React.FC<IButtons> = React.forwardRef((props_, ref: any) => {
         if (is('function', item.props.onClick)) item.props.onClick();
       },
 
-      ...(!noCheckIcon && item.props.start && selected.includes(item.props.value) ? {
+      ...(!refs.noCheckIcon.current && item.props.start && selected.includes(item.props.value) ? {
         start: (
           <IconDoneAnimated simple in add />
         )
       } : {}),
 
-      ...(!noCheckIcon && (!item.props.start && (selected.includes(item.props.value) || preSelected.includes(item.props.value))) ? {
+      ...(!refs.noCheckIcon.current && (!item.props.start && (selected.includes(item.props.value) || preSelected.includes(item.props.value))) ? {
         start: (
           <IconDoneAnimated
             in={(item.props.start ? selected : preSelected).includes(index)}

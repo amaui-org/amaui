@@ -8,7 +8,27 @@ import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
+    '&.amaui-Chip-root': {
+      width: 'unset'
+    }
+  },
 
+  size_small: {
+    '&.amaui-Button-root': {
+      padding: '4px 6px'
+    }
+  },
+
+  size_regular: {
+    '&.amaui-Button-root': {
+      padding: '8px 8px'
+    }
+  },
+
+  size_large: {
+    '&.amaui-Button-root': {
+      padding: '12px 10px'
+    }
   },
 }), { name: 'amaui-ToggleButton' });
 
@@ -24,6 +44,8 @@ const ToggleButton: React.FC<IToggleButton> = React.forwardRef((props_, ref: any
   const { classes } = useStyle(props);
 
   const {
+    size,
+
     icon = true,
 
     className,
@@ -35,6 +57,8 @@ const ToggleButton: React.FC<IToggleButton> = React.forwardRef((props_, ref: any
     <Chip
       ref={ref}
 
+      size={size}
+
       icon={icon}
 
       className={classNames([
@@ -43,7 +67,8 @@ const ToggleButton: React.FC<IToggleButton> = React.forwardRef((props_, ref: any
         ],
 
         className,
-        classes.root
+        classes.root,
+        classes[`size_${size}`]
       ])}
 
       {...other}

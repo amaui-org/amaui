@@ -116,7 +116,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   chip_size_large: {
-    padding: `7px 20px`,
+    padding: `12px 20px`,
     borderRadius: `${theme.shape.radius.unit + (theme.shape.radius.unit / 4)}px`
   },
 

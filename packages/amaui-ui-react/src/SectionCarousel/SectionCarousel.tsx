@@ -427,24 +427,26 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
 
       {...other}
     >
-      <Carousel
-        items={values?.map((item, index) => getItem(item, index))}
+      {!!values?.length && (
+        <Carousel
+          items={values?.map((item, index) => getItem(item, index))}
 
-        autoPlay
+          autoPlay
 
-        {...CarouselProps}
+          {...CarouselProps}
 
-        className={classNames([
-          staticClassName('SectionCarousel', theme) && [
-            'amaui-SectionCarousel-items'
-          ],
+          className={classNames([
+            staticClassName('SectionCarousel', theme) && [
+              'amaui-SectionCarousel-items'
+            ],
 
-          CarouselProps?.className,
-          classes.items,
-          classes[`size_${size}`],
-          fullHeight && classes.fullHeight
-        ])}
-      />
+            CarouselProps?.className,
+            classes.items,
+            classes[`size_${size}`],
+            fullHeight && classes.fullHeight
+          ])}
+        />
+      )}
     </Section>
   );
 });

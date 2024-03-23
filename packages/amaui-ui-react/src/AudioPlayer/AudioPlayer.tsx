@@ -109,6 +109,15 @@ const useStyle = styleMethod(theme => ({
 
   placeholder: {
 
+  },
+
+  bottomControls: {
+    scrollbarWidth: 'none',
+    overflow: 'auto hidden',
+
+    '&::-webkit-scrollbar': {
+      display: 'none'
+    }
   }
 }), { name: 'amaui-AudioPlayer' });
 
@@ -1036,21 +1045,19 @@ const AudioPlayer: React.FC<IAudioPlayer> = React.forwardRef((props_, ref: any) 
           </Line>
 
           <Line
-            ref={refs.controls}
-
             direction='row'
 
             align='center'
-
-            justify='space-between'
 
             fullWidth
 
             onMouseLeave={onMouseLeave}
 
-            className={classNames([
-              classes.controls
-            ])}
+            className={classes.bottomControls}
+
+            style={{
+              color: theme.palette.color[color] ? theme.palette.color[color][90] : theme.palette.color.neutral[90]
+            }}
           >
             {startButtons}
 
