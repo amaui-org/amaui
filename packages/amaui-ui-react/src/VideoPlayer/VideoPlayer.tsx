@@ -1509,7 +1509,7 @@ const VideoPlayer: React.FC<IVideoPlayer> = React.forwardRef((props_, ref: any) 
 
                     switch={false}
 
-                    portal={false}
+                    portal
 
                     onClose={onSettingsMenuClose}
 

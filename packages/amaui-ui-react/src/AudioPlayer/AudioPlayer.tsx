@@ -1220,7 +1220,7 @@ const AudioPlayer: React.FC<IAudioPlayer> = React.forwardRef((props_, ref: any) 
 
                     switch={false}
 
-                    portal={false}
+                    portal
 
                     onClose={onSettingsMenuClose}
 
