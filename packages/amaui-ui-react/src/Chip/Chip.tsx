@@ -41,6 +41,8 @@ export interface IChip extends IButton {
   input?: boolean;
   filter?: boolean;
 
+  noCheckIcon?: boolean;
+
   onClick?: (event: MouseEvent) => any;
   onRemove?: (event: MouseEvent) => any;
   onSelected?: () => any;
@@ -62,6 +64,8 @@ const Chip: React.FC<IChip> = React.forwardRef((props_, ref: any) => {
     selected: selected_,
     start,
     focus,
+
+    noCheckIcon,
 
     onClick,
     onRemove,
@@ -153,13 +157,13 @@ const Chip: React.FC<IChip> = React.forwardRef((props_, ref: any) => {
 
       start={start}
 
-      {...(start && selected ? {
+      {...(!noCheckIcon && start && selected ? {
         start: (
           <IconDoneAnimated simple in add />
         )
       } : {})}
 
-      {...(!start && (selected || preSelected) ? {
+      {...(!noCheckIcon && !start && (selected || preSelected) ? {
         start: (
           <IconDoneAnimated
             in={(start ? selected : preSelected)}
