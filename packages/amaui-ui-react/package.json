@@ -47,8 +47,10 @@
     "react-router-dom": "^6.15.0"
   },
   "dependencies": {
+    "@amaui/api-utils": "^1.1.386",
     "@amaui/date": "^1.1.11",
     "@amaui/errors": "^1.0.111",
+    "@amaui/log": "^1.0.20",
     "@amaui/subscription": "^1.0.5",
     "@amaui/utils": "^1.1.22"
   },
