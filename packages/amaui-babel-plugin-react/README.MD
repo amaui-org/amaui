@@ -1,6 +1,6 @@
 
-</br >
-</br >
+</br>
+</br>
 
 <p align='center'>
   <a target='_blank' rel='noopener noreferrer' href='#'>
@@ -39,7 +39,7 @@
 
 ```sh
   // yarn
-  yarn add @amaui/babel-plugin-react
+yarn add @amaui/babel-plugin-react
 
   // npm
   npm install @amaui/babel-plugin-react
@@ -186,13 +186,13 @@ function A() {
 Install
 
 ```sh
-  yarn
+yarn
 ```
 
 Test
 
 ```sh
-  yarn test
+yarn test
 ```
 
 ### Prod
@@ -200,7 +200,7 @@ Test
 Build
 
 ```sh
-  yarn build
+yarn build
 ```
 
 ### Docs
