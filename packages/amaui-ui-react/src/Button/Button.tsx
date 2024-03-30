@@ -320,7 +320,7 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiButton?.props?.default, ...props_ }), [props_]);
 
   const {
-    tonal,
+    tonal = true,
     color: color_ = 'primary',
     version = 'outlined',
     size = 'regular',
