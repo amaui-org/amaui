@@ -179,6 +179,7 @@ const useStyle = style(theme => ({
 
 export default function Root(props: any) {
   const { classes } = useStyle(props);
+
   const router = useRouter();
 
   const theme = useAmauiTheme();

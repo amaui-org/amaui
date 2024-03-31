@@ -1,7 +1,7 @@
 import React from 'react';
 import LinkNext from 'next/link';
-
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import { isEnvironment, random } from '@amaui/utils';
 
@@ -21,7 +21,6 @@ import Home from '../components/pages/Home';
 import Library from '../components/pages/Library';
 
 import { images, themeImageSub, newImagesSub, imageDownload } from '../utils';
-import { useRouter } from 'next/router';
 import { Header } from '../components/ui';
 
 const useStyle = styleMethod(theme => ({
