@@ -43,8 +43,13 @@ const useStyle = styleMethod(theme => ({
     overflow: 'auto hidden'
   },
 
+  item: {
+
+  },
+
   wrapper: {
-    position: 'relative'
+    position: 'relative',
+    flex: '0 0 auto'
   },
 
   wrapper_image: {
@@ -76,18 +81,15 @@ const useStyle = styleMethod(theme => ({
   },
 
   imageWrapper_size_small: {
-    maxWidth: '174px',
-    width: '90vw'
+    width: '174px'
   },
 
   imageWrapper_size_regular: {
-    maxWidth: '214px',
-    width: '90vw'
+    width: '214px'
   },
 
   imageWrapper_size_large: {
-    maxWidth: '254px',
-    width: '90vw'
+    width: '254px'
   },
 
   image_size_small: {
@@ -103,33 +105,27 @@ const useStyle = styleMethod(theme => ({
   },
 
   audioWrapper_size_small: {
-    maxWidth: '324px',
-    width: '90vw'
+    width: '324px'
   },
 
   audioWrapper_size_regular: {
-    maxWidth: '340px',
-    width: '90vw'
+    width: '340px'
   },
 
   audioWrapper_size_large: {
-    maxWidth: '440px',
-    width: '90vw'
+    width: '440px'
   },
 
   videoWrapper_size_small: {
-    maxWidth: '324px',
-    width: '90vw'
+    width: '324px'
   },
 
   videoWrapper_size_regular: {
-    maxWidth: '340px',
-    width: '90vw'
+    width: '340px'
   },
 
   videoWrapper_size_large: {
-    maxWidth: '440px',
-    width: '90vw'
+    width: '440px'
   },
 
   other: {
@@ -142,18 +138,15 @@ const useStyle = styleMethod(theme => ({
   },
 
   otherWrapper_size_small: {
-    maxWidth: '74px',
-    width: '90vw'
+    width: '74px'
   },
 
   otherWrapper_size_regular: {
-    maxWidth: '94px',
-    width: '90vw'
+    width: '94px'
   },
 
   otherWrapper_size_large: {
-    maxWidth: '114px',
-    width: '90vw'
+    width: '114px'
   },
 
   other_size_small: {
@@ -260,7 +253,7 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
   }, []);
 
   const onOpenMedia = React.useCallback((media: IMediaObject) => {
-    window.open(media.src, 'blank_');
+    window.open(media.url || media.src || media.urlSmall || media.srcSmall, 'blank_');
   }, []);
 
   const items = React.useMemo(() => {
@@ -347,12 +340,13 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
 
               ImageProps?.className,
               item?.props?.className,
+              classes.item,
               classes.image,
               classes[`image_size_${size}`]
             ])}
 
             style={{
-              backgroundImage: `url(${media.srcSmall || media.src})`,
+              backgroundImage: `url(${media.urlSmall || media.srcSmall || media.url || media.src})`,
 
               ...item?.props?.style
             }}
@@ -392,7 +386,7 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
 
             color='primary'
 
-            src={media.src}
+            src={media.url || media.src || media.urlSmall || media.srcSmall}
 
             {...media}
 
@@ -410,6 +404,7 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
 
               VideoProps?.className,
               item?.props?.className,
+              classes.item,
               classes.audio
             ])}
           />
@@ -446,7 +441,7 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
 
             color='primary'
 
-            src={media.src}
+            src={media.url || media.src || media.urlSmall || media.srcSmall}
 
             {...media}
 
@@ -464,6 +459,7 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
 
               VideoProps?.className,
               item?.props?.className,
+              classes.item,
               classes.video
             ])}
           />
@@ -516,6 +512,7 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
 
               OtherProps?.className,
               item?.props?.className,
+              classes.item,
               classes.other,
               classes[`other_size_${size}`]
             ])}
@@ -617,9 +614,9 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
             items={items.image.map(item => ({
               ...item.value,
 
-              url: item.value.src,
+              url: item.value.url || item.value.src || item.value.urlSmall || item.value.srcSmall,
 
-              urlSmall: item.value.srcSmall || item.value.src
+              urlSmall: item.value.urlSmall || item.value.srcSmall || item.value.url || item.value.src
             }))}
           />
         </Portal>
