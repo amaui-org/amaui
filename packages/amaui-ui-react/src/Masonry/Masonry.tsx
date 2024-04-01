@@ -73,7 +73,7 @@ const Masonry: React.FC<IMasonry> = React.forwardRef((props_, ref: any) => {
     item: {}
   };
 
-  const gap = valueBreakpoints(gap_, 2, breakpoints, theme);
+  const gap = valueBreakpoints(gap_, 2, breakpoints, theme) || 0;
 
   const columns = valueBreakpoints(columns_, { xxs: 1, xs: 2, sm: 3, md: 4, lg: 5, xl: 6, xxl: 7, default: 4 }, breakpoints, theme);
 

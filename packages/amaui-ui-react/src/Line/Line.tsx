@@ -234,9 +234,9 @@ const Line: React.FC<ILine> = React.forwardRef((props_, ref: any) => {
   const valuesGaps = [0, 0.5, 1, 2, 3, 4, 8, 12, 16];
 
   if (rowGap !== undefined || columnGap !== undefined) {
-    if (!valuesGaps.includes(rowGap)) styles.root.rowGap = is('string', rowGap) ? rowGap : `${rowGap * theme.space.unit}px`;
+    if (rowGap !== undefined && !valuesGaps.includes(rowGap)) styles.root.rowGap = is('string', rowGap) ? rowGap : `${rowGap * theme.space.unit}px`;
 
-    if (!valuesGaps.includes(columnGap)) styles.root.columnGap = is('string', columnGap) ? columnGap : `${columnGap * theme.space.unit}px`;
+    if (columnGap !== undefined && !valuesGaps.includes(columnGap)) styles.root.columnGap = is('string', columnGap) ? columnGap : `${columnGap * theme.space.unit}px`;
   }
   else {
     if (!valuesGaps.includes(gap)) styles.root.gap = is('string', gap) ? gap : `${gap * theme.space.unit}px`;

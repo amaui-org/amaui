@@ -87,7 +87,11 @@ const useStyle = styleMethod(theme => ({
     transition: theme.methods.transitions.make(['transform'], { duration: 100, timing_function: 'ease' as any }),
 
     '& .amaui-Image-root': {
-      maxHeight: '100%'
+      objectFit: 'contain',
+      width: 'auto',
+      height: 'auto',
+      maxHeight: '100%',
+      maxWidth: '100%'
     }
   },
 
@@ -613,6 +617,8 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
         justify='center'
 
         align='unset'
+
+        fullWidth
 
         flex
 
