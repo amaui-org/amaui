@@ -579,3 +579,6 @@ export * from './SectionWatch';
 
 export { default as SectionAction } from './SectionAction';
 export * from './SectionAction';
+
+export { default as SectionReviews } from './SectionReviews';
+export * from './SectionReviews';
