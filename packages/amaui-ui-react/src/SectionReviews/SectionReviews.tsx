@@ -17,9 +17,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   reviews: {
-    overflowX: 'auto',
-    maxWidth: 'calc(100vw - 80px)',
-    padding: '0 40px'
+    overflowX: 'auto'
   },
 
   review: {
@@ -138,7 +136,7 @@ const Element: React.FC<ISectionReviews> = React.forwardRef((props_, ref: any) =
           ],
 
           ReviewsProps?.className,
-          classes.reviews,
+          classes.reviews
         ])}
       >
         {values.filter(Boolean).map((item, index) => (
