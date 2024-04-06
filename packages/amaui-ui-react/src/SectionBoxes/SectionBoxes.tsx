@@ -369,7 +369,7 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
 
       maxWidth={false}
 
-      padding={false}
+      padding={!values?.length}
 
       className={classNames([
         staticClassName('SectionBoxes', theme) && [
