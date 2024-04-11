@@ -496,6 +496,9 @@ export * from './FormRow';
 export { default as IFrame } from './IFrame';
 export * from './IFrame';
 
+export { default as Frame } from './Frame';
+export * from './Frame';
+
 export { default as Forms } from './Forms';
 export * from './Forms';
 
