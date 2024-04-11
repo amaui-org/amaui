@@ -23,10 +23,10 @@
     "@amaui/utils" "^1.1.18"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/api-utils@^1.1.393":
-  version "1.1.393"
-  resolved "https://registry.yarnpkg.com/@amaui/api-utils/-/api-utils-1.1.393.tgz#5f713bd33cd6c959ef1da12716238a4854fcfc79"
-  integrity sha512-ZLHRCw2LaT0DQ2KaZnCa9LDQHW86GH5/pgt3KkqDxfJUzOQedfHqW0eMTDdhEt+au6T6Gkvj45n4cki7o6twqA==
+"@amaui/api-utils@^1.1.402":
+  version "1.1.402"
+  resolved "https://registry.yarnpkg.com/@amaui/api-utils/-/api-utils-1.1.402.tgz#88b933c043362627ef90b32cb1621dd286612450"
+  integrity sha512-6bfYKHzoTCBPVfGkNX1H8LHR483kCK8POShWHIiaZvbwclimc7ZJksRYBRcJQldThCZvrTtMPmon5o5uS5R6Zw==
   dependencies:
     "@amaui/amqp" "^1.1.18"
     "@amaui/api" "^1.0.38"
@@ -36,6 +36,7 @@
     "@amaui/log" "^1.0.21"
     "@amaui/models" "^1.1.19"
     "@amaui/mongo" "^1.1.31"
+    "@amaui/node" "^1.0.11117"
     "@amaui/redis" "^1.0.8"
     "@amaui/style" "^1.1.13"
     "@amaui/utils" "^1.1.22"
@@ -47,6 +48,8 @@
     "@types/jsonwebtoken" "^9.0.2"
     cookie-parser "^1.4.6"
     dompurify "^3.0.5"
+    fluent-ffmpeg "^2.1.2"
+    formidable "^3.5.1"
     google-auth-library "^9.0.0"
     jsdom "^22.1.0"
     jsonwebtoken "^9.0.1"
@@ -5250,6 +5253,11 @@ async-listener@^0.6.0:
     semver "^5.3.0"
     shimmer "^1.1.0"
 
+async@>=0.2.9:
+  version "3.2.5"
+  resolved "https://registry.yarnpkg.com/async/-/async-3.2.5.tgz#ebd52a8fdaf7a2289a24df399f8d8485c8a46b66"
+  integrity sha512-baNZyqaaLhyLVKm/DlvdW051MSgO6b8eVfIezl9E5PqWxFgzLm/wQntEW4zOytVburDEr0JlALEpdOFwvErLsg==
+
 async@^2.6.3, async@~2.6.1:
   version "2.6.4"
   resolved "https://registry.yarnpkg.com/async/-/async-2.6.4.tgz#706b7ff6084664cd7eae713f6f965433b5504221"
@@ -7198,7 +7206,7 @@ detect-port-alt@^1.1.6:
     address "^1.0.1"
     debug "^2.6.0"
 
-dezalgo@^1.0.0:
+dezalgo@^1.0.0, dezalgo@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/dezalgo/-/dezalgo-1.0.4.tgz#751235260469084c132157dfa857f386d4c33d81"
   integrity sha512-rXSP0bf+5n0Qonsb+SVVfNfIsimO4HEtmnIpPHY8Q1UCzKlQrDMfdobr8nJOOsRgWCyMRqeSBQzmWUMq7zvVig==
@@ -8538,6 +8546,14 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.7.tgz#609f39207cb614b89d0765b477cb2d437fbf9787"
   integrity sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==
 
+fluent-ffmpeg@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/fluent-ffmpeg/-/fluent-ffmpeg-2.1.2.tgz#c952de2240f812ebda0aa8006d7776ee2acf7d74"
+  integrity sha512-IZTB4kq5GK0DPp7sGQ0q/BWurGHffRtQQwVkiqDgeO6wYJLLV5ZhgNOQ65loZxxuPMKZKZcICCUnaGtlxBiR0Q==
+  dependencies:
+    async ">=0.2.9"
+    which "^1.1.1"
+
 flush-write-stream@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/flush-write-stream/-/flush-write-stream-1.1.1.tgz#8dd7d873a1babc207d94ead0c2e0e44276ebf2e8"
@@ -8604,6 +8620,15 @@ form-data@^4.0.0:
     asynckit "^0.4.0"
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
+
+formidable@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/formidable/-/formidable-3.5.1.tgz#9360a23a656f261207868b1484624c4c8d06ee1a"
+  integrity sha512-WJWKelbRHN41m5dumb0/k8TeAx7Id/y3a+Z7QfhxP/htI9Js5zYaEDtG8uMgG0vM0lOlqnmjE99/kfpOYi/0Og==
+  dependencies:
+    dezalgo "^1.0.4"
+    hexoid "^1.0.0"
+    once "^1.4.0"
 
 forwarded@0.2.0:
   version "0.2.0"
@@ -9277,6 +9302,11 @@ helmet@^6.0.0:
   version "6.1.5"
   resolved "https://registry.yarnpkg.com/helmet/-/helmet-6.1.5.tgz#2153387f6d73cce6efdfd85d3a65417cfb7db80c"
   integrity sha512-UgAvdoG0BhF9vcCh/j0bWtElo2ZHHk6OzC98NLCM6zK03DEVSM0vUAtT7iR+oTo2Mi6sGelAH3tL6B/uUWxV4g==
+
+hexoid@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/hexoid/-/hexoid-1.0.0.tgz#ad10c6573fb907de23d9ec63a711267d9dc9bc18"
+  integrity sha512-QFLV0taWQOZtvIRIAdBChesmogZrtuXvVWsFHZTk2SU+anspqZ2vMnoLg7IE1+Uk16N19APic1BuF8bC8c2m5g==
 
 hmac-drbg@^1.0.1:
   version "1.0.1"
@@ -16849,7 +16879,7 @@ which-typed-array@^1.1.9:
     has-tostringtag "^1.0.0"
     is-typed-array "^1.1.10"
 
-which@^1.3.1:
+which@^1.1.1, which@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/which/-/which-1.3.1.tgz#a45043d54f5805316da8d62f9f50918d3da70b0a"
   integrity sha512-HxJdYWq1MTIQbJ3nw0cqssHoTNU267KlrDuGZ1WYlxDStUtKUhOaJmh112/TZmHxxUfuJqPXSOm7tDyas0OSIQ==
