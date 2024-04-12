@@ -378,7 +378,7 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
     }
   };
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   let color = color_;
   let start = (selected && startSelected) || start_;

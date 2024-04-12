@@ -134,7 +134,7 @@ const Form: React.FC<IForm> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const ComponentForm = ComponentForm_ !== undefined ? ComponentForm_ : wrapper ? 'div' : 'form';
 

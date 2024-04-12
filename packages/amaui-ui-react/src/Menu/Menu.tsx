@@ -121,7 +121,7 @@ const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {
   const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
   const [preselected, setPreselected] = React.useState<any>();
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

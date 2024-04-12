@@ -168,7 +168,7 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImage?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const {
     tonal = true,

@@ -66,7 +66,7 @@ const Masonry: React.FC<IMasonry> = React.forwardRef((props_, ref: any) => {
 
   refs.init.current = init;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const styles: any = {
     root: {},

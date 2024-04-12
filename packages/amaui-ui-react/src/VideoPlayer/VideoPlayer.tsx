@@ -506,7 +506,7 @@ const VideoPlayer: React.FC<IVideoPlayer> = React.forwardRef((props_, ref: any) 
     ...other
   } = props;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const [loaded, setLoaded] = React.useState(false);
   const [duration, setDuration] = React.useState<number>(0);

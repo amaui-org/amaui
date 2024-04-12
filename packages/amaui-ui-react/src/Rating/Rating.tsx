@@ -189,7 +189,7 @@ const Rating: React.FC<IRating> = React.forwardRef((props_, ref: any) => {
   refs.hover.current = hover;
   refs.direction.current = theme.direction;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const min = 0;
   const max = values;

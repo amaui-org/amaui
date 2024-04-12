@@ -266,7 +266,7 @@ const Switch: React.FC<ISwitch> = React.forwardRef((props_, ref: any) => {
 
   refs.value.current = value;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   let color = color_;
   let tonal = tonal_;

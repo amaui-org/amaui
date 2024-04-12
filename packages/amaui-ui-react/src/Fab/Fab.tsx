@@ -21,7 +21,7 @@ const Fab: React.FC<IFab> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiFab?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const {
     tonal = 'secondary',

@@ -138,7 +138,7 @@ const TableCell: React.FC<ITableCell> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const [root, setRoot] = React.useState<HTMLElement>();
   const [stickyActive, setStickyActive] = React.useState(false);

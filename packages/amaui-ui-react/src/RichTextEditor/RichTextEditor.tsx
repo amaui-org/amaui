@@ -911,7 +911,7 @@ const RichTextEditor: React.FC<IRichTextEditor> = React.forwardRef((props__, ref
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRichTextEditor?.props?.default, ...props__ }), [props__]);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const {
     tonal = true,

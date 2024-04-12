@@ -36,7 +36,7 @@ const ImageListItemBox: React.FC<IImageListItemBox> = React.forwardRef((props_, 
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageListItemBox?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const {
     position,

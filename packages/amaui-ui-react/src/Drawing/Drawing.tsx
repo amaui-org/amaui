@@ -247,7 +247,7 @@ const Drawing: React.FC<IDrawing> = React.forwardRef((props__, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDrawing?.props?.default, ...props__ }), [props__]);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const {
     tonal = true,

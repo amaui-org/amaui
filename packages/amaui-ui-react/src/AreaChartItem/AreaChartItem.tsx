@@ -4,9 +4,9 @@ import { is, percentageFromValueWithinRange, valueFromPercentageWithinRange } fr
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import { TMethod } from '@amaui/models';
 
-import Path from '../Path';
-import Line from '../Line';
-import Type from '../Type';
+import PathElement from '../Path';
+import LineElement from '../Line';
+import TypeElement from '../Type';
 import useMediaQuery from '../useMediaQuery';
 import { IChart, TChartValueValues } from '../Chart/Chart';
 import { controlPoint, staticClassName, valueBreakpoints } from '../utils';
@@ -72,7 +72,11 @@ const AreaChartItem: React.FC<IAreaChartItem> = React.forwardRef((props_, ref: a
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAreaChartItem?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle(props);
+  const Path = React.useMemo(() => theme.elements?.Path || PathElement, [theme]);
+
+  const Line = React.useMemo(() => theme.elements?.Line || LineElement, [theme]);
+
+  const Type = React.useMemo(() => theme.elements?.Type || TypeElement, [theme]);
 
   const {
     tonal = true,
@@ -115,6 +119,8 @@ const AreaChartItem: React.FC<IAreaChartItem> = React.forwardRef((props_, ref: a
 
   const [value, setValue] = React.useState<any>();
   const [init, setInit] = React.useState<any>();
+
+  const { classes } = useStyle();
 
   const refs = {
     minMax: React.useRef<any>(),

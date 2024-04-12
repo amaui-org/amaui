@@ -152,7 +152,7 @@ export const IconMaterialDoneSharp = React.forwardRef((props: any, ref) => {
 });
 
 export const IconDoneAnimated = (props: any) => {
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const theme = useAmauiTheme();
 
@@ -290,7 +290,7 @@ const Buttons: React.FC<IButtons> = React.forwardRef((props_, ref: any) => {
     return valueNew !== undefined ? is('array', valueNew) ? valueNew : [valueNew] : [];
   });
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const refs = {
     noCheckIcon: React.useRef(noCheckIcon)

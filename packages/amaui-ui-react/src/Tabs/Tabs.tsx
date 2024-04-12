@@ -323,7 +323,7 @@ const Tabs: React.FC<ITabs> = React.forwardRef((props_, ref: any) => {
   const [lineValues, setLineValues] = React.useState<any>({});
   const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

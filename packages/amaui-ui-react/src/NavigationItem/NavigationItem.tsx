@@ -160,7 +160,7 @@ const NavigationItem: React.FC<INavigationItem> = React.forwardRef((props_, ref:
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiNavigationItem?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const {
     tonal = true,

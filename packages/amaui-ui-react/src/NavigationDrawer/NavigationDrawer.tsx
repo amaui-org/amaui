@@ -127,7 +127,7 @@ const NavigationDrawer: React.FC<INavigationDrawer> = React.forwardRef((props_, 
     background: React.useRef<HTMLElement>()
   };
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   let direction = direction_;
 

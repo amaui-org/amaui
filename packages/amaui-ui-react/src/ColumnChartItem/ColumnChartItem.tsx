@@ -54,7 +54,7 @@ const ColumnChartItem: React.FC<IColumnChartItem> = React.forwardRef((props_, re
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiColumnChartItem?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const {
     tonal = true,

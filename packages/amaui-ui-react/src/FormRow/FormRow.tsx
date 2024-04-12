@@ -82,7 +82,7 @@ const FormRow: React.FC<IFormRow> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const text = (name || description);
 

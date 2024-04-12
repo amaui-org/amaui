@@ -100,7 +100,7 @@ const Confirm: React.FC<IConfirm> = React.forwardRef((props_, ref: any) => {
     }
   };
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   refs.props.current = props;
 

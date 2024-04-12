@@ -47,7 +47,7 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSectionTextMedia?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const {
     size,

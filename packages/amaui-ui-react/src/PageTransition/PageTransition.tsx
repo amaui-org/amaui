@@ -74,7 +74,7 @@ const PageTransition: React.FC<IPageTransition> = React.forwardRef((props_, ref:
     ...other
   } = props;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const location = useLocation();
 

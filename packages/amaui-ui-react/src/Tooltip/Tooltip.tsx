@@ -306,7 +306,7 @@ const Tooltip: React.FC<ITooltip> = React.forwardRef((props_, ref: any) => {
 
   refs.inProp.current = inProp;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const styles: any = {
     name: {},

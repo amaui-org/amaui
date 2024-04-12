@@ -120,7 +120,7 @@ const List: React.FC<IList> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>()

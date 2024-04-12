@@ -188,7 +188,7 @@ const Frame: React.FC<IFrame> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const [responsive, setResponsive] = React.useState<any>();
 

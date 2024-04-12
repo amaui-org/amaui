@@ -283,7 +283,7 @@ const Checkbox: React.FC<ICheckbox> = React.forwardRef((props_, ref: any) => {
 
   refs.indeterminate.current = indeterminate;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const styles: any = {
     iconItem: {},

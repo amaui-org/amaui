@@ -174,7 +174,7 @@ const Pagination: React.FC<IPagination> = React.forwardRef((props_, ref: any) =>
 
   const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   React.useEffect(() => {
     if (value_ !== value) setValue(value_);

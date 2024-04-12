@@ -104,7 +104,7 @@ const Snackbars: React.FC<ISnackbars> = React.forwardRef((props_, ref: any) => {
   const [preOpen, setPreOpen] = React.useState([]);
   const [open, setOpen] = React.useState([]);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

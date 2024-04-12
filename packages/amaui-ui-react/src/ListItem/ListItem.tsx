@@ -454,7 +454,7 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
   const [hover, setHover] = React.useState(false);
   const [focus, setFocus] = React.useState(false);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

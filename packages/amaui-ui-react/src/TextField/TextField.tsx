@@ -721,7 +721,7 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
   const [row, setRow] = React.useState(rowValue);
   const [rows, setRows] = React.useState<any>(1);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   let end = end_;
 

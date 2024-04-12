@@ -90,7 +90,7 @@ const Card: React.FC<ICard> = React.forwardRef((props_, ref: any) => {
 
   const [focus, setFocus] = React.useState(focus_ !== undefined ? focus_ : false);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   let color = color_;
   let elevation = elevation_;

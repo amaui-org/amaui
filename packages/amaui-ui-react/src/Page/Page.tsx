@@ -108,7 +108,7 @@ const Page: React.FC<IPage> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const navigate = isEnvironment('browser') && useNavigate();
 

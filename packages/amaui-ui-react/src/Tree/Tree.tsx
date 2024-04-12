@@ -250,7 +250,7 @@ const Tree: React.FC<ITree> = React.forwardRef((props_, ref: any) => {
     inProgressTransition: React.useRef<boolean>()
   };
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const styles: any = {
     root: {

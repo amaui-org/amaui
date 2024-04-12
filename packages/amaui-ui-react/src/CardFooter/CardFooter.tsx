@@ -40,7 +40,7 @@ const CardFooter: React.FC<ICardFooter> = React.forwardRef((props_, ref: any) =>
     ...other
   } = props;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   return (
     <Line

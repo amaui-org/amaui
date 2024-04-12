@@ -40,7 +40,7 @@ const CardHeader: React.FC<ICardHeader> = React.forwardRef((props_, ref: any) =>
     ...other
   } = props;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   return (
     <Line

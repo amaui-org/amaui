@@ -33,7 +33,7 @@ const Forms: React.FC<IForms> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const children = React.Children.toArray(children_);
 

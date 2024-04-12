@@ -66,7 +66,7 @@ const Reveal: React.FC<IReveal> = React.forwardRef((props_, ref: any) => {
     in: React.useRef<any>()
   };
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   refs.props.current = props;
 

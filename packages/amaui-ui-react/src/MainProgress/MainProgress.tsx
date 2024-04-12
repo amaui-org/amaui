@@ -135,7 +135,7 @@ const MainProgress: React.FC<IMainProgress> = React.forwardRef((props_, ref: any
     props: React.useRef<any>()
   };
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   refs.value.current = value;
 

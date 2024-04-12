@@ -3,9 +3,9 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Chart from '../Chart';
+import ChartElement from '../Chart';
 import { IChart } from '../Chart/Chart';
-import AreaChartItem from '../AreaChartItem';
+import AreaChartItemElement from '../AreaChartItem';
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
@@ -27,7 +27,9 @@ const AreaChart: React.FC<IAreaChart> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAreaChart?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle(props);
+  const Chart = React.useMemo(() => theme.elements?.Chart || ChartElement, [theme]);
+
+  const AreaChartItem = React.useMemo(() => theme.elements?.AreaChartItem || AreaChartItemElement, [theme]);
 
   const {
     values,
@@ -36,6 +38,8 @@ const AreaChart: React.FC<IAreaChart> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   return (
     <Chart

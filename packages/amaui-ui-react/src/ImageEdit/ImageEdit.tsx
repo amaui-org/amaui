@@ -518,7 +518,7 @@ const ImageEdit: React.FC<IImageEdit> = React.forwardRef((props_, ref: any) => {
   const [aspectRatioCustom, setAspectRatioCustom] = React.useState<any>([1, 1]);
   const [size, setSize] = React.useState('');
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

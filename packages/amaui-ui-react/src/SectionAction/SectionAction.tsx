@@ -30,7 +30,7 @@ const Element: React.FC<ISectionAction> = React.forwardRef((props_, ref: any) =>
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSectionAction?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const {
     size = 'regular',

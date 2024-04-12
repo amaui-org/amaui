@@ -49,7 +49,7 @@ const TableHeader: React.FC<ITableHeader> = React.forwardRef((props_, ref: any) 
     ...other
   } = props;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   return (
     <Component

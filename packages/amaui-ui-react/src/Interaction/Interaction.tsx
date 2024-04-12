@@ -195,7 +195,7 @@ const Interaction: React.FC<IInteraction> = React.forwardRef((props_, ref: any) 
     className
   } = props;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const [init, setInit] = React.useState(false);
   const [interactions, setInteractions] = React.useState([]);

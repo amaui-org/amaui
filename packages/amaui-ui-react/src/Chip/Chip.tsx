@@ -82,7 +82,7 @@ const Chip: React.FC<IChip> = React.forwardRef((props_, ref: any) => {
   const [preSelected, setPreSelected] = React.useState(false);
   const [selected, setSelected] = React.useState(selected_);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const children = children_;
 

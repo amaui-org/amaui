@@ -164,7 +164,7 @@ const TablePagination: React.FC<ITableRow> = React.forwardRef((props_, ref: any)
     ...other
   } = props;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const [page, setPage] = React.useState(pageDefault !== undefined ? pageDefault : page_);
   const [rowsPerPage, setRowsPerPage] = React.useState(rowsPerPageDefault !== undefined ? rowsPerPageDefault : rowsPerPage_);

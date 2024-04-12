@@ -86,7 +86,7 @@ const Icon: React.FC<IIcon> = React.forwardRef((props_, ref: any) => {
 
   const [rtl, setRtl] = React.useState(theme.direction === 'rtl');
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   React.useEffect(() => {
     // Update rtl based on theme value

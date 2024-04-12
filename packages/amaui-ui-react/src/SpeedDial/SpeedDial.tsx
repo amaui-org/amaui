@@ -250,7 +250,7 @@ const SpeedDial: React.FC<ISpeedDial> = React.forwardRef((props_, ref: any) => {
   const [hover, setHover] = React.useState(false);
   const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

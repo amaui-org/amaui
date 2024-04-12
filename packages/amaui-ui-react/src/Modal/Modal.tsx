@@ -228,7 +228,7 @@ const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
   const [inProp, setInProp] = React.useState(open_);

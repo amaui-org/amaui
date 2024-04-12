@@ -53,7 +53,7 @@ const CardButton: React.FC<ICardButton> = React.forwardRef((props_, ref: any) =>
 
   const [focus, setFocus] = React.useState(focus_ !== undefined ? focus_ : false);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
     if (focus_ === undefined && !disabled) {

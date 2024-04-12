@@ -309,7 +309,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
   const [options, setOptions] = React.useState(options_);
   const [free, setFree] = React.useState(false);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

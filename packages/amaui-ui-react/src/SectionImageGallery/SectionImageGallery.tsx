@@ -28,7 +28,7 @@ const Element: React.FC<ISectionImageGallery> = React.forwardRef((props_, ref: a
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSectionImageGallery?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const {
     values,

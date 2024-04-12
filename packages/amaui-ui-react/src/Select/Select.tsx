@@ -211,7 +211,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
   const [mouseDown, setMouseDown] = React.useState(false);
   const [focus, setFocus] = React.useState(false);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

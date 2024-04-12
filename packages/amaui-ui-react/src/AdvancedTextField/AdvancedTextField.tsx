@@ -3,7 +3,7 @@ import React from 'react';
 import { is, numberWithCommas, Try } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import TextField from '../TextField';
+import TextFieldElement from '../TextField';
 import { ITextField } from '../TextField/TextField';
 import { staticClassName } from '../utils';
 import { IPropsAny } from '../types';
@@ -33,7 +33,7 @@ const AdvancedTextField: React.FC<IAdvancedTextField> = React.forwardRef((props_
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAdvancedTextField?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle(props);
+  const TextField = React.useMemo(() => theme?.elements?.TextField || TextFieldElement, [theme]);
 
   const {
     valueDefault,
@@ -61,6 +61,8 @@ const AdvancedTextField: React.FC<IAdvancedTextField> = React.forwardRef((props_
 
   const [init, setInit] = React.useState(false);
   const [value, setValue] = React.useState(valueDefault !== undefined ? valueDefault : value_);
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>()

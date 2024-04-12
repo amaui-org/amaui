@@ -196,7 +196,7 @@ const Widgets: React.FC<IWidgets> = React.forwardRef((props_, ref: any) => {
     props: React.useRef<any>()
   };
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   refs.props.current = props;
 

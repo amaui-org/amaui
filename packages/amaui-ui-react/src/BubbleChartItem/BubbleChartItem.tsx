@@ -62,7 +62,7 @@ const BubbleChartItem: React.FC<IBubbleChartItem> = React.forwardRef((props_, re
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBubbleChartItem?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const {
     tonal = true,

@@ -56,7 +56,7 @@ const SectionTimeline: React.FC<ISectionTimeline> = React.forwardRef((props_, re
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSectionTimeline?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const {
     size = 'regular',

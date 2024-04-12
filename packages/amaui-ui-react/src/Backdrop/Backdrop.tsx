@@ -88,7 +88,7 @@ const Backdrop: React.FC<IBackdrop> = React.forwardRef((props_, ref: any) => {
 
   const [open, setOpen] = React.useState(open_);
   const [inProp, setInProp] = React.useState(open_);
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

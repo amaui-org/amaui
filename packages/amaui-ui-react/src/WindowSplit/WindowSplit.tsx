@@ -226,7 +226,7 @@ const WindowSplit: React.FC<IWindowSplit> = React.forwardRef((props_, ref: any) 
     }
   };
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   refs.value.current = value;
   refs.mouseDown.current = mouseDown;

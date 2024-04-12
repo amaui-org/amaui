@@ -567,7 +567,7 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
 
   refs.max.current = max;
 
-  const { classes } = useStyle(props);
+  const { classes } = useStyle();
 
   let color = color_;
 
