@@ -9,7 +9,7 @@ import { IColor, IElevation, ITonal, IVersion } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    padding: '24px'
+    padding: theme.methods.space.value(3, 'px')
   }
 }), { name: 'amaui-CardHeader' });
 

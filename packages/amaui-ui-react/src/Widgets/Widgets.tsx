@@ -24,7 +24,7 @@ export interface IWidgetsValue {
 const useStyle = styleMethod(theme => ({
   root: {
     width: '100%',
-    padding: '0 104px',
+    padding: `0 ${theme.methods.space.value(13, 'px')}`,
     pointerEvents: 'none',
     zIndex: theme.z_index.modal - 1
   },

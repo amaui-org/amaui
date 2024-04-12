@@ -26,15 +26,15 @@ const useStyle = styleMethod(theme => ({
   },
 
   size_small: {
-    padding: '4px 16px'
+    padding: `${theme.methods.space.value(0.5, 'px')} ${theme.methods.space.value(2, 'px')}`
   },
 
   size_regular: {
-    padding: '8px 20px'
+    padding: `${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(2.5, 'px')}`
   },
 
   size_large: {
-    padding: '12px 24px'
+    padding: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(3, 'px')}`
   },
 
   fixed: {

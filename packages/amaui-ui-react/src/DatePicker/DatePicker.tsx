@@ -31,17 +31,17 @@ const useStyle = styleMethod(theme => ({
 
   header: {
     width: '100%',
-    padding: '16px 24px 0px',
+    padding: `${theme.methods.space.value(2, 'px')} ${theme.methods.space.value(3, 'px')} 0px`,
     flex: '0 0 auto'
   },
 
   header_fullScreen: {
-    padding: '16px 0px 0px'
+    padding: `${theme.methods.space.value(2, 'px')} 0px 0px`
   },
 
   actions: {
     width: '100%',
-    padding: '0px 8px 12px 12px',
+    padding: `0px ${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(1.5, 'px')}`,
     flex: '0 0 auto',
     overflowX: 'auto'
   },
@@ -88,14 +88,14 @@ const useStyle = styleMethod(theme => ({
 
   modal_input: {
     width: '100%',
-    padding: '16px 24px 16px',
+    padding: `${theme.methods.space.value(2, 'px')} ${theme.methods.space.value(3, 'px')} ${theme.methods.space.value(2, 'px')}`,
     marginBottom: '12px',
     flex: '1 1 auto'
   },
 
   dayNames: {
     width: '100%',
-    padding: '0 8px'
+    padding: `0 ${theme.methods.space.value(1, 'px')}`
   },
 
   dayName: {
@@ -111,7 +111,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   heading_fullScreen: {
-    paddingInline: '60px 12px'
+    paddingInline: `${theme.methods.space.value(7.5, 'px')} ${theme.methods.space.value(1.5, 'px')}`
   },
 
   subheading: {
@@ -891,7 +891,7 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
             style={{
               width: '100%',
               marginBottom: 8,
-              padding: '0px 8px 0px 12px'
+              padding: `0px ${theme.methods.space.value(1, 'px')} 0px ${theme.methods.space.value(1.5, 'px')}`
             }}
           >
             <IconButton
@@ -1217,7 +1217,7 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
 
       {actions_ && React.cloneElement(actions, {
         style: {
-          paddingTop: 8
+          paddingTop: theme.methods.space.value(1, 'px')
         }
       })}
     </Surface>

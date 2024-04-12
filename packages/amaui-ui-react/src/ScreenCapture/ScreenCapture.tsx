@@ -19,7 +19,7 @@ import { IElementReference, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    padding: '20px 40px 24px',
+    padding: `${theme.methods.space.value(2.5, 'px')} ${theme.methods.space.value(5, 'px')} ${theme.methods.space.value(3, 'px')}`,
     borderRadius: theme.methods.shape.radius.value('rg', 'px')
   },
 

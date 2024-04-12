@@ -49,11 +49,11 @@ export interface IConfirmValue {
 const useStyle = styleMethod(theme => ({
   root: {
     '& .amaui-ModalMain-root': {
-      padding: '16px 0 0'
+      padding: `${theme.methods.space.value(2, 'px')} 0 0`
     },
 
     '& .amaui-ModalFooter-root': {
-      padding: '16px 0 0'
+      padding: `${theme.methods.space.value(2, 'px')} 0 0`
     }
   }
 }), { name: 'amaui-Confirm' });

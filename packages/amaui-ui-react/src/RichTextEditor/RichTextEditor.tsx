@@ -33,7 +33,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   value: {
-    padding: '16px',
+    padding: theme.methods.space.value(2, 'px'),
     whiteSpace: 'break-spaces',
 
     '& p': {
@@ -68,7 +68,7 @@ const useStyle = styleMethod(theme => ({
     '& blockquote': {
       margin: '16px 0',
       marginInlineStart: '16px',
-      padding: '20px 16px',
+      padding: `${theme.methods.space.value(2.5, 'px')} ${theme.methods.space.value(2, 'px')}`,
       borderInlineStart: `4px solid ${theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.2)}`,
       background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.02 : 0.14),
 
@@ -93,7 +93,7 @@ const useStyle = styleMethod(theme => ({
     },
 
     '& code': {
-      padding: '2px 4px',
+      padding: `${theme.methods.space.value(0.25, 'px')} ${theme.methods.space.value(0.5, 'px')}`,
       borderRadius: theme.methods.shape.radius.value(0.5, 'px'),
       color: theme.palette.text.default.primary,
       background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.1)
@@ -101,7 +101,7 @@ const useStyle = styleMethod(theme => ({
 
     '& pre': {
       margin: '16px 0',
-      padding: '16px',
+      padding: theme.methods.space.value(2, 'px'),
       borderRadius: theme.methods.shape.radius.value(1, 'px'),
       color: theme.palette.text.default.primary,
       background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.1),
@@ -120,7 +120,7 @@ const useStyle = styleMethod(theme => ({
       '& th, & td': {
         ...theme.typography.values.b2,
         height: '45px',
-        padding: '12px 16px',
+        padding: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(2, 'px')}`,
         borderBottom: `1px solid ${theme.palette.light ? theme.palette.color.neutral[80] : theme.palette.color.neutral[30]}`,
         borderRight: `1px solid ${theme.palette.light ? theme.palette.color.neutral[80] : theme.palette.color.neutral[30]}`
       },
@@ -145,7 +145,7 @@ const useStyle = styleMethod(theme => ({
   toolbar: {
     width: '100%',
     overflowX: 'auto',
-    padding: '8px'
+    padding: theme.methods.space.value(1, 'px')
   },
 
   divider: {
@@ -169,7 +169,7 @@ const useStyle = styleMethod(theme => ({
   select: {
     '& .amaui-TextField-input-wrapper': {
       height: '40px',
-      paddingBlock: '11px'
+      paddingBlock: theme.methods.space.value(1.25, 'px')
     },
 
     '& .amaui-Select-input': {
@@ -182,13 +182,13 @@ const useStyle = styleMethod(theme => ({
   },
 
   miniMenu: {
-    padding: '12px',
+    padding: theme.methods.space.value(1.5, 'px'),
     borderRadius: theme.methods.shape.radius.value(140, 'px'),
     boxShadow: theme.shadows.values.default[2]
   },
 
   palette: {
-    padding: '12px',
+    padding: theme.methods.space.value(1.5, 'px'),
     borderRadius: theme.methods.shape.radius.value(1, 'px'),
     boxShadow: theme.shadows.values.default[2]
   },

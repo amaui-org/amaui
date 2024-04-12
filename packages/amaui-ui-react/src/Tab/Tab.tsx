@@ -35,19 +35,19 @@ const useStyle = styleMethod(theme => ({
   },
 
   size_small: {
-    padding: '12px 24px',
+    padding: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(3, 'px')}`,
     minWidth: '40px',
     maxWidth: '200px'
   },
 
   size_regular: {
-    padding: '16px 32px',
+    padding: `${theme.methods.space.value(2, 'px')} ${theme.methods.space.value(4, 'px')}`,
     minWidth: '70px',
     maxWidth: '240px'
   },
 
   size_large: {
-    padding: '20px 40px',
+    padding: `${theme.methods.space.value(2.5, 'px')} ${theme.methods.space.value(5, 'px')}`,
     minWidth: '100px',
     maxWidth: '280px'
   },

@@ -44,13 +44,13 @@ const useStyle = styleMethod(theme => ({
   },
 
   header: {
-    padding: '24px',
+    padding: theme.methods.space.value(3, 'px'),
     zIndex: '1'
   },
 
   main_version_modal: {
     height: '0',
-    padding: '40px',
+    padding: theme.methods.space.value(5, 'px'),
     zIndex: '0',
 
     '& .amaui-Image-root': {
@@ -76,7 +76,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   footer: {
-    padding: '24px 12px',
+    padding: `${theme.methods.space.value(3, 'px')} ${theme.methods.space.value(1.5, 'px')}`,
     zIndex: '1'
   },
 

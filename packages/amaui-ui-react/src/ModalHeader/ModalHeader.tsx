@@ -7,7 +7,7 @@ import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
-    paddingBottom: '16px'
+    paddingBottom: theme.methods.space.value(2, 'px')
   }
 }), { name: 'amaui-ModalHeader' });
 

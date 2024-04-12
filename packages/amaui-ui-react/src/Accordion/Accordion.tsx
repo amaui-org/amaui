@@ -53,27 +53,27 @@ const useStyle = styleMethod(theme => ({
 
   header: {},
 
-  expanded_header_padding_vertical_start: { paddingBlockStart: '16px !important' },
+  expanded_header_padding_vertical_start: { paddingBlockStart: `${theme.methods.space.value(2, 'px')} !important` },
 
-  expanded_header_padding_vertical_both: { paddingBlock: '16px !important' },
+  expanded_header_padding_vertical_both: { paddingBlock: `${theme.methods.space.value(2, 'px')} !important` },
 
-  expanded_header_padding_vertical_end: { paddingBlockEnd: '16px !important' },
+  expanded_header_padding_vertical_end: { paddingBlockEnd: `${theme.methods.space.value(2, 'px')} !important` },
 
   expanded_header_padding_vertical_none: { paddingBlock: '0px !important' },
 
-  header_padding_vertical_start: { paddingBlockStart: '8px' },
+  header_padding_vertical_start: { paddingBlockStart: theme.methods.space.value(1, 'px') },
 
-  header_padding_vertical_both: { paddingBlock: '8px' },
+  header_padding_vertical_both: { paddingBlock: theme.methods.space.value(1, 'px') },
 
-  header_padding_vertical_end: { paddingBlockEnd: '8px' },
+  header_padding_vertical_end: { paddingBlockEnd: theme.methods.space.value(1, 'px') },
 
   header_padding_vertical_none: { paddingBlock: '0px' },
 
-  header_padding_horizontal_start: { paddingInlineStart: '16px' },
+  header_padding_horizontal_start: { paddingInlineStart: theme.methods.space.value(2, 'px') },
 
-  header_padding_horizontal_both: { paddingInline: '16px' },
+  header_padding_horizontal_both: { paddingInline: theme.methods.space.value(2, 'px') },
 
-  header_padding_horizontal_end: { paddingInlineEnd: '16px' },
+  header_padding_horizontal_end: { paddingInlineEnd: theme.methods.space.value(2, 'px') },
 
   header_padding_horizontal_none: { paddingInline: '0px' },
 
@@ -81,19 +81,19 @@ const useStyle = styleMethod(theme => ({
     width: '100%'
   },
 
-  main_padding_vertical_start: { paddingBlockStart: '16px' },
+  main_padding_vertical_start: { paddingBlockStart: theme.methods.space.value(2, 'px') },
 
-  main_padding_vertical_both: { paddingBlock: '16px' },
+  main_padding_vertical_both: { paddingBlock: theme.methods.space.value(2, 'px') },
 
-  main_padding_vertical_end: { paddingBlockEnd: '16px' },
+  main_padding_vertical_end: { paddingBlockEnd: theme.methods.space.value(2, 'px') },
 
   main_padding_vertical_none: { paddingBlock: '0px' },
 
-  main_padding_horizontal_start: { paddingInlineStart: '16px' },
+  main_padding_horizontal_start: { paddingInlineStart: theme.methods.space.value(2, 'px') },
 
-  main_padding_horizontal_both: { paddingInline: '16px' },
+  main_padding_horizontal_both: { paddingInline: theme.methods.space.value(2, 'px') },
 
-  main_padding_horizontal_end: { paddingInlineEnd: '16px' },
+  main_padding_horizontal_end: { paddingInlineEnd: theme.methods.space.value(2, 'px') },
 
   main_padding_horizontal_none: { paddingInline: '0px' },
 

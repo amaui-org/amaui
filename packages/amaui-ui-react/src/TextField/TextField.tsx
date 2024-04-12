@@ -121,20 +121,20 @@ const useStyle = styleMethod(theme => ({
 
   input_size_small: {
     height: '48px',
-    padding: '7px 16px',
-    paddingTop: '21px'
+    padding: `${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(2, 'px')}`,
+    paddingTop: theme.methods.space.value(2.5, 'px')
   },
 
   input_size_regular: {
     height: '56px',
-    padding: '11px 16px',
-    paddingTop: '25px'
+    padding: `11px ${theme.methods.space.value(2, 'px')}`,
+    paddingTop: theme.methods.space.value(3, 'px')
   },
 
   input_size_large: {
     height: '64px',
-    padding: '16px 16px',
-    paddingTop: '28px'
+    padding: theme.methods.space.value(2, 'px'),
+    paddingTop: theme.methods.space.value(3.5, 'px')
   },
 
   input_version_text: {
@@ -152,18 +152,18 @@ const useStyle = styleMethod(theme => ({
   },
 
   input_version_outlined_size_small: {
-    paddingTop: '14px',
-    paddingBottom: '14px'
+    paddingTop: theme.methods.space.value(1.75, 'px'),
+    paddingBottom: theme.methods.space.value(1.75, 'px')
   },
 
   input_version_outlined_size_regular: {
-    paddingTop: '18px',
-    paddingBottom: '18px'
+    paddingTop: theme.methods.space.value(2.25, 'px'),
+    paddingBottom: theme.methods.space.value(2.25, 'px')
   },
 
   input_version_outlined_size_large: {
-    paddingTop: '22px',
-    paddingBottom: '22px'
+    paddingTop: theme.methods.space.value(2.75, 'px'),
+    paddingBottom: theme.methods.space.value(2.75, 'px')
   },
 
   input_align_start: {
@@ -313,14 +313,14 @@ const useStyle = styleMethod(theme => ({
     borderRadius: `${theme.shape.radius.unit}px`,
     border: '1px solid currentColor',
     padding: '0',
-    paddingInline: '12px 16px',
+    paddingInline: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(2, 'px')}`,
 
     transition: theme.methods.transitions.make(['border', 'padding'])
   },
 
   fieldset_focus: {
     borderWidth: '2px',
-    paddingInline: '11px 16px'
+    paddingInline: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(2, 'px')}`
   },
 
   legend: {
@@ -338,13 +338,13 @@ const useStyle = styleMethod(theme => ({
 
   legend_focus: {
     maxWidth: '100%',
-    padding: '0 4px',
+    padding: `0 ${theme.methods.space.value(0.5, 'px')}`,
     transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xs' })
   },
 
   footer: {
     marginTop: '4px',
-    paddingInline: '16px'
+    paddingInline: theme.methods.space.value(2, 'px')
   },
 
   footer_version_text: {
@@ -373,32 +373,32 @@ const useStyle = styleMethod(theme => ({
   },
 
   icon_size_small: {
-    paddingBlock: '12px'
+    paddingBlock: theme.methods.space.value(1.5, 'px')
   },
 
   icon_size_regular: {
-    paddingBlock: '16px'
+    paddingBlock: theme.methods.space.value(2, 'px')
   },
 
   icon_size_large: {
-    paddingBlock: '20px'
+    paddingBlock: theme.methods.space.value(2.5, 'px')
   },
 
   icon_button_size_small: {
-    paddingBlock: '4px'
+    paddingBlock: theme.methods.space.value(0.5, 'px')
   },
 
   icon_button_size_regular: {
-    paddingBlock: '8px'
+    paddingBlock: theme.methods.space.value(1, 'px')
   },
 
   icon_button_size_large: {
-    paddingBlock: '12px'
+    paddingBlock: theme.methods.space.value(1.5, 'px')
   },
 
   icon_start: {
-    paddingInlineEnd: '16px',
-    paddingInlineStart: '12px'
+    paddingInlineEnd: theme.methods.space.value(2, 'px'),
+    paddingInlineStart: theme.methods.space.value(1.5, 'px')
   },
 
   icon_vertical_align_start: {
@@ -415,8 +415,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   icon_end: {
-    paddingInlineStart: '16px',
-    paddingInlineEnd: '12px'
+    paddingInlineStart: theme.methods.space.value(2, 'px'),
+    paddingInlineEnd: theme.methods.space.value(1.5, 'px')
   },
 
   addition: {
@@ -424,33 +424,33 @@ const useStyle = styleMethod(theme => ({
   },
 
   addition_size_small: {
-    paddingBottom: '7px',
-    paddingTop: '21px'
+    paddingBottom: theme.methods.space.value(1, 'px'),
+    paddingTop: theme.methods.space.value(2.5, 'px')
   },
 
   addition_size_regular: {
-    paddingBottom: '11px',
-    paddingTop: '25px'
+    paddingBottom: theme.methods.space.value(1.5, 'px'),
+    paddingTop: theme.methods.space.value(3, 'px')
   },
 
   addition_size_large: {
-    paddingBottom: '16px',
-    paddingTop: '28px'
+    paddingBottom: theme.methods.space.value(2, 'px'),
+    paddingTop: theme.methods.space.value(3.5, 'px')
   },
 
   addition_version_outlined_size_small: {
-    paddingTop: '14px',
-    paddingBottom: '14px'
+    paddingTop: theme.methods.space.value(1.75, 'px'),
+    paddingBottom: theme.methods.space.value(1.75, 'px')
   },
 
   addition_version_outlined_size_regular: {
-    paddingTop: '18px',
-    paddingBottom: '18px'
+    paddingTop: theme.methods.space.value(2.25, 'px'),
+    paddingBottom: theme.methods.space.value(2.25, 'px')
   },
 
   addition_version_outlined_size_large: {
-    paddingTop: '22px',
-    paddingBottom: '22px'
+    paddingTop: theme.methods.space.value(2.75, 'px'),
+    paddingBottom: theme.methods.space.value(2.75, 'px')
   },
 
   prefix: {

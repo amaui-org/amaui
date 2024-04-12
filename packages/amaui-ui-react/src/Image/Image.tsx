@@ -35,7 +35,7 @@ const useStyle = styleMethod(theme => ({
 
   figcaption: {
     '&.amaui-Type-root': {
-      padding: '12px 16px'
+      padding: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(2, 'px')}`
     }
   },
 

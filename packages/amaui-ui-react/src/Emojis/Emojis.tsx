@@ -51,7 +51,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   header: {
-    padding: '12px 12px 0'
+    padding: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(1.5, 'px')} 0`
   },
 
   categories: {
@@ -60,7 +60,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   category: {
-    paddingInlineStart: 12
+    paddingInlineStart: theme.methods.space.value(1.5, 'px')
   },
 
   emoji: {
@@ -134,19 +134,19 @@ const useStyle = styleMethod(theme => ({
 
   tab_size_small: {
     '&.amaui-Tab-root': {
-      padding: '8px 6px'
+      padding: `${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(0.75, 'px')}`
     }
   },
 
   tab_size_regular: {
     '&.amaui-Tab-root': {
-      padding: '8px 10px'
+      padding: `${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(1.25, 'px')}`
     }
   },
 
   tab_size_large: {
     '&.amaui-Tab-root': {
-      padding: '8px 10px'
+      padding: `${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(1.25, 'px')}`
     }
   }
 }), { name: 'amaui-Emojis' });

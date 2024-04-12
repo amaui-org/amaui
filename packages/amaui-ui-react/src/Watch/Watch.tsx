@@ -33,17 +33,17 @@ const useStyle = styleMethod(theme => ({
 
   version_regular_size_small: {
     minWidth: '174px',
-    padding: '16px 32px'
+    padding: `${theme.methods.space.value(2, 'px')} ${theme.methods.space.value(4, 'px')}`
   },
 
   version_regular_size_regular: {
     minWidth: '204px',
-    padding: '24px 40px'
+    padding: `${theme.methods.space.value(3, 'px')} ${theme.methods.space.value(5, 'px')}`
   },
 
   version_regular_size_large: {
     minWidth: '234px',
-    padding: '32px 48px'
+    padding: `${theme.methods.space.value(4, 'px')} ${theme.methods.space.value(6, 'px')}`
   },
 
   shadow_version_regular: {
@@ -191,7 +191,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
         ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
           height: 8,
 
-          padding: 4,
+          padding: theme.methods.space.value(0.5, 'px'),
 
           position: index * (100 / 12)
         }))),
@@ -200,7 +200,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
         ...(Array.from({ length: 60 }).map((item: any, index: number) => ({
           height: 4,
 
-          padding: 4,
+          padding: theme.methods.space.value(0.5, 'px'),
 
           position: index * (100 / 60)
         }))),
@@ -216,7 +216,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
         ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
           value: index === 0 ? 12 : index,
 
-          padding: 12,
+          padding: theme.methods.space.value(1.5, 'px'),
 
           style: {
             fontSize: 14
@@ -231,7 +231,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
         {
           value: 12,
 
-          padding: 7,
+          padding: theme.methods.space.value(1, 'px'),
 
           style: {
             lineHeight: 1,
@@ -245,7 +245,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
         {
           value: 3,
 
-          padding: 7,
+          padding: theme.methods.space.value(1, 'px'),
 
           style: {
             lineHeight: 1,
@@ -259,7 +259,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
         {
           value: 6,
 
-          padding: 7,
+          padding: theme.methods.space.value(1, 'px'),
 
           style: {
             lineHeight: 1,
@@ -273,7 +273,7 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
         {
           value: 9,
 
-          padding: 7,
+          padding: theme.methods.space.value(1, 'px'),
 
           style: {
             lineHeight: 1,

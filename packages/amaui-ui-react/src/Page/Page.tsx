@@ -18,7 +18,7 @@ const useStyle = styleMethod(theme => ({
     position: 'relative',
     height: '100%',
     maxWidth: '1024px',
-    padding: '24px',
+    padding: theme.methods.space.value(3, 'px'),
 
     '& .amaui-overflow-y': {
       height: '0px',

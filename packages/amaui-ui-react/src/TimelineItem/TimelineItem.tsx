@@ -34,11 +34,11 @@ const useStyle = styleMethod(theme => ({
   },
 
   aside_orientation_vertical: {
-    padding: '4px 24px'
+    padding: `${theme.methods.space.value(0.5, 'px')} ${theme.methods.space.value(3, 'px')}`
   },
 
   aside_orientation_horizontal: {
-    padding: '24px 4px'
+    padding: `${theme.methods.space.value(3, 'px')} ${theme.methods.space.value(0.5, 'px')}`
   },
 
   iconWrapper: {

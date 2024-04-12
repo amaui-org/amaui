@@ -85,15 +85,15 @@ const useStyle = styleMethod(theme => ({
   },
 
   item_size_small: {
-    padding: 4
+    padding: theme.methods.space.value(0.5, 'px')
   },
 
   item_size_regular: {
-    padding: 8
+    padding: theme.methods.space.value(1, 'px')
   },
 
   item_size_large: {
-    padding: 12
+    padding: theme.methods.space.value(1.5, 'px')
   },
 
   '@media print': {

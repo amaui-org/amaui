@@ -15,19 +15,19 @@ const useStyle = styleMethod(theme => ({
 
   size_small: {
     '&.amaui-Button-root': {
-      padding: '4px 6px'
+      padding: `${theme.methods.space.value(0.5, 'px')} ${theme.methods.space.value(0.75, 'px')}`
     }
   },
 
   size_regular: {
     '&.amaui-Button-root': {
-      padding: '8px 8px'
+      padding: `${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(1, 'px')}`
     }
   },
 
   size_large: {
     '&.amaui-Button-root': {
-      padding: '12px 10px'
+      padding: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(1.25, 'px')}`
     }
   },
 }), { name: 'amaui-ToggleButton' });

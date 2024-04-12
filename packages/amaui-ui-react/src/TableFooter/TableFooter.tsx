@@ -13,15 +13,15 @@ const useStyle = styleMethod(theme => ({
   },
 
   size_small: {
-    padding: '16px'
+    padding: theme.methods.space.value(2, 'px')
   },
 
   size_regular: {
-    padding: '24px 16px'
+    padding: `${theme.methods.space.value(3, 'px')} ${theme.methods.space.value(2, 'px')}`
   },
 
   size_large: {
-    padding: '32px 24px'
+    padding: `${theme.methods.space.value(4, 'px')} ${theme.methods.space.value(3, 'px')}`
   }
 }), { name: 'amaui-TableFooter' });
 

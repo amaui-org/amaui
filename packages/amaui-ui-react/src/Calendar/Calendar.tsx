@@ -38,7 +38,7 @@ const useStyle = style(theme => ({
     },
 
     '& .amaui-ListItem-inset': {
-      paddingInlineStart: '50px'
+      paddingInlineStart: theme.methods.space.value(6.25, 'px')
     }
   },
 
@@ -58,7 +58,7 @@ const useStyle = style(theme => ({
     },
 
     '& .amaui-ListItem-inset': {
-      paddingInlineStart: '68px'
+      paddingInlineStart: theme.methods.space.value(8.5, 'px')
     }
   },
 
@@ -68,12 +68,12 @@ const useStyle = style(theme => ({
 
   header: {
     width: '100%',
-    padding: '12px 8px 4px'
+    padding: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(0.5, 'px')}`
   },
 
   calendars: {
     width: '100%',
-    padding: '0 8px 8px'
+    padding: `0 ${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(1, 'px')}`
   },
 
   calendar: {
@@ -84,11 +84,11 @@ const useStyle = style(theme => ({
     transition: theme.methods.transitions.make('opacity'),
 
     '&.amaui-Button-root': {
-      paddingInline: '8px 0px'
+      paddingInline: `${theme.methods.space.value(1, 'px')} 0`
     },
 
     '& .amaui-Button-end': {
-      paddingInline: '8px 0px'
+      paddingInline: `${theme.methods.space.value(1, 'px')} 0`
     }
   },
 
@@ -131,7 +131,7 @@ const useStyle = style(theme => ({
     '&.amaui-Carousel-root': {
       height: '100vh',
       maxHeight: '440px',
-      padding: '0 8px'
+      padding: `0 ${theme.methods.space.value(1, 'px')}`
     }
   },
 
@@ -142,7 +142,7 @@ const useStyle = style(theme => ({
   },
 
   carousel_item_label: {
-    paddingInlineStart: '16px'
+    paddingInlineStart: theme.methods.space.value(2, 'px')
   },
 
   arrow: {

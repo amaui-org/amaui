@@ -48,7 +48,7 @@ const useStyle = styleMethod(theme => ({
 
     position: 'relative',
     color: 'inherit',
-    padding: '2px 8px',
+    padding: `${theme.methods.space.value(0.25, 'px')} ${theme.methods.space.value(1, 'px')}`,
     borderRadius: `${theme.shape.radius.unit * 0.5}px`
   },
 
@@ -69,7 +69,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   item: {
-    padding: '2px 0'
+    padding: `${theme.methods.space.value(0.25, 'px')} 0`
   },
 
   middle: {

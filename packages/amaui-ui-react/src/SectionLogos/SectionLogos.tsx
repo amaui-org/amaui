@@ -20,7 +20,7 @@ const useStyle = styleMethod(theme => ({
 
   items: {
     overflow: 'auto hidden',
-    padding: '16px 0'
+    padding: `${theme.methods.space.value(2, 'px')} 0`
   },
 
   wrapper: {

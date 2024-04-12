@@ -65,11 +65,11 @@ const useStyle = styleMethod(theme => ({
   },
 
   legend_offset_labels_y: {
-    paddingLeft: '40px'
+    paddingLeft: theme.methods.space.value(5, 'px')
   },
 
   legend_offset_names_y: {
-    paddingLeft: '70px'
+    paddingLeft: theme.methods.space.value(9, 'px')
   },
 
   svg: {
@@ -92,7 +92,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   append: {
-    padding: '12px 20px',
+    padding: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(2.5, 'px')}`,
     borderRadius: theme.methods.shape.radius.value(1.5, 'px')
   },
 

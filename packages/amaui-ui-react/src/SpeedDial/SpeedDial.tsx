@@ -58,19 +58,19 @@ const useStyle = styleMethod(theme => ({
   },
 
   items_position_row: {
-    paddingInline: '16px'
+    paddingInline: theme.methods.space.value(2, 'px')
   },
 
   'items_position_row-reverse': {
-    paddingInline: '16px'
+    paddingInline: theme.methods.space.value(2, 'px')
   },
 
   items_position_column: {
-    paddingBlock: '16px'
+    paddingBlock: theme.methods.space.value(2, 'px')
   },
 
   'items_position_column-reverse': {
-    paddingBlock: '16px'
+    paddingBlock: theme.methods.space.value(2, 'px')
   },
 
   items_open: {

@@ -18,7 +18,7 @@ const useStyle = styleMethod(theme => ({
     '&.amaui-Button-root': {
       width: 'unset',
       minWidth: '30px',
-      paddingInline: '3px'
+      paddingInline: theme.methods.space.value(0.5, 'px')
     }
   },
 
@@ -26,7 +26,7 @@ const useStyle = styleMethod(theme => ({
     '&.amaui-Button-root': {
       width: 'unset',
       minWidth: '40px',
-      paddingInline: '7px'
+      paddingInline: theme.methods.space.value(1, 'px')
     }
   },
 
@@ -34,7 +34,7 @@ const useStyle = styleMethod(theme => ({
     '&.amaui-Button-root': {
       width: 'unset',
       minWidth: '50px',
-      paddingInline: '10px'
+      paddingInline: theme.methods.space.value(1.25, 'px')
     }
   }
 }), { name: 'amaui-PaginationItem' });

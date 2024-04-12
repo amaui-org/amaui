@@ -44,20 +44,20 @@ const useStyle = styleMethod(theme => ({
 
   // Size
   size_small: {
-    paddingBlock: '7.5px',
-    paddingInline: '16px',
+    paddingBlock: theme.methods.space.value(1, 'px'),
+    paddingInline: theme.methods.space.value(2, 'px'),
     borderRadius: `${theme.shape.radius.unit * 2}px`
   },
 
   size_regular: {
-    paddingBlock: '11px',
-    paddingInline: '24px',
+    paddingBlock: theme.methods.space.value(1.5, 'px'),
+    paddingInline: theme.methods.space.value(3, 'px'),
     borderRadius: `${theme.shape.radius.unit * 2.5}px`
   },
 
   size_large: {
-    paddingBlock: '16px',
-    paddingInline: '32px',
+    paddingBlock: theme.methods.space.value(2, 'px'),
+    paddingInline: theme.methods.space.value(4, 'px'),
     borderRadius: `${theme.shape.radius.unit * 3.5}px`
   },
 
@@ -87,36 +87,36 @@ const useStyle = styleMethod(theme => ({
     height: `40px`,
     minWidth: `64px`,
     borderRadius: `${(theme.shape.radius.unit * 2) - (theme.shape.radius.unit / 2)}px`,
-    padding: '12px',
+    padding: theme.methods.space.value(1.5, 'px')
   },
 
   fab_size_regular: {
     height: `56px`,
     minWidth: `80px`,
     borderRadius: `${theme.shape.radius.unit * 2}px`,
-    padding: '16px'
+    padding: theme.methods.space.value(2, 'px')
   },
 
   fab_size_large: {
     height: `72px`,
     minWidth: `96px`,
     borderRadius: `${(theme.shape.radius.unit * 2) + (theme.shape.radius.unit / 2)}px`,
-    padding: '24px'
+    padding: theme.methods.space.value(3, 'px')
   },
 
   // Chip
   chip_size_small: {
-    padding: `4px 12px`,
+    padding: `${theme.methods.space.value(0.5, 'px')} ${theme.methods.space.value(1.5, 'px')}`,
     borderRadius: `${theme.shape.radius.unit - (theme.shape.radius.unit / 4)}px`
   },
 
   chip_size_regular: {
-    padding: `8px 16px`,
+    padding: `${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(2, 'px')}`,
     borderRadius: `${theme.shape.radius.unit}px`
   },
 
   chip_size_large: {
-    padding: `12px 20px`,
+    padding: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(2.5, 'px')}`,
     borderRadius: `${theme.shape.radius.unit + (theme.shape.radius.unit / 4)}px`
   },
 
@@ -193,52 +193,52 @@ const useStyle = styleMethod(theme => ({
   },
 
   start_size_small: {
-    paddingInline: '11px 5px'
+    paddingInline: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(0.5, 'px')}`
   },
 
   start_size_regular: {
-    paddingInline: '16px 8px'
+    paddingInline: `${theme.methods.space.value(2, 'px')} ${theme.methods.space.value(1, 'px')}`
   },
 
   start_size_large: {
-    paddingInline: '22px 10px'
+    paddingInline: `${theme.methods.space.value(2.75, 'px')} ${theme.methods.space.value(1.25, 'px')}`
   },
 
   end_size_small: {
-    paddingInline: '5px 11px'
+    paddingInline: `${theme.methods.space.value(0.5, 'px')} ${theme.methods.space.value(1.5, 'px')}`
   },
 
   end_size_regular: {
-    paddingInline: '8px 16px'
+    paddingInline: `${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(2, 'px')}`
   },
 
   end_size_large: {
-    paddingInline: '10px 22px'
+    paddingInline: `${theme.methods.space.value(1.25, 'px')} ${theme.methods.space.value(2.75, 'px')}`
   },
 
   // Chip
   chip_start_size_small: {
-    padding: `0 6px`
+    padding: `0 ${theme.methods.space.value(0.75, 'px')}`
   },
 
   chip_start_size_regular: {
-    padding: `0 8px`
+    padding: `0 ${theme.methods.space.value(1, 'px')}`
   },
 
   chip_start_size_large: {
-    padding: `0 10px`
+    padding: `0 ${theme.methods.space.value(1.25, 'px')}`
   },
 
   chip_end_size_small: {
-    padding: `0 6px`
+    padding: `0 ${theme.methods.space.value(0.75, 'px')}`
   },
 
   chip_end_size_regular: {
-    padding: `0 8px`
+    padding: `0 ${theme.methods.space.value(1, 'px')}`
   },
 
   chip_end_size_large: {
-    padding: `0 10px`
+    padding: `0 ${theme.methods.space.value(1.25, 'px')}`
   },
 
   // Elevation

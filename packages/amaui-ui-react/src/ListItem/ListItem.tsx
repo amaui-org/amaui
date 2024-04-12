@@ -94,7 +94,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   inset_size_small: {
-    paddingInlineStart: `${56 + theme.methods.space.value('rg') * 0.75}px`
+    paddingInlineStart: `${(56 + theme.methods.space.value('rg')) * 0.75}px`
   },
 
   inset_size_regular: {
@@ -102,19 +102,19 @@ const useStyle = styleMethod(theme => ({
   },
 
   inset_size_large: {
-    paddingInlineStart: `${56 + theme.methods.space.value('rg') * 1.25}px`
+    paddingInlineStart: `${(56 + theme.methods.space.value('rg')) * 1.25}px`
   },
 
   menuItem_inset_size_small: {
-    paddingInlineStart: `56px`
+    paddingInlineStart: theme.methods.space.value(7, 'px')
   },
 
   menuItem_inset_size_regular: {
-    paddingInlineStart: `56px`
+    paddingInlineStart: theme.methods.space.value(7, 'px')
   },
 
   menuItem_inset_size_large: {
-    paddingInlineStart: `56px`
+    paddingInlineStart: theme.methods.space.value(7, 'px')
   },
 
   middle: {
@@ -175,54 +175,54 @@ const useStyle = styleMethod(theme => ({
   },
 
   start_icon: {
-    paddingInline: '0px 12px'
+    paddingInline: `0 ${theme.methods.space.value(1.5, 'px')}`
   },
 
   start_button: {
-    paddingInline: '0 12px'
+    paddingInline: `0 ${theme.methods.space.value(1.5, 'px')}`
   },
 
   start_switch: {
-    paddingInline: '0 12px'
+    paddingInline: `0 ${theme.methods.space.value(1.5, 'px')}`
   },
 
   menuItem_start_icon: {
-    paddingInlineEnd: '16px'
+    paddingInlineEnd: theme.methods.space.value(2, 'px')
   },
 
   menuItem_start_button: {
-    paddingInlineEnd: '12px'
+    paddingInlineEnd: theme.methods.space.value(1.5, 'px')
   },
 
   menuItem_start_switch: {
-    paddingInlineEnd: '12px'
+    paddingInlineEnd: theme.methods.space.value(1.5, 'px')
   },
 
   end_icon: {
-    paddingInlineStart: '12px',
-    paddingInlineEnd: '8px'
+    paddingInlineStart: theme.methods.space.value(1.5, 'px'),
+    paddingInlineEnd: theme.methods.space.value(1, 'px')
   },
 
   end_button: {
-    paddingInlineStart: '12px',
+    paddingInlineStart: theme.methods.space.value(1.5, 'px'),
     paddingInlineEnd: '0'
   },
 
   end_switch: {
-    paddingInlineStart: '12px',
+    paddingInlineStart: theme.methods.space.value(1.5, 'px'),
     paddingInlineEnd: '0'
   },
 
   menuItem_end_icon: {
-    paddingInlineStart: '12px'
+    paddingInlineStart: theme.methods.space.value(1.5, 'px')
   },
 
   menuItem_end_button: {
-    paddingInlineStart: '12px'
+    paddingInlineStart: theme.methods.space.value(1.5, 'px')
   },
 
   menuItem_end_switch: {
-    paddingInlineStart: '12px'
+    paddingInlineStart: theme.methods.space.value(1.5, 'px')
   },
 
   middle_disabled: {

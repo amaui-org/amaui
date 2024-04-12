@@ -51,15 +51,15 @@ const useStyle = styleMethod(theme => ({
   },
 
   heading_size_small: {
-    padding: '16px 16px 0'
+    padding: `${theme.methods.space.value(2, 'px')} ${theme.methods.space.value(2, 'px')} 0`
   },
 
   heading_size_regular: {
-    padding: '24px 24px 0'
+    padding: `${theme.methods.space.value(3, 'px')} ${theme.methods.space.value(3, 'px')} 0`
   },
 
   heading_size_large: {
-    padding: '32px 32px 0'
+    padding: `${theme.methods.space.value(4, 'px')} ${theme.methods.space.value(4, 'px')} 0`
   },
 
   inputs: {
@@ -71,17 +71,17 @@ const useStyle = styleMethod(theme => ({
   },
 
   middle_size_small: {
-    padding: '0 16px',
+    padding: `0 ${theme.methods.space.value(2, 'px')}`,
     marginTop: '16px'
   },
 
   middle_size_regular: {
-    padding: '0 24px',
+    padding: `0 ${theme.methods.space.value(3, 'px')}`,
     marginTop: '24px'
   },
 
   middle_size_large: {
-    padding: '0 32px',
+    padding: `0 ${theme.methods.space.value(4, 'px')}`,
     marginTop: '32px'
   },
 
@@ -98,7 +98,7 @@ const useStyle = styleMethod(theme => ({
 
     '& .amaui-TextField-input-wrapper': {
       paddingInline: '0px',
-      paddingBlock: '8px 4px',
+      paddingBlock: `${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(0.5, 'px')}`,
       height: '64px'
     },
 
@@ -121,7 +121,7 @@ const useStyle = styleMethod(theme => ({
 
     '& .amaui-TextField-input-wrapper': {
       paddingInline: '0px',
-      paddingBlock: '12px 8px',
+      paddingBlock: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(1, 'px')}`,
       height: '72px'
     },
 
@@ -144,7 +144,7 @@ const useStyle = styleMethod(theme => ({
 
     '& .amaui-TextField-input-wrapper': {
       paddingInline: '0px',
-      paddingBlock: '16px 12px',
+      paddingBlock: `${theme.methods.space.value(2, 'px')} ${theme.methods.space.value(1.5, 'px')}`,
       height: '80px'
     },
 
@@ -164,7 +164,7 @@ const useStyle = styleMethod(theme => ({
 
   button: {
     padding: '0',
-    paddingTop: '3px',
+    paddingTop: theme.methods.space.value(0.5, 'px'),
     borderRadius: theme.methods.shape.radius.value('sm', 'px'),
     cursor: 'pointer',
     userSelect: 'none',
@@ -205,7 +205,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   inputSeparator: {
-    paddingInline: '6px',
+    paddingInline: theme.methods.space.value(0.75, 'px'),
     userSelect: 'none'
   },
 
@@ -257,17 +257,17 @@ const useStyle = styleMethod(theme => ({
   footer: {},
 
   footer_size_small: {
-    padding: '0px 8px 8px',
+    padding: `0px ${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(1, 'px')}`,
     marginTop: '16px'
   },
 
   footer_size_regular: {
-    padding: '0px 16px 16px',
+    padding: `0px ${theme.methods.space.value(2, 'px')} ${theme.methods.space.value(2, 'px')}`,
     marginTop: '24px'
   },
 
   footer_size_large: {
-    padding: '0px 24px 24px',
+    padding: `0px ${theme.methods.space.value(3, 'px')} ${theme.methods.space.value(3, 'px')}`,
     marginTop: '32px'
   }
 }), { name: 'amaui-TimePicker' });

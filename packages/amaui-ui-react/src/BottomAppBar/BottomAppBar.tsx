@@ -14,8 +14,8 @@ const useStyle = styleMethod(theme => ({
     zIndex: theme.z_index.app_bar,
     width: '100%',
     height: '80px',
-    paddingBlock: '12px',
-    paddingInline: '4px 16px'
+    paddingBlock: theme.methods.space.value(1.5, 'px'),
+    paddingInline: `${theme.methods.space.value(0.5, 'px')} ${theme.methods.space.value(2, 'px')}`
   },
 
   size_small: { height: '72px' },

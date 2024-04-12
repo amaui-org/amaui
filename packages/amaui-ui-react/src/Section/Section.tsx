@@ -69,23 +69,23 @@ const useStyle = styleMethod(theme => ({
   },
 
   padding_small: {
-    padding: '64px 32px'
+    padding: `${theme.methods.space.value(8, 'px')} ${theme.methods.space.value(4, 'px')}`
   },
 
   padding_regular: {
-    padding: '104px 40px'
+    padding: `${theme.methods.space.value(13, 'px')} ${theme.methods.space.value(5, 'px')}`
   },
 
   padding_large: {
-    padding: '144px 48px'
+    padding: `${theme.methods.space.value(18, 'px')} ${theme.methods.space.value(6, 'px')}`
   },
 
   padding_extra_large: {
-    padding: '184px 56px'
+    padding: `${theme.methods.space.value(23, 'px')} ${theme.methods.space.value(7, 'px')}`
   },
 
   padding_extra_extra_large: {
-    padding: '224px 64px'
+    padding: `${theme.methods.space.value(28, 'px')} ${theme.methods.space.value(8, 'px')}`
   },
 
   maxWidth_extra_small: {
@@ -193,23 +193,23 @@ const useStyle = styleMethod(theme => ({
     },
 
     $padding_small: {
-      padding: '44px 24px'
+      padding: `${theme.methods.space.value(6, 'px')} ${theme.methods.space.value(3, 'px')}`
     },
 
     $padding_regular: {
-      padding: '76px 32px'
+      padding: `${theme.methods.space.value(10, 'px')} ${theme.methods.space.value(4, 'px')}`
     },
 
     $padding_large: {
-      padding: '104px 40px'
+      padding: `${theme.methods.space.value(14, 'px')} ${theme.methods.space.value(5, 'px')}`
     },
 
     $padding_extra_large: {
-      padding: '134px 48px'
+      padding: `${theme.methods.space.value(18, 'px')} ${theme.methods.space.value(6, 'px')}`
     },
 
     $padding_extra_extra_large: {
-      padding: '164px 56px'
+      padding: `${theme.methods.space.value(22, 'px')} ${theme.methods.space.value(7, 'px')}`
     }
   },
 
@@ -260,23 +260,23 @@ const useStyle = styleMethod(theme => ({
     },
 
     $padding_small: {
-      padding: '24px 24px'
+      padding: theme.methods.space.value(3, 'px')
     },
 
     $padding_regular: {
-      padding: '48px 24px'
+      padding: `${theme.methods.space.value(6, 'px')} ${theme.methods.space.value(3, 'px')}`
     },
 
     $padding_large: {
-      padding: '64px 24px'
+      padding: `${theme.methods.space.value(9, 'px')} ${theme.methods.space.value(3, 'px')}`
     },
 
     $padding_extra_large: {
-      padding: '84px 24px'
+      padding: `${theme.methods.space.value(12, 'px')} ${theme.methods.space.value(3, 'px')}`
     },
 
     $padding_extra_extra_large: {
-      padding: '104px 24px'
+      padding: `${theme.methods.space.value(15, 'px')} ${theme.methods.space.value(3, 'px')}`
     }
   }
 }), { name: 'amaui-Section' });

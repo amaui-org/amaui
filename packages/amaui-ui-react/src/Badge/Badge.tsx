@@ -14,7 +14,7 @@ const useStyle = styleMethod(theme => ({
 
   badge: {
     position: 'absolute',
-    padding: '2px 6px',
+    padding: `${theme.methods.space.value(0.25, 'px')} ${theme.methods.space.value(0.75, 'px')}`,
     lineHeight: '1px',
     borderRadius: theme.methods.shape.radius.value(40, 'px'),
     transition: theme.methods.transitions.make('transform'),

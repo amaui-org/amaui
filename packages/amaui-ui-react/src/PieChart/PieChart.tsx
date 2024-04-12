@@ -44,7 +44,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   append: {
-    padding: '12px 20px',
+    padding: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(2.5, 'px')}`,
     borderRadius: theme.methods.shape.radius.value(1.5, 'px')
   },
 

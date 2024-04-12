@@ -56,7 +56,7 @@ const IconMaterialMoreVertRounded = React.forwardRef((props: IIcon, ref) => {
 
 const useStyle = style(theme => ({
   root: {
-    padding: '40px 24px'
+    padding: `${theme.methods.space.value(5, 'px')} ${theme.methods.space.value(3, 'px')}`
   },
 
   wrapper: {
@@ -97,7 +97,7 @@ const useStyle = style(theme => ({
 
   links: {
     marginTop: '40px',
-    padding: '0 24px'
+    padding: `0 ${theme.methods.space.value(3, 'px')}`
   },
 
   linkWrapper: {

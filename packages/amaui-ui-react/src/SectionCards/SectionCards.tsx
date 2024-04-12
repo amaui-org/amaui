@@ -22,7 +22,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   items: {
-    padding: '16px 0',
+    padding: `${theme.methods.space.value(2, 'px')} 0`,
     overflow: 'auto hidden'
   },
 

@@ -34,15 +34,15 @@ const useStyle = styleMethod(theme => ({
   },
 
   size_small: {
-    padding: '8px 16px'
+    padding: `${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(2, 'px')}`
   },
 
   size_regular: {
-    padding: '16px'
+    padding: theme.methods.space.value(2, 'px')
   },
 
   size_large: {
-    padding: '24px'
+    padding: theme.methods.space.value(3, 'px')
   },
 
   head: {

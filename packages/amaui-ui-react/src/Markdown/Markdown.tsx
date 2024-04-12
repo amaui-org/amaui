@@ -18,7 +18,7 @@ const useStyle = styleMethod(theme => ({
     },
 
     '& dd': {
-      paddingInlineStart: '16px',
+      paddingInlineStart: theme.methods.space.value(2, 'px'),
       marginBottom: '16px'
     },
 
@@ -86,7 +86,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   code: {
-    padding: '2px 4px',
+    padding: `${theme.methods.space.value(0.25, 'px')} ${theme.methods.space.value(0.5, 'px')}`,
     borderRadius: theme.methods.shape.radius.value('xs', 'px'),
     background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 4 : 10),
     fontFamily: theme.typography.font_family.tertiary,
@@ -99,7 +99,7 @@ const useStyle = styleMethod(theme => ({
 
   pre: {
     margin: '16px 0',
-    padding: '16px',
+    padding: theme.methods.space.value(2, 'px'),
     borderRadius: theme.methods.shape.radius.value('rg', 'px'),
     color: theme.palette.text.default.primary,
     background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.1),
@@ -121,7 +121,7 @@ const useStyle = styleMethod(theme => ({
   blockquote: {
     margin: '16px 0',
     marginInlineStart: '16px',
-    padding: '20px 16px',
+    padding: `${theme.methods.space.value(2.5, 'px')} ${theme.methods.space.value(2, 'px')}`,
     borderInlineStart: `4px solid ${theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.2)}`,
     background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.02 : 0.14),
 
@@ -135,13 +135,13 @@ const useStyle = styleMethod(theme => ({
   },
 
   ol: {
-    paddingInlineStart: '16px',
+    paddingInlineStart: theme.methods.space.value(2, 'px'),
     marginBottom: '16px'
   },
 
   ul: {
     listStyleType: 'circle',
-    paddingInlineStart: '16px',
+    paddingInlineStart: theme.methods.space.value(2, 'px'),
     marginBottom: '16px'
   },
 
@@ -200,7 +200,7 @@ const useStyle = styleMethod(theme => ({
 
     '& th, td': {
       ...theme.typography.values.b2,
-      padding: '12px 16px',
+      padding: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(2, 'px')}`,
       borderBottom: `1px solid ${colorToRgb(theme.methods.palette.color.value('primary', 5, true), 10)}`,
       borderRight: `1px solid ${colorToRgb(theme.methods.palette.color.value('primary', 5, true), 10)}`,
       whiteSpace: 'nowrap'

@@ -21,7 +21,7 @@ import { IElement, IElementReference, IPropsAny } from '../types';
 const useStyle = styleMethod(theme => ({
   root: {
     minWidth: '314px',
-    padding: '24px 40px',
+    padding: `${theme.methods.space.value(3, 'px')} ${theme.methods.space.value(5, 'px')}`,
     borderRadius: theme.methods.shape.radius.value('rg', 'px')
   },
 
@@ -75,7 +75,7 @@ const useStyle = styleMethod(theme => ({
 
     '& .amaui-TextField-input-wrapper': {
       paddingInline: '0px',
-      paddingBlock: '8px',
+      paddingBlock: theme.methods.space.value(1, 'px'),
       height: 'auto'
     },
 

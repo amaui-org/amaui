@@ -31,15 +31,15 @@ const useStyle = styleMethod(theme => ({
   // padding
   // vertical
   padding_vertical_both: {
-    paddingBlock: '16px'
+    paddingBlock: theme.methods.space.value(2, 'px')
   },
 
   padding_vertical_start: {
-    paddingBlockStart: '16px'
+    paddingBlockStart: theme.methods.space.value(2, 'px')
   },
 
   padding_vertical_end: {
-    paddingBlockEnd: '16px'
+    paddingBlockEnd: theme.methods.space.value(2, 'px')
   },
 
   padding_vertical_none: {
@@ -48,15 +48,15 @@ const useStyle = styleMethod(theme => ({
 
   // horizontal
   padding_horizontal_both: {
-    paddingInline: '16px'
+    paddingInline: theme.methods.space.value(2, 'px')
   },
 
   padding_horizontal_start: {
-    paddingInlineStart: '16px'
+    paddingInlineStart: theme.methods.space.value(2, 'px')
   },
 
   padding_horizontal_end: {
-    paddingInlineEnd: '16px'
+    paddingInlineEnd: theme.methods.space.value(2, 'px')
   },
 
   padding_horizontal_none: {

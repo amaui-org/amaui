@@ -19,7 +19,7 @@ const useStyle = styleMethod(theme => ({
     flex: '1 1 auto',
     userSelect: 'none',
     cursor: 'pointer',
-    padding: '12px 0 16px',
+    padding: `${theme.methods.space.value(1.5, 'px')} 0 ${theme.methods.space.value(2, 'px')}`,
     minHeight: '80px',
   },
 

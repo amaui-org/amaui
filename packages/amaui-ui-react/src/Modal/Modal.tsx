@@ -21,7 +21,7 @@ const useStyle = styleMethod(theme => ({
 
   // Size
   size_small: {
-    padding: '16px',
+    padding: theme.methods.space.value(2, 'px'),
     borderRadius: `${(theme.shape.radius.unit * 2) + (theme.shape.radius.unit / 2)}px`
   },
 

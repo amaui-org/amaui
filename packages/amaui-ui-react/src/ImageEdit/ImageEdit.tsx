@@ -27,13 +27,13 @@ const useStyle = styleMethod(theme => ({
 
   option: {
     width: '100%',
-    padding: '16px 24px'
+    padding: `${theme.methods.space.value(2, 'px')} ${theme.methods.space.value(3, 'px')}`
   },
 
   options: {
     width: '100%',
     overflowX: 'auto',
-    padding: '16px 24px'
+    padding: `${theme.methods.space.value(2, 'px')} ${theme.methods.space.value(3, 'px')}`
   },
 
   canvas: {
@@ -93,7 +93,7 @@ const useStyle = styleMethod(theme => ({
 
   meta: {
     width: '100%',
-    padding: '12px 24px'
+    padding: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(3, 'px')}`
   },
 
   optionInput: {
@@ -118,7 +118,7 @@ const useStyle = styleMethod(theme => ({
 
   action: {
     width: '100%',
-    paddingTop: '16px'
+    paddingTop: theme.methods.space.value(2, 'px')
   },
 
   slider: {
@@ -1610,8 +1610,8 @@ const ImageEdit: React.FC<IImageEdit> = React.forwardRef((props_, ref: any) => {
               >
                 <div
                   style={{
-                    paddingInline: 40,
-                    paddingBottom: 40
+                    paddingInline: theme.methods.space.value(5, 'px'),
+                    paddingBottom: theme.methods.space.value(5, 'px')
                   }}
                 >
                   {is('function', filterValue?.renderSlider) && filterValue?.renderSlider(filterValue.value, refs.filterValuesCopy.current, onFilterSliderChange)}

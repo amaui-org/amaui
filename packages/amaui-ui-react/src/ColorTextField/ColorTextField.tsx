@@ -36,7 +36,7 @@ const useStyle = styleMethod(theme => ({
     boxShadow: theme.methods.shadow(theme.palette.text.default.primary, theme.palette.light ? [7, 4, 11] : [27, 24, 31])[1],
 
     '&::-webkit-color-swatch-wrapper': {
-      padding: '0px'
+      padding: '0'
     },
 
     '&::-webkit-color-swatch': {

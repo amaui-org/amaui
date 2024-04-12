@@ -38,7 +38,7 @@ const useStyle = styleMethod(theme => ({
 
   heading: {
     width: '100%',
-    padding: '24px 24px 0'
+    padding: `${theme.methods.space.value(3, 'px')} ${theme.methods.space.value(3, 'px')} 0`
   },
 
   middle: {
@@ -51,7 +51,7 @@ const useStyle = styleMethod(theme => ({
 
   footer: {
     width: '100%',
-    padding: '0px 8px 12px 12px',
+    padding: `0px ${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(1.5, 'px')}`,
   }
 }), { name: 'amaui-DateTimePicker' });
 

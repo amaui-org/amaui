@@ -14,7 +14,7 @@ const useStyle = styleMethod(theme => ({
   root: {
     zIndex: theme.z_index.app_bar,
     width: '100%',
-    paddingInline: '4px'
+    paddingInline: theme.methods.space.value(0.5, 'px')
   },
 
   wrapper: {

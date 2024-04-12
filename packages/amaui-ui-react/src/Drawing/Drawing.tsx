@@ -32,7 +32,7 @@ const useStyle = styleMethod(theme => ({
     position: 'absolute',
     right: '8px',
     bottom: '8px',
-    padding: '4px 12px'
+    padding: `${theme.methods.space.value(0.5, 'px')} ${theme.methods.space.value(1.5, 'px')}`
   },
 
   svg: {
@@ -51,17 +51,17 @@ const useStyle = styleMethod(theme => ({
   toolbar: {
     width: '100%',
     overflowX: 'auto',
-    padding: '8px'
+    padding: theme.methods.space.value(1, 'px')
   },
 
   modal: {
-    padding: '12px',
+    padding: theme.methods.space.value(1.5, 'px'),
     borderRadius: theme.methods.shape.radius.value(1, 'px'),
     boxShadow: theme.shadows.values.default[2]
   },
 
   palette: {
-    padding: '12px',
+    padding: theme.methods.space.value(1.5, 'px'),
     borderRadius: theme.methods.shape.radius.value(1, 'px'),
     boxShadow: theme.shadows.values.default[2]
   },

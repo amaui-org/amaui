@@ -156,7 +156,7 @@ const IconMaterialFormatClearRounded = React.forwardRef((props: IIcon, ref) => {
 
 const useStyle = styleMethod(theme => ({
   root: {
-    minHeight: 20,
+    minHeight: '20px',
     width: '100%',
 
     '& .amaui-TextField-input': {
@@ -168,7 +168,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   root_type: {
-    minHeight: 20,
+    minHeight: '20px',
     width: '100%',
     cursor: 'text',
 
@@ -182,33 +182,33 @@ const useStyle = styleMethod(theme => ({
 
   menu: {
     width: '100vw',
-    maxWidth: 240,
+    maxWidth: '240px',
     borderRadius: theme.methods.shape.radius.value(2.5),
     boxShadow: '0px 4px 32px 0px rgba(0, 0, 0, 0.04)',
     background: theme.palette.light ? theme.palette.color.neutral[99] : theme.palette.color.neutral[20]
   },
 
   list: {
-    maxHeight: 240,
+    maxHeight: '240px',
     overflow: 'hidden auto'
   },
 
   textMiniMenuWrapper: {
-    paddingBlock: 8
+    paddingBlock: theme.methods.space.value(1, 'px')
   },
 
   textMiniMenu: {
-    padding: 12,
+    padding: theme.methods.space.value(1.5, 'px'),
     borderRadius: theme.methods.shape.radius.value(140, 'px'),
     boxShadow: theme.shadows.values.default[2]
   },
 
   textMiniMenuAdditionaMenu: {
-    zIndex: 1514
+    zIndex: '1514'
   },
 
   inputWrapper: {
-    padding: 8,
+    padding: theme.methods.space.value(1, 'px'),
     borderRadius: theme.methods.shape.radius.value(1, 'px'),
     boxShadow: theme.shadows.values.default[2]
   },

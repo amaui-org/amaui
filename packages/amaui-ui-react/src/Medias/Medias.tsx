@@ -39,7 +39,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   items: {
-    padding: '4px',
+    padding: theme.methods.space.value(0.5, 'px'),
     overflow: 'auto hidden'
   },
 

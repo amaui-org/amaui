@@ -21,13 +21,13 @@ const useStyle = styleMethod(theme => ({
     whiteSpace: 'nowrap'
   },
 
-  nameRoot_position_top: { paddingBlock: '16px' },
+  nameRoot_position_top: { paddingBlock: theme.methods.space.value(2, 'px') },
 
-  nameRoot_position_bottom: { paddingBlock: '16px' },
+  nameRoot_position_bottom: { paddingBlock: theme.methods.space.value(2, 'px') },
 
-  nameRoot_position_left: { paddingInline: '16px' },
+  nameRoot_position_left: { paddingInline: theme.methods.space.value(2, 'px') },
 
-  nameRoot_position_right: { paddingInline: '16px' },
+  nameRoot_position_right: { paddingInline: theme.methods.space.value(2, 'px') },
 
   nameRoot_noMargin: { padding: '0' },
 
@@ -35,7 +35,7 @@ const useStyle = styleMethod(theme => ({
     ...theme.typography.values.b3,
 
     borderRadius: `${clamp(theme.shape.radius.unit / 2, 0, 8)}px`,
-    padding: '4px 8px',
+    padding: `${theme.methods.space.value(0.5, 'px')} ${theme.methods.space.value(1, 'px')}`,
     lineHeight: '1.455'
   },
 

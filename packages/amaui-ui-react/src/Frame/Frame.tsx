@@ -102,7 +102,7 @@ const useStyle = styleMethod(theme => ({
   options: {
     overflowX: 'auto',
     overflowY: 'hidden',
-    padding: '12px 24px',
+    padding: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(3, 'px')}`,
 
     '& > *': {
       flex: '0 0 auto'

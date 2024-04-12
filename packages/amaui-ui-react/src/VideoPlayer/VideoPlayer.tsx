@@ -78,19 +78,19 @@ const useStyle = styleMethod(theme => ({
   },
 
   controls_size_small: {
-    padding: '6px 8px 4px'
+    padding: `${theme.methods.space.value(0.75, 'px')} ${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(0.5, 'px')}`
   },
 
   controls_size_regular: {
-    padding: '12px 12px 8px'
+    padding: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(1, 'px')}`
   },
 
   controls_size_large: {
-    padding: '18px 16px 12px'
+    padding: `${theme.methods.space.value(2.25, 'px')} ${theme.methods.space.value(2, 'px')} ${theme.methods.space.value(1.5, 'px')}`
   },
 
   wrapperTimeline: {
-    padding: '0 12px'
+    padding: `0 ${theme.methods.space.value(1.5, 'px')}`
   },
 
   timeline: {

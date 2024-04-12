@@ -89,7 +89,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   chipGroup_padding: {
-    paddingTop: '4px'
+    paddingTop: theme.methods.space.value(0.5, 'px')
   },
 
   arrow: {

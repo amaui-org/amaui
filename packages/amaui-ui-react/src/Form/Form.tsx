@@ -27,7 +27,7 @@ const useStyle = styleMethod(theme => ({
 
   divider: {
     position: 'relative',
-    paddingBottom: '32px',
+    paddingBottom: theme.methods.space.value(4, 'px'),
 
     '&::after': {
       content: "''",

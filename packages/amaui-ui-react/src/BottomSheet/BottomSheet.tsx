@@ -9,7 +9,7 @@ import { staticClassName } from '../utils';
 const useStyle = styleMethod(theme => ({
   root: {
     '&.amaui-Modal-root .amaui-Modal-surface': {
-      paddingTop: '50px',
+      paddingTop: theme.methods.space.value(6.25, 'px'),
       maxWidth: '640px',
 
       '&:before': {

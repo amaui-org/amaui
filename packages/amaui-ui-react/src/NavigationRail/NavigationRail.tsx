@@ -17,7 +17,7 @@ const useStyle = styleMethod(theme => ({
     position: 'relative',
     height: '100%',
     width: '80px',
-    padding: '40px 0',
+    padding: `${theme.methods.space.value(5, 'px')} 0`,
     overflow: 'auto',
     zIndex: theme.z_index.app_bar
   },

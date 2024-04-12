@@ -88,7 +88,7 @@ const useStyle = styleMethod(theme => ({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
-    padding: '8px',
+    padding: theme.methods.space.value(1, 'px'),
     cursor: 'pointer',
     userSelect: 'none'
   },

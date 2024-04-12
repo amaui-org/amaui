@@ -27,19 +27,19 @@ const useStyle = styleMethod(theme => ({
 
   review_size_small: {
     width: '240px',
-    padding: '16px 20px',
+    padding: `${theme.methods.space.value(2, 'px')} ${theme.methods.space.value(2.5, 'px')}`,
     borderRadius: theme.methods.shape.radius.value(2)
   },
 
   review_size_regular: {
     width: '340px',
-    padding: '24px 28px',
+    padding: `${theme.methods.space.value(3, 'px')} ${theme.methods.space.value(3.5, 'px')}`,
     borderRadius: theme.methods.shape.radius.value(3)
   },
 
   review_size_large: {
     width: '440px',
-    padding: '32px 36px',
+    padding: `${theme.methods.space.value(4, 'px')} ${theme.methods.space.value(4.5, 'px')}`,
     borderRadius: theme.methods.shape.radius.value(4)
   },
 }), { name: 'amaui-SectionReviews' });

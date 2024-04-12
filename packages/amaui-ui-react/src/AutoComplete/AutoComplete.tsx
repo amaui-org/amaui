@@ -73,7 +73,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   chipGroup_padding: {
-    paddingTop: '4px'
+    paddingTop: theme.methods.space.value(0.5, 'px')
   },
 
   arrow: {
@@ -106,7 +106,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   roundProgress: {
-    padding: '0 8px'
+    padding: `0 ${theme.methods.space.value(1, 'px')}`
   },
 
   disabled: {

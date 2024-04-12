@@ -17,15 +17,15 @@ const useStyle = styleMethod(theme => ({
       overflowX: 'auto',
 
       '&$small': {
-        paddingRight: '6px'
+        paddingRight: theme.methods.space.value(0.75, 'px')
       },
 
       '&$regular': {
-        paddingRight: '8px'
+        paddingRight: theme.methods.space.value(1, 'px')
       },
 
       '&$large': {
-        paddingRight: '10px'
+        paddingRight: theme.methods.space.value(1.25, 'px')
       },
     }
   },

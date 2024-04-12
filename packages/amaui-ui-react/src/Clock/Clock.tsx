@@ -459,7 +459,7 @@ const Clock: React.FC<IClock> = React.forwardRef((props__, ref: any) => {
       ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
         value: index === 0 ? 12 : index,
 
-        padding: 20,
+        padding: theme.methods.space.value(2.5, 'px'),
 
         style: {
           fontSize: 14,
@@ -477,7 +477,7 @@ const Clock: React.FC<IClock> = React.forwardRef((props__, ref: any) => {
           ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
             value: index === 0 ? '00' : index,
 
-            padding: 20,
+            padding: theme.methods.space.value(2.5, 'px'),
 
             style: {
               fontSize: 14,
@@ -494,7 +494,7 @@ const Clock: React.FC<IClock> = React.forwardRef((props__, ref: any) => {
           ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
             value: 12 + index,
 
-            padding: 49.5,
+            padding: theme.methods.space.value(6, 'px'),
 
             style: {
               fontSize: 14,
@@ -521,7 +521,7 @@ const Clock: React.FC<IClock> = React.forwardRef((props__, ref: any) => {
       ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
         value: index === 0 ? '00' : getLeadingZerosNumber((60 / 12) * index),
 
-        padding: 20,
+        padding: theme.methods.space.value(2.5, 'px'),
 
         style: {
           fontSize: 14,
@@ -546,7 +546,7 @@ const Clock: React.FC<IClock> = React.forwardRef((props__, ref: any) => {
       ...(Array.from({ length: 12 }).map((item: any, index: number) => ({
         value: index === 0 ? '00' : getLeadingZerosNumber((60 / 12) * index),
 
-        padding: 20,
+        padding: theme.methods.space.value(2.5, 'px'),
 
         style: {
           fontSize: 14,

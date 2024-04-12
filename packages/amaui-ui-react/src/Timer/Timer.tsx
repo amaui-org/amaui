@@ -20,7 +20,7 @@ import { IElementReference, IPropsAny } from '../types';
 const useStyle = styleMethod(theme => ({
   root: {
     minWidth: '300px',
-    padding: '24px 40px',
+    padding: `${theme.methods.space.value(3, 'px')} ${theme.methods.space.value(5, 'px')}`,
     borderRadius: theme.methods.shape.radius.value('rg', 'px')
   },
 
@@ -30,7 +30,7 @@ const useStyle = styleMethod(theme => ({
 
   flags_wrapper: {
     width: '100%',
-    paddingTop: '8px'
+    paddingTop: theme.methods.space.value(1, 'px')
   },
 
   flags: {
@@ -41,7 +41,7 @@ const useStyle = styleMethod(theme => ({
 
   flag: {
     width: '100%',
-    paddingInlineStart: '4px'
+    paddingInlineStart: theme.methods.space.value(0.5, 'px')
   },
 
   actions: {

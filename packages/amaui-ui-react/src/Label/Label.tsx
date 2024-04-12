@@ -25,7 +25,7 @@ const useStyle = styleMethod(theme => ({
 
   footer: {
     marginTop: '4px',
-    paddingInline: '16px'
+    paddingInline: theme.methods.space.value(2, 'px')
   },
 
   footer_version_text: {
