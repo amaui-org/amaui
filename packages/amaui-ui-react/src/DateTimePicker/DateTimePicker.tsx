@@ -33,7 +33,7 @@ const useStyle = styleMethod(theme => ({
 
   main: {
     marginInline: '24px',
-    borderRadius: '28px'
+    borderRadius: theme.methods.shape.radius.value(3.5, 'px')
   },
 
   heading: {

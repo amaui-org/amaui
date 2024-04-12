@@ -28,7 +28,7 @@ const useStyle = styleMethod(theme => ({
     fontSize: '100%',
     lineHeight: '1.15',
 
-    borderRadius: '50%',
+    borderRadius: theme.methods.shape.radius.value(40, 'px'),
     overflow: 'hidden',
     width: '17px',
     height: '17px',

@@ -35,15 +35,15 @@ const useStyle = styleMethod(theme => ({
   main: {},
 
   main_size_small: {
-    borderRadius: '20px',
+    borderRadius: theme.methods.shape.radius.value(2.5, 'px'),
   },
 
   main_size_regular: {
-    borderRadius: '28px'
+    borderRadius: theme.methods.shape.radius.value(3.5, 'px')
   },
 
   main_size_large: {
-    borderRadius: '36px'
+    borderRadius: theme.methods.shape.radius.value(4.5, 'px')
   },
 
   heading: {

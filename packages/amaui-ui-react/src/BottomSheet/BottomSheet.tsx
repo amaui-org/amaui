@@ -21,7 +21,7 @@ const useStyle = styleMethod(theme => ({
         top: '23px',
         left: '50%',
         transform: 'translateX(-50%)',
-        borderRadius: '5px',
+        borderRadius: theme.methods.shape.radius.value(0.5, 'px'),
         opacity: '0.4'
       }
     },

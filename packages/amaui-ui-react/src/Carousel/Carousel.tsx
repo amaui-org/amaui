@@ -105,7 +105,7 @@ const useStyle = styleMethod(theme => ({
     width: '5px',
     height: '5px',
     backgroundColor: 'currentColor',
-    borderRadius: '50%',
+    borderRadius: theme.methods.shape.radius.value(40, 'px'),
     cursor: 'pointer',
     transition: theme.methods.transitions.make('transform'),
 

@@ -13,7 +13,7 @@ const useStyle = styleMethod(theme => ({
     '&.amaui-Button-root': {
       cursor: 'default',
       overflow: 'hidden',
-      borderRadius: '50%'
+      borderRadius: theme.methods.shape.radius.value(40, 'px')
     }
   },
 

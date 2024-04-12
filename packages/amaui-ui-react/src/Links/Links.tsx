@@ -66,7 +66,7 @@ const useStyle = style(theme => ({
   profile: {
     width: '140px',
     height: '140px',
-    borderRadius: '50%',
+    borderRadius: theme.methods.shape.radius.value(40, 'px'),
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -78,7 +78,7 @@ const useStyle = style(theme => ({
   cover: {
     height: '100vh',
     maxHeight: '274px',
-    borderRadius: '40px',
+    borderRadius: theme.methods.shape.radius.value(5, 'px'),
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',

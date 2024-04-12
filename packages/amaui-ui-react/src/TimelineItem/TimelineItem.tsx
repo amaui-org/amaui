@@ -30,7 +30,7 @@ const useStyle = styleMethod(theme => ({
     display: 'inline-block',
     width: '12px',
     height: '12px',
-    borderRadius: '50%'
+    borderRadius: theme.methods.shape.radius.value(40, 'px')
   },
 
   aside_orientation_vertical: {

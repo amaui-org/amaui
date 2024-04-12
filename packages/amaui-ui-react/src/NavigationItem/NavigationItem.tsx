@@ -67,7 +67,7 @@ const useStyle = styleMethod(theme => ({
     inset: '0',
     width: '100%',
     height: '100%',
-    borderRadius: '100vw',
+    borderRadius: theme.methods.shape.radius.value(40, 'px'),
     opacity: '0',
     transform: 'scaleX(0.74)',
     transition: theme.methods.transitions.make(['opacity', 'transform']),

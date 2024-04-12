@@ -72,37 +72,37 @@ const useStyle = styleMethod(theme => ({
   line_version_primary_size_small_orientation_horizontal: {
     height: '2px',
     bottom: '0',
-    borderRadius: '16px 16px 0 0'
+    borderRadius: `${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')} 0 0`
   },
 
   line_version_primary_size_regular_orientation_horizontal: {
     height: '3px',
     bottom: '0',
-    borderRadius: '16px 16px 0 0'
+    borderRadius: `${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')} 0 0`
   },
 
   line_version_primary_size_large_orientation_horizontal: {
     height: '4px',
     bottom: '0',
-    borderRadius: '16px 16px 0 0'
+    borderRadius: `${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')} 0 0`
   },
 
   line_version_primary_size_small_orientation_vertical: {
     width: '2px',
     insetInlineEnd: '0',
-    borderRadius: '16px 0 0 16px'
+    borderRadius: `${theme.methods.shape.radius.value(40, 'px')} 0 0 ${theme.methods.shape.radius.value(40, 'px')}`
   },
 
   line_version_primary_size_regular_orientation_vertical: {
     width: '3px',
     insetInlineEnd: '0',
-    borderRadius: '16px 0 0 16px'
+    borderRadius: `${theme.methods.shape.radius.value(40, 'px')} 0 0 ${theme.methods.shape.radius.value(40, 'px')}`
   },
 
   line_version_primary_size_large_orientation_vertical: {
     width: '4px',
     insetInlineEnd: '0',
-    borderRadius: '16px 0 0 16px'
+    borderRadius: `${theme.methods.shape.radius.value(40, 'px')} 0 0 ${theme.methods.shape.radius.value(40, 'px')}`
   },
 
   line_version_secondary_size_small_orientation_horizontal: {

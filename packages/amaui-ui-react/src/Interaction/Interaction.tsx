@@ -69,7 +69,7 @@ const useStyle = styleMethod(theme => ({
     transform: 'scale(0)',
     backgroundColor: 'currentColor',
     transition: theme.methods.transitions.make(['opacity', 'transform'], { duration: 'complex', timing_function: 'standard' }),
-    borderRadius: '50%',
+    borderRadius: theme.methods.shape.radius.value(4e4, 'px'),
 
     '&.entering': {
       opacity: theme.palette.visual_contrast.default.opacity.quaternary,

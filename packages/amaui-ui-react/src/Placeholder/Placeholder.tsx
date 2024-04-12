@@ -70,11 +70,11 @@ const useStyle = styleMethod(theme => ({
   },
 
   version_circle: {
-    borderRadius: '50%'
+    borderRadius: theme.methods.shape.radius.value(40, 'px')
   },
 
   version_rounded: {
-    borderRadius: `${theme.shape.radius.unit}px`
+    borderRadius: theme.methods.shape.radius.value(1, 'px')
   },
 
   version_rectangle: {

@@ -44,17 +44,17 @@ const useStyle = styleMethod(theme => ({
   },
 
   shape_round_position_both: {
-    borderRadius: '114vh'
+    borderRadius: theme.methods.shape.radius.value(40, 'px')
   },
 
   shape_round_position_start: {
-    borderEndStartRadius: '114vh',
-    borderStartStartRadius: '114vh'
+    borderEndStartRadius: theme.methods.shape.radius.value(40, 'px'),
+    borderStartStartRadius: theme.methods.shape.radius.value(40, 'px')
   },
 
   shape_round_position_end: {
-    borderStartEndRadius: '114vh',
-    borderEndEndRadius: '114vh'
+    borderStartEndRadius: theme.methods.shape.radius.value(40, 'px'),
+    borderEndEndRadius: theme.methods.shape.radius.value(40, 'px')
   },
 
   shape_round_position_none: {

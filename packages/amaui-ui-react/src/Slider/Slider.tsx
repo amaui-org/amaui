@@ -322,7 +322,7 @@ const useStyle = styleMethod(theme => ({
     position: 'absolute',
     width: '2px',
     height: '2px',
-    borderRadius: '50%'
+    borderRadius: theme.methods.shape.radius.value(40, 'px')
   },
 
   orientation_horizontal: {
@@ -389,7 +389,7 @@ const useStyle = styleMethod(theme => ({
       minWidth: '30px',
       paddingTop: '100%',
       overflow: 'hidden',
-      borderRadius: '50% 50% 50% 0px',
+      borderRadius: `${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')} 0px`,
       transform: 'rotate(-45deg)',
 
       '& .amaui-Tooltip-name-text': {
@@ -402,13 +402,13 @@ const useStyle = styleMethod(theme => ({
 
     '&.amaui-Tooltip-position-left': {
       '& .amaui-Tooltip-name': {
-        borderRadius: '50% 50% 0px 50%'
+        borderRadius: `${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')} 0px ${theme.methods.shape.radius.value(40, 'px')}`
       }
     },
 
     '&.amaui-Tooltip-position-right': {
       '& .amaui-Tooltip-name': {
-        borderRadius: '0px 50% 50% 50%'
+        borderRadius: `0px ${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')}`
       }
     }
   },

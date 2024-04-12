@@ -94,7 +94,7 @@ const useStyle = styleMethod(theme => ({
 
     '& code': {
       padding: '2px 4px',
-      borderRadius: '4px',
+      borderRadius: theme.methods.shape.radius.value(0.5, 'px'),
       color: theme.palette.text.default.primary,
       background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.1)
     },
@@ -102,7 +102,7 @@ const useStyle = styleMethod(theme => ({
     '& pre': {
       margin: '16px 0',
       padding: '16px',
-      borderRadius: '8px',
+      borderRadius: theme.methods.shape.radius.value(1, 'px'),
       color: theme.palette.text.default.primary,
       background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, theme.palette.light ? 0.04 : 0.1),
 
@@ -189,7 +189,7 @@ const useStyle = styleMethod(theme => ({
 
   palette: {
     padding: '12px',
-    borderRadius: '8px',
+    borderRadius: theme.methods.shape.radius.value(1, 'px'),
     boxShadow: theme.shadows.values.default[2]
   },
 
@@ -198,7 +198,7 @@ const useStyle = styleMethod(theme => ({
     width: '17px',
     height: '17px',
     cursor: 'pointer',
-    borderRadius: '50%',
+    borderRadius: theme.methods.shape.radius.value(40, 'px'),
     boxShadow: theme.shadows.values.default[1],
     transition: theme.methods.transitions.make('box-shadow'),
 
@@ -213,7 +213,7 @@ const useStyle = styleMethod(theme => ({
 
   inputColor: {
     border: 'none',
-    borderRadius: '50%',
+    borderRadius: theme.methods.shape.radius.value(40, 'px'),
     overflow: 'hidden',
     width: '17px',
     height: '17px',

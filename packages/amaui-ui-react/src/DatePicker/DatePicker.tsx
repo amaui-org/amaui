@@ -70,7 +70,7 @@ const useStyle = styleMethod(theme => ({
     width: 'calc(100vw - 48px)',
     maxWidth: '330px',
     margin: '0 auto',
-    borderRadius: '28px',
+    borderRadius: theme.methods.shape.radius.value(3.5, 'px'),
     overflow: 'hidden',
 
     '& .amaui-Calendar-root': {

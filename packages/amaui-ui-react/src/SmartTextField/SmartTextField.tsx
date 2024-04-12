@@ -209,7 +209,7 @@ const useStyle = styleMethod(theme => ({
 
   inputWrapper: {
     padding: 8,
-    borderRadius: 8,
+    borderRadius: theme.methods.shape.radius.value(1, 'px'),
     boxShadow: theme.shadows.values.default[2]
   },
 

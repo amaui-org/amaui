@@ -32,7 +32,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   recordDot: {
-    borderRadius: '50%',
+    borderRadius: theme.methods.shape.radius.value(40, 'px'),
     background: theme.palette.color.error.main,
     animation: `$pulse 1700ms ${theme.transitions.timing_function.emphasized} 240ms infinite`
   },

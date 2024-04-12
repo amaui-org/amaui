@@ -24,7 +24,7 @@ const useStyle = styleMethod(theme => ({
   wrapper: {
     height: '70vh',
     width: '70vw',
-    borderRadius: 16,
+    borderRadius: theme.methods.shape.radius.value(2, 'px'),
     boxShadow: 'rgba(0, 0, 0, 0.07) 0px 4px 32px 0px',
     overflow: 'hidden'
   },
@@ -78,7 +78,7 @@ const useStyle = styleMethod(theme => ({
         aspectRatio: '1/1',
         background: theme.palette.background.primary.quaternary,
         inset: '0',
-        borderRadius: '50%',
+        borderRadius: theme.methods.shape.radius.value(40, 'px'),
         zIndex: '0',
         left: '50%',
         transform: 'translate(-50%)',

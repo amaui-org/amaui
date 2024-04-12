@@ -91,15 +91,15 @@ const useStyle = style(theme => ({
   },
 
   dayStart: {
-    borderRadius: '140px 0 0 140px'
+    borderRadius: `${theme.methods.shape.radius.value(40, 'px')} 0 0 ${theme.methods.shape.radius.value(40, 'px')}`
   },
 
   dayEnd: {
-    borderRadius: '0 140px 140px 0'
+    borderRadius: `0 ${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')} 0`
   },
 
   dayStartEnd: {
-    borderRadius: '140px'
+    borderRadius: theme.methods.shape.radius.value(40, 'px')
   },
 
   dayStartSelected: {

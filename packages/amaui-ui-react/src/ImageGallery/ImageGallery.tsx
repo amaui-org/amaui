@@ -21,7 +21,7 @@ const useStyle = styleMethod(theme => ({
       alignItems: 'center',
       justifyContent: 'center',
       userSelect: 'none',
-      zIndex: 14000
+      zIndex: '14000'
     },
 
     '& .amaui-Backdrop-backdrop-root': {
@@ -44,14 +44,14 @@ const useStyle = styleMethod(theme => ({
   },
 
   header: {
-    padding: 24,
-    zIndex: 1
+    padding: '24px',
+    zIndex: '1'
   },
 
   main_version_modal: {
-    height: 0,
-    padding: 40,
-    zIndex: 0,
+    height: '0',
+    padding: '40px',
+    zIndex: '0',
 
     '& .amaui-Image-root': {
       maxHeight: '100%',
@@ -77,12 +77,12 @@ const useStyle = styleMethod(theme => ({
 
   footer: {
     padding: '24px 12px',
-    zIndex: 1
+    zIndex: '1'
   },
 
   imageWrapper: {
     position: 'relative',
-    height: 0,
+    height: '0px',
     // zIndex: 1,
     transition: theme.methods.transitions.make(['transform'], { duration: 100, timing_function: 'ease' as any }),
 
@@ -102,12 +102,12 @@ const useStyle = styleMethod(theme => ({
   },
 
   items: {
-    maxWidth: 1024,
+    maxWidth: '1024px',
     overflow: 'auto hidden',
 
     '&::-webkit-scrollbar': {
-      width: 16,
-      height: 16
+      width: '16px',
+      height: '16px'
     },
 
     '&::-webkit-scrollbar-track, &::-webkit-scrollbar-corner': {
@@ -115,7 +115,7 @@ const useStyle = styleMethod(theme => ({
     },
 
     '&::-webkit-scrollbar-thumb': {
-      borderRadius: 8,
+      borderRadius: theme.methods.shape.radius.value(1, 'px'),
       border: '4px solid transparent',
       backgroundClip: 'content-box',
       backgroundColor: 'rgba(221, 221, 221, 0.4)',
@@ -127,8 +127,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   item: {
-    width: 140,
-    height: 140,
+    width: '140px',
+    height: '140px',
     position: 'relative',
     backgroundSize: 'contain',
     backgroundPosition: 'center',

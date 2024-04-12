@@ -32,14 +32,14 @@ const useStyle = styleMethod(theme => ({
   },
 
   linearProgress: {
-    borderRadius: '140px',
+    borderRadius: theme.methods.shape.radius.value(40, 'px'),
 
     '&.amaui-LinearProgress-root': {
       height: '6px'
     },
 
     '& .amaui-LinearProgress-line, & .amaui-LinearProgress-buffer': {
-      borderRadius: '140px'
+      borderRadius: theme.methods.shape.radius.value(40, 'px')
     }
   },
 

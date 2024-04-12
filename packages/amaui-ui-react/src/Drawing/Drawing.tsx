@@ -56,13 +56,13 @@ const useStyle = styleMethod(theme => ({
 
   modal: {
     padding: '12px',
-    borderRadius: '8px',
+    borderRadius: theme.methods.shape.radius.value(1, 'px'),
     boxShadow: theme.shadows.values.default[2]
   },
 
   palette: {
     padding: '12px',
-    borderRadius: '8px',
+    borderRadius: theme.methods.shape.radius.value(1, 'px'),
     boxShadow: theme.shadows.values.default[2]
   },
 
@@ -71,7 +71,7 @@ const useStyle = styleMethod(theme => ({
     width: '17px',
     height: '17px',
     cursor: 'pointer',
-    borderRadius: '50%',
+    borderRadius: theme.methods.shape.radius.value(40, 'px'),
     boxShadow: theme.shadows.values.default[1],
     transition: theme.methods.transitions.make('box-shadow'),
 
@@ -86,7 +86,7 @@ const useStyle = styleMethod(theme => ({
 
   inputColor: {
     border: 'none',
-    borderRadius: '50%',
+    borderRadius: theme.methods.shape.radius.value(40, 'px'),
     overflow: 'hidden',
     width: '17px',
     height: '17px',

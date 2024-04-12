@@ -45,13 +45,13 @@ const useStyle = styleMethod(theme => ({
 
   append: {
     padding: '12px 20px',
-    borderRadius: '12px'
+    borderRadius: theme.methods.shape.radius.value(1.5, 'px')
   },
 
   append_icon: {
     width: '8px',
     height: '8px',
-    borderRadius: '50%'
+    borderRadius: theme.methods.shape.radius.value(40, 'px')
   }
 }), { name: 'amaui-PieChart' });
 

@@ -93,7 +93,7 @@ const useStyle = styleMethod(theme => ({
 
   append: {
     padding: '12px 20px',
-    borderRadius: '12px'
+    borderRadius: theme.methods.shape.radius.value(1.5, 'px')
   },
 
   name: {
@@ -302,14 +302,14 @@ const useStyle = styleMethod(theme => ({
   legend_icon: {
     width: '10px',
     height: '10px',
-    borderRadius: '50%',
+    borderRadius: theme.methods.shape.radius.value(40, 'px'),
     boxSizing: 'border-box'
   },
 
   append_icon: {
     width: '8px',
     height: '8px',
-    borderRadius: '50%',
+    borderRadius: theme.methods.shape.radius.value(40, 'px'),
     boxSizing: 'border-box'
   },
 

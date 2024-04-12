@@ -46,7 +46,7 @@ const useStyle = styleMethod(theme => ({
     '& .amaui-Modal-surface': {
       top: '0',
       width: '100%',
-      borderRadius: '0 0 16px 16px'
+      borderRadius: `0 0 ${theme.methods.shape.radius.value(2, 'px')} ${theme.methods.shape.radius.value(2, 'px')}`
     }
   },
 
@@ -54,7 +54,7 @@ const useStyle = styleMethod(theme => ({
     '& .amaui-Modal-surface': {
       left: '0',
       height: '100%',
-      borderRadius: '0 16px 16px 0'
+      borderRadius: `0 ${theme.methods.shape.radius.value(2, 'px')} ${theme.methods.shape.radius.value(2, 'px')} 0`
     }
   },
 
@@ -62,7 +62,7 @@ const useStyle = styleMethod(theme => ({
     '& .amaui-Modal-surface': {
       right: '0',
       height: '100%',
-      borderRadius: '16px 0 0 16px'
+      borderRadius: `${theme.methods.shape.radius.value(2, 'px')} 0 0 ${theme.methods.shape.radius.value(2, 'px')}`
     }
   },
 
@@ -70,7 +70,7 @@ const useStyle = styleMethod(theme => ({
     '& .amaui-Modal-surface': {
       bottom: '0',
       width: '100%',
-      borderRadius: '16px 16px 0 0'
+      borderRadius: `${theme.methods.shape.radius.value(2, 'px')} ${theme.methods.shape.radius.value(2, 'px')} 0 0`
     }
   }
 }), { name: 'amaui-NavigationDrawer' });

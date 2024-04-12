@@ -16,7 +16,7 @@ const useStyle = styleMethod(theme => ({
     position: 'absolute',
     padding: '2px 6px',
     lineHeight: '1px',
-    borderRadius: '140px',
+    borderRadius: theme.methods.shape.radius.value(40, 'px'),
     transition: theme.methods.transitions.make('transform'),
     pointerEvents: 'none',
     userSelect: 'none',

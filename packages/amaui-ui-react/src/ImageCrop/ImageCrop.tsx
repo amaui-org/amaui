@@ -7,286 +7,288 @@ import Tooltip from '../Tooltip';
 import { staticClassName, image as imageMethod } from '../utils';
 import { IBaseElement, IPropsAny } from '../types';
 
-const dot = {
-  display: 'inline-block',
-  position: 'absolute',
-  width: '6px',
-  height: '6px',
-  borderRadius: '50%',
-  background: '#a4a4a4',
-  outline: '1px solid white'
-};
-
-const useStyle = styleMethod(theme => ({
-  root: {
-    width: '100%',
-    minHeight: '1px',
-    lineHeight: '0',
-    userSelect: 'none',
-    overflow: 'hidden'
-  },
-
-  mouseDown_move: {
-    '& *': {
-      cursor: 'grab !important'
-    }
-  },
-
-  mouseDown_top: {
-    '& *': {
-      cursor: 'ns-resize !important'
-    }
-  },
-
-  mouseDown_left: {
-    '& *': {
-      cursor: 'ew-resize !important'
-    }
-  },
-
-  mouseDown_right: {
-    '& *': {
-      cursor: 'ew-resize !important'
-    }
-  },
-
-  mouseDown_bottom: {
-    '& *': {
-      cursor: 'ns-resize !important'
-    }
-  },
-
-  mouseDown_top_left: {
-    '& *': {
-      cursor: 'nwse-resize !important'
-    }
-  },
-
-  mouseDown_top_right: {
-    '& *': {
-      cursor: 'nesw-resize !important'
-    }
-  },
-
-  mouseDown_bottom_left: {
-    '& *': {
-      cursor: 'nesw-resize !important'
-    }
-  },
-
-  mouseDown_bottom_right: {
-    '& *': {
-      cursor: 'nwse-resize !important'
-    }
-  },
-
-  canvas: {
+const useStyle = styleMethod(theme => {
+  const dot = {
+    display: 'inline-block',
     position: 'absolute',
-    zIndex: '0'
-  },
+    width: '6px',
+    height: '6px',
+    borderRadius: '50%',
+    background: '#a4a4a4',
+    outline: '1px solid white'
+  };
 
-  canvas_main: {
-    position: 'relative',
-    width: '100%',
-    height: 'auto'
-  },
+  return {
+    root: {
+      width: '100%',
+      minHeight: '1px',
+      lineHeight: '0',
+      userSelect: 'none',
+      overflow: 'hidden'
+    },
 
-  canvas_imageSelector: {
-    zIndex: -1
-  },
+    mouseDown_move: {
+      '& *': {
+        cursor: 'grab !important'
+      }
+    },
 
-  background: {
-    position: 'absolute',
-    inset: '0',
-    width: '100%',
-    height: '100%',
-    opacity: '0',
-    background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, 44),
-    transition: theme.methods.transitions.make('opacity', { duration: 'xxs' }),
-    zIndex: '1'
-  },
+    mouseDown_top: {
+      '& *': {
+        cursor: 'ns-resize !important'
+      }
+    },
 
-  background_in: {
-    opacity: '1'
-  },
+    mouseDown_left: {
+      '& *': {
+        cursor: 'ew-resize !important'
+      }
+    },
 
-  imageSelector_main: {
-    position: 'absolute',
-    top: '0',
-    left: '0',
-    width: '0',
-    height: '0',
-    outline: '2px dashed white',
-    background: 'transparent',
-    touchAction: 'none',
-    opacity: '0',
-    zIndex: '14',
-    userSelect: 'none',
-    transition: theme.methods.transitions.make('opacity'),
-  },
+    mouseDown_right: {
+      '& *': {
+        cursor: 'ew-resize !important'
+      }
+    },
 
-  imageSelector_main_in: {
-    opacity: '1'
-  },
+    mouseDown_bottom: {
+      '& *': {
+        cursor: 'ns-resize !important'
+      }
+    },
 
-  imageSelector: {
-    position: 'absolute',
-    top: '0',
-    left: '0',
-    width: '0',
-    height: '0',
-    touchAction: 'none',
-    overflow: 'hidden',
-    userSelect: 'none',
-    zIndex: '11'
-  },
+    mouseDown_top_left: {
+      '& *': {
+        cursor: 'nwse-resize !important'
+      }
+    },
 
-  move: {
-    position: 'absolute',
-    inset: '0',
-    width: '100%',
-    height: '100%',
-    cursor: 'grab',
+    mouseDown_top_right: {
+      '& *': {
+        cursor: 'nesw-resize !important'
+      }
+    },
 
-    '&:active': {
-      cursor: 'grabbing !important'
+    mouseDown_bottom_left: {
+      '& *': {
+        cursor: 'nesw-resize !important'
+      }
+    },
+
+    mouseDown_bottom_right: {
+      '& *': {
+        cursor: 'nwse-resize !important'
+      }
+    },
+
+    canvas: {
+      position: 'absolute',
+      zIndex: '0'
+    },
+
+    canvas_main: {
+      position: 'relative',
+      width: '100%',
+      height: 'auto'
+    },
+
+    canvas_imageSelector: {
+      zIndex: -1
+    },
+
+    background: {
+      position: 'absolute',
+      inset: '0',
+      width: '100%',
+      height: '100%',
+      opacity: '0',
+      background: theme.methods.palette.color.colorToRgb(theme.palette.text.default.primary, 44),
+      transition: theme.methods.transitions.make('opacity', { duration: 'xxs' }),
+      zIndex: '1'
+    },
+
+    background_in: {
+      opacity: '1'
+    },
+
+    imageSelector_main: {
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      width: '0',
+      height: '0',
+      outline: '2px dashed white',
+      background: 'transparent',
+      touchAction: 'none',
+      opacity: '0',
+      zIndex: '14',
+      userSelect: 'none',
+      transition: theme.methods.transitions.make('opacity'),
+    },
+
+    imageSelector_main_in: {
+      opacity: '1'
+    },
+
+    imageSelector: {
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      width: '0',
+      height: '0',
+      touchAction: 'none',
+      overflow: 'hidden',
+      userSelect: 'none',
+      zIndex: '11'
+    },
+
+    move: {
+      position: 'absolute',
+      inset: '0',
+      width: '100%',
+      height: '100%',
+      cursor: 'grab',
+
+      '&:active': {
+        cursor: 'grabbing !important'
+      }
+    },
+
+    grid_line: {
+      position: 'absolute',
+      background: 'white',
+      mixBlendMode: 'difference'
+    },
+
+    grid_line_top_start: {
+      top: '33.3333%',
+      insetInline: '0',
+      width: '100%',
+      height: '1px'
+    },
+
+    grid_line_top_end: {
+      top: '66.6666%',
+      insetInline: '0',
+      width: '100%',
+      height: '1px'
+    },
+
+    grid_line_left_start: {
+      left: '33.3333%',
+      insetBlock: '0',
+      width: '1px',
+      height: '100%'
+    },
+
+    grid_line_left_end: {
+      left: '66.6666%',
+      insetBlock: '0',
+      width: '1px',
+      height: '100%'
+    },
+
+    dot: {
+      ...dot
+    },
+
+    dot_top_left: {
+      top: '-1px',
+      left: '-1px',
+      transform: 'translate(-50%, -50%)',
+      cursor: 'nwse-resize'
+    },
+
+    dot_top_right: {
+      top: '-1px',
+      right: '-1px',
+      transform: 'translate(50%, -50%)',
+      cursor: 'nesw-resize'
+    },
+
+    dot_bottom_left: {
+      bottom: '-1px',
+      left: '-1px',
+      transform: 'translate(-50%, 50%)',
+      cursor: 'nesw-resize'
+    },
+
+    dot_bottom_right: {
+      bottom: '-1px',
+      right: '-1px',
+      transform: 'translate(50%, 50%)',
+      cursor: 'nwse-resize'
+    },
+
+    border: {
+      position: 'absolute'
+    },
+
+    border_top: {
+      top: '-2px',
+      height: '2px',
+      width: '100%',
+      cursor: 'ns-resize',
+
+      '&::before': {
+        ...dot,
+
+        content: '""',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)'
+      }
+    },
+
+    border_left: {
+      left: '-2px',
+      height: '100%',
+      width: '2px',
+      cursor: 'ew-resize',
+
+      '&::before': {
+        ...dot,
+
+        content: '""',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)'
+      }
+    },
+
+    border_right: {
+      right: '-2px',
+      height: '100%',
+      width: '2px',
+      cursor: 'ew-resize',
+
+      '&::before': {
+        ...dot,
+
+        content: '""',
+        top: '50%',
+        right: '50%',
+        transform: 'translate(50%, -50%)'
+      }
+    },
+
+    border_bottom: {
+      bottom: '-2px',
+      height: '2px',
+      width: '100%',
+      cursor: 'ns-resize',
+
+      '&::before': {
+        ...dot,
+
+        content: '""',
+        bottom: '50%',
+        left: '50%',
+        transform: 'translate(-50%, 50%)'
+      }
     }
-  },
-
-  grid_line: {
-    position: 'absolute',
-    background: 'white',
-    mixBlendMode: 'difference'
-  },
-
-  grid_line_top_start: {
-    top: '33.3333%',
-    insetInline: '0',
-    width: '100%',
-    height: '1px'
-  },
-
-  grid_line_top_end: {
-    top: '66.6666%',
-    insetInline: '0',
-    width: '100%',
-    height: '1px'
-  },
-
-  grid_line_left_start: {
-    left: '33.3333%',
-    insetBlock: '0',
-    width: '1px',
-    height: '100%'
-  },
-
-  grid_line_left_end: {
-    left: '66.6666%',
-    insetBlock: '0',
-    width: '1px',
-    height: '100%'
-  },
-
-  dot: {
-    ...dot
-  },
-
-  dot_top_left: {
-    top: '-1px',
-    left: '-1px',
-    transform: 'translate(-50%, -50%)',
-    cursor: 'nwse-resize'
-  },
-
-  dot_top_right: {
-    top: '-1px',
-    right: '-1px',
-    transform: 'translate(50%, -50%)',
-    cursor: 'nesw-resize'
-  },
-
-  dot_bottom_left: {
-    bottom: '-1px',
-    left: '-1px',
-    transform: 'translate(-50%, 50%)',
-    cursor: 'nesw-resize'
-  },
-
-  dot_bottom_right: {
-    bottom: '-1px',
-    right: '-1px',
-    transform: 'translate(50%, 50%)',
-    cursor: 'nwse-resize'
-  },
-
-  border: {
-    position: 'absolute'
-  },
-
-  border_top: {
-    top: '-2px',
-    height: '2px',
-    width: '100%',
-    cursor: 'ns-resize',
-
-    '&::before': {
-      ...dot,
-
-      content: '""',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)'
-    }
-  },
-
-  border_left: {
-    left: '-2px',
-    height: '100%',
-    width: '2px',
-    cursor: 'ew-resize',
-
-    '&::before': {
-      ...dot,
-
-      content: '""',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)'
-    }
-  },
-
-  border_right: {
-    right: '-2px',
-    height: '100%',
-    width: '2px',
-    cursor: 'ew-resize',
-
-    '&::before': {
-      ...dot,
-
-      content: '""',
-      top: '50%',
-      right: '50%',
-      transform: 'translate(50%, -50%)'
-    }
-  },
-
-  border_bottom: {
-    bottom: '-2px',
-    height: '2px',
-    width: '100%',
-    cursor: 'ns-resize',
-
-    '&::before': {
-      ...dot,
-
-      content: '""',
-      bottom: '50%',
-      left: '50%',
-      transform: 'translate(-50%, 50%)'
-    }
-  }
-}), { name: 'amaui-ImageCrop' });
+  };
+}, { name: 'amaui-ImageCrop' });
 
 export type TImageCrop = {
   x?: number;
