@@ -25,11 +25,10 @@ const Wrapper = React.forwardRef((props: any, ref: any) => {
 });
 
 export interface IExpand extends Omit<ITransition, 'className'> {
-  // required
   // in order to properly
   // evaluate the height of the children
   // relative to width of the parent
-  parent: HTMLElement;
+  parent?: HTMLElement;
 
   value?: number;
 
@@ -52,7 +51,6 @@ const Expand: React.FC<IExpand> = React.forwardRef((props_, ref: any) => {
 
     value: valueProvided,
 
-    // required
     // html element reference
     parent,
 
@@ -199,7 +197,7 @@ const Expand: React.FC<IExpand> = React.forwardRef((props_, ref: any) => {
   );
 
   if (valueProvided === undefined) {
-    if (!parent) return null;
+    // if (!parent) return null;
 
     if (!init) return (
       <div
@@ -211,9 +209,9 @@ const Expand: React.FC<IExpand> = React.forwardRef((props_, ref: any) => {
           visibility: 'hidden',
 
           // add with of an actual parent
-          // at the moment,
-          width: (parent as HTMLElement).clientWidth,
-          height: (parent as HTMLElement).clientHeight
+          // at the moment
+          width: parent ? (parent as HTMLElement).clientWidth : undefined,
+          height: parent ? (parent as HTMLElement).clientHeight : undefined
         }}
       >
         {/*
@@ -275,7 +273,9 @@ const Expand: React.FC<IExpand> = React.forwardRef((props_, ref: any) => {
 
             ...styles(status),
 
-            ...style
+            ...style,
+
+            ...children_?.style
           }
         });
       }}

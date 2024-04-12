@@ -235,6 +235,40 @@ const Frame: React.FC<IFrame> = React.forwardRef((props_, ref: any) => {
     }
   }
 
+  const main = <>
+    {children}
+
+    {value && !children && (
+      <IFrameElement
+        className={classNames([
+          classes.IFrame
+        ])}
+
+        WrapperProps={{
+          align: 'center',
+          justify: 'center'
+        }}
+      >
+        {value || children}
+      </IFrameElement>
+    )}
+
+    {(url || src) && !(value || children) && (
+      <iframe
+        title='frame'
+
+        src={url || src}
+
+        {...iframeProps}
+
+        className={classNames([
+          iframeProps?.className,
+          classes.iframe
+        ])}
+      />
+    )}
+  </>;
+
   return (
     <Line
       ref={ref}
@@ -364,37 +398,7 @@ const Frame: React.FC<IFrame> = React.forwardRef((props_, ref: any) => {
           ...WrapperProps?.style
         }}
       >
-        {children}
-
-        {value && !children && (
-          <IFrameElement
-            className={classNames([
-              classes.IFrame
-            ])}
-
-            WrapperProps={{
-              align: 'center',
-              justify: 'center'
-            }}
-          >
-            {value || children}
-          </IFrameElement>
-        )}
-
-        {(url || src) && !(value || children) && (
-          <iframe
-            title='frame'
-
-            src={url || src}
-
-            {...iframeProps}
-
-            className={classNames([
-              iframeProps?.className,
-              classes.iframe
-            ])}
-          />
-        )}
+        {main}
       </Line>
     </Line>
   );
