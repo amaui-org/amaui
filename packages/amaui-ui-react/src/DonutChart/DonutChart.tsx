@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import PieChart from '../PieChart';
+import PieChartElement from '../PieChart';
 import { IPieChart } from '../PieChart/PieChart';
 import { staticClassName } from '../utils';
 
@@ -25,13 +25,15 @@ const DonutChart: React.FC<IDonutChart> = React.forwardRef((props_, ref: any) =>
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDonutChart?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const PieChart = React.useMemo(() => theme?.elements?.PieChart || PieChartElement, [theme]);
 
   const {
     className,
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   return (
     <PieChart

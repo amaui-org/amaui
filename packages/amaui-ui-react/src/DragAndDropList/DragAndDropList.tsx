@@ -33,8 +33,6 @@ const DragAndDropList: React.FC<IDragAndDropList> = React.forwardRef((props_, re
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDragAndDropList?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
-
   const {
     onChange: onChange_,
 
@@ -57,6 +55,8 @@ const DragAndDropList: React.FC<IDragAndDropList> = React.forwardRef((props_, re
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

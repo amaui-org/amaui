@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import DatePicker from '../DatePicker';
+import DatePickerElement from '../DatePicker';
 import { IDatePicker } from '../DatePicker/DatePicker';
 import { staticClassName } from '../utils';
 
@@ -21,13 +21,15 @@ const DateRangePicker: React.FC<IDateRangePicker> = React.forwardRef((props_, re
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDateRangePicker?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const DatePicker = React.useMemo(() => theme?.elements?.DatePicker || DatePickerElement, [theme]);
 
   const {
     className,
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   return (
     <DatePicker

@@ -156,7 +156,9 @@ const Divider: React.FC<IDivider> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDivider?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
 
   const {
     tonal = true,
@@ -179,6 +181,8 @@ const Divider: React.FC<IDivider> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const styles: any = {
     root: {

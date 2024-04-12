@@ -3,25 +3,89 @@ import React from 'react';
 import { elementToCanvas, is, isEnvironment } from '@amaui/utils';
 import { classNames, colors, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Select from '../Select';
 import ListItemElement from '../ListItem';
 import SurfaceElement from '../Surface';
 import TooltipElement from '../Tooltip';
-import NumericTextField from '../NumericTextField';
-import ClickListener from '../ClickListener';
-import ToggleButtons from '../ToggleButtons';
-import Divider from '../Divider';
 import TypeElement from '../Type';
-import ToggleButton from '../ToggleButton';
-import ColorTextField from '../ColorTextField';
 import ButtonElement from '../Button';
-import Append from '../Append';
-import Fade from '../Fade';
 import LineElement from '../Line';
 import IconElement from '../Icon';
+import SelectElement from '../Select';
+import NumericTextFieldElement from '../NumericTextField';
+import ToggleButtonsElement from '../ToggleButtons';
+import DividerElement from '../Divider';
+import ToggleButtonElement from '../ToggleButton';
+import ColorTextFieldElement from '../ColorTextField';
+import AppendElement from '../Append';
+import FadeElement from '../Fade';
+import ClickListenerElement from '../ClickListener';
 import { ISurface } from '../Surface/Surface';
 import { staticClassName } from '../utils';
 import { IElement, IElementReference, IPropsAny, IRef } from '../types';
+
+const IconMaterialDeleteSweepRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='DeleteSweepRounded'
+      short_name='DeleteSweep'
+
+      {...props}
+    >
+      <path d="M16 18Q15.575 18 15.288 17.712Q15 17.425 15 17Q15 16.575 15.288 16.288Q15.575 16 16 16H18Q18.425 16 18.712 16.288Q19 16.575 19 17Q19 17.425 18.712 17.712Q18.425 18 18 18ZM16 10Q15.575 10 15.288 9.712Q15 9.425 15 9Q15 8.575 15.288 8.287Q15.575 8 16 8H21Q21.425 8 21.712 8.287Q22 8.575 22 9Q22 9.425 21.712 9.712Q21.425 10 21 10ZM16 14Q15.575 14 15.288 13.712Q15 13.425 15 13Q15 12.575 15.288 12.287Q15.575 12 16 12H20Q20.425 12 20.712 12.287Q21 12.575 21 13Q21 13.425 20.712 13.712Q20.425 14 20 14ZM5 19Q4.175 19 3.587 18.413Q3 17.825 3 17V8Q2.575 8 2.288 7.713Q2 7.425 2 7Q2 6.575 2.288 6.287Q2.575 6 3 6H6V5.5Q6 5.075 6.287 4.787Q6.575 4.5 7 4.5H9Q9.425 4.5 9.713 4.787Q10 5.075 10 5.5V6H13Q13.425 6 13.713 6.287Q14 6.575 14 7Q14 7.425 13.713 7.713Q13.425 8 13 8V17Q13 17.825 12.413 18.413Q11.825 19 11 19ZM5 8V17Q5 17 5 17Q5 17 5 17H11Q11 17 11 17Q11 17 11 17V8ZM5 8V17Q5 17 5 17Q5 17 5 17Q5 17 5 17Q5 17 5 17Z" />
+    </IconElement>
+  );
+});
+
+const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='DownloadRounded'
+      short_name='Download'
+
+      {...props}
+    >
+      <path d="M12 15.575Q11.8 15.575 11.625 15.512Q11.45 15.45 11.3 15.3L7.7 11.7Q7.425 11.425 7.425 11Q7.425 10.575 7.7 10.3Q7.975 10.025 8.412 10.012Q8.85 10 9.125 10.275L11 12.15V5Q11 4.575 11.288 4.287Q11.575 4 12 4Q12.425 4 12.713 4.287Q13 4.575 13 5V12.15L14.875 10.275Q15.15 10 15.588 10.012Q16.025 10.025 16.3 10.3Q16.575 10.575 16.575 11Q16.575 11.425 16.3 11.7L12.7 15.3Q12.55 15.45 12.375 15.512Q12.2 15.575 12 15.575ZM6 20Q5.175 20 4.588 19.413Q4 18.825 4 18V16Q4 15.575 4.287 15.287Q4.575 15 5 15Q5.425 15 5.713 15.287Q6 15.575 6 16V18Q6 18 6 18Q6 18 6 18H18Q18 18 18 18Q18 18 18 18V16Q18 15.575 18.288 15.287Q18.575 15 19 15Q19.425 15 19.712 15.287Q20 15.575 20 16V18Q20 18.825 19.413 19.413Q18.825 20 18 20Z" />
+    </IconElement>
+  );
+});
+
+const IconMaterialCropLandscapeRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='CropLandscapeRounded'
+      short_name='CropLandscape'
+
+      {...props}
+    >
+      <path d="M4 20Q3.175 20 2.588 19.413Q2 18.825 2 18V6Q2 5.175 2.588 4.588Q3.175 4 4 4H20Q20.825 4 21.413 4.588Q22 5.175 22 6V18Q22 18.825 21.413 19.413Q20.825 20 20 20ZM4 18H20Q20 18 20 18Q20 18 20 18V6Q20 6 20 6Q20 6 20 6H4Q4 6 4 6Q4 6 4 6V18Q4 18 4 18Q4 18 4 18ZM4 18Q4 18 4 18Q4 18 4 18V6Q4 6 4 6Q4 6 4 6Q4 6 4 6Q4 6 4 6V18Q4 18 4 18Q4 18 4 18Z" />
+    </IconElement>
+  );
+});
+
+const IconMaterialPaletteRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='PaletteRounded'
+      short_name='Palette'
+
+      {...props}
+    >
+      <path d="M12 22Q9.95 22 8.125 21.212Q6.3 20.425 4.938 19.062Q3.575 17.7 2.788 15.875Q2 14.05 2 12Q2 9.925 2.812 8.1Q3.625 6.275 5.013 4.925Q6.4 3.575 8.25 2.787Q10.1 2 12.2 2Q14.2 2 15.975 2.688Q17.75 3.375 19.087 4.588Q20.425 5.8 21.212 7.463Q22 9.125 22 11.05Q22 13.925 20.25 15.462Q18.5 17 16 17H14.15Q13.925 17 13.838 17.125Q13.75 17.25 13.75 17.4Q13.75 17.7 14.125 18.262Q14.5 18.825 14.5 19.55Q14.5 20.8 13.812 21.4Q13.125 22 12 22ZM12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12ZM6.5 13Q7.15 13 7.575 12.575Q8 12.15 8 11.5Q8 10.85 7.575 10.425Q7.15 10 6.5 10Q5.85 10 5.425 10.425Q5 10.85 5 11.5Q5 12.15 5.425 12.575Q5.85 13 6.5 13ZM9.5 9Q10.15 9 10.575 8.575Q11 8.15 11 7.5Q11 6.85 10.575 6.425Q10.15 6 9.5 6Q8.85 6 8.425 6.425Q8 6.85 8 7.5Q8 8.15 8.425 8.575Q8.85 9 9.5 9ZM14.5 9Q15.15 9 15.575 8.575Q16 8.15 16 7.5Q16 6.85 15.575 6.425Q15.15 6 14.5 6Q13.85 6 13.425 6.425Q13 6.85 13 7.5Q13 8.15 13.425 8.575Q13.85 9 14.5 9ZM17.5 13Q18.15 13 18.575 12.575Q19 12.15 19 11.5Q19 10.85 18.575 10.425Q18.15 10 17.5 10Q16.85 10 16.425 10.425Q16 10.85 16 11.5Q16 12.15 16.425 12.575Q16.85 13 17.5 13ZM12 20Q12.225 20 12.363 19.875Q12.5 19.75 12.5 19.55Q12.5 19.2 12.125 18.725Q11.75 18.25 11.75 17.3Q11.75 16.25 12.475 15.625Q13.2 15 14.25 15H16Q17.65 15 18.825 14.037Q20 13.075 20 11.05Q20 8.025 17.688 6.012Q15.375 4 12.2 4Q8.8 4 6.4 6.325Q4 8.65 4 12Q4 15.325 6.338 17.663Q8.675 20 12 20Z" />
+    </IconElement>
+  );
+});
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -121,70 +185,6 @@ const useStyle = styleMethod(theme => ({
   },
 }), { name: 'amaui-Drawing' });
 
-const IconMaterialDeleteSweepRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='DeleteSweepRounded'
-      short_name='DeleteSweep'
-
-      {...props}
-    >
-      <path d="M16 18Q15.575 18 15.288 17.712Q15 17.425 15 17Q15 16.575 15.288 16.288Q15.575 16 16 16H18Q18.425 16 18.712 16.288Q19 16.575 19 17Q19 17.425 18.712 17.712Q18.425 18 18 18ZM16 10Q15.575 10 15.288 9.712Q15 9.425 15 9Q15 8.575 15.288 8.287Q15.575 8 16 8H21Q21.425 8 21.712 8.287Q22 8.575 22 9Q22 9.425 21.712 9.712Q21.425 10 21 10ZM16 14Q15.575 14 15.288 13.712Q15 13.425 15 13Q15 12.575 15.288 12.287Q15.575 12 16 12H20Q20.425 12 20.712 12.287Q21 12.575 21 13Q21 13.425 20.712 13.712Q20.425 14 20 14ZM5 19Q4.175 19 3.587 18.413Q3 17.825 3 17V8Q2.575 8 2.288 7.713Q2 7.425 2 7Q2 6.575 2.288 6.287Q2.575 6 3 6H6V5.5Q6 5.075 6.287 4.787Q6.575 4.5 7 4.5H9Q9.425 4.5 9.713 4.787Q10 5.075 10 5.5V6H13Q13.425 6 13.713 6.287Q14 6.575 14 7Q14 7.425 13.713 7.713Q13.425 8 13 8V17Q13 17.825 12.413 18.413Q11.825 19 11 19ZM5 8V17Q5 17 5 17Q5 17 5 17H11Q11 17 11 17Q11 17 11 17V8ZM5 8V17Q5 17 5 17Q5 17 5 17Q5 17 5 17Q5 17 5 17Z" />
-    </Icon>
-  );
-});
-
-const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='DownloadRounded'
-      short_name='Download'
-
-      {...props}
-    >
-      <path d="M12 15.575Q11.8 15.575 11.625 15.512Q11.45 15.45 11.3 15.3L7.7 11.7Q7.425 11.425 7.425 11Q7.425 10.575 7.7 10.3Q7.975 10.025 8.412 10.012Q8.85 10 9.125 10.275L11 12.15V5Q11 4.575 11.288 4.287Q11.575 4 12 4Q12.425 4 12.713 4.287Q13 4.575 13 5V12.15L14.875 10.275Q15.15 10 15.588 10.012Q16.025 10.025 16.3 10.3Q16.575 10.575 16.575 11Q16.575 11.425 16.3 11.7L12.7 15.3Q12.55 15.45 12.375 15.512Q12.2 15.575 12 15.575ZM6 20Q5.175 20 4.588 19.413Q4 18.825 4 18V16Q4 15.575 4.287 15.287Q4.575 15 5 15Q5.425 15 5.713 15.287Q6 15.575 6 16V18Q6 18 6 18Q6 18 6 18H18Q18 18 18 18Q18 18 18 18V16Q18 15.575 18.288 15.287Q18.575 15 19 15Q19.425 15 19.712 15.287Q20 15.575 20 16V18Q20 18.825 19.413 19.413Q18.825 20 18 20Z" />
-    </Icon>
-  );
-});
-
-const IconMaterialCropLandscapeRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='CropLandscapeRounded'
-      short_name='CropLandscape'
-
-      {...props}
-    >
-      <path d="M4 20Q3.175 20 2.588 19.413Q2 18.825 2 18V6Q2 5.175 2.588 4.588Q3.175 4 4 4H20Q20.825 4 21.413 4.588Q22 5.175 22 6V18Q22 18.825 21.413 19.413Q20.825 20 20 20ZM4 18H20Q20 18 20 18Q20 18 20 18V6Q20 6 20 6Q20 6 20 6H4Q4 6 4 6Q4 6 4 6V18Q4 18 4 18Q4 18 4 18ZM4 18Q4 18 4 18Q4 18 4 18V6Q4 6 4 6Q4 6 4 6Q4 6 4 6Q4 6 4 6V18Q4 18 4 18Q4 18 4 18Z" />
-    </Icon>
-  );
-});
-
-const IconMaterialPaletteRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='PaletteRounded'
-      short_name='Palette'
-
-      {...props}
-    >
-      <path d="M12 22Q9.95 22 8.125 21.212Q6.3 20.425 4.938 19.062Q3.575 17.7 2.788 15.875Q2 14.05 2 12Q2 9.925 2.812 8.1Q3.625 6.275 5.013 4.925Q6.4 3.575 8.25 2.787Q10.1 2 12.2 2Q14.2 2 15.975 2.688Q17.75 3.375 19.087 4.588Q20.425 5.8 21.212 7.463Q22 9.125 22 11.05Q22 13.925 20.25 15.462Q18.5 17 16 17H14.15Q13.925 17 13.838 17.125Q13.75 17.25 13.75 17.4Q13.75 17.7 14.125 18.262Q14.5 18.825 14.5 19.55Q14.5 20.8 13.812 21.4Q13.125 22 12 22ZM12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12ZM6.5 13Q7.15 13 7.575 12.575Q8 12.15 8 11.5Q8 10.85 7.575 10.425Q7.15 10 6.5 10Q5.85 10 5.425 10.425Q5 10.85 5 11.5Q5 12.15 5.425 12.575Q5.85 13 6.5 13ZM9.5 9Q10.15 9 10.575 8.575Q11 8.15 11 7.5Q11 6.85 10.575 6.425Q10.15 6 9.5 6Q8.85 6 8.425 6.425Q8 6.85 8 7.5Q8 8.15 8.425 8.575Q8.85 9 9.5 9ZM14.5 9Q15.15 9 15.575 8.575Q16 8.15 16 7.5Q16 6.85 15.575 6.425Q15.15 6 14.5 6Q13.85 6 13.425 6.425Q13 6.85 13 7.5Q13 8.15 13.425 8.575Q13.85 9 14.5 9ZM17.5 13Q18.15 13 18.575 12.575Q19 12.15 19 11.5Q19 10.85 18.575 10.425Q18.15 10 17.5 10Q16.85 10 16.425 10.425Q16 10.85 16 11.5Q16 12.15 16.425 12.575Q16.85 13 17.5 13ZM12 20Q12.225 20 12.363 19.875Q12.5 19.75 12.5 19.55Q12.5 19.2 12.125 18.725Q11.75 18.25 11.75 17.3Q11.75 16.25 12.475 15.625Q13.2 15 14.25 15H16Q17.65 15 18.825 14.037Q20 13.075 20 11.05Q20 8.025 17.688 6.012Q15.375 4 12.2 4Q8.8 4 6.4 6.325Q4 8.65 4 12Q4 15.325 6.338 17.663Q8.675 20 12 20Z" />
-    </Icon>
-  );
-});
-
 export type TDrawingValue = Array<{
   d?: string;
   stroke?: string;
@@ -247,7 +247,35 @@ const Drawing: React.FC<IDrawing> = React.forwardRef((props__, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiDrawing?.props?.default, ...props__ }), [props__]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const ListItem = React.useMemo(() => theme?.elements?.ListItem || ListItemElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const Tooltip = React.useMemo(() => theme?.elements?.Tooltip || TooltipElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const Button = React.useMemo(() => theme?.elements?.Button || ButtonElement, [theme]);
+
+  const Select = React.useMemo(() => theme?.elements?.Select || SelectElement, [theme]);
+
+  const NumericTextField = React.useMemo(() => theme?.elements?.NumericTextField || NumericTextFieldElement, [theme]);
+
+  const ToggleButton = React.useMemo(() => theme?.elements?.ToggleButton || ToggleButtonElement, [theme]);
+
+  const ToggleButtons = React.useMemo(() => theme?.elements?.ToggleButtons || ToggleButtonsElement, [theme]);
+
+  const Divider = React.useMemo(() => theme?.elements?.Divider || DividerElement, [theme]);
+
+  const ColorTextField = React.useMemo(() => theme?.elements?.ColorTextField || ColorTextFieldElement, [theme]);
+
+  const Append = React.useMemo(() => theme?.elements?.Append || AppendElement, [theme]);
+
+  const Fade = React.useMemo(() => theme?.elements?.Fade || FadeElement, [theme]);
+
+  const ClickListener = React.useMemo(() => theme?.elements?.ClickListener || ClickListenerElement, [theme]);
 
   const {
     tonal = true,
@@ -308,6 +336,8 @@ const Drawing: React.FC<IDrawing> = React.forwardRef((props__, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || []);
   const [mouseDown, setMouseDown] = React.useState(false);
