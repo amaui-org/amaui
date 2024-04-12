@@ -3,10 +3,10 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Surface from '../Surface';
-import Interaction from '../Interaction';
+import SurfaceElement from '../Surface';
+import InteractionElement from '../Interaction';
+import LineElement from '../Line';
 import { ISurface } from '../Surface/Surface';
-import Line from '../Line';
 import { staticClassName } from '../utils';
 import { IPropsAny } from '../types';
 
@@ -62,6 +62,12 @@ const Card: React.FC<ICard> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCard?.props?.default, ...props_ }), [props_]);
 
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const Interaction = React.useMemo(() => theme?.elements?.Interaction || InteractionElement, [theme]);
+
   const {
     tonal = true,
     color: color_ = 'primary',
@@ -88,9 +94,9 @@ const Card: React.FC<ICard> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const [focus, setFocus] = React.useState(focus_ !== undefined ? focus_ : false);
-
   const { classes } = useStyle();
+
+  const [focus, setFocus] = React.useState(focus_ !== undefined ? focus_ : false);
 
   let color = color_;
   let elevation = elevation_;

@@ -5,10 +5,10 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Chart from '../Chart';
 import Path from '../Path';
-import Line from '../Line';
-import Type from '../Type';
+import LineElement from '../Line';
+import TypeElement from '../Type';
 import useMediaQuery from '../useMediaQuery';
-import Surface from '../Surface';
+import SurfaceElement from '../Surface';
 import { IChart } from '../Chart/Chart';
 import { angleToCoordinates, staticClassName, valueBreakpoints } from '../utils';
 

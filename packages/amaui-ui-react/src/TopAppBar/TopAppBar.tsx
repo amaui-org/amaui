@@ -3,9 +3,9 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Line from '../Line';
-import Surface from '../Surface';
-import Type from '../Type';
+import LineElement from '../Line';
+import SurfaceElement from '../Surface';
+import TypeElement from '../Type';
 import { ISurface } from '../Surface/Surface';
 import { staticClassName } from '../utils';
 import { ISize, IElement } from '../types';

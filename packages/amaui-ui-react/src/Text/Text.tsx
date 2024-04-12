@@ -4,8 +4,8 @@ import { is, textToInnerHTML } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import useMediaQuery from '../useMediaQuery';
-import Type from '../Type';
-import Line from '../Line';
+import TypeElement from '../Type';
+import LineElement from '../Line';
 import { valueBreakpoints, staticClassName } from '../utils';
 import { IBaseElement, IPropsAny } from '../types';
 

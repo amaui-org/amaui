@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Type from '../Type';
+import TypeElement from '../Type';
 import { IType } from '../Type/Type';
 import { staticClassName } from '../utils';
 import { IColor } from '../types';

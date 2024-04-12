@@ -3,7 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Surface from '../Surface';
+import SurfaceElement from '../Surface';
 import { ISurface } from '../Surface/Surface';
 import { getOverflowParent, staticClassName } from '../utils';
 import { ISize } from '../types';

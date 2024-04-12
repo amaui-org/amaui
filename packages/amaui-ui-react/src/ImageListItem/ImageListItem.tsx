@@ -3,7 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Line from '../Line';
+import LineElement from '../Line';
 import useMediaQuery from '../useMediaQuery';
 import { ILine } from '../Line/Line';
 import { valueBreakpoints, staticClassName } from '../utils';

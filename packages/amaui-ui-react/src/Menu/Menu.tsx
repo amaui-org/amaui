@@ -3,8 +3,8 @@ import React from 'react';
 import { is, isEnvironment } from '@amaui/utils';
 import { style as styleMethod, classNames, useAmauiTheme, getID } from '@amaui/style-react';
 
-import List from '../List';
-import Tooltip from '../Tooltip';
+import ListElement from '../List';
+import TooltipElement from '../Tooltip';
 import ClickListener from '../ClickListener';
 import { ITooltip } from '../Tooltip/Tooltip';
 import { staticClassName } from '../utils';

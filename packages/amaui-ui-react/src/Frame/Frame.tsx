@@ -4,10 +4,10 @@ import { isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon, { IIcon } from '../Icon';
-import IconButton from '../IconButton';
-import Line from '../Line';
+import IconButtonElement from '../IconButton';
+import LineElement from '../Line';
 import { ILine } from '../Line/Line';
-import Tooltip from '../Tooltip';
+import TooltipElement from '../Tooltip';
 import IFrameElement from '../IFrame';
 import { staticClassName } from '../utils';
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Line from '../Line';
+import LineElement from '../Line';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 

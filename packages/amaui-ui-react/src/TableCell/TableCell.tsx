@@ -3,7 +3,7 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import { clamp, is } from '@amaui/utils';
-import Line from '../Line';
+import LineElement from '../Line';
 import Divider from '../Divider';
 import { TLineAlign, TLineJustify } from '../Line/Line';
 import { getOverflowParent, staticClassName } from '../utils';

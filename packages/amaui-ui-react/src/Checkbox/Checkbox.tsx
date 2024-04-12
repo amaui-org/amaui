@@ -3,12 +3,28 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
+import IconButtonElement from '../IconButton';
+import IconElement from '../Icon';
 import { IconDoneAnimated } from '../Buttons/Buttons';
-import IconButton from '../IconButton';
-import Icon from '../Icon';
 import { IIconButton } from '../IconButton/IconButton';
 import { staticClassName } from '../utils';
 import { IRef, IColor } from '../types';
+
+const IconMaterialIndeterminateCheckBoxSharp = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='IndeterminateCheckBoxSharp'
+      short_name='IndeterminateCheckBox'
+
+      {...props}
+    >
+      <path d='M7 13H17V11H7V13Z' />
+    </IconElement>
+  );
+});
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -145,23 +161,6 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-Checkbox' });
 
-// Indeterminate
-const IconMaterialIndeterminateCheckBoxSharp = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='IndeterminateCheckBoxSharp'
-      short_name='IndeterminateCheckBox'
-
-      {...props}
-    >
-      <path d='M7 13H17V11H7V13Z' />
-    </Icon>
-  );
-});
-
 const IconItem = (props: any) => {
   const {
     noFontSizeDownScale,
@@ -236,6 +235,8 @@ const Checkbox: React.FC<ICheckbox> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...props_, ...theme?.ui?.elements?.amauiCheckbox?.props?.default }), [props_]);
 
+  const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
+
   const {
     tonal = true,
     color = 'primary',
@@ -267,6 +268,8 @@ const Checkbox: React.FC<ICheckbox> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
+  const { classes } = useStyle();
+
   const checkedDefault = valueDefault_ !== undefined ? valueDefault_ : checkedDefault_;
   const checked = value_ !== undefined ? value_ : checked_;
 
@@ -282,8 +285,6 @@ const Checkbox: React.FC<ICheckbox> = React.forwardRef((props_, ref: any) => {
   refs.value.current = value;
 
   refs.indeterminate.current = indeterminate;
-
-  const { classes } = useStyle();
 
   const styles: any = {
     iconItem: {},

@@ -4,8 +4,8 @@ import { is, clamp, numberWithCommas, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import AdvancedTextField from '../AdvancedTextField';
-import IconButton from '../IconButton';
-import Icon from '../Icon';
+import IconButtonElement from '../IconButton';
+import IconElement from '../Icon';
 import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
 import { staticClassName } from '../utils';
 import { IElementReference, IPropsAny } from '../types';

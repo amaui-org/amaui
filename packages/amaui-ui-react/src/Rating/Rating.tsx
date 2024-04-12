@@ -3,7 +3,7 @@ import React from 'react';
 import { clamp, is, isEnvironment, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Icon from '../Icon';
+import IconElement from '../Icon';
 import { staticClassName } from '../utils';
 import { IBaseElement, ITonal, IColor, ISize, IElement } from '../types';
 

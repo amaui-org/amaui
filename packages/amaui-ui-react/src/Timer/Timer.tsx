@@ -6,13 +6,13 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Fade from '../Fade';
 import Expand from '../Expand';
-import Type from '../Type';
-import Tooltip from '../Tooltip';
+import TypeElement from '../Type';
+import TooltipElement from '../Tooltip';
 import Tree from '../Tree';
-import Surface from '../Surface';
-import Line from '../Line';
-import IconButton from '../IconButton';
-import Icon from '../Icon';
+import SurfaceElement from '../Surface';
+import LineElement from '../Line';
+import IconButtonElement from '../IconButton';
+import IconElement from '../Icon';
 import { ISurface } from '../Surface/Surface';
 import { staticClassName } from '../utils';
 import { IElementReference, IPropsAny } from '../types';

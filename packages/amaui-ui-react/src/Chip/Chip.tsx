@@ -3,11 +3,27 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Button from '../Button';
-import Icon from '../Icon';
+import ButtonElement from '../Button';
+import IconElement from '../Icon';
 import { IconDoneAnimated } from '../Buttons/Buttons';
 import { IButton } from '../Button/Button';
 import { staticClassName } from '../utils';
+
+const IconMaterialCloseSharp = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='CloseSharp'
+      short_name='Close'
+
+      {...props}
+    >
+      <path d="M6.4 19 5 17.6 10.6 12 5 6.4 6.4 5 12 10.6 17.6 5 19 6.4 13.4 12 19 17.6 17.6 19 12 13.4Z" />
+    </IconElement>
+  );
+});
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -20,22 +36,6 @@ const useStyle = styleMethod(theme => ({
     }
   },
 }), { name: 'amaui-Chip' });
-
-const IconMaterialCloseSharp = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='CloseSharp'
-      short_name='Close'
-
-      {...props}
-    >
-      <path d="M6.4 19 5 17.6 10.6 12 5 6.4 6.4 5 12 10.6 17.6 5 19 6.4 13.4 12 19 17.6 17.6 19 12 13.4Z" />
-    </Icon>
-  );
-});
 
 export interface IChip extends IButton {
   input?: boolean;
@@ -53,6 +53,8 @@ const Chip: React.FC<IChip> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiChip?.props?.default, ...props_ }), [props_]);
+
+  const Button = React.useMemo(() => theme?.elements?.Button || ButtonElement, [theme]);
 
   const {
     tonal = false,
@@ -79,10 +81,10 @@ const Chip: React.FC<IChip> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
+  const { classes } = useStyle();
+
   const [preSelected, setPreSelected] = React.useState(false);
   const [selected, setSelected] = React.useState(selected_);
-
-  const { classes } = useStyle();
 
   const children = children_;
 

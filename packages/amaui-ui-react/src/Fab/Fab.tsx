@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Button from '../Button';
+import ButtonElement from '../Button';
 import { IButton } from '../Button/Button';
 import { staticClassName } from '../utils';
 

@@ -4,7 +4,7 @@ import { Location, useLocation } from 'react-router-dom';
 import { hash } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Line from '../Line';
+import LineElement from '../Line';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 

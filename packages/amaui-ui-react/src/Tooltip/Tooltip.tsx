@@ -6,7 +6,7 @@ import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-re
 import Grow from '../Grow';
 import Modal from '../Modal';
 import Append from '../Append';
-import Surface from '../Surface';
+import SurfaceElement from '../Surface';
 import { IModal } from '../Modal/Modal';
 import { staticClassName } from '../utils';
 import { IColor, IElement, IElementReference, IHTMLElement, IMethodTransition, IPropsAny, ITonal } from '../types';

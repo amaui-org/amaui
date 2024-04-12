@@ -6,7 +6,7 @@ import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-re
 import Portal from '../Portal';
 import Focus from '../Focus';
 import Fade from '../Fade';
-import Surface from '../Surface';
+import SurfaceElement from '../Surface';
 import useMediaQuery from '../useMediaQuery';
 import { staticClassName } from '../utils';
 import { IBaseElement, IColor, IElementReference, IPropsAny, IRef, ISize, ITonal } from '../types';

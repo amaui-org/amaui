@@ -5,7 +5,7 @@ import { is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Section, { ISection } from '../Section/Section';
-import Button from '../Button';
+import ButtonElement from '../Button';
 import { staticClassName } from '../utils';
 import { IPropsAny } from '../types';
 

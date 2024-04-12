@@ -3,10 +3,10 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
-import Surface from '../Surface';
-import Line from '../Line';
-import Icon from '../Icon';
-import IconButton from '../IconButton';
+import SurfaceElement from '../Surface';
+import LineElement from '../Line';
+import IconElement from '../Icon';
+import IconButtonElement from '../IconButton';
 import useMediaQuery from '../useMediaQuery';
 import Divider from '../Divider';
 import { ISurface } from '../Surface/Surface';

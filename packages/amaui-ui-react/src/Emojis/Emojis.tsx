@@ -5,16 +5,16 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import { emojis_list } from '.';
 import Menu, { IMenu } from '../Menu/Menu';
-import Line from '../Line';
+import LineElement from '../Line';
 import SpyScroll from '../SpyScroll';
-import List from '../List';
+import ListElement from '../List';
 import ListSubheader from '../ListSubheader';
 import Tabs from '../Tabs';
-import TextField from '../TextField';
+import TextFieldElement from '../TextField';
 import Tab from '../Tab';
-import Type from '../Type';
-import Icon from '../Icon';
-import Surface from '../Surface';
+import TypeElement from '../Type';
+import IconElement from '../Icon';
+import SurfaceElement from '../Surface';
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({

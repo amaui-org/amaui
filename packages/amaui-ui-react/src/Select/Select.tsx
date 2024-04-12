@@ -3,13 +3,13 @@ import React from 'react';
 import { is, isEnvironment, unique } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Icon from '../Icon';
+import IconElement from '../Icon';
 import Menu from '../Menu';
 import Chip from '../Chip';
-import TextField from '../TextField';
+import TextFieldElement from '../TextField';
 import ChipGroup from '../Chips';
-import IconButton from '../IconButton';
-import Line from '../Line';
+import IconButtonElement from '../IconButton';
+import LineElement from '../Line';
 import { ITextField } from '../TextField/TextField';
 import { staticClassName } from '../utils';
 import { IElement, IPropsAny } from '../types';

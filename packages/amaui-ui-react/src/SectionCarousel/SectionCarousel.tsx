@@ -6,10 +6,10 @@ import { TPaletteVersion, classNames, style as styleMethod, useAmauiTheme } from
 
 import Section, { ISection } from '../Section/Section';
 import useMediaQuery from '../useMediaQuery';
-import Button from '../Button';
+import ButtonElement from '../Button';
 import Carousel from '../Carousel';
-import Line from '../Line';
-import Type from '../Type';
+import LineElement from '../Line';
+import TypeElement from '../Type';
 import { staticClassName } from '../utils';
 import { IMediaObject, IPropsAny } from '../types';
 

@@ -4,8 +4,8 @@ import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line, { ILine } from '../Line/Line';
-import Type from '../Type';
-import Interaction from '../Interaction';
+import TypeElement from '../Type';
+import InteractionElement from '../Interaction';
 import AudioPlayer from '../AudioPlayer';
 import VideoPlayer from '../VideoPlayer';
 import Portal from '../Portal';

@@ -3,10 +3,10 @@ import React from 'react';
 import { clamp, equalDeep, is, isEnvironment, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import IconButton from '../IconButton';
-import Tooltip from '../Tooltip';
+import IconButtonElement from '../IconButton';
+import TooltipElement from '../Tooltip';
 import Zoom from '../Zoom';
-import Type from '../Type';
+import TypeElement from '../Type';
 import { staticClassName } from '../utils';
 import { IBaseElement, ITonal, IColor, ISize, IElement, IPropsAny } from '../types';
 

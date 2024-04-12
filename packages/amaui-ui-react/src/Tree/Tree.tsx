@@ -4,13 +4,13 @@ import { clamp, is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Checkbox from '../Checkbox';
-import Surface from '../Surface';
-import Type from '../Type';
+import SurfaceElement from '../Surface';
+import TypeElement from '../Type';
 import Fade from '../Fade';
 import Expand from '../Expand';
-import Interaction from '../Interaction';
-import Line from '../Line';
-import Icon from '../Icon';
+import InteractionElement from '../Interaction';
+import LineElement from '../Line';
+import IconElement from '../Icon';
 import { TTransitionStatus } from '../Transition';
 import { staticClassName } from '../utils';
 import { IBaseElement, IElement, IPropsAny, IElementReference } from '../types';

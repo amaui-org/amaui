@@ -5,7 +5,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Line, { ILine } from '../Line/Line';
 import useMediaQuery from '../useMediaQuery';
-import Type from '../Type';
+import TypeElement from '../Type';
 import { staticClassName } from '../utils';
 import { IPropsAny } from '../types';
 

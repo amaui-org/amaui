@@ -2,9 +2,9 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Surface from '../Surface';
+import SurfaceElement from '../Surface';
 import Divider from '../Divider';
-import Line from '../Line';
+import LineElement from '../Line';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { IElement, IPropsAny, IElementReference } from '../types';

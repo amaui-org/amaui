@@ -4,11 +4,11 @@ import { is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import FileChoose from '../FileChoose';
-import Surface from '../Surface';
-import Type from '../Type';
-import Line from '../Line';
-import Icon from '../Icon';
-import Interaction from '../Interaction';
+import SurfaceElement from '../Surface';
+import TypeElement from '../Type';
+import LineElement from '../Line';
+import IconElement from '../Icon';
+import InteractionElement from '../Interaction';
 import { IFileChoose } from '../FileChoose/FileChoose';
 import { staticClassName } from '../utils';
 import { IElement, IVersion } from '../types';

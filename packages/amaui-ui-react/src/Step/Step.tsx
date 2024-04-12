@@ -4,12 +4,12 @@ import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Divider from '../Divider';
-import Interaction from '../Interaction';
+import InteractionElement from '../Interaction';
 import { IconDoneAnimated } from '../Buttons/Buttons';
 import PaginationItem from '../PaginationItem';
-import Surface from '../Surface';
-import ListItem from '../ListItem';
-import Line from '../Line';
+import SurfaceElement from '../Surface';
+import ListItemElement from '../ListItem';
+import LineElement from '../Line';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { ITonal, IColor, IVersion, IElement, IPropsAny } from '../types';

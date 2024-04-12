@@ -3,10 +3,10 @@ import React from 'react';
 import { is, clamp, pagination } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Type from '../Type';
-import Icon from '../Icon';
-import Line from '../Line';
-import IconButton from '../IconButton';
+import TypeElement from '../Type';
+import IconElement from '../Icon';
+import LineElement from '../Line';
+import IconButtonElement from '../IconButton';
 import PaginationItem from '../PaginationItem';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';

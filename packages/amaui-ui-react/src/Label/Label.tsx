@@ -3,8 +3,8 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Type from '../Type';
-import Line from '../Line';
+import TypeElement from '../Type';
+import LineElement from '../Line';
 import { ILine, TLineAlign } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { ITonal, IColor, IVersion, ISize, IElement, IPropsAny } from '../types';

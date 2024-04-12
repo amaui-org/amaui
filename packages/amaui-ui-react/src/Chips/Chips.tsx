@@ -2,8 +2,8 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Line from '../Line';
-import Chip from '../Chip/Chip';
+import LineElement from '../Line';
+import ChipElement from '../Chip/Chip';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { IElement, IPropsAny } from '../types';
@@ -74,7 +74,9 @@ const Chips: React.FC<IChips> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiChips?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Chip = React.useMemo(() => theme?.elements?.Chip || ChipElement, [theme]);
 
   const {
     size = 'regular',
@@ -106,6 +108,8 @@ const Chips: React.FC<IChips> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const [showAll, setShowAll] = React.useState(showAllDefault !== undefined ? showAllDefault : false);
 

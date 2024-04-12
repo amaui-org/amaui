@@ -3,7 +3,7 @@ import React from 'react';
 import { clamp, is, parse, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Surface from '../Surface';
+import SurfaceElement from '../Surface';
 import { angleToCoordinates, staticClassName } from '../utils';
 import { IBaseElement, ITonal, IColor, ISize, IStyle, IElement, IPropsAny } from '../types';
 

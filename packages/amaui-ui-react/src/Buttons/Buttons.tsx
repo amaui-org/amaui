@@ -286,6 +286,8 @@ const Buttons: React.FC<IButtons> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
+  const { classes } = useStyle();
+
   const [init, setInit] = React.useState(false);
   const [preSelected, setPreSelected] = React.useState([]);
   const [selected, setSelected] = React.useState(() => {
@@ -293,8 +295,6 @@ const Buttons: React.FC<IButtons> = React.forwardRef((props_, ref: any) => {
 
     return valueNew !== undefined ? is('array', valueNew) ? valueNew : [valueNew] : [];
   });
-
-  const { classes } = useStyle();
 
   const refs = {
     noCheckIcon: React.useRef(noCheckIcon)

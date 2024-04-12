@@ -3,10 +3,10 @@ import React from 'react';
 import { is, clamp, valueFromPercentageWithinRange, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Line from '../Line';
+import LineElement from '../Line';
 import Divider from '../Divider';
-import IconButton from '../IconButton';
-import Icon from '../Icon';
+import IconButtonElement from '../IconButton';
+import IconElement from '../Icon';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { ITonal, IColor, IElement, IPropsAny } from '../types';

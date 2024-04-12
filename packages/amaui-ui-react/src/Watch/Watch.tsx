@@ -5,10 +5,10 @@ import { AmauiDate, format } from '@amaui/date';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Path from '../Path';
-import Type from '../Type';
-import Surface from '../Surface';
+import TypeElement from '../Type';
+import SurfaceElement from '../Surface';
 import RoundMeter from '../RoundMeter';
-import Line from '../Line';
+import LineElement from '../Line';
 import { ISurface } from '../Surface/Surface';
 import { staticClassName, angleToCoordinates } from '../utils';
 import { ISize, IElement, IPropsAny } from '../types';

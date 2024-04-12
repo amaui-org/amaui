@@ -5,8 +5,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import { TMethod } from '@amaui/models';
 
 import Path from '../Path';
-import Line from '../Line';
-import Type from '../Type';
+import LineElement from '../Line';
+import TypeElement from '../Type';
 import useMediaQuery from '../useMediaQuery';
 import { IChart, TChartValueValues } from '../Chart/Chart';
 import { controlPoint, staticClassName, valueBreakpoints } from '../utils';

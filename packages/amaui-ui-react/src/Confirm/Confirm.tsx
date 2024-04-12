@@ -3,14 +3,14 @@ import React from 'react';
 import { is, TMethod, setObjectValue } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Button from '../Button';
+import ButtonElement from '../Button';
 import ConfirmContext from './Context';
-import ModalHeader from '../ModalHeader';
-import ModalFooter from '../ModalFooter';
-import ModalTitle from '../ModalTitle';
-import ModalMain from '../ModalMain';
-import ModalText from '../ModalText';
-import Modal from '../Modal';
+import ModalHeaderElement from '../ModalHeader';
+import ModalFooterElement from '../ModalFooter';
+import ModalTitleElement from '../ModalTitle';
+import ModalMainElement from '../ModalMain';
+import ModalTextElement from '../ModalText';
+import ModalElement from '../Modal';
 import { staticClassName } from '../utils';
 import { IBaseElement } from '../types';
 
@@ -71,6 +71,20 @@ const Confirm: React.FC<IConfirm> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiConfirm?.props?.default, ...props_ }), [props_]);
 
+  const ModalHeader = React.useMemo(() => theme?.elements?.ModalHeader || ModalHeaderElement, [theme]);
+
+  const ModalFooter = React.useMemo(() => theme?.elements?.ModalFooter || ModalFooterElement, [theme]);
+
+  const ModalTitle = React.useMemo(() => theme?.elements?.ModalTitle || ModalTitleElement, [theme]);
+
+  const ModalMain = React.useMemo(() => theme?.elements?.ModalMain || ModalMainElement, [theme]);
+
+  const ModalText = React.useMemo(() => theme?.elements?.ModalText || ModalTextElement, [theme]);
+
+  const Modal = React.useMemo(() => theme?.elements?.Modal || ModalElement, [theme]);
+
+  const Button = React.useMemo(() => theme?.elements?.Button || ButtonElement, [theme]);
+
   const {
     throwError,
 
@@ -84,6 +98,8 @@ const Confirm: React.FC<IConfirm> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const [openModal, setOpenModal] = React.useState(false);
 
@@ -99,8 +115,6 @@ const Confirm: React.FC<IConfirm> = React.forwardRef((props_, ref: any) => {
       reject: React.useRef<any>()
     }
   };
-
-  const { classes } = useStyle();
 
   refs.props.current = props;
 

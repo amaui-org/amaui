@@ -4,18 +4,18 @@ import { is, to, clamp, debounce, canvasCrop, download as downloadMethod, isEnvi
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import { TMethod } from '@amaui/models';
 
-import Type from '../Type';
+import TypeElement from '../Type';
 import Expand from '../Expand';
 import Divider from '../Divider';
-import Surface from '../Surface';
-import Tooltip from '../Tooltip';
-import IconButton from '../IconButton';
+import SurfaceElement from '../Surface';
+import TooltipElement from '../Tooltip';
+import IconButtonElement from '../IconButton';
 import Slider from '../Slider';
 import NumericTextField from '../NumericTextField';
 import ImageCrop from '../ImageCrop';
 import Chip from '../Chip';
-import Icon from '../Icon';
-import Line from '../Line';
+import IconElement from '../Icon';
+import LineElement from '../Line';
 import { ILine } from '../Line/Line';
 import { canvasBrightness, staticClassName, image as imageMethod, canvasContrast, canvasSaturation, canvasFade, canvasInvert, canvasOldPhoto } from '../utils';
 import { IElementReference, IElement, ITonal, IColor, IPropsAny } from '../types';

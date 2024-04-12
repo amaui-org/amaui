@@ -6,10 +6,10 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import AudioPlayer from '../AudioPlayer';
 import Icon, { IIcon } from '../Icon';
 import Image from '../Image';
-import Interaction from '../Interaction';
-import Line from '../Line';
+import InteractionElement from '../Interaction';
+import LineElement from '../Line';
 import Section, { ISection } from '../Section/Section';
-import Type from '../Type';
+import TypeElement from '../Type';
 import VideoPlayer from '../VideoPlayer';
 import { staticClassName } from '../utils';
 import { IMediaObject, IPropsAny } from '../types';

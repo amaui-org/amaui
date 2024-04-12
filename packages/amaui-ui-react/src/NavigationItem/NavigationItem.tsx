@@ -4,10 +4,10 @@ import { is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Transition, { TTransitionStatus } from '../Transition';
-import Type from '../Type';
+import TypeElement from '../Type';
 import Fade from '../Fade';
-import Line from '../Line';
-import Tooltip from '../Tooltip';
+import LineElement from '../Line';
+import TooltipElement from '../Tooltip';
 import { ITooltip } from '../Tooltip/Tooltip';
 import { staticClassName } from '../utils';
 import { ITonal, IColor, IElement, IElementReference, IPropsAny } from '../types';

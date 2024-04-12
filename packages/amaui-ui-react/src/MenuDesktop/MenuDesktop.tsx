@@ -5,13 +5,13 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import Grow from '../Grow';
 import Append from '../Append';
-import Surface from '../Surface';
+import SurfaceElement from '../Surface';
 import Transition, { TTransitionStatus } from '../Transition';
 import Transitions from '../Transitions';
 import ClickListener from '../ClickListener';
-import Type from '../Type';
-import Line from '../Line';
-import Icon from '../Icon';
+import TypeElement from '../Type';
+import LineElement from '../Line';
+import IconElement from '../Icon';
 import { ILine } from '../Line/Line';
 import useMediaQuery from '../useMediaQuery';
 import { staticClassName } from '../utils';

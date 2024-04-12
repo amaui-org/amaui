@@ -4,7 +4,7 @@ import { clamp } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Divider from '../Divider';
-import Line from '../Line';
+import LineElement from '../Line';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { ITonal, IColor, IVersion, IPropsAny } from '../types';

@@ -3,7 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Interaction from '../Interaction';
+import InteractionElement from '../Interaction';
 import { staticClassName } from '../utils';
 import { IBaseElement, IPropsAny } from '../types';
 
@@ -31,6 +31,8 @@ const CardButton: React.FC<ICardButton> = React.forwardRef((props_, ref: any) =>
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCardButton?.props?.default, ...props_ }), [props_]);
 
+  const Interaction = React.useMemo(() => theme?.elements?.Interaction || InteractionElement, [theme]);
+
   const {
     focus: focus_,
     selected,
@@ -51,9 +53,9 @@ const CardButton: React.FC<ICardButton> = React.forwardRef((props_, ref: any) =>
     ...other
   } = props;
 
-  const [focus, setFocus] = React.useState(focus_ !== undefined ? focus_ : false);
-
   const { classes } = useStyle();
+
+  const [focus, setFocus] = React.useState(focus_ !== undefined ? focus_ : false);
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
     if (focus_ === undefined && !disabled) {

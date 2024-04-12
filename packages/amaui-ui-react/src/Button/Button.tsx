@@ -377,9 +377,9 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const [focus, setFocus] = React.useState(focus_ !== undefined ? focus_ : false);
-
   const { classes } = useStyle();
+
+  const [focus, setFocus] = React.useState(focus_ !== undefined ? focus_ : false);
 
   const refs = {
     root: React.useRef<any>(),

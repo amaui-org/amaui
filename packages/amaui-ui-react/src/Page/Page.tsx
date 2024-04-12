@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { is, isEnvironment } from '@amaui/utils';
 import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
-import Icon from '../Icon';
-import IconButton from '../IconButton';
-import Line from '../Line';
-import Tooltip from '../Tooltip';
-import Type from '../Type';
+import IconElement from '../Icon';
+import IconButtonElement from '../IconButton';
+import LineElement from '../Line';
+import TooltipElement from '../Tooltip';
+import TypeElement from '../Type';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { IElement, IElementReference } from '../types';

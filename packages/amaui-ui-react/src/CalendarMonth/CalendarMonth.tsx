@@ -4,12 +4,12 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import { arrayToParts, is } from '@amaui/utils';
 import { add, AmauiDate, endOf, format, remove, set, startOf, is as isAmauiDate } from '@amaui/date';
 
-import Line from '../Line';
-import Surface from '../Surface';
-import Type from '../Type';
-import PaginationItem from '../PaginationItem';
-import Transitions from '../Transitions';
-import Transition, { TTransitionStatus } from '../Transition';
+import LineElement from '../Line';
+import SurfaceElement from '../Surface';
+import TypeElement from '../Type';
+import PaginationItemElement from '../PaginationItem';
+import TransitionsElement from '../Transitions';
+import TransitionElement, { TTransitionStatus } from '../Transition';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { IColor, IPropsAny, ISize, ITonal } from '../types';
@@ -268,7 +268,17 @@ const CalendarMonth: React.FC<ICalenarDays> = React.forwardRef((props__, ref: an
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiCalendarMonth?.props?.default, ...props__ }), [props__]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const PaginationItem = React.useMemo(() => theme?.elements?.PaginationItem || PaginationItemElement, [theme]);
+
+  const Transitions = React.useMemo(() => theme?.elements?.Transitions || TransitionsElement, [theme]);
+
+  const Transition = React.useMemo(() => theme?.elements?.Transition || TransitionElement, [theme]);
 
   const {
     tonal = true,
@@ -310,6 +320,8 @@ const CalendarMonth: React.FC<ICalenarDays> = React.forwardRef((props__, ref: an
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const [value, setValue] = React.useState(() => {
     const valueResult = (valueDefault !== undefined ? valueDefault : value_) || (now && (range ? [new AmauiDate(), new AmauiDate()] : [new AmauiDate()]));

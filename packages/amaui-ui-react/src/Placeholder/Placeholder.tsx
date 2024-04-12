@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Surface from '../Surface';
+import SurfaceElement from '../Surface';
 import { staticClassName } from '../utils';
 import { IBaseElement, IColor } from '../types';
 

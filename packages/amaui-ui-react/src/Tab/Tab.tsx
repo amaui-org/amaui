@@ -3,10 +3,10 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Type from '../Type';
-import Surface from '../Surface';
-import Line from '../Line';
-import Interaction from '../Interaction';
+import TypeElement from '../Type';
+import SurfaceElement from '../Surface';
+import LineElement from '../Line';
+import InteractionElement from '../Interaction';
 import { ISurface } from '../Surface/Surface';
 import { staticClassName } from '../utils';
 import { IElement, IPropsAny } from '../types';

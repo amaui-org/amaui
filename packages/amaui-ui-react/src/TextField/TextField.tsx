@@ -4,9 +4,9 @@ import { clamp, is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import AmauiSubscription from '@amaui/subscription';
 
-import Icon from '../Icon';
-import Type from '../Type';
-import Line from '../Line';
+import IconElement from '../Icon';
+import TypeElement from '../Type';
+import LineElement from '../Line';
 
 import useMediaQuery from '../useMediaQuery';
 import { valueBreakpoints, staticClassName } from '../utils';

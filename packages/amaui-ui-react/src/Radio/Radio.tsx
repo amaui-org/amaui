@@ -3,7 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import IconButton from '../IconButton';
+import IconButtonElement from '../IconButton';
 import { IIconButton } from '../IconButton/IconButton';
 import { iconSizeToFontSize, staticClassName } from '../utils';
 import { IRef, IColor } from '../types';

@@ -5,9 +5,9 @@ import { is, isEnvironment, textToInnerHTML } from '@amaui/utils';
 import { TPaletteVersion, classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Section, { ISection } from '../Section/Section';
-import Line from '../Line';
-import Type from '../Type';
-import Button from '../Button';
+import LineElement from '../Line';
+import TypeElement from '../Type';
+import ButtonElement from '../Button';
 import { staticClassName } from '../utils';
 import { IMediaObject, IPropsAny } from '../types';
 

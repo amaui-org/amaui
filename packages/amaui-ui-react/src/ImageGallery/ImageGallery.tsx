@@ -4,12 +4,12 @@ import { clamp, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import { IMedia } from '@amaui/api-utils';
 
-import Line from '../Line';
+import LineElement from '../Line';
 import Image from '../Image';
-import Icon from '../Icon';
-import IconButton from '../IconButton';
+import IconElement from '../Icon';
+import IconButtonElement from '../IconButton';
 import Backdrop from '../Backdrop';
-import Interaction from '../Interaction';
+import InteractionElement from '../Interaction';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { IElementReference } from '../types';

@@ -3,8 +3,8 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Line from '../Line';
-import Surface from '../Surface';
+import LineElement from '../Line';
+import SurfaceElement from '../Surface';
 import { ISurface } from '../Surface/Surface';
 import { INavigationItemVersion } from '../NavigationItem/NavigationItem';
 import { staticClassName } from '../utils';

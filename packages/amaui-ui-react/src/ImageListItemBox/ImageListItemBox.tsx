@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import ListItem from '../ListItem';
+import ListItemElement from '../ListItem';
 import { IListItem } from '../ListItem/ListItem';
 import { staticClassName } from '../utils';
 

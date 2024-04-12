@@ -4,7 +4,7 @@ import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Keyframes from '../Keyframes';
-import IconButton from '../IconButton';
+import IconButtonElement from '../IconButton';
 import { staticClassName } from '../utils';
 import { IBaseElement, ITonal, IColor, ISize, IRef, IElement } from '../types';
 

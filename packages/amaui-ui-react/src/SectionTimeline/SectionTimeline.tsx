@@ -4,10 +4,10 @@ import { is, textToInnerHTML } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Section, { ISection } from '../Section/Section';
-import ListItem from '../ListItem';
+import ListItemElement from '../ListItem';
 import Timeline from '../Timeline';
 import TimelineItem from '../TimelineItem';
-import Type from '../Type';
+import TypeElement from '../Type';
 import { staticClassName } from '../utils';
 import { IPropsAny } from '../types';
 

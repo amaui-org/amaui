@@ -3,7 +3,7 @@ import React from 'react';
 import { is, clamp, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Tooltip from '../Tooltip';
+import TooltipElement from '../Tooltip';
 import { staticClassName, image as imageMethod } from '../utils';
 import { IBaseElement, IPropsAny } from '../types';
 

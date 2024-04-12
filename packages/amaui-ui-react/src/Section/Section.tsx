@@ -4,7 +4,7 @@ import { is, textToInnerHTML } from '@amaui/utils';
 import { TPaletteVersion, classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Line, { ILine } from '../Line/Line';
-import Type from '../Type';
+import TypeElement from '../Type';
 import Reveal from '../Reveal';
 import useMediaQuery from '../useMediaQuery';
 import { valueBreakpoints, staticClassName } from '../utils';

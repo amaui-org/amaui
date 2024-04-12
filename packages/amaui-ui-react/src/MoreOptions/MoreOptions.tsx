@@ -2,8 +2,8 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Icon from '../Icon';
-import IconButton from '../IconButton';
+import IconElement from '../Icon';
+import IconButtonElement from '../IconButton';
 import Menu, { IMenu } from '../Menu/Menu';
 import { staticClassName } from '../utils';
 import { IPropsAny } from '../types';

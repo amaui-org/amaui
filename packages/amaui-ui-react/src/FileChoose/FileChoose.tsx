@@ -3,12 +3,12 @@ import React from 'react';
 import { is, to } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Type from '../Type';
-import Button from '../Button';
-import IconButton from '../IconButton';
+import TypeElement from '../Type';
+import ButtonElement from '../Button';
+import IconButtonElement from '../IconButton';
 import Tree from '../Tree';
-import Line from '../Line';
-import Icon from '../Icon';
+import LineElement from '../Line';
+import IconElement from '../Icon';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { ITonal, IColor, IRef, IElementReference, IPropsAny } from '../types';

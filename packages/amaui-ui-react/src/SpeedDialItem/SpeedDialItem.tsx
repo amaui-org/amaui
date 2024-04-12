@@ -3,8 +3,8 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Tooltip from '../Tooltip';
-import IconButton from '../IconButton';
+import TooltipElement from '../Tooltip';
+import IconButtonElement from '../IconButton';
 import { IIconButton } from '../IconButton/IconButton';
 import { staticClassName } from '../utils';
 import { IElement, IElementReference, IPropsAny } from '../types';

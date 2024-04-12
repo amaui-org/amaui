@@ -3,9 +3,9 @@ import React from 'react';
 import { is, textToInnerHTML } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Line from '../Line';
+import LineElement from '../Line';
 import Section, { ISection } from '../Section/Section';
-import Type from '../Type';
+import TypeElement from '../Type';
 import { staticClassName } from '../utils';
 import { IMediaObject, IPropsAny } from '../types';
 import Avatar from '../Avatar';

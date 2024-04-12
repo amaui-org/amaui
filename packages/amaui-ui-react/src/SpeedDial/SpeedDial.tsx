@@ -6,9 +6,9 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import Zoom from '../Zoom';
 import Fade from '../Fade';
 import Fab from '../Fab';
-import Icon from '../Icon';
-import Tooltip from '../Tooltip';
-import Line from '../Line';
+import IconElement from '../Icon';
+import TooltipElement from '../Tooltip';
+import LineElement from '../Line';
 import { ILine, TLineDirection } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { ITonal, IColor, IVersion, IElement, IElementReference, IPropsAny } from '../types';

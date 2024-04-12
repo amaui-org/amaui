@@ -3,12 +3,12 @@ import React from 'react';
 import { castParam, clamp, copy, is, isEnvironment, percentageFromValueWithinRange, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style as styleMethod, TColorValues, useAmauiTheme } from '@amaui/style-react';
 
-import Surface from '../Surface';
-import Line from '../Line';
-import Type from '../Type';
-import Path from '../Path';
-import Append from '../Append';
-import Grow from '../Grow';
+import SurfaceElement from '../Surface';
+import LineElement from '../Line';
+import TypeElement from '../Type';
+import PathElement from '../Path';
+import AppendElement from '../Append';
+import GrowElement from '../Grow';
 import useMediaQuery from '../useMediaQuery';
 import { ISurface } from '../Surface/Surface';
 import { valueBreakpoints, staticClassName, minMaxBetweenNumbers } from '../utils';
@@ -485,7 +485,17 @@ const Chart: React.FC<IChart> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiChart?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const Path = React.useMemo(() => theme?.elements?.Path || PathElement, [theme]);
+
+  const Append = React.useMemo(() => theme?.elements?.Append || AppendElement, [theme]);
+
+  const Grow = React.useMemo(() => theme?.elements?.Grow || GrowElement, [theme]);
 
   const {
     tonal = true,
@@ -662,6 +672,8 @@ const Chart: React.FC<IChart> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

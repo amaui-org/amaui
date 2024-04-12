@@ -4,8 +4,8 @@ import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 import { clamp, getLeadingZerosNumber, is, isEnvironment, unique } from '@amaui/utils';
 import { AmauiDate, is as isAmauiDate, set } from '@amaui/date';
 
-import RoundMeter from '../RoundMeter';
-import Path from '../Path';
+import RoundMeterElement from '../RoundMeter';
+import PathElement from '../Path';
 import { IRoundMeter } from '../RoundMeter/RoundMeter';
 import { staticClassName } from '../utils';
 import { ITonal, IColor, ISize } from '../types';
@@ -75,7 +75,9 @@ const Clock: React.FC<IClock> = React.forwardRef((props__, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiClock?.props?.default, ...props__ }), [props__]);
 
-  const { classes } = useStyle();
+  const RoundMeter = React.useMemo(() => theme?.elements?.RoundMeter || RoundMeterElement, [theme]);
+
+  const Path = React.useMemo(() => theme?.elements?.Path || PathElement, [theme]);
 
   const {
     tonal = true,
@@ -115,6 +117,8 @@ const Clock: React.FC<IClock> = React.forwardRef((props__, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || new AmauiDate());
   const [selecting, setSelecting] = React.useState((selectingDefault !== undefined ? selectingDefault : selecting_) || 'hour');

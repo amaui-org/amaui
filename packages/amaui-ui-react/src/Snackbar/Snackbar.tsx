@@ -4,11 +4,11 @@ import { is, getID, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Grow from '../Grow';
-import Icon from '../Icon';
-import Type from '../Type';
-import Surface from '../Surface';
-import IconButton from '../IconButton';
-import Line from '../Line';
+import IconElement from '../Icon';
+import TypeElement from '../Type';
+import SurfaceElement from '../Surface';
+import IconButtonElement from '../IconButton';
+import LineElement from '../Line';
 import { ISurface } from '../Surface/Surface';
 import { staticClassName } from '../utils';
 import { ISize, IElement, IElementReference, IPropsAny } from '../types';

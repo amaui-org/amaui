@@ -3,11 +3,11 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Surface from '../Surface';
-import Type from '../Type';
+import SurfaceElement from '../Surface';
+import TypeElement from '../Type';
 import Fade from '../Fade';
 import Transitions from '../Transitions';
-import Icon from '../Icon';
+import IconElement from '../Icon';
 import { ISurface } from '../Surface/Surface';
 import { staticClassName } from '../utils';
 import { ISize, IElementReference, IPropsAny } from '../types';

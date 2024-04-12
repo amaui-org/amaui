@@ -3,7 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import TextField from '../TextField';
+import TextFieldElement from '../TextField';
 import { ITextField } from '../TextField/TextField';
 import { staticClassName } from '../utils';
 
@@ -54,7 +54,7 @@ const ColorTextField: React.FC<IColorTextField> = React.forwardRef((props_, ref:
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiColorTextField?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const TextField = React.useMemo(() => theme?.elements?.TextField || TextFieldElement, [theme]);
 
   const {
     valueDefault,
@@ -66,6 +66,8 @@ const ColorTextField: React.FC<IColorTextField> = React.forwardRef((props_, ref:
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const [init, setInit] = React.useState(false);
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || '');

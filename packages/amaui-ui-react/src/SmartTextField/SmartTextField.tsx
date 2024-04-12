@@ -5,16 +5,16 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import TextField, { ITextField } from '../TextField/TextField';
 import Icon, { IIcon } from '../Icon';
-import Line from '../Line';
-import List from '../List';
-import ListItem from '../ListItem';
+import LineElement from '../Line';
+import ListElement from '../List';
+import ListItemElement from '../ListItem';
 import Avatar from '../Avatar';
-import Type from '../Type';
-import Surface from '../Surface';
-import Button from '../Button';
+import TypeElement from '../Type';
+import SurfaceElement from '../Surface';
+import ButtonElement from '../Button';
 import Append from '../Append';
 import Fade from '../Fade';
-import Tooltip from '../Tooltip';
+import TooltipElement from '../Tooltip';
 import ToggleButton from '../ToggleButton';
 import ClickListener from '../ClickListener';
 import ToggleButtons from '../ToggleButtons';

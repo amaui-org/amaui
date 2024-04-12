@@ -3,9 +3,9 @@ import React from 'react';
 import { clamp, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Chart from '../Chart';
+import ChartElement from '../Chart';
+import ColumnChartItemElement from '../ColumnChartItem';
 import { IChart } from '../Chart/Chart';
-import ColumnChartItem from '../ColumnChartItem';
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
@@ -23,7 +23,9 @@ const ColumnChart: React.FC<IColumnChart> = React.forwardRef((props_, ref: any) 
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiColumnChart?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Chart = React.useMemo(() => theme?.elements?.Chart || ChartElement, [theme]);
+
+  const ColumnChartItem = React.useMemo(() => theme?.elements?.ColumnChartItem || ColumnChartItemElement, [theme]);
 
   const {
     values,
@@ -32,6 +34,8 @@ const ColumnChart: React.FC<IColumnChart> = React.forwardRef((props_, ref: any) 
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const [rects, setRects] = React.useState<any>();
 

@@ -4,10 +4,10 @@ import { is, textToInnerHTML } from '@amaui/utils';
 import { TPaletteVersion, classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import Icon, { IIcon } from '../Icon';
-import Line from '../Line';
+import LineElement from '../Line';
 import Properties from '../Properties';
 import Section, { ISection } from '../Section/Section';
-import Type from '../Type';
+import TypeElement from '../Type';
 import useMediaQuery from '../useMediaQuery';
 import { staticClassName } from '../utils';
 import { IPropsAny } from '../types';

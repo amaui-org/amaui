@@ -4,7 +4,7 @@ import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import useMediaQuery from '../useMediaQuery';
-import Line from '../Line';
+import LineElement from '../Line';
 import { ILine } from '../Line/Line';
 import { valueBreakpoints, staticClassName } from '../utils';
 import { IValueBreakpoints } from '../types';

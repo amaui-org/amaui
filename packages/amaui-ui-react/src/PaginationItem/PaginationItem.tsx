@@ -3,8 +3,8 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Type from '../Type';
-import Button from '../Button';
+import TypeElement from '../Type';
+import ButtonElement from '../Button';
 import { IButton } from '../Button/Button';
 import { staticClassName } from '../utils';
 import { IPropsAny } from '../types';

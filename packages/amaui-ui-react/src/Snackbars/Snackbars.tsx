@@ -8,7 +8,7 @@ import { ISnackbar } from '../Snackbar/Snackbar';
 import SnackbarsContext from './Context';
 import Slide from '../Slide';
 import Expand from '../Expand';
-import Line from '../Line';
+import LineElement from '../Line';
 import { TLineAlign } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { IBaseElement, IPropsAny } from '../types';

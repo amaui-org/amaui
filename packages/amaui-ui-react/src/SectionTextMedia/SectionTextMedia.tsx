@@ -8,8 +8,8 @@ import Image from '../Image';
 import Section, { ISection } from '../Section/Section';
 import AudioPlayer from '../AudioPlayer';
 import VideoPlayer from '../VideoPlayer';
-import Line from '../Line';
-import Type from '../Type';
+import LineElement from '../Line';
+import TypeElement from '../Type';
 import { staticClassName } from '../utils';
 import { IValueBreakpoints, IPropsAny } from '../types';
 
