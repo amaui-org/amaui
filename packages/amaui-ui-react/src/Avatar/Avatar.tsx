@@ -2,8 +2,8 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Button from '../Button';
-import Type from '../Type';
+import ButtonElement from '../Button';
+import TypeElement from '../Type';
 import { IButton } from '../Button/Button';
 import { staticClassName } from '../utils';
 import { IElevation, IPropsAny } from '../types';
@@ -49,7 +49,9 @@ const Avatar: React.FC<IAvatar> = React.forwardRef((props_, ref) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAvatar?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Button = React.useMemo(() => theme?.elements?.Button || ButtonElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     tonal = false,
@@ -73,6 +75,8 @@ const Avatar: React.FC<IAvatar> = React.forwardRef((props_, ref) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   let children = children_;
 

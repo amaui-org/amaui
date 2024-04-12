@@ -3,12 +3,39 @@ import React from 'react';
 import { is, unique } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Icon from '../Icon';
-import Transition, { TTransitionStatus } from '../Transition';
-import Line from '../Line';
+import IconElement from '../Icon';
+import TransitionElement, { TTransitionStatus } from '../Transition';
+import LineElement from '../Line';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { IColor, ISize, ITonal, IVersion } from '../types';
+
+export const IconMaterialDoneSharp = React.forwardRef((props: any, ref) => {
+  const {
+    className,
+
+    ...other
+  } = props;
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='DoneSharp'
+      short_name='Done'
+
+      {...other}
+    >
+      <path
+        className={className}
+
+        fill='none'
+
+        d='M4.5 11.5L9.5 16.5L19.5 6.5'
+      />
+    </IconElement>
+  );
+});
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -124,37 +151,12 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-Buttons' });
 
-export const IconMaterialDoneSharp = React.forwardRef((props: any, ref) => {
-  const {
-    className,
-
-    ...other
-  } = props;
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='DoneSharp'
-      short_name='Done'
-
-      {...other}
-    >
-      <path
-        className={className}
-
-        fill='none'
-
-        d='M4.5 11.5L9.5 16.5L19.5 6.5'
-      />
-    </Icon>
-  );
-});
-
 export const IconDoneAnimated = (props: any) => {
   const { classes } = useStyle();
 
   const theme = useAmauiTheme();
+
+  const Transition = React.useMemo(() => theme?.elements?.Transition || TransitionElement, [theme]);
 
   const {
     in: inProp,
@@ -253,6 +255,8 @@ const Buttons: React.FC<IButtons> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiButtons?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
 
   const {
     tonal = true,

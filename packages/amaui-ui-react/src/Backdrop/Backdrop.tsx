@@ -3,9 +3,9 @@ import React from 'react';
 import { is, isEnvironment, TMethod } from '@amaui/utils';
 import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
-import Line from '../Line';
-import Focus from '../Focus';
-import Fade from '../Fade';
+import LineElement from '../Line';
+import FocusElement from '../Focus';
+import FadeElement from '../Fade';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { IElementReference, IPropsAny } from '../types';
@@ -61,6 +61,12 @@ const Backdrop: React.FC<IBackdrop> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBackdrop?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Fade = React.useMemo(() => theme?.elements?.Fade || FadeElement, [theme]);
+
+  const Focus = React.useMemo(() => theme?.elements?.Focus || FocusElement, [theme]);
 
   const {
     open: open_,

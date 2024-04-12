@@ -3,12 +3,12 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Chart from '../Chart';
-import Line from '../Line';
-import Type from '../Type';
-import Surface from '../Surface';
+import ChartElement from '../Chart';
+import LineElement from '../Line';
+import TypeElement from '../Type';
+import SurfaceElement from '../Surface';
+import BubbleChartItemElement from '../BubbleChartItem';
 import { IChart } from '../Chart/Chart';
-import BubbleChartItem from '../BubbleChartItem';
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
@@ -58,7 +58,15 @@ const BubbleChart: React.FC<IBubbleChart> = React.forwardRef((props_, ref: any) 
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBubbleChart?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Chart = React.useMemo(() => theme?.elements?.Chart || ChartElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const BubbleChartItem = React.useMemo(() => theme?.elements?.BubbleChartItem || BubbleChartItemElement, [theme]);
 
   const {
     tonal = true,
@@ -81,6 +89,8 @@ const BubbleChart: React.FC<IBubbleChart> = React.forwardRef((props_, ref: any) 
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const tooltipRender = is('function', tooltipRender_) ? tooltipRender_ : (values_: any) => {
     const {

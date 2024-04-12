@@ -2,9 +2,9 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import ListItem from '../ListItem';
-import Grid from '../Grid';
-import Line from '../Line';
+import ListItemElement from '../ListItem';
+import GridElement from '../Grid';
+import LineElement from '../Line';
 import { staticClassName } from '../utils';
 import { IBaseElement, IElement, ISize } from '../types';
 
@@ -61,7 +61,11 @@ const Banner: React.FC<IBanner> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBanner?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const ListItem = React.useMemo(() => theme?.elements?.ListItem || ListItemElement, [theme]);
+
+  const Grid = React.useMemo(() => theme?.elements?.Grid || GridElement, [theme]);
 
   const {
     size = 'regular',
@@ -78,6 +82,8 @@ const Banner: React.FC<IBanner> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const styles: any = {
     root: {

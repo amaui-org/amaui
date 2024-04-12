@@ -341,21 +341,21 @@ const AudioPlayer: React.FC<IAudioPlayer> = React.forwardRef((props_, ref: any) 
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAudioPlayer?.props?.default, ...props_ }), [props_]);
 
-  const Line = React.useMemo(() => theme.elements?.Line || LineElement, [theme]);
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
 
-  const Surface = React.useMemo(() => theme.elements?.Surface || SurfaceElement, [theme]);
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
 
-  const Slider = React.useMemo(() => theme.elements?.Slider || SliderElement, [theme]);
+  const Slider = React.useMemo(() => theme?.elements?.Slider || SliderElement, [theme]);
 
-  const IconButton = React.useMemo(() => theme.elements?.IconButton || IconButtonElement, [theme]);
+  const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
 
-  const Expand = React.useMemo(() => theme.elements?.Expand || ExpandElement, [theme]);
+  const Expand = React.useMemo(() => theme?.elements?.Expand || ExpandElement, [theme]);
 
-  const Type = React.useMemo(() => theme.elements?.Type || TypeElement, [theme]);
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
-  const Menu = React.useMemo(() => theme.elements?.Menu || MenuElement, [theme]);
+  const Menu = React.useMemo(() => theme?.elements?.Menu || MenuElement, [theme]);
 
-  const ListItem = React.useMemo(() => theme.elements?.ListItem || ListItemElement, [theme]);
+  const ListItem = React.useMemo(() => theme?.elements?.ListItem || ListItemElement, [theme]);
 
   const {
     name,

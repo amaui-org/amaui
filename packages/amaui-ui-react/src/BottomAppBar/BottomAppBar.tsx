@@ -2,9 +2,9 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Line from '../Line';
-import Surface from '../Surface';
-import Transition, { TTransitionStatus } from '../Transition';
+import LineElement from '../Line';
+import SurfaceElement from '../Surface';
+import TransitionElement, { TTransitionStatus } from '../Transition';
 import { ISurface } from '../Surface/Surface';
 import { staticClassName } from '../utils';
 import { IElement, ISize } from '../types';
@@ -116,7 +116,11 @@ const BottomAppBar: React.FC<IBottomAppBar> = React.forwardRef((props_, ref: any
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBottomAppBar?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const Transition = React.useMemo(() => theme?.elements?.Transition || TransitionElement, [theme]);
 
   const {
     tonal = true,
@@ -133,6 +137,8 @@ const BottomAppBar: React.FC<IBottomAppBar> = React.forwardRef((props_, ref: any
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const makeChildren = (values: any) => {
     return React.Children

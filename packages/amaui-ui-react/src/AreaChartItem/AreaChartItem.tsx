@@ -72,11 +72,11 @@ const AreaChartItem: React.FC<IAreaChartItem> = React.forwardRef((props_, ref: a
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAreaChartItem?.props?.default, ...props_ }), [props_]);
 
-  const Path = React.useMemo(() => theme.elements?.Path || PathElement, [theme]);
+  const Path = React.useMemo(() => theme?.elements?.Path || PathElement, [theme]);
 
-  const Line = React.useMemo(() => theme.elements?.Line || LineElement, [theme]);
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
 
-  const Type = React.useMemo(() => theme.elements?.Type || TypeElement, [theme]);
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     tonal = true,

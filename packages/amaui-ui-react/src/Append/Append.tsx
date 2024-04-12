@@ -53,7 +53,7 @@ const Append: React.FC<IAppend> = (props_) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAppend?.props?.default, ...props_ }), [props_]);
 
-  const Portal = React.useMemo(() => theme.elements?.Portal || PortalElement, [theme]);
+  const Portal = React.useMemo(() => theme?.elements?.Portal || PortalElement, [theme]);
 
   const {
     open,

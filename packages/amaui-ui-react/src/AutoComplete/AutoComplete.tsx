@@ -3,20 +3,52 @@ import React from 'react';
 import { is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Icon from '../Icon';
-import Menu from '../Menu';
-import Chip from '../Chip';
-import Type from '../Type';
-import List from '../List';
-import ListItem from '../ListItem';
-import TextField from '../TextField';
-import IconButton from '../IconButton';
-import RoundProgress from '../RoundProgress';
-import ListSubheader from '../ListSubheader';
-import Line from '../Line';
+import IconElement from '../Icon';
+import MenuElement from '../Menu';
+import ChipElement from '../Chip';
+import TypeElement from '../Type';
+import ListElement from '../List';
+import ListItemElement from '../ListItem';
+import TextFieldElement from '../TextField';
+import IconButtonElement from '../IconButton';
+import RoundProgressElement from '../RoundProgress';
+import ListSubheaderElement from '../ListSubheader';
+import LineElement from '../Line';
 import { ITextField } from '../TextField/TextField';
 import { staticClassName } from '../utils';
 import { IElement, IElementReference, IPropsAny } from '../types';
+
+const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='CloseRounded'
+      short_name='Close'
+
+      {...props}
+    >
+      <path d="M12 13.4 7.1 18.3Q6.825 18.575 6.4 18.575Q5.975 18.575 5.7 18.3Q5.425 18.025 5.425 17.6Q5.425 17.175 5.7 16.9L10.6 12L5.7 7.1Q5.425 6.825 5.425 6.4Q5.425 5.975 5.7 5.7Q5.975 5.425 6.4 5.425Q6.825 5.425 7.1 5.7L12 10.6L16.9 5.7Q17.175 5.425 17.6 5.425Q18.025 5.425 18.3 5.7Q18.575 5.975 18.575 6.4Q18.575 6.825 18.3 7.1L13.4 12L18.3 16.9Q18.575 17.175 18.575 17.6Q18.575 18.025 18.3 18.3Q18.025 18.575 17.6 18.575Q17.175 18.575 16.9 18.3Z" />
+    </IconElement>
+  );
+});
+
+const IconMaterialArrowDropDownRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='ArrowDropDownRounded'
+      short_name='ArrowDropDown'
+
+      {...props}
+    >
+      <path d="M11.3 14.3 8.7 11.7Q8.225 11.225 8.488 10.613Q8.75 10 9.425 10H14.575Q15.25 10 15.512 10.613Q15.775 11.225 15.3 11.7L12.7 14.3Q12.55 14.45 12.375 14.525Q12.2 14.6 12 14.6Q11.8 14.6 11.625 14.525Q11.45 14.45 11.3 14.3Z" />
+    </IconElement>
+  );
+});
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -116,38 +148,6 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-AutoComplete' });
 
-const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='CloseRounded'
-      short_name='Close'
-
-      {...props}
-    >
-      <path d="M12 13.4 7.1 18.3Q6.825 18.575 6.4 18.575Q5.975 18.575 5.7 18.3Q5.425 18.025 5.425 17.6Q5.425 17.175 5.7 16.9L10.6 12L5.7 7.1Q5.425 6.825 5.425 6.4Q5.425 5.975 5.7 5.7Q5.975 5.425 6.4 5.425Q6.825 5.425 7.1 5.7L12 10.6L16.9 5.7Q17.175 5.425 17.6 5.425Q18.025 5.425 18.3 5.7Q18.575 5.975 18.575 6.4Q18.575 6.825 18.3 7.1L13.4 12L18.3 16.9Q18.575 17.175 18.575 17.6Q18.575 18.025 18.3 18.3Q18.025 18.575 17.6 18.575Q17.175 18.575 16.9 18.3Z" />
-    </Icon>
-  );
-});
-
-const IconMaterialArrowDropDownRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='ArrowDropDownRounded'
-      short_name='ArrowDropDown'
-
-      {...props}
-    >
-      <path d="M11.3 14.3 8.7 11.7Q8.225 11.225 8.488 10.613Q8.75 10 9.425 10H14.575Q15.25 10 15.512 10.613Q15.775 11.225 15.3 11.7L12.7 14.3Q12.55 14.45 12.375 14.525Q12.2 14.6 12 14.6Q11.8 14.6 11.625 14.525Q11.45 14.45 11.3 14.3Z" />
-    </Icon>
-  );
-});
-
 export type TAutoCompleteValue = string | Array<string>;
 
 export type TAutoCompleteOption = {
@@ -224,6 +224,26 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAutoComplete?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Menu = React.useMemo(() => theme?.elements?.Menu || MenuElement, [theme]);
+
+  const Chip = React.useMemo(() => theme?.elements?.Chip || ChipElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const List = React.useMemo(() => theme?.elements?.List || ListElement, [theme]);
+
+  const ListItem = React.useMemo(() => theme?.elements?.ListItem || ListItemElement, [theme]);
+
+  const TextField = React.useMemo(() => theme?.elements?.TextField || TextFieldElement, [theme]);
+
+  const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
+
+  const RoundProgress = React.useMemo(() => theme?.elements?.RoundProgress || RoundProgressElement, [theme]);
+
+  const ListSubheader = React.useMemo(() => theme?.elements?.ListSubheader || ListSubheaderElement, [theme]);
 
   const {
     tonal = true,

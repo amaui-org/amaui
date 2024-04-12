@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import NavigationDrawer from '../NavigationDrawer';
+import NavigationDrawerElement from '../NavigationDrawer';
 import { INavigationDrawer } from '../NavigationDrawer/NavigationDrawer';
 import { staticClassName } from '../utils';
 
@@ -44,13 +44,15 @@ const BottomSheet: React.FC<IBottomSheet> = React.forwardRef((props_, ref: any) 
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBottomSheet?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const NavigationDrawer = React.useMemo(() => theme?.elements?.NavigationDrawer || NavigationDrawerElement, [theme]);
 
   const {
     className,
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   return (
     <NavigationDrawer

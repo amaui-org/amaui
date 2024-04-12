@@ -3,10 +3,10 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Surface from '../Surface';
-import Interaction from '../Interaction';
-import RoundProgress from '../RoundProgress';
-import Type from '../Type';
+import SurfaceElement from '../Surface';
+import InteractionElement from '../Interaction';
+import RoundProgressElement from '../RoundProgress';
+import TypeElement from '../Type';
 import { ISurface } from '../Surface/Surface';
 import { iconSizeToFontSize, staticClassName } from '../utils';
 import { IElement, IElementReference, IPropsAny, ISizeAny } from '../types';
@@ -319,6 +319,14 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiButton?.props?.default, ...props_ }), [props_]);
 
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const Interaction = React.useMemo(() => theme?.elements?.Interaction || InteractionElement, [theme]);
+
+  const RoundProgress = React.useMemo(() => theme?.elements?.RoundProgress || RoundProgressElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
   const {
     tonal = true,
     color: color_ = 'primary',
@@ -371,14 +379,14 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
 
   const [focus, setFocus] = React.useState(focus_ !== undefined ? focus_ : false);
 
+  const { classes } = useStyle();
+
   const refs = {
     root: React.useRef<any>(),
     ids: {
       label: React.useId()
     }
   };
-
-  const { classes } = useStyle();
 
   let color = color_;
   let start = (selected && startSelected) || start_;

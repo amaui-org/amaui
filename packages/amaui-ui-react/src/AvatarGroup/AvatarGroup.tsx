@@ -2,8 +2,8 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Line from '../Line';
-import Avatar from '../Avatar';
+import LineElement from '../Line';
+import AvatarElement from '../Avatar';
 import { IAvatar } from '../Avatar/Avatar';
 import { staticClassName } from '../utils';
 import { IColor, IElement, IPropsAny, ISizeAny, ITonal } from '../types';
@@ -47,7 +47,9 @@ const AvatarGroup: React.FC<IAvatarGroup> = React.forwardRef((props_, ref: any) 
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAvatarGroup?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Avatar = React.useMemo(() => theme?.elements?.Avatar || AvatarElement, [theme]);
 
   const {
     tonal = true,
@@ -71,6 +73,8 @@ const AvatarGroup: React.FC<IAvatarGroup> = React.forwardRef((props_, ref: any) 
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const styles: any = {
     root: {

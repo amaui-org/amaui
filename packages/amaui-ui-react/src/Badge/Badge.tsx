@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Surface from '../Surface';
+import SurfaceElement from '../Surface';
 import { staticClassName } from '../utils';
 import { IBaseElement, IColor, ITonal } from '../types';
 
@@ -86,7 +86,7 @@ const Badge: React.FC<IBadge> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBadge?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
 
   const {
     tonal = false,
@@ -109,6 +109,8 @@ const Badge: React.FC<IBadge> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const styles: any = {
     badge: {}

@@ -27,9 +27,9 @@ const AreaChart: React.FC<IAreaChart> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAreaChart?.props?.default, ...props_ }), [props_]);
 
-  const Chart = React.useMemo(() => theme.elements?.Chart || ChartElement, [theme]);
+  const Chart = React.useMemo(() => theme?.elements?.Chart || ChartElement, [theme]);
 
-  const AreaChartItem = React.useMemo(() => theme.elements?.AreaChartItem || AreaChartItemElement, [theme]);
+  const AreaChartItem = React.useMemo(() => theme?.elements?.AreaChartItem || AreaChartItemElement, [theme]);
 
   const {
     values,

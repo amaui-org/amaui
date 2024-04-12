@@ -168,15 +168,15 @@ const AudioRecorder: React.FC<IAudioRecorder> = React.forwardRef((props_, ref: a
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAudioRecorder?.props?.default, ...props_ }), [props_]);
 
-  const Line = React.useMemo(() => theme.elements?.Line || LineElement, [theme]);
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
 
-  const Fade = React.useMemo(() => theme.elements?.Fade || FadeElement, [theme]);
+  const Fade = React.useMemo(() => theme?.elements?.Fade || FadeElement, [theme]);
 
-  const Type = React.useMemo(() => theme.elements?.Type || TypeElement, [theme]);
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
-  const Tooltip = React.useMemo(() => theme.elements?.Tooltip || TooltipElement, [theme]);
+  const Tooltip = React.useMemo(() => theme?.elements?.Tooltip || TooltipElement, [theme]);
 
-  const IconButton = React.useMemo(() => theme.elements?.IconButton || IconButtonElement, [theme]);
+  const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
 
   const {
     size = 'regular',
