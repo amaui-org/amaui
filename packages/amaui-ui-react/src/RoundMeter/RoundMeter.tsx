@@ -129,7 +129,7 @@ const RoundMeter: React.FC<IRoundMeter> = React.forwardRef((props_, ref: any) =>
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRoundMeter?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
 
   const {
     tonal = true,
@@ -193,6 +193,8 @@ const RoundMeter: React.FC<IRoundMeter> = React.forwardRef((props_, ref: any) =>
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>()

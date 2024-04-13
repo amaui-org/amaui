@@ -125,6 +125,8 @@ const Radio: React.FC<IRadio> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRadio?.props?.default, ...props_ }), [props_]);
 
+  const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
+
   const {
     tonal = true,
     color = 'primary',

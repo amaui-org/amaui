@@ -2,8 +2,8 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Line, { ILine } from '../Line/Line';
-import Property from '../Property';
+import LineElement, { ILine } from '../Line/Line';
+import PropertyElement from '../Property';
 import { staticClassName } from '../utils';
 import { IPropsAny } from '../types';
 
@@ -61,7 +61,9 @@ const Properties: React.FC<IProperties> = React.forwardRef((props_, ref: any) =>
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiProperties?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Property = React.useMemo(() => theme?.elements?.Property || PropertyElement, [theme]);
 
   const {
     version = 'row-20',
@@ -80,6 +82,8 @@ const Properties: React.FC<IProperties> = React.forwardRef((props_, ref: any) =>
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   return (
     <Line

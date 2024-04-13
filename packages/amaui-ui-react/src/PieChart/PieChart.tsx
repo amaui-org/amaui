@@ -3,12 +3,12 @@ import React from 'react';
 import { is, copy, percentageFromValueWithinRange } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Chart from '../Chart';
-import Path from '../Path';
 import LineElement from '../Line';
 import TypeElement from '../Type';
-import useMediaQuery from '../useMediaQuery';
 import SurfaceElement from '../Surface';
+import ChartElement from '../Chart';
+import PathElement from '../Path';
+import useMediaQuery from '../useMediaQuery';
 import { IChart } from '../Chart/Chart';
 import { angleToCoordinates, staticClassName, valueBreakpoints } from '../utils';
 
@@ -64,7 +64,15 @@ const PieChart: React.FC<IPieChart> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPieChart?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const Chart = React.useMemo(() => theme?.elements?.Chart || ChartElement, [theme]);
+
+  const Path = React.useMemo(() => theme?.elements?.Path || PathElement, [theme]);
 
   const {
     tonal = true,
@@ -91,6 +99,8 @@ const PieChart: React.FC<IPieChart> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

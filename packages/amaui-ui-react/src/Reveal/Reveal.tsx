@@ -3,7 +3,7 @@ import React from 'react';
 import { is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Fade from '../Fade';
+import FadeElement from '../Fade';
 import { IFade } from '../Fade/Fade';
 import { staticClassName } from '../utils';
 
@@ -34,6 +34,8 @@ const Reveal: React.FC<IReveal> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiReveal?.props?.default, ...props_ }), [props_]);
 
+  const Fade = React.useMemo(() => theme?.elements?.Fade || FadeElement, [theme]);
+
   const {
     inDefault,
 
@@ -58,6 +60,8 @@ const Reveal: React.FC<IReveal> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
+  const { classes } = useStyle();
+
   const [inProp, setInProp] = React.useState(inDefault !== undefined ? inDefault : false);
 
   const refs = {
@@ -65,8 +69,6 @@ const Reveal: React.FC<IReveal> = React.forwardRef((props_, ref: any) => {
     props: React.useRef<any>(),
     in: React.useRef<any>()
   };
-
-  const { classes } = useStyle();
 
   refs.props.current = props;
 

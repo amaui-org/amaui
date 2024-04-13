@@ -58,6 +58,8 @@ const PageTransition: React.FC<IPageTransition> = React.forwardRef((props_, ref:
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPageTransition?.props?.default, ...props_ }), [props_]);
 
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
   const {
     add,
 

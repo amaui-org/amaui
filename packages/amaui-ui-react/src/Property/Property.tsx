@@ -3,9 +3,9 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Line, { ILine } from '../Line/Line';
-import useMediaQuery from '../useMediaQuery';
+import LineElement, { ILine } from '../Line/Line';
 import TypeElement from '../Type';
+import useMediaQuery from '../useMediaQuery';
 import { staticClassName } from '../utils';
 import { IPropsAny } from '../types';
 
@@ -61,7 +61,9 @@ const Property: React.FC<IProperty> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiProperty?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     version: version_ = 'row-20',
@@ -89,6 +91,8 @@ const Property: React.FC<IProperty> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>()

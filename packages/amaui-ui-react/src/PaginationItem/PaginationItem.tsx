@@ -48,7 +48,9 @@ const PaginationItem: React.FC<IPaginationItem> = React.forwardRef((props_, ref)
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiPaginationItem?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Button = React.useMemo(() => theme?.elements?.Button || ButtonElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     tonal = false,
@@ -65,6 +67,8 @@ const PaginationItem: React.FC<IPaginationItem> = React.forwardRef((props_, ref)
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   return (
     <Button
