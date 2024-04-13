@@ -4,9 +4,9 @@ import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import SurfaceElement from '../Surface';
+import LineElement from '../Line';
 import useMediaQuery from '../useMediaQuery';
 import { ISurface } from '../Surface/Surface';
-import LineElement from '../Line';
 import { staticClassName } from '../utils';
 import { ISize, IElement } from '../types';
 
@@ -89,6 +89,10 @@ const List: React.FC<IList> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiList?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
 
   const {
     tonal = true,

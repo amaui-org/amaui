@@ -28,7 +28,7 @@ const ListSubheader: React.FC<IListSubheader> = React.forwardRef((props_, ref: a
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiListSubheader?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const ListItem = React.useMemo(() => theme?.elements?.ListItem || ListItemElement, [theme]);
 
   const {
     className,
@@ -37,6 +37,8 @@ const ListSubheader: React.FC<IListSubheader> = React.forwardRef((props_, ref: a
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   return (
     <ListItem

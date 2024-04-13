@@ -100,7 +100,7 @@ const Link: React.FC<ILink> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLink?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     tonal = true,
@@ -119,6 +119,8 @@ const Link: React.FC<ILink> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const [focus, setFocus] = React.useState(false);
   const [hover, setHover] = React.useState(false);

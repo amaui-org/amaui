@@ -2,16 +2,16 @@ import React from 'react';
 
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
-import Icon, { IIcon } from '../Icon';
-import Section from '../Section';
-import { useConfirm } from '../Confirm';
+import IconElement, { IIcon } from '../Icon';
+import SectionElement from '../Section';
+import MenuElement from '../Menu';
+import ShareElement from '../Share';
 import LineElement from '../Line';
 import TypeElement from '../Type';
 import ButtonElement from '../Button';
-import Menu from '../Menu';
 import ListItemElement from '../ListItem';
-import Share from '../Share';
 import IconButtonElement from '../IconButton';
+import { useConfirm } from '../Confirm';
 import { textToInnerHTML } from '@amaui/utils';
 import { staticClassName } from '../utils';
 import { IBaseElement, IMediaObject } from '../types';
@@ -19,7 +19,7 @@ import { IBaseElement, IMediaObject } from '../types';
 const IconMaterialShareRounded = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='Share'
@@ -31,14 +31,14 @@ const IconMaterialShareRounded = React.forwardRef((props: IIcon, ref) => {
       {...props}
     >
       <path d="M18 22q-1.25 0-2.125-.875T15 19q0-.175.025-.363.025-.187.075-.337l-7.05-4.1q-.425.375-.95.587Q6.575 15 6 15q-1.25 0-2.125-.875T3 12q0-1.25.875-2.125T6 9q.575 0 1.1.212.525.213.95.588l7.05-4.1q-.05-.15-.075-.337Q15 5.175 15 5q0-1.25.875-2.125T18 2q1.25 0 2.125.875T21 5q0 1.25-.875 2.125T18 8q-.575 0-1.1-.213-.525-.212-.95-.587L8.9 11.3q.05.15.075.337Q9 11.825 9 12t-.025.362q-.025.188-.075.338l7.05 4.1q.425-.375.95-.588Q17.425 16 18 16q1.25 0 2.125.875T21 19q0 1.25-.875 2.125T18 22Zm0-16q.425 0 .712-.287Q19 5.425 19 5t-.288-.713Q18.425 4 18 4t-.712.287Q17 4.575 17 5t.288.713Q17.575 6 18 6ZM6 13q.425 0 .713-.288Q7 12.425 7 12t-.287-.713Q6.425 11 6 11t-.713.287Q5 11.575 5 12t.287.712Q5.575 13 6 13Zm12 7q.425 0 .712-.288Q19 19.425 19 19t-.288-.712Q18.425 18 18 18t-.712.288Q17 18.575 17 19t.288.712Q17.575 20 18 20Zm0-15ZM6 12Zm12 7Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
 const IconMaterialMoreVertRounded = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='MoreVert'
@@ -50,7 +50,7 @@ const IconMaterialMoreVertRounded = React.forwardRef((props: IIcon, ref) => {
       {...props}
     >
       <path d="M12 20q-.825 0-1.412-.587Q10 18.825 10 18q0-.825.588-1.413Q11.175 16 12 16t1.413.587Q14 17.175 14 18q0 .825-.587 1.413Q12.825 20 12 20Zm0-6q-.825 0-1.412-.588Q10 12.825 10 12t.588-1.413Q11.175 10 12 10t1.413.587Q14 11.175 14 12q0 .825-.587 1.412Q12.825 14 12 14Zm0-6q-.825 0-1.412-.588Q10 6.825 10 6t.588-1.412Q11.175 4 12 4t1.413.588Q14 5.175 14 6t-.587 1.412Q12.825 8 12 8Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
@@ -133,11 +133,13 @@ export interface ILinksItem {
 
 export interface ILinks extends IBaseElement {
   name?: any;
+
   short_description?: any;
 
   links?: ILinksItem[];
 
   cover?: IMediaObject;
+
   profile?: IMediaObject;
 
   share?: boolean;
@@ -153,6 +155,22 @@ const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLinks?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Section = React.useMemo(() => theme?.elements?.Section || SectionElement, [theme]);
+
+  const Menu = React.useMemo(() => theme?.elements?.Menu || MenuElement, [theme]);
+
+  const Share = React.useMemo(() => theme?.elements?.Share || ShareElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const Button = React.useMemo(() => theme?.elements?.Button || ButtonElement, [theme]);
+
+  const ListItem = React.useMemo(() => theme?.elements?.ListItem || ListItemElement, [theme]);
+
+  const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
 
   const { classes } = useStyle();
 

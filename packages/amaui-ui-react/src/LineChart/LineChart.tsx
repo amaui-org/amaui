@@ -3,9 +3,9 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Chart from '../Chart';
+import ChartElement from '../Chart';
+import LineChartItemElement from '../LineChartItem';
 import { IChart } from '../Chart/Chart';
-import LineChartItem from '../LineChartItem';
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
@@ -25,7 +25,9 @@ const LineChart: React.FC<ILineChart> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLineChart?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Chart = React.useMemo(() => theme?.elements?.Chart || ChartElement, [theme]);
+
+  const LineChartItem = React.useMemo(() => theme?.elements?.LineChartItem || LineChartItemElement, [theme]);
 
   const {
     values,
@@ -34,6 +36,8 @@ const LineChart: React.FC<ILineChart> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   return (
     <Chart

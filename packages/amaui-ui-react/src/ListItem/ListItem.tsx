@@ -7,257 +7,19 @@ import SurfaceElement from '../Surface';
 import IconElement from '../Icon';
 import InteractionElement from '../Interaction';
 import TypeElement from '../Type';
-import Menu from '../Menu';
-import Expand from '../Expand';
 import ListElement from '../List';
-import Fade from '../Fade';
 import IconButtonElement from '../IconButton';
+import MenuElement from '../Menu';
+import ExpandElement from '../Expand';
+import FadeElement from '../Fade';
 import { ISurface } from '../Surface/Surface';
 import { staticClassName } from '../utils';
 import { IColor, IElement, ISize, IHTMLElement, IElementReference, IPropsAny } from '../types';
 
-const overflow = {
-  width: '100%',
-  overflow: 'hidden',
-  textOverflow: 'ellipsis'
-};
-
-const useStyle = styleMethod(theme => ({
-  wrapper: {
-    width: '100%'
-  },
-
-  root: {
-    // Reset
-    margin: '0',
-    padding: '0',
-    '-webkit-appearance': 'none',
-    appearance: 'none',
-    border: 'none',
-    textDecoration: 'none',
-    color: 'inherit',
-    boxSizing: 'border-box',
-
-    position: 'relative',
-    display: 'inline-flex',
-    width: '100%'
-  },
-
-  shape_round_position_both: {
-    borderRadius: theme.methods.shape.radius.value(40, 'px')
-  },
-
-  shape_round_position_start: {
-    borderEndStartRadius: theme.methods.shape.radius.value(40, 'px'),
-    borderStartStartRadius: theme.methods.shape.radius.value(40, 'px')
-  },
-
-  shape_round_position_end: {
-    borderStartEndRadius: theme.methods.shape.radius.value(40, 'px'),
-    borderEndEndRadius: theme.methods.shape.radius.value(40, 'px')
-  },
-
-  shape_round_position_none: {
-    borderRadius: '0'
-  },
-
-  button: {
-    cursor: 'pointer',
-    userSelect: 'none'
-  },
-
-  size_small: {
-    padding: `${theme.methods.space.value('rg') * 0.5}px ${theme.methods.space.value('rg') * 0.75}px`,
-    minHeight: '24px'
-  },
-
-  size_regular: {
-    padding: `${theme.methods.space.value('rg')}px ${theme.methods.space.value('rg')}px`,
-    minHeight: '40px'
-  },
-
-  size_large: {
-    padding: `${theme.methods.space.value('rg') * 1.5}px ${theme.methods.space.value('rg') * 1.25}px`,
-    minHeight: '56px'
-  },
-
-  menuItem_size_small: {
-    padding: `${theme.methods.space.value('sm') * 0.5}px ${theme.methods.space.value('rg') * 0.75}px`
-  },
-
-  menuItem_size_regular: {
-    padding: `${theme.methods.space.value('sm') * 0.75}px ${theme.methods.space.value('rg')}px`
-  },
-
-  menuItem_size_large: {
-    padding: `${theme.methods.space.value('sm') * 1}px ${theme.methods.space.value('rg') * 1.25}px`
-  },
-
-  inset_size_small: {
-    paddingInlineStart: `${(56 + theme.methods.space.value('rg')) * 0.75}px`
-  },
-
-  inset_size_regular: {
-    paddingInlineStart: `${56 + theme.methods.space.value('rg')}px`
-  },
-
-  inset_size_large: {
-    paddingInlineStart: `${(56 + theme.methods.space.value('rg')) * 1.25}px`
-  },
-
-  menuItem_inset_size_small: {
-    paddingInlineStart: theme.methods.space.value(7, 'px')
-  },
-
-  menuItem_inset_size_regular: {
-    paddingInlineStart: theme.methods.space.value(7, 'px')
-  },
-
-  menuItem_inset_size_large: {
-    paddingInlineStart: theme.methods.space.value(7, 'px')
-  },
-
-  middle: {
-    position: 'relative',
-    display: 'inline-flex',
-    flex: '1 1 auto',
-    width: '100%',
-    flexDirection: 'column',
-
-    // Fix for white-space: nowrap & flex: 1 1 auto
-    minWidth: '0',
-    alignSelf: 'center'
-  },
-
-  menuItem_middle: {
-    marginInlineEnd: '44px'
-  },
-
-  text: {
-    ...overflow,
-    whiteSpace: 'pre-wrap',
-    textAlign: 'start'
-  },
-
-  text_primary: {
-    opacity: '1'
-  },
-
-  text_primary_weight: {
-    fontWeight: '500'
-  },
-
-  text_secondary: {
-    opacity: theme.palette.visual_contrast.default.opacity.primary
-  },
-
-  text_tertiary: {
-    opacity: theme.palette.visual_contrast.default.opacity.secondary
-  },
-
-  aside: {
-    position: 'relative',
-    display: 'inline-flex',
-    flex: '0 0 auto',
-    alignSelf: 'flex-start'
-  },
-
-  align_start: {
-    alignSelf: 'flex-start'
-  },
-
-  align_center: {
-    alignSelf: 'center'
-  },
-
-  align_end: {
-    alignSelf: 'flex-end'
-  },
-
-  start_icon: {
-    paddingInline: `0 ${theme.methods.space.value(1.5, 'px')}`
-  },
-
-  start_button: {
-    paddingInline: `0 ${theme.methods.space.value(1.5, 'px')}`
-  },
-
-  start_switch: {
-    paddingInline: `0 ${theme.methods.space.value(1.5, 'px')}`
-  },
-
-  menuItem_start_icon: {
-    paddingInlineEnd: theme.methods.space.value(2, 'px')
-  },
-
-  menuItem_start_button: {
-    paddingInlineEnd: theme.methods.space.value(1.5, 'px')
-  },
-
-  menuItem_start_switch: {
-    paddingInlineEnd: theme.methods.space.value(1.5, 'px')
-  },
-
-  end_icon: {
-    paddingInlineStart: theme.methods.space.value(1.5, 'px'),
-    paddingInlineEnd: theme.methods.space.value(1, 'px')
-  },
-
-  end_button: {
-    paddingInlineStart: theme.methods.space.value(1.5, 'px'),
-    paddingInlineEnd: '0'
-  },
-
-  end_switch: {
-    paddingInlineStart: theme.methods.space.value(1.5, 'px'),
-    paddingInlineEnd: '0'
-  },
-
-  menuItem_end_icon: {
-    paddingInlineStart: theme.methods.space.value(1.5, 'px')
-  },
-
-  menuItem_end_button: {
-    paddingInlineStart: theme.methods.space.value(1.5, 'px')
-  },
-
-  menuItem_end_switch: {
-    paddingInlineStart: theme.methods.space.value(1.5, 'px')
-  },
-
-  middle_disabled: {
-    opacity: theme.palette.visual_contrast.default.opacity.disabled
-  },
-
-  icon: {
-    transition: theme.methods.transitions.make('transform')
-  },
-
-  icon_open: {
-    transform: 'rotate(-180deg)'
-  },
-
-  noPadding: {
-    padding: '0px'
-  },
-
-  noBackground: {
-    '&.amaui-Surface-root': {
-      background: 'none'
-    }
-  },
-
-  disabled: {
-    pointerEvents: 'none',
-    userSelect: 'none',
-    cursor: 'default'
-  }
-}), { name: 'amaui-ListItem' });
-
 const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='ExpandMoreRounded'
@@ -266,13 +28,13 @@ const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
       {...props}
     >
       <path d="M12 14.95Q11.8 14.95 11.625 14.887Q11.45 14.825 11.3 14.675L6.675 10.05Q6.4 9.775 6.413 9.362Q6.425 8.95 6.7 8.675Q6.975 8.4 7.4 8.4Q7.825 8.4 8.1 8.675L12 12.575L15.925 8.65Q16.2 8.375 16.613 8.387Q17.025 8.4 17.3 8.675Q17.575 8.95 17.575 9.375Q17.575 9.8 17.3 10.075L12.7 14.675Q12.55 14.825 12.375 14.887Q12.2 14.95 12 14.95Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
 const IconMaterialArrowRightRounded = React.forwardRef((props: any, ref) => {
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='ArrowRightRounded'
@@ -281,9 +43,249 @@ const IconMaterialArrowRightRounded = React.forwardRef((props: any, ref) => {
       {...props}
     >
       <path d="M11.7 15.3Q11.225 15.775 10.613 15.512Q10 15.25 10 14.575V9.425Q10 8.75 10.613 8.488Q11.225 8.225 11.7 8.7L14.3 11.3Q14.45 11.45 14.525 11.625Q14.6 11.8 14.6 12Q14.6 12.2 14.525 12.375Q14.45 12.55 14.3 12.7Z" />
-    </Icon>
+    </IconElement>
   );
 });
+
+const useStyle = styleMethod(theme => {
+  const overflow = {
+    width: '100%',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
+  };
+
+  return {
+    wrapper: {
+      width: '100%'
+    },
+
+    root: {
+      // Reset
+      margin: '0',
+      padding: '0',
+      '-webkit-appearance': 'none',
+      appearance: 'none',
+      border: 'none',
+      textDecoration: 'none',
+      color: 'inherit',
+      boxSizing: 'border-box',
+
+      position: 'relative',
+      display: 'inline-flex',
+      width: '100%'
+    },
+
+    shape_round_position_both: {
+      borderRadius: theme.methods.shape.radius.value(40, 'px')
+    },
+
+    shape_round_position_start: {
+      borderEndStartRadius: theme.methods.shape.radius.value(40, 'px'),
+      borderStartStartRadius: theme.methods.shape.radius.value(40, 'px')
+    },
+
+    shape_round_position_end: {
+      borderStartEndRadius: theme.methods.shape.radius.value(40, 'px'),
+      borderEndEndRadius: theme.methods.shape.radius.value(40, 'px')
+    },
+
+    shape_round_position_none: {
+      borderRadius: '0'
+    },
+
+    button: {
+      cursor: 'pointer',
+      userSelect: 'none'
+    },
+
+    size_small: {
+      padding: `${theme.methods.space.value('rg') * 0.5}px ${theme.methods.space.value('rg') * 0.75}px`,
+      minHeight: '24px'
+    },
+
+    size_regular: {
+      padding: `${theme.methods.space.value('rg')}px ${theme.methods.space.value('rg')}px`,
+      minHeight: '40px'
+    },
+
+    size_large: {
+      padding: `${theme.methods.space.value('rg') * 1.5}px ${theme.methods.space.value('rg') * 1.25}px`,
+      minHeight: '56px'
+    },
+
+    menuItem_size_small: {
+      padding: `${theme.methods.space.value('sm') * 0.5}px ${theme.methods.space.value('rg') * 0.75}px`
+    },
+
+    menuItem_size_regular: {
+      padding: `${theme.methods.space.value('sm') * 0.75}px ${theme.methods.space.value('rg')}px`
+    },
+
+    menuItem_size_large: {
+      padding: `${theme.methods.space.value('sm') * 1}px ${theme.methods.space.value('rg') * 1.25}px`
+    },
+
+    inset_size_small: {
+      paddingInlineStart: `${(56 + theme.methods.space.value('rg')) * 0.75}px`
+    },
+
+    inset_size_regular: {
+      paddingInlineStart: `${56 + theme.methods.space.value('rg')}px`
+    },
+
+    inset_size_large: {
+      paddingInlineStart: `${(56 + theme.methods.space.value('rg')) * 1.25}px`
+    },
+
+    menuItem_inset_size_small: {
+      paddingInlineStart: theme.methods.space.value(7, 'px')
+    },
+
+    menuItem_inset_size_regular: {
+      paddingInlineStart: theme.methods.space.value(7, 'px')
+    },
+
+    menuItem_inset_size_large: {
+      paddingInlineStart: theme.methods.space.value(7, 'px')
+    },
+
+    middle: {
+      position: 'relative',
+      display: 'inline-flex',
+      flex: '1 1 auto',
+      width: '100%',
+      flexDirection: 'column',
+
+      // Fix for white-space: nowrap & flex: 1 1 auto
+      minWidth: '0',
+      alignSelf: 'center'
+    },
+
+    menuItem_middle: {
+      marginInlineEnd: '44px'
+    },
+
+    text: {
+      ...overflow,
+      whiteSpace: 'pre-wrap',
+      textAlign: 'start'
+    },
+
+    text_primary: {
+      opacity: '1'
+    },
+
+    text_primary_weight: {
+      fontWeight: '500'
+    },
+
+    text_secondary: {
+      opacity: theme.palette.visual_contrast.default.opacity.primary
+    },
+
+    text_tertiary: {
+      opacity: theme.palette.visual_contrast.default.opacity.secondary
+    },
+
+    aside: {
+      position: 'relative',
+      display: 'inline-flex',
+      flex: '0 0 auto',
+      alignSelf: 'flex-start'
+    },
+
+    align_start: {
+      alignSelf: 'flex-start'
+    },
+
+    align_center: {
+      alignSelf: 'center'
+    },
+
+    align_end: {
+      alignSelf: 'flex-end'
+    },
+
+    start_icon: {
+      paddingInline: `0 ${theme.methods.space.value(1.5, 'px')}`
+    },
+
+    start_button: {
+      paddingInline: `0 ${theme.methods.space.value(1.5, 'px')}`
+    },
+
+    start_switch: {
+      paddingInline: `0 ${theme.methods.space.value(1.5, 'px')}`
+    },
+
+    menuItem_start_icon: {
+      paddingInlineEnd: theme.methods.space.value(2, 'px')
+    },
+
+    menuItem_start_button: {
+      paddingInlineEnd: theme.methods.space.value(1.5, 'px')
+    },
+
+    menuItem_start_switch: {
+      paddingInlineEnd: theme.methods.space.value(1.5, 'px')
+    },
+
+    end_icon: {
+      paddingInlineStart: theme.methods.space.value(1.5, 'px'),
+      paddingInlineEnd: theme.methods.space.value(1, 'px')
+    },
+
+    end_button: {
+      paddingInlineStart: theme.methods.space.value(1.5, 'px'),
+      paddingInlineEnd: '0'
+    },
+
+    end_switch: {
+      paddingInlineStart: theme.methods.space.value(1.5, 'px'),
+      paddingInlineEnd: '0'
+    },
+
+    menuItem_end_icon: {
+      paddingInlineStart: theme.methods.space.value(1.5, 'px')
+    },
+
+    menuItem_end_button: {
+      paddingInlineStart: theme.methods.space.value(1.5, 'px')
+    },
+
+    menuItem_end_switch: {
+      paddingInlineStart: theme.methods.space.value(1.5, 'px')
+    },
+
+    middle_disabled: {
+      opacity: theme.palette.visual_contrast.default.opacity.disabled
+    },
+
+    icon: {
+      transition: theme.methods.transitions.make('transform')
+    },
+
+    icon_open: {
+      transform: 'rotate(-180deg)'
+    },
+
+    noPadding: {
+      padding: '0px'
+    },
+
+    noBackground: {
+      '&.amaui-Surface-root': {
+        background: 'none'
+      }
+    },
+
+    disabled: {
+      pointerEvents: 'none',
+      userSelect: 'none',
+      cursor: 'default'
+    }
+  };
+}, { name: 'amaui-ListItem' });
 
 export interface IListItem extends ISurface {
   colorSelected?: IColor;
@@ -365,6 +367,22 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiListItem?.props?.default, ...props_ }), [props_]);
+
+  const Interaction = React.useMemo(() => theme?.elements?.Interaction || InteractionElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const List = React.useMemo(() => theme?.elements?.List || ListElement, [theme]);
+
+  const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
+
+  const Menu = React.useMemo(() => theme?.elements?.Menu || MenuElement, [theme]);
+
+  const Expand = React.useMemo(() => theme?.elements?.Expand || ExpandElement, [theme]);
+
+  const Fade = React.useMemo(() => theme?.elements?.Fade || FadeElement, [theme]);
 
   const {
     tonal = true,
@@ -449,12 +467,12 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
+  const { classes } = useStyle();
+
   const [openMenu, setOpenMenu] = React.useState(openMenuDefault !== undefined ? openMenuDefault : openMenu_);
   const [openList, setOpenList] = React.useState(openListDefault !== undefined ? openListDefault : openList_);
   const [hover, setHover] = React.useState(false);
   const [focus, setFocus] = React.useState(false);
-
-  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

@@ -3,7 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Divider from '../Divider';
+import DividerElement from '../Divider';
 import useMediaQuery from '../useMediaQuery';
 
 import { staticClassName, valueBreakpoints } from '../utils';
@@ -175,7 +175,7 @@ const Line: React.FC<ILine> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLine?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Divider = React.useMemo(() => theme?.elements?.Divider || DividerElement, [theme]);
 
   const {
     display: display_,
@@ -201,6 +201,8 @@ const Line: React.FC<ILine> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>()

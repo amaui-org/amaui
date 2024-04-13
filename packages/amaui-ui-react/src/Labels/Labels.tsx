@@ -53,7 +53,9 @@ const Labels: React.FC<ILabels> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiLabels?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     tonal = true,
@@ -90,6 +92,8 @@ const Labels: React.FC<ILabels> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const checkedDefault = valueDefault_ !== undefined ? valueDefault_ : checkedDefault_;
   const checked = value_ !== undefined ? value_ : checked_;
