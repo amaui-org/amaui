@@ -6,8 +6,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import TooltipElement from '../Tooltip';
 import IconButtonElement from '../IconButton';
 import { IIconButton } from '../IconButton/IconButton';
-import { staticClassName } from '../utils';
 import { IElement, IElementReference, IPropsAny } from '../types';
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -58,7 +58,9 @@ const SpeedDialItem: React.FC<ISpeedDialItem> = React.forwardRef((props_, ref: a
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSpeedDialItem?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Tooltip = React.useMemo(() => theme?.elements?.Tooltip || TooltipElement, [theme]);
+
+  const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
 
   const {
     open,
@@ -89,6 +91,8 @@ const SpeedDialItem: React.FC<ISpeedDialItem> = React.forwardRef((props_, ref: a
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   delete TooltipProps.open;
 

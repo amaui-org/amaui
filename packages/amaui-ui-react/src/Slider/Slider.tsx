@@ -5,440 +5,442 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import IconButtonElement from '../IconButton';
 import TooltipElement from '../Tooltip';
-import Zoom from '../Zoom';
+import ZoomElement from '../Zoom';
 import TypeElement from '../Type';
 import { staticClassName } from '../utils';
 import { IBaseElement, ITonal, IColor, ISize, IElement, IPropsAny } from '../types';
 
-const rail = {
-  position: 'absolute',
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  borderRadius: 'inherit'
-};
-
-const horizontal = {
-  top: '50%',
-  transform: 'translateY(-50%)'
-};
-
-const vertical = {
-  left: '50%',
-  transform: 'translateX(-50%)'
-};
-
-const useStyle = styleMethod(theme => ({
-  root: {
-    position: 'relative',
-    display: 'inline-flex',
-    borderRadius: `${theme.shape.radius.unit * 0.75}px`,
-    cursor: 'pointer',
-    touchAction: 'none'
-  },
-
-  root_orientation_horizontal: {
-    width: '100vw',
-    maxWidth: 400,
-    height: 4,
-    margin: '16px 0 28px'
-  },
-
-  root_orientation_vertical: {
-    height: '100vh',
-    maxHeight: 240,
-    width: 4,
-    margin: '0 16px 0 28px'
-  },
-
-  rail: {
-    ...rail
-  },
-
-  rail_orientation_horizontal: {
-    insetInline: '0'
-  },
-
-  rail_orientation_vertical: {
-    insetBlock: '0'
-  },
-
-  rail_orientation_horizontal_size_small: { height: '3px' },
-
-  rail_orientation_horizontal_size_regular: { height: '4px' },
-
-  rail_orientation_horizontal_size_large: { height: '5px' },
-
-  rail_orientation_vertical_size_small: { width: '3px' },
-
-  rail_orientation_vertical_size_regular: { width: '4px' },
-
-  rail_orientation_vertical_size_large: { width: '5px' },
-
-  track: {
-    ...rail,
-  },
-
-  track_orientation_horizontal: {
-    insetInlineStart: '0'
-  },
-
-  track_orientation_vertical: {
-    insetBlockEnd: '0'
-  },
-
-  track_orientation_horizontal_size_small: { height: '5px' },
-
-  track_orientation_horizontal_size_regular: { height: '6px' },
-
-  track_orientation_horizontal_size_large: { height: '7px' },
-
-  track_orientation_vertical_size_small: { width: '5px' },
-
-  track_orientation_vertical_size_regular: { width: '6px' },
-
-  track_orientation_vertical_size_large: { width: '7px' },
-
-  // Color
-  // rail
-  rail_color_default: { background: theme.palette.color.neutral[theme.palette.light ? 70 : 20] },
-
-  rail_color_neutral: { background: theme.palette.color.neutral[theme.palette.light ? 70 : 20] },
-
-  rail_color_primary: { background: theme.palette.color.primary[theme.palette.light ? 70 : 20] },
-
-  rail_color_secondary: { background: theme.palette.color.secondary[theme.palette.light ? 70 : 20] },
-
-  rail_color_tertiary: { background: theme.palette.color.tertiary[theme.palette.light ? 70 : 20] },
-
-  rail_color_quaternary: { background: theme.palette.color.quaternary[theme.palette.light ? 70 : 20] },
-
-  rail_color_info: { background: theme.palette.color.info[theme.palette.light ? 70 : 20] },
-
-  rail_color_success: { background: theme.palette.color.success[theme.palette.light ? 70 : 20] },
-
-  rail_color_warning: { background: theme.palette.color.warning[theme.palette.light ? 70 : 20] },
-
-  rail_color_error: { background: theme.palette.color.error[theme.palette.light ? 70 : 20] },
-
-  // track
-  track_color_default: { background: theme.palette.color.neutral[50] },
-
-  track_color_neutral: { background: theme.palette.color.neutral[50] },
-
-  track_color_primary: { background: theme.palette.color.primary[50] },
-
-  track_color_secondary: { background: theme.palette.color.secondary[50] },
-
-  track_color_tertiary: { background: theme.palette.color.tertiary[50] },
-
-  track_color_quaternary: { background: theme.palette.color.quaternary[50] },
-
-  track_color_info: { background: theme.palette.color.info[50] },
-
-  track_color_success: { background: theme.palette.color.success[50] },
-
-  track_color_warning: { background: theme.palette.color.warning[50] },
-
-  track_color_error: { background: theme.palette.color.error[50] },
-
-  // Tonal
-  track_tonal_color_neutral: { background: theme.palette.color.neutral[50] },
-
-  track_tonal_color_primary: { background: theme.palette.color.primary[50] },
-
-  track_tonal_color_secondary: { background: theme.palette.color.secondary[50] },
-
-  track_tonal_color_tertiary: { background: theme.palette.color.tertiary[50] },
-
-  track_tonal_color_quaternary: { background: theme.palette.color.quaternary[50] },
-
-  track_tonal_color_info: { background: theme.palette.color.info[50] },
-
-  track_tonal_color_success: { background: theme.palette.color.success[50] },
-
-  track_tonal_color_warning: { background: theme.palette.color.warning[50] },
-
-  track_tonal_color_error: { background: theme.palette.color.error[50] },
-
-  // iconButton
-  iconButton_color_default: {
-    '&.amaui-IconButton-root': {
-      color: theme.palette.text.default.primary
-    }
-  },
-
-  iconButton_color_neutral: {
-    '&.amaui-IconButton-root': {
-      color: theme.palette.color.neutral.main
-    }
-  },
-
-  iconButton_color_primary: {
-    '&.amaui-IconButton-root': {
-      color: theme.palette.color.primary.main
-    }
-  },
-
-  iconButton_color_secondary: {
-    '&.amaui-IconButton-root': {
-      color: theme.palette.color.secondary.main
-    }
-  },
-
-  iconButton_color_tertiary: {
-    '&.amaui-IconButton-root': {
-      color: theme.palette.color.tertiary.main
-    }
-  },
-
-  iconButton_color_quaternary: {
-    '&.amaui-IconButton-root': {
-      color: theme.palette.color.quaternary.main
-    }
-  },
-
-  iconButton_color_info: {
-    '&.amaui-IconButton-root': {
-      color: theme.palette.color.info.main
-    }
-  },
-
-  iconButton_color_success: {
-    '&.amaui-IconButton-root': {
-      color: theme.palette.color.success.main
-    }
-  },
-
-  iconButton_color_warning: {
-    '&.amaui-IconButton-root': {
-      color: theme.palette.color.warning.main
-    }
-  },
-
-  iconButton_color_error: {
-    '&.amaui-IconButton-root': {
-      color: theme.palette.color.error.main
-    }
-  },
-
-  // Tonal
-  iconButton_tonal_color_neutral: {
-    '&.amaui-IconButton-root': {
-      color: theme.methods.palette.color.value('default', 70)
-    }
-  },
-
-  iconButton_tonal_color_primary: {
-    '&.amaui-IconButton-root': {
-      color: theme.methods.palette.color.value('primary', 70)
-    }
-  },
-
-  iconButton_tonal_color_secondary: {
-    '&.amaui-IconButton-root': {
-      color: theme.methods.palette.color.value('secondary', 70)
-    }
-  },
-
-  iconButton_tonal_color_tertiary: {
-    '&.amaui-IconButton-root': {
-      color: theme.methods.palette.color.value('tertiary', 70)
-    }
-  },
-
-  iconButton_tonal_color_quaternary: {
-    '&.amaui-IconButton-root': {
-      color: theme.methods.palette.color.value('quaternary', 70)
-    }
-  },
-
-  iconButton_tonal_color_info: {
-    '&.amaui-IconButton-root': {
-      color: theme.methods.palette.color.value('info', 70)
-    }
-  },
-
-  iconButton_tonal_color_success: {
-    '&.amaui-IconButton-root': {
-      color: theme.methods.palette.color.value('success', 70)
-    }
-  },
-
-  iconButton_tonal_color_warning: {
-    '&.amaui-IconButton-root': {
-      color: theme.methods.palette.color.value('warning', 70)
-    }
-  },
-
-  iconButton_tonal_color_error: {
-    '&.amaui-IconButton-root': {
-      color: theme.methods.palette.color.value('error', 70)
-    }
-  },
-
-  square: {
-    borderRadius: '0px'
-  },
-
-  iconButton: {
-    position: 'absolute'
-  },
-
-  icon: {
+const useStyle = styleMethod(theme => {
+  const rail = {
+    position: 'absolute',
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.5em)`,
-    transform: 'scale(0.7)',
-    transition: theme.methods.transitions.make('transform', { duration: 'xs' })
-  },
+    borderRadius: 'inherit'
+  };
 
-  iconActive: {
-    transform: 'scale(1)'
-  },
+  const horizontal = {
+    top: '50%',
+    transform: 'translateY(-50%)'
+  };
 
-  icon_size_small: {
-    width: '16px',
-    height: '16px',
-  },
-
-  icon_size_regular: {
-    width: '20px',
-    height: '20px',
-  },
-
-  icon_size_large: {
-    width: '24px',
-    height: '24px',
-  },
-
-  marks: {
-    inset: '0',
-    ...rail
-  },
-
-  mark: {
-    position: 'absolute',
-    width: '2px',
-    height: '2px',
-    borderRadius: theme.methods.shape.radius.value(40, 'px')
-  },
-
-  orientation_horizontal: {
-    ...horizontal
-  },
-
-  orientation_vertical: {
-    ...vertical
-  },
-
-  labels: {
-    position: 'absolute',
-    whiteSpace: 'nowrap',
-    userSelect: 'none'
-  },
-
-  labels_orientation_horizontal: {
-    width: '100%',
-    left: '0',
-    top: '15px'
-  },
-
-  labels_orientation_vertical: {
-    height: '100%',
-    top: '0',
-    insetInlineStart: '21px'
-  },
-
-  label: {
-    position: 'absolute',
-    transition: theme.methods.transitions.make('color', { duration: 'xs' }),
-    color: theme.palette.text.default.secondary
-  },
-
-  label_orientation_horizontal: {
+  const vertical = {
+    left: '50%',
     transform: 'translateX(-50%)'
-  },
+  };
 
-  label_orientation_horizontal_rtl: {
-    transform: 'translateX(50%)'
-  },
+  return {
+    root: {
+      position: 'relative',
+      display: 'inline-flex',
+      borderRadius: `${theme.shape.radius.unit * 0.75}px`,
+      cursor: 'pointer',
+      touchAction: 'none'
+    },
 
-  label_orientation_vertical: {
-    transform: 'translateY(50%)'
-  },
+    root_orientation_horizontal: {
+      width: '100vw',
+      maxWidth: 400,
+      height: 4,
+      margin: '16px 0 28px'
+    },
 
-  label_active: {
-    color: theme.palette.text.default.primary
-  },
+    root_orientation_vertical: {
+      height: '100vh',
+      maxHeight: 240,
+      width: 4,
+      margin: '0 16px 0 28px'
+    },
 
-  focus_outline: {
-    outline: `1px solid ${theme.palette.text.default.secondary}`,
-    outlineOffset: '8px'
-  },
+    rail: {
+      ...rail
+    },
 
-  readOnly: {
-    cursor: 'default'
-  },
+    rail_orientation_horizontal: {
+      insetInline: '0'
+    },
 
-  tooltip: {
-    '& .amaui-Tooltip-name': {
-      padding: '0',
-      lineHeight: '0',
-      minWidth: '30px',
-      paddingTop: '100%',
-      overflow: 'hidden',
-      borderRadius: `${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')} 0px`,
-      transform: 'rotate(-45deg)',
+    rail_orientation_vertical: {
+      insetBlock: '0'
+    },
 
-      '& .amaui-Tooltip-name-text': {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%) rotate(45deg)'
+    rail_orientation_horizontal_size_small: { height: '3px' },
+
+    rail_orientation_horizontal_size_regular: { height: '4px' },
+
+    rail_orientation_horizontal_size_large: { height: '5px' },
+
+    rail_orientation_vertical_size_small: { width: '3px' },
+
+    rail_orientation_vertical_size_regular: { width: '4px' },
+
+    rail_orientation_vertical_size_large: { width: '5px' },
+
+    track: {
+      ...rail,
+    },
+
+    track_orientation_horizontal: {
+      insetInlineStart: '0'
+    },
+
+    track_orientation_vertical: {
+      insetBlockEnd: '0'
+    },
+
+    track_orientation_horizontal_size_small: { height: '5px' },
+
+    track_orientation_horizontal_size_regular: { height: '6px' },
+
+    track_orientation_horizontal_size_large: { height: '7px' },
+
+    track_orientation_vertical_size_small: { width: '5px' },
+
+    track_orientation_vertical_size_regular: { width: '6px' },
+
+    track_orientation_vertical_size_large: { width: '7px' },
+
+    // Color
+    // rail
+    rail_color_default: { background: theme.palette.color.neutral[theme.palette.light ? 70 : 20] },
+
+    rail_color_neutral: { background: theme.palette.color.neutral[theme.palette.light ? 70 : 20] },
+
+    rail_color_primary: { background: theme.palette.color.primary[theme.palette.light ? 70 : 20] },
+
+    rail_color_secondary: { background: theme.palette.color.secondary[theme.palette.light ? 70 : 20] },
+
+    rail_color_tertiary: { background: theme.palette.color.tertiary[theme.palette.light ? 70 : 20] },
+
+    rail_color_quaternary: { background: theme.palette.color.quaternary[theme.palette.light ? 70 : 20] },
+
+    rail_color_info: { background: theme.palette.color.info[theme.palette.light ? 70 : 20] },
+
+    rail_color_success: { background: theme.palette.color.success[theme.palette.light ? 70 : 20] },
+
+    rail_color_warning: { background: theme.palette.color.warning[theme.palette.light ? 70 : 20] },
+
+    rail_color_error: { background: theme.palette.color.error[theme.palette.light ? 70 : 20] },
+
+    // track
+    track_color_default: { background: theme.palette.color.neutral[50] },
+
+    track_color_neutral: { background: theme.palette.color.neutral[50] },
+
+    track_color_primary: { background: theme.palette.color.primary[50] },
+
+    track_color_secondary: { background: theme.palette.color.secondary[50] },
+
+    track_color_tertiary: { background: theme.palette.color.tertiary[50] },
+
+    track_color_quaternary: { background: theme.palette.color.quaternary[50] },
+
+    track_color_info: { background: theme.palette.color.info[50] },
+
+    track_color_success: { background: theme.palette.color.success[50] },
+
+    track_color_warning: { background: theme.palette.color.warning[50] },
+
+    track_color_error: { background: theme.palette.color.error[50] },
+
+    // Tonal
+    track_tonal_color_neutral: { background: theme.palette.color.neutral[50] },
+
+    track_tonal_color_primary: { background: theme.palette.color.primary[50] },
+
+    track_tonal_color_secondary: { background: theme.palette.color.secondary[50] },
+
+    track_tonal_color_tertiary: { background: theme.palette.color.tertiary[50] },
+
+    track_tonal_color_quaternary: { background: theme.palette.color.quaternary[50] },
+
+    track_tonal_color_info: { background: theme.palette.color.info[50] },
+
+    track_tonal_color_success: { background: theme.palette.color.success[50] },
+
+    track_tonal_color_warning: { background: theme.palette.color.warning[50] },
+
+    track_tonal_color_error: { background: theme.palette.color.error[50] },
+
+    // iconButton
+    iconButton_color_default: {
+      '&.amaui-IconButton-root': {
+        color: theme.palette.text.default.primary
       }
     },
 
-    '&.amaui-Tooltip-position-left': {
-      '& .amaui-Tooltip-name': {
-        borderRadius: `${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')} 0px ${theme.methods.shape.radius.value(40, 'px')}`
+    iconButton_color_neutral: {
+      '&.amaui-IconButton-root': {
+        color: theme.palette.color.neutral.main
       }
     },
 
-    '&.amaui-Tooltip-position-right': {
+    iconButton_color_primary: {
+      '&.amaui-IconButton-root': {
+        color: theme.palette.color.primary.main
+      }
+    },
+
+    iconButton_color_secondary: {
+      '&.amaui-IconButton-root': {
+        color: theme.palette.color.secondary.main
+      }
+    },
+
+    iconButton_color_tertiary: {
+      '&.amaui-IconButton-root': {
+        color: theme.palette.color.tertiary.main
+      }
+    },
+
+    iconButton_color_quaternary: {
+      '&.amaui-IconButton-root': {
+        color: theme.palette.color.quaternary.main
+      }
+    },
+
+    iconButton_color_info: {
+      '&.amaui-IconButton-root': {
+        color: theme.palette.color.info.main
+      }
+    },
+
+    iconButton_color_success: {
+      '&.amaui-IconButton-root': {
+        color: theme.palette.color.success.main
+      }
+    },
+
+    iconButton_color_warning: {
+      '&.amaui-IconButton-root': {
+        color: theme.palette.color.warning.main
+      }
+    },
+
+    iconButton_color_error: {
+      '&.amaui-IconButton-root': {
+        color: theme.palette.color.error.main
+      }
+    },
+
+    // Tonal
+    iconButton_tonal_color_neutral: {
+      '&.amaui-IconButton-root': {
+        color: theme.methods.palette.color.value('default', 70)
+      }
+    },
+
+    iconButton_tonal_color_primary: {
+      '&.amaui-IconButton-root': {
+        color: theme.methods.palette.color.value('primary', 70)
+      }
+    },
+
+    iconButton_tonal_color_secondary: {
+      '&.amaui-IconButton-root': {
+        color: theme.methods.palette.color.value('secondary', 70)
+      }
+    },
+
+    iconButton_tonal_color_tertiary: {
+      '&.amaui-IconButton-root': {
+        color: theme.methods.palette.color.value('tertiary', 70)
+      }
+    },
+
+    iconButton_tonal_color_quaternary: {
+      '&.amaui-IconButton-root': {
+        color: theme.methods.palette.color.value('quaternary', 70)
+      }
+    },
+
+    iconButton_tonal_color_info: {
+      '&.amaui-IconButton-root': {
+        color: theme.methods.palette.color.value('info', 70)
+      }
+    },
+
+    iconButton_tonal_color_success: {
+      '&.amaui-IconButton-root': {
+        color: theme.methods.palette.color.value('success', 70)
+      }
+    },
+
+    iconButton_tonal_color_warning: {
+      '&.amaui-IconButton-root': {
+        color: theme.methods.palette.color.value('warning', 70)
+      }
+    },
+
+    iconButton_tonal_color_error: {
+      '&.amaui-IconButton-root': {
+        color: theme.methods.palette.color.value('error', 70)
+      }
+    },
+
+    square: {
+      borderRadius: '0px'
+    },
+
+    iconButton: {
+      position: 'absolute'
+    },
+
+    icon: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.5em)`,
+      transform: 'scale(0.7)',
+      transition: theme.methods.transitions.make('transform', { duration: 'xs' })
+    },
+
+    iconActive: {
+      transform: 'scale(1)'
+    },
+
+    icon_size_small: {
+      width: '16px',
+      height: '16px',
+    },
+
+    icon_size_regular: {
+      width: '20px',
+      height: '20px',
+    },
+
+    icon_size_large: {
+      width: '24px',
+      height: '24px',
+    },
+
+    marks: {
+      inset: '0',
+      ...rail
+    },
+
+    mark: {
+      position: 'absolute',
+      width: '2px',
+      height: '2px',
+      borderRadius: theme.methods.shape.radius.value(40, 'px')
+    },
+
+    orientation_horizontal: {
+      ...horizontal
+    },
+
+    orientation_vertical: {
+      ...vertical
+    },
+
+    labels: {
+      position: 'absolute',
+      whiteSpace: 'nowrap',
+      userSelect: 'none'
+    },
+
+    labels_orientation_horizontal: {
+      width: '100%',
+      left: '0',
+      top: '15px'
+    },
+
+    labels_orientation_vertical: {
+      height: '100%',
+      top: '0',
+      insetInlineStart: '21px'
+    },
+
+    label: {
+      position: 'absolute',
+      transition: theme.methods.transitions.make('color', { duration: 'xs' }),
+      color: theme.palette.text.default.secondary
+    },
+
+    label_orientation_horizontal: {
+      transform: 'translateX(-50%)'
+    },
+
+    label_orientation_horizontal_rtl: {
+      transform: 'translateX(50%)'
+    },
+
+    label_orientation_vertical: {
+      transform: 'translateY(50%)'
+    },
+
+    label_active: {
+      color: theme.palette.text.default.primary
+    },
+
+    focus_outline: {
+      outline: `1px solid ${theme.palette.text.default.secondary}`,
+      outlineOffset: '8px'
+    },
+
+    readOnly: {
+      cursor: 'default'
+    },
+
+    tooltip: {
       '& .amaui-Tooltip-name': {
-        borderRadius: `0px ${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')}`
+        padding: '0',
+        lineHeight: '0',
+        minWidth: '30px',
+        paddingTop: '100%',
+        overflow: 'hidden',
+        borderRadius: `${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')} 0px`,
+        transform: 'rotate(-45deg)',
+
+        '& .amaui-Tooltip-name-text': {
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%) rotate(45deg)'
+        }
+      },
+
+      '&.amaui-Tooltip-position-left': {
+        '& .amaui-Tooltip-name': {
+          borderRadius: `${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')} 0px ${theme.methods.shape.radius.value(40, 'px')}`
+        }
+      },
+
+      '&.amaui-Tooltip-position-right': {
+        '& .amaui-Tooltip-name': {
+          borderRadius: `0px ${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')} ${theme.methods.shape.radius.value(40, 'px')}`
+        }
       }
-    }
-  },
+    },
 
-  tooltip_switch_orientation_horizontal_ltr: {
-    '& .amaui-Tooltip-name': {
-      transform: 'rotate(135deg)',
+    tooltip_switch_orientation_horizontal_ltr: {
+      '& .amaui-Tooltip-name': {
+        transform: 'rotate(135deg)',
 
-      '& .amaui-Tooltip-name-text': {
-        transform: 'translate(-50%, -50%) rotate(-135deg)'
+        '& .amaui-Tooltip-name-text': {
+          transform: 'translate(-50%, -50%) rotate(-135deg)'
+        }
       }
-    }
-  },
+    },
 
-  tooltip_switch_orientation_horizontal_rtl: {
-    '& .amaui-Tooltip-name': {
-      transform: 'rotate(135deg)',
+    tooltip_switch_orientation_horizontal_rtl: {
+      '& .amaui-Tooltip-name': {
+        transform: 'rotate(135deg)',
 
-      '& .amaui-Tooltip-name-text': {
-        transform: 'translate(-50%, -50%) rotate(-135deg)'
+        '& .amaui-Tooltip-name-text': {
+          transform: 'translate(-50%, -50%) rotate(-135deg)'
+        }
       }
-    }
-  },
+    },
 
-  disabled: {
-    cursor: 'default',
-    pointerEvents: 'none',
-    opacity: theme.palette.visual_contrast.default.opacity.disabled
-  }
-}), { name: 'amaui-Slider' });
+    disabled: {
+      cursor: 'default',
+      pointerEvents: 'none',
+      opacity: theme.palette.visual_contrast.default.opacity.disabled
+    }
+  };
+}, { name: 'amaui-Slider' });
 
 export type TSliderValue = number | Array<number>;
 
@@ -482,6 +484,14 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSlider?.props?.default, ...props_ }), [props_]);
+
+  const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
+
+  const Tooltip = React.useMemo(() => theme?.elements?.Tooltip || TooltipElement, [theme]);
+
+  const Zoom = React.useMemo(() => theme?.elements?.Zoom || ZoomElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     tonal = true,
@@ -527,6 +537,8 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
+  const { classes } = useStyle();
+
   const [init, setInit] = React.useState(false);
   const [value, setValue] = React.useState(() => {
     const valueNew = (valueDefault !== undefined ? valueDefault : value_) || 0;
@@ -566,8 +578,6 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
   refs.min.current = min;
 
   refs.max.current = max;
-
-  const { classes } = useStyle();
 
   let color = color_;
 

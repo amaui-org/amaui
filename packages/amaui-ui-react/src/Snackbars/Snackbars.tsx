@@ -3,12 +3,12 @@ import React from 'react';
 import { is, unique } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Snackbar from '../Snackbar';
-import { ISnackbar } from '../Snackbar/Snackbar';
-import SnackbarsContext from './Context';
-import Slide from '../Slide';
-import Expand from '../Expand';
+import SnackbarElement from '../Snackbar';
+import SlideElement from '../Slide';
+import ExpandElement from '../Expand';
 import LineElement from '../Line';
+import SnackbarsContext from './Context';
+import { ISnackbar } from '../Snackbar/Snackbar';
 import { TLineAlign } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { IBaseElement, IPropsAny } from '../types';
@@ -80,6 +80,14 @@ const Snackbars: React.FC<ISnackbars> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSnackbars?.props?.default, ...props_ }), [props_]);
 
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Snackbar = React.useMemo(() => theme?.elements?.Snackbar || SnackbarElement, [theme]);
+
+  const Slide = React.useMemo(() => theme?.elements?.Slide || SlideElement, [theme]);
+
+  const Expand = React.useMemo(() => theme?.elements?.Expand || ExpandElement, [theme]);
+
   const {
     max = 4,
     position = 'bottom',
@@ -101,10 +109,10 @@ const Snackbars: React.FC<ISnackbars> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
+  const { classes } = useStyle();
+
   const [preOpen, setPreOpen] = React.useState([]);
   const [open, setOpen] = React.useState([]);
-
-  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

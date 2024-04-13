@@ -52,6 +52,8 @@ const SpyScroll: React.FC<ISpyScroll> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
+  const { classes } = useStyle();
+
   const refs = {
     root: React.useRef<HTMLElement>(),
     active: React.useRef<Array<HTMLElement>>([]),
@@ -59,8 +61,6 @@ const SpyScroll: React.FC<ISpyScroll> = React.forwardRef((props_, ref: any) => {
     props: React.useRef<any>(),
     onActive: React.useRef(onActive)
   };
-
-  const { classes } = useStyle();
 
   refs.props.current = props;
 

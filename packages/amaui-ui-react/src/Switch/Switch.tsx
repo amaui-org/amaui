@@ -3,7 +3,7 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Keyframes from '../Keyframes';
+import KeyframesElement from '../Keyframes';
 import IconButtonElement from '../IconButton';
 import { staticClassName } from '../utils';
 import { IBaseElement, ITonal, IColor, ISize, IRef, IElement } from '../types';
@@ -219,6 +219,10 @@ const Switch: React.FC<ISwitch> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSwitch?.props?.default, ...props_ }), [props_]);
 
+  const Keyframes = React.useMemo(() => theme?.elements?.Keyframes || KeyframesElement, [theme]);
+
+  const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
+
   const {
     tonal: tonal_ = true,
     color: color_ = 'primary',
@@ -253,6 +257,8 @@ const Switch: React.FC<ISwitch> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
+  const { classes } = useStyle();
+
   const checkedDefault = valueDefault_ !== undefined ? valueDefault_ : checkedDefault_;
   const checked = value_ !== undefined ? value_ : checked_;
 
@@ -265,8 +271,6 @@ const Switch: React.FC<ISwitch> = React.forwardRef((props_, ref: any) => {
   };
 
   refs.value.current = value;
-
-  const { classes } = useStyle();
 
   let color = color_;
   let tonal = tonal_;

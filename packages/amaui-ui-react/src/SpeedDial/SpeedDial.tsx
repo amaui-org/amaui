@@ -1,17 +1,33 @@
 import React from 'react';
 
-import { is, clamp, element, isBrowser, isEnvironment } from '@amaui/utils';
+import { is, clamp, isBrowser, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Zoom from '../Zoom';
-import Fade from '../Fade';
-import Fab from '../Fab';
+import ZoomElement from '../Zoom';
+import FadeElement from '../Fade';
+import FabElement from '../Fab';
 import IconElement from '../Icon';
 import TooltipElement from '../Tooltip';
 import LineElement from '../Line';
 import { ILine, TLineDirection } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { ITonal, IColor, IVersion, IElement, IElementReference, IPropsAny } from '../types';
+
+const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='CloseRounded'
+      short_name='Close'
+
+      {...props}
+    >
+      <path d="M12 13.4 7.1 18.3Q6.825 18.575 6.4 18.575Q5.975 18.575 5.7 18.3Q5.425 18.025 5.425 17.6Q5.425 17.175 5.7 16.9L10.6 12L5.7 7.1Q5.425 6.825 5.425 6.4Q5.425 5.975 5.7 5.7Q5.975 5.425 6.4 5.425Q6.825 5.425 7.1 5.7L12 10.6L16.9 5.7Q17.175 5.425 17.6 5.425Q18.025 5.425 18.3 5.7Q18.575 5.975 18.575 6.4Q18.575 6.825 18.3 7.1L13.4 12L18.3 16.9Q18.575 17.175 18.575 17.6Q18.575 18.025 18.3 18.3Q18.025 18.575 17.6 18.575Q17.175 18.575 16.9 18.3Z" />
+    </IconElement>
+  );
+});
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -111,22 +127,6 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-SpeedDial' });
 
-const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='CloseRounded'
-      short_name='Close'
-
-      {...props}
-    >
-      <path d="M12 13.4 7.1 18.3Q6.825 18.575 6.4 18.575Q5.975 18.575 5.7 18.3Q5.425 18.025 5.425 17.6Q5.425 17.175 5.7 16.9L10.6 12L5.7 7.1Q5.425 6.825 5.425 6.4Q5.425 5.975 5.7 5.7Q5.975 5.425 6.4 5.425Q6.825 5.425 7.1 5.7L12 10.6L16.9 5.7Q17.175 5.425 17.6 5.425Q18.025 5.425 18.3 5.7Q18.575 5.975 18.575 6.4Q18.575 6.825 18.3 7.1L13.4 12L18.3 16.9Q18.575 17.175 18.575 17.6Q18.575 18.025 18.3 18.3Q18.025 18.575 17.6 18.575Q17.175 18.575 16.9 18.3Z" />
-    </Icon>
-  );
-});
-
 const IconWrapper = (props: any) => {
   return (
     <span
@@ -191,6 +191,16 @@ const SpeedDial: React.FC<ISpeedDial> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSpeedDial?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Zoom = React.useMemo(() => theme?.elements?.Zoom || ZoomElement, [theme]);
+
+  const Fade = React.useMemo(() => theme?.elements?.Fade || FadeElement, [theme]);
+
+  const Fab = React.useMemo(() => theme?.elements?.Fab || FabElement, [theme]);
+
+  const Tooltip = React.useMemo(() => theme?.elements?.Tooltip || TooltipElement, [theme]);
 
   const {
     tonal = true,

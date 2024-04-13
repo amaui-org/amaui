@@ -3,28 +3,28 @@ import React from 'react';
 import { innerHTMLToText, is, isEnvironment, parse, stringToColor, textToInnerHTML } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import TextField, { ITextField } from '../TextField/TextField';
-import Icon, { IIcon } from '../Icon';
+import TextFieldElement, { ITextField } from '../TextField/TextField';
+import IconElement, { IIcon } from '../Icon';
 import LineElement from '../Line';
 import ListElement from '../List';
 import ListItemElement from '../ListItem';
-import Avatar from '../Avatar';
+import AvatarElement from '../Avatar';
 import TypeElement from '../Type';
 import SurfaceElement from '../Surface';
 import ButtonElement from '../Button';
-import Append from '../Append';
-import Fade from '../Fade';
+import AppendElement from '../Append';
+import FadeElement from '../Fade';
 import TooltipElement from '../Tooltip';
-import ToggleButton from '../ToggleButton';
-import ClickListener from '../ClickListener';
-import ToggleButtons from '../ToggleButtons';
-import Menu from '../Menu';
+import ToggleButtonElement from '../ToggleButton';
+import ClickListenerElement from '../ClickListener';
+import ToggleButtonsElement from '../ToggleButtons';
+import MenuElement from '../Menu';
 import { sanitize, caret, keyboardStyleCommands, staticClassName } from '../utils';
 
 const IconMaterialFormatItalicRounded = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='FormatItalic'
@@ -36,14 +36,14 @@ const IconMaterialFormatItalicRounded = React.forwardRef((props: IIcon, ref) => 
       {...props}
     >
       <path d="M6.5 20q-.625 0-1.062-.438Q5 19.125 5 18.5t.438-1.062Q5.875 17 6.5 17h1.875l4-10H10.5q-.625 0-1.062-.438Q9 6.125 9 5.5t.438-1.062Q9.875 4 10.5 4h7q.625 0 1.062.438Q19 4.875 19 5.5t-.438 1.062Q18.125 7 17.5 7h-1.875l-4 10H13.5q.625 0 1.062.438.438.437.438 1.062t-.438 1.062Q14.125 20 13.5 20Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
 const IconMaterialFormatUnderlinedRounded = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='FormatUnderlined'
@@ -55,14 +55,14 @@ const IconMaterialFormatUnderlinedRounded = React.forwardRef((props: IIcon, ref)
       {...props}
     >
       <path d="M6 21q-.425 0-.713-.288Q5 20.425 5 20t.287-.712Q5.575 19 6 19h12q.425 0 .712.288.288.287.288.712t-.288.712Q18.425 21 18 21Zm6-4q-2.525 0-4.263-1.738Q6 13.525 6 11V4.25q0-.525.363-.888Q6.725 3 7.25 3t.887.362q.363.363.363.888V11q0 1.475 1.012 2.488Q10.525 14.5 12 14.5t2.488-1.012Q15.5 12.475 15.5 11V4.25q0-.525.363-.888Q16.225 3 16.75 3t.888.362q.362.363.362.888V11q0 2.525-1.738 4.262Q14.525 17 12 17Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
 const IconMaterialStrikethroughSRounded = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='StrikethroughS'
@@ -74,14 +74,14 @@ const IconMaterialStrikethroughSRounded = React.forwardRef((props: IIcon, ref) =
       {...props}
     >
       <path d="M12.15 20q-1.625 0-2.925-.812-1.3-.813-2.1-2.288-.225-.425-.05-.9.175-.475.675-.675.425-.2.863-.025.437.175.712.625.45.75 1.187 1.213.738.462 1.688.462 1.05 0 1.9-.5.85-.5.85-1.6 0-.45-.175-.825Q14.6 14.3 14.3 14h2.8q.125.35.188.712.062.363.062.788 0 2.15-1.538 3.325Q14.275 20 12.15 20ZM3 12q-.425 0-.712-.288Q2 11.425 2 11t.288-.713Q2.575 10 3 10h18q.425 0 .712.287.288.288.288.713t-.288.712Q21.425 12 21 12Zm4.25-4q.05-1.725 1.363-2.938Q9.925 3.85 12.05 3.85q1.35 0 2.425.537 1.075.538 1.8 1.663.275.425.1.9-.175.475-.675.7-.375.175-.812.038-.438-.138-.788-.563-.325-.375-.825-.625-.5-.25-1.175-.25-1.025 0-1.7.463-.675.462-.75 1.287Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
 const IconMaterialFormatBoldRounded = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='FormatBold'
@@ -93,14 +93,14 @@ const IconMaterialFormatBoldRounded = React.forwardRef((props: IIcon, ref) => {
       {...props}
     >
       <path d="M9 18q-.825 0-1.412-.587Q7 16.825 7 16V6q0-.825.588-1.412Q8.175 4 9 4h3.5q1.7 0 2.975.975 1.275.975 1.275 2.675 0 1.2-.55 1.912-.55.713-1.3 1.088v.2q1.1.375 1.725 1.175t.625 2.075q0 1.875-1.363 2.888Q14.525 18 12.65 18Zm.65-8.3h2.65q.825 0 1.363-.475.537-.475.537-1.2t-.537-1.2q-.538-.475-1.363-.475H9.65Zm0 5.9h2.85q.975 0 1.538-.5.562-.5.562-1.325t-.562-1.325q-.563-.5-1.538-.5H9.65Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
 const IconMaterialAddLinkRounded = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='AddLink'
@@ -112,14 +112,14 @@ const IconMaterialAddLinkRounded = React.forwardRef((props: IIcon, ref) => {
       {...props}
     >
       <path d="M7 17q-2.075 0-3.537-1.463Q2 14.075 2 12t1.463-3.538Q4.925 7 7 7h3q.425 0 .713.287Q11 7.575 11 8t-.287.712Q10.425 9 10 9H7q-1.25 0-2.125.875T4 12q0 1.25.875 2.125T7 15h3q.425 0 .713.287.287.288.287.713t-.287.712Q10.425 17 10 17Zm2-4q-.425 0-.712-.288Q8 12.425 8 12t.288-.713Q8.575 11 9 11h6q.425 0 .713.287.287.288.287.713t-.287.712Q15.425 13 15 13Zm13-1h-2q0-1.25-.875-2.125T17 9h-3q-.425 0-.712-.288Q13 8.425 13 8t.288-.713Q13.575 7 14 7h3q2.075 0 3.538 1.462Q22 9.925 22 12Zm-4 8q-.425 0-.712-.288Q17 19.425 17 19v-2h-2q-.425 0-.712-.288Q14 16.425 14 16t.288-.713Q14.575 15 15 15h2v-2q0-.425.288-.713Q17.575 12 18 12t.712.287Q19 12.575 19 13v2h2q.425 0 .712.287.288.288.288.713t-.288.712Q21.425 17 21 17h-2v2q0 .425-.288.712Q18.425 20 18 20Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
 const IconMaterialLinkOffRounded = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='LinkOff'
@@ -131,14 +131,14 @@ const IconMaterialLinkOffRounded = React.forwardRef((props: IIcon, ref) => {
       {...props}
     >
       <path d="m15.825 13-2-2h2q.425 0 .713.287.287.288.287.713t-.287.712q-.288.288-.713.288Zm3.425 3.45-1.5-1.55q.975-.275 1.613-1.063Q20 13.05 20 12q0-1.25-.875-2.125T17 9h-3q-.425 0-.712-.288Q13 8.425 13 8t.288-.713Q13.575 7 14 7h3q2.075 0 3.538 1.438Q22 9.875 22 12q0 1.425-.75 2.637-.75 1.213-2 1.813Zm-.15 5.45-17-17q-.275-.275-.275-.7 0-.425.275-.7.275-.275.7-.275.425 0 .7.275l17 17q.275.275.275.7 0 .425-.275.7-.275.275-.7.275-.425 0-.7-.275ZM10 17H7q-2.075 0-3.537-1.463Q2 14.075 2 12q0-1.75 1.062-3.088Q4.125 7.575 5.75 7.15L7.6 9H7q-1.25 0-2.125.875T4 12q0 1.25.875 2.125T7 15h3q.425 0 .713.287.287.288.287.713t-.287.712Q10.425 17 10 17Zm1.6-4H8.175q-.425 0-.712-.288-.288-.287-.288-.712t.288-.713Q7.75 11 8.175 11h1.45Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
 const IconMaterialFormatClearRounded = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='FormatClear'
@@ -150,7 +150,7 @@ const IconMaterialFormatClearRounded = React.forwardRef((props: IIcon, ref) => {
       {...props}
     >
       <path d="m13.2 10.35-2.325-2.325L7.85 5H18.5q.625 0 1.062.438Q20 5.875 20 6.5t-.438 1.062Q19.125 8 18.5 8h-4.3Zm5.9 11.55-7.6-7.6-1.6 3.775q-.175.425-.562.675Q8.95 19 8.5 19q-.8 0-1.25-.675-.45-.675-.125-1.425L9.2 12 2.1 4.9q-.275-.275-.275-.7 0-.425.275-.7.275-.275.7-.275.425 0 .7.275l17 17q.275.275.275.7 0 .425-.275.7-.275.275-.7.275-.425 0-.7-.275Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
@@ -243,6 +243,36 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSmartTextField?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const TextField = React.useMemo(() => theme?.elements?.TextField || TextFieldElement, [theme]);
+
+  const List = React.useMemo(() => theme?.elements?.List || ListElement, [theme]);
+
+  const ListItem = React.useMemo(() => theme?.elements?.ListItem || ListItemElement, [theme]);
+
+  const Avatar = React.useMemo(() => theme?.elements?.Avatar || AvatarElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const Button = React.useMemo(() => theme?.elements?.Button || ButtonElement, [theme]);
+
+  const Append = React.useMemo(() => theme?.elements?.Append || AppendElement, [theme]);
+
+  const Fade = React.useMemo(() => theme?.elements?.Fade || FadeElement, [theme]);
+
+  const Tooltip = React.useMemo(() => theme?.elements?.Tooltip || TooltipElement, [theme]);
+
+  const ToggleButton = React.useMemo(() => theme?.elements?.ToggleButton || ToggleButtonElement, [theme]);
+
+  const ClickListener = React.useMemo(() => theme?.elements?.ClickListener || ClickListenerElement, [theme]);
+
+  const ToggleButtons = React.useMemo(() => theme?.elements?.ToggleButtons || ToggleButtonsElement, [theme]);
+
+  const Menu = React.useMemo(() => theme?.elements?.Menu || MenuElement, [theme]);
 
   const {
     version = 'type',

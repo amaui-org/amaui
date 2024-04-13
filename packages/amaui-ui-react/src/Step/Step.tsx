@@ -3,14 +3,14 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Divider from '../Divider';
 import InteractionElement from '../Interaction';
-import { IconDoneAnimated } from '../Buttons/Buttons';
-import PaginationItem from '../PaginationItem';
+import PaginationItemElement from '../PaginationItem';
+import DividerElement from '../Divider';
 import SurfaceElement from '../Surface';
 import ListItemElement from '../ListItem';
 import LineElement from '../Line';
 import { ILine } from '../Line/Line';
+import { IconDoneAnimated } from '../Buttons/Buttons';
 import { staticClassName } from '../utils';
 import { ITonal, IColor, IVersion, IElement, IPropsAny } from '../types';
 
@@ -121,7 +121,17 @@ const Step: React.FC<IStep> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiStep?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Interaction = React.useMemo(() => theme?.elements?.Interaction || InteractionElement, [theme]);
+
+  const PaginationItem = React.useMemo(() => theme?.elements?.PaginationItem || PaginationItemElement, [theme]);
+
+  const Divider = React.useMemo(() => theme?.elements?.Divider || DividerElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const ListItem = React.useMemo(() => theme?.elements?.ListItem || ListItemElement, [theme]);
 
   const {
     tonal = true,
@@ -158,6 +168,8 @@ const Step: React.FC<IStep> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const activeDivider = activeStep >= step - 1;
 

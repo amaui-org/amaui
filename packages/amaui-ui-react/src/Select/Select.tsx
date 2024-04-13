@@ -4,133 +4,20 @@ import { is, isEnvironment, unique } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import IconElement from '../Icon';
-import Menu from '../Menu';
-import Chip from '../Chip';
+import MenuElement from '../Menu';
+import ChipElement from '../Chip';
+import ChipGroupElement from '../Chips';
 import TextFieldElement from '../TextField';
-import ChipGroup from '../Chips';
 import IconButtonElement from '../IconButton';
 import LineElement from '../Line';
 import { ITextField } from '../TextField/TextField';
 import { staticClassName } from '../utils';
 import { IElement, IPropsAny } from '../types';
 
-const overflow = {
-  width: '100%',
-  overflow: 'hidden',
-  whiteSpace: 'nowrap',
-  textOverflow: 'ellipsis'
-};
-
-const useStyle = styleMethod(theme => ({
-  root: {
-    flex: 'unset',
-    minWidth: '140px',
-
-    '& .amaui-TextField-input': {
-      position: 'absolute',
-      left: '0',
-      bottom: '0',
-      pointerEvents: 'none',
-      opacity: '0'
-    },
-
-    '& .amaui-TextField-input-wrapper': {
-      cursor: 'pointer'
-    }
-  },
-
-  wrapper: {
-    position: 'relative'
-  },
-
-  inputWrapper: {
-    cursor: 'pointer',
-
-    '&.amaui-TextField-input-wrapper': {
-      cursor: 'pointer'
-    }
-  },
-
-  inputWrapper_chip_size_small: {
-    minHeight: '48px'
-  },
-
-  inputWrapper_chip_size_regular: {
-    minHeight: '56px'
-  },
-
-  inputWrapper_chip_size_large: {
-    minHeight: '64px'
-  },
-
-  input: {
-    width: '100%',
-    margin: '0',
-    border: '0',
-    color: theme.palette.text.default.primary,
-    background: 'transparent',
-    '-webkit-tap-highlight-color': 'transparent',
-    textAlign: 'start',
-    borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
-    ...theme.typography.values.b2,
-    ...overflow,
-    cursor: 'pointer',
-    pointerEvents: 'none'
-  },
-
-  chip: {
-    '&.amaui-TextField-input-wrapper': {
-      height: 'unset'
-    }
-  },
-
-  chipGroup: {
-    pointerEvents: 'none'
-  },
-
-  chipGroup_padding: {
-    paddingTop: theme.methods.space.value(0.5, 'px')
-  },
-
-  arrow: {
-    transition: theme.methods.transitions.make('transform')
-  },
-
-  arrow_open: {
-    transform: 'rotate(-180deg)'
-  },
-
-  menu_autoWidth: {
-    width: '100%'
-  },
-
-  open: {
-    '&.amaui-TextField-root': {
-      cursor: 'default'
-    }
-  },
-
-  fullWidth: {
-    width: '100%'
-  },
-
-  readOnly: {
-    '&.amaui-TextField-root': {
-      cursor: 'default'
-    }
-  },
-
-  disabled: {
-    '&.amaui-TextField-root': {
-      cursor: 'default'
-    }
-  }
-}), { name: 'amaui-Select' });
-
 const IconMaterialArrowDropDownRounded = React.forwardRef((props: any, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='ArrowDropDownRounded'
@@ -139,9 +26,124 @@ const IconMaterialArrowDropDownRounded = React.forwardRef((props: any, ref) => {
       {...props}
     >
       <path d="M11.3 14.3 8.7 11.7Q8.225 11.225 8.488 10.613Q8.75 10 9.425 10H14.575Q15.25 10 15.512 10.613Q15.775 11.225 15.3 11.7L12.7 14.3Q12.55 14.45 12.375 14.525Q12.2 14.6 12 14.6Q11.8 14.6 11.625 14.525Q11.45 14.45 11.3 14.3Z" />
-    </Icon>
+    </IconElement>
   );
 });
+
+const useStyle = styleMethod(theme => {
+  const overflow = {
+    width: '100%',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis'
+  };
+
+  return {
+    root: {
+      flex: 'unset',
+      minWidth: '140px',
+
+      '& .amaui-TextField-input': {
+        position: 'absolute',
+        left: '0',
+        bottom: '0',
+        pointerEvents: 'none',
+        opacity: '0'
+      },
+
+      '& .amaui-TextField-input-wrapper': {
+        cursor: 'pointer'
+      }
+    },
+
+    wrapper: {
+      position: 'relative'
+    },
+
+    inputWrapper: {
+      cursor: 'pointer',
+
+      '&.amaui-TextField-input-wrapper': {
+        cursor: 'pointer'
+      }
+    },
+
+    inputWrapper_chip_size_small: {
+      minHeight: '48px'
+    },
+
+    inputWrapper_chip_size_regular: {
+      minHeight: '56px'
+    },
+
+    inputWrapper_chip_size_large: {
+      minHeight: '64px'
+    },
+
+    input: {
+      width: '100%',
+      margin: '0',
+      border: '0',
+      color: theme.palette.text.default.primary,
+      background: 'transparent',
+      '-webkit-tap-highlight-color': 'transparent',
+      textAlign: 'start',
+      borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
+      ...theme.typography.values.b2,
+      ...overflow,
+      cursor: 'pointer',
+      pointerEvents: 'none'
+    },
+
+    chip: {
+      '&.amaui-TextField-input-wrapper': {
+        height: 'unset'
+      }
+    },
+
+    chipGroup: {
+      pointerEvents: 'none'
+    },
+
+    chipGroup_padding: {
+      paddingTop: theme.methods.space.value(0.5, 'px')
+    },
+
+    arrow: {
+      transition: theme.methods.transitions.make('transform')
+    },
+
+    arrow_open: {
+      transform: 'rotate(-180deg)'
+    },
+
+    menu_autoWidth: {
+      width: '100%'
+    },
+
+    open: {
+      '&.amaui-TextField-root': {
+        cursor: 'default'
+      }
+    },
+
+    fullWidth: {
+      width: '100%'
+    },
+
+    readOnly: {
+      '&.amaui-TextField-root': {
+        cursor: 'default'
+      }
+    },
+
+    disabled: {
+      '&.amaui-TextField-root': {
+        cursor: 'default'
+      }
+    }
+  };
+}, { name: 'amaui-Select' });
 
 export interface ISelect extends ITextField {
   multiple?: boolean;
@@ -161,6 +163,18 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSelect?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Menu = React.useMemo(() => theme?.elements?.Menu || MenuElement, [theme]);
+
+  const Chip = React.useMemo(() => theme?.elements?.Chip || ChipElement, [theme]);
+
+  const ChipGroup = React.useMemo(() => theme?.elements?.ChipGroup || ChipGroupElement, [theme]);
+
+  const TextField = React.useMemo(() => theme?.elements?.TextField || TextFieldElement, [theme]);
+
+  const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
 
   const {
     tonal = true,

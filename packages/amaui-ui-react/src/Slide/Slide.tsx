@@ -1,6 +1,6 @@
 import React from 'react';
 
-import is from '@amaui/utils/is';
+import { is } from '@amaui/utils';
 import { classNames, useAmauiTheme } from '@amaui/style-react';
 
 import { ITransition, Transition, TTransitionStatus } from '..';
@@ -18,11 +18,6 @@ const Slide: React.FC<ISlide> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSlide?.props?.default, ...props_ }), [props_]);
-
-  const refs = {
-    root: React.useRef<HTMLElement>(),
-    rect: React.useRef<any>()
-  };
 
   const {
     in: inProp,
@@ -64,6 +59,11 @@ const Slide: React.FC<ISlide> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const refs = {
+    root: React.useRef<HTMLElement>(),
+    rect: React.useRef<any>()
+  };
 
   const translate = (useMin = false) => {
     const rect = !removeOnExited ? refs.rect.current : refs.root?.current?.getBoundingClientRect();

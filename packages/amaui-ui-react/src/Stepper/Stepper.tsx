@@ -3,7 +3,7 @@ import React from 'react';
 import { clamp } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Divider from '../Divider';
+import DividerElement from '../Divider';
 import LineElement from '../Line';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
@@ -92,7 +92,9 @@ const Stepper: React.FC<IStepper> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiStepper?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Divider = React.useMemo(() => theme?.elements?.Divider || DividerElement, [theme]);
 
   const {
     gap = 2,
@@ -128,6 +130,8 @@ const Stepper: React.FC<IStepper> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const steps = React.Children.toArray(children);
 
