@@ -4,7 +4,7 @@ import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import LineElement from '../Line';
-import Accordion from '../Accordion';
+import AccordionElement from '../Accordion';
 import TypeElement from '../Type';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
@@ -95,6 +95,12 @@ const Form: React.FC<IForm> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiForm?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Accordion = React.useMemo(() => theme?.elements?.Accordion || AccordionElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     accordion,

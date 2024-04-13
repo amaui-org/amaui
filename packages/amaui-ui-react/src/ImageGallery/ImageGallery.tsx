@@ -5,14 +5,62 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import { IMedia } from '@amaui/api-utils';
 
 import LineElement from '../Line';
-import Image from '../Image';
 import IconElement from '../Icon';
 import IconButtonElement from '../IconButton';
-import Backdrop from '../Backdrop';
 import InteractionElement from '../Interaction';
+import ImageElement from '../Image';
+import BackdropElement from '../Backdrop';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { IElementReference } from '../types';
+
+const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='NavigateNextRounded'
+      short_name='NavigateNext'
+
+      {...props}
+    >
+      <path d="M8.7 17.3Q8.425 17.025 8.425 16.6Q8.425 16.175 8.7 15.9L12.6 12L8.7 8.1Q8.425 7.825 8.425 7.4Q8.425 6.975 8.7 6.7Q8.975 6.425 9.4 6.425Q9.825 6.425 10.1 6.7L14.7 11.3Q14.85 11.45 14.913 11.625Q14.975 11.8 14.975 12Q14.975 12.2 14.913 12.375Q14.85 12.55 14.7 12.7L10.1 17.3Q9.825 17.575 9.4 17.575Q8.975 17.575 8.7 17.3Z" />
+    </IconElement>
+  );
+});
+
+const IconMaterialNavigateBeforeRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='NavigateBeforeRounded'
+      short_name='NavigateBefore'
+
+      {...props}
+    >
+      <path d="M13.3 17.3 8.7 12.7Q8.55 12.55 8.488 12.375Q8.425 12.2 8.425 12Q8.425 11.8 8.488 11.625Q8.55 11.45 8.7 11.3L13.3 6.7Q13.575 6.425 14 6.425Q14.425 6.425 14.7 6.7Q14.975 6.975 14.975 7.4Q14.975 7.825 14.7 8.1L10.8 12L14.7 15.9Q14.975 16.175 14.975 16.6Q14.975 17.025 14.7 17.3Q14.425 17.575 14 17.575Q13.575 17.575 13.3 17.3Z" />
+    </IconElement>
+  );
+});
+
+const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='CloseRounded'
+      short_name='Close'
+
+      {...props}
+    >
+      <path d="M12 13.4 7.1 18.3Q6.825 18.575 6.4 18.575Q5.975 18.575 5.7 18.3Q5.425 18.025 5.425 17.6Q5.425 17.175 5.7 16.9L10.6 12L5.7 7.1Q5.425 6.825 5.425 6.4Q5.425 5.975 5.7 5.7Q5.975 5.425 6.4 5.425Q6.825 5.425 7.1 5.7L12 10.6L16.9 5.7Q17.175 5.425 17.6 5.425Q18.025 5.425 18.3 5.7Q18.575 5.975 18.575 6.4Q18.575 6.825 18.3 7.1L13.4 12L18.3 16.9Q18.575 17.175 18.575 17.6Q18.575 18.025 18.3 18.3Q18.025 18.575 17.6 18.575Q17.175 18.575 16.9 18.3Z" />
+    </IconElement>
+  );
+});
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -161,54 +209,6 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-ImageGallery' });
 
-const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='NavigateNextRounded'
-      short_name='NavigateNext'
-
-      {...props}
-    >
-      <path d="M8.7 17.3Q8.425 17.025 8.425 16.6Q8.425 16.175 8.7 15.9L12.6 12L8.7 8.1Q8.425 7.825 8.425 7.4Q8.425 6.975 8.7 6.7Q8.975 6.425 9.4 6.425Q9.825 6.425 10.1 6.7L14.7 11.3Q14.85 11.45 14.913 11.625Q14.975 11.8 14.975 12Q14.975 12.2 14.913 12.375Q14.85 12.55 14.7 12.7L10.1 17.3Q9.825 17.575 9.4 17.575Q8.975 17.575 8.7 17.3Z" />
-    </Icon>
-  );
-});
-
-const IconMaterialNavigateBeforeRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='NavigateBeforeRounded'
-      short_name='NavigateBefore'
-
-      {...props}
-    >
-      <path d="M13.3 17.3 8.7 12.7Q8.55 12.55 8.488 12.375Q8.425 12.2 8.425 12Q8.425 11.8 8.488 11.625Q8.55 11.45 8.7 11.3L13.3 6.7Q13.575 6.425 14 6.425Q14.425 6.425 14.7 6.7Q14.975 6.975 14.975 7.4Q14.975 7.825 14.7 8.1L10.8 12L14.7 15.9Q14.975 16.175 14.975 16.6Q14.975 17.025 14.7 17.3Q14.425 17.575 14 17.575Q13.575 17.575 13.3 17.3Z" />
-    </Icon>
-  );
-});
-
-const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='CloseRounded'
-      short_name='Close'
-
-      {...props}
-    >
-      <path d="M12 13.4 7.1 18.3Q6.825 18.575 6.4 18.575Q5.975 18.575 5.7 18.3Q5.425 18.025 5.425 17.6Q5.425 17.175 5.7 16.9L10.6 12L5.7 7.1Q5.425 6.825 5.425 6.4Q5.425 5.975 5.7 5.7Q5.975 5.425 6.4 5.425Q6.825 5.425 7.1 5.7L12 10.6L16.9 5.7Q17.175 5.425 17.6 5.425Q18.025 5.425 18.3 5.7Q18.575 5.975 18.575 6.4Q18.575 6.825 18.3 7.1L13.4 12L18.3 16.9Q18.575 17.175 18.575 17.6Q18.575 18.025 18.3 18.3Q18.025 18.575 17.6 18.575Q17.175 18.575 16.9 18.3Z" />
-    </Icon>
-  );
-});
-
 export interface IImageGalleryItem extends IMedia {
   url?: string;
   urlSmall?: string;
@@ -254,6 +254,16 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageGallery?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
+
+  const Interaction = React.useMemo(() => theme?.elements?.Interaction || InteractionElement, [theme]);
+
+  const Image = React.useMemo(() => theme?.elements?.Image || ImageElement, [theme]);
+
+  const Backdrop = React.useMemo(() => theme?.elements?.Backdrop || BackdropElement, [theme]);
 
   const {
     version = 'modal',

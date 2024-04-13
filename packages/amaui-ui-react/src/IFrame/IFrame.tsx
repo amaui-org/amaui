@@ -35,6 +35,8 @@ const IFrame: React.FC<IIFrame> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiIFrame?.props?.default, ...props_ }), [props_]);
 
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
   const {
     id,
 

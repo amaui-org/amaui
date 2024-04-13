@@ -1,6 +1,6 @@
 import React from 'react';
 
-import is from '@amaui/utils/is';
+import { is } from '@amaui/utils';
 import { classNames, useAmauiTheme } from '@amaui/style-react';
 
 import { ITransition, Transition, TTransitionStatus } from '..';
@@ -13,10 +13,6 @@ const Fade: React.FC<IFade> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiFade?.props?.default, ...props_ }), [props_]);
-
-  const refs = {
-    root: React.useRef<HTMLElement>()
-  };
 
   const {
     in: inProp,
@@ -54,6 +50,10 @@ const Fade: React.FC<IFade> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const refs = {
+    root: React.useRef<HTMLElement>()
+  };
 
   const styles = (status: TTransitionStatus) => {
     const { opacity = 1 } = (refs.root.current && window.getComputedStyle(refs.root?.current)) || {};

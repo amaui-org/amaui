@@ -56,6 +56,10 @@ const FormRow: React.FC<IFormRow> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiFormRow?.props?.default, ...props_ }), [props_]);
 
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
   const {
     name,
     description,

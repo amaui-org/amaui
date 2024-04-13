@@ -21,7 +21,7 @@ const Fab: React.FC<IFab> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiFab?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Button = React.useMemo(() => theme?.elements?.Button || ButtonElement, [theme]);
 
   const {
     tonal = 'secondary',
@@ -29,6 +29,8 @@ const Fab: React.FC<IFab> = React.forwardRef((props_, ref: any) => {
 
     className
   } = props;
+
+  const { classes } = useStyle();
 
   return (
     <Button

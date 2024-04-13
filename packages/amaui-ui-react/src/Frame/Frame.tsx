@@ -3,18 +3,18 @@ import React from 'react';
 import { isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Icon, { IIcon } from '../Icon';
+import IconElement, { IIcon } from '../Icon';
 import IconButtonElement from '../IconButton';
 import LineElement from '../Line';
-import { ILine } from '../Line/Line';
 import TooltipElement from '../Tooltip';
-import IFrameElement from '../IFrame';
+import IFrameElement_ from '../IFrame';
+import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 
 const IconMaterialSmartphone = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='Smartphone'
@@ -26,14 +26,14 @@ const IconMaterialSmartphone = React.forwardRef((props: IIcon, ref) => {
       {...props}
     >
       <path d="M7 23q-.825 0-1.412-.587Q5 21.825 5 21V3q0-.825.588-1.413Q6.175 1 7 1h10q.825 0 1.413.587Q19 2.175 19 3v18q0 .825-.587 1.413Q17.825 23 17 23Zm0-5h10V6H7Zm0 2v1h10v-1ZM7 4h10V3H7Zm0-1v1-1Zm0 18v-1 1Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
 const IconMaterialTabletMac = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='TabletMac'
@@ -45,14 +45,14 @@ const IconMaterialTabletMac = React.forwardRef((props: IIcon, ref) => {
       {...props}
     >
       <path d="M5 23q-.825 0-1.413-.587Q3 21.825 3 21V3q0-.825.587-1.413Q4.175 1 5 1h14q.825 0 1.413.587Q21 2.175 21 3v18q0 .825-.587 1.413Q19.825 23 19 23Zm0-7h14V6H5Zm0 2v3h14v-3ZM5 4h14V3H5Zm0-1v1-1Zm0 18v-3 3Zm7-.5q.425 0 .713-.288.287-.287.287-.712t-.287-.712Q12.425 18.5 12 18.5t-.712.288Q11 19.075 11 19.5t.288.712q.287.288.712.288Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
 const IconMaterialComputer = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='Computer'
@@ -64,14 +64,14 @@ const IconMaterialComputer = React.forwardRef((props: IIcon, ref) => {
       {...props}
     >
       <path d="M4 18q-.825 0-1.412-.587Q2 16.825 2 16V5q0-.825.588-1.413Q3.175 3 4 3h16q.825 0 1.413.587Q22 4.175 22 5v11q0 .825-.587 1.413Q20.825 18 20 18Zm0-2h16V5H4v11Zm-2 5q-.425 0-.712-.288Q1 20.425 1 20t.288-.712Q1.575 19 2 19h20q.425 0 .712.288.288.287.288.712t-.288.712Q22.425 21 22 21Zm2-5V5v11Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
 const IconMaterialDesktopWindows = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='DesktopWindows'
@@ -83,7 +83,7 @@ const IconMaterialDesktopWindows = React.forwardRef((props: IIcon, ref) => {
       {...props}
     >
       <path d="M9 22q-.425 0-.712-.288Q8 21.425 8 21t.288-.712Q8.575 20 9 20h1v-2H4q-.825 0-1.412-.587Q2 16.825 2 16V5q0-.825.588-1.413Q3.175 3 4 3h16q.825 0 1.413.587Q22 4.175 22 5v11q0 .825-.587 1.413Q20.825 18 20 18h-6v2h1q.425 0 .713.288.287.287.287.712t-.287.712Q15.425 22 15 22Zm-5-6h16V5H4v11Zm0 0V5v11Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
@@ -159,6 +159,14 @@ const Frame: React.FC<IFrame> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiFrame?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
+
+  const Tooltip = React.useMemo(() => theme?.elements?.Tooltip || TooltipElement, [theme]);
+
+  const IFrameElement = React.useMemo(() => theme?.elements?.IFrame || IFrameElement_, [theme]);
 
   const {
     url,

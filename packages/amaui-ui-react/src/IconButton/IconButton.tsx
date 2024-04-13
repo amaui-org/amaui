@@ -21,7 +21,7 @@ const IconButton: React.FC<IIconButton> = React.forwardRef((props_, ref: any) =>
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiIconButton?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Button = React.useMemo(() => theme?.elements?.Button || ButtonElement, [theme]);
 
   const {
     version = 'text',
@@ -30,6 +30,8 @@ const IconButton: React.FC<IIconButton> = React.forwardRef((props_, ref: any) =>
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   return (
     <Button

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import is from '@amaui/utils/is';
+import { is } from '@amaui/utils';
 import { classNames, useAmauiTheme } from '@amaui/style-react';
 
 import { ITransition, Transition, TTransitionStatus } from '..';

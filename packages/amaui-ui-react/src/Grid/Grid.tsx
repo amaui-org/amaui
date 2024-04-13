@@ -4,8 +4,8 @@ import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import LineElement from '../Line';
-import { ILine } from '../Line/Line';
 import useMediaQuery from '../useMediaQuery';
+import { ILine } from '../Line/Line';
 import { valueBreakpoints, staticClassName } from '../utils';
 import { IValueBreakpoints, IPropsAny } from '../types';
 
@@ -100,7 +100,7 @@ const Grid: React.FC<IGrid> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiGrid?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
 
   const {
     auto,
@@ -135,6 +135,8 @@ const Grid: React.FC<IGrid> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

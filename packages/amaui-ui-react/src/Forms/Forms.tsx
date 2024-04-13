@@ -21,6 +21,8 @@ const Forms: React.FC<IForms> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiForms?.props?.default, ...props_ }), [props_]);
 
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
   const {
     divider,
 

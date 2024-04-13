@@ -39,7 +39,7 @@ const ImageListItem: React.FC<IImageListItem> = React.forwardRef((props_, ref: a
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageListItem?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
 
   const {
     rows: rows_,
@@ -55,6 +55,8 @@ const ImageListItem: React.FC<IImageListItem> = React.forwardRef((props_, ref: a
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>()

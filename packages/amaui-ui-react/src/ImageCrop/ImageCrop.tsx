@@ -327,7 +327,7 @@ const ImageCrop: React.FC<IImageCrop> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageCrop?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Tooltip = React.useMemo(() => theme?.elements?.Tooltip || TooltipElement, [theme]);
 
   const {
     // url, datauri or canvas
@@ -360,6 +360,8 @@ const ImageCrop: React.FC<IImageCrop> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const [image, setImage] = React.useState<HTMLCanvasElement>();
   const [focus, setFocus] = React.useState<any>();
