@@ -4,10 +4,10 @@ import { is, unique } from '@amaui/utils';
 import { AmauiDate, format } from '@amaui/date';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Path from '../Path';
+import PathElement from '../Path';
 import TypeElement from '../Type';
 import SurfaceElement from '../Surface';
-import RoundMeter from '../RoundMeter';
+import RoundMeterElement from '../RoundMeter';
 import LineElement from '../Line';
 import { ISurface } from '../Surface/Surface';
 import { staticClassName, angleToCoordinates } from '../utils';
@@ -132,7 +132,15 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiWatch?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Path = React.useMemo(() => theme?.elements?.Path || PathElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const RoundMeter = React.useMemo(() => theme?.elements?.RoundMeter || RoundMeterElement, [theme]);
 
   const {
     tonal = true,
@@ -170,6 +178,8 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     value: React.useRef<any>(),

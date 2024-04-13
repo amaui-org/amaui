@@ -139,7 +139,11 @@ const TopAppBar: React.FC<ITopAppBar> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTopAppBar?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     tonal = true,
@@ -162,6 +166,8 @@ const TopAppBar: React.FC<ITopAppBar> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const start = React.Children
     .toArray(start_)

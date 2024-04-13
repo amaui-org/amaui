@@ -1,10 +1,10 @@
 import React from 'react';
 
+import { clamp, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import { clamp, is } from '@amaui/utils';
 import LineElement from '../Line';
-import Divider from '../Divider';
+import DividerElement from '../Divider';
 import { TLineAlign, TLineJustify } from '../Line/Line';
 import { getOverflowParent, staticClassName } from '../utils';
 import { IBaseElement, ITonal, IColor, ISize, IPropsAny } from '../types';
@@ -110,6 +110,10 @@ const TableCell: React.FC<ITableCell> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTableCell?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Divider = React.useMemo(() => theme?.elements?.Divider || DividerElement, [theme]);
 
   const {
     tonal = true,

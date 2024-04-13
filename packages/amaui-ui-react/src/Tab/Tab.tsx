@@ -111,7 +111,13 @@ const Tab: React.FC<ITab> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTab?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const Interaction = React.useMemo(() => theme?.elements?.Interaction || InteractionElement, [theme]);
 
   const {
     tonal = true,
@@ -150,6 +156,8 @@ const Tab: React.FC<ITab> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const [focus, setFocus] = React.useState(false);
 

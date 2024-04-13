@@ -6,26 +6,58 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import IconElement from '../Icon';
 import IconButtonElement from '../IconButton';
-import AdvancedTextField from '../AdvancedTextField';
-import useMediaQuery from '../useMediaQuery';
-import Modal from '../Modal';
-import ClickListener from '../ClickListener';
+import AdvancedTextFieldElement from '../AdvancedTextField';
+import ModalElement from '../Modal';
+import ClickListenerElement from '../ClickListener';
 import TooltipElement from '../Tooltip';
 import SurfaceElement from '../Surface';
 import LineElement from '../Line';
 import TypeElement from '../Type';
-import ToggleButtons from '../ToggleButtons';
-import ToggleButton from '../ToggleButton';
+import ToggleButtonsElement from '../ToggleButtons';
+import ToggleButtonElement from '../ToggleButton';
 import ButtonElement from '../Button';
-import Slide from '../Slide';
-import Clock from '../Clock';
+import SlideElement from '../Slide';
+import ClockElement from '../Clock';
+import TabsElement from '../Tabs';
+import TabElement from '../Tab';
+import useMediaQuery from '../useMediaQuery';
 import { SEPARATOR, SEPARATOR_SYMBOL } from '../DatePicker/DatePicker';
 import { TClockUnit } from '../Clock/Clock';
 import { IAdvancedTextField } from '../AdvancedTextField/AdvancedTextField';
-import Tabs from '../Tabs';
-import Tab from '../Tab';
 import { valueBreakpoints, staticClassName } from '../utils';
 import { ISize, IValueBreakpoints, IElementReference, IPropsAny } from '../types';
+
+const IconMaterialScheduleRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='ScheduleRounded'
+      short_name='Schedule'
+
+      {...props}
+    >
+      <path d="M14.625 16.025Q14.9 16.3 15.3 16.3Q15.7 16.3 16 16Q16.275 15.725 16.275 15.3Q16.275 14.875 16 14.6L13 11.6V7.975Q13 7.55 12.713 7.275Q12.425 7 12 7Q11.575 7 11.288 7.287Q11 7.575 11 8V11.975Q11 12.175 11.075 12.362Q11.15 12.55 11.3 12.7ZM12 22Q9.925 22 8.1 21.212Q6.275 20.425 4.925 19.075Q3.575 17.725 2.788 15.9Q2 14.075 2 12Q2 9.925 2.788 8.1Q3.575 6.275 4.925 4.925Q6.275 3.575 8.1 2.787Q9.925 2 12 2Q14.075 2 15.9 2.787Q17.725 3.575 19.075 4.925Q20.425 6.275 21.212 8.1Q22 9.925 22 12Q22 14.075 21.212 15.9Q20.425 17.725 19.075 19.075Q17.725 20.425 15.9 21.212Q14.075 22 12 22ZM12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12ZM12 20Q15.325 20 17.663 17.663Q20 15.325 20 12Q20 8.675 17.663 6.337Q15.325 4 12 4Q8.675 4 6.338 6.337Q4 8.675 4 12Q4 15.325 6.338 17.663Q8.675 20 12 20Z" />
+    </IconElement>
+  );
+});
+
+const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='KeyboardAltRounded'
+      short_name='KeyboardAlt'
+
+      {...props}
+    >
+      <path d="M3 21Q2.175 21 1.588 20.413Q1 19.825 1 19V6Q1 5.175 1.588 4.588Q2.175 4 3 4H21Q21.825 4 22.413 4.588Q23 5.175 23 6V19Q23 19.825 22.413 20.413Q21.825 21 21 21ZM3 19H21Q21 19 21 19Q21 19 21 19V6Q21 6 21 6Q21 6 21 6H3Q3 6 3 6Q3 6 3 6V19Q3 19 3 19Q3 19 3 19ZM9 10H11V8H9ZM5 10H7V8H5ZM8.5 17H15.5Q15.7 17 15.85 16.85Q16 16.7 16 16.5Q16 16.3 15.85 16.15Q15.7 16 15.5 16H8.5Q8.3 16 8.15 16.15Q8 16.3 8 16.5Q8 16.7 8.15 16.85Q8.3 17 8.5 17ZM13 10H15V8H13ZM9 14H11V12H9ZM5 14H7V12H5ZM13 14H15V12H13ZM17 10H19V8H17ZM17 14H19V12H17ZM3 19Q3 19 3 19Q3 19 3 19V6Q3 6 3 6Q3 6 3 6Q3 6 3 6Q3 6 3 6V19Q3 19 3 19Q3 19 3 19Z" />
+    </IconElement>
+  );
+});
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -272,38 +304,6 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-TimePicker' });
 
-const IconMaterialScheduleRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='ScheduleRounded'
-      short_name='Schedule'
-
-      {...props}
-    >
-      <path d="M14.625 16.025Q14.9 16.3 15.3 16.3Q15.7 16.3 16 16Q16.275 15.725 16.275 15.3Q16.275 14.875 16 14.6L13 11.6V7.975Q13 7.55 12.713 7.275Q12.425 7 12 7Q11.575 7 11.288 7.287Q11 7.575 11 8V11.975Q11 12.175 11.075 12.362Q11.15 12.55 11.3 12.7ZM12 22Q9.925 22 8.1 21.212Q6.275 20.425 4.925 19.075Q3.575 17.725 2.788 15.9Q2 14.075 2 12Q2 9.925 2.788 8.1Q3.575 6.275 4.925 4.925Q6.275 3.575 8.1 2.787Q9.925 2 12 2Q14.075 2 15.9 2.787Q17.725 3.575 19.075 4.925Q20.425 6.275 21.212 8.1Q22 9.925 22 12Q22 14.075 21.212 15.9Q20.425 17.725 19.075 19.075Q17.725 20.425 15.9 21.212Q14.075 22 12 22ZM12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12ZM12 20Q15.325 20 17.663 17.663Q20 15.325 20 12Q20 8.675 17.663 6.337Q15.325 4 12 4Q8.675 4 6.338 6.337Q4 8.675 4 12Q4 15.325 6.338 17.663Q8.675 20 12 20Z" />
-    </Icon>
-  );
-});
-
-const IconMaterialKeyboardAltRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='KeyboardAltRounded'
-      short_name='KeyboardAlt'
-
-      {...props}
-    >
-      <path d="M3 21Q2.175 21 1.588 20.413Q1 19.825 1 19V6Q1 5.175 1.588 4.588Q2.175 4 3 4H21Q21.825 4 22.413 4.588Q23 5.175 23 6V19Q23 19.825 22.413 20.413Q21.825 21 21 21ZM3 19H21Q21 19 21 19Q21 19 21 19V6Q21 6 21 6Q21 6 21 6H3Q3 6 3 6Q3 6 3 6V19Q3 19 3 19Q3 19 3 19ZM9 10H11V8H9ZM5 10H7V8H5ZM8.5 17H15.5Q15.7 17 15.85 16.85Q16 16.7 16 16.5Q16 16.3 15.85 16.15Q15.7 16 15.5 16H8.5Q8.3 16 8.15 16.15Q8 16.3 8 16.5Q8 16.7 8.15 16.85Q8.3 17 8.5 17ZM13 10H15V8H13ZM9 14H11V12H9ZM5 14H7V12H5ZM13 14H15V12H13ZM17 10H19V8H17ZM17 14H19V12H17ZM3 19Q3 19 3 19Q3 19 3 19V6Q3 6 3 6Q3 6 3 6Q3 6 3 6Q3 6 3 6V19Q3 19 3 19Q3 19 3 19Z" />
-    </Icon>
-  );
-});
-
 export type TTimePickerValue = AmauiDate | [AmauiDate, AmauiDate];
 
 export type TTimePickerSelecting = TClockUnit | [TClockUnit, TClockUnit];
@@ -382,7 +382,35 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTimePicker?.props?.default, ...props__ }), [props__]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
+
+  const AdvancedTextField = React.useMemo(() => theme?.elements?.AdvancedTextField || AdvancedTextFieldElement, [theme]);
+
+  const Modal = React.useMemo(() => theme?.elements?.Modal || ModalElement, [theme]);
+
+  const ClickListener = React.useMemo(() => theme?.elements?.ClickListener || ClickListenerElement, [theme]);
+
+  const Tooltip = React.useMemo(() => theme?.elements?.Tooltip || TooltipElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const ToggleButton = React.useMemo(() => theme?.elements?.ToggleButton || ToggleButtonElement, [theme]);
+
+  const ToggleButtons = React.useMemo(() => theme?.elements?.ToggleButtons || ToggleButtonsElement, [theme]);
+
+  const Button = React.useMemo(() => theme?.elements?.Button || ButtonElement, [theme]);
+
+  const Slide = React.useMemo(() => theme?.elements?.Slide || SlideElement, [theme]);
+
+  const Clock = React.useMemo(() => theme?.elements?.Clock || ClockElement, [theme]);
+
+  const Tab = React.useMemo(() => theme?.elements?.Tab || TabElement, [theme]);
+
+  const Tabs = React.useMemo(() => theme?.elements?.Tabs || TabsElement, [theme]);
 
   const {
     tonal = true,
@@ -463,6 +491,8 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

@@ -181,8 +181,6 @@ const Type: React.FC<IType> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiType?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
-
   const {
     color = 'inherit',
 
@@ -212,6 +210,8 @@ const Type: React.FC<IType> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const styles: any = {
     root: {

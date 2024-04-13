@@ -5,8 +5,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import LineElement from '../Line';
 import SurfaceElement from '../Surface';
 import { ISurface } from '../Surface/Surface';
-import { staticClassName } from '../utils';
 import { ISize } from '../types';
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -34,6 +34,10 @@ const TableHeader: React.FC<ITableHeader> = React.forwardRef((props_, ref: any) 
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTableHeader?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
 
   const {
     tonal = true,

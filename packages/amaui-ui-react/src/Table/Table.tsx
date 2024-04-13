@@ -3,10 +3,10 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import SurfaceElement from '../Surface';
+import LineElement from '../Line';
 import { ISurface } from '../Surface/Surface';
-import Line from '../Line/Line';
-import { staticClassName } from '../utils';
 import { ISize, IElement, IPropsAny, IElementReference } from '../types';
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -46,6 +46,10 @@ const Table: React.FC<ITable> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTable?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
 
   const {
     tonal = true,

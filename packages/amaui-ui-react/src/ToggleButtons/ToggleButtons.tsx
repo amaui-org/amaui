@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Buttons from '../Buttons';
+import ButtonsElement from '../Buttons';
 import { IButtons } from '../Buttons/Buttons';
 import { staticClassName } from '../utils';
 
@@ -21,13 +21,15 @@ const ToggleButtons: React.FC<IToggleButtons> = React.forwardRef((props_, ref: a
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiToggleButtons?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Buttons = React.useMemo(() => theme?.elements?.Buttons || ButtonsElement, [theme]);
 
   const {
     className,
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   return (
     <Buttons

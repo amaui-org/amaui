@@ -3,9 +3,9 @@ import React from 'react';
 import { clamp, is, isEnvironment } from '@amaui/utils';
 import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
-import Grow from '../Grow';
-import Modal from '../Modal';
-import Append from '../Append';
+import GrowElement from '../Grow';
+import ModalElement from '../Modal';
+import AppendElement from '../Append';
 import SurfaceElement from '../Surface';
 import { IModal } from '../Modal/Modal';
 import { staticClassName } from '../utils';
@@ -223,6 +223,14 @@ const Tooltip: React.FC<ITooltip> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTooltip?.props?.default, ...props_ }), [props_]);
+
+  const Grow = React.useMemo(() => theme?.elements?.Grow || GrowElement, [theme]);
+
+  const Append = React.useMemo(() => theme?.elements?.Append || AppendElement, [theme]);
+
+  const Modal = React.useMemo(() => theme?.elements?.Modal || ModalElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
 
   const {
     tonal = true,

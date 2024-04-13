@@ -7,518 +7,14 @@ import AmauiSubscription from '@amaui/subscription';
 import IconElement from '../Icon';
 import TypeElement from '../Type';
 import LineElement from '../Line';
-
 import useMediaQuery from '../useMediaQuery';
 import { valueBreakpoints, staticClassName } from '../utils';
 import { IBaseElement, ITonal, IColor, IVersion, ISize, IRef, IElement, IValueBreakpoints, IPropsAny, IElementReference } from '../types';
 
-const other_ = {
-  pointerEvents: 'none',
-  borderRadius: 'inherit',
-  boxSizing: 'border-box',
-  position: 'absolute',
-  inset: '0',
-  width: '100%',
-  height: '100%'
-};
-
-const overflow = {
-  width: '100%',
-  overflow: 'hidden',
-  whiteSpace: 'nowrap',
-  textOverflow: 'ellipsis'
-};
-
-const useStyle = styleMethod(theme => ({
-  wrapper: {
-    position: 'relative',
-    display: 'inline-flex',
-    flexDirection: 'column'
-  },
-
-  root: {
-    display: 'inline-flex',
-    alignItems: 'flex-start',
-    position: 'relative',
-    borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`
-  },
-
-  // Color
-  color_default: { color: theme.palette.text.default.primary },
-
-  color_neutral: { color: theme.palette.color.neutral.main },
-
-  color_primary: { color: theme.palette.color.primary.main },
-
-  color_secondary: { color: theme.palette.color.secondary.main },
-
-  color_tertiary: { color: theme.palette.color.tertiary.main },
-
-  color_quaternary: { color: theme.palette.color.quaternary.main },
-
-  color_info: { color: theme.palette.color.info.main },
-
-  color_success: { color: theme.palette.color.success.main },
-
-  color_warning: { color: theme.palette.color.warning.main },
-
-  color_error: { color: theme.palette.color.error.main },
-
-  error_color: {
-    color: [theme.palette.light ? theme.palette.color.error[40] : theme.palette.color.error[80], '!important']
-  },
-
-  error_hover_color: {
-    color: [theme.palette.light ? theme.palette.color.error[20] : theme.palette.color.error[90], '!important']
-  },
-
-  inputWrapper: {
-    // Reset
-    margin: '0',
-    border: '0',
-    fontFamily: 'inherit',
-    fontSize: '100%',
-    lineHeight: '1.15',
-    overflow: 'visible',
-    boxSizing: 'border-box',
-
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    opacity: '0',
-    transition: theme.methods.transitions.make('opacity'),
-    borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
-    width: '100%',
-    cursor: 'text',
-
-    ...theme.typography.values.b2
-  },
-
-  inputWrapper_focus: {
-    opacity: '1'
-  },
-
-  input: {
-    // Reset
-    margin: '0',
-    border: '0',
-    outline: 'none',
-
-    color: theme.palette.text.default.primary,
-    background: 'transparent',
-    '-webkit-tap-highlight-color': 'transparent',
-    textAlign: 'start',
-    ...theme.typography.values.b2,
-    ...overflow
-  },
-
-  multiline: {
-    resize: 'none',
-    overflow: 'auto',
-    whiteSpace: 'normal'
-  },
-
-  input_size_small: {
-    height: '48px',
-    padding: `${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(2, 'px')}`,
-    paddingTop: theme.methods.space.value(2.5, 'px')
-  },
-
-  input_size_regular: {
-    height: '56px',
-    padding: `11px ${theme.methods.space.value(2, 'px')}`,
-    paddingTop: theme.methods.space.value(3, 'px')
-  },
-
-  input_size_large: {
-    height: '64px',
-    padding: theme.methods.space.value(2, 'px'),
-    paddingTop: theme.methods.space.value(3.5, 'px')
-  },
-
-  input_version_text: {
-    '&:not($input_start_icon)': {
-      paddingInline: '0'
-    }
-  },
-
-  input_start_icon: {
-    paddingInlineStart: '0'
-  },
-
-  input_end_icon: {
-    paddingInlineEnd: '0'
-  },
-
-  input_version_outlined_size_small: {
-    paddingTop: theme.methods.space.value(1.75, 'px'),
-    paddingBottom: theme.methods.space.value(1.75, 'px')
-  },
-
-  input_version_outlined_size_regular: {
-    paddingTop: theme.methods.space.value(2.25, 'px'),
-    paddingBottom: theme.methods.space.value(2.25, 'px')
-  },
-
-  input_version_outlined_size_large: {
-    paddingTop: theme.methods.space.value(2.75, 'px'),
-    paddingBottom: theme.methods.space.value(2.75, 'px')
-  },
-
-  input_align_start: {
-    textAlign: 'start'
-  },
-
-  input_align_end: {
-    textAlign: 'end'
-  },
-
-  label: {
-    position: 'absolute',
-    top: '0',
-    insetInlineStart: '16px',
-    transformOrigin: 'top left',
-    transform: 'translate(0px, 15px) scale(1)',
-    transition: theme.methods.transitions.make(['color', 'inset-inline-start', 'transform']),
-    pointerEvents: 'none',
-    userSelect: 'none',
-    ...overflow,
-    width: 'auto'
-  },
-
-  label_rtl: {
-    transformOrigin: 'top right'
-  },
-
-  label_version_text_size_small: {
-    insetInlineStart: '0',
-    top: '8px',
-    transform: 'translate(0px, 73%) scale(1)',
-  },
-
-  label_version_text_size_regular: {
-    insetInlineStart: '0',
-    top: '10px',
-    transform: 'translate(0px, 78%) scale(1)',
-  },
-
-  label_version_text_size_large: {
-    insetInlineStart: '0',
-    top: '12px',
-    transform: 'translate(0px, 83%) scale(1)',
-  },
-
-  label_version_outlined_size_small: {
-    transform: 'translate(0px, 14px) scale(1)',
-  },
-
-  label_version_outlined_size_regular: {
-    transform: 'translate(0px, 18px) scale(1)',
-  },
-
-  label_version_outlined_size_large: {
-    transform: 'translate(0px, 22px) scale(1)',
-  },
-
-  label_version_filled_size_small: {
-    transform: 'translate(0px, 14px) scale(1)',
-  },
-
-  label_version_filled_size_regular: {
-    transform: 'translate(0px, 18px) scale(1)',
-  },
-
-  label_version_filled_size_large: {
-    transform: 'translate(0px, 22px) scale(1)',
-  },
-
-  label_icon_start: {
-    insetInlineStart: '52px'
-  },
-
-  // Focus
-  label_version_text_size_small_focus: {
-    transform: 'translate(0px, 2px) scale(0.667)'
-  },
-
-  label_version_text_size_regular_focus: {
-    transform: 'translate(0px, 2px) scale(0.667)'
-  },
-
-  label_version_text_size_large_focus: {
-    transform: 'translate(0px, 2px) scale(0.667)'
-  },
-
-  label_version_outlined_size_small_focus: {
-    transform: 'translate(0, -5.5px) scale(0.667)',
-    insetInlineStart: '17px'
-  },
-
-  label_version_outlined_size_regular_focus: {
-    transform: 'translate(0, -5.5px) scale(0.667)',
-    insetInlineStart: '17px'
-  },
-
-  label_version_outlined_size_large_focus: {
-    transform: 'translate(0, -6px) scale(0.667)',
-    insetInlineStart: '17px'
-  },
-
-  label_version_filled_size_small_focus: {
-    transform: 'translate(0px, 9px) scale(0.6875)'
-  },
-
-  label_version_filled_size_regular_focus: {
-    transform: 'translate(0px, 11px) scale(0.6875)'
-  },
-
-  label_version_filled_size_large_focus: {
-    transform: 'translate(0px, 13px) scale(0.6875)'
-  },
-
-  background: {
-    ...other_,
-    background: 'currentColor',
-    borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
-    opacity: theme.palette.light ? theme.palette.visual_contrast.default.opacity.hover : theme.palette.visual_contrast.default.opacity.selected,
-
-    transition: theme.methods.transitions.make(['opacity'])
-  },
-
-  background_hover: {
-    opacity: theme.palette.visual_contrast.default.opacity.focus
-  },
-
-  background_focus: {
-    opacity: theme.palette.light ? theme.palette.visual_contrast.default.opacity.hover : theme.palette.visual_contrast.default.opacity.selected
-  },
-
-  border: {
-    ...other_,
-    borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
-    boxShadow: 'inset 0px -1px 0px 0px currentColor',
-
-    transition: theme.methods.transitions.make(['box-shadow'])
-  },
-
-  border_focus: {
-    boxShadow: 'inset 0px -2px 0px 0px currentColor'
-  },
-
-  fieldset: {
-    ...other_,
-    top: '-5px',
-    height: 'calc(100% + 5px)',
-    borderRadius: `${theme.shape.radius.unit}px`,
-    border: '1px solid currentColor',
-    padding: '0',
-    paddingInline: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(2, 'px')}`,
-
-    transition: theme.methods.transitions.make(['border', 'padding'])
-  },
-
-  fieldset_focus: {
-    borderWidth: '2px',
-    paddingInline: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(2, 'px')}`
-  },
-
-  legend: {
-    display: 'inline-flex',
-    height: '11px',
-    width: 'auto',
-    padding: '0px',
-    maxWidth: '0.001px',
-    whiteSpace: 'nowrap',
-    visibility: 'hidden',
-    overflow: 'hidden',
-    fontSize: '0.6rem',
-    transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xxs' })
-  },
-
-  legend_focus: {
-    maxWidth: '100%',
-    padding: `0 ${theme.methods.space.value(0.5, 'px')}`,
-    transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xs' })
-  },
-
-  footer: {
-    marginTop: '4px',
-    paddingInline: theme.methods.space.value(2, 'px')
-  },
-
-  footer_version_text: {
-    paddingInline: '0'
-  },
-
-  helperText: {
-    display: 'inline-flex',
-    color: theme.palette.text.default.secondary,
-    userSelect: 'none'
-  },
-
-  counterText: {
-    display: 'inline-flex',
-    justifyContent: 'flex-end',
-    color: theme.palette.text.default.secondary,
-    userSelect: 'none',
-    flex: '1 0 auto'
-  },
-
-  // Start and end icon
-  icon: {
-    display: 'inline-flex',
-    alignItems: 'center',
-    flex: '0 0 auto'
-  },
-
-  icon_size_small: {
-    paddingBlock: theme.methods.space.value(1.5, 'px')
-  },
-
-  icon_size_regular: {
-    paddingBlock: theme.methods.space.value(2, 'px')
-  },
-
-  icon_size_large: {
-    paddingBlock: theme.methods.space.value(2.5, 'px')
-  },
-
-  icon_button_size_small: {
-    paddingBlock: theme.methods.space.value(0.5, 'px')
-  },
-
-  icon_button_size_regular: {
-    paddingBlock: theme.methods.space.value(1, 'px')
-  },
-
-  icon_button_size_large: {
-    paddingBlock: theme.methods.space.value(1.5, 'px')
-  },
-
-  icon_start: {
-    paddingInlineEnd: theme.methods.space.value(2, 'px'),
-    paddingInlineStart: theme.methods.space.value(1.5, 'px')
-  },
-
-  icon_vertical_align_start: {
-    alignSelf: 'flex-start'
-  },
-
-  icon_vertical_align_center: {
-    alignSelf: 'center',
-    paddingBlock: '0px !important'
-  },
-
-  icon_vertical_align_end: {
-    alignSelf: 'flex-end'
-  },
-
-  icon_end: {
-    paddingInlineStart: theme.methods.space.value(2, 'px'),
-    paddingInlineEnd: theme.methods.space.value(1.5, 'px')
-  },
-
-  addition: {
-    color: theme.palette.text.default.secondary
-  },
-
-  addition_size_small: {
-    paddingBottom: theme.methods.space.value(1, 'px'),
-    paddingTop: theme.methods.space.value(2.5, 'px')
-  },
-
-  addition_size_regular: {
-    paddingBottom: theme.methods.space.value(1.5, 'px'),
-    paddingTop: theme.methods.space.value(3, 'px')
-  },
-
-  addition_size_large: {
-    paddingBottom: theme.methods.space.value(2, 'px'),
-    paddingTop: theme.methods.space.value(3.5, 'px')
-  },
-
-  addition_version_outlined_size_small: {
-    paddingTop: theme.methods.space.value(1.75, 'px'),
-    paddingBottom: theme.methods.space.value(1.75, 'px')
-  },
-
-  addition_version_outlined_size_regular: {
-    paddingTop: theme.methods.space.value(2.25, 'px'),
-    paddingBottom: theme.methods.space.value(2.25, 'px')
-  },
-
-  addition_version_outlined_size_large: {
-    paddingTop: theme.methods.space.value(2.75, 'px'),
-    paddingBottom: theme.methods.space.value(2.75, 'px')
-  },
-
-  prefix: {
-    flex: '0 0 auto',
-    marginInlineStart: '16px',
-    marginInlineEnd: '8px',
-    opacity: '0',
-    transition: theme.methods.transitions.make('opacity'),
-  },
-
-  prefix_noStartMargin: {
-    marginInlineStart: '0px'
-  },
-
-  prefix_focus: {
-    opacity: '1'
-  },
-
-  noPrefixMargin: {
-    marginInlineEnd: '0'
-  },
-
-  sufix: {
-    flex: '0 0 auto',
-    marginInlineEnd: '16px',
-    marginInlineStart: '8px',
-    opacity: '0',
-    transition: theme.methods.transitions.make('opacity'),
-  },
-
-  sufix_focus: {
-    opacity: '1'
-  },
-
-  sufix_noEndMargin: {
-    marginInlineEnd: '0px'
-  },
-
-  noSufixMargin: {
-    marginInlineStart: '0'
-  },
-
-  fullWidth: {
-    width: '100%'
-  },
-
-  clear: {
-    cursor: 'pointer',
-    pointerEvents: 'all !important',
-    userSelect: 'none',
-    transition: theme.methods.transitions.make('transform', { duration: 'xs' }),
-
-    '&:active': {
-      transform: 'scale(0.87)'
-    }
-  },
-
-  disabled: {
-    opacity: '0.54',
-    pointerEvents: 'none',
-    cursor: 'default'
-  }
-}), { name: 'amaui-TextField' });
-
 const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='CloseRounded'
@@ -527,9 +23,514 @@ const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
       {...props}
     >
       <path d="M12 13.4 7.1 18.3Q6.825 18.575 6.4 18.575Q5.975 18.575 5.7 18.3Q5.425 18.025 5.425 17.6Q5.425 17.175 5.7 16.9L10.6 12L5.7 7.1Q5.425 6.825 5.425 6.4Q5.425 5.975 5.7 5.7Q5.975 5.425 6.4 5.425Q6.825 5.425 7.1 5.7L12 10.6L16.9 5.7Q17.175 5.425 17.6 5.425Q18.025 5.425 18.3 5.7Q18.575 5.975 18.575 6.4Q18.575 6.825 18.3 7.1L13.4 12L18.3 16.9Q18.575 17.175 18.575 17.6Q18.575 18.025 18.3 18.3Q18.025 18.575 17.6 18.575Q17.175 18.575 16.9 18.3Z" />
-    </Icon>
+    </IconElement>
   );
 });
+
+const useStyle = styleMethod(theme => {
+  const other_ = {
+    pointerEvents: 'none',
+    borderRadius: 'inherit',
+    boxSizing: 'border-box',
+    position: 'absolute',
+    inset: '0',
+    width: '100%',
+    height: '100%'
+  };
+
+  const overflow = {
+    width: '100%',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis'
+  };
+
+  return {
+    wrapper: {
+      position: 'relative',
+      display: 'inline-flex',
+      flexDirection: 'column'
+    },
+
+    root: {
+      display: 'inline-flex',
+      alignItems: 'flex-start',
+      position: 'relative',
+      borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`
+    },
+
+    // Color
+    color_default: { color: theme.palette.text.default.primary },
+
+    color_neutral: { color: theme.palette.color.neutral.main },
+
+    color_primary: { color: theme.palette.color.primary.main },
+
+    color_secondary: { color: theme.palette.color.secondary.main },
+
+    color_tertiary: { color: theme.palette.color.tertiary.main },
+
+    color_quaternary: { color: theme.palette.color.quaternary.main },
+
+    color_info: { color: theme.palette.color.info.main },
+
+    color_success: { color: theme.palette.color.success.main },
+
+    color_warning: { color: theme.palette.color.warning.main },
+
+    color_error: { color: theme.palette.color.error.main },
+
+    error_color: {
+      color: [theme.palette.light ? theme.palette.color.error[40] : theme.palette.color.error[80], '!important']
+    },
+
+    error_hover_color: {
+      color: [theme.palette.light ? theme.palette.color.error[20] : theme.palette.color.error[90], '!important']
+    },
+
+    inputWrapper: {
+      // Reset
+      margin: '0',
+      border: '0',
+      fontFamily: 'inherit',
+      fontSize: '100%',
+      lineHeight: '1.15',
+      overflow: 'visible',
+      boxSizing: 'border-box',
+
+      display: 'flex',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      opacity: '0',
+      transition: theme.methods.transitions.make('opacity'),
+      borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
+      width: '100%',
+      cursor: 'text',
+
+      ...theme.typography.values.b2
+    },
+
+    inputWrapper_focus: {
+      opacity: '1'
+    },
+
+    input: {
+      // Reset
+      margin: '0',
+      border: '0',
+      outline: 'none',
+
+      color: theme.palette.text.default.primary,
+      background: 'transparent',
+      '-webkit-tap-highlight-color': 'transparent',
+      textAlign: 'start',
+      ...theme.typography.values.b2,
+      ...overflow
+    },
+
+    multiline: {
+      resize: 'none',
+      overflow: 'auto',
+      whiteSpace: 'normal'
+    },
+
+    input_size_small: {
+      height: '48px',
+      padding: `${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(2, 'px')}`,
+      paddingTop: theme.methods.space.value(2.5, 'px')
+    },
+
+    input_size_regular: {
+      height: '56px',
+      padding: `11px ${theme.methods.space.value(2, 'px')}`,
+      paddingTop: theme.methods.space.value(3, 'px')
+    },
+
+    input_size_large: {
+      height: '64px',
+      padding: theme.methods.space.value(2, 'px'),
+      paddingTop: theme.methods.space.value(3.5, 'px')
+    },
+
+    input_version_text: {
+      '&:not($input_start_icon)': {
+        paddingInline: '0'
+      }
+    },
+
+    input_start_icon: {
+      paddingInlineStart: '0'
+    },
+
+    input_end_icon: {
+      paddingInlineEnd: '0'
+    },
+
+    input_version_outlined_size_small: {
+      paddingTop: theme.methods.space.value(1.75, 'px'),
+      paddingBottom: theme.methods.space.value(1.75, 'px')
+    },
+
+    input_version_outlined_size_regular: {
+      paddingTop: theme.methods.space.value(2.25, 'px'),
+      paddingBottom: theme.methods.space.value(2.25, 'px')
+    },
+
+    input_version_outlined_size_large: {
+      paddingTop: theme.methods.space.value(2.75, 'px'),
+      paddingBottom: theme.methods.space.value(2.75, 'px')
+    },
+
+    input_align_start: {
+      textAlign: 'start'
+    },
+
+    input_align_end: {
+      textAlign: 'end'
+    },
+
+    label: {
+      position: 'absolute',
+      top: '0',
+      insetInlineStart: '16px',
+      transformOrigin: 'top left',
+      transform: 'translate(0px, 15px) scale(1)',
+      transition: theme.methods.transitions.make(['color', 'inset-inline-start', 'transform']),
+      pointerEvents: 'none',
+      userSelect: 'none',
+      ...overflow,
+      width: 'auto'
+    },
+
+    label_rtl: {
+      transformOrigin: 'top right'
+    },
+
+    label_version_text_size_small: {
+      insetInlineStart: '0',
+      top: '8px',
+      transform: 'translate(0px, 73%) scale(1)',
+    },
+
+    label_version_text_size_regular: {
+      insetInlineStart: '0',
+      top: '10px',
+      transform: 'translate(0px, 78%) scale(1)',
+    },
+
+    label_version_text_size_large: {
+      insetInlineStart: '0',
+      top: '12px',
+      transform: 'translate(0px, 83%) scale(1)',
+    },
+
+    label_version_outlined_size_small: {
+      transform: 'translate(0px, 14px) scale(1)',
+    },
+
+    label_version_outlined_size_regular: {
+      transform: 'translate(0px, 18px) scale(1)',
+    },
+
+    label_version_outlined_size_large: {
+      transform: 'translate(0px, 22px) scale(1)',
+    },
+
+    label_version_filled_size_small: {
+      transform: 'translate(0px, 14px) scale(1)',
+    },
+
+    label_version_filled_size_regular: {
+      transform: 'translate(0px, 18px) scale(1)',
+    },
+
+    label_version_filled_size_large: {
+      transform: 'translate(0px, 22px) scale(1)',
+    },
+
+    label_icon_start: {
+      insetInlineStart: '52px'
+    },
+
+    // Focus
+    label_version_text_size_small_focus: {
+      transform: 'translate(0px, 2px) scale(0.667)'
+    },
+
+    label_version_text_size_regular_focus: {
+      transform: 'translate(0px, 2px) scale(0.667)'
+    },
+
+    label_version_text_size_large_focus: {
+      transform: 'translate(0px, 2px) scale(0.667)'
+    },
+
+    label_version_outlined_size_small_focus: {
+      transform: 'translate(0, -5.5px) scale(0.667)',
+      insetInlineStart: '17px'
+    },
+
+    label_version_outlined_size_regular_focus: {
+      transform: 'translate(0, -5.5px) scale(0.667)',
+      insetInlineStart: '17px'
+    },
+
+    label_version_outlined_size_large_focus: {
+      transform: 'translate(0, -6px) scale(0.667)',
+      insetInlineStart: '17px'
+    },
+
+    label_version_filled_size_small_focus: {
+      transform: 'translate(0px, 9px) scale(0.6875)'
+    },
+
+    label_version_filled_size_regular_focus: {
+      transform: 'translate(0px, 11px) scale(0.6875)'
+    },
+
+    label_version_filled_size_large_focus: {
+      transform: 'translate(0px, 13px) scale(0.6875)'
+    },
+
+    background: {
+      ...other_,
+      background: 'currentColor',
+      borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
+      opacity: theme.palette.light ? theme.palette.visual_contrast.default.opacity.hover : theme.palette.visual_contrast.default.opacity.selected,
+
+      transition: theme.methods.transitions.make(['opacity'])
+    },
+
+    background_hover: {
+      opacity: theme.palette.visual_contrast.default.opacity.focus
+    },
+
+    background_focus: {
+      opacity: theme.palette.light ? theme.palette.visual_contrast.default.opacity.hover : theme.palette.visual_contrast.default.opacity.selected
+    },
+
+    border: {
+      ...other_,
+      borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
+      boxShadow: 'inset 0px -1px 0px 0px currentColor',
+
+      transition: theme.methods.transitions.make(['box-shadow'])
+    },
+
+    border_focus: {
+      boxShadow: 'inset 0px -2px 0px 0px currentColor'
+    },
+
+    fieldset: {
+      ...other_,
+      top: '-5px',
+      height: 'calc(100% + 5px)',
+      borderRadius: `${theme.shape.radius.unit}px`,
+      border: '1px solid currentColor',
+      padding: '0',
+      paddingInline: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(2, 'px')}`,
+
+      transition: theme.methods.transitions.make(['border', 'padding'])
+    },
+
+    fieldset_focus: {
+      borderWidth: '2px',
+      paddingInline: `${theme.methods.space.value(1.5, 'px')} ${theme.methods.space.value(2, 'px')}`
+    },
+
+    legend: {
+      display: 'inline-flex',
+      height: '11px',
+      width: 'auto',
+      padding: '0px',
+      maxWidth: '0.001px',
+      whiteSpace: 'nowrap',
+      visibility: 'hidden',
+      overflow: 'hidden',
+      fontSize: '0.6rem',
+      transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xxs' })
+    },
+
+    legend_focus: {
+      maxWidth: '100%',
+      padding: `0 ${theme.methods.space.value(0.5, 'px')}`,
+      transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xs' })
+    },
+
+    footer: {
+      marginTop: '4px',
+      paddingInline: theme.methods.space.value(2, 'px')
+    },
+
+    footer_version_text: {
+      paddingInline: '0'
+    },
+
+    helperText: {
+      display: 'inline-flex',
+      color: theme.palette.text.default.secondary,
+      userSelect: 'none'
+    },
+
+    counterText: {
+      display: 'inline-flex',
+      justifyContent: 'flex-end',
+      color: theme.palette.text.default.secondary,
+      userSelect: 'none',
+      flex: '1 0 auto'
+    },
+
+    // Start and end icon
+    icon: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      flex: '0 0 auto'
+    },
+
+    icon_size_small: {
+      paddingBlock: theme.methods.space.value(1.5, 'px')
+    },
+
+    icon_size_regular: {
+      paddingBlock: theme.methods.space.value(2, 'px')
+    },
+
+    icon_size_large: {
+      paddingBlock: theme.methods.space.value(2.5, 'px')
+    },
+
+    icon_button_size_small: {
+      paddingBlock: theme.methods.space.value(0.5, 'px')
+    },
+
+    icon_button_size_regular: {
+      paddingBlock: theme.methods.space.value(1, 'px')
+    },
+
+    icon_button_size_large: {
+      paddingBlock: theme.methods.space.value(1.5, 'px')
+    },
+
+    icon_start: {
+      paddingInlineEnd: theme.methods.space.value(2, 'px'),
+      paddingInlineStart: theme.methods.space.value(1.5, 'px')
+    },
+
+    icon_vertical_align_start: {
+      alignSelf: 'flex-start'
+    },
+
+    icon_vertical_align_center: {
+      alignSelf: 'center',
+      paddingBlock: '0px !important'
+    },
+
+    icon_vertical_align_end: {
+      alignSelf: 'flex-end'
+    },
+
+    icon_end: {
+      paddingInlineStart: theme.methods.space.value(2, 'px'),
+      paddingInlineEnd: theme.methods.space.value(1.5, 'px')
+    },
+
+    addition: {
+      color: theme.palette.text.default.secondary
+    },
+
+    addition_size_small: {
+      paddingBottom: theme.methods.space.value(1, 'px'),
+      paddingTop: theme.methods.space.value(2.5, 'px')
+    },
+
+    addition_size_regular: {
+      paddingBottom: theme.methods.space.value(1.5, 'px'),
+      paddingTop: theme.methods.space.value(3, 'px')
+    },
+
+    addition_size_large: {
+      paddingBottom: theme.methods.space.value(2, 'px'),
+      paddingTop: theme.methods.space.value(3.5, 'px')
+    },
+
+    addition_version_outlined_size_small: {
+      paddingTop: theme.methods.space.value(1.75, 'px'),
+      paddingBottom: theme.methods.space.value(1.75, 'px')
+    },
+
+    addition_version_outlined_size_regular: {
+      paddingTop: theme.methods.space.value(2.25, 'px'),
+      paddingBottom: theme.methods.space.value(2.25, 'px')
+    },
+
+    addition_version_outlined_size_large: {
+      paddingTop: theme.methods.space.value(2.75, 'px'),
+      paddingBottom: theme.methods.space.value(2.75, 'px')
+    },
+
+    prefix: {
+      flex: '0 0 auto',
+      marginInlineStart: '16px',
+      marginInlineEnd: '8px',
+      opacity: '0',
+      transition: theme.methods.transitions.make('opacity'),
+    },
+
+    prefix_noStartMargin: {
+      marginInlineStart: '0px'
+    },
+
+    prefix_focus: {
+      opacity: '1'
+    },
+
+    noPrefixMargin: {
+      marginInlineEnd: '0'
+    },
+
+    sufix: {
+      flex: '0 0 auto',
+      marginInlineEnd: '16px',
+      marginInlineStart: '8px',
+      opacity: '0',
+      transition: theme.methods.transitions.make('opacity'),
+    },
+
+    sufix_focus: {
+      opacity: '1'
+    },
+
+    sufix_noEndMargin: {
+      marginInlineEnd: '0px'
+    },
+
+    noSufixMargin: {
+      marginInlineStart: '0'
+    },
+
+    fullWidth: {
+      width: '100%'
+    },
+
+    clear: {
+      cursor: 'pointer',
+      pointerEvents: 'all !important',
+      userSelect: 'none',
+      transition: theme.methods.transitions.make('transform', { duration: 'xs' }),
+
+      '&:active': {
+        transform: 'scale(0.87)'
+      }
+    },
+
+    disabled: {
+      opacity: '0.54',
+      pointerEvents: 'none',
+      cursor: 'default'
+    }
+  };
+}, { name: 'amaui-TextField' });
 
 export interface ITextField extends IBaseElement {
   tonal?: ITonal;
@@ -598,6 +599,10 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTextField?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     tonal = true,
@@ -674,6 +679,8 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
+  const { classes } = useStyle();
+
   const refs = {
     root: React.useRef<any>(),
     input: React.useRef<HTMLInputElement>(),
@@ -720,8 +727,6 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
   const [hover, setHover] = React.useState(false);
   const [row, setRow] = React.useState(rowValue);
   const [rows, setRows] = React.useState<any>(1);
-
-  const { classes } = useStyle();
 
   let end = end_;
 

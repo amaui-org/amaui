@@ -3,9 +3,9 @@ import React from 'react';
 import { is, textToInnerHTML } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import useMediaQuery from '../useMediaQuery';
 import TypeElement from '../Type';
 import LineElement from '../Line';
+import useMediaQuery from '../useMediaQuery';
 import { valueBreakpoints, staticClassName } from '../utils';
 import { IBaseElement, IPropsAny } from '../types';
 
@@ -57,10 +57,14 @@ export interface IText extends IBaseElement {
   HorizontalProps?: IPropsAny;
 }
 
-const Text: React.FC<IText> = React.forwardRef((props, ref: any) => {
+const Text: React.FC<IText> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
-  const { classes } = useStyle();
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiText?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     value: value_,
@@ -85,6 +89,8 @@ const Text: React.FC<IText> = React.forwardRef((props, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>()

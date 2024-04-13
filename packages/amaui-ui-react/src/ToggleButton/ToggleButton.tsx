@@ -2,7 +2,7 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Chip from '../Chip';
+import ChipElement from '../Chip';
 import { IChip } from '../Chip/Chip';
 import { staticClassName } from '../utils';
 
@@ -41,7 +41,7 @@ const ToggleButton: React.FC<IToggleButton> = React.forwardRef((props_, ref: any
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiToggleButton?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Chip = React.useMemo(() => theme?.elements?.Chip || ChipElement, [theme]);
 
   const {
     size,
@@ -52,6 +52,8 @@ const ToggleButton: React.FC<IToggleButton> = React.forwardRef((props_, ref: any
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   return (
     <Chip

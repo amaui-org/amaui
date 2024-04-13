@@ -4,8 +4,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import SurfaceElement from '../Surface';
 import { ISurface } from '../Surface/Surface';
-import { staticClassName } from '../utils';
 import { ISize } from '../types';
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -40,6 +40,8 @@ const TableRow: React.FC<ITableRow> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTableRow?.props?.default, ...props_ }), [props_]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
 
   const {
     tonal = true,

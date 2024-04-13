@@ -3,7 +3,7 @@ import React from 'react';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import SurfaceElement from '../Surface';
-import Divider from '../Divider';
+import DividerElement from '../Divider';
 import LineElement from '../Line';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
@@ -90,7 +90,11 @@ const TimelineItem: React.FC<ITimelineItem> = React.forwardRef((props_, ref: any
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTimelineItem?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const Divider = React.useMemo(() => theme?.elements?.Divider || DividerElement, [theme]);
 
   const {
     orientation = 'vertical',
@@ -119,6 +123,8 @@ const TimelineItem: React.FC<ITimelineItem> = React.forwardRef((props_, ref: any
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const direction = orientation === 'vertical' ? 'row' : 'column';
 
