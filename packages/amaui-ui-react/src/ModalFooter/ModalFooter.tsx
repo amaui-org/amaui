@@ -21,7 +21,7 @@ const ModalFooter: React.FC<IModalFooter> = React.forwardRef((props_, ref: any) 
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModalFooter?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
 
   const {
     className,
@@ -31,6 +31,8 @@ const ModalFooter: React.FC<IModalFooter> = React.forwardRef((props_, ref: any) 
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   return (
     <Line

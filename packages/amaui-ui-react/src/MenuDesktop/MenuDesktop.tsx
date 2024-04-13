@@ -3,19 +3,36 @@ import React from 'react';
 import { is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Grow from '../Grow';
-import Append from '../Append';
+import GrowElement from '../Grow';
+import AppendElement from '../Append';
+import TransitionsElement from '../Transitions';
+import ClickListenerElement from '../ClickListener';
+import TransitionElement, { TTransitionStatus } from '../Transition';
 import SurfaceElement from '../Surface';
-import Transition, { TTransitionStatus } from '../Transition';
-import Transitions from '../Transitions';
-import ClickListener from '../ClickListener';
 import TypeElement from '../Type';
 import LineElement from '../Line';
 import IconElement from '../Icon';
-import { ILine } from '../Line/Line';
 import useMediaQuery from '../useMediaQuery';
+import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { IElement, ITonal, IStyle, IElementReference, IPropsAny, IVersion, IColor } from '../types';
+
+const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='ExpandMoreRounded'
+
+      short_name='ExpandMore'
+
+      {...props}
+    >
+      <path d="M12 14.95Q11.8 14.95 11.625 14.887Q11.45 14.825 11.3 14.675L6.675 10.05Q6.4 9.775 6.413 9.362Q6.425 8.95 6.7 8.675Q6.975 8.4 7.4 8.4Q7.825 8.4 8.1 8.675L12 12.575L15.925 8.65Q16.2 8.375 16.613 8.387Q17.025 8.4 17.3 8.675Q17.575 8.95 17.575 9.375Q17.575 9.8 17.3 10.075L12.7 14.675Q12.55 14.825 12.375 14.887Q12.2 14.95 12 14.95Z" />
+    </IconElement>
+  );
+});
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -109,23 +126,6 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-MenuDesktop' });
 
-const IconMaterialExpandMoreRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='ExpandMoreRounded'
-
-      short_name='ExpandMore'
-
-      {...props}
-    >
-      <path d="M12 14.95Q11.8 14.95 11.625 14.887Q11.45 14.825 11.3 14.675L6.675 10.05Q6.4 9.775 6.413 9.362Q6.425 8.95 6.7 8.675Q6.975 8.4 7.4 8.4Q7.825 8.4 8.1 8.675L12 12.575L15.925 8.65Q16.2 8.375 16.613 8.387Q17.025 8.4 17.3 8.675Q17.575 8.95 17.575 9.375Q17.575 9.8 17.3 10.075L12.7 14.675Q12.55 14.825 12.375 14.887Q12.2 14.95 12 14.95Z" />
-    </Icon>
-  );
-});
-
 const Wrapper = React.forwardRef((props: any, ref: any) => {
   const theme = useAmauiTheme();
 
@@ -210,7 +210,21 @@ const MenuDesktop: React.FC<IMenuDesktop> = React.forwardRef((props_, ref: any) 
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMenuDesktop?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Grow = React.useMemo(() => theme?.elements?.Grow || GrowElement, [theme]);
+
+  const Append = React.useMemo(() => theme?.elements?.Append || AppendElement, [theme]);
+
+  const Transitions = React.useMemo(() => theme?.elements?.Transitions || TransitionsElement, [theme]);
+
+  const ClickListener = React.useMemo(() => theme?.elements?.ClickListener || ClickListenerElement, [theme]);
+
+  const Transition = React.useMemo(() => theme?.elements?.Transition || TransitionElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     tonal = true,
@@ -254,6 +268,8 @@ const MenuDesktop: React.FC<IMenuDesktop> = React.forwardRef((props_, ref: any) 
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const [init, setInit] = React.useState(false);
   const [open, setOpen] = React.useState<any>();

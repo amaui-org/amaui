@@ -3,8 +3,8 @@ import React from 'react';
 import { is, wait, random, clamp } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Fade from '../Fade';
-import LinearProgress from '../LinearProgress';
+import FadeElement from '../Fade';
+import LinearProgressElement from '../LinearProgress';
 import MainProgressContext from './Context';
 import { ILinearProress } from '../LinearProgress/LinearProgress';
 import { staticClassName } from '../utils';
@@ -83,6 +83,10 @@ const MainProgress: React.FC<IMainProgress> = React.forwardRef((props_, ref: any
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMainProgress?.props?.default, ...props_ }), [props_]);
 
+  const Fade = React.useMemo(() => theme?.elements?.Fade || FadeElement, [theme]);
+
+  const LinearProgress = React.useMemo(() => theme?.elements?.LinearProgress || LinearProgressElement, [theme]);
+
   const {
     min = 0,
     max = 99,
@@ -115,6 +119,8 @@ const MainProgress: React.FC<IMainProgress> = React.forwardRef((props_, ref: any
     ...other
   } = props;
 
+  const { classes } = useStyle();
+
   const [inProp, setInProp] = React.useState(false);
   const [value, setValue] = React.useState(min);
 
@@ -134,8 +140,6 @@ const MainProgress: React.FC<IMainProgress> = React.forwardRef((props_, ref: any
     interval: React.useRef<any>(),
     props: React.useRef<any>()
   };
-
-  const { classes } = useStyle();
 
   refs.value.current = value;
 

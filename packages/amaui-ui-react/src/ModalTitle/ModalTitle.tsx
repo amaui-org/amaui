@@ -21,7 +21,7 @@ const ModalTitle: React.FC<IModalTitle> = React.forwardRef((props_, ref: any) =>
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModalTitle?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     className,
@@ -30,6 +30,8 @@ const ModalTitle: React.FC<IModalTitle> = React.forwardRef((props_, ref: any) =>
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   return (
     <Type

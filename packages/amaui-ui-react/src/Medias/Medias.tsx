@@ -3,21 +3,21 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Line, { ILine } from '../Line/Line';
 import TypeElement from '../Type';
 import InteractionElement from '../Interaction';
-import AudioPlayer from '../AudioPlayer';
-import VideoPlayer from '../VideoPlayer';
-import Portal from '../Portal';
-import ImageGallery from '../ImageGallery';
-import Icon, { IIcon } from '../Icon';
+import LineElement, { ILine } from '../Line/Line';
+import AudioPlayerElement from '../AudioPlayer';
+import VideoPlayerElement from '../VideoPlayer';
+import PortalElement from '../Portal';
+import ImageGalleryElement from '../ImageGallery';
+import IconElement, { IIcon } from '../Icon';
 import { staticClassName } from '../utils';
 import { IMediaObject, IPropsAny } from '../types';
 
 const IconMaterialDraft = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='Draft'
@@ -29,7 +29,7 @@ const IconMaterialDraft = React.forwardRef((props: IIcon, ref) => {
       {...props}
     >
       <path d="M6 22q-.825 0-1.412-.587Q4 20.825 4 20V4q0-.825.588-1.413Q5.175 2 6 2h7.175q.4 0 .763.15.362.15.637.425l4.85 4.85q.275.275.425.637.15.363.15.763V20q0 .825-.587 1.413Q18.825 22 18 22Zm7-14V4H6v16h12V9h-4q-.425 0-.712-.288Q13 8.425 13 8ZM6 4v5-5 16V4Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
@@ -200,7 +200,19 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMedias?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const Interaction = React.useMemo(() => theme?.elements?.Interaction || InteractionElement, [theme]);
+
+  const AudioPlayer = React.useMemo(() => theme?.elements?.AudioPlayer || AudioPlayerElement, [theme]);
+
+  const VideoPlayer = React.useMemo(() => theme?.elements?.VideoPlayer || VideoPlayerElement, [theme]);
+
+  const Portal = React.useMemo(() => theme?.elements?.Portal || PortalElement, [theme]);
+
+  const ImageGallery = React.useMemo(() => theme?.elements?.ImageGallery || ImageGalleryElement, [theme]);
 
   const {
     size = 'regular',
@@ -233,6 +245,8 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const [open, setOpen] = React.useState<any>();
 

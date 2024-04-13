@@ -5,7 +5,7 @@ import { style as styleMethod, classNames, useAmauiTheme, getID } from '@amaui/s
 
 import ListElement from '../List';
 import TooltipElement from '../Tooltip';
-import ClickListener from '../ClickListener';
+import ClickListenerElement from '../ClickListener';
 import { ITooltip } from '../Tooltip/Tooltip';
 import { staticClassName } from '../utils';
 import { IElement, IHTMLElement, IPropsAny } from '../types';
@@ -75,6 +75,12 @@ const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMenu?.props?.default, ...props_ }), [props_]);
 
+  const List = React.useMemo(() => theme?.elements?.List || ListElement, [theme]);
+
+  const Tooltip = React.useMemo(() => theme?.elements?.Tooltip || TooltipElement, [theme]);
+
+  const ClickListener = React.useMemo(() => theme?.elements?.ClickListener || ClickListenerElement, [theme]);
+
   const {
     open: open_,
 
@@ -116,12 +122,12 @@ const Menu: React.FC<IMenu> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
+  const { classes } = useStyle();
+
   const id = React.useId();
 
   const [open, setOpen] = React.useState(openDefault !== undefined ? openDefault : open_);
   const [preselected, setPreselected] = React.useState<any>();
-
-  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>(),

@@ -3,8 +3,8 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import useMediaQuery from '../useMediaQuery';
 import LineElement from '../Line';
+import useMediaQuery from '../useMediaQuery';
 import { ILine } from '../Line/Line';
 import { valueBreakpoints, staticClassName } from '../utils';
 import { IValueBreakpoints } from '../types';
@@ -30,6 +30,8 @@ const Masonry: React.FC<IMasonry> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMasonry?.props?.default, ...props_ }), [props_]);
 
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
   const {
     gap: gap_,
 
@@ -48,6 +50,8 @@ const Masonry: React.FC<IMasonry> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
+  const { classes } = useStyle();
+
   const [init, setInit] = React.useState(false);
 
   const refs = {
@@ -65,8 +69,6 @@ const Masonry: React.FC<IMasonry> = React.forwardRef((props_, ref: any) => {
   });
 
   refs.init.current = init;
-
-  const { classes } = useStyle();
 
   const styles: any = {
     root: {},

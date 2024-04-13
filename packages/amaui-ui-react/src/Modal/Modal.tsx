@@ -3,9 +3,9 @@ import React from 'react';
 import { is, isEnvironment, TMethod } from '@amaui/utils';
 import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
-import Portal from '../Portal';
-import Focus from '../Focus';
-import Fade from '../Fade';
+import PortalElement from '../Portal';
+import FocusElement from '../Focus';
+import FadeElement from '../Fade';
 import SurfaceElement from '../Surface';
 import useMediaQuery from '../useMediaQuery';
 import { staticClassName } from '../utils';
@@ -175,6 +175,14 @@ const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModal?.props?.default, ...props_ }), [props_]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const Portal = React.useMemo(() => theme?.elements?.Portal || PortalElement, [theme]);
+
+  const Focus = React.useMemo(() => theme?.elements?.Focus || FocusElement, [theme]);
+
+  const Fade = React.useMemo(() => theme?.elements?.Fade || FadeElement, [theme]);
 
   const {
     tonal = true,

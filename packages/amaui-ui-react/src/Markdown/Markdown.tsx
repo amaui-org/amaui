@@ -236,8 +236,6 @@ const Markdown: React.FC<IMarkdown> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiMarkdown?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
-
   const {
     value,
     render,
@@ -257,6 +255,8 @@ const Markdown: React.FC<IMarkdown> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>()

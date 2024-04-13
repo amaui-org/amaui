@@ -25,7 +25,7 @@ const ModalMain: React.FC<IModalMain> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiModalMain?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
 
   const {
     className,
@@ -34,6 +34,8 @@ const ModalMain: React.FC<IModalMain> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   let align: TLineAlign = 'flex-start';
 
