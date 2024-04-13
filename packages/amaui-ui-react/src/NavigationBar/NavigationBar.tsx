@@ -40,7 +40,9 @@ const NavigationBar: React.FC<INavigationBar> = React.forwardRef((props_, ref: a
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiNavigationBar?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
 
   const {
     color = 'primary',
@@ -60,6 +62,8 @@ const NavigationBar: React.FC<INavigationBar> = React.forwardRef((props_, ref: a
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const [init, setInit] = React.useState(false);
   const [selected, setSelected] = React.useState(() => {

@@ -5,8 +5,8 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 
 import LineElement from '../Line';
 import SurfaceElement from '../Surface';
-import Divider from '../Divider';
-import NavigationBar from '../NavigationBar';
+import DividerElement from '../Divider';
+import NavigationBarElement from '../NavigationBar';
 import { ISurface } from '../Surface/Surface';
 import { INavigationItemVersion } from '../NavigationItem/NavigationItem';
 import { staticClassName } from '../utils';
@@ -87,7 +87,13 @@ const NavigationRail: React.FC<INavigationRail> = React.forwardRef((props_, ref:
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiNavigationRail?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const Divider = React.useMemo(() => theme?.elements?.Divider || DividerElement, [theme]);
+
+  const NavigationBar = React.useMemo(() => theme?.elements?.NavigationBar || NavigationBarElement, [theme]);
 
   const {
     tonal = true,
@@ -117,6 +123,8 @@ const NavigationRail: React.FC<INavigationRail> = React.forwardRef((props_, ref:
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const [init, setInit] = React.useState(false);
   const [selected, setSelected] = React.useState(() => {

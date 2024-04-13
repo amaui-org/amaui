@@ -3,8 +3,8 @@ import React from 'react';
 import { clamp, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Modal from '../Modal';
-import Slide from '../Slide';
+import ModalElement from '../Modal';
+import SlideElement from '../Slide';
 import useSwipe from '../useSwipe';
 import { IOptionsUseSwipe, IResponseUseSwipe } from '../useSwipe/useSwipe';
 import { IModal } from '../Modal/Modal';
@@ -91,6 +91,10 @@ const NavigationDrawer: React.FC<INavigationDrawer> = React.forwardRef((props_, 
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiNavigationDrawer?.props?.default, ...props_ }), [props_]);
+
+  const Modal = React.useMemo(() => theme?.elements?.Modal || ModalElement, [theme]);
+
+  const Slide = React.useMemo(() => theme?.elements?.Slide || SlideElement, [theme]);
 
   const {
     tonal = false,

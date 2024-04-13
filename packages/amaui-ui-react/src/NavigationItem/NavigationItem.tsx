@@ -3,11 +3,11 @@ import React from 'react';
 import { is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Transition, { TTransitionStatus } from '../Transition';
 import TypeElement from '../Type';
-import Fade from '../Fade';
+import FadeElement from '../Fade';
 import LineElement from '../Line';
 import TooltipElement from '../Tooltip';
+import TransitionElement, { TTransitionStatus } from '../Transition';
 import { ITooltip } from '../Tooltip/Tooltip';
 import { staticClassName } from '../utils';
 import { ITonal, IColor, IElement, IElementReference, IPropsAny } from '../types';
@@ -160,7 +160,15 @@ const NavigationItem: React.FC<INavigationItem> = React.forwardRef((props_, ref:
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiNavigationItem?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const Fade = React.useMemo(() => theme?.elements?.Fade || FadeElement, [theme]);
+
+  const Tooltip = React.useMemo(() => theme?.elements?.Tooltip || TooltipElement, [theme]);
+
+  const Transition = React.useMemo(() => theme?.elements?.Transition || TransitionElement, [theme]);
 
   const {
     tonal = true,
@@ -196,6 +204,8 @@ const NavigationItem: React.FC<INavigationItem> = React.forwardRef((props_, ref:
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const [focus, setFocus] = React.useState(false);
   const [hover, setHover] = React.useState(false);
