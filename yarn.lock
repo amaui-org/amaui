@@ -23,17 +23,17 @@
     "@amaui/utils" "^1.1.18"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/api-utils@^1.1.402":
-  version "1.1.402"
-  resolved "https://registry.yarnpkg.com/@amaui/api-utils/-/api-utils-1.1.402.tgz#88b933c043362627ef90b32cb1621dd286612450"
-  integrity sha512-6bfYKHzoTCBPVfGkNX1H8LHR483kCK8POShWHIiaZvbwclimc7ZJksRYBRcJQldThCZvrTtMPmon5o5uS5R6Zw==
+"@amaui/api-utils@^1.1.404":
+  version "1.1.404"
+  resolved "https://registry.yarnpkg.com/@amaui/api-utils/-/api-utils-1.1.404.tgz#2c2c0e31401e5a5d7ee16677a6a2930e9142ff85"
+  integrity sha512-V4xohfGc50GBT/B0NygHq7QFUPqyQvyXEW8xRWM+uJ+ml29TMup/f26rw1QCDt0Wd4wxM8gtDdfyEb8guEb+Kg==
   dependencies:
     "@amaui/amqp" "^1.1.18"
     "@amaui/api" "^1.0.38"
     "@amaui/aws" "^1.1.20"
     "@amaui/date" "^1.1.11"
     "@amaui/errors" "^1.0.111"
-    "@amaui/log" "^1.0.21"
+    "@amaui/log" "^1.0.22"
     "@amaui/models" "^1.1.19"
     "@amaui/mongo" "^1.1.31"
     "@amaui/node" "^1.0.11117"
@@ -162,20 +162,20 @@
     "@amaui/utils" "^1.0.11447"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/log@^1.0.20":
-  version "1.0.20"
-  resolved "https://registry.yarnpkg.com/@amaui/log/-/log-1.0.20.tgz#bd6261edfba7be584805f0702fc04134cdb064b0"
-  integrity sha512-sjy6k72hGibR32Ec9riJDcYpzgcDBiP7Wd2teOjxyX1bIT4Ep55ygDSmn/XNfRqRKFnZaXQh571DZdUFc0mioA==
+"@amaui/log@^1.0.21":
+  version "1.0.21"
+  resolved "https://registry.yarnpkg.com/@amaui/log/-/log-1.0.21.tgz#852ad4a3656e87ef5b1897387e907f85133d6ab2"
+  integrity sha512-TlKmuFFwOeJnwbqkgC9zSp4/4gsmM30e2yf8qRbsJXRMUVCet0abLago5M+MPfZgvzJBqm7R9GLKhXzUKKuCEA==
   dependencies:
     "@amaui/date" "^1.1.11"
     "@amaui/subscription" "^1.0.5"
     "@amaui/utils" "^1.1.23"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/log@^1.0.21":
-  version "1.0.21"
-  resolved "https://registry.yarnpkg.com/@amaui/log/-/log-1.0.21.tgz#852ad4a3656e87ef5b1897387e907f85133d6ab2"
-  integrity sha512-TlKmuFFwOeJnwbqkgC9zSp4/4gsmM30e2yf8qRbsJXRMUVCet0abLago5M+MPfZgvzJBqm7R9GLKhXzUKKuCEA==
+"@amaui/log@^1.0.22":
+  version "1.0.22"
+  resolved "https://registry.yarnpkg.com/@amaui/log/-/log-1.0.22.tgz#fa34c0f1727f71f47f7f2649560063e9ec6c3c32"
+  integrity sha512-R+rD1lLXMXWZmwXB0qPSVA8QG8LsXLL6a+dSTt5s60QSjCTV9Kkl2WRtD16owGYeBse13kNuXIQ42lrY7wHP1Q==
   dependencies:
     "@amaui/date" "^1.1.11"
     "@amaui/subscription" "^1.0.5"
@@ -295,6 +295,20 @@
   version "1.1.13"
   resolved "https://registry.yarnpkg.com/@amaui/style/-/style-1.1.13.tgz#6856484543a0cb80fb625a57945ad62bd8b59d9f"
   integrity sha512-tzebtFTAZy8K0BCfzs3Kx/ve4GfGIvs+DcZLbxGqoWd1hhYlykwWDAeKwwZ1XUgD/zs4ro1ya63gW8zmHLe2Ug==
+  dependencies:
+    "@amaui/meta" "^1.0.11141"
+    "@amaui/node" "^1.0.11117"
+    "@amaui/subscription" "^1.0.11147"
+    "@amaui/utils" "^1.1.17"
+    "@babel/runtime" "^7.18.3"
+    csstype "^3.1.0"
+    fast-glob "^3.2.11"
+    fs-extra "^10.1.0"
+
+"@amaui/style@^1.1.14":
+  version "1.1.14"
+  resolved "https://registry.yarnpkg.com/@amaui/style/-/style-1.1.14.tgz#e68cdc7ff57b71ed76b0e4c20ba63e188b5413c8"
+  integrity sha512-7lfCICXai41wiVVhjjrfV8KRCC/hmYmC/guC1j8X1qW6qJUGIew2U7VfMzvCIqM7lcj6VH6RbgbpPvpNV6RaSw==
   dependencies:
     "@amaui/meta" "^1.0.11141"
     "@amaui/node" "^1.0.11117"
