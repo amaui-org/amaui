@@ -3,9 +3,9 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import ImageGallery from '../ImageGallery';
+import ImageGalleryElement from '../ImageGallery';
+import SectionElement, { ISection } from '../Section/Section';
 import { IImageGallery } from '../ImageGallery/ImageGallery';
-import Section, { ISection } from '../Section/Section';
 import { staticClassName } from '../utils';
 import { IMediaObject } from '../types';
 
@@ -28,7 +28,9 @@ const Element: React.FC<ISectionImageGallery> = React.forwardRef((props_, ref: a
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSectionImageGallery?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Section = React.useMemo(() => theme?.elements?.Section || SectionElement, [theme]);
+
+  const ImageGallery = React.useMemo(() => theme?.elements?.ImageGallery || ImageGalleryElement, [theme]);
 
   const {
     values,
@@ -41,6 +43,8 @@ const Element: React.FC<ISectionImageGallery> = React.forwardRef((props_, ref: a
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>()

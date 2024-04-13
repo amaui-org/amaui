@@ -4,7 +4,7 @@ import { is, percentageFromValueWithinRange, valueFromPercentageWithinRange } fr
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import { TMethod } from '@amaui/models';
 
-import Path from '../Path';
+import PathElement from '../Path';
 import LineElement from '../Line';
 import TypeElement from '../Type';
 import useMediaQuery from '../useMediaQuery';
@@ -52,7 +52,11 @@ const ScatterChartItem: React.FC<IScatterChartItem> = React.forwardRef((props_, 
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiScatterChartItem?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Path = React.useMemo(() => theme?.elements?.Path || PathElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     tonal = true,
@@ -86,6 +90,8 @@ const ScatterChartItem: React.FC<IScatterChartItem> = React.forwardRef((props_, 
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     minMax: React.useRef<any>(),

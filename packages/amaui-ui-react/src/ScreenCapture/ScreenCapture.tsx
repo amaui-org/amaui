@@ -7,8 +7,8 @@ import TooltipElement from '../Tooltip';
 import SurfaceElement from '../Surface';
 import TextFieldElement from '../TextField';
 import IconButtonElement from '../IconButton';
-import ImageCrop from '../ImageCrop';
-import Portal from '../Portal';
+import ImageCropElement from '../ImageCrop';
+import PortalElement from '../Portal';
 import LineElement from '../Line';
 import IconElement from '../Icon';
 import useMediaQuery from '../useMediaQuery';
@@ -16,6 +16,70 @@ import { IconDoneAnimated } from '../Buttons/Buttons';
 import { ISurface } from '../Surface/Surface';
 import { staticClassName } from '../utils';
 import { IElementReference, IPropsAny } from '../types';
+
+const IconMaterialFitScreenRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='FitScreenRounded'
+      short_name='FitScreen'
+
+      {...props}
+    >
+      <path d="M20 9V6Q20 6 20 6Q20 6 20 6H17V4H20Q20.825 4 21.413 4.588Q22 5.175 22 6V9ZM2 9V6Q2 5.175 2.588 4.588Q3.175 4 4 4H7V6H4Q4 6 4 6Q4 6 4 6V9ZM17 20V18H20Q20 18 20 18Q20 18 20 18V15H22V18Q22 18.825 21.413 19.413Q20.825 20 20 20ZM4 20Q3.175 20 2.588 19.413Q2 18.825 2 18V15H4V18Q4 18 4 18Q4 18 4 18H7V20ZM16 16H8Q7.175 16 6.588 15.412Q6 14.825 6 14V10Q6 9.175 6.588 8.587Q7.175 8 8 8H16Q16.825 8 17.413 8.587Q18 9.175 18 10V14Q18 14.825 17.413 15.412Q16.825 16 16 16ZM8 14H16Q16 14 16 14Q16 14 16 14V10Q16 10 16 10Q16 10 16 10H8Q8 10 8 10Q8 10 8 10V14Q8 14 8 14Q8 14 8 14ZM8 14Q8 14 8 14Q8 14 8 14V10Q8 10 8 10Q8 10 8 10Q8 10 8 10Q8 10 8 10V14Q8 14 8 14Q8 14 8 14Z" />
+    </IconElement>
+  );
+});
+
+const IconMaterialDocumentScannerRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='DocumentScannerRounded'
+      short_name='DocumentScanner'
+
+      {...props}
+    >
+      <path d="M3 6Q2.575 6 2.288 5.713Q2 5.425 2 5V2Q2 1.575 2.288 1.287Q2.575 1 3 1H6Q6.425 1 6.713 1.287Q7 1.575 7 2Q7 2.425 6.713 2.712Q6.425 3 6 3H4V5Q4 5.425 3.713 5.713Q3.425 6 3 6ZM21 6Q20.575 6 20.288 5.713Q20 5.425 20 5V3H18Q17.575 3 17.288 2.712Q17 2.425 17 2Q17 1.575 17.288 1.287Q17.575 1 18 1H21Q21.425 1 21.712 1.287Q22 1.575 22 2V5Q22 5.425 21.712 5.713Q21.425 6 21 6ZM3 23Q2.575 23 2.288 22.712Q2 22.425 2 22V19Q2 18.575 2.288 18.288Q2.575 18 3 18Q3.425 18 3.713 18.288Q4 18.575 4 19V21H6Q6.425 21 6.713 21.288Q7 21.575 7 22Q7 22.425 6.713 22.712Q6.425 23 6 23ZM18 23Q17.575 23 17.288 22.712Q17 22.425 17 22Q17 21.575 17.288 21.288Q17.575 21 18 21H20V19Q20 18.575 20.288 18.288Q20.575 18 21 18Q21.425 18 21.712 18.288Q22 18.575 22 19V22Q22 22.425 21.712 22.712Q21.425 23 21 23ZM7 18Q7 18 7 18Q7 18 7 18H17Q17 18 17 18Q17 18 17 18V6Q17 6 17 6Q17 6 17 6H7Q7 6 7 6Q7 6 7 6ZM7 20Q6.175 20 5.588 19.413Q5 18.825 5 18V6Q5 5.175 5.588 4.588Q6.175 4 7 4H17Q17.825 4 18.413 4.588Q19 5.175 19 6V18Q19 18.825 18.413 19.413Q17.825 20 17 20ZM10 10H14Q14.425 10 14.713 9.712Q15 9.425 15 9Q15 8.575 14.713 8.287Q14.425 8 14 8H10Q9.575 8 9.288 8.287Q9 8.575 9 9Q9 9.425 9.288 9.712Q9.575 10 10 10ZM10 13H14Q14.425 13 14.713 12.712Q15 12.425 15 12Q15 11.575 14.713 11.287Q14.425 11 14 11H10Q9.575 11 9.288 11.287Q9 11.575 9 12Q9 12.425 9.288 12.712Q9.575 13 10 13ZM10 16H14Q14.425 16 14.713 15.712Q15 15.425 15 15Q15 14.575 14.713 14.287Q14.425 14 14 14H10Q9.575 14 9.288 14.287Q9 14.575 9 15Q9 15.425 9.288 15.712Q9.575 16 10 16ZM7 18V6Q7 6 7 6Q7 6 7 6Q7 6 7 6Q7 6 7 6V18Q7 18 7 18Q7 18 7 18Q7 18 7 18Q7 18 7 18Z" />
+    </IconElement>
+  );
+});
+
+const IconMaterialCropFreeRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='CropFreeRounded'
+      short_name='CropFree'
+
+      {...props}
+    >
+      <path d="M4 9Q3.575 9 3.288 8.712Q3 8.425 3 8V5Q3 4.175 3.587 3.587Q4.175 3 5 3H8Q8.425 3 8.713 3.287Q9 3.575 9 4Q9 4.425 8.713 4.712Q8.425 5 8 5H5Q5 5 5 5Q5 5 5 5V8Q5 8.425 4.713 8.712Q4.425 9 4 9ZM5 21Q4.175 21 3.587 20.413Q3 19.825 3 19V16Q3 15.575 3.288 15.287Q3.575 15 4 15Q4.425 15 4.713 15.287Q5 15.575 5 16V19Q5 19 5 19Q5 19 5 19H8Q8.425 19 8.713 19.288Q9 19.575 9 20Q9 20.425 8.713 20.712Q8.425 21 8 21ZM16 21Q15.575 21 15.288 20.712Q15 20.425 15 20Q15 19.575 15.288 19.288Q15.575 19 16 19H19Q19 19 19 19Q19 19 19 19V16Q19 15.575 19.288 15.287Q19.575 15 20 15Q20.425 15 20.712 15.287Q21 15.575 21 16V19Q21 19.825 20.413 20.413Q19.825 21 19 21ZM20 9Q19.575 9 19.288 8.712Q19 8.425 19 8V5Q19 5 19 5Q19 5 19 5H16Q15.575 5 15.288 4.712Q15 4.425 15 4Q15 3.575 15.288 3.287Q15.575 3 16 3H19Q19.825 3 20.413 3.587Q21 4.175 21 5V8Q21 8.425 20.712 8.712Q20.425 9 20 9Z" />
+    </IconElement>
+  );
+});
+
+const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='DownloadRounded'
+      short_name='Download'
+
+      {...props}
+    >
+      <path d="M12 15.575Q11.8 15.575 11.625 15.512Q11.45 15.45 11.3 15.3L7.7 11.7Q7.425 11.425 7.425 11Q7.425 10.575 7.7 10.3Q7.975 10.025 8.412 10.012Q8.85 10 9.125 10.275L11 12.15V5Q11 4.575 11.288 4.287Q11.575 4 12 4Q12.425 4 12.713 4.287Q13 4.575 13 5V12.15L14.875 10.275Q15.15 10 15.588 10.012Q16.025 10.025 16.3 10.3Q16.575 10.575 16.575 11Q16.575 11.425 16.3 11.7L12.7 15.3Q12.55 15.45 12.375 15.512Q12.2 15.575 12 15.575ZM6 20Q5.175 20 4.588 19.413Q4 18.825 4 18V16Q4 15.575 4.287 15.287Q4.575 15 5 15Q5.425 15 5.713 15.287Q6 15.575 6 16V18Q6 18 6 18Q6 18 6 18H18Q18 18 18 18Q18 18 18 18V16Q18 15.575 18.288 15.287Q18.575 15 19 15Q19.425 15 19.712 15.287Q20 15.575 20 16V18Q20 18.825 19.413 19.413Q18.825 20 18 20Z" />
+    </IconElement>
+  );
+});
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -30,70 +94,6 @@ const useStyle = styleMethod(theme => ({
     zIndex: theme.z_index.tooltip + 4
   }
 }), { name: 'amaui-ScreenCapture' });
-
-const IconMaterialFitScreenRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='FitScreenRounded'
-      short_name='FitScreen'
-
-      {...props}
-    >
-      <path d="M20 9V6Q20 6 20 6Q20 6 20 6H17V4H20Q20.825 4 21.413 4.588Q22 5.175 22 6V9ZM2 9V6Q2 5.175 2.588 4.588Q3.175 4 4 4H7V6H4Q4 6 4 6Q4 6 4 6V9ZM17 20V18H20Q20 18 20 18Q20 18 20 18V15H22V18Q22 18.825 21.413 19.413Q20.825 20 20 20ZM4 20Q3.175 20 2.588 19.413Q2 18.825 2 18V15H4V18Q4 18 4 18Q4 18 4 18H7V20ZM16 16H8Q7.175 16 6.588 15.412Q6 14.825 6 14V10Q6 9.175 6.588 8.587Q7.175 8 8 8H16Q16.825 8 17.413 8.587Q18 9.175 18 10V14Q18 14.825 17.413 15.412Q16.825 16 16 16ZM8 14H16Q16 14 16 14Q16 14 16 14V10Q16 10 16 10Q16 10 16 10H8Q8 10 8 10Q8 10 8 10V14Q8 14 8 14Q8 14 8 14ZM8 14Q8 14 8 14Q8 14 8 14V10Q8 10 8 10Q8 10 8 10Q8 10 8 10Q8 10 8 10V14Q8 14 8 14Q8 14 8 14Z" />
-    </Icon>
-  );
-});
-
-const IconMaterialDocumentScannerRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='DocumentScannerRounded'
-      short_name='DocumentScanner'
-
-      {...props}
-    >
-      <path d="M3 6Q2.575 6 2.288 5.713Q2 5.425 2 5V2Q2 1.575 2.288 1.287Q2.575 1 3 1H6Q6.425 1 6.713 1.287Q7 1.575 7 2Q7 2.425 6.713 2.712Q6.425 3 6 3H4V5Q4 5.425 3.713 5.713Q3.425 6 3 6ZM21 6Q20.575 6 20.288 5.713Q20 5.425 20 5V3H18Q17.575 3 17.288 2.712Q17 2.425 17 2Q17 1.575 17.288 1.287Q17.575 1 18 1H21Q21.425 1 21.712 1.287Q22 1.575 22 2V5Q22 5.425 21.712 5.713Q21.425 6 21 6ZM3 23Q2.575 23 2.288 22.712Q2 22.425 2 22V19Q2 18.575 2.288 18.288Q2.575 18 3 18Q3.425 18 3.713 18.288Q4 18.575 4 19V21H6Q6.425 21 6.713 21.288Q7 21.575 7 22Q7 22.425 6.713 22.712Q6.425 23 6 23ZM18 23Q17.575 23 17.288 22.712Q17 22.425 17 22Q17 21.575 17.288 21.288Q17.575 21 18 21H20V19Q20 18.575 20.288 18.288Q20.575 18 21 18Q21.425 18 21.712 18.288Q22 18.575 22 19V22Q22 22.425 21.712 22.712Q21.425 23 21 23ZM7 18Q7 18 7 18Q7 18 7 18H17Q17 18 17 18Q17 18 17 18V6Q17 6 17 6Q17 6 17 6H7Q7 6 7 6Q7 6 7 6ZM7 20Q6.175 20 5.588 19.413Q5 18.825 5 18V6Q5 5.175 5.588 4.588Q6.175 4 7 4H17Q17.825 4 18.413 4.588Q19 5.175 19 6V18Q19 18.825 18.413 19.413Q17.825 20 17 20ZM10 10H14Q14.425 10 14.713 9.712Q15 9.425 15 9Q15 8.575 14.713 8.287Q14.425 8 14 8H10Q9.575 8 9.288 8.287Q9 8.575 9 9Q9 9.425 9.288 9.712Q9.575 10 10 10ZM10 13H14Q14.425 13 14.713 12.712Q15 12.425 15 12Q15 11.575 14.713 11.287Q14.425 11 14 11H10Q9.575 11 9.288 11.287Q9 11.575 9 12Q9 12.425 9.288 12.712Q9.575 13 10 13ZM10 16H14Q14.425 16 14.713 15.712Q15 15.425 15 15Q15 14.575 14.713 14.287Q14.425 14 14 14H10Q9.575 14 9.288 14.287Q9 14.575 9 15Q9 15.425 9.288 15.712Q9.575 16 10 16ZM7 18V6Q7 6 7 6Q7 6 7 6Q7 6 7 6Q7 6 7 6V18Q7 18 7 18Q7 18 7 18Q7 18 7 18Q7 18 7 18Z" />
-    </Icon>
-  );
-});
-
-const IconMaterialCropFreeRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='CropFreeRounded'
-      short_name='CropFree'
-
-      {...props}
-    >
-      <path d="M4 9Q3.575 9 3.288 8.712Q3 8.425 3 8V5Q3 4.175 3.587 3.587Q4.175 3 5 3H8Q8.425 3 8.713 3.287Q9 3.575 9 4Q9 4.425 8.713 4.712Q8.425 5 8 5H5Q5 5 5 5Q5 5 5 5V8Q5 8.425 4.713 8.712Q4.425 9 4 9ZM5 21Q4.175 21 3.587 20.413Q3 19.825 3 19V16Q3 15.575 3.288 15.287Q3.575 15 4 15Q4.425 15 4.713 15.287Q5 15.575 5 16V19Q5 19 5 19Q5 19 5 19H8Q8.425 19 8.713 19.288Q9 19.575 9 20Q9 20.425 8.713 20.712Q8.425 21 8 21ZM16 21Q15.575 21 15.288 20.712Q15 20.425 15 20Q15 19.575 15.288 19.288Q15.575 19 16 19H19Q19 19 19 19Q19 19 19 19V16Q19 15.575 19.288 15.287Q19.575 15 20 15Q20.425 15 20.712 15.287Q21 15.575 21 16V19Q21 19.825 20.413 20.413Q19.825 21 19 21ZM20 9Q19.575 9 19.288 8.712Q19 8.425 19 8V5Q19 5 19 5Q19 5 19 5H16Q15.575 5 15.288 4.712Q15 4.425 15 4Q15 3.575 15.288 3.287Q15.575 3 16 3H19Q19.825 3 20.413 3.587Q21 4.175 21 5V8Q21 8.425 20.712 8.712Q20.425 9 20 9Z" />
-    </Icon>
-  );
-});
-
-const IconMaterialDownloadRounded = React.forwardRef((props: any, ref) => {
-
-  return (
-    <Icon
-      ref={ref}
-
-      name='DownloadRounded'
-      short_name='Download'
-
-      {...props}
-    >
-      <path d="M12 15.575Q11.8 15.575 11.625 15.512Q11.45 15.45 11.3 15.3L7.7 11.7Q7.425 11.425 7.425 11Q7.425 10.575 7.7 10.3Q7.975 10.025 8.412 10.012Q8.85 10 9.125 10.275L11 12.15V5Q11 4.575 11.288 4.287Q11.575 4 12 4Q12.425 4 12.713 4.287Q13 4.575 13 5V12.15L14.875 10.275Q15.15 10 15.588 10.012Q16.025 10.025 16.3 10.3Q16.575 10.575 16.575 11Q16.575 11.425 16.3 11.7L12.7 15.3Q12.55 15.45 12.375 15.512Q12.2 15.575 12 15.575ZM6 20Q5.175 20 4.588 19.413Q4 18.825 4 18V16Q4 15.575 4.287 15.287Q4.575 15 5 15Q5.425 15 5.713 15.287Q6 15.575 6 16V18Q6 18 6 18Q6 18 6 18H18Q18 18 18 18Q18 18 18 18V16Q18 15.575 18.288 15.287Q18.575 15 19 15Q19.425 15 19.712 15.287Q20 15.575 20 16V18Q20 18.825 19.413 19.413Q18.825 20 18 20Z" />
-    </Icon>
-  );
-});
 
 export type TTrackValueVersion = 'image' | 'canvas';
 
@@ -133,7 +133,19 @@ const ScreenCapture: React.FC<IScreenCapture> = React.forwardRef((props_, ref: a
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiScreenCapture?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Tooltip = React.useMemo(() => theme?.elements?.Tooltip || TooltipElement, [theme]);
+
+  const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
+
+  const TextField = React.useMemo(() => theme?.elements?.TextField || TextFieldElement, [theme]);
+
+  const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
+
+  const ImageCrop = React.useMemo(() => theme?.elements?.ImageCrop || ImageCropElement, [theme]);
+
+  const Portal = React.useMemo(() => theme?.elements?.Portal || PortalElement, [theme]);
 
   const {
     tonal = true,
@@ -177,6 +189,8 @@ const ScreenCapture: React.FC<IScreenCapture> = React.forwardRef((props_, ref: a
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const [init, setInit] = React.useState(false);
   const [name, setName] = React.useState(nameDefault !== undefined ? nameDefault : name_);

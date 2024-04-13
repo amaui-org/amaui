@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { is, isEnvironment, textToInnerHTML } from '@amaui/utils';
 import { TPaletteVersion, classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Section, { ISection } from '../Section/Section';
+import SectionElement, { ISection } from '../Section/Section';
 import LineElement from '../Line';
 import TypeElement from '../Type';
 import ButtonElement from '../Button';
@@ -127,7 +127,13 @@ const Element: React.FC<ISectionCards> = React.forwardRef((props_, ref: any) => 
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSectionCards?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Section = React.useMemo(() => theme?.elements?.Section || SectionElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const Button = React.useMemo(() => theme?.elements?.Button || ButtonElement, [theme]);
 
   const {
     size = 'regular',
@@ -141,6 +147,8 @@ const Element: React.FC<ISectionCards> = React.forwardRef((props_, ref: any) => 
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const navigate = isEnvironment('browser') && useNavigate();
 

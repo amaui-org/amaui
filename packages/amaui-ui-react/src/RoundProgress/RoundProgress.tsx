@@ -160,8 +160,6 @@ const RoundProgress: React.FC<IRoundProgress> = React.forwardRef((props_, ref: a
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiRoundProgress?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
-
   const {
     tonal = true,
     color = 'primary',
@@ -184,6 +182,8 @@ const RoundProgress: React.FC<IRoundProgress> = React.forwardRef((props_, ref: a
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   let rounded = rounded_;
 

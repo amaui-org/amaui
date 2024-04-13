@@ -3,10 +3,10 @@ import React from 'react';
 import { is, textToInnerHTML } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Section, { ISection } from '../Section/Section';
+import SectionElement, { ISection } from '../Section/Section';
 import ListItemElement from '../ListItem';
-import Timeline from '../Timeline';
-import TimelineItem from '../TimelineItem';
+import TimelineElement from '../Timeline';
+import TimelineItemElement from '../TimelineItem';
 import TypeElement from '../Type';
 import { staticClassName } from '../utils';
 import { IPropsAny } from '../types';
@@ -56,7 +56,15 @@ const SectionTimeline: React.FC<ISectionTimeline> = React.forwardRef((props_, re
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSectionTimeline?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Section = React.useMemo(() => theme?.elements?.Section || SectionElement, [theme]);
+
+  const ListItem = React.useMemo(() => theme?.elements?.ListItem || ListItemElement, [theme]);
+
+  const Timeline = React.useMemo(() => theme?.elements?.Timeline || TimelineElement, [theme]);
+
+  const TimelineItem = React.useMemo(() => theme?.elements?.TimelineItem || TimelineItemElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     size = 'regular',
@@ -75,6 +83,8 @@ const SectionTimeline: React.FC<ISectionTimeline> = React.forwardRef((props_, re
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>()

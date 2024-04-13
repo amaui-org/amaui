@@ -4,7 +4,7 @@ import { cleanValue, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import LineElement from '../Line';
-import Section, { ISection } from '../Section/Section';
+import SectionElement, { ISection } from '../Section/Section';
 import TypeElement from '../Type';
 import { staticClassName } from '../utils';
 import { IMediaObject, IPropsAny } from '../types';
@@ -71,7 +71,11 @@ const Element: React.FC<ISectionLogos> = React.forwardRef((props_, ref: any) => 
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSectionLogos?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Section = React.useMemo(() => theme?.elements?.Section || SectionElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     values = [],
@@ -89,6 +93,8 @@ const Element: React.FC<ISectionLogos> = React.forwardRef((props_, ref: any) => 
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>()

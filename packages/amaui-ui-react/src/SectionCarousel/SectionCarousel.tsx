@@ -4,12 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { is, isEnvironment, textToInnerHTML } from '@amaui/utils';
 import { TPaletteVersion, classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Section, { ISection } from '../Section/Section';
-import useMediaQuery from '../useMediaQuery';
+import SectionElement, { ISection } from '../Section/Section';
 import ButtonElement from '../Button';
-import Carousel from '../Carousel';
+import CarouselElement from '../Carousel';
 import LineElement from '../Line';
 import TypeElement from '../Type';
+import useMediaQuery from '../useMediaQuery';
 import { staticClassName } from '../utils';
 import { IMediaObject, IPropsAny } from '../types';
 
@@ -153,7 +153,15 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSectionCarousel?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Section = React.useMemo(() => theme?.elements?.Section || SectionElement, [theme]);
+
+  const Button = React.useMemo(() => theme?.elements?.Button || ButtonElement, [theme]);
+
+  const Carousel = React.useMemo(() => theme?.elements?.Carousel || CarouselElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     size: size_ = 'regular',
@@ -171,6 +179,8 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const navigate = isEnvironment('browser') && useNavigate();
 

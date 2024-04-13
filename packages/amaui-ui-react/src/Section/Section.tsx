@@ -3,9 +3,9 @@ import React from 'react';
 import { is, textToInnerHTML } from '@amaui/utils';
 import { TPaletteVersion, classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Line, { ILine } from '../Line/Line';
+import LineElement, { ILine } from '../Line/Line';
 import TypeElement from '../Type';
-import Reveal from '../Reveal';
+import RevealElement from '../Reveal';
 import useMediaQuery from '../useMediaQuery';
 import { valueBreakpoints, staticClassName } from '../utils';
 import { IValueBreakpoints, IMediaObject, IPropsAny } from '../types';
@@ -327,7 +327,11 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSection?.props?.default, ...props_, ...props_?.AdditionalProps }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const Reveal = React.useMemo(() => theme?.elements?.Reveal || RevealElement, [theme]);
 
   const {
     themed = true,
@@ -376,6 +380,8 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>()

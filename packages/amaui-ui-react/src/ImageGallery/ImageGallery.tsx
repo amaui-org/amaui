@@ -13,6 +13,7 @@ import BackdropElement from '../Backdrop';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { IElementReference } from '../types';
+import useMediaQuery from '../useMediaQuery';
 
 const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
 
@@ -308,8 +309,11 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
   const [value, setValue] = React.useState<any>(0);
   const [moveValue, setMoveValue] = React.useState<any>();
   const [imageRef, setImageRef] = React.useState<HTMLImageElement>();
+  const [keyDown, setKeyDown] = React.useState<any>();
 
   const refs = {
+    root: React.useRef<HTMLElement>(),
+    version: React.useRef(version),
     more: React.useRef<any>(),
     image: React.useRef<HTMLImageElement>(),
     imageWrapper: React.useRef<HTMLDivElement>(),
@@ -319,8 +323,11 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
     minZoom: React.useRef<any>(),
     maxZoom: React.useRef<any>(),
     mouseDown: React.useRef<any>(),
-    mouseMovePrevious: React.useRef<any>()
+    mouseMovePrevious: React.useRef<any>(),
+    keyDown: React.useRef(keyDown)
   };
+
+  const touch = useMediaQuery('(pointer: coarse)', { element: refs.root.current });
 
   const minZoom = clamp(minZoom_, 0.1, 1);
 
@@ -330,6 +337,8 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
 
   const media = items?.[value];
 
+  refs.version.current = version;
+
   refs.media.current = !!media;
 
   refs.incrementZoom.current = incrementZoom;
@@ -337,6 +346,8 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
   refs.minZoom.current = minZoom;
 
   refs.maxZoom.current = maxZoom;
+
+  refs.keyDown.current = keyDown;
 
   const init = React.useCallback(() => {
     setTimeout(() => {
@@ -351,6 +362,26 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
 
   const cleanUp = React.useCallback(() => {
     refs.mouseDown.current = false;
+  }, []);
+
+  React.useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      setKeyDown(event.metaKey || event.ctrlKey);
+    };
+
+    const onKeyUp = (event: KeyboardEvent) => {
+      setKeyDown(null);
+    };
+
+    window.document.addEventListener('keydown', onKeyDown);
+
+    window.document.addEventListener('keyup', onKeyUp);
+
+    return () => {
+      window.document.removeEventListener('keydown', onKeyDown);
+
+      window.document.removeEventListener('keyup', onKeyUp);
+    };
   }, []);
 
   React.useEffect(() => {
@@ -434,7 +465,10 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
     event.preventDefault();
     event.stopPropagation();
 
-    if (!refs.media.current) return;
+    if (
+      !refs.media.current ||
+      (refs.version.current === 'regular' && !refs.keyDown.current)
+    ) return;
 
     let scale = refs.zoom.current?.scale !== undefined ? refs.zoom.current.scale : 1;
 
@@ -747,7 +781,14 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
   if (version === 'regular') {
     return (
       <Line
-        ref={ref}
+        ref={item => {
+          if (ref) {
+            if (is('function', ref)) ref(item);
+            else ref.current = item;
+          }
+
+          refs.root.current = item;
+        }}
 
         fullWidth
 
@@ -771,7 +812,14 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
 
   return (
     <Backdrop
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       open={open}
 

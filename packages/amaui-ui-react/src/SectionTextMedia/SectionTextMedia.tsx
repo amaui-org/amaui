@@ -3,11 +3,11 @@ import React from 'react';
 import { is, textToInnerHTML } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Text from '../Text';
-import Image from '../Image';
-import Section, { ISection } from '../Section/Section';
-import AudioPlayer from '../AudioPlayer';
-import VideoPlayer from '../VideoPlayer';
+import TextElement from '../Text';
+import ImageElement from '../Image';
+import SectionElement, { ISection } from '../Section/Section';
+import AudioPlayerElement from '../AudioPlayer';
+import VideoPlayerElement from '../VideoPlayer';
 import LineElement from '../Line';
 import TypeElement from '../Type';
 import { staticClassName } from '../utils';
@@ -46,6 +46,20 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
   const theme = useAmauiTheme();
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSectionTextMedia?.props?.default, ...props_ }), [props_]);
+
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Text = React.useMemo(() => theme?.elements?.Text || TextElement, [theme]);
+
+  const Image = React.useMemo(() => theme?.elements?.Image || ImageElement, [theme]);
+
+  const Section = React.useMemo(() => theme?.elements?.Section || SectionElement, [theme]);
+
+  const AudioPlayer = React.useMemo(() => theme?.elements?.AudioPlayer || AudioPlayerElement, [theme]);
+
+  const VideoPlayer = React.useMemo(() => theme?.elements?.VideoPlayer || VideoPlayerElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const { classes } = useStyle();
 

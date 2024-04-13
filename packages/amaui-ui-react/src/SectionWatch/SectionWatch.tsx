@@ -3,8 +3,8 @@ import React from 'react';
 import { is } from '@amaui/utils';
 import { TPaletteVersion, classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Section, { ISection } from '../Section/Section';
-import Watch from '../Watch';
+import SectionElement, { ISection } from '../Section/Section';
+import WatchElement from '../Watch';
 import { IWatch } from '../Watch/Watch';
 import { staticClassName } from '../utils';
 import { ISize } from '../types';
@@ -32,7 +32,9 @@ const Element: React.FC<ISectionWatch> = React.forwardRef((props_, ref: any) => 
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSectionWatch?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Section = React.useMemo(() => theme?.elements?.Section || SectionElement, [theme]);
+
+  const Watch = React.useMemo(() => theme?.elements?.Watch || WatchElement, [theme]);
 
   const {
     WatchProps,
@@ -41,6 +43,8 @@ const Element: React.FC<ISectionWatch> = React.forwardRef((props_, ref: any) => 
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>()

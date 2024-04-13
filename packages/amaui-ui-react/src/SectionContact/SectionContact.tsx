@@ -3,10 +3,10 @@ import React from 'react';
 import { is, textToInnerHTML } from '@amaui/utils';
 import { TPaletteVersion, classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import Icon, { IIcon } from '../Icon';
+import IconElement, { IIcon } from '../Icon';
 import LineElement from '../Line';
-import Properties from '../Properties';
-import Section, { ISection } from '../Section/Section';
+import PropertiesElement from '../Properties';
+import SectionElement, { ISection } from '../Section/Section';
 import TypeElement from '../Type';
 import useMediaQuery from '../useMediaQuery';
 import { staticClassName } from '../utils';
@@ -15,7 +15,7 @@ import { IPropsAny } from '../types';
 const IconMaterialMapRounded = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='Map'
@@ -27,14 +27,14 @@ const IconMaterialMapRounded = React.forwardRef((props: IIcon, ref) => {
       {...props}
     >
       <path d="M14.35 20.775 9 18.9l-4.65 1.8q-.5.2-.925-.113Q3 20.275 3 19.75v-14q0-.325.188-.575.187-.25.512-.375l4.65-1.575q.325-.1.65-.113.325-.012.65.113L15 5.1l4.65-1.8q.5-.2.925.112.425.313.425.838v14q0 .325-.188.575-.187.25-.512.375l-4.65 1.575q-.325.1-.65.112-.325.013-.65-.112ZM14 18.55V6.85l-4-1.4v11.7Zm2 0 3-1V5.7l-3 1.15ZM5 18.3l3-1.15V5.45l-3 1ZM16 6.85v11.7Zm-8-1.4v11.7Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
 const IconMaterialCallRounded = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='Call'
@@ -46,14 +46,14 @@ const IconMaterialCallRounded = React.forwardRef((props: IIcon, ref) => {
       {...props}
     >
       <path d="M19.95 21q-3.225 0-6.287-1.438-3.063-1.437-5.425-3.8-2.363-2.362-3.8-5.425Q3 7.275 3 4.05q0-.45.3-.75t.75-.3H8.1q.35 0 .625.225t.325.575l.65 3.5q.05.35-.012.637-.063.288-.288.513L6.975 10.9q1.05 1.8 2.638 3.375Q11.2 15.85 13.1 17l2.35-2.35q.225-.225.588-.338.362-.112.712-.062l3.45.7q.35.075.575.337.225.263.225.613v4.05q0 .45-.3.75t-.75.3ZM6.025 9l1.65-1.65L7.25 5H5.025q.125 1.025.35 2.025.225 1 .65 1.975ZM19 18.95v-2.2l-2.35-.475-1.675 1.675q.975.425 1.988.675 1.012.25 2.037.325Zm-4-1.025ZM6.025 9Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
 const IconMaterialMailRounded = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='Mail'
@@ -65,7 +65,7 @@ const IconMaterialMailRounded = React.forwardRef((props: IIcon, ref) => {
       {...props}
     >
       <path d="M4 20q-.825 0-1.412-.587Q2 18.825 2 18V6q0-.825.588-1.412Q3.175 4 4 4h16q.825 0 1.413.588Q22 5.175 22 6v12q0 .825-.587 1.413Q20.825 20 20 20ZM20 8l-7.475 4.675q-.125.075-.263.112-.137.038-.262.038t-.262-.038q-.138-.037-.263-.112L4 8v10h16Zm-8 3 8-5H4ZM4 8v.25-1.475.025V6v.8-.013V8.25 8v10Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
@@ -126,7 +126,13 @@ const Element: React.FC<ISectionContact> = React.forwardRef((props_, ref: any) =
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSectionContact?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Properties = React.useMemo(() => theme?.elements?.Properties || PropertiesElement, [theme]);
+
+  const Section = React.useMemo(() => theme?.elements?.Section || SectionElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     map,
@@ -153,6 +159,8 @@ const Element: React.FC<ISectionContact> = React.forwardRef((props_, ref: any) =
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>()

@@ -4,12 +4,12 @@ import { is, textToInnerHTML } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import LineElement from '../Line';
-import Section, { ISection } from '../Section/Section';
+import SectionElement, { ISection } from '../Section/Section';
 import TypeElement from '../Type';
-import { staticClassName } from '../utils';
+import AvatarElement from '../Avatar';
+import RatingElement from '../Rating';
 import { IMediaObject, IPropsAny } from '../types';
-import Avatar from '../Avatar';
-import Rating from '../Rating';
+import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -71,7 +71,15 @@ const Element: React.FC<ISectionReviews> = React.forwardRef((props_, ref: any) =
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSectionReviews?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Section = React.useMemo(() => theme?.elements?.Section || SectionElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const Avatar = React.useMemo(() => theme?.elements?.Avatar || AvatarElement, [theme]);
+
+  const Rating = React.useMemo(() => theme?.elements?.Rating || RatingElement, [theme]);
 
   const {
     values = [],
@@ -90,6 +98,8 @@ const Element: React.FC<ISectionReviews> = React.forwardRef((props_, ref: any) =
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>()

@@ -3,21 +3,21 @@ import React from 'react';
 import { cleanValue, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import AudioPlayer from '../AudioPlayer';
-import Icon, { IIcon } from '../Icon';
-import Image from '../Image';
+import AudioPlayerElement from '../AudioPlayer';
+import IconElement, { IIcon } from '../Icon';
+import ImageElement from '../Image';
 import InteractionElement from '../Interaction';
 import LineElement from '../Line';
-import Section, { ISection } from '../Section/Section';
+import SectionElement, { ISection } from '../Section/Section';
 import TypeElement from '../Type';
-import VideoPlayer from '../VideoPlayer';
+import VideoPlayerElement from '../VideoPlayer';
 import { staticClassName } from '../utils';
 import { IMediaObject, IPropsAny } from '../types';
 
 const IconMaterialDraft = React.forwardRef((props: IIcon, ref) => {
 
   return (
-    <Icon
+    <IconElement
       ref={ref}
 
       name='Draft'
@@ -29,7 +29,7 @@ const IconMaterialDraft = React.forwardRef((props: IIcon, ref) => {
       {...props}
     >
       <path d="M6 22q-.825 0-1.412-.587Q4 20.825 4 20V4q0-.825.588-1.413Q5.175 2 6 2h7.175q.4 0 .763.15.362.15.637.425l4.85 4.85q.275.275.425.637.15.363.15.763V20q0 .825-.587 1.413Q18.825 22 18 22Zm7-14V4H6v16h12V9h-4q-.425 0-.712-.288Q13 8.425 13 8ZM6 4v5-5 16V4Z" />
-    </Icon>
+    </IconElement>
   );
 });
 
@@ -100,7 +100,19 @@ const Element: React.FC<ISectionMedia> = React.forwardRef((props_, ref: any) => 
 
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSectionMedia?.props?.default, ...props_ }), [props_]);
 
-  const { classes } = useStyle();
+  const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Section = React.useMemo(() => theme?.elements?.Section || SectionElement, [theme]);
+
+  const Image = React.useMemo(() => theme?.elements?.Image || ImageElement, [theme]);
+
+  const AudioPlayer = React.useMemo(() => theme?.elements?.AudioPlayer || AudioPlayerElement, [theme]);
+
+  const VideoPlayer = React.useMemo(() => theme?.elements?.VideoPlayer || VideoPlayerElement, [theme]);
+
+  const Interaction = React.useMemo(() => theme?.elements?.Interaction || InteractionElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const {
     value,
@@ -121,6 +133,8 @@ const Element: React.FC<ISectionMedia> = React.forwardRef((props_, ref: any) => 
 
     ...other
   } = props;
+
+  const { classes } = useStyle();
 
   const refs = {
     root: React.useRef<any>()
