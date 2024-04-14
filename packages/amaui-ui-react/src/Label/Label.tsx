@@ -178,7 +178,7 @@ const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {
 
   let gap = size === 'small' ? 1 : size === 'regular' ? 1.5 : 2;
 
-  if (version === 'text') gap = size === 'small' ? 0.5 : size === 'regular' ? 1 : 1.5;
+  if (version === 'text') gap = size === 'small' ? 0.25 : size === 'regular' ? 0.5 : 0.75;
 
   return (
     <Line
