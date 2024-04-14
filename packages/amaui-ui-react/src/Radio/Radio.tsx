@@ -115,6 +115,8 @@ export interface IRadio extends IIconButton {
   value?: boolean;
   checked?: boolean;
 
+  render?: (value: boolean, props: any) => any;
+
   onChange?: (value: boolean, event: React.ChangeEvent<any>) => any;
 
   disabled?: boolean;
@@ -131,6 +133,8 @@ const Radio: React.FC<IRadio> = React.forwardRef((props_, ref: any) => {
     tonal = true,
     color = 'primary',
     version = 'text',
+
+    render,
 
     inputRef,
 
@@ -272,6 +276,7 @@ const Radio: React.FC<IRadio> = React.forwardRef((props_, ref: any) => {
       className={classNames([
         staticClassName('Radio', theme) && [
           'amaui-Radio-root',
+          `amaui-Radio-version-${version}`,
           value && `amaui-Radio-checked`,
           disabled && `amaui-Radio-disabled`
         ],
@@ -283,38 +288,40 @@ const Radio: React.FC<IRadio> = React.forwardRef((props_, ref: any) => {
 
       {...other}
     >
-      <IconItem
-        Component='div'
+      {is('function', render) ? render(value, { ...props, ...other, tonal, color, version }) : <>
+        <IconItem
+          Component='div'
 
-        className={classNames([
-          staticClassName('Radio', theme) && [
-            'amaui-Radio-icon',
-            'amaui-Radio-icon-box'
-          ],
+          className={classNames([
+            staticClassName('Radio', theme) && [
+              'amaui-Radio-icon',
+              'amaui-Radio-icon-box'
+            ],
 
-          classes.icon,
-          classes.iconBox,
-          classes[version],
-          disabled && classes.disabled
-        ])}
+            classes.icon,
+            classes.iconBox,
+            classes[version],
+            disabled && classes.disabled
+          ])}
 
-        style={styles.iconBox}
-      />
+          style={styles.iconBox}
+        />
 
-      <IconItem
-        Component='div'
+        <IconItem
+          Component='div'
 
-        className={classNames([
-          staticClassName('Radio', theme) && [
-            'amaui-Radio-icon',
-            'amaui-Radio-icon-dot'
-          ],
+          className={classNames([
+            staticClassName('Radio', theme) && [
+              'amaui-Radio-icon',
+              'amaui-Radio-icon-dot'
+            ],
 
-          classes.icon,
-          classes.iconDot,
-          value && classes.checked
-        ])}
-      />
+            classes.icon,
+            classes.iconDot,
+            value && classes.checked
+          ])}
+        />
+      </>}
     </IconButton>
   );
 });

@@ -28,7 +28,7 @@ const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 });
 
 const useStyle = styleMethod(theme => {
-  const other_ = {
+  const other = {
     pointerEvents: 'none',
     borderRadius: 'inherit',
     boxSizing: 'border-box',
@@ -294,7 +294,8 @@ const useStyle = styleMethod(theme => {
     },
 
     background: {
-      ...other_,
+      ...other,
+
       background: 'currentColor',
       borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
       opacity: theme.palette.light ? theme.palette.visual_contrast.default.opacity.hover : theme.palette.visual_contrast.default.opacity.selected,
@@ -311,7 +312,8 @@ const useStyle = styleMethod(theme => {
     },
 
     border: {
-      ...other_,
+      ...other,
+
       borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`,
       boxShadow: 'inset 0px -1px 0px 0px currentColor',
 
@@ -323,7 +325,8 @@ const useStyle = styleMethod(theme => {
     },
 
     fieldset: {
-      ...other_,
+      ...other,
+
       top: '-5px',
       height: 'calc(100% + 5px)',
       borderRadius: `${theme.shape.radius.unit}px`,
@@ -1064,7 +1067,8 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
 
         className={classNames([
           staticClassName('TextField', theme) && [
-            'amaui-TextField-root',
+            'amaui-TextField-root', ,
+            `amaui-TextField-version-${version}`,
             valueWithData && 'amaui-TextField-value',
             error && `amaui-TextField-error`,
             required && 'amaui-TextField-required',

@@ -433,6 +433,7 @@ const Checkbox: React.FC<ICheckbox> = React.forwardRef((props_, ref: any) => {
       className={classNames([
         staticClassName('Checkbox', theme) && [
           'amaui-Checkbox-root',
+          `amaui-Checkbox-version-${version}`,
           value && `amaui-Checkbox-checked`,
           disabled && `amaui-Checkbox-disabled`
         ],

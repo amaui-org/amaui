@@ -75,47 +75,47 @@ const useStyle = styleMethod(theme => ({
   // Tonal
   version_filled_tonal_color_neutral: {
     color: theme.methods.palette.color.value('neutral', 10),
-    backgroundColor: theme.methods.palette.color.value('neutral', 90)
+    backgroundColor: theme.palette.color.neutral[theme.palette.light ? 90 : 30]
   },
 
   version_filled_tonal_color_primary: {
     color: theme.methods.palette.color.value('primary', 10),
-    backgroundColor: theme.methods.palette.color.value('primary', 90)
+    backgroundColor: theme.palette.color.primary[theme.palette.light ? 90 : 30]
   },
 
   version_filled_tonal_color_secondary: {
     color: theme.methods.palette.color.value('secondary', 10),
-    backgroundColor: theme.methods.palette.color.value('secondary', 90)
+    backgroundColor: theme.palette.color.secondary[theme.palette.light ? 90 : 30]
   },
 
   version_filled_tonal_color_tertiary: {
     color: theme.methods.palette.color.value('tertiary', 10),
-    backgroundColor: theme.methods.palette.color.value('tertiary', 90)
+    backgroundColor: theme.palette.color.tertiary[theme.palette.light ? 90 : 30]
   },
 
   version_filled_tonal_color_quaternary: {
     color: theme.methods.palette.color.value('quaternary', 10),
-    backgroundColor: theme.methods.palette.color.value('quaternary', 90)
+    backgroundColor: theme.palette.color.quaternary[theme.palette.light ? 90 : 30]
   },
 
   version_filled_tonal_color_info: {
     color: theme.methods.palette.color.value('info', 10),
-    backgroundColor: theme.methods.palette.color.value('info', 90)
+    backgroundColor: theme.palette.color.info[theme.palette.light ? 90 : 30]
   },
 
   version_filled_tonal_color_success: {
     color: theme.methods.palette.color.value('success', 10),
-    backgroundColor: theme.methods.palette.color.value('success', 90)
+    backgroundColor: theme.palette.color.success[theme.palette.light ? 90 : 30]
   },
 
   version_filled_tonal_color_warning: {
     color: theme.methods.palette.color.value('warning', 10),
-    backgroundColor: theme.methods.palette.color.value('warning', 90)
+    backgroundColor: theme.palette.color.warning[theme.palette.light ? 90 : 30]
   },
 
   version_filled_tonal_color_error: {
     color: theme.methods.palette.color.value('error', 10),
-    backgroundColor: theme.methods.palette.color.value('error', 90)
+    backgroundColor: theme.palette.color.error[theme.palette.light ? 90 : 30]
   },
 
   version_filled_tonal_secondary_color_neutral: {
@@ -729,8 +729,8 @@ const Surface: React.FC<ISurface> = React.forwardRef((props_, ref: any) => {
   const { classes } = useStyle();
 
   const {
-    tonal,
-    color: color_ = props.tonal ? 'neutral' : 'default',
+    tonal = true,
+    color: color_ = 'primary',
     version = 'filled',
     elevation,
 
@@ -766,7 +766,7 @@ const Surface: React.FC<ISurface> = React.forwardRef((props_, ref: any) => {
     if (tonal) {
       styles.root.color = theme.methods.palette.color.value(color as any, 10, true, palette);
 
-      if (version === 'filled') styles.root.backgroundColor = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 80 : 90, true, palette);
+      if (version === 'filled') styles.root.backgroundColor = tonal === true ? palette[theme.palette.light ? 90 : 30] : theme.methods.palette.color.value(color as any, 80, true, palette);
 
       if (version === 'outlined') {
         styles.root.color = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 10 : 5, true, palette);
