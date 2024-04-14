@@ -192,14 +192,16 @@ const useStyle = styleMethod(theme => {
 
     label: {
       position: 'absolute',
-      top: '0',
-      insetInlineStart: '16px',
+      top: '50%',
+      insetInlineStart: theme.methods.space.value(2, 'px'),
       transformOrigin: 'top left',
-      transform: 'translate(0px, 15px) scale(1)',
-      transition: theme.methods.transitions.make(['color', 'inset-inline-start', 'transform']),
+      transform: 'translate(0px, -50%) scale(1)',
+      transition: theme.methods.transitions.make(['color', 'inset-inline-start', 'margin-inline-start', 'transform']),
       pointerEvents: 'none',
       userSelect: 'none',
+
       ...overflow,
+
       width: 'auto'
     },
 
@@ -207,90 +209,32 @@ const useStyle = styleMethod(theme => {
       transformOrigin: 'top right'
     },
 
-    label_version_text_size_small: {
-      insetInlineStart: '0',
-      top: '8px',
-      transform: 'translate(0px, 73%) scale(1)',
-    },
-
-    label_version_text_size_regular: {
-      insetInlineStart: '0',
-      top: '10px',
-      transform: 'translate(0px, 78%) scale(1)',
-    },
-
-    label_version_text_size_large: {
-      insetInlineStart: '0',
-      top: '12px',
-      transform: 'translate(0px, 83%) scale(1)',
-    },
-
-    label_version_outlined_size_small: {
-      transform: 'translate(0px, 14px) scale(1)',
-    },
-
-    label_version_outlined_size_regular: {
-      transform: 'translate(0px, 18px) scale(1)',
-    },
-
-    label_version_outlined_size_large: {
-      transform: 'translate(0px, 22px) scale(1)',
-    },
-
-    label_version_filled_size_small: {
-      transform: 'translate(0px, 14px) scale(1)',
-    },
-
-    label_version_filled_size_regular: {
-      transform: 'translate(0px, 18px) scale(1)',
-    },
-
-    label_version_filled_size_large: {
-      transform: 'translate(0px, 22px) scale(1)',
+    label_version_text: {
+      insetInlineStart: '0px'
     },
 
     label_icon_start: {
-      insetInlineStart: '52px'
+      insetInlineStart: theme.methods.space.value(6.5, 'px')
     },
 
     // Focus
-    label_version_text_size_small_focus: {
-      transform: 'translate(0px, 2px) scale(0.667)'
-    },
-
-    label_version_text_size_regular_focus: {
-      transform: 'translate(0px, 2px) scale(0.667)'
-    },
-
-    label_version_text_size_large_focus: {
-      transform: 'translate(0px, 2px) scale(0.667)'
+    label_focus: {
+      transform: 'translate(0px, -100%) scale(0.667)'
     },
 
     label_version_outlined_size_small_focus: {
-      transform: 'translate(0, -5.5px) scale(0.667)',
-      insetInlineStart: '17px'
+      transform: 'translate(0, -30px) scale(0.667)',
+      marginInlineStart: '4px'
     },
 
     label_version_outlined_size_regular_focus: {
-      transform: 'translate(0, -5.5px) scale(0.667)',
-      insetInlineStart: '17px'
+      transform: 'translate(0, -34px) scale(0.667)',
+      marginInlineStart: '4px'
     },
 
     label_version_outlined_size_large_focus: {
-      transform: 'translate(0, -6px) scale(0.667)',
-      insetInlineStart: '17px'
-    },
-
-    label_version_filled_size_small_focus: {
-      transform: 'translate(0px, 9px) scale(0.6875)'
-    },
-
-    label_version_filled_size_regular_focus: {
-      transform: 'translate(0px, 11px) scale(0.6875)'
-    },
-
-    label_version_filled_size_large_focus: {
-      transform: 'translate(0px, 13px) scale(0.6875)'
+      transform: 'translate(0, -38px) scale(0.667)',
+      marginInlineStart: '4px'
     },
 
     background: {
@@ -351,8 +295,12 @@ const useStyle = styleMethod(theme => {
       whiteSpace: 'nowrap',
       visibility: 'hidden',
       overflow: 'hidden',
-      fontSize: '0.6rem',
-      transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xxs' })
+      transition: theme.methods.transitions.make(['max-width', 'padding'], { duration: 'xxs' }),
+
+      ...theme.typography.values.b2,
+
+      fontSize: '0.64rem',
+      letterSpacing: 'normal'
     },
 
     legend_focus: {
@@ -1162,8 +1110,12 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
 
               classes.label,
               classes[`label_version_${version}`],
+              classes[`label_size_${size}`],
               classes[`label_version_${version}_size_${size}`],
-              (enabled || valueWithData || focus) && classes[`label_version_${version}_size_${size}_focus`],
+              (enabled || valueWithData || focus) && [
+                classes[`label_focus`],
+                classes[`label_version_${version}_size_${size}_focus`]
+              ],
               theme.direction === 'rtl' && classes.label_rtl,
               start && [
                 classes.label_icon_start,

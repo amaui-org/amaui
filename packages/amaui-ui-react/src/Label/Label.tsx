@@ -166,17 +166,19 @@ const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {
 
   const inlineElement = ['checkbox', 'radio', 'switch'].some(item => Input?.type?.displayName?.toLowerCase().includes(item));
 
-  const padding = !['amaui-Checkbox', 'amaui-Radio'].includes(Input?.type?.displayName);
-
   let align: TLineAlign = 'center';
 
   const justify = 'center';
 
   if (!inlineElement) align = 'flex-start';
 
-  if (position === undefined) position = inlineElement ? 'start' : 'bottom';
+  if (position === undefined) position = (inlineElement || Input?.type?.displayName === undefined) ? 'start' : 'bottom';
 
   const footer = footer_ || helperText;
+
+  let gap = size === 'small' ? 1 : size === 'regular' ? 1.5 : 2;
+
+  if (version === 'text') gap = size === 'small' ? 0.5 : size === 'regular' ? 1 : 1.5;
 
   return (
     <Line
@@ -189,7 +191,7 @@ const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {
       <Line
         ref={ref}
 
-        gap={!padding ? 0 : 1}
+        gap={gap}
 
         direction={['top', 'bottom'].includes(position) ? position === 'bottom' ? 'column-reverse' : 'column' : position === 'end' ? 'row-reverse' : 'row'}
 
@@ -249,7 +251,7 @@ const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {
 
         {(Text as any[])?.length === 1 && is('simple', (Text as any[])[0]) ? (
           <Type
-            version={size === 'regular' ? 'b2' : size === 'large' ? 'b1' : 'b3'}
+            version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3'}
 
             id={refs.ids.label}
 
@@ -262,6 +264,7 @@ const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {
                 'amaui-Label-text'
               ],
 
+              TextProps?.className,
               TypeProps?.className,
               classes.text,
               disabled && classes.text_disabled
@@ -276,9 +279,21 @@ const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {
             id={refs.ids.label}
 
             {...TextProps}
+
+            className={classNames([
+              staticClassName('Label', theme) && [
+                'amaui-Label-text-wrapper'
+              ],
+
+              TextProps?.className
+            ])}
           >
             {(Text as any)?.map((item: any, index: number) => is('simple', item) ?
-              <React.Fragment key={index}>{item}</React.Fragment> :
+              <Type
+                version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3'}
+              >
+                {item}
+              </Type> :
 
               React.cloneElement(item as any, { key: index })
             )}

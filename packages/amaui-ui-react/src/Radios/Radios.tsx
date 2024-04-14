@@ -152,6 +152,7 @@ const Radios: React.FC<IRadios> = React.forwardRef((props_, ref: any) => {
       className={classNames([
         staticClassName('Radios', theme) && [
           'amaui-Radios-root',
+          `amaui-Radios-version-${version}`,
           disabled && `amaui-Radios-disabled`
         ],
 
