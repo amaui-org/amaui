@@ -1289,20 +1289,25 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
 
               aria-valuemax={max}
 
+              {...IconButtonProps}
+
               className={classNames([
                 staticClassName('Slider', theme) && [
                   'amaui-Slider-icon-button'
                 ],
 
+                IconButtonProps?.className,
                 classes.iconButton,
                 classes[`orientation_${orientation}`],
                 !tonal && classes[`iconButton_color_${color}`],
                 tonal && classes[`iconButton_tonal_color_${color}`],
               ])}
 
-              style={iconButtonStyles(value__)}
+              style={{
+                ...iconButtonStyles(value__),
 
-              {...IconButtonProps}
+                ...IconButtonProps?.style
+              }}
             >
               {icon ? React.cloneElement(icon, {
                 className: classNames([
@@ -1326,7 +1331,7 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
           </Tooltip>
         );
       })}
-    </Component>
+    </Component >
   );
 });
 
