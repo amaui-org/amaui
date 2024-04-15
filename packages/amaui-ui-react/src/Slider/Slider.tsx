@@ -475,6 +475,8 @@ export interface ISlider extends IBaseElement {
   readOnly?: boolean;
   disabled?: boolean;
 
+  icon?: any;
+
   IconButtonProps?: IPropsAny;
   LabelProps?: IPropsAny;
   TooltipProps?: IPropsAny;
@@ -519,6 +521,8 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
     inverted,
     readOnly,
     disabled,
+
+    icon,
 
     onMouseDown: onMouseDown_,
     onTouchStart: onTouchStart_,
@@ -1208,103 +1212,120 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
         </span>
       )}
 
-      {!noButtons && values.map((value__: number, index: number) => (
-        <Tooltip
-          key={index}
+      {!noButtons && values.map((value__: number, index: number) => {
+        const classNameIcon = classNames([
+          staticClassName('Slider', theme) && [
+            'amaui-Slider-icon'
+          ],
 
-          className={classNames([
-            classes.tooltip,
-            classes[`tooltip_orientation_${orientation}`]
-          ])}
+          classes.icon,
+          classes[`track_color_${color}`],
+          tonal && classes[`track_tonal_color_${color}`],
+          classes[`icon_size_${size}`],
+          (mouseDownButton === index) && classes.iconActive
+        ]);
 
-          classNameSwitch={classes[`tooltip_switch_orientation_${orientation}_${theme.direction}`]}
-
-          {...((tooltip === 'always') || (tooltip !== undefined && mouseDownButton === index) ? { open: true } : tooltip === undefined ? { open: false } : {})}
-
-          label={labelMethod(value__)}
-
-          position={orientation === 'horizontal' ? 'top' : theme.direction === 'ltr' ? 'left' : 'right'}
-
-          alignment='center'
-
-          TransitionComponent={Zoom}
-
-          transformOrigin={orientation === 'horizontal' ? 'center bottom' : 'center right'}
-
-          transformOriginSwitch={orientation === 'horizontal' ? 'center top' : 'center left'}
-
-          transformOriginRtl={orientation === 'horizontal' ? 'center bottom' : 'center left'}
-
-          transformOriginRtlSwitch={orientation === 'horizontal' ? 'center top' : 'center right'}
-
-          noMargin
-
-          LabelProps={{
-            style: styles.label
-          }}
-
-          {...TooltipProps}
-        >
-          <IconButton
-            ref={item => refs.iconButtons.current.push(item)}
-
-            size={size}
-
-            tonal={tonal}
-
-            color={color}
-
-            onBlur={onBlur}
-
-            onFocus={() => {
-              onFocus();
-
-              onFocusButton(index);
-            }}
-
-            onMouseDown={(event: any) => onMouseDownButton(event, index)}
-
-            aria-valuenow={valueValue(value__)}
-
-            aria-valuetext={`${valueValue(value__)}%`}
-
-            aria-valuemin={min}
-
-            aria-valuemax={max}
+        return (
+          <Tooltip
+            key={index}
 
             className={classNames([
-              staticClassName('Slider', theme) && [
-                'amaui-Slider-icon-button'
-              ],
-
-              classes.iconButton,
-              classes[`orientation_${orientation}`],
-              !tonal && classes[`iconButton_color_${color}`],
-              tonal && classes[`iconButton_tonal_color_${color}`],
+              classes.tooltip,
+              classes[`tooltip_orientation_${orientation}`]
             ])}
 
-            style={iconButtonStyles(value__)}
+            classNameSwitch={classes[`tooltip_switch_orientation_${orientation}_${theme.direction}`]}
 
-            {...IconButtonProps}
+            {...((tooltip === 'always') || (tooltip !== undefined && mouseDownButton === index) ? { open: true } : tooltip === undefined ? { open: false } : {})}
+
+            label={labelMethod(value__)}
+
+            position={orientation === 'horizontal' ? 'top' : theme.direction === 'ltr' ? 'left' : 'right'}
+
+            alignment='center'
+
+            TransitionComponent={Zoom}
+
+            transformOrigin={orientation === 'horizontal' ? 'center bottom' : 'center right'}
+
+            transformOriginSwitch={orientation === 'horizontal' ? 'center top' : 'center left'}
+
+            transformOriginRtl={orientation === 'horizontal' ? 'center bottom' : 'center left'}
+
+            transformOriginRtlSwitch={orientation === 'horizontal' ? 'center top' : 'center right'}
+
+            noMargin
+
+            LabelProps={{
+              style: styles.label
+            }}
+
+            {...TooltipProps}
           >
-            <span
+            <IconButton
+              ref={item => refs.iconButtons.current.push(item)}
+
+              size={size}
+
+              tonal={tonal}
+
+              color={color}
+
+              onBlur={onBlur}
+
+              onFocus={() => {
+                onFocus();
+
+                onFocusButton(index);
+              }}
+
+              onMouseDown={(event: any) => onMouseDownButton(event, index)}
+
+              aria-valuenow={valueValue(value__)}
+
+              aria-valuetext={`${valueValue(value__)}%`}
+
+              aria-valuemin={min}
+
+              aria-valuemax={max}
+
               className={classNames([
                 staticClassName('Slider', theme) && [
-                  'amaui-Slider-icon'
+                  'amaui-Slider-icon-button'
                 ],
 
-                classes.icon,
-                classes[`track_color_${color}`],
-                tonal && classes[`track_tonal_color_${color}`],
-                classes[`icon_size_${size}`],
-                (mouseDownButton === index) && classes.iconActive
+                classes.iconButton,
+                classes[`orientation_${orientation}`],
+                !tonal && classes[`iconButton_color_${color}`],
+                tonal && classes[`iconButton_tonal_color_${color}`],
               ])}
 
-              style={styles.icon}
-            />
-          </IconButton>
-        </Tooltip>
-      ))}
+              style={iconButtonStyles(value__)}
+
+              {...IconButtonProps}
+            >
+              {icon ? React.cloneElement(icon, {
+                className: classNames([
+                  icon?.props?.className,
+                  classNameIcon
+                ]),
+
+                style: {
+                  ...styles.icon,
+
+                  ...icon?.props?.style
+                }
+              }) : (
+                <span
+                  className={classNameIcon}
+
+                  style={styles.icon}
+                />
+              )}
+            </IconButton>
+          </Tooltip>
+        );
+      })}
     </Component>
   );
 });

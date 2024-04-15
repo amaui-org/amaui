@@ -2,34 +2,15 @@ import React from 'react';
 
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
-import IconElement, { IIcon } from '../Icon';
 import TypeElement from '../Type';
 import SurfaceElement from '../Surface';
 import LineElement from '../Line';
 import { staticClassName } from '../utils';
 import { IBaseElement, ITonal, IColor, IPropsAny } from '../types';
 
-const IconMaterialBrokenImage = React.forwardRef((props: IIcon, ref) => {
-
-  return (
-    <IconElement
-      ref={ref}
-
-      name='BrokenImage'
-
-      short_name='BrokenImage'
-
-      viewBox='0 0 24 24'
-
-      {...props}
-    >
-      <path d="M5 21q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h14q.825 0 1.413.587Q21 4.175 21 5v14q0 .825-.587 1.413Q19.825 21 19 21Zm1-8.425 3.3-3.3q.15-.15.325-.213Q9.8 9 10 9t.375.062q.175.063.325.213l3.3 3.3 3.3-3.3q.15-.15.325-.213Q17.8 9 18 9t.375.062q.175.063.325.213l.3.3V5H5v6.575ZM5 19h14v-6.6l-1-1-3.3 3.3q-.125.125-.312.2-.188.075-.388.075t-.375-.075q-.175-.075-.325-.2L10 11.4l-3.3 3.3q-.15.15-.325.212-.175.063-.375.063t-.375-.063Q5.45 14.85 5.3 14.7l-.3-.3Zm0 0v-6.6 2V5v9.4Z" />
-    </IconElement>
-  );
-});
-
 const useStyle = styleMethod(theme => ({
   root: {
+    position: 'relative',
     display: 'inline-block',
     lineHeight: '0'
   },
@@ -49,6 +30,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   picture: {
+    position: 'relative',
     display: 'inline-block'
   },
 
@@ -128,10 +110,9 @@ const useStyle = styleMethod(theme => ({
   },
 
   noImage: {
-    width: '100vw',
-    maxWidth: '240px',
-    aspectRatio: '1 / 1',
-    background: theme.palette.background.default.primary,
+    maxWidth: '540px',
+    aspectRatio: '4 / 3',
+    background: `linear-gradient(${theme.palette.light ? '130deg' : '330deg'}, ${theme.methods.palette.color.colorToRgb(theme.palette.color.primary.main, 0.14)} 0%, ${theme.methods.palette.color.colorToRgb(theme.palette.color.secondary.main, 0.14)} 40%, ${theme.methods.palette.color.colorToRgb(theme.palette.color.quaternary.main, 0.14)} 100%)`,
     cursor: 'default',
     userSelect: 'none'
   }
@@ -193,8 +174,6 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
     maxWidth,
 
     loading,
-
-    IconNoImage = IconMaterialBrokenImage,
 
     NoImageProps,
     DescriptionProps,
@@ -301,26 +280,6 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
     other.style = style;
   }
 
-  const noImageElement = (
-    <Line
-      align='center'
-
-      justify='center'
-
-      className={classNames([
-        staticClassName('Image', theme) && [
-          'amaui-Image-noImage-element'
-        ],
-
-        classes.noImage
-      ])}
-    >
-      <IconMaterialBrokenImage
-        size='very large'
-      />
-    </Line>
-  );
-
   const Wrapper = (picture && description) ? 'picture' : React.Fragment;
 
   const WrapperProps = (picture && description) ? {
@@ -333,8 +292,8 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
     ])
   } : {};
 
-  if (!rootIsImage) {
-    let imgElement = (
+  if (!rootIsImage && !noImage) {
+    const imgElement = (
       <img
         src={src}
 
@@ -358,10 +317,6 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
         style={style}
       />
     );
-
-    if (noImage) {
-      imgElement = noImageElement;
-    }
 
     other.children = <>
       <Wrapper
@@ -404,12 +359,15 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
       )}
     </>;
   }
-  else {
-    if (noImage) {
-      Component = Line;
 
-      other.children = noImageElement;
-    }
+  if (noImage) {
+    Component = Line;
+
+    other.fullWidth = true;
+
+    other.children = children;
+
+    delete other.Component;
   }
 
   return (
@@ -419,13 +377,14 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
       className={classNames([
         staticClassName('Image', theme) && [
           'amaui-Image-root',
-          noImage && 'amaui-Image-noImage',
+          noImage && 'amaui-Image-no-image',
           (picture && !description) && `amaui-Image-picture`
         ],
 
         className,
         classes.root,
         classes[`align_${align}`],
+        noImage && classes.noImage,
         responsive && classes.responsive,
         maxWidth && classes[`maxWidth_${maxWidth}`],
         fullWidth && classes.fullWidth,

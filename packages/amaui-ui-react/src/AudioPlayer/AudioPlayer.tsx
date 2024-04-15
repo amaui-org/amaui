@@ -183,6 +183,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   wrapper: {
+    position: 'relative',
     borderRadius: 'inherit'
   },
 
@@ -203,6 +204,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   controls: {
+    position: 'relative',
     borderRadius: 'inherit'
   },
 
@@ -367,7 +369,7 @@ const AudioPlayer: React.FC<IAudioPlayer> = React.forwardRef((props_, ref: any) 
     duration: duration_,
 
     tonal = true,
-    color = 'default',
+    color = 'primary',
     size = 'regular',
 
     start,

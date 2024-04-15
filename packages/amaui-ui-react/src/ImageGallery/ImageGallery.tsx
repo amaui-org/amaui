@@ -324,7 +324,8 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
     maxZoom: React.useRef<any>(),
     mouseDown: React.useRef<any>(),
     mouseMovePrevious: React.useRef<any>(),
-    keyDown: React.useRef(keyDown)
+    keyDown: React.useRef(keyDown),
+    useZoom: React.useRef(false)
   };
 
   const touch = useMediaQuery('(pointer: coarse)', { element: refs.root.current });
@@ -340,6 +341,11 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
   refs.version.current = version;
 
   refs.media.current = !!media;
+
+  refs.useZoom.current = (
+    !refs.media.current ||
+    (refs.version.current === 'regular' && !refs.keyDown.current)
+  );
 
   refs.incrementZoom.current = incrementZoom;
 
@@ -462,13 +468,10 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
   }, []);
 
   const onWheel = React.useCallback((event: WheelEvent) => {
+    if (!refs.useZoom.current) return;
+
     event.preventDefault();
     event.stopPropagation();
-
-    if (
-      !refs.media.current ||
-      (refs.version.current === 'regular' && !refs.keyDown.current)
-    ) return;
 
     let scale = refs.zoom.current?.scale !== undefined ? refs.zoom.current.scale : 1;
 
@@ -501,6 +504,8 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
   }, []);
 
   const onMouseMove = React.useCallback((event: MouseEvent) => {
+    if (!refs.useZoom.current) return;
+
     if (!(refs.mouseDown.current && refs.image.current)) return;
 
     const x = event.x - (refs.mouseMovePrevious.current?.x || 0);
@@ -546,13 +551,15 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
   }, []);
 
   React.useEffect(() => {
-    if (imageRef) imageRef.addEventListener('wheel', onWheel, { passive: false });
+    if (refs.useZoom.current) {
+      if (imageRef) imageRef.addEventListener('wheel', onWheel, { passive: false });
 
-    window.addEventListener('mousemove', onMouseMove);
+      window.addEventListener('mousemove', onMouseMove);
 
-    window.addEventListener('mouseup', onMouseUp);
+      window.addEventListener('mouseup', onMouseUp);
 
-    window.addEventListener('touchend', onMouseUp);
+      window.addEventListener('touchend', onMouseUp);
+    }
 
     return () => {
       if (imageRef) imageRef.removeEventListener('wheel', onWheel);
@@ -563,9 +570,11 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
 
       window.removeEventListener('touchend', onMouseUp);
     };
-  }, [imageRef]);
+  }, [imageRef, refs.useZoom.current]);
 
   const onScroll = React.useCallback((event: WheelEvent) => {
+    if (!refs.useZoom.current) return;
+
     if (arrows) {
       setMoveValue({
         left: refs.more.current.scrollLeft,

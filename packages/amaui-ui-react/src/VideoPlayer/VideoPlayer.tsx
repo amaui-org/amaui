@@ -233,6 +233,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   wrapper: {
+    position: 'relative',
     borderRadius: 'inherit'
   },
 
@@ -1239,7 +1240,8 @@ const VideoPlayer: React.FC<IVideoPlayer> = React.forwardRef((props_, ref: any) 
 
       className={classNames([
         staticClassName('VideoPlayer', theme) && [
-          `amaui-VideoPlayer-root`
+          `amaui-VideoPlayer-root`,
+          fullScreen && `amaui-VideoPlayer-full-screen`
         ],
 
         className,

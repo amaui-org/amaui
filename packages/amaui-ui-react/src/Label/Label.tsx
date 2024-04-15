@@ -164,15 +164,15 @@ const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {
 
   const Text = label !== undefined ? label : name !== undefined ? name : children.slice(1);
 
-  const inlineElement = ['checkbox', 'radio', 'switch'].some(item => Input?.type?.displayName?.toLowerCase().includes(item));
+  const inlineElement = ['checkbox', 'radio', 'switch'].some(item => Input?.type?.displayName?.toLowerCase().includes(item)) || Input?.type?.displayName === undefined;
 
   let align: TLineAlign = 'center';
 
   const justify = 'center';
 
-  if (!inlineElement) align = 'flex-start';
+  if (position === undefined) position = inlineElement ? 'start' : 'bottom';
 
-  if (position === undefined) position = (inlineElement || Input?.type?.displayName === undefined) ? 'start' : 'bottom';
+  if (!inlineElement && !['start', 'end'].includes(position)) align = 'flex-start';
 
   const footer = footer_ || helperText;
 
