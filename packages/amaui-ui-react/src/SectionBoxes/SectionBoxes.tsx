@@ -110,7 +110,7 @@ export interface ISectionBoxesItem {
 export interface ISectionBoxes extends ISection {
   size?: 'small' | 'regular' | 'large';
 
-  values?: ISectionBoxes[];
+  values?: ISectionBoxesItem[];
 
   responsive?: boolean;
 

@@ -138,7 +138,7 @@ export interface ISectionCarouselItem {
 export interface ISectionCarousel extends ISection {
   size?: 'small' | 'regular' | 'large';
 
-  values?: ISectionCarousel[];
+  values?: ISectionCarouselItem[];
 
   fullHeight?: boolean;
 

@@ -137,7 +137,7 @@ const Element: React.FC<ISectionContact> = React.forwardRef((props_, ref: any) =
   const {
     map,
 
-    mapPosition: mapPosition_ = 'left',
+    mapPosition: mapPosition_ = 'bottom',
 
     heading,
     summary,

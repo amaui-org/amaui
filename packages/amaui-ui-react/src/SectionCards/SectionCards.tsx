@@ -116,7 +116,7 @@ export interface ISectionCardsItem {
 export interface ISectionCards extends ISection {
   size?: 'small' | 'regular' | 'large';
 
-  values?: ISectionCards[];
+  values?: ISectionCardsItem[];
 
   ItemProps?: IPropsAny;
   ItemsProps?: IPropsAny;

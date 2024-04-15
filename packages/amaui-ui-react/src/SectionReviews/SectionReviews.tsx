@@ -44,7 +44,7 @@ const useStyle = styleMethod(theme => ({
   },
 }), { name: 'amaui-SectionReviews' });
 
-export interface ISectionReviewsValue {
+export interface ISectionReviewsItem {
   name: string;
   meta?: string;
   description: string;
@@ -53,7 +53,7 @@ export interface ISectionReviewsValue {
 }
 
 export interface ISectionReviews extends ISection {
-  values?: ISectionReviewsValue[];
+  values?: ISectionReviewsItem[];
 
   size?: 'small' | 'regular' | 'large';
 
