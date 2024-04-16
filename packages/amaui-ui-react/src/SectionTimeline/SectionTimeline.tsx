@@ -159,7 +159,7 @@ const SectionTimeline: React.FC<ISectionTimeline> = React.forwardRef((props_, re
 
                 primary={is('string', item.heading) ? (
                   <Type
-                    version={size === 'large' ? 'l1' : size === 'regular' ? 'l2' : 'l3'}
+                    version={size === 'large' ? 't1' : size === 'regular' ? 't2' : 't3'}
 
                     {...HeadingProps}
 
