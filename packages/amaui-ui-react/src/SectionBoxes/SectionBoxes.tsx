@@ -26,7 +26,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   item_size_small: {
-    padding: theme.methods.space.value(3, 'px')
+    padding: `${theme.methods.space.value(4.25, 'px')} ${theme.methods.space.value(2, 'px')}`
   },
 
   item_size_regular: {
@@ -34,7 +34,11 @@ const useStyle = styleMethod(theme => ({
   },
 
   item_size_large: {
-    padding: `${theme.methods.space.value(9.25, 'px')} ${theme.methods.space.value(3, 'px')}`
+    padding: `${theme.methods.space.value(9.25, 'px')} ${theme.methods.space.value(4, 'px')}`
+  },
+
+  buttonsWrapper: {
+    marginTop: 12
   },
 
   button: {
@@ -100,9 +104,9 @@ export interface ISectionBoxesItem {
 
   themed?: boolean;
 
+  propsMain?: any;
   propsName?: any;
   propsDescription?: any;
-
   propsButton?: any;
   propsButtonWrapper?: any;
 }
@@ -289,7 +293,16 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
 
           fullWidth
 
-          className={classes.main}
+          {...item.propsMain}
+
+          className={classNames([
+            staticClassName('SectionBoxes', theme) && [
+              'amaui-SectionBoxes-item-main'
+            ],
+
+            item.propsMain?.className,
+            classes.main
+          ])}
         >
           {item.name && (
             <Type
@@ -304,6 +317,14 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
               }}
 
               {...item.propsName}
+
+              className={classNames([
+                staticClassName('SectionBoxes', theme) && [
+                  'amaui-SectionBoxes-item-name'
+                ],
+
+                item.propsName?.className
+              ])}
             />
           )}
 
@@ -320,6 +341,14 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
               }}
 
               {...item.propsDescription}
+
+              className={classNames([
+                staticClassName('SectionBoxes', theme) && [
+                  'amaui-SectionBoxes-item-description'
+                ],
+
+                item.propsDescription?.className
+              ])}
             />
           )}
 
@@ -331,11 +360,14 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
 
               {...item.propsButtonWrapper}
 
-              style={{
-                marginTop: 12,
+              className={classNames([
+                staticClassName('SectionBoxes', theme) && [
+                  'amaui-SectionBoxes-item-buttons-wrapper'
+                ],
 
-                ...item.propsButtonWrapper?.style
-              }}
+                item.propsButtonWrapper?.className,
+                classes.buttonsWrapper
+              ])}
             >
               <Button
                 version='outlined'
