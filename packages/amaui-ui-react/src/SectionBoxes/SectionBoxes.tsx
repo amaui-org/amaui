@@ -370,9 +370,11 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
               ])}
             >
               <Button
-                version='outlined'
+                version='filled'
 
-                size={size === 'large' ? 'regular' : size === 'regular' ? 'small' : 'small'}
+                color='default'
+
+                size={size}
 
                 onClick={() => item.to ? navigate(item.to) : window.open(item.link, 'blank')}
 
