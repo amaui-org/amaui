@@ -51,6 +51,10 @@ const useStyle = styleMethod(theme => ({
     maxWidth: '314px',
   },
 
+  actions: {
+    marginTop: 12
+  },
+
   background: {
     position: 'relative',
     aspectRatio: '3 / 4',
@@ -106,11 +110,13 @@ export interface ISectionCardsItem {
 
   themed?: boolean;
 
+  propsMain?: any;
+  propsImage?: any;
   propsName?: any;
   propsDescription?: any;
-
   propsButton?: any;
-  propsButtonWrapper?: any;
+  propsWrapperText?: any;
+  propsActions?: any;
 }
 
 export interface ISectionCards extends ISection {
@@ -246,7 +252,14 @@ const Element: React.FC<ISectionCards> = React.forwardRef((props_, ref: any) => 
         <Line
           fullWidth
 
+          {...item.propsImage}
+
           className={classNames([
+            staticClassName('SectionCards', theme) && [
+              'amaui-SectionCards-item-image'
+            ],
+
+            item.propsImage?.className,
             classes.background,
             item.backgroundImage && styleBackground.backgroundImage && classes.backgroundImage
           ])}
@@ -290,40 +303,86 @@ const Element: React.FC<ISectionCards> = React.forwardRef((props_, ref: any) => 
 
           fullWidth
 
-          className={classes.main}
+          {...item.propsMain}
+
+          className={classNames([
+            staticClassName('SectionCards', theme) && [
+              'amaui-SectionCards-item-main'
+            ],
+
+            item.propsMain?.className,
+            classes.main
+          ])}
         >
-          {item.name && (
-            <Type
-              version={size === 'large' ? 'h3' : size === 'regular' ? 't1' : 't2'}
+          {(item.name || item.description) && (
+            <Line
+              gap={1}
 
               align='center'
 
               fullWidth
 
-              dangerouslySetInnerHTML={{
-                __html: textToInnerHTML(item.name)
-              }}
+              {...item.propsWrapperText}
 
-              {...item.propsName}
-            />
-          )}
+              className={classNames([
+                staticClassName('SectionCards', theme) && [
+                  'amaui-SectionCards-item-wrapper-text'
+                ],
 
-          {item.description && (
-            <Type
-              version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3'}
+                item.propsWrapperText?.className,
+                classes.wrapperText
+              ])}
+            >
+              {item.name && (
+                <Type
+                  version={size === 'large' ? 'h3' : size === 'regular' ? 't1' : 't2'}
 
-              priority='secondary'
+                  align='center'
 
-              align='center'
+                  fullWidth
 
-              fullWidth
+                  dangerouslySetInnerHTML={{
+                    __html: textToInnerHTML(item.name)
+                  }}
 
-              dangerouslySetInnerHTML={{
-                __html: textToInnerHTML(item.description)
-              }}
+                  {...item.propsName}
 
-              {...item.propsDescription}
-            />
+                  className={classNames([
+                    staticClassName('SectionCards', theme) && [
+                      'amaui-SectionCards-item-name'
+                    ],
+
+                    item.propsName?.className
+                  ])}
+                />
+              )}
+
+              {item.description && (
+                <Type
+                  version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3'}
+
+                  priority='secondary'
+
+                  align='center'
+
+                  fullWidth
+
+                  dangerouslySetInnerHTML={{
+                    __html: textToInnerHTML(item.description)
+                  }}
+
+                  {...item.propsDescription}
+
+                  className={classNames([
+                    staticClassName('SectionCards', theme) && [
+                      'amaui-SectionCards-item-description'
+                    ],
+
+                    item.propsDescription?.className
+                  ])}
+                />
+              )}
+            </Line>
           )}
 
           {(item.to || item.link) && (
@@ -332,22 +391,36 @@ const Element: React.FC<ISectionCards> = React.forwardRef((props_, ref: any) => 
 
               fullWidth
 
-              {...item.propsButtonWrapper}
+              {...item.propsActions}
 
-              style={{
-                marginTop: 8,
+              className={classNames([
+                staticClassName('SectionCards', theme) && [
+                  'amaui-SectionCards-item-actions'
+                ],
 
-                ...item.propsButtonWrapper?.style
-              }}
+                item.propsActions?.className,
+                classes.actions
+              ])}
             >
               <Button
-                version='outlined'
+                version='filled'
 
-                size={size === 'large' ? 'regular' : size === 'regular' ? 'small' : 'small'}
+                color='default'
+
+                size={size}
 
                 onClick={() => item.to ? navigate(item.to) : window.open(item.link, 'blank')}
 
                 {...item.propsButton}
+
+                className={classNames([
+                  staticClassName('SectionCards', theme) && [
+                    'amaui-SectionCards-item-button'
+                  ],
+
+                  item.propsButton?.className,
+                  classes.button
+                ])}
               >
                 {item.buttonText || 'Click here'}
               </Button>

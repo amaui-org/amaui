@@ -37,7 +37,7 @@ const useStyle = styleMethod(theme => ({
     padding: `${theme.methods.space.value(9.25, 'px')} ${theme.methods.space.value(4, 'px')}`
   },
 
-  buttonsWrapper: {
+  actions: {
     marginTop: 12
   },
 
@@ -108,7 +108,8 @@ export interface ISectionBoxesItem {
   propsName?: any;
   propsDescription?: any;
   propsButton?: any;
-  propsButtonWrapper?: any;
+  propsWrapperText?: any;
+  propsActions?: any;
 }
 
 export interface ISectionBoxes extends ISection {
@@ -304,52 +305,73 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
             classes.main
           ])}
         >
-          {item.name && (
-            <Type
-              version={size === 'large' ? 'h2' : size === 'regular' ? 'h3' : 't1'}
+          {(item.name || item.description) && (
+            <Line
+              gap={1}
 
               align='center'
 
               fullWidth
 
-              dangerouslySetInnerHTML={{
-                __html: textToInnerHTML(item.name)
-              }}
-
-              {...item.propsName}
+              {...item.propsWrapperText}
 
               className={classNames([
                 staticClassName('SectionBoxes', theme) && [
-                  'amaui-SectionBoxes-item-name'
+                  'amaui-SectionBoxes-item-wrapper-text'
                 ],
 
-                item.propsName?.className
+                item.propsWrapperText?.className,
+                classes.wrapperText
               ])}
-            />
-          )}
+            >
+              {item.name && (
+                <Type
+                  version={size === 'large' ? 'h2' : size === 'regular' ? 'h3' : 't1'}
 
-          {item.description && (
-            <Type
-              version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3'}
+                  align='center'
 
-              align='center'
+                  fullWidth
 
-              fullWidth
+                  dangerouslySetInnerHTML={{
+                    __html: textToInnerHTML(item.name)
+                  }}
 
-              dangerouslySetInnerHTML={{
-                __html: textToInnerHTML(item.description)
-              }}
+                  {...item.propsName}
 
-              {...item.propsDescription}
+                  className={classNames([
+                    staticClassName('SectionBoxes', theme) && [
+                      'amaui-SectionBoxes-item-name'
+                    ],
 
-              className={classNames([
-                staticClassName('SectionBoxes', theme) && [
-                  'amaui-SectionBoxes-item-description'
-                ],
+                    item.propsName?.className
+                  ])}
+                />
+              )}
 
-                item.propsDescription?.className
-              ])}
-            />
+              {item.description && (
+                <Type
+                  version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3'}
+
+                  align='center'
+
+                  fullWidth
+
+                  dangerouslySetInnerHTML={{
+                    __html: textToInnerHTML(item.description)
+                  }}
+
+                  {...item.propsDescription}
+
+                  className={classNames([
+                    staticClassName('SectionBoxes', theme) && [
+                      'amaui-SectionBoxes-item-description'
+                    ],
+
+                    item.propsDescription?.className
+                  ])}
+                />
+              )}
+            </Line>
           )}
 
           {(item.to || item.link) && (
@@ -358,15 +380,15 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
 
               fullWidth
 
-              {...item.propsButtonWrapper}
+              {...item.propsActions}
 
               className={classNames([
                 staticClassName('SectionBoxes', theme) && [
-                  'amaui-SectionBoxes-item-buttons-wrapper'
+                  'amaui-SectionBoxes-item-actions'
                 ],
 
-                item.propsButtonWrapper?.className,
-                classes.buttonsWrapper
+                item.propsActions?.className,
+                classes.actions
               ])}
             >
               <Button
