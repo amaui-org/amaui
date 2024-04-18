@@ -8,7 +8,6 @@ import LineElement from '../Line';
 import IconElement from '../Icon';
 import IconButtonElement from '../IconButton';
 import InteractionElement from '../Interaction';
-import ImageElement from '../Image';
 import BackdropElement from '../Backdrop';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
@@ -65,6 +64,8 @@ const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 
 const useStyle = styleMethod(theme => ({
   root: {
+    position: 'relative',
+
     '&.amaui-Backdrop-root': {
       display: 'flex',
       alignItems: 'center',
@@ -95,6 +96,10 @@ const useStyle = styleMethod(theme => ({
   header: {
     padding: theme.methods.space.value(3, 'px'),
     zIndex: '1'
+  },
+
+  main: {
+    position: 'relative'
   },
 
   main_version_modal: {
@@ -134,17 +139,19 @@ const useStyle = styleMethod(theme => ({
     height: '0px',
     // zIndex: 1,
     transition: theme.methods.transitions.make(['transform'], { duration: 100, timing_function: 'ease' as any }),
+    zIndex: 14
+  },
 
-    '& .amaui-Image-root': {
-      objectFit: 'contain',
-      width: 'auto',
-      height: 'auto',
-      maxHeight: '100%',
-      maxWidth: '100%'
-    }
+  image: {
+    objectFit: 'contain',
+    width: 'auto',
+    height: 'auto',
+    maxHeight: '100%',
+    maxWidth: '100%'
   },
 
   itemsWrapper: {
+    position: 'relative',
     pointerEvents: 'auto',
     maxWidth: '100%',
     userSelect: 'none'
@@ -242,6 +249,13 @@ export interface IImageGallery extends ILine {
 
   arrows?: boolean;
 
+  startMain?: any;
+  endMain?: any;
+  startImage?: any;
+  endImage?: any;
+  startThumbnails?: any;
+  endThumbnails?: any;
+
   ImageProps?: any;
   ImageWrapperProps?: any;
   IconButtonProps?: any;
@@ -261,8 +275,6 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
   const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
 
   const Interaction = React.useMemo(() => theme?.elements?.Interaction || InteractionElement, [theme]);
-
-  const Image = React.useMemo(() => theme?.elements?.Image || ImageElement, [theme]);
 
   const Backdrop = React.useMemo(() => theme?.elements?.Backdrop || BackdropElement, [theme]);
 
@@ -288,6 +300,13 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
     overflow = true,
 
     arrows = true,
+
+    startMain,
+    endMain,
+    startImage,
+    endImage,
+    startThumbnails,
+    endThumbnails,
 
     ImageProps,
     ImageWrapperProps,
@@ -342,9 +361,11 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
 
   refs.media.current = !!media;
 
+  refs.keyDown.current = keyDown;
+
   refs.useZoom.current = (
     !refs.media.current ||
-    (refs.version.current === 'regular' && !refs.keyDown.current)
+    (refs.version.current === 'regular' && refs.keyDown.current)
   );
 
   refs.incrementZoom.current = incrementZoom;
@@ -352,8 +373,6 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
   refs.minZoom.current = minZoom;
 
   refs.maxZoom.current = maxZoom;
-
-  refs.keyDown.current = keyDown;
 
   const init = React.useCallback(() => {
     setTimeout(() => {
@@ -592,7 +611,7 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
     ...IconButtonProps
   };
 
-  const arrowPre = (
+  const arrowPre = moveValue && (
     <IconButton
       onClick={() => move(false)}
 
@@ -614,11 +633,11 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
     </IconButton>
   );
 
-  const arrowPost = (
+  const arrowPost = moveValue && (
     <IconButton
       onClick={() => move()}
 
-      disabled={!moveValue || Math.ceil(refs.more.current?.clientWidth + refs.more.current?.scrollLeft) === refs.more.current?.scrollWidth}
+      disabled={Math.ceil(refs.more.current?.clientWidth + refs.more.current?.scrollLeft) === refs.more.current?.scrollWidth}
 
       {...iconButtonProps}
 
@@ -659,11 +678,14 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
           'amaui-ImageGallery-main'
         ],
 
+        classes.main,
         classes[`main_version_${version}`],
         classes[`main_version_${version}_size_${size}`],
         !overflow && classes.noOverflow
       ])}
     >
+      {startMain}
+
       <Line
         ref={refs.imageWrapper}
 
@@ -687,8 +709,10 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
           ...ImageWrapperProps?.style
         }}
       >
+        {startImage}
+
         {url && (
-          <Image
+          <img
             ref={(item: any) => {
               refs.image.current = item;
 
@@ -710,9 +734,18 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
             onDragStart={onDragStartImage}
 
             {...ImageProps}
+
+            className={classNames([
+              ImageProps?.className,
+              classes.image
+            ])}
           />
         )}
+
+        {endImage}
       </Line>
+
+      {endMain}
     </Line>
 
     {more && (
@@ -742,6 +775,8 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
             classes.itemsWrapper
           ])}
         >
+          {startThumbnails}
+
           {arrows && arrowPre}
 
           <Line
@@ -782,6 +817,8 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
           </Line>
 
           {arrows && arrowPost}
+
+          {endThumbnails}
         </Line>
       </Line>
     )}
