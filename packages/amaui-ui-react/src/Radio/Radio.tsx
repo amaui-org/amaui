@@ -33,10 +33,23 @@ const useStyle = styleMethod(theme => ({
   },
 
   iconBox: {
-    width: '1em',
-    height: '1em',
     border: '0.12em solid currentColor',
     borderRadius: `calc(${theme.shape.radius.unit / 8} * 0.75em)`
+  },
+
+  iconBox_size_small: {
+    width: '0.75em',
+    height: '0.75em'
+  },
+
+  iconBox_size_regular: {
+    width: '1em',
+    height: '1em'
+  },
+
+  iconBox_size_large: {
+    width: '1.25em',
+    height: '1.25em'
   },
 
   iconDot: {
@@ -133,6 +146,8 @@ const Radio: React.FC<IRadio> = React.forwardRef((props_, ref: any) => {
     tonal = true,
     color = 'primary',
     version = 'text',
+
+    size = 'regular',
 
     render,
 
@@ -233,6 +248,8 @@ const Radio: React.FC<IRadio> = React.forwardRef((props_, ref: any) => {
 
       version={version}
 
+      size={size}
+
       onKeyDown={onKeyDown}
 
       firstLevelChildren={(
@@ -300,6 +317,7 @@ const Radio: React.FC<IRadio> = React.forwardRef((props_, ref: any) => {
 
             classes.icon,
             classes.iconBox,
+            classes[`iconBox_size_${size}`],
             classes[version],
             disabled && classes.disabled
           ])}
@@ -313,7 +331,8 @@ const Radio: React.FC<IRadio> = React.forwardRef((props_, ref: any) => {
           className={classNames([
             staticClassName('Radio', theme) && [
               'amaui-Radio-icon',
-              'amaui-Radio-icon-dot'
+              'amaui-Radio-icon-dot',
+              value && 'amaui-Radio-icon-dot-checked'
             ],
 
             classes.icon,

@@ -736,6 +736,10 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
             {...ImageProps}
 
             className={classNames([
+              staticClassName('ImageGallery', theme) && [
+                'amaui-ImageGallery-image'
+              ],
+
               ImageProps?.className,
               classes.image
             ])}
@@ -803,6 +807,11 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
                 onClick={() => onValue(index)}
 
                 className={classNames([
+                  staticClassName('ImageGallery', theme) && [
+                    'amaui-ImageGallery-item',
+                    value === index && 'amaui-ImageGallery-item-selected'
+                  ],
+
                   classes.item,
                   value === index && classes.itemSelected
                 ])}
