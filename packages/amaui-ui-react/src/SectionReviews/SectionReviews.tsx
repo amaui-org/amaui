@@ -41,7 +41,7 @@ const useStyle = styleMethod(theme => ({
     width: '440px',
     padding: `${theme.methods.space.value(4, 'px')} ${theme.methods.space.value(4.5, 'px')}`,
     borderRadius: theme.methods.shape.radius.value(4)
-  },
+  }
 }), { name: 'amaui-SectionReviews' });
 
 export interface ISectionReviewsItem {
@@ -57,13 +57,13 @@ export interface ISectionReviews extends ISection {
 
   size?: 'small' | 'regular' | 'large';
 
+  AvatarProps?: IPropsAny;
   TypeProps?: IPropsAny;
   NameProps?: IPropsAny;
   MetaProps?: IPropsAny;
   DescriptionProps?: IPropsAny;
   RatingProps?: IPropsAny;
   ReviewProps?: IPropsAny;
-  ReviewsProps?: IPropsAny;
 }
 
 const Element: React.FC<ISectionReviews> = React.forwardRef((props_, ref: any) => {
@@ -86,6 +86,7 @@ const Element: React.FC<ISectionReviews> = React.forwardRef((props_, ref: any) =
 
     size = 'regular',
 
+    AvatarProps,
     TypeProps,
     NameProps,
     MetaProps,
@@ -180,6 +181,16 @@ const Element: React.FC<ISectionReviews> = React.forwardRef((props_, ref: any) =
                 size={size}
 
                 image={(is('string', item.image) ? item.image : (item.image as IMediaObject)?.url || (item.image as IMediaObject)?.src || (item.image as IMediaObject)?.urlSmall || (item.image as IMediaObject)?.srcSmall) as any}
+
+                {...AvatarProps}
+
+                className={classNames([
+                  staticClassName('SectionReviews', theme) && [
+                    'amaui-SectionReviews-avatar'
+                  ],
+
+                  AvatarProps?.className
+                ])}
               >
                 {item.name?.split(' ').map(item_ => item_[0]).join('')}
               </Avatar>
@@ -197,6 +208,14 @@ const Element: React.FC<ISectionReviews> = React.forwardRef((props_, ref: any) =
                   readOnly
 
                   {...RatingProps}
+
+                  className={classNames([
+                    staticClassName('SectionReviews', theme) && [
+                      'amaui-SectionReviews-rating'
+                    ],
+
+                    RatingProps?.className
+                  ])}
                 />
 
                 <Line
@@ -212,6 +231,14 @@ const Element: React.FC<ISectionReviews> = React.forwardRef((props_, ref: any) =
                     }}
 
                     {...NameProps}
+
+                    className={classNames([
+                      staticClassName('SectionReviews', theme) && [
+                        'amaui-SectionReviews-name'
+                      ],
+
+                      NameProps?.className
+                    ])}
                   />
 
                   {item.meta && (
@@ -223,6 +250,14 @@ const Element: React.FC<ISectionReviews> = React.forwardRef((props_, ref: any) =
                       }}
 
                       {...MetaProps}
+
+                      className={classNames([
+                        staticClassName('SectionReviews', theme) && [
+                          'amaui-SectionReviews-meta'
+                        ],
+
+                        MetaProps?.className
+                      ])}
                     />
                   )}
                 </Line>
@@ -242,6 +277,14 @@ const Element: React.FC<ISectionReviews> = React.forwardRef((props_, ref: any) =
                 }}
 
                 {...DescriptionProps}
+
+                className={classNames([
+                  staticClassName('SectionReviews', theme) && [
+                    'amaui-SectionReviews-description'
+                  ],
+
+                  DescriptionProps?.className
+                ])}
               />
             </Line>
           </Line>
