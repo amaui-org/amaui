@@ -1575,7 +1575,8 @@ const Carousel: React.FC<ICarousel> = React.forwardRef((props_, ref: any) => {
 
                   className={classNames([
                     staticClassName('Carousel', theme) && [
-                      'amaui-Carousel-progress-item'
+                      'amaui-Carousel-progress-item',
+                      indexActive === index && 'amaui-Carousel-progress-item-active'
                     ],
 
                     classes.progress_item,
