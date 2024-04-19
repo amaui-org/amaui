@@ -280,7 +280,8 @@ const Element: React.FC<ISectionMedia> = React.forwardRef((props_, ref: any) => 
 
       className={classNames([
         staticClassName('SectionMedia', theme) && [
-          'amaui-SectionMedia-root'
+          'amaui-SectionMedia-root',
+          `amaui-SectionMedia-size-${size}`
         ],
 
         className,

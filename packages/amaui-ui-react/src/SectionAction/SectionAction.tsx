@@ -71,7 +71,8 @@ const Element: React.FC<ISectionAction> = React.forwardRef((props_, ref: any) =>
 
       className={classNames([
         staticClassName('SectionAction', theme) && [
-          'amaui-SectionAction-root'
+          'amaui-SectionAction-root',
+          `amaui-SectionAction-size-${size}`
         ],
 
         className,

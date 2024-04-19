@@ -264,7 +264,9 @@ const Pagination: React.FC<IPagination> = React.forwardRef((props_, ref: any) =>
 
       className={classNames([
         staticClassName('Pagination', theme) && [
-          `amaui-Pagination-root`
+          `amaui-Pagination-root`,
+          `amaui-Pagination-version-${version}`,
+          `amaui-Pagination-size-${size}`
         ],
 
         className,

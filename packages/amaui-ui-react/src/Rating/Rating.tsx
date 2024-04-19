@@ -475,6 +475,7 @@ const Rating: React.FC<IRating> = React.forwardRef((props_, ref: any) => {
       className={classNames([
         staticClassName('Rating', theme) && [
           'amaui-Rating-root',
+          `amaui-Rating-size-${size}`,
           hover && `amaui-Button-hover`,
           mouseDown && `amaui-Button-mouse-down`,
           focus && [

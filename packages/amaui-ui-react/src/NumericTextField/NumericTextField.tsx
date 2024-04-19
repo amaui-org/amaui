@@ -79,6 +79,9 @@ const NumericTextField: React.FC<INumericTextField> = React.forwardRef((props_, 
 
     onChange: onChange_,
 
+    version = 'outlined',
+    size = 'regular',
+
     min,
     max,
 
@@ -322,6 +325,10 @@ const NumericTextField: React.FC<INumericTextField> = React.forwardRef((props_, 
 
       onChange={onChange}
 
+      version={version}
+
+      size={size}
+
       validate={(valueNew_: any) => {
         if (valueNew_.startsWith(' ') || valueNew_.endsWith(' ')) return;
 
@@ -342,7 +349,9 @@ const NumericTextField: React.FC<INumericTextField> = React.forwardRef((props_, 
 
       className={classNames([
         staticClassName('NumericTextField', theme) && [
-          'amaui-NumericTextField-root'
+          'amaui-NumericTextField-root',
+          `amaui-NumericTextField-version-${version}`,
+          `amaui-NumericTextField-size-${size}`
         ],
 
         className,

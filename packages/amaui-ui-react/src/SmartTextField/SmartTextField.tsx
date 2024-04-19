@@ -277,6 +277,8 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
   const {
     version = 'type',
 
+    size = 'regular',
+
     valueDefault,
 
     value: value_,
@@ -1510,6 +1512,8 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
 
       version='text'
 
+      size={size}
+
       minRows={12}
 
       multiline
@@ -1563,6 +1567,7 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
         staticClassName('SmartTextField', theme) && [
           'amaui-SmartTextField-root',
           `amaui-SmartTextField-version-${version}`,
+          `amaui-SmartTextField-size-${size}`
         ],
 
         className,
@@ -1620,6 +1625,7 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
         staticClassName('SmartTextField', theme) && [
           'amaui-SmartTextField-root',
           `amaui-SmartTextField-version-${version}`,
+          `amaui-SmartTextField-size-${size}`
         ],
 
         className,

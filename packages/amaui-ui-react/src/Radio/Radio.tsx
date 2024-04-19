@@ -294,6 +294,7 @@ const Radio: React.FC<IRadio> = React.forwardRef((props_, ref: any) => {
         staticClassName('Radio', theme) && [
           'amaui-Radio-root',
           `amaui-Radio-version-${version}`,
+          `amaui-Radio-size-${size}`,
           value && `amaui-Radio-checked`,
           disabled && `amaui-Radio-disabled`
         ],

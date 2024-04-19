@@ -733,7 +733,9 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
 
       className={classNames([
         staticClassName('Calendar', theme) && [
-          'amaui-Calendar-root'
+          'amaui-Calendar-root',
+          `amaui-Calendar-version-${version}`,
+          `amaui-Calendar-size-${size}`
         ],
 
         className,

@@ -249,6 +249,8 @@ const Type: React.FC<IType> = React.forwardRef((props_, ref: any) => {
       className={classNames([
         staticClassName('Type', theme) && [
           'amaui-Type-root',
+          `amaui-Type-version-${version}`,
+          `amaui-Type-size-${size}`,
           disabled && `amaui-Type-disabled`
         ],
 

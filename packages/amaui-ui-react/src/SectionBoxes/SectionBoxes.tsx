@@ -437,7 +437,8 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
 
       className={classNames([
         staticClassName('SectionBoxes', theme) && [
-          'amaui-SectionBoxes-root'
+          'amaui-SectionBoxes-root',
+          `amaui-SectionBoxes-size-${size}`
         ],
 
         className,

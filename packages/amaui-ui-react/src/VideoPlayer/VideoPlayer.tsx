@@ -1241,6 +1241,7 @@ const VideoPlayer: React.FC<IVideoPlayer> = React.forwardRef((props_, ref: any) 
       className={classNames([
         staticClassName('VideoPlayer', theme) && [
           `amaui-VideoPlayer-root`,
+          `amaui-VideoPlayer-size-${size}`,
           fullScreen && `amaui-VideoPlayer-full-screen`
         ],
 

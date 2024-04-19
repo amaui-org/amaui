@@ -579,6 +579,7 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
         staticClassName('Button', theme) && [
           `amaui-Button-root`,
           `amaui-Button-version-${version}`,
+          `amaui-Button-size-${size}`,
           fullWidth && `amaui-Button-full-width`,
           start && `amaui-Button-start`,
           end && `amaui-Button-end`,

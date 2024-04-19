@@ -168,7 +168,8 @@ const Chips: React.FC<IChips> = React.forwardRef((props_, ref: any) => {
 
       className={classNames([
         staticClassName('Chips', theme) && [
-          'amaui-Chips-root'
+          'amaui-Chips-root',
+          `amaui-Chips-size-${size}`
         ],
 
         className,

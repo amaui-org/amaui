@@ -144,7 +144,9 @@ const Property: React.FC<IProperty> = React.forwardRef((props_, ref: any) => {
 
       className={classNames([
         staticClassName('Property', theme) && [
-          'amaui-Property-root'
+          'amaui-Property-root',
+          `amaui-Property-version-${version}`,
+          `amaui-Property-size-${size}`
         ],
 
         className,

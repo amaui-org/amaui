@@ -850,7 +850,8 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
         className={classNames([
           staticClassName('ImageGallery', theme) && [
             'amaui-ImageGallery-root',
-            `amaui-ImageGallery-version-${version}`
+            `amaui-ImageGallery-version-${version}`,
+            `amaui-ImageGallery-size-${size}`
           ],
 
           className,

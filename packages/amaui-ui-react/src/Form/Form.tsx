@@ -290,7 +290,8 @@ const Form: React.FC<IForm> = React.forwardRef((props_, ref: any) => {
 
       className={classNames([
         staticClassName('Form', theme) && [
-          'amaui-Form-root'
+          'amaui-Form-root',
+          `amaui-Form-size-${size}`
         ],
 
         className,

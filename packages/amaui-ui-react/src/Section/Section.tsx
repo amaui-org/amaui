@@ -499,7 +499,8 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
 
         className={classNames([
           staticClassName('Section', theme) && [
-            'amaui-Section-root'
+            'amaui-Section-root',
+            `amaui-Section-size-${size}`
           ],
 
           className,

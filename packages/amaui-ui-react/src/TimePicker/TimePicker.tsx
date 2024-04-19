@@ -1616,6 +1616,8 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
       className={classNames([
         staticClassName('TimePicker', theme) && [
           'amaui-TimePicker-root',
+          `amaui-TimePicker-version-${version}`,
+          `amaui-TimePicker-size-${size}`,
           readOnly && `amaui-TimePicker-read-only`,
           disabled && `amaui-TimePicker-disabled`
         ],

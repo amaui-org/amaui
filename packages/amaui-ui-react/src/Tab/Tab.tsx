@@ -213,6 +213,8 @@ const Tab: React.FC<ITab> = React.forwardRef((props_, ref: any) => {
       className={classNames([
         staticClassName('Tab', theme) && [
           'amaui-Tab-root',
+          `amaui-Tab-version-${version}`,
+          `amaui-Tab-size-${size}`,
           active && `amaui-Tab-active`,
           disabled && `amaui-Tab-disabled`
         ],

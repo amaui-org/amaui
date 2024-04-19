@@ -670,7 +670,8 @@ const LinearMeter: React.FC<ILinearMeter> = React.forwardRef((props_, ref: any) 
 
       className={classNames([
         staticClassName('LinearMeter', theme) && [
-          'amaui-LinearMeter-root'
+          'amaui-LinearMeter-root',
+          `amaui-LinearMeter-size-${size}`
         ],
 
         className,

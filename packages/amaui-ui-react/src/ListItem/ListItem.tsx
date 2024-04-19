@@ -737,6 +737,7 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
         className={classNames([
           staticClassName('ListItem', theme) && [
             'amaui-ListItem-root',
+            `amaui-ListItem-size-${size}`,
             menu && `amaui-ListItem-menu`,
             list && `amaui-ListItem-list`,
             menuItem && `amaui-ListItem-menu-item`,

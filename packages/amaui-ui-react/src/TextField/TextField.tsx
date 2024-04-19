@@ -1017,6 +1017,7 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
           staticClassName('TextField', theme) && [
             'amaui-TextField-root', ,
             `amaui-TextField-version-${version}`,
+            `amaui-TextField-size-${size}`,
             valueWithData && 'amaui-TextField-value',
             error && `amaui-TextField-error`,
             required && 'amaui-TextField-required',

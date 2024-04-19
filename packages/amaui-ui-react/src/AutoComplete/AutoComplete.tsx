@@ -894,6 +894,8 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
         className={classNames([
           staticClassName('AutoComplete', theme) && [
             'amaui-AutoComplete-root',
+            `amaui-AutoComplete-version-${version}`,
+            `amaui-AutoComplete-size-${size}`,
             open && `amaui-AutoComplete-open`,
             mouseDown && `amaui-AutoComplete-mouse-down`,
             focus && `amaui-AutoComplete-focus`,

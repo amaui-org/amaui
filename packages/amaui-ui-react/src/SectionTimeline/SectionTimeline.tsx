@@ -103,7 +103,8 @@ const SectionTimeline: React.FC<ISectionTimeline> = React.forwardRef((props_, re
 
       className={classNames([
         staticClassName('SectionTimeline', theme) && [
-          'amaui-SectionTimeline-root'
+          'amaui-SectionTimeline-root',
+          `amaui-SectionTimeline-size-${size}`
         ],
 
         className,

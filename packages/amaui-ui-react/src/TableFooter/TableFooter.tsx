@@ -64,7 +64,8 @@ const TableFooter: React.FC<ITableFooter> = React.forwardRef((props_, ref: any) 
 
       className={classNames([
         staticClassName('TableFooter', theme) && [
-          `amaui-TableFooter-root`
+          `amaui-TableFooter-root`,
+          `amaui-TableFooter-size-${size}`
         ],
 
         className,

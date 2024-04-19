@@ -305,7 +305,8 @@ const Snackbar: React.FC<ISnackbar> = React.forwardRef((props_, ref: any) => {
 
         className={classNames([
           staticClassName('Snackbar', theme) && [
-            `amaui-Snackbar-root`
+            `amaui-Snackbar-root`,
+            `amaui-Snackbar-size-${size}`
           ],
 
           className,

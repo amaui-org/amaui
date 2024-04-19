@@ -443,6 +443,8 @@ const Buttons: React.FC<IButtons> = React.forwardRef((props_, ref: any) => {
       className={classNames([
         staticClassName('Buttons', theme) && [
           'amaui-Buttons-root',
+          `amaui-Buttons-version-${version}`,
+          `amaui-Buttons-size-${size}`,
           disabled && `amaui-Buttons-disabled`,
         ],
 

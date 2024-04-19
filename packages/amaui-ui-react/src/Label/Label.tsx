@@ -214,6 +214,8 @@ const Label: React.FC<ILabel> = React.forwardRef((props_, ref: any) => {
         className={classNames([
           staticClassName('Label', theme) && [
             'amaui-Label-root',
+            `amaui-Label-version-${version}`,
+            `amaui-Label-size-${size}`,
             disabled && `amaui-Label-disabled`
           ],
 

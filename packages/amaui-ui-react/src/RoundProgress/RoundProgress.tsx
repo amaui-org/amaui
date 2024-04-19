@@ -231,7 +231,9 @@ const RoundProgress: React.FC<IRoundProgress> = React.forwardRef((props_, ref: a
 
       className={classNames([
         staticClassName('RoundedProgress', theme) && [
-          'amaui-RoundedProgress-root'
+          'amaui-RoundedProgress-root',
+          `amaui-RoundedProgress-version-${version}`,
+          `amaui-RoundedProgress-size-${size}`
         ],
 
         className,

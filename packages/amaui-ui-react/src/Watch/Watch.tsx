@@ -324,7 +324,9 @@ const Watch: React.FC<IWatch> = React.forwardRef((props_, ref: any) => {
 
       className={classNames([
         staticClassName('Watch', theme) && [
-          'amaui-Watch-root'
+          'amaui-Watch-root',
+          `amaui-Watch-version-${version}`,
+          `amaui-Watch-size-${size}`
         ],
 
         className,

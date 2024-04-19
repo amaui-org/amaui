@@ -563,7 +563,8 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
 
       className={classNames([
         staticClassName('Medias', theme) && [
-          'amaui-Medias-root'
+          'amaui-Medias-root',
+          `amaui-Medias-size-${size}`
         ],
 
         className,

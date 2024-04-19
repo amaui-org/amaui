@@ -426,7 +426,8 @@ const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {
 
               className={classNames([
                 staticClassName('Modal', theme) && [
-                  'amaui-Modal-surface'
+                  'amaui-Modal-surface',
+                  `amaui-Modal-size-${size}`
                 ],
 
                 classes.surface,

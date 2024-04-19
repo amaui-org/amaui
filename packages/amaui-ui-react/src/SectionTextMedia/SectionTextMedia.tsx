@@ -163,7 +163,8 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
 
       className={classNames([
         staticClassName('SectionTextMedia', theme) && [
-          'amaui-SectionTextMedia-root'
+          'amaui-SectionTextMedia-root',
+          `amaui-SectionTextMedia-size-${size}`
         ],
 
         className,

@@ -119,6 +119,7 @@ const TableHead: React.FC<ITableHead> = React.forwardRef((props_, ref: any) => {
       className={classNames([
         staticClassName('TableHead', theme) && [
           `amaui-TableHead-root`,
+          `amaui-TableHead-size-${size}`,
           sticky && `amaui-TableHead-sticky`,
           stickyActive && `amaui-TableHead-sticky-active`
         ],

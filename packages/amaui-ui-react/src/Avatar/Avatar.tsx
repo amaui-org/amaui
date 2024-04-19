@@ -151,7 +151,9 @@ const Avatar: React.FC<IAvatar> = React.forwardRef((props_, ref) => {
 
       className={classNames([
         staticClassName('Avatar', theme) && [
-          'amaui-Avatar-root'
+          'amaui-Avatar-root',
+          `amaui-Avatar-version-${version}`,
+          `amaui-Avatar-size-${size}`
         ],
 
         className,

@@ -57,6 +57,9 @@ const ColorTextField: React.FC<IColorTextField> = React.forwardRef((props_, ref:
   const TextField = React.useMemo(() => theme?.elements?.TextField || TextFieldElement, [theme]);
 
   const {
+    version = 'outlined',
+    size = 'regular',
+
     valueDefault,
     value: value_,
 
@@ -99,6 +102,10 @@ const ColorTextField: React.FC<IColorTextField> = React.forwardRef((props_, ref:
 
       onChange={onChange}
 
+      version={version}
+
+      size={size}
+
       endVerticalAlign='center'
 
       end={(
@@ -121,7 +128,9 @@ const ColorTextField: React.FC<IColorTextField> = React.forwardRef((props_, ref:
 
       className={classNames([
         staticClassName('ColorTextField', theme) && [
-          'amaui-ColorTextField-root'
+          'amaui-ColorTextField-root',
+          `amaui-ColorTextField-version-${version}`,
+          `amaui-ColorTextField-size-${size}`
         ],
 
         classes.root

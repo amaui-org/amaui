@@ -648,7 +648,9 @@ const Share: React.FC<IShare> = React.forwardRef((props_, ref: any): any => {
 
       className={classNames([
         staticClassName('Share', theme) && [
-          `amaui-Share-root`
+          `amaui-Share-root`,
+          `amaui-Share-version-${version}`,
+          `amaui-Share-size-${size}`
         ],
 
         classes.root,

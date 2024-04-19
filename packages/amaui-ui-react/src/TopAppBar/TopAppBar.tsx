@@ -280,7 +280,9 @@ const TopAppBar: React.FC<ITopAppBar> = React.forwardRef((props_, ref: any) => {
 
       className={classNames([
         staticClassName('TopAppBar', theme) && [
-          'amaui-TopAppBar-root'
+          'amaui-TopAppBar-root',
+          `amaui-TopAppBar-version-${version}`,
+          `amaui-TopAppBar-size-${size}`
         ],
 
         className,

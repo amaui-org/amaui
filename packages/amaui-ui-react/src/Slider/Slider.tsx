@@ -1062,6 +1062,7 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
       className={classNames([
         staticClassName('Slider', theme) && [
           'amaui-Slider-root',
+          `amaui-Slider-size-${size}`,
           mouseDown && `amaui-Slider-mouse-down`,
           focus && `amaui-Slider-focus`,
           readOnly && `amaui-Slider-read-only`,

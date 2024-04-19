@@ -886,7 +886,8 @@ const RoundMeter: React.FC<IRoundMeter> = React.forwardRef((props_, ref: any) =>
 
       className={classNames([
         staticClassName('RoundMeter', theme) && [
-          'amaui-RoundMeter-root'
+          'amaui-RoundMeter-root',
+          `amaui-RoundMeter-size-${size}`
         ],
 
         className,

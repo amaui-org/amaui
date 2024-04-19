@@ -59,7 +59,8 @@ const TableBody: React.FC<ITableBody> = React.forwardRef((props_, ref: any) => {
 
       className={classNames([
         staticClassName('TableBody', theme) && [
-          `amaui-TableBody-root`
+          `amaui-TableBody-root`,
+          `amaui-TableBody-size-${size}`
         ],
 
         className,

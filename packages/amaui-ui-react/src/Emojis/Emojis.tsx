@@ -687,7 +687,8 @@ const Emojis: React.FC<IEmojis> = React.forwardRef((props_, ref: any) => {
 
       className={classNames([
         staticClassName('Emojis', theme) && [
-          'amaui-Emojis-root'
+          'amaui-Emojis-root',
+          `amaui-Emojis-size-${size}`
         ],
 
         className,

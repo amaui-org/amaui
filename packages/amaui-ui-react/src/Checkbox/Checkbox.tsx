@@ -241,6 +241,7 @@ const Checkbox: React.FC<ICheckbox> = React.forwardRef((props_, ref: any) => {
     tonal = true,
     color = 'primary',
     version = 'text',
+    size = 'regular',
 
     colorIndeterminate = props.color || 'primary',
     colorUnchecked = 'default',
@@ -387,6 +388,8 @@ const Checkbox: React.FC<ICheckbox> = React.forwardRef((props_, ref: any) => {
 
       version={version}
 
+      size={size}
+
       onKeyDown={onKeyDown}
 
       firstLevelChildren={(
@@ -434,6 +437,7 @@ const Checkbox: React.FC<ICheckbox> = React.forwardRef((props_, ref: any) => {
         staticClassName('Checkbox', theme) && [
           'amaui-Checkbox-root',
           `amaui-Checkbox-version-${version}`,
+          `amaui-Checkbox-size-${size}`,
           value && `amaui-Checkbox-checked`,
           disabled && `amaui-Checkbox-disabled`
         ],

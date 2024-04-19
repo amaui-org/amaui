@@ -124,6 +124,7 @@ const Icon: React.FC<IIcon> = React.forwardRef((props_, ref: any) => {
       className={classNames([
         staticClassName('Icon', theme) && [
           'amaui-Icon-root',
+          `amaui-Icon-size-${size}`,
           (!noRtl && rtl && isRtlIcon) ? 'amaui-Icon-direction-rtl' : 'amaui-Icon-direction-ltr',
           disabled && `amaui-Icon-disabled`
         ],

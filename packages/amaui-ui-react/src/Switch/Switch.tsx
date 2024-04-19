@@ -711,6 +711,7 @@ const Switch: React.FC<ISwitch> = React.forwardRef((props_, ref: any) => {
       className={classNames([
         staticClassName('Switch', theme) && [
           'amaui-Switch-root',
+          `amaui-Switch-size-${size}`,
           value && `amaui-Switch-checked`,
           disabled && `amaui-Switch-disabled`
         ],

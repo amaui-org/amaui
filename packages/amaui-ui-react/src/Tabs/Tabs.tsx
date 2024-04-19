@@ -574,7 +574,9 @@ const Tabs: React.FC<ITabs> = React.forwardRef((props_, ref: any) => {
 
       className={classNames([
         staticClassName('Tabs', theme) && [
-          'amaui-Tabs-root'
+          'amaui-Tabs-root',
+          `amaui-Tabs-version-${version}`,
+          `amaui-Tabs-size-${size}`
         ],
 
         SurfaceProps?.className,

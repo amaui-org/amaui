@@ -454,6 +454,8 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
         className={classNames([
           staticClassName('Select', theme) && [
             'amaui-Select-root',
+            `amaui-Select-version-${version}`,
+            `amaui-Select-size-${size}`,
             open && `amaui-Select-open`,
             mouseDown && `amaui-Select-mouse-down`,
             focus && `amaui-Select-focus`

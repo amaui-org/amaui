@@ -177,7 +177,8 @@ const List: React.FC<IList> = React.forwardRef((props_, ref: any) => {
 
       className={classNames([
         staticClassName('List', theme) && [
-          'amaui-List-root'
+          'amaui-List-root',
+          `amaui-List-size-${size}`
         ],
 
         SurfaceProps?.className,

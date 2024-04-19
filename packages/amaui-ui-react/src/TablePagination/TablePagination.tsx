@@ -225,7 +225,9 @@ const TablePagination: React.FC<ITableRow> = React.forwardRef((props_, ref: any)
 
       className={classNames([
         staticClassName('TablePagination', theme) && [
-          `amaui-TablePagination-root`
+          `amaui-TablePagination-root`,
+          `amaui-TablePagination-version-${version}`,
+          `amaui-TablePagination-size-${size}`
         ],
 
         className,

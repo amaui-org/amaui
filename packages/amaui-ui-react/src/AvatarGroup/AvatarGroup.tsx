@@ -137,7 +137,8 @@ const AvatarGroup: React.FC<IAvatarGroup> = React.forwardRef((props_, ref: any) 
 
       className={classNames([
         staticClassName('AvatarGroup', theme) && [
-          'amaui-AvatarGroup-root'
+          'amaui-AvatarGroup-root',
+          `amaui-AvatarGroup-size-${size}`,
         ],
 
         className,

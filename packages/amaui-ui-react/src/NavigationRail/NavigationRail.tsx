@@ -212,7 +212,9 @@ const NavigationRail: React.FC<INavigationRail> = React.forwardRef((props_, ref:
 
       className={classNames([
         staticClassName('NavigationRail', theme) && [
-          'amaui-NavigationRail-root'
+          'amaui-NavigationRail-root',
+          `amaui-NavigationRail-version-${version}`,
+          `amaui-NavigationRail-size-${size}`
         ],
 
         className,

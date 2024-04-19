@@ -421,7 +421,8 @@ const AudioRecorder: React.FC<IAudioRecorder> = React.forwardRef((props_, ref: a
 
       className={classNames([
         staticClassName('AudioRecorder', theme) && [
-          `amaui-AudioRecorder-root`
+          `amaui-AudioRecorder-root`, ,
+          `amaui-AudioRecorder-size-${size}`
         ],
 
         className,

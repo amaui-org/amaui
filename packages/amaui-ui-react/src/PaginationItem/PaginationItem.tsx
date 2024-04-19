@@ -90,7 +90,9 @@ const PaginationItem: React.FC<IPaginationItem> = React.forwardRef((props_, ref)
 
       className={classNames([
         staticClassName('PaginationItem', theme) && [
-          'amaui-PaginationItem-root'
+          'amaui-PaginationItem-root',
+          `amaui-PaginationItem-version-${version}`,
+          `amaui-PaginationItem-size-${size}`
         ],
 
         className,

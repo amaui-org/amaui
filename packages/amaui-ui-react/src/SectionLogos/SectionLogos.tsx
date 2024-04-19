@@ -115,7 +115,8 @@ const Element: React.FC<ISectionLogos> = React.forwardRef((props_, ref: any) => 
 
       className={classNames([
         staticClassName('SectionLogos', theme) && [
-          'amaui-SectionLogos-root'
+          'amaui-SectionLogos-root',
+          `amaui-SectionLogos-size-${size}`
         ],
 
         className,

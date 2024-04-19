@@ -784,7 +784,8 @@ const CalendarMonth: React.FC<ICalenarDays> = React.forwardRef((props__, ref: an
 
       className={classNames([
         staticClassName('CalendarMonth', theme) && [
-          'amaui-CalendarMonth-root'
+          'amaui-CalendarMonth-root',
+          `amaui-CalendarMonth-size-${size}`
         ],
 
         className,

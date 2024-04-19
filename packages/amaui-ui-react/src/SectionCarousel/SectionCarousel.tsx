@@ -426,7 +426,8 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
 
       className={classNames([
         staticClassName('SectionCarousel', theme) && [
-          'amaui-SectionCarousel-root'
+          'amaui-SectionCarousel-root',
+          `amaui-SectionCarousel-size-${size}`
         ],
 
         className,

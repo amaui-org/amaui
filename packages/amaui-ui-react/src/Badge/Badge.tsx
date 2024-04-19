@@ -91,6 +91,7 @@ const Badge: React.FC<IBadge> = React.forwardRef((props_, ref: any) => {
   const {
     tonal = false,
     color = 'primary',
+    size = 'regular',
 
     value: value_,
 
@@ -138,9 +139,12 @@ const Badge: React.FC<IBadge> = React.forwardRef((props_, ref: any) => {
     <Component
       ref={ref}
 
+      size={size}
+
       className={classNames([
         staticClassName('Badge', theme) && [
-          'amaui-Badge-root'
+          'amaui-Badge-root',
+          `amaui-Badge-size-${size}`
         ],
 
         className,

@@ -1314,6 +1314,8 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
       className={classNames([
         staticClassName('DatePicker', theme) && [
           'amaui-DatePicker-root',
+          `amaui-DatePicker-version-${version}`,
+          `amaui-DatePicker-size-${size}`,
           WrapperProps?.className,
           range && `amaui-DatePicker-range`,
           readOnly && `amaui-DatePicker-read-only`,

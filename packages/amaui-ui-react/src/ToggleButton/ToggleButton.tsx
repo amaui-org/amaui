@@ -67,7 +67,8 @@ const ToggleButton: React.FC<IToggleButton> = React.forwardRef((props_, ref: any
 
       className={classNames([
         staticClassName('ToggleButton', theme) && [
-          'amaui-ToggleButton-root'
+          'amaui-ToggleButton-root',
+          `amaui-ToggleButton-size-${size}`
         ],
 
         className,

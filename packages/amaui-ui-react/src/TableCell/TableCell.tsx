@@ -231,6 +231,7 @@ const TableCell: React.FC<ITableCell> = React.forwardRef((props_, ref: any) => {
       className={classNames([
         staticClassName('TableCell', theme) && [
           `amaui-TableCell-root`,
+          `amaui-TableCell-size-${size}`,
           sticky && `amaui-TableCell-sticky`,
           stickyPosition && `amaui-TableCell-sticky-position-${stickyPosition}`,
           stickyActive && `amaui-TableHead-sticky-active`

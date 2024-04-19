@@ -1518,7 +1518,8 @@ const ImageEdit: React.FC<IImageEdit> = React.forwardRef((props_, ref: any) => {
 
       className={classNames([
         staticClassName('ImageEdit', theme) && [
-          'amaui-ImageEdit-root'
+          'amaui-ImageEdit-root',
+          `amaui-ImageEdit-size-${size}`
         ],
 
         className,

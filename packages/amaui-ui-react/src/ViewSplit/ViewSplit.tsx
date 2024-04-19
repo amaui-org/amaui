@@ -562,6 +562,7 @@ const ViewSplit: React.FC<IViewSplit> = React.forwardRef((props_, ref: any) => {
       className={classNames([
         staticClassName('ViewSplit', theme) && [
           'amaui-ViewSplit-root',
+          `amaui-ViewSplit-version-${version}`,
           hover && `amaui-ViewSplit-hover`,
           focus && `amaui-ViewSplit-focus`,
           mouseDown && `amaui-ViewSplit-mouse-down`

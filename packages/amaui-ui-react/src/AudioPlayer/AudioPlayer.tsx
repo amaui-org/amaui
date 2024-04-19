@@ -981,7 +981,8 @@ const AudioPlayer: React.FC<IAudioPlayer> = React.forwardRef((props_, ref: any) 
 
       className={classNames([
         staticClassName('AudioPlayer', theme) && [
-          `amaui-AudioPlayer-root`
+          'amaui-AudioPlayer-root',
+          `amaui-AudioPlayer-size-${size}`
         ],
 
         className,

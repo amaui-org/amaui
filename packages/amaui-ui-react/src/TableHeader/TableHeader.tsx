@@ -67,7 +67,8 @@ const TableHeader: React.FC<ITableHeader> = React.forwardRef((props_, ref: any) 
 
       className={classNames([
         staticClassName('TableHeader', theme) && [
-          `amaui-TableHeader-root`
+          `amaui-TableHeader-root`,
+          `amaui-TableHeader-size-${size}`
         ],
 
         className,

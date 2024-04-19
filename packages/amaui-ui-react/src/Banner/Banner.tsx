@@ -135,7 +135,8 @@ const Banner: React.FC<IBanner> = React.forwardRef((props_, ref: any) => {
 
       className={classNames([
         staticClassName('Banner', theme) && [
-          'amaui-Banner-root'
+          'amaui-Banner-root',
+          `amaui-Banner-size-${size}`
         ],
 
         className,

@@ -37,6 +37,9 @@ const Element: React.FC<ISectionWatch> = React.forwardRef((props_, ref: any) => 
   const Watch = React.useMemo(() => theme?.elements?.Watch || WatchElement, [theme]);
 
   const {
+    version = 'modern',
+    size = 'regular',
+
     WatchProps,
 
     className,
@@ -67,7 +70,9 @@ const Element: React.FC<ISectionWatch> = React.forwardRef((props_, ref: any) => 
 
       className={classNames([
         staticClassName('SectionWatch', theme) && [
-          'amaui-SectionWatch-root'
+          'amaui-SectionWatch-root',
+          `amaui-SectionWatch-version-${version}`,
+          `amaui-SectionWatch-size-${size}`
         ],
 
         className,
@@ -77,6 +82,10 @@ const Element: React.FC<ISectionWatch> = React.forwardRef((props_, ref: any) => 
       {...other}
     >
       <Watch
+        version={version}
+
+        size={size}
+
         {...WatchProps}
       />
     </Section>
