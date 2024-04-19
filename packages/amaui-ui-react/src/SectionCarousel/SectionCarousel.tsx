@@ -395,6 +395,8 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
               <Button
                 version='filled'
 
+                color='primary'
+
                 size={size === 'large' ? 'regular' : size === 'regular' ? 'small' : 'small'}
 
                 onClick={() => item.to ? navigate(item.to) : window.open(item.link, 'blank')}
