@@ -349,7 +349,7 @@ const Checkbox: React.FC<ICheckbox> = React.forwardRef((props_, ref: any) => {
     }
 
     // Outlined
-    if (version === 'outlined') styles.iconBox.color = theme.methods.palette.color.value(color_, 50, true, palette);
+    if (version === 'outlined') styles.iconBox.color = theme.methods.palette.color.value(color_, 40, true, palette);
 
     // Filled
     if (version === 'filled') styles.iconDone.color = theme.methods.palette.color.value(color_, 90, true, palette);

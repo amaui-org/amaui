@@ -229,7 +229,7 @@ const Radio: React.FC<IRadio> = React.forwardRef((props_, ref: any) => {
     }
 
     // Outlined
-    if (version === 'outlined') styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color, 50, true, palette);
+    if (version === 'outlined') styles.iconBox.color = styles.iconBox.color = theme.methods.palette.color.value(color, 40, true, palette);
   }
 
   let colorValue = color;

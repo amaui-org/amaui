@@ -102,65 +102,65 @@ const useStyle = styleMethod(theme => {
 
     // Color
     // rail
-    rail_color_default: { background: theme.palette.color.neutral[theme.palette.light ? 70 : 20] },
+    rail_color_default: { background: theme.methods.palette.color.value('default', 40, true) },
 
-    rail_color_neutral: { background: theme.palette.color.neutral[theme.palette.light ? 70 : 20] },
+    rail_color_neutral: { background: theme.methods.palette.color.value('neutral', 40, true) },
 
-    rail_color_primary: { background: theme.palette.color.primary[theme.palette.light ? 70 : 20] },
+    rail_color_primary: { background: theme.methods.palette.color.value('primary', 40, true) },
 
-    rail_color_secondary: { background: theme.palette.color.secondary[theme.palette.light ? 70 : 20] },
+    rail_color_secondary: { background: theme.methods.palette.color.value('secondary', 40, true) },
 
-    rail_color_tertiary: { background: theme.palette.color.tertiary[theme.palette.light ? 70 : 20] },
+    rail_color_tertiary: { background: theme.methods.palette.color.value('tertiary', 40, true) },
 
-    rail_color_quaternary: { background: theme.palette.color.quaternary[theme.palette.light ? 70 : 20] },
+    rail_color_quaternary: { background: theme.methods.palette.color.value('quaternary', 40, true) },
 
-    rail_color_info: { background: theme.palette.color.info[theme.palette.light ? 70 : 20] },
+    rail_color_info: { background: theme.methods.palette.color.value('info', 40, true) },
 
-    rail_color_success: { background: theme.palette.color.success[theme.palette.light ? 70 : 20] },
+    rail_color_success: { background: theme.methods.palette.color.value('success', 40, true) },
 
-    rail_color_warning: { background: theme.palette.color.warning[theme.palette.light ? 70 : 20] },
+    rail_color_warning: { background: theme.methods.palette.color.value('warning', 40, true) },
 
-    rail_color_error: { background: theme.palette.color.error[theme.palette.light ? 70 : 20] },
+    rail_color_error: { background: theme.methods.palette.color.value('info', 40, true) },
 
     // track
-    track_color_default: { background: theme.palette.color.neutral[50] },
+    track_color_default: { background: theme.methods.palette.color.value('default', 30, true) },
 
-    track_color_neutral: { background: theme.palette.color.neutral[50] },
+    track_color_neutral: { background: theme.methods.palette.color.value('neutral', 30, true) },
 
-    track_color_primary: { background: theme.palette.color.primary[50] },
+    track_color_primary: { background: theme.methods.palette.color.value('primary', 30, true) },
 
-    track_color_secondary: { background: theme.palette.color.secondary[50] },
+    track_color_secondary: { background: theme.methods.palette.color.value('secondary', 30, true) },
 
-    track_color_tertiary: { background: theme.palette.color.tertiary[50] },
+    track_color_tertiary: { background: theme.methods.palette.color.value('tertiary', 30, true) },
 
-    track_color_quaternary: { background: theme.palette.color.quaternary[50] },
+    track_color_quaternary: { background: theme.methods.palette.color.value('quaternary', 30, true) },
 
-    track_color_info: { background: theme.palette.color.info[50] },
+    track_color_info: { background: theme.methods.palette.color.value('info', 30, true) },
 
-    track_color_success: { background: theme.palette.color.success[50] },
+    track_color_success: { background: theme.methods.palette.color.value('success', 30, true) },
 
-    track_color_warning: { background: theme.palette.color.warning[50] },
+    track_color_warning: { background: theme.methods.palette.color.value('warning', 30, true) },
 
-    track_color_error: { background: theme.palette.color.error[50] },
+    track_color_error: { background: theme.methods.palette.color.value('error', 30, true) },
 
     // Tonal
-    track_tonal_color_neutral: { background: theme.palette.color.neutral[50] },
+    track_tonal_color_neutral: { background: theme.methods.palette.color.value('neutral', 20, true) },
 
-    track_tonal_color_primary: { background: theme.palette.color.primary[50] },
+    track_tonal_color_primary: { background: theme.methods.palette.color.value('primary', 20, true) },
 
-    track_tonal_color_secondary: { background: theme.palette.color.secondary[50] },
+    track_tonal_color_secondary: { background: theme.methods.palette.color.value('secondary', 20, true) },
 
-    track_tonal_color_tertiary: { background: theme.palette.color.tertiary[50] },
+    track_tonal_color_tertiary: { background: theme.methods.palette.color.value('tertiary', 20, true) },
 
-    track_tonal_color_quaternary: { background: theme.palette.color.quaternary[50] },
+    track_tonal_color_quaternary: { background: theme.methods.palette.color.value('quaternary', 20, true) },
 
-    track_tonal_color_info: { background: theme.palette.color.info[50] },
+    track_tonal_color_info: { background: theme.methods.palette.color.value('info', 20, true) },
 
-    track_tonal_color_success: { background: theme.palette.color.success[50] },
+    track_tonal_color_success: { background: theme.methods.palette.color.value('success', 20, true) },
 
-    track_tonal_color_warning: { background: theme.palette.color.warning[50] },
+    track_tonal_color_warning: { background: theme.methods.palette.color.value('warning', 20, true) },
 
-    track_tonal_color_error: { background: theme.palette.color.error[50] },
+    track_tonal_color_error: { background: theme.methods.palette.color.value('info', 20, true) },
 
     // iconButton
     iconButton_color_default: {
@@ -921,14 +921,14 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
   const palette = !theme.palette.color[color] && theme.methods.color(color);
 
   if (!theme.palette.color[color] && color !== 'default') {
-    styles.markRail.background = styles.rail.background = theme.methods.palette.color.value(undefined, theme.palette.light ? 50 : 90, true, palette);
+    styles.markRail.background = styles.rail.background = theme.methods.palette.color.value(undefined, theme.palette.light ? 40 : 90, true, palette);
 
-    styles.label.background = styles.markTrack.background = styles.icon.background = styles.track.background = styles.iconButton.color = !tonal ? palette.main : theme.methods.palette.color.value(undefined, 70, true, palette);
+    styles.label.background = styles.markTrack.background = styles.icon.background = styles.track.background = styles.iconButton.color = !tonal ? palette.main : theme.methods.palette.color.value(undefined, 40, true, palette);
 
     styles.label.color = theme.methods.palette.color.text(styles.label.background, true, 'light');
   }
 
-  styles.label.background = !tonal ? (palette?.main || (color === 'default' ? theme.palette.text.default.primary : (theme.palette.color[color] as any).main)) : theme.methods.palette.color.value(color as any, 70, true, palette);
+  styles.label.background = !tonal ? (palette?.[40] || (color === 'default' ? theme.palette.text.default.primary : (theme.palette.color[color] as any).main)) : theme.methods.palette.color.value(color as any, 40, true, palette);
 
   styles.label.color = theme.methods.palette.color.text(styles.label.background, true, 'light');
 

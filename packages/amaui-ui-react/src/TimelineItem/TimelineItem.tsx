@@ -216,6 +216,8 @@ const TimelineItem: React.FC<ITimelineItem> = React.forwardRef((props_, ref: any
             <Surface
               {...IconProps}
 
+              tonal
+
               className={classNames([
                 staticClassName('TimelineItem', theme) && [
                   'amaui-TimelineItem-icon'

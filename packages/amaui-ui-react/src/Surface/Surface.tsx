@@ -75,92 +75,92 @@ const useStyle = styleMethod(theme => ({
   // Tonal
   version_filled_tonal_color_neutral: {
     color: theme.methods.palette.color.value('neutral', 10),
-    backgroundColor: theme.palette.color.neutral[theme.palette.light ? 90 : 30]
+    backgroundColor: theme.palette.color.neutral[theme.palette.light ? 80 : 30]
   },
 
   version_filled_tonal_color_primary: {
     color: theme.methods.palette.color.value('primary', 10),
-    backgroundColor: theme.palette.color.primary[theme.palette.light ? 90 : 30]
+    backgroundColor: theme.palette.color.primary[theme.palette.light ? 80 : 30]
   },
 
   version_filled_tonal_color_secondary: {
     color: theme.methods.palette.color.value('secondary', 10),
-    backgroundColor: theme.palette.color.secondary[theme.palette.light ? 90 : 30]
+    backgroundColor: theme.palette.color.secondary[theme.palette.light ? 80 : 30]
   },
 
   version_filled_tonal_color_tertiary: {
     color: theme.methods.palette.color.value('tertiary', 10),
-    backgroundColor: theme.palette.color.tertiary[theme.palette.light ? 90 : 30]
+    backgroundColor: theme.palette.color.tertiary[theme.palette.light ? 80 : 30]
   },
 
   version_filled_tonal_color_quaternary: {
     color: theme.methods.palette.color.value('quaternary', 10),
-    backgroundColor: theme.palette.color.quaternary[theme.palette.light ? 90 : 30]
+    backgroundColor: theme.palette.color.quaternary[theme.palette.light ? 80 : 30]
   },
 
   version_filled_tonal_color_info: {
     color: theme.methods.palette.color.value('info', 10),
-    backgroundColor: theme.palette.color.info[theme.palette.light ? 90 : 30]
+    backgroundColor: theme.palette.color.info[theme.palette.light ? 80 : 30]
   },
 
   version_filled_tonal_color_success: {
     color: theme.methods.palette.color.value('success', 10),
-    backgroundColor: theme.palette.color.success[theme.palette.light ? 90 : 30]
+    backgroundColor: theme.palette.color.success[theme.palette.light ? 80 : 30]
   },
 
   version_filled_tonal_color_warning: {
     color: theme.methods.palette.color.value('warning', 10),
-    backgroundColor: theme.palette.color.warning[theme.palette.light ? 90 : 30]
+    backgroundColor: theme.palette.color.warning[theme.palette.light ? 80 : 30]
   },
 
   version_filled_tonal_color_error: {
     color: theme.methods.palette.color.value('error', 10),
-    backgroundColor: theme.palette.color.error[theme.palette.light ? 90 : 30]
+    backgroundColor: theme.palette.color.error[theme.palette.light ? 80 : 30]
   },
 
   version_filled_tonal_secondary_color_neutral: {
     color: theme.methods.palette.color.value('neutral', 10),
-    backgroundColor: theme.methods.palette.color.value('neutral', 80)
+    backgroundColor: theme.methods.palette.color.value('neutral', 70)
   },
 
   version_filled_tonal_secondary_color_primary: {
     color: theme.methods.palette.color.value('primary', 10),
-    backgroundColor: theme.methods.palette.color.value('primary', 80)
+    backgroundColor: theme.methods.palette.color.value('primary', 70)
   },
 
   version_filled_tonal_secondary_color_secondary: {
     color: theme.methods.palette.color.value('secondary', 10),
-    backgroundColor: theme.methods.palette.color.value('secondary', 80)
+    backgroundColor: theme.methods.palette.color.value('secondary', 70)
   },
 
   version_filled_tonal_secondary_color_tertiary: {
     color: theme.methods.palette.color.value('tertiary', 10),
-    backgroundColor: theme.methods.palette.color.value('tertiary', 80)
+    backgroundColor: theme.methods.palette.color.value('tertiary', 70)
   },
 
   version_filled_tonal_secondary_color_quaternary: {
     color: theme.methods.palette.color.value('quaternary', 10),
-    backgroundColor: theme.methods.palette.color.value('quaternary', 80)
+    backgroundColor: theme.methods.palette.color.value('quaternary', 70)
   },
 
   version_filled_tonal_secondary_color_info: {
     color: theme.methods.palette.color.value('info', 10),
-    backgroundColor: theme.methods.palette.color.value('info', 80)
+    backgroundColor: theme.methods.palette.color.value('info', 70)
   },
 
   version_filled_tonal_secondary_color_success: {
     color: theme.methods.palette.color.value('success', 10),
-    backgroundColor: theme.methods.palette.color.value('success', 80)
+    backgroundColor: theme.methods.palette.color.value('success', 70)
   },
 
   version_filled_tonal_secondary_color_warning: {
     color: theme.methods.palette.color.value('warning', 10),
-    backgroundColor: theme.methods.palette.color.value('warning', 80)
+    backgroundColor: theme.methods.palette.color.value('warning', 70)
   },
 
   version_filled_tonal_secondary_color_error: {
     color: theme.methods.palette.color.value('error', 10),
-    backgroundColor: theme.methods.palette.color.value('error', 80)
+    backgroundColor: theme.methods.palette.color.value('error', 70)
   },
 
   // Version
@@ -552,92 +552,92 @@ const useStyle = styleMethod(theme => ({
 
   // Tonal
   'version_outlined-without-background_tonal_color_neutral': {
-    color: theme.methods.palette.color.value('neutral', 50),
+    color: theme.methods.palette.color.value('neutral', 40),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('neutral', 30)}`
   },
 
   'version_outlined-without-background_tonal_color_primary': {
-    color: theme.methods.palette.color.value('primary', 50),
+    color: theme.methods.palette.color.value('primary', 40),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('primary', 30)}`
   },
 
   'version_outlined-without-background_tonal_color_secondary': {
-    color: theme.methods.palette.color.value('secondary', 50),
+    color: theme.methods.palette.color.value('secondary', 40),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('secondary', 30)}`
   },
 
   'version_outlined-without-background_tonal_color_tertiary': {
-    color: theme.methods.palette.color.value('tertiary', 50),
+    color: theme.methods.palette.color.value('tertiary', 40),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('tertiary', 30)}`
   },
 
   'version_outlined-without-background_tonal_color_quaternary': {
-    color: theme.methods.palette.color.value('quaternary', 50),
+    color: theme.methods.palette.color.value('quaternary', 40),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('quaternary', 30)}`
   },
 
   'version_outlined-without-background_tonal_color_info': {
-    color: theme.methods.palette.color.value('info', 50),
+    color: theme.methods.palette.color.value('info', 40),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('info', 30)}`
   },
 
   'version_outlined-without-background_tonal_color_success': {
-    color: theme.methods.palette.color.value('success', 50),
+    color: theme.methods.palette.color.value('success', 40),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('success', 30)}`
   },
 
   'version_outlined-without-background_tonal_color_warning': {
-    color: theme.methods.palette.color.value('warning', 50),
+    color: theme.methods.palette.color.value('warning', 40),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('warning', 30)}`
   },
 
   'version_outlined-without-background_tonal_color_error': {
-    color: theme.methods.palette.color.value('error', 50),
+    color: theme.methods.palette.color.value('error', 40),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('error', 30)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_neutral': {
-    color: theme.methods.palette.color.value('neutral', 40),
+    color: theme.methods.palette.color.value('neutral', 30),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('neutral', 20)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_primary': {
-    color: theme.methods.palette.color.value('primary', 40),
+    color: theme.methods.palette.color.value('primary', 30),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('primary', 20)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_secondary': {
-    color: theme.methods.palette.color.value('secondary', 40),
+    color: theme.methods.palette.color.value('secondary', 30),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('secondary', 20)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_tertiary': {
-    color: theme.methods.palette.color.value('tertiary', 40),
+    color: theme.methods.palette.color.value('tertiary', 30),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('tertiary', 20)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_quaternary': {
-    color: theme.methods.palette.color.value('quaternary', 40),
+    color: theme.methods.palette.color.value('quaternary', 30),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('quaternary', 20)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_info': {
-    color: theme.methods.palette.color.value('info', 40),
+    color: theme.methods.palette.color.value('info', 30),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('info', 20)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_success': {
-    color: theme.methods.palette.color.value('success', 40),
+    color: theme.methods.palette.color.value('success', 30),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('success', 20)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_warning': {
-    color: theme.methods.palette.color.value('warning', 40),
+    color: theme.methods.palette.color.value('warning', 30),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('warning', 20)}`
   },
 
   'version_outlined-without-background_tonal_secondary_color_error': {
-    color: theme.methods.palette.color.value('error', 40),
+    color: theme.methods.palette.color.value('error', 30),
     boxShadow: `inset 0px 0px 0px 1px ${theme.methods.palette.color.value('error', 20)}`
   },
 
@@ -766,7 +766,7 @@ const Surface: React.FC<ISurface> = React.forwardRef((props_, ref: any) => {
     if (tonal) {
       styles.root.color = theme.methods.palette.color.value(color as any, 10, true, palette);
 
-      if (version === 'filled') styles.root.backgroundColor = tonal === true ? palette[theme.palette.light ? 90 : 30] : theme.methods.palette.color.value(color as any, 80, true, palette);
+      if (version === 'filled') styles.root.backgroundColor = tonal === true ? palette[theme.palette.light ? 80 : 30] : theme.methods.palette.color.value(color as any, 70, true, palette);
 
       if (version === 'outlined') {
         styles.root.color = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 10 : 5, true, palette);
@@ -775,7 +775,7 @@ const Surface: React.FC<ISurface> = React.forwardRef((props_, ref: any) => {
       }
 
       if (version === 'outlined-without-background') {
-        styles.root.color = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 40 : 50, true, palette);
+        styles.root.color = theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 30 : 40, true, palette);
         styles.root.boxShadow = `inset 0px 0px 0px 1px ${theme.methods.palette.color.value(color as any, tonal === 'secondary' ? 20 : 30, true, palette)}`;
 
         delete styles.root.backgroundColor;
@@ -918,11 +918,11 @@ const Surface: React.FC<ISurface> = React.forwardRef((props_, ref: any) => {
           styles.children.boxShadow = `inset 0px 0px 0px 1px ${theme.palette.text.default.primary}`;
         }
         else if (tonal === 'secondary') {
-          styles.children.color = theme.methods.palette.color.value(color, 40);
+          styles.children.color = theme.methods.palette.color.value(color, 30);
           styles.children.boxShadow = `inset 0px 0px 0px 1px ${theme.methods.palette.color.value(color, 20)}`;
         }
         else {
-          styles.children.color = theme.methods.palette.color.value(color, 50);
+          styles.children.color = theme.methods.palette.color.value(color, 40);
           styles.children.boxShadow = `inset 0px 0px 0px 1px ${theme.methods.palette.color.value(color, 30)}`;
         }
       }
