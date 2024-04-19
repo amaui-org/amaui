@@ -336,7 +336,13 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
 
           fullWidth
 
-          className={classes.main}
+          className={classNames([
+            staticClassName('SectionCarousel', theme) && [
+              'amaui-SectionCarousel-item-main'
+            ],
+
+            classes.main
+          ])}
         >
           {item.name && (
             <Type
@@ -370,7 +376,11 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
 
           {(item.to || item.link) && (
             <Line
-              align='flex-start'
+              direction='row'
+
+              align='center'
+
+              justify='flex-start'
 
               fullWidth
 
@@ -383,7 +393,7 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
               }}
             >
               <Button
-                version='outlined'
+                version='filled'
 
                 size={size === 'large' ? 'regular' : size === 'regular' ? 'small' : 'small'}
 
