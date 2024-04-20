@@ -17,7 +17,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   reviews: {
-    overflowX: 'auto'
+    overflowX: 'auto',
+    padding: '0px 4px 12px'
   },
 
   review: {
