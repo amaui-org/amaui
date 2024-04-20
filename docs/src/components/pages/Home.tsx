@@ -864,10 +864,12 @@ export default function Root(props: any) {
                 <Reveal
                   offset={smallScreen ? -40 : -400}
 
-                  inClassName={classNames([
-                    classes.cardImageIn,
-                    transitioned.cardImage && classes.cardImageTransitioned
-                  ])}
+                  classes={{
+                    in: classNames([
+                      classes.cardImageIn,
+                      transitioned.cardImage && classes.cardImageTransitioned
+                    ])
+                  }}
 
                   onChange={(valueNew: boolean) => {
                     if (valueNew) setTimeout(() => {
@@ -951,9 +953,11 @@ export default function Root(props: any) {
                 <Reveal
                   offset={smallScreen ? -34 : -340}
 
-                  inClassName={classNames([
-                    classes.weatherIn
-                  ])}
+                  classes={{
+                    in: classNames([
+                      classes.weatherIn
+                    ])
+                  }}
 
                   noTransition
                 >

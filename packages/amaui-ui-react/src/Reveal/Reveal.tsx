@@ -1,10 +1,11 @@
 import React from 'react';
 
-import { is, isEnvironment } from '@amaui/utils';
+import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import FadeElement from '../Fade';
 import { IFade } from '../Fade/Fade';
+import useVisible, { IUseVisible } from '../useVisible/useVisible';
 import { staticClassName } from '../utils';
 
 const useStyle = styleMethod(theme => ({
@@ -22,11 +23,20 @@ export interface IReveal extends IFade {
 
   unreveal?: boolean;
 
-  inClassName?: string;
+  classes?: {
+    in?: string;
+  };
+
+  styles?: {
+    in?: any;
+    out?: any;
+  };
 
   onChange?: (value: boolean) => any;
 
   noTransition?: boolean;
+
+  UseVisibleProps?: IUseVisible;
 }
 
 const Reveal: React.FC<IReveal> = React.forwardRef((props_, ref: any) => {
@@ -45,13 +55,17 @@ const Reveal: React.FC<IReveal> = React.forwardRef((props_, ref: any) => {
 
     unreveal,
 
-    inClassName,
+    classes: classesProps,
+
+    styles,
 
     onChange,
 
     noTransition,
 
     Component: Component_ = Fade,
+
+    UseVisibleProps,
 
     className,
 
@@ -62,127 +76,53 @@ const Reveal: React.FC<IReveal> = React.forwardRef((props_, ref: any) => {
 
   const { classes } = useStyle();
 
+  const [root, setRoot] = React.useState<HTMLElement>();
+  const [loaded, setLoaded] = React.useState(inDefault !== undefined ? inDefault : false);
   const [inProp, setInProp] = React.useState(inDefault !== undefined ? inDefault : false);
+
+  const visiblity = useVisible({
+    element: root,
+
+    ...UseVisibleProps,
+
+    options: {
+      rootMargin: `${(is('number', offsetReveal) ? offsetReveal : offset) || 0}px ${(is('number', offsetReveal) ? offsetReveal : offset) || 0}px ${(is('number', offsetUnreveal) ? offsetUnreveal : offset) || 0}px ${(is('number', offsetUnreveal) ? offsetUnreveal : offset) || 0}px`,
+
+      ...UseVisibleProps?.options
+    }
+  });
 
   const refs = {
     root: React.useRef<HTMLElement>(),
-    props: React.useRef<any>(),
-    in: React.useRef<any>()
+    props: React.useRef(props),
+    in: React.useRef(inProp),
+    unreveal: React.useRef(unreveal),
+    loaded: React.useRef(loaded)
   };
 
   refs.props.current = props;
 
   refs.in.current = inProp;
 
-  const updateIn = React.useCallback((value: boolean) => {
+  refs.unreveal.current = unreveal;
+
+  refs.loaded.current = loaded;
+
+  const onUpdate = React.useCallback((value: boolean) => {
     setInProp(value);
+
+    if (value && !refs.loaded.current) setLoaded(true);
 
     if (is('function', onChange)) onChange(value);
   }, [onChange]);
 
   React.useEffect(() => {
-    // Listen to window scroll value
-    const method = () => {
-      if (refs.root.current) {
-        const rect = refs.root.current.getBoundingClientRect();
+    const value = visiblity.visible;
 
-        const rootWindow = isEnvironment('browser') ? (refs.root.current?.ownerDocument?.defaultView || window) : undefined;
+    if (refs.loaded.current && !value && !refs.unreveal.current) return;
 
-        // Reveal
-        if (!refs.in.current) {
-          const offset_ = refs.props.current.offsetReveal !== undefined ? refs.props.current.offsetReveal : refs.props.current.offset !== undefined ? refs.props.current.offset : 0;
-
-          if (
-            // Top
-            (
-              // Top
-              (rect.top - offset_ < rootWindow.innerHeight && rect.top - offset_ > 0) &&
-
-              (
-                // Left
-                (rect.left - offset_ < rootWindow.innerWidth && rect.left - offset_ > 0) ||
-                // Right
-                (rect.left - offset_ < rootWindow.innerWidth && rect.right + offset_ > 0)
-              )
-            ) ||
-
-            // Left
-            (
-              // Left
-              (rect.left - offset_ < rootWindow.innerWidth && rect.left - offset_ > 0) &&
-
-              (
-                // Top
-                (rect.top - offset_ < rootWindow.innerHeight && rect.top - offset_ > 0) ||
-                // Bottom
-                (rect.top - offset_ < rootWindow.innerHeight && rect.bottom + offset_ > 0)
-              )
-            ) ||
-
-            // Right
-            (
-              // Right
-              (rect.left - offset_ < rootWindow.innerWidth && rect.right + offset_ > 0) &&
-
-              (
-                // Top
-                (rect.top - offset_ < rootWindow.innerHeight && rect.top - offset_ > 0) ||
-                // Bottom
-                (rect.top - offset_ < rootWindow.innerHeight && rect.bottom + offset_ > 0)
-              )
-            ) ||
-
-            // Bottom
-            (
-              // Bottom
-              (rect.top - offset_ < rootWindow.innerHeight && rect.bottom + offset_ > 0) &&
-
-              (
-                // Left
-                (rect.left - offset_ < rootWindow.innerWidth && rect.left - offset_ > 0) ||
-                // Right
-                (rect.left - offset_ < rootWindow.innerWidth && rect.right + offset_ > 0)
-              )
-            )
-          ) updateIn(true);
-        }
-        else if (refs.props.current.unreveal) {
-          const offset_ = refs.props.current.offsetUnreveal !== undefined ? refs.props.current.offsetUnreveal : refs.props.current.offset !== undefined ? refs.props.current.offset : 0;
-
-          if (
-            // Top
-            rect.bottom + offset_ < 0 ||
-
-            // Left
-            rect.right + offset_ < 0 ||
-
-            // Right
-            rect.left - offset_ > rootWindow.innerWidth ||
-
-            // Bottom
-            rect.top - offset_ > rootWindow.innerHeight
-          ) updateIn(false);
-        }
-      }
-    };
-
-    // Initial
-    setTimeout(() => {
-      method();
-    }, 14);
-
-    const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
-
-    if (refs.root.current) {
-      rootDocument.addEventListener('scroll', method);
-    }
-
-    return () => {
-      if (refs.root.current) {
-        rootDocument.removeEventListener('scroll', method);
-      }
-    };
-  }, []);
+    onUpdate(value);
+  }, [visiblity.visible]);
 
   const Component = !noTransition ? Component_ : React.Fragment;
 
@@ -203,6 +143,8 @@ const Reveal: React.FC<IReveal> = React.forwardRef((props_, ref: any) => {
             else ref.current = item;
           }
 
+          setRoot(item);
+
           refs.root.current = item;
         },
 
@@ -216,8 +158,13 @@ const Reveal: React.FC<IReveal> = React.forwardRef((props_, ref: any) => {
           className,
           (children as any).props.className,
           classes.root,
-          inProp && inClassName
-        ])
+          inProp && classesProps?.in
+        ]),
+
+        style: {
+          ...(inProp ? styles?.in : styles?.out),
+          ...(children as any).props?.style
+        }
       })}
     </Component>
   );
