@@ -585,3 +585,6 @@ export * from './SectionAction';
 
 export { default as SectionReviews } from './SectionReviews';
 export * from './SectionReviews';
+
+export { default as useVisible } from './useVisible';
+export * from './useVisible';
