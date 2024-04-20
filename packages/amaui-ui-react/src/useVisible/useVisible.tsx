@@ -11,8 +11,6 @@ export interface IUseVisibleResponse extends IntersectionObserverEntry {
 export interface IUseVisible {
   element: HTMLElement;
 
-  parent?: HTMLElement;
-
   visibleDefault?: boolean;
 
   options?: IntersectionObserverInit;
@@ -34,8 +32,6 @@ export interface IUseVisible {
 const useVisible = (props: IUseVisible) => {
   const {
     element,
-
-    parent,
 
     visibleDefault,
 
