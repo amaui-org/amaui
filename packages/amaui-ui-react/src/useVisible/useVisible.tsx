@@ -18,14 +18,14 @@ export interface IUseVisible {
   addClasses?: boolean;
 
   classes?: {
-    visible?: string;
+    in?: string;
   };
 
   addStyles?: boolean;
 
   styles?: {
-    visible?: any;
-    not_visible?: any;
+    in?: any;
+    out?: any;
   };
 }
 
@@ -40,7 +40,7 @@ const useVisible = (props: IUseVisible) => {
     addClasses,
 
     classes = {
-      visible: 'amaui-visible'
+      in: 'amaui-visible'
     },
 
     addStyles,
@@ -96,7 +96,7 @@ const useVisible = (props: IUseVisible) => {
 
       // classes
       if (refs.addClasses.current) {
-        const visibleClass = refs.classes.current?.visible || 'amaui-visible';
+        const visibleClass = refs.classes.current?.in || 'amaui-visible';
 
         if (responseNew.visible) target.classList.add(visibleClass);
         else target.classList.remove(visibleClass);
@@ -104,8 +104,8 @@ const useVisible = (props: IUseVisible) => {
 
       // styles
       if (refs.addStyles.current) {
-        const visibleStyles = refs.styles.current?.visible || {};
-        const notVisibleStyles = refs.styles.current?.not_visible || {};
+        const visibleStyles = refs.styles.current?.in || {};
+        const notVisibleStyles = refs.styles.current?.out || {};
 
         if (responseNew.visible) Object.keys(visibleStyles).forEach(item => (target.style as any)[item] = visibleStyles[item]);
         else Object.keys(notVisibleStyles).forEach(item => (target.style as any)[item] = notVisibleStyles[item]);
