@@ -44,8 +44,7 @@ const useVisible = (props: IUseVisible) => {
     addClasses,
 
     classes = {
-      visible: 'amaui-visible',
-      not_visible: 'amaui-not-visible'
+      visible: 'amaui-visible'
     },
 
     addStyles,
