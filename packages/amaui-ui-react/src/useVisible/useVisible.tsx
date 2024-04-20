@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { isEnvironment } from '@amaui/utils';
+import { hash, isEnvironment } from '@amaui/utils';
 
 export interface IUseVisibleResponse extends IntersectionObserverEntry {
   visible?: boolean;
@@ -133,7 +133,7 @@ const useVisible = (props: IUseVisible) => {
       // Clean up
       observer.disconnect();
     };
-  }, [root, parent]);
+  }, [root, parent, options?.root, hash(options?.rootMargin), hash(options?.threshold)]);
 
   return response;
 };
