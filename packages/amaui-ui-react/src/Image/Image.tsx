@@ -1,10 +1,12 @@
 import React from 'react';
 
+import { is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import TypeElement from '../Type';
 import SurfaceElement from '../Surface';
 import LineElement from '../Line';
+import useVisible, { IUseVisible } from '../useVisible/useVisible';
 import { staticClassName } from '../utils';
 import { IBaseElement, ITonal, IColor, IPropsAny } from '../types';
 
@@ -131,6 +133,8 @@ export interface IImage extends IBaseElement {
   width?: number;
   height?: number;
 
+  lazyLoad?: boolean;
+
   align?: 'start' | 'left' | 'center' | 'right' | 'end';
   responsive?: boolean;
   fullWidth?: boolean;
@@ -142,6 +146,7 @@ export interface IImage extends IBaseElement {
 
   NoImageProps?: IPropsAny;
   DescriptionProps?: IPropsAny;
+  UseVisibleProps?: IUseVisible;
 }
 
 const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
@@ -170,6 +175,7 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
 
     align,
     responsive = true,
+    lazyLoad = true,
     fullWidth,
     maxWidth,
 
@@ -177,6 +183,7 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
 
     NoImageProps,
     DescriptionProps,
+    UseVisibleProps,
 
     className,
     style,
@@ -190,8 +197,22 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
 
   let Component: any = 'img';
 
+  const [root, setRoot] = React.useState<any>();
   const [loaded, setLoaded] = React.useState(false);
   const [source, setSource] = React.useState('');
+
+  const visiblity = lazyLoad ? useVisible({
+    element: root,
+
+    ...UseVisibleProps
+  }) : { visible: true };
+
+  const refs = {
+    root: React.useRef<HTMLElement>(),
+    loaded: React.useRef(loaded)
+  };
+
+  refs.loaded.current = loaded;
 
   const imageLoad = React.useCallback((value: any) => new Promise((resolve, reject) => {
     const image = window.document.createElement('img');
@@ -232,8 +253,10 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
   }, [src, loaded]);
 
   React.useEffect(() => {
-    init();
-  }, []);
+    if (visiblity?.visible && !refs.loaded.current) {
+      init();
+    }
+  }, [visiblity?.visible]);
 
   React.useEffect(() => {
     if (loaded) init();
@@ -372,7 +395,16 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
 
   return (
     <Component
-      ref={ref}
+      ref={(item: any) => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        setRoot(item);
+
+        refs.root.current = item;
+      }}
 
       className={classNames([
         staticClassName('Image', theme) && [

@@ -4,6 +4,7 @@ import { clamp, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import { IMedia } from '@amaui/api-utils';
 
+import ImageElement from '../Image';
 import LineElement from '../Line';
 import IconElement from '../Icon';
 import IconButtonElement from '../IconButton';
@@ -271,6 +272,8 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiImageGallery?.props?.default, ...props_ }), [props_]);
 
   const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Image = React.useMemo(() => theme?.elements?.Image || ImageElement, [theme]);
 
   const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
 
@@ -712,7 +715,7 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
         {startImage}
 
         {url && (
-          <img
+          <Image
             ref={(item: any) => {
               refs.image.current = item;
 
