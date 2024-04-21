@@ -2,7 +2,6 @@ import React from 'react';
 
 import { clamp, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
-import { IMedia } from '@amaui/api-utils';
 
 import ImageElement from '../Image';
 import LineElement from '../Line';
@@ -12,7 +11,7 @@ import InteractionElement from '../Interaction';
 import BackdropElement from '../Backdrop';
 import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
-import { IElementReference } from '../types';
+import { IElementReference, IMediaObject } from '../types';
 import useMediaQuery from '../useMediaQuery';
 
 const IconMaterialNavigateNextRounded = React.forwardRef((props: any, ref) => {
@@ -100,13 +99,13 @@ const useStyle = styleMethod(theme => ({
   },
 
   main: {
-    position: 'relative'
+    position: 'relative',
+    zIndex: '14'
   },
 
   main_version_modal: {
     height: '0',
     padding: theme.methods.space.value(5, 'px'),
-    zIndex: '0',
 
     '& .amaui-Image-root': {
       maxHeight: '100%',
@@ -139,8 +138,7 @@ const useStyle = styleMethod(theme => ({
     position: 'relative',
     height: '0px',
     // zIndex: 1,
-    transition: theme.methods.transitions.make(['transform'], { duration: 100, timing_function: 'ease' as any }),
-    zIndex: 14
+    transition: theme.methods.transitions.make(['transform'], { duration: 100, timing_function: 'ease' as any })
   },
 
   image: {
@@ -218,15 +216,6 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-ImageGallery' });
 
-export interface IImageGalleryItem extends IMedia {
-  url?: string;
-  urlSmall?: string;
-
-  // alias
-  src?: string;
-  srcSmall?: string;
-}
-
 export interface IImageGallery extends ILine {
   version?: 'regular' | 'modal';
 
@@ -238,7 +227,7 @@ export interface IImageGallery extends ILine {
 
   value?: number;
 
-  items?: IImageGalleryItem[];
+  items?: IMediaObject[];
 
   incrementZoom?: number;
 
@@ -366,10 +355,7 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
 
   refs.keyDown.current = keyDown;
 
-  refs.useZoom.current = (
-    !refs.media.current ||
-    (refs.version.current === 'regular' && refs.keyDown.current)
-  );
+  refs.useZoom.current = version === 'modal' || keyDown;
 
   refs.incrementZoom.current = incrementZoom;
 
@@ -735,6 +721,8 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
             onTouchEnd={onMouseUp}
 
             onDragStart={onDragStartImage}
+
+            lazyLoad={version === 'regular'}
 
             {...ImageProps}
 
