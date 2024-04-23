@@ -88,12 +88,6 @@ const IconMaterialDesktopWindows = React.forwardRef((props: IIcon, ref) => {
 });
 
 const useStyle = styleMethod(theme => ({
-  '@p': {
-    '*[data-theme] .amaui-Carousel-root, *[data-theme] .amaui-VideoPlayer-root, *[data-theme] .amaui-AudioPlayer-root, *[data-theme] .amaui-Share-root, *[data-theme] .amaui-website-Header-root, *[data-theme] .amaui-website-Footer-root, *[data-theme] .amaui-website-BackTo-root, *[data-theme] .amaui-websites-Resume-to, *[data-theme] .amaui-Resume-menu, *[data-theme] .amaui-websites-VisitorChat-speed-dial, *[data-theme] .amaui-websites-Form-root, *[data-theme] .amaui-websites-Reservation-root, *[data-theme] .amaui-Links-more, *[data-theme] .amaui-ImageGallery-root': {
-      pointerEvents: 'none'
-    }
-  },
-
   root: {
     position: 'relative',
     overflow: 'hidden'
