@@ -385,7 +385,7 @@ const Element: React.FC<ISectionCards> = React.forwardRef((props_, ref: any) => 
             </Line>
           )}
 
-          {(item.to || item.link) && (
+          {item.buttonText && (
             <Line
               align='center'
 
@@ -405,7 +405,7 @@ const Element: React.FC<ISectionCards> = React.forwardRef((props_, ref: any) => 
               <Button
                 version='filled'
 
-                color='default'
+                color='primary'
 
                 size={size}
 

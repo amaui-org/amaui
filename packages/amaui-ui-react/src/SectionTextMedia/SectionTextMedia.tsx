@@ -1,6 +1,7 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { is, textToInnerHTML } from '@amaui/utils';
+import { is, isEnvironment, textToInnerHTML } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import TextElement from '../Text';
@@ -10,6 +11,7 @@ import AudioPlayerElement from '../AudioPlayer';
 import VideoPlayerElement from '../VideoPlayer';
 import LineElement from '../Line';
 import TypeElement from '../Type';
+import ButtonElement from '../Button';
 import { staticClassName } from '../utils';
 import { IValueBreakpoints, IPropsAny } from '../types';
 
@@ -18,7 +20,7 @@ const useStyle = styleMethod(theme => ({
 
   },
 
-  wrapperRow: {
+  main: {
     '&.amaui-Line-direction-row': {
       '& > *': {
         width: '50%'
@@ -31,6 +33,13 @@ export interface ISectionTextMedia extends ISection {
   title?: string | Partial<Record<IValueBreakpoints, string>>;
   description?: string | Partial<Record<IValueBreakpoints, string>>;
 
+  button?: {
+    text?: any;
+    to?: string;
+    link?: string;
+    props?: any;
+  };
+
   mediaPosition?: 'top' | 'left' | 'right' | 'bottom';
 
   media?: any;
@@ -38,7 +47,9 @@ export interface ISectionTextMedia extends ISection {
   MainProps?: IPropsAny;
   TitleProps?: IPropsAny;
   WrapperProps?: IPropsAny;
-  TextProps?: IPropsAny;
+  WrapperMainProps?: IPropsAny;
+  WrapperTextProps?: IPropsAny;
+  DescriptionProps?: IPropsAny;
   MediaProps?: IPropsAny;
 }
 
@@ -61,6 +72,8 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
 
   const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
+  const Button = React.useMemo(() => theme?.elements?.Button || ButtonElement, [theme]);
+
   const { classes } = useStyle();
 
   const {
@@ -69,6 +82,8 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
     title,
     description,
 
+    button,
+
     mediaPosition = 'top',
 
     media,
@@ -76,7 +91,9 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
     MainProps,
     TitleProps,
     WrapperProps,
-    TextProps,
+    WrapperMainProps,
+    WrapperTextProps,
+    DescriptionProps,
     MediaProps,
 
     className,
@@ -99,6 +116,8 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
   };
 
   const mime = media?.mime || '';
+
+  const navigate = isEnvironment('browser') && useNavigate();
 
   if (mime.includes('image')) {
     mediaElement = (
@@ -148,6 +167,123 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
     );
   }
 
+  const main = (
+    <Line
+      gap={3}
+
+      direction='column'
+
+      align={['left', 'top', 'bottom'].includes(mediaPosition) ? 'flex-start' : 'flex-end'}
+
+      fullWidth
+
+      {...WrapperMainProps}
+
+      className={classNames([
+        staticClassName('SectionTextMedia', theme) && [
+          'amaui-SectionTextMedia-wrapper-main'
+        ],
+
+        WrapperMainProps?.className
+      ])}
+    >
+      <Line
+        gap={2}
+
+        direction='column'
+
+        align={['left', 'top', 'bottom'].includes(mediaPosition) ? 'flex-start' : 'flex-end'}
+
+        fullWidth
+
+        {...WrapperTextProps}
+
+        className={classNames([
+          staticClassName('SectionTextMedia', theme) && [
+            'amaui-SectionTextMedia-wrapper-text'
+          ],
+
+          WrapperTextProps?.className
+        ])}
+      >
+        {is('string', title) && (
+          <Type
+            version={size === 'large' ? 'h1' : size === 'regular' ? 'h2' : 'h3'}
+
+            align='center'
+
+            dangerouslySetInnerHTML={{
+              __html: textToInnerHTML(title)
+            }}
+
+            {...TitleProps}
+
+            className={classNames([
+              staticClassName('SectionTextMedia', theme) && [
+                'amaui-SectionTextMedia-title'
+              ],
+
+              TitleProps?.className
+            ])}
+          />
+        )}
+
+        {is('string', description) && (
+          <Text
+            align='center'
+
+            columns={1}
+
+            TypeProps={{
+              ...DescriptionProps?.TypeProps,
+
+              version: size === 'large' ? 'b1' : [undefined, 'regular'].includes(size as any) ? 'b2' : 'b3'
+            }}
+
+            value={description}
+
+            {...DescriptionProps}
+
+            className={classNames([
+              staticClassName('SectionTextMedia', theme) && [
+                'amaui-SectionTextMedia-description'
+              ],
+
+              DescriptionProps?.className
+            ])}
+          />
+        )}
+      </Line>
+
+      {button && (
+        <Button
+          tonal
+
+          version='filled'
+
+          color='primary'
+
+          size={size}
+
+          onClick={(button.to || button.link) ? () => button.to ? navigate(button.to) : window.open(button.link, 'blank') : undefined}
+
+          {...button.props}
+
+          className={classNames([
+            staticClassName('SectionAction', theme) && [
+              'amaui-SectionTextMedia-button'
+            ],
+
+            button.props?.className,
+            classes.button
+          ])}
+        >
+          {button.text || 'Click here'}
+        </Button>
+      )}
+    </Line>
+  );
+
   return (
     <Section
       ref={(item: any) => {
@@ -174,77 +310,38 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
       {...other}
     >
       <Line
-        gap={7}
+        gap={5}
+
+        direction={{
+          xxs: 'column',
+          xs: 'column',
+          sm: 'column',
+          md: 'column',
+          default: ['left', 'right'].includes(mediaPosition) ? 'row' : 'column'
+        }}
+
+        align={['left', 'right'].includes(mediaPosition) ? 'flex-start' : 'center'}
+
+        justify={['left', 'right'].includes(mediaPosition) ? 'flex-start' : 'center'}
 
         fullWidth
 
         {...MainProps}
 
         className={classNames([
+          staticClassName('SectionTextMedia', theme) && [
+            'amaui-SectionTextMedia-main'
+          ],
+
           MainProps?.className,
-          classes.header
+          classes.main
         ])}
       >
-        {is('string', title) && (
-          <Type
-            version={size === 'large' ? 'h1' : size === 'regular' ? 'h2' : 'h3'}
+        {['top', 'left'].includes(mediaPosition) && mediaElement}
 
-            align='center'
+        {main}
 
-            {...TitleProps}
-
-            dangerouslySetInnerHTML={{
-              __html: textToInnerHTML(title)
-            }}
-          />
-        )}
-
-        <Line
-          gap={4}
-
-          direction={{
-            xxs: 'column',
-            xs: 'column',
-            sm: 'column',
-            md: 'column',
-            default: ['left', 'right'].includes(mediaPosition) ? 'row' : 'column'
-          }}
-
-          align={['left', 'right'].includes(mediaPosition) ? 'center' : 'center'}
-
-          justify={['left', 'right'].includes(mediaPosition) ? 'flex-start' : 'center'}
-
-          fullWidth
-
-          {...WrapperProps}
-
-          className={classNames([
-            classes.wrapper,
-            media && classes.wrapperRow
-          ])}
-        >
-          {['top', 'left'].includes(mediaPosition) && mediaElement}
-
-          {is('string', description) && (
-            <Text
-              align='center'
-
-              columns={1}
-
-              {...TextProps}
-
-              TypeProps={{
-                ...TextProps?.TypeProps,
-
-                version: size === 'large' ? 'b1' : [undefined, 'regular'].includes(size as any) ? 'b2' : 'b3'
-              }}
-
-              value={description}
-            />
-          )}
-
-          {['bottom', 'right'].includes(mediaPosition) && mediaElement}
-        </Line>
+        {['bottom', 'right'].includes(mediaPosition) && mediaElement}
       </Line>
     </Section>
   );

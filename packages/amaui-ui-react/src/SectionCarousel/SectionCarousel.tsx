@@ -374,7 +374,7 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
             />
           )}
 
-          {(item.to || item.link) && (
+          {item.buttonText && (
             <Line
               direction='row'
 
