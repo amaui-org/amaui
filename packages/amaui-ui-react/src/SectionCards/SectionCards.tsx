@@ -31,6 +31,7 @@ const useStyle = styleMethod(theme => ({
     flex: '0 0 auto',
     width: '100%',
     userSelect: 'none',
+    background: theme.palette.background.default.primary,
 
     '&:active': {
       '& $background': {
@@ -444,6 +445,11 @@ const Element: React.FC<ISectionCards> = React.forwardRef((props_, ref: any) => 
 
       maxWidth={false}
 
+      MainProps={{
+        justify: 'center',
+        align: 'center'
+      }}
+
       className={classNames([
         staticClassName('SectionCards', theme) && [
           'amaui-SectionCards-root',
@@ -459,9 +465,9 @@ const Element: React.FC<ISectionCards> = React.forwardRef((props_, ref: any) => 
       <Line
         gap={size === 'large' ? 3.5 : size === 'regular' ? 2.5 : 1.5}
 
-        align='flex-start'
+        justify='flex-start'
 
-        fullWidth
+        align='flex-start'
 
         direction='row'
 

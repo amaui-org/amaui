@@ -210,7 +210,7 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
           <Type
             version={size === 'large' ? 'h1' : size === 'regular' ? 'h2' : 'h3'}
 
-            align='center'
+            align={['left', 'top', 'bottom'].includes(mediaPosition) ? 'start' : 'end'}
 
             dangerouslySetInnerHTML={{
               __html: textToInnerHTML(title)
@@ -230,7 +230,7 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
 
         {is('string', description) && (
           <Text
-            align='center'
+            align={['left', 'top', 'bottom'].includes(mediaPosition) ? 'start' : 'end'}
 
             columns={1}
 

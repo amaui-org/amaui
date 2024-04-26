@@ -346,7 +346,7 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
         >
           {item.name && (
             <Type
-              version={size === 'large' ? 'd2' : size === 'regular' ? 'd3' : 'h1'}
+              version={size === 'large' ? 'd1' : size === 'regular' ? 'd2' : 'd3'}
 
               fullWidth
 

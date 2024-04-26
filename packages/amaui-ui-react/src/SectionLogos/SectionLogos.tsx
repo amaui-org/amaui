@@ -28,15 +28,15 @@ const useStyle = styleMethod(theme => ({
   },
 
   wrapper_size_small: {
-    maxWidth: '154px'
+    width: '154px'
   },
 
   wrapper_size_regular: {
-    maxWidth: '214px'
+    width: '214px'
   },
 
   wrapper_size_large: {
-    maxWidth: '274px'
+    width: '274px'
   },
 
   item: {
@@ -113,6 +113,11 @@ const Element: React.FC<ISectionLogos> = React.forwardRef((props_, ref: any) => 
 
       align='center'
 
+      MainProps={{
+        justify: 'center',
+        align: 'center'
+      }}
+
       className={classNames([
         staticClassName('SectionLogos', theme) && [
           'amaui-SectionLogos-root',
@@ -126,15 +131,13 @@ const Element: React.FC<ISectionLogos> = React.forwardRef((props_, ref: any) => 
       {...other}
     >
       <Line
-        gap={size === 'large' ? 3 : size === 'regular' ? 2 : 1}
+        gap={size === 'large' ? 10 : size === 'regular' ? 8 : 6}
 
         direction='row'
 
-        align='center'
-
         justify='flex-start'
 
-        fullWidth
+        align='center'
 
         className={classNames([
           staticClassName('SectionLogos', theme) && [
