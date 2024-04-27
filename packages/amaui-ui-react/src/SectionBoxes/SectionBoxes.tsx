@@ -41,6 +41,13 @@ const useStyle = styleMethod(theme => ({
     marginTop: 12
   },
 
+  text: {
+    '&.amaui-Type-root': {
+      color: 'white',
+      mixBlendMode: 'difference'
+    }
+  },
+
   button: {
     transition: theme.methods.transitions.make('transform'),
 
@@ -53,7 +60,6 @@ const useStyle = styleMethod(theme => ({
     position: 'absolute',
     inset: '0',
     overflow: 'hidden',
-    pointerEvents: 'none',
     zIndex: '1'
   },
 
@@ -75,8 +81,7 @@ const useStyle = styleMethod(theme => ({
 
   backgroundOverlay: {
     position: 'absolute',
-    inset: '0',
-    zIndex: '4'
+    inset: '0'
   },
 
   backgroundOverlayBlur: {
@@ -249,8 +254,21 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
           classes[`item_size_${size}`]
         ])}
       >
-        <div
+        <Line
+          gap={1}
+
+          align='flex-start'
+
+          justify='center'
+
+          fullWidth
+
           className={classNames([
+            staticClassName('SectionBoxes', theme) && [
+              'amaui-SectionBoxes-item-main'
+            ],
+
+            classes.main,
             classes.background,
             item.backgroundImage && styleBackground.backgroundImage && classes.backgroundImage
           ])}
@@ -265,7 +283,13 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
               muted
               loop
 
-              className={classes.backgroundVideo}
+              className={classNames([
+                staticClassName('SectionBoxes', theme) && [
+                  'amaui-SectionBoxes-item-background-video'
+                ],
+
+                classes.backgroundVideo
+              ])}
             >
               <source
                 src={urlVideo}
@@ -276,6 +300,10 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
           {item.overlay && (
             <div
               className={classNames([
+                staticClassName('SectionBoxes', theme) && [
+                  'amaui-SectionBoxes-item-background-overlay'
+                ],
+
                 classes.backgroundOverlay,
                 item.overlayBlur && classes.backgroundOverlayBlur
               ])}
@@ -285,26 +313,7 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
               }}
             />
           )}
-        </div>
 
-        <Line
-          gap={1}
-
-          align='center'
-
-          fullWidth
-
-          {...item.propsMain}
-
-          className={classNames([
-            staticClassName('SectionBoxes', theme) && [
-              'amaui-SectionBoxes-item-main'
-            ],
-
-            item.propsMain?.className,
-            classes.main
-          ])}
-        >
           {(item.name || item.description) && (
             <Line
               gap={1}
@@ -343,7 +352,8 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
                       'amaui-SectionBoxes-item-name'
                     ],
 
-                    item.propsName?.className
+                    item.propsName?.className,
+                    classes.text
                   ])}
                 />
               )}
@@ -367,7 +377,8 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
                       'amaui-SectionBoxes-item-description'
                     ],
 
-                    item.propsDescription?.className
+                    item.propsDescription?.className,
+                    classes.text
                   ])}
                 />
               )}
