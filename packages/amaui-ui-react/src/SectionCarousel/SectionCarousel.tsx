@@ -43,7 +43,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   main: {
-    padding: `0 ${theme.methods.space.value(5.5, 'px')}`,
+    padding: `0 ${theme.methods.space.value(12, 'px')}`,
     zIndex: '14'
   },
 
@@ -63,6 +63,12 @@ const useStyle = styleMethod(theme => ({
 
   item_size_large: {
     padding: `${theme.methods.space.value(9.25, 'px')} ${theme.methods.space.value(3, 'px')}`
+  },
+
+  text: {
+    '&.amaui-Type-root': {
+      mixBlendMode: 'difference'
+    }
   },
 
   button: {
@@ -297,8 +303,21 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
           classes[`item_size_${size}`]
         ])}
       >
-        <div
+        <Line
+          gap={1}
+
+          align='flex-start'
+
+          justify='center'
+
+          fullWidth
+
           className={classNames([
+            staticClassName('SectionCarousel', theme) && [
+              'amaui-SectionCarousel-item-main'
+            ],
+
+            classes.main,
             classes.background,
             item.backgroundImage && styleBackground.backgroundImage && classes.backgroundImage
           ])}
@@ -313,7 +332,13 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
               muted
               loop
 
-              className={classes.backgroundVideo}
+              className={classNames([
+                staticClassName('SectionCarousel', theme) && [
+                  'amaui-SectionCarousel-item-background-video'
+                ],
+
+                classes.backgroundVideo
+              ])}
             >
               <source
                 src={urlVideo}
@@ -324,6 +349,10 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
           {item.overlay && (
             <div
               className={classNames([
+                staticClassName('SectionCarousel', theme) && [
+                  'amaui-SectionCarousel-item-background-overlay'
+                ],
+
                 classes.backgroundOverlay,
                 item.overlayBlur && classes.backgroundOverlayBlur
               ])}
@@ -333,23 +362,7 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
               }}
             />
           )}
-        </div>
 
-        <Line
-          gap={1}
-
-          align='flex-start'
-
-          fullWidth
-
-          className={classNames([
-            staticClassName('SectionCarousel', theme) && [
-              'amaui-SectionCarousel-item-main'
-            ],
-
-            classes.main
-          ])}
-        >
           {item.name && (
             <Type
               version={size === 'large' ? 'd1' : size === 'regular' ? 'd2' : 'd3'}
@@ -361,14 +374,21 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
               }}
 
               {...item.propsName}
+
+              className={classNames([
+                staticClassName('SectionCarousel', theme) && [
+                  'amaui-SectionCarousel-item-title'
+                ],
+
+                item.propsName?.className,
+                classes.text
+              ])}
             />
           )}
 
           {item.description && (
             <Type
               version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b2'}
-
-              priority='secondary'
 
               fullWidth
 
@@ -377,6 +397,15 @@ const Element: React.FC<ISectionCarousel> = React.forwardRef((props_, ref: any) 
               }}
 
               {...item.propsDescription}
+
+              className={classNames([
+                staticClassName('SectionCarousel', theme) && [
+                  'amaui-SectionCarousel-item-description'
+                ],
+
+                item.propsDescription?.className,
+                classes.text
+              ])}
             />
           )}
 
