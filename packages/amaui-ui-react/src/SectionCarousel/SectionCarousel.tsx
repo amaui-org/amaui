@@ -43,7 +43,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   main: {
-    padding: `0 ${theme.methods.space.value(12, 'px')}`,
+    padding: '0 96px',
     zIndex: '14'
   },
 
@@ -67,6 +67,7 @@ const useStyle = styleMethod(theme => ({
 
   text: {
     '&.amaui-Type-root': {
+      color: 'white',
       mixBlendMode: 'difference'
     }
   },
@@ -113,9 +114,9 @@ const useStyle = styleMethod(theme => ({
     backdropFilter: 'blur(12px)'
   },
 
-  '@media only screen and (min-width: 640px)': {
+  '@media only screen and (max-width: 640px)': {
     $main: {
-      paddingInline: 80
+      paddingInline: 72
     }
   }
 }), { name: 'amaui-SectionCarousel' });
