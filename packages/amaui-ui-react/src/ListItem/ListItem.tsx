@@ -99,30 +99,30 @@ const useStyle = styleMethod(theme => {
     },
 
     size_small: {
-      padding: `${theme.methods.space.value('rg') * 0.5}px ${theme.methods.space.value('rg') * 0.75}px`,
+      padding: `${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(1.5, 'px')}`,
       minHeight: '24px'
     },
 
     size_regular: {
-      padding: `${theme.methods.space.value('rg')}px ${theme.methods.space.value('rg')}px`,
+      padding: `${theme.methods.space.value(2, 'px')} ${theme.methods.space.value(2, 'px')}`,
       minHeight: '40px'
     },
 
     size_large: {
-      padding: `${theme.methods.space.value('rg') * 1.5}px ${theme.methods.space.value('rg') * 1.25}px`,
+      padding: `${theme.methods.space.value(3, 'px')} ${theme.methods.space.value(2.5, 'px')}`,
       minHeight: '56px'
     },
 
     menuItem_size_small: {
-      padding: `${theme.methods.space.value('sm') * 0.5}px ${theme.methods.space.value('rg') * 0.75}px`
+      padding: `${theme.methods.space.value(0.5, 'px')} ${theme.methods.space.value(1.5, 'px')}`
     },
 
     menuItem_size_regular: {
-      padding: `${theme.methods.space.value('sm') * 0.75}px ${theme.methods.space.value('rg')}px`
+      padding: `${theme.methods.space.value(0.75, 'px')} ${theme.methods.space.value(2, 'px')}`
     },
 
     menuItem_size_large: {
-      padding: `${theme.methods.space.value('sm') * 1}px ${theme.methods.space.value('rg') * 1.25}px`
+      padding: `${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(2.5, 'px')}`
     },
 
     inset_size_small: {
@@ -218,16 +218,40 @@ const useStyle = styleMethod(theme => {
       paddingInline: `0 ${theme.methods.space.value(1.5, 'px')}`
     },
 
-    menuItem_start_icon: {
+    menuItem_start_icon_size_small: {
+      paddingInlineEnd: theme.methods.space.value(1.5, 'px')
+    },
+
+    menuItem_start_icon_size_regular: {
       paddingInlineEnd: theme.methods.space.value(2, 'px')
     },
 
-    menuItem_start_button: {
+    menuItem_start_icon_size_large: {
+      paddingInlineEnd: theme.methods.space.value(2.5, 'px')
+    },
+
+    menuItem_start_button_size_small: {
       paddingInlineEnd: theme.methods.space.value(1.5, 'px')
     },
 
-    menuItem_start_switch: {
+    menuItem_start_button_size_regular: {
+      paddingInlineEnd: theme.methods.space.value(2, 'px')
+    },
+
+    menuItem_start_button_size_large: {
+      paddingInlineEnd: theme.methods.space.value(2.5, 'px')
+    },
+
+    menuItem_start_switch_size_small: {
       paddingInlineEnd: theme.methods.space.value(1.5, 'px')
+    },
+
+    menuItem_start_switch_size_regular: {
+      paddingInlineEnd: theme.methods.space.value(2, 'px')
+    },
+
+    menuItem_start_switch_size_large: {
+      paddingInlineEnd: theme.methods.space.value(2.5, 'px')
     },
 
     end_icon: {
@@ -810,7 +834,8 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
               classes.aside,
               classes.start,
               classes[`align_${startAlign}`],
-              classes[`${menuItem ? 'menuItem_' : ''}start_${['amaui-Avatar', 'amaui-IconButton', 'amaui-Checkbox', 'amaui-Radio'].includes((start as any)?.type?.displayName) ? 'button' : ['amaui-Switch'].includes((start as any)?.type?.displayName) ? 'switch' : 'icon'}`]
+              classes[`${menuItem ? 'menuItem_' : ''}start_${['amaui-Avatar', 'amaui-IconButton', 'amaui-Checkbox', 'amaui-Radio'].includes((start as any)?.type?.displayName) ? 'button' : ['amaui-Switch'].includes((start as any)?.type?.displayName) ? 'switch' : 'icon'}`],
+              classes[`${menuItem ? 'menuItem_' : ''}start_${['amaui-Avatar', 'amaui-IconButton', 'amaui-Checkbox', 'amaui-Radio'].includes((start as any)?.type?.displayName) ? 'button' : ['amaui-Switch'].includes((start as any)?.type?.displayName) ? 'switch' : 'icon'}_size_${size}`]
             ])}
           >
             {is('string', start) ? start : React.cloneElement(start as any, {
