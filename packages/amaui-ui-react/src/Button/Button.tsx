@@ -46,19 +46,19 @@ const useStyle = styleMethod(theme => ({
   size_small: {
     paddingBlock: theme.methods.space.value(1, 'px'),
     paddingInline: theme.methods.space.value(2, 'px'),
-    borderRadius: `${theme.shape.radius.unit * 2}px`
+    borderRadius: `${theme.shape.radius.unit * 4}px`
   },
 
   size_regular: {
     paddingBlock: theme.methods.space.value(1.5, 'px'),
     paddingInline: theme.methods.space.value(3, 'px'),
-    borderRadius: `${theme.shape.radius.unit * 2.5}px`
+    borderRadius: `${theme.shape.radius.unit * 4.5}px`
   },
 
   size_large: {
     paddingBlock: theme.methods.space.value(2, 'px'),
     paddingInline: theme.methods.space.value(4, 'px'),
-    borderRadius: `${theme.shape.radius.unit * 3.5}px`
+    borderRadius: `${theme.shape.radius.unit * 5.5}px`
   },
 
   // icon
