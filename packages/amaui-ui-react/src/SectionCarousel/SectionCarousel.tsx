@@ -105,6 +105,12 @@ const useStyle = styleMethod(theme => ({
 
   backgroundOverlayBlur: {
     backdropFilter: 'blur(12px)'
+  },
+
+  '@media only screen and (min-width: 640px)': {
+    $main: {
+      paddingInline: 80
+    }
   }
 }), { name: 'amaui-SectionCarousel' });
 
