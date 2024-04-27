@@ -31,7 +31,6 @@ const useStyle = styleMethod(theme => ({
     position: 'relative',
     flex: '0 0 auto',
     width: '100%',
-    userSelect: 'none',
     background: theme.palette.background.default.primary,
 
     '&:active': {
