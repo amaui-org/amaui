@@ -411,7 +411,7 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
     styleBackground = {
       ...styleBackground,
 
-      backgroundColor: themed ? theme.methods.palette.color.value(undefined as any, 95, true, palette) : palette?.main
+      backgroundColor: themed ? palette[theme.palette.light ? 95 : 90] : palette?.main
     };
   }
 
