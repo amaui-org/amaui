@@ -49,8 +49,7 @@ const useStyle = styleMethod(theme => ({
 
   item: {
     position: 'relative',
-    height: '100%',
-    userSelect: 'none'
+    height: '100%'
   },
 
   item_size_small: {
@@ -84,7 +83,6 @@ const useStyle = styleMethod(theme => ({
     position: 'absolute',
     inset: '0',
     overflow: 'hidden',
-    pointerEvents: 'none',
     zIndex: '1'
   },
 
@@ -106,8 +104,7 @@ const useStyle = styleMethod(theme => ({
 
   backgroundOverlay: {
     position: 'absolute',
-    inset: '0',
-    zIndex: '4'
+    inset: '0'
   },
 
   backgroundOverlayBlur: {
