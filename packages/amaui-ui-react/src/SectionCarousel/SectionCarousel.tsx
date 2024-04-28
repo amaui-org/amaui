@@ -43,8 +43,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   main: {
-    padding: '0 96px',
-    zIndex: '14'
+    padding: '0 96px !important',
+    zIndex: '14 !important'
   },
 
   item: {
@@ -66,7 +66,7 @@ const useStyle = styleMethod(theme => ({
 
   text: {
     '&.amaui-Type-root': {
-      color: 'white',
+      color: 'white !important',
       mixBlendMode: 'difference'
     }
   },
@@ -87,9 +87,9 @@ const useStyle = styleMethod(theme => ({
   },
 
   backgroundImage: {
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat'
+    backgroundSize: 'cover !important',
+    backgroundPosition: 'center !important',
+    backgroundRepeat: 'no-repeat !important'
   },
 
   backgroundVideo: {
