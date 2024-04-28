@@ -406,7 +406,7 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
   let styleBackground: any = {};
 
   if (backgroundColor) {
-    const palette = theme.palette.color[backgroundColor] || theme.methods.color(backgroundColor);
+    const palette = ['inherit', 'initial', 'default', 'inverted', 'neutral'].includes(backgroundColor) ? theme.palette.color.neutral : (theme.palette.color[backgroundColor] || theme.methods.color(backgroundColor));
 
     styleBackground = {
       ...styleBackground,
