@@ -129,7 +129,7 @@ const useVisible = (props: IUseVisible) => {
       // Clean up
       observer.disconnect();
     };
-  }, [root, parent, options?.root, options?.rootMargin, hash(options?.threshold)]);
+  }, [root, options?.root, options?.rootMargin, hash(options?.threshold)]);
 
   return response;
 };
