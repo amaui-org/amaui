@@ -406,13 +406,29 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
   let styleBackground: any = {};
 
   if (backgroundColor) {
-    const palette = ['inherit', 'initial', 'default', 'inverted', 'neutral'].includes(backgroundColor) ? theme.palette.color.neutral : (theme.palette.color[backgroundColor] || theme.methods.color(backgroundColor));
+    if (['default'].includes(backgroundColor)) {
+      styleBackground = {
+        ...styleBackground,
 
-    styleBackground = {
-      ...styleBackground,
+        backgroundColor: theme.palette.background.default.primary
+      };
+    }
+    else if (['inverted'].includes(backgroundColor)) {
+      styleBackground = {
+        ...styleBackground,
 
-      backgroundColor: themed ? palette[theme.palette.light ? 95 : 90] : palette?.main
-    };
+        backgroundColor: theme.palette.background[theme.palette.light ? 'dark' : 'light'].primary
+      };
+    }
+    else {
+      const palette = ['inherit', 'initial', 'themed', 'neutral'].includes(backgroundColor) ? theme.palette.color.neutral : (theme.palette.color[backgroundColor] || theme.methods.color(backgroundColor));
+
+      styleBackground = {
+        ...styleBackground,
+
+        backgroundColor: themed ? palette[theme.palette.light ? 95 : 90] : palette?.main
+      };
+    }
   }
 
   if (is('array', backgroundGradient) && backgroundGradient!.length >= 2) {
