@@ -899,10 +899,14 @@ const Carousel: React.FC<ICarousel> = React.forwardRef((props_, ref: any) => {
 
           const width_ = refs.carousel.current.getBoundingClientRect().width;
 
-          const original = (index * width_) + (index * (gap * theme.space.unit));
+          const original = index * width_ + index * (gap * theme.space.unit);
 
-          if (x <= original && original - x >= width_ / 4) onUpdate('previous');
-          else if (x >= original && x - original >= width_ / 4) onUpdate('next');
+          const threshold = width_ / 4;
+
+          const moved = Math.abs(original - x);
+
+          if (x > 0 && x < original && moved >= threshold) onUpdate(index - 1);
+          else if (x > original && moved >= threshold) onUpdate(index + 1);
           else onUpdate(index);
         }
 
@@ -915,10 +919,14 @@ const Carousel: React.FC<ICarousel> = React.forwardRef((props_, ref: any) => {
 
           const height_ = refs.carousel.current.getBoundingClientRect().height;
 
-          const original = (index * height_) + (index * (gap * theme.space.unit));
+          const original = index * height_ + index * (gap * theme.space.unit);
 
-          if (y <= original && original - y >= height_ / 4) onUpdate('previous');
-          else if (y >= original && y - original >= height_ / 4) onUpdate('next');
+          const threshold = height_ / 4;
+
+          const moved = Math.abs(original - y);
+
+          if (y > 0 && y < original && moved >= threshold) onUpdate(index - 1);
+          else if (y > original && moved >= threshold) onUpdate(index + 1);
           else onUpdate(index);
         }
       }
