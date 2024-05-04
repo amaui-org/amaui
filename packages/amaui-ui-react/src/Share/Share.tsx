@@ -6,7 +6,7 @@ import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-re
 import LineElement from '../Line';
 import IconElement, { IIcon } from '../Icon';
 import TypeElement from '../Type';
-import ListItemElement from '../ListItem';
+import MenuItemElement from '../MenuItem';
 import TooltipElement from '../Tooltip';
 import InteractionElement from '../Interaction';
 import MenuElement from '../Menu';
@@ -364,7 +364,7 @@ const Share: React.FC<IShare> = React.forwardRef((props_, ref: any): any => {
 
   const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
-  const ListItem = React.useMemo(() => theme?.elements?.ListItem || ListItemElement, [theme]);
+  const MenuItem = React.useMemo(() => theme?.elements?.MenuItem || MenuItemElement, [theme]);
 
   const Tooltip = React.useMemo(() => theme?.elements?.Tooltip || TooltipElement, [theme]);
 
@@ -413,7 +413,7 @@ const Share: React.FC<IShare> = React.forwardRef((props_, ref: any): any => {
 
     onOpen,
 
-    ListItemProps,
+    MenuItemProps,
 
     IconFacebook = IconCustomFacebook,
     IconX = IconCustomX,
@@ -611,7 +611,7 @@ const Share: React.FC<IShare> = React.forwardRef((props_, ref: any): any => {
       )
     }))
     .map((item, index) => (
-      <ListItem
+      <MenuItem
         key={index}
 
         onClick={(event: MouseEvent) => onClick(item.value, event)}
@@ -624,7 +624,7 @@ const Share: React.FC<IShare> = React.forwardRef((props_, ref: any): any => {
 
         {...itemProps?.(item, index)}
 
-        {...ListItemProps}
+        {...MenuItemProps}
       />
     ));
 

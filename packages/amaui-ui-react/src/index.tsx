@@ -142,6 +142,9 @@ export * from './List';
 export { default as ListItem } from './ListItem';
 export * from './ListItem';
 
+export { default as MenuItem } from './MenuItem';
+export * from './MenuItem';
+
 export { default as ListSubheader } from './ListSubheader';
 export * from './ListSubheader';
 

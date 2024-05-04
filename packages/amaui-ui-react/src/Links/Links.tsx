@@ -9,7 +9,7 @@ import ShareElement from '../Share';
 import LineElement from '../Line';
 import TypeElement from '../Type';
 import ButtonElement from '../Button';
-import ListItemElement from '../ListItem';
+import MenuItemElement from '../MenuItem';
 import IconButtonElement from '../IconButton';
 import { useConfirm } from '../Confirm';
 import { textToInnerHTML } from '@amaui/utils';
@@ -168,7 +168,7 @@ const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
 
   const Button = React.useMemo(() => theme?.elements?.Button || ButtonElement, [theme]);
 
-  const ListItem = React.useMemo(() => theme?.elements?.ListItem || ListItemElement, [theme]);
+  const MenuItem = React.useMemo(() => theme?.elements?.MenuItem || MenuItemElement, [theme]);
 
   const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
 
@@ -375,7 +375,7 @@ const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
 
                 <Menu
                   menuItems={[
-                    <ListItem
+                    <MenuItem
                       start={(
                         <IconShare
                           size='small'

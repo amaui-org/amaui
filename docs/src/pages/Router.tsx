@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 import { isEnvironment, random } from '@amaui/utils';
 
-import { Avatar, Line, Link, List, ListItem, ListSubheader, NavigationDrawer, SpeedDial, SpeedDialItem, Surface, Switch, Tooltip, Type, useMediaQuery } from '@amaui/ui-react';
+import { Avatar, Line, Link, List, MenuItem, ListSubheader, NavigationDrawer, SpeedDial, SpeedDialItem, Surface, Switch, Tooltip, Type, useMediaQuery } from '@amaui/ui-react';
 import { classNames, colors, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 import AmauiStorage from '@amaui/storage';
 
@@ -190,7 +190,7 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'root' });
 
-const ListItemNext = (props: any) => {
+const MenuItemNext = (props: any) => {
   const {
     href,
 
@@ -481,20 +481,20 @@ function Root(props: any) {
     return (menu || []).map((item: any, index: number) => {
       const isUrl = item.url && !item.menu;
 
-      const ListItemComponent = isUrl ? ListItemNext : React.Fragment;
-      const ListItemComponentProps: any = {};
+      const MenuItemComponent = isUrl ? MenuItemNext : React.Fragment;
+      const MenuItemComponentProps: any = {};
 
       if (isUrl) {
-        ListItemComponentProps.key = index;
-        ListItemComponentProps.href = item.url;
-        ListItemComponentProps.onClick = () => setOpen(false);
+        MenuItemComponentProps.key = index;
+        MenuItemComponentProps.href = item.url;
+        MenuItemComponentProps.onClick = () => setOpen(false);
       }
 
       return (
-        <ListItemComponent
-          {...ListItemComponentProps}
+        <MenuItemComponent
+          {...MenuItemComponentProps}
         >
-          <ListItem
+          <MenuItem
             key={index}
 
             primary={item.label}
@@ -541,7 +541,7 @@ function Root(props: any) {
               item.menu && classes.menuItem_menu
             ])}
           />
-        </ListItemComponent>
+        </MenuItemComponent>
       );
     });
   }, [openList, toggleList, NavigationDrawerProps]);
