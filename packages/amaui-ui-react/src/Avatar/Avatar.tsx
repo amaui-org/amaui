@@ -108,10 +108,10 @@ const Avatar: React.FC<IAvatar> = React.forwardRef((props_, ref) => {
   else if (!React.isValidElement(children)) {
     const typeProps: any = { version: 't1' };
 
-    if (size === 'small') typeProps.size = `${(30 * 0.54) / 16}rem`;
-    else if (size === 'regular') typeProps.size = `${(40 * 0.54) / 16}rem`;
-    else if (size === 'large') typeProps.size = `${(50 * 0.54) / 16}rem`;
-    else if (!['small', 'regular', 'large'].includes(size)) typeProps.size = `${(size * 0.54) / 16}rem`;
+    if (size === 'small') typeProps.size = '0.75rem';
+    else if (size === 'regular') typeProps.size = '1rem';
+    else if (size === 'large') typeProps.size = '1.25rem';
+    else if (!['small', 'regular', 'large'].includes(size)) typeProps.size = `${(size * 0.4) / 16}rem`;
 
     children = (
       <Type

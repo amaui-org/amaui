@@ -274,7 +274,7 @@ const Element: React.FC<ISectionMedia> = React.forwardRef((props_, ref: any) => 
         refs.root.current = item;
       }}
 
-      padding='small'
+      maxWidth='small'
 
       align='center'
 
