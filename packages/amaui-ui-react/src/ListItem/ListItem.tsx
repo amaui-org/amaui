@@ -496,7 +496,7 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
           <Interaction
             border={false}
 
-            preselected={InteractionProps.focus || preselected || undefined}
+            preselected={InteractionProps?.focus || preselected || undefined}
 
             selected={selected}
 
