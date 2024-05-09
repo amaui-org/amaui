@@ -477,8 +477,13 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
 
           RootProps?.className,
           classes.root,
+          !menuItem && classes[`size_${size}`],
           classes[`shape_${shape}_position_${shapePosition}`],
           inset && !start && classes[`inset_size_${size}`],
+          menuItem && [
+            classes[`menuItem_size_${size}`],
+            inset && classes[`menuItem_inset_size_${size}`]
+          ],
           (href || button) && classes.button,
           noPadding && classes.noPadding,
           disabled && classes.disabled
@@ -524,8 +529,7 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
               classes.aside,
               classes.start,
               classes[`align_${startAlign}`],
-              classes[`${menuItem ? 'menuItem_' : ''}start_${['amaui-Avatar', 'amaui-IconButton', 'amaui-Checkbox', 'amaui-Radio'].includes((start as any)?.type?.displayName) ? 'button' : ['amaui-Switch'].includes((start as any)?.type?.displayName) ? 'switch' : 'icon'}`],
-              classes[`${menuItem ? 'menuItem_' : ''}start_${['amaui-Avatar', 'amaui-IconButton', 'amaui-Checkbox', 'amaui-Radio'].includes((start as any)?.type?.displayName) ? 'button' : ['amaui-Switch'].includes((start as any)?.type?.displayName) ? 'switch' : 'icon'}_size_${size}`]
+              classes[`${menuItem ? 'menuItem_' : ''}start_${['amaui-Avatar', 'amaui-IconButton', 'amaui-Checkbox', 'amaui-Radio'].includes((start as any)?.type?.displayName) ? 'button' : ['amaui-Switch'].includes((start as any)?.type?.displayName) ? 'switch' : 'icon'}`]
             ])}
           >
             {is('string', start) ? start : React.cloneElement(start as any, {
