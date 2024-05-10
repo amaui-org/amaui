@@ -370,6 +370,8 @@ const MenuItem: React.FC<IMenuItem> = React.forwardRef((props_, ref: any) => {
 
       disabled={disabled}
 
+      onClick={onClick}
+
       onFocus={onFocus}
 
       onBlur={onBlur}
