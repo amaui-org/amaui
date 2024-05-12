@@ -1068,6 +1068,8 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
 
         direction='column'
 
+        color='default'
+
         Component={Surface}
 
         {...other_}
