@@ -195,7 +195,6 @@ const useStyle = styleMethod(theme => {
       top: '50%',
       insetInlineStart: theme.methods.space.value(2, 'px'),
       transformOrigin: 'top left',
-      transform: 'translate(0px, -50%) scale(1)',
       transition: theme.methods.transitions.make(['color', 'inset-inline-start', 'margin-inline-start', 'transform']),
       pointerEvents: 'none',
       userSelect: 'none',
@@ -203,6 +202,14 @@ const useStyle = styleMethod(theme => {
       ...overflow,
 
       width: 'auto'
+    },
+
+    label_regular: {
+      transform: 'translate(0px, -50%) scale(1)'
+    },
+
+    label_multiline: {
+      transform: 'translate(0px, -40px) scale(1)'
     },
 
     label_rtl: {
@@ -227,13 +234,28 @@ const useStyle = styleMethod(theme => {
       marginInlineStart: '4px'
     },
 
+    label_version_outlined_size_small_multiline_focus: {
+      transform: 'translate(0, -60px) scale(0.667)',
+      marginInlineStart: '4px'
+    },
+
     label_version_outlined_size_regular_focus: {
       transform: 'translate(0, -34px) scale(0.667)',
       marginInlineStart: '4px'
     },
 
+    label_version_outlined_size_regular_multiline_focus: {
+      transform: 'translate(0, -64px) scale(0.667)',
+      marginInlineStart: '4px'
+    },
+
     label_version_outlined_size_large_focus: {
       transform: 'translate(0, -38px) scale(0.667)',
+      marginInlineStart: '4px'
+    },
+
+    label_version_outlined_size_large_multiline_focus: {
+      transform: 'translate(0, -68px) scale(0.667)',
       marginInlineStart: '4px'
     },
 
@@ -1018,6 +1040,7 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
             'amaui-TextField-root', ,
             `amaui-TextField-version-${version}`,
             `amaui-TextField-size-${size}`,
+            multiline && `amaui-TextField-multiline`,
             valueWithData && 'amaui-TextField-value',
             error && `amaui-TextField-error`,
             required && 'amaui-TextField-required',
@@ -1110,12 +1133,13 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
               ],
 
               classes.label,
+              classes[`label_${multiline ? 'multiline' : 'regular'}`],
               classes[`label_version_${version}`],
               classes[`label_size_${size}`],
               classes[`label_version_${version}_size_${size}`],
               (enabled || valueWithData || focus) && [
                 classes[`label_focus`],
-                classes[`label_version_${version}_size_${size}_focus`]
+                classes[`label_version_${version}_size_${size}${multiline ? '_multiline' : ''}_focus`]
               ],
               theme.direction === 'rtl' && classes.label_rtl,
               start && [
