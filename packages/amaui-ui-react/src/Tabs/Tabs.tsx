@@ -81,7 +81,8 @@ const IconMaterialNavigateBeforeRounded = React.forwardRef((props: any, ref) => 
 const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    flex: '0 0 auto'
   },
 
   size_small: {

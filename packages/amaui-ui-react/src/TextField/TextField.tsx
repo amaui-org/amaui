@@ -192,8 +192,7 @@ const useStyle = styleMethod(theme => {
 
     label: {
       position: 'absolute',
-      top: '50%',
-      insetInlineStart: theme.methods.space.value(2, 'px'),
+      insetInlineStart: '16px',
       transformOrigin: 'top left',
       transition: theme.methods.transitions.make(['color', 'inset-inline-start', 'margin-inline-start', 'transform']),
       pointerEvents: 'none',
@@ -205,11 +204,12 @@ const useStyle = styleMethod(theme => {
     },
 
     label_regular: {
+      top: '50%',
       transform: 'translate(0px, -50%) scale(1)'
     },
 
     label_multiline: {
-      transform: 'translate(0px, -40px) scale(1)'
+      top: 0
     },
 
     label_rtl: {
@@ -224,39 +224,38 @@ const useStyle = styleMethod(theme => {
       insetInlineStart: theme.methods.space.value(6.5, 'px')
     },
 
+    label_size_small_multiline: {
+      transform: 'translate(4px, 14px) scale(1)'
+    },
+
+    label_size_regular_multiline: {
+      transform: 'translate(4px, 18px) scale(1)'
+    },
+
+    label_size_large_multiline: {
+      transform: 'translate(4px, 22px) scale(1)'
+    },
+
     // Focus
     label_focus: {
-      transform: 'translate(0px, -100%) scale(0.667)'
+      insetInlineStart: '15px',
+      marginInlineStart: '4px'
+    },
+
+    label_multiline_focus: {
+      transform: 'translate(0, -6px) scale(0.667)'
     },
 
     label_version_outlined_size_small_focus: {
-      transform: 'translate(0, -30px) scale(0.667)',
-      marginInlineStart: '4px'
-    },
-
-    label_version_outlined_size_small_multiline_focus: {
-      transform: 'translate(0, -60px) scale(0.667)',
-      marginInlineStart: '4px'
+      transform: 'translate(0, -30px) scale(0.667)'
     },
 
     label_version_outlined_size_regular_focus: {
-      transform: 'translate(0, -34px) scale(0.667)',
-      marginInlineStart: '4px'
-    },
-
-    label_version_outlined_size_regular_multiline_focus: {
-      transform: 'translate(0, -64px) scale(0.667)',
-      marginInlineStart: '4px'
+      transform: 'translate(0, -34px) scale(0.667)'
     },
 
     label_version_outlined_size_large_focus: {
-      transform: 'translate(0, -38px) scale(0.667)',
-      marginInlineStart: '4px'
-    },
-
-    label_version_outlined_size_large_multiline_focus: {
-      transform: 'translate(0, -68px) scale(0.667)',
-      marginInlineStart: '4px'
+      transform: 'translate(0, -38px) scale(0.667)'
     },
 
     background: {
@@ -362,15 +361,15 @@ const useStyle = styleMethod(theme => {
     },
 
     icon_size_small: {
-      paddingBlock: theme.methods.space.value(1.5, 'px')
+      paddingBlock: theme.methods.space.value(1, 'px')
     },
 
     icon_size_regular: {
-      paddingBlock: theme.methods.space.value(2, 'px')
+      paddingBlock: theme.methods.space.value(1.5, 'px')
     },
 
     icon_size_large: {
-      paddingBlock: theme.methods.space.value(2.5, 'px')
+      paddingBlock: theme.methods.space.value(2, 'px')
     },
 
     icon_button_size_small: {
@@ -1136,10 +1135,12 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
               classes[`label_${multiline ? 'multiline' : 'regular'}`],
               classes[`label_version_${version}`],
               classes[`label_size_${size}`],
+              multiline && classes[`label_size_${size}_multiline`],
               classes[`label_version_${version}_size_${size}`],
               (enabled || valueWithData || focus) && [
                 classes[`label_focus`],
-                classes[`label_version_${version}_size_${size}${multiline ? '_multiline' : ''}_focus`]
+                classes[`label_version_${version}_size_${size}${multiline ? '_multiline' : ''}_focus`],
+                multiline && classes.label_multiline_focus
               ],
               theme.direction === 'rtl' && classes.label_rtl,
               start && [
