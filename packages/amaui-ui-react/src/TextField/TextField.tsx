@@ -194,7 +194,7 @@ const useStyle = styleMethod(theme => {
       position: 'absolute',
       insetInlineStart: '16px',
       transformOrigin: 'top left',
-      transition: theme.methods.transitions.make(['color', 'inset-inline-start', 'margin-inline-start', 'transform']),
+      transition: theme.methods.transitions.make(['color', 'inset', 'margin', 'transform']),
       pointerEvents: 'none',
       userSelect: 'none',
 
@@ -209,7 +209,7 @@ const useStyle = styleMethod(theme => {
     },
 
     label_multiline: {
-      top: 0
+      top: '0px'
     },
 
     label_rtl: {
@@ -238,24 +238,10 @@ const useStyle = styleMethod(theme => {
 
     // Focus
     label_focus: {
+      top: '0px',
+      transform: 'translate(0, -6px) scale(0.667)',
       insetInlineStart: '15px',
       marginInlineStart: '4px'
-    },
-
-    label_multiline_focus: {
-      transform: 'translate(0, -6px) scale(0.667)'
-    },
-
-    label_version_outlined_size_small_focus: {
-      transform: 'translate(0, -30px) scale(0.667)'
-    },
-
-    label_version_outlined_size_regular_focus: {
-      transform: 'translate(0, -34px) scale(0.667)'
-    },
-
-    label_version_outlined_size_large_focus: {
-      transform: 'translate(0, -38px) scale(0.667)'
     },
 
     background: {
