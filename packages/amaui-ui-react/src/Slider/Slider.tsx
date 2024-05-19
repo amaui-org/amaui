@@ -545,9 +545,9 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
 
   const [init, setInit] = React.useState(false);
   const [value, setValue] = React.useState(() => {
-    const valueNew = (valueDefault !== undefined ? valueDefault : value_) || 0;
+    const valueNew = (valueDefault !== undefined ? valueDefault : value_) || (is('number', min) ? min : 0);
 
-    return is('array', valueNew) ? (valueNew as any).sort((a, b) => a - b) : valueNew;
+    return is('array', valueNew) ? (valueNew as any).sort((a, b) => a - b).map(item => clamp(item, min, max)) : clamp(valueNew as any, min, max);
   });
   const [mouseDown, setMouseDown] = React.useState<any>(false);
   const [mouseDownButton, setMouseDownButton] = React.useState<any>(false);
@@ -943,7 +943,7 @@ const Slider: React.FC<ISlider> = React.forwardRef((props_, ref: any) => {
 
     else valueNew = percentageFromValueWithinRange(value__, refs.min.current, refs.max.current);
 
-    return valueNew;
+    return clamp(valueNew, 0, 100);
   };
 
   const valueMark = (value__: any) => {

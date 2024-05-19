@@ -4,7 +4,7 @@ import { clamp, is, parse, valueFromPercentageWithinRange } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import SurfaceElement from '../Surface';
-import { angleToCoordinates, staticClassName } from '../utils';
+import { angleToCoordinates, staticClassName, toNumber } from '../utils';
 import { IBaseElement, ITonal, IColor, ISize, IStyle, IElement, IPropsAny } from '../types';
 
 const useStyle = styleMethod(theme => ({
@@ -267,9 +267,9 @@ const RoundMeter: React.FC<IRoundMeter> = React.forwardRef((props_, ref: any) =>
     const values = [];
 
     if (marks_.length) {
-      const center = width / 2;
+      const center = toNumber(width / 2);
 
-      radius = (width / 2) - boundaryWidth - outsidePadding;
+      radius = toNumber((width / 2) - boundaryWidth - outsidePadding);
 
       let marksValues = marks_;
 
@@ -289,11 +289,13 @@ const RoundMeter: React.FC<IRoundMeter> = React.forwardRef((props_, ref: any) =>
             ...other_
           } = mark;
 
+          const itemPadding = toNumber(markPadding);
+
           const angle = valueFromPercentageWithinRange(position, min, max);
 
-          const start = angleToCoordinates(angle, center, center, radius - markPadding);
+          const start = angleToCoordinates(angle, center, center, radius - itemPadding);
 
-          const end = angleToCoordinates(angle, center, center, radius - (size_ !== undefined ? size_ : markSize) - markPadding);
+          const end = angleToCoordinates(angle, center, center, radius - (size_ !== undefined ? size_ : markSize) - itemPadding);
 
           values[index].push({
             d: [
@@ -315,11 +317,11 @@ const RoundMeter: React.FC<IRoundMeter> = React.forwardRef((props_, ref: any) =>
     const values = [];
 
     if (labels_.length) {
-      const center = width / 2;
+      const center = toNumber(width / 2);
 
-      const marksPadding = marks_?.length ? (marks_ || []).sort((a, b) => b.size - a.size)[0]?.size || markSize : 0;
+      const marksPadding = toNumber(marks_?.length ? (marks_ || []).sort((a, b) => b.size - a.size)[0]?.size || markSize : 0);
 
-      radius = (width / 2) - boundaryWidth - marksPadding - outsidePadding;
+      radius = toNumber((width / 2) - boundaryWidth - marksPadding - outsidePadding);
 
       let labelsValues = labels_;
 
@@ -339,11 +341,13 @@ const RoundMeter: React.FC<IRoundMeter> = React.forwardRef((props_, ref: any) =>
             ...other_
           } = label;
 
-          const fontSize = label.style?.fontSize !== undefined ? label.style.fontSize : 14;
+          const itemPadding = toNumber(labelPadding);
+
+          const fontSize = toNumber(label.style?.fontSize !== undefined ? label.style.fontSize : 14);
 
           const angle = valueFromPercentageWithinRange(position, min, max);
 
-          const start = angleToCoordinates(angle, center, center, radius - (fontSize / 2) - labelPadding);
+          const start = angleToCoordinates(angle, center, center, radius - (fontSize / 2) - itemPadding);
 
           values[index].push({
             x: start.x,

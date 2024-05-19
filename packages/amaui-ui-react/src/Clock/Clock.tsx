@@ -591,7 +591,7 @@ const Clock: React.FC<IClock> = React.forwardRef((props__, ref: any) => {
       background
 
       BackgroundProps={{
-        fill: theme.methods.palette.color.value(undefined, 80, true, palette),
+        fill: theme.methods.palette.color.value(undefined, 70, true, palette),
 
         onMouseDown: onMouseDown,
 

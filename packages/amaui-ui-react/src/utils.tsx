@@ -444,3 +444,5 @@ if (isEnvironment('browser')) {
     };
   }
 }
+
+export const toNumber = (item: any, valueDefault = 0) => (is('number', item) ? item : +String(item).match(/\d+.?\d+/)?.[0]) || valueDefault;

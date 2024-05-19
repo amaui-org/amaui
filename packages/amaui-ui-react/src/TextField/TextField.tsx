@@ -347,32 +347,32 @@ const useStyle = styleMethod(theme => {
     },
 
     icon_size_small: {
-      paddingBlock: theme.methods.space.value(1, 'px')
+      paddingBlock: '12px'
     },
 
     icon_size_regular: {
-      paddingBlock: theme.methods.space.value(1.5, 'px')
+      paddingBlock: '16px'
     },
 
     icon_size_large: {
-      paddingBlock: theme.methods.space.value(2, 'px')
+      paddingBlock: '24px'
     },
 
     icon_button_size_small: {
-      paddingBlock: theme.methods.space.value(0.5, 'px')
+      paddingBlock: '4px'
     },
 
     icon_button_size_regular: {
-      paddingBlock: theme.methods.space.value(1, 'px')
+      paddingBlock: '8px'
     },
 
     icon_button_size_large: {
-      paddingBlock: theme.methods.space.value(1.5, 'px')
+      paddingBlock: '12px'
     },
 
     icon_start: {
-      paddingInlineEnd: theme.methods.space.value(2, 'px'),
-      paddingInlineStart: theme.methods.space.value(1.5, 'px')
+      paddingInlineEnd: '16px',
+      paddingInlineStart: '12px'
     },
 
     icon_vertical_align_start: {
