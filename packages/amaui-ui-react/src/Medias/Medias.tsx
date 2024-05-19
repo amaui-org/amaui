@@ -402,6 +402,8 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
 
             src={media.url || media.src || media.urlSmall || media.srcSmall}
 
+            size={size}
+
             {...media}
 
             {...AudioProps}
@@ -456,6 +458,8 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
             color='primary'
 
             src={media.url || media.src || media.urlSmall || media.srcSmall}
+
+            size={size}
 
             {...media}
 
