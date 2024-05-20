@@ -696,11 +696,11 @@ const CalendarMonth: React.FC<ICalenarDays> = React.forwardRef((props__, ref: an
 
                       style={{
                         ...(range && !day.selected && !day.selectedSame && day.between ? {
-                          background: theme.methods.palette.color.value(undefined, 80, true, palette)
+                          background: theme.methods.palette.color.value(undefined, 60, true, palette)
                         } : undefined),
 
                         ...(range && day.selected && !day.selectedSame ? {
-                          color: theme.methods.palette.color.value(undefined, 80, true, palette)
+                          color: theme.methods.palette.color.value(undefined, 60, true, palette)
                         } : undefined)
                       }}
                     >
