@@ -49,8 +49,6 @@ export default function App({ Component, pageProps }: AppProps) {
 
   amauiStyle.plugins.add = [unit, prefix, rtl, valueObject, makeClassName];
 
-  console.log(1, amauiStyle);
-
   return (
     <AmauiThemeProvider>
       <MainProgress>
