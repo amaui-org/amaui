@@ -149,6 +149,9 @@ export interface ILinks extends IBaseElement {
 
   IconMore?: any;
   IconShare?: any;
+
+  ShareProps?: any;
+  ItemShareProps?: any;
 }
 
 const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
@@ -192,6 +195,9 @@ const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
 
     IconMore = IconMaterialMoreVertRounded,
     IconShare = IconMaterialShareRounded,
+
+    ShareProps,
+    ItemShareProps,
 
     className,
 
@@ -400,9 +406,15 @@ const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
 
                           url={item.url}
 
+                          exclude={['print']}
+
+                          {...ItemShareProps}
+
                           ListItemProps={{
                             size: 'small',
-                            noBackground: true
+                            noBackground: true,
+
+                            ...ItemShareProps?.ListItemProps
                           }}
                         />
                       ) : undefined}
@@ -443,12 +455,16 @@ const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
         )}
       </Line>
 
-      {share && (
-        <Share />
-      )}
+      {
+        share && (
+          <Share
+            {...ShareProps}
+          />
+        )
+      }
 
       {end}
-    </Section>
+    </Section >
   );
 });
 

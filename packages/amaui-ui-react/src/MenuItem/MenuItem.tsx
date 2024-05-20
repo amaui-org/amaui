@@ -350,7 +350,14 @@ const MenuItem: React.FC<IMenuItem> = React.forwardRef((props_, ref: any) => {
 
   return <>
     <ListItem
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else if (ref?.current) ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       tonal={tonal}
 

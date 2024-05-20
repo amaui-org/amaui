@@ -355,10 +355,10 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
     disabled,
 
     onClick,
-    onFocus: onFocus_,
-    onBlur: onBlur_,
-    onMouseEnter: onMouseEnter_,
-    onMouseLeave: onMouseLeave_,
+    onFocus,
+    onBlur,
+    onMouseEnter,
+    onMouseLeave,
     onClose: onClose_,
 
     RootComponent: RootComponent_ = 'div',
@@ -462,6 +462,14 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
         href={href}
 
         onClick={onClick}
+
+        onFocus={onFocus}
+
+        onBlur={onBlur}
+
+        onMouseEnter={onMouseEnter}
+
+        onMouseLeave={onMouseLeave}
 
         {...RootProps}
 
