@@ -40,6 +40,8 @@ const IFrame: React.FC<IIFrame> = React.forwardRef((props_, ref: any) => {
   const {
     id,
 
+    src,
+
     WrapperProps,
 
     className,
@@ -53,10 +55,13 @@ const IFrame: React.FC<IIFrame> = React.forwardRef((props_, ref: any) => {
 
   const [init, setInit] = React.useState(false);
   const [show, setShow] = React.useState(false);
+  const [root, setRoot] = React.useState<HTMLIFrameElement>();
 
   const refs = {
-    root: React.useRef<HTMLIFrameElement>()
+    root: React.useRef(root)
   };
+
+  refs.root.current = root;
 
   const iframeDocument = refs.root.current?.contentWindow?.document;
 
@@ -133,45 +138,49 @@ const IFrame: React.FC<IIFrame> = React.forwardRef((props_, ref: any) => {
         {children}
       </Line>
 
-      <iframe
-        ref={item => {
-          if (ref) {
-            if (is('function', ref)) ref(item);
-            else ref.current = item;
-          }
+      {src && (
+        <iframe
+          ref={item => {
+            if (ref) {
+              if (is('function', ref)) ref(item);
+              else ref.current = item;
+            }
 
-          refs.root.current = item;
-        }}
+            setRoot(item);
+          }}
 
-        title={id}
+          title={id}
 
-        className={classNames([
-          staticClassName('IFrame', theme) && [
-            'amaui-IFrame-root'
-          ],
+          src={src}
 
-          className,
-          classes.root
-        ])}
+          className={classNames([
+            staticClassName('IFrame', theme) && [
+              'amaui-IFrame-root'
+            ],
 
-        {...other}
-      >
-        {init && iframeBody && ReactDOM.createPortal(React.cloneElement(children as any, {
-          iframeRef: refs.root.current,
+            className,
+            classes.root
+          ])}
 
-          style: {
-            ...(children as any)?.props.style,
+          {...other}
+        >
+          {init && iframeBody && ReactDOM.createPortal(React.cloneElement(children as any, {
+            iframeRef: refs.root.current,
 
-            transition: theme.methods.transitions.make('opacity'),
+            style: {
+              ...(children as any)?.props.style,
 
-            ...(show ? {
-              opacity: 1
-            } : {
-              opacity: 0
-            })
-          }
-        }), iframeBody)}
-      </iframe>
+              transition: theme.methods.transitions.make('opacity'),
+
+              ...(show ? {
+                opacity: 1
+              } : {
+                opacity: 0
+              })
+            }
+          }), iframeBody)}
+        </iframe>
+      )}
     </Line>
   );
 });
