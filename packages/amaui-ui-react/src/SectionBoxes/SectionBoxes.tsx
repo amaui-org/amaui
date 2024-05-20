@@ -16,13 +16,11 @@ const useStyle = styleMethod(theme => ({
 
   },
 
-  main: {
-    maxWidth: '768px',
-    zIndex: '14'
-  },
-
   item: {
-    position: 'relative'
+    position: 'relative',
+    maxWidth: '768px',
+    zIndex: '14',
+    flex: '1 1'
   },
 
   item_size_small: {
@@ -54,13 +52,6 @@ const useStyle = styleMethod(theme => ({
     '&:active': {
       transform: 'scale(0.94)'
     }
-  },
-
-  background: {
-    position: 'absolute',
-    inset: '0',
-    overflow: 'hidden',
-    zIndex: '1'
   },
 
   backgroundImage: {
@@ -234,9 +225,9 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
       <Line
         key={index}
 
-        gap={0}
+        gap={1}
 
-        align='center'
+        align='flex-start'
 
         justify='center'
 
@@ -251,182 +242,163 @@ const Element: React.FC<ISectionBoxes> = React.forwardRef((props_, ref: any) => 
 
           ItemProps?.className,
           classes.item,
-          classes[`item_size_${size}`]
+          classes[`item_size_${size}`],
+          item.backgroundImage && styleBackground.backgroundImage && classes.backgroundImage
         ])}
+
+        style={{
+          ...styleBackground
+        }}
       >
-        <Line
-          gap={1}
+        {urlVideo && (
+          <video
+            autoPlay
+            muted
+            loop
 
-          align='flex-start'
+            className={classNames([
+              staticClassName('SectionBoxes', theme) && [
+                'amaui-SectionBoxes-item-background-video'
+              ],
 
-          justify='center'
-
-          fullWidth
-
-          className={classNames([
-            staticClassName('SectionBoxes', theme) && [
-              'amaui-SectionBoxes-item-main'
-            ],
-
-            classes.main,
-            classes.background,
-            item.backgroundImage && styleBackground.backgroundImage && classes.backgroundImage
-          ])}
-
-          style={{
-            ...styleBackground
-          }}
-        >
-          {urlVideo && (
-            <video
-              autoPlay
-              muted
-              loop
-
-              className={classNames([
-                staticClassName('SectionBoxes', theme) && [
-                  'amaui-SectionBoxes-item-background-video'
-                ],
-
-                classes.backgroundVideo
-              ])}
-            >
-              <source
-                src={urlVideo}
-              />
-            </video>
-          )}
-
-          {item.overlay && (
-            <div
-              className={classNames([
-                staticClassName('SectionBoxes', theme) && [
-                  'amaui-SectionBoxes-item-background-overlay'
-                ],
-
-                classes.backgroundOverlay,
-                item.overlayBlur && classes.backgroundOverlayBlur
-              ])}
-
-              style={{
-                ...styleOverlay
-              }}
+              classes.backgroundVideo
+            ])}
+          >
+            <source
+              src={urlVideo}
             />
-          )}
+          </video>
+        )}
 
-          {(item.name || item.description) && (
-            <Line
-              gap={1}
+        {item.overlay && (
+          <div
+            className={classNames([
+              staticClassName('SectionBoxes', theme) && [
+                'amaui-SectionBoxes-item-background-overlay'
+              ],
 
-              align='center'
+              classes.backgroundOverlay,
+              item.overlayBlur && classes.backgroundOverlayBlur
+            ])}
 
-              fullWidth
+            style={{
+              ...styleOverlay
+            }}
+          />
+        )}
 
-              {...item.propsWrapperText}
+        {(item.name || item.description) && (
+          <Line
+            gap={1}
 
-              className={classNames([
-                staticClassName('SectionBoxes', theme) && [
-                  'amaui-SectionBoxes-item-wrapper-text'
-                ],
+            align='center'
 
-                item.propsWrapperText?.className,
-                classes.wrapperText
-              ])}
-            >
-              {item.name && (
-                <Type
-                  version={size === 'large' ? 'h2' : size === 'regular' ? 'h3' : 't1'}
+            fullWidth
 
-                  align='center'
+            {...item.propsWrapperText}
 
-                  fullWidth
+            className={classNames([
+              staticClassName('SectionBoxes', theme) && [
+                'amaui-SectionBoxes-item-wrapper-text'
+              ],
 
-                  dangerouslySetInnerHTML={{
-                    __html: textToInnerHTML(item.name)
-                  }}
+              item.propsWrapperText?.className,
+              classes.wrapperText
+            ])}
+          >
+            {item.name && (
+              <Type
+                version={size === 'large' ? 'h2' : size === 'regular' ? 'h3' : 't1'}
 
-                  {...item.propsName}
+                align='center'
 
-                  className={classNames([
-                    staticClassName('SectionBoxes', theme) && [
-                      'amaui-SectionBoxes-item-name'
-                    ],
+                fullWidth
 
-                    item.propsName?.className,
-                    classes.text
-                  ])}
-                />
-              )}
+                dangerouslySetInnerHTML={{
+                  __html: textToInnerHTML(item.name)
+                }}
 
-              {item.description && (
-                <Type
-                  version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3'}
-
-                  align='center'
-
-                  fullWidth
-
-                  dangerouslySetInnerHTML={{
-                    __html: textToInnerHTML(item.description)
-                  }}
-
-                  {...item.propsDescription}
-
-                  className={classNames([
-                    staticClassName('SectionBoxes', theme) && [
-                      'amaui-SectionBoxes-item-description'
-                    ],
-
-                    item.propsDescription?.className,
-                    classes.text
-                  ])}
-                />
-              )}
-            </Line>
-          )}
-
-          {item.buttonText && (
-            <Line
-              align='center'
-
-              fullWidth
-
-              {...item.propsActions}
-
-              className={classNames([
-                staticClassName('SectionBoxes', theme) && [
-                  'amaui-SectionBoxes-item-actions'
-                ],
-
-                item.propsActions?.className,
-                classes.actions
-              ])}
-            >
-              <Button
-                version='filled'
-
-                color='primary'
-
-                size={size}
-
-                onClick={() => item.to ? navigate(item.to) : window.open(item.link, 'blank')}
-
-                {...item.propsButton}
+                {...item.propsName}
 
                 className={classNames([
                   staticClassName('SectionBoxes', theme) && [
-                    'amaui-SectionBoxes-item-button'
+                    'amaui-SectionBoxes-item-name'
                   ],
 
-                  item.propsButton?.className,
-                  classes.button
+                  item.propsName?.className,
+                  classes.text
                 ])}
-              >
-                {item.buttonText || 'Click here'}
-              </Button>
-            </Line>
-          )}
-        </Line>
+              />
+            )}
+
+            {item.description && (
+              <Type
+                version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3'}
+
+                align='center'
+
+                fullWidth
+
+                dangerouslySetInnerHTML={{
+                  __html: textToInnerHTML(item.description)
+                }}
+
+                {...item.propsDescription}
+
+                className={classNames([
+                  staticClassName('SectionBoxes', theme) && [
+                    'amaui-SectionBoxes-item-description'
+                  ],
+
+                  item.propsDescription?.className,
+                  classes.text
+                ])}
+              />
+            )}
+          </Line>
+        )}
+
+        {item.buttonText && (
+          <Line
+            align='center'
+
+            fullWidth
+
+            {...item.propsActions}
+
+            className={classNames([
+              staticClassName('SectionBoxes', theme) && [
+                'amaui-SectionBoxes-item-actions'
+              ],
+
+              item.propsActions?.className,
+              classes.actions
+            ])}
+          >
+            <Button
+              version='filled'
+
+              color='primary'
+
+              size={size}
+
+              onClick={() => item.to ? navigate(item.to) : window.open(item.link, 'blank')}
+
+              {...item.propsButton}
+
+              className={classNames([
+                staticClassName('SectionBoxes', theme) && [
+                  'amaui-SectionBoxes-item-button'
+                ],
+
+                item.propsButton?.className,
+                classes.button
+              ])}
+            >
+              {item.buttonText || 'Click here'}
+            </Button>
+          </Line>
+        )}
       </Line>
     );
   }, [theme, size]);
