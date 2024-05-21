@@ -680,7 +680,7 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
 
         justify='center'
 
-        align='unset'
+        align='center'
 
         fullWidth
 
@@ -689,6 +689,10 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
         {...ImageWrapperProps}
 
         className={classNames([
+          staticClassName('ImageGallery', theme) && [
+            'amaui-ImageGallery-image-wrapper'
+          ],
+
           ImageWrapperProps?.className,
           classes.imageWrapper,
           classes.pointerEventsAuto

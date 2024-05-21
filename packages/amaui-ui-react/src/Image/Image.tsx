@@ -112,9 +112,11 @@ const useStyle = styleMethod(theme => ({
   },
 
   noImage: {
+    width: '100%',
     maxWidth: '540px',
     aspectRatio: '4 / 3',
-    background: `linear-gradient(${theme.palette.light ? '130deg' : '330deg'}, ${theme.methods.palette.color.colorToRgb(theme.palette.color.primary.main, 0.14)} 0%, ${theme.methods.palette.color.colorToRgb(theme.palette.color.secondary.main, 0.14)} 40%, ${theme.methods.palette.color.colorToRgb(theme.palette.color.quaternary.main, 0.14)} 100%)`,
+    backgroundColor: theme.palette.color.neutral[100],
+    backgroundImage: `linear-gradient(${theme.palette.light ? '130deg' : '330deg'}, ${theme.methods.palette.color.colorToRgb(theme.palette.color.primary.main, 0.14)} 0%, ${theme.methods.palette.color.colorToRgb(theme.palette.color.secondary.main, 0.14)} 40%, ${theme.methods.palette.color.colorToRgb(theme.palette.color.quaternary.main, 0.14)} 100%)`,
     cursor: 'default',
     userSelect: 'none'
   }
