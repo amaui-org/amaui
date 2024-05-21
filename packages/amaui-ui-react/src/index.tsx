@@ -591,3 +591,6 @@ export * from './SectionReviews';
 
 export { default as useVisible } from './useVisible';
 export * from './useVisible';
+
+export { default as useLocation } from './useLocation';
+export * from './useLocation';
