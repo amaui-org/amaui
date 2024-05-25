@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is } from '@amaui/utils';
+import { is, wait } from '@amaui/utils';
 import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
 
 import SurfaceElement from '../Surface';
@@ -366,7 +366,7 @@ const Tabs: React.FC<ITabs> = React.forwardRef((props_, ref: any) => {
     // being transitioned, minor bug fix
     setTimeout(updateLine, refs.initialLineUpdateTimeout.current);
 
-    const observerMethod = () => updateLine(refs.value.current);
+    const observerMethod = () => updateLine();
 
     // Mutation observer
     const observerMutation = new ResizeObserver(observerMethod);
@@ -405,7 +405,7 @@ const Tabs: React.FC<ITabs> = React.forwardRef((props_, ref: any) => {
         setValue(value_);
 
         // Update lineValues value
-        updateLine(value_);
+        updateLine();
       }
     }
   }, [value_]);
@@ -416,7 +416,7 @@ const Tabs: React.FC<ITabs> = React.forwardRef((props_, ref: any) => {
       setValue(valueItem);
 
       // Update line
-      updateLine(valueItem);
+      updateLine();
     }
 
     if (is('function', onChange_)) onChange_(valueItem);
@@ -441,7 +441,11 @@ const Tabs: React.FC<ITabs> = React.forwardRef((props_, ref: any) => {
     refs.tabsRoot.current.scrollTo(moveValue_);
   };
 
-  const updateLine = (valueProp: string | number = refs.value.current) => {
+  const updateLine = async () => {
+    await wait(40);
+
+    const valueProp = refs.value.current;
+
     const tabs = Array.from((refs.tabsRoot.current as HTMLElement)?.querySelectorAll(`[data-amaui-tab-value]`) || []) as HTMLElement[];
 
     const tab: HTMLElement = tabs.find(item => is('function', refs.isActive.current) ? refs.isActive.current(valueProp, item.dataset.amauiTabValue) : String(item.dataset.amauiTabValue) === String(valueProp));

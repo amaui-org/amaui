@@ -84,8 +84,8 @@ export interface ITab extends Omit<ISurface, 'version'> {
 
   size?: 'small' | 'regular' | 'large';
 
-  value?: number;
-  onChange?: (value: number, index: number) => any;
+  value?: any;
+  onChange?: (value: any, index: number) => any;
 
   active?: boolean;
   index?: number;
