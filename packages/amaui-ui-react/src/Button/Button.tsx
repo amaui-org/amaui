@@ -312,6 +312,7 @@ export interface IButton extends Omit<ISurface, 'elevation'> {
 
   InteractionProps?: IPropsAny;
   IconWrapperProps?: IPropsAny;
+  LabelProps?: IPropsAny;
 }
 
 const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
@@ -365,7 +366,8 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
     IconWrapperComponent = 'span',
 
     InteractionProps = {},
-    IconWrapperProps = {},
+    IconWrapperProps,
+    LabelProps,
 
     Component = props.href ? 'a' : 'button',
 
@@ -687,11 +689,14 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
 
           Component='span'
 
+          {...LabelProps}
+
           className={classNames([
             staticClassName('Button', theme) && [
               'amaui-Button-label'
             ],
 
+            LabelProps?.className,
             TypeProps?.className,
             classes.label,
             classes[`label_size_${size}`],
@@ -701,7 +706,9 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
           style={{
             ...styles.label,
 
-            ...TypeProps?.style
+            ...TypeProps?.style,
+
+            ...LabelProps?.style
           }}
         >
           {React.Children.toArray(children_).map((item_: any, index: number) => {
