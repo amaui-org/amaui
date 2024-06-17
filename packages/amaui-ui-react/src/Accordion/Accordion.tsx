@@ -167,6 +167,7 @@ export interface IAccordion extends ISurface {
   headerPaddingHorizontal?: TPadding;
   mainPaddingVertical?: TPadding;
   mainPaddingHorizontal?: TPadding;
+  noExpand?: boolean;
   noTransition?: boolean;
   disabled?: boolean;
 
@@ -235,6 +236,7 @@ const Accordion: React.FC<IAccordion> = React.forwardRef((props_, ref: any) => {
     headerPaddingHorizontal = 'both',
     mainPaddingVertical = 'both',
     mainPaddingHorizontal = 'both',
+    noExpand,
     noTransition,
     disabled,
 
@@ -306,6 +308,22 @@ const Accordion: React.FC<IAccordion> = React.forwardRef((props_, ref: any) => {
     TransitionComponent = React.Fragment;
     TransitionComponentProps = {};
   }
+
+  const main = (
+    <Line
+      className={classNames([
+        staticClassName('Accordion', theme) && [
+          'amaui-Accordion-main'
+        ],
+
+        classes.main,
+        classes[`main_padding_vertical_${mainPaddingVertical}`],
+        classes[`main_padding_horizontal_${mainPaddingHorizontal}`],
+      ])}
+    >
+      {children}
+    </Line>
+  );
 
   return (
     <Surface
@@ -506,41 +524,33 @@ const Accordion: React.FC<IAccordion> = React.forwardRef((props_, ref: any) => {
         </Line>
       </Line>
 
-      <Expand
-        in={open}
+      {noExpand ? <>
+        {open && main}
+      </> : (
+        <Expand
+          in={open}
 
-        parent={parent}
+          parent={parent}
 
-        onTransition={(element: any, status: TTransitionStatus) => {
-          refs.expandInProgress.current = !['appended', 'entered', 'exited', 'removed'].includes(status);
-        }}
+          onTransition={(element: any, status: TTransitionStatus) => {
+            refs.expandInProgress.current = !['appended', 'entered', 'exited', 'removed'].includes(status);
+          }}
 
-        role='region'
+          role='region'
 
-        aria-labelledby={refs.ids.button}
+          aria-labelledby={refs.ids.button}
 
-        id={refs.ids.data}
+          id={refs.ids.data}
 
-        {...ExpandProps}
-      >
-        <TransitionComponent
-          {...TransitionComponentProps}
+          {...ExpandProps}
         >
-          <Line
-            className={classNames([
-              staticClassName('Accordion', theme) && [
-                'amaui-Accordion-main'
-              ],
-
-              classes.main,
-              classes[`main_padding_vertical_${mainPaddingVertical}`],
-              classes[`main_padding_horizontal_${mainPaddingHorizontal}`],
-            ])}
+          <TransitionComponent
+            {...TransitionComponentProps}
           >
-            {children}
-          </Line>
-        </TransitionComponent>
-      </Expand>
+            {main}
+          </TransitionComponent>
+        </Expand>
+      )}
     </Surface>
   );
 });
