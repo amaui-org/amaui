@@ -137,7 +137,6 @@ const useStyle = styleMethod(theme => ({
   label: {
     display: 'inline-flex',
     position: 'relative',
-    textTransform: 'capitalize',
     whiteSpace: 'normal',
     wordBreak: 'break-word',
     alignItems: 'center',
