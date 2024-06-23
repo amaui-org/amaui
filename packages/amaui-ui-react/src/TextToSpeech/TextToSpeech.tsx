@@ -186,6 +186,8 @@ const TextToSpeech: React.FC<ITextToSpeech> = React.forwardRef((props_, ref: any
     if (supported && is('string', read)) {
       setStatus('started');
 
+      window.speechSynthesis.cancel();
+
       const utterance = speechSynthesisUtterance || new SpeechSynthesisUtterance(read);
 
       window.speechSynthesis.speak(utterance);
@@ -202,8 +204,6 @@ const TextToSpeech: React.FC<ITextToSpeech> = React.forwardRef((props_, ref: any
       if (voice !== undefined) utterance.voice = voice;
 
       if (volume !== undefined) utterance.volume = volume;
-
-      console.log(1234, utterance);
 
       // events
       utterance.onpause = onPause;
