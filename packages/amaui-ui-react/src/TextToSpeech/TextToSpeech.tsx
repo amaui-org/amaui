@@ -163,8 +163,10 @@ const TextToSpeech: React.FC<ITextToSpeech> = React.forwardRef((props_, ref: any
     // if there was any
     if (supported) {
       window.speechSynthesis.cancel();
+
+      setStatus('initial');
     }
-  }, [supported]);
+  }, [read, supported]);
 
   const onStart = React.useCallback(async (event?: SpeechSynthesisEvent) => {
     if (supported && is('string', read)) {
@@ -172,7 +174,7 @@ const TextToSpeech: React.FC<ITextToSpeech> = React.forwardRef((props_, ref: any
 
       const utterance = new SpeechSynthesisUtterance(read);
 
-      speechSynthesis.speak(utterance);
+      window.speechSynthesis.speak(utterance);
 
       // events
       utterance.onpause = onPause;
@@ -189,7 +191,7 @@ const TextToSpeech: React.FC<ITextToSpeech> = React.forwardRef((props_, ref: any
     if (['started', 'resumed'].includes(status_)) window.speechSynthesis.pause();
     else if (status_ === 'paused') window.speechSynthesis.resume();
     else if (status_ === 'initial') onStart();
-  }, []);
+  }, [onStart]);
 
   const iconProps = {
     size,
