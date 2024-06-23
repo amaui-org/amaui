@@ -72,6 +72,13 @@ export interface ITextToSpeech extends ILine {
 
   speechSynthesisUtterance?: any;
 
+  language?: string;
+  pitch?: number;
+  rate?: number;
+  text?: string;
+  voice?: any;
+  volume?: number;
+
   loading?: any;
   disabled?: any;
 
@@ -105,6 +112,13 @@ const TextToSpeech: React.FC<ITextToSpeech> = React.forwardRef((props_, ref: any
     read,
 
     speechSynthesisUtterance,
+
+    language,
+    pitch,
+    rate,
+    text,
+    voice,
+    volume,
 
     loading,
     disabled,
@@ -166,7 +180,7 @@ const TextToSpeech: React.FC<ITextToSpeech> = React.forwardRef((props_, ref: any
 
       setStatus('initial');
     }
-  }, [read, speechSynthesisUtterance, supported]);
+  }, [read, speechSynthesisUtterance, supported, language, pitch, rate, text, voice, volume]);
 
   const onStart = React.useCallback(async (event?: SpeechSynthesisEvent) => {
     if (supported && is('string', read)) {
@@ -176,14 +190,31 @@ const TextToSpeech: React.FC<ITextToSpeech> = React.forwardRef((props_, ref: any
 
       window.speechSynthesis.speak(utterance);
 
+      // properties
+      if (language !== undefined) utterance.lang = language;
+
+      if (pitch !== undefined) utterance.pitch = pitch;
+
+      if (rate !== undefined) utterance.rate = rate;
+
+      if (text !== undefined) utterance.text = text;
+
+      if (voice !== undefined) utterance.voice = voice;
+
+      if (volume !== undefined) utterance.volume = volume;
+
+      console.log(1234, utterance);
+
       // events
       utterance.onpause = onPause;
+
       utterance.onresume = onResume;
+
       utterance.onend = onEnd;
 
       if (is('function', onStart_)) onStart_!(event);
     }
-  }, [read, speechSynthesisUtterance, supported, onStart_, onPause, onResume, onEnd]);
+  }, [read, speechSynthesisUtterance, supported, onStart_, onPause, onResume, onEnd, language, pitch, rate, text, voice, volume]);
 
   const onClick = React.useCallback(async () => {
     const status_ = refs.status.current;
