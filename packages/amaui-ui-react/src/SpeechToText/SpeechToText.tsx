@@ -11,6 +11,25 @@ import { ILine } from '../Line/Line';
 import { staticClassName } from '../utils';
 import { IElementReference, IPropsAny, ISize } from '../types';
 
+const IconMaterialStop = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='Stop'
+
+      short_name='Stop'
+
+      viewBox='0 0 24 24'
+
+      {...props}
+    >
+      <path d="M8 8v8Zm0 10q-.825 0-1.412-.587Q6 16.825 6 16V8q0-.825.588-1.412Q7.175 6 8 6h8q.825 0 1.413.588Q18 7.175 18 8v8q0 .825-.587 1.413Q16.825 18 16 18Zm0-2h8V8H8Z" />
+    </IconElement>
+  );
+});
+
 const IconMaterialSpeechToText = React.forwardRef((props: any, ref) => {
 
   return (
@@ -62,6 +81,7 @@ export interface ISpeechToText extends ILine {
   disabled?: any;
 
   Icon?: IElementReference;
+  IconStop?: IElementReference;
 
   onListen?: (event: React.MouseEvent<any>) => any;
   onListenStop?: (event: React.MouseEvent<any>) => any;
@@ -103,6 +123,7 @@ const SpeechToText: React.FC<ISpeechToText> = React.forwardRef((props_, ref: any
     disabled,
 
     Icon: Icon_ = IconMaterialSpeechToText,
+    IconStop = IconMaterialStop,
 
     onChange,
     onData: onData_,
@@ -255,6 +276,14 @@ const SpeechToText: React.FC<ISpeechToText> = React.forwardRef((props_, ref: any
 
   if (!supported) return null;
 
+  let IconToUse = Icon_;
+  let name = 'Speech to text';
+
+  if (status === 'started') {
+    IconToUse = IconStop;
+    name = 'Stop';
+  }
+
   return (
     <Line
       ref={(item: any) => {
@@ -285,7 +314,7 @@ const SpeechToText: React.FC<ISpeechToText> = React.forwardRef((props_, ref: any
       {...other}
     >
       <Tooltip
-        name={status === 'started' ? 'Stop' : 'Speech to text'}
+        name={name}
 
         {...TooltipProps}
       >
@@ -306,7 +335,7 @@ const SpeechToText: React.FC<ISpeechToText> = React.forwardRef((props_, ref: any
             classes.iconButton
           ])}
         >
-          <Icon_
+          <IconToUse
             {...iconProps}
           />
         </IconButton>
