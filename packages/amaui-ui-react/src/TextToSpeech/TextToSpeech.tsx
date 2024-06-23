@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, isEnvironment } from '@amaui/utils';
+import { is, isEnvironment, wait } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import LineElement from '../Line';
@@ -89,6 +89,7 @@ export interface ITextToSpeech extends ILine {
   onPause?: (event?: SpeechSynthesisEvent) => any;
   onResume?: (event?: SpeechSynthesisEvent) => any;
   onEnd?: (event?: SpeechSynthesisEvent) => any;
+  onError?: (event?: SpeechSynthesisEvent) => any;
 
   TooltipProps?: IPropsAny;
   IconButtonProps?: IPropsAny;
@@ -130,6 +131,7 @@ const TextToSpeech: React.FC<ITextToSpeech> = React.forwardRef((props_, ref: any
     onPause: onPause_,
     onResume: onResume_,
     onEnd: onEnd_,
+    onError: onError_,
 
     TooltipProps,
     IconButtonProps,
@@ -172,6 +174,12 @@ const TextToSpeech: React.FC<ITextToSpeech> = React.forwardRef((props_, ref: any
     if (is('function', onEnd_)) onEnd_!(event);
   }, [onEnd_]);
 
+  const onError = React.useCallback((event?: SpeechSynthesisEvent) => {
+    setStatus('initial');
+
+    if (is('function', onError_)) onError_!(event);
+  }, [onError_]);
+
   React.useEffect(() => {
     // Clean up previous utterance
     // if there was any
@@ -182,15 +190,17 @@ const TextToSpeech: React.FC<ITextToSpeech> = React.forwardRef((props_, ref: any
     }
   }, [read, speechSynthesisUtterance, supported, language, pitch, rate, text, voice, volume]);
 
+  console.log(status, read);
+
   const onStart = React.useCallback(async (event?: SpeechSynthesisEvent) => {
     if (supported && is('string', read)) {
       setStatus('started');
 
       window.speechSynthesis.cancel();
 
-      const utterance = speechSynthesisUtterance || new SpeechSynthesisUtterance(read);
+      await wait(140);
 
-      window.speechSynthesis.speak(utterance);
+      const utterance = speechSynthesisUtterance || new SpeechSynthesisUtterance(read);
 
       // properties
       if (language !== undefined) utterance.lang = language;
@@ -206,11 +216,15 @@ const TextToSpeech: React.FC<ITextToSpeech> = React.forwardRef((props_, ref: any
       if (volume !== undefined) utterance.volume = volume;
 
       // events
-      utterance.onpause = onPause;
+      utterance.addEventListener('pause', onPause);
 
-      utterance.onresume = onResume;
+      utterance.addEventListener('resume', onResume);
 
-      utterance.onend = onEnd;
+      utterance.addEventListener('end', onEnd);
+
+      utterance.addEventListener('error', onError);
+
+      window.speechSynthesis.speak(utterance);
 
       if (is('function', onStart_)) onStart_!(event);
     }
