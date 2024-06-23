@@ -190,8 +190,6 @@ const TextToSpeech: React.FC<ITextToSpeech> = React.forwardRef((props_, ref: any
     }
   }, [read, speechSynthesisUtterance, supported, language, pitch, rate, text, voice, volume]);
 
-  console.log(status, read);
-
   const onStart = React.useCallback(async (event?: SpeechSynthesisEvent) => {
     if (supported && is('string', read)) {
       setStatus('started');
