@@ -166,13 +166,13 @@ const TextToSpeech: React.FC<ITextToSpeech> = React.forwardRef((props_, ref: any
 
       setStatus('initial');
     }
-  }, [read, supported]);
+  }, [read, speechSynthesisUtterance, supported]);
 
   const onStart = React.useCallback(async (event?: SpeechSynthesisEvent) => {
     if (supported && is('string', read)) {
       setStatus('started');
 
-      const utterance = new SpeechSynthesisUtterance(read);
+      const utterance = speechSynthesisUtterance || new SpeechSynthesisUtterance(read);
 
       window.speechSynthesis.speak(utterance);
 
@@ -183,7 +183,7 @@ const TextToSpeech: React.FC<ITextToSpeech> = React.forwardRef((props_, ref: any
 
       if (is('function', onStart_)) onStart_!(event);
     }
-  }, [read, supported, onStart_, onPause, onResume, onEnd]);
+  }, [read, speechSynthesisUtterance, supported, onStart_, onPause, onResume, onEnd]);
 
   const onClick = React.useCallback(async () => {
     const status_ = refs.status.current;
