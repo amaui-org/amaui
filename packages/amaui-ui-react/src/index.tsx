@@ -594,3 +594,9 @@ export * from './useVisible';
 
 export { default as useLocation } from './useLocation';
 export * from './useLocation';
+
+export { default as SpeechToText } from './SpeechToText';
+export * from './SpeechToText';
+
+export { default as TextToSpeech } from './TextToSpeech';
+export * from './TextToSpeech';
