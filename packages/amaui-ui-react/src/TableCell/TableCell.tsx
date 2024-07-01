@@ -11,6 +11,7 @@ import IconElement from '../Icon';
 import { TLineAlign, TLineJustify } from '../Line/Line';
 import { getOverflowParent, staticClassName } from '../utils';
 import { IBaseElement, ITonal, IColor, ISize, IPropsAny } from '../types';
+import Tooltip from '../Tooltip';
 
 const IconMaterialArrowDownwardAlt = React.forwardRef((props: any, ref) => {
 
@@ -378,24 +379,28 @@ const TableCell: React.FC<ITableCell> = React.forwardRef((props_, ref: any) => {
         )}
 
         {sort && (
-          <IconButton
-            size='small'
-
-            onClick={onSort}
-
-            disabled={disabled}
-
-            className={classNames([
-              staticClassName('TableCell', theme) && [
-                `amaui-TableCell-sort-icon-button`
-              ],
-
-              classes.sortedBy,
-              classes[`sortedBy_${sortedBy}`]
-            ])}
+          <Tooltip
+            name={sortedBy === 'asc' ? 'Ascending' : 'Descending'}
           >
-            <IconArrow />
-          </IconButton>
+            <IconButton
+              size='small'
+
+              onClick={onSort}
+
+              disabled={disabled}
+
+              className={classNames([
+                staticClassName('TableCell', theme) && [
+                  `amaui-TableCell-sort-icon-button`
+                ],
+
+                classes.sortedBy,
+                classes[`sortedBy_${sortedBy}`]
+              ])}
+            >
+              <IconArrow />
+            </IconButton>
+          </Tooltip>
         )}
       </Line>
 
