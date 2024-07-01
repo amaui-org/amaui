@@ -7,6 +7,8 @@ import SurfaceElement from '../Surface';
 import { ISurface } from '../Surface/Surface';
 import { getOverflowParent, staticClassName } from '../utils';
 import { ISize } from '../types';
+import TableRowElement from '../TableRow';
+import LinearProgressElement from '../LinearProgress';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -23,6 +25,17 @@ const useStyle = styleMethod(theme => ({
 
   stickyActive: {
     boxShadow: `0px 0px 16px ${theme.palette.light ? 'rgba(0, 0, 0, 0.04)' : 'rgba(255, 255, 255, 0.14)'}`
+  },
+
+  rowLoader: {
+
+  },
+
+  tdLoader: {
+    '&.amaui-LinearProgress-root': {
+      position: 'absolute',
+      inset: 0
+    }
   }
 }), { name: 'amaui-TableHead' });
 
@@ -32,6 +45,11 @@ export interface ITableHead extends ISurface {
   sticky?: boolean;
 
   stickyOffset?: number;
+
+  loading?: boolean;
+
+  LinearGradientProps?: any;
+  TableRowLoaderProps?: any;
 }
 
 const TableHead: React.FC<ITableHead> = React.forwardRef((props_, ref: any) => {
@@ -41,6 +59,10 @@ const TableHead: React.FC<ITableHead> = React.forwardRef((props_, ref: any) => {
 
   const Surface = React.useMemo(() => theme?.elements?.Surface || SurfaceElement, [theme]);
 
+  const TableRow = React.useMemo(() => theme?.elements?.TableRow || TableRowElement, [theme]);
+
+  const LinearProgress = React.useMemo(() => theme?.elements?.LinearProgress || LinearProgressElement, [theme]);
+
   const {
     tonal = true,
     color = 'themed',
@@ -48,6 +70,12 @@ const TableHead: React.FC<ITableHead> = React.forwardRef((props_, ref: any) => {
 
     sticky,
     stickyOffset = 0,
+
+    loading,
+
+    LinearGradientProps,
+
+    TableRowLoaderProps,
 
     Component = 'thead',
 
@@ -138,8 +166,10 @@ const TableHead: React.FC<ITableHead> = React.forwardRef((props_, ref: any) => {
 
       {...other}
     >
-      {React.Children.toArray(children).map((item: any) => (
+      {React.Children.toArray(children).map((item: any, index: number) => (
         React.cloneElement(item, {
+          key: index,
+
           tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
 
           color: item.props.color !== undefined ? item.props.color : color,
@@ -149,6 +179,42 @@ const TableHead: React.FC<ITableHead> = React.forwardRef((props_, ref: any) => {
           position: 'head'
         })
       ))}
+
+      {loading && (
+        <TableRow
+          {...TableRowLoaderProps}
+
+          className={classNames([
+            staticClassName('TableHead', theme) && [
+              `amaui-TableHead-row-loader`
+            ],
+
+            TableRowLoaderProps?.className,
+            classes.rowLoader
+          ])}
+        >
+          <LinearProgress
+            tonal
+
+            color='primary'
+
+            colspan='100%'
+
+            Component='td'
+
+            {...LinearGradientProps}
+
+            className={classNames([
+              staticClassName('TableHead', theme) && [
+                `amaui-TableHead-td-loader`
+              ],
+
+              LinearGradientProps?.className,
+              classes.tdLoader
+            ])}
+          />
+        </TableRow>
+      )}
     </Surface>
   );
 });

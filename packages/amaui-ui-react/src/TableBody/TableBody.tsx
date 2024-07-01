@@ -11,14 +11,22 @@ const useStyle = styleMethod(theme => ({
   root: {
     display: 'table-row-group',
     background: 'inherit',
+    transition: theme.methods.transitions.make('opacity'),
 
     '& .amaui-TableRow-root:last-child hr': {
       display: 'none'
     }
+  },
+
+  loading: {
+    opacity: 0.4,
+    pointerEvents: 'none'
   }
 }), { name: 'amaui-TableBody' });
 
 export interface ITableBody extends ISurface {
+  loading?: boolean;
+
   size?: ISize;
 }
 
@@ -34,16 +42,26 @@ const TableBody: React.FC<ITableBody> = React.forwardRef((props_, ref: any) => {
     color = 'themed',
     size = 'regular',
 
+    loading,
+
     Component = 'tbody',
 
     className,
 
-    children,
+    children: children_,
 
     ...other
   } = props;
 
   const { classes } = useStyle();
+
+  const [children, setChildren] = React.useState<any>(children_);
+
+  React.useEffect(() => {
+    if (!loading) {
+      if (children_ !== children) setChildren(children_);
+    }
+  }, [loading, children_]);
 
   return (
     <Surface
@@ -64,7 +82,8 @@ const TableBody: React.FC<ITableBody> = React.forwardRef((props_, ref: any) => {
         ],
 
         className,
-        classes.root
+        classes.root,
+        loading && classes.loading
       ])}
 
       {...other}

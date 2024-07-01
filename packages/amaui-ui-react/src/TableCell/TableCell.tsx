@@ -4,10 +4,32 @@ import { clamp, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import LineElement from '../Line';
+import IconButtonElement from '../IconButton';
+import TypeElement from '../Type';
 import DividerElement from '../Divider';
+import IconElement from '../Icon';
 import { TLineAlign, TLineJustify } from '../Line/Line';
 import { getOverflowParent, staticClassName } from '../utils';
 import { IBaseElement, ITonal, IColor, ISize, IPropsAny } from '../types';
+
+const IconMaterialArrowDownwardAlt = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='ArrowDownwardAlt'
+
+      short_name='ArrowDownwardAlt'
+
+      viewBox='0 -960 960 960'
+
+      {...props}
+    >
+      <path d="M440-392v-328q0-17 11.5-28.5T480-760q17 0 28.5 11.5T520-720v328l116-116q11-11 28-11t28 11q11 11 11 28t-11 28L508-268q-12 12-28 12t-28-12L268-452q-11-11-11-28t11-28q11-11 28-11t28 11l116 116Z" />
+    </IconElement>
+  );
+});
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -86,13 +108,45 @@ const useStyle = styleMethod(theme => ({
     '&::after': {
       boxShadow: `inset 11px 0 7px -7px ${theme.palette.light ? 'rgba(0, 0, 0, 0.04)' : 'rgba(255, 255, 255, 0.14)'}`
     }
+  },
+
+  sort: {
+    cursor: 'pointer',
+    borderRadius: 2,
+
+    '& > *:nth-child(1)': {
+      // '&:focus': {
+      //   outline: `1px solid ${theme.palette.text.default.primary}`,
+      //   outlineOffset: 2
+      // }
+    }
+  },
+
+  sortedBy: {
+    '& .amaui-Icon-root': {
+      transition: theme.methods.transitions.make('transform')
+    }
+  },
+
+  sortedBy_asc: {
+    '& .amaui-Icon-root': {
+      transform: 'rotate(180deg)'
+    }
   }
 }), { name: 'amaui-TableCell' });
+
+export type ITableCellSort = 'asc' | 'desc';
 
 export interface ITableCell extends IBaseElement {
   tonal?: ITonal;
   color?: IColor;
   size?: ISize;
+
+  sort?: boolean;
+  sortedByDefault?: ITableCellSort;
+  sortedBy?: ITableCellSort;
+
+  onSort?: (value: ITableCellSort) => any;
 
   position?: 'head' | 'body';
   align?: TLineAlign;
@@ -103,6 +157,11 @@ export interface ITableCell extends IBaseElement {
   stickyPosition?: 'left' | 'right';
   stickyOffset?: number;
 
+  disabled?: boolean;
+
+  IconArrow?: any;
+
+  IconButtonSortProps?: any;
   DividerProps?: IPropsAny;
 }
 
@@ -112,6 +171,10 @@ const TableCell: React.FC<ITableCell> = React.forwardRef((props_, ref: any) => {
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiTableCell?.props?.default, ...props_ }), [props_]);
 
   const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
+
+  const IconButton = React.useMemo(() => theme?.elements?.IconButton || IconButtonElement, [theme]);
 
   const Divider = React.useMemo(() => theme?.elements?.Divider || DividerElement, [theme]);
 
@@ -125,10 +188,21 @@ const TableCell: React.FC<ITableCell> = React.forwardRef((props_, ref: any) => {
     justify = 'flex-end',
     noWeight,
 
+    sort,
+    sortedBy: sortedBy_,
+    sortedByDefault,
+
+    onSort: onSort_,
+
     sticky,
     stickyPosition = 'left',
     stickyOffset,
 
+    disabled,
+
+    IconArrow = IconMaterialArrowDownwardAlt,
+
+    IconButtonSortProps,
     DividerProps,
 
     Component = props.position === 'head' ? 'th' : 'td',
@@ -147,6 +221,7 @@ const TableCell: React.FC<ITableCell> = React.forwardRef((props_, ref: any) => {
   const [root, setRoot] = React.useState<HTMLElement>();
   const [stickyActive, setStickyActive] = React.useState(false);
   const [offset, setOffset] = React.useState(0);
+  const [sortedBy, setSortedBy] = React.useState(sortedByDefault);
 
   const refs = {
     root: React.useRef<HTMLElement>()
@@ -155,7 +230,7 @@ const TableCell: React.FC<ITableCell> = React.forwardRef((props_, ref: any) => {
   const init = React.useCallback(() => {
     setTimeout(() => {
       if (sticky) {
-        const parent = refs.root.current.parentElement;
+        const parent = refs.root.current?.parentElement;
 
         if (parent) {
           const elements = Array.from(parent.children);
@@ -184,6 +259,10 @@ const TableCell: React.FC<ITableCell> = React.forwardRef((props_, ref: any) => {
   }, []);
 
   React.useEffect(() => {
+    if (sortedBy !== sortedBy_) setSortedBy(sortedBy_);
+  }, [sortedBy_]);
+
+  React.useEffect(() => {
     if (sticky) {
       if (root) {
         const parentOverflow = getOverflowParent(root);
@@ -204,6 +283,18 @@ const TableCell: React.FC<ITableCell> = React.forwardRef((props_, ref: any) => {
       }
     }
   }, [sticky, stickyPosition, root]);
+
+  const onSort = React.useCallback(() => {
+    let valueNew: any;
+
+    setSortedBy(item => {
+      valueNew = item === 'asc' ? 'desc' : 'asc';
+
+      return valueNew;
+    });
+
+    if (is('function', onSort_)) onSort_!(valueNew);
+  }, [onSort_]);
 
   const stylesOther: any = {};
 
@@ -254,6 +345,8 @@ const TableCell: React.FC<ITableCell> = React.forwardRef((props_, ref: any) => {
       {...other}
     >
       <Line
+        gap={0}
+
         direction='row'
 
         align={align}
@@ -266,10 +359,44 @@ const TableCell: React.FC<ITableCell> = React.forwardRef((props_, ref: any) => {
           ],
 
           classes.value,
-          classes[`size_${size}`]
+          classes[`size_${size}`],
+          sort !== undefined && classes.sort
         ])}
       >
-        {children}
+        {is('string', children) ? (
+          <Type
+            version='l2'
+
+            tabIndex={sort !== undefined ? 0 : undefined}
+          >
+            {children}
+          </Type>
+        ) : (
+          children && React.cloneElement(children as any, {
+            tabIndex: sort !== undefined ? 0 : undefined
+          })
+        )}
+
+        {sort && (
+          <IconButton
+            size='small'
+
+            onClick={onSort}
+
+            disabled={disabled}
+
+            className={classNames([
+              staticClassName('TableCell', theme) && [
+                `amaui-TableCell-sort-icon-button`
+              ],
+
+              classes.sortedBy,
+              classes[`sortedBy_${sortedBy}`]
+            ])}
+          >
+            <IconArrow />
+          </IconButton>
+        )}
       </Line>
 
       <Divider
