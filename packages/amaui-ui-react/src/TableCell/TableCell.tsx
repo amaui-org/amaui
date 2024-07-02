@@ -163,6 +163,7 @@ export interface ITableCell extends IBaseElement {
   IconArrow?: any;
 
   IconButtonSortProps?: any;
+  TypeProps?: any;
   DividerProps?: IPropsAny;
 }
 
@@ -204,6 +205,7 @@ const TableCell: React.FC<ITableCell> = React.forwardRef((props_, ref: any) => {
     IconArrow = IconMaterialArrowDownwardAlt,
 
     IconButtonSortProps,
+    TypeProps,
     DividerProps,
 
     Component = props.position === 'head' ? 'th' : 'td',
@@ -369,6 +371,16 @@ const TableCell: React.FC<ITableCell> = React.forwardRef((props_, ref: any) => {
             version='l2'
 
             tabIndex={sort !== undefined ? 0 : undefined}
+
+            {...TypeProps}
+
+            className={classNames([
+              staticClassName('TableCell', theme) && [
+                `amaui-TableCell-value-type`
+              ],
+
+              TypeProps?.className
+            ])}
           >
             {children}
           </Type>
