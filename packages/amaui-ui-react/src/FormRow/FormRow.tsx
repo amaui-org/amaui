@@ -21,11 +21,11 @@ const useStyle = styleMethod(theme => ({
   row: {
     '& > *': {
       flex: '1 1 auto'
-    },
-
-    '& .amaui-TextField-root, & .amaui-TextField-wrapper': {
-      width: '100%'
     }
+
+    // '& .amaui-TextField-root, & .amaui-TextField-wrapper': {
+    //   width: '100%'
+    // }
   },
 
   footer: {
