@@ -43,6 +43,8 @@ export interface IFormRow extends ILine {
   row?: boolean;
   footer?: IElement;
 
+  responsive?: boolean;
+
   HeaderProps?: any;
   MainProps?: any;
   TextProps?: any;
@@ -69,6 +71,8 @@ const FormRow: React.FC<IFormRow> = React.forwardRef((props_, ref: any) => {
 
     row,
     footer,
+
+    responsive = true,
 
     Component = Line,
 
@@ -208,7 +212,13 @@ const FormRow: React.FC<IFormRow> = React.forwardRef((props_, ref: any) => {
       <Line
         gap={2}
 
-        direction={row ? 'row' : 'column'}
+        direction={row ? responsive ? {
+          xxs: 'column',
+          xs: 'column',
+          sm: 'column',
+          md: 'column',
+          default: 'row'
+        } : 'row' : 'column'}
 
         fullWidth
 
