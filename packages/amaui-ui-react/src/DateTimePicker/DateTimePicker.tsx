@@ -929,8 +929,8 @@ const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref
       Component={Line}
 
       className={classNames([
-        staticClassName('TimePicker', theme) && [
-          'amaui-TimePicker-main'
+        staticClassName('DateTimePicker', theme) && [
+          'amaui-DateTimePicker-main'
         ],
 
         MainProps?.className,
@@ -1136,7 +1136,7 @@ const DateTimePicker: React.FC<IDateTimePicker> = React.forwardRef((props__, ref
             <ClickListener
               onClickOutside={onCancel as any}
 
-              includeParentQueries={['.amaui-TimePicker-main', '.amaui-Calendar-list']}
+              includeParentQueries={['.amaui-DateTimePicker-main', '.amaui-Calendar-list']}
             >
               {element}
             </ClickListener>
