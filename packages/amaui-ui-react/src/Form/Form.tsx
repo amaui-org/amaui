@@ -303,6 +303,8 @@ const Form: React.FC<IForm> = React.forwardRef((props_, ref: any) => {
     >
       {header && (
         <Line
+          gap={1}
+
           direction='row'
 
           align='center'
