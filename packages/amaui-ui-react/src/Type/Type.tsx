@@ -171,6 +171,8 @@ export interface IType extends IBaseElement {
 
   size?: string | number;
 
+  whiteSpace?: '-moz-pre-wrap' | 'break-spaces' | 'normal' | 'nowrap' | 'pre' | 'pre-line' | 'pre-wrap';
+
   fullWidth?: boolean;
 
   disabled?: boolean;
@@ -195,6 +197,8 @@ const Type: React.FC<IType> = React.forwardRef((props_, ref: any) => {
     transform,
 
     size,
+
+    whiteSpace,
 
     fullWidth,
 
@@ -267,6 +271,8 @@ const Type: React.FC<IType> = React.forwardRef((props_, ref: any) => {
       ])}
 
       style={{
+        whiteSpace,
+
         ...style,
 
         ...styles.root
