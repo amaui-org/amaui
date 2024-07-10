@@ -600,3 +600,6 @@ export * from './SpeechToText';
 
 export { default as TextToSpeech } from './TextToSpeech';
 export * from './TextToSpeech';
+
+export { default as WorkDaysCalendar } from './WorkDaysCalendar';
+export * from './WorkDaysCalendar';
