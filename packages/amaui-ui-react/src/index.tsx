@@ -603,3 +603,9 @@ export * from './TextToSpeech';
 
 export { default as WorkDaysCalendar } from './WorkDaysCalendar';
 export * from './WorkDaysCalendar';
+
+export { default as AutoCompleteCountry } from './AutoCompleteCountry';
+export * from './AutoCompleteCountry';
+
+export { default as AutoCompleteCurrency } from './AutoCompleteCurrency';
+export * from './AutoCompleteCurrency';
