@@ -65,6 +65,14 @@ const useStyle = styleMethod(theme => ({
     backgroundColor: theme.palette.light ? theme.palette.color.primary[99] : theme.palette.color.primary[5]
   },
 
+  actions: {
+    overflow: 'auto hidden',
+
+    '& > *': {
+      flex: '0 0 auto'
+    }
+  },
+
   days: {
     overflow: 'auto',
     padding: '0 4px 10px 0',
@@ -151,6 +159,7 @@ const useStyle = styleMethod(theme => ({
     boxShadow: theme.palette.light ? '0px 1px 1px 0px rgba(0, 0, 0, 0.07), 0px 2px 1px -1px rgba(0, 0, 0, 0.04), 0px 1px 3px 0px rgba(0, 0, 0, 0.11)' : '0px 1px 1px 0px rgba(255, 255, 255, 0.21), 0px 2px 1px -1px rgba(255, 255, 255, 0.12), 0px 1px 3px 0px rgba(255, 255, 255, 0.40)',
     borderRadius: '50%',
     cursor: 'default',
+    flex: '0 0 auto',
     transition: theme.methods.transitions.make('transform'),
 
     '& > *': {
@@ -416,11 +425,15 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
   const legend = React.useMemo(() => {
     return (
       <Line
+        rowGap={1.5}
+
         direction='row'
 
         align='center'
 
         justify='center'
+
+        wrap='wrap'
 
         className={classes.legend}
 
@@ -574,6 +587,8 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
             direction='row'
 
             align='center'
+
+            className={classes.actions}
           >
             <Label
               value={view === 'simple'}
@@ -678,7 +693,13 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
                   <Line
                     gap={4}
 
-                    direction='row'
+                    direction={{
+                      xss: 'column',
+                      xs: 'column',
+                      sm: 'column',
+                      md: 'column',
+                      default: 'row'
+                    }}
                   >
                     {Object.values(times.weekly?.days).filter((item: any) => !!item.values.length).map((item: any, index: number) => {
                       const day = set(index + 1, 'dayWeek');
