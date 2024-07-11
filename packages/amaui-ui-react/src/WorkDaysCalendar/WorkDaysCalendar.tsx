@@ -694,7 +694,7 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
                     gap={4}
 
                     direction={{
-                      xss: 'column',
+                      xxs: 'column',
                       xs: 'column',
                       sm: 'column',
                       md: 'column',
