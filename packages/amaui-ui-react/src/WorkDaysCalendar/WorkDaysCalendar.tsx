@@ -368,6 +368,9 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
       const from = new AmauiDate(item.from);
       const to = new AmauiDate(item.to);
 
+      const top = 100 * (((from.hour * 60) + from.minute) / (24 * 60));
+      const bottom = (100 - (100 * (((to.hour * 60) + (to.minute === 59 ? 60 : to.minute)) / (24 * 60))));
+
       elements.push(
         <Line
           key={index}
@@ -381,9 +384,13 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
           className={classes.range}
 
           style={{
-            top: `${100 * (((from.hour * 60) + from.minute) / (24 * 60))}%`,
-            bottom: `${(100 - (100 * (((to.hour * 60) + (to.minute === 59 ? 60 : to.minute)) / (24 * 60))))}%`,
-            background: (!item.skip && !item.break) ? theme.palette.color.success[rangeShade] : item.break ? theme.palette.color.warning[rangeShade] : theme.palette.color.info[rangeShade]
+            top: `${top}%`,
+            bottom: `${bottom}%`,
+            background: (!item.skip && !item.break) ? theme.palette.color.success[rangeShade] : item.break ? theme.palette.color.warning[rangeShade] : theme.palette.color.info[rangeShade],
+
+            ...(top === 0 && bottom === 100 && {
+              border: 'none'
+            })
           }}
         >
           <Type
