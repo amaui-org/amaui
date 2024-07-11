@@ -388,7 +388,7 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
             bottom: `${bottom}%`,
             background: (!item.skip && !item.break) ? theme.palette.color.success[rangeShade] : item.break ? theme.palette.color.warning[rangeShade] : theme.palette.color.info[rangeShade],
 
-            ...(top === 0 && bottom === 100 && {
+            ...(top === 0 && bottom === 0 && {
               border: 'none'
             })
           }}
