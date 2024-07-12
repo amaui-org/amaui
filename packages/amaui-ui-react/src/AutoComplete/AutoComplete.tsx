@@ -56,7 +56,7 @@ const useStyle = styleMethod(theme => ({
     flex: 'unset',
 
     '& .amaui-TextField-input': {
-      width: 'auto'
+      flex: '1 1 auto'
     }
   },
 
