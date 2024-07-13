@@ -276,6 +276,8 @@ const useStyle = styleMethod(theme => ({
 }), { name: 'amaui-Button' });
 
 export interface IButton extends Omit<ISurface, 'elevation'> {
+  name?: any;
+
   size?: ISizeAny;
 
   fullWidth?: boolean;
@@ -331,6 +333,9 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
     tonal = true,
     color: color_ = 'primary',
     version = 'outlined',
+
+    name,
+
     size = 'regular',
 
     fullWidth,
@@ -373,7 +378,7 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
     className,
     style,
 
-    children,
+    children: childrenProps,
 
     ...other
   } = props;
@@ -394,6 +399,8 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
   let end = (selected && endSelected) || end_;
   const disabled = disabled_ || loading;
   const TypeProps: any = { version: 'l2' };
+
+  const children = name !== undefined ? name : childrenProps;
 
   if (disabled) color = 'default';
 

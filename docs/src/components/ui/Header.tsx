@@ -113,7 +113,9 @@ const useStyle = styleMethod(theme => ({
   },
 
   header_down: {
-    transform: 'translate(-50%, calc(-100% - 16px))'
+    '&.amaui-TopAppBar-root': {
+      transform: 'translate(-50%, calc(-100% - 16px))'
+    }
   },
 
   logo: {
