@@ -6,17 +6,40 @@ import { AmauiDate, add, endOf, format, months, remove, set, startOf } from '@am
 import { IAvailableTimes, IWorkDayTimesValue } from '@amaui/api-utils';
 
 import LineElement from '../Line';
+import ModalElement from '../Modal';
+import ModalHeaderElement from '../ModalHeader';
+import ModalMainElement from '../ModalMain';
+import SelectElement from '../Select';
 import TypeElement from '../Type';
 import { ILine } from '../Line/Line';
 import TooltipElement from '../Tooltip';
 import IconButtonElement from '../IconButton';
 import LabelElement from '../Label';
 import ChipElement from '../Chip';
+import SlideElement from '../Slide';
 import SwitchElement from '../Switch';
 import IconElement from '../Icon';
 import { formats, staticClassName } from '../utils';
 import { IElement } from '../types';
-import { Select } from '..';
+
+const IconMaterialKeyboardArrowDown = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='KeyboardArrowDown'
+
+      short_name='KeyboardArrowDown'
+
+      viewBox='0 0 24 24'
+
+      {...props}
+    >
+      <path d="M12 14.975q-.2 0-.387-.075-.188-.075-.313-.2l-4.6-4.6q-.275-.275-.275-.7 0-.425.275-.7.275-.275.7-.275.425 0 .7.275l3.9 3.9 3.9-3.9q.275-.275.7-.275.425 0 .7.275.275.275.275.7 0 .425-.275.7l-4.6 4.6q-.15.15-.325.212-.175.063-.375.063Z" />
+    </IconElement>
+  );
+});
 
 const IconMaterialShortText = React.forwardRef((props: any, ref) => {
 
@@ -100,7 +123,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   day: {
-    minWidth: '140px',
+    minWidth: '184px',
     minHeight: '540px',
     width: 'calc((100% / 7) - 106px)'
   },
@@ -217,9 +240,9 @@ const useStyle = styleMethod(theme => ({
       transform: 'scale(0.94)'
     }
   }
-}), { name: 'amaui-WorkDaysCalendar' });
+}), { name: 'amaui-AvailabilityCalendar' });
 
-export interface IWorkDaysCalendar extends ILine {
+export interface IAvailabilityCalendar extends ILine {
   name?: string | IElement;
 
   description?: string | IElement;
@@ -233,12 +256,14 @@ export interface IWorkDaysCalendar extends ILine {
   IconNext?: any;
 
   IconDescription?: any;
+
+  IconClose?: any;
 }
 
-const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, ref: any) => {
+const AvailabilityCalendar: React.FC<IAvailabilityCalendar> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiWorkDaysCalendar?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAvailabilityCalendar?.props?.default, ...props_ }), [props_]);
 
   const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
 
@@ -254,6 +279,16 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
 
   const Switch = React.useMemo(() => theme?.elements?.Switch || SwitchElement, [theme]);
 
+  const Modal = React.useMemo(() => theme?.elements?.Modal || ModalElement, [theme]);
+
+  const ModalHeader = React.useMemo(() => theme?.elements?.ModalHeader || ModalHeaderElement, [theme]);
+
+  const ModalMain = React.useMemo(() => theme?.elements?.ModalMain || ModalMainElement, [theme]);
+
+  const Select = React.useMemo(() => theme?.elements?.Select || SelectElement, [theme]);
+
+  const Slide = React.useMemo(() => theme?.elements?.Slide || SlideElement, [theme]);
+
   const {
     name,
 
@@ -268,6 +303,7 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
     IconPrevious = IconMaterialArrowBackIosNew,
     IconNext = IconMaterialArrowForwardIos,
     IconDescription = IconMaterialShortText,
+    IconClose = IconMaterialKeyboardArrowDown,
 
     className,
 
@@ -282,6 +318,7 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
   const [now, setNow] = React.useState(AmauiDate.amauiDate);
   const [view, setView] = React.useState<any>('calendar');
   const [displayTime, setDisplayTime] = React.useState(true);
+  const [modal, setModal] = React.useState<any>();
 
   const refs = {
     date: React.useRef(date),
@@ -311,6 +348,18 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
     return () => {
       clearInterval(refs.interval.current);
     };
+  }, []);
+
+  const onOpen = React.useCallback((item: any) => {
+    setModal({ ...item, open: true });
+  }, []);
+
+  const onClose = React.useCallback(() => {
+    setModal((item: any) => ({
+      ...item,
+
+      open: false
+    }));
   }, []);
 
   const onPreviousCalendar = React.useCallback(() => {
@@ -424,19 +473,19 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
   const getColor = React.useCallback((item: any) => {
     let palette = theme.palette.color.neutral;
 
-    if (item.status === 'working') palette = theme.palette.color.success;
+    if (item?.status === 'working') palette = theme.palette.color.success;
 
-    if (item.status === 'not-working') palette = theme.palette.color.info;
+    if (item?.status === 'not-working') palette = theme.palette.color.info;
 
-    if (item.status === 'break') palette = theme.palette.color.warning;
+    if (item?.status === 'break') palette = theme.palette.color.warning;
 
-    if (item.status === 'pending') palette = theme.methods.color(colors.yellow[50]) as any;
+    if (item?.status === 'pending') palette = theme.methods.color(colors.yellow[50]) as any;
 
-    if (item.status === 'rescheduled') palette = theme.methods.color(colors.purple[50]) as any;
+    if (item?.status === 'rescheduled') palette = theme.methods.color(colors.purple[50]) as any;
 
-    if (item.status === 'cancelled') palette = theme.palette.color.error;
+    if (item?.status === 'cancelled') palette = theme.palette.color.error;
 
-    if (item.status === 'other') palette = theme.palette.color.neutral;
+    if (item?.status === 'other') palette = theme.palette.color.neutral;
 
     return palette[rangeShade];
   }, [rangeShade, colors, theme]);
@@ -579,6 +628,8 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
 
             justify='center'
 
+            onClick={() => onOpen({ ...item, day, weekly })}
+
             className={classes.range}
 
             style={{
@@ -606,7 +657,7 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
                 background: getColor(item)
               }}
             >
-              {format(from, 'HH:mm')}h - {renderTo(format(to, 'HH:mm'))}h
+              {format(from, 'hh:mm a')} - {renderTo(format(to, 'hh:mm a'))}
             </Type>
 
             {item.description && (
@@ -624,17 +675,19 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
               >
                 <Tooltip
                   name={(
-                    <Type
-                      version='b3'
-
-                      whiteSpace='pre-line'
-
-                      dangerouslySetInnerHTML={{
-                        __html: textToInnerHTML(item.description)
-                      }}
-
+                    <Line
                       className={classes.description}
-                    />
+                    >
+                      <Type
+                        version='b3'
+
+                        whiteSpace='pre-line'
+
+                        dangerouslySetInnerHTML={{
+                          __html: textToInnerHTML(item.description)
+                        }}
+                      />
+                    </Line>
                   )}
 
                   color='default'
@@ -654,8 +707,6 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
   };
 
   const weekName = `${format(startOf(date, 'week'), formats.date)} — ${format(endOf(date, 'week'), formats.date)}`;
-
-  console.log(1234, date);
 
   const legend = React.useMemo(() => {
     return (
@@ -726,8 +777,8 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
       fullWidth
 
       className={classNames([
-        staticClassName('WorkDaysCalendar', theme) && [
-          'amaui-WorkDaysCalendar-root'
+        staticClassName('AvailabilityCalendar', theme) && [
+          'amaui-AvailabilityCalendar-root'
         ],
 
         className,
@@ -1021,7 +1072,7 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
                                   />
 
                                   <Type>
-                                    {format(itemValueFrom, 'HH:mm')}h — {format(itemValueTo, 'HH:mm')}h
+                                    {format(itemValueFrom, 'hh:mm a')} — {format(itemValueTo, 'hh:mm a')}
                                   </Type>
                                 </Line>
                               );
@@ -1300,10 +1351,94 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
           </Line>
         )}
       </Line>
+
+      {times && (
+        <Modal
+          open={!!modal?.open}
+
+          onClose={onClose}
+
+          TransitionComponent={Slide}
+
+          size='small'
+        >
+          <ModalHeader
+            gap={1}
+
+            direction='row'
+
+            align='center'
+
+            justify='space-between'
+
+            fullWidth
+          >
+            <Line
+              gap={1}
+
+              direction='row'
+
+              align='center'
+
+              fullWidth
+            >
+              <Line
+                className={classes.palettePreview}
+
+                style={{
+                  background: getColor(modal)
+                }}
+              />
+
+              <Type
+                version='b3'
+              >
+                {cleanValue(itemToText(modal?.status), { capitalize: true })}
+              </Type>
+            </Line>
+
+            <Tooltip
+              name='Close'
+            >
+              <IconButton
+                onClick={onClose}
+              >
+                <IconClose />
+              </IconButton>
+            </Tooltip>
+          </ModalHeader>
+
+          <ModalMain
+            align='flex-start'
+
+            className={classes.modalMain}
+          >
+            <Line
+              gap={1.5}
+
+              fullWidth
+            >
+              <Type
+                version='l2'
+              >
+                {format(modal?.day, 'dd')} {format(new AmauiDate(modal?.from), modal?.weekly ? `hh:mm a` : formats.entire)} — {format(new AmauiDate(modal?.to), modal?.weekly ? `hh:mm a` : formats.entire)}
+              </Type>
+
+              {modal?.description && (
+                <Type
+                  dangerouslySetInnerHTML={{
+                    __html: textToInnerHTML(modal.description)
+                  }}
+                />
+              )}
+            </Line>
+          </ModalMain>
+        </Modal>
+      )}
     </Component>
   );
 });
 
-WorkDaysCalendar.displayName = 'amaui-WorkDaysCalendar';
+AvailabilityCalendar.displayName = 'amaui-AvailabilityCalendar';
 
-export default WorkDaysCalendar;
+export default AvailabilityCalendar;

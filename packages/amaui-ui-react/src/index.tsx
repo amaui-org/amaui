@@ -601,8 +601,8 @@ export * from './SpeechToText';
 export { default as TextToSpeech } from './TextToSpeech';
 export * from './TextToSpeech';
 
-export { default as WorkDaysCalendar } from './WorkDaysCalendar';
-export * from './WorkDaysCalendar';
+export { default as AvailabilityCalendar } from './AvailabilityCalendar';
+export * from './AvailabilityCalendar';
 
 export { default as AutoCompleteCountry } from './AutoCompleteCountry';
 export * from './AutoCompleteCountry';
