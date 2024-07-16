@@ -239,6 +239,10 @@ const useStyle = styleMethod(theme => ({
     '&:active': {
       transform: 'scale(0.94)'
     }
+  },
+
+  dayWeekSimple: {
+    maxWidth: 184
   }
 }), { name: 'amaui-AvailabilityCalendar' });
 
@@ -463,8 +467,9 @@ const AvailabilityCalendar: React.FC<IAvailabilityCalendar> = React.forwardRef((
 
     return dates.filter((item: any) => {
       const from = new AmauiDate(item.from);
+      const to = new AmauiDate(item.to);
 
-      return from.milliseconds >= weekFrom.milliseconds && from.milliseconds <= weekTo.milliseconds;
+      return !(from.milliseconds >= weekTo.milliseconds || to.milliseconds <= weekFrom.milliseconds);
     });
   }, [date, dates]);
 
@@ -1028,7 +1033,7 @@ const AvailabilityCalendar: React.FC<IAvailabilityCalendar> = React.forwardRef((
                     }}
                   >
                     {Object.values(times.weekly?.days!).filter((item: any) => !!item.values.length).map((item: any, index: number) => {
-                      const day = set(index + 1, 'dayWeek');
+                      const day = set(index + 1, 'dayWeek', weekStart);
 
                       const values = item.values || [];
 
@@ -1041,9 +1046,9 @@ const AvailabilityCalendar: React.FC<IAvailabilityCalendar> = React.forwardRef((
                           direction='column'
                         >
                           <Type
-                            version='l2'
+                            version='b2'
                           >
-                            {format(day, 'dd')}
+                            <b> {format(day, 'dd')}</b> {format(day, 'DD.MM.')}
                           </Type>
 
                           <Line
@@ -1059,21 +1064,44 @@ const AvailabilityCalendar: React.FC<IAvailabilityCalendar> = React.forwardRef((
 
                                   gap={1}
 
-                                  direction='row'
-
-                                  align='center'
+                                  className={classes.dayWeekSimple}
                                 >
                                   <Line
-                                    className={classes.palettePreview}
+                                    gap={1}
 
-                                    style={{
-                                      background: getColor(itemValue)
-                                    }}
-                                  />
+                                    direction='row'
 
-                                  <Type>
-                                    {format(itemValueFrom, 'hh:mm a')} — {format(itemValueTo, 'hh:mm a')}
-                                  </Type>
+                                    align='center'
+                                  >
+                                    <Line
+                                      className={classes.palettePreview}
+
+                                      style={{
+                                        background: getColor(itemValue)
+                                      }}
+                                    />
+
+                                    <Type>
+                                      {format(itemValueFrom, 'hh:mm a')} — {format(itemValueTo, 'hh:mm a')}
+                                    </Type>
+                                  </Line>
+
+                                  {itemValue.description && (
+                                    <Type
+                                      version='b3'
+
+                                      whiteSpace='pre-wrap'
+
+                                      className={classNames([
+                                        classes.timeDescription,
+                                        !refs.displayTime.current && 'amaui-work-day-time'
+                                      ])}
+
+                                      dangerouslySetInnerHTML={{
+                                        __html: textToInnerHTML(itemValue.description)
+                                      }}
+                                    />
+                                  )}
                                 </Line>
                               );
                             })}
@@ -1140,7 +1168,7 @@ const AvailabilityCalendar: React.FC<IAvailabilityCalendar> = React.forwardRef((
                               </Type>
 
                               <Type>
-                                {format(itemValueFrom, 'HH:mm')}h — {format(itemValueTo, 'HH:mm')}h
+                                {format(itemValueFrom, formats.entire)} — {format(itemValueTo, formats.entire)}
                               </Type>
                             </Line>
 
