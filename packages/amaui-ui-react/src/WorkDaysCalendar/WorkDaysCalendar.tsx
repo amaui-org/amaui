@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { elementToCanvas, textToInnerHTML } from '@amaui/utils';
-import { style as styleMethod, classNames, useAmauiTheme } from '@amaui/style-react';
-import { AmauiDate, add, endOf, format, remove, set, startOf } from '@amaui/date';
+import { clamp, cleanValue, elementToCanvas, textToInnerHTML } from '@amaui/utils';
+import { style as styleMethod, classNames, useAmauiTheme, colors } from '@amaui/style-react';
+import { AmauiDate, add, endOf, format, months, remove, set, startOf } from '@amaui/date';
 import { IAvailableTimes, IWorkDayTimesValue } from '@amaui/api-utils';
 
 import LineElement from '../Line';
@@ -16,6 +16,26 @@ import SwitchElement from '../Switch';
 import IconElement from '../Icon';
 import { formats, staticClassName } from '../utils';
 import { IElement } from '../types';
+import { Select } from '..';
+
+const IconMaterialShortText = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='ShortText'
+
+      short_name='ShortText'
+
+      viewBox='0 0 24 24'
+
+      {...props}
+    >
+      <path d="M5 11q-.425 0-.713-.288Q4 10.425 4 10t.287-.713Q4.575 9 5 9h14q.425 0 .712.287Q20 9.575 20 10t-.288.712Q19.425 11 19 11Zm0 4q-.425 0-.713-.288Q4 14.425 4 14t.287-.713Q4.575 13 5 13h8q.425 0 .713.287.287.288.287.713t-.287.712Q13.425 15 13 15Z" />
+    </IconElement>
+  );
+});
 
 const IconMaterialArrowForwardIos = React.forwardRef((props: any, ref) => {
 
@@ -121,7 +141,8 @@ const useStyle = styleMethod(theme => ({
     left: 0,
     height: '1px',
     transform: 'translateY(-50%)',
-    background: theme.palette.color.secondary[50]
+    background: theme.palette.color.secondary[50],
+    zIndex: 1
   },
 
   range: {
@@ -134,7 +155,6 @@ const useStyle = styleMethod(theme => ({
     transition: theme.methods.transitions.make('box-shadow'),
 
     '& > *': {
-      padding: '0 12px !important',
       whiteSpace: 'pre-wrap',
       transition: theme.methods.transitions.make('opacity')
     },
@@ -151,6 +171,32 @@ const useStyle = styleMethod(theme => ({
         opacity: 1
       }
     }
+  },
+
+  time: {
+    position: 'relative',
+    zIndex: 1,
+    padding: '0px 2px',
+    borderRadius: 2
+  },
+
+  meta: {
+    position: 'absolute',
+    top: '2px',
+    right: '4px',
+
+    '& .amaui-Icon-root': {
+      pointerEvents: 'all'
+    }
+  },
+
+  description: {
+    ...theme.typography.values.b3,
+    background: theme.palette.background.default.primary,
+    borderRadius: `${clamp(theme.shape.radius.unit / 2, 0, 8)}px`,
+    padding: `${theme.methods.space.value(0.5, 'px')} ${theme.methods.space.value(1, 'px')}`,
+    boxShadow: '0px 4px 32px 0px rgba(0, 0, 0, 0.04)',
+    lineHeight: '1.455'
   },
 
   palettePreview: {
@@ -185,6 +231,8 @@ export interface IWorkDaysCalendar extends ILine {
   IconPrevious?: any;
 
   IconNext?: any;
+
+  IconDescription?: any;
 }
 
 const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, ref: any) => {
@@ -219,6 +267,7 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
 
     IconPrevious = IconMaterialArrowBackIosNew,
     IconNext = IconMaterialArrowForwardIos,
+    IconDescription = IconMaterialShortText,
 
     className,
 
@@ -238,7 +287,9 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
     date: React.useRef(date),
     displayTime: React.useRef(displayTime),
     interval: React.useRef<any>(),
-    calendar: React.useRef<any>()
+    calendar: React.useRef<any>(),
+    days: React.useRef<any>({}),
+    overlaping: React.useRef<any>({})
   };
 
   refs.date.current = date;
@@ -299,11 +350,15 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
     );
   }, [name]);
 
-  const itemsLegend = React.useMemo(() => {
+  const optionsStatus = React.useMemo(() => {
     return [
-      { name: 'Working', color: theme.palette.color.success[rangeShade] },
-      { name: 'On a break', color: theme.palette.color.warning[rangeShade] },
-      { name: 'Not working', color: theme.palette.color.info[rangeShade] }
+      { name: 'Working', value: 'working' },
+      { name: 'Not working', value: 'not-working' },
+      { name: 'On a break', value: 'break' },
+      { name: 'Scheduled', value: 'pending' },
+      { name: 'Rescheduled', value: 'rescheduled' },
+      { name: 'Cancelled', value: 'cancelled' },
+      { name: 'Other', value: 'other' }
     ];
   }, []);
 
@@ -334,6 +389,25 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
     });
   }, [times]);
 
+  const onChangeMonth = React.useCallback((valueNew: any) => setDate(set(valueNew, 'month', refs.date.current)), []);
+
+  const onChangeYear = React.useCallback((valueNew: any) => setDate(set(valueNew, 'year', refs.date.current)), []);
+
+  const monthOptions = React.useMemo(() => {
+    return months.map((item, index: number) => ({
+      name: item,
+      value: index
+    }));
+  }, [months]);
+
+  const yearOptions = React.useMemo(() => {
+    const values = [];
+
+    for (let i = 1970; i <= 2070; i++) values.push({ name: i, value: i });
+
+    return values;
+  }, []);
+
   const datesWeek = React.useMemo(() => {
     const weekFrom = startOf(date, 'week');
     const weekTo = endOf(date, 'week');
@@ -347,11 +421,71 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
 
   const weekStart = startOf(date, 'week');
 
-  const renderTimes = (day: AmauiDate, valuesAll: any, weekly = true) => {
+  const getColor = React.useCallback((item: any) => {
+    let palette = theme.palette.color.neutral;
+
+    if (item.status === 'working') palette = theme.palette.color.success;
+
+    if (item.status === 'not-working') palette = theme.palette.color.info;
+
+    if (item.status === 'break') palette = theme.palette.color.warning;
+
+    if (item.status === 'pending') palette = theme.methods.color(colors.yellow[50]) as any;
+
+    if (item.status === 'rescheduled') palette = theme.methods.color(colors.purple[50]) as any;
+
+    if (item.status === 'cancelled') palette = theme.palette.color.error;
+
+    if (item.status === 'other') palette = theme.palette.color.neutral;
+
+    return palette[rangeShade];
+  }, [rangeShade, colors, theme]);
+
+  const itemToText = React.useCallback((item: any) => {
+    if (item === 'pending') return 'scheduled';
+
+    if (item === 'not-count-workout-session') return `don't count workout session`;
+
+    return item;
+  }, []);
+
+  const renderTimes = (day: AmauiDate, valuesAll: any, weekly = true, itemDay?: any) => {
+    if (itemDay !== undefined && !itemDay?.active) return null;
+
+    if (weekly) {
+      const ends_at = itemDay?.ends_at ? new AmauiDate(itemDay.ends_at) : undefined;
+
+      if (ends_at) {
+        const day_StartDay = startOf(day, 'day');
+        const ends_at_StartDay = startOf(ends_at, 'day');
+
+        if (day_StartDay.milliseconds >= ends_at_StartDay.milliseconds) return null;
+      }
+    }
+
+    const dayStartOfDay = startOf(day, 'day');
+
+    const dayDate = format(day, formats.date);
+
     const values = valuesAll?.filter((item: any) => {
       const from = new AmauiDate(item.from);
+      const fromStartOfDay = startOf(from, 'day');
 
-      return weekly ? weekly : from && format(day, formats.date) === format(from, formats.date);
+      const to = new AmauiDate(item.to);
+      const toStartOfDay = startOf(to, 'day');
+
+      return weekly ? weekly : (
+        // from
+        (
+          (dayDate === format(from, formats.date)) ||
+          (dayStartOfDay.milliseconds > fromStartOfDay.milliseconds)
+        ) &&
+        // to
+        (
+          (dayDate === format(to, formats.date)) ||
+          (dayStartOfDay.milliseconds < toStartOfDay.milliseconds)
+        )
+      );
     });
 
     const elements: any = [];
@@ -362,65 +496,157 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
       return valueNew;
     };
 
-    values.forEach((item: any, index: number) => {
+    // clean up
+    if (weekly) {
+      refs.days.current = {};
+      refs.overlaping.current = {};
+    }
+
+    values?.forEach((item: any, index: number) => {
       if (!(item.from && item.to)) return;
 
-      const from = new AmauiDate(item.from);
-      const to = new AmauiDate(item.to);
+      let from = new AmauiDate(item.from);
 
-      const top = 100 * (((from.hour * 60) + from.minute) / (24 * 60));
-      const bottom = (100 - (100 * (((to.hour * 60) + (to.minute === 59 ? 60 : to.minute)) / (24 * 60))));
+      let to = new AmauiDate(item.to);
+
+      if (!weekly) {
+        const fromStartOfDay = startOf(from, 'day');
+
+        const toStartOfDay = startOf(to, 'day');
+
+        if (
+          (dayStartOfDay?.milliseconds > fromStartOfDay?.milliseconds) &&
+          (
+            (dayDate === format(to, formats.date)) ||
+            (dayStartOfDay.milliseconds < toStartOfDay.milliseconds)
+          )
+        ) item.from = startOf(from, 'day').milliseconds;
+
+        if (
+          (
+            (dayDate === format(from, formats.date)) ||
+            (dayStartOfDay.milliseconds > fromStartOfDay.milliseconds)
+          ) &&
+          (dayStartOfDay?.milliseconds < toStartOfDay?.milliseconds)
+        ) item.to = endOf(to, 'day').milliseconds;
+      }
+
+      from = new AmauiDate(item.from);
+
+      to = new AmauiDate(item.to);
+
+      const itemDate = format(day, formats.date);
+
+      const top = +(100 * (((from.hour * 60) + from.minute) / (24 * 60))).toFixed(4);
+
+      const bottom = +((100 - (100 * (((to.hour * 60) + (to.minute === 59 ? 60 : to.minute)) / (24 * 60))))).toFixed(4);
+
+      if (!refs.days.current[itemDate]) refs.days.current[itemDate] = [];
+
+      if (!refs.overlaping.current[itemDate]) refs.overlaping.current[itemDate] = [];
+
+      const bottom_ = 100 - bottom;
+
+      // intersections
+      const overlaps = refs.days.current[itemDate].filter(([itemTop, itemBottom]: [number, number]) => {
+        return !(top >= itemBottom || bottom_ <= itemTop);
+      });
+
+      let level = 0;
+
+      if (overlaps.length) {
+        level = refs.overlaping.current[itemDate].filter(([itemTop, itemBottom]: [number, number]) => {
+          return !(top >= itemBottom || bottom_ <= itemTop);
+        }).length + 1;
+
+        refs.overlaping.current[itemDate].push([top, bottom_]);
+      }
+
+      refs.days.current[itemDate].push([top, bottom_]);
 
       elements.push(
-        <Line
-          key={index}
+        <Tooltip
+          name={cleanValue(itemToText(item.status), { capitalize: true })}
 
-          gap={0.5}
-
-          align='center'
-
-          justify='center'
-
-          className={classes.range}
-
-          style={{
-            top: `${top}%`,
-            bottom: `${bottom}%`,
-            background: (!item.skip && !item.break) ? theme.palette.color.success[rangeShade] : item.break ? theme.palette.color.warning[rangeShade] : theme.palette.color.info[rangeShade],
-
-            ...(top === 0 && bottom === 0 && {
-              border: 'none'
-            })
-          }}
+          color={getColor(item)}
         >
-          <Type
-            version='l3'
+          <Line
+            key={index}
+
+            gap={0.5}
 
             align='center'
 
-            className={classNames([
-              classes.time,
-              !refs.displayTime.current && 'amaui-work-day-time'
-            ])}
-          >
-            {format(from, 'HH:mm')}h - {renderTo(format(to, 'HH:mm'))}h
-          </Type>
+            justify='center'
 
-          {item.description && (
+            className={classes.range}
+
+            style={{
+              top: `${top}%`,
+              bottom: `${bottom}%`,
+              background: getColor(item),
+              left: `calc(0px + ${level * 10}px)`,
+
+              ...(top === 0 && bottom === 0 && {
+                border: 'none'
+              })
+            }}
+          >
             <Type
-              version='b3'
+              version='l3'
+
+              align='center'
 
               className={classNames([
-                classes.timeDescription,
+                classes.time,
                 !refs.displayTime.current && 'amaui-work-day-time'
               ])}
 
-              dangerouslySetInnerHTML={{
-                __html: textToInnerHTML(item.description)
+              style={{
+                background: getColor(item)
               }}
-            />
-          )}
-        </Line>
+            >
+              {format(from, 'HH:mm')}h - {renderTo(format(to, 'HH:mm'))}h
+            </Type>
+
+            {item.description && (
+              <Line
+                gap={0.5}
+
+                direction='row'
+
+                align='center'
+
+                className={classNames([
+                  classes.meta,
+                  !refs.displayTime.current && 'amaui-work-day-time'
+                ])}
+              >
+                <Tooltip
+                  name={(
+                    <Type
+                      version='b3'
+
+                      whiteSpace='pre-line'
+
+                      dangerouslySetInnerHTML={{
+                        __html: textToInnerHTML(item.description)
+                      }}
+
+                      className={classes.description}
+                    />
+                  )}
+
+                  color='default'
+                >
+                  <IconDescription
+                    size='small'
+                  />
+                </Tooltip>
+              </Line>
+            )}
+          </Line>
+        </Tooltip>
       );
     });
 
@@ -428,6 +654,8 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
   };
 
   const weekName = `${format(startOf(date, 'week'), formats.date)} — ${format(endOf(date, 'week'), formats.date)}`;
+
+  console.log(1234, date);
 
   const legend = React.useMemo(() => {
     return (
@@ -450,7 +678,7 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
           height: 40
         }}
       >
-        {itemsLegend.map((item, index) => (
+        {optionsStatus.map((item, index) => (
           <Line
             key={index}
 
@@ -464,7 +692,7 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
               className={classes.palettePreview}
 
               style={{
-                background: item.color
+                background: getColor({ status: item.value })
               }}
             />
 
@@ -477,7 +705,7 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
         ))}
       </Line>
     );
-  }, [itemsLegend]);
+  }, [optionsStatus]);
 
   const elementProps: any = {
     size: 'small'
@@ -582,11 +810,51 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
 
           fullWidth
         >
-          <Type
-            version='b2'
+          <Line
+            gap={1}
+
+            align='center'
+
+            fullWidth
           >
-            {weekName}
-          </Type>
+            <Type
+              version='b2'
+            >
+              {weekName}
+            </Type>
+
+            <Line
+              gap={1}
+
+              direction='row'
+
+              align='center'
+            >
+              <Select
+                name='Month'
+
+                value={monthOptions.find(item => item.value === date.month - 1)?.value}
+
+                onChange={onChangeMonth}
+
+                options={monthOptions as any}
+
+                size='small'
+              />
+
+              <Select
+                name='Year'
+
+                value={yearOptions.find(item => item.value === date.year)?.value}
+
+                onChange={onChangeYear}
+
+                options={yearOptions as any}
+
+                size='small'
+              />
+            </Line>
+          </Line>
 
           <Line
             gap={1}
@@ -708,7 +976,7 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
                       default: 'row'
                     }}
                   >
-                    {Object.values(times.weekly?.days).filter((item: any) => !!item.values.length).map((item: any, index: number) => {
+                    {Object.values(times.weekly?.days!).filter((item: any) => !!item.values.length).map((item: any, index: number) => {
                       const day = set(index + 1, 'dayWeek');
 
                       const values = item.values || [];
@@ -731,8 +999,6 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
                             gap={1}
                           >
                             {values.map((itemValue: any, indexItem: number) => {
-                              const itemBackground = (!itemValue.skip && !itemValue.break) ? theme.palette.color.success[rangeShade] : itemValue.break ? theme.palette.color.warning[rangeShade] : theme.palette.color.info[rangeShade];
-
                               const itemValueFrom = new AmauiDate(itemValue.from);
                               const itemValueTo = new AmauiDate(itemValue.to);
 
@@ -750,7 +1016,7 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
                                     className={classes.palettePreview}
 
                                     style={{
-                                      background: itemBackground
+                                      background: getColor(itemValue)
                                     }}
                                   />
 
@@ -785,8 +1051,6 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
                     {datesWeek.map((itemValue: any, index: number) => {
                       const day = set(index + 1, 'dayWeek');
 
-                      const itemBackground = (!itemValue.skip && !itemValue.break) ? theme.palette.color.success[rangeShade] : itemValue.break ? theme.palette.color.warning[rangeShade] : theme.palette.color.info[rangeShade];
-
                       const itemValueFrom = new AmauiDate(itemValue.from);
                       const itemValueTo = new AmauiDate(itemValue.to);
 
@@ -804,7 +1068,7 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
                             className={classes.palettePreview}
 
                             style={{
-                              background: itemBackground
+                              background: getColor(itemValue)
                             }}
                           />
 
@@ -993,7 +1257,7 @@ const WorkDaysCalendar: React.FC<IWorkDaysCalendar> = React.forwardRef((props_, 
                         fullWidth
                       >
                         {/* Weekly */}
-                        {times?.weekly?.active && renderTimes(day, times.weekly.days[index + 1]?.values)}
+                        {times?.weekly?.active && renderTimes(day, (times.weekly!.days as any)![index + 1]?.values as any, true, (times.weekly!.days as any)![index + 1])}
 
                         {/* Dates */}
                         {times?.dates?.active && renderTimes(day, dates, false)}

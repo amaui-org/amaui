@@ -3,6 +3,8 @@ import React from 'react';
 import { is, isEnvironment, unique } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
+import ListItemElement from '../ListItem';
+import TypeElement from '../Type';
 import IconElement from '../Icon';
 import MenuElement from '../Menu';
 import ChipElement from '../Chip';
@@ -146,6 +148,12 @@ const useStyle = styleMethod(theme => {
 }, { name: 'amaui-Select' });
 
 export interface ISelect extends ITextField {
+  options?: Array<{
+    name: any;
+    value: any;
+    props?: any;
+  }>;
+
   multiple?: boolean;
   autoWidth?: boolean;
   getLabel?: (item: IElement, props: any) => IElement;
@@ -165,6 +173,10 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
   const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiSelect?.props?.default, ...props_ }), [props_]);
 
   const Line = React.useMemo(() => theme?.elements?.Line || LineElement, [theme]);
+
+  const ListItem = React.useMemo(() => theme?.elements?.ListItem || ListItemElement, [theme]);
+
+  const Type = React.useMemo(() => theme?.elements?.Type || TypeElement, [theme]);
 
   const Menu = React.useMemo(() => theme?.elements?.Menu || MenuElement, [theme]);
 
@@ -186,13 +198,15 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
     valueDefault,
     onChange,
 
+    options,
+
     label,
     multiple,
     prefix,
     sufix,
     start,
     end,
-    autoWidth = true,
+    autoWidth = false,
     getLabel,
     fullWidth,
     chip,
@@ -203,8 +217,16 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
 
     WrapperProps,
     ChipGroupProps,
-    ListProps,
-    MenuProps,
+    ListProps = {
+      style: {
+        maxHeight: 240,
+        overflowY: 'auto',
+        overflowX: 'hidden'
+      }
+    },
+    MenuProps = {
+      portal: true
+    },
 
     className,
     style,
@@ -332,11 +354,22 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
     }
   };
 
-  const renderValue = (values: any = value) => {
-    const item: any = children.find((item_: any) => item_.props?.value === values);
+  const items = React.useMemo(() => {
+    return (options || []).map((item: any) => ({
+      ...item,
+
+      name: String(item?.name !== undefined ? item?.name : item?.value !== undefined ? item.value : item),
+      value: item?.value !== undefined ? item?.value : item
+    }));
+  }, [options]);
+
+  const renderValue = (itemValue: any = value) => {
+    const item: any = !!items?.length ? items.find((item_) => item_.value === itemValue) : children.find((item_: any) => item_.props?.value === itemValue);
 
     const getItemLabel = getLabel || (() => {
-      return (item.props?.name || item.props?.label || item.props?.primary || item.props?.secondary || item.props?.tertiary || (item.props?.value !== undefined ? item.props?.value : item.props?.children));
+      const itemProps = !!items?.length ? item : item.props;
+
+      return (itemProps?.name || itemProps?.label || itemProps?.primary || itemProps?.secondary || itemProps?.tertiary || (itemProps?.value !== undefined ? itemProps?.value : itemProps?.children));
     });
 
     return item ? getItemLabel(item, props) : value;
@@ -558,7 +591,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
         </div>
       </TextField>
 
-      {children && (
+      {(!!items.length || children) && (
         <Menu
           ref={refs.menu}
 
@@ -576,7 +609,48 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
 
           maxWidth='unset'
 
-          menuItems={children.map((item: any, index: number) => (
+          menuItems={!!items.length ? (
+            items.map((item: any, index: number) => (
+              <ListItem
+                key={index}
+
+                role={'option'}
+
+                selected={multiple ? value.includes(item?.value) : value === item?.value}
+
+                preselected={!(multiple ? value.includes(item?.value) : value === item?.value)}
+
+                onMouseUp={onMouseUp}
+
+                onMouseDown={onMouseDown}
+
+                primary={(
+                  <Type
+                    version='b3'
+                  >
+                    {item.name}
+                  </Type>
+                )}
+
+                value={item.value}
+
+                size='small'
+
+                button
+
+                {...item.props}
+
+                onClick={(event: React.MouseEvent) => {
+                  if (multiple && value.includes(item?.value)) onUnselect(item?.value);
+                  else onSelect(item?.value);
+
+                  if (is('function', item.props?.onClick)) item.props?.onClick(event);
+
+                  if (!multiple) setOpen(false);
+                }}
+              />
+            ))
+          ) : children.map((item: any, index: number) => (
             React.cloneElement(item, {
               key: index,
 

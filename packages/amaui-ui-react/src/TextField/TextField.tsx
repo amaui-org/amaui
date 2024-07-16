@@ -54,7 +54,7 @@ const useStyle = styleMethod(theme => {
 
     root: {
       display: 'inline-flex',
-      alignItems: 'flex-start',
+      alignItems: 'stretch',
       position: 'relative',
       borderRadius: `${theme.shape.radius.unit}px ${theme.shape.radius.unit}px 0 0`
     },
@@ -136,19 +136,19 @@ const useStyle = styleMethod(theme => {
     },
 
     input_size_small: {
-      height: '48px',
+      // height: '48px',
       padding: `${theme.methods.space.value(1, 'px')} ${theme.methods.space.value(2, 'px')}`,
       paddingTop: theme.methods.space.value(2.5, 'px')
     },
 
     input_size_regular: {
-      height: '56px',
+      // height: '56px',
       padding: `11px ${theme.methods.space.value(2, 'px')}`,
       paddingTop: theme.methods.space.value(3, 'px')
     },
 
     input_size_large: {
-      height: '64px',
+      // height: '64px',
       padding: theme.methods.space.value(2, 'px'),
       paddingTop: theme.methods.space.value(3.5, 'px')
     },
