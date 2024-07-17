@@ -289,6 +289,8 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
 
     error: error_,
 
+    name,
+
     placeholder,
 
     edit,
@@ -1549,7 +1551,7 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
 
         onMouseDown,
 
-        'data-placeholder': placeholder,
+        'data-placeholder': placeholder !== undefined ? placeholder : name,
 
         ...inputProps,
 
@@ -1617,7 +1619,7 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
 
       spellCheck={false}
 
-      data-placeholder={placeholder}
+      data-placeholder={placeholder !== undefined ? placeholder : name}
 
       {...inputProps}
 
