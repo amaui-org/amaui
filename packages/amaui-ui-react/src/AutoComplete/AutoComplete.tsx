@@ -56,7 +56,8 @@ const useStyle = styleMethod(theme => ({
     flex: 'unset',
 
     '& .amaui-TextField-input': {
-      flex: '1 1 auto'
+      flex: '1 1 auto',
+      width: 'auto'
     }
   },
 
@@ -622,6 +623,8 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
           return (
             <Chip
               key={index}
+
+              size='small'
 
               {...ChipProps}
 

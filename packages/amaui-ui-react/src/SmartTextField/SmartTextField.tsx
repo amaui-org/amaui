@@ -705,7 +705,7 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
     // Save caret position
     refs.caret.current = caret.save(refs.root.current);
 
-    const name = item.name;
+    const itemName = item.name;
 
     const classesElement = ['amaui-mention'];
 
@@ -740,12 +740,12 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
 
       span.className = classesElement.join(' ');
 
-      span.dataset.amauiLabel = `@${name}`;
+      span.dataset.amauiLabel = `@${itemName}`;
       span.dataset.amauiVersion = `mention-${versionMention}`;
       span.dataset.amauiObject = `${versionMention}`;
       span.dataset.amauiId = item.id;
 
-      span.innerHTML = `@${name}`;
+      span.innerHTML = `@${itemName}`;
 
       textNode.parentElement.insertBefore(span, windowSelection!.anchorNode);
 
@@ -764,7 +764,7 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
 
       // Update the caret position to be outside the span mention
       // for amount of added characters + 1 space
-      const added = `@${name}`.length - refs.search.current.length + 1;
+      const added = `@${itemName}`.length - refs.search.current.length + 1;
 
       refs.caret.current.start = refs.caret.current.end += added;
 
