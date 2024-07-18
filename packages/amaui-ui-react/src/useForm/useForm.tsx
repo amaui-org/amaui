@@ -50,7 +50,7 @@ const useForm = (props: IUseForm) => {
 
   refs.form.current = form;
 
-  const init = React.useCallback(() => {
+  const init = () => {
     const formNew = { ...refs.form.current };
 
     const {
@@ -80,14 +80,14 @@ const useForm = (props: IUseForm) => {
         value
       };
     });
-  }, []);
+  };
 
   React.useEffect(() => {
     // init
     init();
   }, []);
 
-  const onChange = React.useCallback(async (...args: [Array<[string, any, any?, IUseFormOnChangeOptions?]>] | [string, any, any?, IUseFormOnChangeOptions?]) => {
+  const onChange = async (...args: [Array<[string, any, any?, IUseFormOnChangeOptions?]>] | [string, any, any?, IUseFormOnChangeOptions?]) => {
     const formNew = { ...refs.form.current };
 
     const value = {};
@@ -181,9 +181,9 @@ const useForm = (props: IUseForm) => {
         };
       });
     }
-  }, [rerenderOnUpdate, autoValidate, validate_]);
+  };
 
-  const validate = React.useCallback(async () => {
+  const validate = async () => {
     const formNew = { ...refs.form.current };
 
     const values = refs.values.current;
@@ -256,9 +256,9 @@ const useForm = (props: IUseForm) => {
     });
 
     return valid;
-  }, [validate_]);
+  };
 
-  const clear = React.useCallback(() => {
+  const clear = () => {
     const formNew = {
       ...refs.form.current,
 
@@ -280,7 +280,7 @@ const useForm = (props: IUseForm) => {
         ...formNew
       };
     });
-  }, [values_, valueDefault, validDefault]);
+  };
 
   return {
     ...form,
