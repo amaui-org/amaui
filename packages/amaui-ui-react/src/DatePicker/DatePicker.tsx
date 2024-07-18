@@ -385,8 +385,6 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
   });
 
   const label = name !== undefined ? name : label_;
-  const labelFrom = nameFrom !== undefined ? nameFrom : labelFrom_;
-  const labelTo = nameTo !== undefined ? nameTo : labelTo_;
 
   const switch_ = valueBreakpoints(switch__, true, breakpoints, theme);
   const useHelperText = valueBreakpoints(useHelperText_, undefined, breakpoints, theme);
@@ -406,7 +404,7 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
   const valueToInput = React.useCallback((valueNew: any = value) => {
     let result = '';
 
-    const [from, to] = valueNew;
+    const [from, to] = is('array', valueNew) ? valueNew : [valueNew];
 
     if (!(from || to)) return '';
 
@@ -429,8 +427,16 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
     else version = 'desktop';
   }
 
-  const onUpdateValue = (valueNew: any) => {
-    setValue(valueNew);
+  const onUpdateValue = (valueNew_: any) => {
+    const valueNew = is('array', valueNew_) ? valueNew_ : [valueNew_];
+
+    const dateNow = new AmauiDate();
+
+    // Update value
+    setValue(valueNew as any);
+
+    // Update calendar
+    onUpdateCalendar(valueNew[0] || dateNow);
 
     // Update input
     setInput(valueToInput(valueNew));

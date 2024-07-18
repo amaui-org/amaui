@@ -539,7 +539,7 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
   const valueToInput = React.useCallback((valueNew: any = refs.value.current) => {
     let result = '';
 
-    const [from, to] = valueNew as [AmauiDate, AmauiDate];
+    const [from, to] = is('array', valueNew) ? valueNew : [valueNew];
 
     if (!(from || to)) return '';
 
@@ -574,9 +574,16 @@ const TimePicker: React.FC<ITimePicker> = React.forwardRef((props__, ref: any) =
     else version = 'desktop';
   }
 
-  const onUpdateValue = (valueNew: any) => {
+  const onUpdateValue = (valueNew_: any) => {
+    const valueNew = is('array', valueNew_) ? valueNew_ : [valueNew_];
+
+    // Update value
     setValue(valueNew);
 
+    // Update input
+    setInput(valueToInput(valueNew));
+
+    // Update dayTime
     setDayTime(valueNew.map(item => formatDate(item, 'a')));
   };
 

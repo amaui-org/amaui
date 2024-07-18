@@ -262,7 +262,7 @@ const useForm = (props: IUseForm) => {
     const formNew = {
       ...refs.form.current,
 
-      value: valueDefault !== undefined ? valueDefault : {},
+      value: copy(valueDefault !== undefined ? valueDefault : {}),
       values: values_ || {},
       valid: validDefault !== undefined ? validDefault : false
     };
