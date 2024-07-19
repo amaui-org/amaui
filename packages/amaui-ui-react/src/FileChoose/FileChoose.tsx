@@ -10,7 +10,7 @@ import TreeElement from '../Tree';
 import LineElement from '../Line';
 import IconElement from '../Icon';
 import { ILine } from '../Line/Line';
-import { staticClassName } from '../utils';
+import { iconFontSize, staticClassName } from '../utils';
 import { ITonal, IColor, IRef, IElementReference, IPropsAny } from '../types';
 
 const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
@@ -406,7 +406,7 @@ const FileChoose: React.FC<IFileChoose> = React.forwardRef((props_, ref: any) =>
 
                     size={20}
 
-                    fontSize={17}
+                    fontSize={iconFontSize}
 
                     onClick={() => onRemove(index)}
                   >

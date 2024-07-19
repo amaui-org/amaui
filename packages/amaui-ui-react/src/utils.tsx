@@ -453,6 +453,8 @@ export const formats = {
   time: 'h:mm a'
 };
 
+export const iconFontSize = 20;
+
 export const currencies = [
   {
     symbol: '$',

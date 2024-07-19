@@ -10,7 +10,7 @@ import IconButtonElement from '../IconButton';
 import MenuElement from '../Menu';
 import ExpandElement from '../Expand';
 import FadeElement from '../Fade';
-import { staticClassName } from '../utils';
+import { iconFontSize, staticClassName } from '../utils';
 import { IElement, IHTMLElement, IElementReference, IPropsAny } from '../types';
 import { IListItem } from '../ListItem/ListItem';
 
@@ -225,7 +225,7 @@ const MenuItem: React.FC<IMenuItem> = React.forwardRef((props_, ref: any) => {
     <IconButton
       size={24}
 
-      fontSize={24}
+      fontSize={iconFontSize}
 
       onClick={onClick}
 

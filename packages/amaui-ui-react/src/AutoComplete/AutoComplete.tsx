@@ -15,7 +15,7 @@ import RoundProgressElement from '../RoundProgress';
 import ListSubheaderElement from '../ListSubheader';
 import LineElement from '../Line';
 import { ITextField } from '../TextField/TextField';
-import { staticClassName } from '../utils';
+import { iconFontSize, staticClassName } from '../utils';
 import { IElement, IElementReference, IPropsAny } from '../types';
 
 const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
@@ -549,7 +549,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
       if (refocus) refs.input.current.focus();
     }
-  }, []);
+  }, [disabled, readOnly]);
 
   const onClearInput = React.useCallback((refocus = true) => {
     if (!disabled && !readOnly) {
@@ -809,7 +809,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
           size='small'
 
-          fontSize={24}
+          fontSize={iconFontSize}
 
           aria-label='Input clear'
 
@@ -826,7 +826,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
         size='small'
 
-        fontSize={24}
+        fontSize={iconFontSize}
 
         aria-expanded={open}
 

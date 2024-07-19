@@ -21,7 +21,7 @@ import { IconDoneAnimated } from '../Buttons/Buttons';
 import { ICalenarDays, TCalendarMonthCalendar, TCalendarMonthValue } from '../CalendarMonth/CalendarMonth';
 import { TTransitionStatus } from '../Transition';
 import { ISurface } from '../Surface/Surface';
-import { staticClassName } from '../utils';
+import { iconFontSize, staticClassName } from '../utils';
 import { IColor, IElementReference, IPropsAny, ISize, ITonal } from '../types';
 
 const IconMaterialNavigateBeforeRounded = React.forwardRef((props: any, ref) => {
@@ -801,7 +801,7 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
 
               onClick={() => onOpen()}
 
-              fontSize={24}
+              fontSize={iconFontSize}
 
               size={size}
 
@@ -895,7 +895,7 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
 
               onClick={() => onOpen('year')}
 
-              fontSize={24}
+              fontSize={iconFontSize}
 
               size={size}
 
@@ -968,7 +968,7 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
 
             onClick={() => onOpen('year')}
 
-            fontSize={24}
+            fontSize={iconFontSize}
 
             end={(
               <IconDropDown

@@ -534,6 +534,7 @@ export interface ITextField extends IBaseElement {
   footer?: IElement;
   controlled?: boolean;
   restoreSelection?: boolean;
+  minWidth?: number;
   readOnly?: boolean;
   disabled?: boolean;
   subscription?: AmauiSubscription;
@@ -607,6 +608,7 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
     subscription,
     controlled,
     restoreSelection = false,
+    minWidth,
     readOnly,
     disabled,
 
@@ -1044,6 +1046,12 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
           error && (hover ? classes.error_hover_color : classes.error_color),
           !footer && disabled && classes.disabled
         ])}
+
+        style={{
+          ...ComponentProps?.style,
+
+          minWidth
+        }}
       >
         {['filled'].includes(version) && (
           <span

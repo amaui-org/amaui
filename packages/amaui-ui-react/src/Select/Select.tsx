@@ -8,13 +8,29 @@ import TypeElement from '../Type';
 import IconElement from '../Icon';
 import MenuElement from '../Menu';
 import ChipElement from '../Chip';
-import ChipGroupElement from '../Chips';
+import ChipsElement from '../Chips';
 import TextFieldElement from '../TextField';
 import IconButtonElement from '../IconButton';
 import LineElement from '../Line';
 import { ITextField } from '../TextField/TextField';
-import { staticClassName } from '../utils';
+import { iconFontSize, staticClassName } from '../utils';
 import { IElement, IPropsAny } from '../types';
+
+const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
+
+  return (
+    <IconElement
+      ref={ref}
+
+      name='CloseRounded'
+      short_name='Close'
+
+      {...props}
+    >
+      <path d="M12 13.4 7.1 18.3Q6.825 18.575 6.4 18.575Q5.975 18.575 5.7 18.3Q5.425 18.025 5.425 17.6Q5.425 17.175 5.7 16.9L10.6 12L5.7 7.1Q5.425 6.825 5.425 6.4Q5.425 5.975 5.7 5.7Q5.975 5.425 6.4 5.425Q6.825 5.425 7.1 5.7L12 10.6L16.9 5.7Q17.175 5.425 17.6 5.425Q18.025 5.425 18.3 5.7Q18.575 5.975 18.575 6.4Q18.575 6.825 18.3 7.1L13.4 12L18.3 16.9Q18.575 17.175 18.575 17.6Q18.575 18.025 18.3 18.3Q18.025 18.575 17.6 18.575Q17.175 18.575 16.9 18.3Z" />
+    </IconElement>
+  );
+});
 
 const IconMaterialArrowDropDownRounded = React.forwardRef((props: any, ref) => {
 
@@ -43,7 +59,7 @@ const useStyle = styleMethod(theme => {
   return {
     root: {
       flex: 'unset',
-      minWidth: '140px',
+      minWidth: '184px',
 
       '& .amaui-TextField-input': {
         position: 'absolute',
@@ -104,7 +120,7 @@ const useStyle = styleMethod(theme => {
     },
 
     chipGroup: {
-      pointerEvents: 'none'
+      pointerEvents: 'auto'
     },
 
     chipGroup_padding: {
@@ -158,13 +174,17 @@ export interface ISelect extends ITextField {
   autoWidth?: boolean;
   getLabel?: (item: IElement, props: any) => IElement;
   chip?: boolean;
+  clear?: boolean;
 
   renderValues?: (value: string | string[]) => IElement;
+  renderChip?: (item: any, value: any, props: IPropsAny) => IElement;
 
   WrapperProps?: IPropsAny;
-  ChipGroupProps?: IPropsAny;
+  ChipProps?: IPropsAny;
+  ChiProps?: IPropsAny;
   ListProps?: IPropsAny;
   MenuProps?: IPropsAny;
+  IconButtonProps?: IPropsAny;
 }
 
 const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
@@ -182,7 +202,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
 
   const Chip = React.useMemo(() => theme?.elements?.Chip || ChipElement, [theme]);
 
-  const ChipGroup = React.useMemo(() => theme?.elements?.ChipGroup || ChipGroupElement, [theme]);
+  const Chips = React.useMemo(() => theme?.elements?.Chips || ChipsElement, [theme]);
 
   const TextField = React.useMemo(() => theme?.elements?.TextField || TextFieldElement, [theme]);
 
@@ -210,13 +230,18 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
     getLabel,
     fullWidth,
     chip,
+    clear = true,
     readOnly,
     disabled,
 
     renderValues: renderValues_,
+    renderChip,
+
+    IconClear = IconMaterialCloseRounded,
 
     WrapperProps,
-    ChipGroupProps,
+    ChipProps,
+    ChiProps,
     ListProps = {
       style: {
         maxHeight: 240,
@@ -227,6 +252,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
     MenuProps = {
       portal: true
     },
+    IconButtonProps,
 
     className,
     style,
@@ -354,6 +380,14 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
     }
   };
 
+  const onClear = React.useCallback((refocus = false) => {
+    if (!disabled && !readOnly) {
+      onChange([]);
+
+      if (refocus) refs.input.current.focus();
+    }
+  }, [disabled, readOnly]);
+
   const items = React.useMemo(() => {
     return (options || []).map((item: any) => ({
       ...item,
@@ -379,7 +413,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
     if (multiple) {
       if (chip) {
         return (
-          <ChipGroup
+          <Chips
             wrap='wrap'
 
             size={size}
@@ -389,18 +423,42 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
               version !== 'outlined' && classes.chipGroup_padding
             ])}
 
-            {...ChipGroupProps}
+            {...ChiProps}
           >
-            {(value__ as any).map(item => (
-              <Chip
-                key={item}
+            {(value__ as any).map(item => {
+              const other_ = {
+                onClick: (event: MouseEvent) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+                },
 
-                focus={false}
-              >
-                {renderValue(item)}
-              </Chip>
-            ))}
-          </ChipGroup>
+                onRemove: (event: MouseEvent) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+
+                  onUnselect(item);
+                },
+
+                input: true
+              };
+
+              if (is('function', renderChip)) return renderChip(item, renderValue(item), other_);
+
+              return (
+                <Chip
+                  key={item}
+
+                  size='small'
+
+                  {...other_}
+
+                  {...ChipProps}
+                >
+                  {renderValue(item)}
+                </Chip>
+              );
+            })}
+          </Chips>
         );
       }
 
@@ -413,19 +471,37 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
   const endIcons = [
     end,
 
+    !!(multiple ? value.length : value) && (
+      <IconButton
+        onClick={onClear}
+
+        size='small'
+
+        fontSize={iconFontSize}
+
+        aria-label='Input clear'
+
+        {...IconButtonProps}
+      >
+        <IconClear />
+      </IconButton>
+    ),
+
     ...(!readOnly ? [
       <IconButton
         key={1}
 
         size='small'
 
-        fontSize={24}
+        fontSize={iconFontSize}
 
         onClick={onClickArrowDown}
 
         aria-expanded={open}
 
         aria-controls={refs.ids.list}
+
+        {...IconButtonProps}
       >
         <IconMaterialArrowDropDownRounded
           className={classNames([
