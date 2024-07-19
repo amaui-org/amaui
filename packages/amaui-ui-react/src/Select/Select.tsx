@@ -100,6 +100,7 @@ const useStyle = styleMethod(theme => {
 
     input: {
       width: '100%',
+      minHeight: 20,
       margin: '0',
       border: '0',
       color: theme.palette.text.default.primary,
@@ -107,10 +108,11 @@ const useStyle = styleMethod(theme => {
       '-webkit-tap-highlight-color': 'transparent',
       textAlign: 'start',
       borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
-      ...theme.typography.values.b2,
-      ...overflow,
       cursor: 'pointer',
-      pointerEvents: 'none'
+      pointerEvents: 'none',
+
+      ...theme.typography.values.b2,
+      ...overflow
     },
 
     chip: {
@@ -216,7 +218,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
 
     value: value_,
     valueDefault,
-    onChange,
+    onChange: onChange_,
 
     options,
 
@@ -230,7 +232,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
     getLabel,
     fullWidth,
     chip,
-    clear = true,
+    clear,
     readOnly,
     disabled,
 
@@ -356,15 +358,19 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
     }
   }, []);
 
+  const onChange = (valueNew: any) => {
+    // Inner controlled value
+    if (!props.hasOwnProperty('value')) setValue(valueNew);
+
+    if (is('function', onChange_)) onChange_(valueNew);
+  };
+
   const onSelect = (newValue: any) => {
     let values = multiple ? is('array', value) ? value : [value] : value;
 
     values = multiple ? unique([...values, newValue]) : newValue;
 
-    // Inner controlled value
-    if (!props.hasOwnProperty('value')) setValue(values);
-
-    if (is('function', onChange)) onChange(values);
+    onChange(values);
   };
 
   const onUnselect = (itemValue: any) => {
@@ -373,20 +379,17 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
 
       values = values.filter(item => item !== itemValue);
 
-      // Inner controlled value
-      if (!props.hasOwnProperty('value')) setValue(values);
-
-      if (is('function', onChange)) onChange(values);
+      onChange(values);
     }
   };
 
   const onClear = React.useCallback((refocus = false) => {
     if (!disabled && !readOnly) {
-      onChange([]);
+      onChange(multiple ? [] : null);
 
       if (refocus) refs.input.current.focus();
     }
-  }, [disabled, readOnly]);
+  }, [multiple, readOnly, disabled]);
 
   const items = React.useMemo(() => {
     return (options || []).map((item: any) => ({

@@ -78,6 +78,8 @@ const useStyle = styleMethod(theme => ({
     '-webkit-tap-highlight-color': 'transparent',
     textAlign: 'start',
     borderRadius: `${theme.shape.radius.unit / 2}px ${theme.shape.radius.unit / 2}px 0 0`,
+    minHeight: 20,
+
     ...theme.typography.values.b2
   },
 
@@ -441,11 +443,11 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
   const onMouseDown = React.useCallback((event: React.MouseEvent<any>) => {
     if (!disabled && !readOnly) setMouseDown(true);
-  }, [disabled, readOnly]);
+  }, [readOnly, disabled]);
 
   const onMouseUp = React.useCallback((event: React.MouseEvent<any>) => {
     if (!disabled && !readOnly) setMouseDown(false);
-  }, [disabled, readOnly]);
+  }, [readOnly, disabled]);
 
   const onFocus = React.useCallback((event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled && !readOnly) {
@@ -453,7 +455,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
       if (selectOnFocus) setTimeout(() => refs.input.current.select());
     }
-  }, [disabled, readOnly]);
+  }, [readOnly, disabled]);
 
   const onBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     if (!disabled && !readOnly) setFocus(false);
@@ -469,7 +471,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
       return !open_;
     });
-  }, [disabled, readOnly]);
+  }, [readOnly, disabled]);
 
   const onClickArrowDown = React.useCallback((event: React.MouseEvent) => {
     if (!disabled && !readOnly) setOpen(open_ => {
@@ -477,7 +479,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
       return !open_;
     });
-  }, [disabled, readOnly]);
+  }, [readOnly, disabled]);
 
   const onEnterKeyDown = React.useCallback((event: React.KeyboardEvent) => {
     if (event.key === 'Enter' && !disabled && !readOnly) setOpen(open_ => {
@@ -489,7 +491,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
       return !open_;
     });
-  }, [disabled, readOnly]);
+  }, [readOnly, disabled]);
 
   const onClose = (refocus = true) => {
     if (!disabled && !readOnly) {
@@ -545,11 +547,11 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
     if (!disabled && !readOnly) {
       onChangeInput('');
 
-      onChange([]);
+      onChange(multiple ? [] : null);
 
       if (refocus) refs.input.current.focus();
     }
-  }, [disabled, readOnly]);
+  }, [multiple, readOnly, disabled]);
 
   const onClearInput = React.useCallback((refocus = true) => {
     if (!disabled && !readOnly) {
@@ -1026,7 +1028,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
                 chip && classes.chip,
                 open && classes.open,
                 readOnly && classes.readOnly
-              ],
+              ]
             ])}
           >
             {renderValues(value, onUnselect)}
