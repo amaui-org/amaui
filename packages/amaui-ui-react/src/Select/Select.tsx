@@ -174,7 +174,7 @@ export interface ISelect extends ITextField {
 
   multiple?: boolean;
   autoWidth?: boolean;
-  getLabel?: (item: IElement, props: any) => IElement;
+  getLabel?: (item: any, props: any) => any;
   chip?: boolean;
   clear?: boolean;
 
@@ -188,6 +188,8 @@ export interface ISelect extends ITextField {
   MenuProps?: IPropsAny;
   IconButtonProps?: IPropsAny;
 }
+
+const getValue = (value: any) => value?.value !== undefined ? value.value : value;
 
 const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
@@ -229,7 +231,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
     start,
     end,
     autoWidth = false,
-    getLabel,
+    getLabel: getLabel_,
     fullWidth,
     chip,
     clear,
@@ -400,8 +402,10 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
     }));
   }, [options]);
 
+  const getLabel = (item: any, propsOther?: any) => is('function', getLabel_) ? getLabel_(item, propsOther) : item?.name || item?.label || item?.value;
+
   const renderValue = (itemValue: any = value) => {
-    const item: any = !!items?.length ? items.find((item_) => item_.value === itemValue) : children.find((item_: any) => item_.props?.value === itemValue);
+    const item: any = !!items?.length ? items.find((item_) => getValue(item_) === getValue(itemValue)) : children.find((item_: any) => getValue(item_.props?.value) === getValue(itemValue));
 
     const getItemLabel = getLabel || (() => {
       const itemProps = !!items?.length ? item : item.props;
@@ -474,7 +478,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
   const endIcons = [
     end,
 
-    !!(multiple ? value.length : value) && (
+    clear && !!(multiple ? value.length : value) && (
       <IconButton
         onClick={onClear}
 

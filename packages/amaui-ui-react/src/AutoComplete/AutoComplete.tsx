@@ -173,7 +173,7 @@ export interface IAutoComplete extends ITextField {
   multiple?: boolean;
   autoWidth?: boolean;
   readOnly?: boolean;
-  getLabel?: (item: any) => any;
+  getLabel?: (item: any, props?: any) => any;
   equal?: (value1: any, value2: any) => boolean;
   equalInput?: (input: string, value: any) => boolean;
   renderValues?: (value: TAutoCompleteValue, onUnselect: (value: string) => any) => IElement;
@@ -589,10 +589,25 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
   };
 
   const renderValue = (itemValue: any) => {
-    const item: any = children.find((item_: any) => getValue(item_.props?.value) === getValue(itemValue));
+    const item: any = !!items?.length ? items.find((item_) => getValue(item_) === getValue(itemValue)) : children.find((item_: any) => getValue(item_.props?.value) === getValue(itemValue));
 
-    return getLabel(item ? item?.props : itemValue);
+    const getItemLabel = getLabel || (() => {
+      const itemProps = !!items?.length ? item : item.props;
+
+      return (itemProps?.name || itemProps?.label || itemProps?.primary || itemProps?.secondary || itemProps?.tertiary || (itemProps?.value !== undefined ? itemProps?.value : itemProps?.children));
+    });
+
+    return item ? getItemLabel(item, props) : value;
   };
+
+  const items = React.useMemo(() => {
+    return (options || []).map((item: any) => ({
+      ...item,
+
+      name: String(item?.name !== undefined ? item?.name : item?.value !== undefined ? item.value : item),
+      value: item?.value !== undefined ? item?.value : item
+    }));
+  }, [options]);
 
   const renderValues = renderValues_ || ((value__ = refs.value.current, onUnselectMethod = onUnselect) => {
     if (multiple) {
@@ -686,7 +701,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
     });
   }
 
-  const getLabel = (item: any) => is('function', getLabel_) ? getLabel_(item) : item?.name || item?.label || item?.value;
+  const getLabel = (item: any, propsOther?: any) => is('function', getLabel_) ? getLabel_(item, propsOther) : item?.name || item?.label || item?.value;
 
   const renderOptionValue = (values: any) => {
     const result = values.map((item: any, index: number) => {
