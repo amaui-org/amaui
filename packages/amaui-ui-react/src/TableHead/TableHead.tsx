@@ -13,7 +13,12 @@ import LinearProgressElement from '../LinearProgress';
 const useStyle = styleMethod(theme => ({
   root: {
     display: 'table-header-group',
-    background: 'inherit'
+    background: 'inherit',
+
+    '& .amaui-TableCell-root': {
+      whiteSpace: 'nowrap',
+      wordBreak: 'normal'
+    }
   },
 
   sticky: {

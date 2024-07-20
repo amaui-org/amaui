@@ -15,6 +15,10 @@ const useStyle = styleMethod(theme => ({
 
     '& .amaui-TableRow-root:last-child hr': {
       display: 'none'
+    },
+
+    '& .amaui-TableCell-root': {
+      wordBreak: 'normal'
     }
   },
 
