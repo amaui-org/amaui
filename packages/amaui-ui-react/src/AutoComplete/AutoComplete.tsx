@@ -588,6 +588,15 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
     }
   };
 
+  const items = React.useMemo(() => {
+    return (options_ || []).map((item: any) => ({
+      ...item,
+
+      name: String(item?.name !== undefined ? item?.name : item?.value !== undefined ? item.value : item),
+      value: item?.value !== undefined ? item?.value : item
+    }));
+  }, [options_]);
+
   const renderValue = (itemValue: any) => {
     const item: any = !!items?.length ? items.find((item_) => getValue(item_) === getValue(itemValue)) : children.find((item_: any) => getValue(item_.props?.value) === getValue(itemValue));
 
@@ -599,15 +608,6 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
     return item ? getItemLabel(item, props) : value;
   };
-
-  const items = React.useMemo(() => {
-    return (options || []).map((item: any) => ({
-      ...item,
-
-      name: String(item?.name !== undefined ? item?.name : item?.value !== undefined ? item.value : item),
-      value: item?.value !== undefined ? item?.value : item
-    }));
-  }, [options]);
 
   const renderValues = renderValues_ || ((value__ = refs.value.current, onUnselectMethod = onUnselect) => {
     if (multiple) {
