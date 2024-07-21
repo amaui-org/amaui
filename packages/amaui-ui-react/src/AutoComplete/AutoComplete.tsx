@@ -597,16 +597,18 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
     }));
   }, [options_]);
 
-  const renderValue = (itemValue: any) => {
+  const getLabel = (item: any, propsOther?: any) => {
+    if (is('function', getLabel_)) return getLabel_(item, propsOther);
+
+    const itemToUse = !!items?.length ? item : item.props;
+
+    return is('simple', itemToUse) ? itemToUse : (itemToUse?.name || itemToUse?.label || itemToUse?.primary || itemToUse?.secondary || itemToUse?.tertiary || (itemToUse?.value !== undefined ? itemToUse?.value : itemToUse?.children));
+  };
+
+  const renderValue = (itemValue: any = value) => {
     const item: any = !!items?.length ? items.find((item_) => getValue(item_) === getValue(itemValue)) : children.find((item_: any) => getValue(item_.props?.value) === getValue(itemValue));
 
-    const getItemLabel = getLabel || (() => {
-      const itemToUse = !!items?.length ? item : item.props;
-
-      return is('simple', itemToUse) ? itemToUse : (itemToUse?.name || itemToUse?.label || itemToUse?.primary || itemToUse?.secondary || itemToUse?.tertiary || (itemToUse?.value !== undefined ? itemToUse?.value : itemToUse?.children));
-    });
-
-    return (item ? getItemLabel(item, props) : itemValue) || is('simple', itemValue) ? itemValue : '';
+    return (item ? getLabel(item, props) : itemValue) || is('simple', itemValue) ? itemValue : '';
   };
 
   const renderValues = renderValues_ || ((value__ = refs.value.current, onUnselectMethod = onUnselect) => {
@@ -700,8 +702,6 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
       optionsToUse.push({ label: item, version: 'subheader' }, ...array);
     });
   }
-
-  const getLabel = (item: any, propsOther?: any) => is('function', getLabel_) ? getLabel_(item, propsOther) : item?.name || item?.label || item?.value;
 
   const renderOptionValue = (values: any) => {
     const result = values.map((item: any, index: number) => {
