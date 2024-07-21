@@ -408,12 +408,12 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
     const item: any = !!items?.length ? items.find((item_) => getValue(item_) === getValue(itemValue)) : children.find((item_: any) => getValue(item_.props?.value) === getValue(itemValue));
 
     const getItemLabel = getLabel || (() => {
-      const itemProps = !!items?.length ? item : item.props;
+      const itemToUse = !!items?.length ? item : item.props;
 
-      return (itemProps?.name || itemProps?.label || itemProps?.primary || itemProps?.secondary || itemProps?.tertiary || (itemProps?.value !== undefined ? itemProps?.value : itemProps?.children));
+      return is('simple', itemToUse) ? itemToUse : (itemToUse?.name || itemToUse?.label || itemToUse?.primary || itemToUse?.secondary || itemToUse?.tertiary || (itemToUse?.value !== undefined ? itemToUse?.value : itemToUse?.children));
     });
 
-    return item ? getItemLabel(item, props) : value;
+    return (item ? getItemLabel(item, props) : itemValue) || is('simple', itemValue) ? itemValue : '';
   };
 
   const renderValues = renderValues_ || ((value__ = value) => {
