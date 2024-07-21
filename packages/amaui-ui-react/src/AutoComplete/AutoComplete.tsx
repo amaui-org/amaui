@@ -608,7 +608,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
   const renderValue = (itemValue: any = value) => {
     const item: any = !!items?.length ? items.find((item_) => getValue(item_) === getValue(itemValue)) : children.find((item_: any) => getValue(item_.props?.value) === getValue(itemValue));
 
-    return (item ? getLabel(item, props) : itemValue) || is('simple', itemValue) ? itemValue : '';
+    return item ? getLabel(item, props) : itemValue || '';
   };
 
   const renderValues = renderValues_ || ((value__ = refs.value.current, onUnselectMethod = onUnselect) => {
