@@ -405,10 +405,10 @@
     path-to-regexp "^6.2.0"
     uuid "^8.3.2"
 
-"@amaui/utils@^1.1.25":
-  version "1.1.25"
-  resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.1.25.tgz#0f74419340adac3ba779db99e17cfa331f24b6c7"
-  integrity sha512-XfWfjgduSiZjCSNDUVyvMkSQUqbgRxBsVqiQLg/rikyQSCjYFcDWRocmveXpjyJIcFqeSYr3GREheT0rlMgMTA==
+"@amaui/utils@^1.1.28":
+  version "1.1.28"
+  resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.1.28.tgz#514dad35d59f4a1d4edcefa26b0b59409d73758d"
+  integrity sha512-VoPXFaEXY0E7IRpMtQT3bSQqO4bsIK8eLw0VGu9Rn8Rvok+3G3186KVc/G2LMr+eG8BLfw1KIHKjFaM0SyP/LQ==
   dependencies:
     "@babel/runtime" "^7.18.3"
     crypto-js "^4.1.1"
