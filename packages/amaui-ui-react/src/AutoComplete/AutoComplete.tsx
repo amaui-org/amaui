@@ -614,7 +614,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
   const renderValues = renderValues_ || ((value__ = refs.value.current, onUnselectMethod = onUnselect) => {
     if (multiple) {
       if (chip) {
-        let values = `value__`;
+        let values = value__;
 
         if (is('number', limit) && !open) values = values.slice(0, limit);
 
