@@ -608,13 +608,13 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
   const renderValue = (itemValue: any = value) => {
     const item: any = !!items?.length ? items.find((item_) => getValue(item_) === getValue(itemValue)) : children.find((item_: any) => getValue(item_.props?.value) === getValue(itemValue));
 
-    return item ? getLabel(item, props) : itemValue || '';
+    return item ? getLabel(item, props) : getLabel(itemValue, props) || '';
   };
 
   const renderValues = renderValues_ || ((value__ = refs.value.current, onUnselectMethod = onUnselect) => {
     if (multiple) {
       if (chip) {
-        let values = value__;
+        let values = `value__`;
 
         if (is('number', limit) && !open) values = values.slice(0, limit);
 
