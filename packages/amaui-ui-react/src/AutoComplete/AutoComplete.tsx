@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, isEnvironment } from '@amaui/utils';
+import { getObjectValue, is, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import IconElement from '../Icon';
@@ -600,9 +600,19 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
   const getLabel = (item: any, propsOther?: any) => {
     if (is('function', getLabel_)) return getLabel_(item, propsOther);
 
-    const itemToUse = !!items?.length ? item : item.props;
+    const properties = ['name', 'label', 'primary', 'secondary', 'tertiary', 'value', 'children'];
 
-    return is('simple', itemToUse) ? itemToUse : (itemToUse?.name || itemToUse?.label || itemToUse?.primary || itemToUse?.secondary || itemToUse?.tertiary || (itemToUse?.value !== undefined ? itemToUse?.value : itemToUse?.children));
+    const objects = [item, item?.props].filter(Boolean);
+
+    for (const itemObject of objects) {
+      if (is('simple', itemObject)) return itemObject;
+
+      const valueItem = getObjectValue(itemObject, ...properties);
+
+      if (valueItem !== undefined) return valueItem;
+    }
+
+    return 'No name';
   };
 
   const renderValue = (itemValue: any = value) => {
