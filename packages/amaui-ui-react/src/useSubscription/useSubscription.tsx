@@ -26,8 +26,10 @@ const useSubscription = <Type extends unknown = undefined>(amauiSubscription: Am
       else setResponse([valueItem]);
     });
 
+    setResponse(amauiSubscription.value);
+
     return () => {
-      subscription.unsubscribe();
+      if (subscription) subscription.unsubscribe();
     };
   }, [amauiSubscription]);
 
