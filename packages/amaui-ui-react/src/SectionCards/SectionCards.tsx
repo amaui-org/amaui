@@ -201,7 +201,7 @@ const Element: React.FC<ISectionCards> = React.forwardRef((props_, ref: any) => 
     }
 
     if (item.backgroundImage) {
-      const url = item.backgroundImage?.url || item.backgroundImage?.src || item.backgroundImage?.urlSmall || item.backgroundImage?.srcSmall || (is('string', item.backgroundImage) ? item.backgroundImage as any : '');
+      const url = item.backgroundImage?.url || item.backgroundImage?.urlSmall || (is('string', item.backgroundImage) ? item.backgroundImage as any : '');
 
       if (url) {
         styleBackground = {
@@ -224,7 +224,7 @@ const Element: React.FC<ISectionCards> = React.forwardRef((props_, ref: any) => 
       };
     }
 
-    const urlVideo = item.backgroundVideo?.url || item.backgroundVideo?.src || item.backgroundVideo?.urlSmall || item.backgroundVideo?.srcSmall || (is('string', item.backgroundVideo) ? item.backgroundVideo as any : '');
+    const urlVideo = item.backgroundVideo?.url || item.backgroundVideo?.urlSmall || (is('string', item.backgroundVideo) ? item.backgroundVideo as any : '');
 
     return (
       <Line

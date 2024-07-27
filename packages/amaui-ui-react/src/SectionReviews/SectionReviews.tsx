@@ -183,7 +183,7 @@ const Element: React.FC<ISectionReviews> = React.forwardRef((props_, ref: any) =
               <Avatar
                 size={size}
 
-                image={(is('string', item.image) ? item.image : (item.image as IMediaObject)?.url || (item.image as IMediaObject)?.src || (item.image as IMediaObject)?.urlSmall || (item.image as IMediaObject)?.srcSmall) as any}
+                image={(is('string', item.image) ? item.image : (item.image as IMediaObject)?.url || (item.image as IMediaObject)?.urlSmall) as any}
 
                 {...AvatarProps}
 

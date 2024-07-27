@@ -454,7 +454,7 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
   }
 
   if (backgroundImage) {
-    const url = backgroundImage?.url || backgroundImage?.src || backgroundImage?.urlSmall || backgroundImage?.srcSmall || (is('string', backgroundImage) ? backgroundImage as any : '');
+    const url = backgroundImage?.url || backgroundImage?.urlSmall || (is('string', backgroundImage) ? backgroundImage as any : '');
 
     if (url) {
       styleBackground = {
@@ -477,7 +477,7 @@ const Section: React.FC<ISection> = React.forwardRef((props_, ref: any) => {
     };
   }
 
-  const urlVideo = backgroundVideo?.url || backgroundVideo?.src || backgroundVideo?.urlSmall || backgroundVideo?.srcSmall || (is('string', backgroundVideo) ? backgroundVideo as any : '');
+  const urlVideo = backgroundVideo?.url || backgroundVideo?.urlSmall || (is('string', backgroundVideo) ? backgroundVideo as any : '');
 
   const Wrapper = reveal ? Reveal : React.Fragment;
 

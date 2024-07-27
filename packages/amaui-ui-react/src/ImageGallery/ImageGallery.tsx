@@ -650,7 +650,7 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
     event.preventDefault();
   }, []);
 
-  const url = media?.url || media?.src || media?.urlSmall || media?.srcSmall || (is('string', media) ? media : '');
+  const url = media?.url || media?.urlSmall || (is('string', media) ? media : '');
 
   const main = <>
     <Line
@@ -812,7 +812,7 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
                 ])}
 
                 style={{
-                  backgroundImage: `url('${item?.urlSmall || item?.srcSmall || item?.url || item?.src || item}')`
+                  backgroundImage: `url('${item?.urlSmall || item?.url || item}')`
                 }}
               >
                 <Interaction />

@@ -57,8 +57,4 @@ export type IValueBreakpoints = TBreakpoint | 'default';
 export interface IMediaObject extends IMedia {
   url: string;
   urlSmall?: string;
-
-  // alias
-  src?: string;
-  srcSmall?: string;
 }

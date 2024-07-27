@@ -141,7 +141,7 @@ const Element: React.FC<ISectionMedia> = React.forwardRef((props_, ref: any) => 
   };
 
   const onOpenMedia = React.useCallback((media: IMediaObject) => {
-    window.open(media.url || media.src || media.urlSmall || media.srcSmall, 'blank_');
+    window.open(media.url || media.urlSmall, 'blank_');
   }, []);
 
   let element: any;
@@ -151,7 +151,7 @@ const Element: React.FC<ISectionMedia> = React.forwardRef((props_, ref: any) => 
 
     if (mime?.includes('image')) element = (
       <Image
-        src={value?.url || value?.src || value?.urlSmall || value?.srcSmall || (is('string', value) ? value as any : '')}
+        src={value?.url || value?.urlSmall || (is('string', value) ? value as any : '')}
 
         maxWidth='rg'
 

@@ -266,7 +266,7 @@ const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
                 className={classes.cover}
 
                 style={{
-                  backgroundImage: `url('${cover?.url || cover?.src || cover?.urlSmall || cover?.srcSmall}')`
+                  backgroundImage: `url('${cover?.url || cover?.urlSmall}')`
                 }}
               />
             )}
@@ -279,7 +279,7 @@ const Element: React.FC<ILinks> = React.forwardRef((props_, ref: any) => {
 
                 style={{
                   marginTop: cover ? -71 : 0,
-                  backgroundImage: `url('${profile?.urlSmall || profile?.srcSmall || profile?.url || profile?.src}')`
+                  backgroundImage: `url('${profile?.urlSmall || profile?.url}')`
                 }}
               />
             )}

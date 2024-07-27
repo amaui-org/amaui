@@ -182,7 +182,7 @@ const Element: React.FC<ISectionLogos> = React.forwardRef((props_, ref: any) => 
               ])}
 
               style={{
-                backgroundImage: `url(${item?.url || item?.src || item?.urlSmall || item?.srcSmall})`
+                backgroundImage: `url(${item?.url || item?.urlSmall})`
               }}
             />
 

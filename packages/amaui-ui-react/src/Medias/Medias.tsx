@@ -267,7 +267,7 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
   }, []);
 
   const onOpenMedia = React.useCallback((media: IMediaObject) => {
-    window.open(media.url || media.src || media.urlSmall || media.srcSmall, 'blank_');
+    window.open(media.url || media.urlSmall, 'blank_');
   }, []);
 
   const items = React.useMemo(() => {
@@ -360,7 +360,7 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
             ])}
 
             style={{
-              backgroundImage: `url(${media.urlSmall || media.srcSmall || media.url || media.src})`,
+              backgroundImage: `url(${media.urlSmall || media.url})`,
 
               ...item?.props?.style
             }}
@@ -400,7 +400,7 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
 
             color='primary'
 
-            src={media.url || media.src || media.urlSmall || media.srcSmall}
+            src={media.url || media.urlSmall}
 
             size={size}
 
@@ -457,7 +457,7 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
 
             color='primary'
 
-            src={media.url || media.src || media.urlSmall || media.srcSmall}
+            src={media.url || media.urlSmall}
 
             size={size}
 
@@ -633,9 +633,9 @@ const Medias: React.FC<IMedias> = React.forwardRef((props_, ref: any) => {
             items={items.image.map(item => ({
               ...item.value,
 
-              url: item.value.url || item.value.src || item.value.urlSmall || item.value.srcSmall,
+              url: item.value.url || item.value.urlSmall,
 
-              urlSmall: item.value.urlSmall || item.value.srcSmall || item.value.url || item.value.src
+              urlSmall: item.value.urlSmall || item.value.url
             }))}
           />
         </Portal>
