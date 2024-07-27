@@ -23,10 +23,10 @@
     "@amaui/utils" "^1.1.18"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/api-utils@^1.1.502":
-  version "1.1.502"
-  resolved "https://registry.yarnpkg.com/@amaui/api-utils/-/api-utils-1.1.502.tgz#81e0120ae74f3fc9297cbe1559571dafb515342b"
-  integrity sha512-tebkFicb9Guwx9kQYPbNjO8MAE/4dEucljrDdqNpNZnClrCJ6enmdvBdA5TlWOXP/zk71aPTshpuM6bjm2qm+Q==
+"@amaui/api-utils@^1.1.539":
+  version "1.1.539"
+  resolved "https://registry.yarnpkg.com/@amaui/api-utils/-/api-utils-1.1.539.tgz#37516976885f63e46a61f2b99bec56d1e46fd81d"
+  integrity sha512-2YensXVDYR8CxOja3rN2e9mjaAItsa4yJei9zJMiagMo1DOQAKPC80J9KOqO6C0rElAiaiimWBqq4myzm4HLEQ==
   dependencies:
     "@amaui/amqp" "^1.1.19"
     "@amaui/api" "^1.0.38"
