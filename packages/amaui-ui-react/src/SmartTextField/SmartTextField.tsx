@@ -908,6 +908,12 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
     textQueryUpdate();
   }, []);
 
+  const onKeyUp = React.useCallback(() => {
+    if (!refs.edit.current) return;
+
+    textQueryUpdate();
+  }, []);
+
   const textMethod = React.useCallback((command: string) => (argument: any) => {
     switch (command) {
       // updates
@@ -1530,6 +1536,8 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
 
       onKeyDown={onKeyDown}
 
+      onKeyUp={onKeyUp}
+
       onFocus={onFocus}
 
       onBlur={onBlur}
@@ -1604,6 +1612,8 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
       onInput={onInput}
 
       onKeyDown={onKeyDown}
+
+      onKeyUp={onKeyUp}
 
       onFocus={onFocus}
 
