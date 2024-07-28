@@ -72,6 +72,8 @@ const Properties: React.FC<IProperties> = React.forwardRef((props_, ref: any) =>
 
     values = [],
 
+    onlyWithValues = true,
+
     maxWidth,
 
     PropertyProps,
@@ -84,6 +86,11 @@ const Properties: React.FC<IProperties> = React.forwardRef((props_, ref: any) =>
   } = props;
 
   const { classes } = useStyle();
+
+  if (
+    !values?.length ||
+    onlyWithValues && !values.every((item: any) => item.value !== undefined)
+  ) return null;
 
   return (
     <Line
