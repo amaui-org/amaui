@@ -71,6 +71,7 @@ const Banner: React.FC<IBanner> = React.forwardRef((props_, ref: any) => {
     size = 'regular',
 
     maxWidth,
+
     actions,
 
     Component = 'div',
