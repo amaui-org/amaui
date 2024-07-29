@@ -7,6 +7,7 @@ import TypeElement from '../Type';
 import { IButton } from '../Button/Button';
 import { staticClassName } from '../utils';
 import { IElevation, IPropsAny } from '../types';
+import { stringToColor } from '@amaui/utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -57,6 +58,7 @@ const Avatar: React.FC<IAvatar> = React.forwardRef((props_, ref) => {
     tonal = false,
     version = 'filled',
     size = 'regular',
+    color: color_ = 'auto',
 
     image,
     alt,
@@ -124,11 +126,15 @@ const Avatar: React.FC<IAvatar> = React.forwardRef((props_, ref) => {
     );
   }
 
+  const color = color_ === 'auto' ? stringToColor(children_) : color_;
+
   return (
     <Button
       ref={ref}
 
       tonal={tonal}
+
+      color={color}
 
       elevation={elevation as any}
 
