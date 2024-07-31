@@ -15,7 +15,7 @@ interface IColumnChartItem extends IChart {
         wrapper?: DOMRect;
         svg?: DOMRect;
     };
-    values?: TChartValueValues;
+    values?: IChartValueValues;
     width?: number;
     updateDefs: TMethod;
     updateLegend: TMethod;

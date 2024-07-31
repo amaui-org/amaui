@@ -15,7 +15,7 @@ interface IScatterChartItem extends IChart {
         wrapper?: DOMRect;
         svg?: DOMRect;
     };
-    values?: TChartValueValues;
+    values?: IChartValueValues;
     updateDefs: TMethod;
     updateLegend: TMethod;
 }

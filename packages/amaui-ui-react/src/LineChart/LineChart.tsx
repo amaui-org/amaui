@@ -32,6 +32,10 @@ const LineChart: React.FC<ILineChart> = React.forwardRef((props_, ref: any) => {
   const {
     values,
 
+    smooth,
+
+    smoothRatio,
+
     className,
 
     ...other
@@ -59,6 +63,10 @@ const LineChart: React.FC<ILineChart> = React.forwardRef((props_, ref: any) => {
       {is('array', values) && values.map((item, index: number) => (
         <LineChartItem
           key={index}
+
+          smooth={smooth}
+
+          smoothRatio={smoothRatio}
 
           {...item}
         />

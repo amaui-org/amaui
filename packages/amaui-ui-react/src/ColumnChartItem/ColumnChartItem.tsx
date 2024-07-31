@@ -8,7 +8,7 @@ import PathElement from '../Path';
 import LineElement from '../Line';
 import TypeElement from '../Type';
 import useMediaQuery from '../useMediaQuery';
-import { IChart, TChartValueValues } from '../Chart/Chart';
+import { IChart, IChartValueValues } from '../Chart/Chart';
 
 import { staticClassName, valueBreakpoints } from '../utils';
 
@@ -40,7 +40,7 @@ export interface IColumnChartItem extends IChart {
     svg?: DOMRect;
   };
 
-  values?: TChartValueValues;
+  values?: IChartValueValues;
 
   width?: number;
 

@@ -322,7 +322,15 @@ const useStyle = styleMethod(theme => ({
   }
 }), { name: 'amaui-Chart' });
 
-export type TChartValueValues = Array<any>;
+export type IChartValueValues = Array<any>;
+
+export interface IItemValue {
+  value: number;
+  label: number;
+  percentage: number;
+  axis: 'x' | 'y';
+  props?: any;
+}
 
 export interface IChartValue {
   color?: IColor;
@@ -332,7 +340,7 @@ export interface IChartValue {
 
   percentage?: string | number;
 
-  values: TChartValueValues | Array<TChartValueValues>;
+  values: IChartValueValues | Array<IChartValueValues>;
 }
 
 export interface IChart extends ISurface {
@@ -455,7 +463,7 @@ export interface IChart extends ISurface {
   // Methods
   tooltipRender?: (values: IChartValue) => any;
   tooltipGroupRender?: (groups: Array<IChartValue>, groupsSorted: string[]) => any;
-  labelRender?: (value: IChartValue) => any;
+  labelRender?: (value: IItemValue) => any;
   labelResolve?: (value: number, axes: 'x' | 'y', item: IChartValue, version?: 'group' | 'individual') => string;
   onUpdateRects?: (rects: {
     wrapper: DOMRect;
@@ -2150,32 +2158,54 @@ const Chart: React.FC<IChart> = React.forwardRef((props_, ref: any) => {
                       classes.labels_x
                     ])}
                   >
-                    {labels.x.map((item: any, index: number) => (
-                      is('function', labelRender) ?
-                        labelRender(item) :
+                    {labels.x.map((item: any, index: number) => {
+                      const itemProps = {
+                        key: index,
 
-                        <Type
-                          key={index}
+                        version: 'b3',
 
-                          version='b3'
+                        className: classNames([
+                          staticClassName('Chart', theme) && [
+                            'amaui-Chart-label',
+                            'amaui-Chart-label-x'
+                          ],
 
-                          className={classNames([
-                            staticClassName('Chart', theme) && [
-                              'amaui-Chart-label',
-                              'amaui-Chart-label-x'
-                            ],
+                          classes.label,
+                          classes.label_x
+                        ]),
 
-                            classes.label,
-                            classes.label_x
-                          ])}
+                        style: {
+                          left: `${item.percentage}%`
+                        }
+                      };
 
-                          style={{
-                            left: `${item.percentage}%`
-                          }}
-                        >
-                          {is('function', labelResolve) ? labelResolve(item.label, 'x', item) : item.label}
-                        </Type>
-                    ))}
+                      return (
+                        is('function', labelRender) ?
+                          labelRender({ ...item, axis: 'x', props: itemProps }) :
+
+                          <Type
+                            key={index}
+
+                            version='b3'
+
+                            className={classNames([
+                              staticClassName('Chart', theme) && [
+                                'amaui-Chart-label',
+                                'amaui-Chart-label-x'
+                              ],
+
+                              classes.label,
+                              classes.label_x
+                            ])}
+
+                            style={{
+                              left: `${item.percentage}%`
+                            }}
+                          >
+                            {is('function', labelResolve) ? labelResolve(item.label, 'x', item) : item.label}
+                          </Type>
+                      );
+                    })}
                   </Line>
                 )}
 
@@ -2201,7 +2231,7 @@ const Chart: React.FC<IChart> = React.forwardRef((props_, ref: any) => {
                   >
                     {labels.y.map((item: any, index: number) => (
                       is('function', labelRender) ?
-                        labelRender(item) :
+                        labelRender({ ...item, axis: 'y' }) :
 
                         <Type
                           key={index}

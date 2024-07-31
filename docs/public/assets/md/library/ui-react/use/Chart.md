@@ -2,10 +2,10 @@
 
 ## API
 
-#### TChartValueValues
+#### IChartValueValues
 
 ```ts
-type TChartValueValues = Array<any>;
+type IChartValueValues = Array<any>;
 ```
 
 #### IChartValue
@@ -17,7 +17,7 @@ interface IChartValue {
     name?: string;
     style?: TStyle;
     percentage?: string | number;
-    values: TChartValueValues | Array<TChartValueValues>;
+    values: IChartValueValues | Array<IChartValueValues>;
 }
 ```
 
