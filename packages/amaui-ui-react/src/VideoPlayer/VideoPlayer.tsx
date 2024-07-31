@@ -364,6 +364,16 @@ const useStyle = styleMethod(theme => ({
     '&::-webkit-scrollbar': {
       display: 'none'
     }
+  },
+
+  menuSettingsFullScreen: {
+    '&.amaui-Modal-root': {
+      position: 'fixed !important',
+      transform: 'none !important',
+      left: 'unset !important',
+      right: '12px !important',
+      bottom: '47.8906px !important'
+    }
   }
 }), { name: 'amaui-VideoPlayer' });
 
@@ -1528,11 +1538,9 @@ const VideoPlayer: React.FC<IVideoPlayer> = React.forwardRef((props_, ref: any) 
 
                     switch={false}
 
-                    portal
+                    portal={!fullScreen}
 
                     onClose={onSettingsMenuClose}
-
-                    className='amaui-videoPlayer'
 
                     includeParentQueries={['.amaui-videoPlayer']}
 
@@ -1541,11 +1549,17 @@ const VideoPlayer: React.FC<IVideoPlayer> = React.forwardRef((props_, ref: any) 
                     ListProps={{
                       className: classNames([
                         SettingsMenuProps?.ListProps?.className,
-                        classes.menuSettings
+                        classes.menuSettings,
                       ]),
 
                       size: 'small'
                     }}
+
+                    className={classNames([
+                      'amaui-videoPlayer',
+                      SettingsMenuProps?.className,
+                      fullScreen && classes.menuSettingsFullScreen
+                    ])}
                   >
                     <IconButton
                       {...iconButtonProps}
