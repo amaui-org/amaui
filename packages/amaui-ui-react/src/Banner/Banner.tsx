@@ -21,18 +21,6 @@ const useStyle = styleMethod(theme => ({
     margin: '0 auto'
   },
 
-  size_small: {
-    padding: `${theme.methods.space.value('md') * 0.5}px ${theme.methods.space.value('rg') * 0.75}px`
-  },
-
-  size_regular: {
-    padding: `${theme.methods.space.value('md', 'px')} ${theme.methods.space.value('rg', 'px')}`
-  },
-
-  size_large: {
-    padding: `${theme.methods.space.value('md') * 1.5}px ${theme.methods.space.value('rg') * 1.25}px`
-  },
-
   // maxWidth
   maxWidth_xxs: { maxWidth: '320px' },
 
@@ -53,7 +41,12 @@ export interface IBanner extends IBaseElement {
   size?: ISize;
 
   maxWidth?: string | number;
+
   actions?: IElement;
+
+  start?: any;
+
+  end?: any;
 }
 
 const Banner: React.FC<IBanner> = React.forwardRef((props_, ref: any) => {
@@ -74,9 +67,14 @@ const Banner: React.FC<IBanner> = React.forwardRef((props_, ref: any) => {
 
     actions,
 
+    start,
+
+    end,
+
     Component = 'div',
 
     style,
+
     className,
 
     children,
@@ -150,6 +148,8 @@ const Banner: React.FC<IBanner> = React.forwardRef((props_, ref: any) => {
         ...style
       }}
     >
+      {start}
+
       <ListItem
         size={size}
 
@@ -167,7 +167,6 @@ const Banner: React.FC<IBanner> = React.forwardRef((props_, ref: any) => {
           ],
 
           classes.listItem,
-          classes[`size_${size}`],
           classes[`maxWidth_${maxWidth}`]
         ])}
 
@@ -175,6 +174,8 @@ const Banner: React.FC<IBanner> = React.forwardRef((props_, ref: any) => {
       >
         {children}
       </ListItem>
+
+      {end}
     </Component>
   );
 });
