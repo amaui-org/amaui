@@ -71,10 +71,14 @@ const AutoCompleteGooglePlaces: React.FC<IAutoCompleteGooglePlaces> = React.forw
     })));
   }, []);
 
-  const init = React.useCallback(() => {
+  const init = React.useCallback(async () => {
     if (!(window as any).google) return;
 
-    refs.google.current = new (window as any).google.maps.places.AutocompleteService(undefined, options);
+    const google = (window as any).google;
+
+    const { AutocompleteService } = await google.maps.importLibrary('places');
+
+    refs.google.current = new AutocompleteService(undefined, options);
   }, []);
 
   React.useEffect(() => {
