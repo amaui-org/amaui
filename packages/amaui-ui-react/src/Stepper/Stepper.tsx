@@ -31,8 +31,16 @@ const useStyle = styleMethod(theme => ({
     }
   },
 
-  divider_orientation_horizontal: {
+  divider_active: {
+    '&.amaui-Divider-root': {
+      opacity: '1'
+    }
+  },
 
+  divider_orientation_horizontal: {
+    '&.amaui-Divider-root': {
+      minWidth: '14px'
+    }
   },
 
   divider_orientation_vertical: {
@@ -40,6 +48,7 @@ const useStyle = styleMethod(theme => ({
     transform: 'translateX(-50%)',
 
     '&.amaui-Divider-root': {
+      minHeight: 14,
       marginInlineStart: '20px'
     }
   },
@@ -54,13 +63,13 @@ const useStyle = styleMethod(theme => ({
 
   divider_active_orientation_horizontal: {
     '&.amaui-Divider-root': {
-      height: '4px'
+      height: '2px'
     }
   },
 
   divider_active_orientation_vertical: {
     '&.amaui-Divider-root': {
-      width: '4px'
+      width: '2px'
     }
   }
 }), { name: 'amaui-Stepper' });
@@ -153,7 +162,7 @@ const Stepper: React.FC<IStepper> = React.forwardRef((props_, ref: any) => {
 
       justify='space-between'
 
-      align='center'
+      align={orientation === 'vertical' ? 'flex-start' : 'center'}
 
       Component={Component}
 
@@ -243,7 +252,10 @@ const Stepper: React.FC<IStepper> = React.forwardRef((props_, ref: any) => {
                 classes.divider,
                 classes[`divider_orientation_${orientation}`],
                 classes[`divider_orientation_${orientation}_stepDirection_${stepDirection}`],
-                active_ && dividerActive && classes[`divider_active_orientation_${orientation}`]
+                active_ && dividerActive && [
+                  classes.divider_active,
+                  classes[`divider_active_orientation_${orientation}`]
+                ]
               ])}
             />
           );
