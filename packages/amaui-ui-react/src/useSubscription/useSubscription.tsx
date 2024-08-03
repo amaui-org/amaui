@@ -21,7 +21,9 @@ const useSubscription = <Type extends unknown = undefined>(amauiSubscription: Am
   }, []);
 
   React.useEffect(() => {
-    const subscription = amauiSubscription?.subscribe(async (valueItem: any) => {
+    if (!is('function', amauiSubscription?.subscribe)) return;
+
+    const subscription = amauiSubscription.subscribe(async (valueItem: any) => {
       if (is('function', method)) await method(valueItem, setResponse);
       else setResponse([valueItem]);
     });
