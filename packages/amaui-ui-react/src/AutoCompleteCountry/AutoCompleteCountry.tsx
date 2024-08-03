@@ -22,7 +22,7 @@ export interface IAutoCompleteCountry extends IAutoComplete {
 const AutoCompleteCountry: React.FC<IAutoCompleteCountry> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBadge?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAutoCompleteCountry?.props?.default, ...props_ }), [props_]);
 
   const AutoComplete = React.useMemo(() => theme?.elements?.AutoComplete || AutoCompleteElement, [theme]);
 

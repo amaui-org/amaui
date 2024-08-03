@@ -22,7 +22,7 @@ export interface IAutoCompleteGooglePlaces extends IAutoComplete {
 const AutoCompleteGooglePlaces: React.FC<IAutoCompleteGooglePlaces> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBadge?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAutoCompleteGooglePlaces?.props?.default, ...props_ }), [props_]);
 
   const AutoComplete = React.useMemo(() => theme?.elements?.AutoComplete || AutoCompleteElement, [theme]);
 
@@ -68,7 +68,7 @@ const AutoCompleteGooglePlaces: React.FC<IAutoCompleteGooglePlaces> = React.forw
       ...item,
 
       name: item.description
-    })));
+    })) || []);
   }, []);
 
   const init = React.useCallback(async () => {

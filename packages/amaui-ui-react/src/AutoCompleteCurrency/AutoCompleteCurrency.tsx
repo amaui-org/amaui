@@ -19,7 +19,7 @@ export interface IAutoCompleteCurrency extends IAutoComplete {
 const AutoCompleteCurrency: React.FC<IAutoCompleteCurrency> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
-  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiBadge?.props?.default, ...props_ }), [props_]);
+  const props = React.useMemo(() => ({ ...theme?.ui?.elements?.all?.props?.default, ...theme?.ui?.elements?.amauiAutoCompleteCurrency?.props?.default, ...props_ }), [props_]);
 
   const AutoComplete = React.useMemo(() => theme?.elements?.AutoComplete || AutoCompleteElement, [theme]);
 

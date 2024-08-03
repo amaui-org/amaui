@@ -690,11 +690,11 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
   }, [onKeyDown_]);
 
   const onPaste = React.useCallback((event: ClipboardEvent) => {
-    event.preventDefault();
+    // event.preventDefault();
 
-    const text = event.clipboardData?.getData('text/plain');
+    // const text = event.clipboardData?.getData('text/plain');
 
-    window.document.execCommand('insertText', false, text);
+    // window.document.execCommand('insertText', false, text);
   }, []);
 
   const onDrop = React.useCallback((event: DragEvent) => {
