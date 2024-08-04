@@ -23,23 +23,23 @@
     "@amaui/utils" "^1.1.18"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/api-utils@^1.1.549":
-  version "1.1.549"
-  resolved "https://registry.yarnpkg.com/@amaui/api-utils/-/api-utils-1.1.549.tgz#03a27f616399b926dbcc6436a5661aad5d53c091"
-  integrity sha512-PfgIV+kCNipz4IP9jSAYGSRj4zX9BbCauD9yjtnxaq2dMTCRjof5ahFbreydWOf5c8+KyuylMA9aMik+1cqbcg==
+"@amaui/api-utils@^1.1.556":
+  version "1.1.556"
+  resolved "https://registry.yarnpkg.com/@amaui/api-utils/-/api-utils-1.1.556.tgz#b2e8880f99b093fb175ce25c0421cfdbf2cefbba"
+  integrity sha512-U/L1clPbweLFVdMZh1QvHy7tpV1rAVico+0jgnFp/g3WYMey41nvVLzp5CNFoQ7lKiVsEuPg8+PS09gnjdfXOg==
   dependencies:
     "@amaui/amqp" "^1.1.19"
     "@amaui/api" "^1.0.38"
     "@amaui/aws" "^1.1.20"
-    "@amaui/date" "^1.1.11"
+    "@amaui/date" "^1.1.13"
     "@amaui/errors" "^1.0.111"
     "@amaui/log" "^1.0.22"
-    "@amaui/models" "^1.1.20"
+    "@amaui/models" "^1.1.21"
     "@amaui/mongo" "^1.1.38"
     "@amaui/node" "^1.0.11117"
     "@amaui/redis" "^1.0.9"
     "@amaui/style" "^1.1.16"
-    "@amaui/utils" "^1.1.22"
+    "@amaui/utils" "^1.1.29"
     "@babel/runtime" "^7.18.3"
     "@sendgrid/mail" "^7.7.0"
     "@sentry/node" "^7.108.0"
@@ -235,10 +235,10 @@
     "@amaui/utils" "^1.1.1"
     "@babel/runtime" "^7.18.3"
 
-"@amaui/models@^1.1.20":
-  version "1.1.20"
-  resolved "https://registry.yarnpkg.com/@amaui/models/-/models-1.1.20.tgz#4d236950cd2803c1f3a071d353b73e5bfdde5750"
-  integrity sha512-4BDrZKKkANg0u8ynX78bfa1VBTLgbtgJJdgtz1DUL4aC2eekhP2ztNSJ+xDJruuyyUgkInQvWHyYt7xBHigqZg==
+"@amaui/models@^1.1.21":
+  version "1.1.21"
+  resolved "https://registry.yarnpkg.com/@amaui/models/-/models-1.1.21.tgz#ed3f4ee13f6b4b2b804b2f1bf971b887cce2f514"
+  integrity sha512-wMUyTq6K5l5VeRUsvOAKcK9EH1MSgWZMpX5UM472MPpJDGYz4bWBtkt2JUjMfJbaR1Yiel83lMiR6XDDxTs6sg==
   dependencies:
     "@amaui/errors" "^1.0.111"
     "@amaui/utils" "^1.1.1"
@@ -379,16 +379,6 @@
   version "1.1.17"
   resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.1.17.tgz#0505f371ed33d5df8ea0f13122a5289f069b6302"
   integrity sha512-GsOc6hWKHX+6fbVD9LIOFhq123Qtdui0le1nn9tWsKNZjqewA4vwH8xeH2NPGrK/dhpy1/Imv8d3VKql930BOw==
-  dependencies:
-    "@babel/runtime" "^7.18.3"
-    crypto-js "^4.1.1"
-    path-to-regexp "^6.2.0"
-    uuid "^8.3.2"
-
-"@amaui/utils@^1.1.22":
-  version "1.1.22"
-  resolved "https://registry.yarnpkg.com/@amaui/utils/-/utils-1.1.22.tgz#2d764cba2623460c5d3167c396716a19bc7f3256"
-  integrity sha512-A0h2YdaB/ayaGvJgPKLsXf1hqjyyn1gqr9YWIDanaz8ZVyAT4eXevqA27vgkqmcSQdnIc1AJb0ITtsV922znGw==
   dependencies:
     "@babel/runtime" "^7.18.3"
     crypto-js "^4.1.1"
