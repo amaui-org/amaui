@@ -204,7 +204,7 @@ const useStyle = styleMethod(theme => ({
         width: 'calc(100% + 4px)',
         height: 'auto',
         aspectRatio: '1/1',
-        background: theme.palette.background.primary.quaternary,
+        background: theme.palette.background.default.tertiary,
         inset: '0',
         borderRadius: theme.methods.shape.radius.value(40, 'px'),
         zIndex: '0',
