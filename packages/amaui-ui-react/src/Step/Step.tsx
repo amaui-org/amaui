@@ -17,6 +17,7 @@ import { ITonal, IColor, IVersion, IElement, IPropsAny } from '../types';
 const useStyle = styleMethod(theme => ({
   root: {
     position: 'relative',
+    flex: '0 0 auto',
     transition: theme.methods.transitions.make('opacity')
   },
 

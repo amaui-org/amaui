@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { clamp } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import DividerElement from '../Divider';
@@ -15,7 +14,12 @@ const useStyle = styleMethod(theme => ({
   },
 
   orientation_horizontal: {
-    width: '100%'
+    width: '100%',
+    overflow: 'auto hidden',
+
+    '& > *': {
+      flex: '0 0 auto'
+    }
   },
 
   inactive: {
@@ -144,14 +148,6 @@ const Stepper: React.FC<IStepper> = React.forwardRef((props_, ref: any) => {
 
   const steps = React.Children.toArray(children);
 
-  const width = `calc(${100 / steps.length}% - ${(clamp(+gap - 1, 0) * 8)}px)`;
-
-  const styleItem: any = {};
-
-  if (orientation === 'horizontal') {
-    styleItem.width = width;
-  }
-
   return (
     <Line
       ref={ref}
@@ -160,7 +156,7 @@ const Stepper: React.FC<IStepper> = React.forwardRef((props_, ref: any) => {
 
       direction={orientation === 'horizontal' ? 'row' : 'column'}
 
-      justify='space-between'
+      justify='flex-start'
 
       align={orientation === 'vertical' ? 'flex-start' : 'center'}
 
@@ -221,8 +217,6 @@ const Stepper: React.FC<IStepper> = React.forwardRef((props_, ref: any) => {
           ]),
 
           style: {
-            ...styleItem,
-
             ...item.props.style
           }
         });
