@@ -1539,18 +1539,29 @@ const Chart: React.FC<IChart> = React.forwardRef((props_, ref: any) => {
     }
 
     // Legend
-    const legend_ = legend__ !== 'auto' ? legend__ : (values as IChartValue[]).map((item: any) => {
+    const legend_ = legend__ !== 'auto' ? legend__ : [];
 
-      return {
-        item,
+    if (legend__ === 'auto') {
+      const map: any = {};
 
-        element: (
-          <LegendItem
-            item={item}
-          />
-        )
-      };
-    });
+      (values as IChartValue[]).forEach((item: any) => {
+        const name = item?.name || '';
+
+        if (!map[name]) {
+          legend_.push({
+            item,
+
+            element: (
+              <LegendItem
+                item={item}
+              />
+            )
+          });
+
+          map[name] = true;
+        }
+      });
+    }
 
     // Legend
     if (is('array', legend_)) setLegend(legend_);
