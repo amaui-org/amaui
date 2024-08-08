@@ -366,7 +366,7 @@ const TableCell: React.FC<ITableCell> = React.forwardRef((props_, ref: any) => {
           sort !== undefined && classes.sort
         ])}
       >
-        {is('string', children) ? (
+        {is('simple', children) ? (
           <Type
             version='l2'
 

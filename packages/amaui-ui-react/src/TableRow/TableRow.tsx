@@ -6,6 +6,7 @@ import SurfaceElement from '../Surface';
 import { ISurface } from '../Surface/Surface';
 import { ISize } from '../types';
 import { staticClassName } from '../utils';
+import { is } from '@amaui/utils';
 
 const useStyle = styleMethod(theme => ({
   root: {
@@ -91,7 +92,7 @@ const TableRow: React.FC<ITableRow> = React.forwardRef((props_, ref: any) => {
 
       {...other}
     >
-      {React.Children.toArray(children).map((item: any, index: number) => (
+      {React.Children.toArray(children).map((item: any, index: number) => is('object', item) ? (
         React.cloneElement(item, {
           tonal: item.props.tonal !== undefined ? item.props.tonal : tonal,
 
@@ -105,7 +106,7 @@ const TableRow: React.FC<ITableRow> = React.forwardRef((props_, ref: any) => {
 
           noWeight: (index === 0 && position === 'body')
         })
-      ))}
+      ) : item)}
     </Surface>
   );
 });
