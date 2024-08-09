@@ -93,8 +93,8 @@ const Expand: React.FC<IExpand> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
+  const [value, setValue] = React.useState<number>(valueProvided !== undefined ? valueProvided : null);
   const [parent, setParent] = React.useState<HTMLElement>();
-  const [value, setValue] = React.useState<number>(valueProvided);
 
   const refs = {
     root: React.useRef<HTMLElement>(),
@@ -104,9 +104,9 @@ const Expand: React.FC<IExpand> = React.forwardRef((props_, ref: any) => {
     value: React.useRef<number>(0)
   };
 
-  refs.parent.current = parent;
-
   refs.value.current = value;
+
+  refs.parent.current = parent;
 
   let prop = 'height';
 
@@ -120,17 +120,20 @@ const Expand: React.FC<IExpand> = React.forwardRef((props_, ref: any) => {
 
   const childrenWithTransition = isTransition(children?.type?.displayName);
 
-  const init = React.useCallback(async () => {
-    if (refs.placeholder.current) {
-      const element_ = (refs.placeholder.current as HTMLElement).parentElement;
-
-      setParent(element_);
-    }
-  }, [prop]);
-
   React.useEffect(() => {
-    // init
-    init();
+    const method = () => {
+      setValue(null);
+
+      setParent(null);
+    };
+
+    // on resize
+    // recalculate width, value
+    window.addEventListener('resize', method);
+
+    return () => {
+      window.removeEventListener('resize', method);
+    };
   }, []);
 
   const styles = (status: TTransitionStatus) => {
@@ -192,9 +195,13 @@ const Expand: React.FC<IExpand> = React.forwardRef((props_, ref: any) => {
   );
 
   return <>
-    {value === undefined && <>
+    {value === null && <>
       <div
-        ref={refs.placeholder}
+        ref={item => {
+          if (!item) return;
+
+          if (!parent) setParent(item.parentElement);
+        }}
       />
 
       {parent && (
@@ -202,12 +209,14 @@ const Expand: React.FC<IExpand> = React.forwardRef((props_, ref: any) => {
           {...WrapperProps}
 
           ref={(item: any) => {
+            if (!item) return;
+
             if (WrapperProps?.ref) {
               if (is('function', WrapperProps.ref)) WrapperProps?.ref(item);
               else WrapperProps.ref.current = item;
             }
 
-            if (refs.value.current === undefined) {
+            if (refs.value.current === null) {
               setValue(item.getBoundingClientRect()[prop] || 0);
             }
           }}
@@ -233,7 +242,7 @@ const Expand: React.FC<IExpand> = React.forwardRef((props_, ref: any) => {
       )}
     </>}
 
-    {value !== undefined && (
+    {value !== null && (
       <Transition
         removeOnExited
 
