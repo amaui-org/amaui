@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, wait } from '@amaui/utils';
+import { is } from '@amaui/utils';
 import { useAmauiTheme } from '@amaui/style-react';
 
 import { ITransition, Transition, TTransitionStatus } from '..';
@@ -10,6 +10,8 @@ const Wrapper = React.forwardRef((props: any, ref: any) => {
   const {
     children,
 
+    style,
+
     ...other
   } = props;
 
@@ -18,6 +20,12 @@ const Wrapper = React.forwardRef((props: any, ref: any) => {
       ref={ref}
 
       {...other}
+
+      style={{
+        width: '100%',
+
+        ...style
+      }}
     >
       {props.children}
     </div>
@@ -25,11 +33,6 @@ const Wrapper = React.forwardRef((props: any, ref: any) => {
 });
 
 export interface IExpand extends Omit<ITransition, 'className'> {
-  // in order to properly
-  // evaluate the height of the children
-  // relative to width of the parent
-  parent?: HTMLElement;
-
   value?: number;
 
   expandSize?: number;
@@ -50,9 +53,6 @@ const Expand: React.FC<IExpand> = React.forwardRef((props_, ref: any) => {
     in: inProp,
 
     value: valueProvided,
-
-    // html element reference
-    parent,
 
     prefix,
     run,
@@ -93,16 +93,20 @@ const Expand: React.FC<IExpand> = React.forwardRef((props_, ref: any) => {
     ...other
   } = props;
 
-  const [init, setInit] = React.useState(false);
+  const [parent, setParent] = React.useState<HTMLElement>();
+  const [value, setValue] = React.useState<number>(valueProvided);
 
   const refs = {
     root: React.useRef<HTMLElement>(),
+    placeholder: React.useRef<any>(),
+    parent: React.useRef<HTMLElement>(),
     element: React.useRef<HTMLDivElement>(),
-    value: React.useRef<number>(0),
-    init: React.useRef(init)
+    value: React.useRef<number>(0)
   };
 
-  refs.init.current = init;
+  refs.parent.current = parent;
+
+  refs.value.current = value;
 
   let prop = 'height';
 
@@ -111,31 +115,22 @@ const Expand: React.FC<IExpand> = React.forwardRef((props_, ref: any) => {
   const isTransition = React.useCallback((item: any) => {
     const values = ['Transition', 'Fade', 'Grow', 'Slide', 'Zoom'];
 
-    return values.some(value => item?.includes(value));
+    return values.some(item_ => item?.includes(item_));
   }, []);
 
   const childrenWithTransition = isTransition(children?.type?.displayName);
 
-  const getValue = React.useCallback((wrapper = refs.element.current) => {
-    if (wrapper) {
-      const element = wrapper?.children?.[0];
+  const init = React.useCallback(async () => {
+    if (refs.placeholder.current) {
+      const element_ = (refs.placeholder.current as HTMLElement).parentElement;
 
-      refs.value.current = (element?.getBoundingClientRect() || {})[prop] || 0;
-    }
-  }, [prop]);
-
-  const initiate = React.useCallback(async () => {
-    if (!refs.init.current) {
-      await wait(44);
-
-      getValue();
-
-      setInit(true);
+      setParent(element_);
     }
   }, [prop]);
 
   React.useEffect(() => {
-    initiate();
+    // init
+    init();
   }, []);
 
   const styles = (status: TTransitionStatus) => {
@@ -196,91 +191,105 @@ const Expand: React.FC<IExpand> = React.forwardRef((props_, ref: any) => {
     </Wrapper>
   );
 
-  if (valueProvided === undefined) {
-    // if (!parent) return null;
-
-    if (!init) return (
+  return <>
+    {value === undefined && <>
       <div
-        ref={refs.element}
+        ref={refs.placeholder}
+      />
 
-        style={{
-          position: 'fixed',
-          left: '1114%',
-          visibility: 'hidden',
+      {parent && (
+        <Wrapper
+          {...WrapperProps}
 
-          // add with of an actual parent
-          // at the moment
-          width: parent ? (parent as HTMLElement).clientWidth : undefined,
-          height: parent ? (parent as HTMLElement).clientHeight : undefined
-        }}
-      >
-        {/*
+          ref={(item: any) => {
+            if (WrapperProps?.ref) {
+              if (is('function', WrapperProps.ref)) WrapperProps?.ref(item);
+              else WrapperProps.ref.current = item;
+            }
+
+            if (refs.value.current === undefined) {
+              setValue(item.getBoundingClientRect()[prop] || 0);
+            }
+          }}
+
+          style={{
+            position: 'fixed',
+            left: '1114%',
+            visibility: 'hidden',
+
+            width: parent.offsetWidth,
+
+            ...WrapperProps?.style
+          }}
+        >
+          {/*
         If it's a transition make it in true
         so it renders immediatelly to use the value
       */}
-        {React.cloneElement(children, {
-          ...(childrenWithTransition && { in: true })
-        })}
-      </div>
-    );
-  }
+          {React.cloneElement(children, {
+            ...(childrenWithTransition && { in: true })
+          })}
+        </Wrapper>
+      )}
+    </>}
 
-  return (
-    <Transition
-      removeOnExited
+    {value !== undefined && (
+      <Transition
+        removeOnExited
 
-      {...props as any}
-    >
-      {(status: TTransitionStatus, ref_) => {
-        // If children update
-        // & value is updated
-        if (['appending', 'appended', 'adding', 'added', 'entering', 'entered'].includes(status)) {
-          const value = (refs.root.current?.getBoundingClientRect() || {})[prop];
+        {...props as any}
+      >
+        {(status: TTransitionStatus, ref_) => {
+          // If children update
+          // & value is updated
+          if (['appending', 'appended', 'adding', 'added', 'entering', 'entered'].includes(status)) {
+            const value_ = (refs.root.current?.getBoundingClientRect() || {})[prop];
 
-          if (value > 0 && value !== refs.value.current) refs.value.current = value;
-        }
-
-        return React.cloneElement(children_, {
-          ...other,
-
-          className,
-
-          ref: (item: any) => {
-            refs.root.current = item;
-
-            if (ref) {
-              if (is('function', ref)) ref(item);
-              else ref.current = item;
-            }
-
-            if (ref_) {
-              if (is('function', ref_)) (ref_ as any)(item);
-              else ref_.current = item;
-            }
-
-            if (children_.ref) {
-              if (is('function', children_.ref)) children_.ref(item);
-              else children_.ref.current = item;
-            }
-          },
-
-          style: {
-            position: 'relative',
-
-            transition: `${prop} ${duration(status, prop)} ${timingFunction(status)} ${addTransition ? `, ${addTransition}` : ''}`,
-
-            visibility: status === 'exited' && !inProp && expandSize === undefined ? 'hidden' : undefined,
-
-            ...styles(status),
-
-            ...style,
-
-            ...children_?.style
+            if (value_ > 0 && value_ !== refs.value.current) setValue(value_);
           }
-        });
-      }}
-    </Transition>
-  );
+
+          return React.cloneElement(children_, {
+            ...other,
+
+            className,
+
+            ref: (item: any) => {
+              refs.root.current = item;
+
+              if (ref) {
+                if (is('function', ref)) ref(item);
+                else ref.current = item;
+              }
+
+              if (ref_) {
+                if (is('function', ref_)) (ref_ as any)(item);
+                else ref_.current = item;
+              }
+
+              if (children_.ref) {
+                if (is('function', children_.ref)) children_.ref(item);
+                else children_.ref.current = item;
+              }
+            },
+
+            style: {
+              position: 'relative',
+
+              transition: `${prop} ${duration(status, prop)} ${timingFunction(status)} ${addTransition ? `, ${addTransition}` : ''}`,
+
+              visibility: status === 'exited' && !inProp && expandSize === undefined ? 'hidden' : undefined,
+
+              ...styles(status),
+
+              ...style,
+
+              ...children_?.style
+            }
+          });
+        }}
+      </Transition>
+    )}
+  </>;
 });
 
 Expand.displayName = 'amaui-Expand';
