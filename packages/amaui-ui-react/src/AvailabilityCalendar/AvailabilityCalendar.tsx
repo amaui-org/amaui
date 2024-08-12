@@ -3,7 +3,6 @@ import React from 'react';
 import { clamp, cleanValue, elementToCanvas, textToInnerHTML } from '@amaui/utils';
 import { style as styleMethod, classNames, useAmauiTheme, colors } from '@amaui/style-react';
 import { AmauiDate, add, endOf, format, months, remove, set, startOf } from '@amaui/date';
-import { IAvailableTimes, IWorkDayTimesValue } from '@amaui/api-utils';
 
 import LineElement from '../Line';
 import ModalElement from '../Modal';
@@ -251,7 +250,7 @@ export interface IAvailabilityCalendar extends ILine {
 
   description?: string | IElement;
 
-  times?: IAvailableTimes<IWorkDayTimesValue>;
+  times?: any;
 
   meta?: boolean;
 
