@@ -164,6 +164,8 @@ const Snackbars: React.FC<ISnackbars> = React.forwardRef((props_, ref: any) => {
       expand: true,
 
       Snackbar: {
+        color: 'default',
+
         ...value
       }
     };
