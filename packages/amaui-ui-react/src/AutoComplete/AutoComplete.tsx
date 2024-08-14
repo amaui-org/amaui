@@ -405,11 +405,9 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
     }
   }, [loading]);
 
-  const optionsPropsUpdated = refs.optionsProps.current?.reduce((item: any, result) => result += item?.value !== undefined ? item?.value : item, '');
-
   React.useEffect(() => {
-    updateOptions(undefined, refs.optionsProps.current);
-  }, [optionsPropsUpdated]);
+    updateOptions(undefined, options_);
+  }, [options_]);
 
   const updateOptions = (valueInputNew: any = refs.valueInput.current, newOptions: any = undefined) => {
     let optionsValue = refs.optionsProps.current;
