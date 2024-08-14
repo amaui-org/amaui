@@ -37,7 +37,7 @@ const useForm = (props: IUseForm) => {
 
   const [form, setForm] = React.useState({
     value: valueDefault !== undefined ? valueDefault : {},
-    values: values_ || {},
+    values: copy(values_ || {}),
     valid: validDefault !== undefined ? validDefault : false
   });
 
