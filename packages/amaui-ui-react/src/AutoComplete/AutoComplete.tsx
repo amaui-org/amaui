@@ -763,7 +763,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
           renderOption(item, index, { ...other_, ...item.props }) :
 
           <ListItem
-            key={index}
+            key={item.value !== undefined ? item.value : index}
 
             role='option'
 
