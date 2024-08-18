@@ -351,7 +351,7 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
     tabIndex,
     interaction,
     noOutline,
-    noBackground,
+    noBackground = true,
     disabled,
 
     onClick,

@@ -163,7 +163,7 @@ const Form: React.FC<IForm> = React.forwardRef((props_, ref: any) => {
   const elements = {
     name: name && (is('string', name) ? (
       <Type
-        version={size === 'large' ? 't1' : size === 'regular' ? 'l1' : 'l2'}
+        version={size === 'large' ? 't1' : size === 'regular' ? 't2' : 't3'}
       >
         {name}
       </Type>
