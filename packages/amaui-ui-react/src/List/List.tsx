@@ -107,7 +107,7 @@ const List: React.FC<IList> = React.forwardRef((props_, ref: any) => {
     indent,
     paddingHorizontal = 'none',
     paddingVertical = 'both',
-    noBackground = true,
+    noBackground,
     noChildrenTransform,
 
     onMenuDesktopClose,
