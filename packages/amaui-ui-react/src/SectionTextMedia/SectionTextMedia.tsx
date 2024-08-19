@@ -51,6 +51,10 @@ export interface ISectionTextMedia extends ISection {
   WrapperTextProps?: IPropsAny;
   DescriptionProps?: IPropsAny;
   MediaProps?: IPropsAny;
+  ImageProps?: IPropsAny;
+  AudioProps?: IPropsAny;
+  VideoProps?: IPropsAny;
+  OtherProps?: IPropsAny;
 }
 
 const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, ref: any) => {
@@ -80,6 +84,7 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
     size,
 
     title,
+
     description,
 
     button,
@@ -95,6 +100,10 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
     WrapperTextProps,
     DescriptionProps,
     MediaProps,
+    ImageProps,
+    AudioProps,
+    VideoProps,
+    OtherProps,
 
     className,
 
@@ -122,9 +131,23 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
   if (mime.includes('image')) {
     mediaElement = (
       <Image
-        src={is('string', media) ? media : media?.src}
+        src={media?.url || media?.urlSmall || (is('string', media) ? media as any : '')}
 
         {...mediaProps}
+
+        {...MediaProps}
+
+        {...ImageProps}
+
+        className={classNames([
+          staticClassName('SectionTextMedia', theme) && [
+            'amaui-SectionTextMedia-item',
+            'amaui-SectionTextMedia-item-image'
+          ],
+
+          MediaProps?.className,
+          ImageProps?.className
+        ])}
       />
     );
   }
@@ -132,17 +155,23 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
   if (mime.includes('audio')) {
     mediaElement = (
       <AudioPlayer
-        src={is('string', media) ? media : media?.src}
-
-        name={media?.name}
-
-        meta={media?.meta}
-
-        versions={media?.versions}
-
-        mime={media?.mime}
+        {...media}
 
         {...mediaProps}
+
+        {...MediaProps}
+
+        {...AudioProps}
+
+        className={classNames([
+          staticClassName('SectionTextMedia', theme) && [
+            'amaui-SectionTextMedia-item',
+            'amaui-SectionTextMedia-item-audio'
+          ],
+
+          MediaProps?.className,
+          AudioProps?.className
+        ])}
       />
     );
   }
@@ -150,19 +179,23 @@ const SectionTextMedia: React.FC<ISectionTextMedia> = React.forwardRef((props_, 
   if (mime.includes('video')) {
     mediaElement = (
       <VideoPlayer
-        src={is('string', media) ? media : media?.src}
-
-        name={media?.name}
-
-        meta={media?.meta}
-
-        versions={media?.versions}
-
-        thumbnails={media?.thumbnails}
-
-        mime={media?.mime}
+        {...media}
 
         {...mediaProps}
+
+        {...MediaProps}
+
+        {...VideoProps}
+
+        className={classNames([
+          staticClassName('SectionTextMedia', theme) && [
+            'amaui-SectionTextMedia-item',
+            'amaui-SectionTextMedia-item-video'
+          ],
+
+          MediaProps?.className,
+          VideoProps?.className
+        ])}
       />
     );
   }

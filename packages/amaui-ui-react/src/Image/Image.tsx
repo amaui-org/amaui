@@ -167,6 +167,9 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
     color = 'primary',
 
     src,
+    url,
+    urlSmall,
+
     sources,
     alt,
     description,
@@ -247,12 +250,14 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
   }), []);
 
   const init = React.useCallback(async () => {
-    const isLoaded = await imageLoad(src);
+    const URL = src || url || urlSmall;
 
-    setSource(isLoaded ? src : '');
+    const isLoaded = await imageLoad(URL);
+
+    setSource(isLoaded ? URL : '');
 
     setLoaded(true);
-  }, [src, loaded]);
+  }, [src, url, urlSmall, loaded]);
 
   React.useEffect(() => {
     if (visiblity?.visible && !refs.loaded.current) {
