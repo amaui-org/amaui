@@ -409,7 +409,7 @@ const AvailabilityCalendar: React.FC<IAvailabilityCalendar> = React.forwardRef((
       { name: 'On a break', value: 'break' },
       { name: 'Scheduled', value: 'pending' },
       { name: 'Rescheduled', value: 'rescheduled' },
-      { name: 'Cancelled', value: 'cancelled' },
+      { name: 'Cancelled', value: 'canceled' },
       { name: 'Other', value: 'other' }
     ];
   }, []);
@@ -487,7 +487,7 @@ const AvailabilityCalendar: React.FC<IAvailabilityCalendar> = React.forwardRef((
 
     if (item?.status === 'rescheduled') palette = theme.methods.color(colors.purple[50]) as any;
 
-    if (item?.status === 'cancelled') palette = theme.palette.color.error;
+    if (item?.status === 'canceled') palette = theme.palette.color.error;
 
     if (item?.status === 'other') palette = theme.palette.color.neutral;
 
