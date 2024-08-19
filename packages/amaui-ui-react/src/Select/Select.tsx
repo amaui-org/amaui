@@ -99,6 +99,8 @@ const useStyle = styleMethod(theme => {
     },
 
     input: {
+      display: 'flex',
+      alignItems: 'center',
       width: '100%',
       minHeight: 20,
       margin: '0',
