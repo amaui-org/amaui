@@ -269,7 +269,7 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
     if (loaded) init();
   }, [src]);
 
-  const noImage = !(loaded && source);
+  const noImage = loaded && !source;
 
   const children = React.Children.toArray(children_);
 
