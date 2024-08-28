@@ -237,11 +237,23 @@ const useStyle = styleMethod(theme => {
     },
 
     // Focus
-    label_focus: {
+    label_version_text_focus: {
       top: '0px',
-      transform: 'translate(0, -6px) scale(0.667)',
+      insetInlineStart: '0px',
+      transform: 'translate(0, 6px) scale(0.667)'
+    },
+
+    label_version_outlined_focus: {
+      top: '0px',
       insetInlineStart: '15px',
-      marginInlineStart: '4px'
+      marginInlineStart: '4px',
+      transform: 'translate(0, -6px) scale(0.667)'
+    },
+
+    label_version_filled_focus: {
+      top: '0px',
+      insetInlineStart: '15px',
+      transform: 'translate(0, 6px) scale(0.667)'
     },
 
     background: {
@@ -1133,6 +1145,7 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
               classes[`label_version_${version}_size_${size}`],
               (enabled || valueWithData || focus) && [
                 classes[`label_focus`],
+                classes[`label_version_${version}_focus`],
                 classes[`label_version_${version}_size_${size}${multiline ? '_multiline' : ''}_focus`],
                 multiline && classes.label_multiline_focus
               ],
