@@ -39,9 +39,8 @@ const IconMaterialCenterFocusWeak = React.forwardRef((props: any, ref) => {
 const useStyle = style(theme => ({
   root: {
     position: 'relative',
-    border: '1px solid #ddd',
-    width: '70vw',
-    height: '70vh',
+    width: '100%',
+    height: '100%',
     overflow: 'hidden'
   },
 

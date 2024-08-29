@@ -25,9 +25,23 @@ const useStyle = styleMethod(theme => ({
     }
   },
 
-  version_modal: {
+  position_fixed: {
+    position: 'fixed'
+  },
+
+  position_absolute: {
+    position: 'absolute'
+  },
+
+  version_modal_position_fixed: {
     '& .amaui-Modal-surface': {
       position: 'fixed'
+    }
+  },
+
+  version_modal_position_absolute: {
+    '& .amaui-Modal-surface': {
+      position: 'absolute'
     }
   },
 
@@ -77,6 +91,7 @@ const useStyle = styleMethod(theme => ({
 
 export interface INavigationDrawer extends IModal {
   version?: 'modal' | 'standard';
+  position?: 'fixed' | 'absolute';
   direction?: 'top' | 'left' | 'bottom' | 'right';
   swipe?: boolean;
   swipeTouchAnywhere?: boolean;
@@ -104,6 +119,7 @@ const NavigationDrawer: React.FC<INavigationDrawer> = React.forwardRef((props_, 
     open: open_,
     openDefault,
 
+    position = 'fixed',
     direction: direction_ = 'left',
     swipe = true,
     swipeTouchAnywhere = true,
@@ -161,9 +177,9 @@ const NavigationDrawer: React.FC<INavigationDrawer> = React.forwardRef((props_, 
     if (swipeValue && version === 'modal') {
       const valueSwipe = swipeValue.value;
       const valuePercentageSwipe = clamp(swipeValue.valuePercentage, 0, 100);
-      const position = swipeValue.position;
+      const position_ = swipeValue.position;
 
-      if (position !== undefined) {
+      if (position_ !== undefined) {
         let value_: any;
 
         if (direction === 'top') value_ = `translateY(${valueSwipe}px)`;
@@ -185,7 +201,7 @@ const NavigationDrawer: React.FC<INavigationDrawer> = React.forwardRef((props_, 
           refs.background.current.style.transition = theme.methods.transitions.make('opacity', { duration: 'xs' });
         }
 
-        if (position === 'min') {
+        if (position_ === 'min') {
           if (refs.background.current) {
             refs.background.current.style.opacity = '0';
           }
@@ -195,7 +211,7 @@ const NavigationDrawer: React.FC<INavigationDrawer> = React.forwardRef((props_, 
           }, theme.transitions.duration.xs + 14);
         }
 
-        if (position === 'max') {
+        if (position_ === 'max') {
           if (refs.background.current) {
             refs.background.current.style.opacity = '1';
           }
@@ -289,6 +305,8 @@ const NavigationDrawer: React.FC<INavigationDrawer> = React.forwardRef((props_, 
 
       Component={Component}
 
+      portal={position === 'fixed'}
+
       className={classNames([
         staticClassName('NavigationDrawer', theme) && [
           'amaui-NavigationDrawer-root'
@@ -296,8 +314,10 @@ const NavigationDrawer: React.FC<INavigationDrawer> = React.forwardRef((props_, 
 
         className,
         classes.root,
+        classes[`position_${position}`],
         classes[`direction_${direction}`],
-        classes[`version_${version}`]
+        classes[`version_${version}`],
+        classes[`version_${version}_position_${position}`]
       ])}
 
       {...other}
