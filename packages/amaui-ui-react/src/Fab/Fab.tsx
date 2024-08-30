@@ -24,7 +24,8 @@ const Fab: React.FC<IFab> = React.forwardRef((props_, ref: any) => {
   const Button = React.useMemo(() => theme?.elements?.Button || ButtonElement, [theme]);
 
   const {
-    tonal = 'secondary',
+    tonal = 'primary',
+
     version = 'filled',
 
     className
