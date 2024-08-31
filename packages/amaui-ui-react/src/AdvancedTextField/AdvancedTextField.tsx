@@ -37,6 +37,7 @@ const AdvancedTextField: React.FC<IAdvancedTextField> = React.forwardRef((props_
 
   const {
     valueDefault,
+
     value: value_,
 
     validate,
@@ -48,7 +49,8 @@ const AdvancedTextField: React.FC<IAdvancedTextField> = React.forwardRef((props_
     maskProactive = true,
 
     thousand,
-    thousandSeparator = ',',
+
+    thousandSeparator = '.',
 
     onChange: onChange_,
 

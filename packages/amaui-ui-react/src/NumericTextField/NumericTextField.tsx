@@ -227,6 +227,8 @@ const NumericTextField: React.FC<INumericTextField> = React.forwardRef((props_, 
       if (props.prefix !== undefined) valueNew = `${props.prefix}${valueNew}`;
     }
 
+    if (String(valueNew_)?.endsWith('.')) valueNew = `${valueNew}.`;
+
     // Update inner or controlled
     if (!props.hasOwnProperty('value')) setValue(valueNew);
 
