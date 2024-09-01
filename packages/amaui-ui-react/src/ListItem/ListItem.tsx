@@ -337,7 +337,7 @@ const ListItem: React.FC<IListItem> = React.forwardRef((props_, ref: any) => {
     preselected,
     selected,
     start,
-    startAlign = props.menuItem ? 'center' : 'start',
+    startAlign = 'center',
     end,
     endAlign = 'center',
     size = 'regular',
