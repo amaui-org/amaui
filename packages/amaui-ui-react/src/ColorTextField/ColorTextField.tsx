@@ -195,7 +195,6 @@ const ColorTextField: React.FC<IColorTextField> = React.forwardRef((props_, ref:
 
   const { classes } = useStyle();
 
-  const [init, setInit] = React.useState(false);
   const [value, setValue] = React.useState((valueDefault !== undefined ? valueDefault : value_) || '');
   const [valueColor, setValueColor] = React.useState(valueColor_ !== undefined ? valueColor_ : '');
   const [valueOpacity, setValueOpacity] = React.useState<any>(valueOpacity_ !== undefined ? valueOpacity_ : 100);
@@ -213,32 +212,26 @@ const ColorTextField: React.FC<IColorTextField> = React.forwardRef((props_, ref:
   refs.valueOpacity.current = valueOpacity;
 
   React.useEffect(() => {
-    setInit(true);
-  }, []);
+    if (opacity) {
+      if (!value_ || (is('string', value_) && (value_ as string)?.startsWith('theme'))) return;
 
-  React.useEffect(() => {
-    if (init) {
-      if (opacity) {
-        if (!value_ || (is('string', value_) && (value_ as string)?.startsWith('theme'))) return;
+      const valuePrevious = colorToRgb(refs.valueColor.current, refs.valueOpacity.current);
 
-        const valuePrevious = colorToRgb(refs.valueColor.current, refs.valueOpacity.current);
+      if (value_ && value_ !== valuePrevious) {
+        const [r, g, b, a = 1] = colorToRgb(value_ as string, undefined, true) || [] as any;
 
-        if (value_ && value_ !== valuePrevious) {
-          const [r, g, b, a = 1] = colorToRgb(value_ as string, undefined, true) || [] as any;
+        setValueOpacity(clamp(+(a * 100).toFixed(2), 0, 100));
 
-          setValueOpacity(clamp(+(a * 100).toFixed(2), 0, 100));
-
-          setValueColor(rgbToHex(`rgb(${r}, ${g}, ${b})`) as any);
-        }
-        else {
-          setValueColor('');
-
-          setValueOpacity(100);
-        }
+        setValueColor(rgbToHex(`rgb(${r}, ${g}, ${b})`) as any);
       }
       else {
-        if (value_ !== refs.value.current) setValue(value_);
+        setValueColor('');
+
+        setValueOpacity(100);
       }
+    }
+    else {
+      if (value_ !== refs.value.current) setValue(value_);
     }
   }, [value_]);
 
