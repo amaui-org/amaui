@@ -304,9 +304,9 @@ const ColorTextField: React.FC<IColorTextField> = React.forwardRef((props_, ref:
         <input
           type='color'
 
-          value={value}
+          value={opacity ? valueColor : value}
 
-          onChange={(event: React.ChangeEvent<any>) => onChange((event.target as any).value)}
+          onChange={(event: React.ChangeEvent<any>) => opacity ? onChangeColor((event.target as any).value) : onChange((event.target as any).value)}
 
           className={classNames([
             staticClassName('ColorTextField', theme) && [
