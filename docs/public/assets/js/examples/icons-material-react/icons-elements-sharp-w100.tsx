@@ -42,19 +42,6 @@ const IconMaterial11mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial11mpW100.displayName = 'AmauiIconMaterial11mpW100';
 
 
-const IconMaterial123W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "123W100",
-    short_name: "123",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6 14.6v-4.5H4.5v-.7h2.2v5.2Zm3.35 0v-2.95h3.05V10.1H9.35v-.7h3.75v2.95h-3.05v1.55h3.05v.7Zm5.9 0v-.7h3.05v-1.55h-2.05v-.7h2.05V10.1h-3.05v-.7H19v5.2Z"
-  }));
-});
-IconMaterial123W100.displayName = 'AmauiIconMaterial123W100';
-
-
 const IconMaterial12mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -66,6 +53,19 @@ const IconMaterial12mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterial12mpW100.displayName = 'AmauiIconMaterial12mpW100';
+
+
+const IconMaterial123W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "123W100",
+    short_name: "123",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6 14.6v-4.5H4.5v-.7h2.2v5.2Zm3.35 0v-2.95h3.05V10.1H9.35v-.7h3.75v2.95h-3.05v1.55h3.05v.7Zm5.9 0v-.7h3.05v-1.55h-2.05v-.7h2.05V10.1h-3.05v-.7H19v5.2Z"
+  }));
+});
+IconMaterial123W100.displayName = 'AmauiIconMaterial123W100';
 
 
 const IconMaterial13mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -172,17 +172,17 @@ const IconMaterial19mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial19mpW100.displayName = 'AmauiIconMaterial19mpW100';
 
 
-const IconMaterial1kPlusW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterial1xMobiledataBadgeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "1kPlusW100",
-    short_name: "1kPlus",
-    viewBox: "0 0 24 24"
+    name: "1xMobiledataBadgeW100",
+    short_name: "1xMobiledataBadge",
+    viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16.8 13.85h.7v-1.5H19v-.7h-1.5v-1.5h-.7v1.5h-1.5v.7h1.5Zm-5.6.75h.7v-2.4l2.45 2.4h1.05l-2.75-2.65L15.4 9.4h-1l-2.5 2.35V9.4h-.7Zm-3.1 0h.7V9.4H6.6v.7h1.5Zm-3.8 5.1V4.3h15.4v15.4ZM5 19h14V5H5Zm0 0V5v14Z"
+    d: "M306 750h28V402H226v28h80v320Zm178 0h32l94-157 94 157h34L627 564l97-162h-32l-81 136-81-136h-34l98 164-110 184ZM92 884V268h776v616H92Zm28-28h720V296H120v560Zm0 0V296v560Z"
   }));
 });
-IconMaterial1kPlusW100.displayName = 'AmauiIconMaterial1kPlusW100';
+IconMaterial1xMobiledataBadgeW100.displayName = 'AmauiIconMaterial1xMobiledataBadgeW100';
 
 
 const IconMaterial1kW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -198,17 +198,17 @@ const IconMaterial1kW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial1kW100.displayName = 'AmauiIconMaterial1kW100';
 
 
-const IconMaterial1xMobiledataBadgeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterial1kPlusW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "1xMobiledataBadgeW100",
-    short_name: "1xMobiledataBadge",
-    viewBox: "0 96 960 960"
+    name: "1kPlusW100",
+    short_name: "1kPlus",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M306 750h28V402H226v28h80v320Zm178 0h32l94-157 94 157h34L627 564l97-162h-32l-81 136-81-136h-34l98 164-110 184ZM92 884V268h776v616H92Zm28-28h720V296H120v560Zm0 0V296v560Z"
+    d: "M16.8 13.85h.7v-1.5H19v-.7h-1.5v-1.5h-.7v1.5h-1.5v.7h1.5Zm-5.6.75h.7v-2.4l2.45 2.4h1.05l-2.75-2.65L15.4 9.4h-1l-2.5 2.35V9.4h-.7Zm-3.1 0h.7V9.4H6.6v.7h1.5Zm-3.8 5.1V4.3h15.4v15.4ZM5 19h14V5H5Zm0 0V5v14Z"
   }));
 });
-IconMaterial1xMobiledataBadgeW100.displayName = 'AmauiIconMaterial1xMobiledataBadgeW100';
+IconMaterial1kPlusW100.displayName = 'AmauiIconMaterial1kPlusW100';
 
 
 const IconMaterial1xMobiledataW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -341,6 +341,19 @@ const IconMaterial2mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial2mpW100.displayName = 'AmauiIconMaterial2mpW100';
 
 
+const IconMaterial30fpsSelectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "30fpsSelectW100",
+    short_name: "30fpsSelect",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5.5 12.7V12h4.3V9.35H5.5v-.7h4.3V6H5.5v-.7h5v7.4Zm8 0V5.3h5v7.4Zm.7-.7h3.6V6h-3.6ZM4.1 21.35v-3.7h.7v3.7Zm3.2 0v-3.7H8v3.7Zm3.2 0v-3.7h.7v3.7Zm3.2 0v-3.7h6.2v3.7Z"
+  }));
+});
+IconMaterial30fpsSelectW100.displayName = 'AmauiIconMaterial30fpsSelectW100';
+
+
 const IconMaterial30fpsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -352,19 +365,6 @@ const IconMaterial30fpsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterial30fpsW100.displayName = 'AmauiIconMaterial30fpsW100';
-
-
-const IconMaterial3dRotationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "3dRotationW100",
-    short_name: "3dRotation",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.85 3.4q.275-.05.575-.075.3-.025.575-.025 1.8 0 3.388.687 1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12H20q0-3.2-2.175-5.5T12.45 4l1.6 1.6-.5.5Zm2.3 17.2q-.275.05-.575.075-.3.025-.575.025-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12H4q0 3.2 2.175 5.5T11.55 20l-1.6-1.6.5-.5Zm-.25-6V9.4h2.7q.425 0 .712.288.288.287.288.712v3.2q0 .425-.288.712-.287.288-.712.288Zm.7-.7h2q.15 0 .225-.075.075-.075.075-.225v-3.2q0-.15-.075-.225-.075-.075-.225-.075h-2Zm-6.2.7v-.7h3v-1.55h-2v-.7h2V10.1h-3v-.7h3.7v5.2Z"
-  }));
-});
-IconMaterial3dRotationW100.displayName = 'AmauiIconMaterial3dRotationW100';
 
 
 const IconMaterial360W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -380,17 +380,17 @@ const IconMaterial360W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial360W100.displayName = 'AmauiIconMaterial360W100';
 
 
-const IconMaterial30fpsSelectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterial3dRotationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "30fpsSelectW100",
-    short_name: "30fpsSelect",
+    name: "3dRotationW100",
+    short_name: "3dRotation",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.5 12.7V12h4.3V9.35H5.5v-.7h4.3V6H5.5v-.7h5v7.4Zm8 0V5.3h5v7.4Zm.7-.7h3.6V6h-3.6ZM4.1 21.35v-3.7h.7v3.7Zm3.2 0v-3.7H8v3.7Zm3.2 0v-3.7h.7v3.7Zm3.2 0v-3.7h6.2v3.7Z"
+    d: "M10.85 3.4q.275-.05.575-.075.3-.025.575-.025 1.8 0 3.388.687 1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12H20q0-3.2-2.175-5.5T12.45 4l1.6 1.6-.5.5Zm2.3 17.2q-.275.05-.575.075-.3.025-.575.025-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12H4q0 3.2 2.175 5.5T11.55 20l-1.6-1.6.5-.5Zm-.25-6V9.4h2.7q.425 0 .712.288.288.287.288.712v3.2q0 .425-.288.712-.287.288-.712.288Zm.7-.7h2q.15 0 .225-.075.075-.075.075-.225v-3.2q0-.15-.075-.225-.075-.075-.225-.075h-2Zm-6.2.7v-.7h3v-1.55h-2v-.7h2V10.1h-3v-.7h3.7v5.2Z"
   }));
 });
-IconMaterial30fpsSelectW100.displayName = 'AmauiIconMaterial30fpsSelectW100';
+IconMaterial3dRotationW100.displayName = 'AmauiIconMaterial3dRotationW100';
 
 
 const IconMaterial3gMobiledataBadgeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -523,6 +523,19 @@ const IconMaterial4kPlusW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial4kPlusW100.displayName = 'AmauiIconMaterial4kPlusW100';
 
 
+const IconMaterial4mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "4mpW100",
+    short_name: "4mp",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12.775 11.1h.7V9.6h1v-.7h-1v-3h-.7v3h-2.3v-3h-.7v3.7h3ZM4.3 19.7V4.3h15.4v15.4ZM5 19h14V5H5Zm1.4-.9h.7v-4.5h1.8v3h.7v-3h1.8v4.5h.7v-5.2H6.4Zm7.5 0h.7v-1.5h3v-3.7h-3.7Zm.7-4.5h2.3v2.3h-2.3ZM5 5v14Z"
+  }));
+});
+IconMaterial4mpW100.displayName = 'AmauiIconMaterial4mpW100';
+
+
 const IconMaterial4kW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -549,17 +562,17 @@ const IconMaterial50mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial50mpW100.displayName = 'AmauiIconMaterial50mpW100';
 
 
-const IconMaterial4mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterial5gW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "4mpW100",
-    short_name: "4mp",
+    name: "5gW100",
+    short_name: "5g",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12.775 11.1h.7V9.6h1v-.7h-1v-3h-.7v3h-2.3v-3h-.7v3.7h3ZM4.3 19.7V4.3h15.4v15.4ZM5 19h14V5H5Zm1.4-.9h.7v-4.5h1.8v3h.7v-3h1.8v4.5h.7v-5.2H6.4Zm7.5 0h.7v-1.5h3v-3.7h-3.7Zm.7-4.5h2.3v2.3h-2.3ZM5 5v14Z"
+    d: "M3.65 16.35v-.7h5v-3.3h-5v-4.7h5.7v.7h-5v3.3h5v4.7Zm9 0v-8.7h7.7v.7h-7v7.3h6.3v-3.3h-2.5v-.7h3.2v4.7Z"
   }));
 });
-IconMaterial4mpW100.displayName = 'AmauiIconMaterial4mpW100';
+IconMaterial5gW100.displayName = 'AmauiIconMaterial5gW100';
 
 
 const IconMaterial5gMobiledataBadgeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -575,17 +588,17 @@ const IconMaterial5gMobiledataBadgeW100 = /*#__PURE__*/React.forwardRef((props, 
 IconMaterial5gMobiledataBadgeW100.displayName = 'AmauiIconMaterial5gMobiledataBadgeW100';
 
 
-const IconMaterial5gW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterial5kW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "5gW100",
-    short_name: "5g",
+    name: "5kW100",
+    short_name: "5k",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.65 16.35v-.7h5v-3.3h-5v-4.7h5.7v.7h-5v3.3h5v4.7Zm9 0v-8.7h7.7v.7h-7v7.3h6.3v-3.3h-2.5v-.7h3.2v4.7Z"
+    d: "M12.85 14.6h.7v-2.4L16 14.6h1.05l-2.75-2.65 2.75-2.55h-1l-2.5 2.35V9.4h-.7ZM7 14.6h3.7v-2.95h-3V10.1h3v-.7H7v2.95h3v1.55H7Zm-2.7 5.1V4.3h15.4v15.4ZM5 19h14V5H5Zm0 0V5v14Z"
   }));
 });
-IconMaterial5gW100.displayName = 'AmauiIconMaterial5gW100';
+IconMaterial5kW100.displayName = 'AmauiIconMaterial5kW100';
 
 
 const IconMaterial5kPlusW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -601,19 +614,6 @@ const IconMaterial5kPlusW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial5kPlusW100.displayName = 'AmauiIconMaterial5kPlusW100';
 
 
-const IconMaterial5kW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "5kW100",
-    short_name: "5k",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12.85 14.6h.7v-2.4L16 14.6h1.05l-2.75-2.65 2.75-2.55h-1l-2.5 2.35V9.4h-.7ZM7 14.6h3.7v-2.95h-3V10.1h3v-.7H7v2.95h3v1.55H7Zm-2.7 5.1V4.3h15.4v15.4ZM5 19h14V5H5Zm0 0V5v14Z"
-  }));
-});
-IconMaterial5kW100.displayName = 'AmauiIconMaterial5kW100';
-
-
 const IconMaterial5mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -627,19 +627,6 @@ const IconMaterial5mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial5mpW100.displayName = 'AmauiIconMaterial5mpW100';
 
 
-const IconMaterial60fpsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "60fpsW100",
-    short_name: "60fps",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.15 17.85V6.15h5.7v.7h-5v4.3h6v6.7Zm.7-.7h5.3v-5.3h-5.3Zm10 0h6.3V6.85h-6.3Zm-.7.7V6.15h7.7v11.7Z"
-  }));
-});
-IconMaterial60fpsW100.displayName = 'AmauiIconMaterial60fpsW100';
-
-
 const IconMaterial60fpsSelectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -651,6 +638,19 @@ const IconMaterial60fpsSelectW100 = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterial60fpsSelectW100.displayName = 'AmauiIconMaterial60fpsSelectW100';
+
+
+const IconMaterial60fpsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "60fpsW100",
+    short_name: "60fps",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.15 17.85V6.15h5.7v.7h-5v4.3h6v6.7Zm.7-.7h5.3v-5.3h-5.3Zm10 0h6.3V6.85h-6.3Zm-.7.7V6.15h7.7v11.7Z"
+  }));
+});
+IconMaterial60fpsW100.displayName = 'AmauiIconMaterial60fpsW100';
 
 
 const IconMaterial6FtApartW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -705,19 +705,6 @@ const IconMaterial6mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial6mpW100.displayName = 'AmauiIconMaterial6mpW100';
 
 
-const IconMaterial7kPlusW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "7kPlusW100",
-    short_name: "7kPlus",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16.8 13.85h.7v-1.5H19v-.7h-1.5v-1.5h-.7v1.5h-1.5v.7h1.5Zm-5.6.75h.7v-2.4l2.45 2.4h1.05l-2.75-2.65L15.4 9.4h-1l-2.5 2.35V9.4h-.7Zm-3.525 0h.75l1.8-5.2H6.3v.7h2.95ZM4.3 19.7V4.3h15.4v15.4ZM5 19h14V5H5Zm0 0V5v14Z"
-  }));
-});
-IconMaterial7kPlusW100.displayName = 'AmauiIconMaterial7kPlusW100';
-
-
 const IconMaterial7kW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -731,6 +718,19 @@ const IconMaterial7kW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial7kW100.displayName = 'AmauiIconMaterial7kW100';
 
 
+const IconMaterial7kPlusW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "7kPlusW100",
+    short_name: "7kPlus",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M16.8 13.85h.7v-1.5H19v-.7h-1.5v-1.5h-.7v1.5h-1.5v.7h1.5Zm-5.6.75h.7v-2.4l2.45 2.4h1.05l-2.75-2.65L15.4 9.4h-1l-2.5 2.35V9.4h-.7Zm-3.525 0h.75l1.8-5.2H6.3v.7h2.95ZM4.3 19.7V4.3h15.4v15.4ZM5 19h14V5H5Zm0 0V5v14Z"
+  }));
+});
+IconMaterial7kPlusW100.displayName = 'AmauiIconMaterial7kPlusW100';
+
+
 const IconMaterial7mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -742,19 +742,6 @@ const IconMaterial7mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterial7mpW100.displayName = 'AmauiIconMaterial7mpW100';
-
-
-const IconMaterial8kPlusW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "8kPlusW100",
-    short_name: "8kPlus",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16.8 13.85h.7v-1.5H19v-.7h-1.5v-1.5h-.7v1.5h-1.5v.7h1.5Zm-5.125.75h.7v-2.4l2.45 2.4h1.05l-2.75-2.65 2.75-2.55h-1l-2.5 2.35V9.4h-.7Zm-5.175 0h3.7V9.4H6.5Zm.7-2.95V10.1h2.3v1.55Zm0 2.25v-1.55h2.3v1.55Zm-2.9 5.8V4.3h15.4v15.4ZM5 19h14V5H5Zm0 0V5v14Z"
-  }));
-});
-IconMaterial8kPlusW100.displayName = 'AmauiIconMaterial8kPlusW100';
 
 
 const IconMaterial8kW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -783,6 +770,19 @@ const IconMaterial8mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial8mpW100.displayName = 'AmauiIconMaterial8mpW100';
 
 
+const IconMaterial8kPlusW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "8kPlusW100",
+    short_name: "8kPlus",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M16.8 13.85h.7v-1.5H19v-.7h-1.5v-1.5h-.7v1.5h-1.5v.7h1.5Zm-5.125.75h.7v-2.4l2.45 2.4h1.05l-2.75-2.65 2.75-2.55h-1l-2.5 2.35V9.4h-.7Zm-5.175 0h3.7V9.4H6.5Zm.7-2.95V10.1h2.3v1.55Zm0 2.25v-1.55h2.3v1.55Zm-2.9 5.8V4.3h15.4v15.4ZM5 19h14V5H5Zm0 0V5v14Z"
+  }));
+});
+IconMaterial8kPlusW100.displayName = 'AmauiIconMaterial8kPlusW100';
+
+
 const IconMaterial9kPlusW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -809,19 +809,6 @@ const IconMaterial9kW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial9kW100.displayName = 'AmauiIconMaterial9kW100';
 
 
-const IconMaterialAbcW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AbcW100",
-    short_name: "Abc",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16.35 14.6V9.4h4.2V11h-.7v-.9h-2.8v3.8h2.8V13h.7v1.6Zm-6.45 0V9.4h3.5q.3 0 .5.2t.2.5v1.3q0 .25-.087.387-.088.138-.363.213.275.075.363.212.087.138.087.388v1.3q0 .3-.2.5t-.5.2Zm.7-2.95h2.8V10.1h-2.8Zm0 2.25h2.8v-1.55h-2.8Zm-7.15.7V9.4h4.2v5.2h-.7v-1.75h-2.8v1.75Zm.7-2.45h2.8V10.1h-2.8Z"
-  }));
-});
-IconMaterialAbcW100.displayName = 'AmauiIconMaterialAbcW100';
-
-
 const IconMaterial9mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -835,17 +822,17 @@ const IconMaterial9mpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial9mpW100.displayName = 'AmauiIconMaterial9mpW100';
 
 
-const IconMaterialAcUnitW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAbcW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "AcUnitW100",
-    short_name: "AcUnit",
+    name: "AbcW100",
+    short_name: "Abc",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.65 21.35V16.3l-3.9 3.85-.5-.5 4.4-4.4v-2.9h-2.9l-4.4 4.4-.5-.5 3.85-3.9H2.65v-.7H7.7l-3.85-3.9.5-.5 4.4 4.4h2.9v-2.9l-4.4-4.4.5-.5 3.9 3.85V2.65h.7V7.7l3.9-3.85.5.5-4.4 4.4v2.9h2.9l4.4-4.4.5.5-3.85 3.9h5.05v.7H16.3l3.85 3.9-.5.5-4.4-4.4h-2.9v2.9l4.4 4.4-.5.5-3.9-3.85v5.05Z"
+    d: "M16.35 14.6V9.4h4.2V11h-.7v-.9h-2.8v3.8h2.8V13h.7v1.6Zm-6.45 0V9.4h3.5q.3 0 .5.2t.2.5v1.3q0 .25-.087.387-.088.138-.363.213.275.075.363.212.087.138.087.388v1.3q0 .3-.2.5t-.5.2Zm.7-2.95h2.8V10.1h-2.8Zm0 2.25h2.8v-1.55h-2.8Zm-7.15.7V9.4h4.2v5.2h-.7v-1.75h-2.8v1.75Zm.7-2.45h2.8V10.1h-2.8Z"
   }));
 });
-IconMaterialAcUnitW100.displayName = 'AmauiIconMaterialAcUnitW100';
+IconMaterialAbcW100.displayName = 'AmauiIconMaterialAbcW100';
 
 
 const IconMaterialAccessibilityNewW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -859,6 +846,19 @@ const IconMaterialAccessibilityNewW100 = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialAccessibilityNewW100.displayName = 'AmauiIconMaterialAccessibilityNewW100';
+
+
+const IconMaterialAcUnitW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AcUnitW100",
+    short_name: "AcUnit",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11.65 21.35V16.3l-3.9 3.85-.5-.5 4.4-4.4v-2.9h-2.9l-4.4 4.4-.5-.5 3.85-3.9H2.65v-.7H7.7l-3.85-3.9.5-.5 4.4 4.4h2.9v-2.9l-4.4-4.4.5-.5 3.9 3.85V2.65h.7V7.7l3.9-3.85.5.5-4.4 4.4v2.9h2.9l4.4-4.4.5.5-3.85 3.9h5.05v.7H16.3l3.85 3.9-.5.5-4.4-4.4h-2.9v2.9l4.4 4.4-.5.5-3.9-3.85v5.05Z"
+  }));
+});
+IconMaterialAcUnitW100.displayName = 'AmauiIconMaterialAcUnitW100';
 
 
 const IconMaterialAccessibilityW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -887,19 +887,6 @@ const IconMaterialAccessibleForwardW100 = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialAccessibleForwardW100.displayName = 'AmauiIconMaterialAccessibleForwardW100';
 
 
-const IconMaterialAccessibleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AccessibleW100",
-    short_name: "Accessible",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12.125 6.35q-.675 0-1.137-.463-.463-.462-.463-1.137t.463-1.138q.462-.462 1.137-.462t1.138.462q.462.463.462 1.138 0 .675-.462 1.137-.463.463-1.138.463Zm5.3 15.05V17q0-.3-.175-.475t-.475-.175h-6V9q0-.6.375-.975t.975-.375q.275 0 .6.175.325.175.8.725 1.4 1.625 2.4 2.225 1 .6 2.35.825v.7q-1.5-.2-2.612-.862-1.113-.663-2.388-2.088v6h4.85v6.05Zm-7.3 0q-1.8 0-3.1-1.3t-1.3-3.1q0-1.725 1.138-2.95Q8 12.825 9.775 12.625v.7q-1.425.15-2.387 1.175-.963 1.025-.963 2.5 0 1.55 1.075 2.625t2.625 1.075q1.475 0 2.5-.963 1.025-.962 1.175-2.387h.7q-.15 1.725-1.4 2.887-1.25 1.163-2.975 1.163Z"
-  }));
-});
-IconMaterialAccessibleW100.displayName = 'AmauiIconMaterialAccessibleW100';
-
-
 const IconMaterialAccountBalanceW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -911,6 +898,19 @@ const IconMaterialAccountBalanceW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialAccountBalanceW100.displayName = 'AmauiIconMaterialAccountBalanceW100';
+
+
+const IconMaterialAccessibleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AccessibleW100",
+    short_name: "Accessible",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12.125 6.35q-.675 0-1.137-.463-.463-.462-.463-1.137t.463-1.138q.462-.462 1.137-.462t1.138.462q.462.463.462 1.138 0 .675-.462 1.137-.463.463-1.138.463Zm5.3 15.05V17q0-.3-.175-.475t-.475-.175h-6V9q0-.6.375-.975t.975-.375q.275 0 .6.175.325.175.8.725 1.4 1.625 2.4 2.225 1 .6 2.35.825v.7q-1.5-.2-2.612-.862-1.113-.663-2.388-2.088v6h4.85v6.05Zm-7.3 0q-1.8 0-3.1-1.3t-1.3-3.1q0-1.725 1.138-2.95Q8 12.825 9.775 12.625v.7q-1.425.15-2.387 1.175-.963 1.025-.963 2.5 0 1.55 1.075 2.625t2.625 1.075q1.475 0 2.5-.963 1.025-.962 1.175-2.387h.7q-.15 1.725-1.4 2.887-1.25 1.163-2.975 1.163Z"
+  }));
+});
+IconMaterialAccessibleW100.displayName = 'AmauiIconMaterialAccessibleW100';
 
 
 const IconMaterialAccountBalanceWalletW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1069,19 +1069,6 @@ const IconMaterialAdGroupW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialAdGroupW100.displayName = 'AmauiIconMaterialAdGroupW100';
 
 
-const IconMaterialAdOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AdOffW100",
-    short_name: "AdOff",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m772 908-24-24H172V308l-24-24 20-20 624 624-20 20Zm-572-52h520L200 336v520Zm588-85-28-28V424H441L285 268h503v503Z"
-  }));
-});
-IconMaterialAdOffW100.displayName = 'AmauiIconMaterialAdOffW100';
-
-
 const IconMaterialAdUnitsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1093,6 +1080,19 @@ const IconMaterialAdUnitsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialAdUnitsW100.displayName = 'AmauiIconMaterialAdUnitsW100';
+
+
+const IconMaterialAdOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AdOffW100",
+    short_name: "AdOff",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m772 908-24-24H172V308l-24-24 20-20 624 624-20 20Zm-572-52h520L200 336v520Zm588-85-28-28V424H441L285 268h503v503Z"
+  }));
+});
+IconMaterialAdOffW100.displayName = 'AmauiIconMaterialAdOffW100';
 
 
 const IconMaterialAdW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1186,19 +1186,6 @@ const IconMaterialAddBusinessW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialAddBusinessW100.displayName = 'AmauiIconMaterialAddBusinessW100';
 
 
-const IconMaterialAddCallW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AddCallW100",
-    short_name: "AddCall",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M15.95 11V8h-3v-.7h3v-3h.7v3h3V8h-3v3Zm2.675 8.55q-2.425.025-4.963-1.275-2.537-1.3-4.612-3.362-2.075-2.063-3.387-4.601Q4.35 7.775 4.35 5.35q0-.25.013-.525.012-.275.062-.525h3.95L9.2 8.075 6.55 10.5q1.4 2.35 3.125 4.05 1.725 1.7 4.075 3l2.55-2.675 3.35.7v3.9q-.225.05-.512.063-.288.012-.513.012ZM6.2 9.85l2.225-2L7.8 5H5.075q-.1 1.2.263 2.475Q5.7 8.75 6.2 9.85Zm8.2 8q.875.45 2.225.775t2.325.2v-2.7l-2.4-.475Zm-8.2-8Zm8.2 8Z"
-  }));
-});
-IconMaterialAddCallW100.displayName = 'AmauiIconMaterialAddCallW100';
-
-
 const IconMaterialAddCardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1212,19 +1199,6 @@ const IconMaterialAddCardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialAddCardW100.displayName = 'AmauiIconMaterialAddCardW100';
 
 
-const IconMaterialAddCircleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AddCircleW100",
-    short_name: "AddCircle",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.65 16.35h.7v-4h4v-.7h-4v-4h-.7v4h-4v.7h4ZM12 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-.7q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"
-  }));
-});
-IconMaterialAddCircleW100.displayName = 'AmauiIconMaterialAddCircleW100';
-
-
 const IconMaterialAddChartW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1236,6 +1210,32 @@ const IconMaterialAddChartW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialAddChartW100.displayName = 'AmauiIconMaterialAddChartW100';
+
+
+const IconMaterialAddCallW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AddCallW100",
+    short_name: "AddCall",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M15.95 11V8h-3v-.7h3v-3h.7v3h3V8h-3v3Zm2.675 8.55q-2.425.025-4.963-1.275-2.537-1.3-4.612-3.362-2.075-2.063-3.387-4.601Q4.35 7.775 4.35 5.35q0-.25.013-.525.012-.275.062-.525h3.95L9.2 8.075 6.55 10.5q1.4 2.35 3.125 4.05 1.725 1.7 4.075 3l2.55-2.675 3.35.7v3.9q-.225.05-.512.063-.288.012-.513.012ZM6.2 9.85l2.225-2L7.8 5H5.075q-.1 1.2.263 2.475Q5.7 8.75 6.2 9.85Zm8.2 8q.875.45 2.225.775t2.325.2v-2.7l-2.4-.475Zm-8.2-8Zm8.2 8Z"
+  }));
+});
+IconMaterialAddCallW100.displayName = 'AmauiIconMaterialAddCallW100';
+
+
+const IconMaterialAddCircleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AddCircleW100",
+    short_name: "AddCircle",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11.65 16.35h.7v-4h4v-.7h-4v-4h-.7v4h-4v.7h4ZM12 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-.7q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"
+  }));
+});
+IconMaterialAddCircleW100.displayName = 'AmauiIconMaterialAddCircleW100';
 
 
 const IconMaterialAddCommentW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1329,19 +1329,6 @@ const IconMaterialAddModeratorW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialAddModeratorW100.displayName = 'AmauiIconMaterialAddModeratorW100';
 
 
-const IconMaterialAddPhotoAlternateW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AddPhotoAlternateW100",
-    short_name: "AddPhotoAlternate",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.8 19.7V4.3h9.7V5h-9v14h14v-9h.7v9.7ZM17.5 8V6h-2v-.7h2v-2h.7v2h2V6h-2v2ZM7.45 16.35h8.3l-2.55-3.4-2.5 3.1-1.6-1.85ZM4.5 10v9V5v5Z"
-  }));
-});
-IconMaterialAddPhotoAlternateW100.displayName = 'AmauiIconMaterialAddPhotoAlternateW100';
-
-
 const IconMaterialAddNotesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1355,17 +1342,17 @@ const IconMaterialAddNotesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialAddNotesW100.displayName = 'AmauiIconMaterialAddNotesW100';
 
 
-const IconMaterialAddRoadW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAddPhotoAlternateW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "AddRoadW100",
-    short_name: "AddRoad",
+    name: "AddPhotoAlternateW100",
+    short_name: "AddPhotoAlternate",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M17.35 22.65v-3h-3v-.7h3v-3h.7v3h3v.7h-3v3Zm0-9.7v-8.3h.7v8.3Zm-11.4 6.7v-15h.7v15Zm5.7-12v-3h.7v3Zm0 6v-3h.7v3Zm0 6v-3h.7v3Z"
+    d: "M3.8 19.7V4.3h9.7V5h-9v14h14v-9h.7v9.7ZM17.5 8V6h-2v-.7h2v-2h.7v2h2V6h-2v2ZM7.45 16.35h8.3l-2.55-3.4-2.5 3.1-1.6-1.85ZM4.5 10v9V5v5Z"
   }));
 });
-IconMaterialAddRoadW100.displayName = 'AmauiIconMaterialAddRoadW100';
+IconMaterialAddPhotoAlternateW100.displayName = 'AmauiIconMaterialAddPhotoAlternateW100';
 
 
 const IconMaterialAddReactionW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1381,6 +1368,19 @@ const IconMaterialAddReactionW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialAddReactionW100.displayName = 'AmauiIconMaterialAddReactionW100';
 
 
+const IconMaterialAddRoadW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AddRoadW100",
+    short_name: "AddRoad",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M17.35 22.65v-3h-3v-.7h3v-3h.7v3h3v.7h-3v3Zm0-9.7v-8.3h.7v8.3Zm-11.4 6.7v-15h.7v15Zm5.7-12v-3h.7v3Zm0 6v-3h.7v3Zm0 6v-3h.7v3Z"
+  }));
+});
+IconMaterialAddRoadW100.displayName = 'AmauiIconMaterialAddRoadW100';
+
+
 const IconMaterialAddShoppingCartW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1392,19 +1392,6 @@ const IconMaterialAddShoppingCartW100 = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialAddShoppingCartW100.displayName = 'AmauiIconMaterialAddShoppingCartW100';
-
-
-const IconMaterialAddTaskW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AddTaskW100",
-    short_name: "AddTask",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3q1.5 0 2.85.475T17.3 5.1l-.5.525q-1-.775-2.225-1.2Q13.35 4 12 4 8.675 4 6.338 6.337 4 8.675 4 12t2.338 5.663Q8.675 20 12 20q.9 0 1.75-.2t1.625-.55l.525.525q-.875.45-1.862.687-.988.238-2.038.238Zm7.65-1.35v-3h-3v-.7h3v-3h.7v3h3v.7h-3v3Zm-9.1-3.65L7.2 12.35l.5-.5 2.85 2.85 9.65-9.65.5.5Z"
-  }));
-});
-IconMaterialAddTaskW100.displayName = 'AmauiIconMaterialAddTaskW100';
 
 
 const IconMaterialAddToDriveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1420,17 +1407,17 @@ const IconMaterialAddToDriveW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialAddToDriveW100.displayName = 'AmauiIconMaterialAddToDriveW100';
 
 
-const IconMaterialAddToHomeScreenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAddTaskW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "AddToHomeScreenW100",
-    short_name: "AddToHomeScreen",
+    name: "AddTaskW100",
+    short_name: "AddTask",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m4.4 16.1-.5-.5 6.25-6.25h-4.5v-.7h5.7v5.7h-.7v-4.5ZM8 21h10v-1.65H8ZM8 4.65h10V3H8ZM7.3 21.7v-4.6H8v1.55h10V5.35H8V6.9h-.7V2.3h11.4v19.4ZM8 4.65V3v1.65ZM8 21v-1.65V21Z"
+    d: "M12 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3q1.5 0 2.85.475T17.3 5.1l-.5.525q-1-.775-2.225-1.2Q13.35 4 12 4 8.675 4 6.338 6.337 4 8.675 4 12t2.338 5.663Q8.675 20 12 20q.9 0 1.75-.2t1.625-.55l.525.525q-.875.45-1.862.687-.988.238-2.038.238Zm7.65-1.35v-3h-3v-.7h3v-3h.7v3h3v.7h-3v3Zm-9.1-3.65L7.2 12.35l.5-.5 2.85 2.85 9.65-9.65.5.5Z"
   }));
 });
-IconMaterialAddToHomeScreenW100.displayName = 'AmauiIconMaterialAddToHomeScreenW100';
+IconMaterialAddTaskW100.displayName = 'AmauiIconMaterialAddTaskW100';
 
 
 const IconMaterialAddToPhotosW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1444,6 +1431,32 @@ const IconMaterialAddToPhotosW100 = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialAddToPhotosW100.displayName = 'AmauiIconMaterialAddToPhotosW100';
+
+
+const IconMaterialAddToHomeScreenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AddToHomeScreenW100",
+    short_name: "AddToHomeScreen",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m4.4 16.1-.5-.5 6.25-6.25h-4.5v-.7h5.7v5.7h-.7v-4.5ZM8 21h10v-1.65H8ZM8 4.65h10V3H8ZM7.3 21.7v-4.6H8v1.55h10V5.35H8V6.9h-.7V2.3h11.4v19.4ZM8 4.65V3v1.65ZM8 21v-1.65V21Z"
+  }));
+});
+IconMaterialAddToHomeScreenW100.displayName = 'AmauiIconMaterialAddToHomeScreenW100';
+
+
+const IconMaterialAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AddW100",
+    short_name: "Add",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11.65 18.35v-6h-6v-.7h6v-6h.7v6h6v.7h-6v6Z"
+  }));
+});
+IconMaterialAddW100.displayName = 'AmauiIconMaterialAddW100';
 
 
 const IconMaterialAddToQueueW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1472,19 +1485,6 @@ const IconMaterialAdfScannerW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialAdfScannerW100.displayName = 'AmauiIconMaterialAdfScannerW100';
 
 
-const IconMaterialAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AddW100",
-    short_name: "Add",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.65 18.35v-6h-6v-.7h6v-6h.7v6h6v.7h-6v6Z"
-  }));
-});
-IconMaterialAddW100.displayName = 'AmauiIconMaterialAddW100';
-
-
 const IconMaterialAdjustW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1511,19 +1511,6 @@ const IconMaterialAdminMedsW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialAdminMedsW100.displayName = 'AmauiIconMaterialAdminMedsW100';
 
 
-const IconMaterialAdminPanelSettingsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AdminPanelSettingsW100",
-    short_name: "AdminPanelSettings",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 20.65q-2.875-.9-4.787-3.55-1.913-2.65-1.913-6V5.9L12 3.4l6.7 2.5v5.65q-.15-.05-.35-.088-.2-.037-.35-.087v-5L12 4.15 6 6.375V11.1q0 1.575.475 2.987.475 1.413 1.288 2.576.812 1.162 1.912 2 1.1.837 2.325 1.237l.075-.025q.075.15.175.3.1.15.225.3-.125.05-.237.087-.113.038-.238.088ZM17 17q.625 0 1.062-.438.438-.437.438-1.062t-.438-1.062Q17.625 14 17 14t-1.062.438q-.438.437-.438 1.062t.438 1.062Q16.375 17 17 17Zm0 3q.8 0 1.438-.35.637-.35 1.062-.95-.575-.35-1.2-.525Q17.675 18 17 18t-1.3.175q-.625.175-1.2.525.425.6 1.062.95Q16.2 20 17 20Zm0 .7q-1.55 0-2.625-1.075T13.3 17q0-1.55 1.075-2.625T17 13.3q1.55 0 2.625 1.075T20.7 17q0 1.55-1.075 2.625T17 20.7Zm-5-8.675Z"
-  }));
-});
-IconMaterialAdminPanelSettingsW100.displayName = 'AmauiIconMaterialAdminPanelSettingsW100';
-
-
 const IconMaterialAdsClickW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1535,6 +1522,19 @@ const IconMaterialAdsClickW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialAdsClickW100.displayName = 'AmauiIconMaterialAdsClickW100';
+
+
+const IconMaterialAdminPanelSettingsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AdminPanelSettingsW100",
+    short_name: "AdminPanelSettings",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 20.65q-2.875-.9-4.787-3.55-1.913-2.65-1.913-6V5.9L12 3.4l6.7 2.5v5.65q-.15-.05-.35-.088-.2-.037-.35-.087v-5L12 4.15 6 6.375V11.1q0 1.575.475 2.987.475 1.413 1.288 2.576.812 1.162 1.912 2 1.1.837 2.325 1.237l.075-.025q.075.15.175.3.1.15.225.3-.125.05-.237.087-.113.038-.238.088ZM17 17q.625 0 1.062-.438.438-.437.438-1.062t-.438-1.062Q17.625 14 17 14t-1.062.438q-.438.437-.438 1.062t.438 1.062Q16.375 17 17 17Zm0 3q.8 0 1.438-.35.637-.35 1.062-.95-.575-.35-1.2-.525Q17.675 18 17 18t-1.3.175q-.625.175-1.2.525.425.6 1.062.95Q16.2 20 17 20Zm0 .7q-1.55 0-2.625-1.075T13.3 17q0-1.55 1.075-2.625T17 13.3q1.55 0 2.625 1.075T20.7 17q0 1.55-1.075 2.625T17 20.7Zm-5-8.675Z"
+  }));
+});
+IconMaterialAdminPanelSettingsW100.displayName = 'AmauiIconMaterialAdminPanelSettingsW100';
 
 
 const IconMaterialAgenderW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1576,6 +1576,19 @@ const IconMaterialAirFreshenerW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialAirFreshenerW100.displayName = 'AmauiIconMaterialAirFreshenerW100';
 
 
+const IconMaterialAirPurifierGenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AirPurifierGenW100",
+    short_name: "AirPurifierGen",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.3 19.7V6.65q0-.975.688-1.663Q5.675 4.3 6.65 4.3H10q.975 0 1.663.687.687.688.687 1.663V19.7Zm6.65-4.05h.7v-6.3h-.7q-.35 0-.575.225-.225.225-.225.575v4.7q0 .35.225.575.225.225.575.225ZM5 19h6.65v-2.65h-.7q-.625 0-1.062-.437-.438-.438-.438-1.063v-4.7q0-.625.438-1.063.437-.437 1.062-.437h.7v-2q0-.675-.487-1.163Q10.675 5 10 5H6.65q-.675 0-1.162.487Q5 5.975 5 6.65Zm11.55-6.075q-.425 0-.85-.1t-.85-.25l.225-.65q.4.15.775.225.375.075.725.075.4 0 .788-.112.387-.113.787-.388.5-.35 1.025-.487.525-.138.975-.138.425 0 .863.088.437.087.862.237l-.25.7q-.525-.175-.8-.25-.275-.075-.675-.075t-.838.125q-.437.125-.937.475-.425.3-.887.412-.463.113-.938.113Zm.025-3.4q-.425 0-.862-.1-.438-.1-.863-.25l.225-.675q.45.15.812.237.363.088.688.088.4 0 .775-.113.375-.112.8-.387.525-.35 1.025-.488.5-.137.975-.137.425 0 .85.087.425.088.875.238l-.25.7q-.45-.15-.8-.238-.35-.087-.675-.087-.425 0-.85.125t-.95.5q-.35.25-.825.375t-.95.125Zm0 6.8q-.425 0-.862-.1-.438-.1-.863-.25l.225-.675q.4.125.788.225.387.1.712.1.4 0 .775-.113.375-.112.8-.387.5-.35 1.05-.488.55-.137.975-.137.4 0 .838.087.437.088.862.238l-.225.7q-.45-.15-.825-.238-.375-.087-.675-.087-.425 0-.887.15-.463.15-.913.475-.35.25-.812.375-.463.125-.963.125ZM5 19h6.65H5Z"
+  }));
+});
+IconMaterialAirPurifierGenW100.displayName = 'AmauiIconMaterialAirPurifierGenW100';
+
+
 const IconMaterialAirPurifierW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1602,17 +1615,17 @@ const IconMaterialAirW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialAirW100.displayName = 'AmauiIconMaterialAirW100';
 
 
-const IconMaterialAirPurifierGenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAirlineSeatFlatAngledW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "AirPurifierGenW100",
-    short_name: "AirPurifierGen",
+    name: "AirlineSeatFlatAngledW100",
+    short_name: "AirlineSeatFlatAngled",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.3 19.7V6.65q0-.975.688-1.663Q5.675 4.3 6.65 4.3H10q.975 0 1.663.687.687.688.687 1.663V19.7Zm6.65-4.05h.7v-6.3h-.7q-.35 0-.575.225-.225.225-.225.575v4.7q0 .35.225.575.225.225.575.225ZM5 19h6.65v-2.65h-.7q-.625 0-1.062-.437-.438-.438-.438-1.063v-4.7q0-.625.438-1.063.437-.437 1.062-.437h.7v-2q0-.675-.487-1.163Q10.675 5 10 5H6.65q-.675 0-1.162.487Q5 5.975 5 6.65Zm11.55-6.075q-.425 0-.85-.1t-.85-.25l.225-.65q.4.15.775.225.375.075.725.075.4 0 .788-.112.387-.113.787-.388.5-.35 1.025-.487.525-.138.975-.138.425 0 .863.088.437.087.862.237l-.25.7q-.525-.175-.8-.25-.275-.075-.675-.075t-.838.125q-.437.125-.937.475-.425.3-.887.412-.463.113-.938.113Zm.025-3.4q-.425 0-.862-.1-.438-.1-.863-.25l.225-.675q.45.15.812.237.363.088.688.088.4 0 .775-.113.375-.112.8-.387.525-.35 1.025-.488.5-.137.975-.137.425 0 .85.087.425.088.875.238l-.25.7q-.45-.15-.8-.238-.35-.087-.675-.087-.425 0-.85.125t-.95.5q-.35.25-.825.375t-.95.125Zm0 6.8q-.425 0-.862-.1-.438-.1-.863-.25l.225-.675q.4.125.788.225.387.1.712.1.4 0 .775-.113.375-.112.8-.387.5-.35 1.05-.488.55-.137.975-.137.4 0 .838.087.437.088.862.238l-.225.7q-.45-.15-.825-.238-.375-.087-.675-.087-.425 0-.887.15-.463.15-.913.475-.35.25-.812.375-.463.125-.963.125ZM5 19h6.65H5Z"
+    d: "m9.9 11.9 1.5-4.125 9.725 3.525-1.55 4.125Zm-6.275.575.25-.65L18.9 17.3l-.25.65ZM6.9 10.65q-.75 0-1.287-.538-.538-.537-.538-1.287 0-.75.538-1.288Q6.15 7 6.9 7q.75 0 1.288.537.537.538.537 1.288t-.537 1.287q-.538.538-1.288.538Zm0-.7q.475 0 .8-.325.325-.325.325-.8 0-.475-.325-.8-.325-.325-.8-.325-.475 0-.8.325-.325.325-.325.8 0 .475.325.8.325.325.8.325Zm3.9 1.525 8.375 3.05.975-2.825-8.325-3.05ZM6.925 8.85Zm4.9-.2L10.8 11.475Z"
   }));
 });
-IconMaterialAirPurifierGenW100.displayName = 'AmauiIconMaterialAirPurifierGenW100';
+IconMaterialAirlineSeatFlatAngledW100.displayName = 'AmauiIconMaterialAirlineSeatFlatAngledW100';
 
 
 const IconMaterialAirlineSeatFlatW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1626,19 +1639,6 @@ const IconMaterialAirlineSeatFlatW100 = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialAirlineSeatFlatW100.displayName = 'AmauiIconMaterialAirlineSeatFlatW100';
-
-
-const IconMaterialAirlineSeatFlatAngledW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AirlineSeatFlatAngledW100",
-    short_name: "AirlineSeatFlatAngled",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m9.9 11.9 1.5-4.125 9.725 3.525-1.55 4.125Zm-6.275.575.25-.65L18.9 17.3l-.25.65ZM6.9 10.65q-.75 0-1.287-.538-.538-.537-.538-1.287 0-.75.538-1.288Q6.15 7 6.9 7q.75 0 1.288.537.537.538.537 1.288t-.537 1.287q-.538.538-1.288.538Zm0-.7q.475 0 .8-.325.325-.325.325-.8 0-.475-.325-.8-.325-.325-.8-.325-.475 0-.8.325-.325.325-.325.8 0 .475.325.8.325.325.8.325Zm3.9 1.525 8.375 3.05.975-2.825-8.325-3.05ZM6.925 8.85Zm4.9-.2L10.8 11.475Z"
-  }));
-});
-IconMaterialAirlineSeatFlatAngledW100.displayName = 'AmauiIconMaterialAirlineSeatFlatAngledW100';
 
 
 const IconMaterialAirlineSeatIndividualSuiteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1732,19 +1732,6 @@ const IconMaterialAirlineStopsW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialAirlineStopsW100.displayName = 'AmauiIconMaterialAirlineStopsW100';
 
 
-const IconMaterialAirlinesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AirlinesW100",
-    short_name: "Airlines",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.35 18H16.9l2.25-12H13.6Zm-1.325.7 9.2-13.4h6.75l-2.5 13.4Zm10.025-5.625q.65 0 1.113-.463.462-.462.462-1.112 0-.65-.462-1.113-.463-.462-1.113-.462-.65 0-1.112.462-.463.463-.463 1.113 0 .65.463 1.112.462.463 1.112.463ZM5.35 18H16.9Z"
-  }));
-});
-IconMaterialAirlinesW100.displayName = 'AmauiIconMaterialAirlinesW100';
-
-
 const IconMaterialAirplaneTicketW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1756,6 +1743,19 @@ const IconMaterialAirplaneTicketW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialAirplaneTicketW100.displayName = 'AmauiIconMaterialAirplaneTicketW100';
+
+
+const IconMaterialAirlinesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AirlinesW100",
+    short_name: "Airlines",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5.35 18H16.9l2.25-12H13.6Zm-1.325.7 9.2-13.4h6.75l-2.5 13.4Zm10.025-5.625q.65 0 1.113-.463.462-.462.462-1.112 0-.65-.462-1.113-.463-.462-1.113-.462-.65 0-1.112.462-.463.463-.463 1.113 0 .65.463 1.112.462.463 1.112.463ZM5.35 18H16.9Z"
+  }));
+});
+IconMaterialAirlinesW100.displayName = 'AmauiIconMaterialAirlinesW100';
 
 
 const IconMaterialAirplanemodeActiveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1771,19 +1771,6 @@ const IconMaterialAirplanemodeActiveW100 = /*#__PURE__*/React.forwardRef((props,
 IconMaterialAirplanemodeActiveW100.displayName = 'AmauiIconMaterialAirplanemodeActiveW100';
 
 
-const IconMaterialAirplanemodeInactiveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AirplanemodeInactiveW100",
-    short_name: "AirplanemodeInactive",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M21.05 15.15 15.8 13.6l-4.95-4.95V3.5q0-.35.25-.6t.6-.25q.35 0 .6.25t.25.6v5.85l8.5 5Zm-1 6.2-7.5-7.5V19l2 1.5v.7l-2.85-.9-2.85.85v-.65l2-1.45v-6.4l-8.5 2.5v-.8L9.1 10.4 2.65 3.95l.5-.5 17.4 17.4Z"
-  }));
-});
-IconMaterialAirplanemodeInactiveW100.displayName = 'AmauiIconMaterialAirplanemodeInactiveW100';
-
-
 const IconMaterialAirplayW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1797,17 +1784,17 @@ const IconMaterialAirplayW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialAirplayW100.displayName = 'AmauiIconMaterialAirplayW100';
 
 
-const IconMaterialAirwareW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAirplanemodeInactiveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "AirwareW100",
-    short_name: "Airware",
+    name: "AirplanemodeInactiveW100",
+    short_name: "AirplanemodeInactive",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m4.8 8.375-.5-.5L5.7 6.45q.575-.575 1.313-.862Q7.75 5.3 8.5 5.3q.75 0 1.475.288.725.287 1.3.862l1.875 1.875q.475.475 1.075.725t1.25.25q.65 0 1.237-.25.588-.25 1.063-.725l1.425-1.4.5.5-1.4 1.425q-.575.575-1.312.862-.738.288-1.513.288-.775 0-1.512-.288-.738-.287-1.313-.862l-1.875-1.875Q10.3 6.5 9.713 6.25 9.125 6 8.5 6q-.625 0-1.213.25-.587.25-1.062.725Zm0 4.35-.5-.5L5.7 10.8q.575-.575 1.313-.862Q7.75 9.65 8.5 9.65q.75 0 1.475.288.725.287 1.3.862l1.875 1.875q.475.475 1.075.725t1.25.25q.65 0 1.237-.25.588-.25 1.063-.725l1.425-1.4.5.475-1.4 1.45q-.575.575-1.312.862-.738.288-1.513.288-.775 0-1.512-.288-.738-.287-1.313-.862l-1.875-1.9q-.475-.475-1.062-.713-.588-.237-1.213-.237-.625 0-1.213.237-.587.238-1.062.713Zm0 4.35-.5-.5 1.4-1.425q.575-.575 1.313-.875.737-.3 1.487-.3.75 0 1.475.3.725.3 1.3.875l1.875 1.875q.475.475 1.075.737.6.263 1.25.263t1.237-.263q.588-.262 1.063-.737l1.425-1.4.5.475-1.4 1.45q-.575.575-1.312.875-.738.3-1.513.3-.775 0-1.512-.3-.738-.3-1.313-.875l-1.875-1.9q-.475-.5-1.062-.738-.588-.237-1.213-.237-.625 0-1.213.237-.587.238-1.062.738Z"
+    d: "M21.05 15.15 15.8 13.6l-4.95-4.95V3.5q0-.35.25-.6t.6-.25q.35 0 .6.25t.25.6v5.85l8.5 5Zm-1 6.2-7.5-7.5V19l2 1.5v.7l-2.85-.9-2.85.85v-.65l2-1.45v-6.4l-8.5 2.5v-.8L9.1 10.4 2.65 3.95l.5-.5 17.4 17.4Z"
   }));
 });
-IconMaterialAirwareW100.displayName = 'AmauiIconMaterialAirwareW100';
+IconMaterialAirplanemodeInactiveW100.displayName = 'AmauiIconMaterialAirplanemodeInactiveW100';
 
 
 const IconMaterialAirportShuttleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1821,6 +1808,19 @@ const IconMaterialAirportShuttleW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialAirportShuttleW100.displayName = 'AmauiIconMaterialAirportShuttleW100';
+
+
+const IconMaterialAirwareW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AirwareW100",
+    short_name: "Airware",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m4.8 8.375-.5-.5L5.7 6.45q.575-.575 1.313-.862Q7.75 5.3 8.5 5.3q.75 0 1.475.288.725.287 1.3.862l1.875 1.875q.475.475 1.075.725t1.25.25q.65 0 1.237-.25.588-.25 1.063-.725l1.425-1.4.5.5-1.4 1.425q-.575.575-1.312.862-.738.288-1.513.288-.775 0-1.512-.288-.738-.287-1.313-.862l-1.875-1.875Q10.3 6.5 9.713 6.25 9.125 6 8.5 6q-.625 0-1.213.25-.587.25-1.062.725Zm0 4.35-.5-.5L5.7 10.8q.575-.575 1.313-.862Q7.75 9.65 8.5 9.65q.75 0 1.475.288.725.287 1.3.862l1.875 1.875q.475.475 1.075.725t1.25.25q.65 0 1.237-.25.588-.25 1.063-.725l1.425-1.4.5.475-1.4 1.45q-.575.575-1.312.862-.738.288-1.513.288-.775 0-1.512-.288-.738-.287-1.313-.862l-1.875-1.9q-.475-.475-1.062-.713-.588-.237-1.213-.237-.625 0-1.213.237-.587.238-1.062.713Zm0 4.35-.5-.5 1.4-1.425q.575-.575 1.313-.875.737-.3 1.487-.3.75 0 1.475.3.725.3 1.3.875l1.875 1.875q.475.475 1.075.737.6.263 1.25.263t1.237-.263q.588-.262 1.063-.737l1.425-1.4.5.475-1.4 1.45q-.575.575-1.312.875-.738.3-1.513.3-.775 0-1.512-.3-.738-.3-1.313-.875l-1.875-1.9q-.475-.5-1.062-.738-.588-.237-1.213-.237-.625 0-1.213.237-.587.238-1.062.738Z"
+  }));
+});
+IconMaterialAirwareW100.displayName = 'AmauiIconMaterialAirwareW100';
 
 
 const IconMaterialAirwaveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1979,19 +1979,6 @@ const IconMaterialAlignFlexStartW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialAlignFlexStartW100.displayName = 'AmauiIconMaterialAlignFlexStartW100';
 
 
-const IconMaterialAlignHorizontalCenterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AlignHorizontalCenterW100",
-    short_name: "AlignHorizontalCenter",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.65 20.7v-4.6H7.3v-1.75h4.35v-4.7H4.3V7.9h7.35V3.3h.7v4.6h7.35v1.75h-7.35v4.7h4.35v1.75h-4.35v4.6Z"
-  }));
-});
-IconMaterialAlignHorizontalCenterW100.displayName = 'AmauiIconMaterialAlignHorizontalCenterW100';
-
-
 const IconMaterialAlignHorizontalLeftW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2029,6 +2016,19 @@ const IconMaterialAlignItemsStretchW100 = /*#__PURE__*/React.forwardRef((props, 
   }));
 });
 IconMaterialAlignItemsStretchW100.displayName = 'AmauiIconMaterialAlignItemsStretchW100';
+
+
+const IconMaterialAlignHorizontalCenterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AlignHorizontalCenterW100",
+    short_name: "AlignHorizontalCenter",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11.65 20.7v-4.6H7.3v-1.75h4.35v-4.7H4.3V7.9h7.35V3.3h.7v4.6h7.35v1.75h-7.35v4.7h4.35v1.75h-4.35v4.6Z"
+  }));
+});
+IconMaterialAlignHorizontalCenterW100.displayName = 'AmauiIconMaterialAlignHorizontalCenterW100';
 
 
 const IconMaterialAlignJustifyCenterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2252,19 +2252,6 @@ const IconMaterialAllInboxW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialAllInboxW100.displayName = 'AmauiIconMaterialAllInboxW100';
 
 
-const IconMaterialAllInclusiveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AllInclusiveW100",
-    short_name: "AllInclusive",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.5 16.85q-2.025 0-3.438-1.412Q.65 14.025.65 12q0-2.025 1.412-3.438Q3.475 7.15 5.5 7.15q.8 0 1.525.287.725.288 1.325.813l2.25 1.9-.55.45L7.9 8.75q-.5-.425-1.125-.663Q6.15 7.85 5.5 7.85q-1.725 0-2.938 1.212Q1.35 10.275 1.35 12t1.212 2.938Q3.775 16.15 5.5 16.15q.65 0 1.275-.238.625-.237 1.125-.662l7.75-7q.575-.55 1.312-.825.738-.275 1.538-.275 2.025 0 3.438 1.412Q23.35 9.975 23.35 12q0 2.025-1.412 3.438-1.413 1.412-3.438 1.412-.8 0-1.512-.3-.713-.3-1.338-.8l-2.2-1.9.5-.475 2.15 1.875q.5.45 1.125.675.625.225 1.275.225 1.725 0 2.938-1.212Q22.65 13.725 22.65 12t-1.212-2.938Q20.225 7.85 18.5 7.85q-.65 0-1.275.237-.625.238-1.125.663l-7.75 7q-.575.55-1.312.825-.738.275-1.538.275Z"
-  }));
-});
-IconMaterialAllInclusiveW100.displayName = 'AmauiIconMaterialAllInclusiveW100';
-
-
 const IconMaterialAllMatchW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2276,6 +2263,19 @@ const IconMaterialAllMatchW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialAllMatchW100.displayName = 'AmauiIconMaterialAllMatchW100';
+
+
+const IconMaterialAllInclusiveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AllInclusiveW100",
+    short_name: "AllInclusive",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5.5 16.85q-2.025 0-3.438-1.412Q.65 14.025.65 12q0-2.025 1.412-3.438Q3.475 7.15 5.5 7.15q.8 0 1.525.287.725.288 1.325.813l2.25 1.9-.55.45L7.9 8.75q-.5-.425-1.125-.663Q6.15 7.85 5.5 7.85q-1.725 0-2.938 1.212Q1.35 10.275 1.35 12t1.212 2.938Q3.775 16.15 5.5 16.15q.65 0 1.275-.238.625-.237 1.125-.662l7.75-7q.575-.55 1.312-.825.738-.275 1.538-.275 2.025 0 3.438 1.412Q23.35 9.975 23.35 12q0 2.025-1.412 3.438-1.413 1.412-3.438 1.412-.8 0-1.512-.3-.713-.3-1.338-.8l-2.2-1.9.5-.475 2.15 1.875q.5.45 1.125.675.625.225 1.275.225 1.725 0 2.938-1.212Q22.65 13.725 22.65 12t-1.212-2.938Q20.225 7.85 18.5 7.85q-.65 0-1.275.237-.625.238-1.125.663l-7.75 7q-.575.55-1.312.825-.738.275-1.538.275Z"
+  }));
+});
+IconMaterialAllInclusiveW100.displayName = 'AmauiIconMaterialAllInclusiveW100';
 
 
 const IconMaterialAllOutW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2317,17 +2317,17 @@ const IconMaterialAllergyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialAllergyW100.displayName = 'AmauiIconMaterialAllergyW100';
 
 
-const IconMaterialAltitudeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAltRouteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "AltitudeW100",
-    short_name: "Altitude",
+    name: "AltRouteW100",
+    short_name: "AltRoute",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M18.65 12V6.9L16.4 9.125l-.475-.475L19 5.575l3.075 3.075-.475.5-2.25-2.25V12ZM3.475 19.625l3.65-4.9 3.15 4.2h8.85l-5-6.65-3.15 4.2-.45-.6 3.6-4.8 6.4 8.55Zm7.5-.7Z"
+    d: "M11.65 21.35V17q0-1.35-.375-2.175-.375-.825-1.175-1.5l.5-.5q.35.325.738.837.387.513.662 1.088.275-.65.788-1.262.512-.613 1.087-1.113 1.35-1.175 2.075-2.95.725-1.775.675-5.125L14.4 6.525l-.5-.5 3.1-3.1 3.1 3.1-.5.5-2.275-2.275q.05 3.3-.688 5.262-.737 1.963-2.262 3.363-.875.8-1.45 1.6T12.35 17v4.35ZM6.925 7.725Q6.8 7.2 6.738 6.2q-.063-1-.063-1.95L4.4 6.525l-.5-.5 3.1-3.1 3.1 3.1-.5.5L7.375 4.3q-.025.925.038 1.825.062.9.187 1.45ZM8.7 11.9q-.375-.475-.737-1.113-.363-.637-.538-1.137l.675-.175q.15.425.438.963.287.537.662.962Z"
   }));
 });
-IconMaterialAltitudeW100.displayName = 'AmauiIconMaterialAltitudeW100';
+IconMaterialAltRouteW100.displayName = 'AmauiIconMaterialAltRouteW100';
 
 
 const IconMaterialAlternateEmailW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2343,17 +2343,17 @@ const IconMaterialAlternateEmailW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialAlternateEmailW100.displayName = 'AmauiIconMaterialAlternateEmailW100';
 
 
-const IconMaterialAltRouteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAltitudeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "AltRouteW100",
-    short_name: "AltRoute",
+    name: "AltitudeW100",
+    short_name: "Altitude",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.65 21.35V17q0-1.35-.375-2.175-.375-.825-1.175-1.5l.5-.5q.35.325.738.837.387.513.662 1.088.275-.65.788-1.262.512-.613 1.087-1.113 1.35-1.175 2.075-2.95.725-1.775.675-5.125L14.4 6.525l-.5-.5 3.1-3.1 3.1 3.1-.5.5-2.275-2.275q.05 3.3-.688 5.262-.737 1.963-2.262 3.363-.875.8-1.45 1.6T12.35 17v4.35ZM6.925 7.725Q6.8 7.2 6.738 6.2q-.063-1-.063-1.95L4.4 6.525l-.5-.5 3.1-3.1 3.1 3.1-.5.5L7.375 4.3q-.025.925.038 1.825.062.9.187 1.45ZM8.7 11.9q-.375-.475-.737-1.113-.363-.637-.538-1.137l.675-.175q.15.425.438.963.287.537.662.962Z"
+    d: "M18.65 12V6.9L16.4 9.125l-.475-.475L19 5.575l3.075 3.075-.475.5-2.25-2.25V12ZM3.475 19.625l3.65-4.9 3.15 4.2h8.85l-5-6.65-3.15 4.2-.45-.6 3.6-4.8 6.4 8.55Zm7.5-.7Z"
   }));
 });
-IconMaterialAltRouteW100.displayName = 'AmauiIconMaterialAltRouteW100';
+IconMaterialAltitudeW100.displayName = 'AmauiIconMaterialAltitudeW100';
 
 
 const IconMaterialAmbientScreenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2369,19 +2369,6 @@ const IconMaterialAmbientScreenW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialAmbientScreenW100.displayName = 'AmauiIconMaterialAmbientScreenW100';
 
 
-const IconMaterialAmendW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AmendW100",
-    short_name: "Amend",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7 14.7h10V14H7ZM7 12h3.2v-.7h-2q.725-.925 1.675-1.562Q10.825 9.1 12 9.1q1.4 0 2.512.8 1.113.8 1.613 2.1h.75q-.525-1.6-1.862-2.6-1.338-1-3.013-1-1.3 0-2.4.675-1.1.675-1.9 1.725v-2H7Zm5 8.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-.7q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"
-  }));
-});
-IconMaterialAmendW100.displayName = 'AmauiIconMaterialAmendW100';
-
-
 const IconMaterialAmbulanceW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2395,17 +2382,17 @@ const IconMaterialAmbulanceW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialAmbulanceW100.displayName = 'AmauiIconMaterialAmbulanceW100';
 
 
-const IconMaterialAmpStoriesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAmendW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "AmpStoriesW100",
-    short_name: "AmpStories",
+    name: "AmendW100",
+    short_name: "Amend",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8.3 18.7V5.3h7.4v13.4Zm-3.2-2V7.3h.7v9.4Zm13.1 0V7.3h.7v9.4ZM9 18h6V6H9Zm0 0V6v12Z"
+    d: "M7 14.7h10V14H7ZM7 12h3.2v-.7h-2q.725-.925 1.675-1.562Q10.825 9.1 12 9.1q1.4 0 2.512.8 1.113.8 1.613 2.1h.75q-.525-1.6-1.862-2.6-1.338-1-3.013-1-1.3 0-2.4.675-1.1.675-1.9 1.725v-2H7Zm5 8.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-.7q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"
   }));
 });
-IconMaterialAmpStoriesW100.displayName = 'AmauiIconMaterialAmpStoriesW100';
+IconMaterialAmendW100.displayName = 'AmauiIconMaterialAmendW100';
 
 
 const IconMaterialAnalyticsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2432,6 +2419,19 @@ const IconMaterialAnchorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialAnchorW100.displayName = 'AmauiIconMaterialAnchorW100';
+
+
+const IconMaterialAmpStoriesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AmpStoriesW100",
+    short_name: "AmpStories",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8.3 18.7V5.3h7.4v13.4Zm-3.2-2V7.3h.7v9.4Zm13.1 0V7.3h.7v9.4ZM9 18h6V6H9Zm0 0V6v12Z"
+  }));
+});
+IconMaterialAmpStoriesW100.displayName = 'AmauiIconMaterialAmpStoriesW100';
 
 
 const IconMaterialAndroidW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2473,19 +2473,6 @@ const IconMaterialAodTabletW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialAodTabletW100.displayName = 'AmauiIconMaterialAodTabletW100';
 
 
-const IconMaterialAodW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AodW100",
-    short_name: "Aod",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8.4 11.1v-.7h7.2v.7Zm1 3v-.7h5.2v.7Zm-3.1 7.6V2.3h11.4v19.4Zm.7-3.05h10V5.35H7ZM7 21h10v-1.65H7ZM7 4.65h10V3H7Zm0 0V3v1.65ZM7 21v-1.65V21Z"
-  }));
-});
-IconMaterialAodW100.displayName = 'AmauiIconMaterialAodW100';
-
-
 const IconMaterialAodWatchW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2497,6 +2484,19 @@ const IconMaterialAodWatchW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialAodWatchW100.displayName = 'AmauiIconMaterialAodWatchW100';
+
+
+const IconMaterialAodW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AodW100",
+    short_name: "Aod",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8.4 11.1v-.7h7.2v.7Zm1 3v-.7h5.2v.7Zm-3.1 7.6V2.3h11.4v19.4Zm.7-3.05h10V5.35H7ZM7 21h10v-1.65H7ZM7 4.65h10V3H7Zm0 0V3v1.65ZM7 21v-1.65V21Z"
+  }));
+});
+IconMaterialAodW100.displayName = 'AmauiIconMaterialAodW100';
 
 
 const IconMaterialApartmentW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2616,19 +2616,6 @@ const IconMaterialAppShortcutW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialAppShortcutW100.displayName = 'AmauiIconMaterialAppShortcutW100';
 
 
-const IconMaterialApparelW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ApparelW100",
-    short_name: "Apparel",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m292-609-105 58-67-117 202-120h68v30q0 36 27 63t63 27q36 0 63-27t27-63v-30h68l202 120-67 117-105-58v437H292v-437Zm28-47v456h320v-456l122 67 40-69-171-102h-33q0 50-34 85t-84 35q-50 0-84-35t-34-85h-33L158-658l40 69 122-67Zm160 176Z"
-  }));
-});
-IconMaterialApparelW100.displayName = 'AmauiIconMaterialApparelW100';
-
-
 const IconMaterialApprovalDelegationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2640,6 +2627,19 @@ const IconMaterialApprovalDelegationW100 = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialApprovalDelegationW100.displayName = 'AmauiIconMaterialApprovalDelegationW100';
+
+
+const IconMaterialApparelW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ApparelW100",
+    short_name: "Apparel",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m292-609-105 58-67-117 202-120h68v30q0 36 27 63t63 27q36 0 63-27t27-63v-30h68l202 120-67 117-105-58v437H292v-437Zm28-47v456h320v-456l122 67 40-69-171-102h-33q0 50-34 85t-84 35q-50 0-84-35t-34-85h-33L158-658l40 69 122-67Zm160 176Z"
+  }));
+});
+IconMaterialApparelW100.displayName = 'AmauiIconMaterialApparelW100';
 
 
 const IconMaterialApprovalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2798,19 +2798,6 @@ const IconMaterialArrowAndEdgeW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialArrowAndEdgeW100.displayName = 'AmauiIconMaterialArrowAndEdgeW100';
 
 
-const IconMaterialArrowBackIosNewW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ArrowBackIosNewW100",
-    short_name: "ArrowBackIosNew",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16 21.1 6.9 12 16 2.9l.85.85L8.6 12l8.25 8.25Z"
-  }));
-});
-IconMaterialArrowBackIosNewW100.displayName = 'AmauiIconMaterialArrowBackIosNewW100';
-
-
 const IconMaterialArrowBackIosW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2822,6 +2809,19 @@ const IconMaterialArrowBackIosW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialArrowBackIosW100.displayName = 'AmauiIconMaterialArrowBackIosW100';
+
+
+const IconMaterialArrowBackIosNewW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ArrowBackIosNewW100",
+    short_name: "ArrowBackIosNew",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M16 21.1 6.9 12 16 2.9l.85.85L8.6 12l8.25 8.25Z"
+  }));
+});
+IconMaterialArrowBackIosNewW100.displayName = 'AmauiIconMaterialArrowBackIosNewW100';
 
 
 const IconMaterialArrowBackW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2863,19 +2863,6 @@ const IconMaterialArrowCircleLeftW100 = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialArrowCircleLeftW100.displayName = 'AmauiIconMaterialArrowCircleLeftW100';
 
 
-const IconMaterialArrowCircleRightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ArrowCircleRightW100",
-    short_name: "ArrowCircleRight",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 15.075 15.075 12 12 8.925l-.475.475 2.25 2.25H8.65v.7h5.125l-2.25 2.25Zm0 5.625q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-.7q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"
-  }));
-});
-IconMaterialArrowCircleRightW100.displayName = 'AmauiIconMaterialArrowCircleRightW100';
-
-
 const IconMaterialArrowCircleUpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2887,6 +2874,19 @@ const IconMaterialArrowCircleUpW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialArrowCircleUpW100.displayName = 'AmauiIconMaterialArrowCircleUpW100';
+
+
+const IconMaterialArrowCircleRightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ArrowCircleRightW100",
+    short_name: "ArrowCircleRight",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 15.075 15.075 12 12 8.925l-.475.475 2.25 2.25H8.65v.7h5.125l-2.25 2.25Zm0 5.625q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-.7q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"
+  }));
+});
+IconMaterialArrowCircleRightW100.displayName = 'AmauiIconMaterialArrowCircleRightW100';
 
 
 const IconMaterialArrowDownwardAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2954,19 +2954,6 @@ const IconMaterialArrowDropUpW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialArrowDropUpW100.displayName = 'AmauiIconMaterialArrowDropUpW100';
 
 
-const IconMaterialArrowForwardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ArrowForwardW100",
-    short_name: "ArrowForward",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m12 19-.5-.5 6.15-6.15H5v-.7h12.65L11.5 5.5 12 5l7 7Z"
-  }));
-});
-IconMaterialArrowForwardW100.displayName = 'AmauiIconMaterialArrowForwardW100';
-
-
 const IconMaterialArrowForwardIosW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2978,6 +2965,19 @@ const IconMaterialArrowForwardIosW100 = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialArrowForwardIosW100.displayName = 'AmauiIconMaterialArrowForwardIosW100';
+
+
+const IconMaterialArrowForwardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ArrowForwardW100",
+    short_name: "ArrowForward",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m12 19-.5-.5 6.15-6.15H5v-.7h12.65L11.5 5.5 12 5l7 7Z"
+  }));
+});
+IconMaterialArrowForwardW100.displayName = 'AmauiIconMaterialArrowForwardW100';
 
 
 const IconMaterialArrowInsertW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -3071,19 +3071,6 @@ const IconMaterialArrowRightW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialArrowRightW100.displayName = 'AmauiIconMaterialArrowRightW100';
 
 
-const IconMaterialArrowSelectorToolW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ArrowSelectorToolW100",
-    short_name: "ArrowSelectorTool",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m7.65 14.85 2.5-3.5h5.075L7.65 5.4Zm5.725 4.75-3.25-7-3.175 4.425V3.95l10.3 8.1h-5.525l3.2 6.825Zm-3.225-8.25Z"
-  }));
-});
-IconMaterialArrowSelectorToolW100.displayName = 'AmauiIconMaterialArrowSelectorToolW100';
-
-
 const IconMaterialArrowRightAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -3095,6 +3082,19 @@ const IconMaterialArrowRightAltW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialArrowRightAltW100.displayName = 'AmauiIconMaterialArrowRightAltW100';
+
+
+const IconMaterialArrowSelectorToolW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ArrowSelectorToolW100",
+    short_name: "ArrowSelectorTool",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m7.65 14.85 2.5-3.5h5.075L7.65 5.4Zm5.725 4.75-3.25-7-3.175 4.425V3.95l10.3 8.1h-5.525l3.2 6.825Zm-3.225-8.25Z"
+  }));
+});
+IconMaterialArrowSelectorToolW100.displayName = 'AmauiIconMaterialArrowSelectorToolW100';
 
 
 const IconMaterialArrowSplitW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -3136,19 +3136,6 @@ const IconMaterialArrowTopRightW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialArrowTopRightW100.displayName = 'AmauiIconMaterialArrowTopRightW100';
 
 
-const IconMaterialArrowUpwardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ArrowUpwardW100",
-    short_name: "ArrowUpward",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.65 19V6.35L5.5 12.5 5 12l7-7 7 7-.5.5-6.15-6.15V19Z"
-  }));
-});
-IconMaterialArrowUpwardW100.displayName = 'AmauiIconMaterialArrowUpwardW100';
-
-
 const IconMaterialArrowUpwardAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -3160,6 +3147,19 @@ const IconMaterialArrowUpwardAltW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialArrowUpwardAltW100.displayName = 'AmauiIconMaterialArrowUpwardAltW100';
+
+
+const IconMaterialArrowUpwardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ArrowUpwardW100",
+    short_name: "ArrowUpward",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11.65 19V6.35L5.5 12.5 5 12l7-7 7 7-.5.5-6.15-6.15V19Z"
+  }));
+});
+IconMaterialArrowUpwardW100.displayName = 'AmauiIconMaterialArrowUpwardW100';
 
 
 const IconMaterialArrowsMoreDownW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -3214,19 +3214,6 @@ const IconMaterialArtTrackW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialArtTrackW100.displayName = 'AmauiIconMaterialArtTrackW100';
 
 
-const IconMaterialArticleShortcutW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ArticleShortcutW100",
-    short_name: "ArticleShortcut",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480-480ZM296-132q-68.189 0-116.095-47.613Q132-227.226 132-295q0-53.51 31-95.755T242-450H132v-28h164v164h-28v-115q-47.012 9.935-77.506 47.19Q160-344.556 160-296.124 160-239 199.5-199.5 239-160 296-160v28Zm100-40v-28h364v-560H200v182h-28v-210h616v616H396Zm0-294h258v-28H396v28Zm0 160h138v-28H396v28Zm-90-320h348v-28H306v28Z"
-  }));
-});
-IconMaterialArticleShortcutW100.displayName = 'AmauiIconMaterialArticleShortcutW100';
-
-
 const IconMaterialArticleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -3251,6 +3238,19 @@ const IconMaterialArtistW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialArtistW100.displayName = 'AmauiIconMaterialArtistW100';
+
+
+const IconMaterialArticleShortcutW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ArticleShortcutW100",
+    short_name: "ArticleShortcut",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480-480ZM296-132q-68.189 0-116.095-47.613Q132-227.226 132-295q0-53.51 31-95.755T242-450H132v-28h164v164h-28v-115q-47.012 9.935-77.506 47.19Q160-344.556 160-296.124 160-239 199.5-199.5 239-160 296-160v28Zm100-40v-28h364v-560H200v182h-28v-210h616v616H396Zm0-294h258v-28H396v28Zm0 160h138v-28H396v28Zm-90-320h348v-28H306v28Z"
+  }));
+});
+IconMaterialArticleShortcutW100.displayName = 'AmauiIconMaterialArticleShortcutW100';
 
 
 const IconMaterialAspectRatioW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -3292,19 +3292,6 @@ const IconMaterialAssignmentIndW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialAssignmentIndW100.displayName = 'AmauiIconMaterialAssignmentIndW100';
 
 
-const IconMaterialAssignmentLateW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AssignmentLateW100",
-    short_name: "AssignmentLate",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 16.35q.225 0 .363-.15.137-.15.137-.35 0-.225-.137-.362-.138-.138-.363-.138-.2 0-.35.138-.15.137-.15.362 0 .2.15.35.15.15.35.15Zm-.35-2.65h.7V7.6h-.7ZM5 19h14V5H5Zm-.7.7V4.3h6.35q-.275-.725.15-1.363.425-.637 1.225-.637.775 0 1.2.637.425.638.125 1.363h6.35v15.4ZM12 4.5q.325 0 .538-.213.212-.212.212-.537 0-.325-.212-.538Q12.325 3 12 3q-.325 0-.537.212-.213.213-.213.538 0 .325.213.537.212.213.537.213ZM5 5v14Z"
-  }));
-});
-IconMaterialAssignmentLateW100.displayName = 'AmauiIconMaterialAssignmentLateW100';
-
-
 const IconMaterialAssignmentReturnW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -3318,17 +3305,17 @@ const IconMaterialAssignmentReturnW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialAssignmentReturnW100.displayName = 'AmauiIconMaterialAssignmentReturnW100';
 
 
-const IconMaterialAssignmentTurnedInW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAssignmentLateW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "AssignmentTurnedInW100",
-    short_name: "AssignmentTurnedIn",
+    name: "AssignmentLateW100",
+    short_name: "AssignmentLate",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m10.55 15.2 6.2-6.2-.5-.5-5.7 5.7-2.85-2.85-.5.5ZM5 19h14V5H5Zm-.7.7V4.3h6.35q-.275-.725.15-1.363.425-.637 1.225-.637.775 0 1.2.637.425.638.125 1.363h6.35v15.4ZM12 4.5q.325 0 .538-.213.212-.212.212-.537 0-.325-.212-.538Q12.325 3 12 3q-.325 0-.537.212-.213.213-.213.538 0 .325.213.537.212.213.537.213ZM5 5v14Z"
+    d: "M12 16.35q.225 0 .363-.15.137-.15.137-.35 0-.225-.137-.362-.138-.138-.363-.138-.2 0-.35.138-.15.137-.15.362 0 .2.15.35.15.15.35.15Zm-.35-2.65h.7V7.6h-.7ZM5 19h14V5H5Zm-.7.7V4.3h6.35q-.275-.725.15-1.363.425-.637 1.225-.637.775 0 1.2.637.425.638.125 1.363h6.35v15.4ZM12 4.5q.325 0 .538-.213.212-.212.212-.537 0-.325-.212-.538Q12.325 3 12 3q-.325 0-.537.212-.213.213-.213.538 0 .325.213.537.212.213.537.213ZM5 5v14Z"
   }));
 });
-IconMaterialAssignmentTurnedInW100.displayName = 'AmauiIconMaterialAssignmentTurnedInW100';
+IconMaterialAssignmentLateW100.displayName = 'AmauiIconMaterialAssignmentLateW100';
 
 
 const IconMaterialAssignmentReturnedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -3342,6 +3329,19 @@ const IconMaterialAssignmentReturnedW100 = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialAssignmentReturnedW100.displayName = 'AmauiIconMaterialAssignmentReturnedW100';
+
+
+const IconMaterialAssignmentTurnedInW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AssignmentTurnedInW100",
+    short_name: "AssignmentTurnedIn",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m10.55 15.2 6.2-6.2-.5-.5-5.7 5.7-2.85-2.85-.5.5ZM5 19h14V5H5Zm-.7.7V4.3h6.35q-.275-.725.15-1.363.425-.637 1.225-.637.775 0 1.2.637.425.638.125 1.363h6.35v15.4ZM12 4.5q.325 0 .538-.213.212-.212.212-.537 0-.325-.212-.538Q12.325 3 12 3q-.325 0-.537.212-.213.213-.213.538 0 .325.213.537.212.213.537.213ZM5 5v14Z"
+  }));
+});
+IconMaterialAssignmentTurnedInW100.displayName = 'AmauiIconMaterialAssignmentTurnedInW100';
 
 
 const IconMaterialAssignmentW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -3409,19 +3409,6 @@ const IconMaterialAssistantNavigationW100 = /*#__PURE__*/React.forwardRef((props
 IconMaterialAssistantNavigationW100.displayName = 'AmauiIconMaterialAssistantNavigationW100';
 
 
-const IconMaterialAssistantOnHubW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AssistantOnHubW100",
-    short_name: "AssistantOnHub",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M410 588q11 0 19.5-8.5T438 560q0-11-8.5-19.5T410 532q-11 0-19.5 8.5T382 560q0 11 8.5 19.5T410 588Zm-140 0q11 0 19.5-8.5T298 560q0-11-8.5-19.5T270 532q-11 0-19.5 8.5T242 560q0 11 8.5 19.5T270 588Zm280 0q11 0 19.5-8.5T578 560q0-11-8.5-19.5T550 532q-11 0-19.5 8.5T522 560q0 11 8.5 19.5T550 588Zm140 0q11 0 19.5-8.5T718 560q0-11-8.5-19.5T690 532q-11 0-19.5 8.5T662 560q0 11 8.5 19.5T690 588ZM160 760h640V360H160v400Zm320 108q-97 0-155.5-11T266 828v-40H132V332h696v456H694v40q0 18-58.5 29T480 868ZM160 760V360v400Z"
-  }));
-});
-IconMaterialAssistantOnHubW100.displayName = 'AmauiIconMaterialAssistantOnHubW100';
-
-
 const IconMaterialAssistantW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -3435,17 +3422,17 @@ const IconMaterialAssistantW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialAssistantW100.displayName = 'AmauiIconMaterialAssistantW100';
 
 
-const IconMaterialAsteriskW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAssistantOnHubW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "AsteriskW100",
-    short_name: "Asterisk",
-    viewBox: "0 -960 960 960"
+    name: "AssistantOnHubW100",
+    short_name: "AssistantOnHub",
+    viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M466-172v-274L272-252l-20-20 194-194H172v-28h274L252-688l20-19 194 194v-275h28v275l194-194 19 19-194 194h275v28H513l194 194-19 20-194-194v274h-28Z"
+    d: "M410 588q11 0 19.5-8.5T438 560q0-11-8.5-19.5T410 532q-11 0-19.5 8.5T382 560q0 11 8.5 19.5T410 588Zm-140 0q11 0 19.5-8.5T298 560q0-11-8.5-19.5T270 532q-11 0-19.5 8.5T242 560q0 11 8.5 19.5T270 588Zm280 0q11 0 19.5-8.5T578 560q0-11-8.5-19.5T550 532q-11 0-19.5 8.5T522 560q0 11 8.5 19.5T550 588Zm140 0q11 0 19.5-8.5T718 560q0-11-8.5-19.5T690 532q-11 0-19.5 8.5T662 560q0 11 8.5 19.5T690 588ZM160 760h640V360H160v400Zm320 108q-97 0-155.5-11T266 828v-40H132V332h696v456H694v40q0 18-58.5 29T480 868ZM160 760V360v400Z"
   }));
 });
-IconMaterialAsteriskW100.displayName = 'AmauiIconMaterialAsteriskW100';
+IconMaterialAssistantOnHubW100.displayName = 'AmauiIconMaterialAssistantOnHubW100';
 
 
 const IconMaterialAssuredWorkloadW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -3459,6 +3446,19 @@ const IconMaterialAssuredWorkloadW100 = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialAssuredWorkloadW100.displayName = 'AmauiIconMaterialAssuredWorkloadW100';
+
+
+const IconMaterialAsteriskW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AsteriskW100",
+    short_name: "Asterisk",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M466-172v-274L272-252l-20-20 194-194H172v-28h274L252-688l20-19 194 194v-275h28v275l194-194 19 19-194 194h275v28H513l194 194-19 20-194-194v274h-28Z"
+  }));
+});
+IconMaterialAsteriskW100.displayName = 'AmauiIconMaterialAsteriskW100';
 
 
 const IconMaterialAstrophotographyAutoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -3721,19 +3721,6 @@ const IconMaterialAutoDetectVoiceW100 = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialAutoDetectVoiceW100.displayName = 'AmauiIconMaterialAutoDetectVoiceW100';
 
 
-const IconMaterialAutoFixHighW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AutoFixHighW100",
-    short_name: "AutoFixHigh",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m19.4 6.55-.65-1.4-1.4-.65 1.4-.65.65-1.4.65 1.4 1.4.65-1.4.65Zm-10.85 0-.65-1.4-1.4-.65 1.4-.65.65-1.4.65 1.4 1.4.65-1.4.65ZM19.4 17.4l-.65-1.4-1.4-.65 1.4-.65.65-1.4.65 1.4 1.4.65-1.4.65ZM5.2 20.1l-1.4-1.4q-.2-.2-.2-.5t.2-.5l9.8-9.75q.2-.2.5-.2t.5.2l1.4 1.4q.2.2.2.5t-.2.5L6.2 20.1q-.2.2-.5.2t-.5-.2Zm.5-.5 7.2-7.2-1.4-1.4-7.2 7.2Z"
-  }));
-});
-IconMaterialAutoFixHighW100.displayName = 'AmauiIconMaterialAutoFixHighW100';
-
-
 const IconMaterialAutoFixNormalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -3745,6 +3732,19 @@ const IconMaterialAutoFixNormalW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialAutoFixNormalW100.displayName = 'AmauiIconMaterialAutoFixNormalW100';
+
+
+const IconMaterialAutoFixHighW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AutoFixHighW100",
+    short_name: "AutoFixHigh",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m19.4 6.55-.65-1.4-1.4-.65 1.4-.65.65-1.4.65 1.4 1.4.65-1.4.65Zm-10.85 0-.65-1.4-1.4-.65 1.4-.65.65-1.4.65 1.4 1.4.65-1.4.65ZM19.4 17.4l-.65-1.4-1.4-.65 1.4-.65.65-1.4.65 1.4 1.4.65-1.4.65ZM5.2 20.1l-1.4-1.4q-.2-.2-.2-.5t.2-.5l9.8-9.75q.2-.2.5-.2t.5.2l1.4 1.4q.2.2.2.5t-.2.5L6.2 20.1q-.2.2-.5.2t-.5-.2Zm.5-.5 7.2-7.2-1.4-1.4-7.2 7.2Z"
+  }));
+});
+IconMaterialAutoFixHighW100.displayName = 'AmauiIconMaterialAutoFixHighW100';
 
 
 const IconMaterialAutoFixOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -3851,19 +3851,6 @@ const IconMaterialAutoReadPlayW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialAutoReadPlayW100.displayName = 'AmauiIconMaterialAutoReadPlayW100';
 
 
-const IconMaterialAutoScheduleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AutoScheduleW100",
-    short_name: "AutoSchedule",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.3 20.7V5.3h3.5V3h.8v2.3h6.9V3h.7v2.3h3.5v15.4ZM5 20h14v-9.2H5Zm0-9.9h14V6H5Zm0 0V6v4.1Zm7 7.75-.75-1.7-1.7-.75 1.7-.75.75-1.7.75 1.7 1.7.75-1.7.75Z"
-  }));
-});
-IconMaterialAutoScheduleW100.displayName = 'AmauiIconMaterialAutoScheduleW100';
-
-
 const IconMaterialAutoStoriesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -3890,6 +3877,19 @@ const IconMaterialAutoTimerW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialAutoTimerW100.displayName = 'AmauiIconMaterialAutoTimerW100';
 
 
+const IconMaterialAutoScheduleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AutoScheduleW100",
+    short_name: "AutoSchedule",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.3 20.7V5.3h3.5V3h.8v2.3h6.9V3h.7v2.3h3.5v15.4ZM5 20h14v-9.2H5Zm0-9.9h14V6H5Zm0 0V6v4.1Zm7 7.75-.75-1.7-1.7-.75 1.7-.75.75-1.7.75 1.7 1.7.75-1.7.75Z"
+  }));
+});
+IconMaterialAutoScheduleW100.displayName = 'AmauiIconMaterialAutoScheduleW100';
+
+
 const IconMaterialAutoTowingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -3903,19 +3903,6 @@ const IconMaterialAutoTowingW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialAutoTowingW100.displayName = 'AmauiIconMaterialAutoTowingW100';
 
 
-const IconMaterialAutoTransmissionW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AutoTransmissionW100",
-    short_name: "AutoTransmission",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M173.118-172Q134-172 106.5-199.417 79-226.833 79-266q0-35 23-61.5t57-31.5v-242q-34-5-57-31.5T79-694q0-39.167 27.382-66.583Q133.765-788 172.882-788 212-788 239.5-760.583 267-733.167 267-694q0 35-23 61.5T187-601v107h279v-107q-34-5-57-31.5T386-694q0-39.167 27.382-66.583Q440.765-788 479.882-788 519-788 546.5-760.583 574-733.167 574-694q0 35-23 61.5T494-601v107h280v-107q-34-5-57-31.5T694-694q0-39.167 27.382-66.583Q748.765-788 787.882-788 827-788 854.5-760.583 882-733.167 882-694q0 35-23 61.5T802-601v135H494v107q34 5 57 31.5t23 61.5q0 39.167-27.382 66.583Q519.235-172 480.118-172 441-172 413.5-199.417 386-226.833 386-266q0-35 23-61.5t57-31.5v-107H187v107q34 5 57 31.5t23 61.5q0 39.167-27.382 66.583Q212.235-172 173.118-172ZM173-200q27 0 46.5-19.5T239-266q0-27-19.5-46.5T173-332q-27 0-46.5 19.5T107-266q0 27 19.5 46.5T173-200Zm0-428q27 0 46.5-19.5T239-694q0-27-19.5-46.5T173-760q-27 0-46.5 19.5T107-694q0 27 19.5 46.5T173-628Zm307 428q27 0 46.5-19.5T546-266q0-27-19.5-46.5T480-332q-27 0-46.5 19.5T414-266q0 27 19.5 46.5T480-200Zm0-428q27 0 46.5-19.5T546-694q0-27-19.5-46.5T480-760q-27 0-46.5 19.5T414-694q0 27 19.5 46.5T480-628Zm308 0q27 0 46.5-19.5T854-694q0-27-19.5-46.5T788-760q-27 0-46.5 19.5T722-694q0 27 19.5 46.5T788-628ZM173-266Zm0-428Zm307 428Zm0-428Zm308 0Z"
-  }));
-});
-IconMaterialAutoTransmissionW100.displayName = 'AmauiIconMaterialAutoTransmissionW100';
-
-
 const IconMaterialAutoVideocamW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -3927,6 +3914,19 @@ const IconMaterialAutoVideocamW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialAutoVideocamW100.displayName = 'AmauiIconMaterialAutoVideocamW100';
+
+
+const IconMaterialAutoTransmissionW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AutoTransmissionW100",
+    short_name: "AutoTransmission",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M173.118-172Q134-172 106.5-199.417 79-226.833 79-266q0-35 23-61.5t57-31.5v-242q-34-5-57-31.5T79-694q0-39.167 27.382-66.583Q133.765-788 172.882-788 212-788 239.5-760.583 267-733.167 267-694q0 35-23 61.5T187-601v107h279v-107q-34-5-57-31.5T386-694q0-39.167 27.382-66.583Q440.765-788 479.882-788 519-788 546.5-760.583 574-733.167 574-694q0 35-23 61.5T494-601v107h280v-107q-34-5-57-31.5T694-694q0-39.167 27.382-66.583Q748.765-788 787.882-788 827-788 854.5-760.583 882-733.167 882-694q0 35-23 61.5T802-601v135H494v107q34 5 57 31.5t23 61.5q0 39.167-27.382 66.583Q519.235-172 480.118-172 441-172 413.5-199.417 386-226.833 386-266q0-35 23-61.5t57-31.5v-107H187v107q34 5 57 31.5t23 61.5q0 39.167-27.382 66.583Q212.235-172 173.118-172ZM173-200q27 0 46.5-19.5T239-266q0-27-19.5-46.5T173-332q-27 0-46.5 19.5T107-266q0 27 19.5 46.5T173-200Zm0-428q27 0 46.5-19.5T239-694q0-27-19.5-46.5T173-760q-27 0-46.5 19.5T107-694q0 27 19.5 46.5T173-628Zm307 428q27 0 46.5-19.5T546-266q0-27-19.5-46.5T480-332q-27 0-46.5 19.5T414-266q0 27 19.5 46.5T480-200Zm0-428q27 0 46.5-19.5T546-694q0-27-19.5-46.5T480-760q-27 0-46.5 19.5T414-694q0 27 19.5 46.5T480-628Zm308 0q27 0 46.5-19.5T854-694q0-27-19.5-46.5T788-760q-27 0-46.5 19.5T722-694q0 27 19.5 46.5T788-628ZM173-266Zm0-428Zm307 428Zm0-428Zm308 0Z"
+  }));
+});
+IconMaterialAutoTransmissionW100.displayName = 'AmauiIconMaterialAutoTransmissionW100';
 
 
 const IconMaterialAutofpsSelectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -4241,19 +4241,6 @@ const IconMaterialBackspaceW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialBackspaceW100.displayName = 'AmauiIconMaterialBackspaceW100';
 
 
-const IconMaterialBackupTableW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BackupTableW100",
-    short_name: "BackupTable",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.35 16H13v-5.65H7.35Zm0-6.35h12V4h-12ZM13.7 16h5.65v-5.65H13.7Zm-7.05.7V3.3h13.4v13.4Zm-2.7 2.7V6.8h.7v11.9h11.9v.7Z"
-  }));
-});
-IconMaterialBackupTableW100.displayName = 'AmauiIconMaterialBackupTableW100';
-
-
 const IconMaterialBackupW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -4267,17 +4254,17 @@ const IconMaterialBackupW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialBackupW100.displayName = 'AmauiIconMaterialBackupW100';
 
 
-const IconMaterialBadgeCriticalBatteryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialBackupTableW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "BadgeCriticalBatteryW100",
-    short_name: "BadgeCriticalBattery",
+    name: "BackupTableW100",
+    short_name: "BackupTable",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M20.45 15.1q0 .325-.212.537-.213.213-.538.213H5.825q-.325 0-.538-.213-.212-.212-.212-.537v-1.5h-1.5v-3.2h1.5V8.9q0-.325.212-.538.213-.212.538-.212H19.7q.325 0 .538.212.212.213.212.538Zm-1.7.05v-6.3h-13v6.3Z"
+    d: "M7.35 16H13v-5.65H7.35Zm0-6.35h12V4h-12ZM13.7 16h5.65v-5.65H13.7Zm-7.05.7V3.3h13.4v13.4Zm-2.7 2.7V6.8h.7v11.9h11.9v.7Z"
   }));
 });
-IconMaterialBadgeCriticalBatteryW100.displayName = 'AmauiIconMaterialBadgeCriticalBatteryW100';
+IconMaterialBackupTableW100.displayName = 'AmauiIconMaterialBackupTableW100';
 
 
 const IconMaterialBadgeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -4291,6 +4278,19 @@ const IconMaterialBadgeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialBadgeW100.displayName = 'AmauiIconMaterialBadgeW100';
+
+
+const IconMaterialBadgeCriticalBatteryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BadgeCriticalBatteryW100",
+    short_name: "BadgeCriticalBattery",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M20.45 15.1q0 .325-.212.537-.213.213-.538.213H5.825q-.325 0-.538-.213-.212-.212-.212-.537v-1.5h-1.5v-3.2h1.5V8.9q0-.325.212-.538.213-.212.538-.212H19.7q.325 0 .538.212.212.213.212.538Zm-1.7.05v-6.3h-13v6.3Z"
+  }));
+});
+IconMaterialBadgeCriticalBatteryW100.displayName = 'AmauiIconMaterialBadgeCriticalBatteryW100';
 
 
 const IconMaterialBakeryDiningW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -4462,19 +4462,6 @@ const IconMaterialBathPrivateW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialBathPrivateW100.displayName = 'AmauiIconMaterialBathPrivateW100';
 
 
-const IconMaterialBathPublicLargeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BathPublicLargeW100",
-    short_name: "BathPublicLarge",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M132 924V388h148v28H160v480h640V416H680v-28h148v536H132Zm128.235-204Q242 720 229 707.235q-13-12.764-13-31Q216 658 228.765 645q12.764-13 31-13Q278 632 291 644.765q13 12.764 13 31Q304 694 291.235 707q-12.764 13-31 13ZM216 839v-8q0-25.173 17.25-42.087Q250.5 772 274.023 772q10.977 0 22.99 4.875Q309.025 781.75 316 790l31 37 7 7q3 3 6 5H216Zm160-119v-11q0-24.986 29.5-40.993T480 652q45 0 74.5 16.007T584 709v11H376Zm368 119H601q2-2 5.079-4.842 3.079-2.842 5.921-6.158l32-38q6-8 18.809-13 12.809-5 22.902-5Q709 772 726.5 789.307 744 806.613 744 831v8ZM480.235 600Q462 600 449 587.235q-13-12.764-13-31Q436 538 448.765 525q12.764-13 31-13Q498 512 511 524.765q13 12.764 13 31Q524 574 511.235 587q-12.764 13-31 13Zm220 120Q682 720 669 707.235q-13-12.764-13-31Q656 658 668.765 645q12.764-13 31-13Q718 632 731 644.765q13 12.764 13 31Q744 694 731.235 707q-12.764 13-31 13ZM355 416q2-9 3-15.828 1-6.827 1-15.172 0-18-7.903-35.627Q343.194 331.745 324 309q-20-24-31-51.5T282 203q0-8.432.5-17.216T285 168h28q-2 11-2.5 19.25T310 203q0 21 9 42.5t26 44.5q22 28 32 50.78T387 385q0 7.667-.5 15.333Q386 408 384 416h-29Zm117 0q2-9 3-15.828 1-6.827 1-15.172 0-18-8.203-35.627Q459.594 331.745 441 309q-20-24-31-51.5T399 203q0-8.432.5-17.216T402 168h28q-2 11-2.5 19.25T427 203q0 21 9 42.5t26 44.5q22 28 32 50.78T504 385q0 7.667-.5 15.333Q503 408 501 416h-29Zm121 0q2-9 3-15.828 1-6.827 1-15.172 0-18-7.903-35.627Q581.194 331.745 562 309q-20-24-31-51.5T520 203q0-8.432.5-17.216T523 168h28q-2 11-2.5 19.25T548 203q0 21 9 42.5t26 44.5q22 28 32 50.78T625 385q0 7.667-.5 15.333Q624 408 622 416h-29Z"
-  }));
-});
-IconMaterialBathPublicLargeW100.displayName = 'AmauiIconMaterialBathPublicLargeW100';
-
-
 const IconMaterialBathroomW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -4486,6 +4473,19 @@ const IconMaterialBathroomW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialBathroomW100.displayName = 'AmauiIconMaterialBathroomW100';
+
+
+const IconMaterialBathPublicLargeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BathPublicLargeW100",
+    short_name: "BathPublicLarge",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M132 924V388h148v28H160v480h640V416H680v-28h148v536H132Zm128.235-204Q242 720 229 707.235q-13-12.764-13-31Q216 658 228.765 645q12.764-13 31-13Q278 632 291 644.765q13 12.764 13 31Q304 694 291.235 707q-12.764 13-31 13ZM216 839v-8q0-25.173 17.25-42.087Q250.5 772 274.023 772q10.977 0 22.99 4.875Q309.025 781.75 316 790l31 37 7 7q3 3 6 5H216Zm160-119v-11q0-24.986 29.5-40.993T480 652q45 0 74.5 16.007T584 709v11H376Zm368 119H601q2-2 5.079-4.842 3.079-2.842 5.921-6.158l32-38q6-8 18.809-13 12.809-5 22.902-5Q709 772 726.5 789.307 744 806.613 744 831v8ZM480.235 600Q462 600 449 587.235q-13-12.764-13-31Q436 538 448.765 525q12.764-13 31-13Q498 512 511 524.765q13 12.764 13 31Q524 574 511.235 587q-12.764 13-31 13Zm220 120Q682 720 669 707.235q-13-12.764-13-31Q656 658 668.765 645q12.764-13 31-13Q718 632 731 644.765q13 12.764 13 31Q744 694 731.235 707q-12.764 13-31 13ZM355 416q2-9 3-15.828 1-6.827 1-15.172 0-18-7.903-35.627Q343.194 331.745 324 309q-20-24-31-51.5T282 203q0-8.432.5-17.216T285 168h28q-2 11-2.5 19.25T310 203q0 21 9 42.5t26 44.5q22 28 32 50.78T387 385q0 7.667-.5 15.333Q386 408 384 416h-29Zm117 0q2-9 3-15.828 1-6.827 1-15.172 0-18-8.203-35.627Q459.594 331.745 441 309q-20-24-31-51.5T399 203q0-8.432.5-17.216T402 168h28q-2 11-2.5 19.25T427 203q0 21 9 42.5t26 44.5q22 28 32 50.78T504 385q0 7.667-.5 15.333Q503 408 501 416h-29Zm121 0q2-9 3-15.828 1-6.827 1-15.172 0-18-7.903-35.627Q581.194 331.745 562 309q-20-24-31-51.5T520 203q0-8.432.5-17.216T523 168h28q-2 11-2.5 19.25T548 203q0 21 9 42.5t26 44.5q22 28 32 50.78T625 385q0 7.667-.5 15.333Q624 408 622 416h-29Z"
+  }));
+});
+IconMaterialBathPublicLargeW100.displayName = 'AmauiIconMaterialBathPublicLargeW100';
 
 
 const IconMaterialBathtubW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -4644,6 +4644,19 @@ const IconMaterialBattery6BarW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialBattery6BarW100.displayName = 'AmauiIconMaterialBattery6BarW100';
 
 
+const IconMaterialBattery90W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Battery90W100",
+    short_name: "Battery90",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M7.65 21.35V4.65h2.75v-1.5h3.2v1.5h2.75v16.7Z"
+  }));
+});
+IconMaterialBattery90W100.displayName = 'AmauiIconMaterialBattery90W100';
+
+
 const IconMaterialBattery80W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -4657,17 +4670,17 @@ const IconMaterialBattery80W100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialBattery80W100.displayName = 'AmauiIconMaterialBattery80W100';
 
 
-const IconMaterialBattery90W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialBatteryAlertW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "Battery90W100",
-    short_name: "Battery90",
+    name: "BatteryAlertW100",
+    short_name: "BatteryAlert",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.65 21.35V4.65h2.75v-1.5h3.2v1.5h2.75v16.7Z"
+    d: "M7.65 21.35V4.65h2.75v-1.5h3.2v1.5h2.75v16.7Zm4.4-4q.225 0 .388-.162.162-.163.162-.388t-.162-.387q-.163-.163-.388-.163t-.387.163q-.163.162-.163.387t.163.388q.162.162.387.162Zm-.4-2.65h.7V8.6h-.7Z"
   }));
 });
-IconMaterialBattery90W100.displayName = 'AmauiIconMaterialBattery90W100';
+IconMaterialBatteryAlertW100.displayName = 'AmauiIconMaterialBatteryAlertW100';
 
 
 const IconMaterialBatteryChangeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -4694,19 +4707,6 @@ const IconMaterialBatteryCharging20W100 = /*#__PURE__*/React.forwardRef((props, 
   }));
 });
 IconMaterialBatteryCharging20W100.displayName = 'AmauiIconMaterialBatteryCharging20W100';
-
-
-const IconMaterialBatteryAlertW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BatteryAlertW100",
-    short_name: "BatteryAlert",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.65 21.35V4.65h2.75v-1.5h3.2v1.5h2.75v16.7Zm4.4-4q.225 0 .388-.162.162-.163.162-.388t-.162-.387q-.163-.163-.388-.163t-.387.163q-.163.162-.163.387t.163.388q.162.162.387.162Zm-.4-2.65h.7V8.6h-.7Z"
-  }));
-});
-IconMaterialBatteryAlertW100.displayName = 'AmauiIconMaterialBatteryAlertW100';
 
 
 const IconMaterialBatteryCharging30W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -4774,19 +4774,6 @@ const IconMaterialBatteryCharging90W100 = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialBatteryCharging90W100.displayName = 'AmauiIconMaterialBatteryCharging90W100';
 
 
-const IconMaterialBatteryChargingFullW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BatteryChargingFullW100",
-    short_name: "BatteryChargingFull",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.65 21.35V4.65h2.75v-1.5h3.2v1.5h2.75v16.7Zm4-3.95 2.25-4.25h-1.55V9.6l-2.25 4.25h1.55Z"
-  }));
-});
-IconMaterialBatteryChargingFullW100.displayName = 'AmauiIconMaterialBatteryChargingFullW100';
-
-
 const IconMaterialBatteryErrorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -4798,6 +4785,19 @@ const IconMaterialBatteryErrorW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialBatteryErrorW100.displayName = 'AmauiIconMaterialBatteryErrorW100';
+
+
+const IconMaterialBatteryChargingFullW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BatteryChargingFullW100",
+    short_name: "BatteryChargingFull",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M7.65 21.35V4.65h2.75v-1.5h3.2v1.5h2.75v16.7Zm4-3.95 2.25-4.25h-1.55V9.6l-2.25 4.25h1.55Z"
+  }));
+});
+IconMaterialBatteryChargingFullW100.displayName = 'AmauiIconMaterialBatteryChargingFullW100';
 
 
 const IconMaterialBatteryFullAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -4943,19 +4943,6 @@ const IconMaterialBatteryStatusGoodW100 = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialBatteryStatusGoodW100.displayName = 'AmauiIconMaterialBatteryStatusGoodW100';
 
 
-const IconMaterialBatteryVert005W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BatteryVert005W100",
-    short_name: "BatteryVert005",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8.85 18.75h6.3v-13h-6.3Zm-.7 1.7V5.075h2.25v-1.5h3.2v1.5h2.25V20.45Z"
-  }));
-});
-IconMaterialBatteryVert005W100.displayName = 'AmauiIconMaterialBatteryVert005W100';
-
-
 const IconMaterialBatteryUnknownW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -4967,6 +4954,19 @@ const IconMaterialBatteryUnknownW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialBatteryUnknownW100.displayName = 'AmauiIconMaterialBatteryUnknownW100';
+
+
+const IconMaterialBatteryVert005W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BatteryVert005W100",
+    short_name: "BatteryVert005",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8.85 18.75h6.3v-13h-6.3Zm-.7 1.7V5.075h2.25v-1.5h3.2v1.5h2.25V20.45Z"
+  }));
+});
+IconMaterialBatteryVert005W100.displayName = 'AmauiIconMaterialBatteryVert005W100';
 
 
 const IconMaterialBatteryVert020W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5151,19 +5151,6 @@ const IconMaterialBidLandscapeW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialBidLandscapeW100.displayName = 'AmauiIconMaterialBidLandscapeW100';
 
 
-const IconMaterialBidLandscapeDisabledW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BidLandscapeDisabledW100",
-    short_name: "BidLandscapeDisabled",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M92-832 832-92l-20 20-100-100H172v-540L72-812l20-20Zm280 340L200-320v120h484L542-342l-9 10-161-160ZM200-684v324l162-162-162-162Zm50-104h538v538l-28-28v-306L615-423l-20-20 165-183v-134H278l-28-28Zm345 345Zm-144 10Zm-89-89Zm10 30Zm145-29Z"
-  }));
-});
-IconMaterialBidLandscapeDisabledW100.displayName = 'AmauiIconMaterialBidLandscapeDisabledW100';
-
-
 const IconMaterialBigtopUpdatesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -5177,17 +5164,17 @@ const IconMaterialBigtopUpdatesW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialBigtopUpdatesW100.displayName = 'AmauiIconMaterialBigtopUpdatesW100';
 
 
-const IconMaterialBikeScooterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialBidLandscapeDisabledW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "BikeScooterW100",
-    short_name: "BikeScooter",
-    viewBox: "0 0 24 24"
+    name: "BidLandscapeDisabledW100",
+    short_name: "BidLandscapeDisabled",
+    viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M.3 18.35v-.7h4.65q.15-1.8 1.425-3.125Q7.65 13.2 9.35 13.05l-1.675-7.7H3.95v-.7h4.3l1.95 9.05H10q-1.8 0-3.075 1.275Q5.65 16.25 5.65 18.05v.3ZM10 20.4q-.975 0-1.662-.688-.688-.687-.688-1.662 0-.975.688-1.663Q9.025 15.7 10 15.7q.975 0 1.663.687.687.688.687 1.663 0 .975-.687 1.662-.688.688-1.663.688Zm0-.7q.675 0 1.163-.488.487-.487.487-1.162 0-.675-.487-1.163Q10.675 16.4 10 16.4t-1.162.487q-.488.488-.488 1.163t.488 1.162q.487.488 1.162.488Zm9.3-2.4q-1.725 0-2.937-1.088-1.213-1.087-1.413-2.862h-2.8l-.15-.7h2.95q.075-.725.562-1.788Q16 9.8 16.95 9.3H11.3l-.15-.7h6.15l-1.925-5.25H12.95v-.7h2.925L18.05 8.6h1.25q1.85 0 3.1 1.25t1.25 3.1q0 1.775-1.312 3.062Q21.025 17.3 19.3 17.3Zm0-.65q1.55 0 2.6-1.075T22.95 13q0-1.55-1.05-2.6t-2.6-1.05q-.275 0-.525.013-.25.012-.475.087l1.05 2.8-.65.25-1-2.8q-.975.5-1.512 1.425-.538.925-.538 1.875 0 1.5 1.05 2.575 1.05 1.075 2.6 1.075Zm-9.3 1.4ZM19.3 13Z"
+    d: "M92-832 832-92l-20 20-100-100H172v-540L72-812l20-20Zm280 340L200-320v120h484L542-342l-9 10-161-160ZM200-684v324l162-162-162-162Zm50-104h538v538l-28-28v-306L615-423l-20-20 165-183v-134H278l-28-28Zm345 345Zm-144 10Zm-89-89Zm10 30Zm145-29Z"
   }));
 });
-IconMaterialBikeScooterW100.displayName = 'AmauiIconMaterialBikeScooterW100';
+IconMaterialBidLandscapeDisabledW100.displayName = 'AmauiIconMaterialBidLandscapeDisabledW100';
 
 
 const IconMaterialBiotechW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5201,6 +5188,19 @@ const IconMaterialBiotechW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialBiotechW100.displayName = 'AmauiIconMaterialBiotechW100';
+
+
+const IconMaterialBikeScooterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BikeScooterW100",
+    short_name: "BikeScooter",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M.3 18.35v-.7h4.65q.15-1.8 1.425-3.125Q7.65 13.2 9.35 13.05l-1.675-7.7H3.95v-.7h4.3l1.95 9.05H10q-1.8 0-3.075 1.275Q5.65 16.25 5.65 18.05v.3ZM10 20.4q-.975 0-1.662-.688-.688-.687-.688-1.662 0-.975.688-1.663Q9.025 15.7 10 15.7q.975 0 1.663.687.687.688.687 1.663 0 .975-.687 1.662-.688.688-1.663.688Zm0-.7q.675 0 1.163-.488.487-.487.487-1.162 0-.675-.487-1.163Q10.675 16.4 10 16.4t-1.162.487q-.488.488-.488 1.163t.488 1.162q.487.488 1.162.488Zm9.3-2.4q-1.725 0-2.937-1.088-1.213-1.087-1.413-2.862h-2.8l-.15-.7h2.95q.075-.725.562-1.788Q16 9.8 16.95 9.3H11.3l-.15-.7h6.15l-1.925-5.25H12.95v-.7h2.925L18.05 8.6h1.25q1.85 0 3.1 1.25t1.25 3.1q0 1.775-1.312 3.062Q21.025 17.3 19.3 17.3Zm0-.65q1.55 0 2.6-1.075T22.95 13q0-1.55-1.05-2.6t-2.6-1.05q-.275 0-.525.013-.25.012-.475.087l1.05 2.8-.65.25-1-2.8q-.975.5-1.512 1.425-.538.925-.538 1.875 0 1.5 1.05 2.575 1.05 1.075 2.6 1.075Zm-9.3 1.4ZM19.3 13Z"
+  }));
+});
+IconMaterialBikeScooterW100.displayName = 'AmauiIconMaterialBikeScooterW100';
 
 
 const IconMaterialBlanketW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5242,19 +5242,6 @@ const IconMaterialBlindW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialBlindW100.displayName = 'AmauiIconMaterialBlindW100';
 
 
-const IconMaterialBlindsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BlindsW100",
-    short_name: "Blinds",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.3 18.7V18h2V5.3h13.4V18h2v.7ZM6 10.3h12V6H6ZM6 18h12v-7h-5.65v1.95q.425.125.712.475.288.35.288.825 0 .575-.387.975-.388.4-.963.4t-.975-.4q-.4-.4-.4-.975 0-.475.3-.825t.725-.475V11H6ZM6 6h12H6Z"
-  }));
-});
-IconMaterialBlindsW100.displayName = 'AmauiIconMaterialBlindsW100';
-
-
 const IconMaterialBlindsClosedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -5266,6 +5253,19 @@ const IconMaterialBlindsClosedW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialBlindsClosedW100.displayName = 'AmauiIconMaterialBlindsClosedW100';
+
+
+const IconMaterialBlindsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BlindsW100",
+    short_name: "Blinds",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.3 18.7V18h2V5.3h13.4V18h2v.7ZM6 10.3h12V6H6ZM6 18h12v-7h-5.65v1.95q.425.125.712.475.288.35.288.825 0 .575-.387.975-.388.4-.963.4t-.975-.4q-.4-.4-.4-.975 0-.475.3-.825t.725-.475V11H6ZM6 6h12H6Z"
+  }));
+});
+IconMaterialBlindsW100.displayName = 'AmauiIconMaterialBlindsW100';
 
 
 const IconMaterialBlockW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5346,19 +5346,6 @@ const IconMaterialBluetoothDriveW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialBluetoothDriveW100.displayName = 'AmauiIconMaterialBluetoothDriveW100';
 
 
-const IconMaterialBluetoothSearchingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BluetoothSearchingW100",
-    short_name: "BluetoothSearching",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.05 21.1v-8.25L4.8 18.1l-.5-.5L9.9 12 4.3 6.4l.5-.5 5.25 5.25V2.9h.35l4.8 4.8-4.3 4.3 4.3 4.3-4.8 4.8Zm.7-9.95L14.2 7.7l-3.45-3.45Zm0 8.6 3.45-3.45-3.45-3.45Zm6-6.35-1.4-1.4 1.4-1.4q.1.35.175.7.075.35.075.7t-.062.7q-.063.35-.188.7Zm2 2-.5-.5q.35-.675.55-1.4.2-.725.2-1.5t-.2-1.5q-.2-.725-.55-1.4l.5-.5q.475.775.713 1.638.237.862.237 1.762t-.237 1.762q-.238.863-.713 1.638Z"
-  }));
-});
-IconMaterialBluetoothSearchingW100.displayName = 'AmauiIconMaterialBluetoothSearchingW100';
-
-
 const IconMaterialBluetoothW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -5370,6 +5357,19 @@ const IconMaterialBluetoothW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialBluetoothW100.displayName = 'AmauiIconMaterialBluetoothW100';
+
+
+const IconMaterialBluetoothSearchingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BluetoothSearchingW100",
+    short_name: "BluetoothSearching",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10.05 21.1v-8.25L4.8 18.1l-.5-.5L9.9 12 4.3 6.4l.5-.5 5.25 5.25V2.9h.35l4.8 4.8-4.3 4.3 4.3 4.3-4.8 4.8Zm.7-9.95L14.2 7.7l-3.45-3.45Zm0 8.6 3.45-3.45-3.45-3.45Zm6-6.35-1.4-1.4 1.4-1.4q.1.35.175.7.075.35.075.7t-.062.7q-.063.35-.188.7Zm2 2-.5-.5q.35-.675.55-1.4.2-.725.2-1.5t-.2-1.5q-.2-.725-.55-1.4l.5-.5q.475.775.713 1.638.237.862.237 1.762t-.237 1.762q-.238.863-.713 1.638Z"
+  }));
+});
+IconMaterialBluetoothSearchingW100.displayName = 'AmauiIconMaterialBluetoothSearchingW100';
 
 
 const IconMaterialBlurCircularW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5593,19 +5593,6 @@ const IconMaterialBookmarkAddW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialBookmarkAddW100.displayName = 'AmauiIconMaterialBookmarkAddW100';
 
 
-const IconMaterialBookmarkAddedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BookmarkAddedW100",
-    short_name: "BookmarkAdded",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16.9 9 15 7.1l.475-.5L16.9 8.025l3.525-3.55.5.5ZM6.3 19.05V4.3H13V5H7v12.95l5-2.15 5 2.15V11h.7v8.05L12 16.6ZM7 5h6-6Z"
-  }));
-});
-IconMaterialBookmarkAddedW100.displayName = 'AmauiIconMaterialBookmarkAddedW100';
-
-
 const IconMaterialBookmarkManagerW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -5632,17 +5619,17 @@ const IconMaterialBookmarkRemoveW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialBookmarkRemoveW100.displayName = 'AmauiIconMaterialBookmarkRemoveW100';
 
 
-const IconMaterialBookmarkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialBookmarkAddedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "BookmarkW100",
-    short_name: "Bookmark",
+    name: "BookmarkAddedW100",
+    short_name: "BookmarkAdded",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m7 17.95 5-2.15 5 2.15V5H7Zm-.7 1.1V4.3h11.4v14.75L12 16.6ZM7 5h10-5Z"
+    d: "M16.9 9 15 7.1l.475-.5L16.9 8.025l3.525-3.55.5.5ZM6.3 19.05V4.3H13V5H7v12.95l5-2.15 5 2.15V11h.7v8.05L12 16.6ZM7 5h6-6Z"
   }));
 });
-IconMaterialBookmarkW100.displayName = 'AmauiIconMaterialBookmarkW100';
+IconMaterialBookmarkAddedW100.displayName = 'AmauiIconMaterialBookmarkAddedW100';
 
 
 const IconMaterialBookmarksW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5658,17 +5645,17 @@ const IconMaterialBookmarksW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialBookmarksW100.displayName = 'AmauiIconMaterialBookmarksW100';
 
 
-const IconMaterialBorderAllW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialBookmarkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "BorderAllW100",
-    short_name: "BorderAll",
+    name: "BookmarkW100",
+    short_name: "Bookmark",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.3 19.7V4.3h15.4v15.4ZM19 19v-6.65h-6.65V19Zm0-14h-6.65v6.65H19ZM5 5v6.65h6.65V5Zm0 14h6.65v-6.65H5Z"
+    d: "m7 17.95 5-2.15 5 2.15V5H7Zm-.7 1.1V4.3h11.4v14.75L12 16.6ZM7 5h10-5Z"
   }));
 });
-IconMaterialBorderAllW100.displayName = 'AmauiIconMaterialBorderAllW100';
+IconMaterialBookmarkW100.displayName = 'AmauiIconMaterialBookmarkW100';
 
 
 const IconMaterialBorderBottomW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5682,6 +5669,19 @@ const IconMaterialBorderBottomW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialBorderBottomW100.displayName = 'AmauiIconMaterialBorderBottomW100';
+
+
+const IconMaterialBorderAllW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BorderAllW100",
+    short_name: "BorderAll",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.3 19.7V4.3h15.4v15.4ZM19 19v-6.65h-6.65V19Zm0-14h-6.65v6.65H19ZM5 5v6.65h6.65V5Zm0 14h6.65v-6.65H5Z"
+  }));
+});
+IconMaterialBorderAllW100.displayName = 'AmauiIconMaterialBorderAllW100';
 
 
 const IconMaterialBorderClearW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5762,19 +5762,6 @@ const IconMaterialBorderOuterW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialBorderOuterW100.displayName = 'AmauiIconMaterialBorderOuterW100';
 
 
-const IconMaterialBorderStyleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BorderStyleW100",
-    short_name: "BorderStyle",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.5 20.5v-17h17v1h-16v16Zm4 0v-1h1v1Zm4 0v-1h1v1Zm4 0v-1h1v1Zm4 0v-1h1v1Zm0-4v-1h1v1Zm0-4v-1h1v1Zm0-4v-1h1v1Z"
-  }));
-});
-IconMaterialBorderStyleW100.displayName = 'AmauiIconMaterialBorderStyleW100';
-
-
 const IconMaterialBorderRightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -5786,6 +5773,19 @@ const IconMaterialBorderRightW100 = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialBorderRightW100.displayName = 'AmauiIconMaterialBorderRightW100';
+
+
+const IconMaterialBorderStyleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BorderStyleW100",
+    short_name: "BorderStyle",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.5 20.5v-17h17v1h-16v16Zm4 0v-1h1v1Zm4 0v-1h1v1Zm4 0v-1h1v1Zm4 0v-1h1v1Zm0-4v-1h1v1Zm0-4v-1h1v1Zm0-4v-1h1v1Z"
+  }));
+});
+IconMaterialBorderStyleW100.displayName = 'AmauiIconMaterialBorderStyleW100';
 
 
 const IconMaterialBorderTopW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6139,19 +6139,6 @@ const IconMaterialBrightness7W100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialBrightness7W100.displayName = 'AmauiIconMaterialBrightness7W100';
 
 
-const IconMaterialBrightnessAlertW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BrightnessAlertW100",
-    short_name: "BrightnessAlert",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480-308q8.5 0 14.25-5.75T500-328q0-8.5-5.75-14.25T480-348q-8.5 0-14.25 5.75T460-328q0 8.5 5.75 14.25T480-308Zm-14-124h28v-240h-28v240Zm14 332L367.775-212H212v-155.775L100-480l112-112.225V-748h155.775L480-860l112.225 112H748v155.775L860-480 748-367.775V-212H592.225L480-100Zm0-380Zm0 340 100-100h140v-140l100-100-100-100v-140H580L480-820 380-720H240v140L140-480l100 100v140h140l100 100Z"
-  }));
-});
-IconMaterialBrightnessAlertW100.displayName = 'AmauiIconMaterialBrightnessAlertW100';
-
-
 const IconMaterialBrightnessAutoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6163,6 +6150,19 @@ const IconMaterialBrightnessAutoW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialBrightnessAutoW100.displayName = 'AmauiIconMaterialBrightnessAutoW100';
+
+
+const IconMaterialBrightnessAlertW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BrightnessAlertW100",
+    short_name: "BrightnessAlert",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480-308q8.5 0 14.25-5.75T500-328q0-8.5-5.75-14.25T480-348q-8.5 0-14.25 5.75T460-328q0 8.5 5.75 14.25T480-308Zm-14-124h28v-240h-28v240Zm14 332L367.775-212H212v-155.775L100-480l112-112.225V-748h155.775L480-860l112.225 112H748v155.775L860-480 748-367.775V-212H592.225L480-100Zm0-380Zm0 340 100-100h140v-140l100-100-100-100v-140H580L480-820 380-720H240v140L140-480l100 100v140h140l100 100Z"
+  }));
+});
+IconMaterialBrightnessAlertW100.displayName = 'AmauiIconMaterialBrightnessAlertW100';
 
 
 const IconMaterialBrightnessEmptyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6178,19 +6178,6 @@ const IconMaterialBrightnessEmptyW100 = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialBrightnessEmptyW100.displayName = 'AmauiIconMaterialBrightnessEmptyW100';
 
 
-const IconMaterialBrightnessHighW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BrightnessHighW100",
-    short_name: "BrightnessHigh",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m12 21.5-2.8-2.8H5.3v-3.9L2.5 12l2.8-2.8V5.3h3.9L12 2.5l2.8 2.8h3.9v3.9l2.8 2.8-2.8 2.8v3.9h-3.9Zm0-3.5q2.5 0 4.25-1.75T18 12q0-2.5-1.75-4.25T12 6Q9.5 6 7.75 7.75T6 12q0 2.5 1.75 4.25T12 18Zm0-.7q-2.2 0-3.75-1.55Q6.7 14.2 6.7 12t1.55-3.75Q9.8 6.7 12 6.7t3.75 1.55Q17.3 9.8 17.3 12t-1.55 3.75Q14.2 17.3 12 17.3Zm0 3.2 2.5-2.5H18v-3.5l2.5-2.5L18 9.5V6h-3.5L12 3.5 9.5 6H6v3.5L3.5 12 6 14.5V18h3.5Zm0-8.5Zm0 2.3q-.95 0-1.625-.675T9.7 12q0-.95.675-1.625T12 9.7q.95 0 1.625.675T14.3 12q0 .95-.675 1.625T12 14.3Z"
-  }));
-});
-IconMaterialBrightnessHighW100.displayName = 'AmauiIconMaterialBrightnessHighW100';
-
-
 const IconMaterialBrightnessLowW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6204,17 +6191,17 @@ const IconMaterialBrightnessLowW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialBrightnessLowW100.displayName = 'AmauiIconMaterialBrightnessLowW100';
 
 
-const IconMaterialBringYourOwnIpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialBrightnessHighW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "BringYourOwnIpW100",
-    short_name: "BringYourOwnIp",
+    name: "BrightnessHighW100",
+    short_name: "BrightnessHigh",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3q.375 0 .762.037.388.038.738.088V6.2q-.325-.625-.7-1.175-.375-.55-.8-1.05-.875 1-1.488 2.187Q9.9 7.35 9.475 8.85H13.5v.7H9.3q-.125.65-.175 1.237-.05.588-.05 1.213 0 .625.05 1.212.05.588.175 1.238h5.4q.125-.65.175-1.238.05-.587.05-1.212 0-.375-.012-.75-.013-.375-.063-.75h.7q.05.4.063.775.012.375.012.725 0 .575-.05 1.188-.05.612-.175 1.262h4.225q.175-.525.275-1.175.1-.65.1-1.275 0-.375-.038-.75-.037-.375-.112-.75h.725q.05.35.088.738.037.387.037.762 0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm-7.625-6.25H8.6q-.125-.65-.175-1.262-.05-.613-.05-1.188t.05-1.188q.05-.612.175-1.262H4.375q-.175.525-.275 1.175Q4 11.375 4 12q0 .625.1 1.275.1.65.275 1.175Zm6.75 5.55q-.775-.875-1.425-2.188-.65-1.312-.95-2.662h-4.1q.9 2.05 2.625 3.325Q9 19.75 11.125 20ZM4.65 8.85h4.1q.35-1.325.975-2.6.625-1.275 1.4-2.25-2.25.3-3.9 1.537Q5.575 6.775 4.65 8.85ZM12 20.025q.95-1.2 1.55-2.325.6-1.125.975-2.55h-5.05q.425 1.525 1 2.65T12 20.025Zm.875-.025q2.125-.225 3.85-1.513Q18.45 17.2 19.35 15.15h-4.1q-.425 1.375-1.075 2.687-.65 1.313-1.3 2.163ZM16 8V3.3h4.7V8Zm2.6-2.6H20V4h-1.4Z"
+    d: "m12 21.5-2.8-2.8H5.3v-3.9L2.5 12l2.8-2.8V5.3h3.9L12 2.5l2.8 2.8h3.9v3.9l2.8 2.8-2.8 2.8v3.9h-3.9Zm0-3.5q2.5 0 4.25-1.75T18 12q0-2.5-1.75-4.25T12 6Q9.5 6 7.75 7.75T6 12q0 2.5 1.75 4.25T12 18Zm0-.7q-2.2 0-3.75-1.55Q6.7 14.2 6.7 12t1.55-3.75Q9.8 6.7 12 6.7t3.75 1.55Q17.3 9.8 17.3 12t-1.55 3.75Q14.2 17.3 12 17.3Zm0 3.2 2.5-2.5H18v-3.5l2.5-2.5L18 9.5V6h-3.5L12 3.5 9.5 6H6v3.5L3.5 12 6 14.5V18h3.5Zm0-8.5Zm0 2.3q-.95 0-1.625-.675T9.7 12q0-.95.675-1.625T12 9.7q.95 0 1.625.675T14.3 12q0 .95-.675 1.625T12 14.3Z"
   }));
 });
-IconMaterialBringYourOwnIpW100.displayName = 'AmauiIconMaterialBringYourOwnIpW100';
+IconMaterialBrightnessHighW100.displayName = 'AmauiIconMaterialBrightnessHighW100';
 
 
 const IconMaterialBrightnessMediumW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6230,6 +6217,19 @@ const IconMaterialBrightnessMediumW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialBrightnessMediumW100.displayName = 'AmauiIconMaterialBrightnessMediumW100';
 
 
+const IconMaterialBringYourOwnIpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BringYourOwnIpW100",
+    short_name: "BringYourOwnIp",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3q.375 0 .762.037.388.038.738.088V6.2q-.325-.625-.7-1.175-.375-.55-.8-1.05-.875 1-1.488 2.187Q9.9 7.35 9.475 8.85H13.5v.7H9.3q-.125.65-.175 1.237-.05.588-.05 1.213 0 .625.05 1.212.05.588.175 1.238h5.4q.125-.65.175-1.238.05-.587.05-1.212 0-.375-.012-.75-.013-.375-.063-.75h.7q.05.4.063.775.012.375.012.725 0 .575-.05 1.188-.05.612-.175 1.262h4.225q.175-.525.275-1.175.1-.65.1-1.275 0-.375-.038-.75-.037-.375-.112-.75h.725q.05.35.088.738.037.387.037.762 0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm-7.625-6.25H8.6q-.125-.65-.175-1.262-.05-.613-.05-1.188t.05-1.188q.05-.612.175-1.262H4.375q-.175.525-.275 1.175Q4 11.375 4 12q0 .625.1 1.275.1.65.275 1.175Zm6.75 5.55q-.775-.875-1.425-2.188-.65-1.312-.95-2.662h-4.1q.9 2.05 2.625 3.325Q9 19.75 11.125 20ZM4.65 8.85h4.1q.35-1.325.975-2.6.625-1.275 1.4-2.25-2.25.3-3.9 1.537Q5.575 6.775 4.65 8.85ZM12 20.025q.95-1.2 1.55-2.325.6-1.125.975-2.55h-5.05q.425 1.525 1 2.65T12 20.025Zm.875-.025q2.125-.225 3.85-1.513Q18.45 17.2 19.35 15.15h-4.1q-.425 1.375-1.075 2.687-.65 1.313-1.3 2.163ZM16 8V3.3h4.7V8Zm2.6-2.6H20V4h-1.4Z"
+  }));
+});
+IconMaterialBringYourOwnIpW100.displayName = 'AmauiIconMaterialBringYourOwnIpW100';
+
+
 const IconMaterialBroadcastOnHomeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6241,19 +6241,6 @@ const IconMaterialBroadcastOnHomeW100 = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialBroadcastOnHomeW100.displayName = 'AmauiIconMaterialBroadcastOnHomeW100';
-
-
-const IconMaterialBroadcastOnPersonalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BroadcastOnPersonalW100",
-    short_name: "BroadcastOnPersonal",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10 11.25ZM3.3 18.7V8.65L10 3.625 15.325 7.6q-.225.05-.437.112-.213.063-.413.138L10 4.5 4 9v9h6.05q.075.2.163.362.087.163.187.338Zm9.625.8q-.975-.875-1.5-2.05Q10.9 16.275 10.9 15q0-2.55 1.788-4.325Q14.475 8.9 17 8.9q2.55 0 4.325 1.775Q23.1 12.45 23.1 15q0 1.275-.512 2.462-.513 1.188-1.513 2.013l-.45-.475q.875-.75 1.325-1.8.45-1.05.45-2.2 0-2.275-1.562-3.838Q19.275 9.6 17 9.6q-2.25 0-3.825 1.562Q11.6 12.725 11.6 15q0 1.15.462 2.2.463 1.05 1.338 1.825Zm1.75-1.775q-.575-.55-.925-1.25-.35-.7-.35-1.475 0-1.5 1.05-2.55Q15.5 11.4 17 11.4q1.5 0 2.55 1.05Q20.6 13.5 20.6 15q0 .8-.337 1.512-.338.713-.938 1.238l-.5-.5q.5-.425.788-1.012.287-.588.287-1.238 0-1.225-.838-2.062Q18.225 12.1 17 12.1q-1.2 0-2.05.838-.85.837-.85 2.062 0 .65.3 1.225.3.575.775 1ZM16.65 20.6v-4.825q-.225-.1-.362-.313-.138-.212-.138-.462 0-.35.25-.6t.6-.25q.35 0 .6.25t.25.6q0 .25-.125.45t-.375.325V20.6Z"
-  }));
-});
-IconMaterialBroadcastOnPersonalW100.displayName = 'AmauiIconMaterialBroadcastOnPersonalW100';
 
 
 const IconMaterialBrokenImageW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6269,6 +6256,19 @@ const IconMaterialBrokenImageW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialBrokenImageW100.displayName = 'AmauiIconMaterialBrokenImageW100';
 
 
+const IconMaterialBroadcastOnPersonalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BroadcastOnPersonalW100",
+    short_name: "BroadcastOnPersonal",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10 11.25ZM3.3 18.7V8.65L10 3.625 15.325 7.6q-.225.05-.437.112-.213.063-.413.138L10 4.5 4 9v9h6.05q.075.2.163.362.087.163.187.338Zm9.625.8q-.975-.875-1.5-2.05Q10.9 16.275 10.9 15q0-2.55 1.788-4.325Q14.475 8.9 17 8.9q2.55 0 4.325 1.775Q23.1 12.45 23.1 15q0 1.275-.512 2.462-.513 1.188-1.513 2.013l-.45-.475q.875-.75 1.325-1.8.45-1.05.45-2.2 0-2.275-1.562-3.838Q19.275 9.6 17 9.6q-2.25 0-3.825 1.562Q11.6 12.725 11.6 15q0 1.15.462 2.2.463 1.05 1.338 1.825Zm1.75-1.775q-.575-.55-.925-1.25-.35-.7-.35-1.475 0-1.5 1.05-2.55Q15.5 11.4 17 11.4q1.5 0 2.55 1.05Q20.6 13.5 20.6 15q0 .8-.337 1.512-.338.713-.938 1.238l-.5-.5q.5-.425.788-1.012.287-.588.287-1.238 0-1.225-.838-2.062Q18.225 12.1 17 12.1q-1.2 0-2.05.838-.85.837-.85 2.062 0 .65.3 1.225.3.575.775 1ZM16.65 20.6v-4.825q-.225-.1-.362-.313-.138-.212-.138-.462 0-.35.25-.6t.6-.25q.35 0 .6.25t.25.6q0 .25-.125.45t-.375.325V20.6Z"
+  }));
+});
+IconMaterialBroadcastOnPersonalW100.displayName = 'AmauiIconMaterialBroadcastOnPersonalW100';
+
+
 const IconMaterialBrowseActivityW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6280,19 +6280,6 @@ const IconMaterialBrowseActivityW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialBrowseActivityW100.displayName = 'AmauiIconMaterialBrowseActivityW100';
-
-
-const IconMaterialBrowseGalleryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BrowseGalleryW100",
-    short_name: "BrowseGallery",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m11.8 15.275.475-.475-2.925-2.925V7.65h-.7v4.475ZM18 19.1v-.8q1.85-.875 2.925-2.575Q22 14.025 22 12q0-2.025-1.075-3.725Q19.85 6.575 18 5.7v-.8q2.125.95 3.413 2.862Q22.7 9.675 22.7 12t-1.287 4.237Q20.125 18.15 18 19.1Zm-9 .6q-1.6 0-3-.6t-2.45-1.65Q2.5 16.4 1.9 15q-.6-1.4-.6-3t.6-3q.6-1.4 1.65-2.45Q4.6 5.5 6 4.9q1.4-.6 3-.6t3 .6q1.4.6 2.45 1.65Q15.5 7.6 16.1 9q.6 1.4.6 3t-.6 3q-.6 1.4-1.65 2.45Q13.4 18.5 12 19.1q-1.4.6-3 .6Zm0-.7q2.925 0 4.963-2.038Q16 14.925 16 12t-2.037-4.963Q11.925 5 9 5 6.075 5 4.037 7.037 2 9.075 2 12q0 2.925 2.037 4.962Q6.075 19 9 19Zm0-7Z"
-  }));
-});
-IconMaterialBrowseGalleryW100.displayName = 'AmauiIconMaterialBrowseGalleryW100';
 
 
 const IconMaterialBrowseW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6308,17 +6295,17 @@ const IconMaterialBrowseW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialBrowseW100.displayName = 'AmauiIconMaterialBrowseW100';
 
 
-const IconMaterialBrowserUpdatedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialBrowseGalleryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "BrowserUpdatedW100",
-    short_name: "BrowserUpdated",
+    name: "BrowseGalleryW100",
+    short_name: "BrowseGallery",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8.3 19.7v-1.15l1.85-1.85H3.3V4.3h9.275V5H4v11h16v-3h.7v3.7h-6.85l1.85 1.85v1.15Zm7.625-5.625L11.85 10l.5-.5 3.225 3.25V4.3h.7v8.45L19.5 9.5l.5.5Z"
+    d: "m11.8 15.275.475-.475-2.925-2.925V7.65h-.7v4.475ZM18 19.1v-.8q1.85-.875 2.925-2.575Q22 14.025 22 12q0-2.025-1.075-3.725Q19.85 6.575 18 5.7v-.8q2.125.95 3.413 2.862Q22.7 9.675 22.7 12t-1.287 4.237Q20.125 18.15 18 19.1Zm-9 .6q-1.6 0-3-.6t-2.45-1.65Q2.5 16.4 1.9 15q-.6-1.4-.6-3t.6-3q.6-1.4 1.65-2.45Q4.6 5.5 6 4.9q1.4-.6 3-.6t3 .6q1.4.6 2.45 1.65Q15.5 7.6 16.1 9q.6 1.4.6 3t-.6 3q-.6 1.4-1.65 2.45Q13.4 18.5 12 19.1q-1.4.6-3 .6Zm0-.7q2.925 0 4.963-2.038Q16 14.925 16 12t-2.037-4.963Q11.925 5 9 5 6.075 5 4.037 7.037 2 9.075 2 12q0 2.925 2.037 4.962Q6.075 19 9 19Zm0-7Z"
   }));
 });
-IconMaterialBrowserUpdatedW100.displayName = 'AmauiIconMaterialBrowserUpdatedW100';
+IconMaterialBrowseGalleryW100.displayName = 'AmauiIconMaterialBrowseGalleryW100';
 
 
 const IconMaterialBrunchDiningW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6332,6 +6319,19 @@ const IconMaterialBrunchDiningW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialBrunchDiningW100.displayName = 'AmauiIconMaterialBrunchDiningW100';
+
+
+const IconMaterialBrowserUpdatedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BrowserUpdatedW100",
+    short_name: "BrowserUpdated",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8.3 19.7v-1.15l1.85-1.85H3.3V4.3h9.275V5H4v11h16v-3h.7v3.7h-6.85l1.85 1.85v1.15Zm7.625-5.625L11.85 10l.5-.5 3.225 3.25V4.3h.7v8.45L19.5 9.5l.5.5Z"
+  }));
+});
+IconMaterialBrowserUpdatedW100.displayName = 'AmauiIconMaterialBrowserUpdatedW100';
 
 
 const IconMaterialBrushW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6386,17 +6386,17 @@ const IconMaterialBubblesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialBubblesW100.displayName = 'AmauiIconMaterialBubblesW100';
 
 
-const IconMaterialBuildCircleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialBugReportW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "BuildCircleW100",
-    short_name: "BuildCircle",
+    name: "BugReportW100",
+    short_name: "BugReport",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9.325 11.075 7.275 9.05q-.125.275-.2.587Q7 9.95 7 10.3q0 1.3.925 2.225t2.225.925q.4 0 .75-.1t.7-.25l4.225 4.225 1.35-1.35-4.225-4.225q.175-.3.263-.663.087-.362.087-.787 0-1.3-.925-2.212-.925-.913-2.225-.913-.35 0-.65.075-.3.075-.575.2l2 2.025ZM12 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-8.7Zm0 8q3.325 0 5.663-2.337Q20 15.325 20 12t-2.337-5.663Q15.325 4 12 4T6.338 6.337Q4 8.675 4 12t2.338 5.663Q8.675 20 12 20Z"
+    d: "M12 19.7q-1.275 0-2.337-.625Q8.6 18.45 7.95 17.35h-2.8v-.7H7.6q-.275-.8-.288-1.638-.012-.837-.012-1.662H5.15v-.7H7.3q0-.85-.012-1.688-.013-.837.312-1.612H5.15v-.7h2.8q.375-.675.95-1.188.575-.512 1.3-.812L8.35 4.8l.45-.45 2.1 2.1q.55-.15 1.1-.15t1.1.15l2.15-2.1.45.45-1.85 1.85q.725.3 1.275.812.55.513.925 1.188h2.8v.7H16.4q.325.775.312 1.612-.012.838-.012 1.688h2.15v.7H16.7q0 .825-.012 1.662-.013.838-.288 1.638h2.45v.7h-2.8q-.65 1.1-1.712 1.725-1.063.625-2.338.625Zm0-.7q1.65 0 2.825-1.175Q16 16.65 16 15v-4q0-1.65-1.175-2.825Q13.65 7 12 7q-1.65 0-2.825 1.175Q8 9.35 8 11v4q0 1.65 1.175 2.825Q10.35 19 12 19Zm-1.6-3.65h3.2v-.7h-3.2Zm0-4h3.2v-.7h-3.2ZM12 13Z"
   }));
 });
-IconMaterialBuildCircleW100.displayName = 'AmauiIconMaterialBuildCircleW100';
+IconMaterialBugReportW100.displayName = 'AmauiIconMaterialBugReportW100';
 
 
 const IconMaterialBuildW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6412,30 +6412,17 @@ const IconMaterialBuildW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialBuildW100.displayName = 'AmauiIconMaterialBuildW100';
 
 
-const IconMaterialBungalowW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialBuildCircleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "BungalowW100",
-    short_name: "Bungalow",
+    name: "BuildCircleW100",
+    short_name: "BuildCircle",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8.3 19.7v-6.975l-1.225 1.95-.6-.35L12 5.45l5.5 8.875-.6.35-1.2-1.925v6.95ZM9 19h2.3v-2.7h1.4V19H15v-7.375L12 6.8l-3 4.8Zm2.3-5v-1.4h1.4V14ZM9 19h6-6Z"
+    d: "M9.325 11.075 7.275 9.05q-.125.275-.2.587Q7 9.95 7 10.3q0 1.3.925 2.225t2.225.925q.4 0 .75-.1t.7-.25l4.225 4.225 1.35-1.35-4.225-4.225q.175-.3.263-.663.087-.362.087-.787 0-1.3-.925-2.212-.925-.913-2.225-.913-.35 0-.65.075-.3.075-.575.2l2 2.025ZM12 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-8.7Zm0 8q3.325 0 5.663-2.337Q20 15.325 20 12t-2.337-5.663Q15.325 4 12 4T6.338 6.337Q4 8.675 4 12t2.338 5.663Q8.675 20 12 20Z"
   }));
 });
-IconMaterialBungalowW100.displayName = 'AmauiIconMaterialBungalowW100';
-
-
-const IconMaterialBugReportW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BugReportW100",
-    short_name: "BugReport",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 19.7q-1.275 0-2.337-.625Q8.6 18.45 7.95 17.35h-2.8v-.7H7.6q-.275-.8-.288-1.638-.012-.837-.012-1.662H5.15v-.7H7.3q0-.85-.012-1.688-.013-.837.312-1.612H5.15v-.7h2.8q.375-.675.95-1.188.575-.512 1.3-.812L8.35 4.8l.45-.45 2.1 2.1q.55-.15 1.1-.15t1.1.15l2.15-2.1.45.45-1.85 1.85q.725.3 1.275.812.55.513.925 1.188h2.8v.7H16.4q.325.775.312 1.612-.012.838-.012 1.688h2.15v.7H16.7q0 .825-.012 1.662-.013.838-.288 1.638h2.45v.7h-2.8q-.65 1.1-1.712 1.725-1.063.625-2.338.625Zm0-.7q1.65 0 2.825-1.175Q16 16.65 16 15v-4q0-1.65-1.175-2.825Q13.65 7 12 7q-1.65 0-2.825 1.175Q8 9.35 8 11v4q0 1.65 1.175 2.825Q10.35 19 12 19Zm-1.6-3.65h3.2v-.7h-3.2Zm0-4h3.2v-.7h-3.2ZM12 13Z"
-  }));
-});
-IconMaterialBugReportW100.displayName = 'AmauiIconMaterialBugReportW100';
+IconMaterialBuildCircleW100.displayName = 'AmauiIconMaterialBuildCircleW100';
 
 
 const IconMaterialBurstModeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6449,6 +6436,19 @@ const IconMaterialBurstModeW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialBurstModeW100.displayName = 'AmauiIconMaterialBurstModeW100';
+
+
+const IconMaterialBungalowW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BungalowW100",
+    short_name: "Bungalow",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8.3 19.7v-6.975l-1.225 1.95-.6-.35L12 5.45l5.5 8.875-.6.35-1.2-1.925v6.95ZM9 19h2.3v-2.7h1.4V19H15v-7.375L12 6.8l-3 4.8Zm2.3-5v-1.4h1.4V14ZM9 19h6-6Z"
+  }));
+});
+IconMaterialBungalowW100.displayName = 'AmauiIconMaterialBungalowW100';
 
 
 const IconMaterialBusAlertW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6503,19 +6503,6 @@ const IconMaterialBusinessMessagesW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialBusinessMessagesW100.displayName = 'AmauiIconMaterialBusinessMessagesW100';
 
 
-const IconMaterialButtonsAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ButtonsAltW100",
-    short_name: "ButtonsAlt",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M192-292q-26 0-43-17t-17-43v-256q0-26 17-43t43-17h576q26 0 43 17t17 43v256q0 26-17 43t-43 17H192Zm0-28h576q14 0 23-9t9-23v-256q0-14-9-23t-23-9H192q-14 0-23 9t-9 23v256q0 14 9 23t23 9Zm114-66h28v-80h80v-28h-80v-80h-28v80h-80v28h80v80Zm-146 66v-320 320Z"
-  }));
-});
-IconMaterialButtonsAltW100.displayName = 'AmauiIconMaterialButtonsAltW100';
-
-
 const IconMaterialCabinW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6527,6 +6514,19 @@ const IconMaterialCabinW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialCabinW100.displayName = 'AmauiIconMaterialCabinW100';
+
+
+const IconMaterialButtonsAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ButtonsAltW100",
+    short_name: "ButtonsAlt",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M192-292q-26 0-43-17t-17-43v-256q0-26 17-43t43-17h576q26 0 43 17t17 43v256q0 26-17 43t-43 17H192Zm0-28h576q14 0 23-9t9-23v-256q0-14-9-23t-23-9H192q-14 0-23 9t-9 23v256q0 14 9 23t23 9Zm114-66h28v-80h80v-28h-80v-80h-28v80h-80v28h80v80Zm-146 66v-320 320Z"
+  }));
+});
+IconMaterialButtonsAltW100.displayName = 'AmauiIconMaterialButtonsAltW100';
 
 
 const IconMaterialCableW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6568,19 +6568,6 @@ const IconMaterialCakeAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialCakeAddW100.displayName = 'AmauiIconMaterialCakeAddW100';
 
 
-const IconMaterialCakeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CakeW100",
-    short_name: "Cake",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.3 20.7v-6.9h2V8.1h5.35V6.6q-.425-.275-.712-.613-.288-.337-.288-.787 0-.275.1-.512.1-.238.3-.438L12 3.3l.95.95q.2.2.3.438.1.237.1.512 0 .45-.288.787-.287.338-.712.613v1.5h5.35v5.7h2v6.9ZM7 13.8h10v-5H7ZM5 20h14v-5.5H5Zm2-6.2h10ZM5 20h14Zm12.7-6.2H6.3h11.4Z"
-  }));
-});
-IconMaterialCakeW100.displayName = 'AmauiIconMaterialCakeW100';
-
-
 const IconMaterialCalculateW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6592,6 +6579,19 @@ const IconMaterialCalculateW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialCalculateW100.displayName = 'AmauiIconMaterialCalculateW100';
+
+
+const IconMaterialCakeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CakeW100",
+    short_name: "Cake",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.3 20.7v-6.9h2V8.1h5.35V6.6q-.425-.275-.712-.613-.288-.337-.288-.787 0-.275.1-.512.1-.238.3-.438L12 3.3l.95.95q.2.2.3.438.1.237.1.512 0 .45-.288.787-.287.338-.712.613v1.5h5.35v5.7h2v6.9ZM7 13.8h10v-5H7ZM5 20h14v-5.5H5Zm2-6.2h10ZM5 20h14Zm12.7-6.2H6.3h11.4Z"
+  }));
+});
+IconMaterialCakeW100.displayName = 'AmauiIconMaterialCakeW100';
 
 
 const IconMaterialCalendarAddOnW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6854,19 +6854,6 @@ const IconMaterialCameraEnhanceW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialCameraEnhanceW100.displayName = 'AmauiIconMaterialCameraEnhanceW100';
 
 
-const IconMaterialCameraFrontW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CameraFrontW100",
-    short_name: "CameraFront",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m10.5 21.6-.5-.5 1.75-1.75H6.3v-.7h5.45L10 16.9l.5-.5 2.6 2.6ZM6.3 17V3.3h11.4V17H17v-2.35q-.925-.525-2.363-.888Q13.2 13.4 12 13.4t-2.637.362q-1.438.363-2.363.888V17Zm.7-3.15q1.1-.5 2.475-.825Q10.85 12.7 12 12.7t2.525.325q1.375.325 2.475.825V4H7Zm7 5.5v-.7h3.7v.7Zm-2-8.4q-.975 0-1.662-.688Q9.65 9.575 9.65 8.6q0-.975.688-1.662.687-.688 1.662-.688.975 0 1.663.688.687.687.687 1.662 0 .975-.687 1.662-.688.688-1.663.688Zm0-.7q.675 0 1.163-.488.487-.487.487-1.162 0-.675-.487-1.162Q12.675 6.95 12 6.95t-1.162.488q-.488.487-.488 1.162 0 .675.488 1.162.487.488 1.162.488Zm0 3.15Zm0-4.8Z"
-  }));
-});
-IconMaterialCameraFrontW100.displayName = 'AmauiIconMaterialCameraFrontW100';
-
-
 const IconMaterialCameraIndoorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6878,6 +6865,19 @@ const IconMaterialCameraIndoorW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialCameraIndoorW100.displayName = 'AmauiIconMaterialCameraIndoorW100';
+
+
+const IconMaterialCameraFrontW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CameraFrontW100",
+    short_name: "CameraFront",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m10.5 21.6-.5-.5 1.75-1.75H6.3v-.7h5.45L10 16.9l.5-.5 2.6 2.6ZM6.3 17V3.3h11.4V17H17v-2.35q-.925-.525-2.363-.888Q13.2 13.4 12 13.4t-2.637.362q-1.438.363-2.363.888V17Zm.7-3.15q1.1-.5 2.475-.825Q10.85 12.7 12 12.7t2.525.325q1.375.325 2.475.825V4H7Zm7 5.5v-.7h3.7v.7Zm-2-8.4q-.975 0-1.662-.688Q9.65 9.575 9.65 8.6q0-.975.688-1.662.687-.688 1.662-.688.975 0 1.663.688.687.687.687 1.662 0 .975-.687 1.662-.688.688-1.663.688Zm0-.7q.675 0 1.163-.488.487-.487.487-1.162 0-.675-.487-1.162Q12.675 6.95 12 6.95t-1.162.488q-.488.487-.488 1.162 0 .675.488 1.162.487.488 1.162.488Zm0 3.15Zm0-4.8Z"
+  }));
+});
+IconMaterialCameraFrontW100.displayName = 'AmauiIconMaterialCameraFrontW100';
 
 
 const IconMaterialCameraOutdoorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7049,19 +7049,6 @@ const IconMaterialCandlestickChartW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialCandlestickChartW100.displayName = 'AmauiIconMaterialCandlestickChartW100';
 
 
-const IconMaterialCaptivePortalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CaptivePortalW100",
-    short_name: "CaptivePortal",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M445 896q-31-39-56-90t-39-104H186q37 83 103 132.5T445 896ZM175 674h169q-5-26-7-50.5t-2-47.5q0-23 2-47.5t7-50.5H175q-7 21-11 47t-4 51q0 25 4 51t11 47Zm11-224h164q12-54 38-106.5t57-87.5q-85 10-154 61T186 450Zm193 0h202q-15-57-39-102t-62-93q-38 44-61 89t-40 106Zm231 0h164q-36-82-105-133.5T515 256q26 34 52 86.5T610 450ZM480 924q-72 0-135.5-27.5T234 822q-47-47-74.5-110.5T132 576q0-72 27.5-135.5T234 330q47-47 110.5-74.5T480 228q72 0 135.5 27.5T726 330q47 47 74.5 110.5T828 576q0 11-.5 23t-2.5 23h-29q2-11 3-23t1-23q0-25-4-51t-11-47H616q5 26 7 50.5t2 47.5q0 11-.5 22.5T623 622h-28q1-11 1.5-23t.5-23q0-25-2-48.5t-7-49.5H372q-5 26-7 49.5t-2 48.5q0 25 2 48.5t7 49.5h154v28H379q17 60 41.5 107.5T480 897q13-15 24-31t22-33v88q-11 2-23 2.5t-23 .5Zm318-10L654 770v126h-28V722h174v28H673l144 144-19 20Z"
-  }));
-});
-IconMaterialCaptivePortalW100.displayName = 'AmauiIconMaterialCaptivePortalW100';
-
-
 const IconMaterialCaptureW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -7073,6 +7060,19 @@ const IconMaterialCaptureW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialCaptureW100.displayName = 'AmauiIconMaterialCaptureW100';
+
+
+const IconMaterialCaptivePortalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CaptivePortalW100",
+    short_name: "CaptivePortal",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M445 896q-31-39-56-90t-39-104H186q37 83 103 132.5T445 896ZM175 674h169q-5-26-7-50.5t-2-47.5q0-23 2-47.5t7-50.5H175q-7 21-11 47t-4 51q0 25 4 51t11 47Zm11-224h164q12-54 38-106.5t57-87.5q-85 10-154 61T186 450Zm193 0h202q-15-57-39-102t-62-93q-38 44-61 89t-40 106Zm231 0h164q-36-82-105-133.5T515 256q26 34 52 86.5T610 450ZM480 924q-72 0-135.5-27.5T234 822q-47-47-74.5-110.5T132 576q0-72 27.5-135.5T234 330q47-47 110.5-74.5T480 228q72 0 135.5 27.5T726 330q47 47 74.5 110.5T828 576q0 11-.5 23t-2.5 23h-29q2-11 3-23t1-23q0-25-4-51t-11-47H616q5 26 7 50.5t2 47.5q0 11-.5 22.5T623 622h-28q1-11 1.5-23t.5-23q0-25-2-48.5t-7-49.5H372q-5 26-7 49.5t-2 48.5q0 25 2 48.5t7 49.5h154v28H379q17 60 41.5 107.5T480 897q13-15 24-31t22-33v88q-11 2-23 2.5t-23 .5Zm318-10L654 770v126h-28V722h174v28H673l144 144-19 20Z"
+  }));
+});
+IconMaterialCaptivePortalW100.displayName = 'AmauiIconMaterialCaptivePortalW100';
 
 
 const IconMaterialCarCrashW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7088,19 +7088,6 @@ const IconMaterialCarCrashW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialCarCrashW100.displayName = 'AmauiIconMaterialCarCrashW100';
 
 
-const IconMaterialCarRentalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CarRentalW100",
-    short_name: "CarRental",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8.5 6.85q-.975 0-1.662-.688Q6.15 5.475 6.15 4.5q0-.975.688-1.663.687-.687 1.662-.687.875 0 1.512.575.638.575.838 1.425h7v.7h-1v2h-.7v-2h-5.3q-.2.85-.838 1.425-.637.575-1.512.575Zm0-.7q.675 0 1.163-.488.487-.487.487-1.162 0-.675-.487-1.163Q9.175 2.85 8.5 2.85t-1.162.487Q6.85 3.825 6.85 4.5t.488 1.162q.487.488 1.162.488Zm0 10.6q.275 0 .488-.212.212-.213.212-.488t-.212-.488q-.213-.212-.488-.212t-.488.212q-.212.213-.212.488t.212.488q.213.212.488.212Zm7 0q.275 0 .488-.212.212-.213.212-.488t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.488q.212.212.487.212Zm-9.2 3.5v-5.9l1.575-4.5h8.25l1.575 4.5v5.9H17v-2H7v2Zm.9-6.4h9.6l-1.15-3.3h-7.3Zm-.2.7v3Zm0 3h10v-3H7Z"
-  }));
-});
-IconMaterialCarRentalW100.displayName = 'AmauiIconMaterialCarRentalW100';
-
-
 const IconMaterialCarRepairW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -7112,6 +7099,19 @@ const IconMaterialCarRepairW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialCarRepairW100.displayName = 'AmauiIconMaterialCarRepairW100';
+
+
+const IconMaterialCarRentalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CarRentalW100",
+    short_name: "CarRental",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8.5 6.85q-.975 0-1.662-.688Q6.15 5.475 6.15 4.5q0-.975.688-1.663.687-.687 1.662-.687.875 0 1.512.575.638.575.838 1.425h7v.7h-1v2h-.7v-2h-5.3q-.2.85-.838 1.425-.637.575-1.512.575Zm0-.7q.675 0 1.163-.488.487-.487.487-1.162 0-.675-.487-1.163Q9.175 2.85 8.5 2.85t-1.162.487Q6.85 3.825 6.85 4.5t.488 1.162q.487.488 1.162.488Zm0 10.6q.275 0 .488-.212.212-.213.212-.488t-.212-.488q-.213-.212-.488-.212t-.488.212q-.212.213-.212.488t.212.488q.213.212.488.212Zm7 0q.275 0 .488-.212.212-.213.212-.488t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.488q.212.212.487.212Zm-9.2 3.5v-5.9l1.575-4.5h8.25l1.575 4.5v5.9H17v-2H7v2Zm.9-6.4h9.6l-1.15-3.3h-7.3Zm-.2.7v3Zm0 3h10v-3H7Z"
+  }));
+});
+IconMaterialCarRentalW100.displayName = 'AmauiIconMaterialCarRentalW100';
 
 
 const IconMaterialCardMembershipW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7166,19 +7166,6 @@ const IconMaterialCardsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialCardsW100.displayName = 'AmauiIconMaterialCardsW100';
 
 
-const IconMaterialCarpenterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CarpenterW100",
-    short_name: "Carpenter",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m14.05 21.8-3.275-3.3 1.325-1.375-8.15-11.65L7 2.425 20.225 15.65Zm-1.475-5.175 3.85-3.8L7 3.4 4.85 5.55Zm1.5 4.175 5.15-5.15L16.9 13.3l-5.175 5.175Zm-1.5-4.175 3.85-3.8Z"
-  }));
-});
-IconMaterialCarpenterW100.displayName = 'AmauiIconMaterialCarpenterW100';
-
-
 const IconMaterialCarryOnBagCheckedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -7190,6 +7177,19 @@ const IconMaterialCarryOnBagCheckedW100 = /*#__PURE__*/React.forwardRef((props, 
   }));
 });
 IconMaterialCarryOnBagCheckedW100.displayName = 'AmauiIconMaterialCarryOnBagCheckedW100';
+
+
+const IconMaterialCarpenterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CarpenterW100",
+    short_name: "Carpenter",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m14.05 21.8-3.275-3.3 1.325-1.375-8.15-11.65L7 2.425 20.225 15.65Zm-1.475-5.175 3.85-3.8L7 3.4 4.85 5.55Zm1.5 4.175 5.15-5.15L16.9 13.3l-5.175 5.175Zm-1.5-4.175 3.85-3.8Z"
+  }));
+});
+IconMaterialCarpenterW100.displayName = 'AmauiIconMaterialCarpenterW100';
 
 
 const IconMaterialCarryOnBagInactiveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7309,19 +7309,6 @@ const IconMaterialCastW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialCastW100.displayName = 'AmauiIconMaterialCastW100';
 
 
-const IconMaterialCastWarningW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CastWarningW100",
-    short_name: "CastWarning",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480-480ZM132-276q26 0 45 19t19 45h-64v-64Zm0-128q80 0 136 55.886Q324-292.229 324-212h-28q0-68-48-115t-116-49v-28Zm0-148q71 0 132.662 26.592 61.662 26.591 107.908 72.838 46.247 46.246 72.838 107.908Q472-283 472-212h-28q0-64.806-24.5-121.403Q395-390 352.5-432.5q-42.5-42.5-99.097-67Q196.806-524 132-524v-28Zm696 340H572q0-7-.25-14t-.75-14h229v-223q8-2 14.5-5.5T828-475v263ZM132-652v-96h345q-2 7-2.5 13.5T473-720H160v69q-7-.5-14-.75t-14-.25Zm588 102q-62 0-105-43t-43-105q0-62 43-105t105-43q62 0 105 43t43 105q0 62-43 105t-105 43Zm14-66v-28h-28v28h28Zm-28-64h28v-108h-28v108Z"
-  }));
-});
-IconMaterialCastWarningW100.displayName = 'AmauiIconMaterialCastWarningW100';
-
-
 const IconMaterialCastleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -7333,6 +7320,19 @@ const IconMaterialCastleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialCastleW100.displayName = 'AmauiIconMaterialCastleW100';
+
+
+const IconMaterialCastWarningW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CastWarningW100",
+    short_name: "CastWarning",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480-480ZM132-276q26 0 45 19t19 45h-64v-64Zm0-128q80 0 136 55.886Q324-292.229 324-212h-28q0-68-48-115t-116-49v-28Zm0-148q71 0 132.662 26.592 61.662 26.591 107.908 72.838 46.247 46.246 72.838 107.908Q472-283 472-212h-28q0-64.806-24.5-121.403Q395-390 352.5-432.5q-42.5-42.5-99.097-67Q196.806-524 132-524v-28Zm696 340H572q0-7-.25-14t-.75-14h229v-223q8-2 14.5-5.5T828-475v263ZM132-652v-96h345q-2 7-2.5 13.5T473-720H160v69q-7-.5-14-.75t-14-.25Zm588 102q-62 0-105-43t-43-105q0-62 43-105t105-43q62 0 105 43t43 105q0 62-43 105t-105 43Zm14-66v-28h-28v28h28Zm-28-64h28v-108h-28v108Z"
+  }));
+});
+IconMaterialCastWarningW100.displayName = 'AmauiIconMaterialCastWarningW100';
 
 
 const IconMaterialCategoryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7595,19 +7595,6 @@ const IconMaterialChatInfoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialChatInfoW100.displayName = 'AmauiIconMaterialChatInfoW100';
 
 
-const IconMaterialChatW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ChatW100",
-    short_name: "Chat",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6.65 13.35h6.7v-.7h-6.7Zm0-3h10.7v-.7H6.65Zm0-3h10.7v-.7H6.65ZM3.3 19.5V3.3h17.4v13.4H6.1Zm.7-1.7L5.8 16H20V4H4Zm0 0V4v12Z"
-  }));
-});
-IconMaterialChatW100.displayName = 'AmauiIconMaterialChatW100';
-
-
 const IconMaterialChatPasteGoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -7619,6 +7606,19 @@ const IconMaterialChatPasteGoW100 = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialChatPasteGoW100.displayName = 'AmauiIconMaterialChatPasteGoW100';
+
+
+const IconMaterialChatW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ChatW100",
+    short_name: "Chat",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6.65 13.35h6.7v-.7h-6.7Zm0-3h10.7v-.7H6.65Zm0-3h10.7v-.7H6.65ZM3.3 19.5V3.3h17.4v13.4H6.1Zm.7-1.7L5.8 16H20V4H4Zm0 0V4v12Z"
+  }));
+});
+IconMaterialChatW100.displayName = 'AmauiIconMaterialChatW100';
 
 
 const IconMaterialCheckBoxOutlineBlankW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7686,19 +7686,6 @@ const IconMaterialCheckIndeterminateSmallW100 = /*#__PURE__*/React.forwardRef((p
 IconMaterialCheckIndeterminateSmallW100.displayName = 'AmauiIconMaterialCheckIndeterminateSmallW100';
 
 
-const IconMaterialCheckSmallW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CheckSmallW100",
-    short_name: "CheckSmall",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10 15.475 6.925 12.4l.475-.475 2.6 2.6 6.6-6.6.475.475Z"
-  }));
-});
-IconMaterialCheckSmallW100.displayName = 'AmauiIconMaterialCheckSmallW100';
-
-
 const IconMaterialCheckW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -7712,6 +7699,19 @@ const IconMaterialCheckW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialCheckW100.displayName = 'AmauiIconMaterialCheckW100';
 
 
+const IconMaterialCheckSmallW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CheckSmallW100",
+    short_name: "CheckSmall",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10 15.475 6.925 12.4l.475-.475 2.6 2.6 6.6-6.6.475.475Z"
+  }));
+});
+IconMaterialCheckSmallW100.displayName = 'AmauiIconMaterialCheckSmallW100';
+
+
 const IconMaterialCheckbookW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -7723,6 +7723,19 @@ const IconMaterialCheckbookW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialCheckbookW100.displayName = 'AmauiIconMaterialCheckbookW100';
+
+
+const IconMaterialCheckedBagW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CheckedBagW100",
+    short_name: "CheckedBag",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M152-204v-28h656v28H152Zm60-108v-356h180q0-36 26-62t62-26q36 0 62 26t26 62h180v356H212Zm452-28h56v-300h-56v300ZM420-668h120q0-26-17-43t-43-17q-26 0-43 17t-17 43ZM296-340v-300h-56v300h56Zm28-300v300h312v-300H324Zm-28 300h28-28Zm368 0h-28 28Zm-368 0h-56 56Zm28 0h312-312Zm340 0h56-56Z"
+  }));
+});
+IconMaterialCheckedBagW100.displayName = 'AmauiIconMaterialCheckedBagW100';
 
 
 const IconMaterialCheckedBagQuestionW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7762,19 +7775,6 @@ const IconMaterialChecklistW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialChecklistW100.displayName = 'AmauiIconMaterialChecklistW100';
-
-
-const IconMaterialCheckedBagW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CheckedBagW100",
-    short_name: "CheckedBag",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M152-204v-28h656v28H152Zm60-108v-356h180q0-36 26-62t62-26q36 0 62 26t26 62h180v356H212Zm452-28h56v-300h-56v300ZM420-668h120q0-26-17-43t-43-17q-26 0-43 17t-17 43ZM296-340v-300h-56v300h56Zm28-300v300h312v-300H324Zm-28 300h28-28Zm368 0h-28 28Zm-368 0h-56 56Zm28 0h312-312Zm340 0h56-56Z"
-  }));
-});
-IconMaterialCheckedBagW100.displayName = 'AmauiIconMaterialCheckedBagW100';
 
 
 const IconMaterialCheckroomW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7842,19 +7842,6 @@ const IconMaterialChevronRightW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialChevronRightW100.displayName = 'AmauiIconMaterialChevronRightW100';
 
 
-const IconMaterialChildCareW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ChildCareW100",
-    short_name: "ChildCare",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M14.35 11.35q-.35 0-.6-.25t-.25-.6q0-.35.25-.6t.6-.25q.35 0 .6.25t.25.6q0 .35-.25.6t-.6.25Zm-4.7 0q-.35 0-.6-.25t-.25-.6q0-.35.25-.6t.6-.25q.35 0 .6.25t.25.6q0 .35-.25.6t-.6.25ZM12 16q-1.125 0-2.075-.538-.95-.537-1.575-1.462h7.3q-.625.925-1.575 1.462Q13.125 16 12 16Zm0 3.7q-1.6 0-3-.6t-2.45-1.65Q5.5 16.4 4.9 15q-.6-1.4-.6-3t.6-3q.6-1.4 1.65-2.45Q7.6 5.5 9 4.9q1.4-.6 3-.6t3 .6q1.4.6 2.45 1.65Q18.5 7.6 19.1 9q.6 1.4.6 3t-.6 3q-.6 1.4-1.65 2.45Q16.4 18.5 15 19.1q-1.4.6-3 .6Zm0-.7q2.9 0 4.95-2.05Q19 14.9 19 12q0-2.9-2.05-4.95Q14.9 5 12 5q-.3 0-.612.025-.313.025-.588.075-.05.2-.05.325v.325q0 .675.488 1.162.487.488 1.162.488.3 0 .45-.075.15-.075.35-.075.125 0 .213.1.087.1.087.25 0 .275-.337.387-.338.113-.763.113-.975 0-1.662-.688-.688-.687-.688-1.662v-.225q0-.1.05-.25-2.2.6-3.65 2.437Q5 9.55 5 12q0 2.9 2.05 4.95Q9.1 19 12 19Zm0-7Z"
-  }));
-});
-IconMaterialChildCareW100.displayName = 'AmauiIconMaterialChildCareW100';
-
-
 const IconMaterialChildFriendlyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -7868,17 +7855,17 @@ const IconMaterialChildFriendlyW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialChildFriendlyW100.displayName = 'AmauiIconMaterialChildFriendlyW100';
 
 
-const IconMaterialChipsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialChildCareW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "ChipsW100",
-    short_name: "Chips",
-    viewBox: "0 -960 960 960"
+    name: "ChildCareW100",
+    short_name: "ChildCare",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M306-466h348v-28H306v28ZM172-172v-616h616v616H172Zm28-28h560v-560H200v560Zm0 0v-560 560Z"
+    d: "M14.35 11.35q-.35 0-.6-.25t-.25-.6q0-.35.25-.6t.6-.25q.35 0 .6.25t.25.6q0 .35-.25.6t-.6.25Zm-4.7 0q-.35 0-.6-.25t-.25-.6q0-.35.25-.6t.6-.25q.35 0 .6.25t.25.6q0 .35-.25.6t-.6.25ZM12 16q-1.125 0-2.075-.538-.95-.537-1.575-1.462h7.3q-.625.925-1.575 1.462Q13.125 16 12 16Zm0 3.7q-1.6 0-3-.6t-2.45-1.65Q5.5 16.4 4.9 15q-.6-1.4-.6-3t.6-3q.6-1.4 1.65-2.45Q7.6 5.5 9 4.9q1.4-.6 3-.6t3 .6q1.4.6 2.45 1.65Q18.5 7.6 19.1 9q.6 1.4.6 3t-.6 3q-.6 1.4-1.65 2.45Q16.4 18.5 15 19.1q-1.4.6-3 .6Zm0-.7q2.9 0 4.95-2.05Q19 14.9 19 12q0-2.9-2.05-4.95Q14.9 5 12 5q-.3 0-.612.025-.313.025-.588.075-.05.2-.05.325v.325q0 .675.488 1.162.487.488 1.162.488.3 0 .45-.075.15-.075.35-.075.125 0 .213.1.087.1.087.25 0 .275-.337.387-.338.113-.763.113-.975 0-1.662-.688-.688-.687-.688-1.662v-.225q0-.1.05-.25-2.2.6-3.65 2.437Q5 9.55 5 12q0 2.9 2.05 4.95Q9.1 19 12 19Zm0-7Z"
   }));
 });
-IconMaterialChipsW100.displayName = 'AmauiIconMaterialChipsW100';
+IconMaterialChildCareW100.displayName = 'AmauiIconMaterialChildCareW100';
 
 
 const IconMaterialChipExtractionW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7892,6 +7879,19 @@ const IconMaterialChipExtractionW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialChipExtractionW100.displayName = 'AmauiIconMaterialChipExtractionW100';
+
+
+const IconMaterialChipsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ChipsW100",
+    short_name: "Chips",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M306-466h348v-28H306v28ZM172-172v-616h616v616H172Zm28-28h560v-560H200v560Zm0 0v-560 560Z"
+  }));
+});
+IconMaterialChipsW100.displayName = 'AmauiIconMaterialChipsW100';
 
 
 const IconMaterialChromeMaximizeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8063,19 +8063,6 @@ const IconMaterialCirclesExtW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialCirclesExtW100.displayName = 'AmauiIconMaterialCirclesExtW100';
 
 
-const IconMaterialCirclesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CirclesW100",
-    short_name: "Circles",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M679-420q11 0 21-.5t21-2.5q-7 112-88 188.5T440-158q-58 0-109.5-22t-90-60.5Q202-279 180-330.5T158-440q0-112 76.5-192.5T423-722q-2 11-2.5 21.5T420-679q-94 10-157 77.5T200-440q0 100 70 170t170 70q94 0 162.5-63T679-420Zm1-440q75 0 127.5 52.5T860-680q0 75-52.5 127.5T680-500q-75 0-127.5-52.5T500-680q0-75 52.5-127.5T680-860Zm0 318q57.5 0 97.75-40.25T818-680q0-57.5-40.25-97.75T680-818q-57.5 0-97.75 40.25T542-680q0 57.5 40.25 97.75T680-542Zm0-138ZM440-440Z"
-  }));
-});
-IconMaterialCirclesW100.displayName = 'AmauiIconMaterialCirclesW100';
-
-
 const IconMaterialClarifyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8115,17 +8102,17 @@ const IconMaterialCleaningBucketW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialCleaningBucketW100.displayName = 'AmauiIconMaterialCleaningBucketW100';
 
 
-const IconMaterialCleaningServicesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialCirclesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "CleaningServicesW100",
-    short_name: "CleaningServices",
-    viewBox: "0 0 24 24"
+    name: "CirclesW100",
+    short_name: "Circles",
+    viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.15 21.85v-9.7H9.9v-9.5h4.2v9.5h5.75v9.7Zm.7-.7H7.9v-4h.7v4h3.05v-4h.7v4h3.05v-4h.7v4h3.05v-8.3H4.85Z"
+    d: "M679-420q11 0 21-.5t21-2.5q-7 112-88 188.5T440-158q-58 0-109.5-22t-90-60.5Q202-279 180-330.5T158-440q0-112 76.5-192.5T423-722q-2 11-2.5 21.5T420-679q-94 10-157 77.5T200-440q0 100 70 170t170 70q94 0 162.5-63T679-420Zm1-440q75 0 127.5 52.5T860-680q0 75-52.5 127.5T680-500q-75 0-127.5-52.5T500-680q0-75 52.5-127.5T680-860Zm0 318q57.5 0 97.75-40.25T818-680q0-57.5-40.25-97.75T680-818q-57.5 0-97.75 40.25T542-680q0 57.5 40.25 97.75T680-542Zm0-138ZM440-440Z"
   }));
 });
-IconMaterialCleaningServicesW100.displayName = 'AmauiIconMaterialCleaningServicesW100';
+IconMaterialCirclesW100.displayName = 'AmauiIconMaterialCirclesW100';
 
 
 const IconMaterialCleaningW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8139,6 +8126,19 @@ const IconMaterialCleaningW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialCleaningW100.displayName = 'AmauiIconMaterialCleaningW100';
+
+
+const IconMaterialCleaningServicesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CleaningServicesW100",
+    short_name: "CleaningServices",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.15 21.85v-9.7H9.9v-9.5h4.2v9.5h5.75v9.7Zm.7-.7H7.9v-4h.7v4h3.05v-4h.7v4h3.05v-4h.7v4h3.05v-8.3H4.85Z"
+  }));
+});
+IconMaterialCleaningServicesW100.displayName = 'AmauiIconMaterialCleaningServicesW100';
 
 
 const IconMaterialClearAllW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8232,19 +8232,6 @@ const IconMaterialClockLoader20W100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialClockLoader20W100.displayName = 'AmauiIconMaterialClockLoader20W100';
 
 
-const IconMaterialClockLoader60W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ClockLoader60W100",
-    short_name: "ClockLoader60",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480.174 924Q408 924 344.442 896.609q-63.559-27.392-110.575-74.348-47.015-46.957-74.441-110.435Q132 648.348 132 576.174q0-72.174 27.391-135.732 27.392-63.559 74.348-110.574 46.957-47.016 110.435-74.442Q407.652 228 479.826 228q72.174 0 135.732 27.391 63.559 27.392 110.574 74.348 47.016 46.957 74.442 110.435Q828 503.652 828 575.826q0 72.174-27.391 135.732-27.392 63.559-74.348 110.575-46.957 47.015-110.435 74.441Q552.348 924 480.174 924ZM253.835 802 480 576V256q-134 0-227 93t-93 227q0 64 24.5 122.5T253.835 802Z"
-  }));
-});
-IconMaterialClockLoader60W100.displayName = 'AmauiIconMaterialClockLoader60W100';
-
-
 const IconMaterialClockLoader40W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8256,6 +8243,19 @@ const IconMaterialClockLoader40W100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialClockLoader40W100.displayName = 'AmauiIconMaterialClockLoader40W100';
+
+
+const IconMaterialClockLoader60W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ClockLoader60W100",
+    short_name: "ClockLoader60",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480.174 924Q408 924 344.442 896.609q-63.559-27.392-110.575-74.348-47.015-46.957-74.441-110.435Q132 648.348 132 576.174q0-72.174 27.391-135.732 27.392-63.559 74.348-110.574 46.957-47.016 110.435-74.442Q407.652 228 479.826 228q72.174 0 135.732 27.391 63.559 27.392 110.574 74.348 47.016 46.957 74.442 110.435Q828 503.652 828 575.826q0 72.174-27.391 135.732-27.392 63.559-74.348 110.575-46.957 47.015-110.435 74.441Q552.348 924 480.174 924ZM253.835 802 480 576V256q-134 0-227 93t-93 227q0 64 24.5 122.5T253.835 802Z"
+  }));
+});
+IconMaterialClockLoader60W100.displayName = 'AmauiIconMaterialClockLoader60W100';
 
 
 const IconMaterialClockLoader80W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8284,19 +8284,6 @@ const IconMaterialClockLoader90W100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialClockLoader90W100.displayName = 'AmauiIconMaterialClockLoader90W100';
 
 
-const IconMaterialCloseFullscreenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CloseFullscreenW100",
-    short_name: "CloseFullscreen",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m4.05 20.425-.475-.475 7.25-7.25H5.3V12H12v6.7h-.7v-5.525ZM12 12V5.3h.7v5.525l7.25-7.25.475.475-7.25 7.25H18.7v.7Z"
-  }));
-});
-IconMaterialCloseFullscreenW100.displayName = 'AmauiIconMaterialCloseFullscreenW100';
-
-
 const IconMaterialCloseSmallW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8308,6 +8295,19 @@ const IconMaterialCloseSmallW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialCloseSmallW100.displayName = 'AmauiIconMaterialCloseSmallW100';
+
+
+const IconMaterialCloseFullscreenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CloseFullscreenW100",
+    short_name: "CloseFullscreen",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m4.05 20.425-.475-.475 7.25-7.25H5.3V12H12v6.7h-.7v-5.525ZM12 12V5.3h.7v5.525l7.25-7.25.475.475-7.25 7.25H18.7v.7Z"
+  }));
+});
+IconMaterialCloseFullscreenW100.displayName = 'AmauiIconMaterialCloseFullscreenW100';
 
 
 const IconMaterialCloseW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8349,19 +8349,6 @@ const IconMaterialClosedCaptionW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialClosedCaptionW100.displayName = 'AmauiIconMaterialClosedCaptionW100';
 
 
-const IconMaterialCloudCircleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CloudCircleW100",
-    short_name: "CloudCircle",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8.5 14.7H16q.725 0 1.212-.488.488-.487.488-1.212 0-.675-.475-1.188Q16.75 11.3 16 11.3h-1.3v-.775q0-1.15-.787-1.937-.788-.788-1.888-.788-1.1 0-1.875.712-.775.713-.85 1.788h-.8q-.9 0-1.55.662-.65.663-.65 1.513 0 .925.638 1.575.637.65 1.562.65Zm3.5 6q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-.7q3.325 0 5.663-2.337Q20 15.325 20 12t-2.337-5.663Q15.325 4 12 4T6.338 6.337Q4 8.675 4 12t2.338 5.663Q8.675 20 12 20Zm-3.5-6q-.625 0-1.062-.438Q7 13.125 7 12.5t.438-1.062Q7.875 11 8.5 11H10v-.5q0-.825.588-1.413Q11.175 8.5 12 8.5t1.413.587Q14 9.675 14 10.5V12h2q.425 0 .712.287.288.288.288.713t-.288.712Q16.425 14 16 14Zm3.5-2Z"
-  }));
-});
-IconMaterialCloudCircleW100.displayName = 'AmauiIconMaterialCloudCircleW100';
-
-
 const IconMaterialCloudDoneW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8373,6 +8360,19 @@ const IconMaterialCloudDoneW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialCloudDoneW100.displayName = 'AmauiIconMaterialCloudDoneW100';
+
+
+const IconMaterialCloudCircleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CloudCircleW100",
+    short_name: "CloudCircle",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8.5 14.7H16q.725 0 1.212-.488.488-.487.488-1.212 0-.675-.475-1.188Q16.75 11.3 16 11.3h-1.3v-.775q0-1.15-.787-1.937-.788-.788-1.888-.788-1.1 0-1.875.712-.775.713-.85 1.788h-.8q-.9 0-1.55.662-.65.663-.65 1.513 0 .925.638 1.575.637.65 1.562.65Zm3.5 6q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-.7q3.325 0 5.663-2.337Q20 15.325 20 12t-2.337-5.663Q15.325 4 12 4T6.338 6.337Q4 8.675 4 12t2.338 5.663Q8.675 20 12 20Zm-3.5-6q-.625 0-1.062-.438Q7 13.125 7 12.5t.438-1.062Q7.875 11 8.5 11H10v-.5q0-.825.588-1.413Q11.175 8.5 12 8.5t1.413.587Q14 9.675 14 10.5V12h2q.425 0 .712.287.288.288.288.713t-.288.712Q16.425 14 16 14Zm3.5-2Z"
+  }));
+});
+IconMaterialCloudCircleW100.displayName = 'AmauiIconMaterialCloudCircleW100';
 
 
 const IconMaterialCloudDownloadW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8427,19 +8427,6 @@ const IconMaterialCloudSyncW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialCloudSyncW100.displayName = 'AmauiIconMaterialCloudSyncW100';
 
 
-const IconMaterialCloudW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CloudW100",
-    short_name: "Cloud",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6.5 18.7q-1.75 0-2.975-1.225T2.3 14.5q0-1.65 1.175-2.925T6.35 10.3q.25-2.15 1.863-3.575Q9.825 5.3 12 5.3q2.375 0 4.038 1.663Q17.7 8.625 17.7 11v1.3h.8q1.35 0 2.275.925.925.925.925 2.275 0 1.35-.925 2.275-.925.925-2.275.925Zm0-.7h12q1.05 0 1.775-.725Q21 16.55 21 15.5q0-1.05-.725-1.775Q19.55 13 18.5 13H17v-2q0-2.075-1.462-3.538Q14.075 6 12 6 9.925 6 8.463 7.462 7 8.925 7 11h-.5q-1.45 0-2.475 1.025Q3 13.05 3 14.5q0 1.45 1.025 2.475Q5.05 18 6.5 18Zm5.5-6Z"
-  }));
-});
-IconMaterialCloudW100.displayName = 'AmauiIconMaterialCloudW100';
-
-
 const IconMaterialCloudUploadW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8464,6 +8451,19 @@ const IconMaterialCloudyFilledW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialCloudyFilledW100.displayName = 'AmauiIconMaterialCloudyFilledW100';
+
+
+const IconMaterialCloudW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CloudW100",
+    short_name: "Cloud",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6.5 18.7q-1.75 0-2.975-1.225T2.3 14.5q0-1.65 1.175-2.925T6.35 10.3q.25-2.15 1.863-3.575Q9.825 5.3 12 5.3q2.375 0 4.038 1.663Q17.7 8.625 17.7 11v1.3h.8q1.35 0 2.275.925.925.925.925 2.275 0 1.35-.925 2.275-.925.925-2.275.925Zm0-.7h12q1.05 0 1.775-.725Q21 16.55 21 15.5q0-1.05-.725-1.775Q19.55 13 18.5 13H17v-2q0-2.075-1.462-3.538Q14.075 6 12 6 9.925 6 8.463 7.462 7 8.925 7 11h-.5q-1.45 0-2.475 1.025Q3 13.05 3 14.5q0 1.45 1.025 2.475Q5.05 18 6.5 18Zm5.5-6Z"
+  }));
+});
+IconMaterialCloudW100.displayName = 'AmauiIconMaterialCloudW100';
 
 
 const IconMaterialCloudySnowingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8635,19 +8635,6 @@ const IconMaterialCollectionsBookmarkW100 = /*#__PURE__*/React.forwardRef((props
 IconMaterialCollectionsBookmarkW100.displayName = 'AmauiIconMaterialCollectionsBookmarkW100';
 
 
-const IconMaterialColorizeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ColorizeW100",
-    short_name: "Colorize",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.45 19.7v-2.9L13 8.25 11.1 6.4l.5-.5L14 8.25l3.875-3.875 1.9 1.9L15.85 10.2l2.4 2.4-.5.5-1.9-1.9-8.5 8.5Zm.7-.7H7.1l8.3-8.35-1.9-1.9-8.35 8.3ZM15.4 9.65l3.375-3.375-.9-.9L14.5 8.75Zm0 0-.9-.9.9.9Z"
-  }));
-});
-IconMaterialColorizeW100.displayName = 'AmauiIconMaterialColorizeW100';
-
-
 const IconMaterialColorsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8659,6 +8646,19 @@ const IconMaterialColorsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialColorsW100.displayName = 'AmauiIconMaterialColorsW100';
+
+
+const IconMaterialColorizeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ColorizeW100",
+    short_name: "Colorize",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.45 19.7v-2.9L13 8.25 11.1 6.4l.5-.5L14 8.25l3.875-3.875 1.9 1.9L15.85 10.2l2.4 2.4-.5.5-1.9-1.9-8.5 8.5Zm.7-.7H7.1l8.3-8.35-1.9-1.9-8.35 8.3ZM15.4 9.65l3.375-3.375-.9-.9L14.5 8.75Zm0 0-.9-.9.9.9Z"
+  }));
+});
+IconMaterialColorizeW100.displayName = 'AmauiIconMaterialColorizeW100';
 
 
 const IconMaterialComicBubbleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8752,19 +8752,6 @@ const IconMaterialCommunitiesW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialCommunitiesW100.displayName = 'AmauiIconMaterialCommunitiesW100';
 
 
-const IconMaterialCommuteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CommuteW100",
-    short_name: "Commute",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.875 19.65V13.8l1.4-4h7.6l1.4 4v5.85h-.7V17.9h-9v1.75Zm1-6.55h8.4l-.9-2.6h-6.6Zm-.3.7v3.4Zm1.6 2.45q.35 0 .6-.25t.25-.6q0-.35-.25-.6t-.6-.25q-.35 0-.6.25t-.25.6q0 .35.25.6t.6.25Zm5.8 0q.35 0 .6-.25t.25-.6q0-.35-.25-.6t-.6-.25q-.35 0-.6.25t-.25.6q0 .35.25.6t.6.25Zm-14.25 3.1v-.1l1.9-1.9q-1.625 0-2.763-.687Q2.725 15.975 2.725 15V6.35q0-.825 1.5-1.263 1.5-.437 4.35-.437 2.85 0 4.35.437 1.5.438 1.5 1.263V7.8h-.7V6.35h-10.3v7.3h5.45v5.7Zm.35-3.5q.35 0 .6-.25t.25-.6q0-.35-.25-.6t-.6-.25q-.35 0-.6.25t-.25.6q0 .35.25.6t.6.25Zm6.5 1.35h9v-3.4h-9Z"
-  }));
-});
-IconMaterialCommuteW100.displayName = 'AmauiIconMaterialCommuteW100';
-
-
 const IconMaterialCompareArrowsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8776,6 +8763,19 @@ const IconMaterialCompareArrowsW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialCompareArrowsW100.displayName = 'AmauiIconMaterialCompareArrowsW100';
+
+
+const IconMaterialCommuteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CommuteW100",
+    short_name: "Commute",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10.875 19.65V13.8l1.4-4h7.6l1.4 4v5.85h-.7V17.9h-9v1.75Zm1-6.55h8.4l-.9-2.6h-6.6Zm-.3.7v3.4Zm1.6 2.45q.35 0 .6-.25t.25-.6q0-.35-.25-.6t-.6-.25q-.35 0-.6.25t-.25.6q0 .35.25.6t.6.25Zm5.8 0q.35 0 .6-.25t.25-.6q0-.35-.25-.6t-.6-.25q-.35 0-.6.25t-.25.6q0 .35.25.6t.6.25Zm-14.25 3.1v-.1l1.9-1.9q-1.625 0-2.763-.687Q2.725 15.975 2.725 15V6.35q0-.825 1.5-1.263 1.5-.437 4.35-.437 2.85 0 4.35.437 1.5.438 1.5 1.263V7.8h-.7V6.35h-10.3v7.3h5.45v5.7Zm.35-3.5q.35 0 .6-.25t.25-.6q0-.35-.25-.6t-.6-.25q-.35 0-.6.25t-.25.6q0 .35.25.6t.6.25Zm6.5 1.35h9v-3.4h-9Z"
+  }));
+});
+IconMaterialCommuteW100.displayName = 'AmauiIconMaterialCommuteW100';
 
 
 const IconMaterialCompareW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8817,19 +8817,6 @@ const IconMaterialComponentExchangeW100 = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialComponentExchangeW100.displayName = 'AmauiIconMaterialComponentExchangeW100';
 
 
-const IconMaterialCompostW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CompostW100",
-    short_name: "Compost",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 19.35q-1.575 0-2.962-.6-1.388-.6-2.413-1.625T5 14.713q-.6-1.388-.6-2.963 0-1.575.6-2.963.6-1.387 1.625-2.412T9.038 4.75q1.387-.6 2.962-.6v-2l3.2 3.2-3.2 3.2v-2q-2.15 0-3.675 1.525T6.8 11.75q0 1.325.6 2.45.6 1.125 1.65 1.825.3-.55.938-.938.637-.387 1.462-.487-.075-.425-.175-.85-.1-.425-.225-.775-.225.175-.488.275-.262.1-.562.1-.65 0-1.125-.475T8.4 11.75v-.8q0-.35-.1-.638-.1-.287-.3-.562 1-.025 1.775.175.675.175 1.238.587.562.413.587 1.238 0 .2-.038.35-.037.15-.112.3-.25-.2-.512-.363-.263-.162-.538-.287.35.275.788.812.437.538.812 1.263.425-.975 1.013-1.925.587-.95 1.387-1.75-.45.325-.875.675-.425.35-.825.775-.125-.225-.212-.5-.088-.275-.088-.55 0-.825.588-1.413.587-.587 1.412-.587h.8q.45 0 .75-.125t.5-.275q.225-.175.35-.4.075 1.35-.125 2.4-.2.9-.7 1.65-.5.75-1.575.75-.3 0-.562-.088-.263-.087-.488-.212-.15.375-.325 1-.175.625-.275 1.35.75.15 1.325.525t.875.9q1.025-.7 1.637-1.813.613-1.112.613-2.462h2.4q0 1.575-.6 2.963-.6 1.387-1.625 2.412t-2.412 1.625q-1.388.6-2.963.6Z"
-  }));
-});
-IconMaterialCompostW100.displayName = 'AmauiIconMaterialCompostW100';
-
-
 const IconMaterialCompressW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8841,6 +8828,19 @@ const IconMaterialCompressW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialCompressW100.displayName = 'AmauiIconMaterialCompressW100';
+
+
+const IconMaterialCompostW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CompostW100",
+    short_name: "Compost",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 19.35q-1.575 0-2.962-.6-1.388-.6-2.413-1.625T5 14.713q-.6-1.388-.6-2.963 0-1.575.6-2.963.6-1.387 1.625-2.412T9.038 4.75q1.387-.6 2.962-.6v-2l3.2 3.2-3.2 3.2v-2q-2.15 0-3.675 1.525T6.8 11.75q0 1.325.6 2.45.6 1.125 1.65 1.825.3-.55.938-.938.637-.387 1.462-.487-.075-.425-.175-.85-.1-.425-.225-.775-.225.175-.488.275-.262.1-.562.1-.65 0-1.125-.475T8.4 11.75v-.8q0-.35-.1-.638-.1-.287-.3-.562 1-.025 1.775.175.675.175 1.238.587.562.413.587 1.238 0 .2-.038.35-.037.15-.112.3-.25-.2-.512-.363-.263-.162-.538-.287.35.275.788.812.437.538.812 1.263.425-.975 1.013-1.925.587-.95 1.387-1.75-.45.325-.875.675-.425.35-.825.775-.125-.225-.212-.5-.088-.275-.088-.55 0-.825.588-1.413.587-.587 1.412-.587h.8q.45 0 .75-.125t.5-.275q.225-.175.35-.4.075 1.35-.125 2.4-.2.9-.7 1.65-.5.75-1.575.75-.3 0-.562-.088-.263-.087-.488-.212-.15.375-.325 1-.175.625-.275 1.35.75.15 1.325.525t.875.9q1.025-.7 1.637-1.813.613-1.112.613-2.462h2.4q0 1.575-.6 2.963-.6 1.387-1.625 2.412t-2.412 1.625q-1.388.6-2.963.6Z"
+  }));
+});
+IconMaterialCompostW100.displayName = 'AmauiIconMaterialCompostW100';
 
 
 const IconMaterialComputerW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8908,19 +8908,6 @@ const IconMaterialCongenitalW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialCongenitalW100.displayName = 'AmauiIconMaterialCongenitalW100';
 
 
-const IconMaterialConnectWithoutContactW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ConnectWithoutContactW100",
-    short_name: "ConnectWithoutContact",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10 13.35q0-2.65 1.85-4.488 1.85-1.837 4.5-1.837v.7q-2.35 0-4 1.637Q10.7 11 10.7 13.35Zm2.7 0q0-1.525 1.063-2.588Q14.825 9.7 16.35 9.7v.7q-1.225 0-2.088.862-.862.863-.862 2.088ZM5.65 6q-.575 0-.962-.388Q4.3 5.225 4.3 4.65t.388-.963q.387-.387.962-.387t.963.387Q7 4.075 7 4.65t-.387.962Q6.225 6 5.65 6ZM3.3 11V9.15q0-.35.25-.6t.6-.25h3q1.225 0 2.15-.7.925-.7 1.3-1.8h.725q-.25 1.15-1.162 2Q9.25 8.65 8 8.925V11Zm15.05 4.7q-.575 0-.962-.388Q17 14.925 17 14.35t.388-.963q.387-.387.962-.387t.962.387q.388.388.388.963t-.388.962q-.387.388-.962.388Zm-2.35 5v-2.075q-1.2-.275-2.1-1.1-.9-.825-1.2-2.025h.7q.375 1.1 1.3 1.8t2.15.7h3q.35 0 .6.25t.25.6v1.85Z"
-  }));
-});
-IconMaterialConnectWithoutContactW100.displayName = 'AmauiIconMaterialConnectWithoutContactW100';
-
-
 const IconMaterialConnectedTvW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8934,17 +8921,17 @@ const IconMaterialConnectedTvW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialConnectedTvW100.displayName = 'AmauiIconMaterialConnectedTvW100';
 
 
-const IconMaterialConnectingAirportsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialConnectWithoutContactW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "ConnectingAirportsW100",
-    short_name: "ConnectingAirports",
+    name: "ConnectWithoutContactW100",
+    short_name: "ConnectWithoutContact",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m15.825 21-2.6-4.4H10q-.25 0-.425-.175T9.4 16q0-.25.175-.425T10 15.4h3.225l2.6-4.4h.35l-1.3 4.4h3.575l.75-1h.25l-.475 1.6.475 1.6h-.25l-.75-1h-3.575l1.3 4.4Zm-8-8 1.3-4.4H5.55l-.75 1h-.25L5.025 8 4.55 6.4h.25l.75 1h3.575L7.825 3h.35l2.6 4.4H14q.25 0 .425.175T14.6 8q0 .25-.175.425T14 8.6h-3.225l-2.6 4.4Z"
+    d: "M10 13.35q0-2.65 1.85-4.488 1.85-1.837 4.5-1.837v.7q-2.35 0-4 1.637Q10.7 11 10.7 13.35Zm2.7 0q0-1.525 1.063-2.588Q14.825 9.7 16.35 9.7v.7q-1.225 0-2.088.862-.862.863-.862 2.088ZM5.65 6q-.575 0-.962-.388Q4.3 5.225 4.3 4.65t.388-.963q.387-.387.962-.387t.963.387Q7 4.075 7 4.65t-.387.962Q6.225 6 5.65 6ZM3.3 11V9.15q0-.35.25-.6t.6-.25h3q1.225 0 2.15-.7.925-.7 1.3-1.8h.725q-.25 1.15-1.162 2Q9.25 8.65 8 8.925V11Zm15.05 4.7q-.575 0-.962-.388Q17 14.925 17 14.35t.388-.963q.387-.387.962-.387t.962.387q.388.388.388.963t-.388.962q-.387.388-.962.388Zm-2.35 5v-2.075q-1.2-.275-2.1-1.1-.9-.825-1.2-2.025h.7q.375 1.1 1.3 1.8t2.15.7h3q.35 0 .6.25t.25.6v1.85Z"
   }));
 });
-IconMaterialConnectingAirportsW100.displayName = 'AmauiIconMaterialConnectingAirportsW100';
+IconMaterialConnectWithoutContactW100.displayName = 'AmauiIconMaterialConnectWithoutContactW100';
 
 
 const IconMaterialConstructionW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8958,6 +8945,19 @@ const IconMaterialConstructionW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialConstructionW100.displayName = 'AmauiIconMaterialConstructionW100';
+
+
+const IconMaterialConnectingAirportsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ConnectingAirportsW100",
+    short_name: "ConnectingAirports",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m15.825 21-2.6-4.4H10q-.25 0-.425-.175T9.4 16q0-.25.175-.425T10 15.4h3.225l2.6-4.4h.35l-1.3 4.4h3.575l.75-1h.25l-.475 1.6.475 1.6h-.25l-.75-1h-3.575l1.3 4.4Zm-8-8 1.3-4.4H5.55l-.75 1h-.25L5.025 8 4.55 6.4h.25l.75 1h3.575L7.825 3h.35l2.6 4.4H14q.25 0 .425.175T14.6 8q0 .25-.175.425T14 8.6h-3.225l-2.6 4.4Z"
+  }));
+});
+IconMaterialConnectingAirportsW100.displayName = 'AmauiIconMaterialConnectingAirportsW100';
 
 
 const IconMaterialContactEmergencyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9051,19 +9051,6 @@ const IconMaterialContactlessW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialContactlessW100.displayName = 'AmauiIconMaterialContactlessW100';
 
 
-const IconMaterialContactsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ContactsW100",
-    short_name: "Contacts",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.65 20.9v-.7h14.7v.7Zm0-17.1v-.7h14.7v.7ZM12 14.3q.975 0 1.663-.688.687-.687.687-1.662 0-.975-.687-1.663Q12.975 9.6 12 9.6q-.975 0-1.662.687-.688.688-.688 1.663 0 .975.688 1.662.687.688 1.662.688Zm-8.7 4.4V5.3h17.4v13.4ZM4 18h3.45q1.125-.9 2.25-1.3t2.3-.4q1.175 0 2.3.4 1.125.4 2.25 1.3H20V6H4Zm4.7 0h6.6q-.725-.5-1.562-.75Q12.9 17 12 17t-1.737.25q-.838.25-1.563.75Zm3.3-4.4q-.675 0-1.162-.487-.488-.488-.488-1.163t.488-1.163Q11.325 10.3 12 10.3q.675 0 1.163.487.487.488.487 1.163t-.487 1.163q-.488.487-1.163.487Zm0-1.6Z"
-  }));
-});
-IconMaterialContactsW100.displayName = 'AmauiIconMaterialContactsW100';
-
-
 const IconMaterialContactsProductW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9075,6 +9062,19 @@ const IconMaterialContactsProductW100 = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialContactsProductW100.displayName = 'AmauiIconMaterialContactsProductW100';
+
+
+const IconMaterialContactsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ContactsW100",
+    short_name: "Contacts",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.65 20.9v-.7h14.7v.7Zm0-17.1v-.7h14.7v.7ZM12 14.3q.975 0 1.663-.688.687-.687.687-1.662 0-.975-.687-1.663Q12.975 9.6 12 9.6q-.975 0-1.662.687-.688.688-.688 1.663 0 .975.688 1.662.687.688 1.662.688Zm-8.7 4.4V5.3h17.4v13.4ZM4 18h3.45q1.125-.9 2.25-1.3t2.3-.4q1.175 0 2.3.4 1.125.4 2.25 1.3H20V6H4Zm4.7 0h6.6q-.725-.5-1.562-.75Q12.9 17 12 17t-1.737.25q-.838.25-1.563.75Zm3.3-4.4q-.675 0-1.162-.487-.488-.488-.488-1.163t.488-1.163Q11.325 10.3 12 10.3q.675 0 1.163.487.487.488.487 1.163t-.487 1.163q-.488.487-1.163.487Zm0-1.6Z"
+  }));
+});
+IconMaterialContactsW100.displayName = 'AmauiIconMaterialContactsW100';
 
 
 const IconMaterialContentCopyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9103,19 +9103,6 @@ const IconMaterialContentCutW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialContentCutW100.displayName = 'AmauiIconMaterialContentCutW100';
 
 
-const IconMaterialContentPasteGoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ContentPasteGoW100",
-    short_name: "ContentPasteGo",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.3 19.7V4.3h6.275q.1-.5.487-.85.388-.35.938-.35.55 0 .938.35.387.35.487.85H19.7v7.625H19V5h-3.3v2H8.3V5H5v14h5.65v.7Zm13.7.375-.5-.5 2.225-2.225H12.65v-.7h7.075L17.5 14.425l.5-.5L21.075 17ZM12 5.3q.325 0 .538-.212.212-.213.212-.538 0-.325-.212-.538Q12.325 3.8 12 3.8q-.325 0-.537.212-.213.213-.213.538 0 .325.213.538.212.212.537.212Z"
-  }));
-});
-IconMaterialContentPasteGoW100.displayName = 'AmauiIconMaterialContentPasteGoW100';
-
-
 const IconMaterialContentPasteOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9140,6 +9127,19 @@ const IconMaterialContentPasteSearchW100 = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialContentPasteSearchW100.displayName = 'AmauiIconMaterialContentPasteSearchW100';
+
+
+const IconMaterialContentPasteGoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ContentPasteGoW100",
+    short_name: "ContentPasteGo",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.3 19.7V4.3h6.275q.1-.5.487-.85.388-.35.938-.35.55 0 .938.35.387.35.487.85H19.7v7.625H19V5h-3.3v2H8.3V5H5v14h5.65v.7Zm13.7.375-.5-.5 2.225-2.225H12.65v-.7h7.075L17.5 14.425l.5-.5L21.075 17ZM12 5.3q.325 0 .538-.212.212-.213.212-.538 0-.325-.212-.538Q12.325 3.8 12 3.8q-.325 0-.537.212-.213.213-.213.538 0 .325.213.538.212.212.537.212Z"
+  }));
+});
+IconMaterialContentPasteGoW100.displayName = 'AmauiIconMaterialContentPasteGoW100';
 
 
 const IconMaterialContentPasteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9168,19 +9168,6 @@ const IconMaterialContractDeleteW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialContractDeleteW100.displayName = 'AmauiIconMaterialContractDeleteW100';
 
 
-const IconMaterialContractEditW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ContractEditW100",
-    short_name: "ContractEdit",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M240-132q-29 0-48.5-19.5T172-200v-108h120v-520h496v246l-28 28v-246H320v492h194l-28 28H200v80q0 17 11.5 28.5T240-160h220v28H240Zm320 0v-81l162-162 20 19-154 154v42h42l154-154 20 20-162 162h-82Zm244-162-82-81 64-64 82 82-64 63ZM380-632v-28h320v28H380Zm0 108v-28h320v28H380Zm80 364H200h260Z"
-  }));
-});
-IconMaterialContractEditW100.displayName = 'AmauiIconMaterialContractEditW100';
-
-
 const IconMaterialContractW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9192,6 +9179,19 @@ const IconMaterialContractW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialContractW100.displayName = 'AmauiIconMaterialContractW100';
+
+
+const IconMaterialContractEditW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ContractEditW100",
+    short_name: "ContractEdit",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M240-132q-29 0-48.5-19.5T172-200v-108h120v-520h496v246l-28 28v-246H320v492h194l-28 28H200v80q0 17 11.5 28.5T240-160h220v28H240Zm320 0v-81l162-162 20 19-154 154v42h42l154-154 20 20-162 162h-82Zm244-162-82-81 64-64 82 82-64 63ZM380-632v-28h320v28H380Zm0 108v-28h320v28H380Zm80 364H200h260Z"
+  }));
+});
+IconMaterialContractEditW100.displayName = 'AmauiIconMaterialContractEditW100';
 
 
 const IconMaterialContrastRtlOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9220,19 +9220,6 @@ const IconMaterialContrastW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialContrastW100.displayName = 'AmauiIconMaterialContrastW100';
 
 
-const IconMaterialControlCameraW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ControlCameraW100",
-    short_name: "ControlCamera",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 13.7q-.725 0-1.212-.488Q10.3 12.725 10.3 12t.488-1.213Q11.275 10.3 12 10.3t1.213.487q.487.488.487 1.213 0 .725-.487 1.212-.488.488-1.213.488Zm0 6.5-3.35-3.35.5-.5L12 19.2l2.85-2.85.5.5Zm-4.85-4.85L3.8 12l3.35-3.35.5.5L4.8 12l2.85 2.85Zm2-7.7-.5-.5L12 3.8l3.35 3.35-.5.5L12 4.8Zm7.7 7.7-.5-.5L19.2 12l-2.85-2.85.5-.5L20.2 12Z"
-  }));
-});
-IconMaterialControlCameraW100.displayName = 'AmauiIconMaterialControlCameraW100';
-
-
 const IconMaterialControlPointDuplicateW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9244,6 +9231,19 @@ const IconMaterialControlPointDuplicateW100 = /*#__PURE__*/React.forwardRef((pro
   }));
 });
 IconMaterialControlPointDuplicateW100.displayName = 'AmauiIconMaterialControlPointDuplicateW100';
+
+
+const IconMaterialControlCameraW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ControlCameraW100",
+    short_name: "ControlCamera",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 13.7q-.725 0-1.212-.488Q10.3 12.725 10.3 12t.488-1.213Q11.275 10.3 12 10.3t1.213.487q.487.488.487 1.213 0 .725-.487 1.212-.488.488-1.213.488Zm0 6.5-3.35-3.35.5-.5L12 19.2l2.85-2.85.5.5Zm-4.85-4.85L3.8 12l3.35-3.35.5.5L4.8 12l2.85 2.85Zm2-7.7-.5-.5L12 3.8l3.35 3.35-.5.5L12 4.8Zm7.7 7.7-.5-.5L19.2 12l-2.85-2.85.5-.5L20.2 12Z"
+  }));
+});
+IconMaterialControlCameraW100.displayName = 'AmauiIconMaterialControlCameraW100';
 
 
 const IconMaterialControllerGenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9259,19 +9259,6 @@ const IconMaterialControllerGenW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialControllerGenW100.displayName = 'AmauiIconMaterialControllerGenW100';
 
 
-const IconMaterialConversionPathOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ConversionPathOffW100",
-    short_name: "ConversionPathOff",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M852 988 90 226l20-20 762 762-20 20ZM440 830q-56 0-95-39t-39-95q0-56 39-95t95-39h26l28 28h-54q-44 0-75 31t-31 75q0 44 31 75t75 31h266l97 97q-10 5-20.5 8t-22.5 3q-35 0-61.5-22.5T667 830H440Zm412 6L740 724q5-1 10-1.5t10-.5q39 0 66.5 27.5T854 816q0 5-.5 10t-1.5 10ZM588 572l-21-21q26-13 42.5-38.5T626 456q0-44-31-75t-75-31H366l-28-28h182q56 0 95 39t39 95q0 37-18 68t-48 48ZM200 430q-39 0-66.5-27.5T106 336q0-27 14-49t37-34l127 127q-12 23-35 36.5T200 430Z"
-  }));
-});
-IconMaterialConversionPathOffW100.displayName = 'AmauiIconMaterialConversionPathOffW100';
-
-
 const IconMaterialConversionPathW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9283,6 +9270,19 @@ const IconMaterialConversionPathW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialConversionPathW100.displayName = 'AmauiIconMaterialConversionPathW100';
+
+
+const IconMaterialConversionPathOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ConversionPathOffW100",
+    short_name: "ConversionPathOff",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M852 988 90 226l20-20 762 762-20 20ZM440 830q-56 0-95-39t-39-95q0-56 39-95t95-39h26l28 28h-54q-44 0-75 31t-31 75q0 44 31 75t75 31h266l97 97q-10 5-20.5 8t-22.5 3q-35 0-61.5-22.5T667 830H440Zm412 6L740 724q5-1 10-1.5t10-.5q39 0 66.5 27.5T854 816q0 5-.5 10t-1.5 10ZM588 572l-21-21q26-13 42.5-38.5T626 456q0-44-31-75t-75-31H366l-28-28h182q56 0 95 39t39 95q0 37-18 68t-48 48ZM200 430q-39 0-66.5-27.5T106 336q0-27 14-49t37-34l127 127q-12 23-35 36.5T200 430Z"
+  }));
+});
+IconMaterialConversionPathOffW100.displayName = 'AmauiIconMaterialConversionPathOffW100';
 
 
 const IconMaterialConveyorBeltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9350,6 +9350,19 @@ const IconMaterialCoolToDryW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialCoolToDryW100.displayName = 'AmauiIconMaterialCoolToDryW100';
 
 
+const IconMaterialCopyAllW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CopyAllW100",
+    short_name: "CopyAll",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M7.65 17.35V2.65h11.7v14.7Zm.7-.7h10.3V3.35H8.35Zm-4.7-2h.7v-2h-.7Zm0-4h.7v-2h-.7Zm6.7 10.7h2v-.7h-2Zm-6.7-2.7h.7v-2h-.7Zm0 2.7h.7v-.7h-.7Zm2.7 0h2v-.7h-2Zm8 0h.7v-.7h-.7ZM3.65 6.65h.7v-.7h-.7Z"
+  }));
+});
+IconMaterialCopyAllW100.displayName = 'AmauiIconMaterialCopyAllW100';
+
+
 const IconMaterialCopyrightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9402,32 +9415,6 @@ const IconMaterialCottageW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialCottageW100.displayName = 'AmauiIconMaterialCottageW100';
 
 
-const IconMaterialCounter0W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Counter0W100",
-    short_name: "Counter0",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480.174 924Q408 924 344.442 896.609q-63.559-27.392-110.575-74.348-47.015-46.957-74.441-110.435Q132 648.348 132 576.174q0-72.174 27.391-135.732 27.392-63.559 74.348-110.574 46.957-47.016 110.435-74.442Q407.652 228 479.826 228q72.174 0 135.732 27.391 63.559 27.392 110.574 74.348 47.016 46.957 74.442 110.435Q828 503.652 828 575.826q0 72.174-27.391 135.732-27.392 63.559-74.348 110.575-46.957 47.015-110.435 74.441Q552.348 924 480.174 924ZM480 896q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Zm-94 174h188V402H386v348Zm28-28V430h132v292H414Z"
-  }));
-});
-IconMaterialCounter0W100.displayName = 'AmauiIconMaterialCounter0W100';
-
-
-const IconMaterialCopyAllW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CopyAllW100",
-    short_name: "CopyAll",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.65 17.35V2.65h11.7v14.7Zm.7-.7h10.3V3.35H8.35Zm-4.7-2h.7v-2h-.7Zm0-4h.7v-2h-.7Zm6.7 10.7h2v-.7h-2Zm-6.7-2.7h.7v-2h-.7Zm0 2.7h.7v-.7h-.7Zm2.7 0h2v-.7h-2Zm8 0h.7v-.7h-.7ZM3.65 6.65h.7v-.7h-.7Z"
-  }));
-});
-IconMaterialCopyAllW100.displayName = 'AmauiIconMaterialCopyAllW100';
-
-
 const IconMaterialCounter1W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9439,6 +9426,19 @@ const IconMaterialCounter1W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialCounter1W100.displayName = 'AmauiIconMaterialCounter1W100';
+
+
+const IconMaterialCounter0W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Counter0W100",
+    short_name: "Counter0",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480.174 924Q408 924 344.442 896.609q-63.559-27.392-110.575-74.348-47.015-46.957-74.441-110.435Q132 648.348 132 576.174q0-72.174 27.391-135.732 27.392-63.559 74.348-110.574 46.957-47.016 110.435-74.442Q407.652 228 479.826 228q72.174 0 135.732 27.391 63.559 27.392 110.574 74.348 47.016 46.957 74.442 110.435Q828 503.652 828 575.826q0 72.174-27.391 135.732-27.392 63.559-74.348 110.575-46.957 47.015-110.435 74.441Q552.348 924 480.174 924ZM480 896q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Zm-94 174h188V402H386v348Zm28-28V430h132v292H414Z"
+  }));
+});
+IconMaterialCounter0W100.displayName = 'AmauiIconMaterialCounter0W100';
 
 
 const IconMaterialCounter2W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9454,19 +9454,6 @@ const IconMaterialCounter2W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialCounter2W100.displayName = 'AmauiIconMaterialCounter2W100';
 
 
-const IconMaterialCounter4W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Counter4W100",
-    short_name: "Counter4",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480.174 924Q408 924 344.442 896.609q-63.559-27.392-110.575-74.348-47.015-46.957-74.441-110.435Q132 648.348 132 576.174q0-72.174 27.391-135.732 27.392-63.559 74.348-110.574 46.957-47.016 110.435-74.442Q407.652 228 479.826 228q72.174 0 135.732 27.391 63.559 27.392 110.574 74.348 47.016 46.957 74.442 110.435Q828 503.652 828 575.826q0 72.174-27.391 135.732-27.392 63.559-74.348 110.575-46.957 47.015-110.435 74.441Q552.348 924 480.174 924ZM480 896q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Zm66 174h28V402h-28v160H414V402h-28v188h160v160Z"
-  }));
-});
-IconMaterialCounter4W100.displayName = 'AmauiIconMaterialCounter4W100';
-
-
 const IconMaterialCounter3W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9478,6 +9465,19 @@ const IconMaterialCounter3W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialCounter3W100.displayName = 'AmauiIconMaterialCounter3W100';
+
+
+const IconMaterialCounter4W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Counter4W100",
+    short_name: "Counter4",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480.174 924Q408 924 344.442 896.609q-63.559-27.392-110.575-74.348-47.015-46.957-74.441-110.435Q132 648.348 132 576.174q0-72.174 27.391-135.732 27.392-63.559 74.348-110.574 46.957-47.016 110.435-74.442Q407.652 228 479.826 228q72.174 0 135.732 27.391 63.559 27.392 110.574 74.348 47.016 46.957 74.442 110.435Q828 503.652 828 575.826q0 72.174-27.391 135.732-27.392 63.559-74.348 110.575-46.957 47.015-110.435 74.441Q552.348 924 480.174 924ZM480 896q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Zm66 174h28V402h-28v160H414V402h-28v188h160v160Z"
+  }));
+});
+IconMaterialCounter4W100.displayName = 'AmauiIconMaterialCounter4W100';
 
 
 const IconMaterialCounter5W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9519,19 +9519,6 @@ const IconMaterialCounter7W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialCounter7W100.displayName = 'AmauiIconMaterialCounter7W100';
 
 
-const IconMaterialCounter8W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Counter8W100",
-    short_name: "Counter8",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480.174 924Q408 924 344.442 896.609q-63.559-27.392-110.575-74.348-47.015-46.957-74.441-110.435Q132 648.348 132 576.174q0-72.174 27.391-135.732 27.392-63.559 74.348-110.574 46.957-47.016 110.435-74.442Q407.652 228 479.826 228q72.174 0 135.732 27.391 63.559 27.392 110.574 74.348 47.016 46.957 74.442 110.435Q828 503.652 828 575.826q0 72.174-27.391 135.732-27.392 63.559-74.348 110.575-46.957 47.015-110.435 74.441Q552.348 924 480.174 924ZM480 896q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Zm-94 174h188V590l-14-14 14-14V402H386v160l14 14-14 14v160Zm28-188V430h132v132H414Zm0 160V590h132v132H414Z"
-  }));
-});
-IconMaterialCounter8W100.displayName = 'AmauiIconMaterialCounter8W100';
-
-
 const IconMaterialCounter9W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9545,17 +9532,17 @@ const IconMaterialCounter9W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialCounter9W100.displayName = 'AmauiIconMaterialCounter9W100';
 
 
-const IconMaterialCountertopsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialCounter8W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "CountertopsW100",
-    short_name: "Countertops",
-    viewBox: "0 0 24 24"
+    name: "Counter8W100",
+    short_name: "Counter8",
+    viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6.7 17.3v-5.75H5.1v-.7h2.75q-.475 0-.813-.338Q6.7 10.175 6.7 9.7v-3h3.9v3q0 .475-.337.812-.338.338-.813.338H15v-2.2q0-.525-.363-.888-.362-.362-.887-.362-.4 0-.725.225-.325.225-.45.575h-.725q.15-.65.675-1.075.525-.425 1.225-.425.825 0 1.388.562.562.563.562 1.388v2.2h3.2v.7h-1.6v5.75Zm.7-7.15h2.5V7.4H7.4Zm0 6.45h4.25v-5.05H7.4Zm4.95 0h4.25v-5.05h-4.25ZM7.4 10.15h2.5Zm4.6 3.925Z"
+    d: "M480.174 924Q408 924 344.442 896.609q-63.559-27.392-110.575-74.348-47.015-46.957-74.441-110.435Q132 648.348 132 576.174q0-72.174 27.391-135.732 27.392-63.559 74.348-110.574 46.957-47.016 110.435-74.442Q407.652 228 479.826 228q72.174 0 135.732 27.391 63.559 27.392 110.574 74.348 47.016 46.957 74.442 110.435Q828 503.652 828 575.826q0 72.174-27.391 135.732-27.392 63.559-74.348 110.575-46.957 47.015-110.435 74.441Q552.348 924 480.174 924ZM480 896q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Zm-94 174h188V590l-14-14 14-14V402H386v160l14 14-14 14v160Zm28-188V430h132v132H414Zm0 160V590h132v132H414Z"
   }));
 });
-IconMaterialCountertopsW100.displayName = 'AmauiIconMaterialCountertopsW100';
+IconMaterialCounter8W100.displayName = 'AmauiIconMaterialCounter8W100';
 
 
 const IconMaterialCreateNewFolderW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9569,6 +9556,19 @@ const IconMaterialCreateNewFolderW100 = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialCreateNewFolderW100.displayName = 'AmauiIconMaterialCreateNewFolderW100';
+
+
+const IconMaterialCountertopsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CountertopsW100",
+    short_name: "Countertops",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6.7 17.3v-5.75H5.1v-.7h2.75q-.475 0-.813-.338Q6.7 10.175 6.7 9.7v-3h3.9v3q0 .475-.337.812-.338.338-.813.338H15v-2.2q0-.525-.363-.888-.362-.362-.887-.362-.4 0-.725.225-.325.225-.45.575h-.725q.15-.65.675-1.075.525-.425 1.225-.425.825 0 1.388.562.562.563.562 1.388v2.2h3.2v.7h-1.6v5.75Zm.7-7.15h2.5V7.4H7.4Zm0 6.45h4.25v-5.05H7.4Zm4.95 0h4.25v-5.05h-4.25ZM7.4 10.15h2.5Zm4.6 3.925Z"
+  }));
+});
+IconMaterialCountertopsW100.displayName = 'AmauiIconMaterialCountertopsW100';
 
 
 const IconMaterialCreditCardGearW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9805,19 +9805,6 @@ const IconMaterialCropW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialCropW100.displayName = 'AmauiIconMaterialCropW100';
 
 
-const IconMaterialCrosswordW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CrosswordW100",
-    short_name: "Crossword",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M382-160h195v-194H382v194ZM160-382h194v-195H160v195Zm222 0h195v-195H382v195Zm223 0h195v-195H605v195Zm0-223h195v-195H605v195ZM354-132v-222H132v-251h445v-223h251v474H605v222H354Z"
-  }));
-});
-IconMaterialCrosswordW100.displayName = 'AmauiIconMaterialCrosswordW100';
-
-
 const IconMaterialCrowdsourceW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9894,6 +9881,19 @@ const IconMaterialCurrencyExchangeW100 = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialCurrencyExchangeW100.displayName = 'AmauiIconMaterialCurrencyExchangeW100';
+
+
+const IconMaterialCrosswordW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CrosswordW100",
+    short_name: "Crossword",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M382-160h195v-194H382v194ZM160-382h194v-195H160v195Zm222 0h195v-195H382v195Zm223 0h195v-195H605v195Zm0-223h195v-195H605v195ZM354-132v-222H132v-251h445v-223h251v474H605v222H354Z"
+  }));
+});
+IconMaterialCrosswordW100.displayName = 'AmauiIconMaterialCrosswordW100';
 
 
 const IconMaterialCurrencyFrancW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10052,19 +10052,6 @@ const IconMaterialCycleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialCycleW100.displayName = 'AmauiIconMaterialCycleW100';
 
 
-const IconMaterialCycloneW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CycloneW100",
-    short_name: "Cyclone",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 14.7q-1.125 0-1.912-.788Q9.3 13.125 9.3 12t.788-1.913Q10.875 9.3 12 9.3t1.913.787q.787.788.787 1.913t-.787 1.912q-.788.788-1.913.788Zm0-.7q.825 0 1.413-.588Q14 12.825 14 12t-.587-1.413Q12.825 10 12 10q-.825 0-1.412.587Q10 11.175 10 12q0 .825.588 1.412Q11.175 14 12 14Zm5.2 6.85q.35-1.35.538-2.775.187-1.425.237-2.95-.825 1.575-2.45 2.575-1.625 1-3.525 1-4 0-5.688-.162-1.687-.163-3.162-.588v-.75q1.4.425 2.825.6 1.425.175 2.95.175-1.475-.65-2.55-2.313Q5.3 14 5.3 12q0-2.35.188-4.663.187-2.312.537-4.187h.75Q6.45 4.8 6.3 6.112q-.15 1.313-.275 2.813.725-1.55 2.35-2.587Q10 5.3 12 5.3q3.175 0 5.138.163 1.962.162 3.712.562v.75q-1.4-.35-2.9-.537Q16.45 6.05 15.1 6q1.675.9 2.638 2.537.962 1.638.962 3.463 0 3.55-.2 5.462-.2 1.913-.55 3.388ZM12 18q2.5 0 4.25-1.75T18 12q0-2.5-1.75-4.25T12 6Q9.5 6 7.75 7.75T6 12q0 2.5 1.75 4.25T12 18Z"
-  }));
-});
-IconMaterialCycloneW100.displayName = 'AmauiIconMaterialCycloneW100';
-
-
 const IconMaterialDangerousW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -10089,6 +10076,19 @@ const IconMaterialDarkModeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialDarkModeW100.displayName = 'AmauiIconMaterialDarkModeW100';
+
+
+const IconMaterialCycloneW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CycloneW100",
+    short_name: "Cyclone",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 14.7q-1.125 0-1.912-.788Q9.3 13.125 9.3 12t.788-1.913Q10.875 9.3 12 9.3t1.913.787q.787.788.787 1.913t-.787 1.912q-.788.788-1.913.788Zm0-.7q.825 0 1.413-.588Q14 12.825 14 12t-.587-1.413Q12.825 10 12 10q-.825 0-1.412.587Q10 11.175 10 12q0 .825.588 1.412Q11.175 14 12 14Zm5.2 6.85q.35-1.35.538-2.775.187-1.425.237-2.95-.825 1.575-2.45 2.575-1.625 1-3.525 1-4 0-5.688-.162-1.687-.163-3.162-.588v-.75q1.4.425 2.825.6 1.425.175 2.95.175-1.475-.65-2.55-2.313Q5.3 14 5.3 12q0-2.35.188-4.663.187-2.312.537-4.187h.75Q6.45 4.8 6.3 6.112q-.15 1.313-.275 2.813.725-1.55 2.35-2.587Q10 5.3 12 5.3q3.175 0 5.138.163 1.962.162 3.712.562v.75q-1.4-.35-2.9-.537Q16.45 6.05 15.1 6q1.675.9 2.638 2.537.962 1.638.962 3.463 0 3.55-.2 5.462-.2 1.913-.55 3.388ZM12 18q2.5 0 4.25-1.75T18 12q0-2.5-1.75-4.25T12 6Q9.5 6 7.75 7.75T6 12q0 2.5 1.75 4.25T12 18Z"
+  }));
+});
+IconMaterialCycloneW100.displayName = 'AmauiIconMaterialCycloneW100';
 
 
 const IconMaterialDashboardCustomizeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10286,19 +10286,6 @@ const IconMaterialDatasetLinkedW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialDatasetLinkedW100.displayName = 'AmauiIconMaterialDatasetLinkedW100';
 
 
-const IconMaterialDateRangeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DateRangeW100",
-    short_name: "DateRange",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8 13.85q-.275 0-.487-.213-.213-.212-.213-.487t.213-.488q.212-.212.487-.212t.488.212q.212.213.212.488t-.212.487q-.213.213-.488.213Zm4 0q-.275 0-.487-.213-.213-.212-.213-.487t.213-.488q.212-.212.487-.212t.488.212q.212.213.212.488t-.212.487q-.213.213-.488.213Zm4 0q-.275 0-.487-.213-.213-.212-.213-.487t.213-.488q.212-.212.487-.212t.488.212q.212.213.212.488t-.212.487q-.213.213-.488.213ZM4.3 5.3h3.5V3h.8v2.3h6.9V3h.7v2.3h3.5v15.4H4.3ZM5 20h14v-9.2H5Zm0-9.9h14V6H5Zm0 0V6v4.1Z"
-  }));
-});
-IconMaterialDateRangeW100.displayName = 'AmauiIconMaterialDateRangeW100';
-
-
 const IconMaterialDatasetW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -10310,6 +10297,19 @@ const IconMaterialDatasetW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialDatasetW100.displayName = 'AmauiIconMaterialDatasetW100';
+
+
+const IconMaterialDateRangeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DateRangeW100",
+    short_name: "DateRange",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8 13.85q-.275 0-.487-.213-.213-.212-.213-.487t.213-.488q.212-.212.487-.212t.488.212q.212.213.212.488t-.212.487q-.213.213-.488.213Zm4 0q-.275 0-.487-.213-.213-.212-.213-.487t.213-.488q.212-.212.487-.212t.488.212q.212.213.212.488t-.212.487q-.213.213-.488.213Zm4 0q-.275 0-.487-.213-.213-.212-.213-.487t.213-.488q.212-.212.487-.212t.488.212q.212.213.212.488t-.212.487q-.213.213-.488.213ZM4.3 5.3h3.5V3h.8v2.3h6.9V3h.7v2.3h3.5v15.4H4.3ZM5 20h14v-9.2H5Zm0-9.9h14V6H5Zm0 0V6v4.1Z"
+  }));
+});
+IconMaterialDateRangeW100.displayName = 'AmauiIconMaterialDateRangeW100';
 
 
 const IconMaterialDeblurW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10364,19 +10364,6 @@ const IconMaterialDecimalIncreaseW100 = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialDecimalIncreaseW100.displayName = 'AmauiIconMaterialDecimalIncreaseW100';
 
 
-const IconMaterialDeckW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DeckW100",
-    short_name: "Deck",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.65 21.35v-13h-7.6L12 2.8l7.95 5.55h-7.6v13ZM12 7.65h5.7H6.3Zm-8.35 13.7V16.2l-.7-3.85.7-.1.7 3.9h4v5.2h-.7v-4.5h-3.3v4.5Zm12 0v-5.2h4l.7-3.9.7.1-.7 3.85v5.15h-.7v-4.5h-3.3v4.5ZM6.3 7.65h11.4l-5.7-4Z"
-  }));
-});
-IconMaterialDeckW100.displayName = 'AmauiIconMaterialDeckW100';
-
-
 const IconMaterialDehazeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -10416,17 +10403,17 @@ const IconMaterialDeleteHistoryW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialDeleteHistoryW100.displayName = 'AmauiIconMaterialDeleteHistoryW100';
 
 
-const IconMaterialDeleteSweepW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialDeckW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "DeleteSweepW100",
-    short_name: "DeleteSweep",
+    name: "DeckW100",
+    short_name: "Deck",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M14.85 17.35v-.7h2.7v.7Zm0-8v-.7h5.7v.7Zm0 4v-.7h4.7v.7ZM4.45 8h-1v-.7H7.1v-.7h2.1v.7h3.65V8h-1v9.7h-7.4Zm.7 0v9h6V8Zm0 0v9Z"
+    d: "M11.65 21.35v-13h-7.6L12 2.8l7.95 5.55h-7.6v13ZM12 7.65h5.7H6.3Zm-8.35 13.7V16.2l-.7-3.85.7-.1.7 3.9h4v5.2h-.7v-4.5h-3.3v4.5Zm12 0v-5.2h4l.7-3.9.7.1-.7 3.85v5.15h-.7v-4.5h-3.3v4.5ZM6.3 7.65h11.4l-5.7-4Z"
   }));
 });
-IconMaterialDeleteSweepW100.displayName = 'AmauiIconMaterialDeleteSweepW100';
+IconMaterialDeckW100.displayName = 'AmauiIconMaterialDeckW100';
 
 
 const IconMaterialDeleteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10440,6 +10427,19 @@ const IconMaterialDeleteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialDeleteW100.displayName = 'AmauiIconMaterialDeleteW100';
+
+
+const IconMaterialDeleteSweepW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DeleteSweepW100",
+    short_name: "DeleteSweep",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M14.85 17.35v-.7h2.7v.7Zm0-8v-.7h5.7v.7Zm0 4v-.7h4.7v.7ZM4.45 8h-1v-.7H7.1v-.7h2.1v.7h3.65V8h-1v9.7h-7.4Zm.7 0v9h6V8Zm0 0v9Z"
+  }));
+});
+IconMaterialDeleteSweepW100.displayName = 'AmauiIconMaterialDeleteSweepW100';
 
 
 const IconMaterialDemographyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10494,19 +10494,6 @@ const IconMaterialDensitySmallW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialDensitySmallW100.displayName = 'AmauiIconMaterialDensitySmallW100';
 
 
-const IconMaterialDentistryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DentistryW100",
-    short_name: "Dentistry",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16.75 3.425q1.125.025 1.913.8.787.775.787 1.9 0 .225-.025.637-.025.413-.1.988l-1.4 10.075q-.05.475-.412.75-.363.275-.838.275-.35 0-.6-.212-.25-.213-.45-.488l-3.05-4.075q-.125-.15-.263-.25-.137-.1-.337-.1t-.6.4L8.4 18.075q-.225.275-.5.525t-.625.25q-.475 0-.825-.288-.35-.287-.4-.762L4.675 7.75q-.075-.575-.1-.988-.025-.412-.025-.637 0-1.125.788-1.913.787-.787 1.912-.787.675 0 1.188.237.512.238 1.012.513t1.1.513q.6.237 1.45.237.875 0 1.488-.237.612-.238 1.112-.513.5-.275 1-.513.5-.237 1.15-.237Zm0 .7q-.575 0-1.012.237-.438.238-.938.513-.5.275-1.15.512-.65.238-1.65.238-.95 0-1.6-.238-.65-.237-1.15-.512-.5-.275-.963-.513-.462-.237-1.037-.237-.825 0-1.412.588-.588.587-.588 1.412 0 .2.025.575.025.375.1.875L6.75 17.7q.025.2.175.312.15.113.35.113.2 0 .338-.163.137-.162.262-.337l2.925-3.9q.225-.3.525-.5.3-.2.675-.2.35 0 .663.2.312.2.537.5l2.95 3.975q.125.15.238.3.112.15.312.15t.362-.112q.163-.113.188-.313l1.375-10.15q.075-.5.1-.875.025-.375.025-.575 0-.825-.587-1.412-.588-.588-1.413-.588Zm-4.75 7Z"
-  }));
-});
-IconMaterialDentistryW100.displayName = 'AmauiIconMaterialDentistryW100';
-
-
 const IconMaterialDepartureBoardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -10518,6 +10505,19 @@ const IconMaterialDepartureBoardW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialDepartureBoardW100.displayName = 'AmauiIconMaterialDepartureBoardW100';
+
+
+const IconMaterialDentistryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DentistryW100",
+    short_name: "Dentistry",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M16.75 3.425q1.125.025 1.913.8.787.775.787 1.9 0 .225-.025.637-.025.413-.1.988l-1.4 10.075q-.05.475-.412.75-.363.275-.838.275-.35 0-.6-.212-.25-.213-.45-.488l-3.05-4.075q-.125-.15-.263-.25-.137-.1-.337-.1t-.6.4L8.4 18.075q-.225.275-.5.525t-.625.25q-.475 0-.825-.288-.35-.287-.4-.762L4.675 7.75q-.075-.575-.1-.988-.025-.412-.025-.637 0-1.125.788-1.913.787-.787 1.912-.787.675 0 1.188.237.512.238 1.012.513t1.1.513q.6.237 1.45.237.875 0 1.488-.237.612-.238 1.112-.513.5-.275 1-.513.5-.237 1.15-.237Zm0 .7q-.575 0-1.012.237-.438.238-.938.513-.5.275-1.15.512-.65.238-1.65.238-.95 0-1.6-.238-.65-.237-1.15-.512-.5-.275-.963-.513-.462-.237-1.037-.237-.825 0-1.412.588-.588.587-.588 1.412 0 .2.025.575.025.375.1.875L6.75 17.7q.025.2.175.312.15.113.35.113.2 0 .338-.163.137-.162.262-.337l2.925-3.9q.225-.3.525-.5.3-.2.675-.2.35 0 .663.2.312.2.537.5l2.95 3.975q.125.15.238.3.112.15.312.15t.362-.112q.163-.113.188-.313l1.375-10.15q.075-.5.1-.875.025-.375.025-.575 0-.825-.587-1.412-.588-.588-1.413-.588Zm-4.75 7Z"
+  }));
+});
+IconMaterialDentistryW100.displayName = 'AmauiIconMaterialDentistryW100';
 
 
 const IconMaterialDeployedCodeAccountW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10689,19 +10689,6 @@ const IconMaterialDesktopMacW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialDesktopMacW100.displayName = 'AmauiIconMaterialDesktopMacW100';
 
 
-const IconMaterialDesktopWindowsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DesktopWindowsW100",
-    short_name: "DesktopWindows",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9.3 19.4v-.7h2v-2h-8V4.3h17.4v12.4h-8v2h2v.7ZM4 16h16V5H4Zm0 0V5v11Z"
-  }));
-});
-IconMaterialDesktopWindowsW100.displayName = 'AmauiIconMaterialDesktopWindowsW100';
-
-
 const IconMaterialDestructionW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -10713,6 +10700,19 @@ const IconMaterialDestructionW100 = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialDestructionW100.displayName = 'AmauiIconMaterialDestructionW100';
+
+
+const IconMaterialDesktopWindowsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DesktopWindowsW100",
+    short_name: "DesktopWindows",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9.3 19.4v-.7h2v-2h-8V4.3h17.4v12.4h-8v2h2v.7ZM4 16h16V5H4Zm0 0V5v11Z"
+  }));
+});
+IconMaterialDesktopWindowsW100.displayName = 'AmauiIconMaterialDesktopWindowsW100';
 
 
 const IconMaterialDetailsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10806,19 +10806,6 @@ const IconMaterialDetectorSmokeW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialDetectorSmokeW100.displayName = 'AmauiIconMaterialDetectorSmokeW100';
 
 
-const IconMaterialDetectorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DetectorW100",
-    short_name: "Detector",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 19.4q-1.85 0-3.55-.638-1.7-.637-3.125-1.837l.5-.5q1.3 1.125 2.888 1.7 1.587.575 3.312.575 1.7 0 3.288-.563 1.587-.562 2.887-1.662l.5.475q-1.425 1.2-3.137 1.825Q13.85 19.4 12 19.4Zm0-3.7q-1.1 0-2.125-.375T8 14.275l.5-.5q.75.6 1.663.913.912.312 1.862.312.95 0 1.85-.312.9-.313 1.65-.913l.5.5q-.875.7-1.888 1.062-1.012.363-2.137.363ZM5.8 7.55h12.4q.35 0 .575-.225Q19 7.1 19 6.75v-1.2H5v1.2q0 .35.225.575.225.225.575.225Zm2.85 2.7h6.7q.25 0 .45-.137.2-.138.3-.388l.55-1.475h-9.3l.55 1.475q.1.25.3.388.2.137.45.137Zm0 .7q-.475 0-.862-.262-.388-.263-.563-.713L6.6 8.25h-.8q-.625 0-1.062-.438Q4.3 7.375 4.3 6.75v-1.9h15.4v1.9q0 .625-.437 1.062-.438.438-1.063.438h-.8l-.675 1.725q-.175.425-.55.7-.375.275-.85.275ZM5 7.55v-2 2Z"
-  }));
-});
-IconMaterialDetectorW100.displayName = 'AmauiIconMaterialDetectorW100';
-
-
 const IconMaterialDetectorStatusW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -10830,6 +10817,19 @@ const IconMaterialDetectorStatusW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialDetectorStatusW100.displayName = 'AmauiIconMaterialDetectorStatusW100';
+
+
+const IconMaterialDetectorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DetectorW100",
+    short_name: "Detector",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 19.4q-1.85 0-3.55-.638-1.7-.637-3.125-1.837l.5-.5q1.3 1.125 2.888 1.7 1.587.575 3.312.575 1.7 0 3.288-.563 1.587-.562 2.887-1.662l.5.475q-1.425 1.2-3.137 1.825Q13.85 19.4 12 19.4Zm0-3.7q-1.1 0-2.125-.375T8 14.275l.5-.5q.75.6 1.663.913.912.312 1.862.312.95 0 1.85-.312.9-.313 1.65-.913l.5.5q-.875.7-1.888 1.062-1.012.363-2.137.363ZM5.8 7.55h12.4q.35 0 .575-.225Q19 7.1 19 6.75v-1.2H5v1.2q0 .35.225.575.225.225.575.225Zm2.85 2.7h6.7q.25 0 .45-.137.2-.138.3-.388l.55-1.475h-9.3l.55 1.475q.1.25.3.388.2.137.45.137Zm0 .7q-.475 0-.862-.262-.388-.263-.563-.713L6.6 8.25h-.8q-.625 0-1.062-.438Q4.3 7.375 4.3 6.75v-1.9h15.4v1.9q0 .625-.437 1.062-.438.438-1.063.438h-.8l-.675 1.725q-.175.425-.55.7-.375.275-.85.275ZM5 7.55v-2 2Z"
+  }));
+});
+IconMaterialDetectorW100.displayName = 'AmauiIconMaterialDetectorW100';
 
 
 const IconMaterialDeveloperBoardOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10897,19 +10897,6 @@ const IconMaterialDeveloperModeW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialDeveloperModeW100.displayName = 'AmauiIconMaterialDeveloperModeW100';
 
 
-const IconMaterialDeviceHubW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DeviceHubW100",
-    short_name: "DeviceHub",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.3 19.7V16h3.2l4.15-4.15v-2.8q-.85-.2-1.425-.838Q9.65 7.575 9.65 6.7q0-.975.688-1.663.687-.687 1.662-.687.975 0 1.663.687.687.688.687 1.663 0 .875-.575 1.512-.575.638-1.425.838v2.8L16.5 16h3.2v3.7H16v-3.2l-4-4-4 4v3.2Z"
-  }));
-});
-IconMaterialDeviceHubW100.displayName = 'AmauiIconMaterialDeviceHubW100';
-
-
 const IconMaterialDeviceResetW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -10936,6 +10923,19 @@ const IconMaterialDeviceThermostatW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialDeviceThermostatW100.displayName = 'AmauiIconMaterialDeviceThermostatW100';
 
 
+const IconMaterialDeviceHubW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DeviceHubW100",
+    short_name: "DeviceHub",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.3 19.7V16h3.2l4.15-4.15v-2.8q-.85-.2-1.425-.838Q9.65 7.575 9.65 6.7q0-.975.688-1.663.687-.687 1.662-.687.975 0 1.663.687.687.688.687 1.663 0 .875-.575 1.512-.575.638-1.425.838v2.8L16.5 16h3.2v3.7H16v-3.2l-4-4-4 4v3.2Z"
+  }));
+});
+IconMaterialDeviceHubW100.displayName = 'AmauiIconMaterialDeviceHubW100';
+
+
 const IconMaterialDeviceUnknownW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -10947,19 +10947,6 @@ const IconMaterialDeviceUnknownW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialDeviceUnknownW100.displayName = 'AmauiIconMaterialDeviceUnknownW100';
-
-
-const IconMaterialDevicesFoldW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DevicesFoldW100",
-    short_name: "DevicesFold",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.8 20.5V3.25L16.35.8v2.7h4.85v17Zm.7-1.375v-15.4 15.4Zm.175.675H20.5V4.2h-4.15v13.5ZM2.8 4.5v-1h1v1Zm0 16v-1h1v1Zm0-4v-1h1v1Zm0-4v-1h1v1Zm0-4v-1h1v1Zm4-4v-1h1v1Zm0 16v-1h1v1Zm4.7-1.375 4.15-1.875V1.85L11.5 3.725Z"
-  }));
-});
-IconMaterialDevicesFoldW100.displayName = 'AmauiIconMaterialDevicesFoldW100';
 
 
 const IconMaterialDevicesOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10975,17 +10962,17 @@ const IconMaterialDevicesOffW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialDevicesOffW100.displayName = 'AmauiIconMaterialDevicesOffW100';
 
 
-const IconMaterialDevicesOtherW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialDevicesFoldW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "DevicesOtherW100",
-    short_name: "DevicesOther",
+    name: "DevicesFoldW100",
+    short_name: "DevicesFold",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.4 18.7H3.3V5.3H20V6H4v12h3.4Zm3 0v-1.35q-.525-.35-.763-.838Q9.4 16.025 9.4 15.5t.237-1.012q.238-.488.763-.838V12.3h2.4v1.35q.525.35.762.838.238.487.238 1.012t-.238 1.012q-.237.488-.762.838v1.35Zm1.2-1.7q.65 0 1.075-.425.425-.425.425-1.075 0-.65-.425-1.075Q12.25 14 11.6 14q-.65 0-1.075.425-.425.425-.425 1.075 0 .65.425 1.075Q10.95 17 11.6 17Zm4.2 1.7V9.8h4.9v8.9Zm.7-.7H20v-7.5h-3.5Z"
+    d: "M10.8 20.5V3.25L16.35.8v2.7h4.85v17Zm.7-1.375v-15.4 15.4Zm.175.675H20.5V4.2h-4.15v13.5ZM2.8 4.5v-1h1v1Zm0 16v-1h1v1Zm0-4v-1h1v1Zm0-4v-1h1v1Zm0-4v-1h1v1Zm4-4v-1h1v1Zm0 16v-1h1v1Zm4.7-1.375 4.15-1.875V1.85L11.5 3.725Z"
   }));
 });
-IconMaterialDevicesOtherW100.displayName = 'AmauiIconMaterialDevicesOtherW100';
+IconMaterialDevicesFoldW100.displayName = 'AmauiIconMaterialDevicesFoldW100';
 
 
 const IconMaterialDevicesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10999,6 +10986,19 @@ const IconMaterialDevicesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialDevicesW100.displayName = 'AmauiIconMaterialDevicesW100';
+
+
+const IconMaterialDevicesOtherW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DevicesOtherW100",
+    short_name: "DevicesOther",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M7.4 18.7H3.3V5.3H20V6H4v12h3.4Zm3 0v-1.35q-.525-.35-.763-.838Q9.4 16.025 9.4 15.5t.237-1.012q.238-.488.763-.838V12.3h2.4v1.35q.525.35.762.838.238.487.238 1.012t-.238 1.012q-.237.488-.762.838v1.35Zm1.2-1.7q.65 0 1.075-.425.425-.425.425-1.075 0-.65-.425-1.075Q12.25 14 11.6 14q-.65 0-1.075.425-.425.425-.425 1.075 0 .65.425 1.075Q10.95 17 11.6 17Zm4.2 1.7V9.8h4.9v8.9Zm.7-.7H20v-7.5h-3.5Z"
+  }));
+});
+IconMaterialDevicesOtherW100.displayName = 'AmauiIconMaterialDevicesOtherW100';
 
 
 const IconMaterialDevicesWearablesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -11287,6 +11287,19 @@ const IconMaterialDirectionsRunW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialDirectionsRunW100.displayName = 'AmauiIconMaterialDirectionsRunW100';
 
 
+const IconMaterialDirectionsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DirectionsW100",
+    short_name: "Directions",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8.65 14.35h.7v-3h4.8v1.575L16.075 11 14.15 9.05v1.6h-5.5Zm3.35 6.6L3.05 12 12 3.05 20.95 12Zm0-.95 8-8-8-8-8 8Zm0-8Z"
+  }));
+});
+IconMaterialDirectionsW100.displayName = 'AmauiIconMaterialDirectionsW100';
+
+
 const IconMaterialDirectionsSubwayW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -11300,17 +11313,17 @@ const IconMaterialDirectionsSubwayW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialDirectionsSubwayW100.displayName = 'AmauiIconMaterialDirectionsSubwayW100';
 
 
-const IconMaterialDirectionsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialDirectorySyncW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "DirectionsW100",
-    short_name: "Directions",
-    viewBox: "0 0 24 24"
+    name: "DirectorySyncW100",
+    short_name: "DirectorySync",
+    viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8.65 14.35h.7v-3h4.8v1.575L16.075 11 14.15 9.05v1.6h-5.5Zm3.35 6.6L3.05 12 12 3.05 20.95 12Zm0-.95 8-8-8-8-8 8Zm0-8Z"
+    d: "M224-266q-38-45-58-100t-20-114q0-143 107-238.5T506-814v-54l131 98-131 98v-54q-110 0-191 70t-81 176q0 45 15.5 86t44.5 75l-70 53ZM454-92l-131-98 131-98v54q110 0 191-70t81-176q0-45-15.5-86.5T666-642l70-53q38 45 58 100t20 115q0 143-107 238.5T454-146v54Z"
   }));
 });
-IconMaterialDirectionsW100.displayName = 'AmauiIconMaterialDirectionsW100';
+IconMaterialDirectorySyncW100.displayName = 'AmauiIconMaterialDirectorySyncW100';
 
 
 const IconMaterialDirectionsWalkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -11337,19 +11350,6 @@ const IconMaterialDirtyLensW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialDirtyLensW100.displayName = 'AmauiIconMaterialDirtyLensW100';
-
-
-const IconMaterialDirectorySyncW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DirectorySyncW100",
-    short_name: "DirectorySync",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M224-266q-38-45-58-100t-20-114q0-143 107-238.5T506-814v-54l131 98-131 98v-54q-110 0-191 70t-81 176q0 45 15.5 86t44.5 75l-70 53ZM454-92l-131-98 131-98v54q110 0 191-70t81-176q0-45-15.5-86.5T666-642l70-53q38 45 58 100t20 115q0 143-107 238.5T454-146v54Z"
-  }));
-});
-IconMaterialDirectorySyncW100.displayName = 'AmauiIconMaterialDirectorySyncW100';
 
 
 const IconMaterialDisabledByDefaultW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -11508,19 +11508,6 @@ const IconMaterialDiversity3W100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialDiversity3W100.displayName = 'AmauiIconMaterialDiversity3W100';
 
 
-const IconMaterialDiversity4W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Diversity4W100",
-    short_name: "Diversity4",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4 20v-7 7Zm16 0v-7ZM19 9.3q.425 0 .712-.288Q20 8.725 20 8.3t-.288-.712Q19.425 7.3 19 7.3t-.712.288Q18 7.875 18 8.3t.288.712q.287.288.712.288Zm0 .7q-.725 0-1.212-.488Q17.3 9.025 17.3 8.3q0-.7.488-1.2.487-.5 1.212-.5.7 0 1.2.5t.5 1.2q0 .725-.5 1.212Q19.7 10 19 10Zm-7-1.7q.625 0 1.062-.425.438-.425.438-1.075 0-.625-.438-1.062Q12.625 5.3 12 5.3q-.65 0-1.075.438-.425.437-.425 1.062 0 .65.425 1.075Q11.35 8.3 12 8.3Zm0 .7q-.925 0-1.562-.638Q9.8 7.725 9.8 6.8q0-.9.638-1.55.637-.65 1.562-.65.9 0 1.55.65t.65 1.55q0 .925-.65 1.562Q12.9 9 12 9Zm-4.7 4.375q0 .95.85 2.05.85 1.1 3.375 3.4l.475.425.525-.5q2.35-2.125 3.262-3.288.913-1.162.913-2.087 0-.875-.575-1.475-.575-.6-1.425-.6-.5 0-.95.225-.45.225-.775.6L12 13.3l-1-1.175q-.325-.375-.762-.6Q9.8 11.3 9.3 11.3q-.875 0-1.437.6-.563.6-.563 1.475Zm-.7 0q0-1.075.812-1.925.813-.85 1.888-.85.725 0 1.337.35.613.35 1.038.9l.325.375.325-.4q.45-.525 1.05-.875.6-.35 1.325-.35 1.05 0 1.875.85t.825 1.925q0 1.125-.9 2.325-.9 1.2-3.45 3.525L12 20.2l-1-.9q-2.65-2.45-3.525-3.612-.875-1.163-.875-2.313ZM5 9.3q.425 0 .713-.288Q6 8.725 6 8.3t-.287-.712Q5.425 7.3 5 7.3t-.713.288Q4 7.875 4 8.3t.287.712Q4.575 9.3 5 9.3Zm7.075 11.4V20H20v-7h-2.85v-.7h3.55v8.4ZM4 20h8.075v.7H3.3v-8.4h3.55v.7H4Zm1-10q-.725 0-1.212-.488Q3.3 9.025 3.3 8.3q0-.7.488-1.2.487-.5 1.212-.5.7 0 1.2.5t.5 1.2q0 .725-.5 1.212Q5.7 10 5 10Zm7-3.2ZM5 8.3Zm14 0Z"
-  }));
-});
-IconMaterialDiversity4W100.displayName = 'AmauiIconMaterialDiversity4W100';
-
-
 const IconMaterialDnsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -11532,6 +11519,19 @@ const IconMaterialDnsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialDnsW100.displayName = 'AmauiIconMaterialDnsW100';
+
+
+const IconMaterialDiversity4W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Diversity4W100",
+    short_name: "Diversity4",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4 20v-7 7Zm16 0v-7ZM19 9.3q.425 0 .712-.288Q20 8.725 20 8.3t-.288-.712Q19.425 7.3 19 7.3t-.712.288Q18 7.875 18 8.3t.288.712q.287.288.712.288Zm0 .7q-.725 0-1.212-.488Q17.3 9.025 17.3 8.3q0-.7.488-1.2.487-.5 1.212-.5.7 0 1.2.5t.5 1.2q0 .725-.5 1.212Q19.7 10 19 10Zm-7-1.7q.625 0 1.062-.425.438-.425.438-1.075 0-.625-.438-1.062Q12.625 5.3 12 5.3q-.65 0-1.075.438-.425.437-.425 1.062 0 .65.425 1.075Q11.35 8.3 12 8.3Zm0 .7q-.925 0-1.562-.638Q9.8 7.725 9.8 6.8q0-.9.638-1.55.637-.65 1.562-.65.9 0 1.55.65t.65 1.55q0 .925-.65 1.562Q12.9 9 12 9Zm-4.7 4.375q0 .95.85 2.05.85 1.1 3.375 3.4l.475.425.525-.5q2.35-2.125 3.262-3.288.913-1.162.913-2.087 0-.875-.575-1.475-.575-.6-1.425-.6-.5 0-.95.225-.45.225-.775.6L12 13.3l-1-1.175q-.325-.375-.762-.6Q9.8 11.3 9.3 11.3q-.875 0-1.437.6-.563.6-.563 1.475Zm-.7 0q0-1.075.812-1.925.813-.85 1.888-.85.725 0 1.337.35.613.35 1.038.9l.325.375.325-.4q.45-.525 1.05-.875.6-.35 1.325-.35 1.05 0 1.875.85t.825 1.925q0 1.125-.9 2.325-.9 1.2-3.45 3.525L12 20.2l-1-.9q-2.65-2.45-3.525-3.612-.875-1.163-.875-2.313ZM5 9.3q.425 0 .713-.288Q6 8.725 6 8.3t-.287-.712Q5.425 7.3 5 7.3t-.713.288Q4 7.875 4 8.3t.287.712Q4.575 9.3 5 9.3Zm7.075 11.4V20H20v-7h-2.85v-.7h3.55v8.4ZM4 20h8.075v.7H3.3v-8.4h3.55v.7H4Zm1-10q-.725 0-1.212-.488Q3.3 9.025 3.3 8.3q0-.7.488-1.2.487-.5 1.212-.5.7 0 1.2.5t.5 1.2q0 .725-.5 1.212Q5.7 10 5 10Zm7-3.2ZM5 8.3Zm14 0Z"
+  }));
+});
+IconMaterialDiversity4W100.displayName = 'AmauiIconMaterialDiversity4W100';
 
 
 const IconMaterialDoNotDisturbOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -11807,19 +11807,6 @@ const IconMaterialDoneW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialDoneW100.displayName = 'AmauiIconMaterialDoneW100';
 
 
-const IconMaterialDonutLargeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DonutLargeW100",
-    short_name: "DonutLarge",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M19.975 11q-.375-2.725-2.3-4.663Q15.75 4.4 13.025 4.05v-.7q3.075.275 5.225 2.425Q20.4 7.925 20.675 11Zm-6.95 9.65v-.7q2.725-.35 4.625-2.287 1.9-1.938 2.325-4.663h.7q-.3 3.05-2.45 5.212-2.15 2.163-5.2 2.438Zm-2 0Q7.7 20.3 5.513 17.825 3.325 15.35 3.325 12t2.188-5.8Q7.7 3.75 11.025 3.35v.7Q8 4.475 6.013 6.725 4.025 8.975 4.025 12q0 3.025 1.988 5.275Q8 19.525 11.025 19.95Z"
-  }));
-});
-IconMaterialDonutLargeW100.displayName = 'AmauiIconMaterialDonutLargeW100';
-
-
 const IconMaterialDonutSmallW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -11831,6 +11818,19 @@ const IconMaterialDonutSmallW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialDonutSmallW100.displayName = 'AmauiIconMaterialDonutSmallW100';
+
+
+const IconMaterialDonutLargeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DonutLargeW100",
+    short_name: "DonutLarge",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M19.975 11q-.375-2.725-2.3-4.663Q15.75 4.4 13.025 4.05v-.7q3.075.275 5.225 2.425Q20.4 7.925 20.675 11Zm-6.95 9.65v-.7q2.725-.35 4.625-2.287 1.9-1.938 2.325-4.663h.7q-.3 3.05-2.45 5.212-2.15 2.163-5.2 2.438Zm-2 0Q7.7 20.3 5.513 17.825 3.325 15.35 3.325 12t2.188-5.8Q7.7 3.75 11.025 3.35v.7Q8 4.475 6.013 6.725 4.025 8.975 4.025 12q0 3.025 1.988 5.275Q8 19.525 11.025 19.95Z"
+  }));
+});
+IconMaterialDonutLargeW100.displayName = 'AmauiIconMaterialDonutLargeW100';
 
 
 const IconMaterialDoorBackW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -11859,19 +11859,6 @@ const IconMaterialDoorFrontW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialDoorFrontW100.displayName = 'AmauiIconMaterialDoorFrontW100';
 
 
-const IconMaterialDoorSensorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DoorSensorW100",
-    short_name: "DoorSensor",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 15V5v14-4Zm-.7.35H9V19h6V5H9v9.65h-.7V4.3h7.4v15.4H8.3ZM12 9.7q.275 0 .488-.213.212-.212.212-.487t-.212-.488Q12.275 8.3 12 8.3t-.487.212Q11.3 8.725 11.3 9t.213.487q.212.213.487.213Zm7-1.35v-4.7h.7v4.7Zm-13.2 7v-.7h6.9v.7Z"
-  }));
-});
-IconMaterialDoorSensorW100.displayName = 'AmauiIconMaterialDoorSensorW100';
-
-
 const IconMaterialDoorOpenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -11883,6 +11870,19 @@ const IconMaterialDoorOpenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialDoorOpenW100.displayName = 'AmauiIconMaterialDoorOpenW100';
+
+
+const IconMaterialDoorSensorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DoorSensorW100",
+    short_name: "DoorSensor",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9 15V5v14-4Zm-.7.35H9V19h6V5H9v9.65h-.7V4.3h7.4v15.4H8.3ZM12 9.7q.275 0 .488-.213.212-.212.212-.487t-.212-.488Q12.275 8.3 12 8.3t-.487.212Q11.3 8.725 11.3 9t.213.487q.212.213.487.213Zm7-1.35v-4.7h.7v4.7Zm-13.2 7v-.7h6.9v.7Z"
+  }));
+});
+IconMaterialDoorSensorW100.displayName = 'AmauiIconMaterialDoorSensorW100';
 
 
 const IconMaterialDoorSlidingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -11989,19 +11989,6 @@ const IconMaterialDownloadDoneW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialDownloadDoneW100.displayName = 'AmauiIconMaterialDownloadDoneW100';
 
 
-const IconMaterialDownloadForOfflineW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DownloadForOfflineW100",
-    short_name: "DownloadForOffline",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.65 16.35h8.7v-.7h-8.7ZM12 13.1l3.1-3.1-.5-.5-2.25 2.25v-5.1h-.7v5.1L9.4 9.5l-.5.5Zm0 7.6q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-.7q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"
-  }));
-});
-IconMaterialDownloadForOfflineW100.displayName = 'AmauiIconMaterialDownloadForOfflineW100';
-
-
 const IconMaterialDownloadW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12013,6 +12000,19 @@ const IconMaterialDownloadW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialDownloadW100.displayName = 'AmauiIconMaterialDownloadW100';
+
+
+const IconMaterialDownloadForOfflineW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DownloadForOfflineW100",
+    short_name: "DownloadForOffline",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M7.65 16.35h8.7v-.7h-8.7ZM12 13.1l3.1-3.1-.5-.5-2.25 2.25v-5.1h-.7v5.1L9.4 9.5l-.5.5Zm0 7.6q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-.7q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"
+  }));
+});
+IconMaterialDownloadForOfflineW100.displayName = 'AmauiIconMaterialDownloadForOfflineW100';
 
 
 const IconMaterialDownloadingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12184,19 +12184,6 @@ const IconMaterialDriveFileMoveOutlineW100 = /*#__PURE__*/React.forwardRef((prop
 IconMaterialDriveFileMoveOutlineW100.displayName = 'AmauiIconMaterialDriveFileMoveOutlineW100';
 
 
-const IconMaterialDriveFileMoveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DriveFileMoveW100",
-    short_name: "DriveFileMove",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m12 16.1 3.1-3.1L12 9.9l-.5.5 2.25 2.25H8.9v.7h4.85L11.5 15.6Zm-8.7 2.6V6.3H11l1 1h8.7v11.4ZM4 18h16V8h-8.275l-1-1H4Zm0 0V7v1Z"
-  }));
-});
-IconMaterialDriveFileMoveW100.displayName = 'AmauiIconMaterialDriveFileMoveW100';
-
-
 const IconMaterialDriveFileMoveRtlW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12208,6 +12195,19 @@ const IconMaterialDriveFileMoveRtlW100 = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialDriveFileMoveRtlW100.displayName = 'AmauiIconMaterialDriveFileMoveRtlW100';
+
+
+const IconMaterialDriveFileMoveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DriveFileMoveW100",
+    short_name: "DriveFileMove",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m12 16.1 3.1-3.1L12 9.9l-.5.5 2.25 2.25H8.9v.7h4.85L11.5 15.6Zm-8.7 2.6V6.3H11l1 1h8.7v11.4ZM4 18h16V8h-8.275l-1-1H4Zm0 0V7v1Z"
+  }));
+});
+IconMaterialDriveFileMoveW100.displayName = 'AmauiIconMaterialDriveFileMoveW100';
 
 
 const IconMaterialDriveFileRenameOutlineW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12301,19 +12301,6 @@ const IconMaterialDuoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialDuoW100.displayName = 'AmauiIconMaterialDuoW100';
 
 
-const IconMaterialDvrW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DvrW100",
-    short_name: "Dvr",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9.15 9.35h8.2v-.7h-8.2Zm0 4h8.2v-.7h-8.2ZM7 9.5q.225 0 .363-.15Q7.5 9.2 7.5 9q0-.225-.137-.363Q7.225 8.5 7 8.5q-.2 0-.35.137-.15.138-.15.363 0 .2.15.35.15.15.35.15Zm0 4q.225 0 .363-.15.137-.15.137-.35 0-.225-.137-.363Q7.225 12.5 7 12.5q-.2 0-.35.137-.15.138-.15.363 0 .2.15.35.15.15.35.15Zm2.3 6.2v-2h-6V4.3h17.4v13.4h-6v2ZM4 17h16V5H4Zm0 0V5v12Z"
-  }));
-});
-IconMaterialDvrW100.displayName = 'AmauiIconMaterialDvrW100';
-
-
 const IconMaterialDynamicFeedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12325,6 +12312,19 @@ const IconMaterialDynamicFeedW100 = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialDynamicFeedW100.displayName = 'AmauiIconMaterialDynamicFeedW100';
+
+
+const IconMaterialDvrW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DvrW100",
+    short_name: "Dvr",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9.15 9.35h8.2v-.7h-8.2Zm0 4h8.2v-.7h-8.2ZM7 9.5q.225 0 .363-.15Q7.5 9.2 7.5 9q0-.225-.137-.363Q7.225 8.5 7 8.5q-.2 0-.35.137-.15.138-.15.363 0 .2.15.35.15.15.35.15Zm0 4q.225 0 .363-.15.137-.15.137-.35 0-.225-.137-.363Q7.225 12.5 7 12.5q-.2 0-.35.137-.15.138-.15.363 0 .2.15.35.15.15.35.15Zm2.3 6.2v-2h-6V4.3h17.4v13.4h-6v2ZM4 17h16V5H4Zm0 0V5v12Z"
+  }));
+});
+IconMaterialDvrW100.displayName = 'AmauiIconMaterialDvrW100';
 
 
 const IconMaterialDynamicFormW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12431,19 +12431,6 @@ const IconMaterialEarlyOnW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialEarlyOnW100.displayName = 'AmauiIconMaterialEarlyOnW100';
 
 
-const IconMaterialEastW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EastW100",
-    short_name: "East",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m14.3 18.175-.5-.5 5.325-5.325h-16.1v-.7h16.1L13.8 6.325l.5-.5L20.475 12Z"
-  }));
-});
-IconMaterialEastW100.displayName = 'AmauiIconMaterialEastW100';
-
-
 const IconMaterialEarthquakeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12457,6 +12444,19 @@ const IconMaterialEarthquakeW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialEarthquakeW100.displayName = 'AmauiIconMaterialEarthquakeW100';
 
 
+const IconMaterialEastW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EastW100",
+    short_name: "East",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m14.3 18.175-.5-.5 5.325-5.325h-16.1v-.7h16.1L13.8 6.325l.5-.5L20.475 12Z"
+  }));
+});
+IconMaterialEastW100.displayName = 'AmauiIconMaterialEastW100';
+
+
 const IconMaterialEcgHeartW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12468,19 +12468,6 @@ const IconMaterialEcgHeartW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialEcgHeartW100.displayName = 'AmauiIconMaterialEcgHeartW100';
-
-
-const IconMaterialEcgW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EcgW100",
-    short_name: "Ecg",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480 576ZM132 462V308h696v268h-28V336H160v126h-28Zm0 382V690h28v126h279v28H132Zm588 108-39-33q-82-71-104.5-97.5T554 769.11q0-32.363 22.109-55.737Q598.218 690 630 690q15.671 0 29.836 7Q674 704 690 718l30 27 28-26q16-14 31-21.5t31-7.5q31.091 0 53.545 23.373Q886 736.747 886 769.11q0 25.89-23 52.39T758 919l-38 33Zm0-38 32-27q67-57 86.5-78.5T858 769q0-20.4-14.4-35.7Q829.2 718 810 718q-11.81 0-21.405 4.5T768 738l-48 46-49-46q-11-11-20.75-15.5T630 718q-20 0-34 15.3T582 769q0 17.434 22 41.717Q626 835 690 889l30 25ZM132 590v-28h76l72 143 159-320 89 177h126v28H511l-72-142-160 320-88-178h-59Zm588 226Z"
-  }));
-});
-IconMaterialEcgW100.displayName = 'AmauiIconMaterialEcgW100';
 
 
 const IconMaterialEcoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12507,6 +12494,19 @@ const IconMaterialEdaW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialEdaW100.displayName = 'AmauiIconMaterialEdaW100';
+
+
+const IconMaterialEcgW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EcgW100",
+    short_name: "Ecg",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480 576ZM132 462V308h696v268h-28V336H160v126h-28Zm0 382V690h28v126h279v28H132Zm588 108-39-33q-82-71-104.5-97.5T554 769.11q0-32.363 22.109-55.737Q598.218 690 630 690q15.671 0 29.836 7Q674 704 690 718l30 27 28-26q16-14 31-21.5t31-7.5q31.091 0 53.545 23.373Q886 736.747 886 769.11q0 25.89-23 52.39T758 919l-38 33Zm0-38 32-27q67-57 86.5-78.5T858 769q0-20.4-14.4-35.7Q829.2 718 810 718q-11.81 0-21.405 4.5T768 738l-48 46-49-46q-11-11-20.75-15.5T630 718q-20 0-34 15.3T582 769q0 17.434 22 41.717Q626 835 690 889l30 25ZM132 590v-28h76l72 143 159-320 89 177h126v28H511l-72-142-160 320-88-178h-59Zm588 226Z"
+  }));
+});
+IconMaterialEcgW100.displayName = 'AmauiIconMaterialEcgW100';
 
 
 const IconMaterialEdgesensorHighW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12626,19 +12626,6 @@ const IconMaterialEditNotificationsW100 = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialEditNotificationsW100.displayName = 'AmauiIconMaterialEditNotificationsW100';
 
 
-const IconMaterialEditRoadW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EditRoadW100",
-    short_name: "EditRoad",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M17.35 14.05v-9.4h.7v8.7Zm-11.4 5.6v-15h.7v15Zm5.7-12v-3h.7v3Zm0 6v-3h.7v3Zm0 6v-3h.7v3Zm9.625-5.7-.5-.5.8-.8.5.5Zm-6.2 5.7v-.5l5-5 .5.5-5 5Z"
-  }));
-});
-IconMaterialEditRoadW100.displayName = 'AmauiIconMaterialEditRoadW100';
-
-
 const IconMaterialEditOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12652,17 +12639,17 @@ const IconMaterialEditOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialEditOffW100.displayName = 'AmauiIconMaterialEditOffW100';
 
 
-const IconMaterialEditW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialEditRoadW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "EditW100",
-    short_name: "Edit",
+    name: "EditRoadW100",
+    short_name: "EditRoad",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.4 19h.975L16.65 8.725l-.975-.975L5.4 18.025ZM18.15 8.225 16.175 6.25l1.675-1.675 1.975 1.975ZM4.7 19.7v-1.975L15.675 6.75l1.975 1.975L6.675 19.7ZM16.15 8.225l-.475-.475.975.975Z"
+    d: "M17.35 14.05v-9.4h.7v8.7Zm-11.4 5.6v-15h.7v15Zm5.7-12v-3h.7v3Zm0 6v-3h.7v3Zm0 6v-3h.7v3Zm9.625-5.7-.5-.5.8-.8.5.5Zm-6.2 5.7v-.5l5-5 .5.5-5 5Z"
   }));
 });
-IconMaterialEditW100.displayName = 'AmauiIconMaterialEditW100';
+IconMaterialEditRoadW100.displayName = 'AmauiIconMaterialEditRoadW100';
 
 
 const IconMaterialEditSquareW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12689,6 +12676,19 @@ const IconMaterialEditorChoiceW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialEditorChoiceW100.displayName = 'AmauiIconMaterialEditorChoiceW100';
+
+
+const IconMaterialEditW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EditW100",
+    short_name: "Edit",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5.4 19h.975L16.65 8.725l-.975-.975L5.4 18.025ZM18.15 8.225 16.175 6.25l1.675-1.675 1.975 1.975ZM4.7 19.7v-1.975L15.675 6.75l1.975 1.975L6.675 19.7ZM16.15 8.225l-.475-.475.975.975Z"
+  }));
+});
+IconMaterialEditW100.displayName = 'AmauiIconMaterialEditW100';
 
 
 const IconMaterialEggAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12834,17 +12834,17 @@ const IconMaterialElectricRickshawW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialElectricRickshawW100.displayName = 'AmauiIconMaterialElectricRickshawW100';
 
 
-const IconMaterialElectricalServicesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialElectricScooterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "ElectricalServicesW100",
-    short_name: "ElectricalServices",
+    name: "ElectricScooterW100",
+    short_name: "ElectricScooter",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M17.35 14.35v-.7h3v.7Zm0 4v-.7h3v.7Zm-4.7 1v-2h-2v-2.7h2v-2h3.7v6.7Zm-9-3v-6.7h7v-4.3h-6v-.7h6.7v5.7h-7v5.3h5.3v.7Z"
+    d: "M5.15 17.35q-.975 0-1.663-.687Q2.8 15.975 2.8 15q0-.975.687-1.663.688-.687 1.663-.687.75 0 1.45.487.7.488.9 1.513h6.3q.15-1.8 1.425-3.125Q16.5 10.2 18.2 10.05l-1.675-7.7H12.8v-.7h4.3l1.95 9.05h-.2q-1.8 0-3.075 1.275Q14.5 13.25 14.5 15.05v.3h-7q-.2 1.025-.9 1.513-.7.487-1.45.487Zm0-.7q.675 0 1.162-.488Q6.8 15.675 6.8 15q0-.675-.488-1.163-.487-.487-1.162-.487-.675 0-1.162.487Q3.5 14.325 3.5 15t.488 1.162q.487.488 1.162.488Zm13.7.75q-.975 0-1.662-.688-.688-.687-.688-1.662 0-.975.688-1.663.687-.687 1.662-.687.975 0 1.663.687.687.688.687 1.663 0 .975-.687 1.662-.688.688-1.663.688Zm0-.7q.675 0 1.163-.488.487-.487.487-1.162 0-.675-.487-1.163-.488-.487-1.163-.487t-1.162.487q-.488.488-.488 1.163t.488 1.162q.487.488 1.162.488Zm-5.9 5.85L8.1 20.1h3.2v-1.65l4.85 2.45h-3.2ZM5.15 15Zm13.7.05Z"
   }));
 });
-IconMaterialElectricalServicesW100.displayName = 'AmauiIconMaterialElectricalServicesW100';
+IconMaterialElectricScooterW100.displayName = 'AmauiIconMaterialElectricScooterW100';
 
 
 const IconMaterialElevationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12860,17 +12860,17 @@ const IconMaterialElevationW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialElevationW100.displayName = 'AmauiIconMaterialElevationW100';
 
 
-const IconMaterialElectricScooterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialElectricalServicesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "ElectricScooterW100",
-    short_name: "ElectricScooter",
+    name: "ElectricalServicesW100",
+    short_name: "ElectricalServices",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.15 17.35q-.975 0-1.663-.687Q2.8 15.975 2.8 15q0-.975.687-1.663.688-.687 1.663-.687.75 0 1.45.487.7.488.9 1.513h6.3q.15-1.8 1.425-3.125Q16.5 10.2 18.2 10.05l-1.675-7.7H12.8v-.7h4.3l1.95 9.05h-.2q-1.8 0-3.075 1.275Q14.5 13.25 14.5 15.05v.3h-7q-.2 1.025-.9 1.513-.7.487-1.45.487Zm0-.7q.675 0 1.162-.488Q6.8 15.675 6.8 15q0-.675-.488-1.163-.487-.487-1.162-.487-.675 0-1.162.487Q3.5 14.325 3.5 15t.488 1.162q.487.488 1.162.488Zm13.7.75q-.975 0-1.662-.688-.688-.687-.688-1.662 0-.975.688-1.663.687-.687 1.662-.687.975 0 1.663.687.687.688.687 1.663 0 .975-.687 1.662-.688.688-1.663.688Zm0-.7q.675 0 1.163-.488.487-.487.487-1.162 0-.675-.487-1.163-.488-.487-1.163-.487t-1.162.487q-.488.488-.488 1.163t.488 1.162q.487.488 1.162.488Zm-5.9 5.85L8.1 20.1h3.2v-1.65l4.85 2.45h-3.2ZM5.15 15Zm13.7.05Z"
+    d: "M17.35 14.35v-.7h3v.7Zm0 4v-.7h3v.7Zm-4.7 1v-2h-2v-2.7h2v-2h3.7v6.7Zm-9-3v-6.7h7v-4.3h-6v-.7h6.7v5.7h-7v5.3h5.3v.7Z"
   }));
 });
-IconMaterialElectricScooterW100.displayName = 'AmauiIconMaterialElectricScooterW100';
+IconMaterialElectricalServicesW100.displayName = 'AmauiIconMaterialElectricalServicesW100';
 
 
 const IconMaterialElevatorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12938,19 +12938,6 @@ const IconMaterialEmergencyShareOffW100 = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialEmergencyShareOffW100.displayName = 'AmauiIconMaterialEmergencyShareOffW100';
 
 
-const IconMaterialEmergencyShareW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EmergencyShareW100",
-    short_name: "EmergencyShare",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 21.325q1.875-1.775 2.938-3.412Q16 16.275 16 15.15q0-1.725-1.175-2.938Q13.65 11 12 11q-1.65 0-2.825 1.212Q8 13.425 8 15.15q0 1.125 1.062 2.763Q10.125 19.55 12 21.325Zm0 .95q-2.325-2.125-3.512-3.913Q7.3 16.575 7.3 15.15q0-2.025 1.375-3.438Q10.05 10.3 12 10.3q1.95 0 3.325 1.412Q16.7 13.125 16.7 15.15q0 1.575-1.25 3.288Q14.2 20.15 12 22.275ZM12 16q.425 0 .713-.288Q13 15.425 13 15t-.287-.713Q12.425 14 12 14t-.712.287Q11 14.575 11 15t.288.712Q11.575 16 12 16ZM8.475 7.05 8 6.575q.85-.675 1.875-1.05T12 5.15q1.1 0 2.125.375T16 6.575l-.475.475q-.75-.6-1.65-.9-.9-.3-1.875-.3t-1.875.3q-.9.3-1.65.9ZM5.65 4.225l-.475-.5Q6.6 2.475 8.35 1.812 10.1 1.15 12 1.15t3.663.675q1.762.675 3.187 1.925l-.5.5q-1.325-1.175-2.95-1.788-1.625-.612-3.4-.612t-3.4.6q-1.625.6-2.95 1.775ZM12 15Z"
-  }));
-});
-IconMaterialEmergencyShareW100.displayName = 'AmauiIconMaterialEmergencyShareW100';
-
-
 const IconMaterialEmergencyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12962,6 +12949,19 @@ const IconMaterialEmergencyW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialEmergencyW100.displayName = 'AmauiIconMaterialEmergencyW100';
+
+
+const IconMaterialEmergencyShareW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EmergencyShareW100",
+    short_name: "EmergencyShare",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 21.325q1.875-1.775 2.938-3.412Q16 16.275 16 15.15q0-1.725-1.175-2.938Q13.65 11 12 11q-1.65 0-2.825 1.212Q8 13.425 8 15.15q0 1.125 1.062 2.763Q10.125 19.55 12 21.325Zm0 .95q-2.325-2.125-3.512-3.913Q7.3 16.575 7.3 15.15q0-2.025 1.375-3.438Q10.05 10.3 12 10.3q1.95 0 3.325 1.412Q16.7 13.125 16.7 15.15q0 1.575-1.25 3.288Q14.2 20.15 12 22.275ZM12 16q.425 0 .713-.288Q13 15.425 13 15t-.287-.713Q12.425 14 12 14t-.712.287Q11 14.575 11 15t.288.712Q11.575 16 12 16ZM8.475 7.05 8 6.575q.85-.675 1.875-1.05T12 5.15q1.1 0 2.125.375T16 6.575l-.475.475q-.75-.6-1.65-.9-.9-.3-1.875-.3t-1.875.3q-.9.3-1.65.9ZM5.65 4.225l-.475-.5Q6.6 2.475 8.35 1.812 10.1 1.15 12 1.15t3.663.675q1.762.675 3.187 1.925l-.5.5q-1.325-1.175-2.95-1.788-1.625-.612-3.4-.612t-3.4.6q-1.625.6-2.95 1.775ZM12 15Z"
+  }));
+});
+IconMaterialEmergencyShareW100.displayName = 'AmauiIconMaterialEmergencyShareW100';
 
 
 const IconMaterialEmojiEventsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -13094,19 +13094,6 @@ const IconMaterialEmptyDashboardW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialEmptyDashboardW100.displayName = 'AmauiIconMaterialEmptyDashboardW100';
 
 
-const IconMaterialEnableW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EnableW100",
-    short_name: "Enable",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12q0-3.025 1.75-5.275 1.75-2.25 4.6-3.1v.75q-2.6.8-4.125 2.9Q4 9.375 4 12q0 3.35 2.325 5.675Q8.65 20 12 20q3.35 0 5.675-2.325Q20 15.35 20 12q0-2.625-1.525-4.725-1.525-2.1-4.125-2.9v-.75q2.85.85 4.6 3.1Q20.7 8.975 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-5.625-4.1-4.1.5-.5 3.25 3.25v-10.4h.7v10.4l3.25-3.25.5.5Z"
-  }));
-});
-IconMaterialEnableW100.displayName = 'AmauiIconMaterialEnableW100';
-
-
 const IconMaterialEncryptedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -13131,6 +13118,19 @@ const IconMaterialEndocrinologyW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialEndocrinologyW100.displayName = 'AmauiIconMaterialEndocrinologyW100';
+
+
+const IconMaterialEnableW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EnableW100",
+    short_name: "Enable",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12q0-3.025 1.75-5.275 1.75-2.25 4.6-3.1v.75q-2.6.8-4.125 2.9Q4 9.375 4 12q0 3.35 2.325 5.675Q8.65 20 12 20q3.35 0 5.675-2.325Q20 15.35 20 12q0-2.625-1.525-4.725-1.525-2.1-4.125-2.9v-.75q2.85.85 4.6 3.1Q20.7 8.975 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-5.625-4.1-4.1.5-.5 3.25 3.25v-10.4h.7v10.4l3.25-3.25.5.5Z"
+  }));
+});
+IconMaterialEnableW100.displayName = 'AmauiIconMaterialEnableW100';
 
 
 const IconMaterialEnergyProgramSavingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -13224,19 +13224,6 @@ const IconMaterialEntW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialEntW100.displayName = 'AmauiIconMaterialEntW100';
 
 
-const IconMaterialEnterpriseOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EnterpriseOffW100",
-    short_name: "EnterpriseOff",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m836-84-88-88H192q-26 0-43-17t-17-43v-376q0-26 17-43t43-17h100l28 28H192q-12 0-22 10t-10 22v376q0 12 10 22t22 10h528L124-796l20-20 712 712-20 20Zm-8-156-28-28v-340q0-12-10-22t-22-10H428l-56-56v-20q0-26 17-43t43-17h96q26 0 43 17t17 43v48h180q26 0 43 17t17 43v368ZM400-668h160v-48q0-12-10-22t-22-10h-96q-12 0-22 10t-10 22v48Zm214 214Zm-114 34Z"
-  }));
-});
-IconMaterialEnterpriseOffW100.displayName = 'AmauiIconMaterialEnterpriseOffW100';
-
-
 const IconMaterialEnterpriseW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -13248,6 +13235,19 @@ const IconMaterialEnterpriseW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialEnterpriseW100.displayName = 'AmauiIconMaterialEnterpriseW100';
+
+
+const IconMaterialEnterpriseOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EnterpriseOffW100",
+    short_name: "EnterpriseOff",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m836-84-88-88H192q-26 0-43-17t-17-43v-376q0-26 17-43t43-17h100l28 28H192q-12 0-22 10t-10 22v376q0 12 10 22t22 10h528L124-796l20-20 712 712-20 20Zm-8-156-28-28v-340q0-12-10-22t-22-10H428l-56-56v-20q0-26 17-43t43-17h96q26 0 43 17t17 43v48h180q26 0 43 17t17 43v368ZM400-668h160v-48q0-12-10-22t-22-10h-96q-12 0-22 10t-10 22v48Zm214 214Zm-114 34Z"
+  }));
+});
+IconMaterialEnterpriseOffW100.displayName = 'AmauiIconMaterialEnterpriseOffW100';
 
 
 const IconMaterialEqualW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -13341,19 +13341,6 @@ const IconMaterialEscalatorWarningW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialEscalatorWarningW100.displayName = 'AmauiIconMaterialEscalatorWarningW100';
 
 
-const IconMaterialEuroSymbolW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EuroSymbolW100",
-    short_name: "EuroSymbol",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M15.35 20.1q-2.5 0-4.65-1.437-2.15-1.438-3.1-4.313H4v-.7h3.4q-.075-.3-.113-.8-.037-.5-.037-.85t.037-.812q.038-.463.113-.838H4v-.7h3.6q.825-2.6 2.95-4.175Q12.675 3.9 15.35 3.9q1.325 0 2.4.35T20 5.35l-.5.5q-1.025-.65-2.075-.95-1.05-.3-2.075-.3-2.6 0-4.463 1.487Q9.025 7.575 8.35 9.65h6.35v.7H8.15q-.125.375-.162.838-.038.462-.038.812 0 .35.063.863.062.512.137.787h6.55v.7H8.325q.875 2.575 2.85 3.813Q13.15 19.4 15.35 19.4q1.025 0 2.138-.313 1.112-.312 2.012-.962l.5.525q-1.2.8-2.288 1.125-1.087.325-2.362.325Z"
-  }));
-});
-IconMaterialEuroSymbolW100.displayName = 'AmauiIconMaterialEuroSymbolW100';
-
-
 const IconMaterialEuroW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -13365,6 +13352,19 @@ const IconMaterialEuroW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialEuroW100.displayName = 'AmauiIconMaterialEuroW100';
+
+
+const IconMaterialEuroSymbolW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EuroSymbolW100",
+    short_name: "EuroSymbol",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M15.35 20.1q-2.5 0-4.65-1.437-2.15-1.438-3.1-4.313H4v-.7h3.4q-.075-.3-.113-.8-.037-.5-.037-.85t.037-.812q.038-.463.113-.838H4v-.7h3.6q.825-2.6 2.95-4.175Q12.675 3.9 15.35 3.9q1.325 0 2.4.35T20 5.35l-.5.5q-1.025-.65-2.075-.95-1.05-.3-2.075-.3-2.6 0-4.463 1.487Q9.025 7.575 8.35 9.65h6.35v.7H8.15q-.125.375-.162.838-.038.462-.038.812 0 .35.063.863.062.512.137.787h6.55v.7H8.325q.875 2.575 2.85 3.813Q13.15 19.4 15.35 19.4q1.025 0 2.138-.313 1.112-.312 2.012-.962l.5.525q-1.2.8-2.288 1.125-1.087.325-2.362.325Z"
+  }));
+});
+IconMaterialEuroSymbolW100.displayName = 'AmauiIconMaterialEuroSymbolW100';
 
 
 const IconMaterialEvChargerW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -13445,19 +13445,6 @@ const IconMaterialEvStationW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialEvStationW100.displayName = 'AmauiIconMaterialEvStationW100';
 
 
-const IconMaterialEventAvailableW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EventAvailableW100",
-    short_name: "EventAvailable",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.95 17.4 8.3 14.75l.5-.5 2.15 2.15 4.25-4.25.5.5ZM4.3 20.7V5.3h3.5V3h.8v2.3h6.9V3h.7v2.3h3.5v15.4ZM5 20h14v-9.2H5Zm0-9.9h14V6H5Zm0 0V6v4.1Z"
-  }));
-});
-IconMaterialEventAvailableW100.displayName = 'AmauiIconMaterialEventAvailableW100';
-
-
 const IconMaterialEventBusyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -13471,17 +13458,17 @@ const IconMaterialEventBusyW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialEventBusyW100.displayName = 'AmauiIconMaterialEventBusyW100';
 
 
-const IconMaterialEventListW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialEventAvailableW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "EventListW100",
-    short_name: "EventList",
-    viewBox: "0 -960 960 960"
+    name: "EventAvailableW100",
+    short_name: "EventAvailable",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M592-172v-236h236v236H592Zm28-28h180v-180H620v180Zm-488-76v-28h320v28H132Zm460-276v-236h236v236H592Zm28-28h180v-180H620v180Zm-488-76v-28h320v28H132Zm578 366Zm0-380Z"
+    d: "M10.95 17.4 8.3 14.75l.5-.5 2.15 2.15 4.25-4.25.5.5ZM4.3 20.7V5.3h3.5V3h.8v2.3h6.9V3h.7v2.3h3.5v15.4ZM5 20h14v-9.2H5Zm0-9.9h14V6H5Zm0 0V6v4.1Z"
   }));
 });
-IconMaterialEventListW100.displayName = 'AmauiIconMaterialEventListW100';
+IconMaterialEventAvailableW100.displayName = 'AmauiIconMaterialEventAvailableW100';
 
 
 const IconMaterialEventNoteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -13497,6 +13484,19 @@ const IconMaterialEventNoteW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialEventNoteW100.displayName = 'AmauiIconMaterialEventNoteW100';
 
 
+const IconMaterialEventListW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EventListW100",
+    short_name: "EventList",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M592-172v-236h236v236H592Zm28-28h180v-180H620v180Zm-488-76v-28h320v28H132Zm460-276v-236h236v236H592Zm28-28h180v-180H620v180Zm-488-76v-28h320v28H132Zm578 366Zm0-380Z"
+  }));
+});
+IconMaterialEventListW100.displayName = 'AmauiIconMaterialEventListW100';
+
+
 const IconMaterialEventRepeatW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -13510,19 +13510,6 @@ const IconMaterialEventRepeatW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialEventRepeatW100.displayName = 'AmauiIconMaterialEventRepeatW100';
 
 
-const IconMaterialEventSeatW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EventSeatW100",
-    short_name: "EventSeat",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.4 16.95H19v-5.6h-7.6ZM3.3 18.7V5.3h17.4v13.4ZM4 18h16V6H4Zm0 0V6v12Z"
-  }));
-});
-IconMaterialEventSeatW100.displayName = 'AmauiIconMaterialEventSeatW100';
-
-
 const IconMaterialEventUpcomingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -13534,6 +13521,19 @@ const IconMaterialEventUpcomingW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialEventUpcomingW100.displayName = 'AmauiIconMaterialEventUpcomingW100';
+
+
+const IconMaterialEventSeatW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EventSeatW100",
+    short_name: "EventSeat",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11.4 16.95H19v-5.6h-7.6ZM3.3 18.7V5.3h17.4v13.4ZM4 18h16V6H4Zm0 0V6v12Z"
+  }));
+});
+IconMaterialEventSeatW100.displayName = 'AmauiIconMaterialEventSeatW100';
 
 
 const IconMaterialEventW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -13731,19 +13731,6 @@ const IconMaterialExploreNearbyW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialExploreNearbyW100.displayName = 'AmauiIconMaterialExploreNearbyW100';
 
 
-const IconMaterialExploreOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ExploreOffW100",
-    short_name: "ExploreOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m14.3 11.5-1.8-1.8 4.15-2.35Zm5.55 9.35-2.225-2.225q-1.15.975-2.575 1.525-1.425.55-3.05.55-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12q0-1.625.55-3.05.55-1.425 1.525-2.575L3.15 4.15l.5-.5 16.7 16.7Zm-.45-4.25-.525-.525q.55-.9.837-1.925Q20 13.125 20 12q0-3.325-2.337-5.663Q15.325 4 12 4q-1.125 0-2.15.287-1.025.288-1.925.838L7.4 4.6q1.025-.625 2.175-.963Q10.725 3.3 12 3.3q1.8 0 3.388.687 1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.275-.337 2.425-.338 1.15-.963 2.175Zm-6-6Zm-1.9 1.9ZM12 20q1.475 0 2.775-.5 1.3-.5 2.35-1.375L12.65 13.65l-5.3 3 3-5.3-4.475-4.475Q5 7.925 4.5 9.225T4 12q0 3.325 2.338 5.663Q8.675 20 12 20Z"
-  }));
-});
-IconMaterialExploreOffW100.displayName = 'AmauiIconMaterialExploreOffW100';
-
-
 const IconMaterialExploreW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -13755,6 +13742,19 @@ const IconMaterialExploreW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialExploreW100.displayName = 'AmauiIconMaterialExploreW100';
+
+
+const IconMaterialExploreOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ExploreOffW100",
+    short_name: "ExploreOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m14.3 11.5-1.8-1.8 4.15-2.35Zm5.55 9.35-2.225-2.225q-1.15.975-2.575 1.525-1.425.55-3.05.55-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12q0-1.625.55-3.05.55-1.425 1.525-2.575L3.15 4.15l.5-.5 16.7 16.7Zm-.45-4.25-.525-.525q.55-.9.837-1.925Q20 13.125 20 12q0-3.325-2.337-5.663Q15.325 4 12 4q-1.125 0-2.15.287-1.025.288-1.925.838L7.4 4.6q1.025-.625 2.175-.963Q10.725 3.3 12 3.3q1.8 0 3.388.687 1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.275-.337 2.425-.338 1.15-.963 2.175Zm-6-6Zm-1.9 1.9ZM12 20q1.475 0 2.775-.5 1.3-.5 2.35-1.375L12.65 13.65l-5.3 3 3-5.3-4.475-4.475Q5 7.925 4.5 9.225T4 12q0 3.325 2.338 5.663Q8.675 20 12 20Z"
+  }));
+});
+IconMaterialExploreOffW100.displayName = 'AmauiIconMaterialExploreOffW100';
 
 
 const IconMaterialExplosionW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -14082,6 +14082,19 @@ const IconMaterialFamilyHomeW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialFamilyHomeW100.displayName = 'AmauiIconMaterialFamilyHomeW100';
 
 
+const IconMaterialFamilyRestroomW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FamilyRestroomW100",
+    short_name: "FamilyRestroom",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M18 5.75q-.65 0-1.125-.475T16.4 4.15q0-.65.475-1.125T18 2.55q.65 0 1.125.475T19.6 4.15q0 .65-.475 1.125T18 5.75Zm-1.35 15.6V11.075h-1.5L16.7 7.1h2.6l3.2 8.1h-2.7v6.15ZM12.5 11.4q-.525 0-.887-.363-.363-.362-.363-.887t.363-.888q.362-.362.887-.362t.887.362q.363.363.363.888t-.363.887q-.362.363-.887.363Zm-7-5.65q-.65 0-1.125-.475T3.9 4.15q0-.65.475-1.125T5.5 2.55q.65 0 1.125.475T7.1 4.15q0 .65-.475 1.125T5.5 5.75Zm-1.7 15.6V14.9H2.1V7.55h6.8v7.35H7.2v6.45Zm7.55 0V18h-1v-5.5h4.3V18h-1v3.35Z"
+  }));
+});
+IconMaterialFamilyRestroomW100.displayName = 'AmauiIconMaterialFamilyRestroomW100';
+
+
 const IconMaterialFamilyLinkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -14106,19 +14119,6 @@ const IconMaterialFamilyStarW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialFamilyStarW100.displayName = 'AmauiIconMaterialFamilyStarW100';
-
-
-const IconMaterialFamilyRestroomW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FamilyRestroomW100",
-    short_name: "FamilyRestroom",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M18 5.75q-.65 0-1.125-.475T16.4 4.15q0-.65.475-1.125T18 2.55q.65 0 1.125.475T19.6 4.15q0 .65-.475 1.125T18 5.75Zm-1.35 15.6V11.075h-1.5L16.7 7.1h2.6l3.2 8.1h-2.7v6.15ZM12.5 11.4q-.525 0-.887-.363-.363-.362-.363-.887t.363-.888q.362-.362.887-.362t.887.362q.363.363.363.888t-.363.887q-.362.363-.887.363Zm-7-5.65q-.65 0-1.125-.475T3.9 4.15q0-.65.475-1.125T5.5 2.55q.65 0 1.125.475T7.1 4.15q0 .65-.475 1.125T5.5 5.75Zm-1.7 15.6V14.9H2.1V7.55h6.8v7.35H7.2v6.45Zm7.55 0V18h-1v-5.5h4.3V18h-1v3.35Z"
-  }));
-});
-IconMaterialFamilyRestroomW100.displayName = 'AmauiIconMaterialFamilyRestroomW100';
 
 
 const IconMaterialFarsightDigitalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -14160,19 +14160,6 @@ const IconMaterialFastRewindW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialFastRewindW100.displayName = 'AmauiIconMaterialFastRewindW100';
 
 
-const IconMaterialFaucetW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FaucetW100",
-    short_name: "Faucet",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.15 14.35v-.7h5v-1.5q0-.35-.225-.575-.225-.225-.575-.225h-1.6q-.15 0-.25-.1T5.4 11q0-.15.1-.25t.25-.1h1.6q.625 0 1.062.437.438.438.438 1.063v1.5h2.8V6.6q0-1.45 1.013-2.463 1.012-1.012 2.437-.987.975 0 1.813.512.837.513 1.262 1.388l.85 1.7-.625.325-.875-1.725q-.35-.7-1-1.1-.65-.4-1.425-.4-1.15 0-1.95.8t-.8 1.95v7.05h2.8v-1.5q0-.625.438-1.063.437-.437 1.062-.437h1.6q.15 0 .25.1t.1.25q0 .15-.1.25t-.25.1h-1.6q-.35 0-.575.225-.225.225-.225.575v1.5h5v.7Zm3.5 5.5q-.625 0-1.062-.437-.438-.438-.438-1.063v-4h.7v4q0 .35.225.575.225.225.575.225h10.7q.35 0 .575-.225.225-.225.225-.575v-4h.7v4.15q0 .575-.388.962-.387.388-.962.388Z"
-  }));
-});
-IconMaterialFaucetW100.displayName = 'AmauiIconMaterialFaucetW100';
-
-
 const IconMaterialFastfoodW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -14184,6 +14171,19 @@ const IconMaterialFastfoodW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialFastfoodW100.displayName = 'AmauiIconMaterialFastfoodW100';
+
+
+const IconMaterialFaucetW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FaucetW100",
+    short_name: "Faucet",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.15 14.35v-.7h5v-1.5q0-.35-.225-.575-.225-.225-.575-.225h-1.6q-.15 0-.25-.1T5.4 11q0-.15.1-.25t.25-.1h1.6q.625 0 1.062.437.438.438.438 1.063v1.5h2.8V6.6q0-1.45 1.013-2.463 1.012-1.012 2.437-.987.975 0 1.813.512.837.513 1.262 1.388l.85 1.7-.625.325-.875-1.725q-.35-.7-1-1.1-.65-.4-1.425-.4-1.15 0-1.95.8t-.8 1.95v7.05h2.8v-1.5q0-.625.438-1.063.437-.437 1.062-.437h1.6q.15 0 .25.1t.1.25q0 .15-.1.25t-.25.1h-1.6q-.35 0-.575.225-.225.225-.225.575v1.5h5v.7Zm3.5 5.5q-.625 0-1.062-.437-.438-.438-.438-1.063v-4h.7v4q0 .35.225.575.225.225.575.225h10.7q.35 0 .575-.225.225-.225.225-.575v-4h.7v4.15q0 .575-.388.962-.387.388-.962.388Z"
+  }));
+});
+IconMaterialFaucetW100.displayName = 'AmauiIconMaterialFaucetW100';
 
 
 const IconMaterialFavoriteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -14316,19 +14316,6 @@ const IconMaterialFemurAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialFemurAltW100.displayName = 'AmauiIconMaterialFemurAltW100';
 
 
-const IconMaterialFemurW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FemurW100",
-    short_name: "Femur",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9.9 20.8q-.625 0-1.1-.4-.475-.4-.6-1.025-.175-.975-.8-1.525-.625-.55-1.55-.55-.125 0-.262.012-.138.013-.263.038-.8.15-1.425-.375t-.625-1.325q0-.625.4-1.1.4-.475 1.025-.6l3.5-.6 3.625-5.2q.3-.45.25-.9-.05-.45-.425-.8-.2-.2-.275-.438-.075-.237-.075-.437 0-.5.313-.825.312-.325.812-.325.325 0 .587.112.263.113.413.238.2.125.65.35.45.225 1.175.25-.2-.575.038-1.125.237-.55.787-.75.575-.2 1.125.05t.75.825l1.25 3.5q.2.575-.05 1.1-.25.525-.8.725-.575.225-1.112-.063Q16.7 9.35 16.5 8.8q-.375-.05-.738.087-.362.138-.612.463l-4.175 6 .625 3.425q.15.8-.375 1.413-.525.612-1.325.612Zm0-.7q.475 0 .788-.362.312-.363.212-.838l-.6-3.325q-.05-.2 0-.387.05-.188.175-.363l4.1-5.875q.275-.4.713-.625.437-.225.937-.225l-.725-2q-.75 0-1.375-.2T13 5.35q-.175-.125-.312-.175-.138-.05-.263-.05-.2 0-.312.137Q12 5.4 12 5.575q0 .1.038.2.037.1.112.175.325.325.475.7.15.375.15.75 0 .325-.1.6-.1.275-.275.55l-3.575 5.125q-.125.175-.287.263-.163.087-.363.137l-3.35.575q-.375.075-.612.362-.238.288-.238.638 0 .475.375.788.375.312.85.212.175-.05.337-.05h.313q.575 0 1.088.188.512.187.912.537.4.35.675.825t.375 1.1q.075.375.362.613.288.237.638.237Zm8.2-11.05q.275-.125.413-.4.137-.275.037-.55L17.3 4.6q-.125-.3-.4-.438-.275-.137-.575-.012-.275.125-.425.4-.15.275-.025.55l1.275 3.5q.125.3.4.437.275.138.55.013Zm-6.55 2.825ZM17.2 6.6Z"
-  }));
-});
-IconMaterialFemurW100.displayName = 'AmauiIconMaterialFemurW100';
-
-
 const IconMaterialFenceW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -14366,6 +14353,19 @@ const IconMaterialFestivalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialFestivalW100.displayName = 'AmauiIconMaterialFestivalW100';
+
+
+const IconMaterialFemurW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FemurW100",
+    short_name: "Femur",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9.9 20.8q-.625 0-1.1-.4-.475-.4-.6-1.025-.175-.975-.8-1.525-.625-.55-1.55-.55-.125 0-.262.012-.138.013-.263.038-.8.15-1.425-.375t-.625-1.325q0-.625.4-1.1.4-.475 1.025-.6l3.5-.6 3.625-5.2q.3-.45.25-.9-.05-.45-.425-.8-.2-.2-.275-.438-.075-.237-.075-.437 0-.5.313-.825.312-.325.812-.325.325 0 .587.112.263.113.413.238.2.125.65.35.45.225 1.175.25-.2-.575.038-1.125.237-.55.787-.75.575-.2 1.125.05t.75.825l1.25 3.5q.2.575-.05 1.1-.25.525-.8.725-.575.225-1.112-.063Q16.7 9.35 16.5 8.8q-.375-.05-.738.087-.362.138-.612.463l-4.175 6 .625 3.425q.15.8-.375 1.413-.525.612-1.325.612Zm0-.7q.475 0 .788-.362.312-.363.212-.838l-.6-3.325q-.05-.2 0-.387.05-.188.175-.363l4.1-5.875q.275-.4.713-.625.437-.225.937-.225l-.725-2q-.75 0-1.375-.2T13 5.35q-.175-.125-.312-.175-.138-.05-.263-.05-.2 0-.312.137Q12 5.4 12 5.575q0 .1.038.2.037.1.112.175.325.325.475.7.15.375.15.75 0 .325-.1.6-.1.275-.275.55l-3.575 5.125q-.125.175-.287.263-.163.087-.363.137l-3.35.575q-.375.075-.612.362-.238.288-.238.638 0 .475.375.788.375.312.85.212.175-.05.337-.05h.313q.575 0 1.088.188.512.187.912.537.4.35.675.825t.375 1.1q.075.375.362.613.288.237.638.237Zm8.2-11.05q.275-.125.413-.4.137-.275.037-.55L17.3 4.6q-.125-.3-.4-.438-.275-.137-.575-.012-.275.125-.425.4-.15.275-.025.55l1.275 3.5q.125.3.4.437.275.138.55.013Zm-6.55 2.825ZM17.2 6.6Z"
+  }));
+});
+IconMaterialFemurW100.displayName = 'AmauiIconMaterialFemurW100';
 
 
 const IconMaterialFiberDvrW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -14459,19 +14459,6 @@ const IconMaterialFileDownloadDoneW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialFileDownloadDoneW100.displayName = 'AmauiIconMaterialFileDownloadDoneW100';
 
 
-const IconMaterialFileDownloadOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FileDownloadOffW100",
-    short_name: "FileDownloadOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m3.65 3.65 16.7 16.7-.5.5-2.2-2.2q-.125.025-.225.038-.1.012-.225.012H6.8q-.65 0-1.075-.425Q5.3 17.85 5.3 17.2V15H6v2.2q0 .3.25.55.25.25.55.25H17l-4-4-1 1-3.1-3.1.5-.5 2 2v-1L3.15 4.15Zm10.95 7.5.5.5-.325.325-.5-.5Zm-2.25-6.3v4.7l-.7-.7v-4Z"
-  }));
-});
-IconMaterialFileDownloadOffW100.displayName = 'AmauiIconMaterialFileDownloadOffW100';
-
-
 const IconMaterialFileDownloadW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -14483,6 +14470,19 @@ const IconMaterialFileDownloadW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialFileDownloadW100.displayName = 'AmauiIconMaterialFileDownloadW100';
+
+
+const IconMaterialFileDownloadOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FileDownloadOffW100",
+    short_name: "FileDownloadOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m3.65 3.65 16.7 16.7-.5.5-2.2-2.2q-.125.025-.225.038-.1.012-.225.012H6.8q-.65 0-1.075-.425Q5.3 17.85 5.3 17.2V15H6v2.2q0 .3.25.55.25.25.55.25H17l-4-4-1 1-3.1-3.1.5-.5 2 2v-1L3.15 4.15Zm10.95 7.5.5.5-.325.325-.5-.5Zm-2.25-6.3v4.7l-.7-.7v-4Z"
+  }));
+});
+IconMaterialFileDownloadOffW100.displayName = 'AmauiIconMaterialFileDownloadOffW100';
 
 
 const IconMaterialFileMapW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -14639,19 +14639,6 @@ const IconMaterialFilter5W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialFilter5W100.displayName = 'AmauiIconMaterialFilter5W100';
-
-
-const IconMaterialFilter6W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Filter6W100",
-    short_name: "Filter6",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.7 9.65v-3.3h3v-.7H11v8.7h4.7v-4.7Zm0 .7H15v3.3h-3.3ZM6.65 16.7V3.3h13.4v13.4Zm.7-.7h12V4h-12Zm-3.4 3.4V6.8h.7v11.9h11.9v.7Zm3.4-3.4V4v12Z"
-  }));
-});
-IconMaterialFilter6W100.displayName = 'AmauiIconMaterialFilter6W100';
 
 
 const IconMaterialFilter7W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -14823,17 +14810,17 @@ const IconMaterialFilterListW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialFilterListW100.displayName = 'AmauiIconMaterialFilterListW100';
 
 
-const IconMaterialFilterNoneW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialFilter6W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "FilterNoneW100",
-    short_name: "FilterNone",
+    name: "Filter6W100",
+    short_name: "Filter6",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6.65 16.7V3.3h13.4v13.4Zm.7-.7h12V4h-12Zm-3.4 3.4V6.8h.7v11.9h11.9v.7ZM7.35 4v12Z"
+    d: "M11.7 9.65v-3.3h3v-.7H11v8.7h4.7v-4.7Zm0 .7H15v3.3h-3.3ZM6.65 16.7V3.3h13.4v13.4Zm.7-.7h12V4h-12Zm-3.4 3.4V6.8h.7v11.9h11.9v.7Zm3.4-3.4V4v12Z"
   }));
 });
-IconMaterialFilterNoneW100.displayName = 'AmauiIconMaterialFilterNoneW100';
+IconMaterialFilter6W100.displayName = 'AmauiIconMaterialFilter6W100';
 
 
 const IconMaterialFilterRetroluxW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -14847,6 +14834,19 @@ const IconMaterialFilterRetroluxW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialFilterRetroluxW100.displayName = 'AmauiIconMaterialFilterRetroluxW100';
+
+
+const IconMaterialFilterNoneW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FilterNoneW100",
+    short_name: "FilterNone",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6.65 16.7V3.3h13.4v13.4Zm.7-.7h12V4h-12Zm-3.4 3.4V6.8h.7v11.9h11.9v.7ZM7.35 4v12Z"
+  }));
+});
+IconMaterialFilterNoneW100.displayName = 'AmauiIconMaterialFilterNoneW100';
 
 
 const IconMaterialFilterTiltShiftW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -14940,19 +14940,6 @@ const IconMaterialFindInPageW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialFindInPageW100.displayName = 'AmauiIconMaterialFindInPageW100';
 
 
-const IconMaterialFindReplaceW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FindReplaceW100",
-    short_name: "FindReplace",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.4 10q.3-2.025 1.938-3.363Q8.975 5.3 11 5.3q2.225 0 3.388 1.075Q15.55 7.45 16 8.25V5.3h.7V10H12v-.7h3.7q-.425-1.125-1.587-2.213Q12.95 6 11 6 9.2 6 7.825 7.137 6.45 8.275 6.1 10Zm14.2 10.15-4.85-4.85q-.825.725-1.762 1.062-.938.338-1.988.338-1.475 0-2.875-.775T6 13.75v2.95h-.7V12H10v.7H6.3q.5 1.425 1.788 2.362Q9.375 16 11 16q1.8 0 3.175-1.137Q15.55 13.725 15.9 12h.7q-.125.9-.45 1.512-.325.613-.9 1.288l4.85 4.85Z"
-  }));
-});
-IconMaterialFindReplaceW100.displayName = 'AmauiIconMaterialFindReplaceW100';
-
-
 const IconMaterialFingerprintW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -14964,6 +14951,19 @@ const IconMaterialFingerprintW100 = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialFingerprintW100.displayName = 'AmauiIconMaterialFingerprintW100';
+
+
+const IconMaterialFindReplaceW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FindReplaceW100",
+    short_name: "FindReplace",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5.4 10q.3-2.025 1.938-3.363Q8.975 5.3 11 5.3q2.225 0 3.388 1.075Q15.55 7.45 16 8.25V5.3h.7V10H12v-.7h3.7q-.425-1.125-1.587-2.213Q12.95 6 11 6 9.2 6 7.825 7.137 6.45 8.275 6.1 10Zm14.2 10.15-4.85-4.85q-.825.725-1.762 1.062-.938.338-1.988.338-1.475 0-2.875-.775T6 13.75v2.95h-.7V12H10v.7H6.3q.5 1.425 1.788 2.362Q9.375 16 11 16q1.8 0 3.175-1.137Q15.55 13.725 15.9 12h.7q-.125.9-.45 1.512-.325.613-.9 1.288l4.85 4.85Z"
+  }));
+});
+IconMaterialFindReplaceW100.displayName = 'AmauiIconMaterialFindReplaceW100';
 
 
 const IconMaterialFireExtinguisherW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15083,19 +15083,6 @@ const IconMaterialFitbitArrowDownwardW100 = /*#__PURE__*/React.forwardRef((props
 IconMaterialFitbitArrowDownwardW100.displayName = 'AmauiIconMaterialFitbitArrowDownwardW100';
 
 
-const IconMaterialFitbitArrowUpwardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FitbitArrowUpwardW100",
-    short_name: "FitbitArrowUpward",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M466 790V427L296 596l-19-20 203-203 203 203-19 20-170-169v363h-28Z"
-  }));
-});
-IconMaterialFitbitArrowUpwardW100.displayName = 'AmauiIconMaterialFitbitArrowUpwardW100';
-
-
 const IconMaterialFitbitCheckSmallW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -15107,6 +15094,19 @@ const IconMaterialFitbitCheckSmallW100 = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialFitbitCheckSmallW100.displayName = 'AmauiIconMaterialFitbitCheckSmallW100';
+
+
+const IconMaterialFitbitArrowUpwardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FitbitArrowUpwardW100",
+    short_name: "FitbitArrowUpward",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M466 790V427L296 596l-19-20 203-203 203 203-19 20-170-169v363h-28Z"
+  }));
+});
+IconMaterialFitbitArrowUpwardW100.displayName = 'AmauiIconMaterialFitbitArrowUpwardW100';
 
 
 const IconMaterialFitnessCenterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15187,19 +15187,6 @@ const IconMaterialFlashAutoW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialFlashAutoW100.displayName = 'AmauiIconMaterialFlashAutoW100';
 
 
-const IconMaterialFlashOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FlashOffW100",
-    short_name: "FlashOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m15.35 12.85-1.5-1.5h2.4ZM13.1 10.6 7.5 5V3.5h8.75Zm-2.95 11.3V14H7.5V8.5L3.65 4.65l.5-.5L20.8 20.8l-.5.5-6.2-6.2Z"
-  }));
-});
-IconMaterialFlashOffW100.displayName = 'AmauiIconMaterialFlashOffW100';
-
-
 const IconMaterialFlashOnW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -15224,6 +15211,19 @@ const IconMaterialFlashlightOffW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialFlashlightOffW100.displayName = 'AmauiIconMaterialFlashlightOffW100';
+
+
+const IconMaterialFlashOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FlashOffW100",
+    short_name: "FlashOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m15.35 12.85-1.5-1.5h2.4ZM13.1 10.6 7.5 5V3.5h8.75Zm-2.95 11.3V14H7.5V8.5L3.65 4.65l.5-.5L20.8 20.8l-.5.5-6.2-6.2Z"
+  }));
+});
+IconMaterialFlashOffW100.displayName = 'AmauiIconMaterialFlashOffW100';
 
 
 const IconMaterialFlashlightOnW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15317,19 +15317,6 @@ const IconMaterialFlightLandW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialFlightLandW100.displayName = 'AmauiIconMaterialFlightLandW100';
 
 
-const IconMaterialFlightTakeoffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FlightTakeoffW100",
-    short_name: "FlightTakeoff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.475 20.35v-.7h16.7v.7Zm1.5-5.1-2.1-3.65.65-.15 1.8 1.55 5.6-1.5-4.05-6.85.8-.25 6.85 6.1 5.3-1.4q.5-.125.9.187.4.313.4.813 0 .35-.187.612-.188.263-.513.338Z"
-  }));
-});
-IconMaterialFlightTakeoffW100.displayName = 'AmauiIconMaterialFlightTakeoffW100';
-
-
 const IconMaterialFlightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -15354,6 +15341,19 @@ const IconMaterialFlightsAndHotelsW100 = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialFlightsAndHotelsW100.displayName = 'AmauiIconMaterialFlightsAndHotelsW100';
+
+
+const IconMaterialFlightTakeoffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FlightTakeoffW100",
+    short_name: "FlightTakeoff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.475 20.35v-.7h16.7v.7Zm1.5-5.1-2.1-3.65.65-.15 1.8 1.55 5.6-1.5-4.05-6.85.8-.25 6.85 6.1 5.3-1.4q.5-.125.9.187.4.313.4.813 0 .35-.187.612-.188.263-.513.338Z"
+  }));
+});
+IconMaterialFlightTakeoffW100.displayName = 'AmauiIconMaterialFlightTakeoffW100';
 
 
 const IconMaterialFlightsmodeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15538,19 +15538,6 @@ const IconMaterialFluidBalanceW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialFluidBalanceW100.displayName = 'AmauiIconMaterialFluidBalanceW100';
 
 
-const IconMaterialFluidMedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FluidMedW100",
-    short_name: "FluidMed",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M18.15 20.1q-.625 0-1.062-.437-.438-.438-.438-1.063v-.925q-1.425-.125-2.387-1.175-.963-1.05-.963-2.5V8.3h7.4V14q0 1.45-.962 2.5-.963 1.05-2.388 1.175v.925q0 .35.225.575.225.225.575.225h2.2v.7Zm.6-6.45H20V9h-6v2.65h.75q.65 0 1.25.3t1.025.85q.3.425.763.638.462.212.962.212ZM17 17q1.15 0 2-.762.85-.763.975-1.888H18.75q-.675 0-1.275-.288-.6-.287-1.025-.837-.3-.425-.75-.65-.45-.225-.95-.225H14V14q0 1.275.863 2.137Q15.725 17 17 17Zm-.55-4.2ZM8.1 20.45l-.7-.525V16.2H6.3q-.625 0-1.062-.438Q4.8 15.325 4.8 14.7V7.5h-.7v-.7h3.3V5H6.15v-.7h3.2V5H8.1v1.8h3.3v.7h-.7v7.2q0 .625-.437 1.062-.438.438-1.063.438H8.1ZM6.3 15.5h2.9q.35 0 .575-.225Q10 15.05 10 14.7v-1.4H7.65v-.7H10v-2.2H7.65v-.7H10V7.5H5.5v7.2q0 .35.225.575.225.225.575.225Z"
-  }));
-});
-IconMaterialFluidMedW100.displayName = 'AmauiIconMaterialFluidMedW100';
-
-
 const IconMaterialFluidW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -15562,6 +15549,19 @@ const IconMaterialFluidW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialFluidW100.displayName = 'AmauiIconMaterialFluidW100';
+
+
+const IconMaterialFluidMedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FluidMedW100",
+    short_name: "FluidMed",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M18.15 20.1q-.625 0-1.062-.437-.438-.438-.438-1.063v-.925q-1.425-.125-2.387-1.175-.963-1.05-.963-2.5V8.3h7.4V14q0 1.45-.962 2.5-.963 1.05-2.388 1.175v.925q0 .35.225.575.225.225.575.225h2.2v.7Zm.6-6.45H20V9h-6v2.65h.75q.65 0 1.25.3t1.025.85q.3.425.763.638.462.212.962.212ZM17 17q1.15 0 2-.762.85-.763.975-1.888H18.75q-.675 0-1.275-.288-.6-.287-1.025-.837-.3-.425-.75-.65-.45-.225-.95-.225H14V14q0 1.275.863 2.137Q15.725 17 17 17Zm-.55-4.2ZM8.1 20.45l-.7-.525V16.2H6.3q-.625 0-1.062-.438Q4.8 15.325 4.8 14.7V7.5h-.7v-.7h3.3V5H6.15v-.7h3.2V5H8.1v1.8h3.3v.7h-.7v7.2q0 .625-.437 1.062-.438.438-1.063.438H8.1ZM6.3 15.5h2.9q.35 0 .575-.225Q10 15.05 10 14.7v-1.4H7.65v-.7H10v-2.2H7.65v-.7H10V7.5H5.5v7.2q0 .35.225.575.225.225.575.225Z"
+  }));
+});
+IconMaterialFluidMedW100.displayName = 'AmauiIconMaterialFluidMedW100';
 
 
 const IconMaterialFluorescentW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15590,6 +15590,19 @@ const IconMaterialFlutterDashW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialFlutterDashW100.displayName = 'AmauiIconMaterialFlutterDashW100';
 
 
+const IconMaterialFmdBadW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FmdBadW100",
+    short_name: "FmdBad",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11.65 12.525h.7v-5.9h-.7Zm.35 2.65q.225 0 .363-.15.137-.15.137-.35 0-.225-.137-.363-.138-.137-.363-.137-.2 0-.35.137-.15.138-.15.363 0 .2.15.35.15.15.35.15Zm0 5.35q3.15-2.7 4.9-5.563 1.75-2.862 1.75-4.762 0-3.025-1.925-4.938Q14.8 3.35 12 3.35T7.275 5.262Q5.35 7.175 5.35 10.2q0 1.9 1.75 4.762 1.75 2.863 4.9 5.563Zm0 .975q-3.725-3.35-5.537-6.213Q4.65 12.425 4.65 10.2q0-3.45 2.225-5.5T12 2.65q2.9 0 5.125 2.05t2.225 5.5q0 2.225-1.812 5.087Q15.725 18.15 12 21.5Zm0-11.3Z"
+  }));
+});
+IconMaterialFmdBadW100.displayName = 'AmauiIconMaterialFmdBadW100';
+
+
 const IconMaterialFlutterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -15616,17 +15629,17 @@ const IconMaterialFoggyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialFoggyW100.displayName = 'AmauiIconMaterialFoggyW100';
 
 
-const IconMaterialFmdBadW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialFolderCopyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "FmdBadW100",
-    short_name: "FmdBad",
+    name: "FolderCopyW100",
+    short_name: "FolderCopy",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.65 12.525h.7v-5.9h-.7Zm.35 2.65q.225 0 .363-.15.137-.15.137-.35 0-.225-.137-.363-.138-.137-.363-.137-.2 0-.35.137-.15.138-.15.363 0 .2.15.35.15.15.35.15Zm0 5.35q3.15-2.7 4.9-5.563 1.75-2.862 1.75-4.762 0-3.025-1.925-4.938Q14.8 3.35 12 3.35T7.275 5.262Q5.35 7.175 5.35 10.2q0 1.9 1.75 4.762 1.75 2.863 4.9 5.563Zm0 .975q-3.725-3.35-5.537-6.213Q4.65 12.425 4.65 10.2q0-3.45 2.225-5.5T12 2.65q2.9 0 5.125 2.05t2.225 5.5q0 2.225-1.812 5.087Q15.725 18.15 12 21.5Zm0-11.3Z"
+    d: "M2.3 19.4V8.7H3v10h15.75v.7ZM5 16.7V3.3h7l1 1h8.7v12.4Zm.7-.7H21V5h-8.275l-1-1H5.7Zm0 0V4v12Z"
   }));
 });
-IconMaterialFmdBadW100.displayName = 'AmauiIconMaterialFmdBadW100';
+IconMaterialFolderCopyW100.displayName = 'AmauiIconMaterialFolderCopyW100';
 
 
 const IconMaterialFoldedHandsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15640,19 +15653,6 @@ const IconMaterialFoldedHandsW100 = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialFoldedHandsW100.displayName = 'AmauiIconMaterialFoldedHandsW100';
-
-
-const IconMaterialFolderCopyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FolderCopyW100",
-    short_name: "FolderCopy",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2.3 19.4V8.7H3v10h15.75v.7ZM5 16.7V3.3h7l1 1h8.7v12.4Zm.7-.7H21V5h-8.275l-1-1H5.7Zm0 0V4v12Z"
-  }));
-});
-IconMaterialFolderCopyW100.displayName = 'AmauiIconMaterialFolderCopyW100';
 
 
 const IconMaterialFolderDataW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15694,19 +15694,6 @@ const IconMaterialFolderManagedW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialFolderManagedW100.displayName = 'AmauiIconMaterialFolderManagedW100';
 
 
-const IconMaterialFolderOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FolderOffW100",
-    short_name: "FolderOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m20.7 17.875-.7-.7V8h-8.275l-1-1h-.9l-.7-.7H11l1 1h8.7Zm-9.15-5.3Zm3.4-.45ZM20.9 21.9l-3.2-3.2H3.3V6.3h3L7 7H4v11h12.975L3.1 4.1l.5-.5 17.8 17.8Z"
-  }));
-});
-IconMaterialFolderOffW100.displayName = 'AmauiIconMaterialFolderOffW100';
-
-
 const IconMaterialFolderOpenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -15718,6 +15705,19 @@ const IconMaterialFolderOpenW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialFolderOpenW100.displayName = 'AmauiIconMaterialFolderOpenW100';
+
+
+const IconMaterialFolderSpecialW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FolderSpecialW100",
+    short_name: "FolderSpecial",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m13.15 15.925 1.75-1.35 1.75 1.35L16 13.75l1.775-1.45H15.6l-.7-2.125-.7 2.125h-2.175l1.775 1.45ZM3.3 18.7V6.3H11l1 1h8.7v11.4ZM4 18h16V8h-8.275l-1-1H4Zm0 0V7v1Z"
+  }));
+});
+IconMaterialFolderSpecialW100.displayName = 'AmauiIconMaterialFolderSpecialW100';
 
 
 const IconMaterialFolderSharedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15733,17 +15733,17 @@ const IconMaterialFolderSharedW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialFolderSharedW100.displayName = 'AmauiIconMaterialFolderSharedW100';
 
 
-const IconMaterialFolderSpecialW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialFolderOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "FolderSpecialW100",
-    short_name: "FolderSpecial",
+    name: "FolderOffW100",
+    short_name: "FolderOff",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m13.15 15.925 1.75-1.35 1.75 1.35L16 13.75l1.775-1.45H15.6l-.7-2.125-.7 2.125h-2.175l1.775 1.45ZM3.3 18.7V6.3H11l1 1h8.7v11.4ZM4 18h16V8h-8.275l-1-1H4Zm0 0V7v1Z"
+    d: "m20.7 17.875-.7-.7V8h-8.275l-1-1h-.9l-.7-.7H11l1 1h8.7Zm-9.15-5.3Zm3.4-.45ZM20.9 21.9l-3.2-3.2H3.3V6.3h3L7 7H4v11h12.975L3.1 4.1l.5-.5 17.8 17.8Z"
   }));
 });
-IconMaterialFolderSpecialW100.displayName = 'AmauiIconMaterialFolderSpecialW100';
+IconMaterialFolderOffW100.displayName = 'AmauiIconMaterialFolderOffW100';
 
 
 const IconMaterialFolderSupervisedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15915,19 +15915,6 @@ const IconMaterialForkRightW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialForkRightW100.displayName = 'AmauiIconMaterialForkRightW100';
 
 
-const IconMaterialForkliftW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ForkliftW100",
-    short_name: "Forklift",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.25 20.35q-.975 0-1.662-.687Q2.9 18.975 2.9 18q0-.575.263-1.075.262-.5.737-.85V11.65h2.375V6.3H11.8l4.25 9.925q.125.3.213.612.087.313.087.663 0 1.2-.825 2.025t-2.025.825q-.95 0-1.7-.55t-1.025-1.45h-3.2q-.125.875-.788 1.438-.662.562-1.537.562Zm12.1-1V4.65h.7v14h3.05v.7Zm-12.1.3q.675 0 1.163-.487Q6.9 18.675 6.9 18t-.487-1.163q-.488-.487-1.163-.487t-1.162.487Q3.6 17.325 3.6 18t.488 1.163q.487.487 1.162.487Zm8.25 0q.875 0 1.512-.638.638-.637.638-1.512t-.638-1.512q-.637-.638-1.512-.638t-1.512.638q-.638.637-.638 1.512t.638 1.512q.637.638 1.512.638Zm-5.925-2h3.075q-.05-.65.213-1.263.262-.612.762-1.037H9.6l-2.925-3H4.6v3.4q.15-.05.312-.075.163-.025.338-.025.875 0 1.537.562.663.563.788 1.438Zm2.325-3h3.6q.325 0 .638.075.312.075.612.225L11.35 7H6.975v4.65Zm-.3.7-.462-.475q-.463-.475-1-1.038-.538-.562-1-1.025l-.463-.462H4.6h2.075l2.925 3h2.025Z"
-  }));
-});
-IconMaterialForkliftW100.displayName = 'AmauiIconMaterialForkliftW100';
-
-
 const IconMaterialFormatAlignCenterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -15939,6 +15926,19 @@ const IconMaterialFormatAlignCenterW100 = /*#__PURE__*/React.forwardRef((props, 
   }));
 });
 IconMaterialFormatAlignCenterW100.displayName = 'AmauiIconMaterialFormatAlignCenterW100';
+
+
+const IconMaterialForkliftW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ForkliftW100",
+    short_name: "Forklift",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5.25 20.35q-.975 0-1.662-.687Q2.9 18.975 2.9 18q0-.575.263-1.075.262-.5.737-.85V11.65h2.375V6.3H11.8l4.25 9.925q.125.3.213.612.087.313.087.663 0 1.2-.825 2.025t-2.025.825q-.95 0-1.7-.55t-1.025-1.45h-3.2q-.125.875-.788 1.438-.662.562-1.537.562Zm12.1-1V4.65h.7v14h3.05v.7Zm-12.1.3q.675 0 1.163-.487Q6.9 18.675 6.9 18t-.487-1.163q-.488-.487-1.163-.487t-1.162.487Q3.6 17.325 3.6 18t.488 1.163q.487.487 1.162.487Zm8.25 0q.875 0 1.512-.638.638-.637.638-1.512t-.638-1.512q-.637-.638-1.512-.638t-1.512.638q-.638.637-.638 1.512t.638 1.512q.637.638 1.512.638Zm-5.925-2h3.075q-.05-.65.213-1.263.262-.612.762-1.037H9.6l-2.925-3H4.6v3.4q.15-.05.312-.075.163-.025.338-.025.875 0 1.537.562.663.563.788 1.438Zm2.325-3h3.6q.325 0 .638.075.312.075.612.225L11.35 7H6.975v4.65Zm-.3.7-.462-.475q-.463-.475-1-1.038-.538-.562-1-1.025l-.463-.462H4.6h2.075l2.925 3h2.025Z"
+  }));
+});
+IconMaterialForkliftW100.displayName = 'AmauiIconMaterialForkliftW100';
 
 
 const IconMaterialFormatAlignJustifyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15967,19 +15967,6 @@ const IconMaterialFormatAlignLeftW100 = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialFormatAlignLeftW100.displayName = 'AmauiIconMaterialFormatAlignLeftW100';
 
 
-const IconMaterialFormatAlignRightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FormatAlignRightW100",
-    short_name: "FormatAlignRight",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.65 20.35v-.7h16.7v.7Zm6-4v-.7h10.7v.7Zm-6-4v-.7h16.7v.7Zm6-4v-.7h10.7v.7Zm-6-4v-.7h16.7v.7Z"
-  }));
-});
-IconMaterialFormatAlignRightW100.displayName = 'AmauiIconMaterialFormatAlignRightW100';
-
-
 const IconMaterialFormatBoldW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -15991,6 +15978,19 @@ const IconMaterialFormatBoldW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialFormatBoldW100.displayName = 'AmauiIconMaterialFormatBoldW100';
+
+
+const IconMaterialFormatAlignRightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FormatAlignRightW100",
+    short_name: "FormatAlignRight",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.65 20.35v-.7h16.7v.7Zm6-4v-.7h10.7v.7Zm-6-4v-.7h16.7v.7Zm6-4v-.7h10.7v.7Zm-6-4v-.7h16.7v.7Z"
+  }));
+});
+IconMaterialFormatAlignRightW100.displayName = 'AmauiIconMaterialFormatAlignRightW100';
 
 
 const IconMaterialFormatClearW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16084,19 +16084,6 @@ const IconMaterialFormatH3W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialFormatH3W100.displayName = 'AmauiIconMaterialFormatH3W100';
 
 
-const IconMaterialFormatH5W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FormatH5W100",
-    short_name: "FormatH5",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.3 16.35v-8.7H5v4h5.3v-4h.7v8.7h-.7v-4H5v4Zm8.7 0v-.7h5.2q.35 0 .575-.225Q19 15.2 19 14.85v-1.7q0-.35-.225-.575-.225-.225-.575-.225H13v-4.7h6.7v.7h-6v3.3h4.5q.625 0 1.063.437.437.438.437 1.063v1.7q0 .625-.437 1.063-.438.437-1.063.437Z"
-  }));
-});
-IconMaterialFormatH5W100.displayName = 'AmauiIconMaterialFormatH5W100';
-
-
 const IconMaterialFormatH4W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -16110,17 +16097,17 @@ const IconMaterialFormatH4W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialFormatH4W100.displayName = 'AmauiIconMaterialFormatH4W100';
 
 
-const IconMaterialFormatH6W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialFormatH5W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "FormatH6W100",
-    short_name: "FormatH6",
+    name: "FormatH5W100",
+    short_name: "FormatH5",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.3 16.35v-8.7H5v4h5.3v-4h.7v8.7h-.7v-4H5v4Zm10.2 0q-.625 0-1.062-.437Q13 15.475 13 14.85v-5.7q0-.625.438-1.063.437-.437 1.062-.437h5.2v.7h-5.2q-.35 0-.575.225-.225.225-.225.575v2.5h4.5q.625 0 1.063.437.437.438.437 1.063v1.7q0 .625-.437 1.063-.438.437-1.063.437Zm-.8-4v2.5q0 .35.225.575.225.225.575.225h3.7q.35 0 .575-.225Q19 15.2 19 14.85v-1.7q0-.35-.225-.575-.225-.225-.575-.225Z"
+    d: "M4.3 16.35v-8.7H5v4h5.3v-4h.7v8.7h-.7v-4H5v4Zm8.7 0v-.7h5.2q.35 0 .575-.225Q19 15.2 19 14.85v-1.7q0-.35-.225-.575-.225-.225-.575-.225H13v-4.7h6.7v.7h-6v3.3h4.5q.625 0 1.063.437.437.438.437 1.063v1.7q0 .625-.437 1.063-.438.437-1.063.437Z"
   }));
 });
-IconMaterialFormatH6W100.displayName = 'AmauiIconMaterialFormatH6W100';
+IconMaterialFormatH5W100.displayName = 'AmauiIconMaterialFormatH5W100';
 
 
 const IconMaterialFormatImageLeftW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16147,6 +16134,19 @@ const IconMaterialFormatImageRightW100 = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialFormatImageRightW100.displayName = 'AmauiIconMaterialFormatImageRightW100';
+
+
+const IconMaterialFormatH6W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FormatH6W100",
+    short_name: "FormatH6",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.3 16.35v-8.7H5v4h5.3v-4h.7v8.7h-.7v-4H5v4Zm10.2 0q-.625 0-1.062-.437Q13 15.475 13 14.85v-5.7q0-.625.438-1.063.437-.437 1.062-.437h5.2v.7h-5.2q-.35 0-.575.225-.225.225-.225.575v2.5h4.5q.625 0 1.063.437.437.438.437 1.063v1.7q0 .625-.437 1.063-.438.437-1.063.437Zm-.8-4v2.5q0 .35.225.575.225.225.575.225h3.7q.35 0 .575-.225Q19 15.2 19 14.85v-1.7q0-.35-.225-.575-.225-.225-.575-.225Z"
+  }));
+});
+IconMaterialFormatH6W100.displayName = 'AmauiIconMaterialFormatH6W100';
 
 
 const IconMaterialFormatIndentDecreaseW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16292,32 +16292,6 @@ const IconMaterialFormatListBulletedAddW100 = /*#__PURE__*/React.forwardRef((pro
 IconMaterialFormatListBulletedAddW100.displayName = 'AmauiIconMaterialFormatListBulletedAddW100';
 
 
-const IconMaterialFormatListBulletedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FormatListBulletedW100",
-    short_name: "FormatListBulleted",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.5 18.85q-.35 0-.6-.25t-.25-.6q0-.35.25-.6t.6-.25q.35 0 .6.25t.25.6q0 .35-.25.6t-.6.25Zm4.15-.5v-.7h11.7v.7Zm-4.15-5.5q-.35 0-.6-.25t-.25-.6q0-.35.25-.6t.6-.25q.35 0 .6.25t.25.6q0 .35-.25.6t-.6.25Zm4.15-.5v-.7h11.7v.7ZM4.5 6.85q-.35 0-.6-.25T3.65 6q0-.35.25-.6t.6-.25q.35 0 .6.25t.25.6q0 .35-.25.6t-.6.25Zm4.15-.5v-.7h11.7v.7Z"
-  }));
-});
-IconMaterialFormatListBulletedW100.displayName = 'AmauiIconMaterialFormatListBulletedW100';
-
-
-const IconMaterialFormatListNumberedRtlW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FormatListNumberedRtlW100",
-    short_name: "FormatListNumberedRtl",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M17.9 19.85v-.7h2v-.8h-1v-.7h1v-.8h-2v-.7h2.7v3.7Zm-14.5-1.5v-.7h11.7v.7Zm14.5-4.5v-.7l1.85-2.3H17.9v-.7h2.7v.7l-1.85 2.3h1.85v.7Zm-14.5-1.5v-.7h11.7v.7Zm15.5-4.5v-3h-1v-.7h1.7v3.7ZM3.4 6.35v-.7h11.7v.7Z"
-  }));
-});
-IconMaterialFormatListNumberedRtlW100.displayName = 'AmauiIconMaterialFormatListNumberedRtlW100';
-
-
 const IconMaterialFormatListNumberedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -16329,6 +16303,19 @@ const IconMaterialFormatListNumberedW100 = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialFormatListNumberedW100.displayName = 'AmauiIconMaterialFormatListNumberedW100';
+
+
+const IconMaterialFormatListBulletedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FormatListBulletedW100",
+    short_name: "FormatListBulleted",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.5 18.85q-.35 0-.6-.25t-.25-.6q0-.35.25-.6t.6-.25q.35 0 .6.25t.25.6q0 .35-.25.6t-.6.25Zm4.15-.5v-.7h11.7v.7Zm-4.15-5.5q-.35 0-.6-.25t-.25-.6q0-.35.25-.6t.6-.25q.35 0 .6.25t.25.6q0 .35-.25.6t-.6.25Zm4.15-.5v-.7h11.7v.7ZM4.5 6.85q-.35 0-.6-.25T3.65 6q0-.35.25-.6t.6-.25q.35 0 .6.25t.25.6q0 .35-.25.6t-.6.25Zm4.15-.5v-.7h11.7v.7Z"
+  }));
+});
+IconMaterialFormatListBulletedW100.displayName = 'AmauiIconMaterialFormatListBulletedW100';
 
 
 const IconMaterialFormatOverlineW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16344,6 +16331,19 @@ const IconMaterialFormatOverlineW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialFormatOverlineW100.displayName = 'AmauiIconMaterialFormatOverlineW100';
 
 
+const IconMaterialFormatListNumberedRtlW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FormatListNumberedRtlW100",
+    short_name: "FormatListNumberedRtl",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M17.9 19.85v-.7h2v-.8h-1v-.7h1v-.8h-2v-.7h2.7v3.7Zm-14.5-1.5v-.7h11.7v.7Zm14.5-4.5v-.7l1.85-2.3H17.9v-.7h2.7v.7l-1.85 2.3h1.85v.7Zm-14.5-1.5v-.7h11.7v.7Zm15.5-4.5v-3h-1v-.7h1.7v3.7ZM3.4 6.35v-.7h11.7v.7Z"
+  }));
+});
+IconMaterialFormatListNumberedRtlW100.displayName = 'AmauiIconMaterialFormatListNumberedRtlW100';
+
+
 const IconMaterialFormatPaintW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -16357,19 +16357,6 @@ const IconMaterialFormatPaintW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialFormatPaintW100.displayName = 'AmauiIconMaterialFormatPaintW100';
 
 
-const IconMaterialFormatParagraphW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FormatParagraphW100",
-    short_name: "FormatParagraph",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.75 18.6v-5.9h-.25q-1.55 0-2.625-1.075T6.8 9q0-1.55 1.075-2.625T10.5 5.3h5.65V6h-2v12.6h-.7V6h-2v12.6Z"
-  }));
-});
-IconMaterialFormatParagraphW100.displayName = 'AmauiIconMaterialFormatParagraphW100';
-
-
 const IconMaterialFormatQuoteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -16381,6 +16368,19 @@ const IconMaterialFormatQuoteW100 = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialFormatQuoteW100.displayName = 'AmauiIconMaterialFormatQuoteW100';
+
+
+const IconMaterialFormatParagraphW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FormatParagraphW100",
+    short_name: "FormatParagraph",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10.75 18.6v-5.9h-.25q-1.55 0-2.625-1.075T6.8 9q0-1.55 1.075-2.625T10.5 5.3h5.65V6h-2v12.6h-.7V6h-2v12.6Z"
+  }));
+});
+IconMaterialFormatParagraphW100.displayName = 'AmauiIconMaterialFormatParagraphW100';
 
 
 const IconMaterialFormatShapesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16435,19 +16435,6 @@ const IconMaterialFormatTextClipW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialFormatTextClipW100.displayName = 'AmauiIconMaterialFormatTextClipW100';
 
 
-const IconMaterialFormatTextWrapW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FormatTextWrapW100",
-    short_name: "FormatTextWrap",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.3 19.35V4.65H6v14.7Zm12.7 0V4.65h.7v14.7Zm-7.05-2.725L8.325 14l2.625-2.6.475.475L9.65 13.65h3q1.125 0 1.888-.763.762-.762.762-1.887t-.762-1.887q-.763-.763-1.888-.763H8v-.7h4.65q1.4 0 2.375.975Q16 9.6 16 11t-.975 2.375q-.975.975-2.375.975h-3l1.775 1.775Z"
-  }));
-});
-IconMaterialFormatTextWrapW100.displayName = 'AmauiIconMaterialFormatTextWrapW100';
-
-
 const IconMaterialFormatTextOverflowW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -16459,6 +16446,19 @@ const IconMaterialFormatTextOverflowW100 = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialFormatTextOverflowW100.displayName = 'AmauiIconMaterialFormatTextOverflowW100';
+
+
+const IconMaterialFormatTextWrapW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FormatTextWrapW100",
+    short_name: "FormatTextWrap",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5.3 19.35V4.65H6v14.7Zm12.7 0V4.65h.7v14.7Zm-7.05-2.725L8.325 14l2.625-2.6.475.475L9.65 13.65h3q1.125 0 1.888-.763.762-.762.762-1.887t-.762-1.887q-.763-.763-1.888-.763H8v-.7h4.65q1.4 0 2.375.975Q16 9.6 16 11t-.975 2.375q-.975.975-2.375.975h-3l1.775 1.775Z"
+  }));
+});
+IconMaterialFormatTextWrapW100.displayName = 'AmauiIconMaterialFormatTextWrapW100';
 
 
 const IconMaterialFormatTextdirectionLToRW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16643,19 +16643,6 @@ const IconMaterialForwardToInboxW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialForwardToInboxW100.displayName = 'AmauiIconMaterialForwardToInboxW100';
 
 
-const IconMaterialFoundationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FoundationW100",
-    short_name: "Foundation",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6.3 18.7v-3h-.9V15h.9v-4.3h-.9L12 4.75l6.6 5.95h-.9V15h.9v.7h-.9v3H17v-3h-4.65v3h-.7v-3H7v3ZM7 15h4.65V6.025L7 10.2Zm5.35 0H17v-4.8l-4.65-4.175Z"
-  }));
-});
-IconMaterialFoundationW100.displayName = 'AmauiIconMaterialFoundationW100';
-
-
 const IconMaterialForwardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -16667,6 +16654,19 @@ const IconMaterialForwardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialForwardW100.displayName = 'AmauiIconMaterialForwardW100';
+
+
+const IconMaterialFoundationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FoundationW100",
+    short_name: "Foundation",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6.3 18.7v-3h-.9V15h.9v-4.3h-.9L12 4.75l6.6 5.95h-.9V15h.9v.7h-.9v3H17v-3h-4.65v3h-.7v-3H7v3ZM7 15h4.65V6.025L7 10.2Zm5.35 0H17v-4.8l-4.65-4.175Z"
+  }));
+});
+IconMaterialFoundationW100.displayName = 'AmauiIconMaterialFoundationW100';
 
 
 const IconMaterialFrameInspectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16682,19 +16682,6 @@ const IconMaterialFrameInspectW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialFrameInspectW100.displayName = 'AmauiIconMaterialFrameInspectW100';
 
 
-const IconMaterialFramePersonW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FramePersonW100",
-    short_name: "FramePerson",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6.3 16.45V14.4q0-.175.075-.325.075-.15.225-.25 1.125-.8 2.575-1.288 1.45-.487 2.825-.487 1.375 0 2.825.487 1.45.488 2.575 1.288.125.1.213.25.087.15.087.325v2.05Zm.7-.7h10V14.4q-1.05-.775-2.375-1.212Q13.3 12.75 12 12.75t-2.625.425Q8.05 13.6 7 14.375Zm5-4.8q-1.125 0-1.912-.788Q9.3 9.375 9.3 8.25t.788-1.912Q10.875 5.55 12 5.55t1.913.788q.787.787.787 1.912t-.787 1.912q-.788.788-1.913.788Zm0-.7q.825 0 1.413-.588Q14 9.075 14 8.25t-.587-1.412Q12.825 6.25 12 6.25q-.825 0-1.412.588Q10 7.425 10 8.25t.588 1.412q.587.588 1.412.588Zm0 5.5Zm0-7.5ZM2.3 6V2.3H6V3H3v3ZM6 21.7H2.3V18H3v3h3Zm12 0V21h3v-3h.7v3.7ZM21 6V3h-3v-.7h3.7V6Z"
-  }));
-});
-IconMaterialFramePersonW100.displayName = 'AmauiIconMaterialFramePersonW100';
-
-
 const IconMaterialFramePersonOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -16706,6 +16693,19 @@ const IconMaterialFramePersonOffW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialFramePersonOffW100.displayName = 'AmauiIconMaterialFramePersonOffW100';
+
+
+const IconMaterialFramePersonW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FramePersonW100",
+    short_name: "FramePerson",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6.3 16.45V14.4q0-.175.075-.325.075-.15.225-.25 1.125-.8 2.575-1.288 1.45-.487 2.825-.487 1.375 0 2.825.487 1.45.488 2.575 1.288.125.1.213.25.087.15.087.325v2.05Zm.7-.7h10V14.4q-1.05-.775-2.375-1.212Q13.3 12.75 12 12.75t-2.625.425Q8.05 13.6 7 14.375Zm5-4.8q-1.125 0-1.912-.788Q9.3 9.375 9.3 8.25t.788-1.912Q10.875 5.55 12 5.55t1.913.788q.787.787.787 1.912t-.787 1.912q-.788.788-1.913.788Zm0-.7q.825 0 1.413-.588Q14 9.075 14 8.25t-.587-1.412Q12.825 6.25 12 6.25q-.825 0-1.412.588Q10 7.425 10 8.25t.588 1.412q.587.588 1.412.588Zm0 5.5Zm0-7.5ZM2.3 6V2.3H6V3H3v3ZM6 21.7H2.3V18H3v3h3Zm12 0V21h3v-3h.7v3.7ZM21 6V3h-3v-.7h3.7V6Z"
+  }));
+});
+IconMaterialFramePersonW100.displayName = 'AmauiIconMaterialFramePersonW100';
 
 
 const IconMaterialFrameReloadW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16734,19 +16734,6 @@ const IconMaterialFrameSourceW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialFrameSourceW100.displayName = 'AmauiIconMaterialFrameSourceW100';
 
 
-const IconMaterialFreeCancellationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FreeCancellationW100",
-    short_name: "FreeCancellation",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m16.05 21.25-2.625-2.625.475-.475 2.125 2.125 4.25-4.25.475.5ZM7.4 16.075l-.475-.475 1.6-1.6-1.6-1.6.475-.475 1.6 1.6 1.6-1.6.475.475-1.6 1.6 1.6 1.6-.475.475-1.6-1.6ZM4.3 20.7V5.3h3.5V3h.8v2.3h6.9V3h.7v2.3h3.5v7.025l-.7.725V10.8H5V20h5.525l.75.7ZM5 10.1h14V6H5Zm0 0V6v4.1Z"
-  }));
-});
-IconMaterialFreeCancellationW100.displayName = 'AmauiIconMaterialFreeCancellationW100';
-
-
 const IconMaterialFrontHandW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -16758,6 +16745,19 @@ const IconMaterialFrontHandW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialFrontHandW100.displayName = 'AmauiIconMaterialFrontHandW100';
+
+
+const IconMaterialFreeCancellationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FreeCancellationW100",
+    short_name: "FreeCancellation",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m16.05 21.25-2.625-2.625.475-.475 2.125 2.125 4.25-4.25.475.5ZM7.4 16.075l-.475-.475 1.6-1.6-1.6-1.6.475-.475 1.6 1.6 1.6-1.6.475.475-1.6 1.6 1.6 1.6-.475.475-1.6-1.6ZM4.3 20.7V5.3h3.5V3h.8v2.3h6.9V3h.7v2.3h3.5v7.025l-.7.725V10.8H5V20h5.525l.75.7ZM5 10.1h14V6H5Zm0 0V6v4.1Z"
+  }));
+});
+IconMaterialFreeCancellationW100.displayName = 'AmauiIconMaterialFreeCancellationW100';
 
 
 const IconMaterialFrontLoaderW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16812,19 +16812,6 @@ const IconMaterialFullStackedBarChartW100 = /*#__PURE__*/React.forwardRef((props
 IconMaterialFullStackedBarChartW100.displayName = 'AmauiIconMaterialFullStackedBarChartW100';
 
 
-const IconMaterialFullscreenExitW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FullscreenExitW100",
-    short_name: "FullscreenExit",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9.3 19v-4.3H5V14h5v5ZM5 10v-.7h4.3V5h.7v5Zm9 9v-5h5v.7h-4.3V19Zm0-9V5h.7v4.3H19v.7Z"
-  }));
-});
-IconMaterialFullscreenExitW100.displayName = 'AmauiIconMaterialFullscreenExitW100';
-
-
 const IconMaterialFullscreenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -16836,6 +16823,19 @@ const IconMaterialFullscreenW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialFullscreenW100.displayName = 'AmauiIconMaterialFullscreenW100';
+
+
+const IconMaterialFullscreenExitW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FullscreenExitW100",
+    short_name: "FullscreenExit",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9.3 19v-4.3H5V14h5v5ZM5 10v-.7h4.3V5h.7v5Zm9 9v-5h5v.7h-4.3V19Zm0-9V5h.7v4.3H19v.7Z"
+  }));
+});
+IconMaterialFullscreenExitW100.displayName = 'AmauiIconMaterialFullscreenExitW100';
 
 
 const IconMaterialFunctionW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -17176,19 +17176,6 @@ const IconMaterialGlassCupW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialGlassCupW100.displayName = 'AmauiIconMaterialGlassCupW100';
 
 
-const IconMaterialGlobeAsiaW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "GlobeAsiaW100",
-    short_name: "GlobeAsia",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m472 895 6-167.428L600 608h78v74l89.417 14q10.809-28 17.196-58Q791 608 791 576q0-89-43.5-161.5T632 300v116H512v120h-80v120h-81l-79-120h-40v40l-69 79q26 104 111.5 172T472 895Zm160-239H512v-80h120v80Zm0-240h81l-41 120h-81l41-120ZM472.174 924Q400 924 336.442 896.609q-63.559-27.392-110.575-74.348-47.015-46.957-74.441-110.435Q124 648.348 124 576.174q0-72.174 27.391-135.732 27.392-63.559 74.348-110.574 46.957-47.016 110.435-74.442Q399.652 228 471.826 228q72.174 0 135.732 27.391 63.559 27.392 110.574 74.348 47.016 46.957 74.442 110.435Q820 503.652 820 575.826q0 72.174-27.391 135.732-27.392 63.559-74.348 110.575-46.957 47.015-110.435 74.441Q544.348 924 472.174 924Z"
-  }));
-});
-IconMaterialGlobeAsiaW100.displayName = 'AmauiIconMaterialGlobeAsiaW100';
-
-
 const IconMaterialGlobeUkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -17200,6 +17187,19 @@ const IconMaterialGlobeUkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialGlobeUkW100.displayName = 'AmauiIconMaterialGlobeUkW100';
+
+
+const IconMaterialGlobeAsiaW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "GlobeAsiaW100",
+    short_name: "GlobeAsia",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m472 895 6-167.428L600 608h78v74l89.417 14q10.809-28 17.196-58Q791 608 791 576q0-89-43.5-161.5T632 300v116H512v120h-80v120h-81l-79-120h-40v40l-69 79q26 104 111.5 172T472 895Zm160-239H512v-80h120v80Zm0-240h81l-41 120h-81l41-120ZM472.174 924Q400 924 336.442 896.609q-63.559-27.392-110.575-74.348-47.015-46.957-74.441-110.435Q124 648.348 124 576.174q0-72.174 27.391-135.732 27.392-63.559 74.348-110.574 46.957-47.016 110.435-74.442Q399.652 228 471.826 228q72.174 0 135.732 27.391 63.559 27.392 110.574 74.348 47.016 46.957 74.442 110.435Q820 503.652 820 575.826q0 72.174-27.391 135.732-27.392 63.559-74.348 110.575-46.957 47.015-110.435 74.441Q544.348 924 472.174 924Z"
+  }));
+});
+IconMaterialGlobeAsiaW100.displayName = 'AmauiIconMaterialGlobeAsiaW100';
 
 
 const IconMaterialGlobeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -17540,19 +17540,6 @@ const IconMaterialGroceryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialGroceryW100.displayName = 'AmauiIconMaterialGroceryW100';
 
 
-const IconMaterialGroupAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "GroupAddW100",
-    short_name: "GroupAdd",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12.75 11.15q.5-.525.675-1.225.175-.7.175-1.425 0-.725-.175-1.425-.175-.7-.675-1.225 1.025.075 1.688.838.662.762.662 1.812t-.662 1.812q-.663.763-1.688.838Zm4.85 7.05v-1.3q0-.675-.225-1.3t-.775-1q.95.275 1.725.825.775.55.775 1.475v1.3Zm1.5-5.85v-2h-2v-.7h2v-2h.7v2h2v.7h-2v2ZM8.9 11.2q-1.125 0-1.912-.788Q6.2 9.625 6.2 8.5t.788-1.912Q7.775 5.8 8.9 5.8t1.912.788q.788.787.788 1.912t-.788 1.912q-.787.788-1.912.788Zm-6.7 7v-1.3q0-.55.338-1.037.337-.488.912-.763 1.375-.65 2.738-.975Q7.55 13.8 8.9 13.8t2.713.325q1.362.325 2.737.975.575.275.913.763.337.487.337 1.037v1.3Zm6.7-7.7q.825 0 1.412-.588.588-.587.588-1.412t-.588-1.412Q9.725 6.5 8.9 6.5t-1.412.588Q6.9 7.675 6.9 8.5t.588 1.412q.587.588 1.412.588Zm-6 7h12v-.6q0-.35-.237-.662-.238-.313-.663-.538-1.2-.575-2.487-.888Q10.225 14.5 8.9 14.5t-2.613.312Q5 15.125 3.8 15.7q-.425.225-.662.538-.238.312-.238.662Zm6-9Zm0 9Z"
-  }));
-});
-IconMaterialGroupAddW100.displayName = 'AmauiIconMaterialGroupAddW100';
-
-
 const IconMaterialGroupAutoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -17564,6 +17551,19 @@ const IconMaterialGroupAutoW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialGroupAutoW100.displayName = 'AmauiIconMaterialGroupAutoW100';
+
+
+const IconMaterialGroupAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "GroupAddW100",
+    short_name: "GroupAdd",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12.75 11.15q.5-.525.675-1.225.175-.7.175-1.425 0-.725-.175-1.425-.175-.7-.675-1.225 1.025.075 1.688.838.662.762.662 1.812t-.662 1.812q-.663.763-1.688.838Zm4.85 7.05v-1.3q0-.675-.225-1.3t-.775-1q.95.275 1.725.825.775.55.775 1.475v1.3Zm1.5-5.85v-2h-2v-.7h2v-2h.7v2h2v.7h-2v2ZM8.9 11.2q-1.125 0-1.912-.788Q6.2 9.625 6.2 8.5t.788-1.912Q7.775 5.8 8.9 5.8t1.912.788q.788.787.788 1.912t-.788 1.912q-.787.788-1.912.788Zm-6.7 7v-1.3q0-.55.338-1.037.337-.488.912-.763 1.375-.65 2.738-.975Q7.55 13.8 8.9 13.8t2.713.325q1.362.325 2.737.975.575.275.913.763.337.487.337 1.037v1.3Zm6.7-7.7q.825 0 1.412-.588.588-.587.588-1.412t-.588-1.412Q9.725 6.5 8.9 6.5t-1.412.588Q6.9 7.675 6.9 8.5t.588 1.412q.587.588 1.412.588Zm-6 7h12v-.6q0-.35-.237-.662-.238-.313-.663-.538-1.2-.575-2.487-.888Q10.225 14.5 8.9 14.5t-2.613.312Q5 15.125 3.8 15.7q-.425.225-.662.538-.238.312-.238.662Zm6-9Zm0 9Z"
+  }));
+});
+IconMaterialGroupAddW100.displayName = 'AmauiIconMaterialGroupAddW100';
 
 
 const IconMaterialGroupOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -17579,19 +17579,6 @@ const IconMaterialGroupOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialGroupOffW100.displayName = 'AmauiIconMaterialGroupOffW100';
 
 
-const IconMaterialGroupRemoveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "GroupRemoveW100",
-    short_name: "GroupRemove",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12.75 11.15q.5-.525.675-1.225.175-.7.175-1.425 0-.725-.175-1.425-.175-.7-.675-1.225 1.025.075 1.688.838.662.762.662 1.812t-.662 1.812q-.663.763-1.688.838Zm4.85 7.05v-1.3q0-.675-.225-1.3t-.775-1q.95.275 1.725.825.775.55.775 1.475v1.3Zm4.2-7.85h-4.7v-.7h4.7Zm-12.9.85q-1.125 0-1.912-.788Q6.2 9.625 6.2 8.5t.788-1.912Q7.775 5.8 8.9 5.8t1.912.788q.788.787.788 1.912t-.788 1.912q-.787.788-1.912.788Zm-6.7 7v-1.3q0-.55.338-1.037.337-.488.912-.763 1.375-.65 2.738-.975Q7.55 13.8 8.9 13.8t2.713.325q1.362.325 2.737.975.575.275.913.763.337.487.337 1.037v1.3Zm6.7-7.7q.825 0 1.412-.588.588-.587.588-1.412t-.588-1.412Q9.725 6.5 8.9 6.5t-1.412.588Q6.9 7.675 6.9 8.5t.588 1.412q.587.588 1.412.588Zm-6 7h12v-.6q0-.35-.237-.662-.238-.313-.663-.538-1.2-.575-2.487-.888Q10.225 14.5 8.9 14.5t-2.613.312Q5 15.125 3.8 15.7q-.425.225-.662.538-.238.312-.238.662Zm6-9Zm0 9Z"
-  }));
-});
-IconMaterialGroupRemoveW100.displayName = 'AmauiIconMaterialGroupRemoveW100';
-
-
 const IconMaterialGroupW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -17603,6 +17590,19 @@ const IconMaterialGroupW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialGroupW100.displayName = 'AmauiIconMaterialGroupW100';
+
+
+const IconMaterialGroupRemoveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "GroupRemoveW100",
+    short_name: "GroupRemove",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12.75 11.15q.5-.525.675-1.225.175-.7.175-1.425 0-.725-.175-1.425-.175-.7-.675-1.225 1.025.075 1.688.838.662.762.662 1.812t-.662 1.812q-.663.763-1.688.838Zm4.85 7.05v-1.3q0-.675-.225-1.3t-.775-1q.95.275 1.725.825.775.55.775 1.475v1.3Zm4.2-7.85h-4.7v-.7h4.7Zm-12.9.85q-1.125 0-1.912-.788Q6.2 9.625 6.2 8.5t.788-1.912Q7.775 5.8 8.9 5.8t1.912.788q.788.787.788 1.912t-.788 1.912q-.787.788-1.912.788Zm-6.7 7v-1.3q0-.55.338-1.037.337-.488.912-.763 1.375-.65 2.738-.975Q7.55 13.8 8.9 13.8t2.713.325q1.362.325 2.737.975.575.275.913.763.337.487.337 1.037v1.3Zm6.7-7.7q.825 0 1.412-.588.588-.587.588-1.412t-.588-1.412Q9.725 6.5 8.9 6.5t-1.412.588Q6.9 7.675 6.9 8.5t.588 1.412q.587.588 1.412.588Zm-6 7h12v-.6q0-.35-.237-.662-.238-.313-.663-.538-1.2-.575-2.487-.888Q10.225 14.5 8.9 14.5t-2.613.312Q5 15.125 3.8 15.7q-.425.225-.662.538-.238.312-.238.662Zm6-9Zm0 9Z"
+  }));
+});
+IconMaterialGroupRemoveW100.displayName = 'AmauiIconMaterialGroupRemoveW100';
 
 
 const IconMaterialGroupWorkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -17839,19 +17839,6 @@ const IconMaterialHangoutVideoOffW100 = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialHangoutVideoOffW100.displayName = 'AmauiIconMaterialHangoutVideoOffW100';
 
 
-const IconMaterialHangoutVideoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HangoutVideoW100",
-    short_name: "HangoutVideo",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M288-352h256v-102l128 102v-256L544-506v-102H288v256ZM132-212v-536h696v536H132Zm28-28h640v-480H160v480Zm0-480v480-480Z"
-  }));
-});
-IconMaterialHangoutVideoW100.displayName = 'AmauiIconMaterialHangoutVideoW100';
-
-
 const IconMaterialHardDrive2W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -17878,17 +17865,17 @@ const IconMaterialHardDriveW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialHardDriveW100.displayName = 'AmauiIconMaterialHardDriveW100';
 
 
-const IconMaterialHardwareW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialHangoutVideoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "HardwareW100",
-    short_name: "Hardware",
-    viewBox: "0 0 24 24"
+    name: "HangoutVideoW100",
+    short_name: "HangoutVideo",
+    viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.65 19.7v-13H5.9q.375-1.1 1.325-1.75.95-.65 2.125-.65h4.7v2.85L16.9 4.3h.7v6.4h-.7l-2.85-2.85V19.7Zm2.7-7.7Zm-2 7h2v-6.65h-2Zm0-7.35h2V5h-4q-.65 0-1.237.25Q7.525 5.5 7.1 6h4.25Zm2 0V5v6.65Zm0 7.35v-6.65V19Z"
+    d: "M288-352h256v-102l128 102v-256L544-506v-102H288v256ZM132-212v-536h696v536H132Zm28-28h640v-480H160v480Zm0-480v480-480Z"
   }));
 });
-IconMaterialHardwareW100.displayName = 'AmauiIconMaterialHardwareW100';
+IconMaterialHangoutVideoW100.displayName = 'AmauiIconMaterialHangoutVideoW100';
 
 
 const IconMaterialHdW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -17902,6 +17889,19 @@ const IconMaterialHdW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialHdW100.displayName = 'AmauiIconMaterialHdW100';
+
+
+const IconMaterialHardwareW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HardwareW100",
+    short_name: "Hardware",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10.65 19.7v-13H5.9q.375-1.1 1.325-1.75.95-.65 2.125-.65h4.7v2.85L16.9 4.3h.7v6.4h-.7l-2.85-2.85V19.7Zm2.7-7.7Zm-2 7h2v-6.65h-2Zm0-7.35h2V5h-4q-.65 0-1.237.25Q7.525 5.5 7.1 6h4.25Zm2 0V5v6.65Zm0 7.35v-6.65V19Z"
+  }));
+});
+IconMaterialHardwareW100.displayName = 'AmauiIconMaterialHardwareW100';
 
 
 const IconMaterialHdrAutoSelectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -17969,19 +17969,6 @@ const IconMaterialHdrOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialHdrOffW100.displayName = 'AmauiIconMaterialHdrOffW100';
 
 
-const IconMaterialHdrOnSelectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HdrOnSelectW100",
-    short_name: "HdrOnSelect",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M20.9 21.6v-2h-2v-.7h2v-2h.7v2h2v.7h-2v2ZM12 12q1.65 0 2.825-1.175Q16 9.65 16 8q0-1.65-1.175-2.825Q13.65 4 12 4q-1.65 0-2.825 1.175Q8 6.35 8 8q0 1.65 1.175 2.825Q10.35 12 12 12Zm0 .7q-1.95 0-3.325-1.375Q7.3 9.95 7.3 8q0-1.95 1.375-3.325Q10.05 3.3 12 3.3q1.95 0 3.325 1.375Q16.7 6.05 16.7 8q0 1.95-1.375 3.325Q13.95 12.7 12 12.7Zm1.4 8.9v-5.2h4.2v3.15h-1.1l.9 2.05h-.75l-.9-2H14.1v2Zm.7-2.7h2.8v-1.8h-2.8ZM.4 21.6v-5.2h.7v2h2.8v-2h.7v5.2h-.7v-2.5H1.1v2.5Zm6.5 0v-5.2h2.7q.6 0 1.05.45.45.45.45 1.05v2.2q0 .6-.45 1.05-.45.45-1.05.45Zm.7-.7h2q.3 0 .55-.25.25-.25.25-.55v-2.2q0-.3-.25-.55-.25-.25-.55-.25h-2Z"
-  }));
-});
-IconMaterialHdrOnSelectW100.displayName = 'AmauiIconMaterialHdrOnSelectW100';
-
-
 const IconMaterialHdrOnW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -17993,6 +17980,19 @@ const IconMaterialHdrOnW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialHdrOnW100.displayName = 'AmauiIconMaterialHdrOnW100';
+
+
+const IconMaterialHdrOnSelectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HdrOnSelectW100",
+    short_name: "HdrOnSelect",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M20.9 21.6v-2h-2v-.7h2v-2h.7v2h2v.7h-2v2ZM12 12q1.65 0 2.825-1.175Q16 9.65 16 8q0-1.65-1.175-2.825Q13.65 4 12 4q-1.65 0-2.825 1.175Q8 6.35 8 8q0 1.65 1.175 2.825Q10.35 12 12 12Zm0 .7q-1.95 0-3.325-1.375Q7.3 9.95 7.3 8q0-1.95 1.375-3.325Q10.05 3.3 12 3.3q1.95 0 3.325 1.375Q16.7 6.05 16.7 8q0 1.95-1.375 3.325Q13.95 12.7 12 12.7Zm1.4 8.9v-5.2h4.2v3.15h-1.1l.9 2.05h-.75l-.9-2H14.1v2Zm.7-2.7h2.8v-1.8h-2.8ZM.4 21.6v-5.2h.7v2h2.8v-2h.7v5.2h-.7v-2.5H1.1v2.5Zm6.5 0v-5.2h2.7q.6 0 1.05.45.45.45.45 1.05v2.2q0 .6-.45 1.05-.45.45-1.05.45Zm.7-.7h2q.3 0 .55-.25.25-.25.25-.55v-2.2q0-.3-.25-.55-.25-.25-.55-.25h-2Z"
+  }));
+});
+IconMaterialHdrOnSelectW100.displayName = 'AmauiIconMaterialHdrOnSelectW100';
 
 
 const IconMaterialHdrPlusOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -18112,19 +18112,6 @@ const IconMaterialHealingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialHealingW100.displayName = 'AmauiIconMaterialHealingW100';
 
 
-const IconMaterialHealthAndBeautyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HealthAndBeautyW100",
-    short_name: "HealthAndBeauty",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M234-132 102-498l188-112v-218h56v218l188 112-132 366H234Zm408 0v-28h160v-120H642v-28h160v-120H642v-28h160v-120H642v-28h160v-120H642v-28h216v620H642Zm-388-28h128l118-326-154-92h-56l-154 92 118 326Zm64-209Z"
-  }));
-});
-IconMaterialHealthAndBeautyW100.displayName = 'AmauiIconMaterialHealthAndBeautyW100';
-
-
 const IconMaterialHealthAndSafetyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -18136,6 +18123,19 @@ const IconMaterialHealthAndSafetyW100 = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialHealthAndSafetyW100.displayName = 'AmauiIconMaterialHealthAndSafetyW100';
+
+
+const IconMaterialHealthAndBeautyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HealthAndBeautyW100",
+    short_name: "HealthAndBeauty",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M234-132 102-498l188-112v-218h56v218l188 112-132 366H234Zm408 0v-28h160v-120H642v-28h160v-120H642v-28h160v-120H642v-28h160v-120H642v-28h216v620H642Zm-388-28h128l118-326-154-92h-56l-154 92 118 326Zm64-209Z"
+  }));
+});
+IconMaterialHealthAndBeautyW100.displayName = 'AmauiIconMaterialHealthAndBeautyW100';
 
 
 const IconMaterialHealthMetricsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -18307,19 +18307,6 @@ const IconMaterialHeatW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialHeatW100.displayName = 'AmauiIconMaterialHeatW100';
 
 
-const IconMaterialHeightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HeightW100",
-    short_name: "Height",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 20.1 8.9 17l.5-.55 2.25 2.25V5.3L9.4 7.55 8.9 7 12 3.9 15.1 7l-.5.55-2.25-2.25v13.4l2.25-2.25.5.55Z"
-  }));
-});
-IconMaterialHeightW100.displayName = 'AmauiIconMaterialHeightW100';
-
-
 const IconMaterialHelicopterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -18331,6 +18318,19 @@ const IconMaterialHelicopterW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialHelicopterW100.displayName = 'AmauiIconMaterialHelicopterW100';
+
+
+const IconMaterialHeightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HeightW100",
+    short_name: "Height",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 20.1 8.9 17l.5-.55 2.25 2.25V5.3L9.4 7.55 8.9 7 12 3.9 15.1 7l-.5.55-2.25-2.25v13.4l2.25-2.25.5.55Z"
+  }));
+});
+IconMaterialHeightW100.displayName = 'AmauiIconMaterialHeightW100';
 
 
 const IconMaterialHelpCenterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -18424,19 +18424,6 @@ const IconMaterialHideImageW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialHideImageW100.displayName = 'AmauiIconMaterialHideImageW100';
 
 
-const IconMaterialHideSourceW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HideSourceW100",
-    short_name: "HideSource",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m19.85 20.85-2.225-2.225q-1.15.975-2.575 1.525-1.425.55-3.05.55-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12q0-1.625.55-3.05.55-1.425 1.525-2.575L3.15 4.15l.5-.5 16.7 16.7ZM12 20q1.475 0 2.775-.5 1.3-.5 2.35-1.375L5.875 6.875Q5 7.925 4.5 9.225T4 12q0 3.325 2.338 5.663Q8.675 20 12 20Zm7.4-3.4-.525-.525q.55-.9.837-1.925Q20 13.125 20 12q0-3.325-2.337-5.663Q15.325 4 12 4q-1.125 0-2.15.287-1.025.288-1.925.838L7.4 4.6q1.025-.625 2.175-.963Q10.725 3.3 12 3.3q1.8 0 3.388.687 1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.275-.337 2.425-.338 1.15-.963 2.175Zm-6-6Zm-1.9 1.9Z"
-  }));
-});
-IconMaterialHideSourceW100.displayName = 'AmauiIconMaterialHideSourceW100';
-
-
 const IconMaterialHideW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -18448,6 +18435,19 @@ const IconMaterialHideW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialHideW100.displayName = 'AmauiIconMaterialHideW100';
+
+
+const IconMaterialHideSourceW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HideSourceW100",
+    short_name: "HideSource",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m19.85 20.85-2.225-2.225q-1.15.975-2.575 1.525-1.425.55-3.05.55-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12q0-1.625.55-3.05.55-1.425 1.525-2.575L3.15 4.15l.5-.5 16.7 16.7ZM12 20q1.475 0 2.775-.5 1.3-.5 2.35-1.375L5.875 6.875Q5 7.925 4.5 9.225T4 12q0 3.325 2.338 5.663Q8.675 20 12 20Zm7.4-3.4-.525-.525q.55-.9.837-1.925Q20 13.125 20 12q0-3.325-2.337-5.663Q15.325 4 12 4q-1.125 0-2.15.287-1.025.288-1.925.838L7.4 4.6q1.025-.625 2.175-.963Q10.725 3.3 12 3.3q1.8 0 3.388.687 1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.275-.337 2.425-.338 1.15-.963 2.175Zm-6-6Zm-1.9 1.9Z"
+  }));
+});
+IconMaterialHideSourceW100.displayName = 'AmauiIconMaterialHideSourceW100';
 
 
 const IconMaterialHighDensityW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -18957,19 +18957,6 @@ const IconMaterialHotelClassW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialHotelClassW100.displayName = 'AmauiIconMaterialHotelClassW100';
 
 
-const IconMaterialHourglassBottomW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HourglassBottomW100",
-    short_name: "HourglassBottom",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 11.3q1.6 0 2.6-1.3t1-3V4H8.4v3q0 1.7 1 3t2.6 1.3Zm-6.45 9.4V20H7.7v-3q0-1.8 1.038-3.213Q9.775 12.375 11.5 12q-1.725-.375-2.762-1.788Q7.7 8.8 7.7 7V4H5.55v-.7h12.9V4H16.3v3q0 1.8-1.037 3.212Q14.225 11.625 12.5 12q1.725.375 2.763 1.787Q16.3 15.2 16.3 17v3h2.15v.7Z"
-  }));
-});
-IconMaterialHourglassBottomW100.displayName = 'AmauiIconMaterialHourglassBottomW100';
-
-
 const IconMaterialHotelW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -18981,6 +18968,19 @@ const IconMaterialHotelW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialHotelW100.displayName = 'AmauiIconMaterialHotelW100';
+
+
+const IconMaterialHourglassBottomW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HourglassBottomW100",
+    short_name: "HourglassBottom",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 11.3q1.6 0 2.6-1.3t1-3V4H8.4v3q0 1.7 1 3t2.6 1.3Zm-6.45 9.4V20H7.7v-3q0-1.8 1.038-3.213Q9.775 12.375 11.5 12q-1.725-.375-2.762-1.788Q7.7 8.8 7.7 7V4H5.55v-.7h12.9V4H16.3v3q0 1.8-1.037 3.212Q14.225 11.625 12.5 12q1.725.375 2.763 1.787Q16.3 15.2 16.3 17v3h2.15v.7Z"
+  }));
+});
+IconMaterialHourglassBottomW100.displayName = 'AmauiIconMaterialHourglassBottomW100';
 
 
 const IconMaterialHourglassDisabledW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19022,19 +19022,6 @@ const IconMaterialHourglassFullW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialHourglassFullW100.displayName = 'AmauiIconMaterialHourglassFullW100';
 
 
-const IconMaterialHourglassW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HourglassW100",
-    short_name: "Hourglass",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M310-160h340v-120q0-72-49-123t-121-51q-72 0-121 51t-49 123v120Zm170-346q72 0 121-51t49-123v-120H310v120q0 72 49 123t121 51ZM212-132v-28h70v-120q0-78 50.5-136.5T460-480q-77-6-127.5-64T282-680v-120h-70v-28h536v28h-70v120q0 78-50.5 136T500-480q77 5 127.5 63.5T678-280v120h70v28H212Zm268-28Zm0-640Z"
-  }));
-});
-IconMaterialHourglassW100.displayName = 'AmauiIconMaterialHourglassW100';
-
-
 const IconMaterialHourglassTopW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -19046,6 +19033,19 @@ const IconMaterialHourglassTopW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialHourglassTopW100.displayName = 'AmauiIconMaterialHourglassTopW100';
+
+
+const IconMaterialHourglassW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HourglassW100",
+    short_name: "Hourglass",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M310-160h340v-120q0-72-49-123t-121-51q-72 0-121 51t-49 123v120Zm170-346q72 0 121-51t49-123v-120H310v120q0 72 49 123t121 51ZM212-132v-28h70v-120q0-78 50.5-136.5T460-480q-77-6-127.5-64T282-680v-120h-70v-28h536v28h-70v120q0 78-50.5 136T500-480q77 5 127.5 63.5T678-280v120h70v28H212Zm268-28Zm0-640Z"
+  }));
+});
+IconMaterialHourglassW100.displayName = 'AmauiIconMaterialHourglassW100';
 
 
 const IconMaterialHouseSidingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19139,19 +19139,6 @@ const IconMaterialHowToVoteW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialHowToVoteW100.displayName = 'AmauiIconMaterialHowToVoteW100';
 
 
-const IconMaterialHrRestingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HrRestingW100",
-    short_name: "HrResting",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M191 884v-28h576v28H191Zm63-317q-21.232-20.036-31.116-47.493T213 463.109Q213 403 253 361q40-42 99-42 27.529 0 52.765 11Q430 341 450 361l30 30 30-29q20-20 45.235-31.5Q580.471 319 608 319q59.062 0 99.531 42.69Q748 404.381 748 464q0 28.826-10.616 55.065Q726.768 545.304 707 566L480 785 254 567Zm19-20 207 200 208-201q17-16 25-37.5t8-44.5q0-48-32-82t-79.681-34Q587 348 567 356.5q-20 8.5-36 24.5l-50 50-51-50q-16-16-35.5-25t-42.5-9q-48 0-80 34t-32 82q0 23 8 45t25 39Zm208 0Z"
-  }));
-});
-IconMaterialHrRestingW100.displayName = 'AmauiIconMaterialHrRestingW100';
-
-
 const IconMaterialHtmlW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -19163,6 +19150,19 @@ const IconMaterialHtmlW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialHtmlW100.displayName = 'AmauiIconMaterialHtmlW100';
+
+
+const IconMaterialHrRestingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HrRestingW100",
+    short_name: "HrResting",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M191 884v-28h576v28H191Zm63-317q-21.232-20.036-31.116-47.493T213 463.109Q213 403 253 361q40-42 99-42 27.529 0 52.765 11Q430 341 450 361l30 30 30-29q20-20 45.235-31.5Q580.471 319 608 319q59.062 0 99.531 42.69Q748 404.381 748 464q0 28.826-10.616 55.065Q726.768 545.304 707 566L480 785 254 567Zm19-20 207 200 208-201q17-16 25-37.5t8-44.5q0-48-32-82t-79.681-34Q587 348 567 356.5q-20 8.5-36 24.5l-50 50-51-50q-16-16-35.5-25t-42.5-9q-48 0-80 34t-32 82q0 23 8 45t25 39Zm208 0Z"
+  }));
+});
+IconMaterialHrRestingW100.displayName = 'AmauiIconMaterialHrRestingW100';
 
 
 const IconMaterialHttpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19321,19 +19321,6 @@ const IconMaterialIceSkatingW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialIceSkatingW100.displayName = 'AmauiIconMaterialIceSkatingW100';
 
 
-const IconMaterialIcecreamW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "IcecreamW100",
-    short_name: "Icecream",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12.05 20.2 8.1 12.45q-1.275.65-2.538-.163Q4.3 11.475 4.3 10q0-.875.563-1.662Q5.425 7.55 6.75 7.2q.275-2.35 1.825-3.625Q10.125 2.3 12 2.3q1.875 0 3.425 1.275Q16.975 4.85 17.25 7.2q1.325.35 1.888 1.138.562.787.562 1.662 0 1.5-1.187 2.262-1.188.763-2.513.188ZM7 12q.375 0 .737-.125.363-.125.663-.425l.55-.55.65.4q.525.35 1.138.525Q11.35 12 12 12t1.262-.175q.613-.175 1.138-.525l.65-.4.55.55q.3.3.662.425.363.125.738.125.825 0 1.413-.588Q19 10.825 19 10q0-.75-.475-1.312Q18.05 8.125 17.3 8l-.75-.1-.05-.8q-.125-1.725-1.425-2.912Q13.775 3 12 3q-1.775 0-3.075 1.188Q7.625 5.375 7.5 7.1l-.05.8-.75.15q-.75.15-1.225.675Q5 9.25 5 10q0 .825.588 1.412Q6.175 12 7 12Zm5.05 6.65 3.35-6.55-.35-.3q-.825.425-1.612.662-.788.238-1.438.238-.575 0-1.35-.2-.775-.2-1.6-.7l-.35.3ZM12 7.5Z"
-  }));
-});
-IconMaterialIcecreamW100.displayName = 'AmauiIconMaterialIcecreamW100';
-
-
 const IconMaterialIflW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -19345,6 +19332,19 @@ const IconMaterialIflW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialIflW100.displayName = 'AmauiIconMaterialIflW100';
+
+
+const IconMaterialIframeOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "IframeOffW100",
+    short_name: "IframeOff",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M852 988 708 844H132V308h80v40L90 226l20-20 762 762-20 20ZM160 816h520L280 416H160v400Zm640-32V416H432L324 308h504v504l-28-28Zm-96-96-28-28V540H556l-28-28h176v176Z"
+  }));
+});
+IconMaterialIframeOffW100.displayName = 'AmauiIconMaterialIframeOffW100';
 
 
 const IconMaterialIframeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19360,17 +19360,17 @@ const IconMaterialIframeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialIframeW100.displayName = 'AmauiIconMaterialIframeW100';
 
 
-const IconMaterialIframeOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialIcecreamW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "IframeOffW100",
-    short_name: "IframeOff",
-    viewBox: "0 96 960 960"
+    name: "IcecreamW100",
+    short_name: "Icecream",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M852 988 708 844H132V308h80v40L90 226l20-20 762 762-20 20ZM160 816h520L280 416H160v400Zm640-32V416H432L324 308h504v504l-28-28Zm-96-96-28-28V540H556l-28-28h176v176Z"
+    d: "M12.05 20.2 8.1 12.45q-1.275.65-2.538-.163Q4.3 11.475 4.3 10q0-.875.563-1.662Q5.425 7.55 6.75 7.2q.275-2.35 1.825-3.625Q10.125 2.3 12 2.3q1.875 0 3.425 1.275Q16.975 4.85 17.25 7.2q1.325.35 1.888 1.138.562.787.562 1.662 0 1.5-1.187 2.262-1.188.763-2.513.188ZM7 12q.375 0 .737-.125.363-.125.663-.425l.55-.55.65.4q.525.35 1.138.525Q11.35 12 12 12t1.262-.175q.613-.175 1.138-.525l.65-.4.55.55q.3.3.662.425.363.125.738.125.825 0 1.413-.588Q19 10.825 19 10q0-.75-.475-1.312Q18.05 8.125 17.3 8l-.75-.1-.05-.8q-.125-1.725-1.425-2.912Q13.775 3 12 3q-1.775 0-3.075 1.188Q7.625 5.375 7.5 7.1l-.05.8-.75.15q-.75.15-1.225.675Q5 9.25 5 10q0 .825.588 1.412Q6.175 12 7 12Zm5.05 6.65 3.35-6.55-.35-.3q-.825.425-1.612.662-.788.238-1.438.238-.575 0-1.35-.2-.775-.2-1.6-.7l-.35.3ZM12 7.5Z"
   }));
 });
-IconMaterialIframeOffW100.displayName = 'AmauiIconMaterialIframeOffW100';
+IconMaterialIcecreamW100.displayName = 'AmauiIconMaterialIcecreamW100';
 
 
 const IconMaterialImageAspectRatioW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19451,19 +19451,6 @@ const IconMaterialImagesmodeW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialImagesmodeW100.displayName = 'AmauiIconMaterialImagesmodeW100';
 
 
-const IconMaterialImmunologyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ImmunologyW100",
-    short_name: "Immunology",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M521 924q-26 0-61.5-3.5t-72.5-11q-37-7.5-71.5-19.5T258 860q-27-21-56.5-65.5t-54-96q-24.5-51.5-40-103T92 508q0-34 14.5-61.5T144 396q23-23 51.5-42.5T251 316q54-35 120-61.5T506 228q66 0 125 28t114 66q13 9 34 27t41 44.5q20 26.5 34 60t14 73.5q0 64-29.5 134T761 789.5Q713 848 650.5 886T521 924Zm-1-28q60 0 117.5-36t102-90.5q44.5-54.5 72-120T840 526q1-57-32.5-103T729 346q-51-35-106-62.5T506 256q-65 0-129.5 26.5T260 343q-41 27-91 70t-50 91q0 32 15.5 81t39 99.5q23.5 50.5 50.5 93t50 60.5q36 26 111 42t135 16ZM414 790q42 0 70-30t28-68q0-17-6.5-33.5T483 628q-25-23-41-50t-24-60q-8-35-35-55.5T324 442q-38 0-68 30t-30 68q0 34 14 77.5t39.5 81.5q25.5 38 60 64.5T414 790Zm0-28q-30 0-58.5-25t-51-60Q282 642 268 604t-14-64q0-26 22-48t48-22q19 0 39.5 13t27.5 41q9 38 26 68t46 57q11 10 16 21.5t5 23.5q0 25-19 46.5T414 762Zm236-172q6 0 10-4t4-10v-52l48 24q5 3 11 1.5t9-6.5q3-5 2-11t-6-8l-56-28 56-28q5-3 5-8.5t-2-10.5q-3-5-8.5-5.5T712 445l-48 24v-53q0-6-4-10t-10-4q-6 0-10 4t-4 10v55l-48-26q-5-3-11-1.5t-9 6.5q-2 4-1.5 10t5.5 8l52 23-49 33q-5 3-7 8.5t1 10.5q3 5 8.5 6.5T588 548l48-26v54q0 6 4 10t10 4Zm-170-14Z"
-  }));
-});
-IconMaterialImmunologyW100.displayName = 'AmauiIconMaterialImmunologyW100';
-
-
 const IconMaterialImportContactsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -19488,6 +19475,19 @@ const IconMaterialImportantDevicesW100 = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialImportantDevicesW100.displayName = 'AmauiIconMaterialImportantDevicesW100';
+
+
+const IconMaterialImmunologyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ImmunologyW100",
+    short_name: "Immunology",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M521 924q-26 0-61.5-3.5t-72.5-11q-37-7.5-71.5-19.5T258 860q-27-21-56.5-65.5t-54-96q-24.5-51.5-40-103T92 508q0-34 14.5-61.5T144 396q23-23 51.5-42.5T251 316q54-35 120-61.5T506 228q66 0 125 28t114 66q13 9 34 27t41 44.5q20 26.5 34 60t14 73.5q0 64-29.5 134T761 789.5Q713 848 650.5 886T521 924Zm-1-28q60 0 117.5-36t102-90.5q44.5-54.5 72-120T840 526q1-57-32.5-103T729 346q-51-35-106-62.5T506 256q-65 0-129.5 26.5T260 343q-41 27-91 70t-50 91q0 32 15.5 81t39 99.5q23.5 50.5 50.5 93t50 60.5q36 26 111 42t135 16ZM414 790q42 0 70-30t28-68q0-17-6.5-33.5T483 628q-25-23-41-50t-24-60q-8-35-35-55.5T324 442q-38 0-68 30t-30 68q0 34 14 77.5t39.5 81.5q25.5 38 60 64.5T414 790Zm0-28q-30 0-58.5-25t-51-60Q282 642 268 604t-14-64q0-26 22-48t48-22q19 0 39.5 13t27.5 41q9 38 26 68t46 57q11 10 16 21.5t5 23.5q0 25-19 46.5T414 762Zm236-172q6 0 10-4t4-10v-52l48 24q5 3 11 1.5t9-6.5q3-5 2-11t-6-8l-56-28 56-28q5-3 5-8.5t-2-10.5q-3-5-8.5-5.5T712 445l-48 24v-53q0-6-4-10t-10-4q-6 0-10 4t-4 10v55l-48-26q-5-3-11-1.5t-9 6.5q-2 4-1.5 10t5.5 8l52 23-49 33q-5 3-7 8.5t1 10.5q3 5 8.5 6.5T588 548l48-26v54q0 6 4 10t10 4Zm-170-14Z"
+  }));
+});
+IconMaterialImmunologyW100.displayName = 'AmauiIconMaterialImmunologyW100';
 
 
 const IconMaterialInHomeModeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19776,19 +19776,6 @@ const IconMaterialInsertTextW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialInsertTextW100.displayName = 'AmauiIconMaterialInsertTextW100';
 
 
-const IconMaterialInsightsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "InsightsW100",
-    short_name: "Insights",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 19.35q-.575 0-.962-.388-.388-.387-.388-.962t.388-.962q.387-.388.962-.388.2 0 .375.038.175.037.325.162l5.15-5.15q-.125-.15-.162-.325Q8.65 11.2 8.65 11q0-.575.388-.963.387-.387.962-.387t.963.387q.387.388.387.963 0 .15-.15.65l3.15 3.15q.15-.075.3-.112.15-.038.35-.038.2 0 .363.038.162.037.287.162l4.2-4.2q-.125-.125-.162-.288-.038-.162-.038-.362 0-.575.388-.963.387-.387.962-.387t.963.387q.387.388.387.963t-.387.962q-.388.388-.963.388-.2 0-.362-.038-.163-.037-.288-.162l-4.2 4.2q.125.125.162.287.038.163.038.363 0 .575-.387.962-.388.388-.963.388t-.962-.388q-.388-.387-.388-.962 0-.2.038-.375.037-.175.162-.325l-3.15-3.15q-.15.125-.325.162-.175.038-.375.038-.15 0-.65-.15L4.2 17.35q.075.15.112.3.038.15.038.35 0 .575-.387.962-.388.388-.963.388Zm1-10.4-.3-.65-.65-.3.65-.3.3-.65.3.65.65.3-.65.3Zm11-1.525-.45-.975-.975-.45.975-.45.45-.975.45.975.975.45-.975.45Z"
-  }));
-});
-IconMaterialInsightsW100.displayName = 'AmauiIconMaterialInsightsW100';
-
-
 const IconMaterialInstallDesktopW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -19826,6 +19813,19 @@ const IconMaterialInstantMixW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialInstantMixW100.displayName = 'AmauiIconMaterialInstantMixW100';
+
+
+const IconMaterialInsightsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "InsightsW100",
+    short_name: "Insights",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 19.35q-.575 0-.962-.388-.388-.387-.388-.962t.388-.962q.387-.388.962-.388.2 0 .375.038.175.037.325.162l5.15-5.15q-.125-.15-.162-.325Q8.65 11.2 8.65 11q0-.575.388-.963.387-.387.962-.387t.963.387q.387.388.387.963 0 .15-.15.65l3.15 3.15q.15-.075.3-.112.15-.038.35-.038.2 0 .363.038.162.037.287.162l4.2-4.2q-.125-.125-.162-.288-.038-.162-.038-.362 0-.575.388-.963.387-.387.962-.387t.963.387q.387.388.387.963t-.387.962q-.388.388-.963.388-.2 0-.362-.038-.163-.037-.288-.162l-4.2 4.2q.125.125.162.287.038.163.038.363 0 .575-.387.962-.388.388-.963.388t-.962-.388q-.388-.387-.388-.962 0-.2.038-.375.037-.175.162-.325l-3.15-3.15q-.15.125-.325.162-.175.038-.375.038-.15 0-.65-.15L4.2 17.35q.075.15.112.3.038.15.038.35 0 .575-.387.962-.388.388-.963.388Zm1-10.4-.3-.65-.65-.3.65-.3.3-.65.3.65.65.3-.65.3Zm11-1.525-.45-.975-.975-.45.975-.45.45-.975.45.975.975.45-.975.45Z"
+  }));
+});
+IconMaterialInsightsW100.displayName = 'AmauiIconMaterialInsightsW100';
 
 
 const IconMaterialIntegrationInstructionsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19932,6 +19932,19 @@ const IconMaterialInvertColorsW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialInvertColorsW100.displayName = 'AmauiIconMaterialInvertColorsW100';
 
 
+const IconMaterialIosW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "IosW100",
+    short_name: "Ios",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M183-614v-40h40v40h-40Zm6 308v-228h28v228h-28Zm120 0v-348h188v348H309Zm28-28h132v-292H337v292Zm252 28v-28h160v-132H589v-188h188v28H617v132h160v188H589Z"
+  }));
+});
+IconMaterialIosW100.displayName = 'AmauiIconMaterialIosW100';
+
+
 const IconMaterialIosShareW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -19958,17 +19971,17 @@ const IconMaterialIronW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialIronW100.displayName = 'AmauiIconMaterialIronW100';
 
 
-const IconMaterialIosW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialJavascriptW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "IosW100",
-    short_name: "Ios",
-    viewBox: "0 -960 960 960"
+    name: "JavascriptW100",
+    short_name: "Javascript",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M183-614v-40h40v40h-40Zm6 308v-228h28v228h-28Zm120 0v-348h188v348H309Zm28-28h132v-292H337v292Zm252 28v-28h160v-132H589v-188h188v28H617v132h160v188H589Z"
+    d: "M12.4 14.6V13h.7v.9h2.8v-1.65h-3.5V9.4h4.2V11h-.7v-.9h-2.8v1.65h3.5v2.85Zm-6.1 0v-2.1H7v1.4h2.25V9.4h.7v5.2Z"
   }));
 });
-IconMaterialIosW100.displayName = 'AmauiIconMaterialIosW100';
+IconMaterialJavascriptW100.displayName = 'AmauiIconMaterialJavascriptW100';
 
 
 const IconMaterialJamboardKioskW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19982,19 +19995,6 @@ const IconMaterialJamboardKioskW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialJamboardKioskW100.displayName = 'AmauiIconMaterialJamboardKioskW100';
-
-
-const IconMaterialJavascriptW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "JavascriptW100",
-    short_name: "Javascript",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12.4 14.6V13h.7v.9h2.8v-1.65h-3.5V9.4h4.2V11h-.7v-.9h-2.8v1.65h3.5v2.85Zm-6.1 0v-2.1H7v1.4h2.25V9.4h.7v5.2Z"
-  }));
-});
-IconMaterialJavascriptW100.displayName = 'AmauiIconMaterialJavascriptW100';
 
 
 const IconMaterialJoinFullW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -20023,19 +20023,6 @@ const IconMaterialJoinInnerW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialJoinInnerW100.displayName = 'AmauiIconMaterialJoinInnerW100';
 
 
-const IconMaterialJoinLeftW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "JoinLeftW100",
-    short_name: "JoinLeft",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8.4 17.7q-2.375 0-4.037-1.662Q2.7 14.375 2.7 12t1.663-4.037Q6.025 6.3 8.4 6.3q.725 0 1.513.212.787.213 1.362.563-.925.575-1.5 1.937Q9.2 10.375 9.2 12t.575 2.988q.575 1.362 1.5 1.937-.575.35-1.362.562-.788.213-1.513.213Zm3.6-1.275q-.825 0-1.462-1.35Q9.9 13.725 9.9 12t.638-3.075q.637-1.35 1.462-1.35t1.463 1.35q.637 1.35.637 3.075t-.637 3.075q-.638 1.35-1.463 1.35Zm3.6 1.25q-.8 0-1.5-.187-.7-.188-1.35-.563.15-.1.3-.237.15-.138.275-.263.5.275 1.075.412.575.138 1.2.138 2.075 0 3.525-1.45 1.45-1.45 1.45-3.525t-1.45-3.525q-1.45-1.45-3.525-1.45-.625 0-1.2.137-.575.138-1.075.413-.125-.125-.275-.263-.15-.137-.3-.237.65-.375 1.35-.563.7-.187 1.5-.187 2.35 0 4.013 1.662Q21.275 9.65 21.275 12q0 2.35-1.662 4.012-1.663 1.663-4.013 1.663Z"
-  }));
-});
-IconMaterialJoinLeftW100.displayName = 'AmauiIconMaterialJoinLeftW100';
-
-
 const IconMaterialJoinRightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -20060,6 +20047,19 @@ const IconMaterialJoinW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialJoinW100.displayName = 'AmauiIconMaterialJoinW100';
+
+
+const IconMaterialJoinLeftW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "JoinLeftW100",
+    short_name: "JoinLeft",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8.4 17.7q-2.375 0-4.037-1.662Q2.7 14.375 2.7 12t1.663-4.037Q6.025 6.3 8.4 6.3q.725 0 1.513.212.787.213 1.362.563-.925.575-1.5 1.937Q9.2 10.375 9.2 12t.575 2.988q.575 1.362 1.5 1.937-.575.35-1.362.562-.788.213-1.513.213Zm3.6-1.275q-.825 0-1.462-1.35Q9.9 13.725 9.9 12t.638-3.075q.637-1.35 1.462-1.35t1.463 1.35q.637 1.35.637 3.075t-.637 3.075q-.638 1.35-1.463 1.35Zm3.6 1.25q-.8 0-1.5-.187-.7-.188-1.35-.563.15-.1.3-.237.15-.138.275-.263.5.275 1.075.412.575.138 1.2.138 2.075 0 3.525-1.45 1.45-1.45 1.45-3.525t-1.45-3.525q-1.45-1.45-3.525-1.45-.625 0-1.2.137-.575.138-1.075.413-.125-.125-.275-.263-.15-.137-.3-.237.65-.375 1.35-.563.7-.187 1.5-.187 2.35 0 4.013 1.662Q21.275 9.65 21.275 12q0 2.35-1.662 4.012-1.663 1.663-4.013 1.663Z"
+  }));
+});
+IconMaterialJoinLeftW100.displayName = 'AmauiIconMaterialJoinLeftW100';
 
 
 const IconMaterialJoystickW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -20140,19 +20140,6 @@ const IconMaterialKettleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialKettleW100.displayName = 'AmauiIconMaterialKettleW100';
 
 
-const IconMaterialKeyOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "KeyOffW100",
-    short_name: "KeyOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M19.85 20.85 12.7 13.7h-1.3q-.5 1.35-1.7 2.175-1.2.825-2.7.825-1.95 0-3.325-1.375Q2.3 13.95 2.3 12q0-1.775 1.15-3.1 1.15-1.325 2.9-1.55l-3.2-3.2.5-.5 16.7 16.7Zm.875-10.55 1.7 1.7-2.8 2.75L18 13.525l-.95.7-.5-.5 1.475-1.05L19.6 13.85 21.45 12l-1-1h-6.625l-.7-.7ZM7 16q1.275 0 2.375-.788 1.1-.787 1.475-2.212H12l-1.325-1.325L9.5 10.5 8.325 9.325 7 8Q5.175 8 4.088 9.262 3 10.525 3 12q0 1.65 1.175 2.825Q5.35 16 7 16Zm0-3q-.425 0-.713-.288Q6 12.425 6 12t.287-.713Q6.575 11 7 11t.713.287Q8 11.575 8 12t-.287.712Q7.425 13 7 13Z"
-  }));
-});
-IconMaterialKeyOffW100.displayName = 'AmauiIconMaterialKeyOffW100';
-
-
 const IconMaterialKeyVerticalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -20164,6 +20151,19 @@ const IconMaterialKeyVerticalW100 = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialKeyVerticalW100.displayName = 'AmauiIconMaterialKeyVerticalW100';
+
+
+const IconMaterialKeyOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "KeyOffW100",
+    short_name: "KeyOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M19.85 20.85 12.7 13.7h-1.3q-.5 1.35-1.7 2.175-1.2.825-2.7.825-1.95 0-3.325-1.375Q2.3 13.95 2.3 12q0-1.775 1.15-3.1 1.15-1.325 2.9-1.55l-3.2-3.2.5-.5 16.7 16.7Zm.875-10.55 1.7 1.7-2.8 2.75L18 13.525l-.95.7-.5-.5 1.475-1.05L19.6 13.85 21.45 12l-1-1h-6.625l-.7-.7ZM7 16q1.275 0 2.375-.788 1.1-.787 1.475-2.212H12l-1.325-1.325L9.5 10.5 8.325 9.325 7 8Q5.175 8 4.088 9.262 3 10.525 3 12q0 1.65 1.175 2.825Q5.35 16 7 16Zm0-3q-.425 0-.713-.288Q6 12.425 6 12t.287-.713Q6.575 11 7 11t.713.287Q8 11.575 8 12t-.287.712Q7.425 13 7 13Z"
+  }));
+});
+IconMaterialKeyOffW100.displayName = 'AmauiIconMaterialKeyOffW100';
 
 
 const IconMaterialKeyVisualizerW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -20270,19 +20270,6 @@ const IconMaterialKeyboardBackspaceW100 = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialKeyboardBackspaceW100.displayName = 'AmauiIconMaterialKeyboardBackspaceW100';
 
 
-const IconMaterialKeyboardCapslockBadgeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "KeyboardCapslockBadgeW100",
-    short_name: "KeyboardCapslockBadge",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M317 724h326v-28H317v28Zm19-109 144-143 144 143 19-19-163-164-163 164 19 19ZM172 884V268h616v616H172Zm28-28h560V296H200v560Zm0-560v560-560Z"
-  }));
-});
-IconMaterialKeyboardCapslockBadgeW100.displayName = 'AmauiIconMaterialKeyboardCapslockBadgeW100';
-
-
 const IconMaterialKeyboardCapslockW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -20320,6 +20307,19 @@ const IconMaterialKeyboardControlKeyW100 = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialKeyboardControlKeyW100.displayName = 'AmauiIconMaterialKeyboardControlKeyW100';
+
+
+const IconMaterialKeyboardCapslockBadgeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "KeyboardCapslockBadgeW100",
+    short_name: "KeyboardCapslockBadge",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M317 724h326v-28H317v28Zm19-109 144-143 144 143 19-19-163-164-163 164 19 19ZM172 884V268h616v616H172Zm28-28h560V296H200v560Zm0-560v560-560Z"
+  }));
+});
+IconMaterialKeyboardCapslockBadgeW100.displayName = 'AmauiIconMaterialKeyboardCapslockBadgeW100';
 
 
 const IconMaterialKeyboardDoubleArrowDownW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -20374,17 +20374,17 @@ const IconMaterialKeyboardDoubleArrowUpW100 = /*#__PURE__*/React.forwardRef((pro
 IconMaterialKeyboardDoubleArrowUpW100.displayName = 'AmauiIconMaterialKeyboardDoubleArrowUpW100';
 
 
-const IconMaterialKeyboardExternalInputW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialKeyboardHideW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "KeyboardExternalInputW100",
-    short_name: "KeyboardExternalInput",
-    viewBox: "0 96 960 960"
+    name: "KeyboardHideW100",
+    short_name: "KeyboardHide",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M160 776V376v400Zm-28 28V348h696v256q-7-5-13.5-8.5T800 588V376H160v400h321v28H132Zm200-136v56h159q5-15 11.5-29t14.5-27H332ZM212 548v56h56v-56h-56Zm120 0v56h56v-56h-56Zm120 0v56h56v-56h-56Zm120 0v56h8q11-8 23-13.5t25-10.5v-32h-56Zm120 0v19q3-.5 5.85-.75 2.85-.25 6.15-.25 11 0 22 1.5t22 3.5v-23h-56ZM212 428v56h56v-56h-56Zm120 0v56h56v-56h-56Zm120 0v56h56v-56h-56Zm120 0v56h56v-56h-56Zm120 0v56h56v-56h-56Zm12 485-19-19 88-90H570v-28h203l-88-90 19-19 123 123-123 123Z"
+    d: "M3.3 15.7V4.3h17.4v11.4ZM4 15V5v10Zm7.3-7.3h1.4V6.3h-1.4Zm0 3h1.4V9.3h-1.4Zm-3-3h1.4V6.3H8.3Zm0 3h1.4V9.3H8.3Zm-3 0h1.4V9.3H5.3Zm0-3h1.4V6.3H5.3Zm3 6h7.4v-1.4H8.3Zm6-3h1.4V9.3h-1.4Zm0-3h1.4V6.3h-1.4Zm3 3h1.4V9.3h-1.4Zm0-3h1.4V6.3h-1.4ZM12 21.5l-2.8-2.8h5.6ZM4 15h16V5H4Z"
   }));
 });
-IconMaterialKeyboardExternalInputW100.displayName = 'AmauiIconMaterialKeyboardExternalInputW100';
+IconMaterialKeyboardHideW100.displayName = 'AmauiIconMaterialKeyboardHideW100';
 
 
 const IconMaterialKeyboardFullW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -20400,30 +20400,17 @@ const IconMaterialKeyboardFullW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialKeyboardFullW100.displayName = 'AmauiIconMaterialKeyboardFullW100';
 
 
-const IconMaterialKeyboardHideW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialKeyboardExternalInputW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "KeyboardHideW100",
-    short_name: "KeyboardHide",
-    viewBox: "0 0 24 24"
+    name: "KeyboardExternalInputW100",
+    short_name: "KeyboardExternalInput",
+    viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.3 15.7V4.3h17.4v11.4ZM4 15V5v10Zm7.3-7.3h1.4V6.3h-1.4Zm0 3h1.4V9.3h-1.4Zm-3-3h1.4V6.3H8.3Zm0 3h1.4V9.3H8.3Zm-3 0h1.4V9.3H5.3Zm0-3h1.4V6.3H5.3Zm3 6h7.4v-1.4H8.3Zm6-3h1.4V9.3h-1.4Zm0-3h1.4V6.3h-1.4Zm3 3h1.4V9.3h-1.4Zm0-3h1.4V6.3h-1.4ZM12 21.5l-2.8-2.8h5.6ZM4 15h16V5H4Z"
+    d: "M160 776V376v400Zm-28 28V348h696v256q-7-5-13.5-8.5T800 588V376H160v400h321v28H132Zm200-136v56h159q5-15 11.5-29t14.5-27H332ZM212 548v56h56v-56h-56Zm120 0v56h56v-56h-56Zm120 0v56h56v-56h-56Zm120 0v56h8q11-8 23-13.5t25-10.5v-32h-56Zm120 0v19q3-.5 5.85-.75 2.85-.25 6.15-.25 11 0 22 1.5t22 3.5v-23h-56ZM212 428v56h56v-56h-56Zm120 0v56h56v-56h-56Zm120 0v56h56v-56h-56Zm120 0v56h56v-56h-56Zm120 0v56h56v-56h-56Zm12 485-19-19 88-90H570v-28h203l-88-90 19-19 123 123-123 123Z"
   }));
 });
-IconMaterialKeyboardHideW100.displayName = 'AmauiIconMaterialKeyboardHideW100';
-
-
-const IconMaterialKeyboardKeysW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "KeyboardKeysW100",
-    short_name: "KeyboardKeys",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M292-292v-56h376v56H292ZM132-452v-56h56v56h-56Zm160 0v-56h56v56h-56Zm160 0v-56h56v56h-56Zm160 0v-56h56v56h-56Zm160 0v-56h56v56h-56ZM132-612v-56h56v56h-56Zm160 0v-56h56v56h-56Zm160 0v-56h56v56h-56Zm160 0v-56h56v56h-56Zm160 0v-56h56v56h-56Z"
-  }));
-});
-IconMaterialKeyboardKeysW100.displayName = 'AmauiIconMaterialKeyboardKeysW100';
+IconMaterialKeyboardExternalInputW100.displayName = 'AmauiIconMaterialKeyboardExternalInputW100';
 
 
 const IconMaterialKeyboardOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -20450,6 +20437,19 @@ const IconMaterialKeyboardOnscreenW100 = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialKeyboardOnscreenW100.displayName = 'AmauiIconMaterialKeyboardOnscreenW100';
+
+
+const IconMaterialKeyboardKeysW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "KeyboardKeysW100",
+    short_name: "KeyboardKeys",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M292-292v-56h376v56H292ZM132-452v-56h56v56h-56Zm160 0v-56h56v56h-56Zm160 0v-56h56v56h-56Zm160 0v-56h56v56h-56Zm160 0v-56h56v56h-56ZM132-612v-56h56v56h-56Zm160 0v-56h56v56h-56Zm160 0v-56h56v56h-56Zm160 0v-56h56v56h-56Zm160 0v-56h56v56h-56Z"
+  }));
+});
+IconMaterialKeyboardKeysW100.displayName = 'AmauiIconMaterialKeyboardKeysW100';
 
 
 const IconMaterialKeyboardOptionKeyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -20517,19 +20517,6 @@ const IconMaterialKeyboardTabW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialKeyboardTabW100.displayName = 'AmauiIconMaterialKeyboardTabW100';
 
 
-const IconMaterialKeyboardVoiceW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "KeyboardVoiceW100",
-    short_name: "KeyboardVoice",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 12.7q-.725 0-1.212-.488Q10.3 11.725 10.3 11V5q0-.725.488-1.213Q11.275 3.3 12 3.3t1.213.487Q13.7 4.275 13.7 5v6q0 .725-.487 1.212-.488.488-1.213.488ZM12 8Zm-.35 12.35V16.7q-2.275-.175-3.812-1.8Q6.3 13.275 6.3 11H7q0 2.075 1.463 3.537Q9.925 16 12 16t3.538-1.463Q17 13.075 17 11h.7q0 2.275-1.537 3.9-1.538 1.625-3.813 1.8v3.65ZM12 12q.425 0 .713-.288Q13 11.425 13 11V5q0-.425-.287-.713Q12.425 4 12 4t-.712.287Q11 4.575 11 5v6q0 .425.288.712.287.288.712.288Z"
-  }));
-});
-IconMaterialKeyboardVoiceW100.displayName = 'AmauiIconMaterialKeyboardVoiceW100';
-
-
 const IconMaterialKeyboardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -20541,6 +20528,19 @@ const IconMaterialKeyboardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialKeyboardW100.displayName = 'AmauiIconMaterialKeyboardW100';
+
+
+const IconMaterialKeyboardVoiceW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "KeyboardVoiceW100",
+    short_name: "KeyboardVoice",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 12.7q-.725 0-1.212-.488Q10.3 11.725 10.3 11V5q0-.725.488-1.213Q11.275 3.3 12 3.3t1.213.487Q13.7 4.275 13.7 5v6q0 .725-.487 1.212-.488.488-1.213.488ZM12 8Zm-.35 12.35V16.7q-2.275-.175-3.812-1.8Q6.3 13.275 6.3 11H7q0 2.075 1.463 3.537Q9.925 16 12 16t3.538-1.463Q17 13.075 17 11h.7q0 2.275-1.537 3.9-1.538 1.625-3.813 1.8v3.65ZM12 12q.425 0 .713-.288Q13 11.425 13 11V5q0-.425-.287-.713Q12.425 4 12 4t-.712.287Q11 4.575 11 5v6q0 .425.288.712.287.288.712.288Z"
+  }));
+});
+IconMaterialKeyboardVoiceW100.displayName = 'AmauiIconMaterialKeyboardVoiceW100';
 
 
 const IconMaterialKidStarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -20647,19 +20647,6 @@ const IconMaterialLabelImportantW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialLabelImportantW100.displayName = 'AmauiIconMaterialLabelImportantW100';
 
 
-const IconMaterialLabelOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LabelOffW100",
-    short_name: "LabelOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m16.75 15.7-.5-.5 2.3-3.2-3.575-5H8l-.7-.7h8.075L19.4 12Zm1.55 5.4-3.4-3.4H4.3V7.1L2.4 5.2l.5-.5 15.9 15.9Zm-8.7-8.7Zm2.525-1.3ZM14.2 17 5 7.8V17Z"
-  }));
-});
-IconMaterialLabelOffW100.displayName = 'AmauiIconMaterialLabelOffW100';
-
-
 const IconMaterialLabelW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -20697,6 +20684,19 @@ const IconMaterialLanW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialLanW100.displayName = 'AmauiIconMaterialLanW100';
+
+
+const IconMaterialLabelOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LabelOffW100",
+    short_name: "LabelOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m16.75 15.7-.5-.5 2.3-3.2-3.575-5H8l-.7-.7h8.075L19.4 12Zm1.55 5.4-3.4-3.4H4.3V7.1L2.4 5.2l.5-.5 15.9 15.9Zm-8.7-8.7Zm2.525-1.3ZM14.2 17 5 7.8V17Z"
+  }));
+});
+IconMaterialLabelOffW100.displayName = 'AmauiIconMaterialLabelOffW100';
 
 
 const IconMaterialLandscapeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -20816,19 +20816,6 @@ const IconMaterialLanguageFrenchW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialLanguageFrenchW100.displayName = 'AmauiIconMaterialLanguageFrenchW100';
 
 
-const IconMaterialLanguageGbEnglishW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LanguageGbEnglishW100",
-    short_name: "LanguageGbEnglish",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M548 722h172l35-35v-62l-35-35H548v132Zm0-160h172l35-35v-62l-35-35H548v132ZM177 750V402h256v28H205v292h207V590h-90v-28h118v188H177Zm343 0V402h212l51 51v86l-35 35 35 35v90l-51 51H520Z"
-  }));
-});
-IconMaterialLanguageGbEnglishW100.displayName = 'AmauiIconMaterialLanguageGbEnglishW100';
-
-
 const IconMaterialLanguageInternationalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -20840,6 +20827,19 @@ const IconMaterialLanguageInternationalW100 = /*#__PURE__*/React.forwardRef((pro
   }));
 });
 IconMaterialLanguageInternationalW100.displayName = 'AmauiIconMaterialLanguageInternationalW100';
+
+
+const IconMaterialLanguageGbEnglishW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LanguageGbEnglishW100",
+    short_name: "LanguageGbEnglish",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M548 722h172l35-35v-62l-35-35H548v132Zm0-160h172l35-35v-62l-35-35H548v132ZM177 750V402h256v28H205v292h207V590h-90v-28h118v188H177Zm343 0V402h212l51 51v86l-35 35 35 35v90l-51 51H520Z"
+  }));
+});
+IconMaterialLanguageGbEnglishW100.displayName = 'AmauiIconMaterialLanguageGbEnglishW100';
 
 
 const IconMaterialLanguageJapaneseKanaW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -21128,19 +21128,6 @@ const IconMaterialLeafSparkW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialLeafSparkW100.displayName = 'AmauiIconMaterialLeafSparkW100';
 
 
-const IconMaterialLeakAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LeakAddW100",
-    short_name: "LeakAdd",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.3 13.5v-.7q1.775 0 3.313-.663 1.537-.662 2.699-1.825Q11.475 9.15 12.138 7.6q.662-1.55.662-3.3h.7q0 1.9-.725 3.587-.725 1.688-1.963 2.925Q9.575 12.05 7.9 12.775q-1.675.725-3.6.725Zm0-4v-.7q1.875 0 3.188-1.313Q8.8 6.175 8.8 4.3h.7Q9.5 6.5 8 8T4.3 9.5Zm0-4V4.3h1.2q0 .5-.35.85t-.85.35Zm6.2 14.2q0-1.925.725-3.6t1.963-2.912q1.237-1.238 2.925-1.963Q17.8 10.5 19.7 10.5v.7q-1.75 0-3.3.662-1.55.663-2.712 1.826-1.163 1.162-1.825 2.699-.663 1.538-.663 3.313Zm4 0q0-2.2 1.5-3.7t3.7-1.5v.7q-1.875 0-3.188 1.312Q15.2 17.825 15.2 19.7Zm4 0q0-.5.35-.85t.85-.35v1.2Z"
-  }));
-});
-IconMaterialLeakAddW100.displayName = 'AmauiIconMaterialLeakAddW100';
-
-
 const IconMaterialLeakRemoveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -21152,6 +21139,19 @@ const IconMaterialLeakRemoveW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialLeakRemoveW100.displayName = 'AmauiIconMaterialLeakRemoveW100';
+
+
+const IconMaterialLeakAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LeakAddW100",
+    short_name: "LeakAdd",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.3 13.5v-.7q1.775 0 3.313-.663 1.537-.662 2.699-1.825Q11.475 9.15 12.138 7.6q.662-1.55.662-3.3h.7q0 1.9-.725 3.587-.725 1.688-1.963 2.925Q9.575 12.05 7.9 12.775q-1.675.725-3.6.725Zm0-4v-.7q1.875 0 3.188-1.313Q8.8 6.175 8.8 4.3h.7Q9.5 6.5 8 8T4.3 9.5Zm0-4V4.3h1.2q0 .5-.35.85t-.85.35Zm6.2 14.2q0-1.925.725-3.6t1.963-2.912q1.237-1.238 2.925-1.963Q17.8 10.5 19.7 10.5v.7q-1.75 0-3.3.662-1.55.663-2.712 1.826-1.163 1.162-1.825 2.699-.663 1.538-.663 3.313Zm4 0q0-2.2 1.5-3.7t3.7-1.5v.7q-1.875 0-3.188 1.312Q15.2 17.825 15.2 19.7Zm4 0q0-.5.35-.85t.85-.35v1.2Z"
+  }));
+});
+IconMaterialLeakAddW100.displayName = 'AmauiIconMaterialLeakAddW100';
 
 
 const IconMaterialLeftClickW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -21245,19 +21245,6 @@ const IconMaterialLetterSwitchW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialLetterSwitchW100.displayName = 'AmauiIconMaterialLetterSwitchW100';
 
 
-const IconMaterialLibraryAddCheckW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LibraryAddCheckW100",
-    short_name: "LibraryAddCheck",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m12.05 13.1 4.75-4.75-.5-.5-4.25 4.25L9.9 9.95l-.5.5Zm-5.4 3.6V3.3h13.4v13.4Zm.7-.7h12V4h-12Zm-3.4 3.4V6.8h.7v11.9h11.9v.7Zm3.4-3.4V4v12Z"
-  }));
-});
-IconMaterialLibraryAddCheckW100.displayName = 'AmauiIconMaterialLibraryAddCheckW100';
-
-
 const IconMaterialLibraryAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -21271,30 +21258,17 @@ const IconMaterialLibraryAddW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialLibraryAddW100.displayName = 'AmauiIconMaterialLibraryAddW100';
 
 
-const IconMaterialLibraryBooksW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialLibraryAddCheckW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "LibraryBooksW100",
-    short_name: "LibraryBooks",
+    name: "LibraryAddCheckW100",
+    short_name: "LibraryAddCheck",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10 10.35h6.65v-.7H10Zm0 3h3.325v-.7H10Zm0-6h6.65v-.7H10ZM6.65 16.7V3.3h13.4v13.4Zm.7-.7h12V4h-12Zm-3.4 3.4V6.8h.7v11.9h11.9v.7Zm3.4-3.4V4v12Z"
+    d: "m12.05 13.1 4.75-4.75-.5-.5-4.25 4.25L9.9 9.95l-.5.5Zm-5.4 3.6V3.3h13.4v13.4Zm.7-.7h12V4h-12Zm-3.4 3.4V6.8h.7v11.9h11.9v.7Zm3.4-3.4V4v12Z"
   }));
 });
-IconMaterialLibraryBooksW100.displayName = 'AmauiIconMaterialLibraryBooksW100';
-
-
-const IconMaterialLicenseW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LicenseW100",
-    short_name: "License",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480-492q-29 0-48.5-19.5T412-560q0-29 19.5-48.5T480-628q29 0 48.5 19.5T548-560q0 29-19.5 48.5T480-492ZM292-120v-250q-38-36-59-85.207Q212-504.414 212-560q0-112.225 77.841-190.112Q367.683-828 479.841-828 592-828 670-750.112 748-672.225 748-560q0 55.586-21 104.793Q706-406 668-370v250l-188-54-188 54Zm188-200q100 0 170-70t70-170q0-100-70-170t-170-70q-100 0-170 70t-70 170q0 100 70 170t170 70ZM320-158l160-46 160 46v-188q-33 26-74.219 40-41.219 14-86 14T394-306q-41-14-74-40v188Zm160-94Z"
-  }));
-});
-IconMaterialLicenseW100.displayName = 'AmauiIconMaterialLicenseW100';
+IconMaterialLibraryAddCheckW100.displayName = 'AmauiIconMaterialLibraryAddCheckW100';
 
 
 const IconMaterialLibraryMusicW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -21308,6 +21282,19 @@ const IconMaterialLibraryMusicW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialLibraryMusicW100.displayName = 'AmauiIconMaterialLibraryMusicW100';
+
+
+const IconMaterialLicenseW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LicenseW100",
+    short_name: "License",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480-492q-29 0-48.5-19.5T412-560q0-29 19.5-48.5T480-628q29 0 48.5 19.5T548-560q0 29-19.5 48.5T480-492ZM292-120v-250q-38-36-59-85.207Q212-504.414 212-560q0-112.225 77.841-190.112Q367.683-828 479.841-828 592-828 670-750.112 748-672.225 748-560q0 55.586-21 104.793Q706-406 668-370v250l-188-54-188 54Zm188-200q100 0 170-70t70-170q0-100-70-170t-170-70q-100 0-170 70t-70 170q0 100 70 170t170 70ZM320-158l160-46 160 46v-188q-33 26-74.219 40-41.219 14-86 14T394-306q-41-14-74-40v188Zm160-94Z"
+  }));
+});
+IconMaterialLicenseW100.displayName = 'AmauiIconMaterialLicenseW100';
 
 
 const IconMaterialLiftToTalkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -21438,6 +21425,19 @@ const IconMaterialLineCurveW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialLineCurveW100.displayName = 'AmauiIconMaterialLineCurveW100';
+
+
+const IconMaterialLibraryBooksW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LibraryBooksW100",
+    short_name: "LibraryBooks",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10 10.35h6.65v-.7H10Zm0 3h3.325v-.7H10Zm0-6h6.65v-.7H10ZM6.65 16.7V3.3h13.4v13.4Zm.7-.7h12V4h-12Zm-3.4 3.4V6.8h.7v11.9h11.9v.7Zm3.4-3.4V4v12Z"
+  }));
+});
+IconMaterialLibraryBooksW100.displayName = 'AmauiIconMaterialLibraryBooksW100';
 
 
 const IconMaterialLineEndArrowNotchW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -21648,19 +21648,6 @@ const IconMaterialLinkOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialLinkOffW100.displayName = 'AmauiIconMaterialLinkOffW100';
 
 
-const IconMaterialLinkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LinkW100",
-    short_name: "Link",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.5 15.8H7q-1.575 0-2.688-1.112Q3.2 13.575 3.2 12q0-1.575 1.112-2.688Q5.425 8.2 7 8.2h3.5v.7H7q-1.275 0-2.188.912Q3.9 10.725 3.9 12q0 1.275.912 2.188.913.912 2.188.912h3.5Zm-1.85-3.45v-.7h6.7v.7Zm4.85 3.45v-.7H17q1.275 0 2.188-.912.912-.913.912-2.188 0-1.275-.912-2.188Q18.275 8.9 17 8.9h-3.5v-.7H17q1.575 0 2.688 1.112Q20.8 10.425 20.8 12q0 1.575-1.112 2.688Q18.575 15.8 17 15.8Z"
-  }));
-});
-IconMaterialLinkW100.displayName = 'AmauiIconMaterialLinkW100';
-
-
 const IconMaterialLinkedCameraW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -21672,6 +21659,19 @@ const IconMaterialLinkedCameraW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialLinkedCameraW100.displayName = 'AmauiIconMaterialLinkedCameraW100';
+
+
+const IconMaterialLinkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LinkW100",
+    short_name: "Link",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10.5 15.8H7q-1.575 0-2.688-1.112Q3.2 13.575 3.2 12q0-1.575 1.112-2.688Q5.425 8.2 7 8.2h3.5v.7H7q-1.275 0-2.188.912Q3.9 10.725 3.9 12q0 1.275.912 2.188.913.912 2.188.912h3.5Zm-1.85-3.45v-.7h6.7v.7Zm4.85 3.45v-.7H17q1.275 0 2.188-.912.912-.913.912-2.188 0-1.275-.912-2.188Q18.275 8.9 17 8.9h-3.5v-.7H17q1.575 0 2.688 1.112Q20.8 10.425 20.8 12q0 1.575-1.112 2.688Q18.575 15.8 17 15.8Z"
+  }));
+});
+IconMaterialLinkW100.displayName = 'AmauiIconMaterialLinkW100';
 
 
 const IconMaterialLinkedServicesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -21700,19 +21700,6 @@ const IconMaterialLiquorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialLiquorW100.displayName = 'AmauiIconMaterialLiquorW100';
 
 
-const IconMaterialListAltAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ListAltAddW100",
-    short_name: "ListAltAdd",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M702 870H582v-28h120V722h28v120h120v28H730v120h-28V870Zm-502-14V296v560Zm-28 28V268h616v387q-7-2-13.5-4t-14.5-4V296H200v560h302q0 7.35.462 14.35.461 7 1.538 13.65H172Zm154.07-132q11.93 0 19.93-8.07t8-20q0-11.93-8.07-19.93t-20-8Q314 696 306 704.07t-8 20q0 11.93 8.07 19.93t20 8Zm0-148q11.93 0 19.93-8.07t8-20q0-11.93-8.07-19.93t-20-8Q314 548 306 556.07t-8 20q0 11.93 8.07 19.93t20 8Zm0-148q11.93 0 19.93-8.07t8-20q0-11.93-8.07-19.93t-20-8Q314 400 306 408.07t-8 20q0 11.93 8.07 19.93t20 8ZM450 590h208v-28H450v28Zm0-148h208v-28H450v28Zm0 296h88q5-8 10.5-14.5T560 710H450v28Z"
-  }));
-});
-IconMaterialListAltAddW100.displayName = 'AmauiIconMaterialListAltAddW100';
-
-
 const IconMaterialListAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -21724,6 +21711,19 @@ const IconMaterialListAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialListAltW100.displayName = 'AmauiIconMaterialListAltW100';
+
+
+const IconMaterialListAltAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ListAltAddW100",
+    short_name: "ListAltAdd",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M702 870H582v-28h120V722h28v120h120v28H730v120h-28V870Zm-502-14V296v560Zm-28 28V268h616v387q-7-2-13.5-4t-14.5-4V296H200v560h302q0 7.35.462 14.35.461 7 1.538 13.65H172Zm154.07-132q11.93 0 19.93-8.07t8-20q0-11.93-8.07-19.93t-20-8Q314 696 306 704.07t-8 20q0 11.93 8.07 19.93t20 8Zm0-148q11.93 0 19.93-8.07t8-20q0-11.93-8.07-19.93t-20-8Q314 548 306 556.07t-8 20q0 11.93 8.07 19.93t20 8Zm0-148q11.93 0 19.93-8.07t8-20q0-11.93-8.07-19.93t-20-8Q314 400 306 408.07t-8 20q0 11.93 8.07 19.93t20 8ZM450 590h208v-28H450v28Zm0-148h208v-28H450v28Zm0 296h88q5-8 10.5-14.5T560 710H450v28Z"
+  }));
+});
+IconMaterialListAltAddW100.displayName = 'AmauiIconMaterialListAltAddW100';
 
 
 const IconMaterialListW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -21817,19 +21817,6 @@ const IconMaterialLocalAtmW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialLocalAtmW100.displayName = 'AmauiIconMaterialLocalAtmW100';
 
 
-const IconMaterialLocalBarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LocalBarW100",
-    short_name: "LocalBar",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.3 20.35v-.7h4.35v-6.9L4.75 5v-.7h14.5V5l-6.9 7.75v6.9h4.35v.7ZM7.45 7h9.1l1.8-2H5.65ZM12 12.1l3.925-4.4h-7.85Zm0 0Z"
-  }));
-});
-IconMaterialLocalBarW100.displayName = 'AmauiIconMaterialLocalBarW100';
-
-
 const IconMaterialLocalCafeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -21841,6 +21828,19 @@ const IconMaterialLocalCafeW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialLocalCafeW100.displayName = 'AmauiIconMaterialLocalCafeW100';
+
+
+const IconMaterialLocalBarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LocalBarW100",
+    short_name: "LocalBar",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M7.3 20.35v-.7h4.35v-6.9L4.75 5v-.7h14.5V5l-6.9 7.75v6.9h4.35v.7ZM7.45 7h9.1l1.8-2H5.65ZM12 12.1l3.925-4.4h-7.85Zm0 0Z"
+  }));
+});
+IconMaterialLocalBarW100.displayName = 'AmauiIconMaterialLocalBarW100';
 
 
 const IconMaterialLocalCarWashW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -22051,19 +22051,6 @@ const IconMaterialLocalPostOfficeW100 = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialLocalPostOfficeW100.displayName = 'AmauiIconMaterialLocalPostOfficeW100';
 
 
-const IconMaterialLocalSeeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LocalSeeW100",
-    short_name: "LocalSee",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.3 20.7V7.3h4.4l1.825-2h1.225q-.025.2-.037.413-.013.212-.013.462 0 .5.05.975t.15.85H4v12h16v-5l.325-.325.375-.375v6.4Zm8.7-3.2q1.35 0 2.338-.875.987-.875 1.137-2.15-.15-.15-.325-.313-.175-.162-.35-.362v.2q-.05 1.175-.837 1.988-.788.812-1.963.812t-1.987-.812Q9.2 15.175 9.2 14t.813-1.988Q10.825 11.2 12 11.2q.15 0 .288.012.137.013.262.038-.125-.125-.287-.375-.163-.25-.238-.375-1.45 0-2.487.988Q8.5 12.475 8.5 14q0 1.475 1.012 2.488Q10.525 17.5 12 17.5Zm6-3.425q3.2-2.95 4.25-4.575 1.05-1.625 1.05-3.35 0-2.5-1.6-3.975T18 .7q-2.1 0-3.7 1.475T12.7 6.15q0 1.725 1.05 3.35T18 14.075Zm0-.925q-3-2.8-3.8-4.238-.8-1.437-.8-2.737 0-2.35 1.45-3.55 1.45-1.2 3.15-1.2t3.15 1.2q1.45 1.2 1.45 3.55 0 1.3-.8 2.737Q21 10.35 18 13.15Zm-1.2-5.2 1.2-.9 1.2.9-.45-1.475 1.2-.975h-1.475L18 4.05l-.475 1.45H16.05l1.2.975ZM12 14Zm6-7.525Z"
-  }));
-});
-IconMaterialLocalSeeW100.displayName = 'AmauiIconMaterialLocalSeeW100';
-
-
 const IconMaterialLocalShippingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -22075,6 +22062,19 @@ const IconMaterialLocalShippingW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialLocalShippingW100.displayName = 'AmauiIconMaterialLocalShippingW100';
+
+
+const IconMaterialLocalSeeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LocalSeeW100",
+    short_name: "LocalSee",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.3 20.7V7.3h4.4l1.825-2h1.225q-.025.2-.037.413-.013.212-.013.462 0 .5.05.975t.15.85H4v12h16v-5l.325-.325.375-.375v6.4Zm8.7-3.2q1.35 0 2.338-.875.987-.875 1.137-2.15-.15-.15-.325-.313-.175-.162-.35-.362v.2q-.05 1.175-.837 1.988-.788.812-1.963.812t-1.987-.812Q9.2 15.175 9.2 14t.813-1.988Q10.825 11.2 12 11.2q.15 0 .288.012.137.013.262.038-.125-.125-.287-.375-.163-.25-.238-.375-1.45 0-2.487.988Q8.5 12.475 8.5 14q0 1.475 1.012 2.488Q10.525 17.5 12 17.5Zm6-3.425q3.2-2.95 4.25-4.575 1.05-1.625 1.05-3.35 0-2.5-1.6-3.975T18 .7q-2.1 0-3.7 1.475T12.7 6.15q0 1.725 1.05 3.35T18 14.075Zm0-.925q-3-2.8-3.8-4.238-.8-1.437-.8-2.737 0-2.35 1.45-3.55 1.45-1.2 3.15-1.2t3.15 1.2q1.45 1.2 1.45 3.55 0 1.3-.8 2.737Q21 10.35 18 13.15Zm-1.2-5.2 1.2-.9 1.2.9-.45-1.475 1.2-.975h-1.475L18 4.05l-.475 1.45H16.05l1.2.975ZM12 14Zm6-7.525Z"
+  }));
+});
+IconMaterialLocalSeeW100.displayName = 'AmauiIconMaterialLocalSeeW100';
 
 
 const IconMaterialLocalTaxiW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -22246,19 +22246,6 @@ const IconMaterialLockOpenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialLockOpenW100.displayName = 'AmauiIconMaterialLockOpenW100';
 
 
-const IconMaterialLockPersonW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LockPersonW100",
-    short_name: "LockPerson",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M17.5 17.5q.625 0 1.062-.438Q19 16.625 19 16t-.438-1.062q-.437-.438-1.062-.438t-1.062.438Q16 15.375 16 16t.438 1.062q.437.438 1.062.438Zm0 3q.775 0 1.413-.363.637-.362 1.062-.962-.55-.325-1.175-.5t-1.3-.175q-.675 0-1.3.175t-1.175.5q.425.6 1.063.962.637.363 1.412.363ZM9 9.3h6v-2q0-1.25-.875-2.125T12 4.3q-1.25 0-2.125.875T9 7.3ZM5.3 20.7V9.3h3v-2q0-1.55 1.075-2.625T12 3.6q1.55 0 2.625 1.075T15.7 7.3v2h3v2.65q-.125-.05-.313-.075-.187-.025-.387-.025V10H6v10h6.4q.05.2.15.375.1.175.25.325Zm12.2.5q-1.55 0-2.625-1.075T13.8 17.5q0-1.55 1.075-2.625T17.5 13.8q1.55 0 2.625 1.075T21.2 17.5q0 1.55-1.075 2.625T17.5 21.2ZM6 17.5V20 10v7.5Z"
-  }));
-});
-IconMaterialLockPersonW100.displayName = 'AmauiIconMaterialLockPersonW100';
-
-
 const IconMaterialLockResetW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -22270,6 +22257,19 @@ const IconMaterialLockResetW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialLockResetW100.displayName = 'AmauiIconMaterialLockResetW100';
+
+
+const IconMaterialLockPersonW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LockPersonW100",
+    short_name: "LockPerson",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M17.5 17.5q.625 0 1.062-.438Q19 16.625 19 16t-.438-1.062q-.437-.438-1.062-.438t-1.062.438Q16 15.375 16 16t.438 1.062q.437.438 1.062.438Zm0 3q.775 0 1.413-.363.637-.362 1.062-.962-.55-.325-1.175-.5t-1.3-.175q-.675 0-1.3.175t-1.175.5q.425.6 1.063.962.637.363 1.412.363ZM9 9.3h6v-2q0-1.25-.875-2.125T12 4.3q-1.25 0-2.125.875T9 7.3ZM5.3 20.7V9.3h3v-2q0-1.55 1.075-2.625T12 3.6q1.55 0 2.625 1.075T15.7 7.3v2h3v2.65q-.125-.05-.313-.075-.187-.025-.387-.025V10H6v10h6.4q.05.2.15.375.1.175.25.325Zm12.2.5q-1.55 0-2.625-1.075T13.8 17.5q0-1.55 1.075-2.625T17.5 13.8q1.55 0 2.625 1.075T21.2 17.5q0 1.55-1.075 2.625T17.5 21.2ZM6 17.5V20 10v7.5Z"
+  }));
+});
+IconMaterialLockPersonW100.displayName = 'AmauiIconMaterialLockPersonW100';
 
 
 const IconMaterialLockW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -22376,19 +22376,6 @@ const IconMaterialLooks6W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialLooks6W100.displayName = 'AmauiIconMaterialLooks6W100';
 
 
-const IconMaterialLooksOneW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LooksOneW100",
-    short_name: "LooksOne",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12.65 16.35h.7v-8.7h-2.7v.7h2Zm7.05 3.35H4.3V4.3h15.4ZM5 19h14V5H5ZM5 5v14Z"
-  }));
-});
-IconMaterialLooksOneW100.displayName = 'AmauiIconMaterialLooksOneW100';
-
-
 const IconMaterialLooksTwoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -22400,6 +22387,19 @@ const IconMaterialLooksTwoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialLooksTwoW100.displayName = 'AmauiIconMaterialLooksTwoW100';
+
+
+const IconMaterialLooksOneW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LooksOneW100",
+    short_name: "LooksOne",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12.65 16.35h.7v-8.7h-2.7v.7h2Zm7.05 3.35H4.3V4.3h15.4ZM5 19h14V5H5ZM5 5v14Z"
+  }));
+});
+IconMaterialLooksOneW100.displayName = 'AmauiIconMaterialLooksOneW100';
 
 
 const IconMaterialLooksW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -22506,19 +22506,6 @@ const IconMaterialLtePlusMobiledataBadgeW100 = /*#__PURE__*/React.forwardRef((pr
 IconMaterialLtePlusMobiledataBadgeW100.displayName = 'AmauiIconMaterialLtePlusMobiledataBadgeW100';
 
 
-const IconMaterialLtePlusMobiledataW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LtePlusMobiledataW100",
-    short_name: "LtePlusMobiledata",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M1.975 15.35v-6.7h.7v6h3v.7Zm6.25 0v-6h-2v-.7h4.7v.7h-2v6Zm4.55 0v-6.7h3.7v.7h-3v2.3h3v.7h-3v2.3h3v.7Zm7.55-1v-2h-2v-.7h2v-2h.7v2h2v.7h-2v2Z"
-  }));
-});
-IconMaterialLtePlusMobiledataW100.displayName = 'AmauiIconMaterialLtePlusMobiledataW100';
-
-
 const IconMaterialLuggageW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -22530,6 +22517,19 @@ const IconMaterialLuggageW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialLuggageW100.displayName = 'AmauiIconMaterialLuggageW100';
+
+
+const IconMaterialLtePlusMobiledataW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LtePlusMobiledataW100",
+    short_name: "LtePlusMobiledata",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M1.975 15.35v-6.7h.7v6h3v.7Zm6.25 0v-6h-2v-.7h4.7v.7h-2v6Zm4.55 0v-6.7h3.7v.7h-3v2.3h3v.7h-3v2.3h3v.7Zm7.55-1v-2h-2v-.7h2v-2h.7v2h2v.7h-2v2Z"
+  }));
+});
+IconMaterialLtePlusMobiledataW100.displayName = 'AmauiIconMaterialLtePlusMobiledataW100';
 
 
 const IconMaterialLunchDiningW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -22740,19 +22740,6 @@ const IconMaterialMan3W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialMan3W100.displayName = 'AmauiIconMaterialMan3W100';
 
 
-const IconMaterialMan4W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Man4W100",
-    short_name: "Man4",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.3 21.35 8.6 7.55h6.8l-1.7 13.8ZM12 5.75q-.65 0-1.125-.475T10.4 4.15q0-.65.475-1.125T12 2.55q.65 0 1.125.475T13.6 4.15q0 .65-.475 1.125T12 5.75Z"
-  }));
-});
-IconMaterialMan4W100.displayName = 'AmauiIconMaterialMan4W100';
-
-
 const IconMaterialManW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -22764,6 +22751,19 @@ const IconMaterialManW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialManW100.displayName = 'AmauiIconMaterialManW100';
+
+
+const IconMaterialMan4W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Man4W100",
+    short_name: "Man4",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10.3 21.35 8.6 7.55h6.8l-1.7 13.8ZM12 5.75q-.65 0-1.125-.475T10.4 4.15q0-.65.475-1.125T12 2.55q.65 0 1.125.475T13.6 4.15q0 .65-.475 1.125T12 5.75Z"
+  }));
+});
+IconMaterialMan4W100.displayName = 'AmauiIconMaterialMan4W100';
 
 
 const IconMaterialManageAccountsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23078,19 +23078,6 @@ const IconMaterialMaximizeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialMaximizeW100.displayName = 'AmauiIconMaterialMaximizeW100';
 
 
-const IconMaterialMeasuringTapeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MeasuringTapeW100",
-    short_name: "MeasuringTape",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M232 844V556q0-120.282 83.801-204.141t204-83.859Q640 268 724 351.801q84 83.801 84 204T724.141 760Q640.282 844 520 844H232Zm28-28h260q108 0 184-76t76-184q0-108-76-184t-184-76q-108 0-184 76t-76 184v260Zm260-146q48 0 81-33t33-81q0-48-33-81t-81-33q-48 0-81 33t-33 81q0 48 33 81t81 33Zm-.118-28Q484 642 459 616.882q-25-25.117-25-61Q434 520 459.118 495q25.117-25 61-25Q556 470 581 495.118q25 25.117 25 61Q606 592 580.882 617q-25.117 25-61 25ZM152 844V696h28v148h-28Zm368-288Z"
-  }));
-});
-IconMaterialMeasuringTapeW100.displayName = 'AmauiIconMaterialMeasuringTapeW100';
-
-
 const IconMaterialMediaBluetoothOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23104,17 +23091,17 @@ const IconMaterialMediaBluetoothOffW100 = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialMediaBluetoothOffW100.displayName = 'AmauiIconMaterialMediaBluetoothOffW100';
 
 
-const IconMaterialMediaBluetoothOnW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialMeasuringTapeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "MediaBluetoothOnW100",
-    short_name: "MediaBluetoothOn",
-    viewBox: "0 0 24 24"
+    name: "MeasuringTapeW100",
+    short_name: "MeasuringTape",
+    viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16.45 20.75v-4.9l-3 3-.5-.5L16.3 15l-3.4-3.35.5-.5 3 3v-4.9h.25l3.2 3.2-2.6 2.55 2.6 2.55-3.15 3.2Zm.65-6.6 1.75-1.7-1.75-1.75Zm0 5.15 1.75-1.75-1.75-1.7Zm-10.25.15q-1.125 0-1.912-.787-.788-.788-.788-1.913t.788-1.913q.787-.787 1.912-.787.575 0 1.1.225.525.225.9.675V4.55h4.55v2.1H9.55v10.1q0 1.125-.787 1.913-.788.787-1.913.787Z"
+    d: "M232 844V556q0-120.282 83.801-204.141t204-83.859Q640 268 724 351.801q84 83.801 84 204T724.141 760Q640.282 844 520 844H232Zm28-28h260q108 0 184-76t76-184q0-108-76-184t-184-76q-108 0-184 76t-76 184v260Zm260-146q48 0 81-33t33-81q0-48-33-81t-81-33q-48 0-81 33t-33 81q0 48 33 81t81 33Zm-.118-28Q484 642 459 616.882q-25-25.117-25-61Q434 520 459.118 495q25.117-25 61-25Q556 470 581 495.118q25 25.117 25 61Q606 592 580.882 617q-25.117 25-61 25ZM152 844V696h28v148h-28Zm368-288Z"
   }));
 });
-IconMaterialMediaBluetoothOnW100.displayName = 'AmauiIconMaterialMediaBluetoothOnW100';
+IconMaterialMeasuringTapeW100.displayName = 'AmauiIconMaterialMeasuringTapeW100';
 
 
 const IconMaterialMediaLinkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23128,6 +23115,19 @@ const IconMaterialMediaLinkW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialMediaLinkW100.displayName = 'AmauiIconMaterialMediaLinkW100';
+
+
+const IconMaterialMediaBluetoothOnW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MediaBluetoothOnW100",
+    short_name: "MediaBluetoothOn",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M16.45 20.75v-4.9l-3 3-.5-.5L16.3 15l-3.4-3.35.5-.5 3 3v-4.9h.25l3.2 3.2-2.6 2.55 2.6 2.55-3.15 3.2Zm.65-6.6 1.75-1.7-1.75-1.75Zm0 5.15 1.75-1.75-1.75-1.7Zm-10.25.15q-1.125 0-1.912-.787-.788-.788-.788-1.913t.788-1.913q.787-.787 1.912-.787.575 0 1.1.225.525.225.9.675V4.55h4.55v2.1H9.55v10.1q0 1.125-.787 1.913-.788.787-1.913.787Z"
+  }));
+});
+IconMaterialMediaBluetoothOnW100.displayName = 'AmauiIconMaterialMediaBluetoothOnW100';
 
 
 const IconMaterialMediaOutputOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23247,19 +23247,6 @@ const IconMaterialMeetingRoomW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialMeetingRoomW100.displayName = 'AmauiIconMaterialMeetingRoomW100';
 
 
-const IconMaterialMemoryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MemoryW100",
-    short_name: "Memory",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9.65 19.1v-1.4H6.3v-3.35H4.9v-.7h1.4v-3.3H4.9v-.7h1.4V6.3h3.35V4.9h.7v1.4h3.3V4.9h.7v1.4h3.35v3.35h1.4v.7h-1.4v3.3h1.4v.7h-1.4v3.35h-3.35v1.4h-.7v-1.4h-3.3v1.4ZM7 17h10V7H7Zm3.3-3.3v-3.4h3.4v3.4Zm.7-.7h2v-2h-2Zm1-1Z"
-  }));
-});
-IconMaterialMemoryW100.displayName = 'AmauiIconMaterialMemoryW100';
-
-
 const IconMaterialMemoryAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23271,6 +23258,19 @@ const IconMaterialMemoryAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialMemoryAltW100.displayName = 'AmauiIconMaterialMemoryAltW100';
+
+
+const IconMaterialMemoryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MemoryW100",
+    short_name: "Memory",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9.65 19.1v-1.4H6.3v-3.35H4.9v-.7h1.4v-3.3H4.9v-.7h1.4V6.3h3.35V4.9h.7v1.4h3.3V4.9h.7v1.4h3.35v3.35h1.4v.7h-1.4v3.3h1.4v.7h-1.4v3.35h-3.35v1.4h-.7v-1.4h-3.3v1.4ZM7 17h10V7H7Zm3.3-3.3v-3.4h3.4v3.4Zm.7-.7h2v-2h-2Zm1-1Z"
+  }));
+});
+IconMaterialMemoryW100.displayName = 'AmauiIconMaterialMemoryW100';
 
 
 const IconMaterialMenstrualHealthW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23299,19 +23299,6 @@ const IconMaterialMenuBookW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialMenuBookW100.displayName = 'AmauiIconMaterialMenuBookW100';
 
 
-const IconMaterialMenuOpenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MenuOpenW100",
-    short_name: "MenuOpen",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.775 17.05v-.7h11.7v.7Zm15.95-.95-4.1-4.1 4.1-4.1.5.5-3.6 3.6 3.6 3.6Zm-15.95-3.75v-.7h8.7v.7Zm0-4.7v-.7h11.7v.7Z"
-  }));
-});
-IconMaterialMenuOpenW100.displayName = 'AmauiIconMaterialMenuOpenW100';
-
-
 const IconMaterialMenuW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23325,6 +23312,19 @@ const IconMaterialMenuW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialMenuW100.displayName = 'AmauiIconMaterialMenuW100';
 
 
+const IconMaterialMenuOpenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MenuOpenW100",
+    short_name: "MenuOpen",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.775 17.05v-.7h11.7v.7Zm15.95-.95-4.1-4.1 4.1-4.1.5.5-3.6 3.6 3.6 3.6Zm-15.95-3.75v-.7h8.7v.7Zm0-4.7v-.7h11.7v.7Z"
+  }));
+});
+IconMaterialMenuOpenW100.displayName = 'AmauiIconMaterialMenuOpenW100';
+
+
 const IconMaterialMergeTypeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23336,19 +23336,6 @@ const IconMaterialMergeTypeW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialMergeTypeW100.displayName = 'AmauiIconMaterialMergeTypeW100';
-
-
-const IconMaterialMergeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MergeW100",
-    short_name: "Merge",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m6.4 19.7-.475-.475 4.65-4.65q.65-.65.863-1.125.212-.475.212-1.4V5.6L9.375 7.875 8.9 7.4 12 4.3l3.1 3.1-.475.475L12.35 5.6v6.45q0 .925.238 1.425.237.5.887 1.15l4.6 4.6-.475.475-5.6-5.6Z"
-  }));
-});
-IconMaterialMergeW100.displayName = 'AmauiIconMaterialMergeW100';
 
 
 const IconMaterialMetabolismW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23429,6 +23416,19 @@ const IconMaterialMicNoiseCancelHighW100 = /*#__PURE__*/React.forwardRef((props,
 IconMaterialMicNoiseCancelHighW100.displayName = 'AmauiIconMaterialMicNoiseCancelHighW100';
 
 
+const IconMaterialMergeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MergeW100",
+    short_name: "Merge",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m6.4 19.7-.475-.475 4.65-4.65q.65-.65.863-1.125.212-.475.212-1.4V5.6L9.375 7.875 8.9 7.4 12 4.3l3.1 3.1-.475.475L12.35 5.6v6.45q0 .925.238 1.425.237.5.887 1.15l4.6 4.6-.475.475-5.6-5.6Z"
+  }));
+});
+IconMaterialMergeW100.displayName = 'AmauiIconMaterialMergeW100';
+
+
 const IconMaterialMicNoiseCancelLowW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23494,19 +23494,6 @@ const IconMaterialMicrobiologyW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialMicrobiologyW100.displayName = 'AmauiIconMaterialMicrobiologyW100';
 
 
-const IconMaterialMicrowaveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MicrowaveW100",
-    short_name: "Microwave",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.8 18.7q-.65 0-1.075-.425Q3.3 17.85 3.3 17.2V6.8q0-.65.425-1.075Q4.15 5.3 4.8 5.3h14.4q.65 0 1.075.425.425.425.425 1.075v10.4q0 .65-.425 1.075-.425.425-1.075.425Zm0-.7h10.5V6H4.8q-.3 0-.55.25Q4 6.5 4 6.8v10.4q0 .3.25.55.25.25.55.25ZM16 18h3.2q.3 0 .55-.25.25-.25.25-.55V6.8q0-.3-.25-.55Q19.5 6 19.2 6H16Zm1.4-9.4h1.2V7.4h-1.2Zm.6 4.1q.275 0 .488-.213.212-.212.212-.487t-.212-.488Q18.275 11.3 18 11.3t-.487.212q-.213.213-.213.488t.213.487q.212.213.487.213Zm0 4q.275 0 .488-.213.212-.212.212-.487t-.212-.488Q18.275 15.3 18 15.3t-.487.212q-.213.213-.213.488t.213.487q.212.213.487.213Zm-7.1-1.35q-.45 0-.85-.213-.4-.212-.675-.387-.275-.175-.488-.288-.212-.112-.487-.112-.25 0-.487.1-.238.1-.438.25l-.525-.5q.275-.2.65-.375t.8-.175q.45 0 .813.2.362.2.637.375.275.2.537.312.263.113.513.113t.487-.1q.238-.1.438-.25l.525.5q-.275.2-.65.375t-.8.175Zm0-5q-.45 0-.85-.213-.4-.212-.675-.387-.275-.175-.488-.288-.212-.112-.487-.112-.25 0-.487.1-.238.1-.438.25l-.525-.5q.275-.2.65-.375t.8-.175q.45 0 .813.2.362.2.637.375.275.2.537.312.263.113.513.113t.487-.1q.238-.1.438-.25l.525.5q-.275.2-.65.375t-.8.175ZM16 18V6v12Z"
-  }));
-});
-IconMaterialMicrowaveW100.displayName = 'AmauiIconMaterialMicrowaveW100';
-
-
 const IconMaterialMicrowaveGenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23518,6 +23505,19 @@ const IconMaterialMicrowaveGenW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialMicrowaveGenW100.displayName = 'AmauiIconMaterialMicrowaveGenW100';
+
+
+const IconMaterialMicrowaveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MicrowaveW100",
+    short_name: "Microwave",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.8 18.7q-.65 0-1.075-.425Q3.3 17.85 3.3 17.2V6.8q0-.65.425-1.075Q4.15 5.3 4.8 5.3h14.4q.65 0 1.075.425.425.425.425 1.075v10.4q0 .65-.425 1.075-.425.425-1.075.425Zm0-.7h10.5V6H4.8q-.3 0-.55.25Q4 6.5 4 6.8v10.4q0 .3.25.55.25.25.55.25ZM16 18h3.2q.3 0 .55-.25.25-.25.25-.55V6.8q0-.3-.25-.55Q19.5 6 19.2 6H16Zm1.4-9.4h1.2V7.4h-1.2Zm.6 4.1q.275 0 .488-.213.212-.212.212-.487t-.212-.488Q18.275 11.3 18 11.3t-.487.212q-.213.213-.213.488t.213.487q.212.213.487.213Zm0 4q.275 0 .488-.213.212-.212.212-.487t-.212-.488Q18.275 15.3 18 15.3t-.487.212q-.213.213-.213.488t.213.487q.212.213.487.213Zm-7.1-1.35q-.45 0-.85-.213-.4-.212-.675-.387-.275-.175-.488-.288-.212-.112-.487-.112-.25 0-.487.1-.238.1-.438.25l-.525-.5q.275-.2.65-.375t.8-.175q.45 0 .813.2.362.2.637.375.275.2.537.312.263.113.513.113t.487-.1q.238-.1.438-.25l.525.5q-.275.2-.65.375t-.8.175Zm0-5q-.45 0-.85-.213-.4-.212-.675-.387-.275-.175-.488-.288-.212-.112-.487-.112-.25 0-.487.1-.238.1-.438.25l-.525-.5q.275-.2.65-.375t.8-.175q.45 0 .813.2.362.2.637.375.275.2.537.312.263.113.513.113t.487-.1q.238-.1.438-.25l.525.5q-.275.2-.65.375t-.8.175ZM16 18V6v12Z"
+  }));
+});
+IconMaterialMicrowaveW100.displayName = 'AmauiIconMaterialMicrowaveW100';
 
 
 const IconMaterialMilitaryTechW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23533,19 +23533,6 @@ const IconMaterialMilitaryTechW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialMilitaryTechW100.displayName = 'AmauiIconMaterialMilitaryTechW100';
 
 
-const IconMaterialMimoDisconnectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MimoDisconnectW100",
-    short_name: "MimoDisconnect",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M302-172v-56l28-28H132v-532h60l28 28h-60v476h498L84-856l20-20 734 734-20 20-130-134h-58l28 28v56H302Zm519-106-21-21v-461H330l-28-28h526v510h-7ZM553-540Zm-152 1Z"
-  }));
-});
-IconMaterialMimoDisconnectW100.displayName = 'AmauiIconMaterialMimoDisconnectW100';
-
-
 const IconMaterialMimoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23557,6 +23544,19 @@ const IconMaterialMimoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialMimoW100.displayName = 'AmauiIconMaterialMimoW100';
+
+
+const IconMaterialMimoDisconnectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MimoDisconnectW100",
+    short_name: "MimoDisconnect",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M302-172v-56l28-28H132v-532h60l28 28h-60v476h498L84-856l20-20 734 734-20 20-130-134h-58l28 28v56H302Zm519-106-21-21v-461H330l-28-28h526v510h-7ZM553-540Zm-152 1Z"
+  }));
+});
+IconMaterialMimoDisconnectW100.displayName = 'AmauiIconMaterialMimoDisconnectW100';
 
 
 const IconMaterialMindfulnessW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23583,19 +23583,6 @@ const IconMaterialMinimizeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialMinimizeW100.displayName = 'AmauiIconMaterialMinimizeW100';
-
-
-const IconMaterialMinorCrashW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MinorCrashW100",
-    short_name: "MinorCrash",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8 6.225 5.925 4.15l.475-.475L8.475 5.75Zm8 0-.475-.475L17.6 3.675l.475.475ZM11.65 5.1V1.4h.7v3.7ZM4.3 22.7v-7.5l2.075-5.9h11.25l2.075 5.9v7.5H19v-2H5v2Zm1-8.2h13.4L17.1 10H6.9ZM5 20v-4.8V20Zm2.4-1.4q.425 0 .713-.288.287-.287.287-.712t-.287-.712Q7.825 16.6 7.4 16.6t-.712.288q-.288.287-.288.712t.288.712q.287.288.712.288Zm9.2 0q.425 0 .712-.288.288-.287.288-.712t-.288-.712q-.287-.288-.712-.288t-.712.288q-.288.287-.288.712t.288.712q.287.288.712.288ZM5 20h14v-4.8H5Z"
-  }));
-});
-IconMaterialMinorCrashW100.displayName = 'AmauiIconMaterialMinorCrashW100';
 
 
 const IconMaterialMintmarkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23635,6 +23622,19 @@ const IconMaterialMissingControllerW100 = /*#__PURE__*/React.forwardRef((props, 
   }));
 });
 IconMaterialMissingControllerW100.displayName = 'AmauiIconMaterialMissingControllerW100';
+
+
+const IconMaterialMinorCrashW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MinorCrashW100",
+    short_name: "MinorCrash",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8 6.225 5.925 4.15l.475-.475L8.475 5.75Zm8 0-.475-.475L17.6 3.675l.475.475ZM11.65 5.1V1.4h.7v3.7ZM4.3 22.7v-7.5l2.075-5.9h11.25l2.075 5.9v7.5H19v-2H5v2Zm1-8.2h13.4L17.1 10H6.9ZM5 20v-4.8V20Zm2.4-1.4q.425 0 .713-.288.287-.287.287-.712t-.287-.712Q7.825 16.6 7.4 16.6t-.712.288q-.288.287-.288.712t.288.712q.287.288.712.288Zm9.2 0q.425 0 .712-.288.288-.287.288-.712t-.288-.712q-.287-.288-.712-.288t-.712.288q-.288.287-.288.712t.288.712q.287.288.712.288ZM5 20h14v-4.8H5Z"
+  }));
+});
+IconMaterialMinorCrashW100.displayName = 'AmauiIconMaterialMinorCrashW100';
 
 
 const IconMaterialMistW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23832,19 +23832,6 @@ const IconMaterialModeHeatCoolW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialModeHeatCoolW100.displayName = 'AmauiIconMaterialModeHeatCoolW100';
 
 
-const IconMaterialModeHeatOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ModeHeatOffW100",
-    short_name: "ModeHeatOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m17.75 14.9-.725-.725q-.25-2.775-1.862-4.863-1.613-2.087-3.738-3.937-.05.7-.237 1.375-.188.675-.438 1.15l-.5-.5q.275-.65.4-1.413.125-.762.125-1.987Q14.25 6.6 16 9.262q1.75 2.663 1.75 5.438v.2Zm3.55 6.3-4.075-4.075q-.625 1.325-1.987 2.325-1.363 1-3.238 1-2.4 0-4.075-1.675Q6.25 17.1 6.25 14.7q0-1.675.675-2.825.675-1.15 2.25-2.8L2.2 2.1l.5-.5 19.1 19.1ZM9.875 19.3q-.775-1.2-.262-2.887.512-1.688 2.762-4.138l-2.7-2.7Q8.25 10.975 7.6 12.1q-.65 1.125-.65 2.6 0 1.5.825 2.75t2.1 1.85Zm2.125.45q.8 0 1.363-.562.562-.563.562-1.538 0-.65-.45-1.612-.45-.963-1.475-2.263-1.025 1.35-1.45 2.287-.425.938-.425 1.588 0 .95.538 1.525.537.575 1.337.575Z"
-  }));
-});
-IconMaterialModeHeatOffW100.displayName = 'AmauiIconMaterialModeHeatOffW100';
-
-
 const IconMaterialModeHeatW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23856,6 +23843,19 @@ const IconMaterialModeHeatW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialModeHeatW100.displayName = 'AmauiIconMaterialModeHeatW100';
+
+
+const IconMaterialModeHeatOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ModeHeatOffW100",
+    short_name: "ModeHeatOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m17.75 14.9-.725-.725q-.25-2.775-1.862-4.863-1.613-2.087-3.738-3.937-.05.7-.237 1.375-.188.675-.438 1.15l-.5-.5q.275-.65.4-1.413.125-.762.125-1.987Q14.25 6.6 16 9.262q1.75 2.663 1.75 5.438v.2Zm3.55 6.3-4.075-4.075q-.625 1.325-1.987 2.325-1.363 1-3.238 1-2.4 0-4.075-1.675Q6.25 17.1 6.25 14.7q0-1.675.675-2.825.675-1.15 2.25-2.8L2.2 2.1l.5-.5 19.1 19.1ZM9.875 19.3q-.775-1.2-.262-2.887.512-1.688 2.762-4.138l-2.7-2.7Q8.25 10.975 7.6 12.1q-.65 1.125-.65 2.6 0 1.5.825 2.75t2.1 1.85Zm2.125.45q.8 0 1.363-.562.562-.563.562-1.538 0-.65-.45-1.612-.45-.963-1.475-2.263-1.025 1.35-1.45 2.287-.425.938-.425 1.588 0 .95.538 1.525.537.575 1.337.575Z"
+  }));
+});
+IconMaterialModeHeatOffW100.displayName = 'AmauiIconMaterialModeHeatOffW100';
 
 
 const IconMaterialModeNightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -24118,19 +24118,6 @@ const IconMaterialMoreHorizW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialMoreHorizW100.displayName = 'AmauiIconMaterialMoreHorizW100';
 
 
-const IconMaterialMoreTimeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MoreTimeW100",
-    short_name: "MoreTime",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 19.7q-1.6 0-3-.6t-2.45-1.65Q4.5 16.4 3.9 15q-.6-1.4-.6-3t.6-3q.6-1.4 1.65-2.45Q6.6 5.5 8 4.9q1.4-.6 3-.6.525 0 1.012.062.488.063.988.188v.75q-.5-.15-.988-.225Q11.525 5 11 5 8.1 5 6.05 7.05 4 9.1 4 12q0 2.9 2.05 4.95Q8.1 19 11 19q2.9 0 4.95-2.05Q18 14.9 18 12q0-.275-.025-.575-.025-.3-.1-.575h.7q.05.225.088.55.037.325.037.6 0 1.6-.6 3t-1.65 2.45Q15.4 18.5 14 19.1q-1.4.6-3 .6Zm7-10.85v-3h-3v-.7h3v-3h.7v3h3v.7h-3v3Zm-3.75 6.9-3.6-3.6V7h.7v4.85l3.4 3.4Z"
-  }));
-});
-IconMaterialMoreTimeW100.displayName = 'AmauiIconMaterialMoreTimeW100';
-
-
 const IconMaterialMoreUpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -24142,6 +24129,19 @@ const IconMaterialMoreUpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialMoreUpW100.displayName = 'AmauiIconMaterialMoreUpW100';
+
+
+const IconMaterialMoreTimeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MoreTimeW100",
+    short_name: "MoreTime",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11 19.7q-1.6 0-3-.6t-2.45-1.65Q4.5 16.4 3.9 15q-.6-1.4-.6-3t.6-3q.6-1.4 1.65-2.45Q6.6 5.5 8 4.9q1.4-.6 3-.6.525 0 1.012.062.488.063.988.188v.75q-.5-.15-.988-.225Q11.525 5 11 5 8.1 5 6.05 7.05 4 9.1 4 12q0 2.9 2.05 4.95Q8.1 19 11 19q2.9 0 4.95-2.05Q18 14.9 18 12q0-.275-.025-.575-.025-.3-.1-.575h.7q.05.225.088.55.037.325.037.6 0 1.6-.6 3t-1.65 2.45Q15.4 18.5 14 19.1q-1.4.6-3 .6Zm7-10.85v-3h-3v-.7h3v-3h.7v3h3v.7h-3v3Zm-3.75 6.9-3.6-3.6V7h.7v4.85l3.4 3.4Z"
+  }));
+});
+IconMaterialMoreTimeW100.displayName = 'AmauiIconMaterialMoreTimeW100';
 
 
 const IconMaterialMoreVertW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -24300,19 +24300,6 @@ const IconMaterialMotionSensorIdleW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialMotionSensorIdleW100.displayName = 'AmauiIconMaterialMotionSensorIdleW100';
 
 
-const IconMaterialMotionSensorUrgentW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MotionSensorUrgentW100",
-    short_name: "MotionSensorUrgent",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m12.875 20.6 4.65-8.075L22.15 20.6Zm4.625-.5q.15 0 .25-.1t.1-.25q0-.15-.1-.25t-.25-.1q-.15 0-.25.1t-.1.25q0 .15.1.25t.25.1Zm-.35-2h.7v-3.7h-.7ZM5.8 12.25h.7Q6.85 13.85 8 15t2.75 1.5v.7q-1.875-.375-3.225-1.725T5.8 12.25Zm4.95-7.45v.7Q9.15 5.85 8 7T6.5 9.75h-.7q.375-1.875 1.725-3.225T10.75 4.8ZM12 9.65q.575 0 .963.387.387.388.387.963t-.387.962q-.388.388-.963.388t-.962-.388q-.388-.387-.388-.962t.388-.963q.387-.387.962-.387Zm1.25-4.85q1.875.375 3.225 1.725T18.2 9.75h-.7Q17.15 8.15 16 7t-2.75-1.5ZM3.3 7V2.3H8V3H4v4ZM8 19.7H3.3V15H4v4h4ZM20 7V3h-4v-.7h4.7V7Z"
-  }));
-});
-IconMaterialMotionSensorUrgentW100.displayName = 'AmauiIconMaterialMotionSensorUrgentW100';
-
-
 const IconMaterialMotorcycleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -24326,17 +24313,17 @@ const IconMaterialMotorcycleW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialMotorcycleW100.displayName = 'AmauiIconMaterialMotorcycleW100';
 
 
-const IconMaterialMountainFlagW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialMotionSensorUrgentW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "MountainFlagW100",
-    short_name: "MountainFlag",
-    viewBox: "0 -960 960 960"
+    name: "MotionSensorUrgentW100",
+    short_name: "MotionSensorUrgent",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480-384Zm-143-35 64 43 79-40 79 40 64-43-50-101H386l-49 101ZM209-160h541L635-393l-74 49-81-40-81 40-75-50-115 234Zm-45 28 205-416h97v-280h212l-27 54 27 54H494v172h94l208 416H164Z"
+    d: "m12.875 20.6 4.65-8.075L22.15 20.6Zm4.625-.5q.15 0 .25-.1t.1-.25q0-.15-.1-.25t-.25-.1q-.15 0-.25.1t-.1.25q0 .15.1.25t.25.1Zm-.35-2h.7v-3.7h-.7ZM5.8 12.25h.7Q6.85 13.85 8 15t2.75 1.5v.7q-1.875-.375-3.225-1.725T5.8 12.25Zm4.95-7.45v.7Q9.15 5.85 8 7T6.5 9.75h-.7q.375-1.875 1.725-3.225T10.75 4.8ZM12 9.65q.575 0 .963.387.387.388.387.963t-.387.962q-.388.388-.963.388t-.962-.388q-.388-.387-.388-.962t.388-.963q.387-.387.962-.387Zm1.25-4.85q1.875.375 3.225 1.725T18.2 9.75h-.7Q17.15 8.15 16 7t-2.75-1.5ZM3.3 7V2.3H8V3H4v4ZM8 19.7H3.3V15H4v4h4ZM20 7V3h-4v-.7h4.7V7Z"
   }));
 });
-IconMaterialMountainFlagW100.displayName = 'AmauiIconMaterialMountainFlagW100';
+IconMaterialMotionSensorUrgentW100.displayName = 'AmauiIconMaterialMotionSensorUrgentW100';
 
 
 const IconMaterialMouseW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -24350,6 +24337,19 @@ const IconMaterialMouseW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialMouseW100.displayName = 'AmauiIconMaterialMouseW100';
+
+
+const IconMaterialMountainFlagW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MountainFlagW100",
+    short_name: "MountainFlag",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480-384Zm-143-35 64 43 79-40 79 40 64-43-50-101H386l-49 101ZM209-160h541L635-393l-74 49-81-40-81 40-75-50-115 234Zm-45 28 205-416h97v-280h212l-27 54 27 54H494v172h94l208 416H164Z"
+  }));
+});
+IconMaterialMountainFlagW100.displayName = 'AmauiIconMaterialMountainFlagW100';
 
 
 const IconMaterialMoveDownW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -24391,32 +24391,6 @@ const IconMaterialMoveItemW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialMoveItemW100.displayName = 'AmauiIconMaterialMoveItemW100';
 
 
-const IconMaterialMoveLocationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MoveLocationW100",
-    short_name: "MoveLocation",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m769 899-20-19 89-90H635v-28h203l-89-90 20-19 123 123-123 123ZM362 670q42 0 77.5-18.5T499 602q-30-20-64.301-30t-72.5-10Q324 562 289.5 572T225 602q24 31 59.5 49.5T362 670Zm0-200q23 0 38.5-15.5T416 416q0-23-15.5-38.5T362 362q-23 0-38.5 15.5T308 416q0 23 15.5 38.5T362 470Zm0 447q126-108 196-222.5T628 504q0-121-77.041-197.5t-189-76.5Q250 230 173 306.5T96 504q0 76 70 190.5T362 917Zm0 39Q213 822 140.5 707.5T68 504q0-138.11 89-220.055T362 202q116 0 205 81.945T656 504q0 89-72.5 203.5T362 956Zm0-383Z"
-  }));
-});
-IconMaterialMoveLocationW100.displayName = 'AmauiIconMaterialMoveLocationW100';
-
-
-const IconMaterialMoveSelectionRightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MoveSelectionRightW100",
-    short_name: "MoveSelectionRight",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M456 760V392h368v368H456Zm28-28h312V420H484v312Zm-188 28v-28h28v28h-28Zm0-340v-28h28v28h-28ZM136 760v-28h28v28h-28Zm0-170v-28h28v28h-28Zm0-170v-28h28v28h-28Zm504 156Z"
-  }));
-});
-IconMaterialMoveSelectionRightW100.displayName = 'AmauiIconMaterialMoveSelectionRightW100';
-
-
 const IconMaterialMoveSelectionDownW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -24428,6 +24402,19 @@ const IconMaterialMoveSelectionDownW100 = /*#__PURE__*/React.forwardRef((props, 
   }));
 });
 IconMaterialMoveSelectionDownW100.displayName = 'AmauiIconMaterialMoveSelectionDownW100';
+
+
+const IconMaterialMoveLocationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MoveLocationW100",
+    short_name: "MoveLocation",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m769 899-20-19 89-90H635v-28h203l-89-90 20-19 123 123-123 123ZM362 670q42 0 77.5-18.5T499 602q-30-20-64.301-30t-72.5-10Q324 562 289.5 572T225 602q24 31 59.5 49.5T362 670Zm0-200q23 0 38.5-15.5T416 416q0-23-15.5-38.5T362 362q-23 0-38.5 15.5T308 416q0 23 15.5 38.5T362 470Zm0 447q126-108 196-222.5T628 504q0-121-77.041-197.5t-189-76.5Q250 230 173 306.5T96 504q0 76 70 190.5T362 917Zm0 39Q213 822 140.5 707.5T68 504q0-138.11 89-220.055T362 202q116 0 205 81.945T656 504q0 89-72.5 203.5T362 956Zm0-383Z"
+  }));
+});
+IconMaterialMoveLocationW100.displayName = 'AmauiIconMaterialMoveLocationW100';
 
 
 const IconMaterialMoveSelectionLeftW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -24467,6 +24454,19 @@ const IconMaterialMoveToInboxW100 = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialMoveToInboxW100.displayName = 'AmauiIconMaterialMoveToInboxW100';
+
+
+const IconMaterialMoveSelectionRightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MoveSelectionRightW100",
+    short_name: "MoveSelectionRight",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M456 760V392h368v368H456Zm28-28h312V420H484v312Zm-188 28v-28h28v28h-28Zm0-340v-28h28v28h-28ZM136 760v-28h28v28h-28Zm0-170v-28h28v28h-28Zm0-170v-28h28v28h-28Zm504 156Z"
+  }));
+});
+IconMaterialMoveSelectionRightW100.displayName = 'AmauiIconMaterialMoveSelectionRightW100';
 
 
 const IconMaterialMoveUpW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -24781,19 +24781,6 @@ const IconMaterialNatureW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialNatureW100.displayName = 'AmauiIconMaterialNatureW100';
 
 
-const IconMaterialNavigateBeforeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NavigateBeforeW100",
-    short_name: "NavigateBefore",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M14 17.1 8.9 12 14 6.9l.5.5L9.9 12l4.6 4.6Z"
-  }));
-});
-IconMaterialNavigateBeforeW100.displayName = 'AmauiIconMaterialNavigateBeforeW100';
-
-
 const IconMaterialNavigateNextW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -24818,6 +24805,19 @@ const IconMaterialNavigationW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialNavigationW100.displayName = 'AmauiIconMaterialNavigationW100';
+
+
+const IconMaterialNavigateBeforeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NavigateBeforeW100",
+    short_name: "NavigateBefore",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M14 17.1 8.9 12 14 6.9l.5.5L9.9 12l4.6 4.6Z"
+  }));
+});
+IconMaterialNavigateBeforeW100.displayName = 'AmauiIconMaterialNavigateBeforeW100';
 
 
 const IconMaterialNearMeDisabledW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -24846,19 +24846,6 @@ const IconMaterialNearMeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialNearMeW100.displayName = 'AmauiIconMaterialNearMeW100';
 
 
-const IconMaterialNearbyErrorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NearbyErrorW100",
-    short_name: "NearbyError",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M19.85 18v-7.35h.7V18Zm.35 2.25q-.225 0-.362-.137-.138-.138-.138-.363 0-.2.138-.35.137-.15.362-.15.2 0 .35.15.15.15.15.35 0 .225-.15.363-.15.137-.35.137Zm-9 .2L2.75 12l8.45-8.45 5.65 5.6v1.3L11.2 4.8 4 12l7.2 7.2 5.65-5.65v1.3Zm0-5.2L7.95 12l3.25-3.25L14.45 12Z"
-  }));
-});
-IconMaterialNearbyErrorW100.displayName = 'AmauiIconMaterialNearbyErrorW100';
-
-
 const IconMaterialNearbyOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -24870,6 +24857,19 @@ const IconMaterialNearbyOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialNearbyOffW100.displayName = 'AmauiIconMaterialNearbyOffW100';
+
+
+const IconMaterialNearbyErrorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NearbyErrorW100",
+    short_name: "NearbyError",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M19.85 18v-7.35h.7V18Zm.35 2.25q-.225 0-.362-.137-.138-.138-.138-.363 0-.2.138-.35.137-.15.362-.15.2 0 .35.15.15.15.15.35 0 .225-.15.363-.15.137-.35.137Zm-9 .2L2.75 12l8.45-8.45 5.65 5.6v1.3L11.2 4.8 4 12l7.2 7.2 5.65-5.65v1.3Zm0-5.2L7.95 12l3.25-3.25L14.45 12Z"
+  }));
+});
+IconMaterialNearbyErrorW100.displayName = 'AmauiIconMaterialNearbyErrorW100';
 
 
 const IconMaterialNearbyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -24963,19 +24963,6 @@ const IconMaterialNestCamIqW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialNestCamIqW100.displayName = 'AmauiIconMaterialNestCamIqW100';
 
 
-const IconMaterialNestCamMagnetMountW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NestCamMagnetMountW100",
-    short_name: "NestCamMagnetMount",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M22.525 15.9q-.65 0-1.125-.475t-.475-1.125v-4q0-.675.475-1.138.475-.462 1.125-.462h.6v7.2ZM9.25 7.575q1.525 0 2.6 1.075 1.075 1.075 1.075 2.6 0 .75-.275 1.425t-.8 1.225L8.5 17.25l-5.25-5.2 3.35-3.4q.55-.525 1.225-.8t1.425-.275Zm-.025.7q-.575 0-1.137.237-.563.238-.988.663l-2.85 2.85 4.25 4.25 2.85-2.85q.425-.425.662-.987.238-.563.238-1.138 0-1.275-.875-2.15t-2.15-.875Zm7.75 6.475-.475-.475 1.575-1.575H14.4V12h3.825l-1.7-1.7.475-.45 2.45 2.425ZM8.25 12.275Z"
-  }));
-});
-IconMaterialNestCamMagnetMountW100.displayName = 'AmauiIconMaterialNestCamMagnetMountW100';
-
-
 const IconMaterialNestCamOutdoorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -24987,6 +24974,19 @@ const IconMaterialNestCamOutdoorW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialNestCamOutdoorW100.displayName = 'AmauiIconMaterialNestCamOutdoorW100';
+
+
+const IconMaterialNestCamMagnetMountW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NestCamMagnetMountW100",
+    short_name: "NestCamMagnetMount",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M22.525 15.9q-.65 0-1.125-.475t-.475-1.125v-4q0-.675.475-1.138.475-.462 1.125-.462h.6v7.2ZM9.25 7.575q1.525 0 2.6 1.075 1.075 1.075 1.075 2.6 0 .75-.275 1.425t-.8 1.225L8.5 17.25l-5.25-5.2 3.35-3.4q.55-.525 1.225-.8t1.425-.275Zm-.025.7q-.575 0-1.137.237-.563.238-.988.663l-2.85 2.85 4.25 4.25 2.85-2.85q.425-.425.662-.987.238-.563.238-1.138 0-1.275-.875-2.15t-2.15-.875Zm7.75 6.475-.475-.475 1.575-1.575H14.4V12h3.825l-1.7-1.7.475-.45 2.45 2.425ZM8.25 12.275Z"
+  }));
+});
+IconMaterialNestCamMagnetMountW100.displayName = 'AmauiIconMaterialNestCamMagnetMountW100';
 
 
 const IconMaterialNestCamStandW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25106,19 +25106,6 @@ const IconMaterialNestDisplayW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialNestDisplayW100.displayName = 'AmauiIconMaterialNestDisplayW100';
 
 
-const IconMaterialNestDoorbellVisitorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NestDoorbellVisitorW100",
-    short_name: "NestDoorbellVisitor",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M18 16.7q-.575 0-.962-.388-.388-.387-.388-.962t.388-.963Q17.425 14 18 14t.962.387q.388.388.388.963t-.388.962q-.387.388-.962.388Zm-3.35 4.65v-.575q0-.775.938-1.275.937-.5 2.412-.5 1.475 0 2.413.5.937.5.937 1.275v.575Zm1.7-9.35h-.7V7q0-1.575-1.088-2.613Q13.475 3.35 12 3.35q-1.475 0-2.562 1.037Q8.35 5.425 8.35 7v10q0 1.475 1.088 2.562Q10.525 20.65 12 20.65v.7q-1.825 0-3.087-1.263Q7.65 18.825 7.65 17V7q0-1.825 1.263-3.088Q10.175 2.65 12 2.65q1.825 0 3.088 1.262Q16.35 5.175 16.35 7ZM12 9.85q.775 0 1.312-.538.538-.537.538-1.312t-.538-1.313Q12.775 6.15 12 6.15t-1.312.537Q10.15 7.225 10.15 8q0 .775.538 1.312.537.538 1.312.538ZM12 12Zm-1.85 4q0 .775.538 1.312.537.538 1.312.538t1.312-.538q.538-.537.538-1.312t-.538-1.312q-.537-.538-1.312-.538t-1.312.538q-.538.537-.538 1.312ZM12 17.15q-.525 0-.837-.362-.313-.363-.313-.788 0-.425.313-.788.312-.362.837-.362.525 0 .838.312.312.313.312.838 0 .425-.312.788-.313.362-.838.362Z"
-  }));
-});
-IconMaterialNestDoorbellVisitorW100.displayName = 'AmauiIconMaterialNestDoorbellVisitorW100';
-
-
 const IconMaterialNestEcoLeafW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25132,17 +25119,17 @@ const IconMaterialNestEcoLeafW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialNestEcoLeafW100.displayName = 'AmauiIconMaterialNestEcoLeafW100';
 
 
-const IconMaterialNestFarsightWeatherW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialNestDoorbellVisitorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "NestFarsightWeatherW100",
-    short_name: "NestFarsightWeather",
+    name: "NestDoorbellVisitorW100",
+    short_name: "NestDoorbellVisitor",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 14.2h6.25q.625 0 1.038-.425.412-.425.412-1.025 0-.6-.4-1.025-.4-.425-1-.425h-.925l-.275-.95q-.2-.7-.788-1.125Q12.725 8.8 12 8.8q-.65 0-1.175.35t-.8.925L9.7 10.8h-.775q-.675.025-1.15.512Q7.3 11.8 7.3 12.5t.5 1.2q.5.5 1.2.5Zm0-.7q-.425 0-.712-.288Q8 12.925 8 12.5t.275-.7q.275-.275.675-.3h1.2l.5-1.125q.2-.425.563-.65.362-.225.787-.225.5 0 .9.287.4.288.525.788l.4 1.425h1.45q.325 0 .525.212.2.213.2.538 0 .3-.212.525-.213.225-.538.225Zm3 7.2q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-.7q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"
+    d: "M18 16.7q-.575 0-.962-.388-.388-.387-.388-.962t.388-.963Q17.425 14 18 14t.962.387q.388.388.388.963t-.388.962q-.387.388-.962.388Zm-3.35 4.65v-.575q0-.775.938-1.275.937-.5 2.412-.5 1.475 0 2.413.5.937.5.937 1.275v.575Zm1.7-9.35h-.7V7q0-1.575-1.088-2.613Q13.475 3.35 12 3.35q-1.475 0-2.562 1.037Q8.35 5.425 8.35 7v10q0 1.475 1.088 2.562Q10.525 20.65 12 20.65v.7q-1.825 0-3.087-1.263Q7.65 18.825 7.65 17V7q0-1.825 1.263-3.088Q10.175 2.65 12 2.65q1.825 0 3.088 1.262Q16.35 5.175 16.35 7ZM12 9.85q.775 0 1.312-.538.538-.537.538-1.312t-.538-1.313Q12.775 6.15 12 6.15t-1.312.537Q10.15 7.225 10.15 8q0 .775.538 1.312.537.538 1.312.538ZM12 12Zm-1.85 4q0 .775.538 1.312.537.538 1.312.538t1.312-.538q.538-.537.538-1.312t-.538-1.312q-.537-.538-1.312-.538t-1.312.538q-.538.537-.538 1.312ZM12 17.15q-.525 0-.837-.362-.313-.363-.313-.788 0-.425.313-.788.312-.362.837-.362.525 0 .838.312.312.313.312.838 0 .425-.312.788-.313.362-.838.362Z"
   }));
 });
-IconMaterialNestFarsightWeatherW100.displayName = 'AmauiIconMaterialNestFarsightWeatherW100';
+IconMaterialNestDoorbellVisitorW100.displayName = 'AmauiIconMaterialNestDoorbellVisitorW100';
 
 
 const IconMaterialNestFoundSavingsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25156,6 +25143,19 @@ const IconMaterialNestFoundSavingsW100 = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialNestFoundSavingsW100.displayName = 'AmauiIconMaterialNestFoundSavingsW100';
+
+
+const IconMaterialNestFarsightWeatherW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NestFarsightWeatherW100",
+    short_name: "NestFarsightWeather",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9 14.2h6.25q.625 0 1.038-.425.412-.425.412-1.025 0-.6-.4-1.025-.4-.425-1-.425h-.925l-.275-.95q-.2-.7-.788-1.125Q12.725 8.8 12 8.8q-.65 0-1.175.35t-.8.925L9.7 10.8h-.775q-.675.025-1.15.512Q7.3 11.8 7.3 12.5t.5 1.2q.5.5 1.2.5Zm0-.7q-.425 0-.712-.288Q8 12.925 8 12.5t.275-.7q.275-.275.675-.3h1.2l.5-1.125q.2-.425.563-.65.362-.225.787-.225.5 0 .9.287.4.288.525.788l.4 1.425h1.45q.325 0 .525.212.2.213.2.538 0 .3-.212.525-.213.225-.538.225Zm3 7.2q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-.7q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"
+  }));
+});
+IconMaterialNestFarsightWeatherW100.displayName = 'AmauiIconMaterialNestFarsightWeatherW100';
 
 
 const IconMaterialNestGaleWifiW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25249,19 +25249,6 @@ const IconMaterialNestMultiRoomW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialNestMultiRoomW100.displayName = 'AmauiIconMaterialNestMultiRoomW100';
 
 
-const IconMaterialNestProtectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NestProtectW100",
-    short_name: "NestProtect",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M352.172-192Q285-192 238.5-238.381T192-351.934v-255.894Q192-675 238.381-721.5T351.934-768h255.894Q675-768 721.5-721.619T768-608.066v255.894Q768-285 721.619-238.5T608.066-192H352.172ZM352-256h256q40 0 68-28t28-68v-256q0-40-28-68t-68-28H352q-40 0-68 28t-28 68v256q0 40 28 68t68 28Zm128.141-64Q413-320 366.5-366.359t-46.5-113.5Q320-547 366.359-593.5t113.5-46.5Q547-640 593.5-593.641t46.5 113.5Q640-413 593.641-366.5t-113.5 46.5ZM480-384q40 0 68-28t28-68q0-40-28-68t-68-28q-40 0-68 28t-28 68q0 40 28 68t68 28Z"
-  }));
-});
-IconMaterialNestProtectW100.displayName = 'AmauiIconMaterialNestProtectW100';
-
-
 const IconMaterialNestRemoteComfortSensorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25288,19 +25275,6 @@ const IconMaterialNestRemoteW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialNestRemoteW100.displayName = 'AmauiIconMaterialNestRemoteW100';
 
 
-const IconMaterialNestSunblockW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NestSunblockW100",
-    short_name: "NestSunblock",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2.65 7.05v-2.4h.7v2.4Zm0 12.3v-2.4h.7v2.4Zm4.1-10.6-.5-.5 1.7-1.7.5.5Zm1.2 8.7-1.7-1.7.5-.5 1.7 1.7Zm.075-5.1v-.7H15.3l-2.2-2.925.575-.425 3.025 4.05Zm11 6V5.65h1.7v12.7Zm-16.3-3v-.7q1.1 0 1.875-.775.775-.775.775-1.875T4.6 10.125q-.775-.775-1.875-.775v-.7q1.4 0 2.375.975.975.975.975 2.375T5.1 14.375q-.975.975-2.375.975Z"
-  }));
-});
-IconMaterialNestSunblockW100.displayName = 'AmauiIconMaterialNestSunblockW100';
-
-
 const IconMaterialNestSecureAlarmW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25312,6 +25286,19 @@ const IconMaterialNestSecureAlarmW100 = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialNestSecureAlarmW100.displayName = 'AmauiIconMaterialNestSecureAlarmW100';
+
+
+const IconMaterialNestProtectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NestProtectW100",
+    short_name: "NestProtect",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M352.172-192Q285-192 238.5-238.381T192-351.934v-255.894Q192-675 238.381-721.5T351.934-768h255.894Q675-768 721.5-721.619T768-608.066v255.894Q768-285 721.619-238.5T608.066-192H352.172ZM352-256h256q40 0 68-28t28-68v-256q0-40-28-68t-68-28H352q-40 0-68 28t-28 68v256q0 40 28 68t68 28Zm128.141-64Q413-320 366.5-366.359t-46.5-113.5Q320-547 366.359-593.5t113.5-46.5Q547-640 593.5-593.641t46.5 113.5Q640-413 593.641-366.5t-113.5 46.5ZM480-384q40 0 68-28t28-68q0-40-28-68t-68-28q-40 0-68 28t-28 68q0 40 28 68t68 28Z"
+  }));
+});
+IconMaterialNestProtectW100.displayName = 'AmauiIconMaterialNestProtectW100';
 
 
 const IconMaterialNestTagW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25351,6 +25338,19 @@ const IconMaterialNestThermostatGen3W100 = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialNestThermostatGen3W100.displayName = 'AmauiIconMaterialNestThermostatGen3W100';
+
+
+const IconMaterialNestSunblockW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NestSunblockW100",
+    short_name: "NestSunblock",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2.65 7.05v-2.4h.7v2.4Zm0 12.3v-2.4h.7v2.4Zm4.1-10.6-.5-.5 1.7-1.7.5.5Zm1.2 8.7-1.7-1.7.5-.5 1.7 1.7Zm.075-5.1v-.7H15.3l-2.2-2.925.575-.425 3.025 4.05Zm11 6V5.65h1.7v12.7Zm-16.3-3v-.7q1.1 0 1.875-.775.775-.775.775-1.875T4.6 10.125q-.775-.775-1.875-.775v-.7q1.4 0 2.375.975.975.975.975 2.375T5.1 14.375q-.975.975-2.375.975Z"
+  }));
+});
+IconMaterialNestSunblockW100.displayName = 'AmauiIconMaterialNestSunblockW100';
 
 
 const IconMaterialNestThermostatSensorEuW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25496,19 +25496,6 @@ const IconMaterialNestWifiPointW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialNestWifiPointW100.displayName = 'AmauiIconMaterialNestWifiPointW100';
 
 
-const IconMaterialNestWifiPro2W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NestWifiPro2W100",
-    short_name: "NestWifiPro2",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M360-132q-60 0-97-37.5T206-261q-20-54-27-113.5T172-479q0-86 13.5-151T234-739q35-45 94-67t152-22q93 0 152 22t94 67q35 44 48.5 109T788-479q0 45-7 104.5T754-261q-20 54-57 91.5T600-132H360Zm-1-28h240q51 0 82.5-36t48.5-87q17-51 22.5-105t5.5-91q0-80-11-140t-42-100q-32-41-86-61t-140-20q-86 0-140 20t-86 61q-31 40-42 100t-11 140q0 37 5.5 91T228-283q17 51 48.5 87t82.5 36Zm282-304q5 0 9.5-4.5t4.5-9.5q0-88-48.5-152T478-694q-5 0-9.5 4t-4.5 10q0 6 4 10t10 4q68 0 108.5 56T627-479q0 6 4 10.5t10 4.5Zm-162-16Z"
-  }));
-});
-IconMaterialNestWifiPro2W100.displayName = 'AmauiIconMaterialNestWifiPro2W100';
-
-
 const IconMaterialNestWifiProW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25522,17 +25509,17 @@ const IconMaterialNestWifiProW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialNestWifiProW100.displayName = 'AmauiIconMaterialNestWifiProW100';
 
 
-const IconMaterialNestWifiRouterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialNestWifiPro2W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "NestWifiRouterW100",
-    short_name: "NestWifiRouter",
-    viewBox: "0 0 24 24"
+    name: "NestWifiPro2W100",
+    short_name: "NestWifiPro2",
+    viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8.65 19.7q-1.8 0-3.075-1.275Q4.3 17.15 4.3 15.35v-6.7q0-1.825 1.275-3.088Q6.85 4.3 8.65 4.3h6.7q1.825 0 3.088 1.262Q19.7 6.825 19.7 8.65v6.7q0 1.8-1.262 3.075Q17.175 19.7 15.35 19.7ZM5 15.8h14V8.65q0-1.5-1.075-2.575Q16.85 5 15.35 5h-6.7q-1.5 0-2.575 1.075Q5 7.15 5 8.65Zm.175.7q.4 1.1 1.338 1.8.937.7 2.137.7h6.7q1.2 0 2.138-.7.937-.7 1.337-1.8ZM12 15.8Z"
+    d: "M360-132q-60 0-97-37.5T206-261q-20-54-27-113.5T172-479q0-86 13.5-151T234-739q35-45 94-67t152-22q93 0 152 22t94 67q35 44 48.5 109T788-479q0 45-7 104.5T754-261q-20 54-57 91.5T600-132H360Zm-1-28h240q51 0 82.5-36t48.5-87q17-51 22.5-105t5.5-91q0-80-11-140t-42-100q-32-41-86-61t-140-20q-86 0-140 20t-86 61q-31 40-42 100t-11 140q0 37 5.5 91T228-283q17 51 48.5 87t82.5 36Zm282-304q5 0 9.5-4.5t4.5-9.5q0-88-48.5-152T478-694q-5 0-9.5 4t-4.5 10q0 6 4 10t10 4q68 0 108.5 56T627-479q0 6 4 10.5t10 4.5Zm-162-16Z"
   }));
 });
-IconMaterialNestWifiRouterW100.displayName = 'AmauiIconMaterialNestWifiRouterW100';
+IconMaterialNestWifiPro2W100.displayName = 'AmauiIconMaterialNestWifiPro2W100';
 
 
 const IconMaterialNetworkCellW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25548,17 +25535,17 @@ const IconMaterialNetworkCellW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialNetworkCellW100.displayName = 'AmauiIconMaterialNetworkCellW100';
 
 
-const IconMaterialNetworkIntelligenceHistoryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialNestWifiRouterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "NetworkIntelligenceHistoryW100",
-    short_name: "NetworkIntelligenceHistory",
-    viewBox: "0 -960 960 960"
+    name: "NestWifiRouterW100",
+    short_name: "NestWifiRouter",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m776-174 20-20-72-72v-108h-28v120l80 80ZM494-382v-168h89l-28-28h-61v-170h138l76 138h-48l-36-68h-77v28h60l35 68h82l46 81q-14-4-29-5.5t-31-1.5q-70 0-127 34.5T494-382ZM320-227l-68-123h48l36 68h77v-28h-60l-36-68h-81l-57-102 57-102h81l36-68h60v-28h-77l-36 68h-48l76-138h138v170h-61l-28 28h89v106h-76l-34-67h-69l-28 28h80l34 67h93v111q-2 11-3 22.5t-1 22.5q0 8 .5 15t1.5 15v18H346q-8 0-15-3.5T320-227Zm390 115q-62 0-105-43t-43-105q0-62 43-105t105-43q62 0 105 43t43 105q0 62-43 105t-105 43Z"
+    d: "M8.65 19.7q-1.8 0-3.075-1.275Q4.3 17.15 4.3 15.35v-6.7q0-1.825 1.275-3.088Q6.85 4.3 8.65 4.3h6.7q1.825 0 3.088 1.262Q19.7 6.825 19.7 8.65v6.7q0 1.8-1.262 3.075Q17.175 19.7 15.35 19.7ZM5 15.8h14V8.65q0-1.5-1.075-2.575Q16.85 5 15.35 5h-6.7q-1.5 0-2.575 1.075Q5 7.15 5 8.65Zm.175.7q.4 1.1 1.338 1.8.937.7 2.137.7h6.7q1.2 0 2.138-.7.937-.7 1.337-1.8ZM12 15.8Z"
   }));
 });
-IconMaterialNetworkIntelligenceHistoryW100.displayName = 'AmauiIconMaterialNetworkIntelligenceHistoryW100';
+IconMaterialNestWifiRouterW100.displayName = 'AmauiIconMaterialNestWifiRouterW100';
 
 
 const IconMaterialNetworkCheckW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25572,6 +25559,19 @@ const IconMaterialNetworkCheckW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialNetworkCheckW100.displayName = 'AmauiIconMaterialNetworkCheckW100';
+
+
+const IconMaterialNetworkIntelligenceHistoryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NetworkIntelligenceHistoryW100",
+    short_name: "NetworkIntelligenceHistory",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m776-174 20-20-72-72v-108h-28v120l80 80ZM494-382v-168h89l-28-28h-61v-170h138l76 138h-48l-36-68h-77v28h60l35 68h82l46 81q-14-4-29-5.5t-31-1.5q-70 0-127 34.5T494-382ZM320-227l-68-123h48l36 68h77v-28h-60l-36-68h-81l-57-102 57-102h81l36-68h60v-28h-77l-36 68h-48l76-138h138v170h-61l-28 28h89v106h-76l-34-67h-69l-28 28h80l34 67h93v111q-2 11-3 22.5t-1 22.5q0 8 .5 15t1.5 15v18H346q-8 0-15-3.5T320-227Zm390 115q-62 0-105-43t-43-105q0-62 43-105t105-43q62 0 105 43t43 105q0 62-43 105t-105 43Z"
+  }));
+});
+IconMaterialNetworkIntelligenceHistoryW100.displayName = 'AmauiIconMaterialNetworkIntelligenceHistoryW100';
 
 
 const IconMaterialNetworkIntelligenceUpdateW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25639,19 +25639,6 @@ const IconMaterialNetworkPingW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialNetworkPingW100.displayName = 'AmauiIconMaterialNetworkPingW100';
 
 
-const IconMaterialNetworkWifi1BarLockedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NetworkWifi1BarLockedW100",
-    short_name: "NetworkWifi1BarLocked",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480-194 74-600q83-71 185.5-109.5T479.568-748Q598-748 700.5-709.5 803-671 886-600l-51 51q-7-4-13.5-7t-13.5-6l36-36q-78-59-170.5-90.5T480-720q-101 0-193.5 31.5T116-598l245 245q25-18 56.5-28t64.5-10q-3 13-4.5 25.5T476-339q0 31.893 8 61.947Q492-247 507-221l-27 27Zm132 0v-176h41v-40q0-29 19.5-48.5T721-478q29 0 48.5 19.5T789-410v40h39v176H612Zm69-176h80v-40q0-17-11.5-28.5T721-450q-17 0-28.5 11.5T681-410v40Z"
-  }));
-});
-IconMaterialNetworkWifi1BarLockedW100.displayName = 'AmauiIconMaterialNetworkWifi1BarLockedW100';
-
-
 const IconMaterialNetworkWifi1BarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25663,6 +25650,19 @@ const IconMaterialNetworkWifi1BarW100 = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialNetworkWifi1BarW100.displayName = 'AmauiIconMaterialNetworkWifi1BarW100';
+
+
+const IconMaterialNetworkWifi1BarLockedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NetworkWifi1BarLockedW100",
+    short_name: "NetworkWifi1BarLocked",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480-194 74-600q83-71 185.5-109.5T479.568-748Q598-748 700.5-709.5 803-671 886-600l-51 51q-7-4-13.5-7t-13.5-6l36-36q-78-59-170.5-90.5T480-720q-101 0-193.5 31.5T116-598l245 245q25-18 56.5-28t64.5-10q-3 13-4.5 25.5T476-339q0 31.893 8 61.947Q492-247 507-221l-27 27Zm132 0v-176h41v-40q0-29 19.5-48.5T721-478q29 0 48.5 19.5T789-410v40h39v176H612Zm69-176h80v-40q0-17-11.5-28.5T721-450q-17 0-28.5 11.5T681-410v40Z"
+  }));
+});
+IconMaterialNetworkWifi1BarLockedW100.displayName = 'AmauiIconMaterialNetworkWifi1BarLockedW100';
 
 
 const IconMaterialNetworkWifi2BarLockedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25691,19 +25691,6 @@ const IconMaterialNetworkWifi2BarW100 = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialNetworkWifi2BarW100.displayName = 'AmauiIconMaterialNetworkWifi2BarW100';
 
 
-const IconMaterialNetworkWifi3BarLockedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NetworkWifi3BarLockedW100",
-    short_name: "NetworkWifi3BarLocked",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480-194 74-600q83-71 185.5-109.5T479.568-748Q598-748 700.5-709.5 803-671 886-600l-51 51q-7-4-13.5-7t-13.5-6l36-36q-78-59-170.5-90.5T480-720q-101 0-193.5 31.5T116-598l116 116q53-38 116-59.5T480-563q30.45 0 58.725 4Q567-555 595-547q-54 32-86.5 86.5T476-339q0 31.893 8 61.947Q492-247 507-221l-27 27Zm132 0v-176h41v-40q0-29 19.5-48.5T721-478q29 0 48.5 19.5T789-410v40h39v176H612Zm69-176h80v-40q0-17-11.5-28.5T721-450q-17 0-28.5 11.5T681-410v40Z"
-  }));
-});
-IconMaterialNetworkWifi3BarLockedW100.displayName = 'AmauiIconMaterialNetworkWifi3BarLockedW100';
-
-
 const IconMaterialNetworkWifi3BarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25715,6 +25702,19 @@ const IconMaterialNetworkWifi3BarW100 = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialNetworkWifi3BarW100.displayName = 'AmauiIconMaterialNetworkWifi3BarW100';
+
+
+const IconMaterialNetworkWifi3BarLockedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NetworkWifi3BarLockedW100",
+    short_name: "NetworkWifi3BarLocked",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480-194 74-600q83-71 185.5-109.5T479.568-748Q598-748 700.5-709.5 803-671 886-600l-51 51q-7-4-13.5-7t-13.5-6l36-36q-78-59-170.5-90.5T480-720q-101 0-193.5 31.5T116-598l116 116q53-38 116-59.5T480-563q30.45 0 58.725 4Q567-555 595-547q-54 32-86.5 86.5T476-339q0 31.893 8 61.947Q492-247 507-221l-27 27Zm132 0v-176h41v-40q0-29 19.5-48.5T721-478q29 0 48.5 19.5T789-410v40h39v176H612Zm69-176h80v-40q0-17-11.5-28.5T721-450q-17 0-28.5 11.5T681-410v40Z"
+  }));
+});
+IconMaterialNetworkWifi3BarLockedW100.displayName = 'AmauiIconMaterialNetworkWifi3BarLockedW100';
 
 
 const IconMaterialNetworkWifiLockedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25964,19 +25964,6 @@ const IconMaterialNightlightBadgeW100 = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialNightlightBadgeW100.displayName = 'AmauiIconMaterialNightlightBadgeW100';
 
 
-const IconMaterialNightlightOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NightlightOffW100",
-    short_name: "NightlightOff",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M391 375q20.069-9.087 42.319-14.043Q455.569 356 480 356q22.792 0 43.896 4.5T565 373q-29 13-54.151 33.122Q485.699 426.244 468 452l-77-77Zm89 421q-91.667 0-155.833-64.167Q260 667.667 260 576q0-46.23 17-86.115T324 420l111 111q-2 11-3.5 22.138Q430 564.276 430 576q0 69.326 37.5 123.663T565 779q-20 8-41.104 12.5T480 796Zm372 192L705 841q-46 39-103 61t-122 22q-72.21 0-135.72-27.405-63.51-27.405-110.49-74.385-46.98-46.98-74.385-110.49Q132 648.21 132 576q0-65 22-122t61-103L90 226l20-20 762 762-20 20Zm-372-92q59 0 111-20t94-55L235 371q-35 42-55 94t-20 111q0 133 93.5 226.5T480 896Zm296-136-21-21q22-36 33.5-76.821Q800 621.357 800 576q0-133-93.5-226.5T480 256q-45 0-86 11.5T317 301l-21-21q40.145-24.8 86.564-38.4Q428.982 228 480 228q72.21 0 135.72 27.405 63.51 27.405 110.49 74.385 46.98 46.98 74.385 110.49Q828 503.79 828 576q0 51.018-13.6 97.436Q800.8 719.855 776 760ZM536 520Zm-76 76Z"
-  }));
-});
-IconMaterialNightlightOffW100.displayName = 'AmauiIconMaterialNightlightOffW100';
-
-
 const IconMaterialNightlightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -26001,6 +25988,19 @@ const IconMaterialNightsStayW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialNightsStayW100.displayName = 'AmauiIconMaterialNightsStayW100';
+
+
+const IconMaterialNightlightOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NightlightOffW100",
+    short_name: "NightlightOff",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M391 375q20.069-9.087 42.319-14.043Q455.569 356 480 356q22.792 0 43.896 4.5T565 373q-29 13-54.151 33.122Q485.699 426.244 468 452l-77-77Zm89 421q-91.667 0-155.833-64.167Q260 667.667 260 576q0-46.23 17-86.115T324 420l111 111q-2 11-3.5 22.138Q430 564.276 430 576q0 69.326 37.5 123.663T565 779q-20 8-41.104 12.5T480 796Zm372 192L705 841q-46 39-103 61t-122 22q-72.21 0-135.72-27.405-63.51-27.405-110.49-74.385-46.98-46.98-74.385-110.49Q132 648.21 132 576q0-65 22-122t61-103L90 226l20-20 762 762-20 20Zm-372-92q59 0 111-20t94-55L235 371q-35 42-55 94t-20 111q0 133 93.5 226.5T480 896Zm296-136-21-21q22-36 33.5-76.821Q800 621.357 800 576q0-133-93.5-226.5T480 256q-45 0-86 11.5T317 301l-21-21q40.145-24.8 86.564-38.4Q428.982 228 480 228q72.21 0 135.72 27.405 63.51 27.405 110.49 74.385 46.98 46.98 74.385 110.49Q828 503.79 828 576q0 51.018-13.6 97.436Q800.8 719.855 776 760ZM536 520Zm-76 76Z"
+  }));
+});
+IconMaterialNightlightOffW100.displayName = 'AmauiIconMaterialNightlightOffW100';
 
 
 const IconMaterialNoAccountsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -26185,19 +26185,6 @@ const IconMaterialNoSoundW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialNoSoundW100.displayName = 'AmauiIconMaterialNoSoundW100';
 
 
-const IconMaterialNoStrollerW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NoStrollerW100",
-    short_name: "NoStroller",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.25 19.85q-.5 0-.875-.375T6 18.6q0-.525.375-.888.375-.362.875-.362.525 0 .887.362.363.363.363.888 0 .5-.363.875-.362.375-.887.375Zm8.05-7.375-.7-.7V7.85l.2.075-1.875 2.175-.5-.5L15.6 5.9q.425-.5.888-.725.462-.225 1.037-.225.725 0 1.213.488.487.487.487 1.212V7h-.7v-.35q0-.425-.287-.713-.288-.287-.713-.287t-.762.162q-.338.163-.613.513l-.85 1Zm-.7 2.125.7.7v1.05H6.675l4-4.675L2.25 3.25l.5-.5L21.8 21.8l-.5.5-10.125-10.125-2.95 3.475H14.6Zm-.25 5.25q-.5 0-.875-.375T13.1 18.6q0-.525.375-.888.375-.362.875-.362.525 0 .888.362.362.363.362.888 0 .5-.362.875-.363.375-.888.375Zm-1.875-6.375Zm1.25-2.6Zm-2.35-2.325-.5-.5L12.7 5.925q-.5-.15-.987-.213-.488-.062-1.013-.062-.45 0-.95.062-.5.063-1 .213l-.55-.55q.65-.225 1.288-.325.637-.1 1.212-.1.85 0 1.65.15.8.15 1.6.425Zm-.5-.5Z"
-  }));
-});
-IconMaterialNoStrollerW100.displayName = 'AmauiIconMaterialNoStrollerW100';
-
-
 const IconMaterialNoTransferW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -26209,6 +26196,19 @@ const IconMaterialNoTransferW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialNoTransferW100.displayName = 'AmauiIconMaterialNoTransferW100';
+
+
+const IconMaterialNoStrollerW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NoStrollerW100",
+    short_name: "NoStroller",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M7.25 19.85q-.5 0-.875-.375T6 18.6q0-.525.375-.888.375-.362.875-.362.525 0 .887.362.363.363.363.888 0 .5-.363.875-.362.375-.887.375Zm8.05-7.375-.7-.7V7.85l.2.075-1.875 2.175-.5-.5L15.6 5.9q.425-.5.888-.725.462-.225 1.037-.225.725 0 1.213.488.487.487.487 1.212V7h-.7v-.35q0-.425-.287-.713-.288-.287-.713-.287t-.762.162q-.338.163-.613.513l-.85 1Zm-.7 2.125.7.7v1.05H6.675l4-4.675L2.25 3.25l.5-.5L21.8 21.8l-.5.5-10.125-10.125-2.95 3.475H14.6Zm-.25 5.25q-.5 0-.875-.375T13.1 18.6q0-.525.375-.888.375-.362.875-.362.525 0 .888.362.362.363.362.888 0 .5-.362.875-.363.375-.888.375Zm-1.875-6.375Zm1.25-2.6Zm-2.35-2.325-.5-.5L12.7 5.925q-.5-.15-.987-.213-.488-.062-1.013-.062-.45 0-.95.062-.5.063-1 .213l-.55-.55q.65-.225 1.288-.325.637-.1 1.212-.1.85 0 1.65.15.8.15 1.6.425Zm-.5-.5Z"
+  }));
+});
+IconMaterialNoStrollerW100.displayName = 'AmauiIconMaterialNoStrollerW100';
 
 
 const IconMaterialNoiseAwareW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -26419,19 +26419,6 @@ const IconMaterialNoteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialNoteW100.displayName = 'AmauiIconMaterialNoteW100';
 
 
-const IconMaterialNotesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NotesW100",
-    short_name: "Notes",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.65 17.05v-.7h10.7v.7Zm0-4.7v-.7h16.7v.7Zm0-4.7v-.7h16.7v.7Z"
-  }));
-});
-IconMaterialNotesW100.displayName = 'AmauiIconMaterialNotesW100';
-
-
 const IconMaterialNotificationAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -26443,6 +26430,19 @@ const IconMaterialNotificationAddW100 = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialNotificationAddW100.displayName = 'AmauiIconMaterialNotificationAddW100';
+
+
+const IconMaterialNotesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NotesW100",
+    short_name: "Notes",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.65 17.05v-.7h10.7v.7Zm0-4.7v-.7h16.7v.7Zm0-4.7v-.7h16.7v.7Z"
+  }));
+});
+IconMaterialNotesW100.displayName = 'AmauiIconMaterialNotesW100';
 
 
 const IconMaterialNotificationImportantW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -26458,19 +26458,6 @@ const IconMaterialNotificationImportantW100 = /*#__PURE__*/React.forwardRef((pro
 IconMaterialNotificationImportantW100.displayName = 'AmauiIconMaterialNotificationImportantW100';
 
 
-const IconMaterialNotificationMultipleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NotificationMultipleW100",
-    short_name: "NotificationMultiple",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M118-166v-488h28v460h522v28H118Zm416-288L254-618v316h560v-316L534-454ZM226-274v-384l308-180 65 38-20 20-45-26-272 160 272 160 272-160-59-36 20-20 75 44v384H226Zm298-298-76-76 20-20 56 56 186-186 20 20-206 206Zm10 270h280-560 280Z"
-  }));
-});
-IconMaterialNotificationMultipleW100.displayName = 'AmauiIconMaterialNotificationMultipleW100';
-
-
 const IconMaterialNotificationsActiveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -26482,6 +26469,19 @@ const IconMaterialNotificationsActiveW100 = /*#__PURE__*/React.forwardRef((props
   }));
 });
 IconMaterialNotificationsActiveW100.displayName = 'AmauiIconMaterialNotificationsActiveW100';
+
+
+const IconMaterialNotificationMultipleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NotificationMultipleW100",
+    short_name: "NotificationMultiple",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M118-166v-488h28v460h522v28H118Zm416-288L254-618v316h560v-316L534-454ZM226-274v-384l308-180 65 38-20 20-45-26-272 160 272 160 272-160-59-36 20-20 75 44v384H226Zm298-298-76-76 20-20 56 56 186-186 20 20-206 206Zm10 270h280-560 280Z"
+  }));
+});
+IconMaterialNotificationMultipleW100.displayName = 'AmauiIconMaterialNotificationMultipleW100';
 
 
 const IconMaterialNotificationsOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -26510,19 +26510,6 @@ const IconMaterialNotificationsPausedW100 = /*#__PURE__*/React.forwardRef((props
 IconMaterialNotificationsPausedW100.displayName = 'AmauiIconMaterialNotificationsPausedW100';
 
 
-const IconMaterialNotificationsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NotificationsW100",
-    short_name: "Notifications",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.65 18.65v-.7h2V10.3q0-1.875 1.25-3.413Q9.15 5.35 11.15 5V3.45h1.7V5q2 .35 3.25 1.887 1.25 1.538 1.25 3.413v7.65h2v.7ZM12 11.8Zm0 9.7q-.6 0-1.05-.425-.45-.425-.45-1.075h3q0 .65-.425 1.075-.425.425-1.075.425Zm-4.65-3.55h9.3V10.3q0-1.925-1.362-3.288Q13.925 5.65 12 5.65q-1.925 0-3.287 1.362Q7.35 8.375 7.35 10.3Z"
-  }));
-});
-IconMaterialNotificationsW100.displayName = 'AmauiIconMaterialNotificationsW100';
-
-
 const IconMaterialNotificationsUnreadW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -26536,17 +26523,17 @@ const IconMaterialNotificationsUnreadW100 = /*#__PURE__*/React.forwardRef((props
 IconMaterialNotificationsUnreadW100.displayName = 'AmauiIconMaterialNotificationsUnreadW100';
 
 
-const IconMaterialNumbersW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialNotificationsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "NumbersW100",
-    short_name: "Numbers",
+    name: "NotificationsW100",
+    short_name: "Notifications",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m7.475 18.8 1-4h-3.5l.175-.7h3.5L9.7 9.9H6.2l.175-.7h3.5l1-4h.65l-1 4h4.35l1-4h.65l-1 4h3.5l-.175.7h-3.5l-1.05 4.2h3.5l-.175.7h-3.5l-1 4h-.65l1-4h-4.35l-1 4ZM9.3 14.1h4.35l1.05-4.2h-4.35Z"
+    d: "M4.65 18.65v-.7h2V10.3q0-1.875 1.25-3.413Q9.15 5.35 11.15 5V3.45h1.7V5q2 .35 3.25 1.887 1.25 1.538 1.25 3.413v7.65h2v.7ZM12 11.8Zm0 9.7q-.6 0-1.05-.425-.45-.425-.45-1.075h3q0 .65-.425 1.075-.425.425-1.075.425Zm-4.65-3.55h9.3V10.3q0-1.925-1.362-3.288Q13.925 5.65 12 5.65q-1.925 0-3.287 1.362Q7.35 8.375 7.35 10.3Z"
   }));
 });
-IconMaterialNumbersW100.displayName = 'AmauiIconMaterialNumbersW100';
+IconMaterialNotificationsW100.displayName = 'AmauiIconMaterialNotificationsW100';
 
 
 const IconMaterialNutritionW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -26575,19 +26562,6 @@ const IconMaterialOdsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialOdsW100.displayName = 'AmauiIconMaterialOdsW100';
 
 
-const IconMaterialOdtW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "OdtW100",
-    short_name: "Odt",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M216-376h128v-208H216v208Zm28-28v-152h72v152h-72Zm172 28h106l22-23v-163l-22-22H416v208Zm28-28v-152h72v152h-72Zm212 28h28v-180h50v-28H606v28h50v180ZM132-212v-536h696v536H132Zm28-28h640v-480H160v480Zm0 0v-480 480Z"
-  }));
-});
-IconMaterialOdtW100.displayName = 'AmauiIconMaterialOdtW100';
-
-
 const IconMaterialOfflineBoltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -26599,6 +26573,19 @@ const IconMaterialOfflineBoltW100 = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialOfflineBoltW100.displayName = 'AmauiIconMaterialOfflineBoltW100';
+
+
+const IconMaterialOdtW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "OdtW100",
+    short_name: "Odt",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M216-376h128v-208H216v208Zm28-28v-152h72v152h-72Zm172 28h106l22-23v-163l-22-22H416v208Zm28-28v-152h72v152h-72Zm212 28h28v-180h50v-28H606v28h50v180ZM132-212v-536h696v536H132Zm28-28h640v-480H160v480Zm0 0v-480 480Z"
+  }));
+});
+IconMaterialOdtW100.displayName = 'AmauiIconMaterialOdtW100';
 
 
 const IconMaterialOfflinePinW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -26640,6 +26627,19 @@ const IconMaterialOilBarrelW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialOilBarrelW100.displayName = 'AmauiIconMaterialOilBarrelW100';
 
 
+const IconMaterialNumbersW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NumbersW100",
+    short_name: "Numbers",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m7.475 18.8 1-4h-3.5l.175-.7h3.5L9.7 9.9H6.2l.175-.7h3.5l1-4h.65l-1 4h4.35l1-4h.65l-1 4h3.5l-.175.7h-3.5l-1.05 4.2h3.5l-.175.7h-3.5l-1 4h-.65l1-4h-4.35l-1 4ZM9.3 14.1h4.35l1.05-4.2h-4.35Z"
+  }));
+});
+IconMaterialNumbersW100.displayName = 'AmauiIconMaterialNumbersW100';
+
+
 const IconMaterialOnDeviceTrainingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -26651,19 +26651,6 @@ const IconMaterialOnDeviceTrainingW100 = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialOnDeviceTrainingW100.displayName = 'AmauiIconMaterialOnDeviceTrainingW100';
-
-
-const IconMaterialOnHubDeviceW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "OnHubDeviceW100",
-    short_name: "OnHubDevice",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M368-184v-28h224v28H368Zm0-108-39-496h302l-39 496H368Zm26-28h172l35-440H359l35 440Zm0-440h-35 242-207Z"
-  }));
-});
-IconMaterialOnHubDeviceW100.displayName = 'AmauiIconMaterialOnHubDeviceW100';
 
 
 const IconMaterialOncologyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -26679,6 +26666,19 @@ const IconMaterialOncologyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialOncologyW100.displayName = 'AmauiIconMaterialOncologyW100';
 
 
+const IconMaterialOnHubDeviceW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "OnHubDeviceW100",
+    short_name: "OnHubDevice",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M368-184v-28h224v28H368Zm0-108-39-496h302l-39 496H368Zm26-28h172l35-440H359l35 440Zm0-440h-35 242-207Z"
+  }));
+});
+IconMaterialOnHubDeviceW100.displayName = 'AmauiIconMaterialOnHubDeviceW100';
+
+
 const IconMaterialOnlinePredictionW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -26690,19 +26690,6 @@ const IconMaterialOnlinePredictionW100 = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialOnlinePredictionW100.displayName = 'AmauiIconMaterialOnlinePredictionW100';
-
-
-const IconMaterialOnsenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "OnsenW100",
-    short_name: "Onsen",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M333 620q2-10 2.5-17t.5-15q0-35-15-59t-34-48q-27-35-38-64t-11-62q0-10 .5-20.5T241 312h28q-2 11-2.5 21t-.5 19q0 40 15.5 67t33.5 52q28 37 38.5 63t10.5 56q0 8-.5 15t-2.5 15h-28Zm130 0q2-10 2.5-17t.5-15q0-35-15-59t-34-48q-27-35-38-64t-11-62q0-10 .5-20.5T371 312h28q-2 11-3 21t-1 19q0 40 15.5 67t33.5 52q28 37 38.5 63t10.5 56v15q0 7-2 15h-28Zm130 0q2-10 2.5-17t.5-15q0-35-15-59t-34-48q-27-35-38-64t-11-62q0-10 .5-20.5T501 312h28q-2 11-3 21t-1 19q0 40 15.5 67t33.5 52q28 37 38.5 63t10.5 56v15q0 7-2 15h-28ZM480 840q-127 0-215.5-45T176 685q0-24 17.5-48.5T244 592v31q-20 14-30 30t-10 31q0 52 82 90t194 38q112 0 194-38t82-90q0-15-10-31t-30-30v-31q33 20 50.5 44.5T784 685q0 65-88.5 110T480 840Z"
-  }));
-});
-IconMaterialOnsenW100.displayName = 'AmauiIconMaterialOnsenW100';
 
 
 const IconMaterialOpacityW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -26729,6 +26716,19 @@ const IconMaterialOpenInBrowserW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialOpenInBrowserW100.displayName = 'AmauiIconMaterialOpenInBrowserW100';
+
+
+const IconMaterialOnsenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "OnsenW100",
+    short_name: "Onsen",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M333 620q2-10 2.5-17t.5-15q0-35-15-59t-34-48q-27-35-38-64t-11-62q0-10 .5-20.5T241 312h28q-2 11-2.5 21t-.5 19q0 40 15.5 67t33.5 52q28 37 38.5 63t10.5 56q0 8-.5 15t-2.5 15h-28Zm130 0q2-10 2.5-17t.5-15q0-35-15-59t-34-48q-27-35-38-64t-11-62q0-10 .5-20.5T371 312h28q-2 11-3 21t-1 19q0 40 15.5 67t33.5 52q28 37 38.5 63t10.5 56v15q0 7-2 15h-28Zm130 0q2-10 2.5-17t.5-15q0-35-15-59t-34-48q-27-35-38-64t-11-62q0-10 .5-20.5T501 312h28q-2 11-3 21t-1 19q0 40 15.5 67t33.5 52q28 37 38.5 63t10.5 56v15q0 7-2 15h-28ZM480 840q-127 0-215.5-45T176 685q0-24 17.5-48.5T244 592v31q-20 14-30 30t-10 31q0 52 82 90t194 38q112 0 194-38t82-90q0-15-10-31t-30-30v-31q33 20 50.5 44.5T784 685q0 65-88.5 110T480 840Z"
+  }));
+});
+IconMaterialOnsenW100.displayName = 'AmauiIconMaterialOnsenW100';
 
 
 const IconMaterialOpenInFullW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -26926,19 +26926,6 @@ const IconMaterialOtherHousesW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialOtherHousesW100.displayName = 'AmauiIconMaterialOtherHousesW100';
 
 
-const IconMaterialOutboundW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "OutboundW100",
-    short_name: "Outbound",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m8.9 15.575 5.75-5.75V13h.7V8.65H11v.7h3.15l-5.725 5.725ZM12 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-.7q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"
-  }));
-});
-IconMaterialOutboundW100.displayName = 'AmauiIconMaterialOutboundW100';
-
-
 const IconMaterialOutboxAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -26963,6 +26950,19 @@ const IconMaterialOutboxW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialOutboxW100.displayName = 'AmauiIconMaterialOutboxW100';
+
+
+const IconMaterialOutboundW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "OutboundW100",
+    short_name: "Outbound",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m8.9 15.575 5.75-5.75V13h.7V8.65H11v.7h3.15l-5.725 5.725ZM12 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-.7q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"
+  }));
+});
+IconMaterialOutboundW100.displayName = 'AmauiIconMaterialOutboundW100';
 
 
 const IconMaterialOutdoorGardenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -27082,19 +27082,6 @@ const IconMaterialOvenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialOvenW100.displayName = 'AmauiIconMaterialOvenW100';
 
 
-const IconMaterialOverviewKeyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "OverviewKeyW100",
-    short_name: "OverviewKey",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M80 804V348h456v456H80Zm28-28h400V376H108v400Zm572 28V348h28v456h-28Zm172 0V348h28v456h-28Zm-744-28V376v400Z"
-  }));
-});
-IconMaterialOverviewKeyW100.displayName = 'AmauiIconMaterialOverviewKeyW100';
-
-
 const IconMaterialOvenGenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -27119,6 +27106,19 @@ const IconMaterialOverviewW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialOverviewW100.displayName = 'AmauiIconMaterialOverviewW100';
+
+
+const IconMaterialOverviewKeyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "OverviewKeyW100",
+    short_name: "OverviewKey",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M80 804V348h456v456H80Zm28-28h400V376H108v400Zm572 28V348h28v456h-28Zm172 0V348h28v456h-28Zm-744-28V376v400Z"
+  }));
+});
+IconMaterialOverviewKeyW100.displayName = 'AmauiIconMaterialOverviewKeyW100';
 
 
 const IconMaterialOxygenSaturationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -27329,19 +27329,6 @@ const IconMaterialPanToolAltW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialPanToolAltW100.displayName = 'AmauiIconMaterialPanToolAltW100';
 
 
-const IconMaterialPanToolW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PanToolW100",
-    short_name: "PanTool",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.2 22h9.6V5.45h-2.6V2.7h-2.55v-.9H12.9v2.3h-2.5v12.15l-4.725-2.525L4.25 15Zm.25-.7-6.2-6.25.55-.45 5.3 2.8V4.8h1.2V12h1.4V2.5h1.2V12h1.4V3.4h1.2V12h1.4V6.15h1.2V21.3Z"
-  }));
-});
-IconMaterialPanToolW100.displayName = 'AmauiIconMaterialPanToolW100';
-
-
 const IconMaterialPanZoomW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -27353,6 +27340,19 @@ const IconMaterialPanZoomW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialPanZoomW100.displayName = 'AmauiIconMaterialPanZoomW100';
+
+
+const IconMaterialPanToolW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PanToolW100",
+    short_name: "PanTool",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11.2 22h9.6V5.45h-2.6V2.7h-2.55v-.9H12.9v2.3h-2.5v12.15l-4.725-2.525L4.25 15Zm.25-.7-6.2-6.25.55-.45 5.3 2.8V4.8h1.2V12h1.4V2.5h1.2V12h1.4V3.4h1.2V12h1.4V6.15h1.2V21.3Z"
+  }));
+});
+IconMaterialPanToolW100.displayName = 'AmauiIconMaterialPanToolW100';
 
 
 const IconMaterialPanoramaFishEyeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -27524,19 +27524,6 @@ const IconMaterialPartyModeW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialPartyModeW100.displayName = 'AmauiIconMaterialPartyModeW100';
 
 
-const IconMaterialPasswordW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PasswordW100",
-    short_name: "Password",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2.65 18.35v-.7h18.7v.7ZM3 12.4l-.6-.35 1-1.75h-2v-.7h2l-1-1.7.6-.35 1 1.7 1-1.7.6.35-1 1.7h2v.7h-2l1 1.75-.6.35-1-1.75Zm8 0-.6-.35 1-1.75h-2v-.7h2l-1-1.7.6-.35 1 1.7 1-1.7.6.35-1 1.7h2v.7h-2l1 1.75-.6.35-1-1.75Zm8 0-.6-.35 1-1.75h-2v-.7h2l-1-1.7.6-.35 1 1.7 1-1.7.6.35-1 1.7h2v.7h-2l1 1.75-.6.35-1-1.75Z"
-  }));
-});
-IconMaterialPasswordW100.displayName = 'AmauiIconMaterialPasswordW100';
-
-
 const IconMaterialPasskeyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -27548,6 +27535,19 @@ const IconMaterialPasskeyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialPasskeyW100.displayName = 'AmauiIconMaterialPasskeyW100';
+
+
+const IconMaterialPasswordW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PasswordW100",
+    short_name: "Password",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2.65 18.35v-.7h18.7v.7ZM3 12.4l-.6-.35 1-1.75h-2v-.7h2l-1-1.7.6-.35 1 1.7 1-1.7.6.35-1 1.7h2v.7h-2l1 1.75-.6.35-1-1.75Zm8 0-.6-.35 1-1.75h-2v-.7h2l-1-1.7.6-.35 1 1.7 1-1.7.6.35-1 1.7h2v.7h-2l1 1.75-.6.35-1-1.75Zm8 0-.6-.35 1-1.75h-2v-.7h2l-1-1.7.6-.35 1 1.7 1-1.7.6.35-1 1.7h2v.7h-2l1 1.75-.6.35-1-1.75Z"
+  }));
+});
+IconMaterialPasswordW100.displayName = 'AmauiIconMaterialPasswordW100';
 
 
 const IconMaterialPatientListW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -27758,19 +27758,6 @@ const IconMaterialPendingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialPendingW100.displayName = 'AmauiIconMaterialPendingW100';
 
 
-const IconMaterialPentagonW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PentagonW100",
-    short_name: "Pentagon",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6.975 19.65h10.05L20.4 9.525 12 3.65 3.6 9.525Zm-.5.7-3.7-11.1L12 2.8l9.225 6.45-3.7 11.1ZM12 11.65Z"
-  }));
-});
-IconMaterialPentagonW100.displayName = 'AmauiIconMaterialPentagonW100';
-
-
 const IconMaterialPercentW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -27782,6 +27769,19 @@ const IconMaterialPercentW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialPercentW100.displayName = 'AmauiIconMaterialPercentW100';
+
+
+const IconMaterialPentagonW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PentagonW100",
+    short_name: "Pentagon",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6.975 19.65h10.05L20.4 9.525 12 3.65 3.6 9.525Zm-.5.7-3.7-11.1L12 2.8l9.225 6.45-3.7 11.1ZM12 11.65Z"
+  }));
+});
+IconMaterialPentagonW100.displayName = 'AmauiIconMaterialPentagonW100';
 
 
 const IconMaterialPerformanceMaxW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28083,19 +28083,6 @@ const IconMaterialPersonOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialPersonOffW100.displayName = 'AmauiIconMaterialPersonOffW100';
 
 
-const IconMaterialPersonPinCircleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PersonPinCircleW100",
-    short_name: "PersonPinCircle",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 14.35q1.05 0 1.938-.463.887-.462 1.487-1.237-.75-.5-1.613-.75-.862-.25-1.812-.25-.95 0-1.812.25-.863.25-1.613.75.6.775 1.487 1.237.888.463 1.938.463Zm0-5q.575 0 .963-.388.387-.387.387-.962t-.387-.963Q12.575 6.65 12 6.65t-.962.387q-.388.388-.388.963t.388.962q.387.388.962.388Zm0 11.175q3.15-2.7 4.9-5.563 1.75-2.862 1.75-4.762 0-3.025-1.925-4.938Q14.8 3.35 12 3.35T7.275 5.262Q5.35 7.175 5.35 10.2q0 1.9 1.75 4.762 1.75 2.863 4.9 5.563Zm0 .975q-3.725-3.35-5.537-6.213Q4.65 12.425 4.65 10.2q0-3.45 2.225-5.5T12 2.65q2.9 0 5.125 2.05t2.225 5.5q0 2.225-1.812 5.087Q15.725 18.15 12 21.5Zm0-11.3Z"
-  }));
-});
-IconMaterialPersonPinCircleW100.displayName = 'AmauiIconMaterialPersonPinCircleW100';
-
-
 const IconMaterialPersonPinW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -28109,17 +28096,17 @@ const IconMaterialPersonPinW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialPersonPinW100.displayName = 'AmauiIconMaterialPersonPinW100';
 
 
-const IconMaterialPersonPlayW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialPersonPinCircleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "PersonPlayW100",
-    short_name: "PersonPlay",
-    viewBox: "0 -960 960 960"
+    name: "PersonPinCircleW100",
+    short_name: "PersonPinCircle",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M234-486 128-592l106-105 105 105-105 106Zm168 354v-179q-58-5-115.5-12.5T172-345l6-28q75 18 149.892 26t152 8Q557-339 632-347t150-26l6 28q-57 14-114.5 21.5T558-311v179H402ZM234-525l66-67-66-66-67 66 67 67Zm246-135q-35 0-59.5-24.5T396-744q0-35 24.5-59.5T480-828q35 0 59.5 24.5T564-744q0 35-24.5 59.5T480-660Zm0 249q-26.4 0-45.2-18.8Q416-448.6 416-475q0-26.4 18.8-45.2Q453.6-539 480-539q26.4 0 45.2 18.8Q544-501.4 544-475q0 26.4-18.8 45.2Q506.4-411 480-411Zm0-277q23 0 39.5-16.5T536-744q0-23-16.5-39.5T480-800q-23 0-39.5 16.5T424-744q0 23 16.5 39.5T480-688Zm199 200-48-84 48-84h93l48 84-48 84h-93Zm15.333-28H757l31-56-31.333-56H694l-31 56 31.333 56ZM234-592Zm246-152Zm246 172Z"
+    d: "M12 14.35q1.05 0 1.938-.463.887-.462 1.487-1.237-.75-.5-1.613-.75-.862-.25-1.812-.25-.95 0-1.812.25-.863.25-1.613.75.6.775 1.487 1.237.888.463 1.938.463Zm0-5q.575 0 .963-.388.387-.387.387-.962t-.387-.963Q12.575 6.65 12 6.65t-.962.387q-.388.388-.388.963t.388.962q.387.388.962.388Zm0 11.175q3.15-2.7 4.9-5.563 1.75-2.862 1.75-4.762 0-3.025-1.925-4.938Q14.8 3.35 12 3.35T7.275 5.262Q5.35 7.175 5.35 10.2q0 1.9 1.75 4.762 1.75 2.863 4.9 5.563Zm0 .975q-3.725-3.35-5.537-6.213Q4.65 12.425 4.65 10.2q0-3.45 2.225-5.5T12 2.65q2.9 0 5.125 2.05t2.225 5.5q0 2.225-1.812 5.087Q15.725 18.15 12 21.5Zm0-11.3Z"
   }));
 });
-IconMaterialPersonPlayW100.displayName = 'AmauiIconMaterialPersonPlayW100';
+IconMaterialPersonPinCircleW100.displayName = 'AmauiIconMaterialPersonPinCircleW100';
 
 
 const IconMaterialPersonRaisedHandW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28135,6 +28122,19 @@ const IconMaterialPersonRaisedHandW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialPersonRaisedHandW100.displayName = 'AmauiIconMaterialPersonRaisedHandW100';
 
 
+const IconMaterialPersonPlayW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PersonPlayW100",
+    short_name: "PersonPlay",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M234-486 128-592l106-105 105 105-105 106Zm168 354v-179q-58-5-115.5-12.5T172-345l6-28q75 18 149.892 26t152 8Q557-339 632-347t150-26l6 28q-57 14-114.5 21.5T558-311v179H402ZM234-525l66-67-66-66-67 66 67 67Zm246-135q-35 0-59.5-24.5T396-744q0-35 24.5-59.5T480-828q35 0 59.5 24.5T564-744q0 35-24.5 59.5T480-660Zm0 249q-26.4 0-45.2-18.8Q416-448.6 416-475q0-26.4 18.8-45.2Q453.6-539 480-539q26.4 0 45.2 18.8Q544-501.4 544-475q0 26.4-18.8 45.2Q506.4-411 480-411Zm0-277q23 0 39.5-16.5T536-744q0-23-16.5-39.5T480-800q-23 0-39.5 16.5T424-744q0 23 16.5 39.5T480-688Zm199 200-48-84 48-84h93l48 84-48 84h-93Zm15.333-28H757l31-56-31.333-56H694l-31 56 31.333 56ZM234-592Zm246-152Zm246 172Z"
+  }));
+});
+IconMaterialPersonPlayW100.displayName = 'AmauiIconMaterialPersonPlayW100';
+
+
 const IconMaterialPersonRemoveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -28146,19 +28146,6 @@ const IconMaterialPersonRemoveW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialPersonRemoveW100.displayName = 'AmauiIconMaterialPersonRemoveW100';
-
-
-const IconMaterialPersonSearchW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PersonSearchW100",
-    short_name: "PersonSearch",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 11.2q-1.125 0-1.912-.788Q8.3 9.625 8.3 8.5t.788-1.912Q9.875 5.8 11 5.8t1.913.788q.787.787.787 1.912t-.787 1.912q-.788.788-1.913.788Zm0-.7q.825 0 1.413-.588Q13 9.325 13 8.5t-.587-1.412Q11.825 6.5 11 6.5q-.825 0-1.412.588Q9 7.675 9 8.5t.588 1.412q.587.588 1.412.588Zm9.95 10.95-2.5-2.5q-.475.35-.975.5-.5.15-.975.15-1.3 0-2.2-.9-.9-.9-.9-2.2 0-1.3.9-2.2.9-.9 2.2-.9 1.3 0 2.2.9.9.9.9 2.2 0 .475-.15.975t-.5.975l2.5 2.5ZM16.5 18.9q1.025 0 1.713-.688.687-.687.687-1.712t-.687-1.713q-.688-.687-1.713-.687-1.025 0-1.712.687-.688.688-.688 1.713 0 1.025.688 1.712.687.688 1.712.688Zm-12.2-.7v-1.3q0-.575.338-1.037.337-.463.912-.763 1.025-.5 2.788-.975 1.762-.475 3.787-.275-.1.2-.187.35-.088.15-.138.325-1.875-.15-3.5.312-1.625.463-2.4.863-.425.2-.662.512Q5 16.525 5 16.9v.6h6.5q.025.15.075.337.05.188.1.363ZM11 8.5Zm.5 9Z"
-  }));
-});
-IconMaterialPersonSearchW100.displayName = 'AmauiIconMaterialPersonSearchW100';
 
 
 const IconMaterialPersonW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28174,6 +28161,19 @@ const IconMaterialPersonW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialPersonW100.displayName = 'AmauiIconMaterialPersonW100';
 
 
+const IconMaterialPersonSearchW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PersonSearchW100",
+    short_name: "PersonSearch",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11 11.2q-1.125 0-1.912-.788Q8.3 9.625 8.3 8.5t.788-1.912Q9.875 5.8 11 5.8t1.913.788q.787.787.787 1.912t-.787 1.912q-.788.788-1.913.788Zm0-.7q.825 0 1.413-.588Q13 9.325 13 8.5t-.587-1.412Q11.825 6.5 11 6.5q-.825 0-1.412.588Q9 7.675 9 8.5t.588 1.412q.587.588 1.412.588Zm9.95 10.95-2.5-2.5q-.475.35-.975.5-.5.15-.975.15-1.3 0-2.2-.9-.9-.9-.9-2.2 0-1.3.9-2.2.9-.9 2.2-.9 1.3 0 2.2.9.9.9.9 2.2 0 .475-.15.975t-.5.975l2.5 2.5ZM16.5 18.9q1.025 0 1.713-.688.687-.687.687-1.712t-.687-1.713q-.688-.687-1.713-.687-1.025 0-1.712.687-.688.688-.688 1.713 0 1.025.688 1.712.687.688 1.712.688Zm-12.2-.7v-1.3q0-.575.338-1.037.337-.463.912-.763 1.025-.5 2.788-.975 1.762-.475 3.787-.275-.1.2-.187.35-.088.15-.138.325-1.875-.15-3.5.312-1.625.463-2.4.863-.425.2-.662.512Q5 16.525 5 16.9v.6h6.5q.025.15.075.337.05.188.1.363ZM11 8.5Zm.5 9Z"
+  }));
+});
+IconMaterialPersonSearchW100.displayName = 'AmauiIconMaterialPersonSearchW100';
+
+
 const IconMaterialPersonalBagOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -28187,19 +28187,6 @@ const IconMaterialPersonalBagOffW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialPersonalBagOffW100.displayName = 'AmauiIconMaterialPersonalBagOffW100';
 
 
-const IconMaterialPersonalBagQuestionW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PersonalBagQuestionW100",
-    short_name: "PersonalBagQuestion",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M432-702q12-3 24-4.5t24-1.5q12 0 24 1.5t24 4.5v-6q0-20.4-13.8-34.2Q500.4-756 480-756q-20.4 0-34.2 13.8Q432-728.4 432-708v6ZM252-132v-348q0-75 43-132.5T404-694v-14q0-31.667 21.789-53.833 21.79-22.167 54-22.167Q512-784 534-761.833q22 22.166 22 53.833v14q62 23 103 73.5T706-504h-28q-8-74-64.5-125T480-680q-83 0-141.5 58.5T280-480v320h175q3 8 6.609 15.167 3.61 7.166 7.391 12.833H252Zm94-294h157q7-8 15.5-15t16.5-13H346v28Zm338 22q62 0 105 43t43 105q0 62-43 105t-105 43q-62 0-105-43t-43-105q0-62 43-105t105-43Zm0 260q8.462 0 14.231-5.769T704-164q0-8.462-5.769-14.231T684-184q-8.462 0-14.231 5.769T664-164q0 8.462 5.769 14.231T684-144Zm-14-70h28v-6q0-12 6-19t14-15q14-12 22-25t8-31.367Q748-337 730.253-354.5 712.505-372 684.484-372 663-372 644.5-358.5T618-324l26 10q5-12 15.5-21t24.5-9q16.875 0 26.438 8.415Q720-327.171 720-310.341 720-298 713-290q-7 8-15 16-6 6-11.5 13T676-247.714q-3 4.714-4.5 11.214t-1.5 12.318V-214ZM503-426Z"
-  }));
-});
-IconMaterialPersonalBagQuestionW100.displayName = 'AmauiIconMaterialPersonalBagQuestionW100';
-
-
 const IconMaterialPersonalBagW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -28211,6 +28198,19 @@ const IconMaterialPersonalBagW100 = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialPersonalBagW100.displayName = 'AmauiIconMaterialPersonalBagW100';
+
+
+const IconMaterialPersonalBagQuestionW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PersonalBagQuestionW100",
+    short_name: "PersonalBagQuestion",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M432-702q12-3 24-4.5t24-1.5q12 0 24 1.5t24 4.5v-6q0-20.4-13.8-34.2Q500.4-756 480-756q-20.4 0-34.2 13.8Q432-728.4 432-708v6ZM252-132v-348q0-75 43-132.5T404-694v-14q0-31.667 21.789-53.833 21.79-22.167 54-22.167Q512-784 534-761.833q22 22.166 22 53.833v14q62 23 103 73.5T706-504h-28q-8-74-64.5-125T480-680q-83 0-141.5 58.5T280-480v320h175q3 8 6.609 15.167 3.61 7.166 7.391 12.833H252Zm94-294h157q7-8 15.5-15t16.5-13H346v28Zm338 22q62 0 105 43t43 105q0 62-43 105t-105 43q-62 0-105-43t-43-105q0-62 43-105t105-43Zm0 260q8.462 0 14.231-5.769T704-164q0-8.462-5.769-14.231T684-184q-8.462 0-14.231 5.769T664-164q0 8.462 5.769 14.231T684-144Zm-14-70h28v-6q0-12 6-19t14-15q14-12 22-25t8-31.367Q748-337 730.253-354.5 712.505-372 684.484-372 663-372 644.5-358.5T618-324l26 10q5-12 15.5-21t24.5-9q16.875 0 26.438 8.415Q720-327.171 720-310.341 720-298 713-290q-7 8-15 16-6 6-11.5 13T676-247.714q-3 4.714-4.5 11.214t-1.5 12.318V-214ZM503-426Z"
+  }));
+});
+IconMaterialPersonalBagQuestionW100.displayName = 'AmauiIconMaterialPersonalBagQuestionW100';
 
 
 const IconMaterialPersonalInjuryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28304,19 +28304,6 @@ const IconMaterialPhishingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialPhishingW100.displayName = 'AmauiIconMaterialPhishingW100';
 
 
-const IconMaterialPhoneAndroidW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PhoneAndroidW100",
-    short_name: "PhoneAndroid",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.3 19.55h3.4v-.7h-3.4Zm-4 2.15V2.3h11.4v19.4Zm.7-5h10V5.35H7ZM7 21h10v-3.6H7ZM7 4.65h10V3H7Zm0 0V3v1.65ZM7 21v-3.6V21Z"
-  }));
-});
-IconMaterialPhoneAndroidW100.displayName = 'AmauiIconMaterialPhoneAndroidW100';
-
-
 const IconMaterialPhoneBluetoothSpeakerW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -28330,6 +28317,19 @@ const IconMaterialPhoneBluetoothSpeakerW100 = /*#__PURE__*/React.forwardRef((pro
 IconMaterialPhoneBluetoothSpeakerW100.displayName = 'AmauiIconMaterialPhoneBluetoothSpeakerW100';
 
 
+const IconMaterialPhoneAndroidW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PhoneAndroidW100",
+    short_name: "PhoneAndroid",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10.3 19.55h3.4v-.7h-3.4Zm-4 2.15V2.3h11.4v19.4Zm.7-5h10V5.35H7ZM7 21h10v-3.6H7ZM7 4.65h10V3H7Zm0 0V3v1.65ZM7 21v-3.6V21Z"
+  }));
+});
+IconMaterialPhoneAndroidW100.displayName = 'AmauiIconMaterialPhoneAndroidW100';
+
+
 const IconMaterialPhoneCallbackW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -28341,19 +28341,6 @@ const IconMaterialPhoneCallbackW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialPhoneCallbackW100.displayName = 'AmauiIconMaterialPhoneCallbackW100';
-
-
-const IconMaterialPhoneDisabledW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PhoneDisabledW100",
-    short_name: "PhoneDisabled",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M17.75 9.85q.525-1.2.85-2.338.325-1.137.275-2.512H16.15l-.625 2.85ZM5 18.825q1.025.075 2.238-.188 1.212-.262 2.312-.787l-2.15-2.2-2.4.475Zm11.2-5.375-.5-.5q.425-.525.887-1.188.463-.662.813-1.262l-2.65-2.425.825-3.775h3.95q.05.25.063.5.012.25.012.55 0 2.075-.95 4.2t-2.45 3.9Zm-10.85 6.1q-.225 0-.525-.012-.3-.013-.525-.063v-3.9l3.35-.7 2.55 2.675q.95-.525 1.875-1.188Q13 15.7 13.85 14.95L3.3 4.4l.5-.5 16.4 16.4-.5.5-5.35-5.35q-2.25 2-4.525 3.05-2.275 1.05-4.475 1.05Zm12.4-9.7Zm-8.2 8Z"
-  }));
-});
-IconMaterialPhoneDisabledW100.displayName = 'AmauiIconMaterialPhoneDisabledW100';
 
 
 const IconMaterialPhoneEnabledW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28380,6 +28367,19 @@ const IconMaterialPhoneForwardedW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialPhoneForwardedW100.displayName = 'AmauiIconMaterialPhoneForwardedW100';
+
+
+const IconMaterialPhoneDisabledW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PhoneDisabledW100",
+    short_name: "PhoneDisabled",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M17.75 9.85q.525-1.2.85-2.338.325-1.137.275-2.512H16.15l-.625 2.85ZM5 18.825q1.025.075 2.238-.188 1.212-.262 2.312-.787l-2.15-2.2-2.4.475Zm11.2-5.375-.5-.5q.425-.525.887-1.188.463-.662.813-1.262l-2.65-2.425.825-3.775h3.95q.05.25.063.5.012.25.012.55 0 2.075-.95 4.2t-2.45 3.9Zm-10.85 6.1q-.225 0-.525-.012-.3-.013-.525-.063v-3.9l3.35-.7 2.55 2.675q.95-.525 1.875-1.188Q13 15.7 13.85 14.95L3.3 4.4l.5-.5 16.4 16.4-.5.5-5.35-5.35q-2.25 2-4.525 3.05-2.275 1.05-4.475 1.05Zm12.4-9.7Zm-8.2 8Z"
+  }));
+});
+IconMaterialPhoneDisabledW100.displayName = 'AmauiIconMaterialPhoneDisabledW100';
 
 
 const IconMaterialPhoneInTalkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28473,19 +28473,6 @@ const IconMaterialPhonelinkEraseW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialPhonelinkEraseW100.displayName = 'AmauiIconMaterialPhonelinkEraseW100';
 
 
-const IconMaterialPhonelinkLockW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PhonelinkLockW100",
-    short_name: "PhonelinkLock",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M14.65 15.55v-4.4h1.025v-1q0-.725.488-1.212.487-.488 1.212-.488t1.212.488q.488.487.488 1.212v1h.975v4.4Zm1.725-4.4h2v-1q0-.425-.288-.712-.287-.288-.712-.288t-.712.288q-.288.287-.288.712ZM7 21h10v-1.65H7ZM7 4.65h10V3H7ZM6.3 21.7V2.3h11.4v4.6H17V5.35H7v13.3h10V17.1h.7v4.6ZM7 4.65V3v1.65ZM7 21v-1.65V21Z"
-  }));
-});
-IconMaterialPhonelinkLockW100.displayName = 'AmauiIconMaterialPhonelinkLockW100';
-
-
 const IconMaterialPhonelinkOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -28499,17 +28486,17 @@ const IconMaterialPhonelinkOffW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialPhonelinkOffW100.displayName = 'AmauiIconMaterialPhonelinkOffW100';
 
 
-const IconMaterialPhonelinkRingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialPhonelinkLockW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "PhonelinkRingW100",
-    short_name: "PhonelinkRing",
+    name: "PhonelinkLockW100",
+    short_name: "PhonelinkLock",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m19.55 16.4-.5-.5q.775-.775 1.188-1.787.412-1.013.412-2.113t-.412-2.113Q19.825 8.875 19.05 8.1l.5-.5q.875.875 1.338 2.013.462 1.137.462 2.387t-.462 2.387q-.463 1.138-1.338 2.013Zm-2.05-2.05-.5-.5q.425-.35.7-.825.275-.475.275-1.025 0-.55-.275-1.025-.275-.475-.7-.825l.5-.5q.525.45.85 1.05.325.6.325 1.3 0 .7-.325 1.3-.325.6-.85 1.05ZM7 21h10v-1.65H7ZM7 4.65h10V3H7ZM6.3 21.7V2.3h11.4v4.6H17V5.35H7v13.3h10V17.1h.7v4.6ZM7 4.65V3v1.65ZM7 21v-1.65V21Z"
+    d: "M14.65 15.55v-4.4h1.025v-1q0-.725.488-1.212.487-.488 1.212-.488t1.212.488q.488.487.488 1.212v1h.975v4.4Zm1.725-4.4h2v-1q0-.425-.288-.712-.287-.288-.712-.288t-.712.288q-.288.287-.288.712ZM7 21h10v-1.65H7ZM7 4.65h10V3H7ZM6.3 21.7V2.3h11.4v4.6H17V5.35H7v13.3h10V17.1h.7v4.6ZM7 4.65V3v1.65ZM7 21v-1.65V21Z"
   }));
 });
-IconMaterialPhonelinkRingW100.displayName = 'AmauiIconMaterialPhonelinkRingW100';
+IconMaterialPhonelinkLockW100.displayName = 'AmauiIconMaterialPhonelinkLockW100';
 
 
 const IconMaterialPhonelinkRingOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28523,6 +28510,19 @@ const IconMaterialPhonelinkRingOffW100 = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialPhonelinkRingOffW100.displayName = 'AmauiIconMaterialPhonelinkRingOffW100';
+
+
+const IconMaterialPhonelinkRingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PhonelinkRingW100",
+    short_name: "PhonelinkRing",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m19.55 16.4-.5-.5q.775-.775 1.188-1.787.412-1.013.412-2.113t-.412-2.113Q19.825 8.875 19.05 8.1l.5-.5q.875.875 1.338 2.013.462 1.137.462 2.387t-.462 2.387q-.463 1.138-1.338 2.013Zm-2.05-2.05-.5-.5q.425-.35.7-.825.275-.475.275-1.025 0-.55-.275-1.025-.275-.475-.7-.825l.5-.5q.525.45.85 1.05.325.6.325 1.3 0 .7-.325 1.3-.325.6-.85 1.05ZM7 21h10v-1.65H7ZM7 4.65h10V3H7ZM6.3 21.7V2.3h11.4v4.6H17V5.35H7v13.3h10V17.1h.7v4.6ZM7 4.65V3v1.65ZM7 21v-1.65V21Z"
+  }));
+});
+IconMaterialPhonelinkRingW100.displayName = 'AmauiIconMaterialPhonelinkRingW100';
 
 
 const IconMaterialPhonelinkSetupW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28798,19 +28798,6 @@ const IconMaterialPictureInPictureLargeW100 = /*#__PURE__*/React.forwardRef((pro
 IconMaterialPictureInPictureLargeW100.displayName = 'AmauiIconMaterialPictureInPictureLargeW100';
 
 
-const IconMaterialPictureInPictureMediumW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PictureInPictureMediumW100",
-    short_name: "PictureInPictureMedium",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M316-340v-304h384v304H316ZM132-212v-28h668v-508h28v536H132Z"
-  }));
-});
-IconMaterialPictureInPictureMediumW100.displayName = 'AmauiIconMaterialPictureInPictureMediumW100';
-
-
 const IconMaterialPictureInPictureMobileW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -28850,17 +28837,17 @@ const IconMaterialPictureInPictureSmallW100 = /*#__PURE__*/React.forwardRef((pro
 IconMaterialPictureInPictureSmallW100.displayName = 'AmauiIconMaterialPictureInPictureSmallW100';
 
 
-const IconMaterialPictureInPictureW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialPictureInPictureMediumW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "PictureInPictureW100",
-    short_name: "PictureInPicture",
-    viewBox: "0 0 24 24"
+    name: "PictureInPictureMediumW100",
+    short_name: "PictureInPictureMedium",
+    viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.4 12.6H19V7h-7.6Zm-8.1 6.1V5.3h17.4v13.4ZM4 18V6Zm0 0h16V6H4Zm8.1-6.1V7.7h6.2v4.2Z"
+    d: "M316-340v-304h384v304H316ZM132-212v-28h668v-508h28v536H132Z"
   }));
 });
-IconMaterialPictureInPictureW100.displayName = 'AmauiIconMaterialPictureInPictureW100';
+IconMaterialPictureInPictureMediumW100.displayName = 'AmauiIconMaterialPictureInPictureMediumW100';
 
 
 const IconMaterialPieChartW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28876,17 +28863,17 @@ const IconMaterialPieChartW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialPieChartW100.displayName = 'AmauiIconMaterialPieChartW100';
 
 
-const IconMaterialPillW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialPictureInPictureW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "PillW100",
-    short_name: "Pill",
-    viewBox: "0 96 960 960"
+    name: "PictureInPictureW100",
+    short_name: "PictureInPicture",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M345 884q-72 0-122.5-50.5T172 711q0-35 13.5-67t37.5-56l269-269q24-24 56-37.5t67-13.5q72 0 122.5 50.5T788 441q0 35-13.5 67T737 564L468 833q-24 24-56 37.5T345 884Zm248-216 125-124q20-20 31-47t11-56q0-60-42.5-102.5T615 296q-29 0-56 11t-47 31L388 463l205 205ZM345 856q29 0 56-11t47-31l124-125-205-205-125 124q-20 20-31 47t-11 56q0 60 42.5 102.5T345 856Z"
+    d: "M11.4 12.6H19V7h-7.6Zm-8.1 6.1V5.3h17.4v13.4ZM4 18V6Zm0 0h16V6H4Zm8.1-6.1V7.7h6.2v4.2Z"
   }));
 });
-IconMaterialPillW100.displayName = 'AmauiIconMaterialPillW100';
+IconMaterialPictureInPictureW100.displayName = 'AmauiIconMaterialPictureInPictureW100';
 
 
 const IconMaterialPillOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28900,6 +28887,19 @@ const IconMaterialPillOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialPillOffW100.displayName = 'AmauiIconMaterialPillOffW100';
+
+
+const IconMaterialPillW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PillW100",
+    short_name: "Pill",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M345 884q-72 0-122.5-50.5T172 711q0-35 13.5-67t37.5-56l269-269q24-24 56-37.5t67-13.5q72 0 122.5 50.5T788 441q0 35-13.5 67T737 564L468 833q-24 24-56 37.5T345 884Zm248-216 125-124q20-20 31-47t11-56q0-60-42.5-102.5T615 296q-29 0-56 11t-47 31L388 463l205 205ZM345 856q29 0 56-11t47-31l124-125-205-205-125 124q-20 20-31 47t-11 56q0 60 42.5 102.5T345 856Z"
+  }));
+});
+IconMaterialPillW100.displayName = 'AmauiIconMaterialPillW100';
 
 
 const IconMaterialPinDropW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28980,19 +28980,6 @@ const IconMaterialPinchZoomInW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialPinchZoomInW100.displayName = 'AmauiIconMaterialPinchZoomInW100';
 
 
-const IconMaterialPinchZoomOutW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PinchZoomOutW100",
-    short_name: "PinchZoomOut",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M1.4 13.6V9.4h.7v3.025L5.475 9.05l.475.475L2.575 12.9H5.6v.7Zm6.125-5.65-.475-.475L10.425 4.1H7.4v-.7h4.2v4.2h-.7V4.575ZM14.55 20.7q-.15 0-.288-.063-.137-.062-.262-.187l-4.25-4.2.55-.55q.1-.1.212-.138.113-.037.238-.012l3.55.7V6.5q0-.5.35-.85t.85-.35q.5 0 .85.35t.35.85v5.3h1.05q.1 0 .188.025.087.025.162.075l3.05 1.5q.725.35 1.038 1.137.312.788.162 1.613l-.7 4q-.05.25-.237.4-.188.15-.463.15Zm0-.7h6.4l.7-4q.1-.525-.063-1.1-.162-.575-.737-.85l-3.1-1.55H16v-6q0-.225-.137-.363Q15.725 6 15.5 6q-.225 0-.363.137Q15 6.275 15 6.5v10.6l-4.25-.85Z"
-  }));
-});
-IconMaterialPinchZoomOutW100.displayName = 'AmauiIconMaterialPinchZoomOutW100';
-
-
 const IconMaterialPipExitW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -29004,6 +28991,19 @@ const IconMaterialPipExitW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialPipExitW100.displayName = 'AmauiIconMaterialPipExitW100';
+
+
+const IconMaterialPinchZoomOutW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PinchZoomOutW100",
+    short_name: "PinchZoomOut",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M1.4 13.6V9.4h.7v3.025L5.475 9.05l.475.475L2.575 12.9H5.6v.7Zm6.125-5.65-.475-.475L10.425 4.1H7.4v-.7h4.2v4.2h-.7V4.575ZM14.55 20.7q-.15 0-.288-.063-.137-.062-.262-.187l-4.25-4.2.55-.55q.1-.1.212-.138.113-.037.238-.012l3.55.7V6.5q0-.5.35-.85t.85-.35q.5 0 .85.35t.35.85v5.3h1.05q.1 0 .188.025.087.025.162.075l3.05 1.5q.725.35 1.038 1.137.312.788.162 1.613l-.7 4q-.05.25-.237.4-.188.15-.463.15Zm0-.7h6.4l.7-4q.1-.525-.063-1.1-.162-.575-.737-.85l-3.1-1.55H16v-6q0-.225-.137-.363Q15.725 6 15.5 6q-.225 0-.363.137Q15 6.275 15 6.5v10.6l-4.25-.85Z"
+  }));
+});
+IconMaterialPinchZoomOutW100.displayName = 'AmauiIconMaterialPinchZoomOutW100';
 
 
 const IconMaterialPipW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29136,19 +29136,6 @@ const IconMaterialPlayDisabledW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialPlayDisabledW100.displayName = 'AmauiIconMaterialPlayDisabledW100';
 
 
-const IconMaterialPlayForWorkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PlayForWorkW100",
-    short_name: "PlayForWork",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 18.7q-1.95 0-3.325-1.375Q7.3 15.95 7.3 14H8q0 1.65 1.175 2.825Q10.35 18 12 18q1.65 0 2.825-1.175Q16 15.65 16 14h.7q0 1.95-1.375 3.325Q13.95 18.7 12 18.7Zm0-4.6L8.9 11l.5-.5 2.25 2.25v-7.1h.7v7.1l2.25-2.25.5.5Z"
-  }));
-});
-IconMaterialPlayForWorkW100.displayName = 'AmauiIconMaterialPlayForWorkW100';
-
-
 const IconMaterialPlayLessonW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -29173,6 +29160,19 @@ const IconMaterialPlayPauseW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialPlayPauseW100.displayName = 'AmauiIconMaterialPlayPauseW100';
+
+
+const IconMaterialPlayForWorkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PlayForWorkW100",
+    short_name: "PlayForWork",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 18.7q-1.95 0-3.325-1.375Q7.3 15.95 7.3 14H8q0 1.65 1.175 2.825Q10.35 18 12 18q1.65 0 2.825-1.175Q16 15.65 16 14h.7q0 1.95-1.375 3.325Q13.95 18.7 12 18.7Zm0-4.6L8.9 11l.5-.5 2.25 2.25v-7.1h.7v7.1l2.25-2.25.5.5Z"
+  }));
+});
+IconMaterialPlayForWorkW100.displayName = 'AmauiIconMaterialPlayForWorkW100';
 
 
 const IconMaterialPlayShapesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29526,19 +29526,6 @@ const IconMaterialPottedPlantW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialPottedPlantW100.displayName = 'AmauiIconMaterialPottedPlantW100';
 
 
-const IconMaterialPowerInputW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PowerInputW100",
-    short_name: "PowerInput",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2.65 14.35v-.7h3.7v.7Zm7 0v-.7h3.7v.7Zm7 0v-.7h3.7v.7Zm-14-4v-.7h17.7v.7Z"
-  }));
-});
-IconMaterialPowerInputW100.displayName = 'AmauiIconMaterialPowerInputW100';
-
-
 const IconMaterialPowerOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -29550,6 +29537,19 @@ const IconMaterialPowerOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialPowerOffW100.displayName = 'AmauiIconMaterialPowerOffW100';
+
+
+const IconMaterialPowerInputW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PowerInputW100",
+    short_name: "PowerInput",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2.65 14.35v-.7h3.7v.7Zm7 0v-.7h3.7v.7Zm7 0v-.7h3.7v.7Zm-14-4v-.7h17.7v.7Z"
+  }));
+});
+IconMaterialPowerInputW100.displayName = 'AmauiIconMaterialPowerInputW100';
 
 
 const IconMaterialPowerRoundedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29565,19 +29565,6 @@ const IconMaterialPowerRoundedW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialPowerRoundedW100.displayName = 'AmauiIconMaterialPowerRoundedW100';
 
 
-const IconMaterialPowerSettingsNewW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PowerSettingsNewW100",
-    short_name: "PowerSettingsNew",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.65 13V4.1h.7V13Zm.35 6.7q-1.6 0-3-.6t-2.45-1.65Q5.5 16.4 4.9 15q-.6-1.4-.6-3 0-1.725.75-3.263Q5.8 7.2 7.1 6.1l.475.475q-1.225.975-1.9 2.4Q5 10.4 5 12q0 2.9 2.05 4.95Q9.1 19 12 19q2.925 0 4.962-2.05Q19 14.9 19 12q0-1.6-.663-3.025-.662-1.425-1.912-2.4L16.9 6.1q1.325 1.1 2.063 2.637.737 1.538.737 3.263 0 1.6-.6 3t-1.65 2.45Q16.4 18.5 15 19.1q-1.4.6-3 .6Z"
-  }));
-});
-IconMaterialPowerSettingsNewW100.displayName = 'AmauiIconMaterialPowerSettingsNewW100';
-
-
 const IconMaterialPowerW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -29591,17 +29578,17 @@ const IconMaterialPowerW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialPowerW100.displayName = 'AmauiIconMaterialPowerW100';
 
 
-const IconMaterialPrecisionManufacturingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialPowerSettingsNewW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "PrecisionManufacturingW100",
-    short_name: "PrecisionManufacturing",
+    name: "PowerSettingsNewW100",
+    short_name: "PowerSettingsNew",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5 19v-1.2h3L5.4 9.3q-.65-.3-1.025-.85Q4 7.9 4 7.15q0-.975.688-1.663Q5.375 4.8 6.35 4.8q.9 0 1.525.562.625.563.825 1.438h3.8v-2h.7v.7l2.25-2.075L20.1 5.6l-.3.625-4.2-1.975-2.4 2.2v1.4L15.6 10l4.225-1.975.25.65-4.6 2.15L13.2 8.8v.7h-.7v-2H8.7q-.075.375-.275.75T8 8.85l4.8 8.95h3.9V19ZM6.35 8.8q.675 0 1.163-.488Q8 7.825 8 7.15q0-.675-.487-1.163Q7.025 5.5 6.35 5.5t-1.162.487Q4.7 6.475 4.7 7.15t.488 1.162q.487.488 1.162.488Zm2.4 9H12L7.4 9.25q-.2.125-.55.212-.35.088-.65.038Zm3.25 0Z"
+    d: "M11.65 13V4.1h.7V13Zm.35 6.7q-1.6 0-3-.6t-2.45-1.65Q5.5 16.4 4.9 15q-.6-1.4-.6-3 0-1.725.75-3.263Q5.8 7.2 7.1 6.1l.475.475q-1.225.975-1.9 2.4Q5 10.4 5 12q0 2.9 2.05 4.95Q9.1 19 12 19q2.925 0 4.962-2.05Q19 14.9 19 12q0-1.6-.663-3.025-.662-1.425-1.912-2.4L16.9 6.1q1.325 1.1 2.063 2.637.737 1.538.737 3.263 0 1.6-.6 3t-1.65 2.45Q16.4 18.5 15 19.1q-1.4.6-3 .6Z"
   }));
 });
-IconMaterialPrecisionManufacturingW100.displayName = 'AmauiIconMaterialPrecisionManufacturingW100';
+IconMaterialPowerSettingsNewW100.displayName = 'AmauiIconMaterialPowerSettingsNewW100';
 
 
 const IconMaterialPrayerTimesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29615,6 +29602,19 @@ const IconMaterialPrayerTimesW100 = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialPrayerTimesW100.displayName = 'AmauiIconMaterialPrayerTimesW100';
+
+
+const IconMaterialPrecisionManufacturingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PrecisionManufacturingW100",
+    short_name: "PrecisionManufacturing",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5 19v-1.2h3L5.4 9.3q-.65-.3-1.025-.85Q4 7.9 4 7.15q0-.975.688-1.663Q5.375 4.8 6.35 4.8q.9 0 1.525.562.625.563.825 1.438h3.8v-2h.7v.7l2.25-2.075L20.1 5.6l-.3.625-4.2-1.975-2.4 2.2v1.4L15.6 10l4.225-1.975.25.65-4.6 2.15L13.2 8.8v.7h-.7v-2H8.7q-.075.375-.275.75T8 8.85l4.8 8.95h3.9V19ZM6.35 8.8q.675 0 1.163-.488Q8 7.825 8 7.15q0-.675-.487-1.163Q7.025 5.5 6.35 5.5t-1.162.487Q4.7 6.475 4.7 7.15t.488 1.162q.487.488 1.162.488Zm2.4 9H12L7.4 9.25q-.2.125-.55.212-.35.088-.65.038Zm3.25 0Z"
+  }));
+});
+IconMaterialPrecisionManufacturingW100.displayName = 'AmauiIconMaterialPrecisionManufacturingW100';
 
 
 const IconMaterialPregnancyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29643,19 +29643,6 @@ const IconMaterialPregnantWomanW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialPregnantWomanW100.displayName = 'AmauiIconMaterialPregnantWomanW100';
 
 
-const IconMaterialPreliminaryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PreliminaryW100",
-    short_name: "Preliminary",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 16.65q.275 0 .463-.188.187-.187.187-.462t-.187-.463Q9.275 15.35 9 15.35t-.463.187q-.187.188-.187.463t.187.462q.188.188.463.188Zm3 0q.275 0 .463-.188.187-.187.187-.462t-.187-.463q-.188-.187-.463-.187t-.462.187q-.188.188-.188.463t.188.462q.187.188.462.188Zm3 0q.275 0 .463-.188.187-.187.187-.462t-.187-.463q-.188-.187-.463-.187t-.462.187q-.188.188-.188.463t.188.462q.187.188.462.188Zm-4.05-3.575 4.725-4.725-.5-.5-4.225 4.25-2.125-2.125-.5.475ZM12 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-.7q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"
-  }));
-});
-IconMaterialPreliminaryW100.displayName = 'AmauiIconMaterialPreliminaryW100';
-
-
 const IconMaterialPrescriptionsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -29667,6 +29654,19 @@ const IconMaterialPrescriptionsW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialPrescriptionsW100.displayName = 'AmauiIconMaterialPrescriptionsW100';
+
+
+const IconMaterialPreliminaryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PreliminaryW100",
+    short_name: "Preliminary",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9 16.65q.275 0 .463-.188.187-.187.187-.462t-.187-.463Q9.275 15.35 9 15.35t-.463.187q-.187.188-.187.463t.187.462q.188.188.463.188Zm3 0q.275 0 .463-.188.187-.187.187-.462t-.187-.463q-.188-.187-.463-.187t-.462.187q-.188.188-.188.463t.188.462q.187.188.462.188Zm3 0q.275 0 .463-.188.187-.187.187-.462t-.187-.463q-.188-.187-.463-.187t-.462.187q-.188.188-.188.463t.188.462q.187.188.462.188Zm-4.05-3.575 4.725-4.725-.5-.5-4.225 4.25-2.125-2.125-.5.475ZM12 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-.7q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"
+  }));
+});
+IconMaterialPreliminaryW100.displayName = 'AmauiIconMaterialPreliminaryW100';
 
 
 const IconMaterialPresentToAllW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29721,19 +29721,6 @@ const IconMaterialPriceChangeW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialPriceChangeW100.displayName = 'AmauiIconMaterialPriceChangeW100';
 
 
-const IconMaterialPriceCheckW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PriceCheckW100",
-    short_name: "PriceCheck",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.15 14.35v-1h-2.5v-.7h5v-3.3h-5v-4.7h2.5v-1h.7v1h2.5v.7h-5v3.3h5v4.7h-2.5v1Zm6.8 5.75-3.35-3.35.5-.5 2.85 2.85 5.7-5.7.5.5Z"
-  }));
-});
-IconMaterialPriceCheckW100.displayName = 'AmauiIconMaterialPriceCheckW100';
-
-
 const IconMaterialPrintAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -29747,17 +29734,17 @@ const IconMaterialPrintAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialPrintAddW100.displayName = 'AmauiIconMaterialPrintAddW100';
 
 
-const IconMaterialPrintConnectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialPriceCheckW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "PrintConnectW100",
-    short_name: "PrintConnect",
-    viewBox: "0 96 960 960"
+    name: "PriceCheckW100",
+    short_name: "PriceCheck",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M190 476h580-580Zm102 408V724H162V448h636v101l-14-2q-7-1-14-1v-70H190v220h102v-56h286q-5 7-9.5 13.5T560 668H320v188h223q2 8 5.5 14.5T555 884H292Zm426-18-77-76 20-20 57 57 141-141 20 19-161 161Zm-78-418V328H320v120h-28V300h376v148h-28Z"
+    d: "M7.15 14.35v-1h-2.5v-.7h5v-3.3h-5v-4.7h2.5v-1h.7v1h2.5v.7h-5v3.3h5v4.7h-2.5v1Zm6.8 5.75-3.35-3.35.5-.5 2.85 2.85 5.7-5.7.5.5Z"
   }));
 });
-IconMaterialPrintConnectW100.displayName = 'AmauiIconMaterialPrintConnectW100';
+IconMaterialPriceCheckW100.displayName = 'AmauiIconMaterialPriceCheckW100';
 
 
 const IconMaterialPrintDisabledW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29784,6 +29771,19 @@ const IconMaterialPrintErrorW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialPrintErrorW100.displayName = 'AmauiIconMaterialPrintErrorW100';
+
+
+const IconMaterialPrintConnectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PrintConnectW100",
+    short_name: "PrintConnect",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M190 476h580-580Zm102 408V724H162V448h636v101l-14-2q-7-1-14-1v-70H190v220h102v-56h286q-5 7-9.5 13.5T560 668H320v188h223q2 8 5.5 14.5T555 884H292Zm426-18-77-76 20-20 57 57 141-141 20 19-161 161Zm-78-418V328H320v120h-28V300h376v148h-28Z"
+  }));
+});
+IconMaterialPrintConnectW100.displayName = 'AmauiIconMaterialPrintConnectW100';
 
 
 const IconMaterialPrintLockW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29864,19 +29864,6 @@ const IconMaterialPrivacyScreenW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialPrivacyScreenW100.displayName = 'AmauiIconMaterialPrivacyScreenW100';
 
 
-const IconMaterialPrivacyTipW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PrivacyTipW100",
-    short_name: "PrivacyTip",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.65 16h.7v-5.55h-.7ZM12 9q.225 0 .363-.15.137-.15.137-.35 0-.225-.137-.363Q12.225 8 12 8q-.2 0-.35.137-.15.138-.15.363 0 .2.15.35.15.15.35.15Zm0 11.65q-2.875-.9-4.787-3.55-1.913-2.65-1.913-6V5.9L12 3.4l6.7 2.5v5.2q0 3.35-1.912 6-1.913 2.65-4.788 3.55Zm0-.75q2.6-.825 4.3-3.3 1.7-2.475 1.7-5.5V6.375L12 4.15 6 6.375V11.1q0 3.025 1.7 5.5t4.3 3.3Zm0-7.875Z"
-  }));
-});
-IconMaterialPrivacyTipW100.displayName = 'AmauiIconMaterialPrivacyTipW100';
-
-
 const IconMaterialPrivacyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -29888,6 +29875,19 @@ const IconMaterialPrivacyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialPrivacyW100.displayName = 'AmauiIconMaterialPrivacyW100';
+
+
+const IconMaterialPrivacyTipW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PrivacyTipW100",
+    short_name: "PrivacyTip",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11.65 16h.7v-5.55h-.7ZM12 9q.225 0 .363-.15.137-.15.137-.35 0-.225-.137-.363Q12.225 8 12 8q-.2 0-.35.137-.15.138-.15.363 0 .2.15.35.15.15.35.15Zm0 11.65q-2.875-.9-4.787-3.55-1.913-2.65-1.913-6V5.9L12 3.4l6.7 2.5v5.2q0 3.35-1.912 6-1.913 2.65-4.788 3.55Zm0-.75q2.6-.825 4.3-3.3 1.7-2.475 1.7-5.5V6.375L12 4.15 6 6.375V11.1q0 3.025 1.7 5.5t4.3 3.3Zm0-7.875Z"
+  }));
+});
+IconMaterialPrivacyTipW100.displayName = 'AmauiIconMaterialPrivacyTipW100';
 
 
 const IconMaterialPrivateConnectivityW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -30072,6 +30072,19 @@ const IconMaterialPublicOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialPublicOffW100.displayName = 'AmauiIconMaterialPublicOffW100';
 
 
+const IconMaterialPublishW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PublishW100",
+    short_name: "Publish",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11.65 18.7V9.9L9.4 12.15l-.5-.5 3.1-3.1 3.1 3.1-.5.5-2.25-2.25v8.8ZM5.3 8.55v-3.7h13.4v3.7H18v-3H6v3Z"
+  }));
+});
+IconMaterialPublishW100.displayName = 'AmauiIconMaterialPublishW100';
+
+
 const IconMaterialPublicW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -30111,17 +30124,17 @@ const IconMaterialPulmonologyW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialPulmonologyW100.displayName = 'AmauiIconMaterialPulmonologyW100';
 
 
-const IconMaterialPublishW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialPulseAlertW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "PublishW100",
-    short_name: "Publish",
-    viewBox: "0 0 24 24"
+    name: "PulseAlertW100",
+    short_name: "PulseAlert",
+    viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.65 18.7V9.9L9.4 12.15l-.5-.5 3.1-3.1 3.1 3.1-.5.5-2.25-2.25v8.8ZM5.3 8.55v-3.7h13.4v3.7H18v-3H6v3Z"
+    d: "M471-487Zm-328-67q-5-17-8-32.978-3-15.979-3-33.022 0-71 48.5-119.5T300-788q52 0 98.5 29t81.5 83q35-55 81-83.5t99-28.5q69 0 117.5 47T828-625q-7-4-14-7.5t-15-6.5q-7-52-46-86.5T660-760q-49 0-88.5 27.5T494-646h-28q-37-57-77.5-85.5T300-760q-59 0-99.5 40.5T160-620q0 17.422 3 33.211Q166-571 173-554h-30Zm337 378-22-20q-42-38-76-70t-63-60h41q26.419 24.242 55.709 52.121Q445-246 480-214q24-22 45-41.5t40-37.5q4.978 5.25 10.489 9.625Q581-279 586-274q-19 18-40 37.5T502-196l-22 20ZM86-426v-28h166l88-131 88 131h79q0 4-.5 7.244-.5 3.244-.5 7t.5 6.756q.5 3 .5 7h-94l-73-109-73 109H86Zm634.035 122Q709-304 701.5-311.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5ZM706-418v-156h28v156h-28Z"
   }));
 });
-IconMaterialPublishW100.displayName = 'AmauiIconMaterialPublishW100';
+IconMaterialPulseAlertW100.displayName = 'AmauiIconMaterialPulseAlertW100';
 
 
 const IconMaterialPunchClockW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -30148,19 +30161,6 @@ const IconMaterialPushPinW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialPushPinW100.displayName = 'AmauiIconMaterialPushPinW100';
-
-
-const IconMaterialPulseAlertW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PulseAlertW100",
-    short_name: "PulseAlert",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M471-487Zm-328-67q-5-17-8-32.978-3-15.979-3-33.022 0-71 48.5-119.5T300-788q52 0 98.5 29t81.5 83q35-55 81-83.5t99-28.5q69 0 117.5 47T828-625q-7-4-14-7.5t-15-6.5q-7-52-46-86.5T660-760q-49 0-88.5 27.5T494-646h-28q-37-57-77.5-85.5T300-760q-59 0-99.5 40.5T160-620q0 17.422 3 33.211Q166-571 173-554h-30Zm337 378-22-20q-42-38-76-70t-63-60h41q26.419 24.242 55.709 52.121Q445-246 480-214q24-22 45-41.5t40-37.5q4.978 5.25 10.489 9.625Q581-279 586-274q-19 18-40 37.5T502-196l-22 20ZM86-426v-28h166l88-131 88 131h79q0 4-.5 7.244-.5 3.244-.5 7t.5 6.756q.5 3 .5 7h-94l-73-109-73 109H86Zm634.035 122Q709-304 701.5-311.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5ZM706-418v-156h28v156h-28Z"
-  }));
-});
-IconMaterialPulseAlertW100.displayName = 'AmauiIconMaterialPulseAlertW100';
 
 
 const IconMaterialQrCode2AddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -30254,19 +30254,6 @@ const IconMaterialQuestionMarkW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialQuestionMarkW100.displayName = 'AmauiIconMaterialQuestionMarkW100';
 
 
-const IconMaterialQueueMusicW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "QueueMusicW100",
-    short_name: "QueueMusic",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16 19.35q-.975 0-1.662-.687-.688-.688-.688-1.663 0-.975.688-1.663.687-.687 1.662-.687.425 0 .825.162.4.163.825.538v-8.7h3.7v1.4h-3V17q0 .975-.687 1.663-.688.687-1.663.687Zm-12.35-4v-.7h6.7v.7Zm0-4v-.7h10.7v.7Zm0-4v-.7h10.7v.7Z"
-  }));
-});
-IconMaterialQueueMusicW100.displayName = 'AmauiIconMaterialQueueMusicW100';
-
-
 const IconMaterialQueuePlayNextW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -30280,6 +30267,19 @@ const IconMaterialQueuePlayNextW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialQueuePlayNextW100.displayName = 'AmauiIconMaterialQueuePlayNextW100';
 
 
+const IconMaterialQueueMusicW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "QueueMusicW100",
+    short_name: "QueueMusic",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M16 19.35q-.975 0-1.662-.687-.688-.688-.688-1.663 0-.975.688-1.663.687-.687 1.662-.687.425 0 .825.162.4.163.825.538v-8.7h3.7v1.4h-3V17q0 .975-.687 1.663-.688.687-1.663.687Zm-12.35-4v-.7h6.7v.7Zm0-4v-.7h10.7v.7Zm0-4v-.7h10.7v.7Z"
+  }));
+});
+IconMaterialQueueMusicW100.displayName = 'AmauiIconMaterialQueueMusicW100';
+
+
 const IconMaterialQuickPhrasesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -30291,19 +30291,6 @@ const IconMaterialQuickPhrasesW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialQuickPhrasesW100.displayName = 'AmauiIconMaterialQuickPhrasesW100';
-
-
-const IconMaterialQuickReferenceAllW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "QuickReferenceAllW100",
-    short_name: "QuickReferenceAll",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M200 256v257-1 384-640 148-148Zm106 374h145q5-8 10-14.5t10-13.5H306v28Zm0 160h112q-1.25-7-1.625-14T416 762H306v28ZM172 924V228h374l162 162v127q-7-2-14-2.5t-14-1.5V404H532V256H200v640h260q4.857 7.754 10.929 14.377Q477 917 483 924H172Zm488.197-52Q709 872 742.5 838.303t33.5-82.5Q776 707 742.303 673.5t-82.5-33.5Q611 640 577.5 673.697t-33.5 82.5Q544 805 577.697 838.5t82.5 33.5ZM864 979 752 867q-19 16-42.5 24.5T660 900q-60 0-102-42t-42-102q0-60 42-102t102-42q60 0 102 42t42 102q0 26-8.5 49.5T771 848l112 112-19 19Z"
-  }));
-});
-IconMaterialQuickReferenceAllW100.displayName = 'AmauiIconMaterialQuickReferenceAllW100';
 
 
 const IconMaterialQuickReferenceW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -30330,6 +30317,19 @@ const IconMaterialQuickReorderW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialQuickReorderW100.displayName = 'AmauiIconMaterialQuickReorderW100';
+
+
+const IconMaterialQuickReferenceAllW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "QuickReferenceAllW100",
+    short_name: "QuickReferenceAll",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M200 256v257-1 384-640 148-148Zm106 374h145q5-8 10-14.5t10-13.5H306v28Zm0 160h112q-1.25-7-1.625-14T416 762H306v28ZM172 924V228h374l162 162v127q-7-2-14-2.5t-14-1.5V404H532V256H200v640h260q4.857 7.754 10.929 14.377Q477 917 483 924H172Zm488.197-52Q709 872 742.5 838.303t33.5-82.5Q776 707 742.303 673.5t-82.5-33.5Q611 640 577.5 673.697t-33.5 82.5Q544 805 577.697 838.5t82.5 33.5ZM864 979 752 867q-19 16-42.5 24.5T660 900q-60 0-102-42t-42-102q0-60 42-102t102-42q60 0 102 42t42 102q0 26-8.5 49.5T771 848l112 112-19 19Z"
+  }));
+});
+IconMaterialQuickReferenceAllW100.displayName = 'AmauiIconMaterialQuickReferenceAllW100';
 
 
 const IconMaterialQuickreplyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -30514,19 +30514,6 @@ const IconMaterialRainyLightW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialRainyLightW100.displayName = 'AmauiIconMaterialRainyLightW100';
 
 
-const IconMaterialRainyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "RainyW100",
-    short_name: "Rainy",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M13.775 21.525q-.125.075-.263.025-.137-.05-.212-.175l-1.75-3.5q-.075-.125-.025-.262.05-.138.175-.213.125-.075.275-.013.15.063.225.188l1.75 3.475q.075.125.013.262-.063.138-.188.213Zm6.025 0q-.125.075-.262.025-.138-.05-.213-.175l-1.75-3.5q-.075-.125-.025-.262.05-.138.175-.213.125-.075.275-.013.15.063.225.188l1.75 3.475q.075.125.013.262-.063.138-.188.213Zm-12.025 0q-.125.075-.275.025-.15-.05-.225-.175l-1.75-3.5q-.075-.125-.012-.262.062-.138.187-.213.125-.075.263-.013.137.063.212.188l1.75 3.475q.075.125.025.262-.05.138-.175.213ZM7.5 15.35q-2.025 0-3.438-1.412Q2.65 12.525 2.65 10.5q0-1.9 1.288-3.275Q5.225 5.85 7.175 5.65q.725-1.4 1.988-2.2 1.262-.8 2.837-.8 2.125 0 3.638 1.425 1.512 1.425 1.737 3.55 1.875.1 2.925 1.237Q21.35 10 21.35 11.5q0 1.6-1.125 2.725T17.5 15.35Zm0-.7h10q1.3 0 2.225-.925t.925-2.225q0-1.3-.925-2.225T17.5 8.35h-.85V8q0-1.925-1.362-3.288Q13.925 3.35 12 3.35q-1.4 0-2.55.762-1.15.763-1.725 2.038l-.075.2h-.2q-1.7.05-2.9 1.25t-1.2 2.9q0 1.725 1.212 2.938Q5.775 14.65 7.5 14.65ZM12 9Z"
-  }));
-});
-IconMaterialRainyW100.displayName = 'AmauiIconMaterialRainyW100';
-
-
 const IconMaterialRainySnowW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -30538,6 +30525,19 @@ const IconMaterialRainySnowW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialRainySnowW100.displayName = 'AmauiIconMaterialRainySnowW100';
+
+
+const IconMaterialRainyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "RainyW100",
+    short_name: "Rainy",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M13.775 21.525q-.125.075-.263.025-.137-.05-.212-.175l-1.75-3.5q-.075-.125-.025-.262.05-.138.175-.213.125-.075.275-.013.15.063.225.188l1.75 3.475q.075.125.013.262-.063.138-.188.213Zm6.025 0q-.125.075-.262.025-.138-.05-.213-.175l-1.75-3.5q-.075-.125-.025-.262.05-.138.175-.213.125-.075.275-.013.15.063.225.188l1.75 3.475q.075.125.013.262-.063.138-.188.213Zm-12.025 0q-.125.075-.275.025-.15-.05-.225-.175l-1.75-3.5q-.075-.125-.012-.262.062-.138.187-.213.125-.075.263-.013.137.063.212.188l1.75 3.475q.075.125.025.262-.05.138-.175.213ZM7.5 15.35q-2.025 0-3.438-1.412Q2.65 12.525 2.65 10.5q0-1.9 1.288-3.275Q5.225 5.85 7.175 5.65q.725-1.4 1.988-2.2 1.262-.8 2.837-.8 2.125 0 3.638 1.425 1.512 1.425 1.737 3.55 1.875.1 2.925 1.237Q21.35 10 21.35 11.5q0 1.6-1.125 2.725T17.5 15.35Zm0-.7h10q1.3 0 2.225-.925t.925-2.225q0-1.3-.925-2.225T17.5 8.35h-.85V8q0-1.925-1.362-3.288Q13.925 3.35 12 3.35q-1.4 0-2.55.762-1.15.763-1.725 2.038l-.075.2h-.2q-1.7.05-2.9 1.25t-1.2 2.9q0 1.725 1.212 2.938Q5.775 14.65 7.5 14.65ZM12 9Z"
+  }));
+});
+IconMaterialRainyW100.displayName = 'AmauiIconMaterialRainyW100';
 
 
 const IconMaterialRamenDiningW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -30631,19 +30631,6 @@ const IconMaterialRawOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialRawOffW100.displayName = 'AmauiIconMaterialRawOffW100';
 
 
-const IconMaterialRawOnW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "RawOnW100",
-    short_name: "RawOn",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m8.925 14.6 1.8-5.2h1l1.8 5.2h-.75l-.55-1.55h-2l-.55 1.55Zm1.5-2.2h1.6l-.7-2.05h-.2Zm5.3 2.2-1.4-5.2h.725l1 3.675L17 9.4h.6l.95 3.675 1-3.675h.725l-1.4 5.2h-.625l-.95-3.525-.95 3.525ZM3.4 14.6V9.4h2.7q.6 0 1.05.45.45.45.45 1.05v.2q0 .425-.262.838-.263.412-.838.612l.9 2.05h-.75l-.9-2H4.1v2Zm.7-2.7h2q.3 0 .55-.25.25-.25.25-.55v-.2q0-.3-.25-.55-.25-.25-.55-.25h-2Z"
-  }));
-});
-IconMaterialRawOnW100.displayName = 'AmauiIconMaterialRawOnW100';
-
-
 const IconMaterialReadMoreW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -30668,6 +30655,19 @@ const IconMaterialReadinessScoreW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialReadinessScoreW100.displayName = 'AmauiIconMaterialReadinessScoreW100';
+
+
+const IconMaterialRawOnW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "RawOnW100",
+    short_name: "RawOn",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m8.925 14.6 1.8-5.2h1l1.8 5.2h-.75l-.55-1.55h-2l-.55 1.55Zm1.5-2.2h1.6l-.7-2.05h-.2Zm5.3 2.2-1.4-5.2h.725l1 3.675L17 9.4h.6l.95 3.675 1-3.675h.725l-1.4 5.2h-.625l-.95-3.525-.95 3.525ZM3.4 14.6V9.4h2.7q.6 0 1.05.45.45.45.45 1.05v.2q0 .425-.262.838-.263.412-.838.612l.9 2.05h-.75l-.9-2H4.1v2Zm.7-2.7h2q.3 0 .55-.25.25-.25.25-.55v-.2q0-.3-.25-.55-.25-.25-.55-.25h-2Z"
+  }));
+});
+IconMaterialRawOnW100.displayName = 'AmauiIconMaterialRawOnW100';
 
 
 const IconMaterialRealEstateAgentW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -30722,19 +30722,6 @@ const IconMaterialRebaseW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialRebaseW100.displayName = 'AmauiIconMaterialRebaseW100';
 
 
-const IconMaterialReceiptLongW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ReceiptLongW100",
-    short_name: "ReceiptLong",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6 20.7q-.725 0-1.213-.488Q4.3 19.725 4.3 19v-1.7h3V3.8l1.2.7 1.25-.7 1.25.7 1.25-.7 1.25.7 1.25-.7 1.25.7 1.25-.7 1.25.7 1.2-.7V19q0 .725-.487 1.212-.488.488-1.213.488Zm12-.7q.425 0 .712-.288Q19 19.425 19 19V5H8v12.3h9V19q0 .425.288.712.287.288.712.288ZM9.5 8.35v-.7h5.15v.7Zm0 3v-.7h5.15v.7Zm7.35-2.65q-.275 0-.487-.213-.213-.212-.213-.487t.213-.488q.212-.212.487-.212t.487.212q.213.213.213.488t-.213.487q-.212.213-.487.213Zm0 3q-.275 0-.487-.213-.213-.212-.213-.487t.213-.488q.212-.212.487-.212t.487.212q.213.213.213.488t-.213.487q-.212.213-.487.213ZM6 20h10.3v-2H5v1q0 .425.287.712Q5.575 20 6 20Zm-1 0v-2 2Z"
-  }));
-});
-IconMaterialReceiptLongW100.displayName = 'AmauiIconMaterialReceiptLongW100';
-
-
 const IconMaterialReceiptW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -30746,6 +30733,19 @@ const IconMaterialReceiptW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialReceiptW100.displayName = 'AmauiIconMaterialReceiptW100';
+
+
+const IconMaterialReceiptLongW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ReceiptLongW100",
+    short_name: "ReceiptLong",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6 20.7q-.725 0-1.213-.488Q4.3 19.725 4.3 19v-1.7h3V3.8l1.2.7 1.25-.7 1.25.7 1.25-.7 1.25.7 1.25-.7 1.25.7 1.25-.7 1.25.7 1.2-.7V19q0 .725-.487 1.212-.488.488-1.213.488Zm12-.7q.425 0 .712-.288Q19 19.425 19 19V5H8v12.3h9V19q0 .425.288.712.287.288.712.288ZM9.5 8.35v-.7h5.15v.7Zm0 3v-.7h5.15v.7Zm7.35-2.65q-.275 0-.487-.213-.213-.212-.213-.487t.213-.488q.212-.212.487-.212t.487.212q.213.213.213.488t-.213.487q-.212.213-.487.213Zm0 3q-.275 0-.487-.213-.213-.212-.213-.487t.213-.488q.212-.212.487-.212t.487.212q.213.213.213.488t-.213.487q-.212.213-.487.213ZM6 20h10.3v-2H5v1q0 .425.287.712Q5.575 20 6 20Zm-1 0v-2 2Z"
+  }));
+});
+IconMaterialReceiptLongW100.displayName = 'AmauiIconMaterialReceiptLongW100';
 
 
 const IconMaterialRecentActorsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -31177,19 +31177,6 @@ const IconMaterialReplay5W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialReplay5W100.displayName = 'AmauiIconMaterialReplay5W100';
 
 
-const IconMaterialReplayCircleFilledW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ReplayCircleFilledW100",
-    short_name: "ReplayCircleFilled",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 17.85q2.225 0 3.788-1.562 1.562-1.563 1.562-3.788 0-2.65-2.187-4.225Q12.975 6.7 10.2 7.15l2.3-2.25-.5-.5-3.1 3.1 3.1 3.1.5-.5-2.25-2.25q2.475-.45 4.438.925Q16.65 10.15 16.65 12.5q0 1.95-1.35 3.3-1.35 1.35-3.3 1.35-1.75 0-3.062-1.138Q7.625 14.875 7.4 13.15h-.7q.2 2.025 1.725 3.362Q9.95 17.85 12 17.85Zm0 2.85q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Z"
-  }));
-});
-IconMaterialReplayCircleFilledW100.displayName = 'AmauiIconMaterialReplayCircleFilledW100';
-
-
 const IconMaterialReplayW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -31227,6 +31214,19 @@ const IconMaterialReplyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialReplyW100.displayName = 'AmauiIconMaterialReplyW100';
+
+
+const IconMaterialReplayCircleFilledW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ReplayCircleFilledW100",
+    short_name: "ReplayCircleFilled",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 17.85q2.225 0 3.788-1.562 1.562-1.563 1.562-3.788 0-2.65-2.187-4.225Q12.975 6.7 10.2 7.15l2.3-2.25-.5-.5-3.1 3.1 3.1 3.1.5-.5-2.25-2.25q2.475-.45 4.438.925Q16.65 10.15 16.65 12.5q0 1.95-1.35 3.3-1.35 1.35-3.3 1.35-1.75 0-3.062-1.138Q7.625 14.875 7.4 13.15h-.7q.2 2.025 1.725 3.362Q9.95 17.85 12 17.85Zm0 2.85q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Z"
+  }));
+});
+IconMaterialReplayCircleFilledW100.displayName = 'AmauiIconMaterialReplayCircleFilledW100';
 
 
 const IconMaterialReportOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -31710,19 +31710,6 @@ const IconMaterialRotate90DegreesCcwW100 = /*#__PURE__*/React.forwardRef((props,
 IconMaterialRotate90DegreesCcwW100.displayName = 'AmauiIconMaterialRotate90DegreesCcwW100';
 
 
-const IconMaterialRotate90DegreesCwW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Rotate90DegreesCwW100",
-    short_name: "Rotate90DegreesCw",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.275 20.7q-1.6 0-3-.6t-2.45-1.65Q4.775 17.4 4.175 16q-.6-1.4-.6-3 0-3.2 2.25-5.45t5.45-2.25h1.65l-2.15-2.15.5-.6 3.1 3.1-3.1 3.1-.5-.6L12.925 6h-1.65Q8.35 6 6.312 8.037 4.275 10.075 4.275 13q0 2.925 2.037 4.962Q8.35 20 11.275 20q.875 0 1.725-.212.85-.213 1.625-.638l.5.5q-.875.5-1.85.775-.975.275-2 .275Zm6-3.55L13.125 13l4.15-4.15 4.15 4.15Zm0-1 3.15-3.15-3.15-3.15-3.15 3.15Zm0-3.15Z"
-  }));
-});
-IconMaterialRotate90DegreesCwW100.displayName = 'AmauiIconMaterialRotate90DegreesCwW100';
-
-
 const IconMaterialRotateLeftW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -31734,6 +31721,19 @@ const IconMaterialRotateLeftW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialRotateLeftW100.displayName = 'AmauiIconMaterialRotateLeftW100';
+
+
+const IconMaterialRotate90DegreesCwW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Rotate90DegreesCwW100",
+    short_name: "Rotate90DegreesCw",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11.275 20.7q-1.6 0-3-.6t-2.45-1.65Q4.775 17.4 4.175 16q-.6-1.4-.6-3 0-3.2 2.25-5.45t5.45-2.25h1.65l-2.15-2.15.5-.6 3.1 3.1-3.1 3.1-.5-.6L12.925 6h-1.65Q8.35 6 6.312 8.037 4.275 10.075 4.275 13q0 2.925 2.037 4.962Q8.35 20 11.275 20q.875 0 1.725-.212.85-.213 1.625-.638l.5.5q-.875.5-1.85.775-.975.275-2 .275Zm6-3.55L13.125 13l4.15-4.15 4.15 4.15Zm0-1 3.15-3.15-3.15-3.15-3.15 3.15Zm0-3.15Z"
+  }));
+});
+IconMaterialRotate90DegreesCwW100.displayName = 'AmauiIconMaterialRotate90DegreesCwW100';
 
 
 const IconMaterialRotateRightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -31918,19 +31918,6 @@ const IconMaterialRuleSettingsW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialRuleSettingsW100.displayName = 'AmauiIconMaterialRuleSettingsW100';
 
 
-const IconMaterialRuleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "RuleW100",
-    short_name: "Rule",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2.65 16.35v-.7h7.7v.7Zm0-8v-.7h7.7v.7ZM14.4 19.075l-.475-.475 2.6-2.6-2.6-2.6.475-.475 2.6 2.6 2.6-2.6.475.475-2.6 2.6 2.6 2.6-.475.475-2.6-2.6Zm2.15-9L13.925 7.45l.475-.475L16.525 9.1l4.25-4.25.475.5Z"
-  }));
-});
-IconMaterialRuleW100.displayName = 'AmauiIconMaterialRuleW100';
-
-
 const IconMaterialRunCircleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -31955,6 +31942,19 @@ const IconMaterialRunningWithErrorsW100 = /*#__PURE__*/React.forwardRef((props, 
   }));
 });
 IconMaterialRunningWithErrorsW100.displayName = 'AmauiIconMaterialRunningWithErrorsW100';
+
+
+const IconMaterialRuleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "RuleW100",
+    short_name: "Rule",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2.65 16.35v-.7h7.7v.7Zm0-8v-.7h7.7v.7ZM14.4 19.075l-.475-.475 2.6-2.6-2.6-2.6.475-.475 2.6 2.6 2.6-2.6.475.475-2.6 2.6 2.6 2.6-.475.475-2.6-2.6Zm2.15-9L13.925 7.45l.475-.475L16.525 9.1l4.25-4.25.475.5Z"
+  }));
+});
+IconMaterialRuleW100.displayName = 'AmauiIconMaterialRuleW100';
 
 
 const IconMaterialRvHookupW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -32282,19 +32282,6 @@ const IconMaterialSchoolW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialSchoolW100.displayName = 'AmauiIconMaterialSchoolW100';
 
 
-const IconMaterialScienceOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ScienceOffW100",
-    short_name: "ScienceOff",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m548-518-28-28v-214h-80v134l-28-28v-106h-74v-28h284v28h-74v242ZM200-200h512L431-481 200-200Zm562 50-22-22H200q-18 0-25.5-16t3.5-30l233-283-263-263 20-20 614 614-20 20ZM431-481Zm49-105Z"
-  }));
-});
-IconMaterialScienceOffW100.displayName = 'AmauiIconMaterialScienceOffW100';
-
-
 const IconMaterialScienceW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -32332,6 +32319,19 @@ const IconMaterialScoreboardW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialScoreboardW100.displayName = 'AmauiIconMaterialScoreboardW100';
+
+
+const IconMaterialScienceOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ScienceOffW100",
+    short_name: "ScienceOff",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m548-518-28-28v-214h-80v134l-28-28v-106h-74v-28h284v28h-74v242ZM200-200h512L431-481 200-200Zm562 50-22-22H200q-18 0-25.5-16t3.5-30l233-283-263-263 20-20 614 614-20 20ZM431-481Zm49-105Z"
+  }));
+});
+IconMaterialScienceOffW100.displayName = 'AmauiIconMaterialScienceOffW100';
 
 
 const IconMaterialScreenLockLandscapeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -32412,19 +32412,6 @@ const IconMaterialScreenRotationUpW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialScreenRotationUpW100.displayName = 'AmauiIconMaterialScreenRotationUpW100';
 
 
-const IconMaterialScreenRotationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ScreenRotationW100",
-    short_name: "ScreenRotation",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m14.025 18.975-9.05-9.05 4.95-4.95 9.05 9.05Zm0-1 3.95-3.95-8.05-8.05-3.95 3.95ZM12 22.7q-2.2 0-4.15-.838-1.95-.837-3.412-2.3-1.463-1.462-2.3-3.412Q1.3 14.2 1.3 12H2q0 2.05.788 3.875.787 1.825 2.15 3.187 1.362 1.363 3.187 2.15Q9.95 22 12 22l-3.7-3.7.5-.5 4.75 4.75q-.45.075-.825.113-.375.037-.725.037ZM22 12q0-2.075-.788-3.887-.787-1.813-2.15-3.175-1.362-1.363-3.175-2.151Q14.075 2 12 2l3.7 3.7-.5.5-4.75-4.75q.425-.075.85-.113.425-.037.7-.037 2.225 0 4.163.837 1.937.838 3.399 2.3 1.463 1.463 2.301 3.4Q22.7 9.775 22.7 12Zm-10.025-.025Z"
-  }));
-});
-IconMaterialScreenRotationW100.displayName = 'AmauiIconMaterialScreenRotationW100';
-
-
 const IconMaterialScreenSearchDesktopW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -32436,6 +32423,19 @@ const IconMaterialScreenSearchDesktopW100 = /*#__PURE__*/React.forwardRef((props
   }));
 });
 IconMaterialScreenSearchDesktopW100.displayName = 'AmauiIconMaterialScreenSearchDesktopW100';
+
+
+const IconMaterialScreenRotationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ScreenRotationW100",
+    short_name: "ScreenRotation",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m14.025 18.975-9.05-9.05 4.95-4.95 9.05 9.05Zm0-1 3.95-3.95-8.05-8.05-3.95 3.95ZM12 22.7q-2.2 0-4.15-.838-1.95-.837-3.412-2.3-1.463-1.462-2.3-3.412Q1.3 14.2 1.3 12H2q0 2.05.788 3.875.787 1.825 2.15 3.187 1.362 1.363 3.187 2.15Q9.95 22 12 22l-3.7-3.7.5-.5 4.75 4.75q-.45.075-.825.113-.375.037-.725.037ZM22 12q0-2.075-.788-3.887-.787-1.813-2.15-3.175-1.362-1.363-3.175-2.151Q14.075 2 12 2l3.7 3.7-.5.5-4.75-4.75q.425-.075.85-.113.425-.037.7-.037 2.225 0 4.163.837 1.937.838 3.399 2.3 1.463 1.463 2.301 3.4Q22.7 9.775 22.7 12Zm-10.025-.025Z"
+  }));
+});
+IconMaterialScreenRotationW100.displayName = 'AmauiIconMaterialScreenRotationW100';
 
 
 const IconMaterialScreenShareW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -32555,6 +32555,19 @@ const IconMaterialScrollableHeaderW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialScrollableHeaderW100.displayName = 'AmauiIconMaterialScrollableHeaderW100';
 
 
+const IconMaterialScubaDivingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ScubaDivingW100",
+    short_name: "ScubaDiving",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 14.85q-.65 0-1.125-.475T1.4 13.25q0-.65.475-1.125T3 11.65q.65 0 1.125.475T4.6 13.25q0 .65-.475 1.125T3 14.85Zm5.8-4.775q-.425.125-.837-.1-.413-.225-.538-.675-.125-.425.113-.838.237-.412.662-.537l4.175-1.25.55 2.15ZM3.875 22.1l-.575-.425 2.55-3.4.825-4.625q.05-.425.325-.738.275-.312.7-.412l9.75-2.95 1.95-4.3 2.475-2.45.525.475-2.35 2.475-1.75 4.35-4.6 3.3-6.05 1.925-1.225 3.35Z"
+  }));
+});
+IconMaterialScubaDivingW100.displayName = 'AmauiIconMaterialScubaDivingW100';
+
+
 const IconMaterialSdCardAlertW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -32568,19 +32581,6 @@ const IconMaterialSdCardAlertW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialSdCardAlertW100.displayName = 'AmauiIconMaterialSdCardAlertW100';
 
 
-const IconMaterialSdCardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SdCardW100",
-    short_name: "SdCard",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9.75 10.7h.7V7.45h-.7Zm2.75 0h.7V7.45h-.7Zm2.75 0h.7V7.45h-.7Zm-9.95 10V8.55l5.25-5.25h8.15v17.4ZM6 20h12V4h-7.15L6 8.85Zm0 0h12Z"
-  }));
-});
-IconMaterialSdCardW100.displayName = 'AmauiIconMaterialSdCardW100';
-
-
 const IconMaterialSdW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -32592,6 +32592,19 @@ const IconMaterialSdW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialSdW100.displayName = 'AmauiIconMaterialSdW100';
+
+
+const IconMaterialSdCardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SdCardW100",
+    short_name: "SdCard",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9.75 10.7h.7V7.45h-.7Zm2.75 0h.7V7.45h-.7Zm2.75 0h.7V7.45h-.7Zm-9.95 10V8.55l5.25-5.25h8.15v17.4ZM6 20h12V4h-7.15L6 8.85Zm0 0h12Z"
+  }));
+});
+IconMaterialSdCardW100.displayName = 'AmauiIconMaterialSdCardW100';
 
 
 const IconMaterialSdkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -32880,19 +32893,6 @@ const IconMaterialSendTimeExtensionW100 = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialSendTimeExtensionW100.displayName = 'AmauiIconMaterialSendTimeExtensionW100';
 
 
-const IconMaterialSendToMobileW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SendToMobileW100",
-    short_name: "SendToMobile",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m17 15.1-.5-.5 2.25-2.25h-6.1v-.7h6.1L16.5 9.4l.5-.5 3.1 3.1Zm0 4.25H7V21h10Zm0-14.7V3H7v1.65ZM6.3 21.7V2.3h11.4v4.6H17V5.35H7v13.3h10V17.1h.7v4.6ZM7 3v1.65Zm0 18v-1.65Z"
-  }));
-});
-IconMaterialSendToMobileW100.displayName = 'AmauiIconMaterialSendToMobileW100';
-
-
 const IconMaterialSendW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -32904,6 +32904,19 @@ const IconMaterialSendW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialSendW100.displayName = 'AmauiIconMaterialSendW100';
+
+
+const IconMaterialSendToMobileW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SendToMobileW100",
+    short_name: "SendToMobile",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m17 15.1-.5-.5 2.25-2.25h-6.1v-.7h6.1L16.5 9.4l.5-.5 3.1 3.1Zm0 4.25H7V21h10Zm0-14.7V3H7v1.65ZM6.3 21.7V2.3h11.4v4.6H17V5.35H7v13.3h10V17.1h.7v4.6ZM7 3v1.65Zm0 18v-1.65Z"
+  }));
+});
+IconMaterialSendToMobileW100.displayName = 'AmauiIconMaterialSendToMobileW100';
 
 
 const IconMaterialSensorDoorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33036,19 +33049,6 @@ const IconMaterialSentimentDissatisfiedW100 = /*#__PURE__*/React.forwardRef((pro
 IconMaterialSentimentDissatisfiedW100.displayName = 'AmauiIconMaterialSentimentDissatisfiedW100';
 
 
-const IconMaterialSentimentExcitedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SentimentExcitedW100",
-    short_name: "SentimentExcited",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M336 592v64q0 60 42 102t102 42q60 0 102-42t42-102v-64H336Zm144 180q-48 0-82-34t-34-82v-36h232v36q0 48-34 82t-82 34ZM340 392q-29 0-53 20t-36 55l27 7q9-24 25.5-38.5T340 420q20 1 36.5 15.5T402 474l27-7q-12-35-36-55t-53-20Zm280 0q-29 0-53 20t-36 55l27 7q9-25 25-39.5t37-14.5q21 0 37 14.5t25 39.5l27-7q-12-35-36-55t-53-20ZM480.174 924Q408 924 344.442 896.609q-63.559-27.392-110.575-74.348-47.015-46.957-74.441-110.435Q132 648.348 132 576.174q0-72.174 27.391-135.732 27.392-63.559 74.348-110.574 46.957-47.016 110.435-74.442Q407.652 228 479.826 228q72.174 0 135.732 27.391 63.559 27.392 110.574 74.348 47.016 46.957 74.442 110.435Q828 503.652 828 575.826q0 72.174-27.391 135.732-27.392 63.559-74.348 110.575-46.957 47.015-110.435 74.441Q552.348 924 480.174 924ZM480 576Zm0 320q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Z"
-  }));
-});
-IconMaterialSentimentExcitedW100.displayName = 'AmauiIconMaterialSentimentExcitedW100';
-
-
 const IconMaterialSentimentExtremelyDissatisfiedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -33127,17 +33127,17 @@ const IconMaterialSentimentStressedW100 = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialSentimentStressedW100.displayName = 'AmauiIconMaterialSentimentStressedW100';
 
 
-const IconMaterialSentimentVeryDissatisfiedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialSentimentExcitedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "SentimentVeryDissatisfiedW100",
-    short_name: "SentimentVeryDissatisfied",
-    viewBox: "0 0 24 24"
+    name: "SentimentExcitedW100",
+    short_name: "SentimentExcited",
+    viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 13.5q-1.2 0-2.363.637-1.162.638-1.887 2.063h8.5q-.725-1.425-1.887-2.063Q13.2 13.5 12 13.5Zm-4.3-2.05 1.1-1.05 1.05 1.05.5-.5L9.3 9.9l1.05-1.1-.5-.5L8.8 9.35 7.7 8.3l-.5.5 1.05 1.1-1.05 1.05Zm6.45 0 1.05-1.05 1.1 1.05.5-.5-1.05-1.05 1.05-1.1-.5-.5-1.1 1.05-1.05-1.05-.5.5 1.05 1.1-1.05 1.05ZM12 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-8.7Zm0 8q3.325 0 5.663-2.337Q20 15.325 20 12t-2.337-5.663Q15.325 4 12 4T6.338 6.337Q4 8.675 4 12t2.338 5.663Q8.675 20 12 20Z"
+    d: "M336 592v64q0 60 42 102t102 42q60 0 102-42t42-102v-64H336Zm144 180q-48 0-82-34t-34-82v-36h232v36q0 48-34 82t-82 34ZM340 392q-29 0-53 20t-36 55l27 7q9-24 25.5-38.5T340 420q20 1 36.5 15.5T402 474l27-7q-12-35-36-55t-53-20Zm280 0q-29 0-53 20t-36 55l27 7q9-25 25-39.5t37-14.5q21 0 37 14.5t25 39.5l27-7q-12-35-36-55t-53-20ZM480.174 924Q408 924 344.442 896.609q-63.559-27.392-110.575-74.348-47.015-46.957-74.441-110.435Q132 648.348 132 576.174q0-72.174 27.391-135.732 27.392-63.559 74.348-110.574 46.957-47.016 110.435-74.442Q407.652 228 479.826 228q72.174 0 135.732 27.391 63.559 27.392 110.574 74.348 47.016 46.957 74.442 110.435Q828 503.652 828 575.826q0 72.174-27.391 135.732-27.392 63.559-74.348 110.575-46.957 47.015-110.435 74.441Q552.348 924 480.174 924ZM480 576Zm0 320q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Z"
   }));
 });
-IconMaterialSentimentVeryDissatisfiedW100.displayName = 'AmauiIconMaterialSentimentVeryDissatisfiedW100';
+IconMaterialSentimentExcitedW100.displayName = 'AmauiIconMaterialSentimentExcitedW100';
 
 
 const IconMaterialSentimentVerySatisfiedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33151,6 +33151,19 @@ const IconMaterialSentimentVerySatisfiedW100 = /*#__PURE__*/React.forwardRef((pr
   }));
 });
 IconMaterialSentimentVerySatisfiedW100.displayName = 'AmauiIconMaterialSentimentVerySatisfiedW100';
+
+
+const IconMaterialSentimentVeryDissatisfiedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SentimentVeryDissatisfiedW100",
+    short_name: "SentimentVeryDissatisfied",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 13.5q-1.2 0-2.363.637-1.162.638-1.887 2.063h8.5q-.725-1.425-1.887-2.063Q13.2 13.5 12 13.5Zm-4.3-2.05 1.1-1.05 1.05 1.05.5-.5L9.3 9.9l1.05-1.1-.5-.5L8.8 9.35 7.7 8.3l-.5.5 1.05 1.1-1.05 1.05Zm6.45 0 1.05-1.05 1.1 1.05.5-.5-1.05-1.05 1.05-1.1-.5-.5-1.1 1.05-1.05-1.05-.5.5 1.05 1.1-1.05 1.05ZM12 20.7q-1.8 0-3.387-.688-1.588-.687-2.763-1.862-1.175-1.175-1.863-2.763Q3.3 13.8 3.3 12t.687-3.388Q4.675 7.025 5.85 5.85t2.763-1.863Q10.2 3.3 12 3.3t3.388.687q1.587.688 2.762 1.863t1.863 2.762Q20.7 10.2 20.7 12q0 1.8-.687 3.387-.688 1.588-1.863 2.763-1.175 1.175-2.762 1.862Q13.8 20.7 12 20.7Zm0-8.7Zm0 8q3.325 0 5.663-2.337Q20 15.325 20 12t-2.337-5.663Q15.325 4 12 4T6.338 6.337Q4 8.675 4 12t2.338 5.663Q8.675 20 12 20Z"
+  }));
+});
+IconMaterialSentimentVeryDissatisfiedW100.displayName = 'AmauiIconMaterialSentimentVeryDissatisfiedW100';
 
 
 const IconMaterialSentimentWorriedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33177,19 +33190,6 @@ const IconMaterialServiceToolboxW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialServiceToolboxW100.displayName = 'AmauiIconMaterialServiceToolboxW100';
-
-
-const IconMaterialScubaDivingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ScubaDivingW100",
-    short_name: "ScubaDiving",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 14.85q-.65 0-1.125-.475T1.4 13.25q0-.65.475-1.125T3 11.65q.65 0 1.125.475T4.6 13.25q0 .65-.475 1.125T3 14.85Zm5.8-4.775q-.425.125-.837-.1-.413-.225-.538-.675-.125-.425.113-.838.237-.412.662-.537l4.175-1.25.55 2.15ZM3.875 22.1l-.575-.425 2.55-3.4.825-4.625q.05-.425.325-.738.275-.312.7-.412l9.75-2.95 1.95-4.3 2.475-2.45.525.475-2.35 2.475-1.75 4.35-4.6 3.3-6.05 1.925-1.225 3.35Z"
-  }));
-});
-IconMaterialScubaDivingW100.displayName = 'AmauiIconMaterialScubaDivingW100';
 
 
 const IconMaterialSetMealW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33504,19 +33504,6 @@ const IconMaterialSettingsPowerW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialSettingsPowerW100.displayName = 'AmauiIconMaterialSettingsPowerW100';
 
 
-const IconMaterialSettingsRemoteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SettingsRemoteW100",
-    short_name: "SettingsRemote",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8.65 22.35V9.65h6.7v12.7ZM12 13.7q.3 0 .5-.2t.2-.5q0-.3-.2-.5t-.5-.2q-.3 0-.5.2t-.2.5q0 .3.2.5t.5.2ZM8.5 6.55l-.5-.5q.8-.65 1.812-1.025Q10.825 4.65 12 4.65q1.175 0 2.188.375Q15.2 5.4 16 6.05l-.5.5q-.725-.575-1.625-.888-.9-.312-1.875-.312t-1.875.312q-.9.313-1.625.888Zm-2.85-2.8-.5-.55Q6.5 2.025 8.275 1.337 10.05.65 12 .65q1.95 0 3.713.7 1.762.7 3.087 1.9l-.45.5q-1.275-1.125-2.887-1.763Q13.85 1.35 12 1.35t-3.462.637Q6.925 2.625 5.65 3.75Zm3.7 17.9h5.3v-11.3h-5.3Zm0 0h5.3Z"
-  }));
-});
-IconMaterialSettingsRemoteW100.displayName = 'AmauiIconMaterialSettingsRemoteW100';
-
-
 const IconMaterialSettingsSlowMotionW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -33528,6 +33515,19 @@ const IconMaterialSettingsSlowMotionW100 = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialSettingsSlowMotionW100.displayName = 'AmauiIconMaterialSettingsSlowMotionW100';
+
+
+const IconMaterialSettingsRemoteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SettingsRemoteW100",
+    short_name: "SettingsRemote",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8.65 22.35V9.65h6.7v12.7ZM12 13.7q.3 0 .5-.2t.2-.5q0-.3-.2-.5t-.5-.2q-.3 0-.5.2t-.2.5q0 .3.2.5t.5.2ZM8.5 6.55l-.5-.5q.8-.65 1.812-1.025Q10.825 4.65 12 4.65q1.175 0 2.188.375Q15.2 5.4 16 6.05l-.5.5q-.725-.575-1.625-.888-.9-.312-1.875-.312t-1.875.312q-.9.313-1.625.888Zm-2.85-2.8-.5-.55Q6.5 2.025 8.275 1.337 10.05.65 12 .65q1.95 0 3.713.7 1.762.7 3.087 1.9l-.45.5q-1.275-1.125-2.887-1.763Q13.85 1.35 12 1.35t-3.462.637Q6.925 2.625 5.65 3.75Zm3.7 17.9h5.3v-11.3h-5.3Zm0 0h5.3Z"
+  }));
+});
+IconMaterialSettingsRemoteW100.displayName = 'AmauiIconMaterialSettingsRemoteW100';
 
 
 const IconMaterialSettingsSuggestW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33595,19 +33595,6 @@ const IconMaterialSettingsVoiceW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialSettingsVoiceW100.displayName = 'AmauiIconMaterialSettingsVoiceW100';
 
 
-const IconMaterialSettingsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SettingsW100",
-    short_name: "Settings",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m10.4 20.7-.35-2.8q-.525-.15-1.163-.5-.637-.35-1.062-.75l-2.575 1.1-1.6-2.8 2.225-1.675q-.05-.3-.088-.625-.037-.325-.037-.625 0-.275.037-.587l.088-.713L3.65 9.05l1.6-2.75L7.8 7.375q.5-.425 1.087-.763.588-.337 1.138-.512l.375-2.8h3.2l.35 2.825q.65.225 1.138.512.487.288 1.012.738L18.75 6.3l1.6 2.75-2.325 1.75q.1.35.113.638.012.287.012.562 0 .25-.025.537-.025.288-.1.713l2.275 1.7-1.6 2.8-2.6-1.125q-.525.45-1.05.762-.525.313-1.1.488L13.6 20.7Zm1.55-6.5q.925 0 1.562-.638.638-.637.638-1.562t-.638-1.562Q12.875 9.8 11.95 9.8t-1.563.638Q9.75 11.075 9.75 12t.637 1.562q.638.638 1.563.638Zm0-.7q-.625 0-1.062-.438-.438-.437-.438-1.062t.438-1.062q.437-.438 1.062-.438t1.063.438q.437.437.437 1.062t-.437 1.062q-.438.438-1.063.438ZM12 12Zm-1 8h1.95l.375-2.725q.75-.2 1.338-.538.587-.337 1.237-.962l2.5 1.075 1-1.7-2.2-1.65q.125-.45.163-.8.037-.35.037-.7 0-.375-.037-.7-.038-.325-.163-.75l2.25-1.7-1-1.7-2.575 1.075q-.425-.475-1.187-.925-.763-.45-1.388-.575L13 4h-2l-.3 2.7q-.75.15-1.375.5t-1.275 1l-2.5-1.05-1 1.7 2.175 1.625q-.125.325-.175.725-.05.4-.05.825 0 .375.05.75t.15.725l-2.15 1.65 1 1.7 2.475-1.05q.6.6 1.225.95.625.35 1.425.55Z"
-  }));
-});
-IconMaterialSettingsW100.displayName = 'AmauiIconMaterialSettingsW100';
-
-
 const IconMaterialSettopComponentW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -33619,6 +33606,19 @@ const IconMaterialSettopComponentW100 = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialSettopComponentW100.displayName = 'AmauiIconMaterialSettopComponentW100';
+
+
+const IconMaterialSettingsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SettingsW100",
+    short_name: "Settings",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m10.4 20.7-.35-2.8q-.525-.15-1.163-.5-.637-.35-1.062-.75l-2.575 1.1-1.6-2.8 2.225-1.675q-.05-.3-.088-.625-.037-.325-.037-.625 0-.275.037-.587l.088-.713L3.65 9.05l1.6-2.75L7.8 7.375q.5-.425 1.087-.763.588-.337 1.138-.512l.375-2.8h3.2l.35 2.825q.65.225 1.138.512.487.288 1.012.738L18.75 6.3l1.6 2.75-2.325 1.75q.1.35.113.638.012.287.012.562 0 .25-.025.537-.025.288-.1.713l2.275 1.7-1.6 2.8-2.6-1.125q-.525.45-1.05.762-.525.313-1.1.488L13.6 20.7Zm1.55-6.5q.925 0 1.562-.638.638-.637.638-1.562t-.638-1.562Q12.875 9.8 11.95 9.8t-1.563.638Q9.75 11.075 9.75 12t.637 1.562q.638.638 1.563.638Zm0-.7q-.625 0-1.062-.438-.438-.437-.438-1.062t.438-1.062q.437-.438 1.062-.438t1.063.438q.437.437.437 1.062t-.437 1.062q-.438.438-1.063.438ZM12 12Zm-1 8h1.95l.375-2.725q.75-.2 1.338-.538.587-.337 1.237-.962l2.5 1.075 1-1.7-2.2-1.65q.125-.45.163-.8.037-.35.037-.7 0-.375-.037-.7-.038-.325-.163-.75l2.25-1.7-1-1.7-2.575 1.075q-.425-.475-1.187-.925-.763-.45-1.388-.575L13 4h-2l-.3 2.7q-.75.15-1.375.5t-1.275 1l-2.5-1.05-1 1.7 2.175 1.625q-.125.325-.175.725-.05.4-.05.825 0 .375.05.75t.15.725l-2.15 1.65 1 1.7 2.475-1.05q.6.6 1.225.95.625.35 1.425.55Z"
+  }));
+});
+IconMaterialSettingsW100.displayName = 'AmauiIconMaterialSettingsW100';
 
 
 const IconMaterialSevereColdW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33842,19 +33842,6 @@ const IconMaterialShieldLockedW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialShieldLockedW100.displayName = 'AmauiIconMaterialShieldLockedW100';
 
 
-const IconMaterialShieldMoonW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ShieldMoonW100",
-    short_name: "ShieldMoon",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 20.65q-2.875-.9-4.787-3.55-1.913-2.65-1.913-6V5.9L12 3.4l6.7 2.5v5.2q0 3.35-1.912 6-1.913 2.65-4.788 3.55ZM12 12Zm0 7.9q2.6-.825 4.3-3.3 1.7-2.475 1.7-5.5V6.375L12 4.15 6 6.375V11.1q0 3.025 1.7 5.5t4.3 3.3Zm.525-4.55q.65 0 1.275-.213.625-.212 1.125-.637.125-.125.1-.225-.025-.1-.225-.175-.925-.325-1.637-.888-.713-.562-1.213-1.437-.35-.65-.587-1.725-.238-1.075.037-1.825.075-.2-.075-.3-.15-.1-.3-.05Q9.9 8.35 9.262 9.35q-.637 1-.637 2.15 0 1.6 1.15 2.725t2.75 1.125Z"
-  }));
-});
-IconMaterialShieldMoonW100.displayName = 'AmauiIconMaterialShieldMoonW100';
-
-
 const IconMaterialShieldPersonW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -33881,6 +33868,19 @@ const IconMaterialShieldQuestionW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialShieldQuestionW100.displayName = 'AmauiIconMaterialShieldQuestionW100';
 
 
+const IconMaterialShieldSparkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ShieldSparkW100",
+    short_name: "ShieldSpark",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480-134q-115-36-191.5-142T212-516v-208l268-100 268 100v208q0 134-76.5 240T480-134Zm0-30q104-33 172-132t68-220v-189l-240-89-240 89v189q0 121 68 220t172 132Zm0-141q0-72 51-123t123-51q-72 0-123-51t-51-123q0 72-51 123t-123 51q72 0 123 51t51 123Zm0-174Z"
+  }));
+});
+IconMaterialShieldSparkW100.displayName = 'AmauiIconMaterialShieldSparkW100';
+
+
 const IconMaterialShieldW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -33894,17 +33894,17 @@ const IconMaterialShieldW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialShieldW100.displayName = 'AmauiIconMaterialShieldW100';
 
 
-const IconMaterialShieldSparkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialShieldMoonW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "ShieldSparkW100",
-    short_name: "ShieldSpark",
-    viewBox: "0 -960 960 960"
+    name: "ShieldMoonW100",
+    short_name: "ShieldMoon",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480-134q-115-36-191.5-142T212-516v-208l268-100 268 100v208q0 134-76.5 240T480-134Zm0-30q104-33 172-132t68-220v-189l-240-89-240 89v189q0 121 68 220t172 132Zm0-141q0-72 51-123t123-51q-72 0-123-51t-51-123q0 72-51 123t-123 51q72 0 123 51t51 123Zm0-174Z"
+    d: "M12 20.65q-2.875-.9-4.787-3.55-1.913-2.65-1.913-6V5.9L12 3.4l6.7 2.5v5.2q0 3.35-1.912 6-1.913 2.65-4.788 3.55ZM12 12Zm0 7.9q2.6-.825 4.3-3.3 1.7-2.475 1.7-5.5V6.375L12 4.15 6 6.375V11.1q0 3.025 1.7 5.5t4.3 3.3Zm.525-4.55q.65 0 1.275-.213.625-.212 1.125-.637.125-.125.1-.225-.025-.1-.225-.175-.925-.325-1.637-.888-.713-.562-1.213-1.437-.35-.65-.587-1.725-.238-1.075.037-1.825.075-.2-.075-.3-.15-.1-.3-.05Q9.9 8.35 9.262 9.35q-.637 1-.637 2.15 0 1.6 1.15 2.725t2.75 1.125Z"
   }));
 });
-IconMaterialShieldSparkW100.displayName = 'AmauiIconMaterialShieldSparkW100';
+IconMaterialShieldMoonW100.displayName = 'AmauiIconMaterialShieldMoonW100';
 
 
 const IconMaterialShieldWithHeartW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33933,19 +33933,6 @@ const IconMaterialShieldWithHouseW100 = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialShieldWithHouseW100.displayName = 'AmauiIconMaterialShieldWithHouseW100';
 
 
-const IconMaterialShiftLockW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ShiftLockW100",
-    short_name: "ShiftLock",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M372 744V604H230l250-346 250 346H588v140H372Zm28-28h160V576h111L480 307 289 576h111v140Zm80-205ZM212 872v-28h536v28H212Z"
-  }));
-});
-IconMaterialShiftLockW100.displayName = 'AmauiIconMaterialShiftLockW100';
-
-
 const IconMaterialShiftW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -33957,6 +33944,19 @@ const IconMaterialShiftW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialShiftW100.displayName = 'AmauiIconMaterialShiftW100';
+
+
+const IconMaterialShiftLockW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ShiftLockW100",
+    short_name: "ShiftLock",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M372 744V604H230l250-346 250 346H588v140H372Zm28-28h160V576h111L480 307 289 576h111v140Zm80-205ZM212 872v-28h536v28H212Z"
+  }));
+});
+IconMaterialShiftLockW100.displayName = 'AmauiIconMaterialShiftLockW100';
 
 
 const IconMaterialShopTwoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -34050,19 +34050,6 @@ const IconMaterialShoppingCartW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialShoppingCartW100.displayName = 'AmauiIconMaterialShoppingCartW100';
 
 
-const IconMaterialShortStayW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ShortStayW100",
-    short_name: "ShortStay",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.3 20h3.55H5.3h2Zm-2.7.7V3.3H15v7.15q-.2.05-.362.112-.163.063-.338.138V4h-9v8.175q.375-.425.888-.65Q6.7 11.3 7.3 11.3h5q.2 0 .375.025t.375.075q-.2.125-.375.275-.175.15-.375.325h-5q-.825 0-1.412.587Q5.3 13.175 5.3 14v6h5.55q.1.2.188.362.087.163.212.338ZM9.8 9q-.575 0-.962-.387-.388-.388-.388-.963t.388-.962Q9.225 6.3 9.8 6.3t.962.388q.388.387.388.962t-.388.963Q10.375 9 9.8 9Zm-.35 9.35h.7v-4.7h-.7v2h-2v.7h2Zm7.55 3q-1.8 0-3.075-1.275Q12.65 18.8 12.65 17q0-1.8 1.275-3.075Q15.2 12.65 17 12.65q1.8 0 3.075 1.275Q21.35 15.2 21.35 17q0 1.8-1.275 3.075Q18.8 21.35 17 21.35Zm1.675-2.175.5-.5-1.825-1.825v-2.7h-.7v3Z"
-  }));
-});
-IconMaterialShortStayW100.displayName = 'AmauiIconMaterialShortStayW100';
-
-
 const IconMaterialShoppingmodeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -34074,6 +34061,19 @@ const IconMaterialShoppingmodeW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialShoppingmodeW100.displayName = 'AmauiIconMaterialShoppingmodeW100';
+
+
+const IconMaterialShortStayW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ShortStayW100",
+    short_name: "ShortStay",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M7.3 20h3.55H5.3h2Zm-2.7.7V3.3H15v7.15q-.2.05-.362.112-.163.063-.338.138V4h-9v8.175q.375-.425.888-.65Q6.7 11.3 7.3 11.3h5q.2 0 .375.025t.375.075q-.2.125-.375.275-.175.15-.375.325h-5q-.825 0-1.412.587Q5.3 13.175 5.3 14v6h5.55q.1.2.188.362.087.163.212.338ZM9.8 9q-.575 0-.962-.387-.388-.388-.388-.963t.388-.962Q9.225 6.3 9.8 6.3t.962.388q.388.387.388.962t-.388.963Q10.375 9 9.8 9Zm-.35 9.35h.7v-4.7h-.7v2h-2v.7h2Zm7.55 3q-1.8 0-3.075-1.275Q12.65 18.8 12.65 17q0-1.8 1.275-3.075Q15.2 12.65 17 12.65q1.8 0 3.075 1.275Q21.35 15.2 21.35 17q0 1.8-1.275 3.075Q18.8 21.35 17 21.35Zm1.675-2.175.5-.5-1.825-1.825v-2.7h-.7v3Z"
+  }));
+});
+IconMaterialShortStayW100.displayName = 'AmauiIconMaterialShortStayW100';
 
 
 const IconMaterialShortTextW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -34297,19 +34297,6 @@ const IconMaterialSignalCellularAddW100 = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialSignalCellularAddW100.displayName = 'AmauiIconMaterialSignalCellularAddW100';
 
 
-const IconMaterialSignalCellularAlt1BarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SignalCellularAlt1BarW100",
-    short_name: "SignalCellularAlt1Bar",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6.9 18.35v-4.7h1.2v4.7Z"
-  }));
-});
-IconMaterialSignalCellularAlt1BarW100.displayName = 'AmauiIconMaterialSignalCellularAlt1BarW100';
-
-
 const IconMaterialSignalCellularAlt2BarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -34321,6 +34308,19 @@ const IconMaterialSignalCellularAlt2BarW100 = /*#__PURE__*/React.forwardRef((pro
   }));
 });
 IconMaterialSignalCellularAlt2BarW100.displayName = 'AmauiIconMaterialSignalCellularAlt2BarW100';
+
+
+const IconMaterialSignalCellularAlt1BarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SignalCellularAlt1BarW100",
+    short_name: "SignalCellularAlt1Bar",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6.9 18.35v-4.7h1.2v4.7Z"
+  }));
+});
+IconMaterialSignalCellularAlt1BarW100.displayName = 'AmauiIconMaterialSignalCellularAlt1BarW100';
 
 
 const IconMaterialSignalCellularAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -34375,19 +34375,6 @@ const IconMaterialSignalCellularNodataW100 = /*#__PURE__*/React.forwardRef((prop
 IconMaterialSignalCellularNodataW100.displayName = 'AmauiIconMaterialSignalCellularNodataW100';
 
 
-const IconMaterialSignalCellularNullW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SignalCellularNullW100",
-    short_name: "SignalCellularNull",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m4.225 20.7 15.55-15.55V20.7Zm1.7-.7h13.15V6.85Z"
-  }));
-});
-IconMaterialSignalCellularNullW100.displayName = 'AmauiIconMaterialSignalCellularNullW100';
-
-
 const IconMaterialSignalCellularOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -34412,6 +34399,19 @@ const IconMaterialSignalCellularPauseW100 = /*#__PURE__*/React.forwardRef((props
   }));
 });
 IconMaterialSignalCellularPauseW100.displayName = 'AmauiIconMaterialSignalCellularPauseW100';
+
+
+const IconMaterialSignalCellularNullW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SignalCellularNullW100",
+    short_name: "SignalCellularNull",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m4.225 20.7 15.55-15.55V20.7Zm1.7-.7h13.15V6.85Z"
+  }));
+});
+IconMaterialSignalCellularNullW100.displayName = 'AmauiIconMaterialSignalCellularNullW100';
 
 
 const IconMaterialSignalDisconnectedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -34453,19 +34453,6 @@ const IconMaterialSignalWifi4BarW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialSignalWifi4BarW100.displayName = 'AmauiIconMaterialSignalWifi4BarW100';
 
 
-const IconMaterialSignalWifiOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SignalWifiOffW100",
-    short_name: "SignalWifiOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m20.55 21.55-5.5-5.5-3.05 3.1L1.85 9q.825-.75 1.775-1.338.95-.587 1.975-1.062L2.45 3.45l.5-.5 18.1 18.1Zm-3.575-7.4L8.5 5.675q.875-.2 1.75-.288Q11.125 5.3 12 5.3q2.8 0 5.413.938Q20.025 7.175 22.15 9Z"
-  }));
-});
-IconMaterialSignalWifiOffW100.displayName = 'AmauiIconMaterialSignalWifiOffW100';
-
-
 const IconMaterialSignalWifiBadW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -34477,6 +34464,19 @@ const IconMaterialSignalWifiBadW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialSignalWifiBadW100.displayName = 'AmauiIconMaterialSignalWifiBadW100';
+
+
+const IconMaterialSignalWifiOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SignalWifiOffW100",
+    short_name: "SignalWifiOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m20.55 21.55-5.5-5.5-3.05 3.1L1.85 9q.825-.75 1.775-1.338.95-.587 1.975-1.062L2.45 3.45l.5-.5 18.1 18.1Zm-3.575-7.4L8.5 5.675q.875-.2 1.75-.288Q11.125 5.3 12 5.3q2.8 0 5.413.938Q20.025 7.175 22.15 9Z"
+  }));
+});
+IconMaterialSignalWifiOffW100.displayName = 'AmauiIconMaterialSignalWifiOffW100';
 
 
 const IconMaterialSignalWifiStatusbarNotConnectedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -34661,19 +34661,6 @@ const IconMaterialSkipPreviousW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialSkipPreviousW100.displayName = 'AmauiIconMaterialSkipPreviousW100';
 
 
-const IconMaterialSkullW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SkullW100",
-    short_name: "Skull",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.3 20.7v-3.8q-.9-.375-1.637-.975-.738-.6-1.263-1.375-.525-.775-.812-1.675Q3.3 11.975 3.3 11q0-3.4 2.438-5.55Q8.175 3.3 12 3.3q3.825 0 6.263 2.15Q20.7 7.6 20.7 11q0 .975-.287 1.875-.288.9-.813 1.675-.525.775-1.263 1.375-.737.6-1.637.975v3.8ZM8 20h1.55v-1.4h1.4V20h2.1v-1.4h1.4V20H16v-3.55q.9-.3 1.638-.838.737-.537 1.262-1.25.525-.712.812-1.575Q20 11.925 20 11q0-3.125-2.212-5.062Q15.575 4 12 4T6.213 5.938Q4 7.875 4 11q0 .925.287 1.787.288.863.813 1.575.525.713 1.263 1.25.737.538 1.637.838Zm2.75-5h2.5L12 12.5ZM8.5 12.5q.625 0 1.062-.438Q10 11.625 10 11t-.438-1.062Q9.125 9.5 8.5 9.5t-1.062.438Q7 10.375 7 11t.438 1.062q.437.438 1.062.438Zm7 0q.625 0 1.062-.438Q17 11.625 17 11t-.438-1.062Q16.125 9.5 15.5 9.5t-1.062.438Q14 10.375 14 11t.438 1.062q.437.438 1.062.438ZM12 20Z"
-  }));
-});
-IconMaterialSkullW100.displayName = 'AmauiIconMaterialSkullW100';
-
-
 const IconMaterialSleddingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -34687,17 +34674,17 @@ const IconMaterialSleddingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialSleddingW100.displayName = 'AmauiIconMaterialSleddingW100';
 
 
-const IconMaterialSleepScoreW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialSkullW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "SleepScoreW100",
-    short_name: "SleepScore",
-    viewBox: "0 96 960 960"
+    name: "SkullW100",
+    short_name: "Skull",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M580 221q106 0 180 73.932T834 475h-28q0-45-16.5-85T744 320l-16 28q-10 16.235-21.5 35.515Q695 402.794 682 417q-8 8-18 8t-18-8q-8-8-8-18.684 0-10.684 8-18.316 13-14 32.855-24.656Q698.709 344.688 715 335l28-17q-31-32-72.78-50.5T580 249v-28Zm-97 703q-73.091 0-137.045-27.5Q282 869 234 821t-75.5-111.955Q131 645.091 131 572q0-108 59.5-196.5T350 247q0 92 34 176t99 149q65 65 149 99t176 34q-40 100-128.5 159.5T483 924Zm0-28q88 0 163-44t118-121.277q-86-8.029-163-43.656-77-35.628-138-96.848Q402 529 366 452.5T323 290q-77 43-120.5 118.5T159 572q0 135 94.5 229.5T483 896Zm-20-306Z"
+    d: "M7.3 20.7v-3.8q-.9-.375-1.637-.975-.738-.6-1.263-1.375-.525-.775-.812-1.675Q3.3 11.975 3.3 11q0-3.4 2.438-5.55Q8.175 3.3 12 3.3q3.825 0 6.263 2.15Q20.7 7.6 20.7 11q0 .975-.287 1.875-.288.9-.813 1.675-.525.775-1.263 1.375-.737.6-1.637.975v3.8ZM8 20h1.55v-1.4h1.4V20h2.1v-1.4h1.4V20H16v-3.55q.9-.3 1.638-.838.737-.537 1.262-1.25.525-.712.812-1.575Q20 11.925 20 11q0-3.125-2.212-5.062Q15.575 4 12 4T6.213 5.938Q4 7.875 4 11q0 .925.287 1.787.288.863.813 1.575.525.713 1.263 1.25.737.538 1.637.838Zm2.75-5h2.5L12 12.5ZM8.5 12.5q.625 0 1.062-.438Q10 11.625 10 11t-.438-1.062Q9.125 9.5 8.5 9.5t-1.062.438Q7 10.375 7 11t.438 1.062q.437.438 1.062.438Zm7 0q.625 0 1.062-.438Q17 11.625 17 11t-.438-1.062Q16.125 9.5 15.5 9.5t-1.062.438Q14 10.375 14 11t.438 1.062q.437.438 1.062.438ZM12 20Z"
   }));
 });
-IconMaterialSleepScoreW100.displayName = 'AmauiIconMaterialSleepScoreW100';
+IconMaterialSkullW100.displayName = 'AmauiIconMaterialSkullW100';
 
 
 const IconMaterialSleepW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -34711,6 +34698,19 @@ const IconMaterialSleepW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialSleepW100.displayName = 'AmauiIconMaterialSleepW100';
+
+
+const IconMaterialSleepScoreW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SleepScoreW100",
+    short_name: "SleepScore",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M580 221q106 0 180 73.932T834 475h-28q0-45-16.5-85T744 320l-16 28q-10 16.235-21.5 35.515Q695 402.794 682 417q-8 8-18 8t-18-8q-8-8-8-18.684 0-10.684 8-18.316 13-14 32.855-24.656Q698.709 344.688 715 335l28-17q-31-32-72.78-50.5T580 249v-28Zm-97 703q-73.091 0-137.045-27.5Q282 869 234 821t-75.5-111.955Q131 645.091 131 572q0-108 59.5-196.5T350 247q0 92 34 176t99 149q65 65 149 99t176 34q-40 100-128.5 159.5T483 924Zm0-28q88 0 163-44t118-121.277q-86-8.029-163-43.656-77-35.628-138-96.848Q402 529 366 452.5T323 290q-77 43-120.5 118.5T159 572q0 135 94.5 229.5T483 896Zm-20-306Z"
+  }));
+});
+IconMaterialSleepScoreW100.displayName = 'AmauiIconMaterialSleepScoreW100';
 
 
 const IconMaterialSlideLibraryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -34895,19 +34895,6 @@ const IconMaterialSmokingRoomsW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialSmokingRoomsW100.displayName = 'AmauiIconMaterialSmokingRoomsW100';
 
 
-const IconMaterialSmsFailedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SmsFailedW100",
-    short_name: "SmsFailed",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.65 11.6h.7V5.5h-.7Zm.35 2.65q.225 0 .363-.15.137-.15.137-.35 0-.225-.137-.363-.138-.137-.363-.137-.2 0-.35.137-.15.138-.15.363 0 .2.15.35.15.15.35.15ZM3.3 19.5V3.3h17.4v13.4H6.1Zm.7-1.7L5.8 16H20V4H4Zm0 0V4v12Z"
-  }));
-});
-IconMaterialSmsFailedW100.displayName = 'AmauiIconMaterialSmsFailedW100';
-
-
 const IconMaterialSmsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -34919,6 +34906,19 @@ const IconMaterialSmsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialSmsW100.displayName = 'AmauiIconMaterialSmsW100';
+
+
+const IconMaterialSmsFailedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SmsFailedW100",
+    short_name: "SmsFailed",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11.65 11.6h.7V5.5h-.7Zm.35 2.65q.225 0 .363-.15.137-.15.137-.35 0-.225-.137-.363-.138-.137-.363-.137-.2 0-.35.137-.15.138-.15.363 0 .2.15.35.15.15.35.15ZM3.3 19.5V3.3h17.4v13.4H6.1Zm.7-1.7L5.8 16H20V4H4Zm0 0V4v12Z"
+  }));
+});
+IconMaterialSmsFailedW100.displayName = 'AmauiIconMaterialSmsFailedW100';
 
 
 const IconMaterialSnippetFolderW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -34960,19 +34960,6 @@ const IconMaterialSnowboardingW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialSnowboardingW100.displayName = 'AmauiIconMaterialSnowboardingW100';
 
 
-const IconMaterialSnowingHeavyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SnowingHeavyW100",
-    short_name: "SnowingHeavy",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M300.035-694Q289-694 281.5-701.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q109-694 101.5-701.465t-7.5-18.5Q94-731 101.465-738.5t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm720 0Q829-694 821.5-701.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q649-694 641.5-701.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q469-694 461.5-701.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-100 160Q369-534 361.5-541.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q189-534 181.5-541.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm540 0Q729-534 721.5-541.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q549-534 541.5-541.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 320Q369-214 361.5-221.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q189-214 181.5-221.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm540 0Q729-214 721.5-221.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q549-214 541.5-221.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-260-160Q289-374 281.5-381.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q109-374 101.5-381.465t-7.5-18.5Q94-411 101.465-418.5t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm720 0Q829-374 821.5-381.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q649-374 641.5-381.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q469-374 461.5-381.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Z"
-  }));
-});
-IconMaterialSnowingHeavyW100.displayName = 'AmauiIconMaterialSnowingHeavyW100';
-
-
 const IconMaterialSnowingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -34984,6 +34971,19 @@ const IconMaterialSnowingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialSnowingW100.displayName = 'AmauiIconMaterialSnowingW100';
+
+
+const IconMaterialSnowingHeavyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SnowingHeavyW100",
+    short_name: "SnowingHeavy",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M300.035-694Q289-694 281.5-701.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q109-694 101.5-701.465t-7.5-18.5Q94-731 101.465-738.5t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm720 0Q829-694 821.5-701.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q649-694 641.5-701.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q469-694 461.5-701.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-100 160Q369-534 361.5-541.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q189-534 181.5-541.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm540 0Q729-534 721.5-541.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q549-534 541.5-541.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 320Q369-214 361.5-221.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q189-214 181.5-221.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm540 0Q729-214 721.5-221.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q549-214 541.5-221.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-260-160Q289-374 281.5-381.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q109-374 101.5-381.465t-7.5-18.5Q94-411 101.465-418.5t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm720 0Q829-374 821.5-381.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q649-374 641.5-381.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Zm-180 0Q469-374 461.5-381.465t-7.5-18.5q0-11.035 7.465-18.535t18.5-7.5q11.035 0 18.535 7.465t7.5 18.5q0 11.035-7.465 18.535t-18.5 7.5Z"
+  }));
+});
+IconMaterialSnowingHeavyW100.displayName = 'AmauiIconMaterialSnowingHeavyW100';
 
 
 const IconMaterialSnowmobileW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -35012,19 +35012,6 @@ const IconMaterialSnowshoeingW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialSnowshoeingW100.displayName = 'AmauiIconMaterialSnowshoeingW100';
 
 
-const IconMaterialSoapW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SoapW100",
-    short_name: "Soap",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M14.25 8.9q.475 0 .812-.338.338-.337.338-.812 0-.475-.338-.813-.337-.337-.812-.337-.475 0-.812.337-.338.338-.338.813 0 .475.338.812.337.338.812.338Zm0 .7q-.775 0-1.312-.538-.538-.537-.538-1.312t.538-1.313q.537-.537 1.312-.537t1.312.537q.538.538.538 1.313 0 .775-.538 1.312-.537.538-1.312.538Zm5.25-1.7q.375 0 .638-.263.262-.262.262-.637t-.262-.638Q19.875 6.1 19.5 6.1t-.637.262Q18.6 6.625 18.6 7t.263.637q.262.263.637.263Zm0 .7q-.65 0-1.125-.475T17.9 7q0-.65.475-1.125T19.5 5.4q.65 0 1.125.475T21.1 7q0 .65-.475 1.125T19.5 8.6Zm-3-3.9q-.5 0-.85-.35t-.35-.85q0-.5.35-.85t.85-.35q.5 0 .85.35t.35.85q0 .5-.35.85t-.85.35ZM3.05 19.75v-6.1l6.025-5.725.775.8-1.725 3.025h9.225v1.1h-6.4v1.2h8v1.1h-8v1.2h7.2v1.1h-7.2v1.2h5.6v1.1Zm.7-.7h6.5v-6.6H7.275V10.6L3.75 13.925ZM7 14.825Z"
-  }));
-});
-IconMaterialSoapW100.displayName = 'AmauiIconMaterialSoapW100';
-
-
 const IconMaterialSocialDistanceW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -35036,6 +35023,19 @@ const IconMaterialSocialDistanceW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialSocialDistanceW100.displayName = 'AmauiIconMaterialSocialDistanceW100';
+
+
+const IconMaterialSoapW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SoapW100",
+    short_name: "Soap",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M14.25 8.9q.475 0 .812-.338.338-.337.338-.812 0-.475-.338-.813-.337-.337-.812-.337-.475 0-.812.337-.338.338-.338.813 0 .475.338.812.337.338.812.338Zm0 .7q-.775 0-1.312-.538-.538-.537-.538-1.312t.538-1.313q.537-.537 1.312-.537t1.312.537q.538.538.538 1.313 0 .775-.538 1.312-.537.538-1.312.538Zm5.25-1.7q.375 0 .638-.263.262-.262.262-.637t-.262-.638Q19.875 6.1 19.5 6.1t-.637.262Q18.6 6.625 18.6 7t.263.637q.262.263.637.263Zm0 .7q-.65 0-1.125-.475T17.9 7q0-.65.475-1.125T19.5 5.4q.65 0 1.125.475T21.1 7q0 .65-.475 1.125T19.5 8.6Zm-3-3.9q-.5 0-.85-.35t-.35-.85q0-.5.35-.85t.85-.35q.5 0 .85.35t.35.85q0 .5-.35.85t-.85.35ZM3.05 19.75v-6.1l6.025-5.725.775.8-1.725 3.025h9.225v1.1h-6.4v1.2h8v1.1h-8v1.2h7.2v1.1h-7.2v1.2h5.6v1.1Zm.7-.7h6.5v-6.6H7.275V10.6L3.75 13.925ZM7 14.825Z"
+  }));
+});
+IconMaterialSoapW100.displayName = 'AmauiIconMaterialSoapW100';
 
 
 const IconMaterialSocialLeaderboardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -35220,19 +35220,6 @@ const IconMaterialSouthEastW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialSouthEastW100.displayName = 'AmauiIconMaterialSouthEastW100';
 
 
-const IconMaterialSouthW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SouthW100",
-    short_name: "South",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m12 20.6-6.15-6.15.475-.5 5.325 5.325v-16.1h.7v16.1l5.325-5.325.475.5Z"
-  }));
-});
-IconMaterialSouthW100.displayName = 'AmauiIconMaterialSouthW100';
-
-
 const IconMaterialSouthWestW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -35244,6 +35231,19 @@ const IconMaterialSouthWestW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialSouthWestW100.displayName = 'AmauiIconMaterialSouthWestW100';
+
+
+const IconMaterialSouthW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SouthW100",
+    short_name: "South",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m12 20.6-6.15-6.15.475-.5 5.325 5.325v-16.1h.7v16.1l5.325-5.325.475.5Z"
+  }));
+});
+IconMaterialSouthW100.displayName = 'AmauiIconMaterialSouthW100';
 
 
 const IconMaterialSpaW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -35298,19 +35298,6 @@ const IconMaterialSpatialAudioOffW100 = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialSpatialAudioOffW100.displayName = 'AmauiIconMaterialSpatialAudioOffW100';
 
 
-const IconMaterialSpatialAudioW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SpatialAudioW100",
-    short_name: "SpatialAudio",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M22.275 9.525q-1.625 0-3.1-.625t-2.6-1.75q-1.125-1.125-1.75-2.6t-.625-3.1h.725q0 1.475.55 2.812.55 1.338 1.6 2.388 1.05 1.05 2.387 1.6 1.338.55 2.813.55Zm0-4.675q-.675 0-1.3-.263-.625-.262-1.1-.737-.475-.475-.737-1.1-.263-.625-.263-1.3h.725q0 .525.2 1.025.2.5.575.875.375.375.875.575.5.2 1.025.2Zm-12.15 6.85q-1.125 0-1.912-.788-.788-.787-.788-1.912t.788-1.912Q9 6.3 10.125 6.3t1.913.788q.787.787.787 1.912t-.787 1.912q-.788.788-1.913.788Zm-6.7 7v-1.3q0-.65.325-1.088.325-.437.925-.712 1.2-.575 2.65-.938 1.45-.362 2.8-.362 1.35 0 2.8.362 1.45.363 2.65.938.6.275.925.712.325.438.325 1.088v1.3Zm.7-.7h12v-.6q0-.45-.262-.725-.263-.275-.638-.475-.95-.5-2.362-.85Q11.45 15 10.125 15t-2.737.35q-1.413.35-2.363.85-.375.2-.637.475-.263.275-.263.725Zm6-7q.825 0 1.413-.588.587-.587.587-1.412t-.587-1.413Q10.95 7 10.125 7q-.825 0-1.412.587-.588.588-.588 1.413 0 .825.588 1.412Q9.3 11 10.125 11Zm0-2Zm0 9Z"
-  }));
-});
-IconMaterialSpatialAudioW100.displayName = 'AmauiIconMaterialSpatialAudioW100';
-
-
 const IconMaterialSpatialTrackingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -35335,6 +35322,19 @@ const IconMaterialSpeakerGroupW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialSpeakerGroupW100.displayName = 'AmauiIconMaterialSpeakerGroupW100';
+
+
+const IconMaterialSpatialAudioW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SpatialAudioW100",
+    short_name: "SpatialAudio",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M22.275 9.525q-1.625 0-3.1-.625t-2.6-1.75q-1.125-1.125-1.75-2.6t-.625-3.1h.725q0 1.475.55 2.812.55 1.338 1.6 2.388 1.05 1.05 2.387 1.6 1.338.55 2.813.55Zm0-4.675q-.675 0-1.3-.263-.625-.262-1.1-.737-.475-.475-.737-1.1-.263-.625-.263-1.3h.725q0 .525.2 1.025.2.5.575.875.375.375.875.575.5.2 1.025.2Zm-12.15 6.85q-1.125 0-1.912-.788-.788-.787-.788-1.912t.788-1.912Q9 6.3 10.125 6.3t1.913.788q.787.787.787 1.912t-.787 1.912q-.788.788-1.913.788Zm-6.7 7v-1.3q0-.65.325-1.088.325-.437.925-.712 1.2-.575 2.65-.938 1.45-.362 2.8-.362 1.35 0 2.8.362 1.45.363 2.65.938.6.275.925.712.325.438.325 1.088v1.3Zm.7-.7h12v-.6q0-.45-.262-.725-.263-.275-.638-.475-.95-.5-2.362-.85Q11.45 15 10.125 15t-2.737.35q-1.413.35-2.363.85-.375.2-.637.475-.263.275-.263.725Zm6-7q.825 0 1.413-.588.587-.587.587-1.412t-.587-1.413Q10.95 7 10.125 7q-.825 0-1.412.587-.588.588-.588 1.413 0 .825.588 1.412Q9.3 11 10.125 11Zm0-2Zm0 9Z"
+  }));
+});
+IconMaterialSpatialAudioW100.displayName = 'AmauiIconMaterialSpatialAudioW100';
 
 
 const IconMaterialSpeakerNotesOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -35688,19 +35688,6 @@ const IconMaterialSportsGolfW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialSportsGolfW100.displayName = 'AmauiIconMaterialSportsGolfW100';
 
 
-const IconMaterialSportsHandballW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SportsHandballW100",
-    short_name: "SportsHandball",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M15.175 9.15q-.675 0-1.137-.462-.463-.463-.463-1.138 0-.675.463-1.138.462-.462 1.137-.462t1.137.462q.463.463.463 1.138 0 .675-.463 1.138-.462.462-1.137.462ZM8.425 22.5l-.6-.35 3-5.2-1.65-.95-1.7 2.9-.6-.35L12 9.7q-.95-.725-1.412-1.438-.463-.712-.463-1.662 0-.725.187-1.438.188-.712.613-1.662l.6.35q-.35.75-.525 1.412-.175.663-.175 1.238 0 .925.487 1.6.488.675 1.613 1.35l2.025 1.2q1.1.65 1.637 1.538.538.887.538 1.762 0 .675-.187 1.4-.188.725-.713 1.75l-.6-.35q.425-.825.613-1.45.187-.625.187-1.3 0-.65-.338-1.3-.337-.65-1.212-1.3Zm4.95-17.6q-.525 0-.887-.363-.363-.362-.363-.887t.363-.888q.362-.362.887-.362t.887.362q.363.363.363.888t-.375.887q-.375.363-.875.363Z"
-  }));
-});
-IconMaterialSportsHandballW100.displayName = 'AmauiIconMaterialSportsHandballW100';
-
-
 const IconMaterialSportsGymnasticsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -35712,6 +35699,19 @@ const IconMaterialSportsGymnasticsW100 = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialSportsGymnasticsW100.displayName = 'AmauiIconMaterialSportsGymnasticsW100';
+
+
+const IconMaterialSportsHandballW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SportsHandballW100",
+    short_name: "SportsHandball",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M15.175 9.15q-.675 0-1.137-.462-.463-.463-.463-1.138 0-.675.463-1.138.462-.462 1.137-.462t1.137.462q.463.463.463 1.138 0 .675-.463 1.138-.462.462-1.137.462ZM8.425 22.5l-.6-.35 3-5.2-1.65-.95-1.7 2.9-.6-.35L12 9.7q-.95-.725-1.412-1.438-.463-.712-.463-1.662 0-.725.187-1.438.188-.712.613-1.662l.6.35q-.35.75-.525 1.412-.175.663-.175 1.238 0 .925.487 1.6.488.675 1.613 1.35l2.025 1.2q1.1.65 1.637 1.538.538.887.538 1.762 0 .675-.187 1.4-.188.725-.713 1.75l-.6-.35q.425-.825.613-1.45.187-.625.187-1.3 0-.65-.338-1.3-.337-.65-1.212-1.3Zm4.95-17.6q-.525 0-.887-.363-.363-.362-.363-.887t.363-.888q.362-.362.887-.362t.887.362q.363.363.363.888t-.375.887q-.375.363-.875.363Z"
+  }));
+});
+IconMaterialSportsHandballW100.displayName = 'AmauiIconMaterialSportsHandballW100';
 
 
 const IconMaterialSportsHockeyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -35935,19 +35935,6 @@ const IconMaterialStackOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialStackOffW100.displayName = 'AmauiIconMaterialStackOffW100';
 
 
-const IconMaterialStackStarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "StackStarW100",
-    short_name: "StackStar",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m533-263 67-41 67 41-18-77 59-50-77.143-6.645L600-469l-30.857 72.355L492-390l59 50-18 77ZM272-400v28H132v-456h456v140h-28v-112H160v400h112Zm100 268v-456h456v456H372Zm28-28h400v-400H400v400Zm200-200Z"
-  }));
-});
-IconMaterialStackStarW100.displayName = 'AmauiIconMaterialStackStarW100';
-
-
 const IconMaterialStackW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -35961,17 +35948,17 @@ const IconMaterialStackW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialStackW100.displayName = 'AmauiIconMaterialStackW100';
 
 
-const IconMaterialStackedEmailW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialStackStarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "StackedEmailW100",
-    short_name: "StackedEmail",
+    name: "StackStarW100",
+    short_name: "StackStar",
     viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M200-292v-508h668v508H200Zm334-218L228-740v420h612v-420L534-510Zm0-32 306-230H228l306 230ZM92-184v-404h28v376h602v28H92Zm748-588H228h612Z"
+    d: "m533-263 67-41 67 41-18-77 59-50-77.143-6.645L600-469l-30.857 72.355L492-390l59 50-18 77ZM272-400v28H132v-456h456v140h-28v-112H160v400h112Zm100 268v-456h456v456H372Zm28-28h400v-400H400v400Zm200-200Z"
   }));
 });
-IconMaterialStackedEmailW100.displayName = 'AmauiIconMaterialStackedEmailW100';
+IconMaterialStackStarW100.displayName = 'AmauiIconMaterialStackStarW100';
 
 
 const IconMaterialStackedBarChartW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -35985,6 +35972,19 @@ const IconMaterialStackedBarChartW100 = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialStackedBarChartW100.displayName = 'AmauiIconMaterialStackedBarChartW100';
+
+
+const IconMaterialStackedEmailW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "StackedEmailW100",
+    short_name: "StackedEmail",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M200-292v-508h668v508H200Zm334-218L228-740v420h612v-420L534-510Zm0-32 306-230H228l306 230ZM92-184v-404h28v376h602v28H92Zm748-588H228h612Z"
+  }));
+});
+IconMaterialStackedEmailW100.displayName = 'AmauiIconMaterialStackedEmailW100';
 
 
 const IconMaterialStackedInboxW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -36091,17 +36091,17 @@ const IconMaterialStarRateHalfW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialStarRateHalfW100.displayName = 'AmauiIconMaterialStarRateHalfW100';
 
 
-const IconMaterialStarRateW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialStarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "StarRateW100",
-    short_name: "StarRate",
+    name: "StarW100",
+    short_name: "Star",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9.6 16.65 12 14.8l2.4 1.85-.9-3.05 2.25-1.6h-2.8L12 8.9l-.95 3.1h-2.8l2.25 1.6Zm-1.35 1.9 1.4-4.65-3.6-2.6h4.5L12 6.5l1.45 4.8h4.5l-3.6 2.6 1.4 4.65L12 15.7ZM12 12.775Z"
+    d: "m8.25 18.55 1.4-4.65-3.6-2.6h4.5L12 6.5l1.45 4.8h4.5l-3.6 2.6 1.4 4.65L12 15.7Z"
   }));
 });
-IconMaterialStarRateW100.displayName = 'AmauiIconMaterialStarRateW100';
+IconMaterialStarW100.displayName = 'AmauiIconMaterialStarW100';
 
 
 const IconMaterialStarsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -36117,17 +36117,17 @@ const IconMaterialStarsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialStarsW100.displayName = 'AmauiIconMaterialStarsW100';
 
 
-const IconMaterialStarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialStarRateW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "StarW100",
-    short_name: "Star",
+    name: "StarRateW100",
+    short_name: "StarRate",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m8.25 18.55 1.4-4.65-3.6-2.6h4.5L12 6.5l1.45 4.8h4.5l-3.6 2.6 1.4 4.65L12 15.7Z"
+    d: "M9.6 16.65 12 14.8l2.4 1.85-.9-3.05 2.25-1.6h-2.8L12 8.9l-.95 3.1h-2.8l2.25 1.6Zm-1.35 1.9 1.4-4.65-3.6-2.6h4.5L12 6.5l1.45 4.8h4.5l-3.6 2.6 1.4 4.65L12 15.7ZM12 12.775Z"
   }));
 });
-IconMaterialStarW100.displayName = 'AmauiIconMaterialStarW100';
+IconMaterialStarRateW100.displayName = 'AmauiIconMaterialStarRateW100';
 
 
 const IconMaterialStartW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -36156,19 +36156,6 @@ const IconMaterialStat0W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialStat0W100.displayName = 'AmauiIconMaterialStat0W100';
 
 
-const IconMaterialStat1W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Stat1W100",
-    short_name: "Stat1",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m296-380-20-20 204-204 204 204-20 20-184-184-184 184Z"
-  }));
-});
-IconMaterialStat1W100.displayName = 'AmauiIconMaterialStat1W100';
-
-
 const IconMaterialStat2W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -36182,19 +36169,6 @@ const IconMaterialStat2W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialStat2W100.displayName = 'AmauiIconMaterialStat2W100';
 
 
-const IconMaterialStat3W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Stat3W100",
-    short_name: "Stat3",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m296-140-20-20 204-204 204 204-20 20-184-184-184 184Zm0-240-20-20 204-204 204 204-20 20-184-184-184 184Zm0-240-20-20 204-204 204 204-20 20-184-184-184 184Z"
-  }));
-});
-IconMaterialStat3W100.displayName = 'AmauiIconMaterialStat3W100';
-
-
 const IconMaterialStatMinus1W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -36206,6 +36180,19 @@ const IconMaterialStatMinus1W100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialStatMinus1W100.displayName = 'AmauiIconMaterialStatMinus1W100';
+
+
+const IconMaterialStat3W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Stat3W100",
+    short_name: "Stat3",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m296-140-20-20 204-204 204 204-20 20-184-184-184 184Zm0-240-20-20 204-204 204 204-20 20-184-184-184 184Zm0-240-20-20 204-204 204 204-20 20-184-184-184 184Z"
+  }));
+});
+IconMaterialStat3W100.displayName = 'AmauiIconMaterialStat3W100';
 
 
 const IconMaterialStatMinus2W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -36325,6 +36312,32 @@ const IconMaterialStepOverW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialStepOverW100.displayName = 'AmauiIconMaterialStepOverW100';
 
 
+const IconMaterialSteppersW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SteppersW100",
+    short_name: "Steppers",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M240.235-400Q207-400 183.5-423.265q-23.5-23.264-23.5-56.5Q160-513 183.265-536.5q23.264-23.5 56.5-23.5Q273-560 296.5-536.735q23.5 23.264 23.5 56.5Q320-447 296.735-423.5q-23.264 23.5-56.5 23.5Zm-.305-28Q262-428 277-442.93t15-37Q292-502 277.07-517t-37-15Q218-532 203-517.07t-15 37Q188-458 202.93-443t37 15Zm240.305 28Q447-400 423.5-423.265q-23.5-23.264-23.5-56.5Q400-513 423.265-536.5q23.264-23.5 56.5-23.5Q513-560 536.5-536.735q23.5 23.264 23.5 56.5Q560-447 536.735-423.5q-23.264 23.5-56.5 23.5Zm-.305-28Q502-428 517-442.93t15-37Q532-502 517.07-517t-37-15Q458-532 443-517.07t-15 37Q428-458 442.93-443t37 15Zm240.305 28Q687-400 663.5-423.265q-23.5-23.264-23.5-56.5Q640-513 663.265-536.5q23.264-23.5 56.5-23.5Q753-560 776.5-536.735q23.5 23.264 23.5 56.5Q800-447 776.735-423.5q-23.264 23.5-56.5 23.5Z"
+  }));
+});
+IconMaterialSteppersW100.displayName = 'AmauiIconMaterialSteppersW100';
+
+
+const IconMaterialStat1W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Stat1W100",
+    short_name: "Stat1",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m296-380-20-20 204-204 204 204-20 20-184-184-184 184Z"
+  }));
+});
+IconMaterialStat1W100.displayName = 'AmauiIconMaterialStat1W100';
+
+
 const IconMaterialStepW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -36351,19 +36364,6 @@ const IconMaterialStepsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialStepsW100.displayName = 'AmauiIconMaterialStepsW100';
 
 
-const IconMaterialSteppersW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SteppersW100",
-    short_name: "Steppers",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M240.235-400Q207-400 183.5-423.265q-23.5-23.264-23.5-56.5Q160-513 183.265-536.5q23.264-23.5 56.5-23.5Q273-560 296.5-536.735q23.5 23.264 23.5 56.5Q320-447 296.735-423.5q-23.264 23.5-56.5 23.5Zm-.305-28Q262-428 277-442.93t15-37Q292-502 277.07-517t-37-15Q218-532 203-517.07t-15 37Q188-458 202.93-443t37 15Zm240.305 28Q447-400 423.5-423.265q-23.5-23.264-23.5-56.5Q400-513 423.265-536.5q23.264-23.5 56.5-23.5Q513-560 536.5-536.735q23.5 23.264 23.5 56.5Q560-447 536.735-423.5q-23.264 23.5-56.5 23.5Zm-.305-28Q502-428 517-442.93t15-37Q532-502 517.07-517t-37-15Q458-532 443-517.07t-15 37Q428-458 442.93-443t37 15Zm240.305 28Q687-400 663.5-423.265q-23.5-23.264-23.5-56.5Q640-513 663.265-536.5q23.264-23.5 56.5-23.5Q753-560 776.5-536.735q23.5 23.264 23.5 56.5Q800-447 776.735-423.5q-23.264 23.5-56.5 23.5Z"
-  }));
-});
-IconMaterialSteppersW100.displayName = 'AmauiIconMaterialSteppersW100';
-
-
 const IconMaterialStethoscopeArrowW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -36375,19 +36375,6 @@ const IconMaterialStethoscopeArrowW100 = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialStethoscopeArrowW100.displayName = 'AmauiIconMaterialStethoscopeArrowW100';
-
-
-const IconMaterialStethoscopeCheckW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "StethoscopeCheckW100",
-    short_name: "StethoscopeCheck",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16.125 20.075 13.5 17.45l.5-.475 2.125 2.125 4.25-4.25.475.5ZM13.2 20.7q-2.175 0-3.7-1.512-1.525-1.513-1.525-3.688V15q-1.825-.125-3.087-1.475-1.263-1.35-1.263-3.225V4.95h3v-1h.7v2.7h-.7v-1h-2.3v4.65q0 1.65 1.175 2.825Q6.675 14.3 8.325 14.3q1.65 0 2.825-1.175 1.175-1.175 1.175-2.825V5.65h-2.3v1h-.7v-2.7h.7v1h3v5.35q0 1.875-1.263 3.225Q10.5 14.875 8.675 15v.5q0 1.875 1.325 3.188Q11.325 20 13.2 20Z"
-  }));
-});
-IconMaterialStethoscopeCheckW100.displayName = 'AmauiIconMaterialStethoscopeCheckW100';
 
 
 const IconMaterialStethoscopeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -36403,17 +36390,17 @@ const IconMaterialStethoscopeW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialStethoscopeW100.displayName = 'AmauiIconMaterialStethoscopeW100';
 
 
-const IconMaterialStickyNote2W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialStethoscopeCheckW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "StickyNote2W100",
-    short_name: "StickyNote2",
+    name: "StethoscopeCheckW100",
+    short_name: "StethoscopeCheck",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M14 14h5V5H5v14h9Zm-9.7 5.7V4.3h15.4v9.775L14.075 19.7Zm3.85-6.4v-.7H12v.7Zm0-3.95v-.7h7.7v.7ZM5 19V5v14Z"
+    d: "M16.125 20.075 13.5 17.45l.5-.475 2.125 2.125 4.25-4.25.475.5ZM13.2 20.7q-2.175 0-3.7-1.512-1.525-1.513-1.525-3.688V15q-1.825-.125-3.087-1.475-1.263-1.35-1.263-3.225V4.95h3v-1h.7v2.7h-.7v-1h-2.3v4.65q0 1.65 1.175 2.825Q6.675 14.3 8.325 14.3q1.65 0 2.825-1.175 1.175-1.175 1.175-2.825V5.65h-2.3v1h-.7v-2.7h.7v1h3v5.35q0 1.875-1.263 3.225Q10.5 14.875 8.675 15v.5q0 1.875 1.325 3.188Q11.325 20 13.2 20Z"
   }));
 });
-IconMaterialStickyNote2W100.displayName = 'AmauiIconMaterialStickyNote2W100';
+IconMaterialStethoscopeCheckW100.displayName = 'AmauiIconMaterialStethoscopeCheckW100';
 
 
 const IconMaterialStickyNoteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -36427,6 +36414,19 @@ const IconMaterialStickyNoteW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialStickyNoteW100.displayName = 'AmauiIconMaterialStickyNoteW100';
+
+
+const IconMaterialStickyNote2W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "StickyNote2W100",
+    short_name: "StickyNote2",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M14 14h5V5H5v14h9Zm-9.7 5.7V4.3h15.4v9.775L14.075 19.7Zm3.85-6.4v-.7H12v.7Zm0-3.95v-.7h7.7v.7ZM5 19V5v14Z"
+  }));
+});
+IconMaterialStickyNote2W100.displayName = 'AmauiIconMaterialStickyNote2W100';
 
 
 const IconMaterialStockMediaW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -36481,19 +36481,6 @@ const IconMaterialStopScreenShareW100 = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialStopScreenShareW100.displayName = 'AmauiIconMaterialStopScreenShareW100';
 
 
-const IconMaterialStorageW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "StorageW100",
-    short_name: "Storage",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.95 19.45v-2.9h16.1v2.9Zm1.4-.7h1.5v-1.5h-1.5Zm-1.4-11.3v-2.9h16.1v2.9Zm1.4-.7h1.5v-1.5h-1.5Zm-1.4 6.7v-2.9h16.1v2.9Zm1.4-.7h1.5v-1.5h-1.5Z"
-  }));
-});
-IconMaterialStorageW100.displayName = 'AmauiIconMaterialStorageW100';
-
-
 const IconMaterialStopW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -36505,6 +36492,19 @@ const IconMaterialStopW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialStopW100.displayName = 'AmauiIconMaterialStopW100';
+
+
+const IconMaterialStorageW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "StorageW100",
+    short_name: "Storage",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.95 19.45v-2.9h16.1v2.9Zm1.4-.7h1.5v-1.5h-1.5Zm-1.4-11.3v-2.9h16.1v2.9Zm1.4-.7h1.5v-1.5h-1.5Zm-1.4 6.7v-2.9h16.1v2.9Zm1.4-.7h1.5v-1.5h-1.5Z"
+  }));
+});
+IconMaterialStorageW100.displayName = 'AmauiIconMaterialStorageW100';
 
 
 const IconMaterialStoreW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -36559,19 +36559,6 @@ const IconMaterialStraightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialStraightW100.displayName = 'AmauiIconMaterialStraightW100';
 
 
-const IconMaterialStraightenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "StraightenW100",
-    short_name: "Straighten",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.3 16.7V7.3h17.4v9.4ZM4 16h16V8h-3.65v3h-.7V8h-3.3v3h-.7V8h-3.3v3h-.7V8H4Zm3.65-5h.7Zm4 0h.7Zm4 0h.7ZM12 12Z"
-  }));
-});
-IconMaterialStraightenW100.displayName = 'AmauiIconMaterialStraightenW100';
-
-
 const IconMaterialStrategyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -36583,6 +36570,19 @@ const IconMaterialStrategyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialStrategyW100.displayName = 'AmauiIconMaterialStrategyW100';
+
+
+const IconMaterialStraightenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "StraightenW100",
+    short_name: "Straighten",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.3 16.7V7.3h17.4v9.4ZM4 16h16V8h-3.65v3h-.7V8h-3.3v3h-.7V8h-3.3v3h-.7V8H4Zm3.65-5h.7Zm4 0h.7Zm4 0h.7ZM12 12Z"
+  }));
+});
+IconMaterialStraightenW100.displayName = 'AmauiIconMaterialStraightenW100';
 
 
 const IconMaterialStreamAppsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -36793,19 +36793,6 @@ const IconMaterialSubheaderW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialSubheaderW100.displayName = 'AmauiIconMaterialSubheaderW100';
 
 
-const IconMaterialSubjectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SubjectW100",
-    short_name: "Subject",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.65 18.35v-.7h8.7v.7Zm0-4v-.7h14.7v.7Zm0-4v-.7h14.7v.7Zm0-4v-.7h14.7v.7Z"
-  }));
-});
-IconMaterialSubjectW100.displayName = 'AmauiIconMaterialSubjectW100';
-
-
 const IconMaterialSubscriptW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -36830,6 +36817,19 @@ const IconMaterialSubscriptionsW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialSubscriptionsW100.displayName = 'AmauiIconMaterialSubscriptionsW100';
+
+
+const IconMaterialSubjectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SubjectW100",
+    short_name: "Subject",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.65 18.35v-.7h8.7v.7Zm0-4v-.7h14.7v.7Zm0-4v-.7h14.7v.7Zm0-4v-.7h14.7v.7Z"
+  }));
+});
+IconMaterialSubjectW100.displayName = 'AmauiIconMaterialSubjectW100';
 
 
 const IconMaterialSubtitlesOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -37014,19 +37014,6 @@ const IconMaterialSurgicalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialSurgicalW100.displayName = 'AmauiIconMaterialSurgicalW100';
 
 
-const IconMaterialSurroundSoundW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SurroundSoundW100",
-    short_name: "SurroundSound",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 14.1q.875 0 1.488-.612.612-.613.612-1.488t-.612-1.488Q12.875 9.9 12 9.9t-1.488.612Q9.9 11.125 9.9 12t.612 1.488q.613.612 1.488.612Zm4.9 1.9q.65-.8 1.025-1.812.375-1.013.375-2.188 0-1.175-.375-2.188Q17.55 8.8 16.9 8l-.5.5q.575.725.888 1.625.312.9.312 1.875t-.312 1.875q-.313.9-.888 1.625Zm-9.8 0 .5-.5q-.575-.725-.887-1.625Q6.4 12.975 6.4 12t.313-1.875q.312-.9.887-1.625L7.1 8q-.65.8-1.025 1.812Q5.7 10.825 5.7 12q0 1.175.375 2.188Q6.45 15.2 7.1 16Zm-3.8 2.7V5.3h17.4v13.4ZM4 18V6Zm0 0h16V6H4Z"
-  }));
-});
-IconMaterialSurroundSoundW100.displayName = 'AmauiIconMaterialSurroundSoundW100';
-
-
 const IconMaterialSwapCallsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -37038,6 +37025,19 @@ const IconMaterialSwapCallsW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialSwapCallsW100.displayName = 'AmauiIconMaterialSwapCallsW100';
+
+
+const IconMaterialSurroundSoundW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SurroundSoundW100",
+    short_name: "SurroundSound",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 14.1q.875 0 1.488-.612.612-.613.612-1.488t-.612-1.488Q12.875 9.9 12 9.9t-1.488.612Q9.9 11.125 9.9 12t.612 1.488q.613.612 1.488.612Zm4.9 1.9q.65-.8 1.025-1.812.375-1.013.375-2.188 0-1.175-.375-2.188Q17.55 8.8 16.9 8l-.5.5q.575.725.888 1.625.312.9.312 1.875t-.312 1.875q-.313.9-.888 1.625Zm-9.8 0 .5-.5q-.575-.725-.887-1.625Q6.4 12.975 6.4 12t.313-1.875q.312-.9.887-1.625L7.1 8q-.65.8-1.025 1.812Q5.7 10.825 5.7 12q0 1.175.375 2.188Q6.45 15.2 7.1 16Zm-3.8 2.7V5.3h17.4v13.4ZM4 18V6Zm0 0h16V6H4Z"
+  }));
+});
+IconMaterialSurroundSoundW100.displayName = 'AmauiIconMaterialSurroundSoundW100';
 
 
 const IconMaterialSwapDrivingAppsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -37274,19 +37274,6 @@ const IconMaterialSwitchAccess2W100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialSwitchAccess2W100.displayName = 'AmauiIconMaterialSwitchAccess2W100';
 
 
-const IconMaterialSwitchAccessShortcutAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SwitchAccessShortcutAddW100",
-    short_name: "SwitchAccessShortcutAdd",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m5 14.35-.425-.925L3.65 13l.925-.425L5 11.65l.425.925.925.425-.925.425Zm3 5.7-.65-1.4-1.4-.65 1.4-.65.65-1.4.65 1.4 1.4.65-1.4.65Zm0-10-.65-1.4L5.95 8l1.4-.65.65-1.4.65 1.4 1.4.65-1.4.65ZM18.35 21q-2.55-1.3-4.125-3.75Q12.65 14.8 12.65 12q0-2.2 1.213-4.45 1.212-2.25 3.162-4.2H12.55v-.7h5.8v5.8h-.7V3.725q-1.95 1.9-3.125 4.075Q13.35 9.975 13.35 12q0 2.575 1.4 4.775t3.6 3.45Zm2.3-3.65v-2h-2v-.7h2v-2h.7v2h2v.7h-2v2Z"
-  }));
-});
-IconMaterialSwitchAccessShortcutAddW100.displayName = 'AmauiIconMaterialSwitchAccessShortcutAddW100';
-
-
 const IconMaterialSwitchAccessShortcutW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -37300,17 +37287,17 @@ const IconMaterialSwitchAccessShortcutW100 = /*#__PURE__*/React.forwardRef((prop
 IconMaterialSwitchAccessShortcutW100.displayName = 'AmauiIconMaterialSwitchAccessShortcutW100';
 
 
-const IconMaterialSwitchAccessW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialSwitchAccessShortcutAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "SwitchAccessW100",
-    short_name: "SwitchAccess",
-    viewBox: "0 96 960 960"
+    name: "SwitchAccessShortcutAddW100",
+    short_name: "SwitchAccessShortcutAdd",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M172 750v-28h28v28h-28Zm0-325v-25h28v25h-28Zm134 459v-28h28v28h-28Zm0-588v-28h28v28h-28Zm320 588v-28h28v28h-28Zm0-588v-28h28v28h-28Zm134 464v-28h28v28h-28Zm0-338v-25h28v25h-28ZM306 760V395h348v365H306Zm28-28h292V423H334v309Zm146-155Z"
+    d: "m5 14.35-.425-.925L3.65 13l.925-.425L5 11.65l.425.925.925.425-.925.425Zm3 5.7-.65-1.4-1.4-.65 1.4-.65.65-1.4.65 1.4 1.4.65-1.4.65Zm0-10-.65-1.4L5.95 8l1.4-.65.65-1.4.65 1.4 1.4.65-1.4.65ZM18.35 21q-2.55-1.3-4.125-3.75Q12.65 14.8 12.65 12q0-2.2 1.213-4.45 1.212-2.25 3.162-4.2H12.55v-.7h5.8v5.8h-.7V3.725q-1.95 1.9-3.125 4.075Q13.35 9.975 13.35 12q0 2.575 1.4 4.775t3.6 3.45Zm2.3-3.65v-2h-2v-.7h2v-2h.7v2h2v.7h-2v2Z"
   }));
 });
-IconMaterialSwitchAccessW100.displayName = 'AmauiIconMaterialSwitchAccessW100';
+IconMaterialSwitchAccessShortcutAddW100.displayName = 'AmauiIconMaterialSwitchAccessShortcutAddW100';
 
 
 const IconMaterialSwitchAccountW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -37324,6 +37311,19 @@ const IconMaterialSwitchAccountW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialSwitchAccountW100.displayName = 'AmauiIconMaterialSwitchAccountW100';
+
+
+const IconMaterialSwitchAccessW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SwitchAccessW100",
+    short_name: "SwitchAccess",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M172 750v-28h28v28h-28Zm0-325v-25h28v25h-28Zm134 459v-28h28v28h-28Zm0-588v-28h28v28h-28Zm320 588v-28h28v28h-28Zm0-588v-28h28v28h-28Zm134 464v-28h28v28h-28Zm0-338v-25h28v25h-28ZM306 760V395h348v365H306Zm28-28h292V423H334v309Zm146-155Z"
+  }));
+});
+IconMaterialSwitchAccessW100.displayName = 'AmauiIconMaterialSwitchAccessW100';
 
 
 const IconMaterialSwitchCameraW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -37365,19 +37365,6 @@ const IconMaterialSwitchRightW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialSwitchRightW100.displayName = 'AmauiIconMaterialSwitchRightW100';
 
 
-const IconMaterialSwitchVideoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SwitchVideoW100",
-    short_name: "SwitchVideo",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m8.125 14.6.5-.5-1.75-1.75h7.5l-1.75 1.75.5.5 2.6-2.6-2.6-2.6-.5.5 1.75 1.75h-7.5l1.75-1.75-.5-.5-2.6 2.6Zm-4.2 4.1V5.3h13.4v6.2l2.75-2.75v6.5l-2.75-2.75v6.2Zm.7-.7h12V6h-12Zm0 0V6v12Z"
-  }));
-});
-IconMaterialSwitchVideoW100.displayName = 'AmauiIconMaterialSwitchVideoW100';
-
-
 const IconMaterialSwitchW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -37404,17 +37391,17 @@ const IconMaterialSwitchesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialSwitchesW100.displayName = 'AmauiIconMaterialSwitchesW100';
 
 
-const IconMaterialSwordRoseW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialSwitchVideoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "SwordRoseW100",
-    short_name: "SwordRose",
-    viewBox: "0 -960 960 960"
+    name: "SwitchVideoW100",
+    short_name: "SwitchVideo",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m603-516-20-20 217-217v-47h-47L536-583l-20-20 226-225h86v86L603-516ZM190-121l-70-70 145-145-88-88 48-48 80 80 50-50 20 20-50 50 47 47 50-50 20 20-50 50 79 79-48 48-88-88-145 145Zm622-259q8-37-2-72.5T781-520q-30 23-52.5 52T698-402q-8 36 2.5 71.5T729-263q32-21 53.5-51t29.5-66ZM207-626q23 23 56.5 26.5T323-615l-35-35q-25-25-59-29.5T166-667l41 41Zm73-180L173-700q35-13 71-5t63 35l35 35q20-26 18-59.5T333-752l-53-54Zm528 674L342-596q-35 26-79 24t-76-34l-73-74 166-166 73 74q32 32 34.5 76.5T362-616l319 319q-11-27-14-55t3-57q5-24 16-46t27-40.5q16-18.5 35-34.5t41-29q29 41 44.5 88t5.5 95q-8 44-34.5 79T741-238l87 87-20 19ZM298-660Z"
+    d: "m8.125 14.6.5-.5-1.75-1.75h7.5l-1.75 1.75.5.5 2.6-2.6-2.6-2.6-.5.5 1.75 1.75h-7.5l1.75-1.75-.5-.5-2.6 2.6Zm-4.2 4.1V5.3h13.4v6.2l2.75-2.75v6.5l-2.75-2.75v6.2Zm.7-.7h12V6h-12Zm0 0V6v12Z"
   }));
 });
-IconMaterialSwordRoseW100.displayName = 'AmauiIconMaterialSwordRoseW100';
+IconMaterialSwitchVideoW100.displayName = 'AmauiIconMaterialSwitchVideoW100';
 
 
 const IconMaterialSwordsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -37428,6 +37415,19 @@ const IconMaterialSwordsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialSwordsW100.displayName = 'AmauiIconMaterialSwordsW100';
+
+
+const IconMaterialSwordRoseW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SwordRoseW100",
+    short_name: "SwordRose",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m603-516-20-20 217-217v-47h-47L536-583l-20-20 226-225h86v86L603-516ZM190-121l-70-70 145-145-88-88 48-48 80 80 50-50 20 20-50 50 47 47 50-50 20 20-50 50 79 79-48 48-88-88-145 145Zm622-259q8-37-2-72.5T781-520q-30 23-52.5 52T698-402q-8 36 2.5 71.5T729-263q32-21 53.5-51t29.5-66ZM207-626q23 23 56.5 26.5T323-615l-35-35q-25-25-59-29.5T166-667l41 41Zm73-180L173-700q35-13 71-5t63 35l35 35q20-26 18-59.5T333-752l-53-54Zm528 674L342-596q-35 26-79 24t-76-34l-73-74 166-166 73 74q32 32 34.5 76.5T362-616l319 319q-11-27-14-55t3-57q5-24 16-46t27-40.5q16-18.5 35-34.5t41-29q29 41 44.5 88t5.5 95q-8 44-34.5 79T741-238l87 87-20 19ZM298-660Z"
+  }));
+});
+IconMaterialSwordRoseW100.displayName = 'AmauiIconMaterialSwordRoseW100';
 
 
 const IconMaterialSymptomsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -37508,19 +37508,6 @@ const IconMaterialSyncProblemW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialSyncProblemW100.displayName = 'AmauiIconMaterialSyncProblemW100';
 
 
-const IconMaterialSyncW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SyncW100",
-    short_name: "Sync",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.85 19.15v-.7h3.2L6.8 17.2q-1.125-1.125-1.637-2.438Q4.65 13.45 4.65 12.1q0-2.3 1.288-4.188Q7.225 6.025 9.35 5.15v.75q-1.825.8-2.912 2.487Q5.35 10.075 5.35 12.1q0 1.25.475 2.425Q6.3 15.7 7.3 16.7l1.25 1.25v-3.2h.7v4.4Zm9.8-.3v-.75q1.825-.8 2.912-2.487 1.088-1.688 1.088-3.713 0-1.25-.475-2.425Q17.7 8.3 16.7 7.3l-1.25-1.25v3.2h-.7v-4.4h4.4v.7h-3.2L17.2 6.8q1.125 1.125 1.637 2.438.513 1.312.513 2.662 0 2.3-1.288 4.187-1.287 1.888-3.412 2.763Z"
-  }));
-});
-IconMaterialSyncW100.displayName = 'AmauiIconMaterialSyncW100';
-
-
 const IconMaterialSyncSavedLocallyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -37532,6 +37519,19 @@ const IconMaterialSyncSavedLocallyW100 = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialSyncSavedLocallyW100.displayName = 'AmauiIconMaterialSyncSavedLocallyW100';
+
+
+const IconMaterialSyncW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SyncW100",
+    short_name: "Sync",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.85 19.15v-.7h3.2L6.8 17.2q-1.125-1.125-1.637-2.438Q4.65 13.45 4.65 12.1q0-2.3 1.288-4.188Q7.225 6.025 9.35 5.15v.75q-1.825.8-2.912 2.487Q5.35 10.075 5.35 12.1q0 1.25.475 2.425Q6.3 15.7 7.3 16.7l1.25 1.25v-3.2h.7v4.4Zm9.8-.3v-.75q1.825-.8 2.912-2.487 1.088-1.688 1.088-3.713 0-1.25-.475-2.425Q17.7 8.3 16.7 7.3l-1.25-1.25v3.2h-.7v-4.4h4.4v.7h-3.2L17.2 6.8q1.125 1.125 1.637 2.438.513 1.312.513 2.662 0 2.3-1.288 4.187-1.287 1.888-3.412 2.763Z"
+  }));
+});
+IconMaterialSyncW100.displayName = 'AmauiIconMaterialSyncW100';
 
 
 const IconMaterialSyringeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -37638,19 +37638,6 @@ const IconMaterialTabMoveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialTabMoveW100.displayName = 'AmauiIconMaterialTabMoveW100';
 
 
-const IconMaterialTabNewRightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TabNewRightW100",
-    short_name: "TabNewRight",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M200 856V296v560Zm-28 28V268h616v366q-6.65-1-13.65-1.5T760 632V296H200v560h336q0 7.35.5 14.35T538 884H172Zm588 95-19-19 88-90H626v-28h203l-88-90 19-19 123 123-123 123ZM466 750h28V590h160v-28H494V402h-28v160H306v28h160v160Z"
-  }));
-});
-IconMaterialTabNewRightW100.displayName = 'AmauiIconMaterialTabNewRightW100';
-
-
 const IconMaterialTabRecentW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -37664,17 +37651,17 @@ const IconMaterialTabRecentW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialTabRecentW100.displayName = 'AmauiIconMaterialTabRecentW100';
 
 
-const IconMaterialTabW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialTabNewRightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "TabW100",
-    short_name: "Tab",
-    viewBox: "0 0 24 24"
+    name: "TabNewRightW100",
+    short_name: "TabNewRight",
+    viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.3 18.7V5.3h17.4v13.4ZM20 18v-8h-7V6H4v12ZM4 18V6v12Z"
+    d: "M200 856V296v560Zm-28 28V268h616v366q-6.65-1-13.65-1.5T760 632V296H200v560h336q0 7.35.5 14.35T538 884H172Zm588 95-19-19 88-90H626v-28h203l-88-90 19-19 123 123-123 123ZM466 750h28V590h160v-28H494V402h-28v160H306v28h160v160Z"
   }));
 });
-IconMaterialTabW100.displayName = 'AmauiIconMaterialTabW100';
+IconMaterialTabNewRightW100.displayName = 'AmauiIconMaterialTabNewRightW100';
 
 
 const IconMaterialTabUnselectedW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -37688,6 +37675,19 @@ const IconMaterialTabUnselectedW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialTabUnselectedW100.displayName = 'AmauiIconMaterialTabUnselectedW100';
+
+
+const IconMaterialTabW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TabW100",
+    short_name: "Tab",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.3 18.7V5.3h17.4v13.4ZM20 18v-8h-7V6H4v12ZM4 18V6v12Z"
+  }));
+});
+IconMaterialTabW100.displayName = 'AmauiIconMaterialTabW100';
 
 
 const IconMaterialTableBarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38132,19 +38132,6 @@ const IconMaterialTextDecreaseW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialTextDecreaseW100.displayName = 'AmauiIconMaterialTextDecreaseW100';
 
 
-const IconMaterialTextFieldsAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TextFieldsAltW100",
-    short_name: "TextFieldsAlt",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M80-160v-40h800v40H80Zm680-120v-508h28v508h-28Zm-562 0 212-508h20l212 508h-34l-60-145H289l-61 145h-30Zm102-172h237L419-736 300-452Z"
-  }));
-});
-IconMaterialTextFieldsAltW100.displayName = 'AmauiIconMaterialTextFieldsAltW100';
-
-
 const IconMaterialTextFieldsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -38158,17 +38145,17 @@ const IconMaterialTextFieldsW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialTextFieldsW100.displayName = 'AmauiIconMaterialTextFieldsW100';
 
 
-const IconMaterialTextFormatW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialTextFieldsAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "TextFormatW100",
-    short_name: "TextFormat",
-    viewBox: "0 0 24 24"
+    name: "TextFieldsAltW100",
+    short_name: "TextFieldsAlt",
+    viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.65 18.4v-.7h12.7v.7Zm2.175-3.7 3.85-10.1h.7l3.75 10.1h-.75l-1.05-2.85h-4.7l-1.05 2.85Zm2.05-3.5h4.2l-2-5.5h-.1Z"
+    d: "M80-160v-40h800v40H80Zm680-120v-508h28v508h-28Zm-562 0 212-508h20l212 508h-34l-60-145H289l-61 145h-30Zm102-172h237L419-736 300-452Z"
   }));
 });
-IconMaterialTextFormatW100.displayName = 'AmauiIconMaterialTextFormatW100';
+IconMaterialTextFieldsAltW100.displayName = 'AmauiIconMaterialTextFieldsAltW100';
 
 
 const IconMaterialTextIncreaseW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38197,6 +38184,19 @@ const IconMaterialTextRotateUpW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialTextRotateUpW100.displayName = 'AmauiIconMaterialTextRotateUpW100';
 
 
+const IconMaterialTextFormatW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TextFormatW100",
+    short_name: "TextFormat",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5.65 18.4v-.7h12.7v.7Zm2.175-3.7 3.85-10.1h.7l3.75 10.1h-.75l-1.05-2.85h-4.7l-1.05 2.85Zm2.05-3.5h4.2l-2-5.5h-.1Z"
+  }));
+});
+IconMaterialTextFormatW100.displayName = 'AmauiIconMaterialTextFormatW100';
+
+
 const IconMaterialTextRotateVerticalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -38210,19 +38210,6 @@ const IconMaterialTextRotateVerticalW100 = /*#__PURE__*/React.forwardRef((props,
 IconMaterialTextRotateVerticalW100.displayName = 'AmauiIconMaterialTextRotateVerticalW100';
 
 
-const IconMaterialTextRotationAngledownW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TextRotationAngledownW100",
-    short_name: "TextRotationAngledown",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.75 20.35v-.7h2.4L3.2 9.7l.5-.5 9.95 9.95v-2.4h.7v3.6Zm3.975-5.95-.55-.525 1.275-2.75L12.125 7.8l-2.75 1.275-.525-.55 9.85-4.4.5.475Zm-1.95-6.9 2.975 2.975 2.475-5.3-.075-.075Z"
-  }));
-});
-IconMaterialTextRotationAngledownW100.displayName = 'AmauiIconMaterialTextRotationAngledownW100';
-
-
 const IconMaterialTextRotationAngleupW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -38234,6 +38221,19 @@ const IconMaterialTextRotationAngleupW100 = /*#__PURE__*/React.forwardRef((props
   }));
 });
 IconMaterialTextRotationAngleupW100.displayName = 'AmauiIconMaterialTextRotationAngleupW100';
+
+
+const IconMaterialTextRotationAngledownW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TextRotationAngledownW100",
+    short_name: "TextRotationAngledown",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10.75 20.35v-.7h2.4L3.2 9.7l.5-.5 9.95 9.95v-2.4h.7v3.6Zm3.975-5.95-.55-.525 1.275-2.75L12.125 7.8l-2.75 1.275-.525-.55 9.85-4.4.5.475Zm-1.95-6.9 2.975 2.975 2.475-5.3-.075-.075Z"
+  }));
+});
+IconMaterialTextRotationAngledownW100.displayName = 'AmauiIconMaterialTextRotationAngledownW100';
 
 
 const IconMaterialTextRotationDownW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38288,19 +38288,6 @@ const IconMaterialTextSelectJumpToBeginningW100 = /*#__PURE__*/React.forwardRef(
 IconMaterialTextSelectJumpToBeginningW100.displayName = 'AmauiIconMaterialTextSelectJumpToBeginningW100';
 
 
-const IconMaterialTextSelectJumpToEndW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TextSelectJumpToEndW100",
-    short_name: "TextSelectJumpToEnd",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m400 699-19-19 88-90H172v-28h297l-88-90 19-19 123 123-123 123Zm360 185V268h28v616h-28ZM600 296v-28h80v28h-80Zm0 588v-28h80v28h-80ZM440 296v-28h80v28h-80Zm0 588v-28h80v28h-80ZM280 296v-28h80v28h-80Zm0 588v-28h80v28h-80ZM172 296v-28h28v28h-28Zm0 588v-28h28v28h-28Z"
-  }));
-});
-IconMaterialTextSelectJumpToEndW100.displayName = 'AmauiIconMaterialTextSelectJumpToEndW100';
-
-
 const IconMaterialTextSelectMoveBackCharacterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -38312,6 +38299,19 @@ const IconMaterialTextSelectMoveBackCharacterW100 = /*#__PURE__*/React.forwardRe
   }));
 });
 IconMaterialTextSelectMoveBackCharacterW100.displayName = 'AmauiIconMaterialTextSelectMoveBackCharacterW100';
+
+
+const IconMaterialTextSelectJumpToEndW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TextSelectJumpToEndW100",
+    short_name: "TextSelectJumpToEnd",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m400 699-19-19 88-90H172v-28h297l-88-90 19-19 123 123-123 123Zm360 185V268h28v616h-28ZM600 296v-28h80v28h-80Zm0 588v-28h80v28h-80ZM440 296v-28h80v28h-80Zm0 588v-28h80v28h-80ZM280 296v-28h80v28h-80Zm0 588v-28h80v28h-80ZM172 296v-28h28v28h-28Zm0 588v-28h28v28h-28Z"
+  }));
+});
+IconMaterialTextSelectJumpToEndW100.displayName = 'AmauiIconMaterialTextSelectJumpToEndW100';
 
 
 const IconMaterialTextSelectMoveBackWordW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38392,19 +38392,6 @@ const IconMaterialTextSelectStartW100 = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialTextSelectStartW100.displayName = 'AmauiIconMaterialTextSelectStartW100';
 
 
-const IconMaterialTextSnippetW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TextSnippetW100",
-    short_name: "TextSnippet",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5 19h14V9.55L14.45 5H5Zm-.7.7V4.3h10.425L19.7 9.275V19.7Zm3.35-4h8.7V15h-8.7Zm0-3.35h8.7v-.7h-8.7Zm0-3.35H13v-.7H7.65ZM5 19V5v14Z"
-  }));
-});
-IconMaterialTextSnippetW100.displayName = 'AmauiIconMaterialTextSnippetW100';
-
-
 const IconMaterialTextToSpeechW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -38416,6 +38403,19 @@ const IconMaterialTextToSpeechW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialTextToSpeechW100.displayName = 'AmauiIconMaterialTextToSpeechW100';
+
+
+const IconMaterialTextSnippetW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TextSnippetW100",
+    short_name: "TextSnippet",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5 19h14V9.55L14.45 5H5Zm-.7.7V4.3h10.425L19.7 9.275V19.7Zm3.35-4h8.7V15h-8.7Zm0-3.35h8.7v-.7h-8.7Zm0-3.35H13v-.7H7.65ZM5 19V5v14Z"
+  }));
+});
+IconMaterialTextSnippetW100.displayName = 'AmauiIconMaterialTextSnippetW100';
 
 
 const IconMaterialTextureAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38587,19 +38587,6 @@ const IconMaterialThermostatW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialThermostatW100.displayName = 'AmauiIconMaterialThermostatW100';
 
 
-const IconMaterialThingsToDoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ThingsToDoW100",
-    short_name: "ThingsToDo",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M188-172v-28h104v-186h-52v-28h52q0-71 51-120t123-54v-156h180v100H494v56q72 5 123 54t51 120h52v28h-52v186h104v28H188Zm132-28h146v-186H320v186Zm174 0h146v-186H494v186ZM320-414h320q0-63-47.5-104.5T480-560q-65 0-112.5 41.5T320-414Zm160 0Z"
-  }));
-});
-IconMaterialThingsToDoW100.displayName = 'AmauiIconMaterialThingsToDoW100';
-
-
 const IconMaterialThreadUnreadW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -38611,6 +38598,19 @@ const IconMaterialThreadUnreadW100 = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialThreadUnreadW100.displayName = 'AmauiIconMaterialThreadUnreadW100';
+
+
+const IconMaterialThingsToDoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ThingsToDoW100",
+    short_name: "ThingsToDo",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M188-172v-28h104v-186h-52v-28h52q0-71 51-120t123-54v-156h180v100H494v56q72 5 123 54t51 120h52v28h-52v186h104v28H188Zm132-28h146v-186H320v186Zm174 0h146v-186H494v186ZM320-414h320q0-63-47.5-104.5T480-560q-65 0-112.5 41.5T320-414Zm160 0Z"
+  }));
+});
+IconMaterialThingsToDoW100.displayName = 'AmauiIconMaterialThingsToDoW100';
 
 
 const IconMaterialThumbDownOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38730,19 +38730,6 @@ const IconMaterialTibiaW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialTibiaW100.displayName = 'AmauiIconMaterialTibiaW100';
 
 
-const IconMaterialTimeAutoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TimeAutoW100",
-    short_name: "TimeAuto",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8.775 16.6h.75l.775-2.25h3.325l.775 2.25h.75l-2.7-7.8h-.975Zm1.775-2.95 1.425-4.1 1.4 4.1ZM9.5 2.35v-.7h5v.7ZM12 20.7q-1.6 0-3-.6t-2.45-1.65Q5.5 17.4 4.9 16q-.6-1.4-.6-3t.6-3q.6-1.4 1.65-2.45Q7.6 6.5 9 5.9q1.4-.6 3-.6 1.425 0 2.763.525Q16.1 6.35 17.2 7.3l1-1 .5.5-1 1q.95 1.1 1.475 2.437.525 1.338.525 2.763 0 1.6-.6 3t-1.65 2.45Q16.4 19.5 15 20.1q-1.4.6-3 .6Zm0-.7q2.9 0 4.95-2.05Q19 15.9 19 13q0-2.9-2.05-4.95Q14.9 6 12 6 9.1 6 7.05 8.05 5 10.1 5 13q0 2.9 2.05 4.95Q9.1 20 12 20Z"
-  }));
-});
-IconMaterialTimeAutoW100.displayName = 'AmauiIconMaterialTimeAutoW100';
-
-
 const IconMaterialTimelapseW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -38756,17 +38743,17 @@ const IconMaterialTimelapseW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialTimelapseW100.displayName = 'AmauiIconMaterialTimelapseW100';
 
 
-const IconMaterialTimelineW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialTimeAutoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "TimelineW100",
-    short_name: "Timeline",
+    name: "TimeAutoW100",
+    short_name: "TimeAuto",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 17.35q-.575 0-.962-.388-.388-.387-.388-.962t.388-.963q.387-.387.962-.387.2 0 .375.038.175.037.325.162L8.85 9.7q-.125-.15-.162-.325Q8.65 9.2 8.65 9q0-.575.388-.963.387-.387.962-.387t.963.387q.387.388.387.963 0 .15-.15.65l3.15 3.15q.15-.075.3-.112.15-.038.35-.038.2 0 .363.038.162.037.287.162l4.2-4.2q-.125-.125-.162-.288Q19.65 8.2 19.65 8q0-.575.388-.963.387-.387.962-.387t.963.387q.387.388.387.963t-.387.962q-.388.388-.963.388-.2 0-.362-.038-.163-.037-.288-.162l-4.2 4.2q.125.125.162.287.038.163.038.363 0 .575-.387.962-.388.388-.963.388t-.962-.388q-.388-.387-.388-.962 0-.2.038-.375.037-.175.162-.325l-3.15-3.15q-.15.125-.325.162-.175.038-.375.038-.15 0-.65-.15L4.2 15.35q.075.15.112.3.038.15.038.35 0 .575-.387.962-.388.388-.963.388Z"
+    d: "M8.775 16.6h.75l.775-2.25h3.325l.775 2.25h.75l-2.7-7.8h-.975Zm1.775-2.95 1.425-4.1 1.4 4.1ZM9.5 2.35v-.7h5v.7ZM12 20.7q-1.6 0-3-.6t-2.45-1.65Q5.5 17.4 4.9 16q-.6-1.4-.6-3t.6-3q.6-1.4 1.65-2.45Q7.6 6.5 9 5.9q1.4-.6 3-.6 1.425 0 2.763.525Q16.1 6.35 17.2 7.3l1-1 .5.5-1 1q.95 1.1 1.475 2.437.525 1.338.525 2.763 0 1.6-.6 3t-1.65 2.45Q16.4 19.5 15 20.1q-1.4.6-3 .6Zm0-.7q2.9 0 4.95-2.05Q19 15.9 19 13q0-2.9-2.05-4.95Q14.9 6 12 6 9.1 6 7.05 8.05 5 10.1 5 13q0 2.9 2.05 4.95Q9.1 20 12 20Z"
   }));
 });
-IconMaterialTimelineW100.displayName = 'AmauiIconMaterialTimelineW100';
+IconMaterialTimeAutoW100.displayName = 'AmauiIconMaterialTimeAutoW100';
 
 
 const IconMaterialTimer10Alt1W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38780,6 +38767,19 @@ const IconMaterialTimer10Alt1W100 = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialTimer10Alt1W100.displayName = 'AmauiIconMaterialTimer10Alt1W100';
+
+
+const IconMaterialTimelineW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TimelineW100",
+    short_name: "Timeline",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 17.35q-.575 0-.962-.388-.388-.387-.388-.962t.388-.963q.387-.387.962-.387.2 0 .375.038.175.037.325.162L8.85 9.7q-.125-.15-.162-.325Q8.65 9.2 8.65 9q0-.575.388-.963.387-.387.962-.387t.963.387q.387.388.387.963 0 .15-.15.65l3.15 3.15q.15-.075.3-.112.15-.038.35-.038.2 0 .363.038.162.037.287.162l4.2-4.2q-.125-.125-.162-.288Q19.65 8.2 19.65 8q0-.575.388-.963.387-.387.962-.387t.963.387q.387.388.387.963t-.387.962q-.388.388-.963.388-.2 0-.362-.038-.163-.037-.288-.162l-4.2 4.2q.125.125.162.287.038.163.038.363 0 .575-.387.962-.388.388-.963.388t-.962-.388q-.388-.387-.388-.962 0-.2.038-.375.037-.175.162-.325l-3.15-3.15q-.15.125-.325.162-.175.038-.375.038-.15 0-.65-.15L4.2 15.35q.075.15.112.3.038.15.038.35 0 .575-.387.962-.388.388-.963.388Z"
+  }));
+});
+IconMaterialTimelineW100.displayName = 'AmauiIconMaterialTimelineW100';
 
 
 const IconMaterialTimer10SelectW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38834,6 +38834,19 @@ const IconMaterialTimer3SelectW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialTimer3SelectW100.displayName = 'AmauiIconMaterialTimer3SelectW100';
 
 
+const IconMaterialTimer3W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Timer3W100",
+    short_name: "Timer3",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8.45 16.6q-.95 0-1.612-.45-.663-.45-1.088-1.35l.65-.3q.3.675.8 1.037.5.363 1.25.363.825 0 1.488-.45.662-.45.662-1.35 0-.975-.725-1.463-.725-.487-1.475-.487h-.5v-.7h.5q.675 0 1.263-.425.587-.425.587-1.325 0-.825-.537-1.212Q9.175 8.1 8.45 8.1q-.525 0-1.012.25-.488.25-.788.75L6 8.8q.425-.725 1.062-1.063Q7.7 7.4 8.45 7.4q1.025 0 1.788.6.762.6.762 1.7 0 .75-.363 1.25-.362.5-1.187.85.9.225 1.4.862.5.638.5 1.438 0 1.175-.862 1.838-.863.662-2.038.662Zm7.4 0q-.75 0-1.4-.338-.65-.337-1.1-1.062l.6-.35q.35.525.8.812.45.288 1.1.288.575 0 1.112-.275.538-.275.538-.925 0-.675-.413-.913-.412-.237-1.137-.387-1.1-.225-1.7-.638-.6-.412-.6-1.312 0-.875.662-1.338.663-.462 1.538-.462.725 0 1.287.25.563.25.913.85l-.6.35q-.275-.375-.675-.588-.4-.212-.925-.212-.6 0-1.05.287-.45.288-.45.863t.438.812q.437.238 1.412.438.8.15 1.4.6.6.45.6 1.4t-.738 1.4q-.737.45-1.612.45Z"
+  }));
+});
+IconMaterialTimer3W100.displayName = 'AmauiIconMaterialTimer3W100';
+
+
 const IconMaterialTimerOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -38858,19 +38871,6 @@ const IconMaterialTimerW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialTimerW100.displayName = 'AmauiIconMaterialTimerW100';
-
-
-const IconMaterialTimer3W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Timer3W100",
-    short_name: "Timer3",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8.45 16.6q-.95 0-1.612-.45-.663-.45-1.088-1.35l.65-.3q.3.675.8 1.037.5.363 1.25.363.825 0 1.488-.45.662-.45.662-1.35 0-.975-.725-1.463-.725-.487-1.475-.487h-.5v-.7h.5q.675 0 1.263-.425.587-.425.587-1.325 0-.825-.537-1.212Q9.175 8.1 8.45 8.1q-.525 0-1.012.25-.488.25-.788.75L6 8.8q.425-.725 1.062-1.063Q7.7 7.4 8.45 7.4q1.025 0 1.788.6.762.6.762 1.7 0 .75-.363 1.25-.362.5-1.187.85.9.225 1.4.862.5.638.5 1.438 0 1.175-.862 1.838-.863.662-2.038.662Zm7.4 0q-.75 0-1.4-.338-.65-.337-1.1-1.062l.6-.35q.35.525.8.812.45.288 1.1.288.575 0 1.112-.275.538-.275.538-.925 0-.675-.413-.913-.412-.237-1.137-.387-1.1-.225-1.7-.638-.6-.412-.6-1.312 0-.875.662-1.338.663-.462 1.538-.462.725 0 1.287.25.563.25.913.85l-.6.35q-.275-.375-.675-.588-.4-.212-.925-.212-.6 0-1.05.287-.45.288-.45.863t.438.812q.437.238 1.412.438.8.15 1.4.6.6.45.6 1.4t-.738 1.4q-.737.45-1.612.45Z"
-  }));
-});
-IconMaterialTimer3W100.displayName = 'AmauiIconMaterialTimer3W100';
 
 
 const IconMaterialTipsAndUpdatesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38912,6 +38912,19 @@ const IconMaterialTitleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialTitleW100.displayName = 'AmauiIconMaterialTitleW100';
 
 
+const IconMaterialTocW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TocW100",
+    short_name: "Toc",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.875 16.35v-.7h13.2v.7Zm0-4v-.7h13.2v.7Zm0-4v-.7h13.2v.7Zm15.7 8.2q-.225 0-.387-.162-.163-.163-.163-.388t.163-.387q.162-.163.387-.163t.387.163q.163.162.163.387t-.163.388q-.162.162-.387.162Zm0-4q-.225 0-.387-.163-.163-.162-.163-.387t.163-.388q.162-.162.387-.162t.387.162q.163.163.163.388t-.163.387q-.162.163-.387.163Zm0-4q-.225 0-.387-.163-.163-.162-.163-.387t.163-.388q.162-.162.387-.162t.387.162q.163.163.163.388t-.163.387q-.162.163-.387.163Z"
+  }));
+});
+IconMaterialTocW100.displayName = 'AmauiIconMaterialTocW100';
+
+
 const IconMaterialToastW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -38923,19 +38936,6 @@ const IconMaterialToastW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialToastW100.displayName = 'AmauiIconMaterialToastW100';
-
-
-const IconMaterialToggleOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ToggleOffW100",
-    short_name: "ToggleOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7 16.7q-1.95 0-3.325-1.375Q2.3 13.95 2.3 12q0-1.95 1.375-3.325Q5.05 7.3 7 7.3h10q1.95 0 3.325 1.375Q21.7 10.05 21.7 12q0 1.95-1.375 3.325Q18.95 16.7 17 16.7Zm0-.7h10q1.65 0 2.825-1.175Q21 13.65 21 12q0-1.65-1.175-2.825Q18.65 8 17 8H7Q5.35 8 4.175 9.175 3 10.35 3 12q0 1.65 1.175 2.825Q5.35 16 7 16Zm0-1.65q.975 0 1.662-.688.688-.687.688-1.662 0-.975-.688-1.663Q7.975 9.65 7 9.65q-.975 0-1.662.687-.688.688-.688 1.663 0 .975.688 1.662.687.688 1.662.688ZM12 12Z"
-  }));
-});
-IconMaterialToggleOffW100.displayName = 'AmauiIconMaterialToggleOffW100';
 
 
 const IconMaterialTodayW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38951,17 +38951,17 @@ const IconMaterialTodayW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialTodayW100.displayName = 'AmauiIconMaterialTodayW100';
 
 
-const IconMaterialTocW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialToggleOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "TocW100",
-    short_name: "Toc",
+    name: "ToggleOffW100",
+    short_name: "ToggleOff",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.875 16.35v-.7h13.2v.7Zm0-4v-.7h13.2v.7Zm0-4v-.7h13.2v.7Zm15.7 8.2q-.225 0-.387-.162-.163-.163-.163-.388t.163-.387q.162-.163.387-.163t.387.163q.163.162.163.387t-.163.388q-.162.162-.387.162Zm0-4q-.225 0-.387-.163-.163-.162-.163-.387t.163-.388q.162-.162.387-.162t.387.162q.163.163.163.388t-.163.387q-.162.163-.387.163Zm0-4q-.225 0-.387-.163-.163-.162-.163-.387t.163-.388q.162-.162.387-.162t.387.162q.163.163.163.388t-.163.387q-.162.163-.387.163Z"
+    d: "M7 16.7q-1.95 0-3.325-1.375Q2.3 13.95 2.3 12q0-1.95 1.375-3.325Q5.05 7.3 7 7.3h10q1.95 0 3.325 1.375Q21.7 10.05 21.7 12q0 1.95-1.375 3.325Q18.95 16.7 17 16.7Zm0-.7h10q1.65 0 2.825-1.175Q21 13.65 21 12q0-1.65-1.175-2.825Q18.65 8 17 8H7Q5.35 8 4.175 9.175 3 10.35 3 12q0 1.65 1.175 2.825Q5.35 16 7 16Zm0-1.65q.975 0 1.662-.688.688-.687.688-1.662 0-.975-.688-1.663Q7.975 9.65 7 9.65q-.975 0-1.662.687-.688.688-.688 1.663 0 .975.688 1.662.687.688 1.662.688ZM12 12Z"
   }));
 });
-IconMaterialTocW100.displayName = 'AmauiIconMaterialTocW100';
+IconMaterialToggleOffW100.displayName = 'AmauiIconMaterialToggleOffW100';
 
 
 const IconMaterialToggleOnW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38977,19 +38977,6 @@ const IconMaterialToggleOnW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialToggleOnW100.displayName = 'AmauiIconMaterialToggleOnW100';
 
 
-const IconMaterialTollW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TollW100",
-    short_name: "Toll",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M15 18.7q-2.8 0-4.75-1.95Q8.3 14.8 8.3 12t1.95-4.75Q12.2 5.3 15 5.3t4.75 1.95Q21.7 9.2 21.7 12t-1.95 4.75Q17.8 18.7 15 18.7Zm-8-.3q-2.15-.575-3.425-2.362Q2.3 14.25 2.3 12t1.275-4.037Q4.85 6.175 7 5.6v.75q-1.8.625-2.9 2.175Q3 10.075 3 12t1.1 3.475q1.1 1.55 2.9 2.175Zm8-6.4Zm0 6q2.5 0 4.25-1.75T21 12q0-2.5-1.75-4.25T15 6q-2.5 0-4.25 1.75T9 12q0 2.5 1.75 4.25T15 18Z"
-  }));
-});
-IconMaterialTollW100.displayName = 'AmauiIconMaterialTollW100';
-
-
 const IconMaterialTokenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39001,6 +38988,19 @@ const IconMaterialTokenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialTokenW100.displayName = 'AmauiIconMaterialTokenW100';
+
+
+const IconMaterialTollW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TollW100",
+    short_name: "Toll",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M15 18.7q-2.8 0-4.75-1.95Q8.3 14.8 8.3 12t1.95-4.75Q12.2 5.3 15 5.3t4.75 1.95Q21.7 9.2 21.7 12t-1.95 4.75Q17.8 18.7 15 18.7Zm-8-.3q-2.15-.575-3.425-2.362Q2.3 14.25 2.3 12t1.275-4.037Q4.85 6.175 7 5.6v.75q-1.8.625-2.9 2.175Q3 10.075 3 12t1.1 3.475q1.1 1.55 2.9 2.175Zm8-6.4Zm0 6q2.5 0 4.25-1.75T21 12q0-2.5-1.75-4.25T15 6q-2.5 0-4.25 1.75T9 12q0 2.5 1.75 4.25T15 18Z"
+  }));
+});
+IconMaterialTollW100.displayName = 'AmauiIconMaterialTollW100';
 
 
 const IconMaterialTonalityW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39042,19 +39042,6 @@ const IconMaterialToolsFlatHeadW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialToolsFlatHeadW100.displayName = 'AmauiIconMaterialToolsFlatHeadW100';
 
 
-const IconMaterialToolsInstallationKitW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ToolsInstallationKitW100",
-    short_name: "ToolsInstallationKit",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 18.7q-2.8 0-4.75-1.95Q2.3 14.8 2.3 12t1.95-4.75Q6.2 5.3 9 5.3h6q2.8 0 4.75 1.95Q21.7 9.2 21.7 12t-1.95 4.75Q17.8 18.7 15 18.7Zm0-.7h6q2.5 0 4.25-1.75T21 12q0-2.5-1.75-4.25T15 6H9Q6.5 6 4.75 7.75T3 12q0 2.5 1.75 4.25T9 18Zm3-4.65q.575 0 .963-.388.387-.387.387-.962t-.387-.963q-.388-.387-.963-.387t-.962.387q-.388.388-.388.963t.388.962q.387.388.962.388Zm-1-5h2q.15 0 .25-.1t.1-.25q0-.15-.1-.25t-.25-.1h-2q-.15 0-.25.1t-.1.25q0 .15.1.25t.25.1Zm0 8h2q.15 0 .25-.1t.1-.25q0-.15-.1-.25t-.25-.1h-2q-.15 0-.25.1t-.1.25q0 .15.1.25t.25.1Zm5-3q.15 0 .25-.1t.1-.25v-2q0-.15-.1-.25t-.25-.1q-.15 0-.25.1t-.1.25v2q0 .15.1.25t.25.1Zm-8 0q.15 0 .25-.1t.1-.25v-2q0-.15-.1-.25t-.25-.1q-.15 0-.25.1t-.1.25v2q0 .15.1.25t.25.1ZM12 12Z"
-  }));
-});
-IconMaterialToolsInstallationKitW100.displayName = 'AmauiIconMaterialToolsInstallationKitW100';
-
-
 const IconMaterialToolsLadderW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39066,6 +39053,19 @@ const IconMaterialToolsLadderW100 = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialToolsLadderW100.displayName = 'AmauiIconMaterialToolsLadderW100';
+
+
+const IconMaterialToolsInstallationKitW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ToolsInstallationKitW100",
+    short_name: "ToolsInstallationKit",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9 18.7q-2.8 0-4.75-1.95Q2.3 14.8 2.3 12t1.95-4.75Q6.2 5.3 9 5.3h6q2.8 0 4.75 1.95Q21.7 9.2 21.7 12t-1.95 4.75Q17.8 18.7 15 18.7Zm0-.7h6q2.5 0 4.25-1.75T21 12q0-2.5-1.75-4.25T15 6H9Q6.5 6 4.75 7.75T3 12q0 2.5 1.75 4.25T9 18Zm3-4.65q.575 0 .963-.388.387-.387.387-.962t-.387-.963q-.388-.387-.963-.387t-.962.387q-.388.388-.388.963t.388.962q.387.388.962.388Zm-1-5h2q.15 0 .25-.1t.1-.25q0-.15-.1-.25t-.25-.1h-2q-.15 0-.25.1t-.1.25q0 .15.1.25t.25.1Zm0 8h2q.15 0 .25-.1t.1-.25q0-.15-.1-.25t-.25-.1h-2q-.15 0-.25.1t-.1.25q0 .15.1.25t.25.1Zm5-3q.15 0 .25-.1t.1-.25v-2q0-.15-.1-.25t-.25-.1q-.15 0-.25.1t-.1.25v2q0 .15.1.25t.25.1Zm-8 0q.15 0 .25-.1t.1-.25v-2q0-.15-.1-.25t-.25-.1q-.15 0-.25.1t-.1.25v2q0 .15.1.25t.25.1ZM12 12Z"
+  }));
+});
+IconMaterialToolsInstallationKitW100.displayName = 'AmauiIconMaterialToolsInstallationKitW100';
 
 
 const IconMaterialToolsLevelW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39198,19 +39198,6 @@ const IconMaterialTornadoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialTornadoW100.displayName = 'AmauiIconMaterialTornadoW100';
 
 
-const IconMaterialTotalDissolvedSolidsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TotalDissolvedSolidsW100",
-    short_name: "TotalDissolvedSolids",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.65 11.8q.6-1.75 2.188-3.75Q9.425 6.05 12 3.7q2.575 2.35 4.163 4.35 1.587 2 2.187 3.75h-.75q-.575-1.55-1.975-3.337Q14.225 6.675 12 4.65 9.8 6.675 8.388 8.463 6.975 10.25 6.4 11.8Zm13.05 2.025q0 .275-.025.55t-.075.55l-5.75 5.725q-.275.05-.538.062-.262.013-.537-.012Zm-4.475-.025h1.025L9 20.025q-.175-.075-.337-.163-.163-.087-.313-.212Zm-4.475 0h1.025L6.6 17.975q-.125-.15-.212-.3-.088-.15-.188-.325Zm-4.45 0h1.025l-.975.975q-.05-.25-.05-.488V13.8Zm6.7-2Z"
-  }));
-});
-IconMaterialTotalDissolvedSolidsW100.displayName = 'AmauiIconMaterialTotalDissolvedSolidsW100';
-
-
 const IconMaterialTouchAppW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39222,6 +39209,19 @@ const IconMaterialTouchAppW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialTouchAppW100.displayName = 'AmauiIconMaterialTouchAppW100';
+
+
+const IconMaterialTotalDissolvedSolidsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TotalDissolvedSolidsW100",
+    short_name: "TotalDissolvedSolids",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5.65 11.8q.6-1.75 2.188-3.75Q9.425 6.05 12 3.7q2.575 2.35 4.163 4.35 1.587 2 2.187 3.75h-.75q-.575-1.55-1.975-3.337Q14.225 6.675 12 4.65 9.8 6.675 8.388 8.463 6.975 10.25 6.4 11.8Zm13.05 2.025q0 .275-.025.55t-.075.55l-5.75 5.725q-.275.05-.538.062-.262.013-.537-.012Zm-4.475-.025h1.025L9 20.025q-.175-.075-.337-.163-.163-.087-.313-.212Zm-4.475 0h1.025L6.6 17.975q-.125-.15-.212-.3-.088-.15-.188-.325Zm-4.45 0h1.025l-.975.975q-.05-.25-.05-.488V13.8Zm6.7-2Z"
+  }));
+});
+IconMaterialTotalDissolvedSolidsW100.displayName = 'AmauiIconMaterialTotalDissolvedSolidsW100';
 
 
 const IconMaterialTouchpadMouseW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39263,19 +39263,6 @@ const IconMaterialToysAndGamesW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialToysAndGamesW100.displayName = 'AmauiIconMaterialToysAndGamesW100';
 
 
-const IconMaterialToysFanW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ToysFanW100",
-    short_name: "ToysFan",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 12q0-1.8 1.3-3.1t3.1-1.3q1.8 0 3.1 1.3t1.3 3.1Zm-4.4 4.4q-1.8 0-3.1-1.3T3.2 12H12q0 1.8-1.3 3.1t-3.1 1.3ZM12 12q-1.8 0-3.1-1.3T7.6 7.6q0-1.8 1.3-3.1T12 3.2Zm0 8.8V12q1.8 0 3.1 1.3t1.3 3.1q0 1.8-1.3 3.1T12 20.8Z"
-  }));
-});
-IconMaterialToysFanW100.displayName = 'AmauiIconMaterialToysFanW100';
-
-
 const IconMaterialToysW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39287,6 +39274,19 @@ const IconMaterialToysW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialToysW100.displayName = 'AmauiIconMaterialToysW100';
+
+
+const IconMaterialToysFanW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ToysFanW100",
+    short_name: "ToysFan",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 12q0-1.8 1.3-3.1t3.1-1.3q1.8 0 3.1 1.3t1.3 3.1Zm-4.4 4.4q-1.8 0-3.1-1.3T3.2 12H12q0 1.8-1.3 3.1t-3.1 1.3ZM12 12q-1.8 0-3.1-1.3T7.6 7.6q0-1.8 1.3-3.1T12 3.2Zm0 8.8V12q1.8 0 3.1 1.3t1.3 3.1q0 1.8-1.3 3.1T12 20.8Z"
+  }));
+});
+IconMaterialToysFanW100.displayName = 'AmauiIconMaterialToysFanW100';
 
 
 const IconMaterialTrackChangesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39393,19 +39393,6 @@ const IconMaterialTranscribeW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialTranscribeW100.displayName = 'AmauiIconMaterialTranscribeW100';
 
 
-const IconMaterialTransferWithinAStationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TransferWithinAStationW100",
-    short_name: "TransferWithinAStation",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9.375 5.1q-.675 0-1.137-.463-.463-.462-.463-1.137t.463-1.138Q8.7 1.9 9.375 1.9t1.138.462q.462.463.462 1.138 0 .675-.462 1.137-.463.463-1.138.463Zm-5.65 17.25 2.8-14.55-3.3 1.375v3.175h-.7V8.7L6.95 6.875q.625-.275 1.175-.188.55.088.9.663L10 8.925q.625 1.025 1.75 1.775t2.475.9v.7q-1.325-.125-2.725-.938-1.4-.812-2.45-2.637L8.075 13.7l2.15 2.1v6.55h-.7v-5.575l-3.15-3.025-1.95 8.6Zm12.65-4.15-1.95-1.95 1.95-1.95.5.5-1.1 1.1h5.7v.7h-5.7l1.1 1.1Zm3 4.25-.5-.5 1.1-1.1h-5.7v-.7h5.7l-1.1-1.1.5-.5 1.95 1.95Z"
-  }));
-});
-IconMaterialTransferWithinAStationW100.displayName = 'AmauiIconMaterialTransferWithinAStationW100';
-
-
 const IconMaterialTransformW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39417,6 +39404,19 @@ const IconMaterialTransformW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialTransformW100.displayName = 'AmauiIconMaterialTransformW100';
+
+
+const IconMaterialTransferWithinAStationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TransferWithinAStationW100",
+    short_name: "TransferWithinAStation",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9.375 5.1q-.675 0-1.137-.463-.463-.462-.463-1.137t.463-1.138Q8.7 1.9 9.375 1.9t1.138.462q.462.463.462 1.138 0 .675-.462 1.137-.463.463-1.138.463Zm-5.65 17.25 2.8-14.55-3.3 1.375v3.175h-.7V8.7L6.95 6.875q.625-.275 1.175-.188.55.088.9.663L10 8.925q.625 1.025 1.75 1.775t2.475.9v.7q-1.325-.125-2.725-.938-1.4-.812-2.45-2.637L8.075 13.7l2.15 2.1v6.55h-.7v-5.575l-3.15-3.025-1.95 8.6Zm12.65-4.15-1.95-1.95 1.95-1.95.5.5-1.1 1.1h5.7v.7h-5.7l1.1 1.1Zm3 4.25-.5-.5 1.1-1.1h-5.7v-.7h5.7l-1.1-1.1.5-.5 1.95 1.95Z"
+  }));
+});
+IconMaterialTransferWithinAStationW100.displayName = 'AmauiIconMaterialTransferWithinAStationW100';
 
 
 const IconMaterialTransgenderW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39445,19 +39445,6 @@ const IconMaterialTransitEnterexitW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialTransitEnterexitW100.displayName = 'AmauiIconMaterialTransitEnterexitW100';
 
 
-const IconMaterialTransitionDissolveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TransitionDissolveW100",
-    short_name: "TransitionDissolve",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M244-212q-14 0-23-9t-9-23q0-14 9-23t23-9q14 0 23 9t9 23q0 14-9 23t-23 9Zm156.824 0Q387-212 378-221q-9-9-9-23t9-23q9-9 22.824-9 13.823 0 23.5 9Q434-258 434-244t-9.676 23q-9.677 9-23.5 9ZM558-212q-14 0-23-9t-9-23q0-14 9-23t23-9q14 0 23 9t9 23q0 14-9 23t-23 9Zm156.824 0Q701-212 692-221q-9-9-9-23t9-23q9-9 22.824-9 13.823 0 23.499 9Q748-258 748-244t-9.677 23q-9.676 9-23.499 9ZM244-369q-14 0-23-9t-9-22.824q0-13.823 9-23.5Q230-434 244-434t23 9.676q9 9.677 9 23.5Q276-387 267-378q-9 9-23 9Zm156.824 0Q387-369 378-378q-9-9-9-22.824 0-13.823 9-23.5Q387-434 400.824-434q13.823 0 23.5 9.676 9.676 9.677 9.676 23.5Q434-387 424.324-378q-9.677 9-23.5 9ZM558-369q-14 0-23-9t-9-22.824q0-13.823 9-23.5Q544-434 558-434t23 9.676q9 9.677 9 23.5Q590-387 581-378q-9 9-23 9Zm156.824 0Q701-369 692-378q-9-9-9-22.824 0-13.823 9-23.5Q701-434 714.824-434q13.823 0 23.499 9.676 9.677 9.677 9.677 23.5Q748-387 738.323-378q-9.676 9-23.499 9ZM244-526q-14 0-23-9t-9-23q0-14 9-23t23-9q14 0 23 9t9 23q0 14-9 23t-23 9Zm156.824 0Q387-526 378-535q-9-9-9-23t9-23q9-9 22.824-9 13.823 0 23.5 9Q434-572 434-558t-9.676 23q-9.677 9-23.5 9ZM558-526q-14 0-23-9t-9-23q0-14 9-23t23-9q14 0 23 9t9 23q0 14-9 23t-23 9Zm156.824 0Q701-526 692-535q-9-9-9-23t9-23q9-9 22.824-9 13.823 0 23.499 9Q748-572 748-558t-9.677 23q-9.676 9-23.499 9ZM244-683q-14 0-23-9t-9-22.824q0-13.823 9-23.499Q230-748 244-748t23 9.677q9 9.676 9 23.499Q276-701 267-692q-9 9-23 9Zm156.824 0Q387-683 378-692q-9-9-9-22.824 0-13.823 9-23.499Q387-748 400.824-748q13.823 0 23.5 9.677Q434-728.647 434-714.824 434-701 424.324-692q-9.677 9-23.5 9ZM558-683q-14 0-23-9t-9-22.824q0-13.823 9-23.499Q544-748 558-748t23 9.677q9 9.676 9 23.499Q590-701 581-692q-9 9-23 9Zm156.824 0Q701-683 692-692q-9-9-9-22.824 0-13.823 9-23.499Q701-748 714.824-748q13.823 0 23.499 9.677Q748-728.647 748-714.824 748-701 738.323-692q-9.676 9-23.499 9Z"
-  }));
-});
-IconMaterialTransitionDissolveW100.displayName = 'AmauiIconMaterialTransitionDissolveW100';
-
-
 const IconMaterialTransitionChopW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39471,17 +39458,17 @@ const IconMaterialTransitionChopW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialTransitionChopW100.displayName = 'AmauiIconMaterialTransitionChopW100';
 
 
-const IconMaterialTransitionPushW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialTransitionDissolveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "TransitionPushW100",
-    short_name: "TransitionPush",
+    name: "TransitionDissolveW100",
+    short_name: "TransitionDissolve",
     viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M354-212v-27h85v-481h-85v-28h113v536H354Zm213 0v-536h301v536H567Zm28-27h245v-481H595v481ZM237-366l-20-20 83-80H92v-28h208l-83-79 19-20 118 113-117 114Zm358 127v-481 481Z"
+    d: "M244-212q-14 0-23-9t-9-23q0-14 9-23t23-9q14 0 23 9t9 23q0 14-9 23t-23 9Zm156.824 0Q387-212 378-221q-9-9-9-23t9-23q9-9 22.824-9 13.823 0 23.5 9Q434-258 434-244t-9.676 23q-9.677 9-23.5 9ZM558-212q-14 0-23-9t-9-23q0-14 9-23t23-9q14 0 23 9t9 23q0 14-9 23t-23 9Zm156.824 0Q701-212 692-221q-9-9-9-23t9-23q9-9 22.824-9 13.823 0 23.499 9Q748-258 748-244t-9.677 23q-9.676 9-23.499 9ZM244-369q-14 0-23-9t-9-22.824q0-13.823 9-23.5Q230-434 244-434t23 9.676q9 9.677 9 23.5Q276-387 267-378q-9 9-23 9Zm156.824 0Q387-369 378-378q-9-9-9-22.824 0-13.823 9-23.5Q387-434 400.824-434q13.823 0 23.5 9.676 9.676 9.677 9.676 23.5Q434-387 424.324-378q-9.677 9-23.5 9ZM558-369q-14 0-23-9t-9-22.824q0-13.823 9-23.5Q544-434 558-434t23 9.676q9 9.677 9 23.5Q590-387 581-378q-9 9-23 9Zm156.824 0Q701-369 692-378q-9-9-9-22.824 0-13.823 9-23.5Q701-434 714.824-434q13.823 0 23.499 9.676 9.677 9.677 9.677 23.5Q748-387 738.323-378q-9.676 9-23.499 9ZM244-526q-14 0-23-9t-9-23q0-14 9-23t23-9q14 0 23 9t9 23q0 14-9 23t-23 9Zm156.824 0Q387-526 378-535q-9-9-9-23t9-23q9-9 22.824-9 13.823 0 23.5 9Q434-572 434-558t-9.676 23q-9.677 9-23.5 9ZM558-526q-14 0-23-9t-9-23q0-14 9-23t23-9q14 0 23 9t9 23q0 14-9 23t-23 9Zm156.824 0Q701-526 692-535q-9-9-9-23t9-23q9-9 22.824-9 13.823 0 23.499 9Q748-572 748-558t-9.677 23q-9.676 9-23.499 9ZM244-683q-14 0-23-9t-9-22.824q0-13.823 9-23.499Q230-748 244-748t23 9.677q9 9.676 9 23.499Q276-701 267-692q-9 9-23 9Zm156.824 0Q387-683 378-692q-9-9-9-22.824 0-13.823 9-23.499Q387-748 400.824-748q13.823 0 23.5 9.677Q434-728.647 434-714.824 434-701 424.324-692q-9.677 9-23.5 9ZM558-683q-14 0-23-9t-9-22.824q0-13.823 9-23.499Q544-748 558-748t23 9.677q9 9.676 9 23.499Q590-701 581-692q-9 9-23 9Zm156.824 0Q701-683 692-692q-9-9-9-22.824 0-13.823 9-23.499Q701-748 714.824-748q13.823 0 23.499 9.677Q748-728.647 748-714.824 748-701 738.323-692q-9.676 9-23.499 9Z"
   }));
 });
-IconMaterialTransitionPushW100.displayName = 'AmauiIconMaterialTransitionPushW100';
+IconMaterialTransitionDissolveW100.displayName = 'AmauiIconMaterialTransitionDissolveW100';
 
 
 const IconMaterialTransitionFadeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39495,6 +39482,19 @@ const IconMaterialTransitionFadeW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialTransitionFadeW100.displayName = 'AmauiIconMaterialTransitionFadeW100';
+
+
+const IconMaterialTransitionPushW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TransitionPushW100",
+    short_name: "TransitionPush",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M354-212v-27h85v-481h-85v-28h113v536H354Zm213 0v-536h301v536H567Zm28-27h245v-481H595v481ZM237-366l-20-20 83-80H92v-28h208l-83-79 19-20 118 113-117 114Zm358 127v-481 481Z"
+  }));
+});
+IconMaterialTransitionPushW100.displayName = 'AmauiIconMaterialTransitionPushW100';
 
 
 const IconMaterialTransitionSlideW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39718,32 +39718,6 @@ const IconMaterialTtyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialTtyW100.displayName = 'AmauiIconMaterialTtyW100';
 
 
-const IconMaterialTuneW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TuneW100",
-    short_name: "Tune",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.65 18.35v-.7h4.7v.7Zm0-12v-.7h8.7v.7Zm8 14v-4.7h.7v2h8v.7h-8v2Zm-4-6v-2h-4v-.7h4v-2h.7v4.7Zm4-2v-.7h8.7v.7Zm4-4v-4.7h.7v2h4v.7h-4v2Z"
-  }));
-});
-IconMaterialTuneW100.displayName = 'AmauiIconMaterialTuneW100';
-
-
-const IconMaterialTurnLeftW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TurnLeftW100",
-    short_name: "TurnLeft",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M15.65 19.35v-9H5.275l2.25 2.25-.5.5-3.1-3.1 3.1-3.1.5.5-2.25 2.25H16.35v9.7Z"
-  }));
-});
-IconMaterialTurnLeftW100.displayName = 'AmauiIconMaterialTurnLeftW100';
-
-
 const IconMaterialTurnRightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39757,6 +39731,19 @@ const IconMaterialTurnRightW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialTurnRightW100.displayName = 'AmauiIconMaterialTurnRightW100';
 
 
+const IconMaterialTuneW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TuneW100",
+    short_name: "Tune",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.65 18.35v-.7h4.7v.7Zm0-12v-.7h8.7v.7Zm8 14v-4.7h.7v2h8v.7h-8v2Zm-4-6v-2h-4v-.7h4v-2h.7v4.7Zm4-2v-.7h8.7v.7Zm4-4v-4.7h.7v2h4v.7h-4v2Z"
+  }));
+});
+IconMaterialTuneW100.displayName = 'AmauiIconMaterialTuneW100';
+
+
 const IconMaterialTurnSharpLeftW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39768,6 +39755,19 @@ const IconMaterialTurnSharpLeftW100 = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialTurnSharpLeftW100.displayName = 'AmauiIconMaterialTurnSharpLeftW100';
+
+
+const IconMaterialTurnLeftW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TurnLeftW100",
+    short_name: "TurnLeft",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M15.65 19.35v-9H5.275l2.25 2.25-.5.5-3.1-3.1 3.1-3.1.5.5-2.25 2.25H16.35v9.7Z"
+  }));
+});
+IconMaterialTurnLeftW100.displayName = 'AmauiIconMaterialTurnLeftW100';
 
 
 const IconMaterialTurnSharpRightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39809,19 +39809,6 @@ const IconMaterialTurnSlightRightW100 = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialTurnSlightRightW100.displayName = 'AmauiIconMaterialTurnSlightRightW100';
 
 
-const IconMaterialTvGuideW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TvGuideW100",
-    short_name: "TvGuide",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M172-172v-616h616v616H172Zm28-28h560v-560H200v560Zm0 0v-560 560Zm170-170h28v-192h92l70 192h32l82-220h-30l-68 183-66-183H274v28h96v192Z"
-  }));
-});
-IconMaterialTvGuideW100.displayName = 'AmauiIconMaterialTvGuideW100';
-
-
 const IconMaterialTvGenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39833,6 +39820,19 @@ const IconMaterialTvGenW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialTvGenW100.displayName = 'AmauiIconMaterialTvGenW100';
+
+
+const IconMaterialTvGuideW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TvGuideW100",
+    short_name: "TvGuide",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M172-172v-616h616v616H172Zm28-28h560v-560H200v560Zm0 0v-560 560Zm170-170h28v-192h92l70 192h32l82-220h-30l-68 183-66-183H274v28h96v192Z"
+  }));
+});
+IconMaterialTvGuideW100.displayName = 'AmauiIconMaterialTvGuideW100';
 
 
 const IconMaterialTvOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39874,17 +39874,17 @@ const IconMaterialTvOptionsInputSettingsW100 = /*#__PURE__*/React.forwardRef((pr
 IconMaterialTvOptionsInputSettingsW100.displayName = 'AmauiIconMaterialTvOptionsInputSettingsW100';
 
 
-const IconMaterialTvSigninW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialTvRemoteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "TvSigninW100",
-    short_name: "TvSignin",
+    name: "TvRemoteW100",
+    short_name: "TvRemote",
     viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M356-396h248v-2q0-32-32.5-49T480-464q-59 0-91.5 17T356-398v2Zm124-140q23 0 38.5-15.5T534-590q0-23-15.5-38.5T480-644q-23 0-38.5 15.5T426-590q0 23 15.5 38.5T480-536ZM372-172v-80H132v-536h696v536H588v80H372ZM160-280h640v-480H160v480Zm0 0v-480 480Z"
+    d: "M360-120h240v-273q-20 28-51.5 44.5T480-332q-37 0-68.5-16.5T360-393v273Zm120-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM360-567q20-28 51.5-44.5T480-628q37 0 68.5 16.5T600-567v-273H360v273ZM332-92v-776h296v776H332Zm148-341q-19.583 0-33.292-13.708Q433-460.417 433-480q0-19.583 13.708-33.292Q460.417-527 480-527q19.583 0 33.292 13.708Q527-499.583 527-480q0 19.583-13.708 33.292Q499.583-433 480-433Zm-.035-301q11.035 0 18.535-7.465t7.5-18.5q0-11.035-7.465-18.535t-18.5-7.5Q469-786 461.5-778.535t-7.5 18.5q0 11.035 7.465 18.535t18.5 7.5ZM480-332Zm0-296Z"
   }));
 });
-IconMaterialTvSigninW100.displayName = 'AmauiIconMaterialTvSigninW100';
+IconMaterialTvRemoteW100.displayName = 'AmauiIconMaterialTvRemoteW100';
 
 
 const IconMaterialTvW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39900,6 +39900,19 @@ const IconMaterialTvW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialTvW100.displayName = 'AmauiIconMaterialTvW100';
 
 
+const IconMaterialTvSigninW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TvSigninW100",
+    short_name: "TvSignin",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M356-396h248v-2q0-32-32.5-49T480-464q-59 0-91.5 17T356-398v2Zm124-140q23 0 38.5-15.5T534-590q0-23-15.5-38.5T480-644q-23 0-38.5 15.5T426-590q0 23 15.5 38.5T480-536ZM372-172v-80H132v-536h696v536H588v80H372ZM160-280h640v-480H160v480Zm0 0v-480 480Z"
+  }));
+});
+IconMaterialTvSigninW100.displayName = 'AmauiIconMaterialTvSigninW100';
+
+
 const IconMaterialTvWithAssistantW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39913,17 +39926,17 @@ const IconMaterialTvWithAssistantW100 = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialTvWithAssistantW100.displayName = 'AmauiIconMaterialTvWithAssistantW100';
 
 
-const IconMaterialTvRemoteW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialTwoPagerW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "TvRemoteW100",
-    short_name: "TvRemote",
+    name: "TwoPagerW100",
+    short_name: "TwoPager",
     viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M360-120h240v-273q-20 28-51.5 44.5T480-332q-37 0-68.5-16.5T360-393v273Zm120-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM360-567q20-28 51.5-44.5T480-628q37 0 68.5 16.5T600-567v-273H360v273ZM332-92v-776h296v776H332Zm148-341q-19.583 0-33.292-13.708Q433-460.417 433-480q0-19.583 13.708-33.292Q460.417-527 480-527q19.583 0 33.292 13.708Q527-499.583 527-480q0 19.583-13.708 33.292Q499.583-433 480-433Zm-.035-301q11.035 0 18.535-7.465t7.5-18.5q0-11.035-7.465-18.535t-18.5-7.5Q469-786 461.5-778.535t-7.5 18.5q0 11.035 7.465 18.535t18.5 7.5ZM480-332Zm0-296Z"
+    d: "M132-212v-536h696v536H132Zm28-28h306v-480H160v480Zm334 0h306v-480H494v480ZM220-346h186v-28H220v28Zm0-120h186v-28H220v28Zm0-120h186v-28H220v28Zm334 240h186v-28H554v28Zm0-120h186v-28H554v28Zm0-120h186v-28H554v28Zm-88 346v-480 480Z"
   }));
 });
-IconMaterialTvRemoteW100.displayName = 'AmauiIconMaterialTvRemoteW100';
+IconMaterialTwoPagerW100.displayName = 'AmauiIconMaterialTwoPagerW100';
 
 
 const IconMaterialTwoWheelerW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39965,19 +39978,6 @@ const IconMaterialUTurnLeftW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialUTurnLeftW100.displayName = 'AmauiIconMaterialUTurnLeftW100';
 
 
-const IconMaterialTwoPagerW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TwoPagerW100",
-    short_name: "TwoPager",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M132-212v-536h696v536H132Zm28-28h306v-480H160v480Zm334 0h306v-480H494v480ZM220-346h186v-28H220v28Zm0-120h186v-28H220v28Zm0-120h186v-28H220v28Zm334 240h186v-28H554v28Zm0-120h186v-28H554v28Zm0-120h186v-28H554v28Zm-88 346v-480 480Z"
-  }));
-});
-IconMaterialTwoPagerW100.displayName = 'AmauiIconMaterialTwoPagerW100';
-
-
 const IconMaterialUTurnRightW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39989,19 +39989,6 @@ const IconMaterialUTurnRightW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialUTurnRightW100.displayName = 'AmauiIconMaterialUTurnRightW100';
-
-
-const IconMaterialUlnaRadiusAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "UlnaRadiusAltW100",
-    short_name: "UlnaRadiusAlt",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m2.875 11.85.425-.55 7.25 6.85q.375.35.85.538.475.187.975.187.4 0 .762-.1.363-.1.663-.3l7.525-4.75v.75L14.15 19q-.4.25-.85.387-.45.138-.95.138-.625 0-1.212-.237-.588-.238-1.063-.688Zm10.25 5.075q.275 0 .488-.213.212-.212.212-.487 0-.125-.3-.55l3.45-2.15q.05.25.25.413.2.162.45.162.275 0 .488-.213.212-.212.212-.487t-.212-.488q-.213-.212-.488-.212h-.05q.05-.075.063-.15.012-.075.012-.175 0-.275-.212-.488-.213-.212-.488-.212t-.487.212q-.213.213-.213.488 0 .1.275.55l-3.45 2.125q-.05-.225-.237-.375-.188-.15-.438-.15-.275 0-.487.213-.213.212-.213.487t.213.487q.212.213.537.213-.05.075-.062.15-.013.075-.013.15 0 .275.213.487.212.213.487.213Zm-5.8-10.75.425-.55q1.925 1.075 3.4 2.813 1.475 1.737 1.975 3.537 1.075-1.35 2.137-2.013Q16.325 9.3 18.575 8.7q.85-.225 1.512-.438.663-.212 1.238-.462v.675q-.575.225-1.2.425-.625.2-1.35.4-2.25.6-3.375 1.337-1.125.738-2.1 2.288-.05.05-.112.1-.063.05-.188.05-.1 0-.188-.075-.087-.075-.112-.2-.45-1.85-1.938-3.675Q9.275 7.3 7.325 6.175ZM3.3 11.3q1.6 1.525 3.6 3.4t3.65 3.45q.375.35.85.538.475.187.975.187.4 0 .762-.1.363-.1.663-.3 1.7-1.075 3.762-2.375 2.063-1.3 3.763-2.375l-7.525 4.75q-.3.2-.663.3-.362.1-.762.1-.5 0-.975-.187-.475-.188-.85-.538Z"
-  }));
-});
-IconMaterialUlnaRadiusAltW100.displayName = 'AmauiIconMaterialUlnaRadiusAltW100';
 
 
 const IconMaterialUlnaRadiusW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40056,17 +40043,17 @@ const IconMaterialUndoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialUndoW100.displayName = 'AmauiIconMaterialUndoW100';
 
 
-const IconMaterialUnfloatLandscapeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialUlnaRadiusAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "UnfloatLandscapeW100",
-    short_name: "UnfloatLandscape",
-    viewBox: "0 96 960 960"
+    name: "UlnaRadiusAltW100",
+    short_name: "UlnaRadiusAlt",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M132 844V308h696v216h-28V336H160v480h428v28H132Zm322-194 20-20-187-186h141v-28H240v188h28V464l186 186Zm234 194V624h140v220H688ZM480 576Z"
+    d: "m2.875 11.85.425-.55 7.25 6.85q.375.35.85.538.475.187.975.187.4 0 .762-.1.363-.1.663-.3l7.525-4.75v.75L14.15 19q-.4.25-.85.387-.45.138-.95.138-.625 0-1.212-.237-.588-.238-1.063-.688Zm10.25 5.075q.275 0 .488-.213.212-.212.212-.487 0-.125-.3-.55l3.45-2.15q.05.25.25.413.2.162.45.162.275 0 .488-.213.212-.212.212-.487t-.212-.488q-.213-.212-.488-.212h-.05q.05-.075.063-.15.012-.075.012-.175 0-.275-.212-.488-.213-.212-.488-.212t-.487.212q-.213.213-.213.488 0 .1.275.55l-3.45 2.125q-.05-.225-.237-.375-.188-.15-.438-.15-.275 0-.487.213-.213.212-.213.487t.213.487q.212.213.537.213-.05.075-.062.15-.013.075-.013.15 0 .275.213.487.212.213.487.213Zm-5.8-10.75.425-.55q1.925 1.075 3.4 2.813 1.475 1.737 1.975 3.537 1.075-1.35 2.137-2.013Q16.325 9.3 18.575 8.7q.85-.225 1.512-.438.663-.212 1.238-.462v.675q-.575.225-1.2.425-.625.2-1.35.4-2.25.6-3.375 1.337-1.125.738-2.1 2.288-.05.05-.112.1-.063.05-.188.05-.1 0-.188-.075-.087-.075-.112-.2-.45-1.85-1.938-3.675Q9.275 7.3 7.325 6.175ZM3.3 11.3q1.6 1.525 3.6 3.4t3.65 3.45q.375.35.85.538.475.187.975.187.4 0 .762-.1.363-.1.663-.3 1.7-1.075 3.762-2.375 2.063-1.3 3.763-2.375l-7.525 4.75q-.3.2-.663.3-.362.1-.762.1-.5 0-.975-.187-.475-.188-.85-.538Z"
   }));
 });
-IconMaterialUnfloatLandscapeW100.displayName = 'AmauiIconMaterialUnfloatLandscapeW100';
+IconMaterialUlnaRadiusAltW100.displayName = 'AmauiIconMaterialUlnaRadiusAltW100';
 
 
 const IconMaterialUnfloatPortraitW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40080,6 +40067,19 @@ const IconMaterialUnfloatPortraitW100 = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialUnfloatPortraitW100.displayName = 'AmauiIconMaterialUnfloatPortraitW100';
+
+
+const IconMaterialUnfloatLandscapeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "UnfloatLandscapeW100",
+    short_name: "UnfloatLandscape",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M132 844V308h696v216h-28V336H160v480h428v28H132Zm322-194 20-20-187-186h141v-28H240v188h28V464l186 186Zm234 194V624h140v220H688ZM480 576Z"
+  }));
+});
+IconMaterialUnfloatLandscapeW100.displayName = 'AmauiIconMaterialUnfloatLandscapeW100';
 
 
 const IconMaterialUnfoldLessDoubleW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40134,6 +40134,19 @@ const IconMaterialUnfoldMoreW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialUnfoldMoreW100.displayName = 'AmauiIconMaterialUnfoldMoreW100';
 
 
+const IconMaterialUniversalCurrencyAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "UniversalCurrencyAltW100",
+    short_name: "UniversalCurrencyAlt",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M192-252q-26 0-43-17t-17-43v-336q0-26 17-43t43-17h576q26 0 43 17t17 43v336q0 26-17 43t-43 17H192Zm0-28h576q12 0 22-10t10-22v-336q0-12-10-22t-22-10H192q-12 0-22 10t-10 22v336q0 12 10 22t22 10Zm424-56h128v-128h-28v100H616v28Zm-136-56q36 0 62-26t26-62q0-36-26-62t-62-26q-36 0-62 26t-26 62q0 36 26 62t62 26ZM216-496h28v-100h100v-28H216v128Zm-56 216v-400 400Z"
+  }));
+});
+IconMaterialUniversalCurrencyAltW100.displayName = 'AmauiIconMaterialUniversalCurrencyAltW100';
+
+
 const IconMaterialUngroupW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40158,19 +40171,6 @@ const IconMaterialUniversalCurrencyW100 = /*#__PURE__*/React.forwardRef((props, 
   }));
 });
 IconMaterialUniversalCurrencyW100.displayName = 'AmauiIconMaterialUniversalCurrencyW100';
-
-
-const IconMaterialUniversalCurrencyAltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "UniversalCurrencyAltW100",
-    short_name: "UniversalCurrencyAlt",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M192-252q-26 0-43-17t-17-43v-336q0-26 17-43t43-17h576q26 0 43 17t17 43v336q0 26-17 43t-43 17H192Zm0-28h576q12 0 22-10t10-22v-336q0-12-10-22t-22-10H192q-12 0-22 10t-10 22v336q0 12 10 22t22 10Zm424-56h128v-128h-28v100H616v28Zm-136-56q36 0 62-26t26-62q0-36-26-62t-62-26q-36 0-62 26t-26 62q0 36 26 62t62 26ZM216-496h28v-100h100v-28H216v128Zm-56 216v-400 400Z"
-  }));
-});
-IconMaterialUniversalCurrencyAltW100.displayName = 'AmauiIconMaterialUniversalCurrencyAltW100';
 
 
 const IconMaterialUniversalLocalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40264,19 +40264,6 @@ const IconMaterialUnpublishedW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialUnpublishedW100.displayName = 'AmauiIconMaterialUnpublishedW100';
 
 
-const IconMaterialUpcomingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "UpcomingW100",
-    short_name: "Upcoming",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m17.35 10.65-.5-.5L19.5 7.5l.5.5Zm-5.7-2.6v-3.7h.7v3.7Zm-5 2.6L4 8l.5-.5 2.65 2.65ZM4 19h16v-5h-3.4q-.65 1.375-1.875 2.188Q13.5 17 12 17t-2.725-.812Q8.05 15.375 7.4 14H4Zm-.7.7v-6.4H8q.425 1.35 1.525 2.175 1.1.825 2.475.825 1.425 0 2.525-.825 1.1-.825 1.475-2.175h4.7v6.4ZM4 19h16Z"
-  }));
-});
-IconMaterialUpcomingW100.displayName = 'AmauiIconMaterialUpcomingW100';
-
-
 const IconMaterialUnsubscribeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40290,17 +40277,17 @@ const IconMaterialUnsubscribeW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialUnsubscribeW100.displayName = 'AmauiIconMaterialUnsubscribeW100';
 
 
-const IconMaterialUpdateW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialUpcomingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "UpdateW100",
-    short_name: "Update",
+    name: "UpcomingW100",
+    short_name: "Upcoming",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m15.275 15.75-3.6-3.6V7h.7v4.85l3.4 3.4Zm-3.25 3.95q-1.6 0-3-.6t-2.45-1.65Q5.525 16.4 4.925 15q-.6-1.4-.6-3t.6-3q.6-1.4 1.65-2.45 1.05-1.05 2.45-1.65 1.4-.6 3-.6 1.625 0 3.1.662 1.475.663 2.6 1.838V4.4h.7V8h-3.6v-.7h2.4q-1.05-1.075-2.375-1.688Q13.525 5 12.025 5 9.1 5 7.062 7.037 5.025 9.075 5.025 12q0 2.925 2.037 4.962Q9.1 19 12.025 19q2.625 0 4.563-1.712Q18.525 15.575 18.95 13h.7q-.35 2.9-2.525 4.8t-5.1 1.9Z"
+    d: "m17.35 10.65-.5-.5L19.5 7.5l.5.5Zm-5.7-2.6v-3.7h.7v3.7Zm-5 2.6L4 8l.5-.5 2.65 2.65ZM4 19h16v-5h-3.4q-.65 1.375-1.875 2.188Q13.5 17 12 17t-2.725-.812Q8.05 15.375 7.4 14H4Zm-.7.7v-6.4H8q.425 1.35 1.525 2.175 1.1.825 2.475.825 1.425 0 2.525-.825 1.1-.825 1.475-2.175h4.7v6.4ZM4 19h16Z"
   }));
 });
-IconMaterialUpdateW100.displayName = 'AmauiIconMaterialUpdateW100';
+IconMaterialUpcomingW100.displayName = 'AmauiIconMaterialUpcomingW100';
 
 
 const IconMaterialUpdateDisabledW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40316,17 +40303,17 @@ const IconMaterialUpdateDisabledW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialUpdateDisabledW100.displayName = 'AmauiIconMaterialUpdateDisabledW100';
 
 
-const IconMaterialUpgradeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialUpdateW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "UpgradeW100",
-    short_name: "Upgrade",
+    name: "UpdateW100",
+    short_name: "Update",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.65 19.35v-.7h8.7v.7Zm4-4V6.225L8.375 9.5 7.9 9.025l4.1-4.1 4.1 4.1-.475.475-3.275-3.275v9.125Z"
+    d: "m15.275 15.75-3.6-3.6V7h.7v4.85l3.4 3.4Zm-3.25 3.95q-1.6 0-3-.6t-2.45-1.65Q5.525 16.4 4.925 15q-.6-1.4-.6-3t.6-3q.6-1.4 1.65-2.45 1.05-1.05 2.45-1.65 1.4-.6 3-.6 1.625 0 3.1.662 1.475.663 2.6 1.838V4.4h.7V8h-3.6v-.7h2.4q-1.05-1.075-2.375-1.688Q13.525 5 12.025 5 9.1 5 7.062 7.037 5.025 9.075 5.025 12q0 2.925 2.037 4.962Q9.1 19 12.025 19q2.625 0 4.563-1.712Q18.525 15.575 18.95 13h.7q-.35 2.9-2.525 4.8t-5.1 1.9Z"
   }));
 });
-IconMaterialUpgradeW100.displayName = 'AmauiIconMaterialUpgradeW100';
+IconMaterialUpdateW100.displayName = 'AmauiIconMaterialUpdateW100';
 
 
 const IconMaterialUpload2W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40340,6 +40327,19 @@ const IconMaterialUpload2W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialUpload2W100.displayName = 'AmauiIconMaterialUpload2W100';
+
+
+const IconMaterialUpgradeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "UpgradeW100",
+    short_name: "Upgrade",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M7.65 19.35v-.7h8.7v.7Zm4-4V6.225L8.375 9.5 7.9 9.025l4.1-4.1 4.1 4.1-.475.475-3.275-3.275v9.125Z"
+  }));
+});
+IconMaterialUpgradeW100.displayName = 'AmauiIconMaterialUpgradeW100';
 
 
 const IconMaterialUploadFileW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40420,19 +40420,6 @@ const IconMaterialUserAttributesW100 = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialUserAttributesW100.displayName = 'AmauiIconMaterialUserAttributesW100';
 
 
-const IconMaterialVaccinesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "VaccinesW100",
-    short_name: "Vaccines",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m7.35 21.2-.7-.525V16.35h-3v-9.5h-1v-.7h4v-2.8h-1.5v-.7h3.7v.7h-1.5v2.8h4v.7h-1v9.5h-3Zm-3-5.55h5.3V13.1H6.9v-.7h2.75v-2.3H6.9v-.7h2.75V6.85h-5.3Zm9.3 5.7V13.5q0-.725.325-1.188.325-.462.6-.762.25-.275.413-.5.162-.225.162-.55V9.35h-1v-.7h5.7v.7h-1v1.15q0 .325.163.55.162.225.412.5.275.3.6.762.325.463.325 1.188v7.85Zm.7-6.95h5.3v-.9q0-.525-.225-.875t-.55-.7q-.25-.275-.487-.6-.238-.325-.238-.825V9.35h-2.3v1.15q0 .5-.237.825-.238.325-.488.6-.325.35-.55.7-.225.35-.225.875Zm0 3h5.3v-2.3h-5.3Zm0 3.25h5.3V18.1h-5.3Zm0-3.25h5.3Z"
-  }));
-});
-IconMaterialVaccinesW100.displayName = 'AmauiIconMaterialVaccinesW100';
-
-
 const IconMaterialVacuumW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40444,6 +40431,19 @@ const IconMaterialVacuumW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialVacuumW100.displayName = 'AmauiIconMaterialVacuumW100';
+
+
+const IconMaterialVaccinesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "VaccinesW100",
+    short_name: "Vaccines",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m7.35 21.2-.7-.525V16.35h-3v-9.5h-1v-.7h4v-2.8h-1.5v-.7h3.7v.7h-1.5v2.8h4v.7h-1v9.5h-3Zm-3-5.55h5.3V13.1H6.9v-.7h2.75v-2.3H6.9v-.7h2.75V6.85h-5.3Zm9.3 5.7V13.5q0-.725.325-1.188.325-.462.6-.762.25-.275.413-.5.162-.225.162-.55V9.35h-1v-.7h5.7v.7h-1v1.15q0 .325.163.55.162.225.412.5.275.3.6.762.325.463.325 1.188v7.85Zm.7-6.95h5.3v-.9q0-.525-.225-.875t-.55-.7q-.25-.275-.487-.6-.238-.325-.238-.825V9.35h-2.3v1.15q0 .5-.237.825-.238.325-.488.6-.325.35-.55.7-.225.35-.225.875Zm0 3h5.3v-2.3h-5.3Zm0 3.25h5.3V18.1h-5.3Zm0-3.25h5.3Z"
+  }));
+});
+IconMaterialVaccinesW100.displayName = 'AmauiIconMaterialVaccinesW100';
 
 
 const IconMaterialValveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40472,19 +40472,6 @@ const IconMaterialVapeFreeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialVapeFreeW100.displayName = 'AmauiIconMaterialVapeFreeW100';
 
 
-const IconMaterialVapingRoomsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "VapingRoomsW100",
-    short_name: "VapingRooms",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.8 18.5q-.8-.2-1.5-.288-.7-.087-1.5-.087H4v-1.25h.8q.8 0 1.5-.087.7-.088 1.5-.288Zm1 0v-2h11.7v2Zm1.7-.5q.2 0 .35-.15.15-.15.15-.35 0-.2-.15-.35-.15-.15-.35-.15-.2 0-.35.15-.15.15-.15.35 0 .2.15.35.15.15.35.15Zm7.6-3v-1.3q0-.875-.575-1.463-.575-.587-1.375-.587H14.6q-1.05 0-1.8-.775T12.05 9q0-1.025.75-1.738.75-.712 1.8-.712v.7q-.75 0-1.3.5T12.75 9q0 .75.55 1.35.55.6 1.3.6h1.55q1.1 0 1.875.812.775.813.775 1.938V15Zm1.7 0v-2.25q0-1.65-1.15-2.65t-2.85-1v-.7q.75 0 1.275-.525.525-.525.525-1.275 0-.8-.525-1.35T15.8 4.7V4q1.05 0 1.775.775.725.775.725 1.825 0 .725-.3 1.225-.3.5-.75.775 1.275.35 2.263 1.4.987 1.05.987 2.75V15Z"
-  }));
-});
-IconMaterialVapingRoomsW100.displayName = 'AmauiIconMaterialVapingRoomsW100';
-
-
 const IconMaterialVariableAddW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40509,6 +40496,19 @@ const IconMaterialVariableInsertW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialVariableInsertW100.displayName = 'AmauiIconMaterialVariableInsertW100';
+
+
+const IconMaterialVapingRoomsW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "VapingRoomsW100",
+    short_name: "VapingRooms",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M7.8 18.5q-.8-.2-1.5-.288-.7-.087-1.5-.087H4v-1.25h.8q.8 0 1.5-.087.7-.088 1.5-.288Zm1 0v-2h11.7v2Zm1.7-.5q.2 0 .35-.15.15-.15.15-.35 0-.2-.15-.35-.15-.15-.35-.15-.2 0-.35.15-.15.15-.15.35 0 .2.15.35.15.15.35.15Zm7.6-3v-1.3q0-.875-.575-1.463-.575-.587-1.375-.587H14.6q-1.05 0-1.8-.775T12.05 9q0-1.025.75-1.738.75-.712 1.8-.712v.7q-.75 0-1.3.5T12.75 9q0 .75.55 1.35.55.6 1.3.6h1.55q1.1 0 1.875.812.775.813.775 1.938V15Zm1.7 0v-2.25q0-1.65-1.15-2.65t-2.85-1v-.7q.75 0 1.275-.525.525-.525.525-1.275 0-.8-.525-1.35T15.8 4.7V4q1.05 0 1.775.775.725.775.725 1.825 0 .725-.3 1.225-.3.5-.75.775 1.275.35 2.263 1.4.987 1.05.987 2.75V15Z"
+  }));
+});
+IconMaterialVapingRoomsW100.displayName = 'AmauiIconMaterialVapingRoomsW100';
 
 
 const IconMaterialVariableRemoveW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40667,19 +40667,6 @@ const IconMaterialVerticalSplitW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialVerticalSplitW100.displayName = 'AmauiIconMaterialVerticalSplitW100';
 
 
-const IconMaterialVibrationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "VibrationW100",
-    short_name: "Vibration",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M1.9 14.35v-4.7h.7v4.7Zm2.7 2v-8.7h.7v8.7Zm16.8-2v-4.7h.7v4.7Zm-2.7 2v-8.7h.7v8.7ZM7.3 19.7V4.3h9.4v15.4ZM8 19h8V5H8ZM8 5v14Z"
-  }));
-});
-IconMaterialVibrationW100.displayName = 'AmauiIconMaterialVibrationW100';
-
-
 const IconMaterialVideoCallW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40719,6 +40706,19 @@ const IconMaterialVideoCameraFrontW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialVideoCameraFrontW100.displayName = 'AmauiIconMaterialVideoCameraFrontW100';
 
 
+const IconMaterialVideoChatW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "VideoChatW100",
+    short_name: "VideoChat",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M7.65 13.35h6.7V10.4l1.9 1.9V7.7l-1.9 1.9V6.65h-6.7ZM3.3 19.5V3.3h17.4v13.4H6.1Zm.7-1.7L5.8 16H20V4H4Zm0 0V4v12Z"
+  }));
+});
+IconMaterialVideoChatW100.displayName = 'AmauiIconMaterialVideoChatW100';
+
+
 const IconMaterialVideoCameraFrontOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40732,17 +40732,17 @@ const IconMaterialVideoCameraFrontOffW100 = /*#__PURE__*/React.forwardRef((props
 IconMaterialVideoCameraFrontOffW100.displayName = 'AmauiIconMaterialVideoCameraFrontOffW100';
 
 
-const IconMaterialVideoChatW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialVibrationW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "VideoChatW100",
-    short_name: "VideoChat",
+    name: "VibrationW100",
+    short_name: "Vibration",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.65 13.35h6.7V10.4l1.9 1.9V7.7l-1.9 1.9V6.65h-6.7ZM3.3 19.5V3.3h17.4v13.4H6.1Zm.7-1.7L5.8 16H20V4H4Zm0 0V4v12Z"
+    d: "M1.9 14.35v-4.7h.7v4.7Zm2.7 2v-8.7h.7v8.7Zm16.8-2v-4.7h.7v4.7Zm-2.7 2v-8.7h.7v8.7ZM7.3 19.7V4.3h9.4v15.4ZM8 19h8V5H8ZM8 5v14Z"
   }));
 });
-IconMaterialVideoChatW100.displayName = 'AmauiIconMaterialVideoChatW100';
+IconMaterialVibrationW100.displayName = 'AmauiIconMaterialVibrationW100';
 
 
 const IconMaterialVideoFileW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41044,19 +41044,6 @@ const IconMaterialViewInArNewW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialViewInArNewW100.displayName = 'AmauiIconMaterialViewInArNewW100';
 
 
-const IconMaterialViewInArOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ViewInArOffW100",
-    short_name: "ViewInArOff",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M553-519Zm-71 41Zm252-147v287L366-706l114-66 254 147ZM226-329.362V-625l69-40 187 187 187 187-189 109-254-147.362ZM542-530Zm-76 60Zm97-39Zm-69 43ZM387-685l155 155 150-86-212-122-93 53Zm79 463v-248L254-590v244l212 124Zm240-144v-224l-143 81 143 143ZM494-222l154-90-154-154v244ZM852-68l-64-64H680v-28h85v5L155-765h5v85h-28v-108l-42-42 20-20L872-88l-20 20Zm-24-212v36l-28-28v-8h28ZM280-828v28h-8l-28-28h36Zm0 696H132v-148h28v120h120v28Zm520-548v-120H680v-28h148v148h-28Z"
-  }));
-});
-IconMaterialViewInArOffW100.displayName = 'AmauiIconMaterialViewInArOffW100';
-
-
 const IconMaterialViewInArW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41068,6 +41055,19 @@ const IconMaterialViewInArW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialViewInArW100.displayName = 'AmauiIconMaterialViewInArW100';
+
+
+const IconMaterialViewInArOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ViewInArOffW100",
+    short_name: "ViewInArOff",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M553-519Zm-71 41Zm252-147v287L366-706l114-66 254 147ZM226-329.362V-625l69-40 187 187 187 187-189 109-254-147.362ZM542-530Zm-76 60Zm97-39Zm-69 43ZM387-685l155 155 150-86-212-122-93 53Zm79 463v-248L254-590v244l212 124Zm240-144v-224l-143 81 143 143ZM494-222l154-90-154-154v244ZM852-68l-64-64H680v-28h85v5L155-765h5v85h-28v-108l-42-42 20-20L872-88l-20 20Zm-24-212v36l-28-28v-8h28ZM280-828v28h-8l-28-28h36Zm0 696H132v-148h28v120h120v28Zm520-548v-120H680v-28h148v148h-28Z"
+  }));
+});
+IconMaterialViewInArOffW100.displayName = 'AmauiIconMaterialViewInArOffW100';
 
 
 const IconMaterialViewKanbanW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41109,19 +41109,6 @@ const IconMaterialViewModuleW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialViewModuleW100.displayName = 'AmauiIconMaterialViewModuleW100';
 
 
-const IconMaterialViewSidebarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ViewSidebarW100",
-    short_name: "ViewSidebar",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.3 18.7V5.3h17.4v13.4Zm13.15-9.15H20V6h-3.55Zm0 4.2H20v-3.5h-3.55ZM4 18h11.75V6H4Zm12.45 0H20v-3.55h-3.55Z"
-  }));
-});
-IconMaterialViewSidebarW100.displayName = 'AmauiIconMaterialViewSidebarW100';
-
-
 const IconMaterialViewQuiltW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41133,6 +41120,19 @@ const IconMaterialViewQuiltW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialViewQuiltW100.displayName = 'AmauiIconMaterialViewQuiltW100';
+
+
+const IconMaterialViewSidebarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ViewSidebarW100",
+    short_name: "ViewSidebar",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.3 18.7V5.3h17.4v13.4Zm13.15-9.15H20V6h-3.55Zm0 4.2H20v-3.5h-3.55ZM4 18h11.75V6H4Zm12.45 0H20v-3.55h-3.55Z"
+  }));
+});
+IconMaterialViewSidebarW100.displayName = 'AmauiIconMaterialViewSidebarW100';
 
 
 const IconMaterialViewStreamW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41447,19 +41447,6 @@ const IconMaterialVpnKeyOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialVpnKeyOffW100.displayName = 'AmauiIconMaterialVpnKeyOffW100';
 
 
-const IconMaterialVpnKeyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "VpnKeyW100",
-    short_name: "VpnKey",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7 16.7q-1.95 0-3.325-1.375Q2.3 13.95 2.3 12q0-1.95 1.375-3.325Q5.05 7.3 7 7.3q1.4 0 2.65.825T11.4 10.3h10.3v3.4h-2v3h-3.4v-3h-4.9q-.5 1.35-1.75 2.175Q8.4 16.7 7 16.7Zm0-.7q1.65 0 2.65-1.012 1-1.013 1.2-1.988H17v3h2v-3h2v-2H10.85q-.2-.975-1.2-1.988Q8.65 8 7 8T4.175 9.175Q3 10.35 3 12q0 1.65 1.175 2.825Q5.35 16 7 16Zm0-3q.425 0 .713-.3Q8 12.4 8 12q0-.425-.287-.713Q7.425 11 7 11q-.4 0-.7.287-.3.288-.3.713 0 .4.3.7.3.3.7.3Zm0-1Z"
-  }));
-});
-IconMaterialVpnKeyW100.displayName = 'AmauiIconMaterialVpnKeyW100';
-
-
 const IconMaterialVpnLockW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41471,6 +41458,19 @@ const IconMaterialVpnLockW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialVpnLockW100.displayName = 'AmauiIconMaterialVpnLockW100';
+
+
+const IconMaterialVpnKeyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "VpnKeyW100",
+    short_name: "VpnKey",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M7 16.7q-1.95 0-3.325-1.375Q2.3 13.95 2.3 12q0-1.95 1.375-3.325Q5.05 7.3 7 7.3q1.4 0 2.65.825T11.4 10.3h10.3v3.4h-2v3h-3.4v-3h-4.9q-.5 1.35-1.75 2.175Q8.4 16.7 7 16.7Zm0-.7q1.65 0 2.65-1.012 1-1.013 1.2-1.988H17v3h2v-3h2v-2H10.85q-.2-.975-1.2-1.988Q8.65 8 7 8T4.175 9.175Q3 10.35 3 12q0 1.65 1.175 2.825Q5.35 16 7 16Zm0-3q.425 0 .713-.3Q8 12.4 8 12q0-.425-.287-.713Q7.425 11 7 11q-.4 0-.7.287-.3.288-.3.713 0 .4.3.7.3.3.7.3Zm0-1Z"
+  }));
+});
+IconMaterialVpnKeyW100.displayName = 'AmauiIconMaterialVpnKeyW100';
 
 
 const IconMaterialVr180Create2dOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41564,6 +41564,19 @@ const IconMaterialWallpaperSlideshowW100 = /*#__PURE__*/React.forwardRef((props,
 IconMaterialWallpaperSlideshowW100.displayName = 'AmauiIconMaterialWallpaperSlideshowW100';
 
 
+const IconMaterialWallpaperW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WallpaperW100",
+    short_name: "Wallpaper",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M15.25 9.75q-.425 0-.712-.288-.288-.287-.288-.712t.288-.713q.287-.287.712-.287t.713.287q.287.288.287.713t-.287.712q-.288.288-.713.288ZM4.3 11V4.3H11V5H5v6Zm0 8.7V13H5v6h6v.7ZM19 11V5h-6v-.7h6.7V11Zm-6 8.7V19h6v-6h.7v6.7Zm-5.05-3.35L9.6 14.2l1.6 1.85 2.5-3.1 2.55 3.4Z"
+  }));
+});
+IconMaterialWallpaperW100.displayName = 'AmauiIconMaterialWallpaperW100';
+
+
 const IconMaterialWardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41590,17 +41603,17 @@ const IconMaterialWarehouseW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialWarehouseW100.displayName = 'AmauiIconMaterialWarehouseW100';
 
 
-const IconMaterialWallpaperW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialWarningW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "WallpaperW100",
-    short_name: "Wallpaper",
+    name: "WarningW100",
+    short_name: "Warning",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M15.25 9.75q-.425 0-.712-.288-.288-.287-.288-.712t.288-.713q.287-.287.712-.287t.713.287q.287.288.287.713t-.287.712q-.288.288-.713.288ZM4.3 11V4.3H11V5H5v6Zm0 8.7V13H5v6h6v.7ZM19 11V5h-6v-.7h6.7V11Zm-6 8.7V19h6v-6h.7v6.7Zm-5.05-3.35L9.6 14.2l1.6 1.85 2.5-3.1 2.55 3.4Z"
+    d: "M12 12.5Zm-8.75 7.2L12 4.6l8.75 15.1Zm8.4-4.2h.7v-5h-.7Zm.35 2q.225 0 .363-.15.137-.15.137-.35 0-.225-.137-.363-.138-.137-.363-.137-.2 0-.35.137-.15.138-.15.363 0 .2.15.35.15.15.35.15ZM4.45 19h15.1L12 6Z"
   }));
 });
-IconMaterialWallpaperW100.displayName = 'AmauiIconMaterialWallpaperW100';
+IconMaterialWarningW100.displayName = 'AmauiIconMaterialWarningW100';
 
 
 const IconMaterialWarningOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41616,17 +41629,17 @@ const IconMaterialWarningOffW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialWarningOffW100.displayName = 'AmauiIconMaterialWarningOffW100';
 
 
-const IconMaterialWarningW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialWatchButtonPressW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "WarningW100",
-    short_name: "Warning",
-    viewBox: "0 0 24 24"
+    name: "WatchButtonPressW100",
+    short_name: "WatchButtonPress",
+    viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 12.5Zm-8.75 7.2L12 4.6l8.75 15.1Zm8.4-4.2h.7v-5h-.7Zm.35 2q.225 0 .363-.15.137-.15.137-.35 0-.225-.137-.363-.138-.137-.363-.137-.2 0-.35.137-.15.138-.15.363 0 .2.15.35.15.15.35.15ZM4.45 19h15.1L12 6Z"
+    d: "M744 575V270h28v305h-28ZM334 882l-30-108q-51-27-83.5-80T188 576q0-65 32.5-118t83.5-80l30-108h164l30 108q51 27 83.5 80T644 576q0 65-32.5 118T528 774l-30 108H334Zm82-106q83 0 141.5-58.5T616 576q0-83-58.5-141.5T416 376q-83 0-141.5 58.5T216 576q0 83 58.5 141.5T416 776Zm-78-414q21-7 39.83-10.5Q396.661 348 416 348q19.339 0 38.17 3.5Q473 355 494 362l-18-64H356l-18 64Zm18 492h120l18-64q-21 7-39.83 10-18.831 3-38.17 3-19.339 0-38.17-3Q359 797 338 790l18 64Zm-18-556h156-156Zm18 556h-18 156-138Z"
   }));
 });
-IconMaterialWarningW100.displayName = 'AmauiIconMaterialWarningW100';
+IconMaterialWatchButtonPressW100.displayName = 'AmauiIconMaterialWatchButtonPressW100';
 
 
 const IconMaterialWashW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41642,19 +41655,6 @@ const IconMaterialWashW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialWashW100.displayName = 'AmauiIconMaterialWashW100';
 
 
-const IconMaterialWatchButtonPressW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WatchButtonPressW100",
-    short_name: "WatchButtonPress",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M744 575V270h28v305h-28ZM334 882l-30-108q-51-27-83.5-80T188 576q0-65 32.5-118t83.5-80l30-108h164l30 108q51 27 83.5 80T644 576q0 65-32.5 118T528 774l-30 108H334Zm82-106q83 0 141.5-58.5T616 576q0-83-58.5-141.5T416 376q-83 0-141.5 58.5T216 576q0 83 58.5 141.5T416 776Zm-78-414q21-7 39.83-10.5Q396.661 348 416 348q19.339 0 38.17 3.5Q473 355 494 362l-18-64H356l-18 64Zm18 492h120l18-64q-21 7-39.83 10-18.831 3-38.17 3-19.339 0-38.17-3Q359 797 338 790l18 64Zm-18-556h156-156Zm18 556h-18 156-138Z"
-  }));
-});
-IconMaterialWatchButtonPressW100.displayName = 'AmauiIconMaterialWatchButtonPressW100';
-
-
 const IconMaterialWatchOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41666,19 +41666,6 @@ const IconMaterialWatchOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialWatchOffW100.displayName = 'AmauiIconMaterialWatchOffW100';
-
-
-const IconMaterialWatchScreentimeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WatchScreentimeW100",
-    short_name: "WatchScreentime",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M392 650V502h28v148h-28Zm74 0V542h28v108h-28Zm74 0v-68h28v68h-28ZM398 882l-30-108q-51-27-83.5-80T252 576q0-65 32.5-118t83.5-80l30-108h164l30 108q51 27 83.5 80T708 576q0 65-32.5 118T592 774l-30 108H398Zm82-106q83 0 141.5-58.5T680 576q0-83-58.5-141.5T480 376q-83 0-141.5 58.5T280 576q0 83 58.5 141.5T480 776Zm-78-414q21-7 40-10.5t38-3.5q19 0 38 3.5t40 10.5l-18-64H420l-18 64Zm18 492h120l18-64q-21 7-40 10t-38 3q-19 0-38-3t-40-10l18 64Zm-18-556h156-156Zm18 556h-18 156-138Z"
-  }));
-});
-IconMaterialWatchScreentimeW100.displayName = 'AmauiIconMaterialWatchScreentimeW100';
 
 
 const IconMaterialWatchW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41707,6 +41694,19 @@ const IconMaterialWatchWakeW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialWatchWakeW100.displayName = 'AmauiIconMaterialWatchWakeW100';
 
 
+const IconMaterialWatchScreentimeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WatchScreentimeW100",
+    short_name: "WatchScreentime",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M392 650V502h28v148h-28Zm74 0V542h28v108h-28Zm74 0v-68h28v68h-28ZM398 882l-30-108q-51-27-83.5-80T252 576q0-65 32.5-118t83.5-80l30-108h164l30 108q51 27 83.5 80T708 576q0 65-32.5 118T592 774l-30 108H398Zm82-106q83 0 141.5-58.5T680 576q0-83-58.5-141.5T480 376q-83 0-141.5 58.5T280 576q0 83 58.5 141.5T480 776Zm-78-414q21-7 40-10.5t38-3.5q19 0 38 3.5t40 10.5l-18-64H420l-18 64Zm18 492h120l18-64q-21 7-40 10t-38 3q-19 0-38-3t-40-10l18 64Zm-18-556h156-156Zm18 556h-18 156-138Z"
+  }));
+});
+IconMaterialWatchScreentimeW100.displayName = 'AmauiIconMaterialWatchScreentimeW100';
+
+
 const IconMaterialWaterBottleLargeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41733,19 +41733,6 @@ const IconMaterialWaterBottleW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialWaterBottleW100.displayName = 'AmauiIconMaterialWaterBottleW100';
 
 
-const IconMaterialWaterDoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WaterDoW100",
-    short_name: "WaterDo",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.5 14.95q.275 0 .488-.212.212-.213.212-.488t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.488q.212.212.487.212Zm1.5-3q.275 0 .488-.213.212-.212.212-.487t-.212-.488Q9.275 10.55 9 10.55t-.488.212q-.212.213-.212.488t.212.487q.213.213.488.213Zm0 6q.275 0 .488-.213.212-.212.212-.487t-.212-.487Q9.275 16.55 9 16.55t-.488.213q-.212.212-.212.487t.212.487q.213.213.488.213Zm1.5-3q.275 0 .488-.212.212-.213.212-.488t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.488q.212.212.487.212Zm0-6q.275 0 .488-.213.212-.212.212-.487t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.487q.212.213.487.213Zm1.5 3q.275 0 .488-.213.212-.212.212-.487t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.487q.212.213.487.213Zm0 6q.275 0 .488-.213.212-.212.212-.487t-.212-.487q-.213-.213-.488-.213t-.487.213q-.213.212-.213.487t.213.487q.212.213.487.213Zm1.5-3q.275 0 .488-.212.212-.213.212-.488t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.488q.212.212.487.212Zm0-6q.275 0 .488-.213.212-.212.212-.487t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.487q.212.213.487.213Zm1.5 3q.275 0 .488-.213.212-.212.212-.487t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.487q.212.213.487.213Zm0 6q.275 0 .488-.213.212-.212.212-.487t-.212-.487q-.213-.213-.488-.213t-.487.213q-.213.212-.213.487t.213.487q.212.213.487.213Zm1.5-3q.275 0 .488-.212.212-.213.212-.488t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.488q.212.212.487.212ZM12 20.7q-2.875 0-4.787-1.975Q5.3 16.75 5.3 13.8q0-2.05 1.663-4.563Q8.625 6.725 12 3.7q3.375 3.025 5.038 5.537Q18.7 11.75 18.7 13.8q0 2.95-1.912 4.925Q14.875 20.7 12 20.7Zm0-.7q2.6 0 4.3-1.762Q18 16.475 18 13.8q0-1.825-1.512-4.125Q14.975 7.375 12 4.65 9.025 7.375 7.513 9.675 6 11.975 6 13.8q0 2.675 1.7 4.438Q9.4 20 12 20Zm0-7.8Z"
-  }));
-});
-IconMaterialWaterDoW100.displayName = 'AmauiIconMaterialWaterDoW100';
-
-
 const IconMaterialWaterDamageW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41759,30 +41746,17 @@ const IconMaterialWaterDamageW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialWaterDamageW100.displayName = 'AmauiIconMaterialWaterDamageW100';
 
 
-const IconMaterialWaterEcW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialWaterDoW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "WaterEcW100",
-    short_name: "WaterEc",
+    name: "WaterDoW100",
+    short_name: "WaterDo",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m11.65 17.35 2.625-4.95H12.35V8.65L9.725 13.6h1.925ZM12 20.7q-2.875 0-4.787-1.975Q5.3 16.75 5.3 13.8q0-2.05 1.663-4.563Q8.625 6.725 12 3.7q3.375 3.025 5.038 5.537Q18.7 11.75 18.7 13.8q0 2.95-1.912 4.925Q14.875 20.7 12 20.7Zm0-.7q2.6 0 4.3-1.762Q18 16.475 18 13.8q0-1.825-1.512-4.125Q14.975 7.375 12 4.65 9.025 7.375 7.513 9.675 6 11.975 6 13.8q0 2.675 1.7 4.438Q9.4 20 12 20Zm0-7.8Z"
+    d: "M7.5 14.95q.275 0 .488-.212.212-.213.212-.488t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.488q.212.212.487.212Zm1.5-3q.275 0 .488-.213.212-.212.212-.487t-.212-.488Q9.275 10.55 9 10.55t-.488.212q-.212.213-.212.488t.212.487q.213.213.488.213Zm0 6q.275 0 .488-.213.212-.212.212-.487t-.212-.487Q9.275 16.55 9 16.55t-.488.213q-.212.212-.212.487t.212.487q.213.213.488.213Zm1.5-3q.275 0 .488-.212.212-.213.212-.488t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.488q.212.212.487.212Zm0-6q.275 0 .488-.213.212-.212.212-.487t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.487q.212.213.487.213Zm1.5 3q.275 0 .488-.213.212-.212.212-.487t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.487q.212.213.487.213Zm0 6q.275 0 .488-.213.212-.212.212-.487t-.212-.487q-.213-.213-.488-.213t-.487.213q-.213.212-.213.487t.213.487q.212.213.487.213Zm1.5-3q.275 0 .488-.212.212-.213.212-.488t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.488q.212.212.487.212Zm0-6q.275 0 .488-.213.212-.212.212-.487t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.487q.212.213.487.213Zm1.5 3q.275 0 .488-.213.212-.212.212-.487t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.487q.212.213.487.213Zm0 6q.275 0 .488-.213.212-.212.212-.487t-.212-.487q-.213-.213-.488-.213t-.487.213q-.213.212-.213.487t.213.487q.212.213.487.213Zm1.5-3q.275 0 .488-.212.212-.213.212-.488t-.212-.488q-.213-.212-.488-.212t-.487.212q-.213.213-.213.488t.213.488q.212.212.487.212ZM12 20.7q-2.875 0-4.787-1.975Q5.3 16.75 5.3 13.8q0-2.05 1.663-4.563Q8.625 6.725 12 3.7q3.375 3.025 5.038 5.537Q18.7 11.75 18.7 13.8q0 2.95-1.912 4.925Q14.875 20.7 12 20.7Zm0-.7q2.6 0 4.3-1.762Q18 16.475 18 13.8q0-1.825-1.512-4.125Q14.975 7.375 12 4.65 9.025 7.375 7.513 9.675 6 11.975 6 13.8q0 2.675 1.7 4.438Q9.4 20 12 20Zm0-7.8Z"
   }));
 });
-IconMaterialWaterEcW100.displayName = 'AmauiIconMaterialWaterEcW100';
-
-
-const IconMaterialWaterFullW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WaterFullW100",
-    short_name: "WaterFull",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M443 430q-57 0-109 15t-99 44l45 407h400l47-426h-30q-35 0-65.5-5.5T549 444q-26-8-52.5-11t-53.5-3Zm-211 30q49-29 102-43.5T444 402q29 0 57 3.5t55 11.5q53 15 80.5 20t59.5 5h34l20-186H209l23 204Zm23 464-77-696h604l-77 696H255Zm188-28h237-400 163Z"
-  }));
-});
-IconMaterialWaterFullW100.displayName = 'AmauiIconMaterialWaterFullW100';
+IconMaterialWaterDoW100.displayName = 'AmauiIconMaterialWaterDoW100';
 
 
 const IconMaterialWaterDropW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41798,17 +41772,17 @@ const IconMaterialWaterDropW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialWaterDropW100.displayName = 'AmauiIconMaterialWaterDropW100';
 
 
-const IconMaterialWaterLockW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialWaterEcW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "WaterLockW100",
-    short_name: "WaterLock",
-    viewBox: "0 96 960 960"
+    name: "WaterEcW100",
+    short_name: "WaterEc",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M240 896V496v400Zm120-428h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80Zm-88 456q-25 0-42.5-17.5T212 864V528q0-25 17.5-42.5T272 468h60v-80q0-62 43-105t105-43q62 0 105 43t43 105v80h60q25 0 42.5 17.5T748 528v129q-4 0-7.5-.5t-7.5-.5h-13V528q0-14-9-23t-23-9H272q-14 0-23 9t-9 23v336q0 14 9 23t23 9h302q3 8 6.5 14.5T589 924H272Zm463 0q-31 0-52.5-21.5T661 850q0-14 5-27t14-23l55-61 55 61q9 10 14 23t5 27q0 31-21.5 52.5T735 924ZM480 750q23 0 38.5-15.5T534 696q0-23-15.5-38.5T480 642q-23 0-38.5 15.5T426 696q0 23 15.5 38.5T480 750Z"
+    d: "m11.65 17.35 2.625-4.95H12.35V8.65L9.725 13.6h1.925ZM12 20.7q-2.875 0-4.787-1.975Q5.3 16.75 5.3 13.8q0-2.05 1.663-4.563Q8.625 6.725 12 3.7q3.375 3.025 5.038 5.537Q18.7 11.75 18.7 13.8q0 2.95-1.912 4.925Q14.875 20.7 12 20.7Zm0-.7q2.6 0 4.3-1.762Q18 16.475 18 13.8q0-1.825-1.512-4.125Q14.975 7.375 12 4.65 9.025 7.375 7.513 9.675 6 11.975 6 13.8q0 2.675 1.7 4.438Q9.4 20 12 20Zm0-7.8Z"
   }));
 });
-IconMaterialWaterLockW100.displayName = 'AmauiIconMaterialWaterLockW100';
+IconMaterialWaterEcW100.displayName = 'AmauiIconMaterialWaterEcW100';
 
 
 const IconMaterialWaterHeaterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41824,6 +41798,19 @@ const IconMaterialWaterHeaterW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialWaterHeaterW100.displayName = 'AmauiIconMaterialWaterHeaterW100';
 
 
+const IconMaterialWaterFullW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WaterFullW100",
+    short_name: "WaterFull",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M443 430q-57 0-109 15t-99 44l45 407h400l47-426h-30q-35 0-65.5-5.5T549 444q-26-8-52.5-11t-53.5-3Zm-211 30q49-29 102-43.5T444 402q29 0 57 3.5t55 11.5q53 15 80.5 20t59.5 5h34l20-186H209l23 204Zm23 464-77-696h604l-77 696H255Zm188-28h237-400 163Z"
+  }));
+});
+IconMaterialWaterFullW100.displayName = 'AmauiIconMaterialWaterFullW100';
+
+
 const IconMaterialWaterLossW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41835,6 +41822,19 @@ const IconMaterialWaterLossW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialWaterLossW100.displayName = 'AmauiIconMaterialWaterLossW100';
+
+
+const IconMaterialWaterLockW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WaterLockW100",
+    short_name: "WaterLock",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M240 896V496v400Zm120-428h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80Zm-88 456q-25 0-42.5-17.5T212 864V528q0-25 17.5-42.5T272 468h60v-80q0-62 43-105t105-43q62 0 105 43t43 105v80h60q25 0 42.5 17.5T748 528v129q-4 0-7.5-.5t-7.5-.5h-13V528q0-14-9-23t-23-9H272q-14 0-23 9t-9 23v336q0 14 9 23t23 9h302q3 8 6.5 14.5T589 924H272Zm463 0q-31 0-52.5-21.5T661 850q0-14 5-27t14-23l55-61 55 61q9 10 14 23t5 27q0 31-21.5 52.5T735 924ZM480 750q23 0 38.5-15.5T534 696q0-23-15.5-38.5T480 642q-23 0-38.5 15.5T426 696q0 23 15.5 38.5T480 750Z"
+  }));
+});
+IconMaterialWaterLockW100.displayName = 'AmauiIconMaterialWaterLockW100';
 
 
 const IconMaterialWaterLuxW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41915,19 +41915,6 @@ const IconMaterialWaterVocW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialWaterVocW100.displayName = 'AmauiIconMaterialWaterVocW100';
 
 
-const IconMaterialWaterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WaterW100",
-    short_name: "Water",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2.65 17v-.75q.725-.125 1.15-.512.425-.388 1.55-.388 1.2 0 1.738.5.537.5 1.587.5 1.05 0 1.588-.5.537-.5 1.737-.5 1.2 0 1.738.5.537.5 1.587.5 1.05 0 1.588-.5.537-.5 1.737-.5 1.125 0 1.55.388.425.387 1.15.512V17q-.75-.15-1.288-.55-.537-.4-1.412-.4-1.025 0-1.575.5t-1.75.5q-1.2 0-1.737-.5-.538-.5-1.588-.5t-1.587.5q-.538.5-1.738.5t-1.75-.5q-.55-.5-1.575-.5-.9 0-1.4.4-.5.4-1.3.55Zm0-3.7v-.75q.725-.125 1.15-.513.425-.387 1.55-.387 1.2 0 1.738.5.537.5 1.587.5 1.05 0 1.588-.5.537-.5 1.737-.5 1.2 0 1.738.5.537.5 1.587.5 1.05 0 1.588-.5.537-.5 1.737-.5 1.125 0 1.55.387.425.388 1.15.513v.75q-.75-.15-1.288-.55-.537-.4-1.412-.4-1.025 0-1.575.5t-1.75.5q-1.2 0-1.737-.5-.538-.5-1.588-.5t-1.587.5q-.538.5-1.738.5t-1.75-.5q-.55-.5-1.575-.5-.9 0-1.4.4-.5.4-1.3.55Zm0-3.7v-.75q.725-.125 1.15-.513.425-.387 1.55-.387 1.2 0 1.738.5.537.5 1.587.5 1.05 0 1.588-.5.537-.5 1.737-.5 1.2 0 1.738.5.537.5 1.587.5 1.05 0 1.588-.5.537-.5 1.737-.5 1.125 0 1.55.387.425.388 1.15.513v.75q-.75-.15-1.288-.55-.537-.4-1.412-.4-1.025 0-1.575.5t-1.75.5q-1.2 0-1.737-.5-.538-.5-1.588-.5t-1.587.5q-.538.5-1.738.5t-1.75-.5q-.55-.5-1.575-.5-.9 0-1.425.4T2.65 9.6Z"
-  }));
-});
-IconMaterialWaterW100.displayName = 'AmauiIconMaterialWaterW100';
-
-
 const IconMaterialWaterfallChartW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41939,6 +41926,19 @@ const IconMaterialWaterfallChartW100 = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialWaterfallChartW100.displayName = 'AmauiIconMaterialWaterfallChartW100';
+
+
+const IconMaterialWaterW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WaterW100",
+    short_name: "Water",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2.65 17v-.75q.725-.125 1.15-.512.425-.388 1.55-.388 1.2 0 1.738.5.537.5 1.587.5 1.05 0 1.588-.5.537-.5 1.737-.5 1.2 0 1.738.5.537.5 1.587.5 1.05 0 1.588-.5.537-.5 1.737-.5 1.125 0 1.55.388.425.387 1.15.512V17q-.75-.15-1.288-.55-.537-.4-1.412-.4-1.025 0-1.575.5t-1.75.5q-1.2 0-1.737-.5-.538-.5-1.588-.5t-1.587.5q-.538.5-1.738.5t-1.75-.5q-.55-.5-1.575-.5-.9 0-1.4.4-.5.4-1.3.55Zm0-3.7v-.75q.725-.125 1.15-.513.425-.387 1.55-.387 1.2 0 1.738.5.537.5 1.587.5 1.05 0 1.588-.5.537-.5 1.737-.5 1.2 0 1.738.5.537.5 1.587.5 1.05 0 1.588-.5.537-.5 1.737-.5 1.125 0 1.55.387.425.388 1.15.513v.75q-.75-.15-1.288-.55-.537-.4-1.412-.4-1.025 0-1.575.5t-1.75.5q-1.2 0-1.737-.5-.538-.5-1.588-.5t-1.587.5q-.538.5-1.738.5t-1.75-.5q-.55-.5-1.575-.5-.9 0-1.4.4-.5.4-1.3.55Zm0-3.7v-.75q.725-.125 1.15-.513.425-.387 1.55-.387 1.2 0 1.738.5.537.5 1.587.5 1.05 0 1.588-.5.537-.5 1.737-.5 1.2 0 1.738.5.537.5 1.587.5 1.05 0 1.588-.5.537-.5 1.737-.5 1.125 0 1.55.387.425.388 1.15.513v.75q-.75-.15-1.288-.55-.537-.4-1.412-.4-1.025 0-1.575.5t-1.75.5q-1.2 0-1.737-.5-.538-.5-1.588-.5t-1.587.5q-.538.5-1.738.5t-1.75-.5q-.55-.5-1.575-.5-.9 0-1.425.4T2.65 9.6Z"
+  }));
+});
+IconMaterialWaterW100.displayName = 'AmauiIconMaterialWaterW100';
 
 
 const IconMaterialWavesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42058,19 +42058,6 @@ const IconMaterialWcW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialWcW100.displayName = 'AmauiIconMaterialWcW100';
 
 
-const IconMaterialWeatherHailW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WeatherHailW100",
-    short_name: "WeatherHail",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m531-93-39-39 39-39 39 39-39 39Zm-138-60-21-21 97-97 21 21-97 97Zm258-60-39-39 39-39 39 39-39 39Zm-360 0-39-39 39-39 39 39-39 39Zm9-133q-81 0-137.5-56.5T106-540q0-76 51.5-131T287-734q29-56 79.5-88T480-854q85 0 145.5 57T695-655q75 4 117 49.5T854-500q0 64-45 109t-109 45H300Zm0-28h400q52 0 89-37t37-89q0-52-37-89t-89-37h-34v-14q0-77-54.5-131.5T480-826q-56 0-102 30.5T309-714l-3 8h-8q-68 2-116 50t-48 116q0 69 48.5 117.5T300-374Zm180-226Z"
-  }));
-});
-IconMaterialWeatherHailW100.displayName = 'AmauiIconMaterialWeatherHailW100';
-
-
 const IconMaterialWeatherMixW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42082,6 +42069,19 @@ const IconMaterialWeatherMixW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialWeatherMixW100.displayName = 'AmauiIconMaterialWeatherMixW100';
+
+
+const IconMaterialWeatherHailW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WeatherHailW100",
+    short_name: "WeatherHail",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m531-93-39-39 39-39 39 39-39 39Zm-138-60-21-21 97-97 21 21-97 97Zm258-60-39-39 39-39 39 39-39 39Zm-360 0-39-39 39-39 39 39-39 39Zm9-133q-81 0-137.5-56.5T106-540q0-76 51.5-131T287-734q29-56 79.5-88T480-854q85 0 145.5 57T695-655q75 4 117 49.5T854-500q0 64-45 109t-109 45H300Zm0-28h400q52 0 89-37t37-89q0-52-37-89t-89-37h-34v-14q0-77-54.5-131.5T480-826q-56 0-102 30.5T309-714l-3 8h-8q-68 2-116 50t-48 116q0 69 48.5 117.5T300-374Zm180-226Z"
+  }));
+});
+IconMaterialWeatherHailW100.displayName = 'AmauiIconMaterialWeatherHailW100';
 
 
 const IconMaterialWeatherSnowyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42097,19 +42097,6 @@ const IconMaterialWeatherSnowyW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialWeatherSnowyW100.displayName = 'AmauiIconMaterialWeatherSnowyW100';
 
 
-const IconMaterialWebAssetW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WebAssetW100",
-    short_name: "WebAsset",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.3 18.7V5.3h17.4v13.4ZM4 8v10h16V8Z"
-  }));
-});
-IconMaterialWebAssetW100.displayName = 'AmauiIconMaterialWebAssetW100';
-
-
 const IconMaterialWebAssetOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42123,6 +42110,19 @@ const IconMaterialWebAssetOffW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialWebAssetOffW100.displayName = 'AmauiIconMaterialWebAssetOffW100';
 
 
+const IconMaterialWebAssetW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WebAssetW100",
+    short_name: "WebAsset",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.3 18.7V5.3h17.4v13.4ZM4 8v10h16V8Z"
+  }));
+});
+IconMaterialWebAssetW100.displayName = 'AmauiIconMaterialWebAssetW100';
+
+
 const IconMaterialWebStoriesW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42134,19 +42134,6 @@ const IconMaterialWebStoriesW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialWebStoriesW100.displayName = 'AmauiIconMaterialWebStoriesW100';
-
-
-const IconMaterialWebTrafficW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WebTrafficW100",
-    short_name: "WebTraffic",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M80-506v-28h120v28H80Zm118 228-20-20 84-84 20 20-84 84Zm64-380-84-84 20-20 84 84-20 20Zm404 420L492-412l-34 106-78-256 260 78-106 38 170 170-38 38ZM406-720v-120h28v120h-28Zm172 62-20-20 84-84 20 20-84 84Z"
-  }));
-});
-IconMaterialWebTrafficW100.displayName = 'AmauiIconMaterialWebTrafficW100';
 
 
 const IconMaterialWebW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42279,6 +42266,19 @@ const IconMaterialWidthFullW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialWidthFullW100.displayName = 'AmauiIconMaterialWidthFullW100';
 
 
+const IconMaterialWebTrafficW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WebTrafficW100",
+    short_name: "WebTraffic",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M80-506v-28h120v28H80Zm118 228-20-20 84-84 20 20-84 84Zm64-380-84-84 20-20 84 84-20 20Zm404 420L492-412l-34 106-78-256 260 78-106 38 170 170-38 38ZM406-720v-120h28v120h-28Zm172 62-20-20 84-84 20 20-84 84Z"
+  }));
+});
+IconMaterialWebTrafficW100.displayName = 'AmauiIconMaterialWebTrafficW100';
+
+
 const IconMaterialWidthW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42292,19 +42292,6 @@ const IconMaterialWidthW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialWidthW100.displayName = 'AmauiIconMaterialWidthW100';
 
 
-const IconMaterialWidthNormalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WidthNormalW100",
-    short_name: "WidthNormal",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.3 18.7V5.3h17.4v13.4ZM4 18h4.875V6H4Zm5.575 0h4.85V6h-4.85Zm5.55 0H20V6h-4.875ZM9.575 6v12Z"
-  }));
-});
-IconMaterialWidthNormalW100.displayName = 'AmauiIconMaterialWidthNormalW100';
-
-
 const IconMaterialWidthWideW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42316,6 +42303,19 @@ const IconMaterialWidthWideW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialWidthWideW100.displayName = 'AmauiIconMaterialWidthWideW100';
+
+
+const IconMaterialWidthNormalW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WidthNormalW100",
+    short_name: "WidthNormal",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.3 18.7V5.3h17.4v13.4ZM4 18h4.875V6H4Zm5.575 0h4.85V6h-4.85Zm5.55 0H20V6h-4.875ZM9.575 6v12Z"
+  }));
+});
+IconMaterialWidthNormalW100.displayName = 'AmauiIconMaterialWidthNormalW100';
 
 
 const IconMaterialWifi1BarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42383,19 +42383,6 @@ const IconMaterialWifiCalling2W100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialWifiCalling2W100.displayName = 'AmauiIconMaterialWifiCalling2W100';
 
 
-const IconMaterialWifiCalling3W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WifiCalling3W100",
-    short_name: "WifiCalling3",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16.5 11.6q-.275 0-.487-.213-.213-.212-.213-.487t.213-.488q.212-.212.487-.212t.488.212q.212.213.212.488t-.212.487q-.213.213-.488.213ZM14 8.9l-.45-.5q.65-.5 1.4-.8.75-.3 1.55-.3t1.55.3q.75.3 1.4.8l-.45.5q-.55-.425-1.188-.662Q17.175 8 16.5 8t-1.312.238Q14.55 8.475 14 8.9Zm-2.1-2.15-.5-.5q1.05-.95 2.363-1.45 1.312-.5 2.737-.5t2.738.5q1.312.5 2.362 1.45l-.5.5q-.95-.85-2.137-1.3Q17.775 5 16.5 5q-1.275 0-2.462.45-1.188.45-2.138 1.3Zm6.725 12.8q-2.425.025-4.963-1.275-2.537-1.3-4.612-3.362-2.075-2.063-3.387-4.601Q4.35 7.775 4.35 5.35q0-.25.013-.525.012-.275.062-.525h3.95L9.2 8.075 6.55 10.5q1.4 2.35 3.125 4.05 1.725 1.7 4.075 3l2.55-2.675 3.35.7v3.9q-.225.05-.512.063-.288.012-.513.012ZM6.2 9.85l2.225-2L7.8 5H5.075q-.1 1.2.263 2.475Q5.7 8.75 6.2 9.85Zm8.2 8q.875.45 2.225.775t2.325.2v-2.7l-2.4-.475Zm-8.2-8Zm8.2 8Z"
-  }));
-});
-IconMaterialWifiCalling3W100.displayName = 'AmauiIconMaterialWifiCalling3W100';
-
-
 const IconMaterialWifiCallingW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42409,17 +42396,17 @@ const IconMaterialWifiCallingW100 = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialWifiCallingW100.displayName = 'AmauiIconMaterialWifiCallingW100';
 
 
-const IconMaterialWifiChannelW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialWifiCalling3W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "WifiChannelW100",
-    short_name: "WifiChannel",
+    name: "WifiCalling3W100",
+    short_name: "WifiCalling3",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.725 20.35q.425-2.65.925-4.813.5-2.162 1.05-3.687t1.138-2.363Q7.425 8.65 8 8.65q1.025 0 1.988 2.362.962 2.363 1.787 6.513.3-3.4.725-5.988.425-2.587.963-4.337.537-1.75 1.174-2.65.638-.9 1.363-.9.825 0 1.538 1.125.712 1.125 1.274 3.275.563 2.15.951 5.25.387 3.1.562 7.05h-.8Q19 18.075 17.9 16.212 16.8 14.35 16 14.35q-.8 0-1.875 1.825t-1.65 4.175h-.9q-.325-2.15-.775-4.138-.45-1.987-.95-3.512-.5-1.525-.987-2.438Q8.375 9.35 8 9.35t-.862.912q-.488.913-.988 2.438-.5 1.525-.95 3.512-.45 1.988-.775 4.138Zm8.725-2.25q.8-2.125 1.738-3.288.937-1.162 1.812-1.162t1.825 1.175Q18.775 16 19.55 18.1q-.45-6.025-1.437-9.888Q17.125 4.35 16 4.35q-1.1 0-2.1 3.875T12.45 18.1Z"
+    d: "M16.5 11.6q-.275 0-.487-.213-.213-.212-.213-.487t.213-.488q.212-.212.487-.212t.488.212q.212.213.212.488t-.212.487q-.213.213-.488.213ZM14 8.9l-.45-.5q.65-.5 1.4-.8.75-.3 1.55-.3t1.55.3q.75.3 1.4.8l-.45.5q-.55-.425-1.188-.662Q17.175 8 16.5 8t-1.312.238Q14.55 8.475 14 8.9Zm-2.1-2.15-.5-.5q1.05-.95 2.363-1.45 1.312-.5 2.737-.5t2.738.5q1.312.5 2.362 1.45l-.5.5q-.95-.85-2.137-1.3Q17.775 5 16.5 5q-1.275 0-2.462.45-1.188.45-2.138 1.3Zm6.725 12.8q-2.425.025-4.963-1.275-2.537-1.3-4.612-3.362-2.075-2.063-3.387-4.601Q4.35 7.775 4.35 5.35q0-.25.013-.525.012-.275.062-.525h3.95L9.2 8.075 6.55 10.5q1.4 2.35 3.125 4.05 1.725 1.7 4.075 3l2.55-2.675 3.35.7v3.9q-.225.05-.512.063-.288.012-.513.012ZM6.2 9.85l2.225-2L7.8 5H5.075q-.1 1.2.263 2.475Q5.7 8.75 6.2 9.85Zm8.2 8q.875.45 2.225.775t2.325.2v-2.7l-2.4-.475Zm-8.2-8Zm8.2 8Z"
   }));
 });
-IconMaterialWifiChannelW100.displayName = 'AmauiIconMaterialWifiChannelW100';
+IconMaterialWifiCalling3W100.displayName = 'AmauiIconMaterialWifiCalling3W100';
 
 
 const IconMaterialWifiFindW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42448,6 +42435,19 @@ const IconMaterialWifiHomeW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialWifiHomeW100.displayName = 'AmauiIconMaterialWifiHomeW100';
 
 
+const IconMaterialWifiChannelW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WifiChannelW100",
+    short_name: "WifiChannel",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.725 20.35q.425-2.65.925-4.813.5-2.162 1.05-3.687t1.138-2.363Q7.425 8.65 8 8.65q1.025 0 1.988 2.362.962 2.363 1.787 6.513.3-3.4.725-5.988.425-2.587.963-4.337.537-1.75 1.174-2.65.638-.9 1.363-.9.825 0 1.538 1.125.712 1.125 1.274 3.275.563 2.15.951 5.25.387 3.1.562 7.05h-.8Q19 18.075 17.9 16.212 16.8 14.35 16 14.35q-.8 0-1.875 1.825t-1.65 4.175h-.9q-.325-2.15-.775-4.138-.45-1.987-.95-3.512-.5-1.525-.987-2.438Q8.375 9.35 8 9.35t-.862.912q-.488.913-.988 2.438-.5 1.525-.95 3.512-.45 1.988-.775 4.138Zm8.725-2.25q.8-2.125 1.738-3.288.937-1.162 1.812-1.162t1.825 1.175Q18.775 16 19.55 18.1q-.45-6.025-1.437-9.888Q17.125 4.35 16 4.35q-1.1 0-2.1 3.875T12.45 18.1Z"
+  }));
+});
+IconMaterialWifiChannelW100.displayName = 'AmauiIconMaterialWifiChannelW100';
+
+
 const IconMaterialWifiLockW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42474,19 +42474,6 @@ const IconMaterialWifiNotificationW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialWifiNotificationW100.displayName = 'AmauiIconMaterialWifiNotificationW100';
 
 
-const IconMaterialWifiOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WifiOffW100",
-    short_name: "WifiOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M21.9 11.1q-1.925-1.925-4.462-3.013Q14.9 7 12 7q-.525 0-1.05.037-.525.038-.95.113l-.9-.9q.525-.125 1.225-.188Q11.025 6 12 6q3.125 0 5.825 1.162 2.7 1.163 4.775 3.238Zm-4 3.95-.338-.338-.337-.337L15.6 12.75q.5.2 1.263.662.762.463 1.487 1.188ZM19.95 21 12 13q-1.625 0-3.125.625T6.35 15.35l-.7-.7q1.025-1.025 2.438-1.75 1.412-.725 2.962-.85l-4.1-4.1q-1.175.425-2.5 1.275-1.325.85-2.35 1.875l-.65-.7Q2.5 9.35 3.763 8.475 5.025 7.6 6.15 7.15L3.8 4.8l.5-.5 16.2 16.2ZM12 21l-2.125-2.125q.425-.425.963-.65Q11.375 18 12 18q.625 0 1.163.225.537.225.962.65Z"
-  }));
-});
-IconMaterialWifiOffW100.displayName = 'AmauiIconMaterialWifiOffW100';
-
-
 const IconMaterialWifiPasswordW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42511,6 +42498,19 @@ const IconMaterialWifiProtectedSetupW100 = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialWifiProtectedSetupW100.displayName = 'AmauiIconMaterialWifiProtectedSetupW100';
+
+
+const IconMaterialWifiOffW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WifiOffW100",
+    short_name: "WifiOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M21.9 11.1q-1.925-1.925-4.462-3.013Q14.9 7 12 7q-.525 0-1.05.037-.525.038-.95.113l-.9-.9q.525-.125 1.225-.188Q11.025 6 12 6q3.125 0 5.825 1.162 2.7 1.163 4.775 3.238Zm-4 3.95-.338-.338-.337-.337L15.6 12.75q.5.2 1.263.662.762.463 1.487 1.188ZM19.95 21 12 13q-1.625 0-3.125.625T6.35 15.35l-.7-.7q1.025-1.025 2.438-1.75 1.412-.725 2.962-.85l-4.1-4.1q-1.175.425-2.5 1.275-1.325.85-2.35 1.875l-.65-.7Q2.5 9.35 3.763 8.475 5.025 7.6 6.15 7.15L3.8 4.8l.5-.5 16.2 16.2ZM12 21l-2.125-2.125q.425-.425.963-.65Q11.375 18 12 18q.625 0 1.163.225.537.225.962.65Z"
+  }));
+});
+IconMaterialWifiOffW100.displayName = 'AmauiIconMaterialWifiOffW100';
 
 
 const IconMaterialWifiProxyW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42617,19 +42617,6 @@ const IconMaterialWindowOpenW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialWindowOpenW100.displayName = 'AmauiIconMaterialWindowOpenW100';
 
 
-const IconMaterialWindowW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WindowW100",
-    short_name: "Window",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.3 20.7V3.3h17.4v17.4Zm8.35-9.05V4H4v7.65Zm0 .7H4V20h7.65Zm.7 0V20H20v-7.65Zm0-.7H20V4h-7.65Z"
-  }));
-});
-IconMaterialWindowW100.displayName = 'AmauiIconMaterialWindowW100';
-
-
 const IconMaterialWindowSensorW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42643,17 +42630,30 @@ const IconMaterialWindowSensorW100 = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialWindowSensorW100.displayName = 'AmauiIconMaterialWindowSensorW100';
 
 
-const IconMaterialWomanW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialWindowW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "WomanW100",
-    short_name: "Woman",
+    name: "WindowW100",
+    short_name: "Window",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.2 21.35V15.2H7.5l3.225-8.1h2.55l3.225 8.1h-2.7v6.15ZM12 5.75q-.65 0-1.125-.475T10.4 4.15q0-.65.475-1.125T12 2.55q.65 0 1.125.475T13.6 4.15q0 .65-.475 1.125T12 5.75Z"
+    d: "M3.3 20.7V3.3h17.4v17.4Zm8.35-9.05V4H4v7.65Zm0 .7H4V20h7.65Zm.7 0V20H20v-7.65Zm0-.7H20V4h-7.65Z"
   }));
 });
-IconMaterialWomanW100.displayName = 'AmauiIconMaterialWomanW100';
+IconMaterialWindowW100.displayName = 'AmauiIconMaterialWindowW100';
+
+
+const IconMaterialWineBarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WineBarW100",
+    short_name: "WineBar",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8.9 19.7V19h2.75v-4.65q-2.15-.325-3.325-1.838Q7.15 11 7.15 9V4.3h9.7V9q0 2-1.175 3.512-1.175 1.513-3.325 1.838V19h2.75v.7Zm3.1-6.05q1.625 0 2.825-1.25 1.2-1.25 1.325-3.05h-8.3q.125 1.8 1.325 3.05 1.2 1.25 2.825 1.25Zm-4.15-5h8.3V5h-8.3Zm4.15 5Z"
+  }));
+});
+IconMaterialWineBarW100.displayName = 'AmauiIconMaterialWineBarW100';
 
 
 const IconMaterialWoman2W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42669,17 +42669,30 @@ const IconMaterialWoman2W100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialWoman2W100.displayName = 'AmauiIconMaterialWoman2W100';
 
 
-const IconMaterialWineBarW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialWomanW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "WineBarW100",
-    short_name: "WineBar",
+    name: "WomanW100",
+    short_name: "Woman",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8.9 19.7V19h2.75v-4.65q-2.15-.325-3.325-1.838Q7.15 11 7.15 9V4.3h9.7V9q0 2-1.175 3.512-1.175 1.513-3.325 1.838V19h2.75v.7Zm3.1-6.05q1.625 0 2.825-1.25 1.2-1.25 1.325-3.05h-8.3q.125 1.8 1.325 3.05 1.2 1.25 2.825 1.25Zm-4.15-5h8.3V5h-8.3Zm4.15 5Z"
+    d: "M10.2 21.35V15.2H7.5l3.225-8.1h2.55l3.225 8.1h-2.7v6.15ZM12 5.75q-.65 0-1.125-.475T10.4 4.15q0-.65.475-1.125T12 2.55q.65 0 1.125.475T13.6 4.15q0 .65-.475 1.125T12 5.75Z"
   }));
 });
-IconMaterialWineBarW100.displayName = 'AmauiIconMaterialWineBarW100';
+IconMaterialWomanW100.displayName = 'AmauiIconMaterialWomanW100';
+
+
+const IconMaterialWorkHistoryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WorkHistoryW100",
+    short_name: "WorkHistory",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4 19V8 19Zm-.7.7V7.3h6V4.6h5.4v2.7h6v5.675q-.175-.1-.337-.175-.163-.075-.363-.15V8H4v11h8.375q.05.2.088.362.037.163.087.338ZM10 7.3h4v-2h-4Zm8 14.4q-1.55 0-2.625-1.075T14.3 18q0-1.55 1.075-2.625T18 14.3q1.55 0 2.625 1.075T21.7 18q0 1.55-1.075 2.625T18 21.7Zm1.65-1.55.5-.5-1.8-1.8v-2.7h-.7v3Z"
+  }));
+});
+IconMaterialWorkHistoryW100.displayName = 'AmauiIconMaterialWorkHistoryW100';
 
 
 const IconMaterialWorkAlertW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42706,19 +42719,6 @@ const IconMaterialWorkUpdateW100 = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialWorkUpdateW100.displayName = 'AmauiIconMaterialWorkUpdateW100';
-
-
-const IconMaterialWorkHistoryW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WorkHistoryW100",
-    short_name: "WorkHistory",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4 19V8 19Zm-.7.7V7.3h6V4.6h5.4v2.7h6v5.675q-.175-.1-.337-.175-.163-.075-.363-.15V8H4v11h8.375q.05.2.088.362.037.163.087.338ZM10 7.3h4v-2h-4Zm8 14.4q-1.55 0-2.625-1.075T14.3 18q0-1.55 1.075-2.625T18 14.3q1.55 0 2.625 1.075T21.7 18q0 1.55-1.075 2.625T18 21.7Zm1.65-1.55.5-.5-1.8-1.8v-2.7h-.7v3Z"
-  }));
-});
-IconMaterialWorkHistoryW100.displayName = 'AmauiIconMaterialWorkHistoryW100';
 
 
 const IconMaterialWorkW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42825,19 +42825,6 @@ const IconMaterialWrongLocationW100 = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialWrongLocationW100.displayName = 'AmauiIconMaterialWrongLocationW100';
 
 
-const IconMaterialWysiwygW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WysiwygW100",
-    short_name: "Wysiwyg",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.3 19.7V4.3h15.4v15.4ZM5 19h14V7H5Zm2-7.65v-.7h10v.7Zm0 4v-.7h6v.7Z"
-  }));
-});
-IconMaterialWysiwygW100.displayName = 'AmauiIconMaterialWysiwygW100';
-
-
 const IconMaterialYardW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42862,6 +42849,19 @@ const IconMaterialYourTripsW100 = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialYourTripsW100.displayName = 'AmauiIconMaterialYourTripsW100';
+
+
+const IconMaterialWysiwygW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WysiwygW100",
+    short_name: "Wysiwyg",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.3 19.7V4.3h15.4v15.4ZM5 19h14V7H5Zm2-7.65v-.7h10v.7Zm0 4v-.7h6v.7Z"
+  }));
+});
+IconMaterialWysiwygW100.displayName = 'AmauiIconMaterialWysiwygW100';
 
 
 const IconMaterialYoutubeActivityW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42929,19 +42929,6 @@ const IconMaterialZonePersonUrgentW100 = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialZonePersonUrgentW100.displayName = 'AmauiIconMaterialZonePersonUrgentW100';
 
 
-const IconMaterialZoomInMapW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ZoomInMapW100",
-    short_name: "ZoomInMap",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m4.55 19.95-.5-.5L7.8 15.7H4.3V15H9v4.7h-.7v-3.5Zm14.9 0L15.7 16.2v3.5H15V15h4.7v.7h-3.5l3.75 3.75ZM4.3 9v-.7h3.5L4.05 4.55l.5-.5L8.3 7.8V4.3H9V9ZM15 9V4.3h.7v3.5l3.75-3.75.5.5L16.2 8.3h3.5V9Z"
-  }));
-});
-IconMaterialZoomInMapW100.displayName = 'AmauiIconMaterialZoomInMapW100';
-
-
 const IconMaterialZoomInW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42953,6 +42940,19 @@ const IconMaterialZoomInW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialZoomInW100.displayName = 'AmauiIconMaterialZoomInW100';
+
+
+const IconMaterialZoomInMapW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ZoomInMapW100",
+    short_name: "ZoomInMap",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m4.55 19.95-.5-.5L7.8 15.7H4.3V15H9v4.7h-.7v-3.5Zm14.9 0L15.7 16.2v3.5H15V15h4.7v.7h-3.5l3.75 3.75ZM4.3 9v-.7h3.5L4.05 4.55l.5-.5L8.3 7.8V4.3H9V9ZM15 9V4.3h.7v3.5l3.75-3.75.5.5L16.2 8.3h3.5V9Z"
+  }));
+});
+IconMaterialZoomInMapW100.displayName = 'AmauiIconMaterialZoomInMapW100';
 
 
 const IconMaterialZoomOutMapW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42981,4 +42981,4 @@ const IconMaterialZoomOutW100 = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialZoomOutW100.displayName = 'AmauiIconMaterialZoomOutW100';
 
 
-export default [ IconMaterial10kW100,  IconMaterial10mpW100,  IconMaterial11mpW100,  IconMaterial123W100,  IconMaterial12mpW100,  IconMaterial13mpW100,  IconMaterial14mpW100,  IconMaterial15mpW100,  IconMaterial16mpW100,  IconMaterial17mpW100,  IconMaterial18UpRatingW100,  IconMaterial18mpW100,  IconMaterial19mpW100,  IconMaterial1kPlusW100,  IconMaterial1kW100,  IconMaterial1xMobiledataBadgeW100,  IconMaterial1xMobiledataW100,  IconMaterial20mpW100,  IconMaterial21mpW100,  IconMaterial22mpW100,  IconMaterial23mpW100,  IconMaterial24mpW100,  IconMaterial2dW100,  IconMaterial2kPlusW100,  IconMaterial2kW100,  IconMaterial2mpW100,  IconMaterial30fpsW100,  IconMaterial3dRotationW100,  IconMaterial360W100,  IconMaterial30fpsSelectW100,  IconMaterial3gMobiledataBadgeW100,  IconMaterial3gMobiledataW100,  IconMaterial3kPlusW100,  IconMaterial3kW100,  IconMaterial3mpW100,  IconMaterial3pW100,  IconMaterial4gMobiledataBadgeW100,  IconMaterial4gMobiledataW100,  IconMaterial4gPlusMobiledataW100,  IconMaterial4kPlusW100,  IconMaterial4kW100,  IconMaterial50mpW100,  IconMaterial4mpW100,  IconMaterial5gMobiledataBadgeW100,  IconMaterial5gW100,  IconMaterial5kPlusW100,  IconMaterial5kW100,  IconMaterial5mpW100,  IconMaterial60fpsW100,  IconMaterial60fpsSelectW100,  IconMaterial6FtApartW100,  IconMaterial6kPlusW100,  IconMaterial6kW100,  IconMaterial6mpW100,  IconMaterial7kPlusW100,  IconMaterial7kW100,  IconMaterial7mpW100,  IconMaterial8kPlusW100,  IconMaterial8kW100,  IconMaterial8mpW100,  IconMaterial9kPlusW100,  IconMaterial9kW100,  IconMaterialAbcW100,  IconMaterial9mpW100,  IconMaterialAcUnitW100,  IconMaterialAccessibilityNewW100,  IconMaterialAccessibilityW100,  IconMaterialAccessibleForwardW100,  IconMaterialAccessibleW100,  IconMaterialAccountBalanceW100,  IconMaterialAccountBalanceWalletW100,  IconMaterialAccountBoxW100,  IconMaterialAccountChildW100,  IconMaterialAccountChildInvertW100,  IconMaterialAccountCircleOffW100,  IconMaterialAccountCircleW100,  IconMaterialAccountTreeW100,  IconMaterialActionKeyW100,  IconMaterialActivityZoneW100,  IconMaterialAcuteW100,  IconMaterialAdGroupOffW100,  IconMaterialAdGroupW100,  IconMaterialAdOffW100,  IconMaterialAdUnitsW100,  IconMaterialAdW100,  IconMaterialAdbW100,  IconMaterialAddAPhotoW100,  IconMaterialAddAdW100,  IconMaterialAddAlertW100,  IconMaterialAddBoxW100,  IconMaterialAddBusinessW100,  IconMaterialAddCallW100,  IconMaterialAddCardW100,  IconMaterialAddCircleW100,  IconMaterialAddChartW100,  IconMaterialAddCommentW100,  IconMaterialAddHomeW100,  IconMaterialAddHomeWorkW100,  IconMaterialAddLinkW100,  IconMaterialAddLocationAltW100,  IconMaterialAddLocationW100,  IconMaterialAddModeratorW100,  IconMaterialAddPhotoAlternateW100,  IconMaterialAddNotesW100,  IconMaterialAddRoadW100,  IconMaterialAddReactionW100,  IconMaterialAddShoppingCartW100,  IconMaterialAddTaskW100,  IconMaterialAddToDriveW100,  IconMaterialAddToHomeScreenW100,  IconMaterialAddToPhotosW100,  IconMaterialAddToQueueW100,  IconMaterialAdfScannerW100,  IconMaterialAddW100,  IconMaterialAdjustW100,  IconMaterialAdminMedsW100,  IconMaterialAdminPanelSettingsW100,  IconMaterialAdsClickW100,  IconMaterialAgenderW100,  IconMaterialAgricultureW100,  IconMaterialAirFreshenerW100,  IconMaterialAirPurifierW100,  IconMaterialAirW100,  IconMaterialAirPurifierGenW100,  IconMaterialAirlineSeatFlatW100,  IconMaterialAirlineSeatFlatAngledW100,  IconMaterialAirlineSeatIndividualSuiteW100,  IconMaterialAirlineSeatLegroomExtraW100,  IconMaterialAirlineSeatLegroomNormalW100,  IconMaterialAirlineSeatLegroomReducedW100,  IconMaterialAirlineSeatReclineExtraW100,  IconMaterialAirlineSeatReclineNormalW100,  IconMaterialAirlineStopsW100,  IconMaterialAirlinesW100,  IconMaterialAirplaneTicketW100,  IconMaterialAirplanemodeActiveW100,  IconMaterialAirplanemodeInactiveW100,  IconMaterialAirplayW100,  IconMaterialAirwareW100,  IconMaterialAirportShuttleW100,  IconMaterialAirwaveW100,  IconMaterialAlarmAddW100,  IconMaterialAlarmOffW100,  IconMaterialAlarmOnW100,  IconMaterialAlarmSmartWakeW100,  IconMaterialAlarmW100,  IconMaterialAlbumW100,  IconMaterialAlignCenterW100,  IconMaterialAlignEndW100,  IconMaterialAlignFlexCenterW100,  IconMaterialAlignFlexEndW100,  IconMaterialAlignFlexStartW100,  IconMaterialAlignHorizontalCenterW100,  IconMaterialAlignHorizontalLeftW100,  IconMaterialAlignHorizontalRightW100,  IconMaterialAlignItemsStretchW100,  IconMaterialAlignJustifyCenterW100,  IconMaterialAlignJustifyFlexEndW100,  IconMaterialAlignJustifyFlexStartW100,  IconMaterialAlignJustifySpaceAroundW100,  IconMaterialAlignJustifySpaceBetweenW100,  IconMaterialAlignJustifySpaceEvenW100,  IconMaterialAlignJustifyStretchW100,  IconMaterialAlignSelfStretchW100,  IconMaterialAlignSpaceAroundW100,  IconMaterialAlignSpaceBetweenW100,  IconMaterialAlignSpaceEvenW100,  IconMaterialAlignStartW100,  IconMaterialAlignStretchW100,  IconMaterialAlignVerticalBottomW100,  IconMaterialAlignVerticalCenterW100,  IconMaterialAlignVerticalTopW100,  IconMaterialAllInboxW100,  IconMaterialAllInclusiveW100,  IconMaterialAllMatchW100,  IconMaterialAllOutW100,  IconMaterialAllergiesW100,  IconMaterialAllergyW100,  IconMaterialAltitudeW100,  IconMaterialAlternateEmailW100,  IconMaterialAltRouteW100,  IconMaterialAmbientScreenW100,  IconMaterialAmendW100,  IconMaterialAmbulanceW100,  IconMaterialAmpStoriesW100,  IconMaterialAnalyticsW100,  IconMaterialAnchorW100,  IconMaterialAndroidW100,  IconMaterialAnimationW100,  IconMaterialAodTabletW100,  IconMaterialAodW100,  IconMaterialAodWatchW100,  IconMaterialApartmentW100,  IconMaterialApiW100,  IconMaterialApkDocumentW100,  IconMaterialApkInstallW100,  IconMaterialAppBadgingW100,  IconMaterialAppBlockingW100,  IconMaterialAppPromoW100,  IconMaterialAppRegistrationW100,  IconMaterialAppShortcutW100,  IconMaterialApparelW100,  IconMaterialApprovalDelegationW100,  IconMaterialApprovalW100,  IconMaterialAppsOutageW100,  IconMaterialAppsW100,  IconMaterialAqIndoorW100,  IconMaterialAqW100,  IconMaterialArOnYouW100,  IconMaterialArStickersW100,  IconMaterialArchitectureW100,  IconMaterialArchiveW100,  IconMaterialAreaChartW100,  IconMaterialArmingCountdownW100,  IconMaterialArrowAndEdgeW100,  IconMaterialArrowBackIosNewW100,  IconMaterialArrowBackIosW100,  IconMaterialArrowBackW100,  IconMaterialArrowCircleDownW100,  IconMaterialArrowCircleLeftW100,  IconMaterialArrowCircleRightW100,  IconMaterialArrowCircleUpW100,  IconMaterialArrowDownwardAltW100,  IconMaterialArrowDownwardW100,  IconMaterialArrowDropDownCircleW100,  IconMaterialArrowDropDownW100,  IconMaterialArrowDropUpW100,  IconMaterialArrowForwardW100,  IconMaterialArrowForwardIosW100,  IconMaterialArrowInsertW100,  IconMaterialArrowLeftAltW100,  IconMaterialArrowLeftW100,  IconMaterialArrowOrEdgeW100,  IconMaterialArrowOutwardW100,  IconMaterialArrowRangeW100,  IconMaterialArrowRightW100,  IconMaterialArrowSelectorToolW100,  IconMaterialArrowRightAltW100,  IconMaterialArrowSplitW100,  IconMaterialArrowTopLeftW100,  IconMaterialArrowTopRightW100,  IconMaterialArrowUpwardW100,  IconMaterialArrowUpwardAltW100,  IconMaterialArrowsMoreDownW100,  IconMaterialArrowsMoreUpW100,  IconMaterialArrowsOutwardW100,  IconMaterialArtTrackW100,  IconMaterialArticleShortcutW100,  IconMaterialArticleW100,  IconMaterialArtistW100,  IconMaterialAspectRatioW100,  IconMaterialAssignmentAddW100,  IconMaterialAssignmentIndW100,  IconMaterialAssignmentLateW100,  IconMaterialAssignmentReturnW100,  IconMaterialAssignmentTurnedInW100,  IconMaterialAssignmentReturnedW100,  IconMaterialAssignmentW100,  IconMaterialAssistWalkerW100,  IconMaterialAssistantDeviceW100,  IconMaterialAssistantDirectionW100,  IconMaterialAssistantNavigationW100,  IconMaterialAssistantOnHubW100,  IconMaterialAssistantW100,  IconMaterialAsteriskW100,  IconMaterialAssuredWorkloadW100,  IconMaterialAstrophotographyAutoW100,  IconMaterialAstrophotographyOffW100,  IconMaterialAtmW100,  IconMaterialAtrW100,  IconMaterialAttachEmailW100,  IconMaterialAttachFileAddW100,  IconMaterialAttachFileW100,  IconMaterialAttachmentW100,  IconMaterialAttractionsW100,  IconMaterialAttachMoneyW100,  IconMaterialAttributionW100,  IconMaterialAudioDescriptionW100,  IconMaterialAudioFileW100,  IconMaterialAudioVideoReceiverW100,  IconMaterialAutoActivityZoneW100,  IconMaterialAutoAwesomeMosaicW100,  IconMaterialAutoAwesomeMotionW100,  IconMaterialAutoAwesomeW100,  IconMaterialAutoDeleteW100,  IconMaterialAutoDetectVoiceW100,  IconMaterialAutoFixHighW100,  IconMaterialAutoFixNormalW100,  IconMaterialAutoFixOffW100,  IconMaterialAutoFixW100,  IconMaterialAutoGraphW100,  IconMaterialAutoLabelW100,  IconMaterialAutoMeetingRoomW100,  IconMaterialAutoModeW100,  IconMaterialAutoReadPauseW100,  IconMaterialAutoReadPlayW100,  IconMaterialAutoScheduleW100,  IconMaterialAutoStoriesW100,  IconMaterialAutoTimerW100,  IconMaterialAutoTowingW100,  IconMaterialAutoTransmissionW100,  IconMaterialAutoVideocamW100,  IconMaterialAutofpsSelectW100,  IconMaterialAutopauseW100,  IconMaterialAutopayW100,  IconMaterialAutoplayW100,  IconMaterialAutorenewW100,  IconMaterialAutostopW100,  IconMaterialAvTimerW100,  IconMaterialAvgPaceW100,  IconMaterialAvgTimeW100,  IconMaterialAwardStarW100,  IconMaterialAzmW100,  IconMaterialBabyChangingStationW100,  IconMaterialBackHandW100,  IconMaterialBackToTabW100,  IconMaterialBackgroundBlurFullW100,  IconMaterialBackgroundBlurLightW100,  IconMaterialBackgroundDotLargeW100,  IconMaterialBackgroundDotSmallW100,  IconMaterialBackgroundGridSmallW100,  IconMaterialBackgroundReplaceW100,  IconMaterialBacklightHighW100,  IconMaterialBacklightLowW100,  IconMaterialBackpackW100,  IconMaterialBackspaceW100,  IconMaterialBackupTableW100,  IconMaterialBackupW100,  IconMaterialBadgeCriticalBatteryW100,  IconMaterialBadgeW100,  IconMaterialBakeryDiningW100,  IconMaterialBalanceW100,  IconMaterialBalconyW100,  IconMaterialBallotW100,  IconMaterialBarChart4BarsW100,  IconMaterialBarChartW100,  IconMaterialBarcodeReaderW100,  IconMaterialBarcodeScannerW100,  IconMaterialBarcodeW100,  IconMaterialBarefootW100,  IconMaterialBatchPredictionW100,  IconMaterialBathOutdoorW100,  IconMaterialBathPrivateW100,  IconMaterialBathPublicLargeW100,  IconMaterialBathroomW100,  IconMaterialBathtubW100,  IconMaterialBattery0BarW100,  IconMaterialBattery1BarW100,  IconMaterialBattery20W100,  IconMaterialBattery2BarW100,  IconMaterialBattery30W100,  IconMaterialBattery3BarW100,  IconMaterialBattery4BarW100,  IconMaterialBattery50W100,  IconMaterialBattery5BarW100,  IconMaterialBattery60W100,  IconMaterialBattery6BarW100,  IconMaterialBattery80W100,  IconMaterialBattery90W100,  IconMaterialBatteryChangeW100,  IconMaterialBatteryCharging20W100,  IconMaterialBatteryAlertW100,  IconMaterialBatteryCharging30W100,  IconMaterialBatteryCharging50W100,  IconMaterialBatteryCharging60W100,  IconMaterialBatteryCharging80W100,  IconMaterialBatteryCharging90W100,  IconMaterialBatteryChargingFullW100,  IconMaterialBatteryErrorW100,  IconMaterialBatteryFullAltW100,  IconMaterialBatteryFullW100,  IconMaterialBatteryHoriz000W100,  IconMaterialBatteryHoriz050W100,  IconMaterialBatteryHoriz075W100,  IconMaterialBatteryLowW100,  IconMaterialBatteryPlusW100,  IconMaterialBatteryProfileW100,  IconMaterialBatterySaverW100,  IconMaterialBatteryShareW100,  IconMaterialBatteryStatusGoodW100,  IconMaterialBatteryVert005W100,  IconMaterialBatteryUnknownW100,  IconMaterialBatteryVert020W100,  IconMaterialBatteryVert050W100,  IconMaterialBatteryVeryLowW100,  IconMaterialBeachAccessW100,  IconMaterialBedW100,  IconMaterialBedroomBabyW100,  IconMaterialBedroomChildW100,  IconMaterialBedroomParentW100,  IconMaterialBedtimeOffW100,  IconMaterialBedtimeW100,  IconMaterialBeenhereW100,  IconMaterialBentoW100,  IconMaterialBiaW100,  IconMaterialBidLandscapeW100,  IconMaterialBidLandscapeDisabledW100,  IconMaterialBigtopUpdatesW100,  IconMaterialBikeScooterW100,  IconMaterialBiotechW100,  IconMaterialBlanketW100,  IconMaterialBlenderW100,  IconMaterialBlindW100,  IconMaterialBlindsW100,  IconMaterialBlindsClosedW100,  IconMaterialBlockW100,  IconMaterialBloodPressureW100,  IconMaterialBloodtypeW100,  IconMaterialBluetoothConnectedW100,  IconMaterialBluetoothDisabledW100,  IconMaterialBluetoothDriveW100,  IconMaterialBluetoothSearchingW100,  IconMaterialBluetoothW100,  IconMaterialBlurCircularW100,  IconMaterialBlurLinearW100,  IconMaterialBlurMediumW100,  IconMaterialBlurOffW100,  IconMaterialBlurOnW100,  IconMaterialBlurShortW100,  IconMaterialBodyFatW100,  IconMaterialBodySystemW100,  IconMaterialBoltW100,  IconMaterialBombW100,  IconMaterialBook2W100,  IconMaterialBook3W100,  IconMaterialBook4W100,  IconMaterialBook5W100,  IconMaterialBookOnlineW100,  IconMaterialBookW100,  IconMaterialBookmarkAddW100,  IconMaterialBookmarkAddedW100,  IconMaterialBookmarkManagerW100,  IconMaterialBookmarkRemoveW100,  IconMaterialBookmarkW100,  IconMaterialBookmarksW100,  IconMaterialBorderAllW100,  IconMaterialBorderBottomW100,  IconMaterialBorderClearW100,  IconMaterialBorderColorW100,  IconMaterialBorderHorizontalW100,  IconMaterialBorderInnerW100,  IconMaterialBorderLeftW100,  IconMaterialBorderOuterW100,  IconMaterialBorderStyleW100,  IconMaterialBorderRightW100,  IconMaterialBorderTopW100,  IconMaterialBorderVerticalW100,  IconMaterialBottomAppBarW100,  IconMaterialBottomDrawerW100,  IconMaterialBottomNavigationW100,  IconMaterialBottomPanelCloseW100,  IconMaterialBottomPanelOpenW100,  IconMaterialBottomRightClickW100,  IconMaterialBottomSheetsW100,  IconMaterialBoxAddW100,  IconMaterialBoxEditW100,  IconMaterialBoxW100,  IconMaterialBoyW100,  IconMaterialBrandAwarenessW100,  IconMaterialBrandFamilyW100,  IconMaterialBrandingWatermarkW100,  IconMaterialBreakfastDiningW100,  IconMaterialBreakingNewsAlt1W100,  IconMaterialBreakingNewsW100,  IconMaterialBreastfeedingW100,  IconMaterialBrightness1W100,  IconMaterialBrightness2W100,  IconMaterialBrightness3W100,  IconMaterialBrightness4W100,  IconMaterialBrightness5W100,  IconMaterialBrightness6W100,  IconMaterialBrightness7W100,  IconMaterialBrightnessAlertW100,  IconMaterialBrightnessAutoW100,  IconMaterialBrightnessEmptyW100,  IconMaterialBrightnessHighW100,  IconMaterialBrightnessLowW100,  IconMaterialBringYourOwnIpW100,  IconMaterialBrightnessMediumW100,  IconMaterialBroadcastOnHomeW100,  IconMaterialBroadcastOnPersonalW100,  IconMaterialBrokenImageW100,  IconMaterialBrowseActivityW100,  IconMaterialBrowseGalleryW100,  IconMaterialBrowseW100,  IconMaterialBrowserUpdatedW100,  IconMaterialBrunchDiningW100,  IconMaterialBrushW100,  IconMaterialBubbleChartW100,  IconMaterialBubbleW100,  IconMaterialBubblesW100,  IconMaterialBuildCircleW100,  IconMaterialBuildW100,  IconMaterialBungalowW100,  IconMaterialBugReportW100,  IconMaterialBurstModeW100,  IconMaterialBusAlertW100,  IconMaterialBusinessCenterW100,  IconMaterialBusinessChipW100,  IconMaterialBusinessMessagesW100,  IconMaterialButtonsAltW100,  IconMaterialCabinW100,  IconMaterialCableW100,  IconMaterialCachedW100,  IconMaterialCakeAddW100,  IconMaterialCakeW100,  IconMaterialCalculateW100,  IconMaterialCalendarAddOnW100,  IconMaterialCalendarAppsScriptW100,  IconMaterialCalendarMonthW100,  IconMaterialCalendarClockW100,  IconMaterialCalendarTodayW100,  IconMaterialCalendarViewDayW100,  IconMaterialCalendarViewMonthW100,  IconMaterialCalendarViewWeekW100,  IconMaterialCallEndW100,  IconMaterialCallLogW100,  IconMaterialCallMadeW100,  IconMaterialCallMergeW100,  IconMaterialCallMissedOutgoingW100,  IconMaterialCallMissedW100,  IconMaterialCallQualityW100,  IconMaterialCallReceivedW100,  IconMaterialCallSplitW100,  IconMaterialCallW100,  IconMaterialCallToActionW100,  IconMaterialCameraEnhanceW100,  IconMaterialCameraFrontW100,  IconMaterialCameraIndoorW100,  IconMaterialCameraOutdoorW100,  IconMaterialCameraRearW100,  IconMaterialCameraRollW100,  IconMaterialCameraW100,  IconMaterialCameraVideoW100,  IconMaterialCameraswitchW100,  IconMaterialCampaignW100,  IconMaterialCampingW100,  IconMaterialCancelPresentationW100,  IconMaterialCancelScheduleSendW100,  IconMaterialCancelW100,  IconMaterialCandleW100,  IconMaterialCandlestickChartW100,  IconMaterialCaptivePortalW100,  IconMaterialCaptureW100,  IconMaterialCarCrashW100,  IconMaterialCarRentalW100,  IconMaterialCarRepairW100,  IconMaterialCardMembershipW100,  IconMaterialCardTravelW100,  IconMaterialCardiologyW100,  IconMaterialCardsW100,  IconMaterialCarpenterW100,  IconMaterialCarryOnBagCheckedW100,  IconMaterialCarryOnBagInactiveW100,  IconMaterialCarryOnBagQuestionW100,  IconMaterialCarryOnBagW100,  IconMaterialCasesW100,  IconMaterialCasinoW100,  IconMaterialCastConnectedW100,  IconMaterialCastForEducationW100,  IconMaterialCastPauseW100,  IconMaterialCastW100,  IconMaterialCastWarningW100,  IconMaterialCastleW100,  IconMaterialCategoryW100,  IconMaterialCelebrationW100,  IconMaterialCellMergeW100,  IconMaterialCellTowerW100,  IconMaterialCellWifiW100,  IconMaterialCenterFocusStrongW100,  IconMaterialCenterFocusWeakW100,  IconMaterialChairAltW100,  IconMaterialChairW100,  IconMaterialChaletW100,  IconMaterialChangeCircleW100,  IconMaterialChangeHistoryW100,  IconMaterialChargerW100,  IconMaterialChargingStationW100,  IconMaterialChartDataW100,  IconMaterialChatAddOnW100,  IconMaterialChatAppsScriptW100,  IconMaterialChatBubbleW100,  IconMaterialChatErrorW100,  IconMaterialChatInfoW100,  IconMaterialChatW100,  IconMaterialChatPasteGoW100,  IconMaterialCheckBoxOutlineBlankW100,  IconMaterialCheckBoxW100,  IconMaterialCheckCircleW100,  IconMaterialCheckInOutW100,  IconMaterialCheckIndeterminateSmallW100,  IconMaterialCheckSmallW100,  IconMaterialCheckW100,  IconMaterialCheckbookW100,  IconMaterialCheckedBagQuestionW100,  IconMaterialChecklistRtlW100,  IconMaterialChecklistW100,  IconMaterialCheckedBagW100,  IconMaterialCheckroomW100,  IconMaterialCheerW100,  IconMaterialChessW100,  IconMaterialChevronLeftW100,  IconMaterialChevronRightW100,  IconMaterialChildCareW100,  IconMaterialChildFriendlyW100,  IconMaterialChipsW100,  IconMaterialChipExtractionW100,  IconMaterialChromeMaximizeW100,  IconMaterialChromeMinimizeW100,  IconMaterialChromeReaderModeW100,  IconMaterialChromeRestoreW100,  IconMaterialChromeToteW100,  IconMaterialChromecast2W100,  IconMaterialChromecastDeviceW100,  IconMaterialChronicW100,  IconMaterialChurchW100,  IconMaterialCinematicBlurW100,  IconMaterialCircleNotificationsW100,  IconMaterialCircleW100,  IconMaterialCirclesExtW100,  IconMaterialCirclesW100,  IconMaterialClarifyW100,  IconMaterialCleanHandsW100,  IconMaterialCleaningBucketW100,  IconMaterialCleaningServicesW100,  IconMaterialCleaningW100,  IconMaterialClearAllW100,  IconMaterialClearDayW100,  IconMaterialClearNightW100,  IconMaterialClimateMiniSplitW100,  IconMaterialClinicalNotesW100,  IconMaterialClockLoader10W100,  IconMaterialClockLoader20W100,  IconMaterialClockLoader60W100,  IconMaterialClockLoader40W100,  IconMaterialClockLoader80W100,  IconMaterialClockLoader90W100,  IconMaterialCloseFullscreenW100,  IconMaterialCloseSmallW100,  IconMaterialCloseW100,  IconMaterialClosedCaptionDisabledW100,  IconMaterialClosedCaptionW100,  IconMaterialCloudCircleW100,  IconMaterialCloudDoneW100,  IconMaterialCloudDownloadW100,  IconMaterialCloudOffW100,  IconMaterialCloudQueueW100,  IconMaterialCloudSyncW100,  IconMaterialCloudW100,  IconMaterialCloudUploadW100,  IconMaterialCloudyFilledW100,  IconMaterialCloudySnowingW100,  IconMaterialCloudyW100,  IconMaterialCo2W100,  IconMaterialCoPresentW100,  IconMaterialCodeBlocksW100,  IconMaterialCodeOffW100,  IconMaterialCodeW100,  IconMaterialCoffeeW100,  IconMaterialCoffeeMakerW100,  IconMaterialCognitionW100,  IconMaterialCollapseAllW100,  IconMaterialCollapseContentW100,  IconMaterialCollectionsBookmarkW100,  IconMaterialColorizeW100,  IconMaterialColorsW100,  IconMaterialComicBubbleW100,  IconMaterialCommentBankW100,  IconMaterialCommentW100,  IconMaterialCommentsDisabledW100,  IconMaterialCommitW100,  IconMaterialCommunicationW100,  IconMaterialCommunitiesW100,  IconMaterialCommuteW100,  IconMaterialCompareArrowsW100,  IconMaterialCompareW100,  IconMaterialCompassCalibrationW100,  IconMaterialComponentExchangeW100,  IconMaterialCompostW100,  IconMaterialCompressW100,  IconMaterialComputerW100,  IconMaterialConciergeW100,  IconMaterialConditionsW100,  IconMaterialConfirmationNumberW100,  IconMaterialCongenitalW100,  IconMaterialConnectWithoutContactW100,  IconMaterialConnectedTvW100,  IconMaterialConnectingAirportsW100,  IconMaterialConstructionW100,  IconMaterialContactEmergencyW100,  IconMaterialContactMailW100,  IconMaterialContactPageW100,  IconMaterialContactPhoneW100,  IconMaterialContactSupportW100,  IconMaterialContactlessOffW100,  IconMaterialContactlessW100,  IconMaterialContactsW100,  IconMaterialContactsProductW100,  IconMaterialContentCopyW100,  IconMaterialContentCutW100,  IconMaterialContentPasteGoW100,  IconMaterialContentPasteOffW100,  IconMaterialContentPasteSearchW100,  IconMaterialContentPasteW100,  IconMaterialContractDeleteW100,  IconMaterialContractEditW100,  IconMaterialContractW100,  IconMaterialContrastRtlOffW100,  IconMaterialContrastW100,  IconMaterialControlCameraW100,  IconMaterialControlPointDuplicateW100,  IconMaterialControllerGenW100,  IconMaterialConversionPathOffW100,  IconMaterialConversionPathW100,  IconMaterialConveyorBeltW100,  IconMaterialCookieOffW100,  IconMaterialCookieW100,  IconMaterialCookingW100,  IconMaterialCoolToDryW100,  IconMaterialCopyrightW100,  IconMaterialCoronavirusW100,  IconMaterialCorporateFareW100,  IconMaterialCottageW100,  IconMaterialCounter0W100,  IconMaterialCopyAllW100,  IconMaterialCounter1W100,  IconMaterialCounter2W100,  IconMaterialCounter4W100,  IconMaterialCounter3W100,  IconMaterialCounter5W100,  IconMaterialCounter6W100,  IconMaterialCounter7W100,  IconMaterialCounter8W100,  IconMaterialCounter9W100,  IconMaterialCountertopsW100,  IconMaterialCreateNewFolderW100,  IconMaterialCreditCardGearW100,  IconMaterialCreditCardHeartW100,  IconMaterialCreditCardOffW100,  IconMaterialCreditCardW100,  IconMaterialCreditScoreW100,  IconMaterialCribW100,  IconMaterialCrisisAlertW100,  IconMaterialCrop169W100,  IconMaterialCrop32W100,  IconMaterialCrop54W100,  IconMaterialCrop75W100,  IconMaterialCrop916W100,  IconMaterialCropFreeW100,  IconMaterialCropLandscapeW100,  IconMaterialCropPortraitW100,  IconMaterialCropRotateW100,  IconMaterialCropSquareW100,  IconMaterialCropW100,  IconMaterialCrosswordW100,  IconMaterialCrowdsourceW100,  IconMaterialCrueltyFreeW100,  IconMaterialCssW100,  IconMaterialCsvW100,  IconMaterialCurrencyBitcoinW100,  IconMaterialCurrencyExchangeW100,  IconMaterialCurrencyFrancW100,  IconMaterialCurrencyLiraW100,  IconMaterialCurrencyPoundW100,  IconMaterialCurrencyRubleW100,  IconMaterialCurrencyRupeeW100,  IconMaterialCurrencyYenW100,  IconMaterialCurrencyYuanW100,  IconMaterialCurtainsClosedW100,  IconMaterialCurtainsW100,  IconMaterialCustomTypographyW100,  IconMaterialCutW100,  IconMaterialCycleW100,  IconMaterialCycloneW100,  IconMaterialDangerousW100,  IconMaterialDarkModeW100,  IconMaterialDashboardCustomizeW100,  IconMaterialDashboardW100,  IconMaterialDataAlertW100,  IconMaterialDataArrayW100,  IconMaterialDataCheckW100,  IconMaterialDataExplorationW100,  IconMaterialDataInfoAlertW100,  IconMaterialDataLossPreventionW100,  IconMaterialDataObjectW100,  IconMaterialDataSaverOnW100,  IconMaterialDataTableW100,  IconMaterialDataThresholdingW100,  IconMaterialDataUsageW100,  IconMaterialDatabaseW100,  IconMaterialDatasetLinkedW100,  IconMaterialDateRangeW100,  IconMaterialDatasetW100,  IconMaterialDeblurW100,  IconMaterialDeceasedW100,  IconMaterialDecimalDecreaseW100,  IconMaterialDecimalIncreaseW100,  IconMaterialDeckW100,  IconMaterialDehazeW100,  IconMaterialDeleteForeverW100,  IconMaterialDeleteHistoryW100,  IconMaterialDeleteSweepW100,  IconMaterialDeleteW100,  IconMaterialDemographyW100,  IconMaterialDensityLargeW100,  IconMaterialDensityMediumW100,  IconMaterialDensitySmallW100,  IconMaterialDentistryW100,  IconMaterialDepartureBoardW100,  IconMaterialDeployedCodeAccountW100,  IconMaterialDeployedCodeAlertW100,  IconMaterialDeployedCodeHistoryW100,  IconMaterialDeployedCodeW100,  IconMaterialDeployedCodeUpdateW100,  IconMaterialDermatologyW100,  IconMaterialDescriptionW100,  IconMaterialDeselectW100,  IconMaterialDesignServicesW100,  IconMaterialDeskW100,  IconMaterialDeskphoneW100,  IconMaterialDesktopAccessDisabledW100,  IconMaterialDesktopMacW100,  IconMaterialDesktopWindowsW100,  IconMaterialDestructionW100,  IconMaterialDetailsW100,  IconMaterialDetectionAndZoneW100,  IconMaterialDetectorAlarmW100,  IconMaterialDetectorBatteryW100,  IconMaterialDetectorCoW100,  IconMaterialDetectorOfflineW100,  IconMaterialDetectorSmokeW100,  IconMaterialDetectorW100,  IconMaterialDetectorStatusW100,  IconMaterialDeveloperBoardOffW100,  IconMaterialDeveloperBoardW100,  IconMaterialDeveloperGuideW100,  IconMaterialDeveloperModeTvW100,  IconMaterialDeveloperModeW100,  IconMaterialDeviceHubW100,  IconMaterialDeviceResetW100,  IconMaterialDeviceThermostatW100,  IconMaterialDeviceUnknownW100,  IconMaterialDevicesFoldW100,  IconMaterialDevicesOffW100,  IconMaterialDevicesOtherW100,  IconMaterialDevicesW100,  IconMaterialDevicesWearablesW100,  IconMaterialDewPointW100,  IconMaterialDiagnosisW100,  IconMaterialDialerSipW100,  IconMaterialDialogsW100,  IconMaterialDialpadW100,  IconMaterialDiamondW100,  IconMaterialDictionaryW100,  IconMaterialDifferenceW100,  IconMaterialDigitalOutOfHomeW100,  IconMaterialDigitalWellbeingW100,  IconMaterialDiningW100,  IconMaterialDinnerDiningW100,  IconMaterialDirectionsAltOffW100,  IconMaterialDirectionsAltW100,  IconMaterialDirectionsBikeW100,  IconMaterialDirectionsBoatW100,  IconMaterialDirectionsBusW100,  IconMaterialDirectionsCarW100,  IconMaterialDirectionsOffW100,  IconMaterialDirectionsRailwayW100,  IconMaterialDirectionsRunW100,  IconMaterialDirectionsSubwayW100,  IconMaterialDirectionsW100,  IconMaterialDirectionsWalkW100,  IconMaterialDirtyLensW100,  IconMaterialDirectorySyncW100,  IconMaterialDisabledByDefaultW100,  IconMaterialDisabledVisibleW100,  IconMaterialDiscFullW100,  IconMaterialDiscoverTuneW100,  IconMaterialDishwasherGenW100,  IconMaterialDishwasherW100,  IconMaterialDisplayExternalInputW100,  IconMaterialDisplaySettingsW100,  IconMaterialDistanceW100,  IconMaterialDiversity1W100,  IconMaterialDiversity2W100,  IconMaterialDiversity3W100,  IconMaterialDiversity4W100,  IconMaterialDnsW100,  IconMaterialDoNotDisturbOffW100,  IconMaterialDoNotDisturbOnTotalSilenceW100,  IconMaterialDoNotDisturbOnW100,  IconMaterialDoNotStepW100,  IconMaterialDoNotTouchW100,  IconMaterialDockToBottomW100,  IconMaterialDockToLeftW100,  IconMaterialDockToRightW100,  IconMaterialDockW100,  IconMaterialDocsAddOnW100,  IconMaterialDocsAppsScriptW100,  IconMaterialDocumentScannerW100,  IconMaterialDomainAddW100,  IconMaterialDomainDisabledW100,  IconMaterialDomainVerificationOffW100,  IconMaterialDomainVerificationW100,  IconMaterialDomainW100,  IconMaterialDominoMaskW100,  IconMaterialDoneAllW100,  IconMaterialDoneOutlineW100,  IconMaterialDoneW100,  IconMaterialDonutLargeW100,  IconMaterialDonutSmallW100,  IconMaterialDoorBackW100,  IconMaterialDoorFrontW100,  IconMaterialDoorSensorW100,  IconMaterialDoorOpenW100,  IconMaterialDoorSlidingW100,  IconMaterialDoorbell3pW100,  IconMaterialDoorbellChimeW100,  IconMaterialDoorbellW100,  IconMaterialDoubleArrowW100,  IconMaterialDownhillSkiingW100,  IconMaterialDownload2W100,  IconMaterialDownloadDoneW100,  IconMaterialDownloadForOfflineW100,  IconMaterialDownloadW100,  IconMaterialDownloadingW100,  IconMaterialDraftOrdersW100,  IconMaterialDraftW100,  IconMaterialDraftsW100,  IconMaterialDragClickW100,  IconMaterialDragHandleW100,  IconMaterialDragIndicatorW100,  IconMaterialDragPanW100,  IconMaterialDrawAbstractW100,  IconMaterialDrawCollageW100,  IconMaterialDrawW100,  IconMaterialDresserW100,  IconMaterialDriveFileMoveOutlineW100,  IconMaterialDriveFileMoveW100,  IconMaterialDriveFileMoveRtlW100,  IconMaterialDriveFileRenameOutlineW100,  IconMaterialDriveFolderUploadW100,  IconMaterialDropdownW100,  IconMaterialDryCleaningW100,  IconMaterialDryW100,  IconMaterialDualScreenW100,  IconMaterialDuoW100,  IconMaterialDvrW100,  IconMaterialDynamicFeedW100,  IconMaterialDynamicFormW100,  IconMaterialE911AvatarW100,  IconMaterialE911EmergencyW100,  IconMaterialEMobiledataBadgeW100,  IconMaterialEMobiledataW100,  IconMaterialEarbudsBatteryW100,  IconMaterialEarbudsW100,  IconMaterialEarlyOnW100,  IconMaterialEastW100,  IconMaterialEarthquakeW100,  IconMaterialEcgHeartW100,  IconMaterialEcgW100,  IconMaterialEcoW100,  IconMaterialEdaW100,  IconMaterialEdgesensorHighW100,  IconMaterialEdgesensorLowW100,  IconMaterialEditAttributesW100,  IconMaterialEditCalendarW100,  IconMaterialEditDocumentW100,  IconMaterialEditLocationAltW100,  IconMaterialEditLocationW100,  IconMaterialEditNoteW100,  IconMaterialEditNotificationsW100,  IconMaterialEditRoadW100,  IconMaterialEditOffW100,  IconMaterialEditW100,  IconMaterialEditSquareW100,  IconMaterialEditorChoiceW100,  IconMaterialEggAltW100,  IconMaterialEggW100,  IconMaterialEjectW100,  IconMaterialElderlyW100,  IconMaterialElderlyWomanW100,  IconMaterialElectricBikeW100,  IconMaterialElectricBoltW100,  IconMaterialElectricCarW100,  IconMaterialElectricMeterW100,  IconMaterialElectricMopedW100,  IconMaterialElectricRickshawW100,  IconMaterialElectricalServicesW100,  IconMaterialElevationW100,  IconMaterialElectricScooterW100,  IconMaterialElevatorW100,  IconMaterialEmergencyHeatW100,  IconMaterialEmergencyHomeW100,  IconMaterialEmergencyRecordingW100,  IconMaterialEmergencyShareOffW100,  IconMaterialEmergencyShareW100,  IconMaterialEmergencyW100,  IconMaterialEmojiEventsW100,  IconMaterialEmojiFlagsW100,  IconMaterialEmojiFoodBeverageW100,  IconMaterialEmojiNatureW100,  IconMaterialEmojiObjectsW100,  IconMaterialEmojiPeopleW100,  IconMaterialEmojiSymbolsW100,  IconMaterialEmojiTransportationW100,  IconMaterialEmoticonW100,  IconMaterialEmptyDashboardW100,  IconMaterialEnableW100,  IconMaterialEncryptedW100,  IconMaterialEndocrinologyW100,  IconMaterialEnergyProgramSavingW100,  IconMaterialEnergyProgramTimeUsedW100,  IconMaterialEnergySavingsLeafW100,  IconMaterialEnergyW100,  IconMaterialEngineeringW100,  IconMaterialEnhancedEncryptionW100,  IconMaterialEntW100,  IconMaterialEnterpriseOffW100,  IconMaterialEnterpriseW100,  IconMaterialEqualW100,  IconMaterialEqualizerW100,  IconMaterialErrorCircleRoundedW100,  IconMaterialErrorMedW100,  IconMaterialErrorW100,  IconMaterialEscalatorW100,  IconMaterialEscalatorWarningW100,  IconMaterialEuroSymbolW100,  IconMaterialEuroW100,  IconMaterialEvChargerW100,  IconMaterialEvMobiledataBadgeW100,  IconMaterialEvShadowAddW100,  IconMaterialEvShadowMinusW100,  IconMaterialEvShadowW100,  IconMaterialEvStationW100,  IconMaterialEventAvailableW100,  IconMaterialEventBusyW100,  IconMaterialEventListW100,  IconMaterialEventNoteW100,  IconMaterialEventRepeatW100,  IconMaterialEventSeatW100,  IconMaterialEventUpcomingW100,  IconMaterialEventW100,  IconMaterialExclamationW100,  IconMaterialExerciseW100,  IconMaterialExitToAppW100,  IconMaterialExpandAllW100,  IconMaterialExpandCircleDownW100,  IconMaterialExpandCircleRightW100,  IconMaterialExpandCircleUpW100,  IconMaterialExpandContentW100,  IconMaterialExpandLessW100,  IconMaterialExpandMoreW100,  IconMaterialExpandW100,  IconMaterialExperimentW100,  IconMaterialExplicitW100,  IconMaterialExploreNearbyW100,  IconMaterialExploreOffW100,  IconMaterialExploreW100,  IconMaterialExplosionW100,  IconMaterialExportNotesW100,  IconMaterialExposureNeg1W100,  IconMaterialExposureNeg2W100,  IconMaterialExposurePlus1W100,  IconMaterialExposurePlus2W100,  IconMaterialExposureW100,  IconMaterialExposureZeroW100,  IconMaterialExtensionOffW100,  IconMaterialExtensionW100,  IconMaterialEyeglassesW100,  IconMaterialFace2W100,  IconMaterialFace3W100,  IconMaterialFace4W100,  IconMaterialFace5W100,  IconMaterialFace6W100,  IconMaterialFaceRetouchingNaturalW100,  IconMaterialFaceRetouchingOffW100,  IconMaterialFaceW100,  IconMaterialFactCheckW100,  IconMaterialFactoryW100,  IconMaterialFallingW100,  IconMaterialFamiliarFaceAndZoneW100,  IconMaterialFamilyHistoryW100,  IconMaterialFamilyHomeW100,  IconMaterialFamilyLinkW100,  IconMaterialFamilyStarW100,  IconMaterialFamilyRestroomW100,  IconMaterialFarsightDigitalW100,  IconMaterialFastForwardW100,  IconMaterialFastRewindW100,  IconMaterialFaucetW100,  IconMaterialFastfoodW100,  IconMaterialFavoriteW100,  IconMaterialFaxW100,  IconMaterialFeatureSearchW100,  IconMaterialFeaturedPlayListW100,  IconMaterialFeaturedSeasonalAndGiftsW100,  IconMaterialFeaturedVideoW100,  IconMaterialFeedW100,  IconMaterialFeedbackW100,  IconMaterialFemaleW100,  IconMaterialFemurAltW100,  IconMaterialFemurW100,  IconMaterialFenceW100,  IconMaterialFertileW100,  IconMaterialFestivalW100,  IconMaterialFiberDvrW100,  IconMaterialFiberManualRecordW100,  IconMaterialFiberNewW100,  IconMaterialFiberPinW100,  IconMaterialFiberSmartRecordW100,  IconMaterialFileCopyW100,  IconMaterialFileDownloadDoneW100,  IconMaterialFileDownloadOffW100,  IconMaterialFileDownloadW100,  IconMaterialFileMapW100,  IconMaterialFileOpenW100,  IconMaterialFilePresentW100,  IconMaterialFileSaveOffW100,  IconMaterialFileSaveW100,  IconMaterialFileUploadOffW100,  IconMaterialFileUploadW100,  IconMaterialFilter1W100,  IconMaterialFilter2W100,  IconMaterialFilter3W100,  IconMaterialFilter4W100,  IconMaterialFilter5W100,  IconMaterialFilter6W100,  IconMaterialFilter7W100,  IconMaterialFilter8W100,  IconMaterialFilter9PlusW100,  IconMaterialFilter9W100,  IconMaterialFilterAltOffW100,  IconMaterialFilterAltW100,  IconMaterialFilterBAndWW100,  IconMaterialFilterCenterFocusW100,  IconMaterialFilterDramaW100,  IconMaterialFilterFramesW100,  IconMaterialFilterHdrW100,  IconMaterialFilterListOffW100,  IconMaterialFilterListW100,  IconMaterialFilterNoneW100,  IconMaterialFilterRetroluxW100,  IconMaterialFilterTiltShiftW100,  IconMaterialFilterVintageW100,  IconMaterialFilterW100,  IconMaterialFinanceChipW100,  IconMaterialFinanceModeW100,  IconMaterialFinanceW100,  IconMaterialFindInPageW100,  IconMaterialFindReplaceW100,  IconMaterialFingerprintW100,  IconMaterialFireExtinguisherW100,  IconMaterialFireHydrantW100,  IconMaterialFireTruckW100,  IconMaterialFireplaceW100,  IconMaterialFirstPageW100,  IconMaterialFitPageW100,  IconMaterialFitScreenW100,  IconMaterialFitWidthW100,  IconMaterialFitbitArrowDownwardW100,  IconMaterialFitbitArrowUpwardW100,  IconMaterialFitbitCheckSmallW100,  IconMaterialFitnessCenterW100,  IconMaterialFlagCircleW100,  IconMaterialFlagW100,  IconMaterialFlakyW100,  IconMaterialFlareW100,  IconMaterialFlashAutoW100,  IconMaterialFlashOffW100,  IconMaterialFlashOnW100,  IconMaterialFlashlightOffW100,  IconMaterialFlashlightOnW100,  IconMaterialFlatwareW100,  IconMaterialFlexDirectionW100,  IconMaterialFlexNoWrapW100,  IconMaterialFlexWrapW100,  IconMaterialFlightClassW100,  IconMaterialFlightLandW100,  IconMaterialFlightTakeoffW100,  IconMaterialFlightW100,  IconMaterialFlightsAndHotelsW100,  IconMaterialFlightsmodeW100,  IconMaterialFlipCameraAndroidW100,  IconMaterialFlipCameraIosW100,  IconMaterialFlipToBackW100,  IconMaterialFlipToFrontW100,  IconMaterialFlipW100,  IconMaterialFloatLandscapeW100,  IconMaterialFloatPortraitW100,  IconMaterialFloodW100,  IconMaterialFloorLampW100,  IconMaterialFloorW100,  IconMaterialFlourescentW100,  IconMaterialFlowsheetW100,  IconMaterialFluidBalanceW100,  IconMaterialFluidMedW100,  IconMaterialFluidW100,  IconMaterialFluorescentW100,  IconMaterialFlutterDashW100,  IconMaterialFlutterW100,  IconMaterialFoggyW100,  IconMaterialFmdBadW100,  IconMaterialFoldedHandsW100,  IconMaterialFolderCopyW100,  IconMaterialFolderDataW100,  IconMaterialFolderDeleteW100,  IconMaterialFolderManagedW100,  IconMaterialFolderOffW100,  IconMaterialFolderOpenW100,  IconMaterialFolderSharedW100,  IconMaterialFolderSpecialW100,  IconMaterialFolderSupervisedW100,  IconMaterialFolderW100,  IconMaterialFolderZipW100,  IconMaterialFollowTheSignsW100,  IconMaterialFontDownloadOffW100,  IconMaterialFontDownloadW100,  IconMaterialFoodBankW100,  IconMaterialFootBonesW100,  IconMaterialFootprintW100,  IconMaterialForYouW100,  IconMaterialForestW100,  IconMaterialForkLeftW100,  IconMaterialForkRightW100,  IconMaterialForkliftW100,  IconMaterialFormatAlignCenterW100,  IconMaterialFormatAlignJustifyW100,  IconMaterialFormatAlignLeftW100,  IconMaterialFormatAlignRightW100,  IconMaterialFormatBoldW100,  IconMaterialFormatClearW100,  IconMaterialFormatColorFillW100,  IconMaterialFormatColorResetW100,  IconMaterialFormatColorTextW100,  IconMaterialFormatH1W100,  IconMaterialFormatH2W100,  IconMaterialFormatH3W100,  IconMaterialFormatH5W100,  IconMaterialFormatH4W100,  IconMaterialFormatH6W100,  IconMaterialFormatImageLeftW100,  IconMaterialFormatImageRightW100,  IconMaterialFormatIndentDecreaseW100,  IconMaterialFormatIndentIncreaseW100,  IconMaterialFormatInkHighlighterW100,  IconMaterialFormatItalicW100,  IconMaterialFormatLetterSpacing2W100,  IconMaterialFormatLetterSpacingStandardW100,  IconMaterialFormatLetterSpacingW100,  IconMaterialFormatLetterSpacingWideW100,  IconMaterialFormatLetterSpacingWiderW100,  IconMaterialFormatLineSpacingW100,  IconMaterialFormatListBulletedAddW100,  IconMaterialFormatListBulletedW100,  IconMaterialFormatListNumberedRtlW100,  IconMaterialFormatListNumberedW100,  IconMaterialFormatOverlineW100,  IconMaterialFormatPaintW100,  IconMaterialFormatParagraphW100,  IconMaterialFormatQuoteW100,  IconMaterialFormatShapesW100,  IconMaterialFormatSizeW100,  IconMaterialFormatStrikethroughW100,  IconMaterialFormatTextClipW100,  IconMaterialFormatTextWrapW100,  IconMaterialFormatTextOverflowW100,  IconMaterialFormatTextdirectionLToRW100,  IconMaterialFormatTextdirectionRToLW100,  IconMaterialFormatUnderlinedSquiggleW100,  IconMaterialFormatUnderlinedW100,  IconMaterialFormsAddOnW100,  IconMaterialFormsAppsScriptW100,  IconMaterialFortW100,  IconMaterialForumW100,  IconMaterialForward10W100,  IconMaterialForward30W100,  IconMaterialForward5W100,  IconMaterialForwardCircleW100,  IconMaterialForwardMediaW100,  IconMaterialForwardToInboxW100,  IconMaterialFoundationW100,  IconMaterialForwardW100,  IconMaterialFrameInspectW100,  IconMaterialFramePersonW100,  IconMaterialFramePersonOffW100,  IconMaterialFrameReloadW100,  IconMaterialFrameSourceW100,  IconMaterialFreeCancellationW100,  IconMaterialFrontHandW100,  IconMaterialFrontLoaderW100,  IconMaterialFullCoverageW100,  IconMaterialFullHdW100,  IconMaterialFullStackedBarChartW100,  IconMaterialFullscreenExitW100,  IconMaterialFullscreenW100,  IconMaterialFunctionW100,  IconMaterialFunctionsW100,  IconMaterialGMobiledataBadgeW100,  IconMaterialGMobiledataW100,  IconMaterialGTranslateW100,  IconMaterialGalleryThumbnailW100,  IconMaterialGamepadW100,  IconMaterialGarageDoorW100,  IconMaterialGarageHomeW100,  IconMaterialGarageW100,  IconMaterialGardenCartW100,  IconMaterialGasMeterW100,  IconMaterialGastroenterologyW100,  IconMaterialGateW100,  IconMaterialGavelW100,  IconMaterialGeneralDeviceW100,  IconMaterialGeneratingTokensW100,  IconMaterialGeneticsW100,  IconMaterialGenresW100,  IconMaterialGestureSelectW100,  IconMaterialGestureW100,  IconMaterialGifBoxW100,  IconMaterialGifW100,  IconMaterialGirlW100,  IconMaterialGiteW100,  IconMaterialGlassCupW100,  IconMaterialGlobeAsiaW100,  IconMaterialGlobeUkW100,  IconMaterialGlobeW100,  IconMaterialGlucoseW100,  IconMaterialGlyphsW100,  IconMaterialGoToLineW100,  IconMaterialGolfCourseW100,  IconMaterialGoogleHomeDevicesW100,  IconMaterialGooglePlusReshareW100,  IconMaterialGoogleTvRemoteW100,  IconMaterialGoogleWifiW100,  IconMaterialGppBadW100,  IconMaterialGppMaybeW100,  IconMaterialGradeW100,  IconMaterialGradientW100,  IconMaterialGradingW100,  IconMaterialGrainW100,  IconMaterialGraphicEqW100,  IconMaterialGrassW100,  IconMaterialGrid3x3OffW100,  IconMaterialGrid3x3W100,  IconMaterialGrid4x4W100,  IconMaterialGridGoldenratioW100,  IconMaterialGridGuidesW100,  IconMaterialGridOffW100,  IconMaterialGridOnW100,  IconMaterialGridViewW100,  IconMaterialGroceryW100,  IconMaterialGroupAddW100,  IconMaterialGroupAutoW100,  IconMaterialGroupOffW100,  IconMaterialGroupRemoveW100,  IconMaterialGroupW100,  IconMaterialGroupWorkW100,  IconMaterialGroupedBarChartW100,  IconMaterialGroups2W100,  IconMaterialGroups3W100,  IconMaterialGroupsW100,  IconMaterialGynecologyW100,  IconMaterialHMobiledataBadgeW100,  IconMaterialHMobiledataW100,  IconMaterialHPlusMobiledataBadgeW100,  IconMaterialHPlusMobiledataW100,  IconMaterialHailW100,  IconMaterialHallwayW100,  IconMaterialHandBonesW100,  IconMaterialHandGestureW100,  IconMaterialHandshakeW100,  IconMaterialHandymanW100,  IconMaterialHangoutMeetingW100,  IconMaterialHangoutVideoOffW100,  IconMaterialHangoutVideoW100,  IconMaterialHardDrive2W100,  IconMaterialHardDriveW100,  IconMaterialHardwareW100,  IconMaterialHdW100,  IconMaterialHdrAutoSelectW100,  IconMaterialHdrAutoW100,  IconMaterialHdrEnhancedSelectW100,  IconMaterialHdrOffSelectW100,  IconMaterialHdrOffW100,  IconMaterialHdrOnSelectW100,  IconMaterialHdrOnW100,  IconMaterialHdrPlusOffW100,  IconMaterialHdrPlusW100,  IconMaterialHdrStrongW100,  IconMaterialHdrWeakW100,  IconMaterialHeadphonesBatteryW100,  IconMaterialHeadphonesW100,  IconMaterialHeadsetMicW100,  IconMaterialHeadsetOffW100,  IconMaterialHealingW100,  IconMaterialHealthAndBeautyW100,  IconMaterialHealthAndSafetyW100,  IconMaterialHealthMetricsW100,  IconMaterialHeapSnapshotLargeW100,  IconMaterialHeapSnapshotMultipleW100,  IconMaterialHeapSnapshotThumbnailW100,  IconMaterialHearingDisabledW100,  IconMaterialHearingW100,  IconMaterialHeartBrokenW100,  IconMaterialHeartCheckW100,  IconMaterialHeartMinusW100,  IconMaterialHeartPlusW100,  IconMaterialHeatPumpBalanceW100,  IconMaterialHeatPumpW100,  IconMaterialHeatW100,  IconMaterialHeightW100,  IconMaterialHelicopterW100,  IconMaterialHelpCenterW100,  IconMaterialHelpClinicW100,  IconMaterialHelpW100,  IconMaterialHematologyW100,  IconMaterialHevcW100,  IconMaterialHexagonW100,  IconMaterialHideImageW100,  IconMaterialHideSourceW100,  IconMaterialHideW100,  IconMaterialHighDensityW100,  IconMaterialHighQualityW100,  IconMaterialHighResW100,  IconMaterialHighlightKeyboardFocusW100,  IconMaterialHighlightMouseCursorW100,  IconMaterialHighlightTextCursorW100,  IconMaterialHighlightW100,  IconMaterialHighlighterSize1W100,  IconMaterialHighlighterSize2W100,  IconMaterialHighlighterSize3W100,  IconMaterialHighlighterSize4W100,  IconMaterialHighlighterSize5W100,  IconMaterialHikingW100,  IconMaterialHistoryEduW100,  IconMaterialHistoryToggleOffW100,  IconMaterialHistoryW100,  IconMaterialHiveW100,  IconMaterialHlsOffW100,  IconMaterialHlsW100,  IconMaterialHolidayVillageW100,  IconMaterialHomeAndGardenW100,  IconMaterialHomeAppLogoW100,  IconMaterialHomeHealthW100,  IconMaterialHomeImprovementAndToolsW100,  IconMaterialHomeIotDeviceW100,  IconMaterialHomeMaxDotsW100,  IconMaterialHomeMaxW100,  IconMaterialHomeMiniW100,  IconMaterialHomePinW100,  IconMaterialHomeRepairServiceW100,  IconMaterialHomeSpeakerW100,  IconMaterialHomeStorageW100,  IconMaterialHomeW100,  IconMaterialHomeWorkW100,  IconMaterialHorizontalDistributeW100,  IconMaterialHorizontalRuleW100,  IconMaterialHorizontalSplitW100,  IconMaterialHotTubW100,  IconMaterialHotelClassW100,  IconMaterialHourglassBottomW100,  IconMaterialHotelW100,  IconMaterialHourglassDisabledW100,  IconMaterialHourglassEmptyW100,  IconMaterialHourglassFullW100,  IconMaterialHourglassW100,  IconMaterialHourglassTopW100,  IconMaterialHouseSidingW100,  IconMaterialHouseW100,  IconMaterialHouseWithShieldW100,  IconMaterialHouseboatW100,  IconMaterialHouseholdSuppliesW100,  IconMaterialHowToRegW100,  IconMaterialHowToVoteW100,  IconMaterialHrRestingW100,  IconMaterialHtmlW100,  IconMaterialHttpW100,  IconMaterialHubW100,  IconMaterialHumerusAltW100,  IconMaterialHumerusW100,  IconMaterialHumidityHelperW100,  IconMaterialHumidityHighW100,  IconMaterialHumidityIndoorW100,  IconMaterialHumidityLowW100,  IconMaterialHumidityMidW100,  IconMaterialHumidityPercentageW100,  IconMaterialHvacW100,  IconMaterialIceSkatingW100,  IconMaterialIcecreamW100,  IconMaterialIflW100,  IconMaterialIframeW100,  IconMaterialIframeOffW100,  IconMaterialImageAspectRatioW100,  IconMaterialImageNotSupportedW100,  IconMaterialImageSearchW100,  IconMaterialImageW100,  IconMaterialImagesearchRollerW100,  IconMaterialImagesmodeW100,  IconMaterialImmunologyW100,  IconMaterialImportContactsW100,  IconMaterialImportantDevicesW100,  IconMaterialInHomeModeW100,  IconMaterialInactiveOrderW100,  IconMaterialInboxCustomizeW100,  IconMaterialInboxW100,  IconMaterialIncompleteCircleW100,  IconMaterialIndeterminateCheckBoxW100,  IconMaterialIndeterminateQuestionBoxW100,  IconMaterialInfoIW100,  IconMaterialInfoW100,  IconMaterialInfraredW100,  IconMaterialInkEraserOffW100,  IconMaterialInkEraserW100,  IconMaterialInkHighlighterMoveW100,  IconMaterialInkHighlighterW100,  IconMaterialInkMarkerW100,  IconMaterialInkPenW100,  IconMaterialInpatientW100,  IconMaterialInputCircleW100,  IconMaterialInputW100,  IconMaterialInsertChartW100,  IconMaterialInsertPageBreakW100,  IconMaterialInsertTextW100,  IconMaterialInsightsW100,  IconMaterialInstallDesktopW100,  IconMaterialInstallMobileW100,  IconMaterialInstantMixW100,  IconMaterialIntegrationInstructionsW100,  IconMaterialInteractiveSpaceW100,  IconMaterialInterestsW100,  IconMaterialInterpreterModeW100,  IconMaterialInventory2W100,  IconMaterialInventoryW100,  IconMaterialInvertColorsOffW100,  IconMaterialInvertColorsW100,  IconMaterialIosShareW100,  IconMaterialIronW100,  IconMaterialIosW100,  IconMaterialJamboardKioskW100,  IconMaterialJavascriptW100,  IconMaterialJoinFullW100,  IconMaterialJoinInnerW100,  IconMaterialJoinLeftW100,  IconMaterialJoinRightW100,  IconMaterialJoinW100,  IconMaterialJoystickW100,  IconMaterialJumpToElementW100,  IconMaterialKayakingW100,  IconMaterialKebabDiningW100,  IconMaterialKeepPublicW100,  IconMaterialKettleW100,  IconMaterialKeyOffW100,  IconMaterialKeyVerticalW100,  IconMaterialKeyVisualizerW100,  IconMaterialKeyW100,  IconMaterialKeyboardAltW100,  IconMaterialKeyboardArrowDownW100,  IconMaterialKeyboardArrowLeftW100,  IconMaterialKeyboardArrowRightW100,  IconMaterialKeyboardArrowUpW100,  IconMaterialKeyboardBackspaceW100,  IconMaterialKeyboardCapslockBadgeW100,  IconMaterialKeyboardCapslockW100,  IconMaterialKeyboardCommandKeyW100,  IconMaterialKeyboardControlKeyW100,  IconMaterialKeyboardDoubleArrowDownW100,  IconMaterialKeyboardDoubleArrowLeftW100,  IconMaterialKeyboardDoubleArrowRightW100,  IconMaterialKeyboardDoubleArrowUpW100,  IconMaterialKeyboardExternalInputW100,  IconMaterialKeyboardFullW100,  IconMaterialKeyboardHideW100,  IconMaterialKeyboardKeysW100,  IconMaterialKeyboardOffW100,  IconMaterialKeyboardOnscreenW100,  IconMaterialKeyboardOptionKeyW100,  IconMaterialKeyboardPreviousLanguageW100,  IconMaterialKeyboardReturnW100,  IconMaterialKeyboardTabRtlW100,  IconMaterialKeyboardTabW100,  IconMaterialKeyboardVoiceW100,  IconMaterialKeyboardW100,  IconMaterialKidStarW100,  IconMaterialKingBedW100,  IconMaterialKitchenW100,  IconMaterialKitesurfingW100,  IconMaterialLabPanelW100,  IconMaterialLabProfileW100,  IconMaterialLabResearchW100,  IconMaterialLabelImportantW100,  IconMaterialLabelOffW100,  IconMaterialLabelW100,  IconMaterialLabsW100,  IconMaterialLanW100,  IconMaterialLandscapeW100,  IconMaterialLandslideW100,  IconMaterialLanguageChineseArrayW100,  IconMaterialLanguageChineseCangjieW100,  IconMaterialLanguageChineseDayiW100,  IconMaterialLanguageChinesePinyinW100,  IconMaterialLanguageChineseQuickW100,  IconMaterialLanguageChineseWubiW100,  IconMaterialLanguageFrenchW100,  IconMaterialLanguageGbEnglishW100,  IconMaterialLanguageInternationalW100,  IconMaterialLanguageJapaneseKanaW100,  IconMaterialLanguageKoreanLatinW100,  IconMaterialLanguagePinyinW100,  IconMaterialLanguageSpanishW100,  IconMaterialLanguageUsColemakW100,  IconMaterialLanguageUsDvorakW100,  IconMaterialLanguageUsW100,  IconMaterialLanguageW100,  IconMaterialLapsW100,  IconMaterialLaptopChromebookW100,  IconMaterialLaptopMacW100,  IconMaterialLaptopWindowsW100,  IconMaterialLassoSelectW100,  IconMaterialLastPageW100,  IconMaterialLauncherAssistantOffW100,  IconMaterialLauncherAssistantOnW100,  IconMaterialLaundryW100,  IconMaterialLayersClearW100,  IconMaterialLayersW100,  IconMaterialLdaW100,  IconMaterialLeaderboardW100,  IconMaterialLeafSparkW100,  IconMaterialLeakAddW100,  IconMaterialLeakRemoveW100,  IconMaterialLeftClickW100,  IconMaterialLeftPanelCloseW100,  IconMaterialLeftPanelOpenW100,  IconMaterialLegendToggleW100,  IconMaterialLensBlurW100,  IconMaterialLensW100,  IconMaterialLetterSwitchW100,  IconMaterialLibraryAddCheckW100,  IconMaterialLibraryAddW100,  IconMaterialLibraryBooksW100,  IconMaterialLicenseW100,  IconMaterialLibraryMusicW100,  IconMaterialLiftToTalkW100,  IconMaterialLightGroupW100,  IconMaterialLightModeW100,  IconMaterialLightOffW100,  IconMaterialLightW100,  IconMaterialLightbulbCircleW100,  IconMaterialLightbulbW100,  IconMaterialLightningStandW100,  IconMaterialLineAxisW100,  IconMaterialLineCurveW100,  IconMaterialLineEndArrowNotchW100,  IconMaterialLineEndArrowW100,  IconMaterialLineEndCircleW100,  IconMaterialLineEndDiamondW100,  IconMaterialLineEndSquareW100,  IconMaterialLineEndW100,  IconMaterialLineStartArrowNotchW100,  IconMaterialLineStartArrowW100,  IconMaterialLineStartCircleW100,  IconMaterialLineStartDiamondW100,  IconMaterialLineStartSquareW100,  IconMaterialLineStartW100,  IconMaterialLineStyleW100,  IconMaterialLineWeightW100,  IconMaterialLinearScaleW100,  IconMaterialLinkOffW100,  IconMaterialLinkW100,  IconMaterialLinkedCameraW100,  IconMaterialLinkedServicesW100,  IconMaterialLiquorW100,  IconMaterialListAltAddW100,  IconMaterialListAltW100,  IconMaterialListW100,  IconMaterialListsW100,  IconMaterialLiveHelpW100,  IconMaterialLiveTvW100,  IconMaterialLivingW100,  IconMaterialLocalActivityW100,  IconMaterialLocalAtmW100,  IconMaterialLocalBarW100,  IconMaterialLocalCafeW100,  IconMaterialLocalCarWashW100,  IconMaterialLocalConvenienceStoreW100,  IconMaterialLocalDiningW100,  IconMaterialLocalDrinkW100,  IconMaterialLocalFireDepartmentW100,  IconMaterialLocalFloristW100,  IconMaterialLocalGasStationW100,  IconMaterialLocalHospitalW100,  IconMaterialLocalLaundryServiceW100,  IconMaterialLocalLibraryW100,  IconMaterialLocalMallW100,  IconMaterialLocalParkingW100,  IconMaterialLocalPharmacyW100,  IconMaterialLocalPizzaW100,  IconMaterialLocalPoliceW100,  IconMaterialLocalPostOfficeW100,  IconMaterialLocalSeeW100,  IconMaterialLocalShippingW100,  IconMaterialLocalTaxiW100,  IconMaterialLocationAutomationW100,  IconMaterialLocationAwayW100,  IconMaterialLocationChipW100,  IconMaterialLocationCityW100,  IconMaterialLocationDisabledW100,  IconMaterialLocationHomeW100,  IconMaterialLocationOffW100,  IconMaterialLocationOnW100,  IconMaterialLocationSearchingW100,  IconMaterialLockClockW100,  IconMaterialLockOpenRightW100,  IconMaterialLockOpenW100,  IconMaterialLockPersonW100,  IconMaterialLockResetW100,  IconMaterialLockW100,  IconMaterialLogoDevW100,  IconMaterialLoginW100,  IconMaterialLogoutW100,  IconMaterialLooks3W100,  IconMaterialLooks4W100,  IconMaterialLooks5W100,  IconMaterialLooks6W100,  IconMaterialLooksOneW100,  IconMaterialLooksTwoW100,  IconMaterialLooksW100,  IconMaterialLoupeW100,  IconMaterialLowDensityW100,  IconMaterialLowPriorityW100,  IconMaterialLoyaltyW100,  IconMaterialLteMobiledataBadgeW100,  IconMaterialLteMobiledataW100,  IconMaterialLtePlusMobiledataBadgeW100,  IconMaterialLtePlusMobiledataW100,  IconMaterialLuggageW100,  IconMaterialLunchDiningW100,  IconMaterialLyricsW100,  IconMaterialMacroAutoW100,  IconMaterialMacroOffW100,  IconMaterialMagicButtonW100,  IconMaterialMagicExchangeW100,  IconMaterialMagicTetherW100,  IconMaterialMagnificationLargeW100,  IconMaterialMagnificationSmallW100,  IconMaterialMagnifyDockedW100,  IconMaterialMagnifyFullscreenW100,  IconMaterialMailLockW100,  IconMaterialMailW100,  IconMaterialMaleW100,  IconMaterialMan2W100,  IconMaterialMan3W100,  IconMaterialMan4W100,  IconMaterialManW100,  IconMaterialManageAccountsW100,  IconMaterialManageHistoryW100,  IconMaterialManageSearchW100,  IconMaterialMangaW100,  IconMaterialManufacturingW100,  IconMaterialMapW100,  IconMaterialMapsUgcW100,  IconMaterialMarginW100,  IconMaterialMarkAsUnreadW100,  IconMaterialMarkChatReadW100,  IconMaterialMarkChatUnreadW100,  IconMaterialMarkEmailReadW100,  IconMaterialMarkEmailUnreadW100,  IconMaterialMarkUnreadChatAltW100,  IconMaterialMarkdownCopyW100,  IconMaterialMarkdownPasteW100,  IconMaterialMarkdownW100,  IconMaterialMarkunreadMailboxW100,  IconMaterialMaskedTransitionsW100,  IconMaterialMasksW100,  IconMaterialMatchCaseW100,  IconMaterialMatchWordW100,  IconMaterialMatterW100,  IconMaterialMaximizeW100,  IconMaterialMeasuringTapeW100,  IconMaterialMediaBluetoothOffW100,  IconMaterialMediaBluetoothOnW100,  IconMaterialMediaLinkW100,  IconMaterialMediaOutputOffW100,  IconMaterialMediaOutputW100,  IconMaterialMediationW100,  IconMaterialMedicalInformationW100,  IconMaterialMedicalMaskW100,  IconMaterialMedicalServicesW100,  IconMaterialMedicationLiquidW100,  IconMaterialMedicationW100,  IconMaterialMeetingRoomW100,  IconMaterialMemoryW100,  IconMaterialMemoryAltW100,  IconMaterialMenstrualHealthW100,  IconMaterialMenuBookW100,  IconMaterialMenuOpenW100,  IconMaterialMenuW100,  IconMaterialMergeTypeW100,  IconMaterialMergeW100,  IconMaterialMetabolismW100,  IconMaterialMfgNestYaleLockW100,  IconMaterialMicDoubleW100,  IconMaterialMicExternalOffW100,  IconMaterialMicExternalOnW100,  IconMaterialMicNoiseCancelHighW100,  IconMaterialMicNoiseCancelLowW100,  IconMaterialMicNoiseCancelOffW100,  IconMaterialMicOffW100,  IconMaterialMicW100,  IconMaterialMicrobiologyW100,  IconMaterialMicrowaveW100,  IconMaterialMicrowaveGenW100,  IconMaterialMilitaryTechW100,  IconMaterialMimoDisconnectW100,  IconMaterialMimoW100,  IconMaterialMindfulnessW100,  IconMaterialMinimizeW100,  IconMaterialMinorCrashW100,  IconMaterialMintmarkW100,  IconMaterialMissedVideoCallW100,  IconMaterialMissingControllerW100,  IconMaterialMistW100,  IconMaterialMitreW100,  IconMaterialMixtureMedW100,  IconMaterialMmsW100,  IconMaterialMobileFriendlyW100,  IconMaterialMobileOffW100,  IconMaterialMobileScreenShareW100,  IconMaterialMobiledataOffW100,  IconMaterialModeCommentW100,  IconMaterialModeCoolOffW100,  IconMaterialModeCoolW100,  IconMaterialModeDualW100,  IconMaterialModeFanOffW100,  IconMaterialModeFanW100,  IconMaterialModeHeatCoolW100,  IconMaterialModeHeatOffW100,  IconMaterialModeHeatW100,  IconMaterialModeNightW100,  IconMaterialModeOfTravelW100,  IconMaterialModeOffOnW100,  IconMaterialModeStandbyW100,  IconMaterialModelTrainingW100,  IconMaterialMonetizationOnW100,  IconMaterialMoneyOffW100,  IconMaterialMoneyW100,  IconMaterialMonitorHeartW100,  IconMaterialMonitorW100,  IconMaterialMonitorWeightGainW100,  IconMaterialMonitorWeightLossW100,  IconMaterialMonitorWeightW100,  IconMaterialMonitoringW100,  IconMaterialMonochromePhotosW100,  IconMaterialMoodBadW100,  IconMaterialMoodW100,  IconMaterialMopW100,  IconMaterialMoreDownW100,  IconMaterialMoreHorizW100,  IconMaterialMoreTimeW100,  IconMaterialMoreUpW100,  IconMaterialMoreVertW100,  IconMaterialMoreW100,  IconMaterialMosqueW100,  IconMaterialMotionBlurW100,  IconMaterialMotionModeW100,  IconMaterialMotionPhotosAutoW100,  IconMaterialMotionPhotosOffW100,  IconMaterialMotionPhotosOnW100,  IconMaterialMotionPhotosPausedW100,  IconMaterialMotionSensorActiveW100,  IconMaterialMotionSensorAlertW100,  IconMaterialMotionSensorIdleW100,  IconMaterialMotionSensorUrgentW100,  IconMaterialMotorcycleW100,  IconMaterialMountainFlagW100,  IconMaterialMouseW100,  IconMaterialMoveDownW100,  IconMaterialMoveGroupW100,  IconMaterialMoveItemW100,  IconMaterialMoveLocationW100,  IconMaterialMoveSelectionRightW100,  IconMaterialMoveSelectionDownW100,  IconMaterialMoveSelectionLeftW100,  IconMaterialMoveSelectionUpW100,  IconMaterialMoveToInboxW100,  IconMaterialMoveUpW100,  IconMaterialMoveW100,  IconMaterialMovedLocationW100,  IconMaterialMovieEditW100,  IconMaterialMovieFilterW100,  IconMaterialMovieInfoW100,  IconMaterialMovieW100,  IconMaterialMovingBedsW100,  IconMaterialMovingMinistryW100,  IconMaterialMovingW100,  IconMaterialMpW100,  IconMaterialMulticookerW100,  IconMaterialMultilineChartW100,  IconMaterialMultipleStopW100,  IconMaterialMuseumW100,  IconMaterialMusicCastW100,  IconMaterialMusicNoteW100,  IconMaterialMusicOffW100,  IconMaterialMusicVideoW100,  IconMaterialMyLocationW100,  IconMaterialMysteryW100,  IconMaterialNatW100,  IconMaterialNaturePeopleW100,  IconMaterialNatureW100,  IconMaterialNavigateBeforeW100,  IconMaterialNavigateNextW100,  IconMaterialNavigationW100,  IconMaterialNearMeDisabledW100,  IconMaterialNearMeW100,  IconMaterialNearbyErrorW100,  IconMaterialNearbyOffW100,  IconMaterialNearbyW100,  IconMaterialNephrologyW100,  IconMaterialNestAudioW100,  IconMaterialNestCamFloodlightW100,  IconMaterialNestCamIndoorW100,  IconMaterialNestCamIqOutdoorW100,  IconMaterialNestCamIqW100,  IconMaterialNestCamMagnetMountW100,  IconMaterialNestCamOutdoorW100,  IconMaterialNestCamStandW100,  IconMaterialNestCamWallMountW100,  IconMaterialNestCamWiredStandW100,  IconMaterialNestClockFarsightAnalogW100,  IconMaterialNestClockFarsightDigitalW100,  IconMaterialNestConnectW100,  IconMaterialNestDetectW100,  IconMaterialNestDisplayMaxW100,  IconMaterialNestDisplayW100,  IconMaterialNestDoorbellVisitorW100,  IconMaterialNestEcoLeafW100,  IconMaterialNestFarsightWeatherW100,  IconMaterialNestFoundSavingsW100,  IconMaterialNestGaleWifiW100,  IconMaterialNestHeatLinkEW100,  IconMaterialNestHeatLinkGen3W100,  IconMaterialNestHelloDoorbellW100,  IconMaterialNestLocatorTagW100,  IconMaterialNestMiniW100,  IconMaterialNestMultiRoomW100,  IconMaterialNestProtectW100,  IconMaterialNestRemoteComfortSensorW100,  IconMaterialNestRemoteW100,  IconMaterialNestSunblockW100,  IconMaterialNestSecureAlarmW100,  IconMaterialNestTagW100,  IconMaterialNestThermostatEEuW100,  IconMaterialNestThermostatGen3W100,  IconMaterialNestThermostatSensorEuW100,  IconMaterialNestThermostatSensorW100,  IconMaterialNestThermostatW100,  IconMaterialNestThermostatZirconiumEuW100,  IconMaterialNestTrueRadiantW100,  IconMaterialNestWakeOnApproachW100,  IconMaterialNestWakeOnPressW100,  IconMaterialNestWifiGaleW100,  IconMaterialNestWifiMistralW100,  IconMaterialNestWifiPointVentoW100,  IconMaterialNestWifiPointW100,  IconMaterialNestWifiPro2W100,  IconMaterialNestWifiProW100,  IconMaterialNestWifiRouterW100,  IconMaterialNetworkCellW100,  IconMaterialNetworkIntelligenceHistoryW100,  IconMaterialNetworkCheckW100,  IconMaterialNetworkIntelligenceUpdateW100,  IconMaterialNetworkLockedW100,  IconMaterialNetworkManageW100,  IconMaterialNetworkNodeW100,  IconMaterialNetworkPingW100,  IconMaterialNetworkWifi1BarLockedW100,  IconMaterialNetworkWifi1BarW100,  IconMaterialNetworkWifi2BarLockedW100,  IconMaterialNetworkWifi2BarW100,  IconMaterialNetworkWifi3BarLockedW100,  IconMaterialNetworkWifi3BarW100,  IconMaterialNetworkWifiLockedW100,  IconMaterialNetworkWifiW100,  IconMaterialNeurologyW100,  IconMaterialNewLabelW100,  IconMaterialNewReleasesW100,  IconMaterialNewWindowW100,  IconMaterialNewsW100,  IconMaterialNewsmodeW100,  IconMaterialNewspaperW100,  IconMaterialNewsstandW100,  IconMaterialNextPlanW100,  IconMaterialNextWeekW100,  IconMaterialNfcW100,  IconMaterialNightShelterW100,  IconMaterialNightSightAutoOffW100,  IconMaterialNightSightAutoW100,  IconMaterialNightSightMaxW100,  IconMaterialNightlifeW100,  IconMaterialNightlightBadgeW100,  IconMaterialNightlightOffW100,  IconMaterialNightlightW100,  IconMaterialNightsStayW100,  IconMaterialNoAccountsW100,  IconMaterialNoAdultContentW100,  IconMaterialNoBackpackW100,  IconMaterialNoCrashW100,  IconMaterialNoDrinksW100,  IconMaterialNoEncryptionW100,  IconMaterialNoFlashW100,  IconMaterialNoFoodW100,  IconMaterialNoLuggageW100,  IconMaterialNoMealsW100,  IconMaterialNoMeetingRoomW100,  IconMaterialNoPhotographyW100,  IconMaterialNoSimW100,  IconMaterialNoSoundW100,  IconMaterialNoStrollerW100,  IconMaterialNoTransferW100,  IconMaterialNoiseAwareW100,  IconMaterialNoiseControlOffW100,  IconMaterialNoiseControlOnW100,  IconMaterialNordicWalkingW100,  IconMaterialNorthEastW100,  IconMaterialNorthW100,  IconMaterialNorthWestW100,  IconMaterialNotAccessibleW100,  IconMaterialNotAccessibleForwardW100,  IconMaterialNotListedLocationW100,  IconMaterialNotStartedW100,  IconMaterialNoteAddW100,  IconMaterialNoteAltW100,  IconMaterialNoteStackAddW100,  IconMaterialNoteStackW100,  IconMaterialNoteW100,  IconMaterialNotesW100,  IconMaterialNotificationAddW100,  IconMaterialNotificationImportantW100,  IconMaterialNotificationMultipleW100,  IconMaterialNotificationsActiveW100,  IconMaterialNotificationsOffW100,  IconMaterialNotificationsPausedW100,  IconMaterialNotificationsW100,  IconMaterialNotificationsUnreadW100,  IconMaterialNumbersW100,  IconMaterialNutritionW100,  IconMaterialOdsW100,  IconMaterialOdtW100,  IconMaterialOfflineBoltW100,  IconMaterialOfflinePinW100,  IconMaterialOfflineShareW100,  IconMaterialOilBarrelW100,  IconMaterialOnDeviceTrainingW100,  IconMaterialOnHubDeviceW100,  IconMaterialOncologyW100,  IconMaterialOnlinePredictionW100,  IconMaterialOnsenW100,  IconMaterialOpacityW100,  IconMaterialOpenInBrowserW100,  IconMaterialOpenInFullW100,  IconMaterialOpenInNewDownW100,  IconMaterialOpenInNewOffW100,  IconMaterialOpenInNewW100,  IconMaterialOpenInPhoneW100,  IconMaterialOpenJamW100,  IconMaterialOpenWithW100,  IconMaterialOphthalmologyW100,  IconMaterialOralDiseaseW100,  IconMaterialOrderApproveW100,  IconMaterialOrderPlayW100,  IconMaterialOrdersW100,  IconMaterialOrthopedicsW100,  IconMaterialOtherAdmissionW100,  IconMaterialOtherHousesW100,  IconMaterialOutboundW100,  IconMaterialOutboxAltW100,  IconMaterialOutboxW100,  IconMaterialOutdoorGardenW100,  IconMaterialOutdoorGrillW100,  IconMaterialOutgoingMailW100,  IconMaterialOutletW100,  IconMaterialOutpatientMedW100,  IconMaterialOutpatientW100,  IconMaterialOutputCircleW100,  IconMaterialOutputW100,  IconMaterialOvenW100,  IconMaterialOverviewKeyW100,  IconMaterialOvenGenW100,  IconMaterialOverviewW100,  IconMaterialOxygenSaturationW100,  IconMaterialP2pW100,  IconMaterialPaceW100,  IconMaterialPacemakerW100,  IconMaterialPackage2W100,  IconMaterialPackageW100,  IconMaterialPaddingW100,  IconMaterialPageControlW100,  IconMaterialPageInfoW100,  IconMaterialPagelessW100,  IconMaterialPagesW100,  IconMaterialPageviewW100,  IconMaterialPaidW100,  IconMaterialPaletteW100,  IconMaterialPalletW100,  IconMaterialPanToolAltW100,  IconMaterialPanToolW100,  IconMaterialPanZoomW100,  IconMaterialPanoramaFishEyeW100,  IconMaterialPanoramaHorizontalW100,  IconMaterialPanoramaPhotosphereW100,  IconMaterialPanoramaVerticalW100,  IconMaterialPanoramaW100,  IconMaterialPanoramaWideAngleW100,  IconMaterialParaglidingW100,  IconMaterialParkW100,  IconMaterialPartlyCloudyDayW100,  IconMaterialPartlyCloudyNightW100,  IconMaterialPartnerExchangeW100,  IconMaterialPartnerReportsW100,  IconMaterialPartyModeW100,  IconMaterialPasswordW100,  IconMaterialPasskeyW100,  IconMaterialPatientListW100,  IconMaterialPatternW100,  IconMaterialPauseCircleW100,  IconMaterialPausePresentationW100,  IconMaterialPauseW100,  IconMaterialPaymentsW100,  IconMaterialPdfOffW100,  IconMaterialPedalBikeW100,  IconMaterialPediatricsW100,  IconMaterialPenSize1W100,  IconMaterialPenSize2W100,  IconMaterialPenSize3W100,  IconMaterialPenSize4W100,  IconMaterialPenSize5W100,  IconMaterialPendingActionsW100,  IconMaterialPendingW100,  IconMaterialPentagonW100,  IconMaterialPercentW100,  IconMaterialPerformanceMaxW100,  IconMaterialPergolaW100,  IconMaterialPermCameraMicW100,  IconMaterialPermContactCalendarW100,  IconMaterialPermDataSettingW100,  IconMaterialPermDeviceInformationW100,  IconMaterialPermMediaW100,  IconMaterialPermPhoneMsgW100,  IconMaterialPermScanWifiW100,  IconMaterialPerson2W100,  IconMaterialPerson3W100,  IconMaterialPerson4W100,  IconMaterialPersonAddDisabledW100,  IconMaterialPersonAddW100,  IconMaterialPersonAlertW100,  IconMaterialPersonApronW100,  IconMaterialPersonBookW100,  IconMaterialPersonCancelW100,  IconMaterialPersonCelebrateW100,  IconMaterialPersonCheckW100,  IconMaterialPersonEditW100,  IconMaterialPersonFilledW100,  IconMaterialPersonOffW100,  IconMaterialPersonPinCircleW100,  IconMaterialPersonPinW100,  IconMaterialPersonPlayW100,  IconMaterialPersonRaisedHandW100,  IconMaterialPersonRemoveW100,  IconMaterialPersonSearchW100,  IconMaterialPersonW100,  IconMaterialPersonalBagOffW100,  IconMaterialPersonalBagQuestionW100,  IconMaterialPersonalBagW100,  IconMaterialPersonalInjuryW100,  IconMaterialPersonalPlacesW100,  IconMaterialPestControlRodentW100,  IconMaterialPestControlW100,  IconMaterialPetSuppliesW100,  IconMaterialPetsW100,  IconMaterialPhishingW100,  IconMaterialPhoneAndroidW100,  IconMaterialPhoneBluetoothSpeakerW100,  IconMaterialPhoneCallbackW100,  IconMaterialPhoneDisabledW100,  IconMaterialPhoneEnabledW100,  IconMaterialPhoneForwardedW100,  IconMaterialPhoneInTalkW100,  IconMaterialPhoneInTalkWatchfaceIndicatorW100,  IconMaterialPhoneIphoneW100,  IconMaterialPhoneLockedW100,  IconMaterialPhoneMissedW100,  IconMaterialPhonePausedW100,  IconMaterialPhonelinkEraseW100,  IconMaterialPhonelinkLockW100,  IconMaterialPhonelinkOffW100,  IconMaterialPhonelinkRingW100,  IconMaterialPhonelinkRingOffW100,  IconMaterialPhonelinkSetupW100,  IconMaterialPhotoAlbumW100,  IconMaterialPhotoAutoMergeW100,  IconMaterialPhotoCameraBackW100,  IconMaterialPhotoCameraFrontW100,  IconMaterialPhotoCameraW100,  IconMaterialPhotoFilterW100,  IconMaterialPhotoFrameW100,  IconMaterialPhotoLibraryW100,  IconMaterialPhotoPrintsW100,  IconMaterialPhotoSizeSelectLargeW100,  IconMaterialPhotoSizeSelectSmallW100,  IconMaterialPhotoW100,  IconMaterialPhpW100,  IconMaterialPhysicalTherapyW100,  IconMaterialPianoOffW100,  IconMaterialPianoW100,  IconMaterialPictureAsPdfW100,  IconMaterialPictureInPictureAltW100,  IconMaterialPictureInPictureCenterW100,  IconMaterialPictureInPictureLargeW100,  IconMaterialPictureInPictureMediumW100,  IconMaterialPictureInPictureMobileW100,  IconMaterialPictureInPictureOffW100,  IconMaterialPictureInPictureSmallW100,  IconMaterialPictureInPictureW100,  IconMaterialPieChartW100,  IconMaterialPillW100,  IconMaterialPillOffW100,  IconMaterialPinDropW100,  IconMaterialPinEndW100,  IconMaterialPinInvokeW100,  IconMaterialPinW100,  IconMaterialPinchW100,  IconMaterialPinchZoomInW100,  IconMaterialPinchZoomOutW100,  IconMaterialPipExitW100,  IconMaterialPipW100,  IconMaterialPivotTableChartW100,  IconMaterialPixel33xl3aW100,  IconMaterialPlaceItemW100,  IconMaterialPlagiarismW100,  IconMaterialPlannerBannerAdPtW100,  IconMaterialPlannerReviewW100,  IconMaterialPlayArrowW100,  IconMaterialPlayCircleW100,  IconMaterialPlayDisabledW100,  IconMaterialPlayForWorkW100,  IconMaterialPlayLessonW100,  IconMaterialPlayPauseW100,  IconMaterialPlayShapesW100,  IconMaterialPlayingCardsW100,  IconMaterialPlaylistAddCheckCircleW100,  IconMaterialPlaylistAddCheckW100,  IconMaterialPlaylistAddCircleW100,  IconMaterialPlaylistAddW100,  IconMaterialPlaylistPlayW100,  IconMaterialPlaylistRemoveW100,  IconMaterialPlumbingW100,  IconMaterialPodcastsW100,  IconMaterialPodiatryW100,  IconMaterialPodiumW100,  IconMaterialPointOfSaleW100,  IconMaterialPointScanW100,  IconMaterialPolicyW100,  IconMaterialPolylineW100,  IconMaterialPolymerW100,  IconMaterialPoolW100,  IconMaterialPortableWifiOffW100,  IconMaterialPortraitLightingOffW100,  IconMaterialPortraitLightingW100,  IconMaterialPositionBottomLeftW100,  IconMaterialPositionBottomRightW100,  IconMaterialPositionTopRightW100,  IconMaterialPostAddW100,  IconMaterialPostW100,  IconMaterialPottedPlantW100,  IconMaterialPowerInputW100,  IconMaterialPowerOffW100,  IconMaterialPowerRoundedW100,  IconMaterialPowerSettingsNewW100,  IconMaterialPowerW100,  IconMaterialPrecisionManufacturingW100,  IconMaterialPrayerTimesW100,  IconMaterialPregnancyW100,  IconMaterialPregnantWomanW100,  IconMaterialPreliminaryW100,  IconMaterialPrescriptionsW100,  IconMaterialPresentToAllW100,  IconMaterialPreviewOffW100,  IconMaterialPreviewW100,  IconMaterialPriceChangeW100,  IconMaterialPriceCheckW100,  IconMaterialPrintAddW100,  IconMaterialPrintConnectW100,  IconMaterialPrintDisabledW100,  IconMaterialPrintErrorW100,  IconMaterialPrintLockW100,  IconMaterialPrintW100,  IconMaterialPriorityHighW100,  IconMaterialPriorityW100,  IconMaterialPrivacyScreenOffW100,  IconMaterialPrivacyScreenW100,  IconMaterialPrivacyTipW100,  IconMaterialPrivacyW100,  IconMaterialPrivateConnectivityW100,  IconMaterialProblemW100,  IconMaterialProcedureW100,  IconMaterialProcessChartW100,  IconMaterialProductionQuantityLimitsW100,  IconMaterialProductivityW100,  IconMaterialProgressActivityW100,  IconMaterialPromptSuggestionW100,  IconMaterialPropaneTankW100,  IconMaterialPropaneW100,  IconMaterialPsychiatryW100,  IconMaterialPsychologyAltW100,  IconMaterialPsychologyW100,  IconMaterialPublicOffW100,  IconMaterialPublicW100,  IconMaterialPublishedWithChangesW100,  IconMaterialPulmonologyW100,  IconMaterialPublishW100,  IconMaterialPunchClockW100,  IconMaterialPushPinW100,  IconMaterialPulseAlertW100,  IconMaterialQrCode2AddW100,  IconMaterialQrCode2W100,  IconMaterialQrCodeScannerW100,  IconMaterialQrCodeW100,  IconMaterialQueryStatsW100,  IconMaterialQuestionExchangeW100,  IconMaterialQuestionMarkW100,  IconMaterialQueueMusicW100,  IconMaterialQueuePlayNextW100,  IconMaterialQuickPhrasesW100,  IconMaterialQuickReferenceAllW100,  IconMaterialQuickReferenceW100,  IconMaterialQuickReorderW100,  IconMaterialQuickreplyW100,  IconMaterialQuietTimeActiveW100,  IconMaterialQuietTimeW100,  IconMaterialQuizW100,  IconMaterialRMobiledataW100,  IconMaterialRadarW100,  IconMaterialRadioButtonCheckedW100,  IconMaterialRadioButtonPartialW100,  IconMaterialRadioButtonUncheckedW100,  IconMaterialRadioW100,  IconMaterialRadiologyW100,  IconMaterialRailwayAlertW100,  IconMaterialRainyHeavyW100,  IconMaterialRainyLightW100,  IconMaterialRainyW100,  IconMaterialRainySnowW100,  IconMaterialRamenDiningW100,  IconMaterialRampLeftW100,  IconMaterialRampRightW100,  IconMaterialRangeHoodW100,  IconMaterialRateReviewW100,  IconMaterialRavenW100,  IconMaterialRawOffW100,  IconMaterialRawOnW100,  IconMaterialReadMoreW100,  IconMaterialReadinessScoreW100,  IconMaterialRealEstateAgentW100,  IconMaterialRearCameraW100,  IconMaterialRebaseEditW100,  IconMaterialRebaseW100,  IconMaterialReceiptLongW100,  IconMaterialReceiptW100,  IconMaterialRecentActorsW100,  IconMaterialRecentPatientW100,  IconMaterialRecommendW100,  IconMaterialRecordVoiceOverW100,  IconMaterialRectangleW100,  IconMaterialRecyclingW100,  IconMaterialRedeemW100,  IconMaterialRedoW100,  IconMaterialReduceCapacityW100,  IconMaterialRefreshW100,  IconMaterialRegularExpressionW100,  IconMaterialRelaxW100,  IconMaterialReleaseAlertW100,  IconMaterialRememberMeW100,  IconMaterialReminderW100,  IconMaterialRemoteGenW100,  IconMaterialRemoveDoneW100,  IconMaterialRemoveFromQueueW100,  IconMaterialRemoveModeratorW100,  IconMaterialRemoveRoadW100,  IconMaterialRemoveSelectionW100,  IconMaterialRemoveShoppingCartW100,  IconMaterialRemoveW100,  IconMaterialReopenWindowW100,  IconMaterialReorderW100,  IconMaterialRepartitionW100,  IconMaterialRepeatOnW100,  IconMaterialRepeatOneOnW100,  IconMaterialRepeatOneW100,  IconMaterialRepeatW100,  IconMaterialReplay10W100,  IconMaterialReplay30W100,  IconMaterialReplay5W100,  IconMaterialReplayCircleFilledW100,  IconMaterialReplayW100,  IconMaterialReplyAllW100,  IconMaterialReplyW100,  IconMaterialReportOffW100,  IconMaterialReportW100,  IconMaterialRequestPageW100,  IconMaterialRequestQuoteW100,  IconMaterialResetImageW100,  IconMaterialResetTvW100,  IconMaterialResetWrenchW100,  IconMaterialResizeW100,  IconMaterialRespiratoryRateW100,  IconMaterialResponsiveLayoutW100,  IconMaterialRestartAltW100,  IconMaterialRestaurantMenuW100,  IconMaterialRestaurantW100,  IconMaterialRestoreFromTrashW100,  IconMaterialRestorePageW100,  IconMaterialResumeW100,  IconMaterialReviewsW100,  IconMaterialRewardedAdsW100,  IconMaterialRheumatologyW100,  IconMaterialRibCageW100,  IconMaterialRiceBowlW100,  IconMaterialRightClickW100,  IconMaterialRightPanelCloseW100,  IconMaterialRightPanelOpenW100,  IconMaterialRingVolumeW100,  IconMaterialRipplesW100,  IconMaterialRobot2W100,  IconMaterialRobotW100,  IconMaterialRocketLaunchW100,  IconMaterialRocketW100,  IconMaterialRollerShadesClosedW100,  IconMaterialRollerShadesW100,  IconMaterialRollerSkatingW100,  IconMaterialRoofingW100,  IconMaterialRoomPreferencesW100,  IconMaterialRoomServiceW100,  IconMaterialRotate90DegreesCcwW100,  IconMaterialRotate90DegreesCwW100,  IconMaterialRotateLeftW100,  IconMaterialRotateRightW100,  IconMaterialRoundaboutLeftW100,  IconMaterialRoundaboutRightW100,  IconMaterialRoundedCornerW100,  IconMaterialRouteW100,  IconMaterialRouterW100,  IconMaterialRoutineW100,  IconMaterialRowingW100,  IconMaterialRssFeedW100,  IconMaterialRsvpW100,  IconMaterialRttW100,  IconMaterialRubricW100,  IconMaterialRuleFolderW100,  IconMaterialRuleSettingsW100,  IconMaterialRuleW100,  IconMaterialRunCircleW100,  IconMaterialRunningWithErrorsW100,  IconMaterialRvHookupW100,  IconMaterialSadTabW100,  IconMaterialSafetyCheckOffW100,  IconMaterialSafetyCheckW100,  IconMaterialSafetyDividerW100,  IconMaterialSailingW100,  IconMaterialSalinityW100,  IconMaterialSanitizerW100,  IconMaterialSatelliteAltW100,  IconMaterialSatelliteW100,  IconMaterialSaunaW100,  IconMaterialSaveAsW100,  IconMaterialSaveW100,  IconMaterialSavedSearchW100,  IconMaterialSavingsW100,  IconMaterialScaleW100,  IconMaterialScanDeleteW100,  IconMaterialScanW100,  IconMaterialScannerW100,  IconMaterialScatterPlotW100,  IconMaterialSceneW100,  IconMaterialScheduleSendW100,  IconMaterialScheduleW100,  IconMaterialSchemaW100,  IconMaterialSchoolW100,  IconMaterialScienceOffW100,  IconMaterialScienceW100,  IconMaterialScoreW100,  IconMaterialScoreboardW100,  IconMaterialScreenLockLandscapeW100,  IconMaterialScreenLockPortraitW100,  IconMaterialScreenLockRotationW100,  IconMaterialScreenRecordW100,  IconMaterialScreenRotationAltW100,  IconMaterialScreenRotationUpW100,  IconMaterialScreenRotationW100,  IconMaterialScreenSearchDesktopW100,  IconMaterialScreenShareW100,  IconMaterialScreencastW100,  IconMaterialScreenshotFrameW100,  IconMaterialScreenshotKeyboardW100,  IconMaterialScreenshotMonitorW100,  IconMaterialScreenshotRegionW100,  IconMaterialScreenshotTabletW100,  IconMaterialScreenshotW100,  IconMaterialScrollableHeaderW100,  IconMaterialSdCardAlertW100,  IconMaterialSdCardW100,  IconMaterialSdW100,  IconMaterialSdkW100,  IconMaterialSearchCheckW100,  IconMaterialSearchHandsFreeW100,  IconMaterialSearchOffW100,  IconMaterialSearchW100,  IconMaterialSecurityKeyW100,  IconMaterialSecurityUpdateGoodW100,  IconMaterialSecurityUpdateWarningW100,  IconMaterialSecurityW100,  IconMaterialSegmentW100,  IconMaterialSelectAllW100,  IconMaterialSelectCheckBoxW100,  IconMaterialSelectToSpeakW100,  IconMaterialSelectW100,  IconMaterialSelectWindowOffW100,  IconMaterialSelectWindowW100,  IconMaterialSelfCareW100,  IconMaterialSelfImprovementW100,  IconMaterialSellW100,  IconMaterialSendAndArchiveW100,  IconMaterialSendMoneyW100,  IconMaterialSendTimeExtensionW100,  IconMaterialSendToMobileW100,  IconMaterialSendW100,  IconMaterialSensorDoorW100,  IconMaterialSensorOccupiedW100,  IconMaterialSensorWindowW100,  IconMaterialSensorsKrxOffW100,  IconMaterialSensorsKrxW100,  IconMaterialSensorsOffW100,  IconMaterialSensorsW100,  IconMaterialSentimentCalmW100,  IconMaterialSentimentContentW100,  IconMaterialSentimentDissatisfiedW100,  IconMaterialSentimentExcitedW100,  IconMaterialSentimentExtremelyDissatisfiedW100,  IconMaterialSentimentFrustratedW100,  IconMaterialSentimentNeutralW100,  IconMaterialSentimentSadW100,  IconMaterialSentimentSatisfiedW100,  IconMaterialSentimentStressedW100,  IconMaterialSentimentVeryDissatisfiedW100,  IconMaterialSentimentVerySatisfiedW100,  IconMaterialSentimentWorriedW100,  IconMaterialServiceToolboxW100,  IconMaterialScubaDivingW100,  IconMaterialSetMealW100,  IconMaterialSettingsAccessibilityW100,  IconMaterialSettingsAccountBoxW100,  IconMaterialSettingsAlertW100,  IconMaterialSettingsApplicationsW100,  IconMaterialSettingsBRollW100,  IconMaterialSettingsBackupRestoreW100,  IconMaterialSettingsBluetoothW100,  IconMaterialSettingsBrightnessW100,  IconMaterialSettingsCellW100,  IconMaterialSettingsCinematicBlurW100,  IconMaterialSettingsEthernetW100,  IconMaterialSettingsHeartW100,  IconMaterialSettingsInputAntennaW100,  IconMaterialSettingsInputComponentW100,  IconMaterialSettingsInputHdmiW100,  IconMaterialSettingsInputSvideoW100,  IconMaterialSettingsMotionModeW100,  IconMaterialSettingsNightSightW100,  IconMaterialSettingsOverscanW100,  IconMaterialSettingsPanoramaW100,  IconMaterialSettingsPhoneW100,  IconMaterialSettingsPhotoCameraW100,  IconMaterialSettingsPowerW100,  IconMaterialSettingsRemoteW100,  IconMaterialSettingsSlowMotionW100,  IconMaterialSettingsSuggestW100,  IconMaterialSettingsSystemDaydreamW100,  IconMaterialSettingsTimelapseW100,  IconMaterialSettingsVideoCameraW100,  IconMaterialSettingsVoiceW100,  IconMaterialSettingsW100,  IconMaterialSettopComponentW100,  IconMaterialSevereColdW100,  IconMaterialShadowAddW100,  IconMaterialShadowMinusW100,  IconMaterialShadowW100,  IconMaterialShapeLineW100,  IconMaterialShapesW100,  IconMaterialShareLocationW100,  IconMaterialShareOffW100,  IconMaterialShareReviewsW100,  IconMaterialShareW100,  IconMaterialShareWindowsW100,  IconMaterialSheetsRtlW100,  IconMaterialShelfAutoHideW100,  IconMaterialShelfPositionW100,  IconMaterialShelvesW100,  IconMaterialShieldLockW100,  IconMaterialShieldLockedW100,  IconMaterialShieldMoonW100,  IconMaterialShieldPersonW100,  IconMaterialShieldQuestionW100,  IconMaterialShieldW100,  IconMaterialShieldSparkW100,  IconMaterialShieldWithHeartW100,  IconMaterialShieldWithHouseW100,  IconMaterialShiftLockW100,  IconMaterialShiftW100,  IconMaterialShopTwoW100,  IconMaterialShopW100,  IconMaterialShoppingBagW100,  IconMaterialShoppingBasketW100,  IconMaterialShoppingCartCheckoutW100,  IconMaterialShoppingCartOffW100,  IconMaterialShoppingCartW100,  IconMaterialShortStayW100,  IconMaterialShoppingmodeW100,  IconMaterialShortTextW100,  IconMaterialShowChartW100,  IconMaterialShowerW100,  IconMaterialShuffleOnW100,  IconMaterialShuffleW100,  IconMaterialShutterSpeedAddW100,  IconMaterialShutterSpeedMinusW100,  IconMaterialShutterSpeedW100,  IconMaterialSickW100,  IconMaterialSideNavigationW100,  IconMaterialSignLanguageW100,  IconMaterialSignalCellular0BarW100,  IconMaterialSignalCellular1BarW100,  IconMaterialSignalCellular2BarW100,  IconMaterialSignalCellular3BarW100,  IconMaterialSignalCellular4BarW100,  IconMaterialSignalCellularAddW100,  IconMaterialSignalCellularAlt1BarW100,  IconMaterialSignalCellularAlt2BarW100,  IconMaterialSignalCellularAltW100,  IconMaterialSignalCellularConnectedNoInternet0BarW100,  IconMaterialSignalCellularConnectedNoInternet4BarW100,  IconMaterialSignalCellularNodataW100,  IconMaterialSignalCellularNullW100,  IconMaterialSignalCellularOffW100,  IconMaterialSignalCellularPauseW100,  IconMaterialSignalDisconnectedW100,  IconMaterialSignalWifi0BarW100,  IconMaterialSignalWifi4BarW100,  IconMaterialSignalWifiOffW100,  IconMaterialSignalWifiBadW100,  IconMaterialSignalWifiStatusbarNotConnectedW100,  IconMaterialSignalWifiStatusbarNullW100,  IconMaterialSignatureW100,  IconMaterialSignpostW100,  IconMaterialSimCardDownloadW100,  IconMaterialSimCardW100,  IconMaterialSingleBedW100,  IconMaterialSipW100,  IconMaterialSkateboardingW100,  IconMaterialSkeletonW100,  IconMaterialSkilletCooktopW100,  IconMaterialSkilletW100,  IconMaterialSkipNextW100,  IconMaterialSkipPreviousW100,  IconMaterialSkullW100,  IconMaterialSleddingW100,  IconMaterialSleepScoreW100,  IconMaterialSleepW100,  IconMaterialSlideLibraryW100,  IconMaterialSlidersW100,  IconMaterialSlideshowW100,  IconMaterialSlowMotionVideoW100,  IconMaterialSmartButtonW100,  IconMaterialSmartDisplayW100,  IconMaterialSmartOutletW100,  IconMaterialSmartScreenW100,  IconMaterialSmartToyW100,  IconMaterialSmartVentilationW100,  IconMaterialSmartphoneW100,  IconMaterialSmbShareW100,  IconMaterialSmokeFreeW100,  IconMaterialSmokingRoomsW100,  IconMaterialSmsFailedW100,  IconMaterialSmsW100,  IconMaterialSnippetFolderW100,  IconMaterialSnoozeW100,  IconMaterialSnowboardingW100,  IconMaterialSnowingHeavyW100,  IconMaterialSnowingW100,  IconMaterialSnowmobileW100,  IconMaterialSnowshoeingW100,  IconMaterialSoapW100,  IconMaterialSocialDistanceW100,  IconMaterialSocialLeaderboardW100,  IconMaterialSolarPowerW100,  IconMaterialSortByAlphaW100,  IconMaterialSortW100,  IconMaterialSosW100,  IconMaterialSoundDetectionDogBarkingW100,  IconMaterialSoundDetectionGlassBreakW100,  IconMaterialSoundDetectionLoudSoundW100,  IconMaterialSoundSamplerW100,  IconMaterialSoupKitchenW100,  IconMaterialSourceEnvironmentW100,  IconMaterialSourceNotesW100,  IconMaterialSouthAmericaW100,  IconMaterialSouthEastW100,  IconMaterialSouthW100,  IconMaterialSouthWestW100,  IconMaterialSpaW100,  IconMaterialSpaceBarW100,  IconMaterialSpaceDashboardW100,  IconMaterialSpatialAudioOffW100,  IconMaterialSpatialAudioW100,  IconMaterialSpatialTrackingW100,  IconMaterialSpeakerGroupW100,  IconMaterialSpeakerNotesOffW100,  IconMaterialSpeakerNotesW100,  IconMaterialSpeakerPhoneW100,  IconMaterialSpeakerW100,  IconMaterialSpecialCharacterW100,  IconMaterialSpecificGravityW100,  IconMaterialSpeechToTextW100,  IconMaterialSpeedW100,  IconMaterialSpellcheckW100,  IconMaterialSplitscreenAddW100,  IconMaterialSplitscreenBottomW100,  IconMaterialSplitscreenLeftW100,  IconMaterialSplitscreenRightW100,  IconMaterialSplitscreenTopW100,  IconMaterialSplitscreenVerticalAddW100,  IconMaterialSplitscreenW100,  IconMaterialSpo2W100,  IconMaterialSpokeW100,  IconMaterialSpoofW100,  IconMaterialSportsAndOutdoorsW100,  IconMaterialSportsBarW100,  IconMaterialSportsBaseballW100,  IconMaterialSportsBasketballW100,  IconMaterialSportsCricketW100,  IconMaterialSportsEsportsW100,  IconMaterialSportsFootballW100,  IconMaterialSportsGolfW100,  IconMaterialSportsHandballW100,  IconMaterialSportsGymnasticsW100,  IconMaterialSportsHockeyW100,  IconMaterialSportsKabaddiW100,  IconMaterialSportsMartialArtsW100,  IconMaterialSportsMmaW100,  IconMaterialSportsMotorsportsW100,  IconMaterialSportsRugbyW100,  IconMaterialSportsScoreW100,  IconMaterialSportsSoccerW100,  IconMaterialSportsTennisW100,  IconMaterialSportsVolleyballW100,  IconMaterialSportsW100,  IconMaterialSprinklerW100,  IconMaterialSprintW100,  IconMaterialSquareFootW100,  IconMaterialSquareW100,  IconMaterialSsidChartW100,  IconMaterialStackOffW100,  IconMaterialStackStarW100,  IconMaterialStackW100,  IconMaterialStackedEmailW100,  IconMaterialStackedBarChartW100,  IconMaterialStackedInboxW100,  IconMaterialStackedLineChartW100,  IconMaterialStacksW100,  IconMaterialStadiaControllerW100,  IconMaterialStadiumW100,  IconMaterialStairsW100,  IconMaterialStarHalfW100,  IconMaterialStarRateHalfW100,  IconMaterialStarRateW100,  IconMaterialStarsW100,  IconMaterialStarW100,  IconMaterialStartW100,  IconMaterialStat0W100,  IconMaterialStat1W100,  IconMaterialStat2W100,  IconMaterialStat3W100,  IconMaterialStatMinus1W100,  IconMaterialStatMinus2W100,  IconMaterialStatMinus3W100,  IconMaterialStayCurrentLandscapeW100,  IconMaterialStayCurrentPortraitW100,  IconMaterialStayPrimaryLandscapeW100,  IconMaterialStayPrimaryPortraitW100,  IconMaterialStepIntoW100,  IconMaterialStepOutW100,  IconMaterialStepOverW100,  IconMaterialStepW100,  IconMaterialStepsW100,  IconMaterialSteppersW100,  IconMaterialStethoscopeArrowW100,  IconMaterialStethoscopeCheckW100,  IconMaterialStethoscopeW100,  IconMaterialStickyNote2W100,  IconMaterialStickyNoteW100,  IconMaterialStockMediaW100,  IconMaterialStockpotW100,  IconMaterialStopCircleW100,  IconMaterialStopScreenShareW100,  IconMaterialStorageW100,  IconMaterialStopW100,  IconMaterialStoreW100,  IconMaterialStorefrontW100,  IconMaterialStormW100,  IconMaterialStraightW100,  IconMaterialStraightenW100,  IconMaterialStrategyW100,  IconMaterialStreamAppsW100,  IconMaterialStreamW100,  IconMaterialStreetviewW100,  IconMaterialStressManagementW100,  IconMaterialStrikethroughSW100,  IconMaterialStrokeFullW100,  IconMaterialStrokePartialW100,  IconMaterialStrollerW100,  IconMaterialStyleW100,  IconMaterialStylerW100,  IconMaterialStylusLaserPointerW100,  IconMaterialStylusNoteW100,  IconMaterialStylusW100,  IconMaterialSubdirectoryArrowLeftW100,  IconMaterialSubdirectoryArrowRightW100,  IconMaterialSubheaderW100,  IconMaterialSubjectW100,  IconMaterialSubscriptW100,  IconMaterialSubscriptionsW100,  IconMaterialSubtitlesOffW100,  IconMaterialSubtitlesW100,  IconMaterialSubwayW100,  IconMaterialSummarizeW100,  IconMaterialSunnySnowingW100,  IconMaterialSunnyW100,  IconMaterialSuperscriptW100,  IconMaterialSupervisedUserCircleOffW100,  IconMaterialSupervisedUserCircleW100,  IconMaterialSupervisorAccountW100,  IconMaterialSupportAgentW100,  IconMaterialSupportW100,  IconMaterialSurfingW100,  IconMaterialSurgicalW100,  IconMaterialSurroundSoundW100,  IconMaterialSwapCallsW100,  IconMaterialSwapDrivingAppsW100,  IconMaterialSwapDrivingAppsWheelW100,  IconMaterialSwapHorizW100,  IconMaterialSwapHorizontalCircleW100,  IconMaterialSwapVertW100,  IconMaterialSwapVerticalCircleW100,  IconMaterialSweepW100,  IconMaterialSwipeDownAltW100,  IconMaterialSwipeDownW100,  IconMaterialSwipeLeftAltW100,  IconMaterialSwipeLeftW100,  IconMaterialSwipeRightAltW100,  IconMaterialSwipeRightW100,  IconMaterialSwipeUpAltW100,  IconMaterialSwipeUpW100,  IconMaterialSwipeVerticalW100,  IconMaterialSwipeW100,  IconMaterialSwitchAccess2W100,  IconMaterialSwitchAccessShortcutAddW100,  IconMaterialSwitchAccessShortcutW100,  IconMaterialSwitchAccessW100,  IconMaterialSwitchAccountW100,  IconMaterialSwitchCameraW100,  IconMaterialSwitchLeftW100,  IconMaterialSwitchRightW100,  IconMaterialSwitchVideoW100,  IconMaterialSwitchW100,  IconMaterialSwitchesW100,  IconMaterialSwordRoseW100,  IconMaterialSwordsW100,  IconMaterialSymptomsW100,  IconMaterialSynagogueW100,  IconMaterialSyncAltW100,  IconMaterialSyncDisabledW100,  IconMaterialSyncLockW100,  IconMaterialSyncProblemW100,  IconMaterialSyncW100,  IconMaterialSyncSavedLocallyW100,  IconMaterialSyringeW100,  IconMaterialSystemUpdateAltW100,  IconMaterialSystemUpdateW100,  IconMaterialTabCloseRightW100,  IconMaterialTabCloseW100,  IconMaterialTabDuplicateW100,  IconMaterialTabGroupW100,  IconMaterialTabMoveW100,  IconMaterialTabNewRightW100,  IconMaterialTabRecentW100,  IconMaterialTabW100,  IconMaterialTabUnselectedW100,  IconMaterialTableBarW100,  IconMaterialTableChartViewW100,  IconMaterialTableChartW100,  IconMaterialTableLampW100,  IconMaterialTableRestaurantW100,  IconMaterialTableRowsNarrowW100,  IconMaterialTableRowsW100,  IconMaterialTableViewW100,  IconMaterialTableW100,  IconMaterialTabletAndroidW100,  IconMaterialTabletMacW100,  IconMaterialTabletW100,  IconMaterialTabsW100,  IconMaterialTacticW100,  IconMaterialTagW100,  IconMaterialTakeoutDiningW100,  IconMaterialTamperDetectionOffW100,  IconMaterialTamperDetectionOnW100,  IconMaterialTapAndPlayW100,  IconMaterialTapasW100,  IconMaterialTargetW100,  IconMaterialTaskAltW100,  IconMaterialTaskW100,  IconMaterialTauntW100,  IconMaterialTaxiAlertW100,  IconMaterialTeamDashboardW100,  IconMaterialTempPreferencesCustomW100,  IconMaterialTempPreferencesEcoW100,  IconMaterialTempleBuddhistW100,  IconMaterialTempleHinduW100,  IconMaterialTenancyW100,  IconMaterialTerminalW100,  IconMaterialTextAdW100,  IconMaterialTextDecreaseW100,  IconMaterialTextFieldsAltW100,  IconMaterialTextFieldsW100,  IconMaterialTextFormatW100,  IconMaterialTextIncreaseW100,  IconMaterialTextRotateUpW100,  IconMaterialTextRotateVerticalW100,  IconMaterialTextRotationAngledownW100,  IconMaterialTextRotationAngleupW100,  IconMaterialTextRotationDownW100,  IconMaterialTextRotationNoneW100,  IconMaterialTextSelectEndW100,  IconMaterialTextSelectJumpToBeginningW100,  IconMaterialTextSelectJumpToEndW100,  IconMaterialTextSelectMoveBackCharacterW100,  IconMaterialTextSelectMoveBackWordW100,  IconMaterialTextSelectMoveDownW100,  IconMaterialTextSelectMoveForwardCharacterW100,  IconMaterialTextSelectMoveForwardWordW100,  IconMaterialTextSelectMoveUpW100,  IconMaterialTextSelectStartW100,  IconMaterialTextSnippetW100,  IconMaterialTextToSpeechW100,  IconMaterialTextureAddW100,  IconMaterialTextureMinusW100,  IconMaterialTextureW100,  IconMaterialTheaterComedyW100,  IconMaterialTheatersW100,  IconMaterialThermometerAddW100,  IconMaterialThermometerGainW100,  IconMaterialThermometerLossW100,  IconMaterialThermometerMinusW100,  IconMaterialThermometerW100,  IconMaterialThermostatAutoW100,  IconMaterialThermostatCarbonW100,  IconMaterialThermostatW100,  IconMaterialThingsToDoW100,  IconMaterialThreadUnreadW100,  IconMaterialThumbDownOffW100,  IconMaterialThumbDownW100,  IconMaterialThumbUpOffW100,  IconMaterialThumbUpW100,  IconMaterialThumbnailBarW100,  IconMaterialThumbsUpDownW100,  IconMaterialThunderstormW100,  IconMaterialTibiaAltW100,  IconMaterialTibiaW100,  IconMaterialTimeAutoW100,  IconMaterialTimelapseW100,  IconMaterialTimelineW100,  IconMaterialTimer10Alt1W100,  IconMaterialTimer10SelectW100,  IconMaterialTimer10W100,  IconMaterialTimer3Alt1W100,  IconMaterialTimer3SelectW100,  IconMaterialTimerOffW100,  IconMaterialTimerW100,  IconMaterialTimer3W100,  IconMaterialTipsAndUpdatesW100,  IconMaterialTireRepairW100,  IconMaterialTitleW100,  IconMaterialToastW100,  IconMaterialToggleOffW100,  IconMaterialTodayW100,  IconMaterialTocW100,  IconMaterialToggleOnW100,  IconMaterialTollW100,  IconMaterialTokenW100,  IconMaterialTonalityW100,  IconMaterialToolbarW100,  IconMaterialToolsFlatHeadW100,  IconMaterialToolsInstallationKitW100,  IconMaterialToolsLadderW100,  IconMaterialToolsLevelW100,  IconMaterialToolsPhillipsW100,  IconMaterialToolsPliersWireStripperW100,  IconMaterialToolsPowerDrillW100,  IconMaterialToolsWrenchW100,  IconMaterialTooltipW100,  IconMaterialTopPanelCloseW100,  IconMaterialTopPanelOpenW100,  IconMaterialTopicW100,  IconMaterialTornadoW100,  IconMaterialTotalDissolvedSolidsW100,  IconMaterialTouchAppW100,  IconMaterialTouchpadMouseW100,  IconMaterialTourW100,  IconMaterialToysAndGamesW100,  IconMaterialToysFanW100,  IconMaterialToysW100,  IconMaterialTrackChangesW100,  IconMaterialTrafficW100,  IconMaterialTrailLengthMediumW100,  IconMaterialTrailLengthShortW100,  IconMaterialTrailLengthW100,  IconMaterialTrainW100,  IconMaterialTramW100,  IconMaterialTranscribeW100,  IconMaterialTransferWithinAStationW100,  IconMaterialTransformW100,  IconMaterialTransgenderW100,  IconMaterialTransitEnterexitW100,  IconMaterialTransitionDissolveW100,  IconMaterialTransitionChopW100,  IconMaterialTransitionPushW100,  IconMaterialTransitionFadeW100,  IconMaterialTransitionSlideW100,  IconMaterialTranslateW100,  IconMaterialTransportationW100,  IconMaterialTravelExploreW100,  IconMaterialTravelLuggageAndBagsW100,  IconMaterialTravelW100,  IconMaterialTrendingDownW100,  IconMaterialTrendingFlatW100,  IconMaterialTrendingUpW100,  IconMaterialTripOriginW100,  IconMaterialTripW100,  IconMaterialTrolleyW100,  IconMaterialTrophyW100,  IconMaterialTroubleshootW100,  IconMaterialTsunamiW100,  IconMaterialTsvW100,  IconMaterialTtyW100,  IconMaterialTuneW100,  IconMaterialTurnLeftW100,  IconMaterialTurnRightW100,  IconMaterialTurnSharpLeftW100,  IconMaterialTurnSharpRightW100,  IconMaterialTurnSlightLeftW100,  IconMaterialTurnSlightRightW100,  IconMaterialTvGuideW100,  IconMaterialTvGenW100,  IconMaterialTvOffW100,  IconMaterialTvOptionsEditChannelsW100,  IconMaterialTvOptionsInputSettingsW100,  IconMaterialTvSigninW100,  IconMaterialTvW100,  IconMaterialTvWithAssistantW100,  IconMaterialTvRemoteW100,  IconMaterialTwoWheelerW100,  IconMaterialTypeSpecimenW100,  IconMaterialUTurnLeftW100,  IconMaterialTwoPagerW100,  IconMaterialUTurnRightW100,  IconMaterialUlnaRadiusAltW100,  IconMaterialUlnaRadiusW100,  IconMaterialUmbrellaW100,  IconMaterialUnarchiveW100,  IconMaterialUndoW100,  IconMaterialUnfloatLandscapeW100,  IconMaterialUnfloatPortraitW100,  IconMaterialUnfoldLessDoubleW100,  IconMaterialUnfoldLessW100,  IconMaterialUnfoldMoreDoubleW100,  IconMaterialUnfoldMoreW100,  IconMaterialUngroupW100,  IconMaterialUniversalCurrencyW100,  IconMaterialUniversalCurrencyAltW100,  IconMaterialUniversalLocalW100,  IconMaterialUnknown2W100,  IconMaterialUnknown5W100,  IconMaterialUnknownDocumentW100,  IconMaterialUnknownMedW100,  IconMaterialUnlicenseW100,  IconMaterialUnpublishedW100,  IconMaterialUpcomingW100,  IconMaterialUnsubscribeW100,  IconMaterialUpdateW100,  IconMaterialUpdateDisabledW100,  IconMaterialUpgradeW100,  IconMaterialUpload2W100,  IconMaterialUploadFileW100,  IconMaterialUploadW100,  IconMaterialUrologyW100,  IconMaterialUsbOffW100,  IconMaterialUsbW100,  IconMaterialUserAttributesW100,  IconMaterialVaccinesW100,  IconMaterialVacuumW100,  IconMaterialValveW100,  IconMaterialVapeFreeW100,  IconMaterialVapingRoomsW100,  IconMaterialVariableAddW100,  IconMaterialVariableInsertW100,  IconMaterialVariableRemoveW100,  IconMaterialVariablesW100,  IconMaterialVentilatorW100,  IconMaterialVerifiedUserW100,  IconMaterialVerifiedW100,  IconMaterialVerticalAlignBottomW100,  IconMaterialVerticalAlignCenterW100,  IconMaterialVerticalAlignTopW100,  IconMaterialVerticalDistributeW100,  IconMaterialVerticalShadesClosedW100,  IconMaterialVerticalShadesW100,  IconMaterialVerticalSplitW100,  IconMaterialVibrationW100,  IconMaterialVideoCallW100,  IconMaterialVideoCameraBackW100,  IconMaterialVideoCameraFrontW100,  IconMaterialVideoCameraFrontOffW100,  IconMaterialVideoChatW100,  IconMaterialVideoFileW100,  IconMaterialVideoLabelW100,  IconMaterialVideoLibraryW100,  IconMaterialVideoSearchW100,  IconMaterialVideoSettingsW100,  IconMaterialVideoStableW100,  IconMaterialVideocamOffW100,  IconMaterialVideocamW100,  IconMaterialVideogameAssetOffW100,  IconMaterialVideogameAssetW100,  IconMaterialViewAgendaW100,  IconMaterialViewArrayW100,  IconMaterialViewCarouselW100,  IconMaterialViewColumn2W100,  IconMaterialViewColumnW100,  IconMaterialViewComfyAltW100,  IconMaterialViewComfyW100,  IconMaterialViewCompactAltW100,  IconMaterialViewCompactW100,  IconMaterialViewCozyW100,  IconMaterialViewDayW100,  IconMaterialViewHeadlineW100,  IconMaterialViewInArNewW100,  IconMaterialViewInArOffW100,  IconMaterialViewInArW100,  IconMaterialViewKanbanW100,  IconMaterialViewListW100,  IconMaterialViewModuleW100,  IconMaterialViewSidebarW100,  IconMaterialViewQuiltW100,  IconMaterialViewStreamW100,  IconMaterialViewTimelineW100,  IconMaterialViewWeekW100,  IconMaterialVignetteW100,  IconMaterialVillaW100,  IconMaterialVisibilityLockW100,  IconMaterialVisibilityOffW100,  IconMaterialVisibilityW100,  IconMaterialVitalSignsW100,  IconMaterialVitalsW100,  IconMaterialVoiceChatW100,  IconMaterialVoiceOverOffW100,  IconMaterialVoiceSelectionW100,  IconMaterialVoicemailW100,  IconMaterialVolcanoW100,  IconMaterialVolumeDownAltW100,  IconMaterialVolumeDownW100,  IconMaterialVolumeMuteW100,  IconMaterialVolumeOffW100,  IconMaterialVolumeUpW100,  IconMaterialVolunteerActivismW100,  IconMaterialVotingChipW100,  IconMaterialVpnKeyAlertW100,  IconMaterialVpnKeyOffW100,  IconMaterialVpnKeyW100,  IconMaterialVpnLockW100,  IconMaterialVr180Create2dOffW100,  IconMaterialVr180Create2dW100,  IconMaterialVrpanoW100,  IconMaterialWallArtW100,  IconMaterialWallLampW100,  IconMaterialWalletW100,  IconMaterialWallpaperSlideshowW100,  IconMaterialWardW100,  IconMaterialWarehouseW100,  IconMaterialWallpaperW100,  IconMaterialWarningOffW100,  IconMaterialWarningW100,  IconMaterialWashW100,  IconMaterialWatchButtonPressW100,  IconMaterialWatchOffW100,  IconMaterialWatchScreentimeW100,  IconMaterialWatchW100,  IconMaterialWatchWakeW100,  IconMaterialWaterBottleLargeW100,  IconMaterialWaterBottleW100,  IconMaterialWaterDoW100,  IconMaterialWaterDamageW100,  IconMaterialWaterEcW100,  IconMaterialWaterFullW100,  IconMaterialWaterDropW100,  IconMaterialWaterLockW100,  IconMaterialWaterHeaterW100,  IconMaterialWaterLossW100,  IconMaterialWaterLuxW100,  IconMaterialWaterMediumW100,  IconMaterialWaterOrpW100,  IconMaterialWaterPhW100,  IconMaterialWaterPumpW100,  IconMaterialWaterVocW100,  IconMaterialWaterW100,  IconMaterialWaterfallChartW100,  IconMaterialWavesW100,  IconMaterialWavingHandW100,  IconMaterialWbAutoW100,  IconMaterialWbIncandescentW100,  IconMaterialWbIridescentW100,  IconMaterialWbShadeW100,  IconMaterialWbSunnyW100,  IconMaterialWbTwilightW100,  IconMaterialWcW100,  IconMaterialWeatherHailW100,  IconMaterialWeatherMixW100,  IconMaterialWeatherSnowyW100,  IconMaterialWebAssetW100,  IconMaterialWebAssetOffW100,  IconMaterialWebStoriesW100,  IconMaterialWebTrafficW100,  IconMaterialWebW100,  IconMaterialWebhookW100,  IconMaterialWeekendW100,  IconMaterialWeightW100,  IconMaterialWestW100,  IconMaterialWhatshotW100,  IconMaterialWheelchairPickupW100,  IconMaterialWhereToVoteW100,  IconMaterialWidgetsW100,  IconMaterialWidthFullW100,  IconMaterialWidthW100,  IconMaterialWidthNormalW100,  IconMaterialWidthWideW100,  IconMaterialWifi1BarW100,  IconMaterialWifi2BarW100,  IconMaterialWifiAddW100,  IconMaterialWifiCalling1W100,  IconMaterialWifiCalling2W100,  IconMaterialWifiCalling3W100,  IconMaterialWifiCallingW100,  IconMaterialWifiChannelW100,  IconMaterialWifiFindW100,  IconMaterialWifiHomeW100,  IconMaterialWifiLockW100,  IconMaterialWifiNotificationW100,  IconMaterialWifiOffW100,  IconMaterialWifiPasswordW100,  IconMaterialWifiProtectedSetupW100,  IconMaterialWifiProxyW100,  IconMaterialWifiTetheringErrorW100,  IconMaterialWifiTetheringOffW100,  IconMaterialWifiTetheringW100,  IconMaterialWifiW100,  IconMaterialWindPowerW100,  IconMaterialWindowClosedW100,  IconMaterialWindowOpenW100,  IconMaterialWindowW100,  IconMaterialWindowSensorW100,  IconMaterialWomanW100,  IconMaterialWoman2W100,  IconMaterialWineBarW100,  IconMaterialWorkAlertW100,  IconMaterialWorkUpdateW100,  IconMaterialWorkHistoryW100,  IconMaterialWorkW100,  IconMaterialWorkspacePremiumW100,  IconMaterialWorkspacesOutlineW100,  IconMaterialWorkspacesW100,  IconMaterialWoundsInjuriesW100,  IconMaterialWrapTextW100,  IconMaterialWristW100,  IconMaterialWrongLocationW100,  IconMaterialWysiwygW100,  IconMaterialYardW100,  IconMaterialYourTripsW100,  IconMaterialYoutubeActivityW100,  IconMaterialYoutubeSearchedForW100,  IconMaterialZonePersonAlertW100,  IconMaterialZonePersonIdleW100,  IconMaterialZonePersonUrgentW100,  IconMaterialZoomInMapW100,  IconMaterialZoomInW100,  IconMaterialZoomOutMapW100,  IconMaterialZoomOutW100 ];
+export default [ IconMaterial10kW100,  IconMaterial10mpW100,  IconMaterial11mpW100,  IconMaterial12mpW100,  IconMaterial123W100,  IconMaterial13mpW100,  IconMaterial14mpW100,  IconMaterial15mpW100,  IconMaterial16mpW100,  IconMaterial17mpW100,  IconMaterial18UpRatingW100,  IconMaterial18mpW100,  IconMaterial19mpW100,  IconMaterial1xMobiledataBadgeW100,  IconMaterial1kW100,  IconMaterial1kPlusW100,  IconMaterial1xMobiledataW100,  IconMaterial20mpW100,  IconMaterial21mpW100,  IconMaterial22mpW100,  IconMaterial23mpW100,  IconMaterial24mpW100,  IconMaterial2dW100,  IconMaterial2kPlusW100,  IconMaterial2kW100,  IconMaterial2mpW100,  IconMaterial30fpsSelectW100,  IconMaterial30fpsW100,  IconMaterial360W100,  IconMaterial3dRotationW100,  IconMaterial3gMobiledataBadgeW100,  IconMaterial3gMobiledataW100,  IconMaterial3kPlusW100,  IconMaterial3kW100,  IconMaterial3mpW100,  IconMaterial3pW100,  IconMaterial4gMobiledataBadgeW100,  IconMaterial4gMobiledataW100,  IconMaterial4gPlusMobiledataW100,  IconMaterial4kPlusW100,  IconMaterial4mpW100,  IconMaterial4kW100,  IconMaterial50mpW100,  IconMaterial5gW100,  IconMaterial5gMobiledataBadgeW100,  IconMaterial5kW100,  IconMaterial5kPlusW100,  IconMaterial5mpW100,  IconMaterial60fpsSelectW100,  IconMaterial60fpsW100,  IconMaterial6FtApartW100,  IconMaterial6kPlusW100,  IconMaterial6kW100,  IconMaterial6mpW100,  IconMaterial7kW100,  IconMaterial7kPlusW100,  IconMaterial7mpW100,  IconMaterial8kW100,  IconMaterial8mpW100,  IconMaterial8kPlusW100,  IconMaterial9kPlusW100,  IconMaterial9kW100,  IconMaterial9mpW100,  IconMaterialAbcW100,  IconMaterialAccessibilityNewW100,  IconMaterialAcUnitW100,  IconMaterialAccessibilityW100,  IconMaterialAccessibleForwardW100,  IconMaterialAccountBalanceW100,  IconMaterialAccessibleW100,  IconMaterialAccountBalanceWalletW100,  IconMaterialAccountBoxW100,  IconMaterialAccountChildW100,  IconMaterialAccountChildInvertW100,  IconMaterialAccountCircleOffW100,  IconMaterialAccountCircleW100,  IconMaterialAccountTreeW100,  IconMaterialActionKeyW100,  IconMaterialActivityZoneW100,  IconMaterialAcuteW100,  IconMaterialAdGroupOffW100,  IconMaterialAdGroupW100,  IconMaterialAdUnitsW100,  IconMaterialAdOffW100,  IconMaterialAdW100,  IconMaterialAdbW100,  IconMaterialAddAPhotoW100,  IconMaterialAddAdW100,  IconMaterialAddAlertW100,  IconMaterialAddBoxW100,  IconMaterialAddBusinessW100,  IconMaterialAddCardW100,  IconMaterialAddChartW100,  IconMaterialAddCallW100,  IconMaterialAddCircleW100,  IconMaterialAddCommentW100,  IconMaterialAddHomeW100,  IconMaterialAddHomeWorkW100,  IconMaterialAddLinkW100,  IconMaterialAddLocationAltW100,  IconMaterialAddLocationW100,  IconMaterialAddModeratorW100,  IconMaterialAddNotesW100,  IconMaterialAddPhotoAlternateW100,  IconMaterialAddReactionW100,  IconMaterialAddRoadW100,  IconMaterialAddShoppingCartW100,  IconMaterialAddToDriveW100,  IconMaterialAddTaskW100,  IconMaterialAddToPhotosW100,  IconMaterialAddToHomeScreenW100,  IconMaterialAddW100,  IconMaterialAddToQueueW100,  IconMaterialAdfScannerW100,  IconMaterialAdjustW100,  IconMaterialAdminMedsW100,  IconMaterialAdsClickW100,  IconMaterialAdminPanelSettingsW100,  IconMaterialAgenderW100,  IconMaterialAgricultureW100,  IconMaterialAirFreshenerW100,  IconMaterialAirPurifierGenW100,  IconMaterialAirPurifierW100,  IconMaterialAirW100,  IconMaterialAirlineSeatFlatAngledW100,  IconMaterialAirlineSeatFlatW100,  IconMaterialAirlineSeatIndividualSuiteW100,  IconMaterialAirlineSeatLegroomExtraW100,  IconMaterialAirlineSeatLegroomNormalW100,  IconMaterialAirlineSeatLegroomReducedW100,  IconMaterialAirlineSeatReclineExtraW100,  IconMaterialAirlineSeatReclineNormalW100,  IconMaterialAirlineStopsW100,  IconMaterialAirplaneTicketW100,  IconMaterialAirlinesW100,  IconMaterialAirplanemodeActiveW100,  IconMaterialAirplayW100,  IconMaterialAirplanemodeInactiveW100,  IconMaterialAirportShuttleW100,  IconMaterialAirwareW100,  IconMaterialAirwaveW100,  IconMaterialAlarmAddW100,  IconMaterialAlarmOffW100,  IconMaterialAlarmOnW100,  IconMaterialAlarmSmartWakeW100,  IconMaterialAlarmW100,  IconMaterialAlbumW100,  IconMaterialAlignCenterW100,  IconMaterialAlignEndW100,  IconMaterialAlignFlexCenterW100,  IconMaterialAlignFlexEndW100,  IconMaterialAlignFlexStartW100,  IconMaterialAlignHorizontalLeftW100,  IconMaterialAlignHorizontalRightW100,  IconMaterialAlignItemsStretchW100,  IconMaterialAlignHorizontalCenterW100,  IconMaterialAlignJustifyCenterW100,  IconMaterialAlignJustifyFlexEndW100,  IconMaterialAlignJustifyFlexStartW100,  IconMaterialAlignJustifySpaceAroundW100,  IconMaterialAlignJustifySpaceBetweenW100,  IconMaterialAlignJustifySpaceEvenW100,  IconMaterialAlignJustifyStretchW100,  IconMaterialAlignSelfStretchW100,  IconMaterialAlignSpaceAroundW100,  IconMaterialAlignSpaceBetweenW100,  IconMaterialAlignSpaceEvenW100,  IconMaterialAlignStartW100,  IconMaterialAlignStretchW100,  IconMaterialAlignVerticalBottomW100,  IconMaterialAlignVerticalCenterW100,  IconMaterialAlignVerticalTopW100,  IconMaterialAllInboxW100,  IconMaterialAllMatchW100,  IconMaterialAllInclusiveW100,  IconMaterialAllOutW100,  IconMaterialAllergiesW100,  IconMaterialAllergyW100,  IconMaterialAltRouteW100,  IconMaterialAlternateEmailW100,  IconMaterialAltitudeW100,  IconMaterialAmbientScreenW100,  IconMaterialAmbulanceW100,  IconMaterialAmendW100,  IconMaterialAnalyticsW100,  IconMaterialAnchorW100,  IconMaterialAmpStoriesW100,  IconMaterialAndroidW100,  IconMaterialAnimationW100,  IconMaterialAodTabletW100,  IconMaterialAodWatchW100,  IconMaterialAodW100,  IconMaterialApartmentW100,  IconMaterialApiW100,  IconMaterialApkDocumentW100,  IconMaterialApkInstallW100,  IconMaterialAppBadgingW100,  IconMaterialAppBlockingW100,  IconMaterialAppPromoW100,  IconMaterialAppRegistrationW100,  IconMaterialAppShortcutW100,  IconMaterialApprovalDelegationW100,  IconMaterialApparelW100,  IconMaterialApprovalW100,  IconMaterialAppsOutageW100,  IconMaterialAppsW100,  IconMaterialAqIndoorW100,  IconMaterialAqW100,  IconMaterialArOnYouW100,  IconMaterialArStickersW100,  IconMaterialArchitectureW100,  IconMaterialArchiveW100,  IconMaterialAreaChartW100,  IconMaterialArmingCountdownW100,  IconMaterialArrowAndEdgeW100,  IconMaterialArrowBackIosW100,  IconMaterialArrowBackIosNewW100,  IconMaterialArrowBackW100,  IconMaterialArrowCircleDownW100,  IconMaterialArrowCircleLeftW100,  IconMaterialArrowCircleUpW100,  IconMaterialArrowCircleRightW100,  IconMaterialArrowDownwardAltW100,  IconMaterialArrowDownwardW100,  IconMaterialArrowDropDownCircleW100,  IconMaterialArrowDropDownW100,  IconMaterialArrowDropUpW100,  IconMaterialArrowForwardIosW100,  IconMaterialArrowForwardW100,  IconMaterialArrowInsertW100,  IconMaterialArrowLeftAltW100,  IconMaterialArrowLeftW100,  IconMaterialArrowOrEdgeW100,  IconMaterialArrowOutwardW100,  IconMaterialArrowRangeW100,  IconMaterialArrowRightW100,  IconMaterialArrowRightAltW100,  IconMaterialArrowSelectorToolW100,  IconMaterialArrowSplitW100,  IconMaterialArrowTopLeftW100,  IconMaterialArrowTopRightW100,  IconMaterialArrowUpwardAltW100,  IconMaterialArrowUpwardW100,  IconMaterialArrowsMoreDownW100,  IconMaterialArrowsMoreUpW100,  IconMaterialArrowsOutwardW100,  IconMaterialArtTrackW100,  IconMaterialArticleW100,  IconMaterialArtistW100,  IconMaterialArticleShortcutW100,  IconMaterialAspectRatioW100,  IconMaterialAssignmentAddW100,  IconMaterialAssignmentIndW100,  IconMaterialAssignmentReturnW100,  IconMaterialAssignmentLateW100,  IconMaterialAssignmentReturnedW100,  IconMaterialAssignmentTurnedInW100,  IconMaterialAssignmentW100,  IconMaterialAssistWalkerW100,  IconMaterialAssistantDeviceW100,  IconMaterialAssistantDirectionW100,  IconMaterialAssistantNavigationW100,  IconMaterialAssistantW100,  IconMaterialAssistantOnHubW100,  IconMaterialAssuredWorkloadW100,  IconMaterialAsteriskW100,  IconMaterialAstrophotographyAutoW100,  IconMaterialAstrophotographyOffW100,  IconMaterialAtmW100,  IconMaterialAtrW100,  IconMaterialAttachEmailW100,  IconMaterialAttachFileAddW100,  IconMaterialAttachFileW100,  IconMaterialAttachmentW100,  IconMaterialAttractionsW100,  IconMaterialAttachMoneyW100,  IconMaterialAttributionW100,  IconMaterialAudioDescriptionW100,  IconMaterialAudioFileW100,  IconMaterialAudioVideoReceiverW100,  IconMaterialAutoActivityZoneW100,  IconMaterialAutoAwesomeMosaicW100,  IconMaterialAutoAwesomeMotionW100,  IconMaterialAutoAwesomeW100,  IconMaterialAutoDeleteW100,  IconMaterialAutoDetectVoiceW100,  IconMaterialAutoFixNormalW100,  IconMaterialAutoFixHighW100,  IconMaterialAutoFixOffW100,  IconMaterialAutoFixW100,  IconMaterialAutoGraphW100,  IconMaterialAutoLabelW100,  IconMaterialAutoMeetingRoomW100,  IconMaterialAutoModeW100,  IconMaterialAutoReadPauseW100,  IconMaterialAutoReadPlayW100,  IconMaterialAutoStoriesW100,  IconMaterialAutoTimerW100,  IconMaterialAutoScheduleW100,  IconMaterialAutoTowingW100,  IconMaterialAutoVideocamW100,  IconMaterialAutoTransmissionW100,  IconMaterialAutofpsSelectW100,  IconMaterialAutopauseW100,  IconMaterialAutopayW100,  IconMaterialAutoplayW100,  IconMaterialAutorenewW100,  IconMaterialAutostopW100,  IconMaterialAvTimerW100,  IconMaterialAvgPaceW100,  IconMaterialAvgTimeW100,  IconMaterialAwardStarW100,  IconMaterialAzmW100,  IconMaterialBabyChangingStationW100,  IconMaterialBackHandW100,  IconMaterialBackToTabW100,  IconMaterialBackgroundBlurFullW100,  IconMaterialBackgroundBlurLightW100,  IconMaterialBackgroundDotLargeW100,  IconMaterialBackgroundDotSmallW100,  IconMaterialBackgroundGridSmallW100,  IconMaterialBackgroundReplaceW100,  IconMaterialBacklightHighW100,  IconMaterialBacklightLowW100,  IconMaterialBackpackW100,  IconMaterialBackspaceW100,  IconMaterialBackupW100,  IconMaterialBackupTableW100,  IconMaterialBadgeW100,  IconMaterialBadgeCriticalBatteryW100,  IconMaterialBakeryDiningW100,  IconMaterialBalanceW100,  IconMaterialBalconyW100,  IconMaterialBallotW100,  IconMaterialBarChart4BarsW100,  IconMaterialBarChartW100,  IconMaterialBarcodeReaderW100,  IconMaterialBarcodeScannerW100,  IconMaterialBarcodeW100,  IconMaterialBarefootW100,  IconMaterialBatchPredictionW100,  IconMaterialBathOutdoorW100,  IconMaterialBathPrivateW100,  IconMaterialBathroomW100,  IconMaterialBathPublicLargeW100,  IconMaterialBathtubW100,  IconMaterialBattery0BarW100,  IconMaterialBattery1BarW100,  IconMaterialBattery20W100,  IconMaterialBattery2BarW100,  IconMaterialBattery30W100,  IconMaterialBattery3BarW100,  IconMaterialBattery4BarW100,  IconMaterialBattery50W100,  IconMaterialBattery5BarW100,  IconMaterialBattery60W100,  IconMaterialBattery6BarW100,  IconMaterialBattery90W100,  IconMaterialBattery80W100,  IconMaterialBatteryAlertW100,  IconMaterialBatteryChangeW100,  IconMaterialBatteryCharging20W100,  IconMaterialBatteryCharging30W100,  IconMaterialBatteryCharging50W100,  IconMaterialBatteryCharging60W100,  IconMaterialBatteryCharging80W100,  IconMaterialBatteryCharging90W100,  IconMaterialBatteryErrorW100,  IconMaterialBatteryChargingFullW100,  IconMaterialBatteryFullAltW100,  IconMaterialBatteryFullW100,  IconMaterialBatteryHoriz000W100,  IconMaterialBatteryHoriz050W100,  IconMaterialBatteryHoriz075W100,  IconMaterialBatteryLowW100,  IconMaterialBatteryPlusW100,  IconMaterialBatteryProfileW100,  IconMaterialBatterySaverW100,  IconMaterialBatteryShareW100,  IconMaterialBatteryStatusGoodW100,  IconMaterialBatteryUnknownW100,  IconMaterialBatteryVert005W100,  IconMaterialBatteryVert020W100,  IconMaterialBatteryVert050W100,  IconMaterialBatteryVeryLowW100,  IconMaterialBeachAccessW100,  IconMaterialBedW100,  IconMaterialBedroomBabyW100,  IconMaterialBedroomChildW100,  IconMaterialBedroomParentW100,  IconMaterialBedtimeOffW100,  IconMaterialBedtimeW100,  IconMaterialBeenhereW100,  IconMaterialBentoW100,  IconMaterialBiaW100,  IconMaterialBidLandscapeW100,  IconMaterialBigtopUpdatesW100,  IconMaterialBidLandscapeDisabledW100,  IconMaterialBiotechW100,  IconMaterialBikeScooterW100,  IconMaterialBlanketW100,  IconMaterialBlenderW100,  IconMaterialBlindW100,  IconMaterialBlindsClosedW100,  IconMaterialBlindsW100,  IconMaterialBlockW100,  IconMaterialBloodPressureW100,  IconMaterialBloodtypeW100,  IconMaterialBluetoothConnectedW100,  IconMaterialBluetoothDisabledW100,  IconMaterialBluetoothDriveW100,  IconMaterialBluetoothW100,  IconMaterialBluetoothSearchingW100,  IconMaterialBlurCircularW100,  IconMaterialBlurLinearW100,  IconMaterialBlurMediumW100,  IconMaterialBlurOffW100,  IconMaterialBlurOnW100,  IconMaterialBlurShortW100,  IconMaterialBodyFatW100,  IconMaterialBodySystemW100,  IconMaterialBoltW100,  IconMaterialBombW100,  IconMaterialBook2W100,  IconMaterialBook3W100,  IconMaterialBook4W100,  IconMaterialBook5W100,  IconMaterialBookOnlineW100,  IconMaterialBookW100,  IconMaterialBookmarkAddW100,  IconMaterialBookmarkManagerW100,  IconMaterialBookmarkRemoveW100,  IconMaterialBookmarkAddedW100,  IconMaterialBookmarksW100,  IconMaterialBookmarkW100,  IconMaterialBorderBottomW100,  IconMaterialBorderAllW100,  IconMaterialBorderClearW100,  IconMaterialBorderColorW100,  IconMaterialBorderHorizontalW100,  IconMaterialBorderInnerW100,  IconMaterialBorderLeftW100,  IconMaterialBorderOuterW100,  IconMaterialBorderRightW100,  IconMaterialBorderStyleW100,  IconMaterialBorderTopW100,  IconMaterialBorderVerticalW100,  IconMaterialBottomAppBarW100,  IconMaterialBottomDrawerW100,  IconMaterialBottomNavigationW100,  IconMaterialBottomPanelCloseW100,  IconMaterialBottomPanelOpenW100,  IconMaterialBottomRightClickW100,  IconMaterialBottomSheetsW100,  IconMaterialBoxAddW100,  IconMaterialBoxEditW100,  IconMaterialBoxW100,  IconMaterialBoyW100,  IconMaterialBrandAwarenessW100,  IconMaterialBrandFamilyW100,  IconMaterialBrandingWatermarkW100,  IconMaterialBreakfastDiningW100,  IconMaterialBreakingNewsAlt1W100,  IconMaterialBreakingNewsW100,  IconMaterialBreastfeedingW100,  IconMaterialBrightness1W100,  IconMaterialBrightness2W100,  IconMaterialBrightness3W100,  IconMaterialBrightness4W100,  IconMaterialBrightness5W100,  IconMaterialBrightness6W100,  IconMaterialBrightness7W100,  IconMaterialBrightnessAutoW100,  IconMaterialBrightnessAlertW100,  IconMaterialBrightnessEmptyW100,  IconMaterialBrightnessLowW100,  IconMaterialBrightnessHighW100,  IconMaterialBrightnessMediumW100,  IconMaterialBringYourOwnIpW100,  IconMaterialBroadcastOnHomeW100,  IconMaterialBrokenImageW100,  IconMaterialBroadcastOnPersonalW100,  IconMaterialBrowseActivityW100,  IconMaterialBrowseW100,  IconMaterialBrowseGalleryW100,  IconMaterialBrunchDiningW100,  IconMaterialBrowserUpdatedW100,  IconMaterialBrushW100,  IconMaterialBubbleChartW100,  IconMaterialBubbleW100,  IconMaterialBubblesW100,  IconMaterialBugReportW100,  IconMaterialBuildW100,  IconMaterialBuildCircleW100,  IconMaterialBurstModeW100,  IconMaterialBungalowW100,  IconMaterialBusAlertW100,  IconMaterialBusinessCenterW100,  IconMaterialBusinessChipW100,  IconMaterialBusinessMessagesW100,  IconMaterialCabinW100,  IconMaterialButtonsAltW100,  IconMaterialCableW100,  IconMaterialCachedW100,  IconMaterialCakeAddW100,  IconMaterialCalculateW100,  IconMaterialCakeW100,  IconMaterialCalendarAddOnW100,  IconMaterialCalendarAppsScriptW100,  IconMaterialCalendarMonthW100,  IconMaterialCalendarClockW100,  IconMaterialCalendarTodayW100,  IconMaterialCalendarViewDayW100,  IconMaterialCalendarViewMonthW100,  IconMaterialCalendarViewWeekW100,  IconMaterialCallEndW100,  IconMaterialCallLogW100,  IconMaterialCallMadeW100,  IconMaterialCallMergeW100,  IconMaterialCallMissedOutgoingW100,  IconMaterialCallMissedW100,  IconMaterialCallQualityW100,  IconMaterialCallReceivedW100,  IconMaterialCallSplitW100,  IconMaterialCallW100,  IconMaterialCallToActionW100,  IconMaterialCameraEnhanceW100,  IconMaterialCameraIndoorW100,  IconMaterialCameraFrontW100,  IconMaterialCameraOutdoorW100,  IconMaterialCameraRearW100,  IconMaterialCameraRollW100,  IconMaterialCameraW100,  IconMaterialCameraVideoW100,  IconMaterialCameraswitchW100,  IconMaterialCampaignW100,  IconMaterialCampingW100,  IconMaterialCancelPresentationW100,  IconMaterialCancelScheduleSendW100,  IconMaterialCancelW100,  IconMaterialCandleW100,  IconMaterialCandlestickChartW100,  IconMaterialCaptureW100,  IconMaterialCaptivePortalW100,  IconMaterialCarCrashW100,  IconMaterialCarRepairW100,  IconMaterialCarRentalW100,  IconMaterialCardMembershipW100,  IconMaterialCardTravelW100,  IconMaterialCardiologyW100,  IconMaterialCardsW100,  IconMaterialCarryOnBagCheckedW100,  IconMaterialCarpenterW100,  IconMaterialCarryOnBagInactiveW100,  IconMaterialCarryOnBagQuestionW100,  IconMaterialCarryOnBagW100,  IconMaterialCasesW100,  IconMaterialCasinoW100,  IconMaterialCastConnectedW100,  IconMaterialCastForEducationW100,  IconMaterialCastPauseW100,  IconMaterialCastW100,  IconMaterialCastleW100,  IconMaterialCastWarningW100,  IconMaterialCategoryW100,  IconMaterialCelebrationW100,  IconMaterialCellMergeW100,  IconMaterialCellTowerW100,  IconMaterialCellWifiW100,  IconMaterialCenterFocusStrongW100,  IconMaterialCenterFocusWeakW100,  IconMaterialChairAltW100,  IconMaterialChairW100,  IconMaterialChaletW100,  IconMaterialChangeCircleW100,  IconMaterialChangeHistoryW100,  IconMaterialChargerW100,  IconMaterialChargingStationW100,  IconMaterialChartDataW100,  IconMaterialChatAddOnW100,  IconMaterialChatAppsScriptW100,  IconMaterialChatBubbleW100,  IconMaterialChatErrorW100,  IconMaterialChatInfoW100,  IconMaterialChatPasteGoW100,  IconMaterialChatW100,  IconMaterialCheckBoxOutlineBlankW100,  IconMaterialCheckBoxW100,  IconMaterialCheckCircleW100,  IconMaterialCheckInOutW100,  IconMaterialCheckIndeterminateSmallW100,  IconMaterialCheckW100,  IconMaterialCheckSmallW100,  IconMaterialCheckbookW100,  IconMaterialCheckedBagW100,  IconMaterialCheckedBagQuestionW100,  IconMaterialChecklistRtlW100,  IconMaterialChecklistW100,  IconMaterialCheckroomW100,  IconMaterialCheerW100,  IconMaterialChessW100,  IconMaterialChevronLeftW100,  IconMaterialChevronRightW100,  IconMaterialChildFriendlyW100,  IconMaterialChildCareW100,  IconMaterialChipExtractionW100,  IconMaterialChipsW100,  IconMaterialChromeMaximizeW100,  IconMaterialChromeMinimizeW100,  IconMaterialChromeReaderModeW100,  IconMaterialChromeRestoreW100,  IconMaterialChromeToteW100,  IconMaterialChromecast2W100,  IconMaterialChromecastDeviceW100,  IconMaterialChronicW100,  IconMaterialChurchW100,  IconMaterialCinematicBlurW100,  IconMaterialCircleNotificationsW100,  IconMaterialCircleW100,  IconMaterialCirclesExtW100,  IconMaterialClarifyW100,  IconMaterialCleanHandsW100,  IconMaterialCleaningBucketW100,  IconMaterialCirclesW100,  IconMaterialCleaningW100,  IconMaterialCleaningServicesW100,  IconMaterialClearAllW100,  IconMaterialClearDayW100,  IconMaterialClearNightW100,  IconMaterialClimateMiniSplitW100,  IconMaterialClinicalNotesW100,  IconMaterialClockLoader10W100,  IconMaterialClockLoader20W100,  IconMaterialClockLoader40W100,  IconMaterialClockLoader60W100,  IconMaterialClockLoader80W100,  IconMaterialClockLoader90W100,  IconMaterialCloseSmallW100,  IconMaterialCloseFullscreenW100,  IconMaterialCloseW100,  IconMaterialClosedCaptionDisabledW100,  IconMaterialClosedCaptionW100,  IconMaterialCloudDoneW100,  IconMaterialCloudCircleW100,  IconMaterialCloudDownloadW100,  IconMaterialCloudOffW100,  IconMaterialCloudQueueW100,  IconMaterialCloudSyncW100,  IconMaterialCloudUploadW100,  IconMaterialCloudyFilledW100,  IconMaterialCloudW100,  IconMaterialCloudySnowingW100,  IconMaterialCloudyW100,  IconMaterialCo2W100,  IconMaterialCoPresentW100,  IconMaterialCodeBlocksW100,  IconMaterialCodeOffW100,  IconMaterialCodeW100,  IconMaterialCoffeeW100,  IconMaterialCoffeeMakerW100,  IconMaterialCognitionW100,  IconMaterialCollapseAllW100,  IconMaterialCollapseContentW100,  IconMaterialCollectionsBookmarkW100,  IconMaterialColorsW100,  IconMaterialColorizeW100,  IconMaterialComicBubbleW100,  IconMaterialCommentBankW100,  IconMaterialCommentW100,  IconMaterialCommentsDisabledW100,  IconMaterialCommitW100,  IconMaterialCommunicationW100,  IconMaterialCommunitiesW100,  IconMaterialCompareArrowsW100,  IconMaterialCommuteW100,  IconMaterialCompareW100,  IconMaterialCompassCalibrationW100,  IconMaterialComponentExchangeW100,  IconMaterialCompressW100,  IconMaterialCompostW100,  IconMaterialComputerW100,  IconMaterialConciergeW100,  IconMaterialConditionsW100,  IconMaterialConfirmationNumberW100,  IconMaterialCongenitalW100,  IconMaterialConnectedTvW100,  IconMaterialConnectWithoutContactW100,  IconMaterialConstructionW100,  IconMaterialConnectingAirportsW100,  IconMaterialContactEmergencyW100,  IconMaterialContactMailW100,  IconMaterialContactPageW100,  IconMaterialContactPhoneW100,  IconMaterialContactSupportW100,  IconMaterialContactlessOffW100,  IconMaterialContactlessW100,  IconMaterialContactsProductW100,  IconMaterialContactsW100,  IconMaterialContentCopyW100,  IconMaterialContentCutW100,  IconMaterialContentPasteOffW100,  IconMaterialContentPasteSearchW100,  IconMaterialContentPasteGoW100,  IconMaterialContentPasteW100,  IconMaterialContractDeleteW100,  IconMaterialContractW100,  IconMaterialContractEditW100,  IconMaterialContrastRtlOffW100,  IconMaterialContrastW100,  IconMaterialControlPointDuplicateW100,  IconMaterialControlCameraW100,  IconMaterialControllerGenW100,  IconMaterialConversionPathW100,  IconMaterialConversionPathOffW100,  IconMaterialConveyorBeltW100,  IconMaterialCookieOffW100,  IconMaterialCookieW100,  IconMaterialCookingW100,  IconMaterialCoolToDryW100,  IconMaterialCopyAllW100,  IconMaterialCopyrightW100,  IconMaterialCoronavirusW100,  IconMaterialCorporateFareW100,  IconMaterialCottageW100,  IconMaterialCounter1W100,  IconMaterialCounter0W100,  IconMaterialCounter2W100,  IconMaterialCounter3W100,  IconMaterialCounter4W100,  IconMaterialCounter5W100,  IconMaterialCounter6W100,  IconMaterialCounter7W100,  IconMaterialCounter9W100,  IconMaterialCounter8W100,  IconMaterialCreateNewFolderW100,  IconMaterialCountertopsW100,  IconMaterialCreditCardGearW100,  IconMaterialCreditCardHeartW100,  IconMaterialCreditCardOffW100,  IconMaterialCreditCardW100,  IconMaterialCreditScoreW100,  IconMaterialCribW100,  IconMaterialCrisisAlertW100,  IconMaterialCrop169W100,  IconMaterialCrop32W100,  IconMaterialCrop54W100,  IconMaterialCrop75W100,  IconMaterialCrop916W100,  IconMaterialCropFreeW100,  IconMaterialCropLandscapeW100,  IconMaterialCropPortraitW100,  IconMaterialCropRotateW100,  IconMaterialCropSquareW100,  IconMaterialCropW100,  IconMaterialCrowdsourceW100,  IconMaterialCrueltyFreeW100,  IconMaterialCssW100,  IconMaterialCsvW100,  IconMaterialCurrencyBitcoinW100,  IconMaterialCurrencyExchangeW100,  IconMaterialCrosswordW100,  IconMaterialCurrencyFrancW100,  IconMaterialCurrencyLiraW100,  IconMaterialCurrencyPoundW100,  IconMaterialCurrencyRubleW100,  IconMaterialCurrencyRupeeW100,  IconMaterialCurrencyYenW100,  IconMaterialCurrencyYuanW100,  IconMaterialCurtainsClosedW100,  IconMaterialCurtainsW100,  IconMaterialCustomTypographyW100,  IconMaterialCutW100,  IconMaterialCycleW100,  IconMaterialDangerousW100,  IconMaterialDarkModeW100,  IconMaterialCycloneW100,  IconMaterialDashboardCustomizeW100,  IconMaterialDashboardW100,  IconMaterialDataAlertW100,  IconMaterialDataArrayW100,  IconMaterialDataCheckW100,  IconMaterialDataExplorationW100,  IconMaterialDataInfoAlertW100,  IconMaterialDataLossPreventionW100,  IconMaterialDataObjectW100,  IconMaterialDataSaverOnW100,  IconMaterialDataTableW100,  IconMaterialDataThresholdingW100,  IconMaterialDataUsageW100,  IconMaterialDatabaseW100,  IconMaterialDatasetLinkedW100,  IconMaterialDatasetW100,  IconMaterialDateRangeW100,  IconMaterialDeblurW100,  IconMaterialDeceasedW100,  IconMaterialDecimalDecreaseW100,  IconMaterialDecimalIncreaseW100,  IconMaterialDehazeW100,  IconMaterialDeleteForeverW100,  IconMaterialDeleteHistoryW100,  IconMaterialDeckW100,  IconMaterialDeleteW100,  IconMaterialDeleteSweepW100,  IconMaterialDemographyW100,  IconMaterialDensityLargeW100,  IconMaterialDensityMediumW100,  IconMaterialDensitySmallW100,  IconMaterialDepartureBoardW100,  IconMaterialDentistryW100,  IconMaterialDeployedCodeAccountW100,  IconMaterialDeployedCodeAlertW100,  IconMaterialDeployedCodeHistoryW100,  IconMaterialDeployedCodeW100,  IconMaterialDeployedCodeUpdateW100,  IconMaterialDermatologyW100,  IconMaterialDescriptionW100,  IconMaterialDeselectW100,  IconMaterialDesignServicesW100,  IconMaterialDeskW100,  IconMaterialDeskphoneW100,  IconMaterialDesktopAccessDisabledW100,  IconMaterialDesktopMacW100,  IconMaterialDestructionW100,  IconMaterialDesktopWindowsW100,  IconMaterialDetailsW100,  IconMaterialDetectionAndZoneW100,  IconMaterialDetectorAlarmW100,  IconMaterialDetectorBatteryW100,  IconMaterialDetectorCoW100,  IconMaterialDetectorOfflineW100,  IconMaterialDetectorSmokeW100,  IconMaterialDetectorStatusW100,  IconMaterialDetectorW100,  IconMaterialDeveloperBoardOffW100,  IconMaterialDeveloperBoardW100,  IconMaterialDeveloperGuideW100,  IconMaterialDeveloperModeTvW100,  IconMaterialDeveloperModeW100,  IconMaterialDeviceResetW100,  IconMaterialDeviceThermostatW100,  IconMaterialDeviceHubW100,  IconMaterialDeviceUnknownW100,  IconMaterialDevicesOffW100,  IconMaterialDevicesFoldW100,  IconMaterialDevicesW100,  IconMaterialDevicesOtherW100,  IconMaterialDevicesWearablesW100,  IconMaterialDewPointW100,  IconMaterialDiagnosisW100,  IconMaterialDialerSipW100,  IconMaterialDialogsW100,  IconMaterialDialpadW100,  IconMaterialDiamondW100,  IconMaterialDictionaryW100,  IconMaterialDifferenceW100,  IconMaterialDigitalOutOfHomeW100,  IconMaterialDigitalWellbeingW100,  IconMaterialDiningW100,  IconMaterialDinnerDiningW100,  IconMaterialDirectionsAltOffW100,  IconMaterialDirectionsAltW100,  IconMaterialDirectionsBikeW100,  IconMaterialDirectionsBoatW100,  IconMaterialDirectionsBusW100,  IconMaterialDirectionsCarW100,  IconMaterialDirectionsOffW100,  IconMaterialDirectionsRailwayW100,  IconMaterialDirectionsRunW100,  IconMaterialDirectionsW100,  IconMaterialDirectionsSubwayW100,  IconMaterialDirectorySyncW100,  IconMaterialDirectionsWalkW100,  IconMaterialDirtyLensW100,  IconMaterialDisabledByDefaultW100,  IconMaterialDisabledVisibleW100,  IconMaterialDiscFullW100,  IconMaterialDiscoverTuneW100,  IconMaterialDishwasherGenW100,  IconMaterialDishwasherW100,  IconMaterialDisplayExternalInputW100,  IconMaterialDisplaySettingsW100,  IconMaterialDistanceW100,  IconMaterialDiversity1W100,  IconMaterialDiversity2W100,  IconMaterialDiversity3W100,  IconMaterialDnsW100,  IconMaterialDiversity4W100,  IconMaterialDoNotDisturbOffW100,  IconMaterialDoNotDisturbOnTotalSilenceW100,  IconMaterialDoNotDisturbOnW100,  IconMaterialDoNotStepW100,  IconMaterialDoNotTouchW100,  IconMaterialDockToBottomW100,  IconMaterialDockToLeftW100,  IconMaterialDockToRightW100,  IconMaterialDockW100,  IconMaterialDocsAddOnW100,  IconMaterialDocsAppsScriptW100,  IconMaterialDocumentScannerW100,  IconMaterialDomainAddW100,  IconMaterialDomainDisabledW100,  IconMaterialDomainVerificationOffW100,  IconMaterialDomainVerificationW100,  IconMaterialDomainW100,  IconMaterialDominoMaskW100,  IconMaterialDoneAllW100,  IconMaterialDoneOutlineW100,  IconMaterialDoneW100,  IconMaterialDonutSmallW100,  IconMaterialDonutLargeW100,  IconMaterialDoorBackW100,  IconMaterialDoorFrontW100,  IconMaterialDoorOpenW100,  IconMaterialDoorSensorW100,  IconMaterialDoorSlidingW100,  IconMaterialDoorbell3pW100,  IconMaterialDoorbellChimeW100,  IconMaterialDoorbellW100,  IconMaterialDoubleArrowW100,  IconMaterialDownhillSkiingW100,  IconMaterialDownload2W100,  IconMaterialDownloadDoneW100,  IconMaterialDownloadW100,  IconMaterialDownloadForOfflineW100,  IconMaterialDownloadingW100,  IconMaterialDraftOrdersW100,  IconMaterialDraftW100,  IconMaterialDraftsW100,  IconMaterialDragClickW100,  IconMaterialDragHandleW100,  IconMaterialDragIndicatorW100,  IconMaterialDragPanW100,  IconMaterialDrawAbstractW100,  IconMaterialDrawCollageW100,  IconMaterialDrawW100,  IconMaterialDresserW100,  IconMaterialDriveFileMoveOutlineW100,  IconMaterialDriveFileMoveRtlW100,  IconMaterialDriveFileMoveW100,  IconMaterialDriveFileRenameOutlineW100,  IconMaterialDriveFolderUploadW100,  IconMaterialDropdownW100,  IconMaterialDryCleaningW100,  IconMaterialDryW100,  IconMaterialDualScreenW100,  IconMaterialDuoW100,  IconMaterialDynamicFeedW100,  IconMaterialDvrW100,  IconMaterialDynamicFormW100,  IconMaterialE911AvatarW100,  IconMaterialE911EmergencyW100,  IconMaterialEMobiledataBadgeW100,  IconMaterialEMobiledataW100,  IconMaterialEarbudsBatteryW100,  IconMaterialEarbudsW100,  IconMaterialEarlyOnW100,  IconMaterialEarthquakeW100,  IconMaterialEastW100,  IconMaterialEcgHeartW100,  IconMaterialEcoW100,  IconMaterialEdaW100,  IconMaterialEcgW100,  IconMaterialEdgesensorHighW100,  IconMaterialEdgesensorLowW100,  IconMaterialEditAttributesW100,  IconMaterialEditCalendarW100,  IconMaterialEditDocumentW100,  IconMaterialEditLocationAltW100,  IconMaterialEditLocationW100,  IconMaterialEditNoteW100,  IconMaterialEditNotificationsW100,  IconMaterialEditOffW100,  IconMaterialEditRoadW100,  IconMaterialEditSquareW100,  IconMaterialEditorChoiceW100,  IconMaterialEditW100,  IconMaterialEggAltW100,  IconMaterialEggW100,  IconMaterialEjectW100,  IconMaterialElderlyW100,  IconMaterialElderlyWomanW100,  IconMaterialElectricBikeW100,  IconMaterialElectricBoltW100,  IconMaterialElectricCarW100,  IconMaterialElectricMeterW100,  IconMaterialElectricMopedW100,  IconMaterialElectricRickshawW100,  IconMaterialElectricScooterW100,  IconMaterialElevationW100,  IconMaterialElectricalServicesW100,  IconMaterialElevatorW100,  IconMaterialEmergencyHeatW100,  IconMaterialEmergencyHomeW100,  IconMaterialEmergencyRecordingW100,  IconMaterialEmergencyShareOffW100,  IconMaterialEmergencyW100,  IconMaterialEmergencyShareW100,  IconMaterialEmojiEventsW100,  IconMaterialEmojiFlagsW100,  IconMaterialEmojiFoodBeverageW100,  IconMaterialEmojiNatureW100,  IconMaterialEmojiObjectsW100,  IconMaterialEmojiPeopleW100,  IconMaterialEmojiSymbolsW100,  IconMaterialEmojiTransportationW100,  IconMaterialEmoticonW100,  IconMaterialEmptyDashboardW100,  IconMaterialEncryptedW100,  IconMaterialEndocrinologyW100,  IconMaterialEnableW100,  IconMaterialEnergyProgramSavingW100,  IconMaterialEnergyProgramTimeUsedW100,  IconMaterialEnergySavingsLeafW100,  IconMaterialEnergyW100,  IconMaterialEngineeringW100,  IconMaterialEnhancedEncryptionW100,  IconMaterialEntW100,  IconMaterialEnterpriseW100,  IconMaterialEnterpriseOffW100,  IconMaterialEqualW100,  IconMaterialEqualizerW100,  IconMaterialErrorCircleRoundedW100,  IconMaterialErrorMedW100,  IconMaterialErrorW100,  IconMaterialEscalatorW100,  IconMaterialEscalatorWarningW100,  IconMaterialEuroW100,  IconMaterialEuroSymbolW100,  IconMaterialEvChargerW100,  IconMaterialEvMobiledataBadgeW100,  IconMaterialEvShadowAddW100,  IconMaterialEvShadowMinusW100,  IconMaterialEvShadowW100,  IconMaterialEvStationW100,  IconMaterialEventBusyW100,  IconMaterialEventAvailableW100,  IconMaterialEventNoteW100,  IconMaterialEventListW100,  IconMaterialEventRepeatW100,  IconMaterialEventUpcomingW100,  IconMaterialEventSeatW100,  IconMaterialEventW100,  IconMaterialExclamationW100,  IconMaterialExerciseW100,  IconMaterialExitToAppW100,  IconMaterialExpandAllW100,  IconMaterialExpandCircleDownW100,  IconMaterialExpandCircleRightW100,  IconMaterialExpandCircleUpW100,  IconMaterialExpandContentW100,  IconMaterialExpandLessW100,  IconMaterialExpandMoreW100,  IconMaterialExpandW100,  IconMaterialExperimentW100,  IconMaterialExplicitW100,  IconMaterialExploreNearbyW100,  IconMaterialExploreW100,  IconMaterialExploreOffW100,  IconMaterialExplosionW100,  IconMaterialExportNotesW100,  IconMaterialExposureNeg1W100,  IconMaterialExposureNeg2W100,  IconMaterialExposurePlus1W100,  IconMaterialExposurePlus2W100,  IconMaterialExposureW100,  IconMaterialExposureZeroW100,  IconMaterialExtensionOffW100,  IconMaterialExtensionW100,  IconMaterialEyeglassesW100,  IconMaterialFace2W100,  IconMaterialFace3W100,  IconMaterialFace4W100,  IconMaterialFace5W100,  IconMaterialFace6W100,  IconMaterialFaceRetouchingNaturalW100,  IconMaterialFaceRetouchingOffW100,  IconMaterialFaceW100,  IconMaterialFactCheckW100,  IconMaterialFactoryW100,  IconMaterialFallingW100,  IconMaterialFamiliarFaceAndZoneW100,  IconMaterialFamilyHistoryW100,  IconMaterialFamilyHomeW100,  IconMaterialFamilyRestroomW100,  IconMaterialFamilyLinkW100,  IconMaterialFamilyStarW100,  IconMaterialFarsightDigitalW100,  IconMaterialFastForwardW100,  IconMaterialFastRewindW100,  IconMaterialFastfoodW100,  IconMaterialFaucetW100,  IconMaterialFavoriteW100,  IconMaterialFaxW100,  IconMaterialFeatureSearchW100,  IconMaterialFeaturedPlayListW100,  IconMaterialFeaturedSeasonalAndGiftsW100,  IconMaterialFeaturedVideoW100,  IconMaterialFeedW100,  IconMaterialFeedbackW100,  IconMaterialFemaleW100,  IconMaterialFemurAltW100,  IconMaterialFenceW100,  IconMaterialFertileW100,  IconMaterialFestivalW100,  IconMaterialFemurW100,  IconMaterialFiberDvrW100,  IconMaterialFiberManualRecordW100,  IconMaterialFiberNewW100,  IconMaterialFiberPinW100,  IconMaterialFiberSmartRecordW100,  IconMaterialFileCopyW100,  IconMaterialFileDownloadDoneW100,  IconMaterialFileDownloadW100,  IconMaterialFileDownloadOffW100,  IconMaterialFileMapW100,  IconMaterialFileOpenW100,  IconMaterialFilePresentW100,  IconMaterialFileSaveOffW100,  IconMaterialFileSaveW100,  IconMaterialFileUploadOffW100,  IconMaterialFileUploadW100,  IconMaterialFilter1W100,  IconMaterialFilter2W100,  IconMaterialFilter3W100,  IconMaterialFilter4W100,  IconMaterialFilter5W100,  IconMaterialFilter7W100,  IconMaterialFilter8W100,  IconMaterialFilter9PlusW100,  IconMaterialFilter9W100,  IconMaterialFilterAltOffW100,  IconMaterialFilterAltW100,  IconMaterialFilterBAndWW100,  IconMaterialFilterCenterFocusW100,  IconMaterialFilterDramaW100,  IconMaterialFilterFramesW100,  IconMaterialFilterHdrW100,  IconMaterialFilterListOffW100,  IconMaterialFilterListW100,  IconMaterialFilter6W100,  IconMaterialFilterRetroluxW100,  IconMaterialFilterNoneW100,  IconMaterialFilterTiltShiftW100,  IconMaterialFilterVintageW100,  IconMaterialFilterW100,  IconMaterialFinanceChipW100,  IconMaterialFinanceModeW100,  IconMaterialFinanceW100,  IconMaterialFindInPageW100,  IconMaterialFingerprintW100,  IconMaterialFindReplaceW100,  IconMaterialFireExtinguisherW100,  IconMaterialFireHydrantW100,  IconMaterialFireTruckW100,  IconMaterialFireplaceW100,  IconMaterialFirstPageW100,  IconMaterialFitPageW100,  IconMaterialFitScreenW100,  IconMaterialFitWidthW100,  IconMaterialFitbitArrowDownwardW100,  IconMaterialFitbitCheckSmallW100,  IconMaterialFitbitArrowUpwardW100,  IconMaterialFitnessCenterW100,  IconMaterialFlagCircleW100,  IconMaterialFlagW100,  IconMaterialFlakyW100,  IconMaterialFlareW100,  IconMaterialFlashAutoW100,  IconMaterialFlashOnW100,  IconMaterialFlashlightOffW100,  IconMaterialFlashOffW100,  IconMaterialFlashlightOnW100,  IconMaterialFlatwareW100,  IconMaterialFlexDirectionW100,  IconMaterialFlexNoWrapW100,  IconMaterialFlexWrapW100,  IconMaterialFlightClassW100,  IconMaterialFlightLandW100,  IconMaterialFlightW100,  IconMaterialFlightsAndHotelsW100,  IconMaterialFlightTakeoffW100,  IconMaterialFlightsmodeW100,  IconMaterialFlipCameraAndroidW100,  IconMaterialFlipCameraIosW100,  IconMaterialFlipToBackW100,  IconMaterialFlipToFrontW100,  IconMaterialFlipW100,  IconMaterialFloatLandscapeW100,  IconMaterialFloatPortraitW100,  IconMaterialFloodW100,  IconMaterialFloorLampW100,  IconMaterialFloorW100,  IconMaterialFlourescentW100,  IconMaterialFlowsheetW100,  IconMaterialFluidBalanceW100,  IconMaterialFluidW100,  IconMaterialFluidMedW100,  IconMaterialFluorescentW100,  IconMaterialFlutterDashW100,  IconMaterialFmdBadW100,  IconMaterialFlutterW100,  IconMaterialFoggyW100,  IconMaterialFolderCopyW100,  IconMaterialFoldedHandsW100,  IconMaterialFolderDataW100,  IconMaterialFolderDeleteW100,  IconMaterialFolderManagedW100,  IconMaterialFolderOpenW100,  IconMaterialFolderSpecialW100,  IconMaterialFolderSharedW100,  IconMaterialFolderOffW100,  IconMaterialFolderSupervisedW100,  IconMaterialFolderW100,  IconMaterialFolderZipW100,  IconMaterialFollowTheSignsW100,  IconMaterialFontDownloadOffW100,  IconMaterialFontDownloadW100,  IconMaterialFoodBankW100,  IconMaterialFootBonesW100,  IconMaterialFootprintW100,  IconMaterialForYouW100,  IconMaterialForestW100,  IconMaterialForkLeftW100,  IconMaterialForkRightW100,  IconMaterialFormatAlignCenterW100,  IconMaterialForkliftW100,  IconMaterialFormatAlignJustifyW100,  IconMaterialFormatAlignLeftW100,  IconMaterialFormatBoldW100,  IconMaterialFormatAlignRightW100,  IconMaterialFormatClearW100,  IconMaterialFormatColorFillW100,  IconMaterialFormatColorResetW100,  IconMaterialFormatColorTextW100,  IconMaterialFormatH1W100,  IconMaterialFormatH2W100,  IconMaterialFormatH3W100,  IconMaterialFormatH4W100,  IconMaterialFormatH5W100,  IconMaterialFormatImageLeftW100,  IconMaterialFormatImageRightW100,  IconMaterialFormatH6W100,  IconMaterialFormatIndentDecreaseW100,  IconMaterialFormatIndentIncreaseW100,  IconMaterialFormatInkHighlighterW100,  IconMaterialFormatItalicW100,  IconMaterialFormatLetterSpacing2W100,  IconMaterialFormatLetterSpacingStandardW100,  IconMaterialFormatLetterSpacingW100,  IconMaterialFormatLetterSpacingWideW100,  IconMaterialFormatLetterSpacingWiderW100,  IconMaterialFormatLineSpacingW100,  IconMaterialFormatListBulletedAddW100,  IconMaterialFormatListNumberedW100,  IconMaterialFormatListBulletedW100,  IconMaterialFormatOverlineW100,  IconMaterialFormatListNumberedRtlW100,  IconMaterialFormatPaintW100,  IconMaterialFormatQuoteW100,  IconMaterialFormatParagraphW100,  IconMaterialFormatShapesW100,  IconMaterialFormatSizeW100,  IconMaterialFormatStrikethroughW100,  IconMaterialFormatTextClipW100,  IconMaterialFormatTextOverflowW100,  IconMaterialFormatTextWrapW100,  IconMaterialFormatTextdirectionLToRW100,  IconMaterialFormatTextdirectionRToLW100,  IconMaterialFormatUnderlinedSquiggleW100,  IconMaterialFormatUnderlinedW100,  IconMaterialFormsAddOnW100,  IconMaterialFormsAppsScriptW100,  IconMaterialFortW100,  IconMaterialForumW100,  IconMaterialForward10W100,  IconMaterialForward30W100,  IconMaterialForward5W100,  IconMaterialForwardCircleW100,  IconMaterialForwardMediaW100,  IconMaterialForwardToInboxW100,  IconMaterialForwardW100,  IconMaterialFoundationW100,  IconMaterialFrameInspectW100,  IconMaterialFramePersonOffW100,  IconMaterialFramePersonW100,  IconMaterialFrameReloadW100,  IconMaterialFrameSourceW100,  IconMaterialFrontHandW100,  IconMaterialFreeCancellationW100,  IconMaterialFrontLoaderW100,  IconMaterialFullCoverageW100,  IconMaterialFullHdW100,  IconMaterialFullStackedBarChartW100,  IconMaterialFullscreenW100,  IconMaterialFullscreenExitW100,  IconMaterialFunctionW100,  IconMaterialFunctionsW100,  IconMaterialGMobiledataBadgeW100,  IconMaterialGMobiledataW100,  IconMaterialGTranslateW100,  IconMaterialGalleryThumbnailW100,  IconMaterialGamepadW100,  IconMaterialGarageDoorW100,  IconMaterialGarageHomeW100,  IconMaterialGarageW100,  IconMaterialGardenCartW100,  IconMaterialGasMeterW100,  IconMaterialGastroenterologyW100,  IconMaterialGateW100,  IconMaterialGavelW100,  IconMaterialGeneralDeviceW100,  IconMaterialGeneratingTokensW100,  IconMaterialGeneticsW100,  IconMaterialGenresW100,  IconMaterialGestureSelectW100,  IconMaterialGestureW100,  IconMaterialGifBoxW100,  IconMaterialGifW100,  IconMaterialGirlW100,  IconMaterialGiteW100,  IconMaterialGlassCupW100,  IconMaterialGlobeUkW100,  IconMaterialGlobeAsiaW100,  IconMaterialGlobeW100,  IconMaterialGlucoseW100,  IconMaterialGlyphsW100,  IconMaterialGoToLineW100,  IconMaterialGolfCourseW100,  IconMaterialGoogleHomeDevicesW100,  IconMaterialGooglePlusReshareW100,  IconMaterialGoogleTvRemoteW100,  IconMaterialGoogleWifiW100,  IconMaterialGppBadW100,  IconMaterialGppMaybeW100,  IconMaterialGradeW100,  IconMaterialGradientW100,  IconMaterialGradingW100,  IconMaterialGrainW100,  IconMaterialGraphicEqW100,  IconMaterialGrassW100,  IconMaterialGrid3x3OffW100,  IconMaterialGrid3x3W100,  IconMaterialGrid4x4W100,  IconMaterialGridGoldenratioW100,  IconMaterialGridGuidesW100,  IconMaterialGridOffW100,  IconMaterialGridOnW100,  IconMaterialGridViewW100,  IconMaterialGroceryW100,  IconMaterialGroupAutoW100,  IconMaterialGroupAddW100,  IconMaterialGroupOffW100,  IconMaterialGroupW100,  IconMaterialGroupRemoveW100,  IconMaterialGroupWorkW100,  IconMaterialGroupedBarChartW100,  IconMaterialGroups2W100,  IconMaterialGroups3W100,  IconMaterialGroupsW100,  IconMaterialGynecologyW100,  IconMaterialHMobiledataBadgeW100,  IconMaterialHMobiledataW100,  IconMaterialHPlusMobiledataBadgeW100,  IconMaterialHPlusMobiledataW100,  IconMaterialHailW100,  IconMaterialHallwayW100,  IconMaterialHandBonesW100,  IconMaterialHandGestureW100,  IconMaterialHandshakeW100,  IconMaterialHandymanW100,  IconMaterialHangoutMeetingW100,  IconMaterialHangoutVideoOffW100,  IconMaterialHardDrive2W100,  IconMaterialHardDriveW100,  IconMaterialHangoutVideoW100,  IconMaterialHdW100,  IconMaterialHardwareW100,  IconMaterialHdrAutoSelectW100,  IconMaterialHdrAutoW100,  IconMaterialHdrEnhancedSelectW100,  IconMaterialHdrOffSelectW100,  IconMaterialHdrOffW100,  IconMaterialHdrOnW100,  IconMaterialHdrOnSelectW100,  IconMaterialHdrPlusOffW100,  IconMaterialHdrPlusW100,  IconMaterialHdrStrongW100,  IconMaterialHdrWeakW100,  IconMaterialHeadphonesBatteryW100,  IconMaterialHeadphonesW100,  IconMaterialHeadsetMicW100,  IconMaterialHeadsetOffW100,  IconMaterialHealingW100,  IconMaterialHealthAndSafetyW100,  IconMaterialHealthAndBeautyW100,  IconMaterialHealthMetricsW100,  IconMaterialHeapSnapshotLargeW100,  IconMaterialHeapSnapshotMultipleW100,  IconMaterialHeapSnapshotThumbnailW100,  IconMaterialHearingDisabledW100,  IconMaterialHearingW100,  IconMaterialHeartBrokenW100,  IconMaterialHeartCheckW100,  IconMaterialHeartMinusW100,  IconMaterialHeartPlusW100,  IconMaterialHeatPumpBalanceW100,  IconMaterialHeatPumpW100,  IconMaterialHeatW100,  IconMaterialHelicopterW100,  IconMaterialHeightW100,  IconMaterialHelpCenterW100,  IconMaterialHelpClinicW100,  IconMaterialHelpW100,  IconMaterialHematologyW100,  IconMaterialHevcW100,  IconMaterialHexagonW100,  IconMaterialHideImageW100,  IconMaterialHideW100,  IconMaterialHideSourceW100,  IconMaterialHighDensityW100,  IconMaterialHighQualityW100,  IconMaterialHighResW100,  IconMaterialHighlightKeyboardFocusW100,  IconMaterialHighlightMouseCursorW100,  IconMaterialHighlightTextCursorW100,  IconMaterialHighlightW100,  IconMaterialHighlighterSize1W100,  IconMaterialHighlighterSize2W100,  IconMaterialHighlighterSize3W100,  IconMaterialHighlighterSize4W100,  IconMaterialHighlighterSize5W100,  IconMaterialHikingW100,  IconMaterialHistoryEduW100,  IconMaterialHistoryToggleOffW100,  IconMaterialHistoryW100,  IconMaterialHiveW100,  IconMaterialHlsOffW100,  IconMaterialHlsW100,  IconMaterialHolidayVillageW100,  IconMaterialHomeAndGardenW100,  IconMaterialHomeAppLogoW100,  IconMaterialHomeHealthW100,  IconMaterialHomeImprovementAndToolsW100,  IconMaterialHomeIotDeviceW100,  IconMaterialHomeMaxDotsW100,  IconMaterialHomeMaxW100,  IconMaterialHomeMiniW100,  IconMaterialHomePinW100,  IconMaterialHomeRepairServiceW100,  IconMaterialHomeSpeakerW100,  IconMaterialHomeStorageW100,  IconMaterialHomeW100,  IconMaterialHomeWorkW100,  IconMaterialHorizontalDistributeW100,  IconMaterialHorizontalRuleW100,  IconMaterialHorizontalSplitW100,  IconMaterialHotTubW100,  IconMaterialHotelClassW100,  IconMaterialHotelW100,  IconMaterialHourglassBottomW100,  IconMaterialHourglassDisabledW100,  IconMaterialHourglassEmptyW100,  IconMaterialHourglassFullW100,  IconMaterialHourglassTopW100,  IconMaterialHourglassW100,  IconMaterialHouseSidingW100,  IconMaterialHouseW100,  IconMaterialHouseWithShieldW100,  IconMaterialHouseboatW100,  IconMaterialHouseholdSuppliesW100,  IconMaterialHowToRegW100,  IconMaterialHowToVoteW100,  IconMaterialHtmlW100,  IconMaterialHrRestingW100,  IconMaterialHttpW100,  IconMaterialHubW100,  IconMaterialHumerusAltW100,  IconMaterialHumerusW100,  IconMaterialHumidityHelperW100,  IconMaterialHumidityHighW100,  IconMaterialHumidityIndoorW100,  IconMaterialHumidityLowW100,  IconMaterialHumidityMidW100,  IconMaterialHumidityPercentageW100,  IconMaterialHvacW100,  IconMaterialIceSkatingW100,  IconMaterialIflW100,  IconMaterialIframeOffW100,  IconMaterialIframeW100,  IconMaterialIcecreamW100,  IconMaterialImageAspectRatioW100,  IconMaterialImageNotSupportedW100,  IconMaterialImageSearchW100,  IconMaterialImageW100,  IconMaterialImagesearchRollerW100,  IconMaterialImagesmodeW100,  IconMaterialImportContactsW100,  IconMaterialImportantDevicesW100,  IconMaterialImmunologyW100,  IconMaterialInHomeModeW100,  IconMaterialInactiveOrderW100,  IconMaterialInboxCustomizeW100,  IconMaterialInboxW100,  IconMaterialIncompleteCircleW100,  IconMaterialIndeterminateCheckBoxW100,  IconMaterialIndeterminateQuestionBoxW100,  IconMaterialInfoIW100,  IconMaterialInfoW100,  IconMaterialInfraredW100,  IconMaterialInkEraserOffW100,  IconMaterialInkEraserW100,  IconMaterialInkHighlighterMoveW100,  IconMaterialInkHighlighterW100,  IconMaterialInkMarkerW100,  IconMaterialInkPenW100,  IconMaterialInpatientW100,  IconMaterialInputCircleW100,  IconMaterialInputW100,  IconMaterialInsertChartW100,  IconMaterialInsertPageBreakW100,  IconMaterialInsertTextW100,  IconMaterialInstallDesktopW100,  IconMaterialInstallMobileW100,  IconMaterialInstantMixW100,  IconMaterialInsightsW100,  IconMaterialIntegrationInstructionsW100,  IconMaterialInteractiveSpaceW100,  IconMaterialInterestsW100,  IconMaterialInterpreterModeW100,  IconMaterialInventory2W100,  IconMaterialInventoryW100,  IconMaterialInvertColorsOffW100,  IconMaterialInvertColorsW100,  IconMaterialIosW100,  IconMaterialIosShareW100,  IconMaterialIronW100,  IconMaterialJavascriptW100,  IconMaterialJamboardKioskW100,  IconMaterialJoinFullW100,  IconMaterialJoinInnerW100,  IconMaterialJoinRightW100,  IconMaterialJoinW100,  IconMaterialJoinLeftW100,  IconMaterialJoystickW100,  IconMaterialJumpToElementW100,  IconMaterialKayakingW100,  IconMaterialKebabDiningW100,  IconMaterialKeepPublicW100,  IconMaterialKettleW100,  IconMaterialKeyVerticalW100,  IconMaterialKeyOffW100,  IconMaterialKeyVisualizerW100,  IconMaterialKeyW100,  IconMaterialKeyboardAltW100,  IconMaterialKeyboardArrowDownW100,  IconMaterialKeyboardArrowLeftW100,  IconMaterialKeyboardArrowRightW100,  IconMaterialKeyboardArrowUpW100,  IconMaterialKeyboardBackspaceW100,  IconMaterialKeyboardCapslockW100,  IconMaterialKeyboardCommandKeyW100,  IconMaterialKeyboardControlKeyW100,  IconMaterialKeyboardCapslockBadgeW100,  IconMaterialKeyboardDoubleArrowDownW100,  IconMaterialKeyboardDoubleArrowLeftW100,  IconMaterialKeyboardDoubleArrowRightW100,  IconMaterialKeyboardDoubleArrowUpW100,  IconMaterialKeyboardHideW100,  IconMaterialKeyboardFullW100,  IconMaterialKeyboardExternalInputW100,  IconMaterialKeyboardOffW100,  IconMaterialKeyboardOnscreenW100,  IconMaterialKeyboardKeysW100,  IconMaterialKeyboardOptionKeyW100,  IconMaterialKeyboardPreviousLanguageW100,  IconMaterialKeyboardReturnW100,  IconMaterialKeyboardTabRtlW100,  IconMaterialKeyboardTabW100,  IconMaterialKeyboardW100,  IconMaterialKeyboardVoiceW100,  IconMaterialKidStarW100,  IconMaterialKingBedW100,  IconMaterialKitchenW100,  IconMaterialKitesurfingW100,  IconMaterialLabPanelW100,  IconMaterialLabProfileW100,  IconMaterialLabResearchW100,  IconMaterialLabelImportantW100,  IconMaterialLabelW100,  IconMaterialLabsW100,  IconMaterialLanW100,  IconMaterialLabelOffW100,  IconMaterialLandscapeW100,  IconMaterialLandslideW100,  IconMaterialLanguageChineseArrayW100,  IconMaterialLanguageChineseCangjieW100,  IconMaterialLanguageChineseDayiW100,  IconMaterialLanguageChinesePinyinW100,  IconMaterialLanguageChineseQuickW100,  IconMaterialLanguageChineseWubiW100,  IconMaterialLanguageFrenchW100,  IconMaterialLanguageInternationalW100,  IconMaterialLanguageGbEnglishW100,  IconMaterialLanguageJapaneseKanaW100,  IconMaterialLanguageKoreanLatinW100,  IconMaterialLanguagePinyinW100,  IconMaterialLanguageSpanishW100,  IconMaterialLanguageUsColemakW100,  IconMaterialLanguageUsDvorakW100,  IconMaterialLanguageUsW100,  IconMaterialLanguageW100,  IconMaterialLapsW100,  IconMaterialLaptopChromebookW100,  IconMaterialLaptopMacW100,  IconMaterialLaptopWindowsW100,  IconMaterialLassoSelectW100,  IconMaterialLastPageW100,  IconMaterialLauncherAssistantOffW100,  IconMaterialLauncherAssistantOnW100,  IconMaterialLaundryW100,  IconMaterialLayersClearW100,  IconMaterialLayersW100,  IconMaterialLdaW100,  IconMaterialLeaderboardW100,  IconMaterialLeafSparkW100,  IconMaterialLeakRemoveW100,  IconMaterialLeakAddW100,  IconMaterialLeftClickW100,  IconMaterialLeftPanelCloseW100,  IconMaterialLeftPanelOpenW100,  IconMaterialLegendToggleW100,  IconMaterialLensBlurW100,  IconMaterialLensW100,  IconMaterialLetterSwitchW100,  IconMaterialLibraryAddW100,  IconMaterialLibraryAddCheckW100,  IconMaterialLibraryMusicW100,  IconMaterialLicenseW100,  IconMaterialLiftToTalkW100,  IconMaterialLightGroupW100,  IconMaterialLightModeW100,  IconMaterialLightOffW100,  IconMaterialLightW100,  IconMaterialLightbulbCircleW100,  IconMaterialLightbulbW100,  IconMaterialLightningStandW100,  IconMaterialLineAxisW100,  IconMaterialLineCurveW100,  IconMaterialLibraryBooksW100,  IconMaterialLineEndArrowNotchW100,  IconMaterialLineEndArrowW100,  IconMaterialLineEndCircleW100,  IconMaterialLineEndDiamondW100,  IconMaterialLineEndSquareW100,  IconMaterialLineEndW100,  IconMaterialLineStartArrowNotchW100,  IconMaterialLineStartArrowW100,  IconMaterialLineStartCircleW100,  IconMaterialLineStartDiamondW100,  IconMaterialLineStartSquareW100,  IconMaterialLineStartW100,  IconMaterialLineStyleW100,  IconMaterialLineWeightW100,  IconMaterialLinearScaleW100,  IconMaterialLinkOffW100,  IconMaterialLinkedCameraW100,  IconMaterialLinkW100,  IconMaterialLinkedServicesW100,  IconMaterialLiquorW100,  IconMaterialListAltW100,  IconMaterialListAltAddW100,  IconMaterialListW100,  IconMaterialListsW100,  IconMaterialLiveHelpW100,  IconMaterialLiveTvW100,  IconMaterialLivingW100,  IconMaterialLocalActivityW100,  IconMaterialLocalAtmW100,  IconMaterialLocalCafeW100,  IconMaterialLocalBarW100,  IconMaterialLocalCarWashW100,  IconMaterialLocalConvenienceStoreW100,  IconMaterialLocalDiningW100,  IconMaterialLocalDrinkW100,  IconMaterialLocalFireDepartmentW100,  IconMaterialLocalFloristW100,  IconMaterialLocalGasStationW100,  IconMaterialLocalHospitalW100,  IconMaterialLocalLaundryServiceW100,  IconMaterialLocalLibraryW100,  IconMaterialLocalMallW100,  IconMaterialLocalParkingW100,  IconMaterialLocalPharmacyW100,  IconMaterialLocalPizzaW100,  IconMaterialLocalPoliceW100,  IconMaterialLocalPostOfficeW100,  IconMaterialLocalShippingW100,  IconMaterialLocalSeeW100,  IconMaterialLocalTaxiW100,  IconMaterialLocationAutomationW100,  IconMaterialLocationAwayW100,  IconMaterialLocationChipW100,  IconMaterialLocationCityW100,  IconMaterialLocationDisabledW100,  IconMaterialLocationHomeW100,  IconMaterialLocationOffW100,  IconMaterialLocationOnW100,  IconMaterialLocationSearchingW100,  IconMaterialLockClockW100,  IconMaterialLockOpenRightW100,  IconMaterialLockOpenW100,  IconMaterialLockResetW100,  IconMaterialLockPersonW100,  IconMaterialLockW100,  IconMaterialLogoDevW100,  IconMaterialLoginW100,  IconMaterialLogoutW100,  IconMaterialLooks3W100,  IconMaterialLooks4W100,  IconMaterialLooks5W100,  IconMaterialLooks6W100,  IconMaterialLooksTwoW100,  IconMaterialLooksOneW100,  IconMaterialLooksW100,  IconMaterialLoupeW100,  IconMaterialLowDensityW100,  IconMaterialLowPriorityW100,  IconMaterialLoyaltyW100,  IconMaterialLteMobiledataBadgeW100,  IconMaterialLteMobiledataW100,  IconMaterialLtePlusMobiledataBadgeW100,  IconMaterialLuggageW100,  IconMaterialLtePlusMobiledataW100,  IconMaterialLunchDiningW100,  IconMaterialLyricsW100,  IconMaterialMacroAutoW100,  IconMaterialMacroOffW100,  IconMaterialMagicButtonW100,  IconMaterialMagicExchangeW100,  IconMaterialMagicTetherW100,  IconMaterialMagnificationLargeW100,  IconMaterialMagnificationSmallW100,  IconMaterialMagnifyDockedW100,  IconMaterialMagnifyFullscreenW100,  IconMaterialMailLockW100,  IconMaterialMailW100,  IconMaterialMaleW100,  IconMaterialMan2W100,  IconMaterialMan3W100,  IconMaterialManW100,  IconMaterialMan4W100,  IconMaterialManageAccountsW100,  IconMaterialManageHistoryW100,  IconMaterialManageSearchW100,  IconMaterialMangaW100,  IconMaterialManufacturingW100,  IconMaterialMapW100,  IconMaterialMapsUgcW100,  IconMaterialMarginW100,  IconMaterialMarkAsUnreadW100,  IconMaterialMarkChatReadW100,  IconMaterialMarkChatUnreadW100,  IconMaterialMarkEmailReadW100,  IconMaterialMarkEmailUnreadW100,  IconMaterialMarkUnreadChatAltW100,  IconMaterialMarkdownCopyW100,  IconMaterialMarkdownPasteW100,  IconMaterialMarkdownW100,  IconMaterialMarkunreadMailboxW100,  IconMaterialMaskedTransitionsW100,  IconMaterialMasksW100,  IconMaterialMatchCaseW100,  IconMaterialMatchWordW100,  IconMaterialMatterW100,  IconMaterialMaximizeW100,  IconMaterialMediaBluetoothOffW100,  IconMaterialMeasuringTapeW100,  IconMaterialMediaLinkW100,  IconMaterialMediaBluetoothOnW100,  IconMaterialMediaOutputOffW100,  IconMaterialMediaOutputW100,  IconMaterialMediationW100,  IconMaterialMedicalInformationW100,  IconMaterialMedicalMaskW100,  IconMaterialMedicalServicesW100,  IconMaterialMedicationLiquidW100,  IconMaterialMedicationW100,  IconMaterialMeetingRoomW100,  IconMaterialMemoryAltW100,  IconMaterialMemoryW100,  IconMaterialMenstrualHealthW100,  IconMaterialMenuBookW100,  IconMaterialMenuW100,  IconMaterialMenuOpenW100,  IconMaterialMergeTypeW100,  IconMaterialMetabolismW100,  IconMaterialMfgNestYaleLockW100,  IconMaterialMicDoubleW100,  IconMaterialMicExternalOffW100,  IconMaterialMicExternalOnW100,  IconMaterialMicNoiseCancelHighW100,  IconMaterialMergeW100,  IconMaterialMicNoiseCancelLowW100,  IconMaterialMicNoiseCancelOffW100,  IconMaterialMicOffW100,  IconMaterialMicW100,  IconMaterialMicrobiologyW100,  IconMaterialMicrowaveGenW100,  IconMaterialMicrowaveW100,  IconMaterialMilitaryTechW100,  IconMaterialMimoW100,  IconMaterialMimoDisconnectW100,  IconMaterialMindfulnessW100,  IconMaterialMinimizeW100,  IconMaterialMintmarkW100,  IconMaterialMissedVideoCallW100,  IconMaterialMissingControllerW100,  IconMaterialMinorCrashW100,  IconMaterialMistW100,  IconMaterialMitreW100,  IconMaterialMixtureMedW100,  IconMaterialMmsW100,  IconMaterialMobileFriendlyW100,  IconMaterialMobileOffW100,  IconMaterialMobileScreenShareW100,  IconMaterialMobiledataOffW100,  IconMaterialModeCommentW100,  IconMaterialModeCoolOffW100,  IconMaterialModeCoolW100,  IconMaterialModeDualW100,  IconMaterialModeFanOffW100,  IconMaterialModeFanW100,  IconMaterialModeHeatCoolW100,  IconMaterialModeHeatW100,  IconMaterialModeHeatOffW100,  IconMaterialModeNightW100,  IconMaterialModeOfTravelW100,  IconMaterialModeOffOnW100,  IconMaterialModeStandbyW100,  IconMaterialModelTrainingW100,  IconMaterialMonetizationOnW100,  IconMaterialMoneyOffW100,  IconMaterialMoneyW100,  IconMaterialMonitorHeartW100,  IconMaterialMonitorW100,  IconMaterialMonitorWeightGainW100,  IconMaterialMonitorWeightLossW100,  IconMaterialMonitorWeightW100,  IconMaterialMonitoringW100,  IconMaterialMonochromePhotosW100,  IconMaterialMoodBadW100,  IconMaterialMoodW100,  IconMaterialMopW100,  IconMaterialMoreDownW100,  IconMaterialMoreHorizW100,  IconMaterialMoreUpW100,  IconMaterialMoreTimeW100,  IconMaterialMoreVertW100,  IconMaterialMoreW100,  IconMaterialMosqueW100,  IconMaterialMotionBlurW100,  IconMaterialMotionModeW100,  IconMaterialMotionPhotosAutoW100,  IconMaterialMotionPhotosOffW100,  IconMaterialMotionPhotosOnW100,  IconMaterialMotionPhotosPausedW100,  IconMaterialMotionSensorActiveW100,  IconMaterialMotionSensorAlertW100,  IconMaterialMotionSensorIdleW100,  IconMaterialMotorcycleW100,  IconMaterialMotionSensorUrgentW100,  IconMaterialMouseW100,  IconMaterialMountainFlagW100,  IconMaterialMoveDownW100,  IconMaterialMoveGroupW100,  IconMaterialMoveItemW100,  IconMaterialMoveSelectionDownW100,  IconMaterialMoveLocationW100,  IconMaterialMoveSelectionLeftW100,  IconMaterialMoveSelectionUpW100,  IconMaterialMoveToInboxW100,  IconMaterialMoveSelectionRightW100,  IconMaterialMoveUpW100,  IconMaterialMoveW100,  IconMaterialMovedLocationW100,  IconMaterialMovieEditW100,  IconMaterialMovieFilterW100,  IconMaterialMovieInfoW100,  IconMaterialMovieW100,  IconMaterialMovingBedsW100,  IconMaterialMovingMinistryW100,  IconMaterialMovingW100,  IconMaterialMpW100,  IconMaterialMulticookerW100,  IconMaterialMultilineChartW100,  IconMaterialMultipleStopW100,  IconMaterialMuseumW100,  IconMaterialMusicCastW100,  IconMaterialMusicNoteW100,  IconMaterialMusicOffW100,  IconMaterialMusicVideoW100,  IconMaterialMyLocationW100,  IconMaterialMysteryW100,  IconMaterialNatW100,  IconMaterialNaturePeopleW100,  IconMaterialNatureW100,  IconMaterialNavigateNextW100,  IconMaterialNavigationW100,  IconMaterialNavigateBeforeW100,  IconMaterialNearMeDisabledW100,  IconMaterialNearMeW100,  IconMaterialNearbyOffW100,  IconMaterialNearbyErrorW100,  IconMaterialNearbyW100,  IconMaterialNephrologyW100,  IconMaterialNestAudioW100,  IconMaterialNestCamFloodlightW100,  IconMaterialNestCamIndoorW100,  IconMaterialNestCamIqOutdoorW100,  IconMaterialNestCamIqW100,  IconMaterialNestCamOutdoorW100,  IconMaterialNestCamMagnetMountW100,  IconMaterialNestCamStandW100,  IconMaterialNestCamWallMountW100,  IconMaterialNestCamWiredStandW100,  IconMaterialNestClockFarsightAnalogW100,  IconMaterialNestClockFarsightDigitalW100,  IconMaterialNestConnectW100,  IconMaterialNestDetectW100,  IconMaterialNestDisplayMaxW100,  IconMaterialNestDisplayW100,  IconMaterialNestEcoLeafW100,  IconMaterialNestDoorbellVisitorW100,  IconMaterialNestFoundSavingsW100,  IconMaterialNestFarsightWeatherW100,  IconMaterialNestGaleWifiW100,  IconMaterialNestHeatLinkEW100,  IconMaterialNestHeatLinkGen3W100,  IconMaterialNestHelloDoorbellW100,  IconMaterialNestLocatorTagW100,  IconMaterialNestMiniW100,  IconMaterialNestMultiRoomW100,  IconMaterialNestRemoteComfortSensorW100,  IconMaterialNestRemoteW100,  IconMaterialNestSecureAlarmW100,  IconMaterialNestProtectW100,  IconMaterialNestTagW100,  IconMaterialNestThermostatEEuW100,  IconMaterialNestThermostatGen3W100,  IconMaterialNestSunblockW100,  IconMaterialNestThermostatSensorEuW100,  IconMaterialNestThermostatSensorW100,  IconMaterialNestThermostatW100,  IconMaterialNestThermostatZirconiumEuW100,  IconMaterialNestTrueRadiantW100,  IconMaterialNestWakeOnApproachW100,  IconMaterialNestWakeOnPressW100,  IconMaterialNestWifiGaleW100,  IconMaterialNestWifiMistralW100,  IconMaterialNestWifiPointVentoW100,  IconMaterialNestWifiPointW100,  IconMaterialNestWifiProW100,  IconMaterialNestWifiPro2W100,  IconMaterialNetworkCellW100,  IconMaterialNestWifiRouterW100,  IconMaterialNetworkCheckW100,  IconMaterialNetworkIntelligenceHistoryW100,  IconMaterialNetworkIntelligenceUpdateW100,  IconMaterialNetworkLockedW100,  IconMaterialNetworkManageW100,  IconMaterialNetworkNodeW100,  IconMaterialNetworkPingW100,  IconMaterialNetworkWifi1BarW100,  IconMaterialNetworkWifi1BarLockedW100,  IconMaterialNetworkWifi2BarLockedW100,  IconMaterialNetworkWifi2BarW100,  IconMaterialNetworkWifi3BarW100,  IconMaterialNetworkWifi3BarLockedW100,  IconMaterialNetworkWifiLockedW100,  IconMaterialNetworkWifiW100,  IconMaterialNeurologyW100,  IconMaterialNewLabelW100,  IconMaterialNewReleasesW100,  IconMaterialNewWindowW100,  IconMaterialNewsW100,  IconMaterialNewsmodeW100,  IconMaterialNewspaperW100,  IconMaterialNewsstandW100,  IconMaterialNextPlanW100,  IconMaterialNextWeekW100,  IconMaterialNfcW100,  IconMaterialNightShelterW100,  IconMaterialNightSightAutoOffW100,  IconMaterialNightSightAutoW100,  IconMaterialNightSightMaxW100,  IconMaterialNightlifeW100,  IconMaterialNightlightBadgeW100,  IconMaterialNightlightW100,  IconMaterialNightsStayW100,  IconMaterialNightlightOffW100,  IconMaterialNoAccountsW100,  IconMaterialNoAdultContentW100,  IconMaterialNoBackpackW100,  IconMaterialNoCrashW100,  IconMaterialNoDrinksW100,  IconMaterialNoEncryptionW100,  IconMaterialNoFlashW100,  IconMaterialNoFoodW100,  IconMaterialNoLuggageW100,  IconMaterialNoMealsW100,  IconMaterialNoMeetingRoomW100,  IconMaterialNoPhotographyW100,  IconMaterialNoSimW100,  IconMaterialNoSoundW100,  IconMaterialNoTransferW100,  IconMaterialNoStrollerW100,  IconMaterialNoiseAwareW100,  IconMaterialNoiseControlOffW100,  IconMaterialNoiseControlOnW100,  IconMaterialNordicWalkingW100,  IconMaterialNorthEastW100,  IconMaterialNorthW100,  IconMaterialNorthWestW100,  IconMaterialNotAccessibleW100,  IconMaterialNotAccessibleForwardW100,  IconMaterialNotListedLocationW100,  IconMaterialNotStartedW100,  IconMaterialNoteAddW100,  IconMaterialNoteAltW100,  IconMaterialNoteStackAddW100,  IconMaterialNoteStackW100,  IconMaterialNoteW100,  IconMaterialNotificationAddW100,  IconMaterialNotesW100,  IconMaterialNotificationImportantW100,  IconMaterialNotificationsActiveW100,  IconMaterialNotificationMultipleW100,  IconMaterialNotificationsOffW100,  IconMaterialNotificationsPausedW100,  IconMaterialNotificationsUnreadW100,  IconMaterialNotificationsW100,  IconMaterialNutritionW100,  IconMaterialOdsW100,  IconMaterialOfflineBoltW100,  IconMaterialOdtW100,  IconMaterialOfflinePinW100,  IconMaterialOfflineShareW100,  IconMaterialOilBarrelW100,  IconMaterialNumbersW100,  IconMaterialOnDeviceTrainingW100,  IconMaterialOncologyW100,  IconMaterialOnHubDeviceW100,  IconMaterialOnlinePredictionW100,  IconMaterialOpacityW100,  IconMaterialOpenInBrowserW100,  IconMaterialOnsenW100,  IconMaterialOpenInFullW100,  IconMaterialOpenInNewDownW100,  IconMaterialOpenInNewOffW100,  IconMaterialOpenInNewW100,  IconMaterialOpenInPhoneW100,  IconMaterialOpenJamW100,  IconMaterialOpenWithW100,  IconMaterialOphthalmologyW100,  IconMaterialOralDiseaseW100,  IconMaterialOrderApproveW100,  IconMaterialOrderPlayW100,  IconMaterialOrdersW100,  IconMaterialOrthopedicsW100,  IconMaterialOtherAdmissionW100,  IconMaterialOtherHousesW100,  IconMaterialOutboxAltW100,  IconMaterialOutboxW100,  IconMaterialOutboundW100,  IconMaterialOutdoorGardenW100,  IconMaterialOutdoorGrillW100,  IconMaterialOutgoingMailW100,  IconMaterialOutletW100,  IconMaterialOutpatientMedW100,  IconMaterialOutpatientW100,  IconMaterialOutputCircleW100,  IconMaterialOutputW100,  IconMaterialOvenW100,  IconMaterialOvenGenW100,  IconMaterialOverviewW100,  IconMaterialOverviewKeyW100,  IconMaterialOxygenSaturationW100,  IconMaterialP2pW100,  IconMaterialPaceW100,  IconMaterialPacemakerW100,  IconMaterialPackage2W100,  IconMaterialPackageW100,  IconMaterialPaddingW100,  IconMaterialPageControlW100,  IconMaterialPageInfoW100,  IconMaterialPagelessW100,  IconMaterialPagesW100,  IconMaterialPageviewW100,  IconMaterialPaidW100,  IconMaterialPaletteW100,  IconMaterialPalletW100,  IconMaterialPanToolAltW100,  IconMaterialPanZoomW100,  IconMaterialPanToolW100,  IconMaterialPanoramaFishEyeW100,  IconMaterialPanoramaHorizontalW100,  IconMaterialPanoramaPhotosphereW100,  IconMaterialPanoramaVerticalW100,  IconMaterialPanoramaW100,  IconMaterialPanoramaWideAngleW100,  IconMaterialParaglidingW100,  IconMaterialParkW100,  IconMaterialPartlyCloudyDayW100,  IconMaterialPartlyCloudyNightW100,  IconMaterialPartnerExchangeW100,  IconMaterialPartnerReportsW100,  IconMaterialPartyModeW100,  IconMaterialPasskeyW100,  IconMaterialPasswordW100,  IconMaterialPatientListW100,  IconMaterialPatternW100,  IconMaterialPauseCircleW100,  IconMaterialPausePresentationW100,  IconMaterialPauseW100,  IconMaterialPaymentsW100,  IconMaterialPdfOffW100,  IconMaterialPedalBikeW100,  IconMaterialPediatricsW100,  IconMaterialPenSize1W100,  IconMaterialPenSize2W100,  IconMaterialPenSize3W100,  IconMaterialPenSize4W100,  IconMaterialPenSize5W100,  IconMaterialPendingActionsW100,  IconMaterialPendingW100,  IconMaterialPercentW100,  IconMaterialPentagonW100,  IconMaterialPerformanceMaxW100,  IconMaterialPergolaW100,  IconMaterialPermCameraMicW100,  IconMaterialPermContactCalendarW100,  IconMaterialPermDataSettingW100,  IconMaterialPermDeviceInformationW100,  IconMaterialPermMediaW100,  IconMaterialPermPhoneMsgW100,  IconMaterialPermScanWifiW100,  IconMaterialPerson2W100,  IconMaterialPerson3W100,  IconMaterialPerson4W100,  IconMaterialPersonAddDisabledW100,  IconMaterialPersonAddW100,  IconMaterialPersonAlertW100,  IconMaterialPersonApronW100,  IconMaterialPersonBookW100,  IconMaterialPersonCancelW100,  IconMaterialPersonCelebrateW100,  IconMaterialPersonCheckW100,  IconMaterialPersonEditW100,  IconMaterialPersonFilledW100,  IconMaterialPersonOffW100,  IconMaterialPersonPinW100,  IconMaterialPersonPinCircleW100,  IconMaterialPersonRaisedHandW100,  IconMaterialPersonPlayW100,  IconMaterialPersonRemoveW100,  IconMaterialPersonW100,  IconMaterialPersonSearchW100,  IconMaterialPersonalBagOffW100,  IconMaterialPersonalBagW100,  IconMaterialPersonalBagQuestionW100,  IconMaterialPersonalInjuryW100,  IconMaterialPersonalPlacesW100,  IconMaterialPestControlRodentW100,  IconMaterialPestControlW100,  IconMaterialPetSuppliesW100,  IconMaterialPetsW100,  IconMaterialPhishingW100,  IconMaterialPhoneBluetoothSpeakerW100,  IconMaterialPhoneAndroidW100,  IconMaterialPhoneCallbackW100,  IconMaterialPhoneEnabledW100,  IconMaterialPhoneForwardedW100,  IconMaterialPhoneDisabledW100,  IconMaterialPhoneInTalkW100,  IconMaterialPhoneInTalkWatchfaceIndicatorW100,  IconMaterialPhoneIphoneW100,  IconMaterialPhoneLockedW100,  IconMaterialPhoneMissedW100,  IconMaterialPhonePausedW100,  IconMaterialPhonelinkEraseW100,  IconMaterialPhonelinkOffW100,  IconMaterialPhonelinkLockW100,  IconMaterialPhonelinkRingOffW100,  IconMaterialPhonelinkRingW100,  IconMaterialPhonelinkSetupW100,  IconMaterialPhotoAlbumW100,  IconMaterialPhotoAutoMergeW100,  IconMaterialPhotoCameraBackW100,  IconMaterialPhotoCameraFrontW100,  IconMaterialPhotoCameraW100,  IconMaterialPhotoFilterW100,  IconMaterialPhotoFrameW100,  IconMaterialPhotoLibraryW100,  IconMaterialPhotoPrintsW100,  IconMaterialPhotoSizeSelectLargeW100,  IconMaterialPhotoSizeSelectSmallW100,  IconMaterialPhotoW100,  IconMaterialPhpW100,  IconMaterialPhysicalTherapyW100,  IconMaterialPianoOffW100,  IconMaterialPianoW100,  IconMaterialPictureAsPdfW100,  IconMaterialPictureInPictureAltW100,  IconMaterialPictureInPictureCenterW100,  IconMaterialPictureInPictureLargeW100,  IconMaterialPictureInPictureMobileW100,  IconMaterialPictureInPictureOffW100,  IconMaterialPictureInPictureSmallW100,  IconMaterialPictureInPictureMediumW100,  IconMaterialPieChartW100,  IconMaterialPictureInPictureW100,  IconMaterialPillOffW100,  IconMaterialPillW100,  IconMaterialPinDropW100,  IconMaterialPinEndW100,  IconMaterialPinInvokeW100,  IconMaterialPinW100,  IconMaterialPinchW100,  IconMaterialPinchZoomInW100,  IconMaterialPipExitW100,  IconMaterialPinchZoomOutW100,  IconMaterialPipW100,  IconMaterialPivotTableChartW100,  IconMaterialPixel33xl3aW100,  IconMaterialPlaceItemW100,  IconMaterialPlagiarismW100,  IconMaterialPlannerBannerAdPtW100,  IconMaterialPlannerReviewW100,  IconMaterialPlayArrowW100,  IconMaterialPlayCircleW100,  IconMaterialPlayDisabledW100,  IconMaterialPlayLessonW100,  IconMaterialPlayPauseW100,  IconMaterialPlayForWorkW100,  IconMaterialPlayShapesW100,  IconMaterialPlayingCardsW100,  IconMaterialPlaylistAddCheckCircleW100,  IconMaterialPlaylistAddCheckW100,  IconMaterialPlaylistAddCircleW100,  IconMaterialPlaylistAddW100,  IconMaterialPlaylistPlayW100,  IconMaterialPlaylistRemoveW100,  IconMaterialPlumbingW100,  IconMaterialPodcastsW100,  IconMaterialPodiatryW100,  IconMaterialPodiumW100,  IconMaterialPointOfSaleW100,  IconMaterialPointScanW100,  IconMaterialPolicyW100,  IconMaterialPolylineW100,  IconMaterialPolymerW100,  IconMaterialPoolW100,  IconMaterialPortableWifiOffW100,  IconMaterialPortraitLightingOffW100,  IconMaterialPortraitLightingW100,  IconMaterialPositionBottomLeftW100,  IconMaterialPositionBottomRightW100,  IconMaterialPositionTopRightW100,  IconMaterialPostAddW100,  IconMaterialPostW100,  IconMaterialPottedPlantW100,  IconMaterialPowerOffW100,  IconMaterialPowerInputW100,  IconMaterialPowerRoundedW100,  IconMaterialPowerW100,  IconMaterialPowerSettingsNewW100,  IconMaterialPrayerTimesW100,  IconMaterialPrecisionManufacturingW100,  IconMaterialPregnancyW100,  IconMaterialPregnantWomanW100,  IconMaterialPrescriptionsW100,  IconMaterialPreliminaryW100,  IconMaterialPresentToAllW100,  IconMaterialPreviewOffW100,  IconMaterialPreviewW100,  IconMaterialPriceChangeW100,  IconMaterialPrintAddW100,  IconMaterialPriceCheckW100,  IconMaterialPrintDisabledW100,  IconMaterialPrintErrorW100,  IconMaterialPrintConnectW100,  IconMaterialPrintLockW100,  IconMaterialPrintW100,  IconMaterialPriorityHighW100,  IconMaterialPriorityW100,  IconMaterialPrivacyScreenOffW100,  IconMaterialPrivacyScreenW100,  IconMaterialPrivacyW100,  IconMaterialPrivacyTipW100,  IconMaterialPrivateConnectivityW100,  IconMaterialProblemW100,  IconMaterialProcedureW100,  IconMaterialProcessChartW100,  IconMaterialProductionQuantityLimitsW100,  IconMaterialProductivityW100,  IconMaterialProgressActivityW100,  IconMaterialPromptSuggestionW100,  IconMaterialPropaneTankW100,  IconMaterialPropaneW100,  IconMaterialPsychiatryW100,  IconMaterialPsychologyAltW100,  IconMaterialPsychologyW100,  IconMaterialPublicOffW100,  IconMaterialPublishW100,  IconMaterialPublicW100,  IconMaterialPublishedWithChangesW100,  IconMaterialPulmonologyW100,  IconMaterialPulseAlertW100,  IconMaterialPunchClockW100,  IconMaterialPushPinW100,  IconMaterialQrCode2AddW100,  IconMaterialQrCode2W100,  IconMaterialQrCodeScannerW100,  IconMaterialQrCodeW100,  IconMaterialQueryStatsW100,  IconMaterialQuestionExchangeW100,  IconMaterialQuestionMarkW100,  IconMaterialQueuePlayNextW100,  IconMaterialQueueMusicW100,  IconMaterialQuickPhrasesW100,  IconMaterialQuickReferenceW100,  IconMaterialQuickReorderW100,  IconMaterialQuickReferenceAllW100,  IconMaterialQuickreplyW100,  IconMaterialQuietTimeActiveW100,  IconMaterialQuietTimeW100,  IconMaterialQuizW100,  IconMaterialRMobiledataW100,  IconMaterialRadarW100,  IconMaterialRadioButtonCheckedW100,  IconMaterialRadioButtonPartialW100,  IconMaterialRadioButtonUncheckedW100,  IconMaterialRadioW100,  IconMaterialRadiologyW100,  IconMaterialRailwayAlertW100,  IconMaterialRainyHeavyW100,  IconMaterialRainyLightW100,  IconMaterialRainySnowW100,  IconMaterialRainyW100,  IconMaterialRamenDiningW100,  IconMaterialRampLeftW100,  IconMaterialRampRightW100,  IconMaterialRangeHoodW100,  IconMaterialRateReviewW100,  IconMaterialRavenW100,  IconMaterialRawOffW100,  IconMaterialReadMoreW100,  IconMaterialReadinessScoreW100,  IconMaterialRawOnW100,  IconMaterialRealEstateAgentW100,  IconMaterialRearCameraW100,  IconMaterialRebaseEditW100,  IconMaterialRebaseW100,  IconMaterialReceiptW100,  IconMaterialReceiptLongW100,  IconMaterialRecentActorsW100,  IconMaterialRecentPatientW100,  IconMaterialRecommendW100,  IconMaterialRecordVoiceOverW100,  IconMaterialRectangleW100,  IconMaterialRecyclingW100,  IconMaterialRedeemW100,  IconMaterialRedoW100,  IconMaterialReduceCapacityW100,  IconMaterialRefreshW100,  IconMaterialRegularExpressionW100,  IconMaterialRelaxW100,  IconMaterialReleaseAlertW100,  IconMaterialRememberMeW100,  IconMaterialReminderW100,  IconMaterialRemoteGenW100,  IconMaterialRemoveDoneW100,  IconMaterialRemoveFromQueueW100,  IconMaterialRemoveModeratorW100,  IconMaterialRemoveRoadW100,  IconMaterialRemoveSelectionW100,  IconMaterialRemoveShoppingCartW100,  IconMaterialRemoveW100,  IconMaterialReopenWindowW100,  IconMaterialReorderW100,  IconMaterialRepartitionW100,  IconMaterialRepeatOnW100,  IconMaterialRepeatOneOnW100,  IconMaterialRepeatOneW100,  IconMaterialRepeatW100,  IconMaterialReplay10W100,  IconMaterialReplay30W100,  IconMaterialReplay5W100,  IconMaterialReplayW100,  IconMaterialReplyAllW100,  IconMaterialReplyW100,  IconMaterialReplayCircleFilledW100,  IconMaterialReportOffW100,  IconMaterialReportW100,  IconMaterialRequestPageW100,  IconMaterialRequestQuoteW100,  IconMaterialResetImageW100,  IconMaterialResetTvW100,  IconMaterialResetWrenchW100,  IconMaterialResizeW100,  IconMaterialRespiratoryRateW100,  IconMaterialResponsiveLayoutW100,  IconMaterialRestartAltW100,  IconMaterialRestaurantMenuW100,  IconMaterialRestaurantW100,  IconMaterialRestoreFromTrashW100,  IconMaterialRestorePageW100,  IconMaterialResumeW100,  IconMaterialReviewsW100,  IconMaterialRewardedAdsW100,  IconMaterialRheumatologyW100,  IconMaterialRibCageW100,  IconMaterialRiceBowlW100,  IconMaterialRightClickW100,  IconMaterialRightPanelCloseW100,  IconMaterialRightPanelOpenW100,  IconMaterialRingVolumeW100,  IconMaterialRipplesW100,  IconMaterialRobot2W100,  IconMaterialRobotW100,  IconMaterialRocketLaunchW100,  IconMaterialRocketW100,  IconMaterialRollerShadesClosedW100,  IconMaterialRollerShadesW100,  IconMaterialRollerSkatingW100,  IconMaterialRoofingW100,  IconMaterialRoomPreferencesW100,  IconMaterialRoomServiceW100,  IconMaterialRotate90DegreesCcwW100,  IconMaterialRotateLeftW100,  IconMaterialRotate90DegreesCwW100,  IconMaterialRotateRightW100,  IconMaterialRoundaboutLeftW100,  IconMaterialRoundaboutRightW100,  IconMaterialRoundedCornerW100,  IconMaterialRouteW100,  IconMaterialRouterW100,  IconMaterialRoutineW100,  IconMaterialRowingW100,  IconMaterialRssFeedW100,  IconMaterialRsvpW100,  IconMaterialRttW100,  IconMaterialRubricW100,  IconMaterialRuleFolderW100,  IconMaterialRuleSettingsW100,  IconMaterialRunCircleW100,  IconMaterialRunningWithErrorsW100,  IconMaterialRuleW100,  IconMaterialRvHookupW100,  IconMaterialSadTabW100,  IconMaterialSafetyCheckOffW100,  IconMaterialSafetyCheckW100,  IconMaterialSafetyDividerW100,  IconMaterialSailingW100,  IconMaterialSalinityW100,  IconMaterialSanitizerW100,  IconMaterialSatelliteAltW100,  IconMaterialSatelliteW100,  IconMaterialSaunaW100,  IconMaterialSaveAsW100,  IconMaterialSaveW100,  IconMaterialSavedSearchW100,  IconMaterialSavingsW100,  IconMaterialScaleW100,  IconMaterialScanDeleteW100,  IconMaterialScanW100,  IconMaterialScannerW100,  IconMaterialScatterPlotW100,  IconMaterialSceneW100,  IconMaterialScheduleSendW100,  IconMaterialScheduleW100,  IconMaterialSchemaW100,  IconMaterialSchoolW100,  IconMaterialScienceW100,  IconMaterialScoreW100,  IconMaterialScoreboardW100,  IconMaterialScienceOffW100,  IconMaterialScreenLockLandscapeW100,  IconMaterialScreenLockPortraitW100,  IconMaterialScreenLockRotationW100,  IconMaterialScreenRecordW100,  IconMaterialScreenRotationAltW100,  IconMaterialScreenRotationUpW100,  IconMaterialScreenSearchDesktopW100,  IconMaterialScreenRotationW100,  IconMaterialScreenShareW100,  IconMaterialScreencastW100,  IconMaterialScreenshotFrameW100,  IconMaterialScreenshotKeyboardW100,  IconMaterialScreenshotMonitorW100,  IconMaterialScreenshotRegionW100,  IconMaterialScreenshotTabletW100,  IconMaterialScreenshotW100,  IconMaterialScrollableHeaderW100,  IconMaterialScubaDivingW100,  IconMaterialSdCardAlertW100,  IconMaterialSdW100,  IconMaterialSdCardW100,  IconMaterialSdkW100,  IconMaterialSearchCheckW100,  IconMaterialSearchHandsFreeW100,  IconMaterialSearchOffW100,  IconMaterialSearchW100,  IconMaterialSecurityKeyW100,  IconMaterialSecurityUpdateGoodW100,  IconMaterialSecurityUpdateWarningW100,  IconMaterialSecurityW100,  IconMaterialSegmentW100,  IconMaterialSelectAllW100,  IconMaterialSelectCheckBoxW100,  IconMaterialSelectToSpeakW100,  IconMaterialSelectW100,  IconMaterialSelectWindowOffW100,  IconMaterialSelectWindowW100,  IconMaterialSelfCareW100,  IconMaterialSelfImprovementW100,  IconMaterialSellW100,  IconMaterialSendAndArchiveW100,  IconMaterialSendMoneyW100,  IconMaterialSendTimeExtensionW100,  IconMaterialSendW100,  IconMaterialSendToMobileW100,  IconMaterialSensorDoorW100,  IconMaterialSensorOccupiedW100,  IconMaterialSensorWindowW100,  IconMaterialSensorsKrxOffW100,  IconMaterialSensorsKrxW100,  IconMaterialSensorsOffW100,  IconMaterialSensorsW100,  IconMaterialSentimentCalmW100,  IconMaterialSentimentContentW100,  IconMaterialSentimentDissatisfiedW100,  IconMaterialSentimentExtremelyDissatisfiedW100,  IconMaterialSentimentFrustratedW100,  IconMaterialSentimentNeutralW100,  IconMaterialSentimentSadW100,  IconMaterialSentimentSatisfiedW100,  IconMaterialSentimentStressedW100,  IconMaterialSentimentExcitedW100,  IconMaterialSentimentVerySatisfiedW100,  IconMaterialSentimentVeryDissatisfiedW100,  IconMaterialSentimentWorriedW100,  IconMaterialServiceToolboxW100,  IconMaterialSetMealW100,  IconMaterialSettingsAccessibilityW100,  IconMaterialSettingsAccountBoxW100,  IconMaterialSettingsAlertW100,  IconMaterialSettingsApplicationsW100,  IconMaterialSettingsBRollW100,  IconMaterialSettingsBackupRestoreW100,  IconMaterialSettingsBluetoothW100,  IconMaterialSettingsBrightnessW100,  IconMaterialSettingsCellW100,  IconMaterialSettingsCinematicBlurW100,  IconMaterialSettingsEthernetW100,  IconMaterialSettingsHeartW100,  IconMaterialSettingsInputAntennaW100,  IconMaterialSettingsInputComponentW100,  IconMaterialSettingsInputHdmiW100,  IconMaterialSettingsInputSvideoW100,  IconMaterialSettingsMotionModeW100,  IconMaterialSettingsNightSightW100,  IconMaterialSettingsOverscanW100,  IconMaterialSettingsPanoramaW100,  IconMaterialSettingsPhoneW100,  IconMaterialSettingsPhotoCameraW100,  IconMaterialSettingsPowerW100,  IconMaterialSettingsSlowMotionW100,  IconMaterialSettingsRemoteW100,  IconMaterialSettingsSuggestW100,  IconMaterialSettingsSystemDaydreamW100,  IconMaterialSettingsTimelapseW100,  IconMaterialSettingsVideoCameraW100,  IconMaterialSettingsVoiceW100,  IconMaterialSettopComponentW100,  IconMaterialSettingsW100,  IconMaterialSevereColdW100,  IconMaterialShadowAddW100,  IconMaterialShadowMinusW100,  IconMaterialShadowW100,  IconMaterialShapeLineW100,  IconMaterialShapesW100,  IconMaterialShareLocationW100,  IconMaterialShareOffW100,  IconMaterialShareReviewsW100,  IconMaterialShareW100,  IconMaterialShareWindowsW100,  IconMaterialSheetsRtlW100,  IconMaterialShelfAutoHideW100,  IconMaterialShelfPositionW100,  IconMaterialShelvesW100,  IconMaterialShieldLockW100,  IconMaterialShieldLockedW100,  IconMaterialShieldPersonW100,  IconMaterialShieldQuestionW100,  IconMaterialShieldSparkW100,  IconMaterialShieldW100,  IconMaterialShieldMoonW100,  IconMaterialShieldWithHeartW100,  IconMaterialShieldWithHouseW100,  IconMaterialShiftW100,  IconMaterialShiftLockW100,  IconMaterialShopTwoW100,  IconMaterialShopW100,  IconMaterialShoppingBagW100,  IconMaterialShoppingBasketW100,  IconMaterialShoppingCartCheckoutW100,  IconMaterialShoppingCartOffW100,  IconMaterialShoppingCartW100,  IconMaterialShoppingmodeW100,  IconMaterialShortStayW100,  IconMaterialShortTextW100,  IconMaterialShowChartW100,  IconMaterialShowerW100,  IconMaterialShuffleOnW100,  IconMaterialShuffleW100,  IconMaterialShutterSpeedAddW100,  IconMaterialShutterSpeedMinusW100,  IconMaterialShutterSpeedW100,  IconMaterialSickW100,  IconMaterialSideNavigationW100,  IconMaterialSignLanguageW100,  IconMaterialSignalCellular0BarW100,  IconMaterialSignalCellular1BarW100,  IconMaterialSignalCellular2BarW100,  IconMaterialSignalCellular3BarW100,  IconMaterialSignalCellular4BarW100,  IconMaterialSignalCellularAddW100,  IconMaterialSignalCellularAlt2BarW100,  IconMaterialSignalCellularAlt1BarW100,  IconMaterialSignalCellularAltW100,  IconMaterialSignalCellularConnectedNoInternet0BarW100,  IconMaterialSignalCellularConnectedNoInternet4BarW100,  IconMaterialSignalCellularNodataW100,  IconMaterialSignalCellularOffW100,  IconMaterialSignalCellularPauseW100,  IconMaterialSignalCellularNullW100,  IconMaterialSignalDisconnectedW100,  IconMaterialSignalWifi0BarW100,  IconMaterialSignalWifi4BarW100,  IconMaterialSignalWifiBadW100,  IconMaterialSignalWifiOffW100,  IconMaterialSignalWifiStatusbarNotConnectedW100,  IconMaterialSignalWifiStatusbarNullW100,  IconMaterialSignatureW100,  IconMaterialSignpostW100,  IconMaterialSimCardDownloadW100,  IconMaterialSimCardW100,  IconMaterialSingleBedW100,  IconMaterialSipW100,  IconMaterialSkateboardingW100,  IconMaterialSkeletonW100,  IconMaterialSkilletCooktopW100,  IconMaterialSkilletW100,  IconMaterialSkipNextW100,  IconMaterialSkipPreviousW100,  IconMaterialSleddingW100,  IconMaterialSkullW100,  IconMaterialSleepW100,  IconMaterialSleepScoreW100,  IconMaterialSlideLibraryW100,  IconMaterialSlidersW100,  IconMaterialSlideshowW100,  IconMaterialSlowMotionVideoW100,  IconMaterialSmartButtonW100,  IconMaterialSmartDisplayW100,  IconMaterialSmartOutletW100,  IconMaterialSmartScreenW100,  IconMaterialSmartToyW100,  IconMaterialSmartVentilationW100,  IconMaterialSmartphoneW100,  IconMaterialSmbShareW100,  IconMaterialSmokeFreeW100,  IconMaterialSmokingRoomsW100,  IconMaterialSmsW100,  IconMaterialSmsFailedW100,  IconMaterialSnippetFolderW100,  IconMaterialSnoozeW100,  IconMaterialSnowboardingW100,  IconMaterialSnowingW100,  IconMaterialSnowingHeavyW100,  IconMaterialSnowmobileW100,  IconMaterialSnowshoeingW100,  IconMaterialSocialDistanceW100,  IconMaterialSoapW100,  IconMaterialSocialLeaderboardW100,  IconMaterialSolarPowerW100,  IconMaterialSortByAlphaW100,  IconMaterialSortW100,  IconMaterialSosW100,  IconMaterialSoundDetectionDogBarkingW100,  IconMaterialSoundDetectionGlassBreakW100,  IconMaterialSoundDetectionLoudSoundW100,  IconMaterialSoundSamplerW100,  IconMaterialSoupKitchenW100,  IconMaterialSourceEnvironmentW100,  IconMaterialSourceNotesW100,  IconMaterialSouthAmericaW100,  IconMaterialSouthEastW100,  IconMaterialSouthWestW100,  IconMaterialSouthW100,  IconMaterialSpaW100,  IconMaterialSpaceBarW100,  IconMaterialSpaceDashboardW100,  IconMaterialSpatialAudioOffW100,  IconMaterialSpatialTrackingW100,  IconMaterialSpeakerGroupW100,  IconMaterialSpatialAudioW100,  IconMaterialSpeakerNotesOffW100,  IconMaterialSpeakerNotesW100,  IconMaterialSpeakerPhoneW100,  IconMaterialSpeakerW100,  IconMaterialSpecialCharacterW100,  IconMaterialSpecificGravityW100,  IconMaterialSpeechToTextW100,  IconMaterialSpeedW100,  IconMaterialSpellcheckW100,  IconMaterialSplitscreenAddW100,  IconMaterialSplitscreenBottomW100,  IconMaterialSplitscreenLeftW100,  IconMaterialSplitscreenRightW100,  IconMaterialSplitscreenTopW100,  IconMaterialSplitscreenVerticalAddW100,  IconMaterialSplitscreenW100,  IconMaterialSpo2W100,  IconMaterialSpokeW100,  IconMaterialSpoofW100,  IconMaterialSportsAndOutdoorsW100,  IconMaterialSportsBarW100,  IconMaterialSportsBaseballW100,  IconMaterialSportsBasketballW100,  IconMaterialSportsCricketW100,  IconMaterialSportsEsportsW100,  IconMaterialSportsFootballW100,  IconMaterialSportsGolfW100,  IconMaterialSportsGymnasticsW100,  IconMaterialSportsHandballW100,  IconMaterialSportsHockeyW100,  IconMaterialSportsKabaddiW100,  IconMaterialSportsMartialArtsW100,  IconMaterialSportsMmaW100,  IconMaterialSportsMotorsportsW100,  IconMaterialSportsRugbyW100,  IconMaterialSportsScoreW100,  IconMaterialSportsSoccerW100,  IconMaterialSportsTennisW100,  IconMaterialSportsVolleyballW100,  IconMaterialSportsW100,  IconMaterialSprinklerW100,  IconMaterialSprintW100,  IconMaterialSquareFootW100,  IconMaterialSquareW100,  IconMaterialSsidChartW100,  IconMaterialStackOffW100,  IconMaterialStackW100,  IconMaterialStackStarW100,  IconMaterialStackedBarChartW100,  IconMaterialStackedEmailW100,  IconMaterialStackedInboxW100,  IconMaterialStackedLineChartW100,  IconMaterialStacksW100,  IconMaterialStadiaControllerW100,  IconMaterialStadiumW100,  IconMaterialStairsW100,  IconMaterialStarHalfW100,  IconMaterialStarRateHalfW100,  IconMaterialStarW100,  IconMaterialStarsW100,  IconMaterialStarRateW100,  IconMaterialStartW100,  IconMaterialStat0W100,  IconMaterialStat2W100,  IconMaterialStatMinus1W100,  IconMaterialStat3W100,  IconMaterialStatMinus2W100,  IconMaterialStatMinus3W100,  IconMaterialStayCurrentLandscapeW100,  IconMaterialStayCurrentPortraitW100,  IconMaterialStayPrimaryLandscapeW100,  IconMaterialStayPrimaryPortraitW100,  IconMaterialStepIntoW100,  IconMaterialStepOutW100,  IconMaterialStepOverW100,  IconMaterialSteppersW100,  IconMaterialStat1W100,  IconMaterialStepW100,  IconMaterialStepsW100,  IconMaterialStethoscopeArrowW100,  IconMaterialStethoscopeW100,  IconMaterialStethoscopeCheckW100,  IconMaterialStickyNoteW100,  IconMaterialStickyNote2W100,  IconMaterialStockMediaW100,  IconMaterialStockpotW100,  IconMaterialStopCircleW100,  IconMaterialStopScreenShareW100,  IconMaterialStopW100,  IconMaterialStorageW100,  IconMaterialStoreW100,  IconMaterialStorefrontW100,  IconMaterialStormW100,  IconMaterialStraightW100,  IconMaterialStrategyW100,  IconMaterialStraightenW100,  IconMaterialStreamAppsW100,  IconMaterialStreamW100,  IconMaterialStreetviewW100,  IconMaterialStressManagementW100,  IconMaterialStrikethroughSW100,  IconMaterialStrokeFullW100,  IconMaterialStrokePartialW100,  IconMaterialStrollerW100,  IconMaterialStyleW100,  IconMaterialStylerW100,  IconMaterialStylusLaserPointerW100,  IconMaterialStylusNoteW100,  IconMaterialStylusW100,  IconMaterialSubdirectoryArrowLeftW100,  IconMaterialSubdirectoryArrowRightW100,  IconMaterialSubheaderW100,  IconMaterialSubscriptW100,  IconMaterialSubscriptionsW100,  IconMaterialSubjectW100,  IconMaterialSubtitlesOffW100,  IconMaterialSubtitlesW100,  IconMaterialSubwayW100,  IconMaterialSummarizeW100,  IconMaterialSunnySnowingW100,  IconMaterialSunnyW100,  IconMaterialSuperscriptW100,  IconMaterialSupervisedUserCircleOffW100,  IconMaterialSupervisedUserCircleW100,  IconMaterialSupervisorAccountW100,  IconMaterialSupportAgentW100,  IconMaterialSupportW100,  IconMaterialSurfingW100,  IconMaterialSurgicalW100,  IconMaterialSwapCallsW100,  IconMaterialSurroundSoundW100,  IconMaterialSwapDrivingAppsW100,  IconMaterialSwapDrivingAppsWheelW100,  IconMaterialSwapHorizW100,  IconMaterialSwapHorizontalCircleW100,  IconMaterialSwapVertW100,  IconMaterialSwapVerticalCircleW100,  IconMaterialSweepW100,  IconMaterialSwipeDownAltW100,  IconMaterialSwipeDownW100,  IconMaterialSwipeLeftAltW100,  IconMaterialSwipeLeftW100,  IconMaterialSwipeRightAltW100,  IconMaterialSwipeRightW100,  IconMaterialSwipeUpAltW100,  IconMaterialSwipeUpW100,  IconMaterialSwipeVerticalW100,  IconMaterialSwipeW100,  IconMaterialSwitchAccess2W100,  IconMaterialSwitchAccessShortcutW100,  IconMaterialSwitchAccessShortcutAddW100,  IconMaterialSwitchAccountW100,  IconMaterialSwitchAccessW100,  IconMaterialSwitchCameraW100,  IconMaterialSwitchLeftW100,  IconMaterialSwitchRightW100,  IconMaterialSwitchW100,  IconMaterialSwitchesW100,  IconMaterialSwitchVideoW100,  IconMaterialSwordsW100,  IconMaterialSwordRoseW100,  IconMaterialSymptomsW100,  IconMaterialSynagogueW100,  IconMaterialSyncAltW100,  IconMaterialSyncDisabledW100,  IconMaterialSyncLockW100,  IconMaterialSyncProblemW100,  IconMaterialSyncSavedLocallyW100,  IconMaterialSyncW100,  IconMaterialSyringeW100,  IconMaterialSystemUpdateAltW100,  IconMaterialSystemUpdateW100,  IconMaterialTabCloseRightW100,  IconMaterialTabCloseW100,  IconMaterialTabDuplicateW100,  IconMaterialTabGroupW100,  IconMaterialTabMoveW100,  IconMaterialTabRecentW100,  IconMaterialTabNewRightW100,  IconMaterialTabUnselectedW100,  IconMaterialTabW100,  IconMaterialTableBarW100,  IconMaterialTableChartViewW100,  IconMaterialTableChartW100,  IconMaterialTableLampW100,  IconMaterialTableRestaurantW100,  IconMaterialTableRowsNarrowW100,  IconMaterialTableRowsW100,  IconMaterialTableViewW100,  IconMaterialTableW100,  IconMaterialTabletAndroidW100,  IconMaterialTabletMacW100,  IconMaterialTabletW100,  IconMaterialTabsW100,  IconMaterialTacticW100,  IconMaterialTagW100,  IconMaterialTakeoutDiningW100,  IconMaterialTamperDetectionOffW100,  IconMaterialTamperDetectionOnW100,  IconMaterialTapAndPlayW100,  IconMaterialTapasW100,  IconMaterialTargetW100,  IconMaterialTaskAltW100,  IconMaterialTaskW100,  IconMaterialTauntW100,  IconMaterialTaxiAlertW100,  IconMaterialTeamDashboardW100,  IconMaterialTempPreferencesCustomW100,  IconMaterialTempPreferencesEcoW100,  IconMaterialTempleBuddhistW100,  IconMaterialTempleHinduW100,  IconMaterialTenancyW100,  IconMaterialTerminalW100,  IconMaterialTextAdW100,  IconMaterialTextDecreaseW100,  IconMaterialTextFieldsW100,  IconMaterialTextFieldsAltW100,  IconMaterialTextIncreaseW100,  IconMaterialTextRotateUpW100,  IconMaterialTextFormatW100,  IconMaterialTextRotateVerticalW100,  IconMaterialTextRotationAngleupW100,  IconMaterialTextRotationAngledownW100,  IconMaterialTextRotationDownW100,  IconMaterialTextRotationNoneW100,  IconMaterialTextSelectEndW100,  IconMaterialTextSelectJumpToBeginningW100,  IconMaterialTextSelectMoveBackCharacterW100,  IconMaterialTextSelectJumpToEndW100,  IconMaterialTextSelectMoveBackWordW100,  IconMaterialTextSelectMoveDownW100,  IconMaterialTextSelectMoveForwardCharacterW100,  IconMaterialTextSelectMoveForwardWordW100,  IconMaterialTextSelectMoveUpW100,  IconMaterialTextSelectStartW100,  IconMaterialTextToSpeechW100,  IconMaterialTextSnippetW100,  IconMaterialTextureAddW100,  IconMaterialTextureMinusW100,  IconMaterialTextureW100,  IconMaterialTheaterComedyW100,  IconMaterialTheatersW100,  IconMaterialThermometerAddW100,  IconMaterialThermometerGainW100,  IconMaterialThermometerLossW100,  IconMaterialThermometerMinusW100,  IconMaterialThermometerW100,  IconMaterialThermostatAutoW100,  IconMaterialThermostatCarbonW100,  IconMaterialThermostatW100,  IconMaterialThreadUnreadW100,  IconMaterialThingsToDoW100,  IconMaterialThumbDownOffW100,  IconMaterialThumbDownW100,  IconMaterialThumbUpOffW100,  IconMaterialThumbUpW100,  IconMaterialThumbnailBarW100,  IconMaterialThumbsUpDownW100,  IconMaterialThunderstormW100,  IconMaterialTibiaAltW100,  IconMaterialTibiaW100,  IconMaterialTimelapseW100,  IconMaterialTimeAutoW100,  IconMaterialTimer10Alt1W100,  IconMaterialTimelineW100,  IconMaterialTimer10SelectW100,  IconMaterialTimer10W100,  IconMaterialTimer3Alt1W100,  IconMaterialTimer3SelectW100,  IconMaterialTimer3W100,  IconMaterialTimerOffW100,  IconMaterialTimerW100,  IconMaterialTipsAndUpdatesW100,  IconMaterialTireRepairW100,  IconMaterialTitleW100,  IconMaterialTocW100,  IconMaterialToastW100,  IconMaterialTodayW100,  IconMaterialToggleOffW100,  IconMaterialToggleOnW100,  IconMaterialTokenW100,  IconMaterialTollW100,  IconMaterialTonalityW100,  IconMaterialToolbarW100,  IconMaterialToolsFlatHeadW100,  IconMaterialToolsLadderW100,  IconMaterialToolsInstallationKitW100,  IconMaterialToolsLevelW100,  IconMaterialToolsPhillipsW100,  IconMaterialToolsPliersWireStripperW100,  IconMaterialToolsPowerDrillW100,  IconMaterialToolsWrenchW100,  IconMaterialTooltipW100,  IconMaterialTopPanelCloseW100,  IconMaterialTopPanelOpenW100,  IconMaterialTopicW100,  IconMaterialTornadoW100,  IconMaterialTouchAppW100,  IconMaterialTotalDissolvedSolidsW100,  IconMaterialTouchpadMouseW100,  IconMaterialTourW100,  IconMaterialToysAndGamesW100,  IconMaterialToysW100,  IconMaterialToysFanW100,  IconMaterialTrackChangesW100,  IconMaterialTrafficW100,  IconMaterialTrailLengthMediumW100,  IconMaterialTrailLengthShortW100,  IconMaterialTrailLengthW100,  IconMaterialTrainW100,  IconMaterialTramW100,  IconMaterialTranscribeW100,  IconMaterialTransformW100,  IconMaterialTransferWithinAStationW100,  IconMaterialTransgenderW100,  IconMaterialTransitEnterexitW100,  IconMaterialTransitionChopW100,  IconMaterialTransitionDissolveW100,  IconMaterialTransitionFadeW100,  IconMaterialTransitionPushW100,  IconMaterialTransitionSlideW100,  IconMaterialTranslateW100,  IconMaterialTransportationW100,  IconMaterialTravelExploreW100,  IconMaterialTravelLuggageAndBagsW100,  IconMaterialTravelW100,  IconMaterialTrendingDownW100,  IconMaterialTrendingFlatW100,  IconMaterialTrendingUpW100,  IconMaterialTripOriginW100,  IconMaterialTripW100,  IconMaterialTrolleyW100,  IconMaterialTrophyW100,  IconMaterialTroubleshootW100,  IconMaterialTsunamiW100,  IconMaterialTsvW100,  IconMaterialTtyW100,  IconMaterialTurnRightW100,  IconMaterialTuneW100,  IconMaterialTurnSharpLeftW100,  IconMaterialTurnLeftW100,  IconMaterialTurnSharpRightW100,  IconMaterialTurnSlightLeftW100,  IconMaterialTurnSlightRightW100,  IconMaterialTvGenW100,  IconMaterialTvGuideW100,  IconMaterialTvOffW100,  IconMaterialTvOptionsEditChannelsW100,  IconMaterialTvOptionsInputSettingsW100,  IconMaterialTvRemoteW100,  IconMaterialTvW100,  IconMaterialTvSigninW100,  IconMaterialTvWithAssistantW100,  IconMaterialTwoPagerW100,  IconMaterialTwoWheelerW100,  IconMaterialTypeSpecimenW100,  IconMaterialUTurnLeftW100,  IconMaterialUTurnRightW100,  IconMaterialUlnaRadiusW100,  IconMaterialUmbrellaW100,  IconMaterialUnarchiveW100,  IconMaterialUndoW100,  IconMaterialUlnaRadiusAltW100,  IconMaterialUnfloatPortraitW100,  IconMaterialUnfloatLandscapeW100,  IconMaterialUnfoldLessDoubleW100,  IconMaterialUnfoldLessW100,  IconMaterialUnfoldMoreDoubleW100,  IconMaterialUnfoldMoreW100,  IconMaterialUniversalCurrencyAltW100,  IconMaterialUngroupW100,  IconMaterialUniversalCurrencyW100,  IconMaterialUniversalLocalW100,  IconMaterialUnknown2W100,  IconMaterialUnknown5W100,  IconMaterialUnknownDocumentW100,  IconMaterialUnknownMedW100,  IconMaterialUnlicenseW100,  IconMaterialUnpublishedW100,  IconMaterialUnsubscribeW100,  IconMaterialUpcomingW100,  IconMaterialUpdateDisabledW100,  IconMaterialUpdateW100,  IconMaterialUpload2W100,  IconMaterialUpgradeW100,  IconMaterialUploadFileW100,  IconMaterialUploadW100,  IconMaterialUrologyW100,  IconMaterialUsbOffW100,  IconMaterialUsbW100,  IconMaterialUserAttributesW100,  IconMaterialVacuumW100,  IconMaterialVaccinesW100,  IconMaterialValveW100,  IconMaterialVapeFreeW100,  IconMaterialVariableAddW100,  IconMaterialVariableInsertW100,  IconMaterialVapingRoomsW100,  IconMaterialVariableRemoveW100,  IconMaterialVariablesW100,  IconMaterialVentilatorW100,  IconMaterialVerifiedUserW100,  IconMaterialVerifiedW100,  IconMaterialVerticalAlignBottomW100,  IconMaterialVerticalAlignCenterW100,  IconMaterialVerticalAlignTopW100,  IconMaterialVerticalDistributeW100,  IconMaterialVerticalShadesClosedW100,  IconMaterialVerticalShadesW100,  IconMaterialVerticalSplitW100,  IconMaterialVideoCallW100,  IconMaterialVideoCameraBackW100,  IconMaterialVideoCameraFrontW100,  IconMaterialVideoChatW100,  IconMaterialVideoCameraFrontOffW100,  IconMaterialVibrationW100,  IconMaterialVideoFileW100,  IconMaterialVideoLabelW100,  IconMaterialVideoLibraryW100,  IconMaterialVideoSearchW100,  IconMaterialVideoSettingsW100,  IconMaterialVideoStableW100,  IconMaterialVideocamOffW100,  IconMaterialVideocamW100,  IconMaterialVideogameAssetOffW100,  IconMaterialVideogameAssetW100,  IconMaterialViewAgendaW100,  IconMaterialViewArrayW100,  IconMaterialViewCarouselW100,  IconMaterialViewColumn2W100,  IconMaterialViewColumnW100,  IconMaterialViewComfyAltW100,  IconMaterialViewComfyW100,  IconMaterialViewCompactAltW100,  IconMaterialViewCompactW100,  IconMaterialViewCozyW100,  IconMaterialViewDayW100,  IconMaterialViewHeadlineW100,  IconMaterialViewInArNewW100,  IconMaterialViewInArW100,  IconMaterialViewInArOffW100,  IconMaterialViewKanbanW100,  IconMaterialViewListW100,  IconMaterialViewModuleW100,  IconMaterialViewQuiltW100,  IconMaterialViewSidebarW100,  IconMaterialViewStreamW100,  IconMaterialViewTimelineW100,  IconMaterialViewWeekW100,  IconMaterialVignetteW100,  IconMaterialVillaW100,  IconMaterialVisibilityLockW100,  IconMaterialVisibilityOffW100,  IconMaterialVisibilityW100,  IconMaterialVitalSignsW100,  IconMaterialVitalsW100,  IconMaterialVoiceChatW100,  IconMaterialVoiceOverOffW100,  IconMaterialVoiceSelectionW100,  IconMaterialVoicemailW100,  IconMaterialVolcanoW100,  IconMaterialVolumeDownAltW100,  IconMaterialVolumeDownW100,  IconMaterialVolumeMuteW100,  IconMaterialVolumeOffW100,  IconMaterialVolumeUpW100,  IconMaterialVolunteerActivismW100,  IconMaterialVotingChipW100,  IconMaterialVpnKeyAlertW100,  IconMaterialVpnKeyOffW100,  IconMaterialVpnLockW100,  IconMaterialVpnKeyW100,  IconMaterialVr180Create2dOffW100,  IconMaterialVr180Create2dW100,  IconMaterialVrpanoW100,  IconMaterialWallArtW100,  IconMaterialWallLampW100,  IconMaterialWalletW100,  IconMaterialWallpaperSlideshowW100,  IconMaterialWallpaperW100,  IconMaterialWardW100,  IconMaterialWarehouseW100,  IconMaterialWarningW100,  IconMaterialWarningOffW100,  IconMaterialWatchButtonPressW100,  IconMaterialWashW100,  IconMaterialWatchOffW100,  IconMaterialWatchW100,  IconMaterialWatchWakeW100,  IconMaterialWatchScreentimeW100,  IconMaterialWaterBottleLargeW100,  IconMaterialWaterBottleW100,  IconMaterialWaterDamageW100,  IconMaterialWaterDoW100,  IconMaterialWaterDropW100,  IconMaterialWaterEcW100,  IconMaterialWaterHeaterW100,  IconMaterialWaterFullW100,  IconMaterialWaterLossW100,  IconMaterialWaterLockW100,  IconMaterialWaterLuxW100,  IconMaterialWaterMediumW100,  IconMaterialWaterOrpW100,  IconMaterialWaterPhW100,  IconMaterialWaterPumpW100,  IconMaterialWaterVocW100,  IconMaterialWaterfallChartW100,  IconMaterialWaterW100,  IconMaterialWavesW100,  IconMaterialWavingHandW100,  IconMaterialWbAutoW100,  IconMaterialWbIncandescentW100,  IconMaterialWbIridescentW100,  IconMaterialWbShadeW100,  IconMaterialWbSunnyW100,  IconMaterialWbTwilightW100,  IconMaterialWcW100,  IconMaterialWeatherMixW100,  IconMaterialWeatherHailW100,  IconMaterialWeatherSnowyW100,  IconMaterialWebAssetOffW100,  IconMaterialWebAssetW100,  IconMaterialWebStoriesW100,  IconMaterialWebW100,  IconMaterialWebhookW100,  IconMaterialWeekendW100,  IconMaterialWeightW100,  IconMaterialWestW100,  IconMaterialWhatshotW100,  IconMaterialWheelchairPickupW100,  IconMaterialWhereToVoteW100,  IconMaterialWidgetsW100,  IconMaterialWidthFullW100,  IconMaterialWebTrafficW100,  IconMaterialWidthW100,  IconMaterialWidthWideW100,  IconMaterialWidthNormalW100,  IconMaterialWifi1BarW100,  IconMaterialWifi2BarW100,  IconMaterialWifiAddW100,  IconMaterialWifiCalling1W100,  IconMaterialWifiCalling2W100,  IconMaterialWifiCallingW100,  IconMaterialWifiCalling3W100,  IconMaterialWifiFindW100,  IconMaterialWifiHomeW100,  IconMaterialWifiChannelW100,  IconMaterialWifiLockW100,  IconMaterialWifiNotificationW100,  IconMaterialWifiPasswordW100,  IconMaterialWifiProtectedSetupW100,  IconMaterialWifiOffW100,  IconMaterialWifiProxyW100,  IconMaterialWifiTetheringErrorW100,  IconMaterialWifiTetheringOffW100,  IconMaterialWifiTetheringW100,  IconMaterialWifiW100,  IconMaterialWindPowerW100,  IconMaterialWindowClosedW100,  IconMaterialWindowOpenW100,  IconMaterialWindowSensorW100,  IconMaterialWindowW100,  IconMaterialWineBarW100,  IconMaterialWoman2W100,  IconMaterialWomanW100,  IconMaterialWorkHistoryW100,  IconMaterialWorkAlertW100,  IconMaterialWorkUpdateW100,  IconMaterialWorkW100,  IconMaterialWorkspacePremiumW100,  IconMaterialWorkspacesOutlineW100,  IconMaterialWorkspacesW100,  IconMaterialWoundsInjuriesW100,  IconMaterialWrapTextW100,  IconMaterialWristW100,  IconMaterialWrongLocationW100,  IconMaterialYardW100,  IconMaterialYourTripsW100,  IconMaterialWysiwygW100,  IconMaterialYoutubeActivityW100,  IconMaterialYoutubeSearchedForW100,  IconMaterialZonePersonAlertW100,  IconMaterialZonePersonIdleW100,  IconMaterialZonePersonUrgentW100,  IconMaterialZoomInW100,  IconMaterialZoomInMapW100,  IconMaterialZoomOutMapW100,  IconMaterialZoomOutW100 ];

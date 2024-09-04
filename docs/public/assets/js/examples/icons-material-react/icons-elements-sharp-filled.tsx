@@ -29,6 +29,19 @@ const IconMaterial10mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial10mpFilled.displayName = 'AmauiIconMaterial10mpFilled';
 
 
+const IconMaterial123Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "123Filled",
+    short_name: "123",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5.5 15v-4.5H4V9h3v6ZM9 15v-3.5h3v-1H9V9h4.5v3.5h-3v1h3V15Zm6 0v-1.5h3v-1h-2v-1h2v-1h-3V9h4.5v6Z"
+  }));
+});
+IconMaterial123Filled.displayName = 'AmauiIconMaterial123Filled';
+
+
 const IconMaterial11mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -55,17 +68,17 @@ const IconMaterial12mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial12mpFilled.displayName = 'AmauiIconMaterial12mpFilled';
 
 
-const IconMaterial123Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterial13mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "123Filled",
-    short_name: "123",
+    name: "13mpFilled",
+    short_name: "13mp",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.5 15v-4.5H4V9h3v6ZM9 15v-3.5h3v-1H9V9h4.5v3.5h-3v1h3V15Zm6 0v-1.5h3v-1h-2v-1h2v-1h-3V9h4.5v6Z"
+    d: "M8.5 11.5H10v-6H7V7h1.5Zm3.5 0h4.5v-6H12V7h3v1h-2v1h2v1h-3ZM3 21V3h18v18Zm3-2.5h1.5V14h1v3H10v-3h1v4.5h1.5v-6H6Zm7.5 0H15V17h3v-4.5h-4.5ZM15 14h1.5v1.5H15Z"
   }));
 });
-IconMaterial123Filled.displayName = 'AmauiIconMaterial123Filled';
+IconMaterial13mpFilled.displayName = 'AmauiIconMaterial13mpFilled';
 
 
 const IconMaterial14mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -79,19 +92,6 @@ const IconMaterial14mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterial14mpFilled.displayName = 'AmauiIconMaterial14mpFilled';
-
-
-const IconMaterial13mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "13mpFilled",
-    short_name: "13mp",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8.5 11.5H10v-6H7V7h1.5Zm3.5 0h4.5v-6H12V7h3v1h-2v1h2v1h-3ZM3 21V3h18v18Zm3-2.5h1.5V14h1v3H10v-3h1v4.5h1.5v-6H6Zm7.5 0H15V17h3v-4.5h-4.5ZM15 14h1.5v1.5H15Z"
-  }));
-});
-IconMaterial13mpFilled.displayName = 'AmauiIconMaterial13mpFilled';
 
 
 const IconMaterial15mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -172,19 +172,6 @@ const IconMaterial19mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial19mpFilled.displayName = 'AmauiIconMaterial19mpFilled';
 
 
-const IconMaterial1kPlusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "1kPlusFilled",
-    short_name: "1kPlus",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16.5 14h1v-1.5H19v-1h-1.5V10h-1v1.5H15v1h1.5Zm-6 1H12v-2.25L13.75 15h1.75l-2.25-3 2.25-3h-1.75L12 11.25V9h-1.5Zm-3 0H9V9H6v1.5h1.5ZM3 21V3h18v18Z"
-  }));
-});
-IconMaterial1kPlusFilled.displayName = 'AmauiIconMaterial1kPlusFilled';
-
-
 const IconMaterial1kFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -198,17 +185,30 @@ const IconMaterial1kFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial1kFilled.displayName = 'AmauiIconMaterial1kFilled';
 
 
-const IconMaterial20mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterial1kPlusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "20mpFilled",
-    short_name: "20mp",
+    name: "1kPlusFilled",
+    short_name: "1kPlus",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M14.5 10V7H16v3ZM13 11.5h4.5v-6H13Zm-6.5 0H11V10H8V9h3V5.5H6.5V7h3v1h-3ZM3 21V3h18v18Zm3-2.5h1.5V14h1v3H10v-3h1v4.5h1.5v-6H6Zm7.5 0H15V17h3v-4.5h-4.5ZM15 14h1.5v1.5H15Z"
+    d: "M16.5 14h1v-1.5H19v-1h-1.5V10h-1v1.5H15v1h1.5Zm-6 1H12v-2.25L13.75 15h1.75l-2.25-3 2.25-3h-1.75L12 11.25V9h-1.5Zm-3 0H9V9H6v1.5h1.5ZM3 21V3h18v18Z"
   }));
 });
-IconMaterial20mpFilled.displayName = 'AmauiIconMaterial20mpFilled';
+IconMaterial1kPlusFilled.displayName = 'AmauiIconMaterial1kPlusFilled';
+
+
+const IconMaterial1xMobiledataBadgeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "1xMobiledataBadgeFilled",
+    short_name: "1xMobiledataBadge",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M280 776h80V376H200v80h80v320Zm180 0h80l70-127 70 127h80L650 576l110-200h-80l-70 127-70-127h-80l110 200-110 200ZM40 936V216h880v720H40Z"
+  }));
+});
+IconMaterial1xMobiledataBadgeFilled.displayName = 'AmauiIconMaterial1xMobiledataBadgeFilled';
 
 
 const IconMaterial1xMobiledataFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -224,6 +224,19 @@ const IconMaterial1xMobiledataFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterial1xMobiledataFilled.displayName = 'AmauiIconMaterial1xMobiledataFilled';
 
 
+const IconMaterial20mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "20mpFilled",
+    short_name: "20mp",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M14.5 10V7H16v3ZM13 11.5h4.5v-6H13Zm-6.5 0H11V10H8V9h3V5.5H6.5V7h3v1h-3ZM3 21V3h18v18Zm3-2.5h1.5V14h1v3H10v-3h1v4.5h1.5v-6H6Zm7.5 0H15V17h3v-4.5h-4.5ZM15 14h1.5v1.5H15Z"
+  }));
+});
+IconMaterial20mpFilled.displayName = 'AmauiIconMaterial20mpFilled';
+
+
 const IconMaterial21mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -235,19 +248,6 @@ const IconMaterial21mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterial21mpFilled.displayName = 'AmauiIconMaterial21mpFilled';
-
-
-const IconMaterial1xMobiledataBadgeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "1xMobiledataBadgeFilled",
-    short_name: "1xMobiledataBadge",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M280 776h80V376H200v80h80v320Zm180 0h80l70-127 70 127h80L650 576l110-200h-80l-70 127-70-127h-80l110 200-110 200ZM40 936V216h880v720H40Z"
-  }));
-});
-IconMaterial1xMobiledataBadgeFilled.displayName = 'AmauiIconMaterial1xMobiledataBadgeFilled';
 
 
 const IconMaterial22mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -302,19 +302,6 @@ const IconMaterial2dFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial2dFilled.displayName = 'AmauiIconMaterial2dFilled';
 
 
-const IconMaterial2kPlusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "2kPlusFilled",
-    short_name: "2kPlus",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16.5 14h1v-1.5H19v-1h-1.5V10h-1v1.5H15v1h1.5ZM11 15h1.5v-2.25L14.25 15H16l-2.25-3L16 9h-1.75l-1.75 2.25V9H11Zm-5 0h4v-1.5H7.5v-1H10V9H6v1.5h2.5v1H6Zm-3 6V3h18v18Z"
-  }));
-});
-IconMaterial2kPlusFilled.displayName = 'AmauiIconMaterial2kPlusFilled';
-
-
 const IconMaterial2kFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -326,6 +313,19 @@ const IconMaterial2kFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterial2kFilled.displayName = 'AmauiIconMaterial2kFilled';
+
+
+const IconMaterial2kPlusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "2kPlusFilled",
+    short_name: "2kPlus",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M16.5 14h1v-1.5H19v-1h-1.5V10h-1v1.5H15v1h1.5ZM11 15h1.5v-2.25L14.25 15H16l-2.25-3L16 9h-1.75l-1.75 2.25V9H11Zm-5 0h4v-1.5H7.5v-1H10V9H6v1.5h2.5v1H6Zm-3 6V3h18v18Z"
+  }));
+});
+IconMaterial2kPlusFilled.displayName = 'AmauiIconMaterial2kPlusFilled';
 
 
 const IconMaterial2mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -380,6 +380,19 @@ const IconMaterial360Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial360Filled.displayName = 'AmauiIconMaterial360Filled';
 
 
+const IconMaterial3dRotationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "3dRotationFilled",
+    short_name: "3dRotation",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9.05 2.45q.725-.25 1.462-.35Q11.25 2 12 2q2.075 0 3.9.787 1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12h-2q0-2.875-1.812-5.075-1.813-2.2-4.638-2.775L15 5.6 13.6 7Zm5.9 19.1q-.725.25-1.462.35-.738.1-1.488.1-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12h2q0 2.875 1.812 5.075 1.813 2.2 4.638 2.775L9 18.4l1.4-1.4ZM12.5 15V9h3q.425 0 .712.287.288.288.288.713v4q0 .425-.288.712-.287.288-.712.288Zm1.5-1.5h1v-3h-1ZM7.5 15v-1.5H10v-1H8.5v-1H10v-1H7.5V9h4v6Z"
+  }));
+});
+IconMaterial3dRotationFilled.displayName = 'AmauiIconMaterial3dRotationFilled';
+
+
 const IconMaterial3gMobiledataBadgeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -430,19 +443,6 @@ const IconMaterial3kPlusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterial3kPlusFilled.displayName = 'AmauiIconMaterial3kPlusFilled';
-
-
-const IconMaterial3dRotationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "3dRotationFilled",
-    short_name: "3dRotation",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9.05 2.45q.725-.25 1.462-.35Q11.25 2 12 2q2.075 0 3.9.787 1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12h-2q0-2.875-1.812-5.075-1.813-2.2-4.638-2.775L15 5.6 13.6 7Zm5.9 19.1q-.725.25-1.462.35-.738.1-1.488.1-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12h2q0 2.875 1.812 5.075 1.813 2.2 4.638 2.775L9 18.4l1.4-1.4ZM12.5 15V9h3q.425 0 .712.287.288.288.288.713v4q0 .425-.288.712-.287.288-.712.288Zm1.5-1.5h1v-3h-1ZM7.5 15v-1.5H10v-1H8.5v-1H10v-1H7.5V9h4v6Z"
-  }));
-});
-IconMaterial3dRotationFilled.displayName = 'AmauiIconMaterial3dRotationFilled';
 
 
 const IconMaterial3mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -588,19 +588,6 @@ const IconMaterial5gMobiledataBadgeFilled = /*#__PURE__*/React.forwardRef((props
 IconMaterial5gMobiledataBadgeFilled.displayName = 'AmauiIconMaterial5gMobiledataBadgeFilled';
 
 
-const IconMaterial5kFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "5kFilled",
-    short_name: "5k",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M13 15h1.5v-2.25L16.25 15H18l-2.25-3L18 9h-1.75l-1.75 2.25V9H13Zm-6.5 0H11v-3.5H8v-1h3V9H6.5v3.5h3v1h-3ZM3 21V3h18v18Z"
-  }));
-});
-IconMaterial5kFilled.displayName = 'AmauiIconMaterial5kFilled';
-
-
 const IconMaterial5kPlusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -614,17 +601,17 @@ const IconMaterial5kPlusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial5kPlusFilled.displayName = 'AmauiIconMaterial5kPlusFilled';
 
 
-const IconMaterial5mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterial5kFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "5mpFilled",
-    short_name: "5mp",
+    name: "5kFilled",
+    short_name: "5k",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10 11.5h4.5V8h-3V7h3V5.5H10V9h3v1h-3ZM3 21V3h18v18Zm3-2.5h1.5V14h1v3H10v-3h1v4.5h1.5v-6H6Zm7.5 0H15V17h3v-4.5h-4.5ZM15 14h1.5v1.5H15Z"
+    d: "M13 15h1.5v-2.25L16.25 15H18l-2.25-3L18 9h-1.75l-1.75 2.25V9H13Zm-6.5 0H11v-3.5H8v-1h3V9H6.5v3.5h3v1h-3ZM3 21V3h18v18Z"
   }));
 });
-IconMaterial5mpFilled.displayName = 'AmauiIconMaterial5mpFilled';
+IconMaterial5kFilled.displayName = 'AmauiIconMaterial5kFilled';
 
 
 const IconMaterial60fpsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -638,6 +625,19 @@ const IconMaterial60fpsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterial60fpsFilled.displayName = 'AmauiIconMaterial60fpsFilled';
+
+
+const IconMaterial5mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "5mpFilled",
+    short_name: "5mp",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10 11.5h4.5V8h-3V7h3V5.5H10V9h3v1h-3ZM3 21V3h18v18Zm3-2.5h1.5V14h1v3H10v-3h1v4.5h1.5v-6H6Zm7.5 0H15V17h3v-4.5h-4.5ZM15 14h1.5v1.5H15Z"
+  }));
+});
+IconMaterial5mpFilled.displayName = 'AmauiIconMaterial5mpFilled';
 
 
 const IconMaterial60fpsSelectFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -666,19 +666,6 @@ const IconMaterial6FtApartFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterial6FtApartFilled.displayName = 'AmauiIconMaterial6FtApartFilled';
 
 
-const IconMaterial6kFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "6kFilled",
-    short_name: "6k",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M13 15h1.5v-2.25L16.25 15H18l-2.25-3L18 9h-1.75l-1.75 2.25V9H13Zm-5-3.5v-1h3V9H6.5v6H11v-3.5ZM8 14v-1.5h1.5V14Zm-5 7V3h18v18Z"
-  }));
-});
-IconMaterial6kFilled.displayName = 'AmauiIconMaterial6kFilled';
-
-
 const IconMaterial6kPlusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -690,6 +677,19 @@ const IconMaterial6kPlusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterial6kPlusFilled.displayName = 'AmauiIconMaterial6kPlusFilled';
+
+
+const IconMaterial6kFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "6kFilled",
+    short_name: "6k",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M13 15h1.5v-2.25L16.25 15H18l-2.25-3L18 9h-1.75l-1.75 2.25V9H13Zm-5-3.5v-1h3V9H6.5v6H11v-3.5ZM8 14v-1.5h1.5V14Zm-5 7V3h18v18Z"
+  }));
+});
+IconMaterial6kFilled.displayName = 'AmauiIconMaterial6kFilled';
 
 
 const IconMaterial6mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -809,19 +809,6 @@ const IconMaterial9kPlusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterial9kPlusFilled.displayName = 'AmauiIconMaterial9kPlusFilled';
 
 
-const IconMaterial9mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "9mpFilled",
-    short_name: "9mp",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10 11.5h4.5v-6H10V9h3v1h-3ZM11.5 8V6.5H13V8ZM3 21V3h18v18Zm3-2.5h1.5V14h1v3H10v-3h1v4.5h1.5v-6H6Zm7.5 0H15V17h3v-4.5h-4.5ZM15 14h1.5v1.5H15Z"
-  }));
-});
-IconMaterial9mpFilled.displayName = 'AmauiIconMaterial9mpFilled';
-
-
 const IconMaterialAbcFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -833,6 +820,19 @@ const IconMaterialAbcFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialAbcFilled.displayName = 'AmauiIconMaterialAbcFilled';
+
+
+const IconMaterial9mpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "9mpFilled",
+    short_name: "9mp",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10 11.5h4.5v-6H10V9h3v1h-3ZM11.5 8V6.5H13V8ZM3 21V3h18v18Zm3-2.5h1.5V14h1v3H10v-3h1v4.5h1.5v-6H6Zm7.5 0H15V17h3v-4.5h-4.5ZM15 14h1.5v1.5H15Z"
+  }));
+});
+IconMaterial9mpFilled.displayName = 'AmauiIconMaterial9mpFilled';
 
 
 const IconMaterialAcUnitFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -848,19 +848,6 @@ const IconMaterialAcUnitFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialAcUnitFilled.displayName = 'AmauiIconMaterialAcUnitFilled';
 
 
-const IconMaterialAccessibilityFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AccessibilityFilled",
-    short_name: "Accessibility",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 6q-.825 0-1.412-.588Q10 4.825 10 4t.588-1.413Q11.175 2 12 2t1.413.587Q14 3.175 14 4q0 .825-.587 1.412Q12.825 6 12 6ZM9 22V9H3V7h18v2h-6v13h-2v-6h-2v6Z"
-  }));
-});
-IconMaterialAccessibilityFilled.displayName = 'AmauiIconMaterialAccessibilityFilled';
-
-
 const IconMaterialAccessibilityNewFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -872,6 +859,19 @@ const IconMaterialAccessibilityNewFilled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialAccessibilityNewFilled.displayName = 'AmauiIconMaterialAccessibilityNewFilled';
+
+
+const IconMaterialAccessibilityFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AccessibilityFilled",
+    short_name: "Accessibility",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 6q-.825 0-1.412-.588Q10 4.825 10 4t.588-1.413Q11.175 2 12 2t1.413.587Q14 3.175 14 4q0 .825-.587 1.412Q12.825 6 12 6ZM9 22V9H3V7h18v2h-6v13h-2v-6h-2v6Z"
+  }));
+});
+IconMaterialAccessibilityFilled.displayName = 'AmauiIconMaterialAccessibilityFilled';
 
 
 const IconMaterialAccessibleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -939,19 +939,6 @@ const IconMaterialAccountBoxFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialAccountBoxFilled.displayName = 'AmauiIconMaterialAccountBoxFilled';
 
 
-const IconMaterialAccountChildInvertFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AccountChildInvertFilled",
-    short_name: "AccountChildInvert",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480-880q50 0 85 35t35 85q0 50-35 85t-85 35q-50 0-85-35t-35-85q0-50 35-85t85-35Zm0 280q47 0 93 11t83 31q38 19 61 45t23 57v232q0 17-8 33.5T710-160q-14 14-32.5 26T636-112v-90q0-38-52.5-62T480-288q-50 0-96.5 20.5T326-214q38 15 78 21t82 7h34v104q-7 2-14.5 2H490q-36 0-82.5-8T319-113q-42-17-70.5-44.5T220-224v-232q0-31 23-57t60-45q38-20 84-31t93-11Zm0 240q33 0 56.5-23.5T560-440q0-33-23.5-56.5T480-520q-33 0-56.5 23.5T400-440q0 33 23.5 56.5T480-360Z"
-  }));
-});
-IconMaterialAccountChildInvertFilled.displayName = 'AmauiIconMaterialAccountChildInvertFilled';
-
-
 const IconMaterialAccountChildFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -963,6 +950,19 @@ const IconMaterialAccountChildFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialAccountChildFilled.displayName = 'AmauiIconMaterialAccountChildFilled';
+
+
+const IconMaterialAccountChildInvertFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AccountChildInvertFilled",
+    short_name: "AccountChildInvert",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480-880q50 0 85 35t35 85q0 50-35 85t-85 35q-50 0-85-35t-35-85q0-50 35-85t85-35Zm0 280q47 0 93 11t83 31q38 19 61 45t23 57v232q0 17-8 33.5T710-160q-14 14-32.5 26T636-112v-90q0-38-52.5-62T480-288q-50 0-96.5 20.5T326-214q38 15 78 21t82 7h34v104q-7 2-14.5 2H490q-36 0-82.5-8T319-113q-42-17-70.5-44.5T220-224v-232q0-31 23-57t60-45q38-20 84-31t93-11Zm0 240q33 0 56.5-23.5T560-440q0-33-23.5-56.5T480-520q-33 0-56.5 23.5T400-440q0 33 23.5 56.5T480-360Z"
+  }));
+});
+IconMaterialAccountChildInvertFilled.displayName = 'AmauiIconMaterialAccountChildInvertFilled';
 
 
 const IconMaterialAccountCircleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -991,19 +991,6 @@ const IconMaterialAccountCircleOffFilled = /*#__PURE__*/React.forwardRef((props,
 IconMaterialAccountCircleOffFilled.displayName = 'AmauiIconMaterialAccountCircleOffFilled';
 
 
-const IconMaterialAccountTreeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AccountTreeFilled",
-    short_name: "AccountTree",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M15 21v-3h-4V8H9v3H2V3h7v3h6V3h7v8h-7V8h-2v8h2v-3h7v8Z"
-  }));
-});
-IconMaterialAccountTreeFilled.displayName = 'AmauiIconMaterialAccountTreeFilled';
-
-
 const IconMaterialActionKeyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1017,17 +1004,17 @@ const IconMaterialActionKeyFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialActionKeyFilled.displayName = 'AmauiIconMaterialActionKeyFilled';
 
 
-const IconMaterialActivityZoneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAccountTreeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "ActivityZoneFilled",
-    short_name: "ActivityZone",
+    name: "AccountTreeFilled",
+    short_name: "AccountTree",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5 22q-1.25 0-2.125-.875T2 19q0-.975.562-1.738Q3.125 16.5 4 16.175v-8.35Q3.125 7.5 2.562 6.737 2 5.975 2 5q0-1.25.875-2.125T5 2q.975 0 1.738.562Q7.5 3.125 7.825 4h8.35q.3-.875 1.063-1.438Q18 2 19 2q1.25 0 2.125.875T22 5q0 1-.562 1.762-.563.763-1.438 1.063v8.35q.875.325 1.438 1.087Q22 18.025 22 19q0 1.25-.875 2.125T19 22q-.975 0-1.737-.562-.763-.563-1.088-1.438h-8.35q-.325.875-1.087 1.438Q5.975 22 5 22Zm2.825-4h8.35q.225-.65.7-1.125t1.125-.7v-8.35q-.65-.225-1.125-.7T16.175 6h-8.35q-.225.65-.7 1.125T6 7.825v8.35q.65.225 1.125.7t.7 1.125Z"
+    d: "M15 21v-3h-4V8H9v3H2V3h7v3h6V3h7v8h-7V8h-2v8h2v-3h7v8Z"
   }));
 });
-IconMaterialActivityZoneFilled.displayName = 'AmauiIconMaterialActivityZoneFilled';
+IconMaterialAccountTreeFilled.displayName = 'AmauiIconMaterialAccountTreeFilled';
 
 
 const IconMaterialAcuteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1041,6 +1028,19 @@ const IconMaterialAcuteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialAcuteFilled.displayName = 'AmauiIconMaterialAcuteFilled';
+
+
+const IconMaterialActivityZoneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ActivityZoneFilled",
+    short_name: "ActivityZone",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5 22q-1.25 0-2.125-.875T2 19q0-.975.562-1.738Q3.125 16.5 4 16.175v-8.35Q3.125 7.5 2.562 6.737 2 5.975 2 5q0-1.25.875-2.125T5 2q.975 0 1.738.562Q7.5 3.125 7.825 4h8.35q.3-.875 1.063-1.438Q18 2 19 2q1.25 0 2.125.875T22 5q0 1-.562 1.762-.563.763-1.438 1.063v8.35q.875.325 1.438 1.087Q22 18.025 22 19q0 1.25-.875 2.125T19 22q-.975 0-1.737-.562-.763-.563-1.088-1.438h-8.35q-.325.875-1.087 1.438Q5.975 22 5 22Zm2.825-4h8.35q.225-.65.7-1.125t1.125-.7v-8.35q-.65-.225-1.125-.7T16.175 6h-8.35q-.225.65-.7 1.125T6 7.825v8.35q.65.225 1.125.7t.7 1.125Z"
+  }));
+});
+IconMaterialActivityZoneFilled.displayName = 'AmauiIconMaterialActivityZoneFilled';
 
 
 const IconMaterialAdFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1225,19 +1225,6 @@ const IconMaterialAddChartFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialAddChartFilled.displayName = 'AmauiIconMaterialAddChartFilled';
 
 
-const IconMaterialAddCommentFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AddCommentFilled",
-    short_name: "AddComment",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 14h2v-3h3V9h-3V6h-2v3H8v2h3Zm-9 8V2h20v16H6Z"
-  }));
-});
-IconMaterialAddCommentFilled.displayName = 'AmauiIconMaterialAddCommentFilled';
-
-
 const IconMaterialAddCircleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1249,6 +1236,19 @@ const IconMaterialAddCircleFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialAddCircleFilled.displayName = 'AmauiIconMaterialAddCircleFilled';
+
+
+const IconMaterialAddCommentFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AddCommentFilled",
+    short_name: "AddComment",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11 14h2v-3h3V9h-3V6h-2v3H8v2h3Zm-9 8V2h20v16H6Z"
+  }));
+});
+IconMaterialAddCommentFilled.displayName = 'AmauiIconMaterialAddCommentFilled';
 
 
 const IconMaterialAddFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1368,19 +1368,6 @@ const IconMaterialAddPhotoAlternateFilled = /*#__PURE__*/React.forwardRef((props
 IconMaterialAddPhotoAlternateFilled.displayName = 'AmauiIconMaterialAddPhotoAlternateFilled';
 
 
-const IconMaterialAddRoadFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AddRoadFilled",
-    short_name: "AddRoad",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M18 23v-3h-3v-2h3v-3h2v3h3v2h-3v3Zm0-10V4h2v9ZM4 20V4h2v16Zm7-12V4h2v4Zm0 6v-4h2v4Zm0 6v-4h2v4Z"
-  }));
-});
-IconMaterialAddRoadFilled.displayName = 'AmauiIconMaterialAddRoadFilled';
-
-
 const IconMaterialAddReactionFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1392,6 +1379,19 @@ const IconMaterialAddReactionFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialAddReactionFilled.displayName = 'AmauiIconMaterialAddReactionFilled';
+
+
+const IconMaterialAddRoadFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AddRoadFilled",
+    short_name: "AddRoad",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M18 23v-3h-3v-2h3v-3h2v3h3v2h-3v3Zm0-10V4h2v9ZM4 20V4h2v16Zm7-12V4h2v4Zm0 6v-4h2v4Zm0 6v-4h2v4Z"
+  }));
+});
+IconMaterialAddRoadFilled.displayName = 'AmauiIconMaterialAddRoadFilled';
 
 
 const IconMaterialAddTaskFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1472,19 +1472,6 @@ const IconMaterialAddToQueueFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialAddToQueueFilled.displayName = 'AmauiIconMaterialAddToQueueFilled';
 
 
-const IconMaterialAdjustFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AdjustFilled",
-    short_name: "Adjust",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 15q1.25 0 2.125-.875T15 12q0-1.25-.875-2.125T12 9q-1.25 0-2.125.875T9 12q0 1.25.875 2.125T12 15Zm0 7q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
-  }));
-});
-IconMaterialAdjustFilled.displayName = 'AmauiIconMaterialAdjustFilled';
-
-
 const IconMaterialAdfScannerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1498,17 +1485,17 @@ const IconMaterialAdfScannerFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialAdfScannerFilled.displayName = 'AmauiIconMaterialAdfScannerFilled';
 
 
-const IconMaterialAdminMedsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAdjustFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "AdminMedsFilled",
-    short_name: "AdminMeds",
+    name: "AdjustFilled",
+    short_name: "Adjust",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 12Zm-3.8 3.775q.725.725 1.713.737.987.013 1.712-.712l1.4-1.4L9.6 10.975l-1.4 1.4q-.725.725-.725 1.7t.725 1.7Zm7.6-7.55q-.725-.7-1.712-.725-.988-.025-1.713.7L11 9.575 14.425 13l1.375-1.375q.725-.725.713-1.7-.013-.975-.713-1.7ZM3 21V3h6.2q.325-.9 1.088-1.45Q11.05 1 12 1t1.713.55Q14.475 2.1 14.8 3H21v18Zm9-16.75q.325 0 .538-.213.212-.212.212-.537 0-.325-.212-.538-.213-.212-.538-.212-.325 0-.537.212-.213.213-.213.538 0 .325.213.537.212.213.537.213Z"
+    d: "M12 15q1.25 0 2.125-.875T15 12q0-1.25-.875-2.125T12 9q-1.25 0-2.125.875T9 12q0 1.25.875 2.125T12 15Zm0 7q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
   }));
 });
-IconMaterialAdminMedsFilled.displayName = 'AmauiIconMaterialAdminMedsFilled';
+IconMaterialAdjustFilled.displayName = 'AmauiIconMaterialAdjustFilled';
 
 
 const IconMaterialAdminPanelSettingsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1522,6 +1509,19 @@ const IconMaterialAdminPanelSettingsFilled = /*#__PURE__*/React.forwardRef((prop
   }));
 });
 IconMaterialAdminPanelSettingsFilled.displayName = 'AmauiIconMaterialAdminPanelSettingsFilled';
+
+
+const IconMaterialAdminMedsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AdminMedsFilled",
+    short_name: "AdminMeds",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 12Zm-3.8 3.775q.725.725 1.713.737.987.013 1.712-.712l1.4-1.4L9.6 10.975l-1.4 1.4q-.725.725-.725 1.7t.725 1.7Zm7.6-7.55q-.725-.7-1.712-.725-.988-.025-1.713.7L11 9.575 14.425 13l1.375-1.375q.725-.725.713-1.7-.013-.975-.713-1.7ZM3 21V3h6.2q.325-.9 1.088-1.45Q11.05 1 12 1t1.713.55Q14.475 2.1 14.8 3H21v18Zm9-16.75q.325 0 .538-.213.212-.212.212-.537 0-.325-.212-.538-.213-.212-.538-.212-.325 0-.537.212-.213.213-.213.538 0 .325.213.537.212.213.537.213Z"
+  }));
+});
+IconMaterialAdminMedsFilled.displayName = 'AmauiIconMaterialAdminMedsFilled';
 
 
 const IconMaterialAdsClickFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1550,6 +1550,19 @@ const IconMaterialAgenderFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialAgenderFilled.displayName = 'AmauiIconMaterialAgenderFilled';
 
 
+const IconMaterialAirFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AirFilled",
+    short_name: "Air",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11.5 20q-1.25 0-2.125-.875T8.5 17h2q0 .425.288.712.287.288.712.288t.713-.288q.287-.287.287-.712t-.287-.712Q11.925 16 11.5 16H2v-2h9.5q1.25 0 2.125.875T14.5 17q0 1.25-.875 2.125T11.5 20ZM2 10V8h13.5q.65 0 1.075-.425Q17 7.15 17 6.5q0-.65-.425-1.075Q16.15 5 15.5 5q-.65 0-1.075.425Q14 5.85 14 6.5h-2q0-1.475 1.012-2.488Q14.025 3 15.5 3t2.488 1.012Q19 5.025 19 6.5t-1.012 2.487Q16.975 10 15.5 10Zm16.5 8v-2q.65 0 1.075-.425Q20 15.15 20 14.5q0-.65-.425-1.075Q19.15 13 18.5 13H2v-2h16.5q1.475 0 2.488 1.012Q22 13.025 22 14.5t-1.012 2.488Q19.975 18 18.5 18Z"
+  }));
+});
+IconMaterialAirFilled.displayName = 'AmauiIconMaterialAirFilled';
+
+
 const IconMaterialAgricultureFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1563,17 +1576,17 @@ const IconMaterialAgricultureFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialAgricultureFilled.displayName = 'AmauiIconMaterialAgricultureFilled';
 
 
-const IconMaterialAirFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAirFreshenerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "AirFilled",
-    short_name: "Air",
+    name: "AirFreshenerFilled",
+    short_name: "AirFreshener",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.5 20q-1.25 0-2.125-.875T8.5 17h2q0 .425.288.712.287.288.712.288t.713-.288q.287-.287.287-.712t-.287-.712Q11.925 16 11.5 16H2v-2h9.5q1.25 0 2.125.875T14.5 17q0 1.25-.875 2.125T11.5 20ZM2 10V8h13.5q.65 0 1.075-.425Q17 7.15 17 6.5q0-.65-.425-1.075Q16.15 5 15.5 5q-.65 0-1.075.425Q14 5.85 14 6.5h-2q0-1.475 1.012-2.488Q14.025 3 15.5 3t2.488 1.012Q19 5.025 19 6.5t-1.012 2.487Q16.975 10 15.5 10Zm16.5 8v-2q.65 0 1.075-.425Q20 15.15 20 14.5q0-.65-.425-1.075Q19.15 13 18.5 13H2v-2h16.5q1.475 0 2.488 1.012Q22 13.025 22 14.5t-1.012 2.488Q19.975 18 18.5 18Z"
+    d: "M12 5q-.425 0-.712-.288Q11 4.425 11 4t.288-.713Q11.575 3 12 3t.713.287Q13 3.575 13 4t-.287.712Q12.425 5 12 5Zm0-3q-.425 0-.712-.288Q11 1.425 11 1t.288-.713Q11.575 0 12 0t.713.287Q13 .575 13 1t-.287.712Q12.425 2 12 2ZM8.4 22q-1.575-.925-2.488-2.562Q5 17.8 5 16q0-1.975 1.037-3.7Q7.075 10.575 9 9.675V7q0-.425.288-.713Q9.575 6 10 6h4q.425 0 .713.287Q15 6.575 15 7v2.675q1.85.875 2.925 2.587Q19 13.975 19 16q0 1.8-.875 3.413Q17.25 21.025 15.6 22ZM7 3q-.425 0-.713-.288Q6 2.425 6 2t.287-.713Q6.575 1 7 1t.713.287Q8 1.575 8 2t-.287.712Q7.425 3 7 3Zm10 0q-.425 0-.712-.288Q16 2.425 16 2t.288-.713Q16.575 1 17 1t.712.287Q18 1.575 18 2t-.288.712Q17.425 3 17 3ZM9 5q-.425 0-.712-.288Q8 4.425 8 4t.288-.713Q8.575 3 9 3t.713.287Q10 3.575 10 4t-.287.712Q9.425 5 9 5Zm6 0q-.425 0-.712-.288Q14 4.425 14 4t.288-.713Q14.575 3 15 3t.713.287Q16 3.575 16 4t-.287.712Q15.425 5 15 5Z"
   }));
 });
-IconMaterialAirFilled.displayName = 'AmauiIconMaterialAirFilled';
+IconMaterialAirFreshenerFilled.displayName = 'AmauiIconMaterialAirFreshenerFilled';
 
 
 const IconMaterialAirPurifierFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1602,19 +1615,6 @@ const IconMaterialAirPurifierGenFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialAirPurifierGenFilled.displayName = 'AmauiIconMaterialAirPurifierGenFilled';
 
 
-const IconMaterialAirFreshenerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AirFreshenerFilled",
-    short_name: "AirFreshener",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 5q-.425 0-.712-.288Q11 4.425 11 4t.288-.713Q11.575 3 12 3t.713.287Q13 3.575 13 4t-.287.712Q12.425 5 12 5Zm0-3q-.425 0-.712-.288Q11 1.425 11 1t.288-.713Q11.575 0 12 0t.713.287Q13 .575 13 1t-.287.712Q12.425 2 12 2ZM8.4 22q-1.575-.925-2.488-2.562Q5 17.8 5 16q0-1.975 1.037-3.7Q7.075 10.575 9 9.675V7q0-.425.288-.713Q9.575 6 10 6h4q.425 0 .713.287Q15 6.575 15 7v2.675q1.85.875 2.925 2.587Q19 13.975 19 16q0 1.8-.875 3.413Q17.25 21.025 15.6 22ZM7 3q-.425 0-.713-.288Q6 2.425 6 2t.287-.713Q6.575 1 7 1t.713.287Q8 1.575 8 2t-.287.712Q7.425 3 7 3Zm10 0q-.425 0-.712-.288Q16 2.425 16 2t.288-.713Q16.575 1 17 1t.712.287Q18 1.575 18 2t-.288.712Q17.425 3 17 3ZM9 5q-.425 0-.712-.288Q8 4.425 8 4t.288-.713Q8.575 3 9 3t.713.287Q10 3.575 10 4t-.287.712Q9.425 5 9 5Zm6 0q-.425 0-.712-.288Q14 4.425 14 4t.288-.713Q14.575 3 15 3t.713.287Q16 3.575 16 4t-.287.712Q15.425 5 15 5Z"
-  }));
-});
-IconMaterialAirFreshenerFilled.displayName = 'AmauiIconMaterialAirFreshenerFilled';
-
-
 const IconMaterialAirlineSeatFlatAngledFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1641,19 +1641,6 @@ const IconMaterialAirlineSeatFlatFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialAirlineSeatFlatFilled.displayName = 'AmauiIconMaterialAirlineSeatFlatFilled';
 
 
-const IconMaterialAirlineSeatIndividualSuiteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AirlineSeatIndividualSuiteFilled",
-    short_name: "AirlineSeatIndividualSuite",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M1 17V7h2v8h8V7h12v10Zm6-3q-1.25 0-2.125-.875T4 11q0-1.25.875-2.125T7 8q1.25 0 2.125.875T10 11q0 1.25-.875 2.125T7 14Z"
-  }));
-});
-IconMaterialAirlineSeatIndividualSuiteFilled.displayName = 'AmauiIconMaterialAirlineSeatIndividualSuiteFilled';
-
-
 const IconMaterialAirlineSeatLegroomExtraFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1665,6 +1652,19 @@ const IconMaterialAirlineSeatLegroomExtraFilled = /*#__PURE__*/React.forwardRef(
   }));
 });
 IconMaterialAirlineSeatLegroomExtraFilled.displayName = 'AmauiIconMaterialAirlineSeatLegroomExtraFilled';
+
+
+const IconMaterialAirlineSeatIndividualSuiteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AirlineSeatIndividualSuiteFilled",
+    short_name: "AirlineSeatIndividualSuite",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M1 17V7h2v8h8V7h12v10Zm6-3q-1.25 0-2.125-.875T4 11q0-1.25.875-2.125T7 8q1.25 0 2.125.875T10 11q0 1.25-.875 2.125T7 14Z"
+  }));
+});
+IconMaterialAirlineSeatIndividualSuiteFilled.displayName = 'AmauiIconMaterialAirlineSeatIndividualSuiteFilled';
 
 
 const IconMaterialAirlineSeatLegroomNormalFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1810,6 +1810,19 @@ const IconMaterialAirportShuttleFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialAirportShuttleFilled.displayName = 'AmauiIconMaterialAirportShuttleFilled';
 
 
+const IconMaterialAirwareFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AirwareFilled",
+    short_name: "Airware",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.8 8.65 3.375 7.225 5.25 5.35q.625-.625 1.513-.988Q7.65 4 8.525 4q.825 0 1.638.3.812.3 1.562 1.05L13.6 7.225q.375.375.875.575.5.2 1 .2t.987-.2q.488-.2.863-.575L19.2 5.35l1.425 1.425L18.75 8.65q-.675.675-1.525 1.012-.85.338-1.75.338-.875 0-1.737-.338-.863-.337-1.538-1.012l-1.875-1.875q-.4-.4-.85-.587Q9.025 6 8.525 6q-.5 0-1 .213-.5.212-.85.562Zm0 5-1.425-1.425L5.25 10.35q.625-.625 1.513-.987Q7.65 9 8.525 9t1.663.3q.787.3 1.537 1.05l1.875 1.875q.375.375.875.575.5.2 1 .2t.987-.2q.488-.2.863-.575L19.2 10.35l1.425 1.4-1.875 1.9q-.675.675-1.525 1.012-.85.338-1.75.338-.875 0-1.737-.338-.863-.337-1.538-1.012l-1.875-1.9q-.4-.4-.862-.575Q9 11 8.525 11q-.5 0-1 .2t-.85.55Zm0 5-1.425-1.425L5.25 15.35q.625-.625 1.513-.987Q7.65 14 8.525 14q.825 0 1.638.3.812.3 1.562 1.05l1.875 1.875q.375.375.875.575.5.2 1 .2t.987-.2q.488-.2.863-.575L19.2 15.35l1.425 1.4-1.875 1.9q-.675.675-1.525 1.013-.85.337-1.75.337-.875 0-1.737-.337-.863-.338-1.538-1.013l-1.875-1.9q-.4-.4-.862-.575Q9 16 8.525 16q-.5 0-1 .2t-.85.55Z"
+  }));
+});
+IconMaterialAirwareFilled.displayName = 'AmauiIconMaterialAirwareFilled';
+
+
 const IconMaterialAirwaveFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1847,32 +1860,6 @@ const IconMaterialAlarmFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialAlarmFilled.displayName = 'AmauiIconMaterialAlarmFilled';
-
-
-const IconMaterialAirwareFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AirwareFilled",
-    short_name: "Airware",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.8 8.65 3.375 7.225 5.25 5.35q.625-.625 1.513-.988Q7.65 4 8.525 4q.825 0 1.638.3.812.3 1.562 1.05L13.6 7.225q.375.375.875.575.5.2 1 .2t.987-.2q.488-.2.863-.575L19.2 5.35l1.425 1.425L18.75 8.65q-.675.675-1.525 1.012-.85.338-1.75.338-.875 0-1.737-.338-.863-.337-1.538-1.012l-1.875-1.875q-.4-.4-.85-.587Q9.025 6 8.525 6q-.5 0-1 .213-.5.212-.85.562Zm0 5-1.425-1.425L5.25 10.35q.625-.625 1.513-.987Q7.65 9 8.525 9t1.663.3q.787.3 1.537 1.05l1.875 1.875q.375.375.875.575.5.2 1 .2t.987-.2q.488-.2.863-.575L19.2 10.35l1.425 1.4-1.875 1.9q-.675.675-1.525 1.012-.85.338-1.75.338-.875 0-1.737-.338-.863-.337-1.538-1.012l-1.875-1.9q-.4-.4-.862-.575Q9 11 8.525 11q-.5 0-1 .2t-.85.55Zm0 5-1.425-1.425L5.25 15.35q.625-.625 1.513-.987Q7.65 14 8.525 14q.825 0 1.638.3.812.3 1.562 1.05l1.875 1.875q.375.375.875.575.5.2 1 .2t.987-.2q.488-.2.863-.575L19.2 15.35l1.425 1.4-1.875 1.9q-.675.675-1.525 1.013-.85.337-1.75.337-.875 0-1.737-.337-.863-.338-1.538-1.013l-1.875-1.9q-.4-.4-.862-.575Q9 16 8.525 16q-.5 0-1 .2t-.85.55Z"
-  }));
-});
-IconMaterialAirwareFilled.displayName = 'AmauiIconMaterialAirwareFilled';
-
-
-const IconMaterialAlarmOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AlarmOffFilled",
-    short_name: "AlarmOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M19.95 17.25 7.85 5q.95-.5 1.988-.75Q10.875 4 12 4q1.85 0 3.488.7 1.637.7 2.862 1.937 1.225 1.238 1.938 2.888Q21 11.175 21 13.1q0 1.125-.275 2.162-.275 1.038-.775 1.988ZM21.25 8 17 3.75l1.4-1.4 4.25 4.25Zm-.75 15.4-3.15-3.15q-1.125.825-2.487 1.288Q13.5 22 12 22q-1.85 0-3.488-.7-1.637-.7-2.862-1.9t-1.938-2.825Q3 14.95 3 13.1q0-1.55.463-2.912Q3.925 8.825 4.8 7.7l-.85-.85-1.2 1.2-1.4-1.4 1.2-1.2L.7 3.6l1.4-1.4L21.9 22Z"
-  }));
-});
-IconMaterialAlarmOffFilled.displayName = 'AmauiIconMaterialAlarmOffFilled';
 
 
 const IconMaterialAlarmOnFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1914,6 +1901,19 @@ const IconMaterialAlbumFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialAlbumFilled.displayName = 'AmauiIconMaterialAlbumFilled';
 
 
+const IconMaterialAlarmOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AlarmOffFilled",
+    short_name: "AlarmOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M19.95 17.25 7.85 5q.95-.5 1.988-.75Q10.875 4 12 4q1.85 0 3.488.7 1.637.7 2.862 1.937 1.225 1.238 1.938 2.888Q21 11.175 21 13.1q0 1.125-.275 2.162-.275 1.038-.775 1.988ZM21.25 8 17 3.75l1.4-1.4 4.25 4.25Zm-.75 15.4-3.15-3.15q-1.125.825-2.487 1.288Q13.5 22 12 22q-1.85 0-3.488-.7-1.637-.7-2.862-1.9t-1.938-2.825Q3 14.95 3 13.1q0-1.55.463-2.912Q3.925 8.825 4.8 7.7l-.85-.85-1.2 1.2-1.4-1.4 1.2-1.2L.7 3.6l1.4-1.4L21.9 22Z"
+  }));
+});
+IconMaterialAlarmOffFilled.displayName = 'AmauiIconMaterialAlarmOffFilled';
+
+
 const IconMaterialAlignCenterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -1925,19 +1925,6 @@ const IconMaterialAlignCenterFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialAlignCenterFilled.displayName = 'AmauiIconMaterialAlignCenterFilled';
-
-
-const IconMaterialAlignEndFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AlignEndFilled",
-    short_name: "AlignEnd",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M80 976v-80h800v80H80Zm200-440V416h400v120H280Zm0 240V656h400v120H280Z"
-  }));
-});
-IconMaterialAlignEndFilled.displayName = 'AmauiIconMaterialAlignEndFilled';
 
 
 const IconMaterialAlignFlexCenterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1953,17 +1940,17 @@ const IconMaterialAlignFlexCenterFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialAlignFlexCenterFilled.displayName = 'AmauiIconMaterialAlignFlexCenterFilled';
 
 
-const IconMaterialAlignFlexEndFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAlignEndFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "AlignFlexEndFilled",
-    short_name: "AlignFlexEnd",
+    name: "AlignEndFilled",
+    short_name: "AlignEnd",
     viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M80 976v-80h800v80H80Zm340-160V256h120v560H420Z"
+    d: "M80 976v-80h800v80H80Zm200-440V416h400v120H280Zm0 240V656h400v120H280Z"
   }));
 });
-IconMaterialAlignFlexEndFilled.displayName = 'AmauiIconMaterialAlignFlexEndFilled';
+IconMaterialAlignEndFilled.displayName = 'AmauiIconMaterialAlignEndFilled';
 
 
 const IconMaterialAlignFlexStartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -1977,6 +1964,19 @@ const IconMaterialAlignFlexStartFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialAlignFlexStartFilled.displayName = 'AmauiIconMaterialAlignFlexStartFilled';
+
+
+const IconMaterialAlignFlexEndFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AlignFlexEndFilled",
+    short_name: "AlignFlexEnd",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M80 976v-80h800v80H80Zm340-160V256h120v560H420Z"
+  }));
+});
+IconMaterialAlignFlexEndFilled.displayName = 'AmauiIconMaterialAlignFlexEndFilled';
 
 
 const IconMaterialAlignHorizontalCenterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2057,19 +2057,6 @@ const IconMaterialAlignJustifyFlexEndFilled = /*#__PURE__*/React.forwardRef((pro
 IconMaterialAlignJustifyFlexEndFilled.displayName = 'AmauiIconMaterialAlignJustifyFlexEndFilled';
 
 
-const IconMaterialAlignJustifyFlexStartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AlignJustifyFlexStartFilled",
-    short_name: "AlignJustifyFlexStart",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M80 976V176h80v800H80Zm440-200V376h120v400H520Zm-240 0V376h120v400H280Z"
-  }));
-});
-IconMaterialAlignJustifyFlexStartFilled.displayName = 'AmauiIconMaterialAlignJustifyFlexStartFilled';
-
-
 const IconMaterialAlignJustifySpaceAroundFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2081,6 +2068,19 @@ const IconMaterialAlignJustifySpaceAroundFilled = /*#__PURE__*/React.forwardRef(
   }));
 });
 IconMaterialAlignJustifySpaceAroundFilled.displayName = 'AmauiIconMaterialAlignJustifySpaceAroundFilled';
+
+
+const IconMaterialAlignJustifyFlexStartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AlignJustifyFlexStartFilled",
+    short_name: "AlignJustifyFlexStart",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M80 976V176h80v800H80Zm440-200V376h120v400H520Zm-240 0V376h120v400H280Z"
+  }));
+});
+IconMaterialAlignJustifyFlexStartFilled.displayName = 'AmauiIconMaterialAlignJustifyFlexStartFilled';
 
 
 const IconMaterialAlignJustifySpaceBetweenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2161,19 +2161,6 @@ const IconMaterialAlignSpaceEvenFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialAlignSpaceEvenFilled.displayName = 'AmauiIconMaterialAlignSpaceEvenFilled';
 
 
-const IconMaterialAlignStartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AlignStartFilled",
-    short_name: "AlignStart",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M80 256v-80h800v80H80Zm200 240V376h400v120H280Zm0 240V616h400v120H280Z"
-  }));
-});
-IconMaterialAlignStartFilled.displayName = 'AmauiIconMaterialAlignStartFilled';
-
-
 const IconMaterialAlignSpaceBetweenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2187,17 +2174,17 @@ const IconMaterialAlignSpaceBetweenFilled = /*#__PURE__*/React.forwardRef((props
 IconMaterialAlignSpaceBetweenFilled.displayName = 'AmauiIconMaterialAlignSpaceBetweenFilled';
 
 
-const IconMaterialAlignStretchFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAlignStartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "AlignStretchFilled",
-    short_name: "AlignStretch",
+    name: "AlignStartFilled",
+    short_name: "AlignStart",
     viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M280 496V256H80v-80h800v80H680v240H280ZM80 976v-80h200V656h400v240h200v80H80Z"
+    d: "M80 256v-80h800v80H80Zm200 240V376h400v120H280Zm0 240V616h400v120H280Z"
   }));
 });
-IconMaterialAlignStretchFilled.displayName = 'AmauiIconMaterialAlignStretchFilled';
+IconMaterialAlignStartFilled.displayName = 'AmauiIconMaterialAlignStartFilled';
 
 
 const IconMaterialAlignVerticalBottomFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2211,6 +2198,19 @@ const IconMaterialAlignVerticalBottomFilled = /*#__PURE__*/React.forwardRef((pro
   }));
 });
 IconMaterialAlignVerticalBottomFilled.displayName = 'AmauiIconMaterialAlignVerticalBottomFilled';
+
+
+const IconMaterialAlignStretchFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AlignStretchFilled",
+    short_name: "AlignStretch",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M280 496V256H80v-80h800v80H680v240H280ZM80 976v-80h200V656h400v240h200v80H80Z"
+  }));
+});
+IconMaterialAlignStretchFilled.displayName = 'AmauiIconMaterialAlignStretchFilled';
 
 
 const IconMaterialAlignVerticalCenterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2278,19 +2278,6 @@ const IconMaterialAllMatchFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialAllMatchFilled.displayName = 'AmauiIconMaterialAllMatchFilled';
 
 
-const IconMaterialAllOutFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AllOutFilled",
-    short_name: "AllOut",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 21v-5h2v3h3v2Zm13 0v-2h3v-3h2v5Zm-4-2q-2.9 0-4.95-2.05Q5 14.9 5 12q0-2.9 2.05-4.95Q9.1 5 12 5q2.9 0 4.95 2.05Q19 9.1 19 12q0 2.9-2.05 4.95Q14.9 19 12 19ZM3 8V3h5v2H5v3Zm16 0V5h-3V3h5v5Z"
-  }));
-});
-IconMaterialAllOutFilled.displayName = 'AmauiIconMaterialAllOutFilled';
-
-
 const IconMaterialAllergiesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2304,17 +2291,17 @@ const IconMaterialAllergiesFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialAllergiesFilled.displayName = 'AmauiIconMaterialAllergiesFilled';
 
 
-const IconMaterialAllergyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAllOutFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "AllergyFilled",
-    short_name: "Allergy",
-    viewBox: "0 96 960 960"
+    name: "AllOutFilled",
+    short_name: "AllOut",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M760 996q-15 0-28-7t-21-19q-121-22-213.5-108T368 650q-96 45-152 132.5T160 976H80q0-134 73.5-244T350 570q-21-115-3.5-207.5T420 213q2-24 19-40.5t41-16.5q25 0 42.5 17.5T540 216q0 25-17.5 42.5T480 276h-4q-2 0-5-1-22 25-35 61.5T419 418q20-20 46.5-34.5T524 361q30-8 64.5-10.5t72.5.5q8-8 18-11.5t21-3.5q25 0 42.5 17.5T760 396q0 25-17.5 42.5T700 456q-14 0-27.5-6.5T651 431q-33-2-63.5.5T533 442q-39 13-61.5 38T443 544q28-5 47.5-6.5T576 536q8-10 19.5-15t24.5-5q25 0 42.5 17.5T680 576q0 25-17.5 42.5T620 636q-13 0-24.5-5T576 616q-63 0-83 1.5t-45 6.5q13 34 51 52t99 20q29 2 62.5-1t67.5-9q8-14 22-22t30-8q25 0 42.5 17.5T840 716q0 25-17.5 42.5T780 776q-10 0-18.5-3t-16.5-9q-34 6-66.5 9.5T617 777q-29 0-55-3t-49-9q38 49 92.5 82.5T720 892q8-8 18.5-12t21.5-4q25 0 42.5 17.5T820 936q0 25-17.5 42.5T760 996Z"
+    d: "M3 21v-5h2v3h3v2Zm13 0v-2h3v-3h2v5Zm-4-2q-2.9 0-4.95-2.05Q5 14.9 5 12q0-2.9 2.05-4.95Q9.1 5 12 5q2.9 0 4.95 2.05Q19 9.1 19 12q0 2.9-2.05 4.95Q14.9 19 12 19ZM3 8V3h5v2H5v3Zm16 0V5h-3V3h5v5Z"
   }));
 });
-IconMaterialAllergyFilled.displayName = 'AmauiIconMaterialAllergyFilled';
+IconMaterialAllOutFilled.displayName = 'AmauiIconMaterialAllOutFilled';
 
 
 const IconMaterialAltRouteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2354,6 +2341,19 @@ const IconMaterialAltitudeFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialAltitudeFilled.displayName = 'AmauiIconMaterialAltitudeFilled';
+
+
+const IconMaterialAllergyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AllergyFilled",
+    short_name: "Allergy",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M760 996q-15 0-28-7t-21-19q-121-22-213.5-108T368 650q-96 45-152 132.5T160 976H80q0-134 73.5-244T350 570q-21-115-3.5-207.5T420 213q2-24 19-40.5t41-16.5q25 0 42.5 17.5T540 216q0 25-17.5 42.5T480 276h-4q-2 0-5-1-22 25-35 61.5T419 418q20-20 46.5-34.5T524 361q30-8 64.5-10.5t72.5.5q8-8 18-11.5t21-3.5q25 0 42.5 17.5T760 396q0 25-17.5 42.5T700 456q-14 0-27.5-6.5T651 431q-33-2-63.5.5T533 442q-39 13-61.5 38T443 544q28-5 47.5-6.5T576 536q8-10 19.5-15t24.5-5q25 0 42.5 17.5T680 576q0 25-17.5 42.5T620 636q-13 0-24.5-5T576 616q-63 0-83 1.5t-45 6.5q13 34 51 52t99 20q29 2 62.5-1t67.5-9q8-14 22-22t30-8q25 0 42.5 17.5T840 716q0 25-17.5 42.5T780 776q-10 0-18.5-3t-16.5-9q-34 6-66.5 9.5T617 777q-29 0-55-3t-49-9q38 49 92.5 82.5T720 892q8-8 18.5-12t21.5-4q25 0 42.5 17.5T820 936q0 25-17.5 42.5T760 996Z"
+  }));
+});
+IconMaterialAllergyFilled.displayName = 'AmauiIconMaterialAllergyFilled';
 
 
 const IconMaterialAmbientScreenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2460,19 +2460,6 @@ const IconMaterialAnimationFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialAnimationFilled.displayName = 'AmauiIconMaterialAnimationFilled';
 
 
-const IconMaterialAodFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AodFilled",
-    short_name: "Aod",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8 11.5V10h8v1.5Zm1 3V13h6v1.5ZM5 23V1h14v22Zm2-5h10V6H7Z"
-  }));
-});
-IconMaterialAodFilled.displayName = 'AmauiIconMaterialAodFilled';
-
-
 const IconMaterialAodTabletFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2484,6 +2471,19 @@ const IconMaterialAodTabletFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialAodTabletFilled.displayName = 'AmauiIconMaterialAodTabletFilled';
+
+
+const IconMaterialAodFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AodFilled",
+    short_name: "Aod",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8 11.5V10h8v1.5Zm1 3V13h6v1.5ZM5 23V1h14v22Zm2-5h10V6H7Z"
+  }));
+});
+IconMaterialAodFilled.displayName = 'AmauiIconMaterialAodFilled';
 
 
 const IconMaterialAodWatchFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2538,6 +2538,19 @@ const IconMaterialApkDocumentFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialApkDocumentFilled.displayName = 'AmauiIconMaterialApkDocumentFilled';
 
 
+const IconMaterialApkInstallFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ApkInstallFilled",
+    short_name: "ApkInstall",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m20 22-4-4 1.4-1.425L19 18.15V14h2v4.15l1.6-1.575L24 18ZM4 22q-.825 0-1.412-.587Q2 20.825 2 20V4q0-.825.588-1.413Q3.175 2 4 2h8l6 6v4.25h-3V22Zm7-13h5l-5-5ZM5 19h10q-.1-1.225-.75-2.25t-1.7-1.625l.95-1.7q.05-.1.025-.225t-.15-.175q-.1-.05-.212-.025-.113.025-.163.125l-.975 1.75q-.5-.2-1-.313-.5-.112-1.025-.112-.525 0-1.025.112-.5.113-1 .313L7 13.125Q6.95 13 6.838 13q-.113 0-.238.05l-.1.375.95 1.7q-1.05.6-1.7 1.625Q5.1 17.775 5 19Zm2.75-1.5q-.2 0-.35-.15-.15-.15-.15-.35 0-.2.15-.35.15-.15.35-.15.2 0 .35.15.15.15.15.35 0 .2-.15.35-.15.15-.35.15Zm4.5 0q-.2 0-.35-.15-.15-.15-.15-.35 0-.2.15-.35.15-.15.35-.15.2 0 .35.15.15.15.15.35 0 .2-.15.35-.15.15-.35.15Z"
+  }));
+});
+IconMaterialApkInstallFilled.displayName = 'AmauiIconMaterialApkInstallFilled';
+
+
 const IconMaterialAppBadgingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2577,32 +2590,6 @@ const IconMaterialAppPromoFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialAppPromoFilled.displayName = 'AmauiIconMaterialAppPromoFilled';
 
 
-const IconMaterialAppRegistrationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AppRegistrationFilled",
-    short_name: "AppRegistration",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 20v-2.125l5.3-5.3 2.125 2.125-5.3 5.3Zm8.125-6L17 11.875l1.425-1.425 2.125 2.125ZM6 8q-.825 0-1.412-.588Q4 6.825 4 6t.588-1.412Q5.175 4 6 4t1.412.588Q8 5.175 8 6t-.588 1.412Q6.825 8 6 8Zm0 12q-.825 0-1.412-.587Q4 18.825 4 18q0-.825.588-1.413Q5.175 16 6 16t1.412.587Q8 17.175 8 18q0 .825-.588 1.413Q6.825 20 6 20Zm0-6q-.825 0-1.412-.588Q4 12.825 4 12t.588-1.413Q5.175 10 6 10t1.412.587Q8 11.175 8 12q0 .825-.588 1.412Q6.825 14 6 14Zm6 0q-.825 0-1.412-.588Q10 12.825 10 12t.588-1.413Q11.175 10 12 10t1.413.587Q14 11.175 14 12Zm6-6q-.825 0-1.413-.588Q16 6.825 16 6t.587-1.412Q17.175 4 18 4q.825 0 1.413.588Q20 5.175 20 6t-.587 1.412Q18.825 8 18 8Zm-6 0q-.825 0-1.412-.588Q10 6.825 10 6t.588-1.412Q11.175 4 12 4t1.413.588Q14 5.175 14 6t-.587 1.412Q12.825 8 12 8Z"
-  }));
-});
-IconMaterialAppRegistrationFilled.displayName = 'AmauiIconMaterialAppRegistrationFilled';
-
-
-const IconMaterialApkInstallFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ApkInstallFilled",
-    short_name: "ApkInstall",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m20 22-4-4 1.4-1.425L19 18.15V14h2v4.15l1.6-1.575L24 18ZM4 22q-.825 0-1.412-.587Q2 20.825 2 20V4q0-.825.588-1.413Q3.175 2 4 2h8l6 6v4.25h-3V22Zm7-13h5l-5-5ZM5 19h10q-.1-1.225-.75-2.25t-1.7-1.625l.95-1.7q.05-.1.025-.225t-.15-.175q-.1-.05-.212-.025-.113.025-.163.125l-.975 1.75q-.5-.2-1-.313-.5-.112-1.025-.112-.525 0-1.025.112-.5.113-1 .313L7 13.125Q6.95 13 6.838 13q-.113 0-.238.05l-.1.375.95 1.7q-1.05.6-1.7 1.625Q5.1 17.775 5 19Zm2.75-1.5q-.2 0-.35-.15-.15-.15-.15-.35 0-.2.15-.35.15-.15.35-.15.2 0 .35.15.15.15.15.35 0 .2-.15.35-.15.15-.35.15Zm4.5 0q-.2 0-.35-.15-.15-.15-.15-.35 0-.2.15-.35.15-.15.35-.15.2 0 .35.15.15.15.15.35 0 .2-.15.35-.15.15-.35.15Z"
-  }));
-});
-IconMaterialApkInstallFilled.displayName = 'AmauiIconMaterialApkInstallFilled';
-
-
 const IconMaterialAppShortcutFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2614,6 +2601,19 @@ const IconMaterialAppShortcutFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialAppShortcutFilled.displayName = 'AmauiIconMaterialAppShortcutFilled';
+
+
+const IconMaterialAppRegistrationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AppRegistrationFilled",
+    short_name: "AppRegistration",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11 20v-2.125l5.3-5.3 2.125 2.125-5.3 5.3Zm8.125-6L17 11.875l1.425-1.425 2.125 2.125ZM6 8q-.825 0-1.412-.588Q4 6.825 4 6t.588-1.412Q5.175 4 6 4t1.412.588Q8 5.175 8 6t-.588 1.412Q6.825 8 6 8Zm0 12q-.825 0-1.412-.587Q4 18.825 4 18q0-.825.588-1.413Q5.175 16 6 16t1.412.587Q8 17.175 8 18q0 .825-.588 1.413Q6.825 20 6 20Zm0-6q-.825 0-1.412-.588Q4 12.825 4 12t.588-1.413Q5.175 10 6 10t1.412.587Q8 11.175 8 12q0 .825-.588 1.412Q6.825 14 6 14Zm6 0q-.825 0-1.412-.588Q10 12.825 10 12t.588-1.413Q11.175 10 12 10t1.413.587Q14 11.175 14 12Zm6-6q-.825 0-1.413-.588Q16 6.825 16 6t.587-1.412Q17.175 4 18 4q.825 0 1.413.588Q20 5.175 20 6t-.587 1.412Q18.825 8 18 8Zm-6 0q-.825 0-1.412-.588Q10 6.825 10 6t.588-1.412Q11.175 4 12 4t1.413.588Q14 5.175 14 6t-.587 1.412Q12.825 8 12 8Z"
+  }));
+});
+IconMaterialAppRegistrationFilled.displayName = 'AmauiIconMaterialAppRegistrationFilled';
 
 
 const IconMaterialApparelFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2681,19 +2681,6 @@ const IconMaterialAppsOutageFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialAppsOutageFilled.displayName = 'AmauiIconMaterialAppsOutageFilled';
 
 
-const IconMaterialAqFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AqFilled",
-    short_name: "Aq",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m763-254-26-39q-19 9-39 13.5t-41 4.5q-78 0-132-54t-54-132q0-77 54-131.5T656-647q77 0 130.5 54.5T840-461q0 40-16 76t-45 63l26 39-42 29Zm-643-29 133-356h64l134 356h-62l-32-91H214l-33 91h-61Zm536-44q14 0 26.5-3t24.5-8l-42-62 43-28 40 60q17-19 26-43t9-50q0-55-36.5-94.5T656-595q-54 0-91 39.5T528-461q0 55 37 94.5t91 39.5Zm-424-99h106l-51-144h-4l-51 144Z"
-  }));
-});
-IconMaterialAqFilled.displayName = 'AmauiIconMaterialAqFilled';
-
-
 const IconMaterialAqIndoorFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2705,6 +2692,19 @@ const IconMaterialAqIndoorFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialAqIndoorFilled.displayName = 'AmauiIconMaterialAqIndoorFilled';
+
+
+const IconMaterialAqFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AqFilled",
+    short_name: "Aq",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m763-254-26-39q-19 9-39 13.5t-41 4.5q-78 0-132-54t-54-132q0-77 54-131.5T656-647q77 0 130.5 54.5T840-461q0 40-16 76t-45 63l26 39-42 29Zm-643-29 133-356h64l134 356h-62l-32-91H214l-33 91h-61Zm536-44q14 0 26.5-3t24.5-8l-42-62 43-28 40 60q17-19 26-43t9-50q0-55-36.5-94.5T656-595q-54 0-91 39.5T528-461q0 55 37 94.5t91 39.5Zm-424-99h106l-51-144h-4l-51 144Z"
+  }));
+});
+IconMaterialAqFilled.displayName = 'AmauiIconMaterialAqFilled';
 
 
 const IconMaterialArOnYouFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2720,19 +2720,6 @@ const IconMaterialArOnYouFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialArOnYouFilled.displayName = 'AmauiIconMaterialArOnYouFilled';
 
 
-const IconMaterialArchitectureFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ArchitectureFilled",
-    short_name: "Architecture",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m6.75 21-.25-2.2 2.85-7.85q.375.35.813.587.437.238.937.363l-2.75 7.55Zm10.5 0-1.6-1.55-2.75-7.55q.5-.125.938-.363.437-.237.812-.587l2.85 7.85ZM12 11q-1.25 0-2.125-.875T9 8q0-.975.562-1.738Q10.125 5.5 11 5.2V3h2v2.2q.875.3 1.438 1.062Q15 7.025 15 8q0 1.25-.875 2.125T12 11Zm0-2q.425 0 .713-.288Q13 8.425 13 8t-.287-.713Q12.425 7 12 7t-.712.287Q11 7.575 11 8t.288.712Q11.575 9 12 9Z"
-  }));
-});
-IconMaterialArchitectureFilled.displayName = 'AmauiIconMaterialArchitectureFilled';
-
-
 const IconMaterialArStickersFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2746,6 +2733,19 @@ const IconMaterialArStickersFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialArStickersFilled.displayName = 'AmauiIconMaterialArStickersFilled';
 
 
+const IconMaterialArchitectureFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ArchitectureFilled",
+    short_name: "Architecture",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m6.75 21-.25-2.2 2.85-7.85q.375.35.813.587.437.238.937.363l-2.75 7.55Zm10.5 0-1.6-1.55-2.75-7.55q.5-.125.938-.363.437-.237.812-.587l2.85 7.85ZM12 11q-1.25 0-2.125-.875T9 8q0-.975.562-1.738Q10.125 5.5 11 5.2V3h2v2.2q.875.3 1.438 1.062Q15 7.025 15 8q0 1.25-.875 2.125T12 11Zm0-2q.425 0 .713-.288Q13 8.425 13 8t-.287-.713Q12.425 7 12 7t-.712.287Q11 7.575 11 8t.288.712Q11.575 9 12 9Z"
+  }));
+});
+IconMaterialArchitectureFilled.displayName = 'AmauiIconMaterialArchitectureFilled';
+
+
 const IconMaterialArchiveFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2757,6 +2757,19 @@ const IconMaterialArchiveFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialArchiveFilled.displayName = 'AmauiIconMaterialArchiveFilled';
+
+
+const IconMaterialAreaChartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AreaChartFilled",
+    short_name: "AreaChart",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m21 16-9.4-7.35-3.975 5.475L3 10.5V7l4 3 5-7 5 4h4ZM3 20v-7l5 4 4-5.5 9 7.025V20Z"
+  }));
+});
+IconMaterialAreaChartFilled.displayName = 'AmauiIconMaterialAreaChartFilled';
 
 
 const IconMaterialArmingCountdownFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2783,19 +2796,6 @@ const IconMaterialArrowAndEdgeFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialArrowAndEdgeFilled.displayName = 'AmauiIconMaterialArrowAndEdgeFilled';
-
-
-const IconMaterialAreaChartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AreaChartFilled",
-    short_name: "AreaChart",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m21 16-9.4-7.35-3.975 5.475L3 10.5V7l4 3 5-7 5 4h4ZM3 20v-7l5 4 4-5.5 9 7.025V20Z"
-  }));
-});
-IconMaterialAreaChartFilled.displayName = 'AmauiIconMaterialAreaChartFilled';
 
 
 const IconMaterialArrowBackFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2837,19 +2837,6 @@ const IconMaterialArrowBackIosNewFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialArrowBackIosNewFilled.displayName = 'AmauiIconMaterialArrowBackIosNewFilled';
 
 
-const IconMaterialArrowCircleLeftFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ArrowCircleLeftFilled",
-    short_name: "ArrowCircleLeft",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m12 16 1.4-1.4-1.6-1.6H16v-2h-4.2l1.6-1.6L12 8l-4 4Zm0 6q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
-  }));
-});
-IconMaterialArrowCircleLeftFilled.displayName = 'AmauiIconMaterialArrowCircleLeftFilled';
-
-
 const IconMaterialArrowCircleDownFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2861,6 +2848,19 @@ const IconMaterialArrowCircleDownFilled = /*#__PURE__*/React.forwardRef((props, 
   }));
 });
 IconMaterialArrowCircleDownFilled.displayName = 'AmauiIconMaterialArrowCircleDownFilled';
+
+
+const IconMaterialArrowCircleLeftFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ArrowCircleLeftFilled",
+    short_name: "ArrowCircleLeft",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m12 16 1.4-1.4-1.6-1.6H16v-2h-4.2l1.6-1.6L12 8l-4 4Zm0 6q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
+  }));
+});
+IconMaterialArrowCircleLeftFilled.displayName = 'AmauiIconMaterialArrowCircleLeftFilled';
 
 
 const IconMaterialArrowCircleRightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -2928,19 +2928,6 @@ const IconMaterialArrowDropDownCircleFilled = /*#__PURE__*/React.forwardRef((pro
 IconMaterialArrowDropDownCircleFilled.displayName = 'AmauiIconMaterialArrowDropDownCircleFilled';
 
 
-const IconMaterialArrowDropDownFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ArrowDropDownFilled",
-    short_name: "ArrowDropDown",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m12 15-5-5h10Z"
-  }));
-});
-IconMaterialArrowDropDownFilled.displayName = 'AmauiIconMaterialArrowDropDownFilled';
-
-
 const IconMaterialArrowDropUpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -2952,6 +2939,19 @@ const IconMaterialArrowDropUpFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialArrowDropUpFilled.displayName = 'AmauiIconMaterialArrowDropUpFilled';
+
+
+const IconMaterialArrowDropDownFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ArrowDropDownFilled",
+    short_name: "ArrowDropDown",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m12 15-5-5h10Z"
+  }));
+});
+IconMaterialArrowDropDownFilled.displayName = 'AmauiIconMaterialArrowDropDownFilled';
 
 
 const IconMaterialArrowForwardIosFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -3019,19 +3019,6 @@ const IconMaterialArrowLeftFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialArrowLeftFilled.displayName = 'AmauiIconMaterialArrowLeftFilled';
 
 
-const IconMaterialArrowOrEdgeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ArrowOrEdgeFilled",
-    short_name: "ArrowOrEdge",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M300-120 140-280l56-56 64 63v-247H40v-320h80v240h220v327l63-63 57 56-160 160Zm360 0L500-280l56-56 64 63v-327h220v-240h80v320H700v248l63-64 57 56-160 160Z"
-  }));
-});
-IconMaterialArrowOrEdgeFilled.displayName = 'AmauiIconMaterialArrowOrEdgeFilled';
-
-
 const IconMaterialArrowOutwardFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -3043,6 +3030,19 @@ const IconMaterialArrowOutwardFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialArrowOutwardFilled.displayName = 'AmauiIconMaterialArrowOutwardFilled';
+
+
+const IconMaterialArrowOrEdgeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ArrowOrEdgeFilled",
+    short_name: "ArrowOrEdge",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M300-120 140-280l56-56 64 63v-247H40v-320h80v240h220v327l63-63 57 56-160 160Zm360 0L500-280l56-56 64 63v-327h220v-240h80v320H700v248l63-64 57 56-160 160Z"
+  }));
+});
+IconMaterialArrowOrEdgeFilled.displayName = 'AmauiIconMaterialArrowOrEdgeFilled';
 
 
 const IconMaterialArrowRangeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -3149,17 +3149,17 @@ const IconMaterialArrowUpwardAltFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialArrowUpwardAltFilled.displayName = 'AmauiIconMaterialArrowUpwardAltFilled';
 
 
-const IconMaterialArrowUpwardFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialArrowsMoreUpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "ArrowUpwardFilled",
-    short_name: "ArrowUpward",
+    name: "ArrowsMoreUpFilled",
+    short_name: "ArrowsMoreUp",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 20V7.825l-5.6 5.6L4 12l8-8 8 8-1.4 1.425-5.6-5.6V20Z"
+    d: "M12 19v-9H3V8h11v11Zm5-5V5H8V3h11v11Z"
   }));
 });
-IconMaterialArrowUpwardFilled.displayName = 'AmauiIconMaterialArrowUpwardFilled';
+IconMaterialArrowsMoreUpFilled.displayName = 'AmauiIconMaterialArrowsMoreUpFilled';
 
 
 const IconMaterialArrowsMoreDownFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -3175,17 +3175,17 @@ const IconMaterialArrowsMoreDownFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialArrowsMoreDownFilled.displayName = 'AmauiIconMaterialArrowsMoreDownFilled';
 
 
-const IconMaterialArrowsMoreUpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialArrowUpwardFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "ArrowsMoreUpFilled",
-    short_name: "ArrowsMoreUp",
+    name: "ArrowUpwardFilled",
+    short_name: "ArrowUpward",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 19v-9H3V8h11v11Zm5-5V5H8V3h11v11Z"
+    d: "M11 20V7.825l-5.6 5.6L4 12l8-8 8 8-1.4 1.425-5.6-5.6V20Z"
   }));
 });
-IconMaterialArrowsMoreUpFilled.displayName = 'AmauiIconMaterialArrowsMoreUpFilled';
+IconMaterialArrowUpwardFilled.displayName = 'AmauiIconMaterialArrowUpwardFilled';
 
 
 const IconMaterialArrowsOutwardFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -3292,19 +3292,6 @@ const IconMaterialAssignmentFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialAssignmentFilled.displayName = 'AmauiIconMaterialAssignmentFilled';
 
 
-const IconMaterialAssignmentIndFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AssignmentIndFilled",
-    short_name: "AssignmentInd",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 21V3h6.2q.35-.9 1.1-1.45Q11.05 1 12 1t1.7.55q.75.55 1.1 1.45H21v18Zm9-16.75q.325 0 .538-.213.212-.212.212-.537 0-.325-.212-.538-.213-.212-.538-.212-.325 0-.537.212-.213.213-.213.538 0 .325.213.537.212.213.537.213ZM12 13q1.45 0 2.475-1.025Q15.5 10.95 15.5 9.5q0-1.45-1.025-2.475Q13.45 6 12 6q-1.45 0-2.475 1.025Q8.5 8.05 8.5 9.5q0 1.45 1.025 2.475Q10.55 13 12 13Zm-7 6h14v-1.15q-1.35-1.325-3.137-2.088Q14.075 15 12 15t-3.862.762Q6.35 16.525 5 17.85Z"
-  }));
-});
-IconMaterialAssignmentIndFilled.displayName = 'AmauiIconMaterialAssignmentIndFilled';
-
-
 const IconMaterialAssignmentLateFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -3331,6 +3318,19 @@ const IconMaterialAssignmentReturnFilled = /*#__PURE__*/React.forwardRef((props,
 IconMaterialAssignmentReturnFilled.displayName = 'AmauiIconMaterialAssignmentReturnFilled';
 
 
+const IconMaterialAssignmentIndFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AssignmentIndFilled",
+    short_name: "AssignmentInd",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 21V3h6.2q.35-.9 1.1-1.45Q11.05 1 12 1t1.7.55q.75.55 1.1 1.45H21v18Zm9-16.75q.325 0 .538-.213.212-.212.212-.537 0-.325-.212-.538-.213-.212-.538-.212-.325 0-.537.212-.213.213-.213.538 0 .325.213.537.212.213.537.213ZM12 13q1.45 0 2.475-1.025Q15.5 10.95 15.5 9.5q0-1.45-1.025-2.475Q13.45 6 12 6q-1.45 0-2.475 1.025Q8.5 8.05 8.5 9.5q0 1.45 1.025 2.475Q10.55 13 12 13Zm-7 6h14v-1.15q-1.35-1.325-3.137-2.088Q14.075 15 12 15t-3.862.762Q6.35 16.525 5 17.85Z"
+  }));
+});
+IconMaterialAssignmentIndFilled.displayName = 'AmauiIconMaterialAssignmentIndFilled';
+
+
 const IconMaterialAssignmentReturnedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -3342,6 +3342,19 @@ const IconMaterialAssignmentReturnedFilled = /*#__PURE__*/React.forwardRef((prop
   }));
 });
 IconMaterialAssignmentReturnedFilled.displayName = 'AmauiIconMaterialAssignmentReturnedFilled';
+
+
+const IconMaterialAssignmentTurnedInFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AssignmentTurnedInFilled",
+    short_name: "AssignmentTurnedIn",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10.6 16.05 17.65 9l-1.4-1.4-5.65 5.65-2.85-2.85-1.4 1.4ZM3 21V3h6.2q.325-.9 1.088-1.45Q11.05 1 12 1t1.713.55Q14.475 2.1 14.8 3H21v18Zm9-16.75q.325 0 .538-.213.212-.212.212-.537 0-.325-.212-.538-.213-.212-.538-.212-.325 0-.537.212-.213.213-.213.538 0 .325.213.537.212.213.537.213Z"
+  }));
+});
+IconMaterialAssignmentTurnedInFilled.displayName = 'AmauiIconMaterialAssignmentTurnedInFilled';
 
 
 const IconMaterialAssistWalkerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -3357,19 +3370,6 @@ const IconMaterialAssistWalkerFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialAssistWalkerFilled.displayName = 'AmauiIconMaterialAssistWalkerFilled';
 
 
-const IconMaterialAssistantDirectionFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AssistantDirectionFilled",
-    short_name: "AssistantDirection",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 23q-2.275 0-4.287-.863-2.013-.862-3.5-2.349-1.488-1.488-2.35-3.5Q1 14.275 1 12q0-2.3.863-4.3.862-2 2.35-3.488 1.487-1.487 3.5-2.35Q9.725 1 12 1q2.3 0 4.3.862 2 .863 3.488 2.35Q21.275 5.7 22.138 7.7 23 9.7 23 12q0 2.275-.862 4.288-.863 2.012-2.35 3.5-1.488 1.487-3.488 2.349Q14.3 23 12 23Zm-.05-2.65 8.375-8.375L11.95 3.6l-8.375 8.375Zm-3.975-5.375v-5h5.15l-1.05-1.1 1.4-1.4 3.5 3.5-3.5 3.5-1.4-1.4 1.05-1.1h-3.15v3Z"
-  }));
-});
-IconMaterialAssistantDirectionFilled.displayName = 'AmauiIconMaterialAssistantDirectionFilled';
-
-
 const IconMaterialAssistantDeviceFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -3383,17 +3383,17 @@ const IconMaterialAssistantDeviceFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialAssistantDeviceFilled.displayName = 'AmauiIconMaterialAssistantDeviceFilled';
 
 
-const IconMaterialAssignmentTurnedInFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialAssistantDirectionFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "AssignmentTurnedInFilled",
-    short_name: "AssignmentTurnedIn",
+    name: "AssistantDirectionFilled",
+    short_name: "AssistantDirection",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.6 16.05 17.65 9l-1.4-1.4-5.65 5.65-2.85-2.85-1.4 1.4ZM3 21V3h6.2q.325-.9 1.088-1.45Q11.05 1 12 1t1.713.55Q14.475 2.1 14.8 3H21v18Zm9-16.75q.325 0 .538-.213.212-.212.212-.537 0-.325-.212-.538-.213-.212-.538-.212-.325 0-.537.212-.213.213-.213.538 0 .325.213.537.212.213.537.213Z"
+    d: "M12 23q-2.275 0-4.287-.863-2.013-.862-3.5-2.349-1.488-1.488-2.35-3.5Q1 14.275 1 12q0-2.3.863-4.3.862-2 2.35-3.488 1.487-1.487 3.5-2.35Q9.725 1 12 1q2.3 0 4.3.862 2 .863 3.488 2.35Q21.275 5.7 22.138 7.7 23 9.7 23 12q0 2.275-.862 4.288-.863 2.012-2.35 3.5-1.488 1.487-3.488 2.349Q14.3 23 12 23Zm-.05-2.65 8.375-8.375L11.95 3.6l-8.375 8.375Zm-3.975-5.375v-5h5.15l-1.05-1.1 1.4-1.4 3.5 3.5-3.5 3.5-1.4-1.4 1.05-1.1h-3.15v3Z"
   }));
 });
-IconMaterialAssignmentTurnedInFilled.displayName = 'AmauiIconMaterialAssignmentTurnedInFilled';
+IconMaterialAssistantDirectionFilled.displayName = 'AmauiIconMaterialAssistantDirectionFilled';
 
 
 const IconMaterialAssistantNavigationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -3526,19 +3526,6 @@ const IconMaterialAttachEmailFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialAttachEmailFilled.displayName = 'AmauiIconMaterialAttachEmailFilled';
 
 
-const IconMaterialAttachFileAddFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AttachFileAddFilled",
-    short_name: "AttachFileAdd",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.5 22q-2.3 0-3.9-1.6T6 16.5V6q0-1.65 1.175-2.825Q8.35 2 10 2q1.65 0 2.825 1.175Q14 4.35 14 6v8h-1.5V6q0-1.05-.725-1.775Q11.05 3.5 10 3.5q-1.05 0-1.775.725Q7.5 4.95 7.5 6v10.5q0 1.65 1.175 2.825Q9.85 20.5 11.5 20.5q.725 0 1.363-.238.637-.237 1.137-.662v1.8q-.575.275-1.2.437-.625.163-1.3.163Zm4.5-1v-3h-3v-2h3v-3h2v3h3v2h-3v3Zm-4.5-4.5V18q-1.05 0-1.775-.725Q9 16.55 9 15.5V6h1.5v9.5q0 .425.288.712.287.288.712.288Zm4-5.5V6H17v5Z"
-  }));
-});
-IconMaterialAttachFileAddFilled.displayName = 'AmauiIconMaterialAttachFileAddFilled';
-
-
 const IconMaterialAttachFileFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -3550,6 +3537,19 @@ const IconMaterialAttachFileFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialAttachFileFilled.displayName = 'AmauiIconMaterialAttachFileFilled';
+
+
+const IconMaterialAttachFileAddFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AttachFileAddFilled",
+    short_name: "AttachFileAdd",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11.5 22q-2.3 0-3.9-1.6T6 16.5V6q0-1.65 1.175-2.825Q8.35 2 10 2q1.65 0 2.825 1.175Q14 4.35 14 6v8h-1.5V6q0-1.05-.725-1.775Q11.05 3.5 10 3.5q-1.05 0-1.775.725Q7.5 4.95 7.5 6v10.5q0 1.65 1.175 2.825Q9.85 20.5 11.5 20.5q.725 0 1.363-.238.637-.237 1.137-.662v1.8q-.575.275-1.2.437-.625.163-1.3.163Zm4.5-1v-3h-3v-2h3v-3h2v3h3v2h-3v3Zm-4.5-4.5V18q-1.05 0-1.775-.725Q9 16.55 9 15.5V6h1.5v9.5q0 .425.288.712.287.288.712.288Zm4-5.5V6H17v5Z"
+  }));
+});
+IconMaterialAttachFileAddFilled.displayName = 'AmauiIconMaterialAttachFileAddFilled';
 
 
 const IconMaterialAttachMoneyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -3955,19 +3955,6 @@ const IconMaterialAutopauseFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialAutopauseFilled.displayName = 'AmauiIconMaterialAutopauseFilled';
 
 
-const IconMaterialAutopayFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "AutopayFilled",
-    short_name: "Autopay",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 23q-2.8 0-5.15-1.288Q4.5 20.425 3 18.3V20H1v-5h5v2H4.55q1.2 1.8 3.15 2.9Q9.65 21 12 21q1.875 0 3.513-.712 1.637-.713 2.85-1.926 1.212-1.212 1.925-2.85Q21 13.875 21 12h2q0 2.275-.862 4.275-.863 2-2.363 3.5t-3.5 2.362Q14.275 23 12 23ZM7.35 4.325l-.85-1.85q1.275-.725 2.588-1.1Q10.4 1 12 1q2.8 0 5.15 1.287Q19.5 3.575 21 5.7V4h2v5h-5V7h1.45q-1.2-1.8-3.15-2.9Q14.35 3 12 3q-1.325 0-2.462.362-1.138.363-2.188.963ZM4 12 2.75 9.25 0 8l2.75-1.25L4 4l1.25 2.75L8 8 5.25 9.25Zm3.8 4 3.4-9h1.6l3.4 9h-1.55l-.8-2.3H10.2L9.4 16Zm2.85-3.6h2.7l-1.3-3.75h-.1Z"
-  }));
-});
-IconMaterialAutopayFilled.displayName = 'AmauiIconMaterialAutopayFilled';
-
-
 const IconMaterialAutoplayFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -4005,6 +3992,19 @@ const IconMaterialAutostopFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialAutostopFilled.displayName = 'AmauiIconMaterialAutostopFilled';
+
+
+const IconMaterialAutopayFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "AutopayFilled",
+    short_name: "Autopay",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 23q-2.8 0-5.15-1.288Q4.5 20.425 3 18.3V20H1v-5h5v2H4.55q1.2 1.8 3.15 2.9Q9.65 21 12 21q1.875 0 3.513-.712 1.637-.713 2.85-1.926 1.212-1.212 1.925-2.85Q21 13.875 21 12h2q0 2.275-.862 4.275-.863 2-2.363 3.5t-3.5 2.362Q14.275 23 12 23ZM7.35 4.325l-.85-1.85q1.275-.725 2.588-1.1Q10.4 1 12 1q2.8 0 5.15 1.287Q19.5 3.575 21 5.7V4h2v5h-5V7h1.45q-1.2-1.8-3.15-2.9Q14.35 3 12 3q-1.325 0-2.462.362-1.138.363-2.188.963ZM4 12 2.75 9.25 0 8l2.75-1.25L4 4l1.25 2.75L8 8 5.25 9.25Zm3.8 4 3.4-9h1.6l3.4 9h-1.55l-.8-2.3H10.2L9.4 16Zm2.85-3.6h2.7l-1.3-3.75h-.1Z"
+  }));
+});
+IconMaterialAutopayFilled.displayName = 'AmauiIconMaterialAutopayFilled';
 
 
 const IconMaterialAvTimerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -4150,19 +4150,6 @@ const IconMaterialBackgroundDotLargeFilled = /*#__PURE__*/React.forwardRef((prop
 IconMaterialBackgroundDotLargeFilled.displayName = 'AmauiIconMaterialBackgroundDotLargeFilled';
 
 
-const IconMaterialBackgroundDotSmallFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BackgroundDotSmallFilled",
-    short_name: "BackgroundDotSmall",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M300-240q25 0 42.5-17.5T360-300q0-25-17.5-42.5T300-360q-25 0-42.5 17.5T240-300q0 25 17.5 42.5T300-240Zm0-360q25 0 42.5-17.5T360-660q0-25-17.5-42.5T300-720q-25 0-42.5 17.5T240-660q0 25 17.5 42.5T300-600Zm0 180q25 0 42.5-17.5T360-480q0-25-17.5-42.5T300-540q-25 0-42.5 17.5T240-480q0 25 17.5 42.5T300-420Zm360 180q25 0 42.5-17.5T720-300q0-25-17.5-42.5T660-360q-25 0-42.5 17.5T600-300q0 25 17.5 42.5T660-240Zm0-360q25 0 42.5-17.5T720-660q0-25-17.5-42.5T660-720q-25 0-42.5 17.5T600-660q0 25 17.5 42.5T660-600Zm0 180q25 0 42.5-17.5T720-480q0-25-17.5-42.5T660-540q-25 0-42.5 17.5T600-480q0 25 17.5 42.5T660-420ZM480-600q25 0 42.5-17.5T540-660q0-25-17.5-42.5T480-720q-25 0-42.5 17.5T420-660q0 25 17.5 42.5T480-600Zm0 360q25 0 42.5-17.5T540-300q0-25-17.5-42.5T480-360q-25 0-42.5 17.5T420-300q0 25 17.5 42.5T480-240Zm0-180q25 0 42.5-17.5T540-480q0-25-17.5-42.5T480-540q-25 0-42.5 17.5T420-480q0 25 17.5 42.5T480-420ZM120-120v-720h720v720H120Z"
-  }));
-});
-IconMaterialBackgroundDotSmallFilled.displayName = 'AmauiIconMaterialBackgroundDotSmallFilled';
-
-
 const IconMaterialBackgroundGridSmallFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -4187,6 +4174,19 @@ const IconMaterialBackgroundReplaceFilled = /*#__PURE__*/React.forwardRef((props
   }));
 });
 IconMaterialBackgroundReplaceFilled.displayName = 'AmauiIconMaterialBackgroundReplaceFilled';
+
+
+const IconMaterialBackgroundDotSmallFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BackgroundDotSmallFilled",
+    short_name: "BackgroundDotSmall",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M300-240q25 0 42.5-17.5T360-300q0-25-17.5-42.5T300-360q-25 0-42.5 17.5T240-300q0 25 17.5 42.5T300-240Zm0-360q25 0 42.5-17.5T360-660q0-25-17.5-42.5T300-720q-25 0-42.5 17.5T240-660q0 25 17.5 42.5T300-600Zm0 180q25 0 42.5-17.5T360-480q0-25-17.5-42.5T300-540q-25 0-42.5 17.5T240-480q0 25 17.5 42.5T300-420Zm360 180q25 0 42.5-17.5T720-300q0-25-17.5-42.5T660-360q-25 0-42.5 17.5T600-300q0 25 17.5 42.5T660-240Zm0-360q25 0 42.5-17.5T720-660q0-25-17.5-42.5T660-720q-25 0-42.5 17.5T600-660q0 25 17.5 42.5T660-600Zm0 180q25 0 42.5-17.5T720-480q0-25-17.5-42.5T660-540q-25 0-42.5 17.5T600-480q0 25 17.5 42.5T660-420ZM480-600q25 0 42.5-17.5T540-660q0-25-17.5-42.5T480-720q-25 0-42.5 17.5T420-660q0 25 17.5 42.5T480-600Zm0 360q25 0 42.5-17.5T540-300q0-25-17.5-42.5T480-360q-25 0-42.5 17.5T420-300q0 25 17.5 42.5T480-240Zm0-180q25 0 42.5-17.5T540-480q0-25-17.5-42.5T480-540q-25 0-42.5 17.5T420-480q0 25 17.5 42.5T480-420ZM120-120v-720h720v720H120Z"
+  }));
+});
+IconMaterialBackgroundDotSmallFilled.displayName = 'AmauiIconMaterialBackgroundDotSmallFilled';
 
 
 const IconMaterialBacklightHighFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -4384,19 +4384,6 @@ const IconMaterialBarcodeFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialBarcodeFilled.displayName = 'AmauiIconMaterialBarcodeFilled';
 
 
-const IconMaterialBarcodeReaderFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BarcodeReaderFilled",
-    short_name: "BarcodeReader",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6 21q-1.5 0-2.388-1.163-.887-1.162-.512-2.587l1.8-6.8q-.825-.525-1.362-1.425Q3 8.125 3 7q0-1.65 1.175-2.825Q5.35 3 7 3h11.225l-4 8h-3.25l-.275 1H12v4H9.65l-.75 2.8q-.275.975-1.075 1.587Q7.025 21 6 21ZM19 5l-.625-1.35L22 2l.6 1.375Zm3 7-3.625-1.625L19 9l3.6 1.65Zm-3-4.25v-1.5h4v1.5Z"
-  }));
-});
-IconMaterialBarcodeReaderFilled.displayName = 'AmauiIconMaterialBarcodeReaderFilled';
-
-
 const IconMaterialBarcodeScannerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -4408,6 +4395,19 @@ const IconMaterialBarcodeScannerFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialBarcodeScannerFilled.displayName = 'AmauiIconMaterialBarcodeScannerFilled';
+
+
+const IconMaterialBarcodeReaderFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BarcodeReaderFilled",
+    short_name: "BarcodeReader",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6 21q-1.5 0-2.388-1.163-.887-1.162-.512-2.587l1.8-6.8q-.825-.525-1.362-1.425Q3 8.125 3 7q0-1.65 1.175-2.825Q5.35 3 7 3h11.225l-4 8h-3.25l-.275 1H12v4H9.65l-.75 2.8q-.275.975-1.075 1.587Q7.025 21 6 21ZM19 5l-.625-1.35L22 2l.6 1.375Zm3 7-3.625-1.625L19 9l3.6 1.65Zm-3-4.25v-1.5h4v1.5Z"
+  }));
+});
+IconMaterialBarcodeReaderFilled.displayName = 'AmauiIconMaterialBarcodeReaderFilled';
 
 
 const IconMaterialBarefootFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -4592,19 +4592,6 @@ const IconMaterialBattery4BarFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialBattery4BarFilled.displayName = 'AmauiIconMaterialBattery4BarFilled';
 
 
-const IconMaterialBattery50Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Battery50Filled",
-    short_name: "Battery50",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7 22V4h3V2h4v2h3v18Z"
-  }));
-});
-IconMaterialBattery50Filled.displayName = 'AmauiIconMaterialBattery50Filled';
-
-
 const IconMaterialBattery5BarFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -4616,6 +4603,19 @@ const IconMaterialBattery5BarFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialBattery5BarFilled.displayName = 'AmauiIconMaterialBattery5BarFilled';
+
+
+const IconMaterialBattery50Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Battery50Filled",
+    short_name: "Battery50",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M7 22V4h3V2h4v2h3v18Z"
+  }));
+});
+IconMaterialBattery50Filled.displayName = 'AmauiIconMaterialBattery50Filled';
 
 
 const IconMaterialBattery60Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -4644,19 +4644,6 @@ const IconMaterialBattery80Filled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialBattery80Filled.displayName = 'AmauiIconMaterialBattery80Filled';
 
 
-const IconMaterialBattery6BarFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Battery6BarFilled",
-    short_name: "Battery6Bar",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7 22V4h3V2h4v2h3v18ZM9 8h6V6H9Z"
-  }));
-});
-IconMaterialBattery6BarFilled.displayName = 'AmauiIconMaterialBattery6BarFilled';
-
-
 const IconMaterialBattery90Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -4668,6 +4655,19 @@ const IconMaterialBattery90Filled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialBattery90Filled.displayName = 'AmauiIconMaterialBattery90Filled';
+
+
+const IconMaterialBattery6BarFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Battery6BarFilled",
+    short_name: "Battery6Bar",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M7 22V4h3V2h4v2h3v18ZM9 8h6V6H9Z"
+  }));
+});
+IconMaterialBattery6BarFilled.displayName = 'AmauiIconMaterialBattery6BarFilled';
 
 
 const IconMaterialBatteryAlertFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5177,6 +5177,19 @@ const IconMaterialBigtopUpdatesFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialBigtopUpdatesFilled.displayName = 'AmauiIconMaterialBigtopUpdatesFilled';
 
 
+const IconMaterialBikeScooterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BikeScooterFilled",
+    short_name: "BikeScooter",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10 21q-1.25 0-2.125-.875T7 18q0-1.25.875-2.125T10 15q1.25 0 2.125.875T13 18q0 1.25-.875 2.125T10 21ZM0 19v-2h4.1q.275-1.7 1.413-2.975Q6.65 12.75 8.3 12.25L6.85 6H3V4h5.45l2.3 10H10q-1.65 0-2.825 1.175Q6 16.35 6 18v1Zm19-1q-1.8 0-3.162-1.113Q14.475 15.775 14.1 14h-2.35l-.45-2h2.8q.125-.575.338-1.075.212-.5.562-.925h-4.15l-.45-2h5.65l-1.1-3h-2.6V3h4.025L18.2 7.95h.8q2.075 0 3.538 1.462Q24 10.875 24 12.95q0 2.125-1.462 3.588Q21.075 18 19 18Zm-1-4.65 1.9-.7-1-2.65-1.85.7Z"
+  }));
+});
+IconMaterialBikeScooterFilled.displayName = 'AmauiIconMaterialBikeScooterFilled';
+
+
 const IconMaterialBiotechFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -5214,19 +5227,6 @@ const IconMaterialBlenderFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialBlenderFilled.displayName = 'AmauiIconMaterialBlenderFilled';
-
-
-const IconMaterialBikeScooterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BikeScooterFilled",
-    short_name: "BikeScooter",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10 21q-1.25 0-2.125-.875T7 18q0-1.25.875-2.125T10 15q1.25 0 2.125.875T13 18q0 1.25-.875 2.125T10 21ZM0 19v-2h4.1q.275-1.7 1.413-2.975Q6.65 12.75 8.3 12.25L6.85 6H3V4h5.45l2.3 10H10q-1.65 0-2.825 1.175Q6 16.35 6 18v1Zm19-1q-1.8 0-3.162-1.113Q14.475 15.775 14.1 14h-2.35l-.45-2h2.8q.125-.575.338-1.075.212-.5.562-.925h-4.15l-.45-2h5.65l-1.1-3h-2.6V3h4.025L18.2 7.95h.8q2.075 0 3.538 1.462Q24 10.875 24 12.95q0 2.125-1.462 3.588Q21.075 18 19 18Zm-1-4.65 1.9-.7-1-2.65-1.85.7Z"
-  }));
-});
-IconMaterialBikeScooterFilled.displayName = 'AmauiIconMaterialBikeScooterFilled';
 
 
 const IconMaterialBlindFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5268,6 +5268,19 @@ const IconMaterialBlindsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialBlindsFilled.displayName = 'AmauiIconMaterialBlindsFilled';
 
 
+const IconMaterialBloodPressureFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BloodPressureFilled",
+    short_name: "BloodPressure",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M680 976q-83 0-141.5-58.5T480 776q0-83 58.5-141.5T680 576q83 0 141.5 58.5T880 776q0 83-58.5 141.5T680 976Zm8-180 91-91-28-28-91 91 28 28ZM80 536V256h800v324q-40-41-91.5-62.5T680 496q-38 0-72.5 9.5T542 532l-66-134q-5-10-15-15t-21-5q-11 0-21 5t-15 15L280 647l-45-89q-5-10-14.5-16t-20.5-6H80Zm0 360V616h95l69 138q5 11 14.5 16.5T280 776q11 0 20.5-5.5T315 754l125-248 38 76q-36 38-57 87.5T400 776q0 31 6.5 61.5T427 896H80Z"
+  }));
+});
+IconMaterialBloodPressureFilled.displayName = 'AmauiIconMaterialBloodPressureFilled';
+
+
 const IconMaterialBlockFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -5281,17 +5294,17 @@ const IconMaterialBlockFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialBlockFilled.displayName = 'AmauiIconMaterialBlockFilled';
 
 
-const IconMaterialBloodPressureFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialBloodtypeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "BloodPressureFilled",
-    short_name: "BloodPressure",
-    viewBox: "0 96 960 960"
+    name: "BloodtypeFilled",
+    short_name: "Bloodtype",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M680 976q-83 0-141.5-58.5T480 776q0-83 58.5-141.5T680 576q83 0 141.5 58.5T880 776q0 83-58.5 141.5T680 976Zm8-180 91-91-28-28-91 91 28 28ZM80 536V256h800v324q-40-41-91.5-62.5T680 496q-38 0-72.5 9.5T542 532l-66-134q-5-10-15-15t-21-5q-11 0-21 5t-15 15L280 647l-45-89q-5-10-14.5-16t-20.5-6H80Zm0 360V616h95l69 138q5 11 14.5 16.5T280 776q11 0 20.5-5.5T315 754l125-248 38 76q-36 38-57 87.5T400 776q0 31 6.5 61.5T427 896H80Z"
+    d: "M9 18h6v-2H9Zm2-3h2v-2h2v-2h-2V9h-2v2H9v2h2Zm1 7q-3.175 0-5.587-2.212Q4 17.575 4 13.8q0-2.5 1.988-5.437Q7.975 5.425 12 2q4.025 3.425 6.013 6.363Q20 11.3 20 13.8q0 3.775-2.413 5.988Q15.175 22 12 22Z"
   }));
 });
-IconMaterialBloodPressureFilled.displayName = 'AmauiIconMaterialBloodPressureFilled';
+IconMaterialBloodtypeFilled.displayName = 'AmauiIconMaterialBloodtypeFilled';
 
 
 const IconMaterialBluetoothConnectedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5307,19 +5320,6 @@ const IconMaterialBluetoothConnectedFilled = /*#__PURE__*/React.forwardRef((prop
 IconMaterialBluetoothConnectedFilled.displayName = 'AmauiIconMaterialBluetoothConnectedFilled';
 
 
-const IconMaterialBluetoothDriveFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BluetoothDriveFilled",
-    short_name: "BluetoothDrive",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6.5 16q.625 0 1.062-.438Q8 15.125 8 14.5t-.438-1.062Q7.125 13 6.5 13t-1.062.438Q5 13.875 5 14.5t.438 1.062Q5.875 16 6.5 16Zm9 0q.625 0 1.062-.438Q17 15.125 17 14.5t-.438-1.062Q16.125 13 15.5 13t-1.062.438Q14 13.875 14 14.5t.438 1.062Q14.875 16 15.5 16Zm3.15-5V7.2l-2.3 2.3-.7-.7 2.8-2.8-2.8-2.8.7-.7 2.3 2.3V1h.5L22 3.9 19.85 6 22 8.15 19.15 11Zm1-6.2.95-.9-.95-.95Zm0 4.3.95-.95-.95-.95ZM2 21v-9l2.45-7H15v2H5.85L4.8 10H15v2h5v9h-3v-2H5v2Z"
-  }));
-});
-IconMaterialBluetoothDriveFilled.displayName = 'AmauiIconMaterialBluetoothDriveFilled';
-
-
 const IconMaterialBluetoothDisabledFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -5333,6 +5333,19 @@ const IconMaterialBluetoothDisabledFilled = /*#__PURE__*/React.forwardRef((props
 IconMaterialBluetoothDisabledFilled.displayName = 'AmauiIconMaterialBluetoothDisabledFilled';
 
 
+const IconMaterialBluetoothDriveFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BluetoothDriveFilled",
+    short_name: "BluetoothDrive",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6.5 16q.625 0 1.062-.438Q8 15.125 8 14.5t-.438-1.062Q7.125 13 6.5 13t-1.062.438Q5 13.875 5 14.5t.438 1.062Q5.875 16 6.5 16Zm9 0q.625 0 1.062-.438Q17 15.125 17 14.5t-.438-1.062Q16.125 13 15.5 13t-1.062.438Q14 13.875 14 14.5t.438 1.062Q14.875 16 15.5 16Zm3.15-5V7.2l-2.3 2.3-.7-.7 2.8-2.8-2.8-2.8.7-.7 2.3 2.3V1h.5L22 3.9 19.85 6 22 8.15 19.15 11Zm1-6.2.95-.9-.95-.95Zm0 4.3.95-.95-.95-.95ZM2 21v-9l2.45-7H15v2H5.85L4.8 10H15v2h5v9h-3v-2H5v2Z"
+  }));
+});
+IconMaterialBluetoothDriveFilled.displayName = 'AmauiIconMaterialBluetoothDriveFilled';
+
+
 const IconMaterialBluetoothFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -5344,19 +5357,6 @@ const IconMaterialBluetoothFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialBluetoothFilled.displayName = 'AmauiIconMaterialBluetoothFilled';
-
-
-const IconMaterialBloodtypeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BloodtypeFilled",
-    short_name: "Bloodtype",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 18h6v-2H9Zm2-3h2v-2h2v-2h-2V9h-2v2H9v2h2Zm1 7q-3.175 0-5.587-2.212Q4 17.575 4 13.8q0-2.5 1.988-5.437Q7.975 5.425 12 2q4.025 3.425 6.013 6.363Q20 11.3 20 13.8q0 3.775-2.413 5.988Q15.175 22 12 22Z"
-  }));
-});
-IconMaterialBloodtypeFilled.displayName = 'AmauiIconMaterialBloodtypeFilled';
 
 
 const IconMaterialBluetoothSearchingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5463,19 +5463,6 @@ const IconMaterialBodyFatFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialBodyFatFilled.displayName = 'AmauiIconMaterialBodyFatFilled';
 
 
-const IconMaterialBodySystemFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BodySystemFilled",
-    short_name: "BodySystem",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m316 816 76-364-72 28v96h-80V428l202-85q14-6 29.5-7.5T501 339q14 5 26.5 14t20.5 23l40 64q28 45 73.5 70.5T760 536v80q-70 0-125.5-28T540 516l-24 60 84 80v160h-80V694l-78-72-42 194h-84Zm224-500q-33 0-56.5-23.5T460 236q0-33 23.5-56.5T540 156q33 0 56.5 23.5T620 236q0 33-23.5 56.5T540 316Zm-60 660q-83 0-156-31.5T197 859q-54-54-85.5-127T80 576q0-119 61.5-214T302 218l36 71q-79 39-128.5 115.5T160 576q0 134 93 227t227 93q134 0 227-93t93-227h80q0 83-31.5 156T763 859q-54 54-127 85.5T480 976Z"
-  }));
-});
-IconMaterialBodySystemFilled.displayName = 'AmauiIconMaterialBodySystemFilled';
-
-
 const IconMaterialBoltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -5487,6 +5474,19 @@ const IconMaterialBoltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialBoltFilled.displayName = 'AmauiIconMaterialBoltFilled';
+
+
+const IconMaterialBodySystemFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BodySystemFilled",
+    short_name: "BodySystem",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m316 816 76-364-72 28v96h-80V428l202-85q14-6 29.5-7.5T501 339q14 5 26.5 14t20.5 23l40 64q28 45 73.5 70.5T760 536v80q-70 0-125.5-28T540 516l-24 60 84 80v160h-80V694l-78-72-42 194h-84Zm224-500q-33 0-56.5-23.5T460 236q0-33 23.5-56.5T540 156q33 0 56.5 23.5T620 236q0 33-23.5 56.5T540 316Zm-60 660q-83 0-156-31.5T197 859q-54-54-85.5-127T80 576q0-119 61.5-214T302 218l36 71q-79 39-128.5 115.5T160 576q0 134 93 227t227 93q134 0 227-93t93-227h80q0 83-31.5 156T763 859q-54 54-127 85.5T480 976Z"
+  }));
+});
+IconMaterialBodySystemFilled.displayName = 'AmauiIconMaterialBodySystemFilled';
 
 
 const IconMaterialBombFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5515,19 +5515,6 @@ const IconMaterialBook2Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialBook2Filled.displayName = 'AmauiIconMaterialBook2Filled';
 
 
-const IconMaterialBook3Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Book3Filled",
-    short_name: "Book3",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M300-80q-59 0-99.5-40.5T160-220v-520q0-58 40.5-99t99.5-41h500v600q-26 0-43 17.5T740-220q0 26 17 43t43 17v80H300Zm49-360h49l25-71h113l25 71h49L504-720h-50L349-440Zm88-112 41-116h3l41 116h-85ZM300-160h373q-6-14-9.5-28.5T660-220q0-16 3-31t10-29H300q-26 0-43 17.5T240-220q0 26 17 43t43 17Z"
-  }));
-});
-IconMaterialBook3Filled.displayName = 'AmauiIconMaterialBook3Filled';
-
-
 const IconMaterialBook4Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -5539,6 +5526,19 @@ const IconMaterialBook4Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialBook4Filled.displayName = 'AmauiIconMaterialBook4Filled';
+
+
+const IconMaterialBook3Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Book3Filled",
+    short_name: "Book3",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M300-80q-59 0-99.5-40.5T160-220v-520q0-58 40.5-99t99.5-41h500v600q-26 0-43 17.5T740-220q0 26 17 43t43 17v80H300Zm49-360h49l25-71h113l25 71h49L504-720h-50L349-440Zm88-112 41-116h3l41 116h-85ZM300-160h373q-6-14-9.5-28.5T660-220q0-16 3-31t10-29H300q-26 0-43 17.5T240-220q0 26 17 43t43 17Z"
+  }));
+});
+IconMaterialBook3Filled.displayName = 'AmauiIconMaterialBook3Filled';
 
 
 const IconMaterialBook5Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5580,19 +5580,6 @@ const IconMaterialBookOnlineFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialBookOnlineFilled.displayName = 'AmauiIconMaterialBookOnlineFilled';
 
 
-const IconMaterialBookmarkAddedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BookmarkAddedFilled",
-    short_name: "BookmarkAdded",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M17.825 9 15 6.175l1.4-1.425 1.425 1.425 3.525-3.55 1.425 1.425ZM5 21V3h9q-.5.75-.75 1.438Q13 5.125 13 6q0 1.8 1.137 3.175Q15.275 10.55 17 10.9q.575.075 1 .075.425 0 1-.075V21l-7-3Z"
-  }));
-});
-IconMaterialBookmarkAddedFilled.displayName = 'AmauiIconMaterialBookmarkAddedFilled';
-
-
 const IconMaterialBookmarkAddFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -5604,6 +5591,19 @@ const IconMaterialBookmarkAddFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialBookmarkAddFilled.displayName = 'AmauiIconMaterialBookmarkAddFilled';
+
+
+const IconMaterialBookmarkAddedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BookmarkAddedFilled",
+    short_name: "BookmarkAdded",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M17.825 9 15 6.175l1.4-1.425 1.425 1.425 3.525-3.55 1.425 1.425ZM5 21V3h9q-.5.75-.75 1.438Q13 5.125 13 6q0 1.8 1.137 3.175Q15.275 10.55 17 10.9q.575.075 1 .075.425 0 1-.075V21l-7-3Z"
+  }));
+});
+IconMaterialBookmarkAddedFilled.displayName = 'AmauiIconMaterialBookmarkAddedFilled';
 
 
 const IconMaterialBookmarkFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5749,19 +5749,6 @@ const IconMaterialBorderLeftFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialBorderLeftFilled.displayName = 'AmauiIconMaterialBorderLeftFilled';
 
 
-const IconMaterialBorderOuterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BorderOuterFilled",
-    short_name: "BorderOuter",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 21V3h18v18Zm2-2h14V5H5Zm2-6v-2h2v2Zm4 4v-2h2v2Zm0-4v-2h2v2Zm0-4V7h2v2Zm4 4v-2h2v2Z"
-  }));
-});
-IconMaterialBorderOuterFilled.displayName = 'AmauiIconMaterialBorderOuterFilled';
-
-
 const IconMaterialBorderRightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -5773,6 +5760,19 @@ const IconMaterialBorderRightFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialBorderRightFilled.displayName = 'AmauiIconMaterialBorderRightFilled';
+
+
+const IconMaterialBorderOuterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BorderOuterFilled",
+    short_name: "BorderOuter",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 21V3h18v18Zm2-2h14V5H5Zm2-6v-2h2v2Zm4 4v-2h2v2Zm0-4v-2h2v2Zm0-4V7h2v2Zm4 4v-2h2v2Z"
+  }));
+});
+IconMaterialBorderOuterFilled.displayName = 'AmauiIconMaterialBorderOuterFilled';
 
 
 const IconMaterialBorderStyleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5866,19 +5866,6 @@ const IconMaterialBottomPanelCloseFilled = /*#__PURE__*/React.forwardRef((props,
 IconMaterialBottomPanelCloseFilled.displayName = 'AmauiIconMaterialBottomPanelCloseFilled';
 
 
-const IconMaterialBottomPanelOpenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BottomPanelOpenFilled",
-    short_name: "BottomPanelOpen",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M320 556h320L480 396 320 556ZM200 656h560V296H200v360Zm-80 280V216h720v720H120Z"
-  }));
-});
-IconMaterialBottomPanelOpenFilled.displayName = 'AmauiIconMaterialBottomPanelOpenFilled';
-
-
 const IconMaterialBottomRightClickFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -5890,6 +5877,19 @@ const IconMaterialBottomRightClickFilled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialBottomRightClickFilled.displayName = 'AmauiIconMaterialBottomRightClickFilled';
+
+
+const IconMaterialBottomPanelOpenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BottomPanelOpenFilled",
+    short_name: "BottomPanelOpen",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M320 556h320L480 396 320 556ZM200 656h560V296H200v360Zm-80 280V216h720v720H120Z"
+  }));
+});
+IconMaterialBottomPanelOpenFilled.displayName = 'AmauiIconMaterialBottomPanelOpenFilled';
 
 
 const IconMaterialBottomSheetsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -5944,19 +5944,6 @@ const IconMaterialBoxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialBoxFilled.displayName = 'AmauiIconMaterialBoxFilled';
 
 
-const IconMaterialBrandAwarenessFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BrandAwarenessFilled",
-    short_name: "BrandAwareness",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M640-440v-80h160v80H640Zm48 280-128-96 48-64 128 96-48 64Zm-80-480-48-64 128-96 48 64-128 96ZM120-360v-240h160l200-200v640L280-360H120Z"
-  }));
-});
-IconMaterialBrandAwarenessFilled.displayName = 'AmauiIconMaterialBrandAwarenessFilled';
-
-
 const IconMaterialBoyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -5968,6 +5955,19 @@ const IconMaterialBoyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialBoyFilled.displayName = 'AmauiIconMaterialBoyFilled';
+
+
+const IconMaterialBrandAwarenessFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BrandAwarenessFilled",
+    short_name: "BrandAwareness",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M640-440v-80h160v80H640Zm48 280-128-96 48-64 128 96-48 64Zm-80-480-48-64 128-96 48 64-128 96ZM120-360v-240h160l200-200v640L280-360H120Z"
+  }));
+});
+IconMaterialBrandAwarenessFilled.displayName = 'AmauiIconMaterialBrandAwarenessFilled';
 
 
 const IconMaterialBrandFamilyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6022,6 +6022,19 @@ const IconMaterialBreakingNewsAlt1Filled = /*#__PURE__*/React.forwardRef((props,
 IconMaterialBreakingNewsAlt1Filled.displayName = 'AmauiIconMaterialBreakingNewsAlt1Filled';
 
 
+const IconMaterialBreakingNewsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BreakingNewsFilled",
+    short_name: "BreakingNews",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M240-280h80v-80h-80v80Zm0-160h80v-240h-80v240Zm200 160h280v-80H440v80Zm0-160h280v-80H440v80Zm0-160h280v-80H440v80ZM80-120v-720h800v720H80Z"
+  }));
+});
+IconMaterialBreakingNewsFilled.displayName = 'AmauiIconMaterialBreakingNewsFilled';
+
+
 const IconMaterialBreastfeedingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6046,19 +6059,6 @@ const IconMaterialBrightness1Filled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialBrightness1Filled.displayName = 'AmauiIconMaterialBrightness1Filled';
-
-
-const IconMaterialBreakingNewsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BreakingNewsFilled",
-    short_name: "BreakingNews",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M240-280h80v-80h-80v80Zm0-160h80v-240h-80v240Zm200 160h280v-80H440v80Zm0-160h280v-80H440v80Zm0-160h280v-80H440v80ZM80-120v-720h800v720H80Z"
-  }));
-});
-IconMaterialBreakingNewsFilled.displayName = 'AmauiIconMaterialBreakingNewsFilled';
 
 
 const IconMaterialBrightness2Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6243,19 +6243,6 @@ const IconMaterialBroadcastOnHomeFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialBroadcastOnHomeFilled.displayName = 'AmauiIconMaterialBroadcastOnHomeFilled';
 
 
-const IconMaterialBroadcastOnPersonalFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BroadcastOnPersonalFilled",
-    short_name: "BroadcastOnPersonal",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 20V8l8-6 6.75 5.025q-3.225.1-5.475 2.4-2.25 2.3-2.25 5.575 0 1.375.45 2.65T10.8 20Zm10.4-.4q-.875-.95-1.388-2.138Q10.5 16.275 10.5 15q0-2.725 1.9-4.613Q14.3 8.5 17 8.5q2.725 0 4.613 1.887Q23.5 12.275 23.5 15q0 1.275-.475 2.462-.475 1.188-1.4 2.113L20.55 18.5q.725-.725 1.088-1.625Q22 15.975 22 15q0-2.1-1.45-3.55Q19.1 10 17 10q-2.075 0-3.537 1.45Q12 12.9 12 15q0 .975.387 1.887.388.913 1.088 1.638Zm1.775-1.775q-.55-.575-.863-1.3Q13 15.8 13 15q0-1.675 1.175-2.838Q15.35 11 17 11q1.675 0 2.837 1.162Q21 13.325 21 15q0 .775-.288 1.5-.287.725-.862 1.3l-1.075-1.05q.35-.35.537-.8.188-.45.188-.95 0-1.05-.725-1.775Q18.05 12.5 17 12.5q-1.05 0-1.775.725Q14.5 13.95 14.5 15q0 .5.2.95.2.45.55.8ZM16.25 21v-5q-.225-.2-.362-.463-.138-.262-.138-.537 0-.525.375-.887.375-.363.875-.363.525 0 .888.363.362.362.362.887 0 .275-.112.55-.113.275-.388.45v5Z"
-  }));
-});
-IconMaterialBroadcastOnPersonalFilled.displayName = 'AmauiIconMaterialBroadcastOnPersonalFilled';
-
-
 const IconMaterialBrokenImageFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6267,6 +6254,19 @@ const IconMaterialBrokenImageFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialBrokenImageFilled.displayName = 'AmauiIconMaterialBrokenImageFilled';
+
+
+const IconMaterialBroadcastOnPersonalFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BroadcastOnPersonalFilled",
+    short_name: "BroadcastOnPersonal",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 20V8l8-6 6.75 5.025q-3.225.1-5.475 2.4-2.25 2.3-2.25 5.575 0 1.375.45 2.65T10.8 20Zm10.4-.4q-.875-.95-1.388-2.138Q10.5 16.275 10.5 15q0-2.725 1.9-4.613Q14.3 8.5 17 8.5q2.725 0 4.613 1.887Q23.5 12.275 23.5 15q0 1.275-.475 2.462-.475 1.188-1.4 2.113L20.55 18.5q.725-.725 1.088-1.625Q22 15.975 22 15q0-2.1-1.45-3.55Q19.1 10 17 10q-2.075 0-3.537 1.45Q12 12.9 12 15q0 .975.387 1.887.388.913 1.088 1.638Zm1.775-1.775q-.55-.575-.863-1.3Q13 15.8 13 15q0-1.675 1.175-2.838Q15.35 11 17 11q1.675 0 2.837 1.162Q21 13.325 21 15q0 .775-.288 1.5-.287.725-.862 1.3l-1.075-1.05q.35-.35.537-.8.188-.45.188-.95 0-1.05-.725-1.775Q18.05 12.5 17 12.5q-1.05 0-1.775.725Q14.5 13.95 14.5 15q0 .5.2.95.2.45.55.8ZM16.25 21v-5q-.225-.2-.362-.463-.138-.262-.138-.537 0-.525.375-.887.375-.363.875-.363.525 0 .888.363.362.362.362.887 0 .275-.112.55-.113.275-.388.45v5Z"
+  }));
+});
+IconMaterialBroadcastOnPersonalFilled.displayName = 'AmauiIconMaterialBroadcastOnPersonalFilled';
 
 
 const IconMaterialBrowseActivityFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6399,19 +6399,6 @@ const IconMaterialBugReportFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialBugReportFilled.displayName = 'AmauiIconMaterialBugReportFilled';
 
 
-const IconMaterialBuildCircleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BuildCircleFilled",
-    short_name: "BuildCircle",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m9.525 10.925-2.35-2.35q-.2.4-.312.825-.113.425-.113.85 0 1.425 1.013 2.438Q8.775 13.7 10.2 13.7q.325 0 .612-.05.288-.05.563-.15l3.775 3.75 2.1-2.1-3.75-3.775q.1-.225.15-.513.05-.287.05-.662 0-1.425-1.012-2.438Q11.675 6.75 10.25 6.75q-.425 0-.85.112-.425.113-.825.313l2.35 2.35ZM12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
-  }));
-});
-IconMaterialBuildCircleFilled.displayName = 'AmauiIconMaterialBuildCircleFilled';
-
-
 const IconMaterialBuildFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6423,6 +6410,19 @@ const IconMaterialBuildFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialBuildFilled.displayName = 'AmauiIconMaterialBuildFilled';
+
+
+const IconMaterialBuildCircleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BuildCircleFilled",
+    short_name: "BuildCircle",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m9.525 10.925-2.35-2.35q-.2.4-.312.825-.113.425-.113.85 0 1.425 1.013 2.438Q8.775 13.7 10.2 13.7q.325 0 .612-.05.288-.05.563-.15l3.775 3.75 2.1-2.1-3.75-3.775q.1-.225.15-.513.05-.287.05-.662 0-1.425-1.012-2.438Q11.675 6.75 10.25 6.75q-.425 0-.85.112-.425.113-.825.313l2.35 2.35ZM12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
+  }));
+});
+IconMaterialBuildCircleFilled.displayName = 'AmauiIconMaterialBuildCircleFilled';
 
 
 const IconMaterialBungalowFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6464,19 +6464,6 @@ const IconMaterialBusAlertFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialBusAlertFilled.displayName = 'AmauiIconMaterialBusAlertFilled';
 
 
-const IconMaterialBusinessCenterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "BusinessCenterFilled",
-    short_name: "BusinessCenter",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 13V6h6V2h8v4h6v7h-7v-2H9v2Zm8-7h4V4h-4Zm1 9v-2h2v2Zm-9 6v-6h7v2h6v-2h7v6Z"
-  }));
-});
-IconMaterialBusinessCenterFilled.displayName = 'AmauiIconMaterialBusinessCenterFilled';
-
-
 const IconMaterialBusinessChipFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6488,6 +6475,19 @@ const IconMaterialBusinessChipFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialBusinessChipFilled.displayName = 'AmauiIconMaterialBusinessChipFilled';
+
+
+const IconMaterialBusinessCenterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "BusinessCenterFilled",
+    short_name: "BusinessCenter",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 13V6h6V2h8v4h6v7h-7v-2H9v2Zm8-7h4V4h-4Zm1 9v-2h2v2Zm-9 6v-6h7v2h6v-2h7v6Z"
+  }));
+});
+IconMaterialBusinessCenterFilled.displayName = 'AmauiIconMaterialBusinessCenterFilled';
 
 
 const IconMaterialBusinessMessagesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6555,32 +6555,6 @@ const IconMaterialCachedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialCachedFilled.displayName = 'AmauiIconMaterialCachedFilled';
 
 
-const IconMaterialCakeAddFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CakeAddFilled",
-    short_name: "CakeAdd",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 22v-7h18v7Zm2-9V8h6V6.55q-.45-.3-.725-.725Q9 5.4 9 4.8q0-.375.15-.738.15-.362.45-.662L11 2l1.4 1.4q.3.3.45.662.15.363.15.738 0 .6-.275 1.025-.275.425-.725.725V8h6v5Zm15-5V6h-2V4h2V2h2v2h2v2h-2v2Z"
-  }));
-});
-IconMaterialCakeAddFilled.displayName = 'AmauiIconMaterialCakeAddFilled';
-
-
-const IconMaterialCakeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CakeFilled",
-    short_name: "Cake",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5 13V8h6V6.55q-.45-.3-.725-.725Q10 5.4 10 4.8q0-.375.15-.738.15-.362.45-.662L12 2l1.4 1.4q.3.3.45.662.15.363.15.738 0 .6-.275 1.025-.275.425-.725.725V8h6v5Zm-2 9v-7h18v7Z"
-  }));
-});
-IconMaterialCakeFilled.displayName = 'AmauiIconMaterialCakeFilled';
-
-
 const IconMaterialCalculateFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6592,6 +6566,19 @@ const IconMaterialCalculateFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialCalculateFilled.displayName = 'AmauiIconMaterialCalculateFilled';
+
+
+const IconMaterialCakeAddFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CakeAddFilled",
+    short_name: "CakeAdd",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 22v-7h18v7Zm2-9V8h6V6.55q-.45-.3-.725-.725Q9 5.4 9 4.8q0-.375.15-.738.15-.362.45-.662L11 2l1.4 1.4q.3.3.45.662.15.363.15.738 0 .6-.275 1.025-.275.425-.725.725V8h6v5Zm15-5V6h-2V4h2V2h2v2h2v2h-2v2Z"
+  }));
+});
+IconMaterialCakeAddFilled.displayName = 'AmauiIconMaterialCakeAddFilled';
 
 
 const IconMaterialCalendarAddOnFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6607,6 +6594,19 @@ const IconMaterialCalendarAddOnFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialCalendarAddOnFilled.displayName = 'AmauiIconMaterialCalendarAddOnFilled';
 
 
+const IconMaterialCakeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CakeFilled",
+    short_name: "Cake",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5 13V8h6V6.55q-.45-.3-.725-.725Q10 5.4 10 4.8q0-.375.15-.738.15-.362.45-.662L12 2l1.4 1.4q.3.3.45.662.15.363.15.738 0 .6-.275 1.025-.275.425-.725.725V8h6v5Zm-2 9v-7h18v7Z"
+  }));
+});
+IconMaterialCakeFilled.displayName = 'AmauiIconMaterialCakeFilled';
+
+
 const IconMaterialCalendarAppsScriptFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6620,19 +6620,6 @@ const IconMaterialCalendarAppsScriptFilled = /*#__PURE__*/React.forwardRef((prop
 IconMaterialCalendarAppsScriptFilled.displayName = 'AmauiIconMaterialCalendarAppsScriptFilled';
 
 
-const IconMaterialCalendarMonthFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CalendarMonthFilled",
-    short_name: "CalendarMonth",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 14v-2h2v2Zm-4 0v-2h2v2Zm8 0v-2h2v2Zm-4 4v-2h2v2Zm-4 0v-2h2v2Zm8 0v-2h2v2ZM3 22V4h3V2h2v2h8V2h2v2h3v18Zm2-2h14V10H5Z"
-  }));
-});
-IconMaterialCalendarMonthFilled.displayName = 'AmauiIconMaterialCalendarMonthFilled';
-
-
 const IconMaterialCalendarClockFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6644,6 +6631,19 @@ const IconMaterialCalendarClockFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialCalendarClockFilled.displayName = 'AmauiIconMaterialCalendarClockFilled';
+
+
+const IconMaterialCalendarMonthFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CalendarMonthFilled",
+    short_name: "CalendarMonth",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11 14v-2h2v2Zm-4 0v-2h2v2Zm8 0v-2h2v2Zm-4 4v-2h2v2Zm-4 0v-2h2v2Zm8 0v-2h2v2ZM3 22V4h3V2h2v2h8V2h2v2h3v18Zm2-2h14V10H5Z"
+  }));
+});
+IconMaterialCalendarMonthFilled.displayName = 'AmauiIconMaterialCalendarMonthFilled';
 
 
 const IconMaterialCalendarTodayFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6737,19 +6737,6 @@ const IconMaterialCallLogFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialCallLogFilled.displayName = 'AmauiIconMaterialCallLogFilled';
 
 
-const IconMaterialCallMadeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CallMadeFilled",
-    short_name: "CallMade",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.4 20 4 18.6 15.6 7H9V5h10v10h-2V8.4Z"
-  }));
-});
-IconMaterialCallMadeFilled.displayName = 'AmauiIconMaterialCallMadeFilled';
-
-
 const IconMaterialCallMergeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6761,6 +6748,19 @@ const IconMaterialCallMergeFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialCallMergeFilled.displayName = 'AmauiIconMaterialCallMergeFilled';
+
+
+const IconMaterialCallMadeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CallMadeFilled",
+    short_name: "CallMade",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5.4 20 4 18.6 15.6 7H9V5h10v10h-2V8.4Z"
+  }));
+});
+IconMaterialCallMadeFilled.displayName = 'AmauiIconMaterialCallMadeFilled';
 
 
 const IconMaterialCallMissedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -6854,19 +6854,6 @@ const IconMaterialCameraEnhanceFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialCameraEnhanceFilled.displayName = 'AmauiIconMaterialCameraEnhanceFilled';
 
 
-const IconMaterialCameraFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CameraFilled",
-    short_name: "Camera",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m11.2 8.375 3.5-6q2.275.6 4.038 2.2 1.762 1.6 2.562 3.8Zm-2.775 2.5L5 4.875q1.35-1.325 3.138-2.1Q9.925 2 12 2q.325 0 .75.037.425.038.775.088Zm-6.1 3.625q-.15-.6-.237-1.225Q2 12.65 2 12q0-1.775.575-3.35Q3.15 7.075 4.2 5.775L9.25 14.5Zm7 7.125q-2.275-.6-4.05-2.2t-2.575-3.8h10.075ZM12 22q-.375 0-.762-.05-.388-.05-.738-.1l5.075-8.725 3.425 6q-1.35 1.325-3.137 2.1Q14.075 22 12 22Zm7.8-3.775L14.75 9.5h6.925q.15.6.238 1.225Q22 11.35 22 12q0 1.75-.612 3.35-.613 1.6-1.588 2.875Z"
-  }));
-});
-IconMaterialCameraFilled.displayName = 'AmauiIconMaterialCameraFilled';
-
-
 const IconMaterialCameraFrontFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6893,6 +6880,19 @@ const IconMaterialCameraIndoorFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialCameraIndoorFilled.displayName = 'AmauiIconMaterialCameraIndoorFilled';
 
 
+const IconMaterialCameraFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CameraFilled",
+    short_name: "Camera",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m11.2 8.375 3.5-6q2.275.6 4.038 2.2 1.762 1.6 2.562 3.8Zm-2.775 2.5L5 4.875q1.35-1.325 3.138-2.1Q9.925 2 12 2q.325 0 .75.037.425.038.775.088Zm-6.1 3.625q-.15-.6-.237-1.225Q2 12.65 2 12q0-1.775.575-3.35Q3.15 7.075 4.2 5.775L9.25 14.5Zm7 7.125q-2.275-.6-4.05-2.2t-2.575-3.8h10.075ZM12 22q-.375 0-.762-.05-.388-.05-.738-.1l5.075-8.725 3.425 6q-1.35 1.325-3.137 2.1Q14.075 22 12 22Zm7.8-3.775L14.75 9.5h6.925q.15.6.238 1.225Q22 11.35 22 12q0 1.75-.612 3.35-.613 1.6-1.588 2.875Z"
+  }));
+});
+IconMaterialCameraFilled.displayName = 'AmauiIconMaterialCameraFilled';
+
+
 const IconMaterialCameraOutdoorFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6906,19 +6906,6 @@ const IconMaterialCameraOutdoorFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialCameraOutdoorFilled.displayName = 'AmauiIconMaterialCameraOutdoorFilled';
 
 
-const IconMaterialCameraRearFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CameraRearFilled",
-    short_name: "CameraRear",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m9.85 22.5-1.4-1.4 1.1-1.1H5v-2h4.55l-1.1-1.1 1.4-1.4 3.5 3.5ZM14 20v-2h5v2Zm-9-3V2h14v15h-6.225L9.85 14.075 6.925 17Zm7-7q.825 0 1.413-.588Q14 8.825 14 8t-.587-1.412Q12.825 6 12 6q-.825 0-1.412.588Q10 7.175 10 8t.588 1.412Q11.175 10 12 10Z"
-  }));
-});
-IconMaterialCameraRearFilled.displayName = 'AmauiIconMaterialCameraRearFilled';
-
-
 const IconMaterialCameraRollFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -6930,6 +6917,19 @@ const IconMaterialCameraRollFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialCameraRollFilled.displayName = 'AmauiIconMaterialCameraRollFilled';
+
+
+const IconMaterialCameraRearFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CameraRearFilled",
+    short_name: "CameraRear",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m9.85 22.5-1.4-1.4 1.1-1.1H5v-2h4.55l-1.1-1.1 1.4-1.4 3.5 3.5ZM14 20v-2h5v2Zm-9-3V2h14v15h-6.225L9.85 14.075 6.925 17Zm7-7q.825 0 1.413-.588Q14 8.825 14 8t-.587-1.412Q12.825 6 12 6q-.825 0-1.412.588Q10 7.175 10 8t.588 1.412Q11.175 10 12 10Z"
+  }));
+});
+IconMaterialCameraRearFilled.displayName = 'AmauiIconMaterialCameraRearFilled';
 
 
 const IconMaterialCameraVideoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7257,19 +7257,6 @@ const IconMaterialCasinoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialCasinoFilled.displayName = 'AmauiIconMaterialCasinoFilled';
 
 
-const IconMaterialCastFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CastFilled",
-    short_name: "Cast",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M13 20q0-2.275-.863-4.275-.862-2-2.362-3.5t-3.5-2.362Q4.275 9 2 9V4h20v16Zm-4 0q0-2.925-2.037-4.963Q4.925 13 2 13v-2q1.875 0 3.513.712 1.637.713 2.85 1.925 1.212 1.213 1.925 2.851Q11 18.125 11 20Zm-4 0q0-1.25-.875-2.125T2 17v-2q2.075 0 3.537 1.462Q7 17.925 7 20Z"
-  }));
-});
-IconMaterialCastFilled.displayName = 'AmauiIconMaterialCastFilled';
-
-
 const IconMaterialCastConnectedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -7283,17 +7270,17 @@ const IconMaterialCastConnectedFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialCastConnectedFilled.displayName = 'AmauiIconMaterialCastConnectedFilled';
 
 
-const IconMaterialCastForEducationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialCastFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "CastForEducationFilled",
-    short_name: "CastForEducation",
+    name: "CastFilled",
+    short_name: "Cast",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m15 11.5 3.5-2-3.5-2-3.5 2Zm0 2.425 2.5-1.425V11L15 12.425 12.5 11v1.5ZM5 20q0-1.25-.875-2.125T2 17v-2q2.075 0 3.537 1.462Q7 17.925 7 20Zm4 0q0-2.925-2.037-4.963Q4.925 13 2 13v-2q1.875 0 3.513.712 1.637.713 2.85 1.925 1.212 1.213 1.925 2.851Q11 18.125 11 20Zm4 0q0-2.275-.863-4.275-.862-2-2.362-3.5t-3.5-2.362Q4.275 9 2 9V4h20v16Z"
+    d: "M13 20q0-2.275-.863-4.275-.862-2-2.362-3.5t-3.5-2.362Q4.275 9 2 9V4h20v16Zm-4 0q0-2.925-2.037-4.963Q4.925 13 2 13v-2q1.875 0 3.513.712 1.637.713 2.85 1.925 1.212 1.213 1.925 2.851Q11 18.125 11 20Zm-4 0q0-1.25-.875-2.125T2 17v-2q2.075 0 3.537 1.462Q7 17.925 7 20Z"
   }));
 });
-IconMaterialCastForEducationFilled.displayName = 'AmauiIconMaterialCastForEducationFilled';
+IconMaterialCastFilled.displayName = 'AmauiIconMaterialCastFilled';
 
 
 const IconMaterialCastPauseFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7307,6 +7294,19 @@ const IconMaterialCastPauseFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialCastPauseFilled.displayName = 'AmauiIconMaterialCastPauseFilled';
+
+
+const IconMaterialCastForEducationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CastForEducationFilled",
+    short_name: "CastForEducation",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m15 11.5 3.5-2-3.5-2-3.5 2Zm0 2.425 2.5-1.425V11L15 12.425 12.5 11v1.5ZM5 20q0-1.25-.875-2.125T2 17v-2q2.075 0 3.537 1.462Q7 17.925 7 20Zm4 0q0-2.925-2.037-4.963Q4.925 13 2 13v-2q1.875 0 3.513.712 1.637.713 2.85 1.925 1.212 1.213 1.925 2.851Q11 18.125 11 20Zm4 0q0-2.275-.863-4.275-.862-2-2.362-3.5t-3.5-2.362Q4.275 9 2 9V4h20v16Z"
+  }));
+});
+IconMaterialCastForEducationFilled.displayName = 'AmauiIconMaterialCastForEducationFilled';
 
 
 const IconMaterialCastWarningFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7335,19 +7335,6 @@ const IconMaterialCastleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialCastleFilled.displayName = 'AmauiIconMaterialCastleFilled';
 
 
-const IconMaterialCelebrationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CelebrationFilled",
-    short_name: "Celebration",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 22 7 8l9 9Zm12.55-9.45L13.5 11.5l7.525-7.525L23.55 6.5 22.5 7.55l-1.475-1.475Zm-4-4L9.5 7.5l1.45-1.45-1.5-1.5L10.5 3.5l2.55 2.55Zm2 2L11.5 9.5l4.475-4.475L13.5 2.55l1.05-1.05 3.525 3.525Zm4 4L15.5 13.5l3.525-3.525L22.55 13.5l-1.05 1.05-2.475-2.475Z"
-  }));
-});
-IconMaterialCelebrationFilled.displayName = 'AmauiIconMaterialCelebrationFilled';
-
-
 const IconMaterialCategoryFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -7359,6 +7346,19 @@ const IconMaterialCategoryFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialCategoryFilled.displayName = 'AmauiIconMaterialCategoryFilled';
+
+
+const IconMaterialCelebrationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CelebrationFilled",
+    short_name: "Celebration",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 22 7 8l9 9Zm12.55-9.45L13.5 11.5l7.525-7.525L23.55 6.5 22.5 7.55l-1.475-1.475Zm-4-4L9.5 7.5l1.45-1.45-1.5-1.5L10.5 3.5l2.55 2.55Zm2 2L11.5 9.5l4.475-4.475L13.5 2.55l1.05-1.05 3.525 3.525Zm4 4L15.5 13.5l3.525-3.525L22.55 13.5l-1.05 1.05-2.475-2.475Z"
+  }));
+});
+IconMaterialCelebrationFilled.displayName = 'AmauiIconMaterialCelebrationFilled';
 
 
 const IconMaterialCellMergeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7543,19 +7543,6 @@ const IconMaterialChatAddOnFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialChatAddOnFilled.displayName = 'AmauiIconMaterialChatAddOnFilled';
 
 
-const IconMaterialChatAppsScriptFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ChatAppsScriptFilled",
-    short_name: "ChatAppsScript",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M14 21q-.425 0-.712-.288Q13 20.425 13 20t.288-.712Q13.575 19 14 19h2.825l-2.3-1.625q-.35-.25-.412-.637-.063-.388.162-.738t.625-.412q.4-.063.75.162l2.325 1.6L17 14.7q-.15-.4.025-.762.175-.363.575-.513.4-.15.775.025t.525.575l.95 2.65.75-2.725q.125-.4.462-.613.338-.212.738-.087.4.125.625.462.225.338.1.738l-1.55 5.8q-.1.35-.362.55-.263.2-.613.2ZM3 21V6q0-.825.587-1.412Q4.175 4 5 4h12q.825 0 1.413.588Q19 5.175 19 6v5.075q-.25-.05-.487-.063Q18.275 11 18 11t-.512.012q-.238.013-.488.063V6H5v10.175L5.175 16h6.9q-.05.25-.063.488Q12 16.725 12 17t.012.512q.013.238.063.488H6Zm4-11V8h8v2Zm0 4v-2h5v2Z"
-  }));
-});
-IconMaterialChatAppsScriptFilled.displayName = 'AmauiIconMaterialChatAppsScriptFilled';
-
-
 const IconMaterialChatBubbleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -7569,17 +7556,17 @@ const IconMaterialChatBubbleFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialChatBubbleFilled.displayName = 'AmauiIconMaterialChatBubbleFilled';
 
 
-const IconMaterialChatErrorFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialChatAppsScriptFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "ChatErrorFilled",
-    short_name: "ChatError",
-    viewBox: "0 96 960 960"
+    name: "ChatAppsScriptFilled",
+    short_name: "ChatAppsScript",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M80 976V176h800v640H240L80 976Zm296-320 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Z"
+    d: "M14 21q-.425 0-.712-.288Q13 20.425 13 20t.288-.712Q13.575 19 14 19h2.825l-2.3-1.625q-.35-.25-.412-.637-.063-.388.162-.738t.625-.412q.4-.063.75.162l2.325 1.6L17 14.7q-.15-.4.025-.762.175-.363.575-.513.4-.15.775.025t.525.575l.95 2.65.75-2.725q.125-.4.462-.613.338-.212.738-.087.4.125.625.462.225.338.1.738l-1.55 5.8q-.1.35-.362.55-.263.2-.613.2ZM3 21V6q0-.825.587-1.412Q4.175 4 5 4h12q.825 0 1.413.588Q19 5.175 19 6v5.075q-.25-.05-.487-.063Q18.275 11 18 11t-.512.012q-.238.013-.488.063V6H5v10.175L5.175 16h6.9q-.05.25-.063.488Q12 16.725 12 17t.012.512q.013.238.063.488H6Zm4-11V8h8v2Zm0 4v-2h5v2Z"
   }));
 });
-IconMaterialChatErrorFilled.displayName = 'AmauiIconMaterialChatErrorFilled';
+IconMaterialChatAppsScriptFilled.displayName = 'AmauiIconMaterialChatAppsScriptFilled';
 
 
 const IconMaterialChatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7593,6 +7580,19 @@ const IconMaterialChatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialChatFilled.displayName = 'AmauiIconMaterialChatFilled';
+
+
+const IconMaterialChatErrorFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ChatErrorFilled",
+    short_name: "ChatError",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M80 976V176h800v640H240L80 976Zm296-320 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Z"
+  }));
+});
+IconMaterialChatErrorFilled.displayName = 'AmauiIconMaterialChatErrorFilled';
 
 
 const IconMaterialChatInfoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7621,19 +7621,6 @@ const IconMaterialChatPasteGoFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialChatPasteGoFilled.displayName = 'AmauiIconMaterialChatPasteGoFilled';
 
 
-const IconMaterialCheckBoxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CheckBoxFilled",
-    short_name: "CheckBox",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m10.6 16.2 7.05-7.05-1.4-1.4-5.65 5.65-2.85-2.85-1.4 1.4ZM3 21V3h18v18Z"
-  }));
-});
-IconMaterialCheckBoxFilled.displayName = 'AmauiIconMaterialCheckBoxFilled';
-
-
 const IconMaterialCheckBoxOutlineBlankFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -7645,6 +7632,19 @@ const IconMaterialCheckBoxOutlineBlankFilled = /*#__PURE__*/React.forwardRef((pr
   }));
 });
 IconMaterialCheckBoxOutlineBlankFilled.displayName = 'AmauiIconMaterialCheckBoxOutlineBlankFilled';
+
+
+const IconMaterialCheckBoxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CheckBoxFilled",
+    short_name: "CheckBox",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m10.6 16.2 7.05-7.05-1.4-1.4-5.65 5.65-2.85-2.85-1.4 1.4ZM3 21V3h18v18Z"
+  }));
+});
+IconMaterialCheckBoxFilled.displayName = 'AmauiIconMaterialCheckBoxFilled';
 
 
 const IconMaterialCheckCircleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7699,6 +7699,19 @@ const IconMaterialCheckIndeterminateSmallFilled = /*#__PURE__*/React.forwardRef(
 IconMaterialCheckIndeterminateSmallFilled.displayName = 'AmauiIconMaterialCheckIndeterminateSmallFilled';
 
 
+const IconMaterialCheckbookFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CheckbookFilled",
+    short_name: "Checkbook",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M80-200v-560h800v120h-80L600-440H240v80h280L360-200H80Zm160-320h240v-80H240v80Zm280 400v-70l266-266 70 70-266 266h-70Zm360-290-70-70 36-36q5-5 11-5t11 5l48 48q5 5 5 11t-5 11l-36 36Z"
+  }));
+});
+IconMaterialCheckbookFilled.displayName = 'AmauiIconMaterialCheckbookFilled';
+
+
 const IconMaterialCheckSmallFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -7738,17 +7751,17 @@ const IconMaterialCheckedBagQuestionFilled = /*#__PURE__*/React.forwardRef((prop
 IconMaterialCheckedBagQuestionFilled.displayName = 'AmauiIconMaterialCheckedBagQuestionFilled';
 
 
-const IconMaterialCheckbookFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialChecklistFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "CheckbookFilled",
-    short_name: "Checkbook",
-    viewBox: "0 -960 960 960"
+    name: "ChecklistFilled",
+    short_name: "Checklist",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M80-200v-560h800v120h-80L600-440H240v80h280L360-200H80Zm160-320h240v-80H240v80Zm280 400v-70l266-266 70 70-266 266h-70Zm360-290-70-70 36-36q5-5 11-5t11 5l48 48q5 5 5 11t-5 11l-36 36Z"
+    d: "M5.55 19 2 15.45l1.4-1.4 2.125 2.125 4.25-4.25 1.4 1.425Zm0-8L2 7.45l1.4-1.4 2.125 2.125 4.25-4.25 1.4 1.425ZM13 17v-2h9v2Zm0-8V7h9v2Z"
   }));
 });
-IconMaterialCheckbookFilled.displayName = 'AmauiIconMaterialCheckbookFilled';
+IconMaterialChecklistFilled.displayName = 'AmauiIconMaterialChecklistFilled';
 
 
 const IconMaterialChecklistRtlFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7762,19 +7775,6 @@ const IconMaterialChecklistRtlFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialChecklistRtlFilled.displayName = 'AmauiIconMaterialChecklistRtlFilled';
-
-
-const IconMaterialChecklistFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ChecklistFilled",
-    short_name: "Checklist",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.55 19 2 15.45l1.4-1.4 2.125 2.125 4.25-4.25 1.4 1.425Zm0-8L2 7.45l1.4-1.4 2.125 2.125 4.25-4.25 1.4 1.425ZM13 17v-2h9v2Zm0-8V7h9v2Z"
-  }));
-});
-IconMaterialChecklistFilled.displayName = 'AmauiIconMaterialChecklistFilled';
 
 
 const IconMaterialCheckroomFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7959,19 +7959,6 @@ const IconMaterialChromeToteFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialChromeToteFilled.displayName = 'AmauiIconMaterialChromeToteFilled';
 
 
-const IconMaterialChromecast2Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Chromecast2Filled",
-    short_name: "Chromecast2",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 21q-2.925 0-4.963-2.038Q2 16.925 2 14q0-2.65 1.713-4.6Q5.425 7.45 8 7.075V5.7q0-1.55 1.075-2.625T11.7 2q.85 0 1.612.375.763.375 1.288 1.025l5.15 6.5.575-.475L23.1 12.9l-2.75 2.175L17.6 11.6l.575-.475-5.15-6.5q-.25-.3-.587-.463Q12.1 4 11.7 4q-.725 0-1.212.487Q10 4.975 10 5.7v1.375q2.575.375 4.288 2.325Q16 11.35 16 14q0 2.925-2.037 4.962Q11.925 21 9 21Zm0-2q2.075 0 3.538-1.462Q14 16.075 14 14q0-2.075-1.462-3.538Q11.075 9 9 9q-2.075 0-3.537 1.462Q4 11.925 4 14q0 2.075 1.463 3.538Q6.925 19 9 19Z"
-  }));
-});
-IconMaterialChromecast2Filled.displayName = 'AmauiIconMaterialChromecast2Filled';
-
-
 const IconMaterialChromecastDeviceFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -7983,6 +7970,19 @@ const IconMaterialChromecastDeviceFilled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialChromecastDeviceFilled.displayName = 'AmauiIconMaterialChromecastDeviceFilled';
+
+
+const IconMaterialChromecast2Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Chromecast2Filled",
+    short_name: "Chromecast2",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9 21q-2.925 0-4.963-2.038Q2 16.925 2 14q0-2.65 1.713-4.6Q5.425 7.45 8 7.075V5.7q0-1.55 1.075-2.625T11.7 2q.85 0 1.612.375.763.375 1.288 1.025l5.15 6.5.575-.475L23.1 12.9l-2.75 2.175L17.6 11.6l.575-.475-5.15-6.5q-.25-.3-.587-.463Q12.1 4 11.7 4q-.725 0-1.212.487Q10 4.975 10 5.7v1.375q2.575.375 4.288 2.325Q16 11.35 16 14q0 2.925-2.037 4.962Q11.925 21 9 21Zm0-2q2.075 0 3.538-1.462Q14 16.075 14 14q0-2.075-1.462-3.538Q11.075 9 9 9q-2.075 0-3.537 1.462Q4 11.925 4 14q0 2.075 1.463 3.538Q6.925 19 9 19Z"
+  }));
+});
+IconMaterialChromecast2Filled.displayName = 'AmauiIconMaterialChromecast2Filled';
 
 
 const IconMaterialChronicFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -7998,19 +7998,6 @@ const IconMaterialChronicFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialChronicFilled.displayName = 'AmauiIconMaterialChronicFilled';
 
 
-const IconMaterialChurchFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ChurchFilled",
-    short_name: "Church",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 22v-8l4-1.775V9l5-2.5V5H9V3h2V1h2v2h2v2h-2v1.5L18 9v3.225L22 14v8h-8v-5h-4v5Zm10-8.5q.625 0 1.062-.438.438-.437.438-1.062t-.438-1.062Q12.625 10.5 12 10.5t-1.062.438Q10.5 11.375 10.5 12t.438 1.062q.437.438 1.062.438Z"
-  }));
-});
-IconMaterialChurchFilled.displayName = 'AmauiIconMaterialChurchFilled';
-
-
 const IconMaterialCinematicBlurFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8022,6 +8009,19 @@ const IconMaterialCinematicBlurFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialCinematicBlurFilled.displayName = 'AmauiIconMaterialCinematicBlurFilled';
+
+
+const IconMaterialChurchFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ChurchFilled",
+    short_name: "Church",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 22v-8l4-1.775V9l5-2.5V5H9V3h2V1h2v2h2v2h-2v1.5L18 9v3.225L22 14v8h-8v-5h-4v5Zm10-8.5q.625 0 1.062-.438.438-.437.438-1.062t-.438-1.062Q12.625 10.5 12 10.5t-1.062.438Q10.5 11.375 10.5 12t.438 1.062q.437.438 1.062.438Z"
+  }));
+});
+IconMaterialChurchFilled.displayName = 'AmauiIconMaterialChurchFilled';
 
 
 const IconMaterialCircleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8115,19 +8115,6 @@ const IconMaterialCleaningBucketFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialCleaningBucketFilled.displayName = 'AmauiIconMaterialCleaningBucketFilled';
 
 
-const IconMaterialCleaningFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CleaningFilled",
-    short_name: "Cleaning",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m360-680 40-80v-40h-40v-80h280v80l-40 80H480v-40l-80 80h-40ZM320-80v-297l160-303h160v600H320Z"
-  }));
-});
-IconMaterialCleaningFilled.displayName = 'AmauiIconMaterialCleaningFilled';
-
-
 const IconMaterialCleaningServicesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8139,6 +8126,19 @@ const IconMaterialCleaningServicesFilled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialCleaningServicesFilled.displayName = 'AmauiIconMaterialCleaningServicesFilled';
+
+
+const IconMaterialCleaningFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CleaningFilled",
+    short_name: "Cleaning",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m360-680 40-80v-40h-40v-80h280v80l-40 80H480v-40l-80 80h-40ZM320-80v-297l160-303h160v600H320Z"
+  }));
+});
+IconMaterialCleaningFilled.displayName = 'AmauiIconMaterialCleaningFilled';
 
 
 const IconMaterialClearAllFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8154,19 +8154,6 @@ const IconMaterialClearAllFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialClearAllFilled.displayName = 'AmauiIconMaterialClearAllFilled';
 
 
-const IconMaterialClearDayFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ClearDayFilled",
-    short_name: "ClearDay",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 5q-.425 0-.712-.288Q11 4.425 11 4V2q0-.425.288-.713Q11.575 1 12 1t.713.287Q13 1.575 13 2v2q0 .425-.287.712Q12.425 5 12 5Zm4.95 2.05q-.275-.275-.275-.688 0-.412.275-.712l1.4-1.425q.3-.3.712-.3.413 0 .713.3.275.275.275.7 0 .425-.275.7L18.35 7.05q-.275.275-.7.275-.425 0-.7-.275ZM20 13q-.425 0-.712-.288Q19 12.425 19 12t.288-.713Q19.575 11 20 11h2q.425 0 .712.287.288.288.288.713t-.288.712Q22.425 13 22 13Zm-8 10q-.425 0-.712-.288Q11 22.425 11 22v-2q0-.425.288-.712Q11.575 19 12 19t.713.288Q13 19.575 13 20v2q0 .425-.287.712Q12.425 23 12 23ZM5.65 7.05l-1.425-1.4q-.3-.3-.3-.725t.3-.7q.275-.275.7-.275.425 0 .7.275L7.05 5.65q.275.275.275.7 0 .425-.275.7-.3.275-.7.275-.4 0-.7-.275Zm12.7 12.725-1.4-1.425q-.275-.3-.275-.712 0-.413.275-.688.275-.275.688-.275.412 0 .712.275l1.425 1.4q.3.275.287.7-.012.425-.287.725-.3.3-.725.3t-.7-.3ZM2 13q-.425 0-.712-.288Q1 12.425 1 12t.288-.713Q1.575 11 2 11h2q.425 0 .713.287Q5 11.575 5 12t-.287.712Q4.425 13 4 13Zm2.225 6.775q-.275-.275-.275-.7 0-.425.275-.7L5.65 16.95q.275-.275.688-.275.412 0 .712.275.3.3.3.713 0 .412-.3.712l-1.4 1.4q-.3.3-.725.3t-.7-.3ZM12 18q-2.5 0-4.25-1.75T6 12q0-2.5 1.75-4.25T12 6q2.5 0 4.25 1.75T18 12q0 2.5-1.75 4.25T12 18Zm0-2q1.65 0 2.825-1.175Q16 13.65 16 12q0-1.65-1.175-2.825Q13.65 8 12 8q-1.65 0-2.825 1.175Q8 10.35 8 12q0 1.65 1.175 2.825Q10.35 16 12 16Z"
-  }));
-});
-IconMaterialClearDayFilled.displayName = 'AmauiIconMaterialClearDayFilled';
-
-
 const IconMaterialClearNightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8178,6 +8165,19 @@ const IconMaterialClearNightFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialClearNightFilled.displayName = 'AmauiIconMaterialClearNightFilled';
+
+
+const IconMaterialClearDayFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ClearDayFilled",
+    short_name: "ClearDay",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 5q-.425 0-.712-.288Q11 4.425 11 4V2q0-.425.288-.713Q11.575 1 12 1t.713.287Q13 1.575 13 2v2q0 .425-.287.712Q12.425 5 12 5Zm4.95 2.05q-.275-.275-.275-.688 0-.412.275-.712l1.4-1.425q.3-.3.712-.3.413 0 .713.3.275.275.275.7 0 .425-.275.7L18.35 7.05q-.275.275-.7.275-.425 0-.7-.275ZM20 13q-.425 0-.712-.288Q19 12.425 19 12t.288-.713Q19.575 11 20 11h2q.425 0 .712.287.288.288.288.713t-.288.712Q22.425 13 22 13Zm-8 10q-.425 0-.712-.288Q11 22.425 11 22v-2q0-.425.288-.712Q11.575 19 12 19t.713.288Q13 19.575 13 20v2q0 .425-.287.712Q12.425 23 12 23ZM5.65 7.05l-1.425-1.4q-.3-.3-.3-.725t.3-.7q.275-.275.7-.275.425 0 .7.275L7.05 5.65q.275.275.275.7 0 .425-.275.7-.3.275-.7.275-.4 0-.7-.275Zm12.7 12.725-1.4-1.425q-.275-.3-.275-.712 0-.413.275-.688.275-.275.688-.275.412 0 .712.275l1.425 1.4q.3.275.287.7-.012.425-.287.725-.3.3-.725.3t-.7-.3ZM2 13q-.425 0-.712-.288Q1 12.425 1 12t.288-.713Q1.575 11 2 11h2q.425 0 .713.287Q5 11.575 5 12t-.287.712Q4.425 13 4 13Zm2.225 6.775q-.275-.275-.275-.7 0-.425.275-.7L5.65 16.95q.275-.275.688-.275.412 0 .712.275.3.3.3.713 0 .412-.3.712l-1.4 1.4q-.3.3-.725.3t-.7-.3ZM12 18q-2.5 0-4.25-1.75T6 12q0-2.5 1.75-4.25T12 6q2.5 0 4.25 1.75T18 12q0 2.5-1.75 4.25T12 18Zm0-2q1.65 0 2.825-1.175Q16 13.65 16 12q0-1.65-1.175-2.825Q13.65 8 12 8q-1.65 0-2.825 1.175Q8 10.35 8 12q0 1.65 1.175 2.825Q10.35 16 12 16Z"
+  }));
+});
+IconMaterialClearDayFilled.displayName = 'AmauiIconMaterialClearDayFilled';
 
 
 const IconMaterialClimateMiniSplitFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8217,19 +8217,6 @@ const IconMaterialClockLoader10Filled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialClockLoader10Filled.displayName = 'AmauiIconMaterialClockLoader10Filled';
-
-
-const IconMaterialClockLoader20Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ClockLoader20Filled",
-    short_name: "ClockLoader20",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480 976q-83 0-156-31.5T197 859q-54-54-85.5-127T80 576q0-83 31.5-156T197 293q54-54 127-85.5T480 176q83 0 156 31.5T763 293q54 54 85.5 127T880 576q0 83-31.5 156T763 859q-54 54-127 85.5T480 976Zm0-80q134 0 227-93t93-227H480V256q-134 0-227 93t-93 227q0 134 93 227t227 93Z"
-  }));
-});
-IconMaterialClockLoader20Filled.displayName = 'AmauiIconMaterialClockLoader20Filled';
 
 
 const IconMaterialClockLoader40Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8297,6 +8284,19 @@ const IconMaterialCloseFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialCloseFilled.displayName = 'AmauiIconMaterialCloseFilled';
 
 
+const IconMaterialClockLoader20Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ClockLoader20Filled",
+    short_name: "ClockLoader20",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480 976q-83 0-156-31.5T197 859q-54-54-85.5-127T80 576q0-83 31.5-156T197 293q54-54 127-85.5T480 176q83 0 156 31.5T763 293q54 54 85.5 127T880 576q0 83-31.5 156T763 859q-54 54-127 85.5T480 976Zm0-80q134 0 227-93t93-227H480V256q-134 0-227 93t-93 227q0 134 93 227t227 93Z"
+  }));
+});
+IconMaterialClockLoader20Filled.displayName = 'AmauiIconMaterialClockLoader20Filled';
+
+
 const IconMaterialCloseFullscreenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8362,19 +8362,6 @@ const IconMaterialCloudCircleFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialCloudCircleFilled.displayName = 'AmauiIconMaterialCloudCircleFilled';
 
 
-const IconMaterialCloudDoneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CloudDoneFilled",
-    short_name: "CloudDone",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.35 17 16 11.35 14.55 9.9l-4.225 4.225-2.1-2.1L6.8 13.45ZM6.5 20q-2.275 0-3.887-1.575Q1 16.85 1 14.575q0-1.95 1.175-3.475Q3.35 9.575 5.25 9.15q.625-2.3 2.5-3.725Q9.625 4 12 4q2.925 0 4.962 2.037Q19 8.075 19 11q1.725.2 2.863 1.487Q23 13.775 23 15.5q0 1.875-1.312 3.188Q20.375 20 18.5 20Z"
-  }));
-});
-IconMaterialCloudDoneFilled.displayName = 'AmauiIconMaterialCloudDoneFilled';
-
-
 const IconMaterialCloudDownloadFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8386,6 +8373,19 @@ const IconMaterialCloudDownloadFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialCloudDownloadFilled.displayName = 'AmauiIconMaterialCloudDownloadFilled';
+
+
+const IconMaterialCloudDoneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CloudDoneFilled",
+    short_name: "CloudDone",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10.35 17 16 11.35 14.55 9.9l-4.225 4.225-2.1-2.1L6.8 13.45ZM6.5 20q-2.275 0-3.887-1.575Q1 16.85 1 14.575q0-1.95 1.175-3.475Q3.35 9.575 5.25 9.15q.625-2.3 2.5-3.725Q9.625 4 12 4q2.925 0 4.962 2.037Q19 8.075 19 11q1.725.2 2.863 1.487Q23 13.775 23 15.5q0 1.875-1.312 3.188Q20.375 20 18.5 20Z"
+  }));
+});
+IconMaterialCloudDoneFilled.displayName = 'AmauiIconMaterialCloudDoneFilled';
 
 
 const IconMaterialCloudFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8414,19 +8414,6 @@ const IconMaterialCloudOffFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialCloudOffFilled.displayName = 'AmauiIconMaterialCloudOffFilled';
 
 
-const IconMaterialCloudQueueFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CloudQueueFilled",
-    short_name: "CloudQueue",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6.5 20q-2.275 0-3.887-1.575Q1 16.85 1 14.575q0-1.95 1.175-3.475Q3.35 9.575 5.25 9.15q.625-2.3 2.5-3.725Q9.625 4 12 4q2.925 0 4.962 2.037Q19 8.075 19 11q1.725.2 2.863 1.487Q23 13.775 23 15.5q0 1.875-1.312 3.188Q20.375 20 18.5 20Z"
-  }));
-});
-IconMaterialCloudQueueFilled.displayName = 'AmauiIconMaterialCloudQueueFilled';
-
-
 const IconMaterialCloudSyncFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8438,6 +8425,19 @@ const IconMaterialCloudSyncFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialCloudSyncFilled.displayName = 'AmauiIconMaterialCloudSyncFilled';
+
+
+const IconMaterialCloudQueueFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CloudQueueFilled",
+    short_name: "CloudQueue",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6.5 20q-2.275 0-3.887-1.575Q1 16.85 1 14.575q0-1.95 1.175-3.475Q3.35 9.575 5.25 9.15q.625-2.3 2.5-3.725Q9.625 4 12 4q2.925 0 4.962 2.037Q19 8.075 19 11q1.725.2 2.863 1.487Q23 13.775 23 15.5q0 1.875-1.312 3.188Q20.375 20 18.5 20Z"
+  }));
+});
+IconMaterialCloudQueueFilled.displayName = 'AmauiIconMaterialCloudQueueFilled';
 
 
 const IconMaterialCloudUploadFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8531,19 +8531,6 @@ const IconMaterialCodeBlocksFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialCodeBlocksFilled.displayName = 'AmauiIconMaterialCodeBlocksFilled';
 
 
-const IconMaterialCodeOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CodeOffFilled",
-    short_name: "CodeOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M19.775 22.625 7 9.85l-2.175 2.175L9.4 16.6 8 18l-6-6 3.575-3.575-4.2-4.2L2.8 2.8l18.4 18.4Zm-1.35-7.05L17 14.15l2.175-2.175L14.6 7.4 16 6l6 6Z"
-  }));
-});
-IconMaterialCodeOffFilled.displayName = 'AmauiIconMaterialCodeOffFilled';
-
-
 const IconMaterialCodeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8555,6 +8542,19 @@ const IconMaterialCodeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialCodeFilled.displayName = 'AmauiIconMaterialCodeFilled';
+
+
+const IconMaterialCodeOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CodeOffFilled",
+    short_name: "CodeOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M19.775 22.625 7 9.85l-2.175 2.175L9.4 16.6 8 18l-6-6 3.575-3.575-4.2-4.2L2.8 2.8l18.4 18.4Zm-1.35-7.05L17 14.15l2.175-2.175L14.6 7.4 16 6l6 6Z"
+  }));
+});
+IconMaterialCodeOffFilled.displayName = 'AmauiIconMaterialCodeOffFilled';
 
 
 const IconMaterialCoffeeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8687,19 +8687,6 @@ const IconMaterialCommentBankFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialCommentBankFilled.displayName = 'AmauiIconMaterialCommentBankFilled';
 
 
-const IconMaterialCommentFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CommentFilled",
-    short_name: "Comment",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6 14h12v-2H6Zm0-3h12V9H6Zm0-3h12V6H6Zm16 14-4-4H2V2h20Z"
-  }));
-});
-IconMaterialCommentFilled.displayName = 'AmauiIconMaterialCommentFilled';
-
-
 const IconMaterialCommentsDisabledFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -8739,17 +8726,17 @@ const IconMaterialCommunicationFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialCommunicationFilled.displayName = 'AmauiIconMaterialCommunicationFilled';
 
 
-const IconMaterialCommunitiesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialCommentFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "CommunitiesFilled",
-    short_name: "Communities",
-    viewBox: "0 -960 960 960"
+    name: "CommentFilled",
+    short_name: "Comment",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M360-320q33 0 56.5-23.5T440-400q0-33-23.5-56.5T360-480q-33 0-56.5 23.5T280-400q0 33 23.5 56.5T360-320Zm240 0q33 0 56.5-23.5T680-400q0-33-23.5-56.5T600-480q-33 0-56.5 23.5T520-400q0 33 23.5 56.5T600-320ZM480-520q33 0 56.5-23.5T560-600q0-33-23.5-56.5T480-680q-33 0-56.5 23.5T400-600q0 33 23.5 56.5T480-520Zm0 440q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
+    d: "M6 14h12v-2H6Zm0-3h12V9H6Zm0-3h12V6H6Zm16 14-4-4H2V2h20Z"
   }));
 });
-IconMaterialCommunitiesFilled.displayName = 'AmauiIconMaterialCommunitiesFilled';
+IconMaterialCommentFilled.displayName = 'AmauiIconMaterialCommentFilled';
 
 
 const IconMaterialCommuteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -8763,6 +8750,19 @@ const IconMaterialCommuteFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialCommuteFilled.displayName = 'AmauiIconMaterialCommuteFilled';
+
+
+const IconMaterialCommunitiesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CommunitiesFilled",
+    short_name: "Communities",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M360-320q33 0 56.5-23.5T440-400q0-33-23.5-56.5T360-480q-33 0-56.5 23.5T280-400q0 33 23.5 56.5T360-320Zm240 0q33 0 56.5-23.5T680-400q0-33-23.5-56.5T600-480q-33 0-56.5 23.5T520-400q0 33 23.5 56.5T600-320ZM480-520q33 0 56.5-23.5T560-600q0-33-23.5-56.5T480-680q-33 0-56.5 23.5T400-600q0 33 23.5 56.5T480-520Zm0 440q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
+  }));
+});
+IconMaterialCommunitiesFilled.displayName = 'AmauiIconMaterialCommunitiesFilled';
 
 
 const IconMaterialCompareArrowsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9012,19 +9012,6 @@ const IconMaterialContactPhoneFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialContactPhoneFilled.displayName = 'AmauiIconMaterialContactPhoneFilled';
 
 
-const IconMaterialContactSupportFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ContactSupportFilled",
-    short_name: "ContactSupport",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m12 22-.25-3h-.25q-3.55 0-6.025-2.475Q3 14.05 3 10.5q0-3.55 2.475-6.025Q7.95 2 11.5 2q1.775 0 3.312.662 1.538.663 2.701 1.825 1.162 1.163 1.824 2.7Q20 8.725 20 10.5q0 3.8-2.275 6.812Q15.45 20.325 12 22Zm-.525-6.025q.425 0 .725-.3t.3-.725q0-.425-.3-.725t-.725-.3q-.425 0-.725.3t-.3.725q0 .425.3.725t.725.3ZM10.75 12.8h1.5q0-.75.15-1.05.15-.3.95-1.1.45-.45.75-.975.3-.525.3-1.125 0-1.275-.862-1.913Q12.675 6 11.5 6q-1.1 0-1.85.612Q8.9 7.225 8.6 8.1l1.4.55q.125-.425.475-.838.35-.412 1.025-.412.675 0 1.013.375.337.375.337.825 0 .425-.25.762-.25.338-.6.688-.875.75-1.062 1.187-.188.438-.188 1.563Z"
-  }));
-});
-IconMaterialContactSupportFilled.displayName = 'AmauiIconMaterialContactSupportFilled';
-
-
 const IconMaterialContactlessFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9049,6 +9036,19 @@ const IconMaterialContactlessOffFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialContactlessOffFilled.displayName = 'AmauiIconMaterialContactlessOffFilled';
+
+
+const IconMaterialContactSupportFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ContactSupportFilled",
+    short_name: "ContactSupport",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m12 22-.25-3h-.25q-3.55 0-6.025-2.475Q3 14.05 3 10.5q0-3.55 2.475-6.025Q7.95 2 11.5 2q1.775 0 3.312.662 1.538.663 2.701 1.825 1.162 1.163 1.824 2.7Q20 8.725 20 10.5q0 3.8-2.275 6.812Q15.45 20.325 12 22Zm-.525-6.025q.425 0 .725-.3t.3-.725q0-.425-.3-.725t-.725-.3q-.425 0-.725.3t-.3.725q0 .425.3.725t.725.3ZM10.75 12.8h1.5q0-.75.15-1.05.15-.3.95-1.1.45-.45.75-.975.3-.525.3-1.125 0-1.275-.862-1.913Q12.675 6 11.5 6q-1.1 0-1.85.612Q8.9 7.225 8.6 8.1l1.4.55q.125-.425.475-.838.35-.412 1.025-.412.675 0 1.013.375.337.375.337.825 0 .425-.25.762-.25.338-.6.688-.875.75-1.062 1.187-.188.438-.188 1.563Z"
+  }));
+});
+IconMaterialContactSupportFilled.displayName = 'AmauiIconMaterialContactSupportFilled';
 
 
 const IconMaterialContactsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9181,19 +9181,6 @@ const IconMaterialContractEditFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialContractEditFilled.displayName = 'AmauiIconMaterialContractEditFilled';
 
 
-const IconMaterialContractFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ContractFilled",
-    short_name: "Contract",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M240-80q-50 0-85-35t-35-85v-120h120v-560h600v680q0 50-35 85t-85 35H240Zm480-80q17 0 28.5-11.5T760-200v-600H320v480h360v120q0 17 11.5 28.5T720-160ZM360-600v-80h360v80H360Zm0 120v-80h360v80H360Z"
-  }));
-});
-IconMaterialContractFilled.displayName = 'AmauiIconMaterialContractFilled';
-
-
 const IconMaterialContrastFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9205,6 +9192,19 @@ const IconMaterialContrastFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialContrastFilled.displayName = 'AmauiIconMaterialContrastFilled';
+
+
+const IconMaterialContractFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ContractFilled",
+    short_name: "Contract",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M240-80q-50 0-85-35t-35-85v-120h120v-560h600v680q0 50-35 85t-85 35H240Zm480-80q17 0 28.5-11.5T760-200v-600H320v480h360v120q0 17 11.5 28.5T720-160ZM360-600v-80h360v80H360Zm0 120v-80h360v80H360Z"
+  }));
+});
+IconMaterialContractFilled.displayName = 'AmauiIconMaterialContractFilled';
 
 
 const IconMaterialContrastRtlOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9324,17 +9324,17 @@ const IconMaterialCookieOffFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialCookieOffFilled.displayName = 'AmauiIconMaterialCookieOffFilled';
 
 
-const IconMaterialCookingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialCoolToDryFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "CookingFilled",
-    short_name: "Cooking",
+    name: "CoolToDryFilled",
+    short_name: "CoolToDry",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 21v-3H2v-2h7q.825 0 1.413.587Q11 17.175 11 18v3Zm4 0v-3q0-.825.588-1.413Q14.175 16 15 16h7v2h-7v3Zm-7-6q-1.25 0-2.125-.875T3 12V8h18v4q0 1.25-.875 2.125T18 15ZM3 7V5h6V4q0-.425.288-.713Q9.575 3 10 3h4q.425 0 .713.287Q15 3.575 15 4v1h6v2Z"
+    d: "M19.6 21.975q-.575 0-1.137-.138-.563-.137-1.088-.337-.45-.2-.913-.35Q16 21 15.5 21q-.575 0-1.125.2t-1.075.475l-.6-1.375q.65-.35 1.362-.575.713-.225 1.438-.225.575 0 1.137.137.563.138 1.088.338.45.2.913.35.462.15.962.15.575 0 1.138-.2.562-.2 1.062-.475l.6 1.375q-.65.35-1.35.575-.7.225-1.45.225ZM11 20.45q-2.95-.375-4.975-2.6Q4 15.625 4 12.6q0-1.65.613-3.063.612-1.412 1.737-2.487L12 1.5l5.65 5.55q.9.875 1.488 2 .587 1.125.787 2.425H13q-.825 0-1.412.587Q11 12.65 11 13.475Zm8.6-1.475q-.575 0-1.137-.138-.563-.137-1.088-.337-.45-.2-.913-.35Q16 18 15.5 18q-.575 0-1.125.2t-1.075.475l-.6-1.375q.65-.35 1.362-.575.713-.225 1.438-.225.575 0 1.137.137.563.138 1.088.338.45.2.913.35.462.15.962.15.575 0 1.138-.2.562-.2 1.062-.475l.6 1.375q-.65.35-1.35.575-.7.225-1.45.225Zm0-3q-.575 0-1.137-.138-.563-.137-1.088-.337-.45-.2-.913-.35Q16 15 15.5 15q-.575 0-1.125.2t-1.075.475l-.6-1.375q.65-.35 1.362-.575.713-.225 1.438-.225.575 0 1.137.137.563.138 1.088.338.45.2.913.35.462.15.962.15.575 0 1.138-.2.562-.2 1.062-.475l.6 1.375q-.65.35-1.35.575-.7.225-1.45.225Z"
   }));
 });
-IconMaterialCookingFilled.displayName = 'AmauiIconMaterialCookingFilled';
+IconMaterialCoolToDryFilled.displayName = 'AmauiIconMaterialCoolToDryFilled';
 
 
 const IconMaterialCopyAllFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9350,6 +9350,19 @@ const IconMaterialCopyAllFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialCopyAllFilled.displayName = 'AmauiIconMaterialCopyAllFilled';
 
 
+const IconMaterialCookingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CookingFilled",
+    short_name: "Cooking",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9 21v-3H2v-2h7q.825 0 1.413.587Q11 17.175 11 18v3Zm4 0v-3q0-.825.588-1.413Q14.175 16 15 16h7v2h-7v3Zm-7-6q-1.25 0-2.125-.875T3 12V8h18v4q0 1.25-.875 2.125T18 15ZM3 7V5h6V4q0-.425.288-.713Q9.575 3 10 3h4q.425 0 .713.287Q15 3.575 15 4v1h6v2Z"
+  }));
+});
+IconMaterialCookingFilled.displayName = 'AmauiIconMaterialCookingFilled';
+
+
 const IconMaterialCopyrightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9361,19 +9374,6 @@ const IconMaterialCopyrightFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialCopyrightFilled.displayName = 'AmauiIconMaterialCopyrightFilled';
-
-
-const IconMaterialCoolToDryFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CoolToDryFilled",
-    short_name: "CoolToDry",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M19.6 21.975q-.575 0-1.137-.138-.563-.137-1.088-.337-.45-.2-.913-.35Q16 21 15.5 21q-.575 0-1.125.2t-1.075.475l-.6-1.375q.65-.35 1.362-.575.713-.225 1.438-.225.575 0 1.137.137.563.138 1.088.338.45.2.913.35.462.15.962.15.575 0 1.138-.2.562-.2 1.062-.475l.6 1.375q-.65.35-1.35.575-.7.225-1.45.225ZM11 20.45q-2.95-.375-4.975-2.6Q4 15.625 4 12.6q0-1.65.613-3.063.612-1.412 1.737-2.487L12 1.5l5.65 5.55q.9.875 1.488 2 .587 1.125.787 2.425H13q-.825 0-1.412.587Q11 12.65 11 13.475Zm8.6-1.475q-.575 0-1.137-.138-.563-.137-1.088-.337-.45-.2-.913-.35Q16 18 15.5 18q-.575 0-1.125.2t-1.075.475l-.6-1.375q.65-.35 1.362-.575.713-.225 1.438-.225.575 0 1.137.137.563.138 1.088.338.45.2.913.35.462.15.962.15.575 0 1.138-.2.562-.2 1.062-.475l.6 1.375q-.65.35-1.35.575-.7.225-1.45.225Zm0-3q-.575 0-1.137-.138-.563-.137-1.088-.337-.45-.2-.913-.35Q16 15 15.5 15q-.575 0-1.125.2t-1.075.475l-.6-1.375q.65-.35 1.362-.575.713-.225 1.438-.225.575 0 1.137.137.563.138 1.088.338.45.2.913.35.462.15.962.15.575 0 1.138-.2.562-.2 1.062-.475l.6 1.375q-.65.35-1.35.575-.7.225-1.45.225Z"
-  }));
-});
-IconMaterialCoolToDryFilled.displayName = 'AmauiIconMaterialCoolToDryFilled';
 
 
 const IconMaterialCoronavirusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9480,19 +9480,6 @@ const IconMaterialCounter4Filled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialCounter4Filled.displayName = 'AmauiIconMaterialCounter4Filled';
 
 
-const IconMaterialCounter5Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Counter5Filled",
-    short_name: "Counter5",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480 976q-83 0-156-31.5T197 859q-54-54-85.5-127T80 576q0-83 31.5-156T197 293q54-54 127-85.5T480 176q83 0 156 31.5T763 293q54 54 85.5 127T880 576q0 83-31.5 156T763 859q-54 54-127 85.5T480 976ZM360 776h240V536H440v-80h160v-80H360v240h160v80H360v80Z"
-  }));
-});
-IconMaterialCounter5Filled.displayName = 'AmauiIconMaterialCounter5Filled';
-
-
 const IconMaterialCounter6Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9504,6 +9491,19 @@ const IconMaterialCounter6Filled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialCounter6Filled.displayName = 'AmauiIconMaterialCounter6Filled';
+
+
+const IconMaterialCounter5Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Counter5Filled",
+    short_name: "Counter5",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480 976q-83 0-156-31.5T197 859q-54-54-85.5-127T80 576q0-83 31.5-156T197 293q54-54 127-85.5T480 176q83 0 156 31.5T763 293q54 54 85.5 127T880 576q0 83-31.5 156T763 859q-54 54-127 85.5T480 976ZM360 776h240V536H440v-80h160v-80H360v240h160v80H360v80Z"
+  }));
+});
+IconMaterialCounter5Filled.displayName = 'AmauiIconMaterialCounter5Filled';
 
 
 const IconMaterialCounter7Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9571,19 +9571,6 @@ const IconMaterialCreateNewFolderFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialCreateNewFolderFilled.displayName = 'AmauiIconMaterialCreateNewFolderFilled';
 
 
-const IconMaterialCreditCardFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CreditCardFilled",
-    short_name: "CreditCard",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 20V4h20v16Zm2-8h16V8H4Z"
-  }));
-});
-IconMaterialCreditCardFilled.displayName = 'AmauiIconMaterialCreditCardFilled';
-
-
 const IconMaterialCreditCardGearFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9595,6 +9582,19 @@ const IconMaterialCreditCardGearFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialCreditCardGearFilled.displayName = 'AmauiIconMaterialCreditCardGearFilled';
+
+
+const IconMaterialCreditCardFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CreditCardFilled",
+    short_name: "CreditCard",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 20V4h20v16Zm2-8h16V8H4Z"
+  }));
+});
+IconMaterialCreditCardFilled.displayName = 'AmauiIconMaterialCreditCardFilled';
 
 
 const IconMaterialCreditCardHeartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9688,19 +9688,6 @@ const IconMaterialCrop32Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialCrop32Filled.displayName = 'AmauiIconMaterialCrop32Filled';
 
 
-const IconMaterialCrop54Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Crop54Filled",
-    short_name: "Crop54",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 20V4h18v16Z"
-  }));
-});
-IconMaterialCrop54Filled.displayName = 'AmauiIconMaterialCrop54Filled';
-
-
 const IconMaterialCrop75Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9712,6 +9699,19 @@ const IconMaterialCrop75Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialCrop75Filled.displayName = 'AmauiIconMaterialCrop75Filled';
+
+
+const IconMaterialCrop54Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Crop54Filled",
+    short_name: "Crop54",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 20V4h18v16Z"
+  }));
+});
+IconMaterialCrop54Filled.displayName = 'AmauiIconMaterialCrop54Filled';
 
 
 const IconMaterialCrop916Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9727,19 +9727,6 @@ const IconMaterialCrop916Filled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialCrop916Filled.displayName = 'AmauiIconMaterialCrop916Filled';
 
 
-const IconMaterialCropFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CropFilled",
-    short_name: "Crop",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M17 15V7H9V5h10v10Zm0 8v-4H5V7H1V5h4V1h2v16h16v2h-4v4Z"
-  }));
-});
-IconMaterialCropFilled.displayName = 'AmauiIconMaterialCropFilled';
-
-
 const IconMaterialCropFreeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9751,6 +9738,19 @@ const IconMaterialCropFreeFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialCropFreeFilled.displayName = 'AmauiIconMaterialCropFreeFilled';
+
+
+const IconMaterialCropFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CropFilled",
+    short_name: "Crop",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M17 15V7H9V5h10v10Zm0 8v-4H5V7H1V5h4V1h2v16h16v2h-4v4Z"
+  }));
+});
+IconMaterialCropFilled.displayName = 'AmauiIconMaterialCropFilled';
 
 
 const IconMaterialCropLandscapeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -9961,19 +9961,6 @@ const IconMaterialCurrencyRupeeFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialCurrencyRupeeFilled.displayName = 'AmauiIconMaterialCurrencyRupeeFilled';
 
 
-const IconMaterialCurrencyYuanFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "CurrencyYuanFilled",
-    short_name: "CurrencyYuan",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 21v-7H6v-2h4.725L5 3h2.375L12 10.3 16.625 3H19l-5.725 9H18v2h-5v7Z"
-  }));
-});
-IconMaterialCurrencyYuanFilled.displayName = 'AmauiIconMaterialCurrencyYuanFilled';
-
-
 const IconMaterialCurrencyYenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -9985,6 +9972,19 @@ const IconMaterialCurrencyYenFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialCurrencyYenFilled.displayName = 'AmauiIconMaterialCurrencyYenFilled';
+
+
+const IconMaterialCurrencyYuanFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "CurrencyYuanFilled",
+    short_name: "CurrencyYuan",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11 21v-7H6v-2h4.725L5 3h2.375L12 10.3 16.625 3H19l-5.725 9H18v2h-5v7Z"
+  }));
+});
+IconMaterialCurrencyYuanFilled.displayName = 'AmauiIconMaterialCurrencyYuanFilled';
 
 
 const IconMaterialCurtainsClosedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10143,19 +10143,6 @@ const IconMaterialDataArrayFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialDataArrayFilled.displayName = 'AmauiIconMaterialDataArrayFilled';
 
 
-const IconMaterialDataCheckFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DataCheckFilled",
-    short_name: "DataCheck",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m612 506 141-142-28-28-113 113-57-57-28 29 85 85ZM120 896v-80h480v80H120Zm520-280q-83 0-141.5-58.5T440 416q0-83 58.5-141.5T640 216q83 0 141.5 58.5T840 416q0 83-58.5 141.5T640 616Zm-520-40v-80h252q7 22 16 42t22 38H120Zm0 160v-80h376q23 14 49 23.5t55 13.5v43H120Z"
-  }));
-});
-IconMaterialDataCheckFilled.displayName = 'AmauiIconMaterialDataCheckFilled';
-
-
 const IconMaterialDataExplorationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -10167,6 +10154,19 @@ const IconMaterialDataExplorationFilled = /*#__PURE__*/React.forwardRef((props, 
   }));
 });
 IconMaterialDataExplorationFilled.displayName = 'AmauiIconMaterialDataExplorationFilled';
+
+
+const IconMaterialDataCheckFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DataCheckFilled",
+    short_name: "DataCheck",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m612 506 141-142-28-28-113 113-57-57-28 29 85 85ZM120 896v-80h480v80H120Zm520-280q-83 0-141.5-58.5T440 416q0-83 58.5-141.5T640 216q83 0 141.5 58.5T840 416q0 83-58.5 141.5T640 616Zm-520-40v-80h252q7 22 16 42t22 38H120Zm0 160v-80h376q23 14 49 23.5t55 13.5v43H120Z"
+  }));
+});
+IconMaterialDataCheckFilled.displayName = 'AmauiIconMaterialDataCheckFilled';
 
 
 const IconMaterialDataInfoAlertFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10195,19 +10195,6 @@ const IconMaterialDataLossPreventionFilled = /*#__PURE__*/React.forwardRef((prop
 IconMaterialDataLossPreventionFilled.displayName = 'AmauiIconMaterialDataLossPreventionFilled';
 
 
-const IconMaterialDataObjectFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DataObjectFilled",
-    short_name: "DataObject",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4 20v-6H2v-4h2V4h6v2H6v5.5H4v1h2V18h4v2Zm10 0v-2h4v-5.5h2v-1h-2V6h-4V4h6v6h2v4h-2v6Z"
-  }));
-});
-IconMaterialDataObjectFilled.displayName = 'AmauiIconMaterialDataObjectFilled';
-
-
 const IconMaterialDataSaverOnFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -10219,6 +10206,19 @@ const IconMaterialDataSaverOnFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialDataSaverOnFilled.displayName = 'AmauiIconMaterialDataSaverOnFilled';
+
+
+const IconMaterialDataObjectFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DataObjectFilled",
+    short_name: "DataObject",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4 20v-6H2v-4h2V4h6v2H6v5.5H4v1h2V18h4v2Zm10 0v-2h4v-5.5h2v-1h-2V6h-4V4h6v6h2v4h-2v6Z"
+  }));
+});
+IconMaterialDataObjectFilled.displayName = 'AmauiIconMaterialDataObjectFilled';
 
 
 const IconMaterialDataTableFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10520,6 +10520,19 @@ const IconMaterialDepartureBoardFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialDepartureBoardFilled.displayName = 'AmauiIconMaterialDepartureBoardFilled';
 
 
+const IconMaterialDeployedCodeAlertFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DeployedCodeAlertFilled",
+    short_name: "DeployedCodeAlert",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M680-120q8 0 14-6t6-14q0-8-6-14t-14-6q-8 0-14 6t-6 14q0 8 6 14t14 6Zm-20-80h40v-160h-40v160Zm-540-75v-410l360-207 360 207v215q-34-24-74.5-37T680-520q-17 0-32.5 1.5T616-513l144-83v-42l-43-25-237 137-237-137-43 25v42l240 139v73q-19 32-29.5 68T400-240q0 42 11.5 80T444-89L120-275ZM680-40q-83 0-141.5-58.5T480-240q0-83 58.5-141.5T680-440q83 0 141.5 58.5T880-240q0 83-58.5 141.5T680-40Z"
+  }));
+});
+IconMaterialDeployedCodeAlertFilled.displayName = 'AmauiIconMaterialDeployedCodeAlertFilled';
+
+
 const IconMaterialDeployedCodeAccountFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -10546,17 +10559,17 @@ const IconMaterialDeployedCodeFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialDeployedCodeFilled.displayName = 'AmauiIconMaterialDeployedCodeFilled';
 
 
-const IconMaterialDeployedCodeAlertFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialDeployedCodeUpdateFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "DeployedCodeAlertFilled",
-    short_name: "DeployedCodeAlert",
+    name: "DeployedCodeUpdateFilled",
+    short_name: "DeployedCodeUpdate",
     viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M680-120q8 0 14-6t6-14q0-8-6-14t-14-6q-8 0-14 6t-6 14q0 8 6 14t14 6Zm-20-80h40v-160h-40v160Zm-540-75v-410l360-207 360 207v215q-34-24-74.5-37T680-520q-17 0-32.5 1.5T616-513l144-83v-42l-43-25-237 137-237-137-43 25v42l240 139v73q-19 32-29.5 68T400-240q0 42 11.5 80T444-89L120-275ZM680-40q-83 0-141.5-58.5T480-240q0-83 58.5-141.5T680-440q83 0 141.5 58.5T880-240q0 83-58.5 141.5T680-40Z"
+    d: "m680-120 120-120-28-28-72 72v-164h-40v164l-72-72-28 28 120 120ZM120-275v-410l360-207 360 207v215q-34-24-74.5-37T680-520q-17 0-32.5 1.5T616-513l144-83v-42l-43-25-237 137-237-137-43 25v42l240 139v73q-19 32-29.5 68T400-240q0 42 11.5 80T444-89L120-275ZM680-40q-83 0-141.5-58.5T480-240q0-83 58.5-141.5T680-440q83 0 141.5 58.5T880-240q0 83-58.5 141.5T680-40Z"
   }));
 });
-IconMaterialDeployedCodeAlertFilled.displayName = 'AmauiIconMaterialDeployedCodeAlertFilled';
+IconMaterialDeployedCodeUpdateFilled.displayName = 'AmauiIconMaterialDeployedCodeUpdateFilled';
 
 
 const IconMaterialDeployedCodeHistoryFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10570,19 +10583,6 @@ const IconMaterialDeployedCodeHistoryFilled = /*#__PURE__*/React.forwardRef((pro
   }));
 });
 IconMaterialDeployedCodeHistoryFilled.displayName = 'AmauiIconMaterialDeployedCodeHistoryFilled';
-
-
-const IconMaterialDeployedCodeUpdateFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DeployedCodeUpdateFilled",
-    short_name: "DeployedCodeUpdate",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m680-120 120-120-28-28-72 72v-164h-40v164l-72-72-28 28 120 120ZM120-275v-410l360-207 360 207v215q-34-24-74.5-37T680-520q-17 0-32.5 1.5T616-513l144-83v-42l-43-25-237 137-237-137-43 25v42l240 139v73q-19 32-29.5 68T400-240q0 42 11.5 80T444-89L120-275ZM680-40q-83 0-141.5-58.5T480-240q0-83 58.5-141.5T680-440q83 0 141.5 58.5T880-240q0 83-58.5 141.5T680-40Z"
-  }));
-});
-IconMaterialDeployedCodeUpdateFilled.displayName = 'AmauiIconMaterialDeployedCodeUpdateFilled';
 
 
 const IconMaterialDermatologyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10650,19 +10650,6 @@ const IconMaterialDeskFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialDeskFilled.displayName = 'AmauiIconMaterialDeskFilled';
 
 
-const IconMaterialDeskphoneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DeskphoneFilled",
-    short_name: "Deskphone",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M680 856h80V296h-80v560ZM240 656h80v-80h-80v80Zm0 120h80v-80h-80v80Zm0-240h320V376H240v160Zm120 120h80v-80h-80v80Zm0 120h80v-80h-80v80Zm120-120h80v-80h-80v80Zm0 120h80v-80h-80v80ZM120 896V256h480v-40h240v720H600v-40H120Z"
-  }));
-});
-IconMaterialDeskphoneFilled.displayName = 'AmauiIconMaterialDeskphoneFilled';
-
-
 const IconMaterialDesktopAccessDisabledFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -10676,17 +10663,17 @@ const IconMaterialDesktopAccessDisabledFilled = /*#__PURE__*/React.forwardRef((p
 IconMaterialDesktopAccessDisabledFilled.displayName = 'AmauiIconMaterialDesktopAccessDisabledFilled';
 
 
-const IconMaterialDesktopMacFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialDeskphoneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "DesktopMacFilled",
-    short_name: "DesktopMac",
-    viewBox: "0 0 24 24"
+    name: "DeskphoneFilled",
+    short_name: "Deskphone",
+    viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8 22v-1l2-2H2V3h20v16h-8l2 2v1Z"
+    d: "M680 856h80V296h-80v560ZM240 656h80v-80h-80v80Zm0 120h80v-80h-80v80Zm0-240h320V376H240v160Zm120 120h80v-80h-80v80Zm0 120h80v-80h-80v80Zm120-120h80v-80h-80v80Zm0 120h80v-80h-80v80ZM120 896V256h480v-40h240v720H600v-40H120Z"
   }));
 });
-IconMaterialDesktopMacFilled.displayName = 'AmauiIconMaterialDesktopMacFilled';
+IconMaterialDeskphoneFilled.displayName = 'AmauiIconMaterialDeskphoneFilled';
 
 
 const IconMaterialDesktopWindowsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10726,6 +10713,19 @@ const IconMaterialDetailsFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialDetailsFilled.displayName = 'AmauiIconMaterialDetailsFilled';
+
+
+const IconMaterialDesktopMacFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DesktopMacFilled",
+    short_name: "DesktopMac",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8 22v-1l2-2H2V3h20v16h-8l2 2v1Z"
+  }));
+});
+IconMaterialDesktopMacFilled.displayName = 'AmauiIconMaterialDesktopMacFilled';
 
 
 const IconMaterialDetectionAndZoneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -10832,19 +10832,6 @@ const IconMaterialDetectorStatusFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialDetectorStatusFilled.displayName = 'AmauiIconMaterialDetectorStatusFilled';
 
 
-const IconMaterialDeveloperBoardOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DeveloperBoardOffFilled",
-    short_name: "DeveloperBoardOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M19.825 17 16 13.15V11h-2.15l-1.025-1H16V7h-4v2.175l-1-1V7H9.85L5.825 3H20v4h2v2h-2v2h2v2h-2v2h2v2ZM6 17h5v-4H6ZM3.2 3.175l16.8 16.8V21H2V3.175Zm8.8 8.8V17h4v-1.025ZM7.025 7H6v5h5v-1.025Zm13.45 16.3L.675 3.5 2.1 2.075l19.8 19.8Z"
-  }));
-});
-IconMaterialDeveloperBoardOffFilled.displayName = 'AmauiIconMaterialDeveloperBoardOffFilled';
-
-
 const IconMaterialDeveloperBoardFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -10856,6 +10843,19 @@ const IconMaterialDeveloperBoardFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialDeveloperBoardFilled.displayName = 'AmauiIconMaterialDeveloperBoardFilled';
+
+
+const IconMaterialDeveloperBoardOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DeveloperBoardOffFilled",
+    short_name: "DeveloperBoardOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M19.825 17 16 13.15V11h-2.15l-1.025-1H16V7h-4v2.175l-1-1V7H9.85L5.825 3H20v4h2v2h-2v2h2v2h-2v2h2v2ZM6 17h5v-4H6ZM3.2 3.175l16.8 16.8V21H2V3.175Zm8.8 8.8V17h4v-1.025ZM7.025 7H6v5h5v-1.025Zm13.45 16.3L.675 3.5 2.1 2.075l19.8 19.8Z"
+  }));
+});
+IconMaterialDeveloperBoardOffFilled.displayName = 'AmauiIconMaterialDeveloperBoardOffFilled';
 
 
 const IconMaterialDeveloperGuideFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -11040,19 +11040,6 @@ const IconMaterialDiagnosisFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialDiagnosisFilled.displayName = 'AmauiIconMaterialDiagnosisFilled';
 
 
-const IconMaterialDialerSipFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DialerSipFilled",
-    short_name: "DialerSip",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16 8V3h1v5Zm-4 0V7h2V6h-2V3h3v1h-2v1h2v3Zm6 0V3h3v3h-2v2Zm1-3h1V4h-1Zm.95 16q-3.225 0-6.287-1.425-3.063-1.425-5.425-3.8-2.363-2.375-3.8-5.438Q3 7.275 3 4.05v-.525Q3 3.25 3.05 3H8.9l.925 5.025-2.85 2.875q1.05 1.8 2.638 3.375Q11.2 15.85 13.1 17l2.9-2.9 5 1v5.85q-.25.025-.525.038Q20.2 21 19.95 21Z"
-  }));
-});
-IconMaterialDialerSipFilled.displayName = 'AmauiIconMaterialDialerSipFilled';
-
-
 const IconMaterialDialogsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -11064,6 +11051,19 @@ const IconMaterialDialogsFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialDialogsFilled.displayName = 'AmauiIconMaterialDialogsFilled';
+
+
+const IconMaterialDialerSipFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DialerSipFilled",
+    short_name: "DialerSip",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M16 8V3h1v5Zm-4 0V7h2V6h-2V3h3v1h-2v1h2v3Zm6 0V3h3v3h-2v2Zm1-3h1V4h-1Zm.95 16q-3.225 0-6.287-1.425-3.063-1.425-5.425-3.8-2.363-2.375-3.8-5.438Q3 7.275 3 4.05v-.525Q3 3.25 3.05 3H8.9l.925 5.025-2.85 2.875q1.05 1.8 2.638 3.375Q11.2 15.85 13.1 17l2.9-2.9 5 1v5.85q-.25.025-.525.038Q20.2 21 19.95 21Z"
+  }));
+});
+IconMaterialDialerSipFilled.displayName = 'AmauiIconMaterialDialerSipFilled';
 
 
 const IconMaterialDialpadFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -11170,19 +11170,6 @@ const IconMaterialDinnerDiningFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialDinnerDiningFilled.displayName = 'AmauiIconMaterialDinnerDiningFilled';
 
 
-const IconMaterialDirectionsAltOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DirectionsAltOffFilled",
-    short_name: "DirectionsAltOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M20.475 23.3 16 18.8l-4 4L1.2 12l4-4L.675 3.5 2.1 2.075l19.8 19.8ZM12 17l1.1-1.1-1.425-1.4-1.075 1.1Zm6.85-1.05L22.8 12 12 1.2 8.05 5.15l2.9 2.9L12 7l5 5-1.05 1.05ZM7 13h3.175l-2-2H7Z"
-  }));
-});
-IconMaterialDirectionsAltOffFilled.displayName = 'AmauiIconMaterialDirectionsAltOffFilled';
-
-
 const IconMaterialDirectionsAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -11194,6 +11181,19 @@ const IconMaterialDirectionsAltFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialDirectionsAltFilled.displayName = 'AmauiIconMaterialDirectionsAltFilled';
+
+
+const IconMaterialDirectionsAltOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DirectionsAltOffFilled",
+    short_name: "DirectionsAltOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M20.475 23.3 16 18.8l-4 4L1.2 12l4-4L.675 3.5 2.1 2.075l19.8 19.8ZM12 17l1.1-1.1-1.425-1.4-1.075 1.1Zm6.85-1.05L22.8 12 12 1.2 8.05 5.15l2.9 2.9L12 7l5 5-1.05 1.05ZM7 13h3.175l-2-2H7Z"
+  }));
+});
+IconMaterialDirectionsAltOffFilled.displayName = 'AmauiIconMaterialDirectionsAltOffFilled';
 
 
 const IconMaterialDirectionsBikeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -11339,19 +11339,6 @@ const IconMaterialDirectorySyncFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialDirectorySyncFilled.displayName = 'AmauiIconMaterialDirectorySyncFilled';
 
 
-const IconMaterialDirtyLensFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DirtyLensFilled",
-    short_name: "DirtyLens",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M18.15 18q.35 0 .6-.25t.25-.6q0-.35-.25-.6t-.6-.25q-.35 0-.6.25t-.25.6q0 .35.25.6t.6.25Zm-7.25-1.5q.225 0 .388.238.162.237.162.662 0 .425-.1.8-.1.375-.1.8 0 .375.225.625t.625.25q.4 0 .625-.25.225-.25.225-.625 0-.475-.15-.875t-.15-.875q0-.425.188-.638.187-.212.412-.212.225 0 .425.075.2.075.575.275.5.275.838.387.337.113.562.113.525 0 .838-.387.312-.388.312-.813 0-.35-.25-.55-.25-.2-.75-.4-.425-.15-.612-.3-.188-.15-.188-.35 0-.225.312-.313.313-.087 1.188-.137.75-.05 1.175-.2.425-.15.425-.6 0-.425-.237-.762-.238-.338-.613-.338-.175 0-.9.25-.275.125-.425.162-.15.038-.275.038-.2 0-.325-.138-.125-.137-.125-.362 0-.35.325-.638.325-.287 1.275-.712 1.025-.45 1.363-.8.337-.35.337-.7 0-.5-.438-1-.437-.5-.812-.5-.35 0-.662.325-.313.325-1.038 1.375-.5.725-.862.987-.363.263-.738.263-.35 0-.675-.275-.325-.275-.675-1.025-.3-.675-.538-.963-.237-.287-.612-.287-.45 0-.75.187-.3.188-.3.413 0 .225.5 1.05.225.35.313.525.087.175.087.375t-.238.35q-.237.15-.462.15-.275 0-.525-.138-.25-.137-.675-.562-.45-.425-.65-.563-.2-.137-.5-.137-.375 0-.637.262-.263.263-.263.538 0 .15.05.287.05.138.2.363.15.225.225.387.075.163.075.313 0 .225-.2.35-.2.125-.55.25-.425.15-.588.325Q6.4 13 6.4 13.3q0 .2.063.438.062.237.237.362.25.2.625.225.375.025.675.025.575 0 .738.212.162.213.162.638 0 .3-.125.6t-.425.65q-.35.375-.425.525-.075.15-.075.275 0 .35.312.575.313.225.588.225.3 0 .562-.162.263-.163.688-.688.375-.45.538-.575.162-.125.362-.125ZM2 21V5h5.15L9 3h6l1.85 2H22v16Z"
-  }));
-});
-IconMaterialDirtyLensFilled.displayName = 'AmauiIconMaterialDirtyLensFilled';
-
-
 const IconMaterialDisabledByDefaultFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -11365,17 +11352,17 @@ const IconMaterialDisabledByDefaultFilled = /*#__PURE__*/React.forwardRef((props
 IconMaterialDisabledByDefaultFilled.displayName = 'AmauiIconMaterialDisabledByDefaultFilled';
 
 
-const IconMaterialDisabledVisibleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialDirtyLensFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "DisabledVisibleFilled",
-    short_name: "DisabledVisible",
+    name: "DirtyLensFilled",
+    short_name: "DirtyLens",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.25 21.975Q9.3 21.825 7.613 21q-1.688-.825-2.938-2.163-1.25-1.337-1.962-3.099Q2 13.975 2 12q0-2.075.788-3.9.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12v.475q-.425-.275-.987-.537-.563-.263-1.038-.438-.2-3.15-2.487-5.325Q15.2 4 12 4q-1.4 0-2.637.45Q8.125 4.9 7.1 5.7l6.125 6.125q-.475.2-.913.462-.437.263-.862.563L5.7 7.1q-.8 1.025-1.25 2.263Q4 10.6 4 12q0 2.475 1.338 4.438Q6.675 18.4 8.8 19.325q.45.7 1.125 1.425.675.725 1.325 1.225ZM17 20q1.475 0 2.738-.675Q21 18.65 21.75 17.5q-.75-1.15-2.012-1.825Q18.475 15 17 15t-2.738.675Q13 16.35 12.25 17.5q.75 1.15 2.012 1.825Q15.525 20 17 20Zm0 2q-2.4 0-4.287-1.262Q10.825 19.475 10 17.5q.825-1.975 2.713-3.238Q14.6 13 17 13t4.288 1.262Q23.175 15.525 24 17.5q-.825 1.975-2.712 3.238Q19.4 22 17 22Zm0-3q-.625 0-1.062-.438-.438-.437-.438-1.062t.438-1.062Q16.375 16 17 16t1.062.438q.438.437.438 1.062t-.438 1.062Q17.625 19 17 19Z"
+    d: "M18.15 18q.35 0 .6-.25t.25-.6q0-.35-.25-.6t-.6-.25q-.35 0-.6.25t-.25.6q0 .35.25.6t.6.25Zm-7.25-1.5q.225 0 .388.238.162.237.162.662 0 .425-.1.8-.1.375-.1.8 0 .375.225.625t.625.25q.4 0 .625-.25.225-.25.225-.625 0-.475-.15-.875t-.15-.875q0-.425.188-.638.187-.212.412-.212.225 0 .425.075.2.075.575.275.5.275.838.387.337.113.562.113.525 0 .838-.387.312-.388.312-.813 0-.35-.25-.55-.25-.2-.75-.4-.425-.15-.612-.3-.188-.15-.188-.35 0-.225.312-.313.313-.087 1.188-.137.75-.05 1.175-.2.425-.15.425-.6 0-.425-.237-.762-.238-.338-.613-.338-.175 0-.9.25-.275.125-.425.162-.15.038-.275.038-.2 0-.325-.138-.125-.137-.125-.362 0-.35.325-.638.325-.287 1.275-.712 1.025-.45 1.363-.8.337-.35.337-.7 0-.5-.438-1-.437-.5-.812-.5-.35 0-.662.325-.313.325-1.038 1.375-.5.725-.862.987-.363.263-.738.263-.35 0-.675-.275-.325-.275-.675-1.025-.3-.675-.538-.963-.237-.287-.612-.287-.45 0-.75.187-.3.188-.3.413 0 .225.5 1.05.225.35.313.525.087.175.087.375t-.238.35q-.237.15-.462.15-.275 0-.525-.138-.25-.137-.675-.562-.45-.425-.65-.563-.2-.137-.5-.137-.375 0-.637.262-.263.263-.263.538 0 .15.05.287.05.138.2.363.15.225.225.387.075.163.075.313 0 .225-.2.35-.2.125-.55.25-.425.15-.588.325Q6.4 13 6.4 13.3q0 .2.063.438.062.237.237.362.25.2.625.225.375.025.675.025.575 0 .738.212.162.213.162.638 0 .3-.125.6t-.425.65q-.35.375-.425.525-.075.15-.075.275 0 .35.312.575.313.225.588.225.3 0 .562-.162.263-.163.688-.688.375-.45.538-.575.162-.125.362-.125ZM2 21V5h5.15L9 3h6l1.85 2H22v16Z"
   }));
 });
-IconMaterialDisabledVisibleFilled.displayName = 'AmauiIconMaterialDisabledVisibleFilled';
+IconMaterialDirtyLensFilled.displayName = 'AmauiIconMaterialDirtyLensFilled';
 
 
 const IconMaterialDiscFullFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -11389,6 +11376,19 @@ const IconMaterialDiscFullFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialDiscFullFilled.displayName = 'AmauiIconMaterialDiscFullFilled';
+
+
+const IconMaterialDisabledVisibleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DisabledVisibleFilled",
+    short_name: "DisabledVisible",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11.25 21.975Q9.3 21.825 7.613 21q-1.688-.825-2.938-2.163-1.25-1.337-1.962-3.099Q2 13.975 2 12q0-2.075.788-3.9.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12v.475q-.425-.275-.987-.537-.563-.263-1.038-.438-.2-3.15-2.487-5.325Q15.2 4 12 4q-1.4 0-2.637.45Q8.125 4.9 7.1 5.7l6.125 6.125q-.475.2-.913.462-.437.263-.862.563L5.7 7.1q-.8 1.025-1.25 2.263Q4 10.6 4 12q0 2.475 1.338 4.438Q6.675 18.4 8.8 19.325q.45.7 1.125 1.425.675.725 1.325 1.225ZM17 20q1.475 0 2.738-.675Q21 18.65 21.75 17.5q-.75-1.15-2.012-1.825Q18.475 15 17 15t-2.738.675Q13 16.35 12.25 17.5q.75 1.15 2.012 1.825Q15.525 20 17 20Zm0 2q-2.4 0-4.287-1.262Q10.825 19.475 10 17.5q.825-1.975 2.713-3.238Q14.6 13 17 13t4.288 1.262Q23.175 15.525 24 17.5q-.825 1.975-2.712 3.238Q19.4 22 17 22Zm0-3q-.625 0-1.062-.438-.438-.437-.438-1.062t.438-1.062Q16.375 16 17 16t1.062.438q.438.437.438 1.062t-.438 1.062Q17.625 19 17 19Z"
+  }));
+});
+IconMaterialDisabledVisibleFilled.displayName = 'AmauiIconMaterialDisabledVisibleFilled';
 
 
 const IconMaterialDiscoverTuneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -11495,19 +11495,6 @@ const IconMaterialDiversity2Filled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialDiversity2Filled.displayName = 'AmauiIconMaterialDiversity2Filled';
 
 
-const IconMaterialDiversity4Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Diversity4Filled",
-    short_name: "Diversity4",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m12.4 22 2.175-2q2.675-2.5 3.55-3.812.875-1.313.875-2.813 0-.65-.175-1.225-.175-.575-.525-1.15H22v11ZM2 22V11h3.675q-.325.525-.5 1.137Q5 12.75 5 13.375q0 1.5.838 2.813Q6.675 17.5 9.4 20l2.2 2Zm17-12q-1.275 0-2.137-.863Q16 8.275 16 7q0-1.25.863-2.125Q17.725 4 19 4q1.25 0 2.125.875T22 7q0 1.275-.875 2.137Q20.25 10 19 10Zm-7-1q-1.475 0-2.488-1.013Q8.5 6.975 8.5 5.5q0-1.45 1.012-2.475Q10.525 2 12 2q1.45 0 2.475 1.025Q15.5 4.05 15.5 5.5q0 1.475-1.025 2.487Q13.45 9 12 9Zm-5 4.375q0 1.025 1 2.3t3.975 3.975q2.95-2.65 3.988-3.938Q17 14.425 17 13.375q0-1-.675-1.687Q15.65 11 14.7 11q-.575 0-1.075.275t-.875.675l-.775.8-.75-.775q-.35-.375-.8-.675-.45-.3-1.125-.3-1.025 0-1.662.688Q7 12.375 7 13.375ZM5 10q-1.275 0-2.138-.863Q2 8.275 2 7q0-1.25.862-2.125Q3.725 4 5 4q1.25 0 2.125.875T8 7q0 1.275-.875 2.137Q6.25 10 5 10Z"
-  }));
-});
-IconMaterialDiversity4Filled.displayName = 'AmauiIconMaterialDiversity4Filled';
-
-
 const IconMaterialDiversity3Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -11519,6 +11506,19 @@ const IconMaterialDiversity3Filled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialDiversity3Filled.displayName = 'AmauiIconMaterialDiversity3Filled';
+
+
+const IconMaterialDiversity4Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Diversity4Filled",
+    short_name: "Diversity4",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m12.4 22 2.175-2q2.675-2.5 3.55-3.812.875-1.313.875-2.813 0-.65-.175-1.225-.175-.575-.525-1.15H22v11ZM2 22V11h3.675q-.325.525-.5 1.137Q5 12.75 5 13.375q0 1.5.838 2.813Q6.675 17.5 9.4 20l2.2 2Zm17-12q-1.275 0-2.137-.863Q16 8.275 16 7q0-1.25.863-2.125Q17.725 4 19 4q1.25 0 2.125.875T22 7q0 1.275-.875 2.137Q20.25 10 19 10Zm-7-1q-1.475 0-2.488-1.013Q8.5 6.975 8.5 5.5q0-1.45 1.012-2.475Q10.525 2 12 2q1.45 0 2.475 1.025Q15.5 4.05 15.5 5.5q0 1.475-1.025 2.487Q13.45 9 12 9Zm-5 4.375q0 1.025 1 2.3t3.975 3.975q2.95-2.65 3.988-3.938Q17 14.425 17 13.375q0-1-.675-1.687Q15.65 11 14.7 11q-.575 0-1.075.275t-.875.675l-.775.8-.75-.775q-.35-.375-.8-.675-.45-.3-1.125-.3-1.025 0-1.662.688Q7 12.375 7 13.375ZM5 10q-1.275 0-2.138-.863Q2 8.275 2 7q0-1.25.862-2.125Q3.725 4 5 4q1.25 0 2.125.875T8 7q0 1.275-.875 2.137Q6.25 10 5 10Z"
+  }));
+});
+IconMaterialDiversity4Filled.displayName = 'AmauiIconMaterialDiversity4Filled';
 
 
 const IconMaterialDnsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -11534,19 +11534,6 @@ const IconMaterialDnsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialDnsFilled.displayName = 'AmauiIconMaterialDnsFilled';
 
 
-const IconMaterialDoNotDisturbOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DoNotDisturbOffFilled",
-    short_name: "DoNotDisturbOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M19.775 22.625 17.5 20.35q-1.225.8-2.612 1.225Q13.5 22 12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12q0-1.5.425-2.888Q2.85 7.725 3.65 6.5L1.375 4.225 2.8 2.8l18.4 18.4ZM8.15 11H7v2h3.15Zm12.2 6.5-4.5-4.5H17v-2h-3.15L6.5 3.65q1.225-.8 2.613-1.225Q10.5 2 12 2q2.075 0 3.9.787 1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12q0 1.5-.425 2.887-.425 1.388-1.225 2.613Z"
-  }));
-});
-IconMaterialDoNotDisturbOffFilled.displayName = 'AmauiIconMaterialDoNotDisturbOffFilled';
-
-
 const IconMaterialDoNotDisturbOnFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -11558,6 +11545,19 @@ const IconMaterialDoNotDisturbOnFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialDoNotDisturbOnFilled.displayName = 'AmauiIconMaterialDoNotDisturbOnFilled';
+
+
+const IconMaterialDoNotDisturbOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DoNotDisturbOffFilled",
+    short_name: "DoNotDisturbOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M19.775 22.625 17.5 20.35q-1.225.8-2.612 1.225Q13.5 22 12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12q0-1.5.425-2.888Q2.85 7.725 3.65 6.5L1.375 4.225 2.8 2.8l18.4 18.4ZM8.15 11H7v2h3.15Zm12.2 6.5-4.5-4.5H17v-2h-3.15L6.5 3.65q1.225-.8 2.613-1.225Q10.5 2 12 2q2.075 0 3.9.787 1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12q0 1.5-.425 2.887-.425 1.388-1.225 2.613Z"
+  }));
+});
+IconMaterialDoNotDisturbOffFilled.displayName = 'AmauiIconMaterialDoNotDisturbOffFilled';
 
 
 const IconMaterialDoNotDisturbOnTotalSilenceFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -11703,6 +11703,19 @@ const IconMaterialDomainAddFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialDomainAddFilled.displayName = 'AmauiIconMaterialDomainAddFilled';
 
 
+const IconMaterialDomainVerificationOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DomainVerificationOffFilled",
+    short_name: "DomainVerificationOff",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M818 1028 686 896H80V256h80v114L26 236l57-57 792 792-57 57ZM160 816h446L206 416h-46v400Zm711 37-71-71V416H434L274 256h606v560q0 10-2 19.5t-7 17.5ZM607 589l-58-58 57-57 58 58-57 57Zm-57 57L438 758 296 616l58-58 84 84 54-54 58 58Z"
+  }));
+});
+IconMaterialDomainVerificationOffFilled.displayName = 'AmauiIconMaterialDomainVerificationOffFilled';
+
+
 const IconMaterialDomainDisabledFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -11742,19 +11755,6 @@ const IconMaterialDomainVerificationFilled = /*#__PURE__*/React.forwardRef((prop
 IconMaterialDomainVerificationFilled.displayName = 'AmauiIconMaterialDomainVerificationFilled';
 
 
-const IconMaterialDomainVerificationOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DomainVerificationOffFilled",
-    short_name: "DomainVerificationOff",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M818 1028 686 896H80V256h80v114L26 236l57-57 792 792-57 57ZM160 816h446L206 416h-46v400Zm711 37-71-71V416H434L274 256h606v560q0 10-2 19.5t-7 17.5ZM607 589l-58-58 57-57 58 58-57 57Zm-57 57L438 758 296 616l58-58 84 84 54-54 58 58Z"
-  }));
-});
-IconMaterialDomainVerificationOffFilled.displayName = 'AmauiIconMaterialDomainVerificationOffFilled';
-
-
 const IconMaterialDominoMaskFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -11768,19 +11768,6 @@ const IconMaterialDominoMaskFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialDominoMaskFilled.displayName = 'AmauiIconMaterialDominoMaskFilled';
 
 
-const IconMaterialDoneAllFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DoneAllFilled",
-    short_name: "DoneAll",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m6.7 18-5.65-5.65 1.425-1.4 4.25 4.25 1.4 1.4Zm5.65 0L6.7 12.35l1.4-1.425 4.25 4.25 9.2-9.2 1.4 1.425Zm0-5.65-1.425-1.4L15.875 6 17.3 7.4Z"
-  }));
-});
-IconMaterialDoneAllFilled.displayName = 'AmauiIconMaterialDoneAllFilled';
-
-
 const IconMaterialDoneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -11792,6 +11779,19 @@ const IconMaterialDoneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialDoneFilled.displayName = 'AmauiIconMaterialDoneFilled';
+
+
+const IconMaterialDoneAllFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DoneAllFilled",
+    short_name: "DoneAll",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m6.7 18-5.65-5.65 1.425-1.4 4.25 4.25 1.4 1.4Zm5.65 0L6.7 12.35l1.4-1.425 4.25 4.25 9.2-9.2 1.4 1.425Zm0-5.65-1.425-1.4L15.875 6 17.3 7.4Z"
+  }));
+});
+IconMaterialDoneAllFilled.displayName = 'AmauiIconMaterialDoneAllFilled';
 
 
 const IconMaterialDoneOutlineFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -11846,19 +11846,6 @@ const IconMaterialDoorBackFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialDoorBackFilled.displayName = 'AmauiIconMaterialDoorBackFilled';
 
 
-const IconMaterialDoorFrontFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DoorFrontFilled",
-    short_name: "DoorFront",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 21v-2h2V3h14v16h2v2Zm11-8q.425 0 .713-.288Q15 12.425 15 12t-.287-.713Q14.425 11 14 11t-.712.287Q13 11.575 13 12t.288.712Q13.575 13 14 13Z"
-  }));
-});
-IconMaterialDoorFrontFilled.displayName = 'AmauiIconMaterialDoorFrontFilled';
-
-
 const IconMaterialDoorOpenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -11883,6 +11870,19 @@ const IconMaterialDoorSensorFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialDoorSensorFilled.displayName = 'AmauiIconMaterialDoorSensorFilled';
+
+
+const IconMaterialDoorFrontFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DoorFrontFilled",
+    short_name: "DoorFront",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 21v-2h2V3h14v16h2v2Zm11-8q.425 0 .713-.288Q15 12.425 15 12t-.287-.713Q14.425 11 14 11t-.712.287Q13 11.575 13 12t.288.712Q13.575 13 14 13Z"
+  }));
+});
+IconMaterialDoorFrontFilled.displayName = 'AmauiIconMaterialDoorFrontFilled';
 
 
 const IconMaterialDoorSlidingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12106,19 +12106,6 @@ const IconMaterialDragIndicatorFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialDragIndicatorFilled.displayName = 'AmauiIconMaterialDragIndicatorFilled';
 
 
-const IconMaterialDragPanFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DragPanFilled",
-    short_name: "DragPan",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480 976 310 806l57-57 73 73V616l-205-1 73 73-58 58L80 576l169-169 57 57-72 72h206V330l-73 73-57-57 170-170 170 170-57 57-73-73v206l205 1-73-73 58-58 170 170-170 170-57-57 73-73H520l-1 205 73-73 58 58-170 170Z"
-  }));
-});
-IconMaterialDragPanFilled.displayName = 'AmauiIconMaterialDragPanFilled';
-
-
 const IconMaterialDrawAbstractFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12156,6 +12143,19 @@ const IconMaterialDrawFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialDrawFilled.displayName = 'AmauiIconMaterialDrawFilled';
+
+
+const IconMaterialDragPanFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DragPanFilled",
+    short_name: "DragPan",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480 976 310 806l57-57 73 73V616l-205-1 73 73-58 58L80 576l169-169 57 57-72 72h206V330l-73 73-57-57 170-170 170 170-57 57-73-73v206l205 1-73-73 58-58 170 170-170 170-57-57 73-73H520l-1 205 73-73 58 58-170 170Z"
+  }));
+});
+IconMaterialDragPanFilled.displayName = 'AmauiIconMaterialDragPanFilled';
 
 
 const IconMaterialDresserFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12262,19 +12262,6 @@ const IconMaterialDryCleaningFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialDryCleaningFilled.displayName = 'AmauiIconMaterialDryCleaningFilled';
 
 
-const IconMaterialDualScreenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "DualScreenFilled",
-    short_name: "DualScreen",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M160 854V176l400 161v677L160 854Zm480 2V282L378 176h422v680H640Z"
-  }));
-});
-IconMaterialDualScreenFilled.displayName = 'AmauiIconMaterialDualScreenFilled';
-
-
 const IconMaterialDryFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12286,6 +12273,19 @@ const IconMaterialDryFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialDryFilled.displayName = 'AmauiIconMaterialDryFilled';
+
+
+const IconMaterialDualScreenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "DualScreenFilled",
+    short_name: "DualScreen",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M160 854V176l400 161v677L160 854Zm480 2V282L378 176h422v680H640Z"
+  }));
+});
+IconMaterialDualScreenFilled.displayName = 'AmauiIconMaterialDualScreenFilled';
 
 
 const IconMaterialDuoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12444,19 +12444,6 @@ const IconMaterialEarthquakeFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialEarthquakeFilled.displayName = 'AmauiIconMaterialEarthquakeFilled';
 
 
-const IconMaterialEastFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EastFilled",
-    short_name: "East",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m15 19-1.4-1.4 4.6-4.6H2v-2h16.2l-4.6-4.6L15 5l7 7Z"
-  }));
-});
-IconMaterialEastFilled.displayName = 'AmauiIconMaterialEastFilled';
-
-
 const IconMaterialEcgFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12468,6 +12455,19 @@ const IconMaterialEcgFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialEcgFilled.displayName = 'AmauiIconMaterialEcgFilled';
+
+
+const IconMaterialEastFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EastFilled",
+    short_name: "East",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m15 19-1.4-1.4 4.6-4.6H2v-2h16.2l-4.6-4.6L15 5l7 7Z"
+  }));
+});
+IconMaterialEastFilled.displayName = 'AmauiIconMaterialEastFilled';
 
 
 const IconMaterialEcgHeartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12652,19 +12652,6 @@ const IconMaterialEditOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialEditOffFilled.displayName = 'AmauiIconMaterialEditOffFilled';
 
 
-const IconMaterialEditRoadFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EditRoadFilled",
-    short_name: "EditRoad",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16 13.05V4h2v7.05ZM4 20V4h2v16Zm6-12V4h2v4Zm0 6v-4h2v4Zm0 6v-4h2v4Zm12.125-6L20 11.875l1.425-1.425 2.125 2.125ZM14 20v-2.125l5.3-5.3 2.125 2.125-5.3 5.3Z"
-  }));
-});
-IconMaterialEditRoadFilled.displayName = 'AmauiIconMaterialEditRoadFilled';
-
-
 const IconMaterialEditSquareFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12676,6 +12663,19 @@ const IconMaterialEditSquareFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialEditSquareFilled.displayName = 'AmauiIconMaterialEditSquareFilled';
+
+
+const IconMaterialEditRoadFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EditRoadFilled",
+    short_name: "EditRoad",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M16 13.05V4h2v7.05ZM4 20V4h2v16Zm6-12V4h2v4Zm0 6v-4h2v4Zm0 6v-4h2v4Zm12.125-6L20 11.875l1.425-1.425 2.125 2.125ZM14 20v-2.125l5.3-5.3 2.125 2.125-5.3 5.3Z"
+  }));
+});
+IconMaterialEditRoadFilled.displayName = 'AmauiIconMaterialEditRoadFilled';
 
 
 const IconMaterialEditorChoiceFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12691,19 +12691,6 @@ const IconMaterialEditorChoiceFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialEditorChoiceFilled.displayName = 'AmauiIconMaterialEditorChoiceFilled';
 
 
-const IconMaterialEggFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EggFilled",
-    short_name: "Egg",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 21q-2.925 0-4.962-2.038Q5 16.925 5 14q0-1.925.638-3.875.637-1.95 1.65-3.538Q8.3 5 9.55 4 10.8 3 12 3q1.225 0 2.463 1 1.237 1 2.25 2.587 1.012 1.588 1.65 3.538Q19 12.075 19 14q0 2.925-2.038 4.962Q14.925 21 12 21Zm1-3h1v-2h-1q-1.25 0-2.125-.875T10 13v-1H8v1q0 2.075 1.463 3.538Q10.925 18 13 18Z"
-  }));
-});
-IconMaterialEggFilled.displayName = 'AmauiIconMaterialEggFilled';
-
-
 const IconMaterialEggAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12715,6 +12702,19 @@ const IconMaterialEggAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialEggAltFilled.displayName = 'AmauiIconMaterialEggAltFilled';
+
+
+const IconMaterialEggFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EggFilled",
+    short_name: "Egg",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 21q-2.925 0-4.962-2.038Q5 16.925 5 14q0-1.925.638-3.875.637-1.95 1.65-3.538Q8.3 5 9.55 4 10.8 3 12 3q1.225 0 2.463 1 1.237 1 2.25 2.587 1.012 1.588 1.65 3.538Q19 12.075 19 14q0 2.925-2.038 4.962Q14.925 21 12 21Zm1-3h1v-2h-1q-1.25 0-2.125-.875T10 13v-1H8v1q0 2.075 1.463 3.538Q10.925 18 13 18Z"
+  }));
+});
+IconMaterialEggFilled.displayName = 'AmauiIconMaterialEggFilled';
 
 
 const IconMaterialEjectFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12795,19 +12795,6 @@ const IconMaterialElectricCarFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialElectricCarFilled.displayName = 'AmauiIconMaterialElectricCarFilled';
 
 
-const IconMaterialElectricMeterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ElectricMeterFilled",
-    short_name: "ElectricMeter",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 21.95v-2.5q-2.65-.925-4.325-3.238Q3 13.9 3 10.95q0-1.875.712-3.512.713-1.638 1.926-2.85 1.212-1.213 2.85-1.926 1.637-.712 3.487-.712t3.5.712q1.65.713 2.875 1.926 1.225 1.212 1.938 2.85Q21 9.075 21 10.95q0 2.95-1.688 5.238-1.687 2.287-4.312 3.237v2.525h-2V19.9q-.25.05-.5.05h-.525q-.25 0-.487-.012-.238-.013-.488-.038v2.05ZM8 9h8V7H8Zm3.25 8 3-3L13 12.75l1.25-1.25-1.5-1.5-3 3L11 14.25 9.75 15.5Z"
-  }));
-});
-IconMaterialElectricMeterFilled.displayName = 'AmauiIconMaterialElectricMeterFilled';
-
-
 const IconMaterialElectricMopedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12821,17 +12808,17 @@ const IconMaterialElectricMopedFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialElectricMopedFilled.displayName = 'AmauiIconMaterialElectricMopedFilled';
 
 
-const IconMaterialElectricRickshawFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialElectricMeterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "ElectricRickshawFilled",
-    short_name: "ElectricRickshaw",
+    name: "ElectricMeterFilled",
+    short_name: "ElectricMeter",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6 17q-.975 0-1.737-.562Q3.5 15.875 3.2 15H1V3h15.025L21 9v2.15q.875.3 1.438 1.087Q23 13.025 23 14q0 1.25-.875 2.125T20 17q-.975 0-1.762-.562-.788-.563-1.088-1.438h-8.3q-.35.875-1.112 1.438Q6.975 17 6 17ZM3 9h4V5H3Zm6 4h5V5H9v4h3v2H9Zm7-4h2.4L16 6.1ZM6 15q.425 0 .713-.288Q7 14.425 7 14t-.287-.713Q6.425 13 6 13t-.713.287Q5 13.575 5 14t.287.712Q5.575 15 6 15Zm14 0q.425 0 .712-.288Q21 14.425 21 14t-.288-.713Q20.425 13 20 13t-.712.287Q19 13.575 19 14t.288.712Q19.575 15 20 15Zm-7 8-6-3h4v-2l6 3h-4Z"
+    d: "M9 21.95v-2.5q-2.65-.925-4.325-3.238Q3 13.9 3 10.95q0-1.875.712-3.512.713-1.638 1.926-2.85 1.212-1.213 2.85-1.926 1.637-.712 3.487-.712t3.5.712q1.65.713 2.875 1.926 1.225 1.212 1.938 2.85Q21 9.075 21 10.95q0 2.95-1.688 5.238-1.687 2.287-4.312 3.237v2.525h-2V19.9q-.25.05-.5.05h-.525q-.25 0-.487-.012-.238-.013-.488-.038v2.05ZM8 9h8V7H8Zm3.25 8 3-3L13 12.75l1.25-1.25-1.5-1.5-3 3L11 14.25 9.75 15.5Z"
   }));
 });
-IconMaterialElectricRickshawFilled.displayName = 'AmauiIconMaterialElectricRickshawFilled';
+IconMaterialElectricMeterFilled.displayName = 'AmauiIconMaterialElectricMeterFilled';
 
 
 const IconMaterialElectricScooterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12847,17 +12834,17 @@ const IconMaterialElectricScooterFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialElectricScooterFilled.displayName = 'AmauiIconMaterialElectricScooterFilled';
 
 
-const IconMaterialElectricalServicesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialElectricRickshawFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "ElectricalServicesFilled",
-    short_name: "ElectricalServices",
+    name: "ElectricRickshawFilled",
+    short_name: "ElectricRickshaw",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M18 15v-2h3v2Zm0 4v-2h3v2Zm-6 1v-2h-2v-4h2v-2h5v8Zm-9-3V9h7V6H4V4h8v7H5v4h4v2Z"
+    d: "M6 17q-.975 0-1.737-.562Q3.5 15.875 3.2 15H1V3h15.025L21 9v2.15q.875.3 1.438 1.087Q23 13.025 23 14q0 1.25-.875 2.125T20 17q-.975 0-1.762-.562-.788-.563-1.088-1.438h-8.3q-.35.875-1.112 1.438Q6.975 17 6 17ZM3 9h4V5H3Zm6 4h5V5H9v4h3v2H9Zm7-4h2.4L16 6.1ZM6 15q.425 0 .713-.288Q7 14.425 7 14t-.287-.713Q6.425 13 6 13t-.713.287Q5 13.575 5 14t.287.712Q5.575 15 6 15Zm14 0q.425 0 .712-.288Q21 14.425 21 14t-.288-.713Q20.425 13 20 13t-.712.287Q19 13.575 19 14t.288.712Q19.575 15 20 15Zm-7 8-6-3h4v-2l6 3h-4Z"
   }));
 });
-IconMaterialElectricalServicesFilled.displayName = 'AmauiIconMaterialElectricalServicesFilled';
+IconMaterialElectricRickshawFilled.displayName = 'AmauiIconMaterialElectricRickshawFilled';
 
 
 const IconMaterialElevationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12873,6 +12860,19 @@ const IconMaterialElevationFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialElevationFilled.displayName = 'AmauiIconMaterialElevationFilled';
 
 
+const IconMaterialElectricalServicesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ElectricalServicesFilled",
+    short_name: "ElectricalServices",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M18 15v-2h3v2Zm0 4v-2h3v2Zm-6 1v-2h-2v-4h2v-2h5v8Zm-9-3V9h7V6H4V4h8v7H5v4h4v2Z"
+  }));
+});
+IconMaterialElectricalServicesFilled.displayName = 'AmauiIconMaterialElectricalServicesFilled';
+
+
 const IconMaterialElevatorFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12884,19 +12884,6 @@ const IconMaterialElevatorFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialElevatorFilled.displayName = 'AmauiIconMaterialElevatorFilled';
-
-
-const IconMaterialEmergencyHeatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EmergencyHeatFilled",
-    short_name: "EmergencyHeat",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M20 7q-.425 0-.712-.287Q19 6.425 19 6V3q0-.425.288-.713Q19.575 2 20 2t.712.287Q21 2.575 21 3v3q0 .425-.288.713Q20.425 7 20 7Zm0 3q-.425 0-.712-.288Q19 9.425 19 9t.288-.713Q19.575 8 20 8t.712.287Q21 8.575 21 9t-.288.712Q20.425 10 20 10ZM10 22q-2.925 0-4.963-2.038Q3 17.925 3 15q0-1.65.575-2.988.575-1.337 2.225-3.037Q7.475 7.25 7.763 5.912 8.05 4.575 8 2q3.925 2.275 6.463 5.75Q17 11.225 17 15q0 2.925-2.037 4.962Q12.925 22 10 22Zm0-2q.525 0 1.025-.413.5-.412.5-1.312 0-.6-.337-1.4-.338-.8-1.188-1.925-.8 1.05-1.137 1.875-.338.825-.338 1.45 0 .875.475 1.3.475.425 1 .425Zm-3.475-1.4q-.125-1.55.775-3.15.9-1.6 1.975-2.75.15-.175.338-.25.187-.075.387-.075t.388.075q.187.075.337.25 1.175 1.225 2 2.762.825 1.538.775 3.113.7-.675 1.1-1.6.4-.925.4-1.975 0-1.525-.475-2.875T13.3 9.6q-.75-1.175-1.65-2.138-.9-.962-1.775-1.687-.325 1.65-1.137 2.762Q7.925 9.65 7.125 10.5q-1.275 1.3-1.7 2.275Q5 13.75 5 15q0 1.05.4 1.975T6.525 18.6Z"
-  }));
-});
-IconMaterialEmergencyHeatFilled.displayName = 'AmauiIconMaterialEmergencyHeatFilled';
 
 
 const IconMaterialEmergencyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12912,6 +12899,19 @@ const IconMaterialEmergencyFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialEmergencyFilled.displayName = 'AmauiIconMaterialEmergencyFilled';
 
 
+const IconMaterialEmergencyHeatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EmergencyHeatFilled",
+    short_name: "EmergencyHeat",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M20 7q-.425 0-.712-.287Q19 6.425 19 6V3q0-.425.288-.713Q19.575 2 20 2t.712.287Q21 2.575 21 3v3q0 .425-.288.713Q20.425 7 20 7Zm0 3q-.425 0-.712-.288Q19 9.425 19 9t.288-.713Q19.575 8 20 8t.712.287Q21 8.575 21 9t-.288.712Q20.425 10 20 10ZM10 22q-2.925 0-4.963-2.038Q3 17.925 3 15q0-1.65.575-2.988.575-1.337 2.225-3.037Q7.475 7.25 7.763 5.912 8.05 4.575 8 2q3.925 2.275 6.463 5.75Q17 11.225 17 15q0 2.925-2.037 4.962Q12.925 22 10 22Zm0-2q.525 0 1.025-.413.5-.412.5-1.312 0-.6-.337-1.4-.338-.8-1.188-1.925-.8 1.05-1.137 1.875-.338.825-.338 1.45 0 .875.475 1.3.475.425 1 .425Zm-3.475-1.4q-.125-1.55.775-3.15.9-1.6 1.975-2.75.15-.175.338-.25.187-.075.387-.075t.388.075q.187.075.337.25 1.175 1.225 2 2.762.825 1.538.775 3.113.7-.675 1.1-1.6.4-.925.4-1.975 0-1.525-.475-2.875T13.3 9.6q-.75-1.175-1.65-2.138-.9-.962-1.775-1.687-.325 1.65-1.137 2.762Q7.925 9.65 7.125 10.5q-1.275 1.3-1.7 2.275Q5 13.75 5 15q0 1.05.4 1.975T6.525 18.6Z"
+  }));
+});
+IconMaterialEmergencyHeatFilled.displayName = 'AmauiIconMaterialEmergencyHeatFilled';
+
+
 const IconMaterialEmergencyHomeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12923,19 +12923,6 @@ const IconMaterialEmergencyHomeFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialEmergencyHomeFilled.displayName = 'AmauiIconMaterialEmergencyHomeFilled';
-
-
-const IconMaterialEmergencyRecordingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EmergencyRecordingFilled",
-    short_name: "EmergencyRecording",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 17h2v-3.275l3 1.725 1-1.725L12 12l3-1.725-1-1.725-3 1.725V7H9v3.275L6 8.55l-1 1.725L8 12l-3 1.725 1 1.725 3-1.725Zm-7 3V4h16v6.5l4-4v11l-4-4V20Z"
-  }));
-});
-IconMaterialEmergencyRecordingFilled.displayName = 'AmauiIconMaterialEmergencyRecordingFilled';
 
 
 const IconMaterialEmergencyShareFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -12951,6 +12938,19 @@ const IconMaterialEmergencyShareFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialEmergencyShareFilled.displayName = 'AmauiIconMaterialEmergencyShareFilled';
 
 
+const IconMaterialEmergencyRecordingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EmergencyRecordingFilled",
+    short_name: "EmergencyRecording",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9 17h2v-3.275l3 1.725 1-1.725L12 12l3-1.725-1-1.725-3 1.725V7H9v3.275L6 8.55l-1 1.725L8 12l-3 1.725 1 1.725 3-1.725Zm-7 3V4h16v6.5l4-4v11l-4-4V20Z"
+  }));
+});
+IconMaterialEmergencyRecordingFilled.displayName = 'AmauiIconMaterialEmergencyRecordingFilled';
+
+
 const IconMaterialEmergencyShareOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12964,19 +12964,6 @@ const IconMaterialEmergencyShareOffFilled = /*#__PURE__*/React.forwardRef((props
 IconMaterialEmergencyShareOffFilled.displayName = 'AmauiIconMaterialEmergencyShareOffFilled';
 
 
-const IconMaterialEmojiEventsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EmojiEventsFilled",
-    short_name: "EmojiEvents",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M280-120v-80h160v-124q-49-11-87.5-41.5T296-442q-75-9-125.5-65.5T120-640v-120h160v-80h400v80h160v120q0 76-50.5 132.5T664-442q-18 46-56.5 76.5T520-324v124h160v80H280Zm0-408v-152h-80v40q0 38 22 68.5t58 43.5Zm400 0q36-13 58-43.5t22-68.5v-40h-80v152Z"
-  }));
-});
-IconMaterialEmojiEventsFilled.displayName = 'AmauiIconMaterialEmojiEventsFilled';
-
-
 const IconMaterialEmojiFlagsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -12988,6 +12975,19 @@ const IconMaterialEmojiFlagsFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialEmojiFlagsFilled.displayName = 'AmauiIconMaterialEmojiFlagsFilled';
+
+
+const IconMaterialEmojiEventsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EmojiEventsFilled",
+    short_name: "EmojiEvents",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M280-120v-80h160v-124q-49-11-87.5-41.5T296-442q-75-9-125.5-65.5T120-640v-120h160v-80h400v80h160v120q0 76-50.5 132.5T664-442q-18 46-56.5 76.5T520-324v124h160v80H280Zm0-408v-152h-80v40q0 38 22 68.5t58 43.5Zm400 0q36-13 58-43.5t22-68.5v-40h-80v152Z"
+  }));
+});
+IconMaterialEmojiEventsFilled.displayName = 'AmauiIconMaterialEmojiEventsFilled';
 
 
 const IconMaterialEmojiFoodBeverageFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -13120,17 +13120,17 @@ const IconMaterialEncryptedFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialEncryptedFilled.displayName = 'AmauiIconMaterialEncryptedFilled';
 
 
-const IconMaterialEndocrinologyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialEnergyProgramSavingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "EndocrinologyFilled",
-    short_name: "Endocrinology",
-    viewBox: "0 96 960 960"
+    name: "EnergyProgramSavingFilled",
+    short_name: "EnergyProgramSaving",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m92 934-25-76q42-14 67.5-49t25.5-79V312q-24-26-43.5-56T83 192l74-32q42 98 129.5 157T480 376q106 0 193.5-59T803 160l74 32q-14 34-34 64t-43 56v418q0 44 25 79t67 49l-25 76q-66-22-106.5-78T720 730V382q-53 35-113.5 54.5T480 456q-66 0-127-19.5T240 382v348q0 70-41 126T92 934Zm308-78q-50 0-85-35t-35-85V485l54 13q46 11 83.5 38.5T480 602q25-38 62.5-65.5T626 498l54-13v251q0 50-35 85t-85 35q-23 0-43.5-8.5T480 825q-16 14-36.5 22.5T400 856Z"
+    d: "M11.5 17q-.65 0-1.262-.175-.613-.175-1.138-.525l-.4.4q-.3.3-.7.3-.4 0-.7-.3-.3-.3-.3-.7 0-.4.3-.7l.4-.4q-.35-.525-.525-1.138Q7 13.15 7 12.5q0-1.95 1.35-3.225Q9.7 8 11.5 8H16v4.5q0 1.875-1.312 3.188Q13.375 17 11.5 17Zm0-2q1.05 0 1.775-.725Q14 13.55 14 12.5V10h-2.5q-1 0-1.75.712Q9 11.425 9 12.5q0 .25.05.475.05.225.125.425l2.125-2.1q.3-.3.7-.3.4 0 .7.3.3.3.3.7 0 .4-.3.7l-2.1 2.125q.2.075.425.125.225.05.475.05Zm.5 8-3.45-2.7-4.325-.525L3.7 15.45 1 12l2.7-3.45.525-4.325L8.55 3.7 12 1l3.45 2.7 4.325.525.525 4.325L23 12l-2.7 3.45-.525 4.325-4.325.525Zm0-2.55 2.65-2.05 3.35-.425.4-3.325L20.45 12 18.4 9.35l-.425-3.325L14.65 5.6 12 3.55 9.35 5.6 6 6.025 5.6 9.35 3.55 12l2.05 2.65.425 3.35 3.325.4Z"
   }));
 });
-IconMaterialEndocrinologyFilled.displayName = 'AmauiIconMaterialEndocrinologyFilled';
+IconMaterialEnergyProgramSavingFilled.displayName = 'AmauiIconMaterialEnergyProgramSavingFilled';
 
 
 const IconMaterialEnergyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -13146,17 +13146,17 @@ const IconMaterialEnergyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialEnergyFilled.displayName = 'AmauiIconMaterialEnergyFilled';
 
 
-const IconMaterialEnergyProgramSavingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialEndocrinologyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "EnergyProgramSavingFilled",
-    short_name: "EnergyProgramSaving",
-    viewBox: "0 0 24 24"
+    name: "EndocrinologyFilled",
+    short_name: "Endocrinology",
+    viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11.5 17q-.65 0-1.262-.175-.613-.175-1.138-.525l-.4.4q-.3.3-.7.3-.4 0-.7-.3-.3-.3-.3-.7 0-.4.3-.7l.4-.4q-.35-.525-.525-1.138Q7 13.15 7 12.5q0-1.95 1.35-3.225Q9.7 8 11.5 8H16v4.5q0 1.875-1.312 3.188Q13.375 17 11.5 17Zm0-2q1.05 0 1.775-.725Q14 13.55 14 12.5V10h-2.5q-1 0-1.75.712Q9 11.425 9 12.5q0 .25.05.475.05.225.125.425l2.125-2.1q.3-.3.7-.3.4 0 .7.3.3.3.3.7 0 .4-.3.7l-2.1 2.125q.2.075.425.125.225.05.475.05Zm.5 8-3.45-2.7-4.325-.525L3.7 15.45 1 12l2.7-3.45.525-4.325L8.55 3.7 12 1l3.45 2.7 4.325.525.525 4.325L23 12l-2.7 3.45-.525 4.325-4.325.525Zm0-2.55 2.65-2.05 3.35-.425.4-3.325L20.45 12 18.4 9.35l-.425-3.325L14.65 5.6 12 3.55 9.35 5.6 6 6.025 5.6 9.35 3.55 12l2.05 2.65.425 3.35 3.325.4Z"
+    d: "m92 934-25-76q42-14 67.5-49t25.5-79V312q-24-26-43.5-56T83 192l74-32q42 98 129.5 157T480 376q106 0 193.5-59T803 160l74 32q-14 34-34 64t-43 56v418q0 44 25 79t67 49l-25 76q-66-22-106.5-78T720 730V382q-53 35-113.5 54.5T480 456q-66 0-127-19.5T240 382v348q0 70-41 126T92 934Zm308-78q-50 0-85-35t-35-85V485l54 13q46 11 83.5 38.5T480 602q25-38 62.5-65.5T626 498l54-13v251q0 50-35 85t-85 35q-23 0-43.5-8.5T480 825q-16 14-36.5 22.5T400 856Z"
   }));
 });
-IconMaterialEnergyProgramSavingFilled.displayName = 'AmauiIconMaterialEnergyProgramSavingFilled';
+IconMaterialEndocrinologyFilled.displayName = 'AmauiIconMaterialEndocrinologyFilled';
 
 
 const IconMaterialEnergyProgramTimeUsedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -13185,19 +13185,6 @@ const IconMaterialEnergySavingsLeafFilled = /*#__PURE__*/React.forwardRef((props
 IconMaterialEnergySavingsLeafFilled.displayName = 'AmauiIconMaterialEnergySavingsLeafFilled';
 
 
-const IconMaterialEngineeringFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EngineeringFilled",
-    short_name: "Engineering",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m18.85 10-.2-1.05q-.225-.075-.412-.188-.188-.112-.338-.262l-1.05.35-.7-1.2.85-.75q-.05-.125-.05-.2v-.4q0-.075.05-.2l-.85-.75.7-1.2 1.05.35q.15-.15.338-.263.187-.112.412-.187l.2-1.05h1.4l.2 1.05q.225.075.413.187.187.113.337.263l1.05-.35.7 1.2-.85.75q.05.125.05.2v.4q0 .075-.05.2l.85.75-.7 1.2-1.05-.35q-.15.15-.337.262-.188.113-.413.188l-.2 1.05Zm.7-2.25q.525 0 .888-.363.362-.362.362-.887t-.362-.888q-.363-.362-.888-.362t-.887.362q-.363.363-.363.888t.363.887q.362.363.887.363Zm-3 7.25-.15-.75q-.15-.05-.287-.113-.138-.062-.263-.187l-.7.25-.5-.9.55-.5v-.6l-.55-.5.5-.9.7.25q.1-.1.25-.175.15-.075.3-.125l.15-.75h1l.15.75q.15.05.3.125t.25.175l.7-.25.5.9-.55.5v.6l.55.5-.5.9-.7-.25q-.125.125-.262.187-.138.063-.288.113l-.15.75Zm.5-1.75q.3 0 .525-.225.225-.225.225-.525 0-.3-.225-.525-.225-.225-.525-.225-.3 0-.525.225-.225.225-.225.525 0 .3.225.525.225.225.525.225Zm-8-.25q-1.65 0-2.825-1.175Q5.05 10.65 5.05 9H4.3V8h.75q0-1.125.55-2.025.55-.9 1.45-1.425v.95q0 .225.138.362Q7.325 6 7.55 6q.225 0 .363-.138.137-.137.137-.362V4.15q.225-.075.475-.113Q8.775 4 9.05 4t.525.037q.25.038.475.113V5.5q0 .225.138.362.137.138.362.138.225 0 .363-.138.137-.137.137-.362v-.95q.9.525 1.45 1.425.55.9.55 2.025h.75v1h-.75q0 1.65-1.175 2.825Q10.7 13 9.05 13Zm0-2q.825 0 1.413-.588.587-.587.587-1.412h-4q0 .825.588 1.412Q8.225 11 9.05 11Zm-8 10v-2.8q0-.825.425-1.55.425-.725 1.175-1.1 1.275-.65 2.875-1.1Q7.125 14 9.05 14q1.925 0 3.525.45 1.6.45 2.875 1.1.75.375 1.175 1.1.425.725.425 1.55V21Z"
-  }));
-});
-IconMaterialEngineeringFilled.displayName = 'AmauiIconMaterialEngineeringFilled';
-
-
 const IconMaterialEnhancedEncryptionFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -13222,6 +13209,19 @@ const IconMaterialEntFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialEntFilled.displayName = 'AmauiIconMaterialEntFilled';
+
+
+const IconMaterialEngineeringFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EngineeringFilled",
+    short_name: "Engineering",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m18.85 10-.2-1.05q-.225-.075-.412-.188-.188-.112-.338-.262l-1.05.35-.7-1.2.85-.75q-.05-.125-.05-.2v-.4q0-.075.05-.2l-.85-.75.7-1.2 1.05.35q.15-.15.338-.263.187-.112.412-.187l.2-1.05h1.4l.2 1.05q.225.075.413.187.187.113.337.263l1.05-.35.7 1.2-.85.75q.05.125.05.2v.4q0 .075-.05.2l.85.75-.7 1.2-1.05-.35q-.15.15-.337.262-.188.113-.413.188l-.2 1.05Zm.7-2.25q.525 0 .888-.363.362-.362.362-.887t-.362-.888q-.363-.362-.888-.362t-.887.362q-.363.363-.363.888t.363.887q.362.363.887.363Zm-3 7.25-.15-.75q-.15-.05-.287-.113-.138-.062-.263-.187l-.7.25-.5-.9.55-.5v-.6l-.55-.5.5-.9.7.25q.1-.1.25-.175.15-.075.3-.125l.15-.75h1l.15.75q.15.05.3.125t.25.175l.7-.25.5.9-.55.5v.6l.55.5-.5.9-.7-.25q-.125.125-.262.187-.138.063-.288.113l-.15.75Zm.5-1.75q.3 0 .525-.225.225-.225.225-.525 0-.3-.225-.525-.225-.225-.525-.225-.3 0-.525.225-.225.225-.225.525 0 .3.225.525.225.225.525.225Zm-8-.25q-1.65 0-2.825-1.175Q5.05 10.65 5.05 9H4.3V8h.75q0-1.125.55-2.025.55-.9 1.45-1.425v.95q0 .225.138.362Q7.325 6 7.55 6q.225 0 .363-.138.137-.137.137-.362V4.15q.225-.075.475-.113Q8.775 4 9.05 4t.525.037q.25.038.475.113V5.5q0 .225.138.362.137.138.362.138.225 0 .363-.138.137-.137.137-.362v-.95q.9.525 1.45 1.425.55.9.55 2.025h.75v1h-.75q0 1.65-1.175 2.825Q10.7 13 9.05 13Zm0-2q.825 0 1.413-.588.587-.587.587-1.412h-4q0 .825.588 1.412Q8.225 11 9.05 11Zm-8 10v-2.8q0-.825.425-1.55.425-.725 1.175-1.1 1.275-.65 2.875-1.1Q7.125 14 9.05 14q1.925 0 3.525.45 1.6.45 2.875 1.1.75.375 1.175 1.1.425.725.425 1.55V21Z"
+  }));
+});
+IconMaterialEngineeringFilled.displayName = 'AmauiIconMaterialEngineeringFilled';
 
 
 const IconMaterialEnterpriseFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -13250,19 +13250,6 @@ const IconMaterialEnterpriseOffFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialEnterpriseOffFilled.displayName = 'AmauiIconMaterialEnterpriseOffFilled';
 
 
-const IconMaterialEqualFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EqualFilled",
-    short_name: "Equal",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M160 776V656h640v120H160Zm0-280V376h640v120H160Z"
-  }));
-});
-IconMaterialEqualFilled.displayName = 'AmauiIconMaterialEqualFilled';
-
-
 const IconMaterialEqualizerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -13274,6 +13261,19 @@ const IconMaterialEqualizerFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialEqualizerFilled.displayName = 'AmauiIconMaterialEqualizerFilled';
+
+
+const IconMaterialEqualFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EqualFilled",
+    short_name: "Equal",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M160 776V656h640v120H160Zm0-280V376h640v120H160Z"
+  }));
+});
+IconMaterialEqualFilled.displayName = 'AmauiIconMaterialEqualFilled';
 
 
 const IconMaterialErrorCircleRoundedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -13302,19 +13302,6 @@ const IconMaterialErrorFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialErrorFilled.displayName = 'AmauiIconMaterialErrorFilled';
 
 
-const IconMaterialErrorMedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ErrorMedFilled",
-    short_name: "ErrorMed",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m11.075 14.95 1.85-2.525 1.825 2.525L18 10.525 16.4 9.35l-1.65 2.225L12.9 9.05l-1.825 2.525-1.85-2.525L6 13.475l1.6 1.175 1.625-2.225ZM12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
-  }));
-});
-IconMaterialErrorMedFilled.displayName = 'AmauiIconMaterialErrorMedFilled';
-
-
 const IconMaterialEscalatorFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -13341,17 +13328,17 @@ const IconMaterialEscalatorWarningFilled = /*#__PURE__*/React.forwardRef((props,
 IconMaterialEscalatorWarningFilled.displayName = 'AmauiIconMaterialEscalatorWarningFilled';
 
 
-const IconMaterialEuroFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialErrorMedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "EuroFilled",
-    short_name: "Euro",
+    name: "ErrorMedFilled",
+    short_name: "ErrorMed",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M15 21q-2.95 0-5.25-1.675T6.5 15H3v-2h3.05q-.075-.6-.062-1.113Q6 11.375 6.05 11H3V9h3.5q.95-2.65 3.25-4.325Q12.05 3 15 3q1.725 0 3.263.612Q19.8 4.225 21 5.3l-1.425 1.4q-.925-.8-2.087-1.25Q16.325 5 15 5q-2.125 0-3.8 1.112Q9.525 7.225 8.675 9H15v2H8.075q-.1.675-.075 1.188.025.512.075.812H15v2H8.675q.85 1.775 2.525 2.887Q12.875 19 15 19q1.325 0 2.488-.45 1.162-.45 2.087-1.25L21 18.7q-1.2 1.075-2.737 1.687Q16.725 21 15 21Z"
+    d: "m11.075 14.95 1.85-2.525 1.825 2.525L18 10.525 16.4 9.35l-1.65 2.225L12.9 9.05l-1.825 2.525-1.85-2.525L6 13.475l1.6 1.175 1.625-2.225ZM12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
   }));
 });
-IconMaterialEuroFilled.displayName = 'AmauiIconMaterialEuroFilled';
+IconMaterialErrorMedFilled.displayName = 'AmauiIconMaterialErrorMedFilled';
 
 
 const IconMaterialEuroSymbolFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -13365,6 +13352,19 @@ const IconMaterialEuroSymbolFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialEuroSymbolFilled.displayName = 'AmauiIconMaterialEuroSymbolFilled';
+
+
+const IconMaterialEuroFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EuroFilled",
+    short_name: "Euro",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M15 21q-2.95 0-5.25-1.675T6.5 15H3v-2h3.05q-.075-.6-.062-1.113Q6 11.375 6.05 11H3V9h3.5q.95-2.65 3.25-4.325Q12.05 3 15 3q1.725 0 3.263.612Q19.8 4.225 21 5.3l-1.425 1.4q-.925-.8-2.087-1.25Q16.325 5 15 5q-2.125 0-3.8 1.112Q9.525 7.225 8.675 9H15v2H8.075q-.1.675-.075 1.188.025.512.075.812H15v2H8.675q.85 1.775 2.525 2.887Q12.875 19 15 19q1.325 0 2.488-.45 1.162-.45 2.087-1.25L21 18.7q-1.2 1.075-2.737 1.687Q16.725 21 15 21Z"
+  }));
+});
+IconMaterialEuroFilled.displayName = 'AmauiIconMaterialEuroFilled';
 
 
 const IconMaterialEvChargerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -13419,19 +13419,6 @@ const IconMaterialEvShadowFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialEvShadowFilled.displayName = 'AmauiIconMaterialEvShadowFilled';
 
 
-const IconMaterialEvShadowMinusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EvShadowMinusFilled",
-    short_name: "EvShadowMinus",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M560-200v-80h320v80H560ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 15-1 29t-3 28q-30-26-67.5-40.5T728-480l64-67q-4-18-9-35t-13-33L432-278q11 13 22.5 25t25.5 23q2 42 17 79t41 67q-14 2-28.5 3T480-80Zm-91-267 337-337q-11-12-22-23.5T680-729L367-415q4 18 9 34.5t13 33.5Zm-26-178 247-247q-8-3-14.5-6.5T581-784q-86 28-145.5 97.5T363-525Z"
-  }));
-});
-IconMaterialEvShadowMinusFilled.displayName = 'AmauiIconMaterialEvShadowMinusFilled';
-
-
 const IconMaterialEvStationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -13443,6 +13430,19 @@ const IconMaterialEvStationFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialEvStationFilled.displayName = 'AmauiIconMaterialEvStationFilled';
+
+
+const IconMaterialEvShadowMinusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EvShadowMinusFilled",
+    short_name: "EvShadowMinus",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M560-200v-80h320v80H560ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 15-1 29t-3 28q-30-26-67.5-40.5T728-480l64-67q-4-18-9-35t-13-33L432-278q11 13 22.5 25t25.5 23q2 42 17 79t41 67q-14 2-28.5 3T480-80Zm-91-267 337-337q-11-12-22-23.5T680-729L367-415q4 18 9 34.5t13 33.5Zm-26-178 247-247q-8-3-14.5-6.5T581-784q-86 28-145.5 97.5T363-525Z"
+  }));
+});
+IconMaterialEvShadowMinusFilled.displayName = 'AmauiIconMaterialEvShadowMinusFilled';
 
 
 const IconMaterialEventAvailableFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -13510,19 +13510,6 @@ const IconMaterialEventNoteFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialEventNoteFilled.displayName = 'AmauiIconMaterialEventNoteFilled';
 
 
-const IconMaterialEventRepeatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "EventRepeatFilled",
-    short_name: "EventRepeat",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 22V4h3V2h2v2h8V2h2v2h3v8h-2v-2H5v10h7v2Zm16 2q-1.825 0-3.188-1.137Q14.45 21.725 14.1 20h1.55q.325 1.1 1.238 1.8.912.7 2.112.7 1.45 0 2.475-1.025Q22.5 20.45 22.5 19q0-1.45-1.025-2.475Q20.45 15.5 19 15.5q-.725 0-1.35.262-.625.263-1.1.738H18V18h-4v-4h1.5v1.425q.675-.65 1.575-1.038Q17.975 14 19 14q2.075 0 3.538 1.463Q24 16.925 24 19t-1.462 3.538Q21.075 24 19 24Z"
-  }));
-});
-IconMaterialEventRepeatFilled.displayName = 'AmauiIconMaterialEventRepeatFilled';
-
-
 const IconMaterialEventSeatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -13547,6 +13534,19 @@ const IconMaterialEventUpcomingFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialEventUpcomingFilled.displayName = 'AmauiIconMaterialEventUpcomingFilled';
+
+
+const IconMaterialEventRepeatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "EventRepeatFilled",
+    short_name: "EventRepeat",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 22V4h3V2h2v2h8V2h2v2h3v8h-2v-2H5v10h7v2Zm16 2q-1.825 0-3.188-1.137Q14.45 21.725 14.1 20h1.55q.325 1.1 1.238 1.8.912.7 2.112.7 1.45 0 2.475-1.025Q22.5 20.45 22.5 19q0-1.45-1.025-2.475Q20.45 15.5 19 15.5q-.725 0-1.35.262-.625.263-1.1.738H18V18h-4v-4h1.5v1.425q.675-.65 1.575-1.038Q17.975 14 19 14q2.075 0 3.538 1.463Q24 16.925 24 19t-1.462 3.538Q21.075 24 19 24Z"
+  }));
+});
+IconMaterialEventRepeatFilled.displayName = 'AmauiIconMaterialEventRepeatFilled';
 
 
 const IconMaterialExclamationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -14043,19 +14043,6 @@ const IconMaterialFallingFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialFallingFilled.displayName = 'AmauiIconMaterialFallingFilled';
 
 
-const IconMaterialFamiliarFaceAndZoneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FamiliarFaceAndZoneFilled",
-    short_name: "FamiliarFaceAndZone",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 20q-3.35 0-5.675-2.325Q4 15.35 4 12q0-3.35 2.325-5.675Q8.65 4 12 4q3.35 0 5.675 2.325Q20 8.65 20 12q0 3.35-2.325 5.675Q15.35 20 12 20Zm0-2q2.5 0 4.25-1.75T18 12q0-.425-.062-.838-.063-.412-.188-.812-.375.075-.75.112-.375.038-.75.038-1.575 0-3-.6T10.7 8.15q-.7 1.425-1.925 2.475T6 12.15q.075 2.45 1.812 4.15Q9.55 18 12 18Zm-2.5-4q-.425 0-.712-.288Q8.5 13.425 8.5 13t.288-.713Q9.075 12 9.5 12t.713.287q.287.288.287.713t-.287.712Q9.925 14 9.5 14Zm5 0q-.425 0-.712-.288-.288-.287-.288-.712t.288-.713Q14.075 12 14.5 12t.713.287q.287.288.287.713t-.287.712Q14.925 14 14.5 14ZM1 6V1h5v2H3v3Zm5 17H1v-5h2v3h3Zm12 0v-2h3v-3h2v5Zm3-17V3h-3V1h5v5Z"
-  }));
-});
-IconMaterialFamiliarFaceAndZoneFilled.displayName = 'AmauiIconMaterialFamiliarFaceAndZoneFilled';
-
-
 const IconMaterialFamilyHistoryFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -14067,6 +14054,19 @@ const IconMaterialFamilyHistoryFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialFamilyHistoryFilled.displayName = 'AmauiIconMaterialFamilyHistoryFilled';
+
+
+const IconMaterialFamiliarFaceAndZoneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FamiliarFaceAndZoneFilled",
+    short_name: "FamiliarFaceAndZone",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 20q-3.35 0-5.675-2.325Q4 15.35 4 12q0-3.35 2.325-5.675Q8.65 4 12 4q3.35 0 5.675 2.325Q20 8.65 20 12q0 3.35-2.325 5.675Q15.35 20 12 20Zm0-2q2.5 0 4.25-1.75T18 12q0-.425-.062-.838-.063-.412-.188-.812-.375.075-.75.112-.375.038-.75.038-1.575 0-3-.6T10.7 8.15q-.7 1.425-1.925 2.475T6 12.15q.075 2.45 1.812 4.15Q9.55 18 12 18Zm-2.5-4q-.425 0-.712-.288Q8.5 13.425 8.5 13t.288-.713Q9.075 12 9.5 12t.713.287q.287.288.287.713t-.287.712Q9.925 14 9.5 14Zm5 0q-.425 0-.712-.288-.288-.287-.288-.712t.288-.713Q14.075 12 14.5 12t.713.287q.287.288.287.713t-.287.712Q14.925 14 14.5 14ZM1 6V1h5v2H3v3Zm5 17H1v-5h2v3h3Zm12 0v-2h3v-3h2v5Zm3-17V3h-3V1h5v5Z"
+  }));
+});
+IconMaterialFamiliarFaceAndZoneFilled.displayName = 'AmauiIconMaterialFamiliarFaceAndZoneFilled';
 
 
 const IconMaterialFamilyHomeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -14407,19 +14407,6 @@ const IconMaterialFiberNewFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialFiberNewFilled.displayName = 'AmauiIconMaterialFiberNewFilled';
 
 
-const IconMaterialFiberPinFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FiberPinFilled",
-    short_name: "FiberPin",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M14 15h1.25v-3.5L17.8 15H19V9h-1.25v3.5L15.25 9H14Zm-2.75 0h1.5V9h-1.5ZM5 15h1.5v-2H10V9H5Zm1.5-3.5v-1h2v1ZM2 20V4h20v16Z"
-  }));
-});
-IconMaterialFiberPinFilled.displayName = 'AmauiIconMaterialFiberPinFilled';
-
-
 const IconMaterialFiberSmartRecordFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -14431,6 +14418,19 @@ const IconMaterialFiberSmartRecordFilled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialFiberSmartRecordFilled.displayName = 'AmauiIconMaterialFiberSmartRecordFilled';
+
+
+const IconMaterialFiberPinFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FiberPinFilled",
+    short_name: "FiberPin",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M14 15h1.25v-3.5L17.8 15H19V9h-1.25v3.5L15.25 9H14Zm-2.75 0h1.5V9h-1.5ZM5 15h1.5v-2H10V9H5Zm1.5-3.5v-1h2v1ZM2 20V4h20v16Z"
+  }));
+});
+IconMaterialFiberPinFilled.displayName = 'AmauiIconMaterialFiberPinFilled';
 
 
 const IconMaterialFileCopyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -14706,19 +14706,6 @@ const IconMaterialFilter9PlusFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialFilter9PlusFilled.displayName = 'AmauiIconMaterialFilter9PlusFilled';
 
 
-const IconMaterialFilterAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FilterAltFilled",
-    short_name: "FilterAlt",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M14 13v7h-4v-7L2.95 4h18.1Z"
-  }));
-});
-IconMaterialFilterAltFilled.displayName = 'AmauiIconMaterialFilterAltFilled';
-
-
 const IconMaterialFilterAltOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -14730,6 +14717,19 @@ const IconMaterialFilterAltOffFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialFilterAltOffFilled.displayName = 'AmauiIconMaterialFilterAltOffFilled';
+
+
+const IconMaterialFilterAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FilterAltFilled",
+    short_name: "FilterAlt",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M14 13v7h-4v-7L2.95 4h18.1Z"
+  }));
+});
+IconMaterialFilterAltFilled.displayName = 'AmauiIconMaterialFilterAltFilled';
 
 
 const IconMaterialFilterBAndWFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -14771,19 +14771,6 @@ const IconMaterialFilterDramaFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialFilterDramaFilled.displayName = 'AmauiIconMaterialFilterDramaFilled';
 
 
-const IconMaterialFilterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FilterFilled",
-    short_name: "Filter",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 14h10l-3.45-4.5-2.3 3-1.55-2Zm-3 4V2h16v16Zm-4 4V6h2v14h14v2Z"
-  }));
-});
-IconMaterialFilterFilled.displayName = 'AmauiIconMaterialFilterFilled';
-
-
 const IconMaterialFilterFramesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -14795,6 +14782,19 @@ const IconMaterialFilterFramesFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialFilterFramesFilled.displayName = 'AmauiIconMaterialFilterFramesFilled';
+
+
+const IconMaterialFilterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FilterFilled",
+    short_name: "Filter",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9 14h10l-3.45-4.5-2.3 3-1.55-2Zm-3 4V2h16v16Zm-4 4V6h2v14h14v2Z"
+  }));
+});
+IconMaterialFilterFilled.displayName = 'AmauiIconMaterialFilterFilled';
 
 
 const IconMaterialFilterHdrFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -14810,19 +14810,6 @@ const IconMaterialFilterHdrFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialFilterHdrFilled.displayName = 'AmauiIconMaterialFilterHdrFilled';
 
 
-const IconMaterialFilterListOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FilterListOffFilled",
-    short_name: "FilterListOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m19.775 22.625-18.4-18.4L2.8 2.8l18.4 18.4ZM3 8V6h2.15v2Zm3 5v-2h4.15v2Zm4.825-5-2-2H21v2ZM10 18v-2h4v2Zm5.825-5-2-2H18v2Z"
-  }));
-});
-IconMaterialFilterListOffFilled.displayName = 'AmauiIconMaterialFilterListOffFilled';
-
-
 const IconMaterialFilterListFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -14834,6 +14821,19 @@ const IconMaterialFilterListFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialFilterListFilled.displayName = 'AmauiIconMaterialFilterListFilled';
+
+
+const IconMaterialFilterListOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FilterListOffFilled",
+    short_name: "FilterListOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m19.775 22.625-18.4-18.4L2.8 2.8l18.4 18.4ZM3 8V6h2.15v2Zm3 5v-2h4.15v2Zm4.825-5-2-2H21v2ZM10 18v-2h4v2Zm5.825-5-2-2H18v2Z"
+  }));
+});
+IconMaterialFilterListOffFilled.displayName = 'AmauiIconMaterialFilterListOffFilled';
 
 
 const IconMaterialFilterNoneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15057,19 +15057,6 @@ const IconMaterialFitScreenFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialFitScreenFilled.displayName = 'AmauiIconMaterialFitScreenFilled';
 
 
-const IconMaterialFitWidthFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FitWidthFilled",
-    short_name: "FitWidth",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M120 936V216h80v720h-80Zm160-320v-80h80v80h-80Zm160 0v-80h80v80h-80Zm160 0v-80h80v80h-80Zm160 320V216h80v720h-80Z"
-  }));
-});
-IconMaterialFitWidthFilled.displayName = 'AmauiIconMaterialFitWidthFilled';
-
-
 const IconMaterialFitbitArrowDownwardFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -15094,6 +15081,19 @@ const IconMaterialFitbitArrowUpwardFilled = /*#__PURE__*/React.forwardRef((props
   }));
 });
 IconMaterialFitbitArrowUpwardFilled.displayName = 'AmauiIconMaterialFitbitArrowUpwardFilled';
+
+
+const IconMaterialFitWidthFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FitWidthFilled",
+    short_name: "FitWidth",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M120 936V216h80v720h-80Zm160-320v-80h80v80h-80Zm160 0v-80h80v80h-80Zm160 0v-80h80v80h-80Zm160 320V216h80v720h-80Z"
+  }));
+});
+IconMaterialFitWidthFilled.displayName = 'AmauiIconMaterialFitWidthFilled';
 
 
 const IconMaterialFitbitCheckSmallFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15265,19 +15265,6 @@ const IconMaterialFlexDirectionFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialFlexDirectionFilled.displayName = 'AmauiIconMaterialFlexDirectionFilled';
 
 
-const IconMaterialFlexNoWrapFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FlexNoWrapFilled",
-    short_name: "FlexNoWrap",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M40 776V376h240v400H40Zm320 0V376h240v400H360Zm320 0V376h240v400H680Zm-560-80h80V456h-80v240Zm640 0h80V456h-80v240Z"
-  }));
-});
-IconMaterialFlexNoWrapFilled.displayName = 'AmauiIconMaterialFlexNoWrapFilled';
-
-
 const IconMaterialFlexWrapFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -15289,6 +15276,19 @@ const IconMaterialFlexWrapFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialFlexWrapFilled.displayName = 'AmauiIconMaterialFlexWrapFilled';
+
+
+const IconMaterialFlexNoWrapFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FlexNoWrapFilled",
+    short_name: "FlexNoWrap",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M40 776V376h240v400H40Zm320 0V376h240v400H360Zm320 0V376h240v400H680Zm-560-80h80V456h-80v240Zm640 0h80V456h-80v240Z"
+  }));
+});
+IconMaterialFlexNoWrapFilled.displayName = 'AmauiIconMaterialFlexNoWrapFilled';
 
 
 const IconMaterialFlightClassFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15395,19 +15395,6 @@ const IconMaterialFlipCameraIosFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialFlipCameraIosFilled.displayName = 'AmauiIconMaterialFlipCameraIosFilled';
 
 
-const IconMaterialFlipFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FlipFilled",
-    short_name: "Flip",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 21V3h6v2H5v14h4v2Zm8 2V1h2v22Zm8-18V3h2v2Zm0 8v-2h2v2Zm0 8v-2h2v2Zm0-12V7h2v2Zm0 8v-2h2v2Zm-4 4v-2h2v2Zm0-16V3h2v2Z"
-  }));
-});
-IconMaterialFlipFilled.displayName = 'AmauiIconMaterialFlipFilled';
-
-
 const IconMaterialFlipToBackFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -15419,6 +15406,19 @@ const IconMaterialFlipToBackFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialFlipToBackFilled.displayName = 'AmauiIconMaterialFlipToBackFilled';
+
+
+const IconMaterialFlipFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FlipFilled",
+    short_name: "Flip",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 21V3h6v2H5v14h4v2Zm8 2V1h2v22Zm8-18V3h2v2Zm0 8v-2h2v2Zm0 8v-2h2v2Zm0-12V7h2v2Zm0 8v-2h2v2Zm-4 4v-2h2v2Zm0-16V3h2v2Z"
+  }));
+});
+IconMaterialFlipFilled.displayName = 'AmauiIconMaterialFlipFilled';
 
 
 const IconMaterialFlipToFrontFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15525,19 +15525,6 @@ const IconMaterialFlowsheetFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialFlowsheetFilled.displayName = 'AmauiIconMaterialFlowsheetFilled';
 
 
-const IconMaterialFluidBalanceFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FluidBalanceFilled",
-    short_name: "FluidBalance",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 20V4h20v2H11v3H6v2h5v2H6v2h5q0 1.425.562 2.725.563 1.3 1.588 2.275Zm15 3v-3.1q-1.75-.35-2.875-1.725T13 15V8h10v7q0 1.8-1.125 3.175Q20.75 19.55 19 19.9V21h3v2Zm2.75-9H21v-4h-6v2h.75q.825 0 1.562.375.738.375 1.238 1.025.2.3.525.45.325.15.675.15Z"
-  }));
-});
-IconMaterialFluidBalanceFilled.displayName = 'AmauiIconMaterialFluidBalanceFilled';
-
-
 const IconMaterialFluidFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -15562,6 +15549,19 @@ const IconMaterialFluidMedFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialFluidMedFilled.displayName = 'AmauiIconMaterialFluidMedFilled';
+
+
+const IconMaterialFluidBalanceFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FluidBalanceFilled",
+    short_name: "FluidBalance",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 20V4h20v2H11v3H6v2h5v2H6v2h5q0 1.425.562 2.725.563 1.3 1.588 2.275Zm15 3v-3.1q-1.75-.35-2.875-1.725T13 15V8h10v7q0 1.8-1.125 3.175Q20.75 19.55 19 19.9V21h3v2Zm2.75-9H21v-4h-6v2h.75q.825 0 1.562.375.738.375 1.238 1.025.2.3.525.45.325.15.675.15Z"
+  }));
+});
+IconMaterialFluidBalanceFilled.displayName = 'AmauiIconMaterialFluidBalanceFilled';
 
 
 const IconMaterialFluorescentFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15681,19 +15681,6 @@ const IconMaterialFolderDeleteFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialFolderDeleteFilled.displayName = 'AmauiIconMaterialFolderDeleteFilled';
 
 
-const IconMaterialFolderManagedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FolderManagedFilled",
-    short_name: "FolderManaged",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m680 976-12-60q-12-5-22.5-10.5T624 892l-58 18-40-68 46-40q-2-12-2-26t2-26l-46-40 40-68 58 18q11-8 21.5-13.5T668 636l12-60h80l12 60q12 5 22.5 10.5T816 660l58-18 40 68-46 40q2 12 2 26t-2 26l46 40-40 68-58-18q-11 8-21.5 13.5T772 916l-12 60h-80Zm40-120q33 0 56.5-23.5T800 776q0-33-23.5-56.5T720 696q-33 0-56.5 23.5T640 776q0 33 23.5 56.5T720 856ZM80 896V256h320l80 80h400v210q-35-25-76-37.5T720 496q-117 0-198.5 81.5T440 776q0 32 6.5 62t20.5 58H80Z"
-  }));
-});
-IconMaterialFolderManagedFilled.displayName = 'AmauiIconMaterialFolderManagedFilled';
-
-
 const IconMaterialFolderFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -15705,6 +15692,19 @@ const IconMaterialFolderFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialFolderFilled.displayName = 'AmauiIconMaterialFolderFilled';
+
+
+const IconMaterialFolderManagedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FolderManagedFilled",
+    short_name: "FolderManaged",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m680 976-12-60q-12-5-22.5-10.5T624 892l-58 18-40-68 46-40q-2-12-2-26t2-26l-46-40 40-68 58 18q11-8 21.5-13.5T668 636l12-60h80l12 60q12 5 22.5 10.5T816 660l58-18 40 68-46 40q2 12 2 26t-2 26l46 40-40 68-58-18q-11 8-21.5 13.5T772 916l-12 60h-80Zm40-120q33 0 56.5-23.5T800 776q0-33-23.5-56.5T720 696q-33 0-56.5 23.5T640 776q0 33 23.5 56.5T720 856ZM80 896V256h320l80 80h400v210q-35-25-76-37.5T720 496q-117 0-198.5 81.5T440 776q0 32 6.5 62t20.5 58H80Z"
+  }));
+});
+IconMaterialFolderManagedFilled.displayName = 'AmauiIconMaterialFolderManagedFilled';
 
 
 const IconMaterialFolderOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15837,19 +15837,6 @@ const IconMaterialFoodBankFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialFoodBankFilled.displayName = 'AmauiIconMaterialFoodBankFilled';
 
 
-const IconMaterialFootBonesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FootBonesFilled",
-    short_name: "FootBones",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4 20q-.825 0-1.412-.587Q2 18.825 2 18v-1q0-.825.588-1.412Q3.175 15 4 15t1.412.588Q6 16.175 6 17v1q0 .825-.588 1.413Q4.825 20 4 20Zm17.05 0H19.5q-.25 0-.4-.188-.15-.187-.1-.437l.275-1.075q.05-.2.2-.312.15-.113.35-.063l1.35.2q.35.05.588.313.237.262.237.612 0 .4-.275.675T21.05 20Zm-3.7-.35-2.85-.95q-.2-.075-.3-.275-.1-.2 0-.4l.75-1.725q.1-.2.313-.288.212-.087.412.038l2.4 1.4q.15.075.213.225.062.15.012.325l-.3 1.3q-.05.2-.25.313-.2.112-.4.037ZM12.7 17.9l-1.95-.5q-.35-.1-.55-.362-.2-.263-.2-.613V15.5q0-.575.2-1.075t.675-.8q.125-.075.25-.088.125-.012.25.063l2.55 1.4q.175.1.238.287.062.188-.013.363l-.875 1.975q-.075.175-.237.25-.163.075-.338.025ZM7.45 17q-.2 0-.325-.113-.125-.112-.15-.287-.175-1.125-1.012-1.862Q5.125 14 4 14h-.5q-.2 0-.35-.15Q3 13.7 3 13.5q0-.2.15-.35.15-.15.35-.15h.9q.5 0 .95-.125.45-.125.875-.4.125-.075.275-.075.15 0 .275.075.5.3 1.075.412Q8.425 13 9 13q.3 0 .425.312.125.313-.075.613-.225.35-.288.75-.062.4-.062.825v1q0 .2-.15.35-.15.15-.35.15Zm-3-5q-1.05 0-1.75-.688Q2 10.625 2 9.6q0-.475.175-.925.175-.45.525-.8l1.3-1.3V4h5v2.575l1.3 1.3q.35.35.525.787.175.438.175.913 0 1.025-.7 1.725-.7.7-1.75.7-.475 0-.9-.2-.425-.2-.775-.5-.1-.075-.175-.138-.075-.062-.2-.062-.175 0-.375.2-.35.3-.787.487-.438.188-.888.213Z"
-  }));
-});
-IconMaterialFootBonesFilled.displayName = 'AmauiIconMaterialFootBonesFilled';
-
-
 const IconMaterialFootprintFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -15861,6 +15848,19 @@ const IconMaterialFootprintFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialFootprintFilled.displayName = 'AmauiIconMaterialFootprintFilled';
+
+
+const IconMaterialFootBonesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FootBonesFilled",
+    short_name: "FootBones",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4 20q-.825 0-1.412-.587Q2 18.825 2 18v-1q0-.825.588-1.412Q3.175 15 4 15t1.412.588Q6 16.175 6 17v1q0 .825-.588 1.413Q4.825 20 4 20Zm17.05 0H19.5q-.25 0-.4-.188-.15-.187-.1-.437l.275-1.075q.05-.2.2-.312.15-.113.35-.063l1.35.2q.35.05.588.313.237.262.237.612 0 .4-.275.675T21.05 20Zm-3.7-.35-2.85-.95q-.2-.075-.3-.275-.1-.2 0-.4l.75-1.725q.1-.2.313-.288.212-.087.412.038l2.4 1.4q.15.075.213.225.062.15.012.325l-.3 1.3q-.05.2-.25.313-.2.112-.4.037ZM12.7 17.9l-1.95-.5q-.35-.1-.55-.362-.2-.263-.2-.613V15.5q0-.575.2-1.075t.675-.8q.125-.075.25-.088.125-.012.25.063l2.55 1.4q.175.1.238.287.062.188-.013.363l-.875 1.975q-.075.175-.237.25-.163.075-.338.025ZM7.45 17q-.2 0-.325-.113-.125-.112-.15-.287-.175-1.125-1.012-1.862Q5.125 14 4 14h-.5q-.2 0-.35-.15Q3 13.7 3 13.5q0-.2.15-.35.15-.15.35-.15h.9q.5 0 .95-.125.45-.125.875-.4.125-.075.275-.075.15 0 .275.075.5.3 1.075.412Q8.425 13 9 13q.3 0 .425.312.125.313-.075.613-.225.35-.288.75-.062.4-.062.825v1q0 .2-.15.35-.15.15-.35.15Zm-3-5q-1.05 0-1.75-.688Q2 10.625 2 9.6q0-.475.175-.925.175-.45.525-.8l1.3-1.3V4h5v2.575l1.3 1.3q.35.35.525.787.175.438.175.913 0 1.025-.7 1.725-.7.7-1.75.7-.475 0-.9-.2-.425-.2-.775-.5-.1-.075-.175-.138-.075-.062-.2-.062-.175 0-.375.2-.35.3-.787.487-.438.188-.888.213Z"
+  }));
+});
+IconMaterialFootBonesFilled.displayName = 'AmauiIconMaterialFootBonesFilled';
 
 
 const IconMaterialForYouFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -15954,19 +15954,6 @@ const IconMaterialFormatAlignJustifyFilled = /*#__PURE__*/React.forwardRef((prop
 IconMaterialFormatAlignJustifyFilled.displayName = 'AmauiIconMaterialFormatAlignJustifyFilled';
 
 
-const IconMaterialFormatAlignLeftFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FormatAlignLeftFilled",
-    short_name: "FormatAlignLeft",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 21v-2h18v2Zm0-4v-2h12v2Zm0-4v-2h18v2Zm0-4V7h12v2Zm0-4V3h18v2Z"
-  }));
-});
-IconMaterialFormatAlignLeftFilled.displayName = 'AmauiIconMaterialFormatAlignLeftFilled';
-
-
 const IconMaterialFormatAlignRightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -15978,6 +15965,19 @@ const IconMaterialFormatAlignRightFilled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialFormatAlignRightFilled.displayName = 'AmauiIconMaterialFormatAlignRightFilled';
+
+
+const IconMaterialFormatAlignLeftFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FormatAlignLeftFilled",
+    short_name: "FormatAlignLeft",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 21v-2h18v2Zm0-4v-2h12v2Zm0-4v-2h18v2Zm0-4V7h12v2Zm0-4V3h18v2Z"
+  }));
+});
+IconMaterialFormatAlignLeftFilled.displayName = 'AmauiIconMaterialFormatAlignLeftFilled';
 
 
 const IconMaterialFormatBoldFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16097,19 +16097,6 @@ const IconMaterialFormatH4Filled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialFormatH4Filled.displayName = 'AmauiIconMaterialFormatH4Filled';
 
 
-const IconMaterialFormatH5Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FormatH5Filled",
-    short_name: "FormatH5",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 17V7h2v4h4V7h2v10H9v-4H5v4Zm10 0v-2h6v-2h-6V7h8v2h-6v2h4q.825 0 1.413.587Q21 12.175 21 13v2q0 .825-.587 1.413Q19.825 17 19 17Z"
-  }));
-});
-IconMaterialFormatH5Filled.displayName = 'AmauiIconMaterialFormatH5Filled';
-
-
 const IconMaterialFormatH6Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -16121,6 +16108,19 @@ const IconMaterialFormatH6Filled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialFormatH6Filled.displayName = 'AmauiIconMaterialFormatH6Filled';
+
+
+const IconMaterialFormatH5Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FormatH5Filled",
+    short_name: "FormatH5",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 17V7h2v4h4V7h2v10H9v-4H5v4Zm10 0v-2h6v-2h-6V7h8v2h-6v2h4q.825 0 1.413.587Q21 12.175 21 13v2q0 .825-.587 1.413Q19.825 17 19 17Z"
+  }));
+});
+IconMaterialFormatH5Filled.displayName = 'AmauiIconMaterialFormatH5Filled';
 
 
 const IconMaterialFormatImageLeftFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16240,17 +16240,17 @@ const IconMaterialFormatLetterSpacingStandardFilled = /*#__PURE__*/React.forward
 IconMaterialFormatLetterSpacingStandardFilled.displayName = 'AmauiIconMaterialFormatLetterSpacingStandardFilled';
 
 
-const IconMaterialFormatLetterSpacingWideFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialFormatLineSpacingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "FormatLetterSpacingWideFilled",
-    short_name: "FormatLetterSpacingWide",
-    viewBox: "0 -960 960 960"
+    name: "FormatLineSpacingFilled",
+    short_name: "FormatLineSpacing",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M120-160v-640h80v640h-80Zm640 0v-640h80v640h-80ZM294-280l150-400h72l150 400h-70l-34-102H400l-36 102h-70Zm126-160h120l-58-166-62 166Z"
+    d: "m6 20-4-4 1.4-1.4L5 16.15v-8.3L3.4 9.4 2 8l4-4 4 4-1.4 1.4L7 7.85v8.3l1.6-1.55L10 16Zm6-1v-2h10v2Zm0-6v-2h10v2Zm0-6V5h10v2Z"
   }));
 });
-IconMaterialFormatLetterSpacingWideFilled.displayName = 'AmauiIconMaterialFormatLetterSpacingWideFilled';
+IconMaterialFormatLineSpacingFilled.displayName = 'AmauiIconMaterialFormatLineSpacingFilled';
 
 
 const IconMaterialFormatLetterSpacingWiderFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16266,17 +16266,17 @@ const IconMaterialFormatLetterSpacingWiderFilled = /*#__PURE__*/React.forwardRef
 IconMaterialFormatLetterSpacingWiderFilled.displayName = 'AmauiIconMaterialFormatLetterSpacingWiderFilled';
 
 
-const IconMaterialFormatLineSpacingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialFormatLetterSpacingWideFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "FormatLineSpacingFilled",
-    short_name: "FormatLineSpacing",
-    viewBox: "0 0 24 24"
+    name: "FormatLetterSpacingWideFilled",
+    short_name: "FormatLetterSpacingWide",
+    viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m6 20-4-4 1.4-1.4L5 16.15v-8.3L3.4 9.4 2 8l4-4 4 4-1.4 1.4L7 7.85v8.3l1.6-1.55L10 16Zm6-1v-2h10v2Zm0-6v-2h10v2Zm0-6V5h10v2Z"
+    d: "M120-160v-640h80v640h-80Zm640 0v-640h80v640h-80ZM294-280l150-400h72l150 400h-70l-34-102H400l-36 102h-70Zm126-160h120l-58-166-62 166Z"
   }));
 });
-IconMaterialFormatLineSpacingFilled.displayName = 'AmauiIconMaterialFormatLineSpacingFilled';
+IconMaterialFormatLetterSpacingWideFilled.displayName = 'AmauiIconMaterialFormatLetterSpacingWideFilled';
 
 
 const IconMaterialFormatListBulletedAddFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16290,6 +16290,19 @@ const IconMaterialFormatListBulletedAddFilled = /*#__PURE__*/React.forwardRef((p
   }));
 });
 IconMaterialFormatListBulletedAddFilled.displayName = 'AmauiIconMaterialFormatListBulletedAddFilled';
+
+
+const IconMaterialFormatListNumberedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FormatListNumberedFilled",
+    short_name: "FormatListNumbered",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 20v-1h2v-.5H4v-1h1V17H3v-1h3v4Zm5-1v-2h13v2Zm-5-5v-.9L4.8 11H3v-1h3v.9L4.2 13H6v1Zm5-1v-2h13v2ZM4 8V5H3V4h2v4Zm4-1V5h13v2Z"
+  }));
+});
+IconMaterialFormatListNumberedFilled.displayName = 'AmauiIconMaterialFormatListNumberedFilled';
 
 
 const IconMaterialFormatListBulletedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16316,19 +16329,6 @@ const IconMaterialFormatListNumberedRtlFilled = /*#__PURE__*/React.forwardRef((p
   }));
 });
 IconMaterialFormatListNumberedRtlFilled.displayName = 'AmauiIconMaterialFormatListNumberedRtlFilled';
-
-
-const IconMaterialFormatListNumberedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FormatListNumberedFilled",
-    short_name: "FormatListNumbered",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 20v-1h2v-.5H4v-1h1V17H3v-1h3v4Zm5-1v-2h13v2Zm-5-5v-.9L4.8 11H3v-1h3v.9L4.2 13H6v1Zm5-1v-2h13v2ZM4 8V5H3V4h2v4Zm4-1V5h13v2Z"
-  }));
-});
-IconMaterialFormatListNumberedFilled.displayName = 'AmauiIconMaterialFormatListNumberedFilled';
 
 
 const IconMaterialFormatOverlineFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16409,19 +16409,6 @@ const IconMaterialFormatSizeFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialFormatSizeFilled.displayName = 'AmauiIconMaterialFormatSizeFilled';
 
 
-const IconMaterialFormatStrikethroughFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FormatStrikethroughFilled",
-    short_name: "FormatStrikethrough",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 14v-2h20v2Zm8.5-4V7H5V4h14v3h-5.5v3Zm0 10v-4h3v4Z"
-  }));
-});
-IconMaterialFormatStrikethroughFilled.displayName = 'AmauiIconMaterialFormatStrikethroughFilled';
-
-
 const IconMaterialFormatTextClipFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -16433,6 +16420,19 @@ const IconMaterialFormatTextClipFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialFormatTextClipFilled.displayName = 'AmauiIconMaterialFormatTextClipFilled';
+
+
+const IconMaterialFormatStrikethroughFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FormatStrikethroughFilled",
+    short_name: "FormatStrikethrough",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 14v-2h20v2Zm8.5-4V7H5V4h14v3h-5.5v3Zm0 10v-4h3v4Z"
+  }));
+});
+IconMaterialFormatStrikethroughFilled.displayName = 'AmauiIconMaterialFormatStrikethroughFilled';
 
 
 const IconMaterialFormatTextOverflowFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16682,19 +16682,6 @@ const IconMaterialFrameInspectFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialFrameInspectFilled.displayName = 'AmauiIconMaterialFrameInspectFilled';
 
 
-const IconMaterialFramePersonOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FramePersonOffFilled",
-    short_name: "FramePersonOff",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m818 1028-52-52H640v-80h46l-80-80H240v-76q0-21 10.5-39.5T279 671q31-18 64.5-30.5T412 622L160 370v46H80V290l-54-54 57-57 792 792-57 57ZM600 456q0 26-10.5 48.5T562 544L392 374q17-17 39.5-27.5T480 336q50 0 85 35t35 85Zm280 280v126l-80-80v-46h80ZM80 976V736h80v160h160v80H80Zm720-560V256H640v-80h240v240h-80ZM320 176v80h-46l-80-80h126Z"
-  }));
-});
-IconMaterialFramePersonOffFilled.displayName = 'AmauiIconMaterialFramePersonOffFilled';
-
-
 const IconMaterialFramePersonFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -16706,6 +16693,19 @@ const IconMaterialFramePersonFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialFramePersonFilled.displayName = 'AmauiIconMaterialFramePersonFilled';
+
+
+const IconMaterialFramePersonOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FramePersonOffFilled",
+    short_name: "FramePersonOff",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m818 1028-52-52H640v-80h46l-80-80H240v-76q0-21 10.5-39.5T279 671q31-18 64.5-30.5T412 622L160 370v46H80V290l-54-54 57-57 792 792-57 57ZM600 456q0 26-10.5 48.5T562 544L392 374q17-17 39.5-27.5T480 336q50 0 85 35t35 85Zm280 280v126l-80-80v-46h80ZM80 976V736h80v160h160v80H80Zm720-560V256H640v-80h240v240h-80ZM320 176v80h-46l-80-80h126Z"
+  }));
+});
+IconMaterialFramePersonOffFilled.displayName = 'AmauiIconMaterialFramePersonOffFilled';
 
 
 const IconMaterialFrameReloadFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16747,19 +16747,6 @@ const IconMaterialFreeCancellationFilled = /*#__PURE__*/React.forwardRef((props,
 IconMaterialFreeCancellationFilled.displayName = 'AmauiIconMaterialFreeCancellationFilled';
 
 
-const IconMaterialFrontHandFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FrontHandFilled",
-    short_name: "FrontHand",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12.775 24q-1.825 0-3.337-.688-1.513-.687-2.613-1.824-1.1-1.138-1.712-2.638-.613-1.5-.613-3.1V4.5H7V12h1V1.5h2.5V11h1V0H14v11h1V2h2.5v12.025q-1.55.2-2.525 1.338Q14 16.5 14 18h1q0-1.25.875-2.125T18 15h.5V8H21v7.75q0 1.6-.6 3.087-.6 1.488-1.688 2.638-1.087 1.15-2.599 1.837Q14.6 24 12.775 24Z"
-  }));
-});
-IconMaterialFrontHandFilled.displayName = 'AmauiIconMaterialFrontHandFilled';
-
-
 const IconMaterialFrontLoaderFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -16771,6 +16758,19 @@ const IconMaterialFrontLoaderFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialFrontLoaderFilled.displayName = 'AmauiIconMaterialFrontLoaderFilled';
+
+
+const IconMaterialFrontHandFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FrontHandFilled",
+    short_name: "FrontHand",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12.775 24q-1.825 0-3.337-.688-1.513-.687-2.613-1.824-1.1-1.138-1.712-2.638-.613-1.5-.613-3.1V4.5H7V12h1V1.5h2.5V11h1V0H14v11h1V2h2.5v12.025q-1.55.2-2.525 1.338Q14 16.5 14 18h1q0-1.25.875-2.125T18 15h.5V8H21v7.75q0 1.6-.6 3.087-.6 1.488-1.688 2.638-1.087 1.15-2.599 1.837Q14.6 24 12.775 24Z"
+  }));
+});
+IconMaterialFrontHandFilled.displayName = 'AmauiIconMaterialFrontHandFilled';
 
 
 const IconMaterialFullCoverageFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -16786,19 +16786,6 @@ const IconMaterialFullCoverageFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialFullCoverageFilled.displayName = 'AmauiIconMaterialFullCoverageFilled';
 
 
-const IconMaterialFullHdFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "FullHdFilled",
-    short_name: "FullHd",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M380-360h60v-80h60v80h60v-240h-60v100h-60v-100h-60v240Zm220 0h150l30-30v-180l-30-30H600v240Zm60-60v-120h60v120h-60Zm-480 60h60v-80h80v-60h-80v-40h100v-60H180v240ZM40-160v-640h880v640H40Z"
-  }));
-});
-IconMaterialFullHdFilled.displayName = 'AmauiIconMaterialFullHdFilled';
-
-
 const IconMaterialFullStackedBarChartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -16810,6 +16797,19 @@ const IconMaterialFullStackedBarChartFilled = /*#__PURE__*/React.forwardRef((pro
   }));
 });
 IconMaterialFullStackedBarChartFilled.displayName = 'AmauiIconMaterialFullStackedBarChartFilled';
+
+
+const IconMaterialFullHdFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "FullHdFilled",
+    short_name: "FullHd",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M380-360h60v-80h60v80h60v-240h-60v100h-60v-100h-60v240Zm220 0h150l30-30v-180l-30-30H600v240Zm60-60v-120h60v120h-60Zm-480 60h60v-80h80v-60h-80v-40h100v-60H180v240ZM40-160v-640h880v640H40Z"
+  }));
+});
+IconMaterialFullHdFilled.displayName = 'AmauiIconMaterialFullHdFilled';
 
 
 const IconMaterialFullscreenExitFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -17137,19 +17137,6 @@ const IconMaterialGifFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialGifFilled.displayName = 'AmauiIconMaterialGifFilled';
 
 
-const IconMaterialGirlFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "GirlFilled",
-    short_name: "Girl",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 7.5q-.725 0-1.238-.513-.512-.512-.512-1.237 0-.725.512-1.238Q11.275 4 12 4t1.238.512q.512.513.512 1.238t-.512 1.237Q12.725 7.5 12 7.5ZM10 20v-4H8l2.375-6.375q.2-.5.638-.813Q11.45 8.5 12 8.5t.988.312q.437.313.637.813L16 16h-2v4Z"
-  }));
-});
-IconMaterialGirlFilled.displayName = 'AmauiIconMaterialGirlFilled';
-
-
 const IconMaterialGiteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -17163,6 +17150,19 @@ const IconMaterialGiteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialGiteFilled.displayName = 'AmauiIconMaterialGiteFilled';
 
 
+const IconMaterialGirlFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "GirlFilled",
+    short_name: "Girl",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 7.5q-.725 0-1.238-.513-.512-.512-.512-1.237 0-.725.512-1.238Q11.275 4 12 4t1.238.512q.512.513.512 1.238t-.512 1.237Q12.725 7.5 12 7.5ZM10 20v-4H8l2.375-6.375q.2-.5.638-.813Q11.45 8.5 12 8.5t.988.312q.437.313.637.813L16 16h-2v4Z"
+  }));
+});
+IconMaterialGirlFilled.displayName = 'AmauiIconMaterialGirlFilled';
+
+
 const IconMaterialGlassCupFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -17174,19 +17174,6 @@ const IconMaterialGlassCupFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialGlassCupFilled.displayName = 'AmauiIconMaterialGlassCupFilled';
-
-
-const IconMaterialGlobeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "GlobeFilled",
-    short_name: "Globe",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-7-.5-14.5T799-507q-5 29-27 48t-52 19h-80q-33 0-56.5-23.5T560-520v-40H400v-80q0-33 23.5-56.5T480-720h40q0-23 12.5-40.5T563-789q-20-5-40.5-8t-42.5-3q-134 0-227 93t-93 227h200q66 0 113 47t47 113v40H400v110q20 5 39.5 7.5T480-160Z"
-  }));
-});
-IconMaterialGlobeFilled.displayName = 'AmauiIconMaterialGlobeFilled';
 
 
 const IconMaterialGlobeAsiaFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -17213,6 +17200,19 @@ const IconMaterialGlobeUkFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialGlobeUkFilled.displayName = 'AmauiIconMaterialGlobeUkFilled';
+
+
+const IconMaterialGlobeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "GlobeFilled",
+    short_name: "Globe",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-7-.5-14.5T799-507q-5 29-27 48t-52 19h-80q-33 0-56.5-23.5T560-520v-40H400v-80q0-33 23.5-56.5T480-720h40q0-23 12.5-40.5T563-789q-20-5-40.5-8t-42.5-3q-134 0-227 93t-93 227h200q66 0 113 47t47 113v40H400v110q20 5 39.5 7.5T480-160Z"
+  }));
+});
+IconMaterialGlobeFilled.displayName = 'AmauiIconMaterialGlobeFilled';
 
 
 const IconMaterialGlucoseFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -17267,19 +17267,6 @@ const IconMaterialGolfCourseFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialGolfCourseFilled.displayName = 'AmauiIconMaterialGolfCourseFilled';
 
 
-const IconMaterialGoogleHomeDevicesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "GoogleHomeDevicesFilled",
-    short_name: "GoogleHomeDevices",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M320-120v-80H80v-640h800v160h-80v-80H160v480h280v160H320Zm286-180q0-39 27.5-66.5T700-394q39 0 66.5 27.5T794-300q0 39-27.5 66.5T700-206q-39 0-66.5-27.5T606-300Zm274-340v520H520v-520h360Zm-180 40q-26 0-43 17t-17 43q0 26 17 43t43 17q26 0 43-17t17-43q0-26-17-43t-43-17Zm0 440q59 0 99.5-40.5T840-300q0-59-40.5-99.5T700-440q-59 0-99.5 40.5T560-300q0 59 40.5 99.5T700-160Z"
-  }));
-});
-IconMaterialGoogleHomeDevicesFilled.displayName = 'AmauiIconMaterialGoogleHomeDevicesFilled';
-
-
 const IconMaterialGooglePlusReshareFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -17291,6 +17278,19 @@ const IconMaterialGooglePlusReshareFilled = /*#__PURE__*/React.forwardRef((props
   }));
 });
 IconMaterialGooglePlusReshareFilled.displayName = 'AmauiIconMaterialGooglePlusReshareFilled';
+
+
+const IconMaterialGoogleHomeDevicesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "GoogleHomeDevicesFilled",
+    short_name: "GoogleHomeDevices",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M320-120v-80H80v-640h800v160h-80v-80H160v480h280v160H320Zm286-180q0-39 27.5-66.5T700-394q39 0 66.5 27.5T794-300q0 39-27.5 66.5T700-206q-39 0-66.5-27.5T606-300Zm274-340v520H520v-520h360Zm-180 40q-26 0-43 17t-17 43q0 26 17 43t43 17q26 0 43-17t17-43q0-26-17-43t-43-17Zm0 440q59 0 99.5-40.5T840-300q0-59-40.5-99.5T700-440q-59 0-99.5 40.5T560-300q0 59 40.5 99.5T700-160Z"
+  }));
+});
+IconMaterialGoogleHomeDevicesFilled.displayName = 'AmauiIconMaterialGoogleHomeDevicesFilled';
 
 
 const IconMaterialGoogleTvRemoteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -17423,19 +17423,6 @@ const IconMaterialGrassFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialGrassFilled.displayName = 'AmauiIconMaterialGrassFilled';
 
 
-const IconMaterialGrid3x3Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Grid3x3Filled",
-    short_name: "Grid3x3",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8 20v-4H4v-2h4v-4H4V8h4V4h2v4h4V4h2v4h4v2h-4v4h4v2h-4v4h-2v-4h-4v4Zm2-6h4v-4h-4Z"
-  }));
-});
-IconMaterialGrid3x3Filled.displayName = 'AmauiIconMaterialGrid3x3Filled';
-
-
 const IconMaterialGrid3x3OffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -17447,6 +17434,19 @@ const IconMaterialGrid3x3OffFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialGrid3x3OffFilled.displayName = 'AmauiIconMaterialGrid3x3OffFilled';
+
+
+const IconMaterialGrid3x3Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Grid3x3Filled",
+    short_name: "Grid3x3",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8 20v-4H4v-2h4v-4H4V8h4V4h2v4h4V4h2v4h4v2h-4v4h4v2h-4v4h-2v-4h-4v4Zm2-6h4v-4h-4Z"
+  }));
+});
+IconMaterialGrid3x3Filled.displayName = 'AmauiIconMaterialGrid3x3Filled';
 
 
 const IconMaterialGrid4x4Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -17631,19 +17631,6 @@ const IconMaterialGroupedBarChartFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialGroupedBarChartFilled.displayName = 'AmauiIconMaterialGroupedBarChartFilled';
 
 
-const IconMaterialGroups2Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Groups2Filled",
-    short_name: "Groups2",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.275 12q-.7 0-1.15-.525-.45-.525-.325-1.225l.3-1.8q.2-1.075 1.013-1.762Q10.925 6 12 6q1.1 0 1.913.688.812.687 1.012 1.762l.3 1.8q.125.7-.325 1.225-.45.525-1.15.525Zm-7.175.975q-.575.025-.987-.225-.413-.25-.538-.775-.05-.225-.025-.45t.125-.425q0 .025-.025-.1-.1-.125-.162-.275-.063-.15-.088-.325-.05-.3.075-.575.125-.275.325-.475l.05-.05q.05-.475.388-.8.337-.325.837-.325.075 0 .475.1l.075-.025q.125-.125.325-.188Q4.15 8 4.375 8q.275 0 .488.087.212.088.337.263.025 0 .038.013.012.012.037.012.35.025.613.212.262.188.387.513.05.175.037.338-.012.162-.062.312 0 .025.025.1.175.175.275.387.1.213.1.438 0 .1-.15.525-.025.05 0 .1l.05.4q0 .525-.437.9-.438.375-1.063.375ZM20 13q-.825 0-1.413-.588Q18 11.825 18 11q0-.3.087-.562.088-.263.238-.513l-.7-.625q-.25-.2-.087-.5.162-.3.462-.3h2q.825 0 1.413.587Q22 9.675 22 10.5v.5q0 .825-.587 1.412Q20.825 13 20 13ZM0 18v-1.575q0-1.1 1.113-1.763Q2.225 14 4 14q.325 0 .625.012.3.013.575.063-.35.5-.525 1.075-.175.575-.175 1.225V18Zm6 0v-1.625q0-1.625 1.663-2.625 1.662-1 4.337-1 2.7 0 4.35 1 1.65 1 1.65 2.625V18Zm13.5 0v-1.625q0-.65-.163-1.225-.162-.575-.487-1.075.275-.05.563-.063Q19.7 14 20 14q1.8 0 2.9.662 1.1.663 1.1 1.763V18Z"
-  }));
-});
-IconMaterialGroups2Filled.displayName = 'AmauiIconMaterialGroups2Filled';
-
-
 const IconMaterialGroups3Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -17655,6 +17642,19 @@ const IconMaterialGroups3Filled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialGroups3Filled.displayName = 'AmauiIconMaterialGroups3Filled';
+
+
+const IconMaterialGroups2Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Groups2Filled",
+    short_name: "Groups2",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10.275 12q-.7 0-1.15-.525-.45-.525-.325-1.225l.3-1.8q.2-1.075 1.013-1.762Q10.925 6 12 6q1.1 0 1.913.688.812.687 1.012 1.762l.3 1.8q.125.7-.325 1.225-.45.525-1.15.525Zm-7.175.975q-.575.025-.987-.225-.413-.25-.538-.775-.05-.225-.025-.45t.125-.425q0 .025-.025-.1-.1-.125-.162-.275-.063-.15-.088-.325-.05-.3.075-.575.125-.275.325-.475l.05-.05q.05-.475.388-.8.337-.325.837-.325.075 0 .475.1l.075-.025q.125-.125.325-.188Q4.15 8 4.375 8q.275 0 .488.087.212.088.337.263.025 0 .038.013.012.012.037.012.35.025.613.212.262.188.387.513.05.175.037.338-.012.162-.062.312 0 .025.025.1.175.175.275.387.1.213.1.438 0 .1-.15.525-.025.05 0 .1l.05.4q0 .525-.437.9-.438.375-1.063.375ZM20 13q-.825 0-1.413-.588Q18 11.825 18 11q0-.3.087-.562.088-.263.238-.513l-.7-.625q-.25-.2-.087-.5.162-.3.462-.3h2q.825 0 1.413.587Q22 9.675 22 10.5v.5q0 .825-.587 1.412Q20.825 13 20 13ZM0 18v-1.575q0-1.1 1.113-1.763Q2.225 14 4 14q.325 0 .625.012.3.013.575.063-.35.5-.525 1.075-.175.575-.175 1.225V18Zm6 0v-1.625q0-1.625 1.663-2.625 1.662-1 4.337-1 2.7 0 4.35 1 1.65 1 1.65 2.625V18Zm13.5 0v-1.625q0-.65-.163-1.225-.162-.575-.487-1.075.275-.05.563-.063Q19.7 14 20 14q1.8 0 2.9.662 1.1.663 1.1 1.763V18Z"
+  }));
+});
+IconMaterialGroups2Filled.displayName = 'AmauiIconMaterialGroups2Filled';
 
 
 const IconMaterialGroupsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -17670,19 +17670,6 @@ const IconMaterialGroupsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialGroupsFilled.displayName = 'AmauiIconMaterialGroupsFilled';
 
 
-const IconMaterialGynecologyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "GynecologyFilled",
-    short_name: "Gynecology",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m364 954-29-58q-9-17-13-35t-4-37q0-23 6.5-45.5T345 736q8-11 12-23.5t4-26.5q0-16-6-30l-12-28q-10-19-16.5-39t-6.5-41V396q0-25-17.5-42.5T260 336q-21 0-37 14t-21 34q34 13 56 43.5t22 68.5q0 50-35 85t-85 35q-50 0-85-35t-35-85q0-40 23-71t59-43q5-54 44.5-90t93.5-36q7 0 14 .5t14 2.5q44-23 92.5-33t99.5-10q50 0 98.5 10t92.5 33q7-2 14-2.5t14-.5q55 0 94.5 36t44.5 90q36 12 59 43t23 71q0 50-35 85t-85 35q-50 0-85-35t-35-85q0-38 22-68.5t56-43.5q-5-20-21-34t-38-14q-25 0-42 17.5T640 396v152q0 21-7 41t-16 39q-7 14-12.5 28t-5.5 30q0 14 4 26.5t12 23.5q13 20 20 42.5t7 45.5q0 19-4.5 37T625 896l-29 58-72-36 29-58q5-8 7-17t2-19q0-12-4-23t-10-21q-14-20-21.5-44t-7.5-49q0-23 6.5-43.5T543 603q6-14 11.5-27.5T560 548V396q0-24 7.5-45.5T589 311q-26-8-53.5-11.5T480 296q-28 0-55.5 3.5T371 311q14 18 21.5 39.5T400 396v152q0 14 5 28t12 27q10 20 17 40.5t7 43.5q0 25-7.5 48.5T412 780q-7 10-10.5 21t-3.5 23q0 10 2 19t7 17l29 58-72 36Z"
-  }));
-});
-IconMaterialGynecologyFilled.displayName = 'AmauiIconMaterialGynecologyFilled';
-
-
 const IconMaterialHMobiledataBadgeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -17694,6 +17681,19 @@ const IconMaterialHMobiledataBadgeFilled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialHMobiledataBadgeFilled.displayName = 'AmauiIconMaterialHMobiledataBadgeFilled';
+
+
+const IconMaterialGynecologyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "GynecologyFilled",
+    short_name: "Gynecology",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m364 954-29-58q-9-17-13-35t-4-37q0-23 6.5-45.5T345 736q8-11 12-23.5t4-26.5q0-16-6-30l-12-28q-10-19-16.5-39t-6.5-41V396q0-25-17.5-42.5T260 336q-21 0-37 14t-21 34q34 13 56 43.5t22 68.5q0 50-35 85t-85 35q-50 0-85-35t-35-85q0-40 23-71t59-43q5-54 44.5-90t93.5-36q7 0 14 .5t14 2.5q44-23 92.5-33t99.5-10q50 0 98.5 10t92.5 33q7-2 14-2.5t14-.5q55 0 94.5 36t44.5 90q36 12 59 43t23 71q0 50-35 85t-85 35q-50 0-85-35t-35-85q0-38 22-68.5t56-43.5q-5-20-21-34t-38-14q-25 0-42 17.5T640 396v152q0 21-7 41t-16 39q-7 14-12.5 28t-5.5 30q0 14 4 26.5t12 23.5q13 20 20 42.5t7 45.5q0 19-4.5 37T625 896l-29 58-72-36 29-58q5-8 7-17t2-19q0-12-4-23t-10-21q-14-20-21.5-44t-7.5-49q0-23 6.5-43.5T543 603q6-14 11.5-27.5T560 548V396q0-24 7.5-45.5T589 311q-26-8-53.5-11.5T480 296q-28 0-55.5 3.5T371 311q14 18 21.5 39.5T400 396v152q0 14 5 28t12 27q10 20 17 40.5t7 43.5q0 25-7.5 48.5T412 780q-7 10-10.5 21t-3.5 23q0 10 2 19t7 17l29 58-72 36Z"
+  }));
+});
+IconMaterialGynecologyFilled.displayName = 'AmauiIconMaterialGynecologyFilled';
 
 
 const IconMaterialHMobiledataFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -17995,19 +17995,6 @@ const IconMaterialHdrOnSelectFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialHdrOnSelectFilled.displayName = 'AmauiIconMaterialHdrOnSelectFilled';
 
 
-const IconMaterialHdrPlusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HdrPlusFilled",
-    short_name: "HdrPlus",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22ZM7 12h1.5V9.5h2V12H12V6h-1.5v2h-2V6H7Zm7.5 5.5H16V16h1.5v-1.5H16V13h-1.5v1.5H13V16h1.5ZM13 12h3q.6 0 1.05-.45.45-.45.45-1.05v-3q0-.6-.45-1.05Q16.6 6 16 6h-3Zm-2.5 3.5h-2v-1h2v1Zm-.05 3.5H12l-.9-2.1q.375-.225.638-.588Q12 15.95 12 15.5v-1q0-.625-.438-1.062Q11.125 13 10.5 13H7v6h1.5v-2h1.1Zm4.05-8.5v-3H16v3Z"
-  }));
-});
-IconMaterialHdrPlusFilled.displayName = 'AmauiIconMaterialHdrPlusFilled';
-
-
 const IconMaterialHdrPlusOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -18019,6 +18006,19 @@ const IconMaterialHdrPlusOffFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialHdrPlusOffFilled.displayName = 'AmauiIconMaterialHdrPlusOffFilled';
+
+
+const IconMaterialHdrPlusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HdrPlusFilled",
+    short_name: "HdrPlus",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22ZM7 12h1.5V9.5h2V12H12V6h-1.5v2h-2V6H7Zm7.5 5.5H16V16h1.5v-1.5H16V13h-1.5v1.5H13V16h1.5ZM13 12h3q.6 0 1.05-.45.45-.45.45-1.05v-3q0-.6-.45-1.05Q16.6 6 16 6h-3Zm-2.5 3.5h-2v-1h2v1Zm-.05 3.5H12l-.9-2.1q.375-.225.638-.588Q12 15.95 12 15.5v-1q0-.625-.438-1.062Q11.125 13 10.5 13H7v6h1.5v-2h1.1Zm4.05-8.5v-3H16v3Z"
+  }));
+});
+IconMaterialHdrPlusFilled.displayName = 'AmauiIconMaterialHdrPlusFilled';
 
 
 const IconMaterialHdrStrongFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -18151,19 +18151,6 @@ const IconMaterialHealthMetricsFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialHealthMetricsFilled.displayName = 'AmauiIconMaterialHealthMetricsFilled';
 
 
-const IconMaterialHeapSnapshotLargeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HeapSnapshotLargeFilled",
-    short_name: "HeapSnapshotLarge",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M580 836q25 0 42.5-17.5T640 776q0-25-17.5-42.5T580 716q-25 0-42.5 17.5T520 776q0 25 17.5 42.5T580 836Zm-202-2 260-260-56-56-260 260 56 56Zm2-198q25 0 42.5-17.5T440 576q0-25-17.5-42.5T380 516q-25 0-42.5 17.5T320 576q0 25 17.5 42.5T380 636ZM160 976V176h400l240 240v560H160Zm360-520h200L520 256v200Z"
-  }));
-});
-IconMaterialHeapSnapshotLargeFilled.displayName = 'AmauiIconMaterialHeapSnapshotLargeFilled';
-
-
 const IconMaterialHeapSnapshotMultipleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -18175,6 +18162,19 @@ const IconMaterialHeapSnapshotMultipleFilled = /*#__PURE__*/React.forwardRef((pr
   }));
 });
 IconMaterialHeapSnapshotMultipleFilled.displayName = 'AmauiIconMaterialHeapSnapshotMultipleFilled';
+
+
+const IconMaterialHeapSnapshotLargeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HeapSnapshotLargeFilled",
+    short_name: "HeapSnapshotLarge",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M580 836q25 0 42.5-17.5T640 776q0-25-17.5-42.5T580 716q-25 0-42.5 17.5T520 776q0 25 17.5 42.5T580 836Zm-202-2 260-260-56-56-260 260 56 56Zm2-198q25 0 42.5-17.5T440 576q0-25-17.5-42.5T380 516q-25 0-42.5 17.5T320 576q0 25 17.5 42.5T380 636ZM160 976V176h400l240 240v560H160Zm360-520h200L520 256v200Z"
+  }));
+});
+IconMaterialHeapSnapshotLargeFilled.displayName = 'AmauiIconMaterialHeapSnapshotLargeFilled';
 
 
 const IconMaterialHeapSnapshotThumbnailFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -18190,19 +18190,6 @@ const IconMaterialHeapSnapshotThumbnailFilled = /*#__PURE__*/React.forwardRef((p
 IconMaterialHeapSnapshotThumbnailFilled.displayName = 'AmauiIconMaterialHeapSnapshotThumbnailFilled';
 
 
-const IconMaterialHearingDisabledFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HearingDisabledFilled",
-    short_name: "HearingDisabled",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m20.475 23.3-7.325-7.325q-.5.4-.812.7-.313.3-.526.6-.212.3-.387.687-.175.388-.375.988-.5 1.45-1.562 2.25Q8.425 22 7 22q-1.65 0-2.825-1.175Q3 19.65 3 18h2q0 .825.588 1.413Q6.175 20 7 20q.775 0 1.312-.5.538-.5.988-1.65.275-.675.5-1.15.225-.475.5-.837.275-.363.625-.663.35-.3.825-.625L5.1 7.925q-.05.275-.075.537Q5 8.725 5 9H3q0-.725.125-1.388.125-.662.375-1.287L.675 3.5 2.1 2.075l19.8 19.8Zm-1.825-7.525-1.425-1.425q.875-1.175 1.325-2.538Q19 10.45 19 9q0-1.825-.688-3.475-.687-1.65-1.962-2.925l1.45-1.4q1.55 1.575 2.375 3.587Q21 6.8 21 9q0 1.825-.6 3.55-.6 1.725-1.75 3.225Zm-2.725-2.725-1.45-1.45q.275-.575.4-1.225Q15 9.725 15 9q0-2.125-1.438-3.562Q12.125 4 10 4q-.65 0-1.275.162-.625.163-1.2.488L6.05 3.175Q6.925 2.6 7.925 2.3 8.925 2 10 2q2.975 0 4.988 2.012Q17 6.025 17 9q0 1.125-.262 2.137-.263 1.013-.813 1.913Zm-3.5-3.5-3-3q.125-.05.275-.05h.3q1.05 0 1.775.725Q12.5 7.95 12.5 9q0 .15-.012.287-.013.138-.063.263ZM10 11.5q-1.05 0-1.775-.738Q7.5 10.025 7.5 9q0-.325.075-.625t.25-.575l3.4 3.4q-.275.15-.587.225-.313.075-.638.075Z"
-  }));
-});
-IconMaterialHearingDisabledFilled.displayName = 'AmauiIconMaterialHearingDisabledFilled';
-
-
 const IconMaterialHearingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -18214,6 +18201,19 @@ const IconMaterialHearingFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialHearingFilled.displayName = 'AmauiIconMaterialHearingFilled';
+
+
+const IconMaterialHearingDisabledFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HearingDisabledFilled",
+    short_name: "HearingDisabled",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m20.475 23.3-7.325-7.325q-.5.4-.812.7-.313.3-.526.6-.212.3-.387.687-.175.388-.375.988-.5 1.45-1.562 2.25Q8.425 22 7 22q-1.65 0-2.825-1.175Q3 19.65 3 18h2q0 .825.588 1.413Q6.175 20 7 20q.775 0 1.312-.5.538-.5.988-1.65.275-.675.5-1.15.225-.475.5-.837.275-.363.625-.663.35-.3.825-.625L5.1 7.925q-.05.275-.075.537Q5 8.725 5 9H3q0-.725.125-1.388.125-.662.375-1.287L.675 3.5 2.1 2.075l19.8 19.8Zm-1.825-7.525-1.425-1.425q.875-1.175 1.325-2.538Q19 10.45 19 9q0-1.825-.688-3.475-.687-1.65-1.962-2.925l1.45-1.4q1.55 1.575 2.375 3.587Q21 6.8 21 9q0 1.825-.6 3.55-.6 1.725-1.75 3.225Zm-2.725-2.725-1.45-1.45q.275-.575.4-1.225Q15 9.725 15 9q0-2.125-1.438-3.562Q12.125 4 10 4q-.65 0-1.275.162-.625.163-1.2.488L6.05 3.175Q6.925 2.6 7.925 2.3 8.925 2 10 2q2.975 0 4.988 2.012Q17 6.025 17 9q0 1.125-.262 2.137-.263 1.013-.813 1.913Zm-3.5-3.5-3-3q.125-.05.275-.05h.3q1.05 0 1.775.725Q12.5 7.95 12.5 9q0 .15-.012.287-.013.138-.063.263ZM10 11.5q-1.05 0-1.775-.738Q7.5 10.025 7.5 9q0-.325.075-.625t.25-.575l3.4 3.4q-.275.15-.587.225-.313.075-.638.075Z"
+  }));
+});
+IconMaterialHearingDisabledFilled.displayName = 'AmauiIconMaterialHearingDisabledFilled';
 
 
 const IconMaterialHeartBrokenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -18268,19 +18268,6 @@ const IconMaterialHeartPlusFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialHeartPlusFilled.displayName = 'AmauiIconMaterialHeartPlusFilled';
 
 
-const IconMaterialHeatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HeatFilled",
-    short_name: "Heat",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M280-341q0 32 17 64t60 78l-56 57q-55-58-78-103.5T200-339q0-33 10-69.5t34-94.5q20-48 28-75t8-49q0-30-18.5-59T196-759l56-56q57 54 82.5 97t25.5 91q0 31-9.5 65.5T318-472q-22 51-30 79t-8 52Zm200 0q0 32 17 64t60 78l-55 57q-55-58-78.5-103.5T400-339q0-33 10-69.5t34-94.5q20-48 28-75t8-49q0-30-18-59t-65-73l56-56q57 54 82 97t25 91q0 31-9.5 65.5T518-472q-22 51-30 79t-8 52Zm200 0q0 32 17 64t60 78l-55 57q-55-58-78.5-103.5T600-339q0-33 10-69.5t34-94.5q20-48 28-75t8-49q0-30-18-59t-65-73l56-56q57 54 82 97t25 91q0 31-9.5 65.5T718-472q-22 51-30 79t-8 52Z"
-  }));
-});
-IconMaterialHeatFilled.displayName = 'AmauiIconMaterialHeatFilled';
-
-
 const IconMaterialHeatPumpBalanceFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -18292,6 +18279,19 @@ const IconMaterialHeatPumpBalanceFilled = /*#__PURE__*/React.forwardRef((props, 
   }));
 });
 IconMaterialHeatPumpBalanceFilled.displayName = 'AmauiIconMaterialHeatPumpBalanceFilled';
+
+
+const IconMaterialHeatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HeatFilled",
+    short_name: "Heat",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M280-341q0 32 17 64t60 78l-56 57q-55-58-78-103.5T200-339q0-33 10-69.5t34-94.5q20-48 28-75t8-49q0-30-18.5-59T196-759l56-56q57 54 82.5 97t25.5 91q0 31-9.5 65.5T318-472q-22 51-30 79t-8 52Zm200 0q0 32 17 64t60 78l-55 57q-55-58-78.5-103.5T400-339q0-33 10-69.5t34-94.5q20-48 28-75t8-49q0-30-18-59t-65-73l56-56q57 54 82 97t25 91q0 31-9.5 65.5T518-472q-22 51-30 79t-8 52Zm200 0q0 32 17 64t60 78l-55 57q-55-58-78.5-103.5T600-339q0-33 10-69.5t34-94.5q20-48 28-75t8-49q0-30-18-59t-65-73l56-56q57 54 82 97t25 91q0 31-9.5 65.5T718-472q-22 51-30 79t-8 52Z"
+  }));
+});
+IconMaterialHeatFilled.displayName = 'AmauiIconMaterialHeatFilled';
 
 
 const IconMaterialHeatPumpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -18489,19 +18489,6 @@ const IconMaterialHighResFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialHighResFilled.displayName = 'AmauiIconMaterialHighResFilled';
 
 
-const IconMaterialHighlightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HighlightFilled",
-    short_name: "Highlight",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.65 8 3.5 5.9l1.4-1.45L7.05 6.6ZM11 5V2h2v3Zm7.4 3-1.45-1.4 2.15-2.1 1.4 1.4ZM9 22v-5l-3-3V9h12v5l-3 3v5Z"
-  }));
-});
-IconMaterialHighlightFilled.displayName = 'AmauiIconMaterialHighlightFilled';
-
-
 const IconMaterialHighlightKeyboardFocusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -18513,6 +18500,19 @@ const IconMaterialHighlightKeyboardFocusFilled = /*#__PURE__*/React.forwardRef((
   }));
 });
 IconMaterialHighlightKeyboardFocusFilled.displayName = 'AmauiIconMaterialHighlightKeyboardFocusFilled';
+
+
+const IconMaterialHighlightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HighlightFilled",
+    short_name: "Highlight",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5.65 8 3.5 5.9l1.4-1.45L7.05 6.6ZM11 5V2h2v3Zm7.4 3-1.45-1.4 2.15-2.1 1.4 1.4ZM9 22v-5l-3-3V9h12v5l-3 3v5Z"
+  }));
+});
+IconMaterialHighlightFilled.displayName = 'AmauiIconMaterialHighlightFilled';
 
 
 const IconMaterialHighlightMouseCursorFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -18567,19 +18567,6 @@ const IconMaterialHighlighterSize2Filled = /*#__PURE__*/React.forwardRef((props,
 IconMaterialHighlighterSize2Filled.displayName = 'AmauiIconMaterialHighlighterSize2Filled';
 
 
-const IconMaterialHighlighterSize4Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HighlighterSize4Filled",
-    short_name: "HighlighterSize4",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M353 929 127 703q-12-12-12-28.5t12-28.5l423-423q12-12 28.5-12t27.5 12l227 226q12 12 12 28.5T833 506L410 929q-12 12-28.5 12T353 929Z"
-  }));
-});
-IconMaterialHighlighterSize4Filled.displayName = 'AmauiIconMaterialHighlighterSize4Filled';
-
-
 const IconMaterialHighlighterSize3Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -18591,6 +18578,19 @@ const IconMaterialHighlighterSize3Filled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialHighlighterSize3Filled.displayName = 'AmauiIconMaterialHighlighterSize3Filled';
+
+
+const IconMaterialHighlighterSize4Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HighlighterSize4Filled",
+    short_name: "HighlighterSize4",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M353 929 127 703q-12-12-12-28.5t12-28.5l423-423q12-12 28.5-12t27.5 12l227 226q12 12 12 28.5T833 506L410 929q-12 12-28.5 12T353 929Z"
+  }));
+});
+IconMaterialHighlighterSize4Filled.displayName = 'AmauiIconMaterialHighlighterSize4Filled';
 
 
 const IconMaterialHighlighterSize5Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -18606,19 +18606,6 @@ const IconMaterialHighlighterSize5Filled = /*#__PURE__*/React.forwardRef((props,
 IconMaterialHighlighterSize5Filled.displayName = 'AmauiIconMaterialHighlighterSize5Filled';
 
 
-const IconMaterialHikingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HikingFilled",
-    short_name: "Hiking",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M13.5 5.5q-.825 0-1.412-.588Q11.5 4.325 11.5 3.5t.588-1.413Q12.675 1.5 13.5 1.5t1.413.587q.587.588.587 1.413 0 .825-.587 1.412-.588.588-1.413.588ZM7 23l3.075-15.55q.15-.725.675-1.088Q11.275 6 11.85 6q.575 0 1.063.25.487.25.787.75l1 1.6q.45.725 1.163 1.312.712.588 1.637.863V9H19v14h-1.5V12.85q-1.2-.275-2.225-.875-1.025-.6-1.775-1.475l-.6 3 2.1 2V23h-2v-6l-2.1-2-1.8 8Zm.425-9.875 1.35-6.85-3.125-.6-1.325 6.875Z"
-  }));
-});
-IconMaterialHikingFilled.displayName = 'AmauiIconMaterialHikingFilled';
-
-
 const IconMaterialHistoryEduFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -18630,6 +18617,19 @@ const IconMaterialHistoryEduFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialHistoryEduFilled.displayName = 'AmauiIconMaterialHistoryEduFilled';
+
+
+const IconMaterialHikingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HikingFilled",
+    short_name: "Hiking",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M13.5 5.5q-.825 0-1.412-.588Q11.5 4.325 11.5 3.5t.588-1.413Q12.675 1.5 13.5 1.5t1.413.587q.587.588.587 1.413 0 .825-.587 1.412-.588.588-1.413.588ZM7 23l3.075-15.55q.15-.725.675-1.088Q11.275 6 11.85 6q.575 0 1.063.25.487.25.787.75l1 1.6q.45.725 1.163 1.312.712.588 1.637.863V9H19v14h-1.5V12.85q-1.2-.275-2.225-.875-1.025-.6-1.775-1.475l-.6 3 2.1 2V23h-2v-6l-2.1-2-1.8 8Zm.425-9.875 1.35-6.85-3.125-.6-1.325 6.875Z"
+  }));
+});
+IconMaterialHikingFilled.displayName = 'AmauiIconMaterialHikingFilled';
 
 
 const IconMaterialHistoryFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -18671,19 +18671,6 @@ const IconMaterialHiveFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialHiveFilled.displayName = 'AmauiIconMaterialHiveFilled';
 
 
-const IconMaterialHlsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HlsFilled",
-    short_name: "Hls",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 15V9h1.5v2h2V9H8v6H6.5v-2.5h-2V15Zm12.5 0v-2H17v.5h2v-1h-3.5V9h5v2H19v-.5h-2v1h3.5V15ZM10 15V9h1.5v4.5H14V15Z"
-  }));
-});
-IconMaterialHlsFilled.displayName = 'AmauiIconMaterialHlsFilled';
-
-
 const IconMaterialHlsOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -18695,6 +18682,19 @@ const IconMaterialHlsOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialHlsOffFilled.displayName = 'AmauiIconMaterialHlsOffFilled';
+
+
+const IconMaterialHlsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HlsFilled",
+    short_name: "Hls",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 15V9h1.5v2h2V9H8v6H6.5v-2.5h-2V15Zm12.5 0v-2H17v.5h2v-1h-3.5V9h5v2H19v-.5h-2v1h3.5V15ZM10 15V9h1.5v4.5H14V15Z"
+  }));
+});
+IconMaterialHlsFilled.displayName = 'AmauiIconMaterialHlsFilled';
 
 
 const IconMaterialHolidayVillageFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -18775,19 +18775,6 @@ const IconMaterialHomeImprovementAndToolsFilled = /*#__PURE__*/React.forwardRef(
 IconMaterialHomeImprovementAndToolsFilled.displayName = 'AmauiIconMaterialHomeImprovementAndToolsFilled';
 
 
-const IconMaterialHomeIotDeviceFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HomeIotDeviceFilled",
-    short_name: "HomeIotDevice",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.025 10h1V6.5q0-.225-.137-.363Q5.75 6 5.525 6q-.225 0-.362.137-.138.138-.138.363Zm.5 10q-1.875 0-3.187-1.3-1.313-1.3-1.313-3.2 0-1.2.55-2.15t1.45-1.55V6.5q0-1.05.725-1.775Q4.475 4 5.525 4q1.05 0 1.775.725.725.725.725 1.775v5.3q.9.6 1.45 1.55.55.95.55 2.15 0 1.875-1.312 3.188Q7.4 20 5.525 20Zm8.175-5q-1.2-.825-1.95-2.125T11 10q0-2.5 1.75-4.25T17 4q2.5 0 4.25 1.75T23 10q0 1.575-.75 2.875T20.3 15Zm3.3 5q-.6 0-1.05-.45-.45-.45-.45-1.05h3q0 .6-.45 1.05Q17.6 20 17 20Zm-3-2v-2h6v2Z"
-  }));
-});
-IconMaterialHomeIotDeviceFilled.displayName = 'AmauiIconMaterialHomeIotDeviceFilled';
-
-
 const IconMaterialHomeMaxDotsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -18812,6 +18799,19 @@ const IconMaterialHomeMaxFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialHomeMaxFilled.displayName = 'AmauiIconMaterialHomeMaxFilled';
+
+
+const IconMaterialHomeIotDeviceFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HomeIotDeviceFilled",
+    short_name: "HomeIotDevice",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5.025 10h1V6.5q0-.225-.137-.363Q5.75 6 5.525 6q-.225 0-.362.137-.138.138-.138.363Zm.5 10q-1.875 0-3.187-1.3-1.313-1.3-1.313-3.2 0-1.2.55-2.15t1.45-1.55V6.5q0-1.05.725-1.775Q4.475 4 5.525 4q1.05 0 1.775.725.725.725.725 1.775v5.3q.9.6 1.45 1.55.55.95.55 2.15 0 1.875-1.312 3.188Q7.4 20 5.525 20Zm8.175-5q-1.2-.825-1.95-2.125T11 10q0-2.5 1.75-4.25T17 4q2.5 0 4.25 1.75T23 10q0 1.575-.75 2.875T20.3 15Zm3.3 5q-.6 0-1.05-.45-.45-.45-.45-1.05h3q0 .6-.45 1.05Q17.6 20 17 20Zm-3-2v-2h6v2Z"
+  }));
+});
+IconMaterialHomeIotDeviceFilled.displayName = 'AmauiIconMaterialHomeIotDeviceFilled';
 
 
 const IconMaterialHomeMiniFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -18918,19 +18918,6 @@ const IconMaterialHorizontalRuleFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialHorizontalRuleFilled.displayName = 'AmauiIconMaterialHorizontalRuleFilled';
 
 
-const IconMaterialHorizontalSplitFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HorizontalSplitFilled",
-    short_name: "HorizontalSplit",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 19v-6h18v6Zm0-8V9h18v2Zm0-4V5h18v2Z"
-  }));
-});
-IconMaterialHorizontalSplitFilled.displayName = 'AmauiIconMaterialHorizontalSplitFilled';
-
-
 const IconMaterialHotTubFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -18968,6 +18955,19 @@ const IconMaterialHotelFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialHotelFilled.displayName = 'AmauiIconMaterialHotelFilled';
+
+
+const IconMaterialHorizontalSplitFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HorizontalSplitFilled",
+    short_name: "HorizontalSplit",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 19v-6h18v6Zm0-8V9h18v2Zm0-4V5h18v2Z"
+  }));
+});
+IconMaterialHorizontalSplitFilled.displayName = 'AmauiIconMaterialHorizontalSplitFilled';
 
 
 const IconMaterialHourglassBottomFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19048,6 +19048,19 @@ const IconMaterialHourglassTopFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialHourglassTopFilled.displayName = 'AmauiIconMaterialHourglassTopFilled';
 
 
+const IconMaterialHouseSidingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HouseSidingFilled",
+    short_name: "HouseSiding",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5 20v-8H2l10-9 10 9h-3v8h-2v-2H7v2ZM9.45 8h5.1L12 5.7ZM7 12h10v-1.8l-.225-.2h-9.55L7 10.2Zm0 4h10v-2H7Z"
+  }));
+});
+IconMaterialHouseSidingFilled.displayName = 'AmauiIconMaterialHouseSidingFilled';
+
+
 const IconMaterialHouseFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -19072,19 +19085,6 @@ const IconMaterialHouseWithShieldFilled = /*#__PURE__*/React.forwardRef((props, 
   }));
 });
 IconMaterialHouseWithShieldFilled.displayName = 'AmauiIconMaterialHouseWithShieldFilled';
-
-
-const IconMaterialHouseSidingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HouseSidingFilled",
-    short_name: "HouseSiding",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5 20v-8H2l10-9 10 9h-3v8h-2v-2H7v2ZM9.45 8h5.1L12 5.7ZM7 12h10v-1.8l-.225-.2h-9.55L7 10.2Zm0 4h10v-2H7Z"
-  }));
-});
-IconMaterialHouseSidingFilled.displayName = 'AmauiIconMaterialHouseSidingFilled';
 
 
 const IconMaterialHouseboatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19126,19 +19126,6 @@ const IconMaterialHowToRegFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialHowToRegFilled.displayName = 'AmauiIconMaterialHowToRegFilled';
 
 
-const IconMaterialHowToVoteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HowToVoteFilled",
-    short_name: "HowToVote",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.175 16h13.65l-1.95-2.2 1.425-1.425L21 15.45V22H3v-6.55l2.75-3.125 1.425 1.425Zm6.85-.175L5.7 9.45l7.75-7.75 6.375 6.325Zm.025-2.875L17 8l-3.55-3.5L8.5 9.45Z"
-  }));
-});
-IconMaterialHowToVoteFilled.displayName = 'AmauiIconMaterialHowToVoteFilled';
-
-
 const IconMaterialHrRestingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -19150,6 +19137,19 @@ const IconMaterialHrRestingFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialHrRestingFilled.displayName = 'AmauiIconMaterialHrRestingFilled';
+
+
+const IconMaterialHowToVoteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HowToVoteFilled",
+    short_name: "HowToVote",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5.175 16h13.65l-1.95-2.2 1.425-1.425L21 15.45V22H3v-6.55l2.75-3.125 1.425 1.425Zm6.85-.175L5.7 9.45l7.75-7.75 6.375 6.325Zm.025-2.875L17 8l-3.55-3.5L8.5 9.45Z"
+  }));
+});
+IconMaterialHowToVoteFilled.displayName = 'AmauiIconMaterialHowToVoteFilled';
 
 
 const IconMaterialHtmlFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19165,19 +19165,6 @@ const IconMaterialHtmlFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialHtmlFilled.displayName = 'AmauiIconMaterialHtmlFilled';
 
 
-const IconMaterialHttpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HttpFilled",
-    short_name: "Http",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M1 15V9h1.5v2h2V9H6v6H4.5v-2.5h-2V15Zm7.5 0v-4.5H7V9h4.5v1.5H10V15Zm5.5 0v-4.5h-1.5V9H17v1.5h-1.5V15Zm4 0V9h5v4h-3.5v2Zm1.5-3.5h2v-1h-2Z"
-  }));
-});
-IconMaterialHttpFilled.displayName = 'AmauiIconMaterialHttpFilled';
-
-
 const IconMaterialHubFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -19189,6 +19176,19 @@ const IconMaterialHubFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialHubFilled.displayName = 'AmauiIconMaterialHubFilled';
+
+
+const IconMaterialHttpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HttpFilled",
+    short_name: "Http",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M1 15V9h1.5v2h2V9H6v6H4.5v-2.5h-2V15Zm7.5 0v-4.5H7V9h4.5v1.5H10V15Zm5.5 0v-4.5h-1.5V9H17v1.5h-1.5V15Zm4 0V9h5v4h-3.5v2Zm1.5-3.5h2v-1h-2Z"
+  }));
+});
+IconMaterialHttpFilled.displayName = 'AmauiIconMaterialHttpFilled';
 
 
 const IconMaterialHumerusAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19269,19 +19269,6 @@ const IconMaterialHumidityLowFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialHumidityLowFilled.displayName = 'AmauiIconMaterialHumidityLowFilled';
 
 
-const IconMaterialHumidityMidFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "HumidityMidFilled",
-    short_name: "HumidityMid",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 21.5q-3.325 0-5.662-2.3Q4 16.9 4 13.625q0-1.65.625-3.063Q5.25 9.15 6.35 8.05L12 2.5l5.65 5.55q1.1 1.1 1.725 2.512.625 1.413.625 3.063 0 3.275-2.337 5.575-2.338 2.3-5.663 2.3Zm0-16.2L7.75 9.5q-.75.725-1.188 1.613-.437.887-.537 1.937h11.95q-.1-1.05-.537-1.937Q17 10.225 16.25 9.5Z"
-  }));
-});
-IconMaterialHumidityMidFilled.displayName = 'AmauiIconMaterialHumidityMidFilled';
-
-
 const IconMaterialHumidityPercentageFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -19293,6 +19280,19 @@ const IconMaterialHumidityPercentageFilled = /*#__PURE__*/React.forwardRef((prop
   }));
 });
 IconMaterialHumidityPercentageFilled.displayName = 'AmauiIconMaterialHumidityPercentageFilled';
+
+
+const IconMaterialHumidityMidFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "HumidityMidFilled",
+    short_name: "HumidityMid",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 21.5q-3.325 0-5.662-2.3Q4 16.9 4 13.625q0-1.65.625-3.063Q5.25 9.15 6.35 8.05L12 2.5l5.65 5.55q1.1 1.1 1.725 2.512.625 1.413.625 3.063 0 3.275-2.337 5.575-2.338 2.3-5.663 2.3Zm0-16.2L7.75 9.5q-.75.725-1.188 1.613-.437.887-.537 1.937h11.95q-.1-1.05-.537-1.937Q17 10.225 16.25 9.5Z"
+  }));
+});
+IconMaterialHumidityMidFilled.displayName = 'AmauiIconMaterialHumidityMidFilled';
 
 
 const IconMaterialHvacFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19373,6 +19373,19 @@ const IconMaterialIframeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialIframeFilled.displayName = 'AmauiIconMaterialIframeFilled';
 
 
+const IconMaterialImageNotSupportedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ImageNotSupportedFilled",
+    short_name: "ImageNotSupported",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m20.475 23.3-2.3-2.3H3V5.8L.7 3.5l1.4-1.4 19.8 19.8ZM6 17h8.175l-2.325-2.325-.85 1.05L9 13Zm15 1.175L5.825 3H21Z"
+  }));
+});
+IconMaterialImageNotSupportedFilled.displayName = 'AmauiIconMaterialImageNotSupportedFilled';
+
+
 const IconMaterialImageAspectRatioFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -19397,19 +19410,6 @@ const IconMaterialImageFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialImageFilled.displayName = 'AmauiIconMaterialImageFilled';
-
-
-const IconMaterialImageNotSupportedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ImageNotSupportedFilled",
-    short_name: "ImageNotSupported",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m20.475 23.3-2.3-2.3H3V5.8L.7 3.5l1.4-1.4 19.8 19.8ZM6 17h8.175l-2.325-2.325-.85 1.05L9 13Zm15 1.175L5.825 3H21Z"
-  }));
-});
-IconMaterialImageNotSupportedFilled.displayName = 'AmauiIconMaterialImageNotSupportedFilled';
 
 
 const IconMaterialImageSearchFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19438,19 +19438,6 @@ const IconMaterialImagesearchRollerFilled = /*#__PURE__*/React.forwardRef((props
 IconMaterialImagesearchRollerFilled.displayName = 'AmauiIconMaterialImagesearchRollerFilled';
 
 
-const IconMaterialImmunologyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ImmunologyFilled",
-    short_name: "Immunology",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M521 976q-30 0-69.5-4T371 959q-41-9-79-23t-65-34q-30-23-63-72t-60.5-107Q76 665 58 607t-18-99q0-42 16-76t42-62.5q26-28.5 58.5-52T222 273q60-39 133-68t151-29q78 0 141.5 30T774 279q15 10 39 30t47.5 50q23.5 30 41 70.5T920 522q2 74-30.5 154.5t-88 147Q746 890 673 933t-152 43ZM414 816q54 0 89-38t35-86q0-22-9-43.5T500 609q-22-20-36-44t-21-53q-10-44-43.5-70T324 416q-49 0-86.5 37.5T200 540q0 39 16.5 87t45.5 90q29 42 68 70.5t84 28.5Zm0-80q-27 0-51-22.5T320.5 660Q302 629 291 595.5T280 540q0-17 13.5-30.5T324 496q12 0 24.5 8.5T366 530q11 42 29.5 75.5T446 668q6 5 9 12t3 14q0 16-12 29t-32 13Zm236-120q17 0 28.5-11.5T690 576v-10l10 5q15 8 30.5 3.5T754 556q9-14 5-30.5T740 501l-10-5 10-5q15-8 18.5-24t-4.5-31q-8-14-23.5-18t-30.5 4l-10 5v-11q0-17-11.5-28.5T650 376q-17 0-28.5 11.5T610 416v11l-9-5q-14-8-30-3.5T546 437q-8 14-4.5 31t19.5 24l9 4-9 6q-14 9-18.5 24.5T546 556q8 15 24.5 19t30.5-4l9-5v10q0 17 11.5 28.5T650 616Z"
-  }));
-});
-IconMaterialImmunologyFilled.displayName = 'AmauiIconMaterialImmunologyFilled';
-
-
 const IconMaterialImagesmodeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -19462,6 +19449,19 @@ const IconMaterialImagesmodeFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialImagesmodeFilled.displayName = 'AmauiIconMaterialImagesmodeFilled';
+
+
+const IconMaterialImmunologyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ImmunologyFilled",
+    short_name: "Immunology",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M521 976q-30 0-69.5-4T371 959q-41-9-79-23t-65-34q-30-23-63-72t-60.5-107Q76 665 58 607t-18-99q0-42 16-76t42-62.5q26-28.5 58.5-52T222 273q60-39 133-68t151-29q78 0 141.5 30T774 279q15 10 39 30t47.5 50q23.5 30 41 70.5T920 522q2 74-30.5 154.5t-88 147Q746 890 673 933t-152 43ZM414 816q54 0 89-38t35-86q0-22-9-43.5T500 609q-22-20-36-44t-21-53q-10-44-43.5-70T324 416q-49 0-86.5 37.5T200 540q0 39 16.5 87t45.5 90q29 42 68 70.5t84 28.5Zm0-80q-27 0-51-22.5T320.5 660Q302 629 291 595.5T280 540q0-17 13.5-30.5T324 496q12 0 24.5 8.5T366 530q11 42 29.5 75.5T446 668q6 5 9 12t3 14q0 16-12 29t-32 13Zm236-120q17 0 28.5-11.5T690 576v-10l10 5q15 8 30.5 3.5T754 556q9-14 5-30.5T740 501l-10-5 10-5q15-8 18.5-24t-4.5-31q-8-14-23.5-18t-30.5 4l-10 5v-11q0-17-11.5-28.5T650 376q-17 0-28.5 11.5T610 416v11l-9-5q-14-8-30-3.5T546 437q-8 14-4.5 31t19.5 24l9 4-9 6q-14 9-18.5 24.5T546 556q8 15 24.5 19t30.5-4l9-5v10q0 17 11.5 28.5T650 616Z"
+  }));
+});
+IconMaterialImmunologyFilled.displayName = 'AmauiIconMaterialImmunologyFilled';
 
 
 const IconMaterialImportContactsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19490,19 +19490,6 @@ const IconMaterialImportantDevicesFilled = /*#__PURE__*/React.forwardRef((props,
 IconMaterialImportantDevicesFilled.displayName = 'AmauiIconMaterialImportantDevicesFilled';
 
 
-const IconMaterialInactiveOrderFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "InactiveOrderFilled",
-    short_name: "InactiveOrder",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16.25 20h1v-4h-1Zm2.5 0h1v-4h-1ZM6 9h12V7H6Zm12 14q-2.075 0-3.537-1.462Q13 20.075 13 18q0-2.075 1.463-3.538Q15.925 13 18 13t3.538 1.462Q23 15.925 23 18q0 2.075-1.462 3.538Q20.075 23 18 23ZM3 22V3h18v8.675q-.7-.35-1.462-.513Q18.775 11 18 11H6v2h7.1q-.425.425-.788.925-.362.5-.637 1.075H6v2h5.075q-.05.25-.063.488Q11 17.725 11 18q0 1.05.288 2.013.287.962.862 1.837L12 22l-1.5-1.5L9 22l-1.5-1.5L6 22l-1.5-1.5Z"
-  }));
-});
-IconMaterialInactiveOrderFilled.displayName = 'AmauiIconMaterialInactiveOrderFilled';
-
-
 const IconMaterialInHomeModeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -19514,6 +19501,19 @@ const IconMaterialInHomeModeFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialInHomeModeFilled.displayName = 'AmauiIconMaterialInHomeModeFilled';
+
+
+const IconMaterialInactiveOrderFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "InactiveOrderFilled",
+    short_name: "InactiveOrder",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M16.25 20h1v-4h-1Zm2.5 0h1v-4h-1ZM6 9h12V7H6Zm12 14q-2.075 0-3.537-1.462Q13 20.075 13 18q0-2.075 1.463-3.538Q15.925 13 18 13t3.538 1.462Q23 15.925 23 18q0 2.075-1.462 3.538Q20.075 23 18 23ZM3 22V3h18v8.675q-.7-.35-1.462-.513Q18.775 11 18 11H6v2h7.1q-.425.425-.788.925-.362.5-.637 1.075H6v2h5.075q-.05.25-.063.488Q11 17.725 11 18q0 1.05.288 2.013.287.962.862 1.837L12 22l-1.5-1.5L9 22l-1.5-1.5L6 22l-1.5-1.5Z"
+  }));
+});
+IconMaterialInactiveOrderFilled.displayName = 'AmauiIconMaterialInactiveOrderFilled';
 
 
 const IconMaterialInboxCustomizeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19568,17 +19568,17 @@ const IconMaterialIndeterminateCheckBoxFilled = /*#__PURE__*/React.forwardRef((p
 IconMaterialIndeterminateCheckBoxFilled.displayName = 'AmauiIconMaterialIndeterminateCheckBoxFilled';
 
 
-const IconMaterialInfoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialIndeterminateQuestionBoxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "InfoFilled",
-    short_name: "Info",
-    viewBox: "0 0 24 24"
+    name: "IndeterminateQuestionBoxFilled",
+    short_name: "IndeterminateQuestionBox",
+    viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 17h2v-6h-2Zm1-8q.425 0 .713-.288Q13 8.425 13 8t-.287-.713Q12.425 7 12 7t-.712.287Q11 7.575 11 8t.288.712Q11.575 9 12 9Zm0 13q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
+    d: "M200-120q-33 0-56.5-23.5T120-200v-160h80v160h160v80H200Zm560 0H600v-80h160v-160h80v160q0 33-23.5 56.5T760-120ZM120-760q0-33 23.5-56.5T200-840h160v80H200v160h-80v-160Zm720 0v160h-80v-160H600v-80h160q33 0 56.5 23.5T840-760ZM480-240q21 0 35.5-14.5T530-290q0-21-14.5-35.5T480-340q-21 0-35.5 14.5T430-290q0 21 14.5 35.5T480-240Zm-36-153h73q0-34 8-52t35-45q35-35 46.5-56.5T618-598q0-54-39-88t-99-34q-50 0-86 26t-52 74l66 27q7-26 26.5-42.5T480-652q29 0 46.5 15.5T544-595q0 20-9.5 37.5T502-521q-33 29-45.5 56T444-393Z"
   }));
 });
-IconMaterialInfoFilled.displayName = 'AmauiIconMaterialInfoFilled';
+IconMaterialIndeterminateQuestionBoxFilled.displayName = 'AmauiIconMaterialIndeterminateQuestionBoxFilled';
 
 
 const IconMaterialInfoIFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19594,17 +19594,17 @@ const IconMaterialInfoIFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialInfoIFilled.displayName = 'AmauiIconMaterialInfoIFilled';
 
 
-const IconMaterialIndeterminateQuestionBoxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialInfoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "IndeterminateQuestionBoxFilled",
-    short_name: "IndeterminateQuestionBox",
-    viewBox: "0 -960 960 960"
+    name: "InfoFilled",
+    short_name: "Info",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M200-120q-33 0-56.5-23.5T120-200v-160h80v160h160v80H200Zm560 0H600v-80h160v-160h80v160q0 33-23.5 56.5T760-120ZM120-760q0-33 23.5-56.5T200-840h160v80H200v160h-80v-160Zm720 0v160h-80v-160H600v-80h160q33 0 56.5 23.5T840-760ZM480-240q21 0 35.5-14.5T530-290q0-21-14.5-35.5T480-340q-21 0-35.5 14.5T430-290q0 21 14.5 35.5T480-240Zm-36-153h73q0-34 8-52t35-45q35-35 46.5-56.5T618-598q0-54-39-88t-99-34q-50 0-86 26t-52 74l66 27q7-26 26.5-42.5T480-652q29 0 46.5 15.5T544-595q0 20-9.5 37.5T502-521q-33 29-45.5 56T444-393Z"
+    d: "M11 17h2v-6h-2Zm1-8q.425 0 .713-.288Q13 8.425 13 8t-.287-.713Q12.425 7 12 7t-.712.287Q11 7.575 11 8t.288.712Q11.575 9 12 9Zm0 13q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
   }));
 });
-IconMaterialIndeterminateQuestionBoxFilled.displayName = 'AmauiIconMaterialIndeterminateQuestionBoxFilled';
+IconMaterialInfoFilled.displayName = 'AmauiIconMaterialInfoFilled';
 
 
 const IconMaterialInfraredFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19646,19 +19646,6 @@ const IconMaterialInkEraserOffFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialInkEraserOffFilled.displayName = 'AmauiIconMaterialInkEraserOffFilled';
 
 
-const IconMaterialInkHighlighterMoveFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "InkHighlighterMoveFilled",
-    short_name: "InkHighlighterMove",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m100-120 126-126-30-30v-56l228-228 216 216-228 228h-56l-30-30-26 26H100Zm381-497 255-255 216 216-255 255-216-216Zm70-183H280v-80h351l-80 80ZM391-640H160v-80h311l-80 80ZM231-480H40v-80h271l-80 80Z"
-  }));
-});
-IconMaterialInkHighlighterMoveFilled.displayName = 'AmauiIconMaterialInkHighlighterMoveFilled';
-
-
 const IconMaterialInkHighlighterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -19670,6 +19657,19 @@ const IconMaterialInkHighlighterFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialInkHighlighterFilled.displayName = 'AmauiIconMaterialInkHighlighterFilled';
+
+
+const IconMaterialInkHighlighterMoveFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "InkHighlighterMoveFilled",
+    short_name: "InkHighlighterMove",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m100-120 126-126-30-30v-56l228-228 216 216-228 228h-56l-30-30-26 26H100Zm381-497 255-255 216 216-255 255-216-216Zm70-183H280v-80h351l-80 80ZM391-640H160v-80h311l-80 80ZM231-480H40v-80h271l-80 80Z"
+  }));
+});
+IconMaterialInkHighlighterMoveFilled.displayName = 'AmauiIconMaterialInkHighlighterMoveFilled';
 
 
 const IconMaterialInkMarkerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19724,19 +19724,6 @@ const IconMaterialInputCircleFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialInputCircleFilled.displayName = 'AmauiIconMaterialInputCircleFilled';
 
 
-const IconMaterialInputFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "InputFilled",
-    short_name: "Input",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m11.5 16.5-1.4-1.45L12.175 13H2v-2h10.175L10.1 8.95l1.4-1.45L16 12ZM2 20v-5h2v3h16V6H4v3H2V4h20v16Z"
-  }));
-});
-IconMaterialInputFilled.displayName = 'AmauiIconMaterialInputFilled';
-
-
 const IconMaterialInsertChartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -19787,6 +19774,19 @@ const IconMaterialInsightsFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialInsightsFilled.displayName = 'AmauiIconMaterialInsightsFilled';
+
+
+const IconMaterialInputFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "InputFilled",
+    short_name: "Input",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m11.5 16.5-1.4-1.45L12.175 13H2v-2h10.175L10.1 8.95l1.4-1.45L16 12ZM2 20v-5h2v3h16V6H4v3H2V4h20v16Z"
+  }));
+});
+IconMaterialInputFilled.displayName = 'AmauiIconMaterialInputFilled';
 
 
 const IconMaterialInstallDesktopFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19893,17 +19893,17 @@ const IconMaterialInventory2Filled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialInventory2Filled.displayName = 'AmauiIconMaterialInventory2Filled';
 
 
-const IconMaterialInventoryFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialInvertColorsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "InventoryFilled",
-    short_name: "Inventory",
+    name: "InvertColorsFilled",
+    short_name: "InvertColors",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 21H3V3h6.175q.275-.875 1.075-1.438Q11.05 1 12 1q1 0 1.788.562.787.563 1.062 1.438H21v7h-2V5h-2v3H7V5H5v14h6Zm4.5-1.075-4.25-4.25 1.4-1.4 2.85 2.85 5.65-5.65 1.4 1.4ZM12 5q.425 0 .713-.288Q13 4.425 13 4t-.287-.713Q12.425 3 12 3t-.712.287Q11 3.575 11 4t.288.712Q11.575 5 12 5Z"
+    d: "M12 21q-3.325 0-5.662-2.3Q4 16.4 4 13.125q0-1.65.625-3.063Q5.25 8.65 6.35 7.55L12 2l5.65 5.55q1.1 1.1 1.725 2.512.625 1.413.625 3.063 0 3.275-2.337 5.575Q15.325 21 12 21Zm0-2V4.8L7.75 9q-.875.825-1.312 1.875Q6 11.925 6 13.125q0 2.425 1.75 4.15Q9.5 19 12 19Z"
   }));
 });
-IconMaterialInventoryFilled.displayName = 'AmauiIconMaterialInventoryFilled';
+IconMaterialInvertColorsFilled.displayName = 'AmauiIconMaterialInvertColorsFilled';
 
 
 const IconMaterialInvertColorsOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -19919,19 +19919,6 @@ const IconMaterialInvertColorsOffFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialInvertColorsOffFilled.displayName = 'AmauiIconMaterialInvertColorsOffFilled';
 
 
-const IconMaterialInvertColorsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "InvertColorsFilled",
-    short_name: "InvertColors",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 21q-3.325 0-5.662-2.3Q4 16.4 4 13.125q0-1.65.625-3.063Q5.25 8.65 6.35 7.55L12 2l5.65 5.55q1.1 1.1 1.725 2.512.625 1.413.625 3.063 0 3.275-2.337 5.575Q15.325 21 12 21Zm0-2V4.8L7.75 9q-.875.825-1.312 1.875Q6 11.925 6 13.125q0 2.425 1.75 4.15Q9.5 19 12 19Z"
-  }));
-});
-IconMaterialInvertColorsFilled.displayName = 'AmauiIconMaterialInvertColorsFilled';
-
-
 const IconMaterialIosFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -19943,6 +19930,19 @@ const IconMaterialIosFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialIosFilled.displayName = 'AmauiIconMaterialIosFilled';
+
+
+const IconMaterialInventoryFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "InventoryFilled",
+    short_name: "Inventory",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11 21H3V3h6.175q.275-.875 1.075-1.438Q11.05 1 12 1q1 0 1.788.562.787.563 1.062 1.438H21v7h-2V5h-2v3H7V5H5v14h6Zm4.5-1.075-4.25-4.25 1.4-1.4 2.85 2.85 5.65-5.65 1.4 1.4ZM12 5q.425 0 .713-.288Q13 4.425 13 4t-.287-.713Q12.425 3 12 3t-.712.287Q11 3.575 11 4t.288.712Q11.575 5 12 5Z"
+  }));
+});
+IconMaterialInventoryFilled.displayName = 'AmauiIconMaterialInventoryFilled';
 
 
 const IconMaterialIosShareFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -20075,19 +20075,6 @@ const IconMaterialJoystickFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialJoystickFilled.displayName = 'AmauiIconMaterialJoystickFilled';
 
 
-const IconMaterialKayakingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "KayakingFilled",
-    short_name: "Kayaking",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 23v-2h1q.8 0 1.55-.25T6 20q.7.5 1.45.75T9 21q.8 0 1.562-.25.763-.25 1.438-.75.7.5 1.45.75T15 21q.8 0 1.562-.25.763-.25 1.438-.75.675.5 1.438.75Q20.2 21 21 21h1v2h-1q-.775 0-1.525-.188-.75-.187-1.475-.562-.725.375-1.475.562Q15.775 23 15 23q-.775 0-1.525-.188-.75-.187-1.475-.562-.725.375-1.475.562Q9.775 23 9 23q-.775 0-1.525-.188-.75-.187-1.475-.562-.725.375-1.475.562Q3.775 23 3 23ZM12 9.5q-.825 0-1.412-.588Q10 8.325 10 7.5t.588-1.412Q11.175 5.5 12 5.5t1.413.588Q14 6.675 14 7.5t-.587 1.412Q12.825 9.5 12 9.5ZM9 19q-.9 0-1.675-.425T6 17.5q-.425.45-.938.812-.512.363-1.137.563-1.025-.275-2.075-.65Q.8 17.85 0 17.5q1.35-.575 3.3-1.175 1.95-.6 3.825-.9l1.35-4.175q.275-.85 1.037-1.125.763-.275 1.438.075l2.55 1.3 2.825-1.5 1.65-3.7-.5-1.325L18.8 2 22 3.425 20.675 6.4l-1.325.5-3.7 8.35q2.325.275 4.662.95 2.338.675 3.688 1.3-.725.325-1.837.712-1.113.388-2.088.663-.625-.175-1.137-.538-.513-.362-.938-.837-.55.65-1.325 1.075Q15.9 19 15 19t-1.675-.425Q12.55 18.15 12 17.5q-.55.65-1.325 1.075Q9.9 19 9 19Zm5.075-3.925.95-2.125-1.525.8-1.75-.9-.7 2.15H12q.525 0 1.05.012.525.013 1.025.063Z"
-  }));
-});
-IconMaterialKayakingFilled.displayName = 'AmauiIconMaterialKayakingFilled';
-
-
 const IconMaterialJumpToElementFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -20099,6 +20086,19 @@ const IconMaterialJumpToElementFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialJumpToElementFilled.displayName = 'AmauiIconMaterialJumpToElementFilled';
+
+
+const IconMaterialKayakingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "KayakingFilled",
+    short_name: "Kayaking",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 23v-2h1q.8 0 1.55-.25T6 20q.7.5 1.45.75T9 21q.8 0 1.562-.25.763-.25 1.438-.75.7.5 1.45.75T15 21q.8 0 1.562-.25.763-.25 1.438-.75.675.5 1.438.75Q20.2 21 21 21h1v2h-1q-.775 0-1.525-.188-.75-.187-1.475-.562-.725.375-1.475.562Q15.775 23 15 23q-.775 0-1.525-.188-.75-.187-1.475-.562-.725.375-1.475.562Q9.775 23 9 23q-.775 0-1.525-.188-.75-.187-1.475-.562-.725.375-1.475.562Q3.775 23 3 23ZM12 9.5q-.825 0-1.412-.588Q10 8.325 10 7.5t.588-1.412Q11.175 5.5 12 5.5t1.413.588Q14 6.675 14 7.5t-.587 1.412Q12.825 9.5 12 9.5ZM9 19q-.9 0-1.675-.425T6 17.5q-.425.45-.938.812-.512.363-1.137.563-1.025-.275-2.075-.65Q.8 17.85 0 17.5q1.35-.575 3.3-1.175 1.95-.6 3.825-.9l1.35-4.175q.275-.85 1.037-1.125.763-.275 1.438.075l2.55 1.3 2.825-1.5 1.65-3.7-.5-1.325L18.8 2 22 3.425 20.675 6.4l-1.325.5-3.7 8.35q2.325.275 4.662.95 2.338.675 3.688 1.3-.725.325-1.837.712-1.113.388-2.088.663-.625-.175-1.137-.538-.513-.362-.938-.837-.55.65-1.325 1.075Q15.9 19 15 19t-1.675-.425Q12.55 18.15 12 17.5q-.55.65-1.325 1.075Q9.9 19 9 19Zm5.075-3.925.95-2.125-1.525.8-1.75-.9-.7 2.15H12q.525 0 1.05.012.525.013 1.025.063Z"
+  }));
+});
+IconMaterialKayakingFilled.displayName = 'AmauiIconMaterialKayakingFilled';
 
 
 const IconMaterialKebabDiningFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -20153,19 +20153,6 @@ const IconMaterialKeyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialKeyFilled.displayName = 'AmauiIconMaterialKeyFilled';
 
 
-const IconMaterialKeyOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "KeyOffFilled",
-    short_name: "KeyOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m19 16-2-2-.075.1-4.1-4.1H21l2 1.95ZM7 15q1.075 0 1.875-.663.8-.662 1.025-1.612l-.562-.563-1.25-1.25-1.25-1.25-.563-.562q-1.05.225-1.662 1.062Q4 11 4 12q0 1.25.875 2.125T7 15Zm12.75 7.575-7.55-7.55q-.8 1.35-2.175 2.163Q8.65 18 7 18q-2.5 0-4.25-1.75T1 12q0-1.65.812-3.025Q2.625 7.6 3.975 6.8l-2.55-2.55 1.425-1.4 18.3 18.325Z"
-  }));
-});
-IconMaterialKeyOffFilled.displayName = 'AmauiIconMaterialKeyOffFilled';
-
-
 const IconMaterialKeyVerticalFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -20177,6 +20164,19 @@ const IconMaterialKeyVerticalFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialKeyVerticalFilled.displayName = 'AmauiIconMaterialKeyVerticalFilled';
+
+
+const IconMaterialKeyOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "KeyOffFilled",
+    short_name: "KeyOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m19 16-2-2-.075.1-4.1-4.1H21l2 1.95ZM7 15q1.075 0 1.875-.663.8-.662 1.025-1.612l-.562-.563-1.25-1.25-1.25-1.25-.563-.562q-1.05.225-1.662 1.062Q4 11 4 12q0 1.25.875 2.125T7 15Zm12.75 7.575-7.55-7.55q-.8 1.35-2.175 2.163Q8.65 18 7 18q-2.5 0-4.25-1.75T1 12q0-1.65.812-3.025Q2.625 7.6 3.975 6.8l-2.55-2.55 1.425-1.4 18.3 18.325Z"
+  }));
+});
+IconMaterialKeyOffFilled.displayName = 'AmauiIconMaterialKeyOffFilled';
 
 
 const IconMaterialKeyVisualizerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -20192,17 +20192,17 @@ const IconMaterialKeyVisualizerFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialKeyVisualizerFilled.displayName = 'AmauiIconMaterialKeyVisualizerFilled';
 
 
-const IconMaterialKeyboardAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialKeyboardArrowLeftFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "KeyboardAltFilled",
-    short_name: "KeyboardAlt",
+    name: "KeyboardArrowLeftFilled",
+    short_name: "KeyboardArrowLeft",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M1 21V4h22v17Zm8-11h2V8H9Zm-4 0h2V8H5Zm3 7h8v-1H8Zm5-7h2V8h-2Zm-4 4h2v-2H9Zm-4 0h2v-2H5Zm8 0h2v-2h-2Zm4-4h2V8h-2Zm0 4h2v-2h-2Z"
+    d: "m14 18-6-6 6-6 1.4 1.4-4.6 4.6 4.6 4.6Z"
   }));
 });
-IconMaterialKeyboardAltFilled.displayName = 'AmauiIconMaterialKeyboardAltFilled';
+IconMaterialKeyboardArrowLeftFilled.displayName = 'AmauiIconMaterialKeyboardArrowLeftFilled';
 
 
 const IconMaterialKeyboardArrowDownFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -20218,17 +20218,17 @@ const IconMaterialKeyboardArrowDownFilled = /*#__PURE__*/React.forwardRef((props
 IconMaterialKeyboardArrowDownFilled.displayName = 'AmauiIconMaterialKeyboardArrowDownFilled';
 
 
-const IconMaterialKeyboardArrowLeftFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialKeyboardAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "KeyboardArrowLeftFilled",
-    short_name: "KeyboardArrowLeft",
+    name: "KeyboardAltFilled",
+    short_name: "KeyboardAlt",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m14 18-6-6 6-6 1.4 1.4-4.6 4.6 4.6 4.6Z"
+    d: "M1 21V4h22v17Zm8-11h2V8H9Zm-4 0h2V8H5Zm3 7h8v-1H8Zm5-7h2V8h-2Zm-4 4h2v-2H9Zm-4 0h2v-2H5Zm8 0h2v-2h-2Zm4-4h2V8h-2Zm0 4h2v-2h-2Z"
   }));
 });
-IconMaterialKeyboardArrowLeftFilled.displayName = 'AmauiIconMaterialKeyboardArrowLeftFilled';
+IconMaterialKeyboardAltFilled.displayName = 'AmauiIconMaterialKeyboardAltFilled';
 
 
 const IconMaterialKeyboardArrowRightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -20283,6 +20283,19 @@ const IconMaterialKeyboardCapslockBadgeFilled = /*#__PURE__*/React.forwardRef((p
 IconMaterialKeyboardCapslockBadgeFilled.displayName = 'AmauiIconMaterialKeyboardCapslockBadgeFilled';
 
 
+const IconMaterialKeyboardCapslockFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "KeyboardCapslockFilled",
+    short_name: "KeyboardCapslock",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6 18v-2h12v2Zm1.4-5L6 11.6l6-6 6 6-1.4 1.4L12 8.4Z"
+  }));
+});
+IconMaterialKeyboardCapslockFilled.displayName = 'AmauiIconMaterialKeyboardCapslockFilled';
+
+
 const IconMaterialKeyboardCommandKeyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -20307,19 +20320,6 @@ const IconMaterialKeyboardControlKeyFilled = /*#__PURE__*/React.forwardRef((prop
   }));
 });
 IconMaterialKeyboardControlKeyFilled.displayName = 'AmauiIconMaterialKeyboardControlKeyFilled';
-
-
-const IconMaterialKeyboardCapslockFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "KeyboardCapslockFilled",
-    short_name: "KeyboardCapslock",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6 18v-2h12v2Zm1.4-5L6 11.6l6-6 6 6-1.4 1.4L12 8.4Z"
-  }));
-});
-IconMaterialKeyboardCapslockFilled.displayName = 'AmauiIconMaterialKeyboardCapslockFilled';
 
 
 const IconMaterialKeyboardDoubleArrowDownFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -20751,19 +20751,6 @@ const IconMaterialLanguageChineseCangjieFilled = /*#__PURE__*/React.forwardRef((
 IconMaterialLanguageChineseCangjieFilled.displayName = 'AmauiIconMaterialLanguageChineseCangjieFilled';
 
 
-const IconMaterialLanguageChineseDayiFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LanguageChineseDayiFilled",
-    short_name: "LanguageChineseDayi",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M702 722q28 0 54.5-13t48.5-37V566q-23 3-42.5 7t-36.5 9q-45 14-67.5 35T636 666q0 26 18 41t48 15Zm-23 68q-57 0-90-32.5T556 669q0-52 33-85t106-53q23-6 50.5-11t59.5-9q-2-47-22-68.5T721 421q-26 0-51.5 9.5T604 464l-32-56q33-25 77.5-40.5T740 352q71 0 108 44t37 128v257h-67l-6-45q-28 25-61.5 39.5T679 790Zm-574 11q-11-14-19-23t-16-14q76-33 122-85t66-142H84v-47h182q4-30 6-64t2-72h50q0 38-1.5 71.5T316 490h197v47H334q26 81 75 138.5T523 759q-8 8-15.5 17T489 801q-63-28-112-85.5T298 576q-24 83-71.5 137T105 801Z"
-  }));
-});
-IconMaterialLanguageChineseDayiFilled.displayName = 'AmauiIconMaterialLanguageChineseDayiFilled';
-
-
 const IconMaterialLanguageChinesePinyinFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -20775,6 +20762,19 @@ const IconMaterialLanguageChinesePinyinFilled = /*#__PURE__*/React.forwardRef((p
   }));
 });
 IconMaterialLanguageChinesePinyinFilled.displayName = 'AmauiIconMaterialLanguageChinesePinyinFilled';
+
+
+const IconMaterialLanguageChineseDayiFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LanguageChineseDayiFilled",
+    short_name: "LanguageChineseDayi",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M702 722q28 0 54.5-13t48.5-37V566q-23 3-42.5 7t-36.5 9q-45 14-67.5 35T636 666q0 26 18 41t48 15Zm-23 68q-57 0-90-32.5T556 669q0-52 33-85t106-53q23-6 50.5-11t59.5-9q-2-47-22-68.5T721 421q-26 0-51.5 9.5T604 464l-32-56q33-25 77.5-40.5T740 352q71 0 108 44t37 128v257h-67l-6-45q-28 25-61.5 39.5T679 790Zm-574 11q-11-14-19-23t-16-14q76-33 122-85t66-142H84v-47h182q4-30 6-64t2-72h50q0 38-1.5 71.5T316 490h197v47H334q26 81 75 138.5T523 759q-8 8-15.5 17T489 801q-63-28-112-85.5T298 576q-24 83-71.5 137T105 801Z"
+  }));
+});
+IconMaterialLanguageChineseDayiFilled.displayName = 'AmauiIconMaterialLanguageChineseDayiFilled';
 
 
 const IconMaterialLanguageChineseQuickFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -20881,19 +20881,6 @@ const IconMaterialLanguageKoreanLatinFilled = /*#__PURE__*/React.forwardRef((pro
 IconMaterialLanguageKoreanLatinFilled.displayName = 'AmauiIconMaterialLanguageKoreanLatinFilled';
 
 
-const IconMaterialLanguageSpanishFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LanguageSpanishFilled",
-    short_name: "LanguageSpanish",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M520-280v-120h80v40h120v-80H520v-240h280v120h-80v-40H600v80h200v240H520ZM160-680h280v80H240v80h160v80H240v80h200v80H160v-400Z"
-  }));
-});
-IconMaterialLanguageSpanishFilled.displayName = 'AmauiIconMaterialLanguageSpanishFilled';
-
-
 const IconMaterialLanguagePinyinFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -20905,6 +20892,19 @@ const IconMaterialLanguagePinyinFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialLanguagePinyinFilled.displayName = 'AmauiIconMaterialLanguagePinyinFilled';
+
+
+const IconMaterialLanguageSpanishFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LanguageSpanishFilled",
+    short_name: "LanguageSpanish",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M520-280v-120h80v40h120v-80H520v-240h280v120h-80v-40H600v80h200v240H520ZM160-680h280v80H240v80h160v80H240v80h200v80H160v-400Z"
+  }));
+});
+IconMaterialLanguageSpanishFilled.displayName = 'AmauiIconMaterialLanguageSpanishFilled';
 
 
 const IconMaterialLanguageUsColemakFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -21388,19 +21388,6 @@ const IconMaterialLightbulbCircleFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialLightbulbCircleFilled.displayName = 'AmauiIconMaterialLightbulbCircleFilled';
 
 
-const IconMaterialLightbulbFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LightbulbFilled",
-    short_name: "Lightbulb",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 22q-.825 0-1.412-.587Q10 20.825 10 20h4q0 .825-.587 1.413Q12.825 22 12 22Zm-4-3v-2h8v2Zm.25-3q-1.725-1.025-2.737-2.75Q4.5 11.525 4.5 9.5q0-3.125 2.188-5.312Q8.875 2 12 2q3.125 0 5.312 2.188Q19.5 6.375 19.5 9.5q0 2.025-1.012 3.75-1.013 1.725-2.738 2.75Z"
-  }));
-});
-IconMaterialLightbulbFilled.displayName = 'AmauiIconMaterialLightbulbFilled';
-
-
 const IconMaterialLightningStandFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -21412,6 +21399,19 @@ const IconMaterialLightningStandFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialLightningStandFilled.displayName = 'AmauiIconMaterialLightningStandFilled';
+
+
+const IconMaterialLightbulbFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LightbulbFilled",
+    short_name: "Lightbulb",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 22q-.825 0-1.412-.587Q10 20.825 10 20h4q0 .825-.587 1.413Q12.825 22 12 22Zm-4-3v-2h8v2Zm.25-3q-1.725-1.025-2.737-2.75Q4.5 11.525 4.5 9.5q0-3.125 2.188-5.312Q8.875 2 12 2q3.125 0 5.312 2.188Q19.5 6.375 19.5 9.5q0 2.025-1.012 3.75-1.013 1.725-2.738 2.75Z"
+  }));
+});
+IconMaterialLightbulbFilled.displayName = 'AmauiIconMaterialLightbulbFilled';
 
 
 const IconMaterialLineAxisFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -21700,19 +21700,6 @@ const IconMaterialLiquorFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialLiquorFilled.displayName = 'AmauiIconMaterialLiquorFilled';
 
 
-const IconMaterialListAltAddFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ListAltAddFilled",
-    short_name: "ListAltAdd",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M680 1016V896H560v-80h120V696h80v120h120v80H760v120h-80ZM320 776q17 0 28.5-11.5T360 736q0-17-11.5-28.5T320 696q-17 0-28.5 11.5T280 736q0 17 11.5 28.5T320 776Zm0-160q17 0 28.5-11.5T360 576q0-17-11.5-28.5T320 536q-17 0-28.5 11.5T280 576q0 17 11.5 28.5T320 616Zm0-160q17 0 28.5-11.5T360 416q0-17-11.5-28.5T320 376q-17 0-28.5 11.5T280 416q0 17 11.5 28.5T320 456Zm120 160h240v-80H440v80Zm0-160h240v-80H440v80ZM120 936V216h720v433q-27-16-57.5-24t-62.5-8q-53 0-99 21t-79 58H440v80h54q-7 19-10.5 39t-3.5 41q0 20 3 40t10 40H120Z"
-  }));
-});
-IconMaterialListAltAddFilled.displayName = 'AmauiIconMaterialListAltAddFilled';
-
-
 const IconMaterialListAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -21724,6 +21711,19 @@ const IconMaterialListAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialListAltFilled.displayName = 'AmauiIconMaterialListAltFilled';
+
+
+const IconMaterialListAltAddFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ListAltAddFilled",
+    short_name: "ListAltAdd",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M680 1016V896H560v-80h120V696h80v120h120v80H760v120h-80ZM320 776q17 0 28.5-11.5T360 736q0-17-11.5-28.5T320 696q-17 0-28.5 11.5T280 736q0 17 11.5 28.5T320 776Zm0-160q17 0 28.5-11.5T360 576q0-17-11.5-28.5T320 536q-17 0-28.5 11.5T280 576q0 17 11.5 28.5T320 616Zm0-160q17 0 28.5-11.5T360 416q0-17-11.5-28.5T320 376q-17 0-28.5 11.5T280 416q0 17 11.5 28.5T320 456Zm120 160h240v-80H440v80Zm0-160h240v-80H440v80ZM120 936V216h720v433q-27-16-57.5-24t-62.5-8q-53 0-99 21t-79 58H440v80h54q-7 19-10.5 39t-3.5 41q0 20 3 40t10 40H120Z"
+  }));
+});
+IconMaterialListAltAddFilled.displayName = 'AmauiIconMaterialListAltAddFilled';
 
 
 const IconMaterialListFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -21895,6 +21895,19 @@ const IconMaterialLocalDrinkFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialLocalDrinkFilled.displayName = 'AmauiIconMaterialLocalDrinkFilled';
 
 
+const IconMaterialLocalFireDepartmentFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LocalFireDepartmentFilled",
+    short_name: "LocalFireDepartment",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M7.9 20.875q-1.75-1.05-2.825-2.863Q4 16.2 4 14q0-2.625 1.25-4.675T8 5.875q1.5-1.4 2.75-2.138L12 3v3.3q0 .925.625 1.462.625.538 1.4.538.425 0 .813-.175.387-.175.712-.575L16 7q1.8 1.05 2.9 2.912Q20 11.775 20 14q0 2.2-1.075 4.012-1.075 1.813-2.825 2.863.425-.6.663-1.313Q17 18.85 17 18.05q0-1-.375-1.887-.375-.888-1.075-1.588L12 11.1l-3.525 3.475q-.725.725-1.1 1.6Q7 17.05 7 18.05q0 .8.238 1.512.237.713.662 1.313ZM12 21q-1.25 0-2.125-.863Q9 19.275 9 18.05q0-.575.225-1.112.225-.538.65-.963L12 13.9l2.125 2.075q.425.425.65.95.225.525.225 1.125 0 1.225-.875 2.087Q13.25 21 12 21Z"
+  }));
+});
+IconMaterialLocalFireDepartmentFilled.displayName = 'AmauiIconMaterialLocalFireDepartmentFilled';
+
+
 const IconMaterialLocalFloristFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -21947,32 +21960,6 @@ const IconMaterialLocalLaundryServiceFilled = /*#__PURE__*/React.forwardRef((pro
 IconMaterialLocalLaundryServiceFilled.displayName = 'AmauiIconMaterialLocalLaundryServiceFilled';
 
 
-const IconMaterialLocalFireDepartmentFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LocalFireDepartmentFilled",
-    short_name: "LocalFireDepartment",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7.9 20.875q-1.75-1.05-2.825-2.863Q4 16.2 4 14q0-2.625 1.25-4.675T8 5.875q1.5-1.4 2.75-2.138L12 3v3.3q0 .925.625 1.462.625.538 1.4.538.425 0 .813-.175.387-.175.712-.575L16 7q1.8 1.05 2.9 2.912Q20 11.775 20 14q0 2.2-1.075 4.012-1.075 1.813-2.825 2.863.425-.6.663-1.313Q17 18.85 17 18.05q0-1-.375-1.887-.375-.888-1.075-1.588L12 11.1l-3.525 3.475q-.725.725-1.1 1.6Q7 17.05 7 18.05q0 .8.238 1.512.237.713.662 1.313ZM12 21q-1.25 0-2.125-.863Q9 19.275 9 18.05q0-.575.225-1.112.225-.538.65-.963L12 13.9l2.125 2.075q.425.425.65.95.225.525.225 1.125 0 1.225-.875 2.087Q13.25 21 12 21Z"
-  }));
-});
-IconMaterialLocalFireDepartmentFilled.displayName = 'AmauiIconMaterialLocalFireDepartmentFilled';
-
-
-const IconMaterialLocalLibraryFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LocalLibraryFilled",
-    short_name: "LocalLibrary",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 22.5q-1.8-1.7-4.125-2.6Q5.55 19 3 19V8q2.525 0 4.85.912 2.325.913 4.15 2.638 1.825-1.725 4.15-2.638Q18.475 8 21 8v11q-2.575 0-4.887.9-2.313.9-4.113 2.6ZM12 9q-1.65 0-2.825-1.175Q8 6.65 8 5q0-1.65 1.175-2.825Q10.35 1 12 1q1.65 0 2.825 1.175Q16 3.35 16 5q0 1.65-1.175 2.825Q13.65 9 12 9Z"
-  }));
-});
-IconMaterialLocalLibraryFilled.displayName = 'AmauiIconMaterialLocalLibraryFilled';
-
-
 const IconMaterialLocalMallFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -22012,17 +21999,17 @@ const IconMaterialLocalPharmacyFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialLocalPharmacyFilled.displayName = 'AmauiIconMaterialLocalPharmacyFilled';
 
 
-const IconMaterialLocalPoliceFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialLocalLibraryFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "LocalPoliceFilled",
-    short_name: "LocalPolice",
+    name: "LocalLibraryFilled",
+    short_name: "LocalLibrary",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m9.2 15.6 2.8-2.1 2.75 2.1-1.05-3.4 2.8-2.2h-3.4L12 6.6 10.9 10H7.5l2.75 2.2ZM12 22q-3.475-.875-5.737-3.988Q4 14.9 4 11.1V5l8-3 8 3v6.1q0 3.8-2.262 6.912Q15.475 21.125 12 22Z"
+    d: "M12 22.5q-1.8-1.7-4.125-2.6Q5.55 19 3 19V8q2.525 0 4.85.912 2.325.913 4.15 2.638 1.825-1.725 4.15-2.638Q18.475 8 21 8v11q-2.575 0-4.887.9-2.313.9-4.113 2.6ZM12 9q-1.65 0-2.825-1.175Q8 6.65 8 5q0-1.65 1.175-2.825Q10.35 1 12 1q1.65 0 2.825 1.175Q16 3.35 16 5q0 1.65-1.175 2.825Q13.65 9 12 9Z"
   }));
 });
-IconMaterialLocalPoliceFilled.displayName = 'AmauiIconMaterialLocalPoliceFilled';
+IconMaterialLocalLibraryFilled.displayName = 'AmauiIconMaterialLocalLibraryFilled';
 
 
 const IconMaterialLocalPizzaFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -22036,6 +22023,19 @@ const IconMaterialLocalPizzaFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialLocalPizzaFilled.displayName = 'AmauiIconMaterialLocalPizzaFilled';
+
+
+const IconMaterialLocalPoliceFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LocalPoliceFilled",
+    short_name: "LocalPolice",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m9.2 15.6 2.8-2.1 2.75 2.1-1.05-3.4 2.8-2.2h-3.4L12 6.6 10.9 10H7.5l2.75 2.2ZM12 22q-3.475-.875-5.737-3.988Q4 14.9 4 11.1V5l8-3 8 3v6.1q0 3.8-2.262 6.912Q15.475 21.125 12 22Z"
+  }));
+});
+IconMaterialLocalPoliceFilled.displayName = 'AmauiIconMaterialLocalPoliceFilled';
 
 
 const IconMaterialLocalPostOfficeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -22181,19 +22181,6 @@ const IconMaterialLocationOffFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialLocationOffFilled.displayName = 'AmauiIconMaterialLocationOffFilled';
 
 
-const IconMaterialLocationOnFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LocationOnFilled",
-    short_name: "LocationOn",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 12q.825 0 1.413-.588Q14 10.825 14 10t-.587-1.413Q12.825 8 12 8q-.825 0-1.412.587Q10 9.175 10 10q0 .825.588 1.412Q11.175 12 12 12Zm0 10q-4.025-3.425-6.012-6.363Q4 12.7 4 10.2q0-3.75 2.413-5.975Q8.825 2 12 2t5.587 2.225Q20 6.45 20 10.2q0 2.5-1.987 5.437Q16.025 18.575 12 22Z"
-  }));
-});
-IconMaterialLocationOnFilled.displayName = 'AmauiIconMaterialLocationOnFilled';
-
-
 const IconMaterialLocationSearchingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -22207,17 +22194,17 @@ const IconMaterialLocationSearchingFilled = /*#__PURE__*/React.forwardRef((props
 IconMaterialLocationSearchingFilled.displayName = 'AmauiIconMaterialLocationSearchingFilled';
 
 
-const IconMaterialLockClockFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialLocationOnFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "LockClockFilled",
-    short_name: "LockClock",
+    name: "LocationOnFilled",
+    short_name: "LocationOn",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 8h6V6q0-1.25-.875-2.125T12 3q-1.25 0-2.125.875T9 6Zm9 15q-2.075 0-3.537-1.462Q13 20.075 13 18q0-2.075 1.463-3.538Q15.925 13 18 13t3.538 1.462Q23 15.925 23 18q0 2.075-1.462 3.538Q20.075 23 18 23Zm1.65-2.65.7-.7-1.85-1.85V15h-1v3.2ZM4 22V8h3V6q0-2.075 1.463-3.538Q9.925 1 12 1t3.538 1.462Q17 3.925 17 6v2h3v3.3q-.5-.175-1-.238Q18.5 11 18 11q-2.925 0-4.962 2.037Q11 15.075 11 18q0 1.075.338 2.087.337 1.013.912 1.913Z"
+    d: "M12 12q.825 0 1.413-.588Q14 10.825 14 10t-.587-1.413Q12.825 8 12 8q-.825 0-1.412.587Q10 9.175 10 10q0 .825.588 1.412Q11.175 12 12 12Zm0 10q-4.025-3.425-6.012-6.363Q4 12.7 4 10.2q0-3.75 2.413-5.975Q8.825 2 12 2t5.587 2.225Q20 6.45 20 10.2q0 2.5-1.987 5.437Q16.025 18.575 12 22Z"
   }));
 });
-IconMaterialLockClockFilled.displayName = 'AmauiIconMaterialLockClockFilled';
+IconMaterialLocationOnFilled.displayName = 'AmauiIconMaterialLocationOnFilled';
 
 
 const IconMaterialLockFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -22233,17 +22220,17 @@ const IconMaterialLockFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialLockFilled.displayName = 'AmauiIconMaterialLockFilled';
 
 
-const IconMaterialLockOpenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialLockClockFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "LockOpenFilled",
-    short_name: "LockOpen",
+    name: "LockClockFilled",
+    short_name: "LockClock",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4 22V8h11V6q0-1.25-.875-2.125T12 3q-1.25 0-2.125.875T9 6H7q0-2.075 1.463-3.538Q9.925 1 12 1t3.538 1.462Q17 3.925 17 6v2h3v14Zm8-5q.825 0 1.413-.587Q14 15.825 14 15q0-.825-.587-1.413Q12.825 13 12 13q-.825 0-1.412.587Q10 14.175 10 15q0 .825.588 1.413Q11.175 17 12 17Z"
+    d: "M9 8h6V6q0-1.25-.875-2.125T12 3q-1.25 0-2.125.875T9 6Zm9 15q-2.075 0-3.537-1.462Q13 20.075 13 18q0-2.075 1.463-3.538Q15.925 13 18 13t3.538 1.462Q23 15.925 23 18q0 2.075-1.462 3.538Q20.075 23 18 23Zm1.65-2.65.7-.7-1.85-1.85V15h-1v3.2ZM4 22V8h3V6q0-2.075 1.463-3.538Q9.925 1 12 1t3.538 1.462Q17 3.925 17 6v2h3v3.3q-.5-.175-1-.238Q18.5 11 18 11q-2.925 0-4.962 2.037Q11 15.075 11 18q0 1.075.338 2.087.337 1.013.912 1.913Z"
   }));
 });
-IconMaterialLockOpenFilled.displayName = 'AmauiIconMaterialLockOpenFilled';
+IconMaterialLockClockFilled.displayName = 'AmauiIconMaterialLockClockFilled';
 
 
 const IconMaterialLockOpenRightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -22257,6 +22244,19 @@ const IconMaterialLockOpenRightFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialLockOpenRightFilled.displayName = 'AmauiIconMaterialLockOpenRightFilled';
+
+
+const IconMaterialLockOpenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LockOpenFilled",
+    short_name: "LockOpen",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4 22V8h11V6q0-1.25-.875-2.125T12 3q-1.25 0-2.125.875T9 6H7q0-2.075 1.463-3.538Q9.925 1 12 1t3.538 1.462Q17 3.925 17 6v2h3v14Zm8-5q.825 0 1.413-.587Q14 15.825 14 15q0-.825-.587-1.413Q12.825 13 12 13q-.825 0-1.412.587Q10 14.175 10 15q0 .825.588 1.413Q11.175 17 12 17Z"
+  }));
+});
+IconMaterialLockOpenFilled.displayName = 'AmauiIconMaterialLockOpenFilled';
 
 
 const IconMaterialLockPersonFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -22415,19 +22415,6 @@ const IconMaterialLooksTwoFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialLooksTwoFilled.displayName = 'AmauiIconMaterialLooksTwoFilled';
 
 
-const IconMaterialLowDensityFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LowDensityFilled",
-    short_name: "LowDensity",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M120 456v-80h80v80h-80Zm0-160v-80h80v80h-80Zm160 320v-80h80v80h-80Zm0-320v-80h80v80h-80Zm160 320v-80h80v80h-80Zm0-160v-80h80v80h-80ZM120 936V536h80v320h560V296H440v-80h400v720H120Z"
-  }));
-});
-IconMaterialLowDensityFilled.displayName = 'AmauiIconMaterialLowDensityFilled';
-
-
 const IconMaterialLoupeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -22439,6 +22426,19 @@ const IconMaterialLoupeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialLoupeFilled.displayName = 'AmauiIconMaterialLoupeFilled';
+
+
+const IconMaterialLowDensityFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LowDensityFilled",
+    short_name: "LowDensity",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M120 456v-80h80v80h-80Zm0-160v-80h80v80h-80Zm160 320v-80h80v80h-80Zm0-320v-80h80v80h-80Zm160 320v-80h80v80h-80Zm0-160v-80h80v80h-80ZM120 936V536h80v320h560V296H440v-80h400v720H120Z"
+  }));
+});
+IconMaterialLowDensityFilled.displayName = 'AmauiIconMaterialLowDensityFilled';
 
 
 const IconMaterialLowPriorityFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -22467,19 +22467,6 @@ const IconMaterialLoyaltyFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialLoyaltyFilled.displayName = 'AmauiIconMaterialLoyaltyFilled';
 
 
-const IconMaterialLteMobiledataBadgeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "LteMobiledataBadgeFilled",
-    short_name: "LteMobiledataBadge",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M160 736h200v-80H240V416h-80v320Zm240 0h80V496h80v-80H320v80h80v240Zm200 0h200v-80H680v-40h80v-80h-80v-40h120v-80H600v320ZM40 936V216h880v720H40Z"
-  }));
-});
-IconMaterialLteMobiledataBadgeFilled.displayName = 'AmauiIconMaterialLteMobiledataBadgeFilled';
-
-
 const IconMaterialLteMobiledataFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -22493,17 +22480,17 @@ const IconMaterialLteMobiledataFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialLteMobiledataFilled.displayName = 'AmauiIconMaterialLteMobiledataFilled';
 
 
-const IconMaterialLtePlusMobiledataBadgeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialLteMobiledataBadgeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "LtePlusMobiledataBadgeFilled",
-    short_name: "LtePlusMobiledataBadge",
+    name: "LteMobiledataBadgeFilled",
+    short_name: "LteMobiledataBadge",
     viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M160 736h160v-80h-80V416h-80v320Zm220 0h80V496h60v-80H320v80h60v240Zm180 0h160v-80h-80v-40h60v-80h-60v-40h80v-80H560v320ZM40 936V216h880v330h-50v-50h-60v50h-50v60h50v50h60v-50h50v330H40Z"
+    d: "M160 736h200v-80H240V416h-80v320Zm240 0h80V496h80v-80H320v80h80v240Zm200 0h200v-80H680v-40h80v-80h-80v-40h120v-80H600v320ZM40 936V216h880v720H40Z"
   }));
 });
-IconMaterialLtePlusMobiledataBadgeFilled.displayName = 'AmauiIconMaterialLtePlusMobiledataBadgeFilled';
+IconMaterialLteMobiledataBadgeFilled.displayName = 'AmauiIconMaterialLteMobiledataBadgeFilled';
 
 
 const IconMaterialLtePlusMobiledataFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -22519,17 +22506,17 @@ const IconMaterialLtePlusMobiledataFilled = /*#__PURE__*/React.forwardRef((props
 IconMaterialLtePlusMobiledataFilled.displayName = 'AmauiIconMaterialLtePlusMobiledataFilled';
 
 
-const IconMaterialLuggageFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialLtePlusMobiledataBadgeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "LuggageFilled",
-    short_name: "Luggage",
-    viewBox: "0 0 24 24"
+    name: "LtePlusMobiledataBadgeFilled",
+    short_name: "LtePlusMobiledataBadge",
+    viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5 21V6h4V2h6v4h4v15h-2q0 .425-.288.712Q16.425 22 16 22t-.712-.288Q15 21.425 15 21H9q0 .425-.287.712Q8.425 22 8 22t-.713-.288Q7 21.425 7 21Zm5.5-15h3V3.5h-3ZM8 18h1.5V9H8Zm3.25 0h1.5V9h-1.5Zm3.25 0H16V9h-1.5Z"
+    d: "M160 736h160v-80h-80V416h-80v320Zm220 0h80V496h60v-80H320v80h60v240Zm180 0h160v-80h-80v-40h60v-80h-60v-40h80v-80H560v320ZM40 936V216h880v330h-50v-50h-60v50h-50v60h50v50h60v-50h50v330H40Z"
   }));
 });
-IconMaterialLuggageFilled.displayName = 'AmauiIconMaterialLuggageFilled';
+IconMaterialLtePlusMobiledataBadgeFilled.displayName = 'AmauiIconMaterialLtePlusMobiledataBadgeFilled';
 
 
 const IconMaterialLunchDiningFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -22543,6 +22530,19 @@ const IconMaterialLunchDiningFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialLunchDiningFilled.displayName = 'AmauiIconMaterialLunchDiningFilled';
+
+
+const IconMaterialLuggageFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "LuggageFilled",
+    short_name: "Luggage",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5 21V6h4V2h6v4h4v15h-2q0 .425-.288.712Q16.425 22 16 22t-.712-.288Q15 21.425 15 21H9q0 .425-.287.712Q8.425 22 8 22t-.713-.288Q7 21.425 7 21Zm5.5-15h3V3.5h-3ZM8 18h1.5V9H8Zm3.25 0h1.5V9h-1.5Zm3.25 0H16V9h-1.5Z"
+  }));
+});
+IconMaterialLuggageFilled.displayName = 'AmauiIconMaterialLuggageFilled';
 
 
 const IconMaterialLyricsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -22883,19 +22883,6 @@ const IconMaterialMarkAsUnreadFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialMarkAsUnreadFilled.displayName = 'AmauiIconMaterialMarkAsUnreadFilled';
 
 
-const IconMaterialMarkChatReadFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MarkChatReadFilled",
-    short_name: "MarkChatRead",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m17.35 20-3.525-3.55 1.4-1.4 2.125 2.125 4.25-4.25L23 14.35ZM2 22V2h20v9H12v7H6Z"
-  }));
-});
-IconMaterialMarkChatReadFilled.displayName = 'AmauiIconMaterialMarkChatReadFilled';
-
-
 const IconMaterialMarkChatUnreadFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -22907,6 +22894,19 @@ const IconMaterialMarkChatUnreadFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialMarkChatUnreadFilled.displayName = 'AmauiIconMaterialMarkChatUnreadFilled';
+
+
+const IconMaterialMarkChatReadFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MarkChatReadFilled",
+    short_name: "MarkChatRead",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m17.35 20-3.525-3.55 1.4-1.4 2.125 2.125 4.25-4.25L23 14.35ZM2 22V2h20v9H12v7H6Z"
+  }));
+});
+IconMaterialMarkChatReadFilled.displayName = 'AmauiIconMaterialMarkChatReadFilled';
 
 
 const IconMaterialMarkEmailReadFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -22974,19 +22974,6 @@ const IconMaterialMarkdownFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialMarkdownFilled.displayName = 'AmauiIconMaterialMarkdownFilled';
 
 
-const IconMaterialMarkunreadMailboxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MarkunreadMailboxFilled",
-    short_name: "MarkunreadMailbox",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 22V8h4V2h8v4H8v8h2V8h12v14Z"
-  }));
-});
-IconMaterialMarkunreadMailboxFilled.displayName = 'AmauiIconMaterialMarkunreadMailboxFilled';
-
-
 const IconMaterialMarkdownPasteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -22998,6 +22985,19 @@ const IconMaterialMarkdownPasteFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialMarkdownPasteFilled.displayName = 'AmauiIconMaterialMarkdownPasteFilled';
+
+
+const IconMaterialMarkunreadMailboxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MarkunreadMailboxFilled",
+    short_name: "MarkunreadMailbox",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 22V8h4V2h8v4H8v8h2V8h12v14Z"
+  }));
+});
+IconMaterialMarkunreadMailboxFilled.displayName = 'AmauiIconMaterialMarkunreadMailboxFilled';
 
 
 const IconMaterialMaskedTransitionsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23091,19 +23091,6 @@ const IconMaterialMeasuringTapeFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialMeasuringTapeFilled.displayName = 'AmauiIconMaterialMeasuringTapeFilled';
 
 
-const IconMaterialMediaBluetoothOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MediaBluetoothOffFilled",
-    short_name: "MediaBluetoothOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m11 8.15-2-2V3h6v4h-4Zm10.2 10.2-6.8-6.75.8-.8 2.75 2.75V9h.6L22 12.4 19.4 15l2.6 2.55Zm-2.05-4.8 1.15-1.15-1.15-1.1Zm.65 9.05-4-4-.6.6-.85-.85.6-.6L11 13.8V17q0 1.65-1.175 2.825Q8.65 21 7 21q-1.65 0-2.825-1.175Q3 18.65 3 17q0-1.65 1.175-2.825Q5.35 13 7 13q.575 0 1.062.137.488.138.938.413V11.8L1.4 4.2l1.4-1.4 18.4 18.4Z"
-  }));
-});
-IconMaterialMediaBluetoothOffFilled.displayName = 'AmauiIconMaterialMediaBluetoothOffFilled';
-
-
 const IconMaterialMediaBluetoothOnFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23115,6 +23102,19 @@ const IconMaterialMediaBluetoothOnFilled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialMediaBluetoothOnFilled.displayName = 'AmauiIconMaterialMediaBluetoothOnFilled';
+
+
+const IconMaterialMediaBluetoothOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MediaBluetoothOffFilled",
+    short_name: "MediaBluetoothOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m11 8.15-2-2V3h6v4h-4Zm10.2 10.2-6.8-6.75.8-.8 2.75 2.75V9h.6L22 12.4 19.4 15l2.6 2.55Zm-2.05-4.8 1.15-1.15-1.15-1.1Zm.65 9.05-4-4-.6.6-.85-.85.6-.6L11 13.8V17q0 1.65-1.175 2.825Q8.65 21 7 21q-1.65 0-2.825-1.175Q3 18.65 3 17q0-1.65 1.175-2.825Q5.35 13 7 13q.575 0 1.062.137.488.138.938.413V11.8L1.4 4.2l1.4-1.4 18.4 18.4Z"
+  }));
+});
+IconMaterialMediaBluetoothOffFilled.displayName = 'AmauiIconMaterialMediaBluetoothOffFilled';
 
 
 const IconMaterialMediaLinkFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23143,19 +23143,6 @@ const IconMaterialMediaOutputFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialMediaOutputFilled.displayName = 'AmauiIconMaterialMediaOutputFilled';
 
 
-const IconMaterialMediationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MediationFilled",
-    short_name: "Mediation",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5 23q-1.25 0-2.125-.875T2 20q0-1.25.875-2.125T5 17q.675 0 1.3.312.625.313 1.05.838 1.475-.8 2.4-2.15.925-1.35 1.15-3H7.8q-.3.9-1.075 1.45Q5.95 15 5 15q-1.25 0-2.125-.875T2 12q0-1.25.875-2.125T5 9q.95 0 1.725.55Q7.5 10.1 7.8 11h3.1q-.225-1.65-1.15-3-.925-1.35-2.4-2.15-.425.525-1.05.838Q5.675 7 5 7q-1.25 0-2.125-.875T2 4q0-1.25.875-2.125T5 1q1.25 0 2.1.85.85.85.9 2.1 2.025 1.05 3.35 2.9 1.325 1.85 1.6 4.15h5.25l-1.6-1.6L18 8l4 4-4 4-1.4-1.4 1.6-1.6h-5.25q-.275 2.3-1.575 4.162-1.3 1.863-3.375 2.888-.05 1.25-.9 2.1Q6.25 23 5 23Z"
-  }));
-});
-IconMaterialMediationFilled.displayName = 'AmauiIconMaterialMediationFilled';
-
-
 const IconMaterialMediaOutputOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23167,6 +23154,19 @@ const IconMaterialMediaOutputOffFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialMediaOutputOffFilled.displayName = 'AmauiIconMaterialMediaOutputOffFilled';
+
+
+const IconMaterialMediationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MediationFilled",
+    short_name: "Mediation",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5 23q-1.25 0-2.125-.875T2 20q0-1.25.875-2.125T5 17q.675 0 1.3.312.625.313 1.05.838 1.475-.8 2.4-2.15.925-1.35 1.15-3H7.8q-.3.9-1.075 1.45Q5.95 15 5 15q-1.25 0-2.125-.875T2 12q0-1.25.875-2.125T5 9q.95 0 1.725.55Q7.5 10.1 7.8 11h3.1q-.225-1.65-1.15-3-.925-1.35-2.4-2.15-.425.525-1.05.838Q5.675 7 5 7q-1.25 0-2.125-.875T2 4q0-1.25.875-2.125T5 1q1.25 0 2.1.85.85.85.9 2.1 2.025 1.05 3.35 2.9 1.325 1.85 1.6 4.15h5.25l-1.6-1.6L18 8l4 4-4 4-1.4-1.4 1.6-1.6h-5.25q-.275 2.3-1.575 4.162-1.3 1.863-3.375 2.888-.05 1.25-.9 2.1Q6.25 23 5 23Z"
+  }));
+});
+IconMaterialMediationFilled.displayName = 'AmauiIconMaterialMediationFilled';
 
 
 const IconMaterialMedicalInformationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23208,19 +23208,6 @@ const IconMaterialMedicalServicesFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialMedicalServicesFilled.displayName = 'AmauiIconMaterialMedicalServicesFilled';
 
 
-const IconMaterialMedicationLiquidFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MedicationLiquidFilled",
-    short_name: "MedicationLiquid",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 5V3h12v2Zm4.5 12.5h3V15H13v-3h-2.5V9.5h-3V12H5v3h2.5ZM2 21V6h14v15Zm17 0v-7.25q-.875-.425-1.438-1.413Q17 11.35 17 10q0-1.7.863-2.85Q18.725 6 20 6t2.138 1.15Q23 8.3 23 10q0 1.35-.562 2.337-.563.988-1.438 1.413V21Z"
-  }));
-});
-IconMaterialMedicationLiquidFilled.displayName = 'AmauiIconMaterialMedicationLiquidFilled';
-
-
 const IconMaterialMedicationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23232,6 +23219,19 @@ const IconMaterialMedicationFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialMedicationFilled.displayName = 'AmauiIconMaterialMedicationFilled';
+
+
+const IconMaterialMedicationLiquidFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MedicationLiquidFilled",
+    short_name: "MedicationLiquid",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 5V3h12v2Zm4.5 12.5h3V15H13v-3h-2.5V9.5h-3V12H5v3h2.5ZM2 21V6h14v15Zm17 0v-7.25q-.875-.425-1.438-1.413Q17 11.35 17 10q0-1.7.863-2.85Q18.725 6 20 6t2.138 1.15Q23 8.3 23 10q0 1.35-.562 2.337-.563.988-1.438 1.413V21Z"
+  }));
+});
+IconMaterialMedicationLiquidFilled.displayName = 'AmauiIconMaterialMedicationLiquidFilled';
 
 
 const IconMaterialMeetingRoomFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23247,19 +23247,6 @@ const IconMaterialMeetingRoomFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialMeetingRoomFilled.displayName = 'AmauiIconMaterialMeetingRoomFilled';
 
 
-const IconMaterialMemoryAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MemoryAltFilled",
-    short_name: "MemoryAlt",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M240 696h80V456h-80v240Zm200 0h80V456h-80v240Zm200 0h80V456h-80v240ZM200 936v-80H80V296h120v-80h80v80h160v-80h80v80h160v-80h80v80h120v560H760v80h-80v-80H520v80h-80v-80H280v80h-80Z"
-  }));
-});
-IconMaterialMemoryAltFilled.displayName = 'AmauiIconMaterialMemoryAltFilled';
-
-
 const IconMaterialMemoryFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23271,6 +23258,19 @@ const IconMaterialMemoryFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialMemoryFilled.displayName = 'AmauiIconMaterialMemoryFilled';
+
+
+const IconMaterialMemoryAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MemoryAltFilled",
+    short_name: "MemoryAlt",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M240 696h80V456h-80v240Zm200 0h80V456h-80v240Zm200 0h80V456h-80v240ZM200 936v-80H80V296h120v-80h80v80h160v-80h80v80h160v-80h80v80h120v560H760v80h-80v-80H520v80h-80v-80H280v80h-80Z"
+  }));
+});
+IconMaterialMemoryAltFilled.displayName = 'AmauiIconMaterialMemoryAltFilled';
 
 
 const IconMaterialMenstrualHealthFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23299,19 +23299,6 @@ const IconMaterialMenuBookFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialMenuBookFilled.displayName = 'AmauiIconMaterialMenuBookFilled';
 
 
-const IconMaterialMenuOpenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MenuOpenFilled",
-    short_name: "MenuOpen",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 18v-2h13v2Zm16.6-1-5-5 5-5L21 8.4 17.4 12l3.6 3.6ZM3 13v-2h10v2Zm0-5V6h13v2Z"
-  }));
-});
-IconMaterialMenuOpenFilled.displayName = 'AmauiIconMaterialMenuOpenFilled';
-
-
 const IconMaterialMenuFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23323,6 +23310,19 @@ const IconMaterialMenuFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialMenuFilled.displayName = 'AmauiIconMaterialMenuFilled';
+
+
+const IconMaterialMenuOpenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MenuOpenFilled",
+    short_name: "MenuOpen",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 18v-2h13v2Zm16.6-1-5-5 5-5L21 8.4 17.4 12l3.6 3.6ZM3 13v-2h10v2Zm0-5V6h13v2Z"
+  }));
+});
+IconMaterialMenuOpenFilled.displayName = 'AmauiIconMaterialMenuOpenFilled';
 
 
 const IconMaterialMergeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23715,19 +23715,6 @@ const IconMaterialMobileOffFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialMobileOffFilled.displayName = 'AmauiIconMaterialMobileOffFilled';
 
 
-const IconMaterialMobileScreenShareFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MobileScreenShareFilled",
-    short_name: "MobileScreenShare",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 15v-1.5q0-1.25.875-2.125T12 10.5h1v-2l3 3-3 3v-2h-1q-.425 0-.712.287-.288.288-.288.713V15Zm-4 8V1h14v22Zm2-5h10V6H7Z"
-  }));
-});
-IconMaterialMobileScreenShareFilled.displayName = 'AmauiIconMaterialMobileScreenShareFilled';
-
-
 const IconMaterialMobiledataOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23739,6 +23726,19 @@ const IconMaterialMobiledataOffFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialMobiledataOffFilled.displayName = 'AmauiIconMaterialMobiledataOffFilled';
+
+
+const IconMaterialMobileScreenShareFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MobileScreenShareFilled",
+    short_name: "MobileScreenShare",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9 15v-1.5q0-1.25.875-2.125T12 10.5h1v-2l3 3-3 3v-2h-1q-.425 0-.712.287-.288.288-.288.713V15Zm-4 8V1h14v22Zm2-5h10V6H7Z"
+  }));
+});
+IconMaterialMobileScreenShareFilled.displayName = 'AmauiIconMaterialMobileScreenShareFilled';
 
 
 const IconMaterialModeCommentFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23793,19 +23793,6 @@ const IconMaterialModeDualFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialModeDualFilled.displayName = 'AmauiIconMaterialModeDualFilled';
 
 
-const IconMaterialModeFanFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ModeFanFilled",
-    short_name: "ModeFan",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.6 22q-1.275 0-1.937-.762Q8 20.475 8 19.5q0-.65.288-1.262.287-.613.887-1.013.55-.35.887-.9.338-.55.463-1.175l-.3-.15q-.15-.075-.275-.175l-2.3.825q-.425.15-.825.25-.4.1-.825.1-1.575 0-2.788-1.375Q2 13.25 2 10.6q0-1.275.763-1.938Q3.525 8 4.475 8q.65 0 1.275.287.625.288 1.025.888.35.55.9.887.55.338 1.175.463l.15-.3q.075-.15.175-.275l-.825-2.3q-.15-.425-.25-.825-.1-.4-.1-.8 0-1.6 1.375-2.813Q10.75 2 13.4 2q1.275 0 1.938.762.662.763.662 1.713 0 .65-.287 1.275-.288.625-.888 1.025-.55.35-.887.9-.338.55-.463 1.175l.3.15q.15.075.275.175l2.3-.85q.425-.15.813-.238Q17.55 8 17.975 8 20 8 21 9.675t1 3.725q0 1.275-.8 1.937-.8.663-1.775.663-.625 0-1.213-.288-.587-.287-.987-.887-.35-.55-.9-.887-.55-.338-1.175-.463l-.15.3q-.075.15-.175.275l.825 2.3q.15.4.25.763.1.362.1.762.025 1.625-1.35 2.875T10.6 22Zm1.4-8.5q.625 0 1.062-.438.438-.437.438-1.062t-.438-1.062Q12.625 10.5 12 10.5t-1.062.438Q10.5 11.375 10.5 12t.438 1.062q.437.438 1.062.438Zm-1.15-4.8q.15-.05.313-.088.162-.037.312-.062.2-1.05.763-1.95.562-.9 1.487-1.5.125-.1.2-.25Q14 4.7 14 4.475q0-.2-.15-.338Q13.7 4 13.4 4q-.95 0-2.15.412-1.2.413-1.25 1.613 0 .225.062.425.063.2.113.375ZM6 14q.35 0 .825-.175L8.7 13.15q-.05-.15-.087-.313-.038-.162-.063-.312-1.05-.2-1.95-.763-.9-.562-1.5-1.487-.1-.125-.262-.2Q4.675 10 4.475 10q-.225 0-.35.15Q4 10.3 4 10.6q0 1.35.513 2.375Q5.025 14 6 14Zm4.6 6q1.175 0 2.313-.475 1.137-.475 1.087-1.65 0-.275-.175-.7L13.15 15.3q-.15.05-.312.087-.163.038-.313.063-.2 1.05-.762 1.95-.563.9-1.488 1.5-.125.1-.213.263-.087.162-.062.337.025.2.15.35.125.15.45.15Zm8.825-6q.225 0 .4-.125Q20 13.75 20 13.4q0-.95-.4-2.163-.4-1.212-1.625-1.237-.225 0-.425.05-.2.05-.375.1l-1.875.7q.05.15.088.312.037.163.062.313 1.05.2 1.95.762.9.563 1.5 1.488.075.125.225.2.15.075.3.075Z"
-  }));
-});
-IconMaterialModeFanFilled.displayName = 'AmauiIconMaterialModeFanFilled';
-
-
 const IconMaterialModeFanOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23817,6 +23804,19 @@ const IconMaterialModeFanOffFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialModeFanOffFilled.displayName = 'AmauiIconMaterialModeFanOffFilled';
+
+
+const IconMaterialModeFanFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ModeFanFilled",
+    short_name: "ModeFan",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10.6 22q-1.275 0-1.937-.762Q8 20.475 8 19.5q0-.65.288-1.262.287-.613.887-1.013.55-.35.887-.9.338-.55.463-1.175l-.3-.15q-.15-.075-.275-.175l-2.3.825q-.425.15-.825.25-.4.1-.825.1-1.575 0-2.788-1.375Q2 13.25 2 10.6q0-1.275.763-1.938Q3.525 8 4.475 8q.65 0 1.275.287.625.288 1.025.888.35.55.9.887.55.338 1.175.463l.15-.3q.075-.15.175-.275l-.825-2.3q-.15-.425-.25-.825-.1-.4-.1-.8 0-1.6 1.375-2.813Q10.75 2 13.4 2q1.275 0 1.938.762.662.763.662 1.713 0 .65-.287 1.275-.288.625-.888 1.025-.55.35-.887.9-.338.55-.463 1.175l.3.15q.15.075.275.175l2.3-.85q.425-.15.813-.238Q17.55 8 17.975 8 20 8 21 9.675t1 3.725q0 1.275-.8 1.937-.8.663-1.775.663-.625 0-1.213-.288-.587-.287-.987-.887-.35-.55-.9-.887-.55-.338-1.175-.463l-.15.3q-.075.15-.175.275l.825 2.3q.15.4.25.763.1.362.1.762.025 1.625-1.35 2.875T10.6 22Zm1.4-8.5q.625 0 1.062-.438.438-.437.438-1.062t-.438-1.062Q12.625 10.5 12 10.5t-1.062.438Q10.5 11.375 10.5 12t.438 1.062q.437.438 1.062.438Zm-1.15-4.8q.15-.05.313-.088.162-.037.312-.062.2-1.05.763-1.95.562-.9 1.487-1.5.125-.1.2-.25Q14 4.7 14 4.475q0-.2-.15-.338Q13.7 4 13.4 4q-.95 0-2.15.412-1.2.413-1.25 1.613 0 .225.062.425.063.2.113.375ZM6 14q.35 0 .825-.175L8.7 13.15q-.05-.15-.087-.313-.038-.162-.063-.312-1.05-.2-1.95-.763-.9-.562-1.5-1.487-.1-.125-.262-.2Q4.675 10 4.475 10q-.225 0-.35.15Q4 10.3 4 10.6q0 1.35.513 2.375Q5.025 14 6 14Zm4.6 6q1.175 0 2.313-.475 1.137-.475 1.087-1.65 0-.275-.175-.7L13.15 15.3q-.15.05-.312.087-.163.038-.313.063-.2 1.05-.762 1.95-.563.9-1.488 1.5-.125.1-.213.263-.087.162-.062.337.025.2.15.35.125.15.45.15Zm8.825-6q.225 0 .4-.125Q20 13.75 20 13.4q0-.95-.4-2.163-.4-1.212-1.625-1.237-.225 0-.425.05-.2.05-.375.1l-1.875.7q.05.15.088.312.037.163.062.313 1.05.2 1.95.762.9.563 1.5 1.488.075.125.225.2.15.075.3.075Z"
+  }));
+});
+IconMaterialModeFanFilled.displayName = 'AmauiIconMaterialModeFanFilled';
 
 
 const IconMaterialModeHeatCoolFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23832,19 +23832,6 @@ const IconMaterialModeHeatCoolFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialModeHeatCoolFilled.displayName = 'AmauiIconMaterialModeHeatCoolFilled';
 
 
-const IconMaterialModeHeatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ModeHeatFilled",
-    short_name: "ModeHeat",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 22q-2.925 0-4.962-2.038Q5 17.925 5 15q0-1.65.575-2.988.575-1.337 2.225-3.037Q9.475 7.25 9.762 5.912 10.05 4.575 10 2q3.925 2.275 6.462 5.75Q19 11.225 19 15q0 2.925-2.038 4.962Q14.925 22 12 22Zm0-2q.525 0 1.025-.413.5-.412.5-1.312 0-.6-.337-1.4-.338-.8-1.188-1.925-.8 1.05-1.137 1.875-.338.825-.338 1.45 0 .875.475 1.3.475.425 1 .425Zm-3.475-1.4q-.125-1.55.775-3.15.9-1.6 1.975-2.75.15-.175.338-.25.187-.075.387-.075t.388.075q.187.075.337.25.15.15.613.687.462.538.95 1.325.487.788.862 1.776.375.987.35 2.087.7-.675 1.1-1.6.4-.925.4-1.975 0-1.525-.475-2.875T15.3 9.6q-.75-1.175-1.65-2.138-.9-.962-1.775-1.687-.325 1.65-1.137 2.762Q9.925 9.65 9.125 10.5q-1.275 1.3-1.7 2.275Q7 13.75 7 15q0 1.05.4 1.975T8.525 18.6Z"
-  }));
-});
-IconMaterialModeHeatFilled.displayName = 'AmauiIconMaterialModeHeatFilled';
-
-
 const IconMaterialModeHeatOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23856,6 +23843,19 @@ const IconMaterialModeHeatOffFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialModeHeatOffFilled.displayName = 'AmauiIconMaterialModeHeatOffFilled';
+
+
+const IconMaterialModeHeatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ModeHeatFilled",
+    short_name: "ModeHeat",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 22q-2.925 0-4.962-2.038Q5 17.925 5 15q0-1.65.575-2.988.575-1.337 2.225-3.037Q9.475 7.25 9.762 5.912 10.05 4.575 10 2q3.925 2.275 6.462 5.75Q19 11.225 19 15q0 2.925-2.038 4.962Q14.925 22 12 22Zm0-2q.525 0 1.025-.413.5-.412.5-1.312 0-.6-.337-1.4-.338-.8-1.188-1.925-.8 1.05-1.137 1.875-.338.825-.338 1.45 0 .875.475 1.3.475.425 1 .425Zm-3.475-1.4q-.125-1.55.775-3.15.9-1.6 1.975-2.75.15-.175.338-.25.187-.075.387-.075t.388.075q.187.075.337.25.15.15.613.687.462.538.95 1.325.487.788.862 1.776.375.987.35 2.087.7-.675 1.1-1.6.4-.925.4-1.975 0-1.525-.475-2.875T15.3 9.6q-.75-1.175-1.65-2.138-.9-.962-1.775-1.687-.325 1.65-1.137 2.762Q9.925 9.65 9.125 10.5q-1.275 1.3-1.7 2.275Q7 13.75 7 15q0 1.05.4 1.975T8.525 18.6Z"
+  }));
+});
+IconMaterialModeHeatFilled.displayName = 'AmauiIconMaterialModeHeatFilled';
 
 
 const IconMaterialModeNightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -23962,19 +23962,6 @@ const IconMaterialMoneyOffFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialMoneyOffFilled.displayName = 'AmauiIconMaterialMoneyOffFilled';
 
 
-const IconMaterialMonitorFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MonitorFilled",
-    short_name: "Monitor",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6 21v-2l1-1H2V3h20v15h-5l1 1v2Z"
-  }));
-});
-IconMaterialMonitorFilled.displayName = 'AmauiIconMaterialMonitorFilled';
-
-
 const IconMaterialMonitorHeartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -23986,6 +23973,19 @@ const IconMaterialMonitorHeartFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialMonitorHeartFilled.displayName = 'AmauiIconMaterialMonitorHeartFilled';
+
+
+const IconMaterialMonitorFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MonitorFilled",
+    short_name: "Monitor",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6 21v-2l1-1H2V3h20v15h-5l1 1v2Z"
+  }));
+});
+IconMaterialMonitorFilled.displayName = 'AmauiIconMaterialMonitorFilled';
 
 
 const IconMaterialMonitorWeightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -24170,19 +24170,6 @@ const IconMaterialMoreVertFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialMoreVertFilled.displayName = 'AmauiIconMaterialMoreVertFilled';
 
 
-const IconMaterialMosqueFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MosqueFilled",
-    short_name: "Mosque",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6.125 8.05q-.175 0-.15-.325Q6 7.4 6 7.1q0-1 .475-1.85.475-.85 1.275-1.4L12 1l4.25 2.85q.8.55 1.275 1.4Q18 6.1 18 7.1q0 .3.025.625t-.15.325ZM1 21V8.725Q.55 8.45.275 8.012 0 7.575 0 7t.6-1.4Q1.2 4.775 2 4q.8.775 1.4 1.6.6.825.6 1.4t-.275 1.012Q3.45 8.45 3 8.725V13h2V9.05h14V13h2V8.725q-.45-.275-.725-.713Q20 7.575 20 7t.6-1.4q.6-.825 1.4-1.6.8.775 1.4 1.6.6.825.6 1.4t-.275 1.012q-.275.438-.725.713V21h-9v-6h-4v6Z"
-  }));
-});
-IconMaterialMosqueFilled.displayName = 'AmauiIconMaterialMosqueFilled';
-
-
 const IconMaterialMotionBlurFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -24196,17 +24183,17 @@ const IconMaterialMotionBlurFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialMotionBlurFilled.displayName = 'AmauiIconMaterialMotionBlurFilled';
 
 
-const IconMaterialMotionModeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialMosqueFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "MotionModeFilled",
-    short_name: "MotionMode",
+    name: "MosqueFilled",
+    short_name: "Mosque",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5 4.85v14.3q-.425-.425-.8-.9-.375-.475-.7-.975V6.725q.325-.5.7-.975.375-.475.8-.9Zm4-2.4v19.1q-.525-.175-1.025-.387-.5-.213-.975-.488V3.325q.475-.275.975-.488.5-.212 1.025-.387Zm7 18.725V2.825Q18.65 4 20.325 6.45 22 8.9 22 12q0 3.1-1.675 5.55Q18.65 20 16 21.175ZM12 22q-.25 0-.5-.012-.25-.013-.5-.038V2.05q.25-.025.5-.038Q11.75 2 12 2q.5 0 1 .05t1 .15v19.6q-.5.1-1 .15-.5.05-1 .05Z"
+    d: "M6.125 8.05q-.175 0-.15-.325Q6 7.4 6 7.1q0-1 .475-1.85.475-.85 1.275-1.4L12 1l4.25 2.85q.8.55 1.275 1.4Q18 6.1 18 7.1q0 .3.025.625t-.15.325ZM1 21V8.725Q.55 8.45.275 8.012 0 7.575 0 7t.6-1.4Q1.2 4.775 2 4q.8.775 1.4 1.6.6.825.6 1.4t-.275 1.012Q3.45 8.45 3 8.725V13h2V9.05h14V13h2V8.725q-.45-.275-.725-.713Q20 7.575 20 7t.6-1.4q.6-.825 1.4-1.6.8.775 1.4 1.6.6.825.6 1.4t-.275 1.012q-.275.438-.725.713V21h-9v-6h-4v6Z"
   }));
 });
-IconMaterialMotionModeFilled.displayName = 'AmauiIconMaterialMotionModeFilled';
+IconMaterialMosqueFilled.displayName = 'AmauiIconMaterialMosqueFilled';
 
 
 const IconMaterialMotionPhotosAutoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -24220,6 +24207,19 @@ const IconMaterialMotionPhotosAutoFilled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialMotionPhotosAutoFilled.displayName = 'AmauiIconMaterialMotionPhotosAutoFilled';
+
+
+const IconMaterialMotionModeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MotionModeFilled",
+    short_name: "MotionMode",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5 4.85v14.3q-.425-.425-.8-.9-.375-.475-.7-.975V6.725q.325-.5.7-.975.375-.475.8-.9Zm4-2.4v19.1q-.525-.175-1.025-.387-.5-.213-.975-.488V3.325q.475-.275.975-.488.5-.212 1.025-.387Zm7 18.725V2.825Q18.65 4 20.325 6.45 22 8.9 22 12q0 3.1-1.675 5.55Q18.65 20 16 21.175ZM12 22q-.25 0-.5-.012-.25-.013-.5-.038V2.05q.25-.025.5-.038Q11.75 2 12 2q.5 0 1 .05t1 .15v19.6q-.5.1-1 .15-.5.05-1 .05Z"
+  }));
+});
+IconMaterialMotionModeFilled.displayName = 'AmauiIconMaterialMotionModeFilled';
 
 
 const IconMaterialMotionPhotosOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -24365,19 +24365,6 @@ const IconMaterialMoveDownFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialMoveDownFilled.displayName = 'AmauiIconMaterialMoveDownFilled';
 
 
-const IconMaterialMoveFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MoveFilled",
-    short_name: "Move",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M440 776q-7 0-12-4t-7-10q-14-42-34-70t-40-54q-20-26-33.5-54T300 516q0-58 41-99t99-41q58 0 99 41t41 99q0 40-13.5 68T533 638q-20 26-40 54t-34 70q-2 6-7 10t-12 4Zm0-210q21 0 35.5-14.5T490 516q0-21-14.5-35.5T440 466q-21 0-35.5 14.5T390 516q0 21 14.5 35.5T440 566Zm0 370q-150 0-255-105T80 576q0-75 28.5-140.5t77-114q48.5-48.5 114-77T440 216q75 0 140.5 28.5t114 77q48.5 48.5 77 114T800 576v8l53-54 57 56-150 150-150-150 57-56 53 53v-7q0-116-82-198t-198-82q-116 0-198 82t-82 198q1 116 82.5 198T440 856q57 0 107-21.5t88-58.5l57 57q-49 48-113.5 75.5T440 936Z"
-  }));
-});
-IconMaterialMoveFilled.displayName = 'AmauiIconMaterialMoveFilled';
-
-
 const IconMaterialMoveGroupFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -24389,6 +24376,19 @@ const IconMaterialMoveGroupFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialMoveGroupFilled.displayName = 'AmauiIconMaterialMoveGroupFilled';
+
+
+const IconMaterialMoveFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MoveFilled",
+    short_name: "Move",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M440 776q-7 0-12-4t-7-10q-14-42-34-70t-40-54q-20-26-33.5-54T300 516q0-58 41-99t99-41q58 0 99 41t41 99q0 40-13.5 68T533 638q-20 26-40 54t-34 70q-2 6-7 10t-12 4Zm0-210q21 0 35.5-14.5T490 516q0-21-14.5-35.5T440 466q-21 0-35.5 14.5T390 516q0 21 14.5 35.5T440 566Zm0 370q-150 0-255-105T80 576q0-75 28.5-140.5t77-114q48.5-48.5 114-77T440 216q75 0 140.5 28.5t114 77q48.5 48.5 77 114T800 576v8l53-54 57 56-150 150-150-150 57-56 53 53v-7q0-116-82-198t-198-82q-116 0-198 82t-82 198q1 116 82.5 198T440 856q57 0 107-21.5t88-58.5l57 57q-49 48-113.5 75.5T440 936Z"
+  }));
+});
+IconMaterialMoveFilled.displayName = 'AmauiIconMaterialMoveFilled';
 
 
 const IconMaterialMoveItemFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -24521,19 +24521,6 @@ const IconMaterialMovieEditFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialMovieEditFilled.displayName = 'AmauiIconMaterialMovieEditFilled';
 
 
-const IconMaterialMovieFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MovieFilled",
-    short_name: "Movie",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 20V4h2l2 4h3L7 4h2l2 4h3l-2-4h2l2 4h3l-2-4h5v16Z"
-  }));
-});
-IconMaterialMovieFilled.displayName = 'AmauiIconMaterialMovieFilled';
-
-
 const IconMaterialMovieFilterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -24545,6 +24532,19 @@ const IconMaterialMovieFilterFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialMovieFilterFilled.displayName = 'AmauiIconMaterialMovieFilterFilled';
+
+
+const IconMaterialMovieFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MovieFilled",
+    short_name: "Movie",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 20V4h2l2 4h3L7 4h2l2 4h3l-2-4h2l2 4h3l-2-4h5v16Z"
+  }));
+});
+IconMaterialMovieFilled.displayName = 'AmauiIconMaterialMovieFilled';
 
 
 const IconMaterialMovieInfoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -24612,17 +24612,17 @@ const IconMaterialMpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialMpFilled.displayName = 'AmauiIconMaterialMpFilled';
 
 
-const IconMaterialMulticookerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialMultipleStopFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "MulticookerFilled",
-    short_name: "Multicooker",
+    name: "MultipleStopFilled",
+    short_name: "MultipleStop",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 8V7q0-.825.587-1.412Q4.175 5 5 5h3V4q0-.825.588-1.413Q9.175 2 10 2h4q.825 0 1.413.587Q16 3.175 16 4v1h3q.825 0 1.413.588Q21 6.175 21 7v1Zm7-3h4V4h-4ZM5 21q-.825 0-1.413-.587Q3 19.825 3 19v-9h4v2q0 .825.588 1.412Q8.175 14 9 14h6q.825 0 1.413-.588Q17 12.825 17 12v-2h4v9q0 .825-.587 1.413Q19.825 21 19 21Zm4-11h6v2H9Zm-1 6q-.425 0-.713.288Q7 16.575 7 17t.287.712Q7.575 18 8 18t.713-.288Q9 17.425 9 17t-.287-.712Q8.425 16 8 16Zm4 0q-.425 0-.712.288Q11 16.575 11 17t.288.712Q11.575 18 12 18t.713-.288Q13 17.425 13 17t-.287-.712Q12.425 16 12 16Zm4 0q-.425 0-.712.288Q15 16.575 15 17t.288.712Q15.575 18 16 18t.712-.288Q17 17.425 17 17t-.288-.712Q16.425 16 16 16Z"
+    d: "m7 20-4-4 4-4 1.425 1.4-1.6 1.6H11v2H6.825L8.4 18.6Zm7-3q-.425 0-.712-.288Q13 16.425 13 16t.288-.713Q13.575 15 14 15t.713.287Q15 15.575 15 16t-.287.712Q14.425 17 14 17Zm4 0q-.425 0-.712-.288Q17 16.425 17 16t.288-.713Q17.575 15 18 15t.712.287Q19 15.575 19 16t-.288.712Q18.425 17 18 17Zm-1-5-1.425-1.4 1.6-1.6H13V7h4.175L15.6 5.4 17 4l4 4ZM6 9q-.425 0-.713-.288Q5 8.425 5 8t.287-.713Q5.575 7 6 7t.713.287Q7 7.575 7 8t-.287.712Q6.425 9 6 9Zm4 0q-.425 0-.712-.288Q9 8.425 9 8t.288-.713Q9.575 7 10 7t.713.287Q11 7.575 11 8t-.287.712Q10.425 9 10 9Z"
   }));
 });
-IconMaterialMulticookerFilled.displayName = 'AmauiIconMaterialMulticookerFilled';
+IconMaterialMultipleStopFilled.displayName = 'AmauiIconMaterialMultipleStopFilled';
 
 
 const IconMaterialMultilineChartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -24638,19 +24638,6 @@ const IconMaterialMultilineChartFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialMultilineChartFilled.displayName = 'AmauiIconMaterialMultilineChartFilled';
 
 
-const IconMaterialMultipleStopFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "MultipleStopFilled",
-    short_name: "MultipleStop",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m7 20-4-4 4-4 1.425 1.4-1.6 1.6H11v2H6.825L8.4 18.6Zm7-3q-.425 0-.712-.288Q13 16.425 13 16t.288-.713Q13.575 15 14 15t.713.287Q15 15.575 15 16t-.287.712Q14.425 17 14 17Zm4 0q-.425 0-.712-.288Q17 16.425 17 16t.288-.713Q17.575 15 18 15t.712.287Q19 15.575 19 16t-.288.712Q18.425 17 18 17Zm-1-5-1.425-1.4 1.6-1.6H13V7h4.175L15.6 5.4 17 4l4 4ZM6 9q-.425 0-.713-.288Q5 8.425 5 8t.287-.713Q5.575 7 6 7t.713.287Q7 7.575 7 8t-.287.712Q6.425 9 6 9Zm4 0q-.425 0-.712-.288Q9 8.425 9 8t.288-.713Q9.575 7 10 7t.713.287Q11 7.575 11 8t-.287.712Q10.425 9 10 9Z"
-  }));
-});
-IconMaterialMultipleStopFilled.displayName = 'AmauiIconMaterialMultipleStopFilled';
-
-
 const IconMaterialMuseumFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -24662,6 +24649,19 @@ const IconMaterialMuseumFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialMuseumFilled.displayName = 'AmauiIconMaterialMuseumFilled';
+
+
+const IconMaterialMulticookerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "MulticookerFilled",
+    short_name: "Multicooker",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 8V7q0-.825.587-1.412Q4.175 5 5 5h3V4q0-.825.588-1.413Q9.175 2 10 2h4q.825 0 1.413.587Q16 3.175 16 4v1h3q.825 0 1.413.588Q21 6.175 21 7v1Zm7-3h4V4h-4ZM5 21q-.825 0-1.413-.587Q3 19.825 3 19v-9h4v2q0 .825.588 1.412Q8.175 14 9 14h6q.825 0 1.413-.588Q17 12.825 17 12v-2h4v9q0 .825-.587 1.413Q19.825 21 19 21Zm4-11h6v2H9Zm-1 6q-.425 0-.713.288Q7 16.575 7 17t.287.712Q7.575 18 8 18t.713-.288Q9 17.425 9 17t-.287-.712Q8.425 16 8 16Zm4 0q-.425 0-.712.288Q11 16.575 11 17t.288.712Q11.575 18 12 18t.713-.288Q13 17.425 13 17t-.287-.712Q12.425 16 12 16Zm4 0q-.425 0-.712.288Q15 16.575 15 17t.288.712Q15.575 18 16 18t.712-.288Q17 17.425 17 17t-.288-.712Q16.425 16 16 16Z"
+  }));
+});
+IconMaterialMulticookerFilled.displayName = 'AmauiIconMaterialMulticookerFilled';
 
 
 const IconMaterialMusicCastFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -24742,6 +24742,19 @@ const IconMaterialMysteryFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialMysteryFilled.displayName = 'AmauiIconMaterialMysteryFilled';
 
 
+const IconMaterialNatureFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NatureFilled",
+    short_name: "Nature",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5 22v-2h6v-4H9q-2.075 0-3.537-1.463Q4 13.075 4 11q0-1.5.825-2.763Q5.65 6.975 7.05 6.4q.225-1.875 1.638-3.138Q10.1 2 12 2t3.312 1.262Q16.725 4.525 16.95 6.4q1.4.575 2.225 1.837Q20 9.5 20 11q0 2.075-1.462 3.537Q17.075 16 15 16h-2v4h6v2Z"
+  }));
+});
+IconMaterialNatureFilled.displayName = 'AmauiIconMaterialNatureFilled';
+
+
 const IconMaterialNatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -24766,19 +24779,6 @@ const IconMaterialNaturePeopleFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialNaturePeopleFilled.displayName = 'AmauiIconMaterialNaturePeopleFilled';
-
-
-const IconMaterialNatureFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NatureFilled",
-    short_name: "Nature",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5 22v-2h6v-4H9q-2.075 0-3.537-1.463Q4 13.075 4 11q0-1.5.825-2.763Q5.65 6.975 7.05 6.4q.225-1.875 1.638-3.138Q10.1 2 12 2t3.312 1.262Q16.725 4.525 16.95 6.4q1.4.575 2.225 1.837Q20 9.5 20 11q0 2.075-1.462 3.537Q17.075 16 15 16h-2v4h6v2Z"
-  }));
-});
-IconMaterialNatureFilled.displayName = 'AmauiIconMaterialNatureFilled';
 
 
 const IconMaterialNavigateBeforeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -24989,19 +24989,6 @@ const IconMaterialNestCamOutdoorFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialNestCamOutdoorFilled.displayName = 'AmauiIconMaterialNestCamOutdoorFilled';
 
 
-const IconMaterialNestCamStandFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NestCamStandFilled",
-    short_name: "NestCamStand",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m3.825 21 .775-9.2q.175-2.125 1.375-3.75t3.05-2.425q.15-1.125.988-1.875Q10.85 3 12 3q1.15 0 1.988.737.837.738.987 1.863 1.85.8 3.063 2.437Q19.25 9.675 19.4 11.8l.775 9.2ZM12 11q.425 0 .713-.288Q13 10.425 13 10V6q0-.425-.287-.713Q12.425 5 12 5t-.712.287Q11 5.575 11 6v4q0 .425.288.712.287.288.712.288Z"
-  }));
-});
-IconMaterialNestCamStandFilled.displayName = 'AmauiIconMaterialNestCamStandFilled';
-
-
 const IconMaterialNestCamWallMountFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25039,6 +25026,19 @@ const IconMaterialNestClockFarsightAnalogFilled = /*#__PURE__*/React.forwardRef(
   }));
 });
 IconMaterialNestClockFarsightAnalogFilled.displayName = 'AmauiIconMaterialNestClockFarsightAnalogFilled';
+
+
+const IconMaterialNestCamStandFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NestCamStandFilled",
+    short_name: "NestCamStand",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m3.825 21 .775-9.2q.175-2.125 1.375-3.75t3.05-2.425q.15-1.125.988-1.875Q10.85 3 12 3q1.15 0 1.988.737.837.738.987 1.863 1.85.8 3.063 2.437Q19.25 9.675 19.4 11.8l.775 9.2ZM12 11q.425 0 .713-.288Q13 10.425 13 10V6q0-.425-.287-.713Q12.425 5 12 5t-.712.287Q11 5.575 11 6v4q0 .425.288.712.287.288.712.288Z"
+  }));
+});
+IconMaterialNestCamStandFilled.displayName = 'AmauiIconMaterialNestCamStandFilled';
 
 
 const IconMaterialNestClockFarsightDigitalFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25080,19 +25080,6 @@ const IconMaterialNestDetectFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialNestDetectFilled.displayName = 'AmauiIconMaterialNestDetectFilled';
 
 
-const IconMaterialNestDisplayMaxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NestDisplayMaxFilled",
-    short_name: "NestDisplayMax",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 10q-.425 0-.712-.288Q11 9.425 11 9t.288-.713Q11.575 8 12 8t.713.287Q13 8.575 13 9t-.287.712Q12.425 10 12 10Zm0 9q-2.5 0-4.25-.337Q6 18.325 6 17.85V17H4.175Q3.3 17 2.7 16.35q-.6-.65-.525-1.525l.675-8q.05-.775.625-1.3T4.85 5h14.3q.8 0 1.375.525t.625 1.3l.675 8q.075.875-.525 1.525-.6.65-1.475.65H18v.85q0 .475-1.75.813Q14.5 19 12 19Zm-7.825-4h15.65l-.675-8H4.85l-.675 8Z"
-  }));
-});
-IconMaterialNestDisplayMaxFilled.displayName = 'AmauiIconMaterialNestDisplayMaxFilled';
-
-
 const IconMaterialNestDisplayFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25104,6 +25091,19 @@ const IconMaterialNestDisplayFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialNestDisplayFilled.displayName = 'AmauiIconMaterialNestDisplayFilled';
+
+
+const IconMaterialNestDisplayMaxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NestDisplayMaxFilled",
+    short_name: "NestDisplayMax",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 10q-.425 0-.712-.288Q11 9.425 11 9t.288-.713Q11.575 8 12 8t.713.287Q13 8.575 13 9t-.287.712Q12.425 10 12 10Zm0 9q-2.5 0-4.25-.337Q6 18.325 6 17.85V17H4.175Q3.3 17 2.7 16.35q-.6-.65-.525-1.525l.675-8q.05-.775.625-1.3T4.85 5h14.3q.8 0 1.375.525t.625 1.3l.675 8q.075.875-.525 1.525-.6.65-1.475.65H18v.85q0 .475-1.75.813Q14.5 19 12 19Zm-7.825-4h15.65l-.675-8H4.85l-.675 8Z"
+  }));
+});
+IconMaterialNestDisplayMaxFilled.displayName = 'AmauiIconMaterialNestDisplayMaxFilled';
 
 
 const IconMaterialNestDoorbellVisitorFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25275,19 +25275,6 @@ const IconMaterialNestRemoteComfortSensorFilled = /*#__PURE__*/React.forwardRef(
 IconMaterialNestRemoteComfortSensorFilled.displayName = 'AmauiIconMaterialNestRemoteComfortSensorFilled';
 
 
-const IconMaterialNestSecureAlarmFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NestSecureAlarmFilled",
-    short_name: "NestSecureAlarm",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 13q.425 0 .713-.288Q13 12.425 13 12t-.287-.713Q12.425 11 12 11t-.712.287Q11 11.575 11 12t.288.712Q11.575 13 12 13Zm3 0q.425 0 .713-.288Q16 12.425 16 12t-.287-.713Q15.425 11 15 11t-.712.287Q14 11.575 14 12t.288.712Q14.575 13 15 13Zm-6 0q.425 0 .713-.288Q10 12.425 10 12t-.287-.713Q9.425 11 9 11t-.712.287Q8 11.575 8 12t.288.712Q8.575 13 9 13Zm3 3q.425 0 .713-.288Q13 15.425 13 15t-.287-.713Q12.425 14 12 14t-.712.287Q11 14.575 11 15t.288.712Q11.575 16 12 16Zm3 0q.425 0 .713-.288Q16 15.425 16 15t-.287-.713Q15.425 14 15 14t-.712.287Q14 14.575 14 15t.288.712Q14.575 16 15 16Zm-6 0q.425 0 .713-.288Q10 15.425 10 15t-.287-.713Q9.425 14 9 14t-.712.287Q8 14.575 8 15t.288.712Q8.575 16 9 16Zm3-6q.425 0 .713-.288Q13 9.425 13 9t-.287-.713Q12.425 8 12 8t-.712.287Q11 8.575 11 9t.288.712Q11.575 10 12 10Zm3 0q.425 0 .713-.288Q16 9.425 16 9t-.287-.713Q15.425 8 15 8t-.712.287Q14 8.575 14 9t.288.712Q14.575 10 15 10Zm-6 0q.425 0 .713-.288Q10 9.425 10 9t-.287-.713Q9.425 8 9 8t-.712.287Q8 8.575 8 9t.288.712Q8.575 10 9 10Zm3 12q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
-  }));
-});
-IconMaterialNestSecureAlarmFilled.displayName = 'AmauiIconMaterialNestSecureAlarmFilled';
-
-
 const IconMaterialNestRemoteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25301,6 +25288,19 @@ const IconMaterialNestRemoteFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialNestRemoteFilled.displayName = 'AmauiIconMaterialNestRemoteFilled';
 
 
+const IconMaterialNestSecureAlarmFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NestSecureAlarmFilled",
+    short_name: "NestSecureAlarm",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 13q.425 0 .713-.288Q13 12.425 13 12t-.287-.713Q12.425 11 12 11t-.712.287Q11 11.575 11 12t.288.712Q11.575 13 12 13Zm3 0q.425 0 .713-.288Q16 12.425 16 12t-.287-.713Q15.425 11 15 11t-.712.287Q14 11.575 14 12t.288.712Q14.575 13 15 13Zm-6 0q.425 0 .713-.288Q10 12.425 10 12t-.287-.713Q9.425 11 9 11t-.712.287Q8 11.575 8 12t.288.712Q8.575 13 9 13Zm3 3q.425 0 .713-.288Q13 15.425 13 15t-.287-.713Q12.425 14 12 14t-.712.287Q11 14.575 11 15t.288.712Q11.575 16 12 16Zm3 0q.425 0 .713-.288Q16 15.425 16 15t-.287-.713Q15.425 14 15 14t-.712.287Q14 14.575 14 15t.288.712Q14.575 16 15 16Zm-6 0q.425 0 .713-.288Q10 15.425 10 15t-.287-.713Q9.425 14 9 14t-.712.287Q8 14.575 8 15t.288.712Q8.575 16 9 16Zm3-6q.425 0 .713-.288Q13 9.425 13 9t-.287-.713Q12.425 8 12 8t-.712.287Q11 8.575 11 9t.288.712Q11.575 10 12 10Zm3 0q.425 0 .713-.288Q16 9.425 16 9t-.287-.713Q15.425 8 15 8t-.712.287Q14 8.575 14 9t.288.712Q14.575 10 15 10Zm-6 0q.425 0 .713-.288Q10 9.425 10 9t-.287-.713Q9.425 8 9 8t-.712.287Q8 8.575 8 9t.288.712Q8.575 10 9 10Zm3 12q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
+  }));
+});
+IconMaterialNestSecureAlarmFilled.displayName = 'AmauiIconMaterialNestSecureAlarmFilled';
+
+
 const IconMaterialNestSunblockFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25312,19 +25312,6 @@ const IconMaterialNestSunblockFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialNestSunblockFilled.displayName = 'AmauiIconMaterialNestSunblockFilled';
-
-
-const IconMaterialNestTagFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NestTagFilled",
-    short_name: "NestTag",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 22q-2.925 0-4.962-2.038Q5 17.925 5 15q0-2.4 1.4-4.225Q7.8 8.95 10 8.3V3q0-.425.288-.713Q10.575 2 11 2h2q.425 0 .713.287Q14 2.575 14 3v5.3q2.2.65 3.6 2.475Q19 12.6 19 15q0 2.925-2.038 4.962Q14.925 22 12 22Zm0-2q2.075 0 3.538-1.462Q17 17.075 17 15q0-2.075-1.462-3.538Q14.075 10 12 10q-2.075 0-3.537 1.462Q7 12.925 7 15q0 2.075 1.463 3.538Q9.925 20 12 20Z"
-  }));
-});
-IconMaterialNestTagFilled.displayName = 'AmauiIconMaterialNestTagFilled';
 
 
 const IconMaterialNestThermostatEEuFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25366,6 +25353,19 @@ const IconMaterialNestThermostatGen3Filled = /*#__PURE__*/React.forwardRef((prop
 IconMaterialNestThermostatGen3Filled.displayName = 'AmauiIconMaterialNestThermostatGen3Filled';
 
 
+const IconMaterialNestTagFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NestTagFilled",
+    short_name: "NestTag",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 22q-2.925 0-4.962-2.038Q5 17.925 5 15q0-2.4 1.4-4.225Q7.8 8.95 10 8.3V3q0-.425.288-.713Q10.575 2 11 2h2q.425 0 .713.287Q14 2.575 14 3v5.3q2.2.65 3.6 2.475Q19 12.6 19 15q0 2.925-2.038 4.962Q14.925 22 12 22Zm0-2q2.075 0 3.538-1.462Q17 17.075 17 15q0-2.075-1.462-3.538Q14.075 10 12 10q-2.075 0-3.537 1.462Q7 12.925 7 15q0 2.075 1.463 3.538Q9.925 20 12 20Z"
+  }));
+});
+IconMaterialNestTagFilled.displayName = 'AmauiIconMaterialNestTagFilled';
+
+
 const IconMaterialNestThermostatSensorEuFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25405,19 +25405,6 @@ const IconMaterialNestThermostatZirconiumEuFilled = /*#__PURE__*/React.forwardRe
 IconMaterialNestThermostatZirconiumEuFilled.displayName = 'AmauiIconMaterialNestThermostatZirconiumEuFilled';
 
 
-const IconMaterialNestTrueRadiantFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NestTrueRadiantFilled",
-    short_name: "NestTrueRadiant",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6 21q-1.25 0-2.125-.875T3 18V8h2v10q0 .425.287.712Q5.575 19 6 19t.713-.288Q7 18.425 7 18V6q0-1.25.875-2.125T10 3q1.25 0 2.125.875T13 6v12q0 .425.288.712.287.288.712.288t.713-.288Q15 18.425 15 18V6q0-1.25.875-2.125T18 3q1.25 0 2.125.875T21 6v10h-2V6q0-.425-.288-.713Q18.425 5 18 5t-.712.287Q17 5.575 17 6v12q0 1.25-.875 2.125T14 21q-1.25 0-2.125-.875T11 18V6q0-.425-.287-.713Q10.425 5 10 5t-.712.287Q9 5.575 9 6v12q0 1.25-.875 2.125T6 21Z"
-  }));
-});
-IconMaterialNestTrueRadiantFilled.displayName = 'AmauiIconMaterialNestTrueRadiantFilled';
-
-
 const IconMaterialNestWakeOnApproachFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25429,6 +25416,19 @@ const IconMaterialNestWakeOnApproachFilled = /*#__PURE__*/React.forwardRef((prop
   }));
 });
 IconMaterialNestWakeOnApproachFilled.displayName = 'AmauiIconMaterialNestWakeOnApproachFilled';
+
+
+const IconMaterialNestTrueRadiantFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NestTrueRadiantFilled",
+    short_name: "NestTrueRadiant",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6 21q-1.25 0-2.125-.875T3 18V8h2v10q0 .425.287.712Q5.575 19 6 19t.713-.288Q7 18.425 7 18V6q0-1.25.875-2.125T10 3q1.25 0 2.125.875T13 6v12q0 .425.288.712.287.288.712.288t.713-.288Q15 18.425 15 18V6q0-1.25.875-2.125T18 3q1.25 0 2.125.875T21 6v10h-2V6q0-.425-.288-.713Q18.425 5 18 5t-.712.287Q17 5.575 17 6v12q0 1.25-.875 2.125T14 21q-1.25 0-2.125-.875T11 18V6q0-.425-.287-.713Q10.425 5 10 5t-.712.287Q9 5.575 9 6v12q0 1.25-.875 2.125T6 21Z"
+  }));
+});
+IconMaterialNestTrueRadiantFilled.displayName = 'AmauiIconMaterialNestTrueRadiantFilled';
 
 
 const IconMaterialNestWakeOnPressFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25574,19 +25574,6 @@ const IconMaterialNetworkIntelligenceHistoryFilled = /*#__PURE__*/React.forwardR
 IconMaterialNetworkIntelligenceHistoryFilled.displayName = 'AmauiIconMaterialNetworkIntelligenceHistoryFilled';
 
 
-const IconMaterialNetworkIntelligenceUpdateFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NetworkIntelligenceUpdateFilled",
-    short_name: "NetworkIntelligenceUpdate",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M500-413v-147h100l-40-40h-60v-200h160l90 160h-58l-40-80h-92v40h68l40 80h104l59 103q-26-11-54-17t-57-6q-67 0-124.5 29T500-413ZM288-181l-78-139h58l40 80h92v-40h-68l-40-80H188l-68-120 68-120h104l40-80h68v-40h-92l-40 80h-58l90-160h160v200h-60l-40 40h100v120h-88l-40-80h-92l-40 40h108l40 80h112v56q-10 24-15 50t-5 54q0 17 1.5 34t6.5 34v12H323q-11 0-20.5-5.5T288-181Zm432 61 120-120-28-28-72 72v-164h-40v164l-72-72-28 28 120 120Zm0 80q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40Z"
-  }));
-});
-IconMaterialNetworkIntelligenceUpdateFilled.displayName = 'AmauiIconMaterialNetworkIntelligenceUpdateFilled';
-
-
 const IconMaterialNetworkLockedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25600,17 +25587,17 @@ const IconMaterialNetworkLockedFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialNetworkLockedFilled.displayName = 'AmauiIconMaterialNetworkLockedFilled';
 
 
-const IconMaterialNetworkManageFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialNetworkIntelligenceUpdateFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "NetworkManageFilled",
-    short_name: "NetworkManage",
-    viewBox: "0 96 960 960"
+    name: "NetworkIntelligenceUpdateFilled",
+    short_name: "NetworkIntelligenceUpdate",
+    viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M339 794q22-22 49.5-36t58.5-19q-5 19-8 38t-3 39q0 24 3.5 47t11.5 44L339 794Zm-85-84-84-86q62-62 142-95t168-33q49 0 96 10.5t90 30.5q-44 8-81.5 29T517 618q-9-1-18.5-1.5T480 616q-64 0-122.5 24.5T254 710ZM84 540 0 456q95-97 219.5-148.5T480 256q136 0 260.5 51.5T960 456l-84 84q-79-79-181.5-121.5T480 376q-112 0-214.5 42.5T84 540Zm676 76 12 60q12 5 22.5 10.5T816 700l58-18 40 68-46 40q2 12 2 26t-2 26l46 40-40 68-58-18q-11 8-21.5 13.5T772 956l-12 60h-80l-12-60q-12-5-22.5-10.5T624 932l-58 18-40-68 46-40q-2-12-2-26t2-26l-46-40 40-68 58 18q11-8 21.5-13.5T668 676l12-60h80Zm-40 120q-33 0-56.5 23.5T640 816q0 33 23.5 56.5T720 896q33 0 56.5-23.5T800 816q0-33-23.5-56.5T720 736Z"
+    d: "M500-413v-147h100l-40-40h-60v-200h160l90 160h-58l-40-80h-92v40h68l40 80h104l59 103q-26-11-54-17t-57-6q-67 0-124.5 29T500-413ZM288-181l-78-139h58l40 80h92v-40h-68l-40-80H188l-68-120 68-120h104l40-80h68v-40h-92l-40 80h-58l90-160h160v200h-60l-40 40h100v120h-88l-40-80h-92l-40 40h108l40 80h112v56q-10 24-15 50t-5 54q0 17 1.5 34t6.5 34v12H323q-11 0-20.5-5.5T288-181Zm432 61 120-120-28-28-72 72v-164h-40v164l-72-72-28 28 120 120Zm0 80q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40Z"
   }));
 });
-IconMaterialNetworkManageFilled.displayName = 'AmauiIconMaterialNetworkManageFilled';
+IconMaterialNetworkIntelligenceUpdateFilled.displayName = 'AmauiIconMaterialNetworkIntelligenceUpdateFilled';
 
 
 const IconMaterialNetworkNodeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25624,6 +25611,19 @@ const IconMaterialNetworkNodeFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialNetworkNodeFilled.displayName = 'AmauiIconMaterialNetworkNodeFilled';
+
+
+const IconMaterialNetworkManageFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NetworkManageFilled",
+    short_name: "NetworkManage",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M339 794q22-22 49.5-36t58.5-19q-5 19-8 38t-3 39q0 24 3.5 47t11.5 44L339 794Zm-85-84-84-86q62-62 142-95t168-33q49 0 96 10.5t90 30.5q-44 8-81.5 29T517 618q-9-1-18.5-1.5T480 616q-64 0-122.5 24.5T254 710ZM84 540 0 456q95-97 219.5-148.5T480 256q136 0 260.5 51.5T960 456l-84 84q-79-79-181.5-121.5T480 376q-112 0-214.5 42.5T84 540Zm676 76 12 60q12 5 22.5 10.5T816 700l58-18 40 68-46 40q2 12 2 26t-2 26l46 40-40 68-58-18q-11 8-21.5 13.5T772 956l-12 60h-80l-12-60q-12-5-22.5-10.5T624 932l-58 18-40-68 46-40q-2-12-2-26t2-26l-46-40 40-68 58 18q11-8 21.5-13.5T668 676l12-60h80Zm-40 120q-33 0-56.5 23.5T640 816q0 33 23.5 56.5T720 896q33 0 56.5-23.5T800 816q0-33-23.5-56.5T720 736Z"
+  }));
+});
+IconMaterialNetworkManageFilled.displayName = 'AmauiIconMaterialNetworkManageFilled';
 
 
 const IconMaterialNetworkPingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25678,6 +25678,19 @@ const IconMaterialNetworkWifi2BarFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialNetworkWifi2BarFilled.displayName = 'AmauiIconMaterialNetworkWifi2BarFilled';
 
 
+const IconMaterialNetworkWifi3BarFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NetworkWifi3BarFilled",
+    short_name: "NetworkWifi3Bar",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 21 0 9q2.4-2.45 5.5-3.725T12 4q3.425 0 6.525 1.275Q21.625 6.55 24 9Zm-6.2-9.05q1.325-.95 2.9-1.488 1.575-.537 3.3-.537 1.725 0 3.3.537 1.575.538 2.9 1.488l2.9-2.9q-1.95-1.475-4.262-2.263Q14.525 6 12 6t-4.838.787Q4.85 7.575 2.9 9.05Z"
+  }));
+});
+IconMaterialNetworkWifi3BarFilled.displayName = 'AmauiIconMaterialNetworkWifi3BarFilled';
+
+
 const IconMaterialNetworkWifi2BarLockedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25691,17 +25704,17 @@ const IconMaterialNetworkWifi2BarLockedFilled = /*#__PURE__*/React.forwardRef((p
 IconMaterialNetworkWifi2BarLockedFilled.displayName = 'AmauiIconMaterialNetworkWifi2BarLockedFilled';
 
 
-const IconMaterialNetworkWifi3BarFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialNetworkWifi3BarLockedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "NetworkWifi3BarFilled",
-    short_name: "NetworkWifi3Bar",
-    viewBox: "0 0 24 24"
+    name: "NetworkWifi3BarLockedFilled",
+    short_name: "NetworkWifi3BarLocked",
+    viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 21 0 9q2.4-2.45 5.5-3.725T12 4q3.425 0 6.525 1.275Q21.625 6.55 24 9Zm-6.2-9.05q1.325-.95 2.9-1.488 1.575-.537 3.3-.537 1.725 0 3.3.537 1.575.538 2.9 1.488l2.9-2.9q-1.95-1.475-4.262-2.263Q14.525 6 12 6t-4.838.787Q4.85 7.575 2.9 9.05Z"
+    d: "M480-120 0-600q96-98 220-149t260-51q137 0 261 51t219 149L859-499q-22-10-45-15t-48-6l78-78q-78-59-170.5-90.5T480-720q-101 0-193.5 31.5T116-598l116 116q53-38 116-59.5T480-563q56 0 108 14.5t98 40.5q-73 23-119.5 85.5T520-279q0 26 5 50.5t16 47.5l-61 61Zm160 0v-200h40v-40q0-33 23.5-56.5T760-440q33 0 56.5 23.5T840-360v40h40v200H640Zm80-200h80v-40q0-17-11.5-28.5T760-400q-17 0-28.5 11.5T720-360v40Z"
   }));
 });
-IconMaterialNetworkWifi3BarFilled.displayName = 'AmauiIconMaterialNetworkWifi3BarFilled';
+IconMaterialNetworkWifi3BarLockedFilled.displayName = 'AmauiIconMaterialNetworkWifi3BarLockedFilled';
 
 
 const IconMaterialNetworkWifiFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25728,19 +25741,6 @@ const IconMaterialNetworkWifiLockedFilled = /*#__PURE__*/React.forwardRef((props
   }));
 });
 IconMaterialNetworkWifiLockedFilled.displayName = 'AmauiIconMaterialNetworkWifiLockedFilled';
-
-
-const IconMaterialNetworkWifi3BarLockedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NetworkWifi3BarLockedFilled",
-    short_name: "NetworkWifi3BarLocked",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480-120 0-600q96-98 220-149t260-51q137 0 261 51t219 149L859-499q-22-10-45-15t-48-6l78-78q-78-59-170.5-90.5T480-720q-101 0-193.5 31.5T116-598l116 116q53-38 116-59.5T480-563q56 0 108 14.5t98 40.5q-73 23-119.5 85.5T520-279q0 26 5 50.5t16 47.5l-61 61Zm160 0v-200h40v-40q0-33 23.5-56.5T760-440q33 0 56.5 23.5T840-360v40h40v200H640Zm80-200h80v-40q0-17-11.5-28.5T760-400q-17 0-28.5 11.5T720-360v40Z"
-  }));
-});
-IconMaterialNetworkWifi3BarLockedFilled.displayName = 'AmauiIconMaterialNetworkWifi3BarLockedFilled';
 
 
 const IconMaterialNeurologyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25808,19 +25808,6 @@ const IconMaterialNewsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialNewsFilled.displayName = 'AmauiIconMaterialNewsFilled';
 
 
-const IconMaterialNewsmodeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NewsmodeFilled",
-    short_name: "Newsmode",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M80-120v-720h800v720H80Zm160-160h480v-80H240v80Zm0-160h160v-240H240v240Zm240 0h240v-80H480v80Zm0-160h240v-80H480v80Z"
-  }));
-});
-IconMaterialNewsmodeFilled.displayName = 'AmauiIconMaterialNewsmodeFilled';
-
-
 const IconMaterialNewspaperFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25832,6 +25819,19 @@ const IconMaterialNewspaperFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialNewspaperFilled.displayName = 'AmauiIconMaterialNewspaperFilled';
+
+
+const IconMaterialNewsmodeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NewsmodeFilled",
+    short_name: "Newsmode",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M80-120v-720h800v720H80Zm160-160h480v-80H240v80Zm0-160h160v-240H240v240Zm240 0h240v-80H480v80Zm0-160h240v-80H480v80Z"
+  }));
+});
+IconMaterialNewsmodeFilled.displayName = 'AmauiIconMaterialNewsmodeFilled';
 
 
 const IconMaterialNewsstandFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25873,19 +25873,6 @@ const IconMaterialNextWeekFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialNextWeekFilled.displayName = 'AmauiIconMaterialNextWeekFilled';
 
 
-const IconMaterialNightShelterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NightShelterFilled",
-    short_name: "NightShelter",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4 21V9l8-6 8 6v12Zm3-3h1v-1.5h8V18h1v-4q0-.825-.587-1.413Q15.825 12 15 12h-3.5v3.5H8V11H7Zm2.75-3q.525 0 .887-.363.363-.362.363-.887t-.363-.887q-.362-.363-.887-.363t-.887.363q-.363.362-.363.887t.363.887q.362.363.887.363Z"
-  }));
-});
-IconMaterialNightShelterFilled.displayName = 'AmauiIconMaterialNightShelterFilled';
-
-
 const IconMaterialNfcFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25899,17 +25886,17 @@ const IconMaterialNfcFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialNfcFilled.displayName = 'AmauiIconMaterialNfcFilled';
 
 
-const IconMaterialNightSightAutoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialNightShelterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "NightSightAutoFilled",
-    short_name: "NightSightAuto",
+    name: "NightShelterFilled",
+    short_name: "NightShelter",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 19q1.35 0 2.513-.538 1.162-.537 1.987-1.487-3.15-.2-5.325-2.488Q8 12.2 8 9q0-.325.025-.638.025-.312.075-.612-1.4.775-2.25 2.162Q5 11.3 5 13q0 2.5 1.75 4.25T11 19Zm0 2q-3.35 0-5.675-2.325Q3 16.35 3 13q0-3.35 2.325-5.675Q7.65 5 11 5q.125 0 .25.012.125.013.25.013-.725.8-1.113 1.812Q10 7.85 10 9q0 2.5 1.75 4.25T16 15q.8 0 1.525-.2.725-.2 1.375-.55-.45 2.875-2.662 4.812Q14.025 21 11 21Zm2.8-10L17 2h2l3.2 9h-1.9l-.7-2h-3.2l-.7 2Zm3.05-3.35h2.3L18 4Z"
+    d: "M4 21V9l8-6 8 6v12Zm3-3h1v-1.5h8V18h1v-4q0-.825-.587-1.413Q15.825 12 15 12h-3.5v3.5H8V11H7Zm2.75-3q.525 0 .887-.363.363-.362.363-.887t-.363-.887q-.362-.363-.887-.363t-.887.363q-.363.362-.363.887t.363.887q.362.363.887.363Z"
   }));
 });
-IconMaterialNightSightAutoFilled.displayName = 'AmauiIconMaterialNightSightAutoFilled';
+IconMaterialNightShelterFilled.displayName = 'AmauiIconMaterialNightShelterFilled';
 
 
 const IconMaterialNightSightAutoOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25923,6 +25910,19 @@ const IconMaterialNightSightAutoOffFilled = /*#__PURE__*/React.forwardRef((props
   }));
 });
 IconMaterialNightSightAutoOffFilled.displayName = 'AmauiIconMaterialNightSightAutoOffFilled';
+
+
+const IconMaterialNightSightAutoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NightSightAutoFilled",
+    short_name: "NightSightAuto",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11 19q1.35 0 2.513-.538 1.162-.537 1.987-1.487-3.15-.2-5.325-2.488Q8 12.2 8 9q0-.325.025-.638.025-.312.075-.612-1.4.775-2.25 2.162Q5 11.3 5 13q0 2.5 1.75 4.25T11 19Zm0 2q-3.35 0-5.675-2.325Q3 16.35 3 13q0-3.35 2.325-5.675Q7.65 5 11 5q.125 0 .25.012.125.013.25.013-.725.8-1.113 1.812Q10 7.85 10 9q0 2.5 1.75 4.25T16 15q.8 0 1.525-.2.725-.2 1.375-.55-.45 2.875-2.662 4.812Q14.025 21 11 21Zm2.8-10L17 2h2l3.2 9h-1.9l-.7-2h-3.2l-.7 2Zm3.05-3.35h2.3L18 4Z"
+  }));
+});
+IconMaterialNightSightAutoFilled.displayName = 'AmauiIconMaterialNightSightAutoFilled';
 
 
 const IconMaterialNightSightMaxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -25951,19 +25951,6 @@ const IconMaterialNightlifeFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialNightlifeFilled.displayName = 'AmauiIconMaterialNightlifeFilled';
 
 
-const IconMaterialNightlightBadgeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NightlightBadgeFilled",
-    short_name: "NightlightBadge",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480 976q-83 0-156-31.5T197 859q-54-54-85.5-127T80 576q0-83 31.5-156T197 293q54-54 127-85.5T480 176q83 0 156 31.5T763 293q54 54 85.5 127T880 576q0 83-31.5 156T763 859q-54 54-127 85.5T480 976Zm0-160q27 0 52-5t48-16q-63-29-101.5-87T440 576q0-74 38.5-132T580 357q-23-11-48-16t-52-5q-100 0-170 69.5T240 576q0 100 70 170t170 70Z"
-  }));
-});
-IconMaterialNightlightBadgeFilled.displayName = 'AmauiIconMaterialNightlightBadgeFilled';
-
-
 const IconMaterialNightlightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -25975,6 +25962,19 @@ const IconMaterialNightlightFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialNightlightFilled.displayName = 'AmauiIconMaterialNightlightFilled';
+
+
+const IconMaterialNightlightBadgeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NightlightBadgeFilled",
+    short_name: "NightlightBadge",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480 976q-83 0-156-31.5T197 859q-54-54-85.5-127T80 576q0-83 31.5-156T197 293q54-54 127-85.5T480 176q83 0 156 31.5T763 293q54 54 85.5 127T880 576q0 83-31.5 156T763 859q-54 54-127 85.5T480 976Zm0-160q27 0 52-5t48-16q-63-29-101.5-87T440 576q0-74 38.5-132T580 357q-23-11-48-16t-52-5q-100 0-170 69.5T240 576q0 100 70 170t170 70Z"
+  }));
+});
+IconMaterialNightlightBadgeFilled.displayName = 'AmauiIconMaterialNightlightBadgeFilled';
 
 
 const IconMaterialNightlightOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -26055,19 +26055,6 @@ const IconMaterialNoCrashFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialNoCrashFilled.displayName = 'AmauiIconMaterialNoCrashFilled';
 
 
-const IconMaterialNoDrinksFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NoDrinksFilled",
-    short_name: "NoDrinks",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m2.8 2.8 18.4 18.4-1.425 1.425L13 15.85V19h5v2H6v-2h5v-5l-1.2-1.35-8.4-8.425Zm3.05.2H21v2l-6.2 6.95L9.85 7h6.7l1.8-2H7.85Z"
-  }));
-});
-IconMaterialNoDrinksFilled.displayName = 'AmauiIconMaterialNoDrinksFilled';
-
-
 const IconMaterialNoEncryptionFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -26092,6 +26079,19 @@ const IconMaterialNoFlashFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialNoFlashFilled.displayName = 'AmauiIconMaterialNoFlashFilled';
+
+
+const IconMaterialNoDrinksFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NoDrinksFilled",
+    short_name: "NoDrinks",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m2.8 2.8 18.4 18.4-1.425 1.425L13 15.85V19h5v2H6v-2h5v-5l-1.2-1.35-8.4-8.425Zm3.05.2H21v2l-6.2 6.95L9.85 7h6.7l1.8-2H7.85Z"
+  }));
+});
+IconMaterialNoDrinksFilled.displayName = 'AmauiIconMaterialNoDrinksFilled';
 
 
 const IconMaterialNoFoodFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -26328,19 +26328,6 @@ const IconMaterialNotAccessibleForwardFilled = /*#__PURE__*/React.forwardRef((pr
 IconMaterialNotAccessibleForwardFilled.displayName = 'AmauiIconMaterialNotAccessibleForwardFilled';
 
 
-const IconMaterialNotListedLocationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NotListedLocationFilled",
-    short_name: "NotListedLocation",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 16q.425 0 .738-.312.312-.313.312-.738t-.312-.738Q12.425 13.9 12 13.9t-.737.312q-.313.313-.313.738t.313.738Q11.575 16 12 16Zm-.75-3.1h1.5q0-.475.038-.75.037-.275.112-.45.1-.2.288-.413.187-.212.612-.637.525-.525.788-1.05.262-.525.262-1.05 0-1.175-.775-1.862Q13.3 6 12 6q-1.025 0-1.8.575-.775.575-1.05 1.525l1.35.55q.175-.575.575-.888.4-.312.925-.312.6 0 .975.325t.375.825q0 .425-.187.737-.188.313-.663.713-.425.35-.675.638-.25.287-.375.562-.125.25-.162.613-.038.362-.038 1.037ZM12 22q-4.025-3.425-6.012-6.363Q4 12.7 4 10.2q0-3.75 2.413-5.975Q8.825 2 12 2t5.587 2.225Q20 6.45 20 10.2q0 2.5-1.987 5.437Q16.025 18.575 12 22Z"
-  }));
-});
-IconMaterialNotListedLocationFilled.displayName = 'AmauiIconMaterialNotListedLocationFilled';
-
-
 const IconMaterialNotStartedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -26352,6 +26339,19 @@ const IconMaterialNotStartedFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialNotStartedFilled.displayName = 'AmauiIconMaterialNotStartedFilled';
+
+
+const IconMaterialNotListedLocationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NotListedLocationFilled",
+    short_name: "NotListedLocation",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 16q.425 0 .738-.312.312-.313.312-.738t-.312-.738Q12.425 13.9 12 13.9t-.737.312q-.313.313-.313.738t.313.738Q11.575 16 12 16Zm-.75-3.1h1.5q0-.475.038-.75.037-.275.112-.45.1-.2.288-.413.187-.212.612-.637.525-.525.788-1.05.262-.525.262-1.05 0-1.175-.775-1.862Q13.3 6 12 6q-1.025 0-1.8.575-.775.575-1.05 1.525l1.35.55q.175-.575.575-.888.4-.312.925-.312.6 0 .975.325t.375.825q0 .425-.187.737-.188.313-.663.713-.425.35-.675.638-.25.287-.375.562-.125.25-.162.613-.038.362-.038 1.037ZM12 22q-4.025-3.425-6.012-6.363Q4 12.7 4 10.2q0-3.75 2.413-5.975Q8.825 2 12 2t5.587 2.225Q20 6.45 20 10.2q0 2.5-1.987 5.437Q16.025 18.575 12 22Z"
+  }));
+});
+IconMaterialNotListedLocationFilled.displayName = 'AmauiIconMaterialNotListedLocationFilled';
 
 
 const IconMaterialNoteAddFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -26419,19 +26419,6 @@ const IconMaterialNoteStackFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialNoteStackFilled.displayName = 'AmauiIconMaterialNoteStackFilled';
 
 
-const IconMaterialNotesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NotesFilled",
-    short_name: "Notes",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 18v-2h12v2Zm0-5v-2h18v2Zm0-5V6h18v2Z"
-  }));
-});
-IconMaterialNotesFilled.displayName = 'AmauiIconMaterialNotesFilled';
-
-
 const IconMaterialNotificationAddFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -26456,6 +26443,19 @@ const IconMaterialNotificationImportantFilled = /*#__PURE__*/React.forwardRef((p
   }));
 });
 IconMaterialNotificationImportantFilled.displayName = 'AmauiIconMaterialNotificationImportantFilled';
+
+
+const IconMaterialNotesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NotesFilled",
+    short_name: "Notes",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 18v-2h12v2Zm0-5v-2h18v2Zm0-5V6h18v2Z"
+  }));
+});
+IconMaterialNotesFilled.displayName = 'AmauiIconMaterialNotesFilled';
 
 
 const IconMaterialNotificationMultipleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -26484,19 +26484,6 @@ const IconMaterialNotificationsActiveFilled = /*#__PURE__*/React.forwardRef((pro
 IconMaterialNotificationsActiveFilled.displayName = 'AmauiIconMaterialNotificationsActiveFilled';
 
 
-const IconMaterialNotificationsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "NotificationsFilled",
-    short_name: "Notifications",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4 19v-2h2v-7q0-2.075 1.25-3.688Q8.5 4.7 10.5 4.2V2h3v2.2q2 .5 3.25 2.112Q18 7.925 18 10v7h2v2Zm8 3q-.825 0-1.412-.587Q10 20.825 10 20h4q0 .825-.587 1.413Q12.825 22 12 22Z"
-  }));
-});
-IconMaterialNotificationsFilled.displayName = 'AmauiIconMaterialNotificationsFilled';
-
-
 const IconMaterialNotificationsOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -26508,6 +26495,19 @@ const IconMaterialNotificationsOffFilled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialNotificationsOffFilled.displayName = 'AmauiIconMaterialNotificationsOffFilled';
+
+
+const IconMaterialNotificationsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "NotificationsFilled",
+    short_name: "Notifications",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4 19v-2h2v-7q0-2.075 1.25-3.688Q8.5 4.7 10.5 4.2V2h3v2.2q2 .5 3.25 2.112Q18 7.925 18 10v7h2v2Zm8 3q-.825 0-1.412-.587Q10 20.825 10 20h4q0 .825-.587 1.413Q12.825 22 12 22Z"
+  }));
+});
+IconMaterialNotificationsFilled.displayName = 'AmauiIconMaterialNotificationsFilled';
 
 
 const IconMaterialNotificationsPausedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -26809,19 +26809,6 @@ const IconMaterialOpenJamFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialOpenJamFilled.displayName = 'AmauiIconMaterialOpenJamFilled';
 
 
-const IconMaterialOpenWithFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "OpenWithFilled",
-    short_name: "OpenWith",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m12 22-4.25-4.25L9.2 16.3l1.8 1.85V14h2v4.15l1.8-1.85 1.45 1.45Zm-5.75-5.75L2 12l4.25-4.25 1.4 1.45-1.8 1.8H10v2H5.85l1.85 1.8Zm11.5 0L16.3 14.8l1.85-1.8H14v-2h4.15L16.3 9.2l1.45-1.45L22 12ZM11 10V5.85l-1.8 1.8-1.45-1.4L12 2l4.25 4.25L14.8 7.7 13 5.85V10Z"
-  }));
-});
-IconMaterialOpenWithFilled.displayName = 'AmauiIconMaterialOpenWithFilled';
-
-
 const IconMaterialOphthalmologyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -26833,6 +26820,19 @@ const IconMaterialOphthalmologyFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialOphthalmologyFilled.displayName = 'AmauiIconMaterialOphthalmologyFilled';
+
+
+const IconMaterialOpenWithFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "OpenWithFilled",
+    short_name: "OpenWith",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m12 22-4.25-4.25L9.2 16.3l1.8 1.85V14h2v4.15l1.8-1.85 1.45 1.45Zm-5.75-5.75L2 12l4.25-4.25 1.4 1.45-1.8 1.8H10v2H5.85l1.85 1.8Zm11.5 0L16.3 14.8l1.85-1.8H14v-2h4.15L16.3 9.2l1.45-1.45L22 12ZM11 10V5.85l-1.8 1.8-1.45-1.4L12 2l4.25 4.25L14.8 7.7 13 5.85V10Z"
+  }));
+});
+IconMaterialOpenWithFilled.displayName = 'AmauiIconMaterialOpenWithFilled';
 
 
 const IconMaterialOralDiseaseFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -26965,19 +26965,6 @@ const IconMaterialOutboxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialOutboxFilled.displayName = 'AmauiIconMaterialOutboxFilled';
 
 
-const IconMaterialOutdoorGardenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "OutdoorGardenFilled",
-    short_name: "OutdoorGarden",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 21V6l3-3 3 3v15Zm7 0V6l3-3 3 3v15Zm7 0V6l3-3 3 3v15Z"
-  }));
-});
-IconMaterialOutdoorGardenFilled.displayName = 'AmauiIconMaterialOutdoorGardenFilled';
-
-
 const IconMaterialOutdoorGrillFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -26989,6 +26976,19 @@ const IconMaterialOutdoorGrillFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialOutdoorGrillFilled.displayName = 'AmauiIconMaterialOutdoorGrillFilled';
+
+
+const IconMaterialOutdoorGardenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "OutdoorGardenFilled",
+    short_name: "OutdoorGarden",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 21V6l3-3 3 3v15Zm7 0V6l3-3 3 3v15Zm7 0V6l3-3 3 3v15Z"
+  }));
+});
+IconMaterialOutdoorGardenFilled.displayName = 'AmauiIconMaterialOutdoorGardenFilled';
 
 
 const IconMaterialOutgoingMailFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -27069,19 +27069,6 @@ const IconMaterialOutputFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialOutputFilled.displayName = 'AmauiIconMaterialOutputFilled';
 
 
-const IconMaterialOvenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "OvenFilled",
-    short_name: "Oven",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M120-600v-240h720v240H120Zm0 480v-440h720v440H120Zm200-560q17 0 28.5-11.5T360-720q0-17-11.5-28.5T320-760q-17 0-28.5 11.5T280-720q0 17 11.5 28.5T320-680Zm80 280h160v-80H400v80Zm80-280q17 0 28.5-11.5T520-720q0-17-11.5-28.5T480-760q-17 0-28.5 11.5T440-720q0 17 11.5 28.5T480-680Zm160 0q17 0 28.5-11.5T680-720q0-17-11.5-28.5T640-760q-17 0-28.5 11.5T600-720q0 17 11.5 28.5T640-680Z"
-  }));
-});
-IconMaterialOvenFilled.displayName = 'AmauiIconMaterialOvenFilled';
-
-
 const IconMaterialOvenGenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -27093,6 +27080,19 @@ const IconMaterialOvenGenFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialOvenGenFilled.displayName = 'AmauiIconMaterialOvenGenFilled';
+
+
+const IconMaterialOvenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "OvenFilled",
+    short_name: "Oven",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M120-600v-240h720v240H120Zm0 480v-440h720v440H120Zm200-560q17 0 28.5-11.5T360-720q0-17-11.5-28.5T320-760q-17 0-28.5 11.5T280-720q0 17 11.5 28.5T320-680Zm80 280h160v-80H400v80Zm80-280q17 0 28.5-11.5T520-720q0-17-11.5-28.5T480-760q-17 0-28.5 11.5T440-720q0 17 11.5 28.5T480-680Zm160 0q17 0 28.5-11.5T680-720q0-17-11.5-28.5T640-760q-17 0-28.5 11.5T600-720q0 17 11.5 28.5T640-680Z"
+  }));
+});
+IconMaterialOvenFilled.displayName = 'AmauiIconMaterialOvenFilled';
 
 
 const IconMaterialOverviewFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -27212,19 +27212,6 @@ const IconMaterialPaddingFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialPaddingFilled.displayName = 'AmauiIconMaterialPaddingFilled';
 
 
-const IconMaterialPageControlFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PageControlFilled",
-    short_name: "PageControl",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M160-400q-33 0-56.5-23.5T80-480q0-33 23.5-56.5T160-560q33 0 56.5 23.5T240-480q0 33-23.5 56.5T160-400Zm0-54q11 0 18.5-7.5T186-480q0-11-7.5-18.5T160-506q-11 0-18.5 7.5T134-480q0 11 7.5 18.5T160-454Zm214 54q-33 0-56.5-23.5T294-480q0-33 23.5-56.5T374-560q33 0 56.5 23.5T454-480q0 33-23.5 56.5T374-400Zm0-54q11 0 18.5-7.5T400-480q0-11-7.5-18.5T374-506q-11 0-18.5 7.5T348-480q0 11 7.5 18.5T374-454Zm212 54q-33 0-56.5-23.5T506-480q0-33 23.5-56.5T586-560q33 0 56.5 23.5T666-480q0 33-23.5 56.5T586-400Zm0-54q11 0 18.5-7.5T612-480q0-11-7.5-18.5T586-506q-11 0-18.5 7.5T560-480q0 11 7.5 18.5T586-454Zm214 54q-33 0-56.5-23.5T720-480q0-33 23.5-56.5T800-560q33 0 56.5 23.5T880-480q0 33-23.5 56.5T800-400Z"
-  }));
-});
-IconMaterialPageControlFilled.displayName = 'AmauiIconMaterialPageControlFilled';
-
-
 const IconMaterialPageInfoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -27249,6 +27236,19 @@ const IconMaterialPagelessFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialPagelessFilled.displayName = 'AmauiIconMaterialPagelessFilled';
+
+
+const IconMaterialPageControlFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PageControlFilled",
+    short_name: "PageControl",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M160-400q-33 0-56.5-23.5T80-480q0-33 23.5-56.5T160-560q33 0 56.5 23.5T240-480q0 33-23.5 56.5T160-400Zm0-54q11 0 18.5-7.5T186-480q0-11-7.5-18.5T160-506q-11 0-18.5 7.5T134-480q0 11 7.5 18.5T160-454Zm214 54q-33 0-56.5-23.5T294-480q0-33 23.5-56.5T374-560q33 0 56.5 23.5T454-480q0 33-23.5 56.5T374-400Zm0-54q11 0 18.5-7.5T400-480q0-11-7.5-18.5T374-506q-11 0-18.5 7.5T348-480q0 11 7.5 18.5T374-454Zm212 54q-33 0-56.5-23.5T506-480q0-33 23.5-56.5T586-560q33 0 56.5 23.5T666-480q0 33-23.5 56.5T586-400Zm0-54q11 0 18.5-7.5T612-480q0-11-7.5-18.5T586-506q-11 0-18.5 7.5T560-480q0 11 7.5 18.5T586-454Zm214 54q-33 0-56.5-23.5T720-480q0-33 23.5-56.5T800-560q33 0 56.5 23.5T880-480q0 33-23.5 56.5T800-400Z"
+  }));
+});
+IconMaterialPageControlFilled.displayName = 'AmauiIconMaterialPageControlFilled';
 
 
 const IconMaterialPagesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -27433,19 +27433,6 @@ const IconMaterialPanoramaWideAngleFilled = /*#__PURE__*/React.forwardRef((props
 IconMaterialPanoramaWideAngleFilled.displayName = 'AmauiIconMaterialPanoramaWideAngleFilled';
 
 
-const IconMaterialParaglidingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ParaglidingFilled",
-    short_name: "Paragliding",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 17q-.825 0-1.412-.587Q10 15.825 10 15q0-.825.588-1.413Q11.175 13 12 13t1.413.587Q14 14.175 14 15q0 .825-.587 1.413Q12.825 17 12 17Zm-3 7v-3.6q-2.125-.725-3.062-2.462Q5 16.2 5 14h2q0 2.525 1.275 3.762Q9.55 19 12 19t3.725-1.238Q17 16.525 17 14h2q0 2.2-.938 3.938Q17.125 19.675 15 20.4V24ZM5 13 3 8.3q-.125.075-.425.262-.3.188-.575.188-.425 0-.712-.288Q1 8.175 1 7.75v-3.5q0-1.775 3.225-3.013Q7.45 0 12 0q4.55 0 7.775 1.237Q23 2.475 23 4.25v3.5q0 .425-.288.712-.287.288-.712.288-.275 0-.575-.188-.3-.187-.425-.262L19 13h-2l-1.5-6.275q-.825-.125-1.7-.175-.875-.05-1.8-.05t-1.8.05q-.875.05-1.7.175L7 13Zm.875-1.75L6.9 6.975q-.7.15-1.325.325-.625.175-1.2.4Zm12.25-.025 1.5-3.525q-.575-.225-1.2-.4-.625-.175-1.325-.325Z"
-  }));
-});
-IconMaterialParaglidingFilled.displayName = 'AmauiIconMaterialParaglidingFilled';
-
-
 const IconMaterialParkFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -27483,6 +27470,19 @@ const IconMaterialPartlyCloudyNightFilled = /*#__PURE__*/React.forwardRef((props
   }));
 });
 IconMaterialPartlyCloudyNightFilled.displayName = 'AmauiIconMaterialPartlyCloudyNightFilled';
+
+
+const IconMaterialParaglidingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ParaglidingFilled",
+    short_name: "Paragliding",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 17q-.825 0-1.412-.587Q10 15.825 10 15q0-.825.588-1.413Q11.175 13 12 13t1.413.587Q14 14.175 14 15q0 .825-.587 1.413Q12.825 17 12 17Zm-3 7v-3.6q-2.125-.725-3.062-2.462Q5 16.2 5 14h2q0 2.525 1.275 3.762Q9.55 19 12 19t3.725-1.238Q17 16.525 17 14h2q0 2.2-.938 3.938Q17.125 19.675 15 20.4V24ZM5 13 3 8.3q-.125.075-.425.262-.3.188-.575.188-.425 0-.712-.288Q1 8.175 1 7.75v-3.5q0-1.775 3.225-3.013Q7.45 0 12 0q4.55 0 7.775 1.237Q23 2.475 23 4.25v3.5q0 .425-.288.712-.287.288-.712.288-.275 0-.575-.188-.3-.187-.425-.262L19 13h-2l-1.5-6.275q-.825-.125-1.7-.175-.875-.05-1.8-.05t-1.8.05q-.875.05-1.7.175L7 13Zm.875-1.75L6.9 6.975q-.7.15-1.325.325-.625.175-1.2.4Zm12.25-.025 1.5-3.525q-.575-.225-1.2-.4-.625-.175-1.325-.325Z"
+  }));
+});
+IconMaterialParaglidingFilled.displayName = 'AmauiIconMaterialParaglidingFilled';
 
 
 const IconMaterialPartnerExchangeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -27576,6 +27576,19 @@ const IconMaterialPatternFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialPatternFilled.displayName = 'AmauiIconMaterialPatternFilled';
 
 
+const IconMaterialPausePresentationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PausePresentationFilled",
+    short_name: "PausePresentation",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9 16h2V8H9Zm4 0h2V8h-2ZM2 20V4h20v16Z"
+  }));
+});
+IconMaterialPausePresentationFilled.displayName = 'AmauiIconMaterialPausePresentationFilled';
+
+
 const IconMaterialPauseCircleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -27600,19 +27613,6 @@ const IconMaterialPauseFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialPauseFilled.displayName = 'AmauiIconMaterialPauseFilled';
-
-
-const IconMaterialPausePresentationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PausePresentationFilled",
-    short_name: "PausePresentation",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 16h2V8H9Zm4 0h2V8h-2ZM2 20V4h20v16Z"
-  }));
-});
-IconMaterialPausePresentationFilled.displayName = 'AmauiIconMaterialPausePresentationFilled';
 
 
 const IconMaterialPaymentsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -27693,19 +27693,6 @@ const IconMaterialPenSize2Filled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialPenSize2Filled.displayName = 'AmauiIconMaterialPenSize2Filled';
 
 
-const IconMaterialPenSize3Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PenSize3Filled",
-    short_name: "PenSize3",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M218 838q-17-17-17-42t17-42l440-440q17-18 42-17.5t42 17.5q17 17 17.5 42T742 398L302 838q-17 17-42 17.5T218 838Z"
-  }));
-});
-IconMaterialPenSize3Filled.displayName = 'AmauiIconMaterialPenSize3Filled';
-
-
 const IconMaterialPenSize4Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -27730,6 +27717,19 @@ const IconMaterialPenSize5Filled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialPenSize5Filled.displayName = 'AmauiIconMaterialPenSize5Filled';
+
+
+const IconMaterialPenSize3Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PenSize3Filled",
+    short_name: "PenSize3",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M218 838q-17-17-17-42t17-42l440-440q17-18 42-17.5t42 17.5q17 17 17.5 42T742 398L302 838q-17 17-42 17.5T218 838Z"
+  }));
+});
+IconMaterialPenSize3Filled.displayName = 'AmauiIconMaterialPenSize3Filled';
 
 
 const IconMaterialPendingActionsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -27784,19 +27784,6 @@ const IconMaterialPercentFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialPercentFilled.displayName = 'AmauiIconMaterialPercentFilled';
 
 
-const IconMaterialPerformanceMaxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PerformanceMaxFilled",
-    short_name: "PerformanceMax",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M80-160v-640h800v640H80Zm466-120 214-214-56-57-158 158-146-146-200 200 56 57 144-144 146 146Zm4-220 28-62 62-28-62-28-28-62-28 62-62 28 62 28 28 62Z"
-  }));
-});
-IconMaterialPerformanceMaxFilled.displayName = 'AmauiIconMaterialPerformanceMaxFilled';
-
-
 const IconMaterialPergolaFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -27808,6 +27795,19 @@ const IconMaterialPergolaFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialPergolaFilled.displayName = 'AmauiIconMaterialPergolaFilled';
+
+
+const IconMaterialPerformanceMaxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PerformanceMaxFilled",
+    short_name: "PerformanceMax",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M80-160v-640h800v640H80Zm466-120 214-214-56-57-158 158-146-146-200 200 56 57 144-144 146 146Zm4-220 28-62 62-28-62-28-28-62-28 62-62 28 62 28 28 62Z"
+  }));
+});
+IconMaterialPerformanceMaxFilled.displayName = 'AmauiIconMaterialPerformanceMaxFilled';
 
 
 const IconMaterialPermCameraMicFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28018,19 +28018,6 @@ const IconMaterialPersonCancelFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialPersonCancelFilled.displayName = 'AmauiIconMaterialPersonCancelFilled';
 
 
-const IconMaterialPersonCelebrateFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PersonCelebrateFilled",
-    short_name: "PersonCelebrate",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M360-120v-200q-62-5-121.5-14T120-360l20-80q83 23 168 31.5t172 8.5q86 0 171-8.5T820-440l20 80q-60 17-119.5 26T600-320v200H360Zm120-320q-34 0-57-23t-23-57q0-33 23-56.5t57-23.5q33 0 56.5 23.5T560-520q0 34-23.5 57T480-440ZM180-560q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T240-620q0 26-17.5 43T180-560Zm600 0q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T840-620q0 26-17.5 43T780-560ZM290-710q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T350-770q0 26-17.5 43T290-710Zm380 0q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T730-770q0 26-17.5 43T670-710Zm-190-50q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T540-820q0 26-17.5 43T480-760Z"
-  }));
-});
-IconMaterialPersonCelebrateFilled.displayName = 'AmauiIconMaterialPersonCelebrateFilled';
-
-
 const IconMaterialPersonCheckFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -28042,6 +28029,19 @@ const IconMaterialPersonCheckFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialPersonCheckFilled.displayName = 'AmauiIconMaterialPersonCheckFilled';
+
+
+const IconMaterialPersonCelebrateFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PersonCelebrateFilled",
+    short_name: "PersonCelebrate",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M360-120v-200q-62-5-121.5-14T120-360l20-80q83 23 168 31.5t172 8.5q86 0 171-8.5T820-440l20 80q-60 17-119.5 26T600-320v200H360Zm120-320q-34 0-57-23t-23-57q0-33 23-56.5t57-23.5q33 0 56.5 23.5T560-520q0 34-23.5 57T480-440ZM180-560q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T240-620q0 26-17.5 43T180-560Zm600 0q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T840-620q0 26-17.5 43T780-560ZM290-710q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T350-770q0 26-17.5 43T290-710Zm380 0q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T730-770q0 26-17.5 43T670-710Zm-190-50q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T540-820q0 26-17.5 43T480-760Z"
+  }));
+});
+IconMaterialPersonCelebrateFilled.displayName = 'AmauiIconMaterialPersonCelebrateFilled';
 
 
 const IconMaterialPersonEditFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28174,19 +28174,6 @@ const IconMaterialPersonSearchFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialPersonSearchFilled.displayName = 'AmauiIconMaterialPersonSearchFilled';
 
 
-const IconMaterialPersonalBagFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PersonalBagFilled",
-    short_name: "PersonalBag",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M200-80v-400q0-85 44.5-152T360-732v-28q0-50 35-85t85-35q50 0 85 35t35 85v28q71 33 115.5 100T760-480v400H200Zm120-320h240v80h80v-160H320v80Zm120-356q11-2 20-3t20-1q11 0 20 1t20 3v-4q0-17-11.5-28.5T480-800q-17 0-28.5 11.5T440-760v4Z"
-  }));
-});
-IconMaterialPersonalBagFilled.displayName = 'AmauiIconMaterialPersonalBagFilled';
-
-
 const IconMaterialPersonalBagOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -28198,6 +28185,19 @@ const IconMaterialPersonalBagOffFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialPersonalBagOffFilled.displayName = 'AmauiIconMaterialPersonalBagOffFilled';
+
+
+const IconMaterialPersonalBagFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PersonalBagFilled",
+    short_name: "PersonalBag",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M200-80v-400q0-85 44.5-152T360-732v-28q0-50 35-85t85-35q50 0 85 35t35 85v28q71 33 115.5 100T760-480v400H200Zm120-320h240v80h80v-160H320v80Zm120-356q11-2 20-3t20-1q11 0 20 1t20 3v-4q0-17-11.5-28.5T480-800q-17 0-28.5 11.5T440-760v4Z"
+  }));
+});
+IconMaterialPersonalBagFilled.displayName = 'AmauiIconMaterialPersonalBagFilled';
 
 
 const IconMaterialPersonalBagQuestionFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28239,19 +28239,6 @@ const IconMaterialPersonalPlacesFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialPersonalPlacesFilled.displayName = 'AmauiIconMaterialPersonalPlacesFilled';
 
 
-const IconMaterialPestControlFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PestControlFilled",
-    short_name: "PestControl",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 21q-1.6 0-2.863-.825Q7.875 19.35 7.075 18L4.7 19.35l-1-1.725 2.575-1.5q-.075-.275-.125-.563-.05-.287-.1-.562H3v-2h3.05q.05-.3.1-.588.05-.287.125-.562L3.7 10.35l1-1.725L7.05 10q.2-.35.463-.688.262-.337.537-.612Q8 8.525 8 8.35V8q0-.6.175-1.15.175-.55.475-1.025L7 4.175 8.4 2.75l1.75 1.7q.425-.225.888-.338Q11.5 4 12 4q.5 0 .975.125t.9.35L15.6 2.75 17 4.175l-1.65 1.65q.3.475.462 1.025.163.55.163 1.15v.337q0 .163-.05.338.275.275.537.625.263.35.463.7L19.3 8.65l1 1.725-2.6 1.475q.075.275.138.562.062.288.112.588H21v2h-3.05q-.05.3-.1.587-.05.288-.125.563l2.575 1.5-1 1.725L16.925 18q-.8 1.35-2.062 2.175Q13.6 21 12 21ZM10.1 7.35q.425-.175.912-.262Q11.5 7 12 7t.963.075q.462.075.887.25-.2-.575-.7-.95Q12.65 6 12 6q-.65 0-1.175.387-.525.388-.725.963ZM12 19q1.825 0 2.913-1.525Q16 15.95 16 14q0-1.75-1.012-3.375Q13.975 9 12 9q-1.95 0-2.975 1.613Q8 12.225 8 14q0 1.95 1.088 3.475Q10.175 19 12 19Zm-1-2v-6h2v6Z"
-  }));
-});
-IconMaterialPestControlFilled.displayName = 'AmauiIconMaterialPestControlFilled';
-
-
 const IconMaterialPestControlRodentFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -28263,6 +28250,19 @@ const IconMaterialPestControlRodentFilled = /*#__PURE__*/React.forwardRef((props
   }));
 });
 IconMaterialPestControlRodentFilled.displayName = 'AmauiIconMaterialPestControlRodentFilled';
+
+
+const IconMaterialPestControlFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PestControlFilled",
+    short_name: "PestControl",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 21q-1.6 0-2.863-.825Q7.875 19.35 7.075 18L4.7 19.35l-1-1.725 2.575-1.5q-.075-.275-.125-.563-.05-.287-.1-.562H3v-2h3.05q.05-.3.1-.588.05-.287.125-.562L3.7 10.35l1-1.725L7.05 10q.2-.35.463-.688.262-.337.537-.612Q8 8.525 8 8.35V8q0-.6.175-1.15.175-.55.475-1.025L7 4.175 8.4 2.75l1.75 1.7q.425-.225.888-.338Q11.5 4 12 4q.5 0 .975.125t.9.35L15.6 2.75 17 4.175l-1.65 1.65q.3.475.462 1.025.163.55.163 1.15v.337q0 .163-.05.338.275.275.537.625.263.35.463.7L19.3 8.65l1 1.725-2.6 1.475q.075.275.138.562.062.288.112.588H21v2h-3.05q-.05.3-.1.587-.05.288-.125.563l2.575 1.5-1 1.725L16.925 18q-.8 1.35-2.062 2.175Q13.6 21 12 21ZM10.1 7.35q.425-.175.912-.262Q11.5 7 12 7t.963.075q.462.075.887.25-.2-.575-.7-.95Q12.65 6 12 6q-.65 0-1.175.387-.525.388-.725.963ZM12 19q1.825 0 2.913-1.525Q16 15.95 16 14q0-1.75-1.012-3.375Q13.975 9 12 9q-1.95 0-2.975 1.613Q8 12.225 8 14q0 1.95 1.088 3.475Q10.175 19 12 19Zm-1-2v-6h2v6Z"
+  }));
+});
+IconMaterialPestControlFilled.displayName = 'AmauiIconMaterialPestControlFilled';
 
 
 const IconMaterialPetSuppliesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28434,19 +28434,6 @@ const IconMaterialPhoneLockedFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialPhoneLockedFilled.displayName = 'AmauiIconMaterialPhoneLockedFilled';
 
 
-const IconMaterialPhoneMissedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PhoneMissedFilled",
-    short_name: "PhoneMissed",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.025 21 .4 17.475q2.35-2.75 5.35-4.112Q8.75 12 12 12t6.238 1.363q2.987 1.362 5.362 4.112L19.975 21 16 18v-3.35q-.95-.3-1.95-.475T12 14q-1.05 0-2.05.175-1 .175-1.95.475V18ZM12 11.4 7.05 6.45v2.6h-2v-6h6v2h-2.6l3.525 3.525 5.65-5.65L19.05 4.35Z"
-  }));
-});
-IconMaterialPhoneMissedFilled.displayName = 'AmauiIconMaterialPhoneMissedFilled';
-
-
 const IconMaterialPhonePausedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -28458,6 +28445,19 @@ const IconMaterialPhonePausedFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialPhonePausedFilled.displayName = 'AmauiIconMaterialPhonePausedFilled';
+
+
+const IconMaterialPhoneMissedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PhoneMissedFilled",
+    short_name: "PhoneMissed",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.025 21 .4 17.475q2.35-2.75 5.35-4.112Q8.75 12 12 12t6.238 1.363q2.987 1.362 5.362 4.112L19.975 21 16 18v-3.35q-.95-.3-1.95-.475T12 14q-1.05 0-2.05.175-1 .175-1.95.475V18ZM12 11.4 7.05 6.45v2.6h-2v-6h6v2h-2.6l3.525 3.525 5.65-5.65L19.05 4.35Z"
+  }));
+});
+IconMaterialPhoneMissedFilled.displayName = 'AmauiIconMaterialPhoneMissedFilled';
 
 
 const IconMaterialPhonelinkEraseFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28564,6 +28564,19 @@ const IconMaterialPhotoAutoMergeFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialPhotoAutoMergeFilled.displayName = 'AmauiIconMaterialPhotoAutoMergeFilled';
 
 
+const IconMaterialPhotoCameraBackFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PhotoCameraBackFilled",
+    short_name: "PhotoCameraBack",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6 17h12l-3.75-5-3 4L9 13Zm-4 4V5h5.15L9 3h6l1.85 2H22v16Z"
+  }));
+});
+IconMaterialPhotoCameraBackFilled.displayName = 'AmauiIconMaterialPhotoCameraBackFilled';
+
+
 const IconMaterialPhotoCameraFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -28588,19 +28601,6 @@ const IconMaterialPhotoCameraFrontFilled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialPhotoCameraFrontFilled.displayName = 'AmauiIconMaterialPhotoCameraFrontFilled';
-
-
-const IconMaterialPhotoCameraBackFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PhotoCameraBackFilled",
-    short_name: "PhotoCameraBack",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6 17h12l-3.75-5-3 4L9 13Zm-4 4V5h5.15L9 3h6l1.85 2H22v16Z"
-  }));
-});
-IconMaterialPhotoCameraBackFilled.displayName = 'AmauiIconMaterialPhotoCameraBackFilled';
 
 
 const IconMaterialPhotoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28720,19 +28720,6 @@ const IconMaterialPhysicalTherapyFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialPhysicalTherapyFilled.displayName = 'AmauiIconMaterialPhysicalTherapyFilled';
 
 
-const IconMaterialPianoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PianoFilled",
-    short_name: "Piano",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 21V3h18v18Zm2-2h3.25v-4.5H7V5H5Zm10.75 0H19V5h-2v9.5h-1.25Zm-6 0h4.5v-4.5H13V5h-2v9.5H9.75Z"
-  }));
-});
-IconMaterialPianoFilled.displayName = 'AmauiIconMaterialPianoFilled';
-
-
 const IconMaterialPianoOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -28744,6 +28731,19 @@ const IconMaterialPianoOffFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialPianoOffFilled.displayName = 'AmauiIconMaterialPianoOffFilled';
+
+
+const IconMaterialPianoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PianoFilled",
+    short_name: "Piano",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 21V3h18v18Zm2-2h3.25v-4.5H7V5H5Zm10.75 0H19V5h-2v9.5h-1.25Zm-6 0h4.5v-4.5H13V5h-2v9.5H9.75Z"
+  }));
+});
+IconMaterialPianoFilled.displayName = 'AmauiIconMaterialPianoFilled';
 
 
 const IconMaterialPictureAsPdfFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28785,19 +28785,6 @@ const IconMaterialPictureInPictureCenterFilled = /*#__PURE__*/React.forwardRef((
 IconMaterialPictureInPictureCenterFilled.displayName = 'AmauiIconMaterialPictureInPictureCenterFilled';
 
 
-const IconMaterialPictureInPictureFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PictureInPictureFilled",
-    short_name: "PictureInPicture",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 13h8V7h-8Zm-9 7V4h20v16Zm13-10Z"
-  }));
-});
-IconMaterialPictureInPictureFilled.displayName = 'AmauiIconMaterialPictureInPictureFilled';
-
-
 const IconMaterialPictureInPictureLargeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -28822,6 +28809,19 @@ const IconMaterialPictureInPictureMediumFilled = /*#__PURE__*/React.forwardRef((
   }));
 });
 IconMaterialPictureInPictureMediumFilled.displayName = 'AmauiIconMaterialPictureInPictureMediumFilled';
+
+
+const IconMaterialPictureInPictureFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PictureInPictureFilled",
+    short_name: "PictureInPicture",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11 13h8V7h-8Zm-9 7V4h20v16Zm13-10Z"
+  }));
+});
+IconMaterialPictureInPictureFilled.displayName = 'AmauiIconMaterialPictureInPictureFilled';
 
 
 const IconMaterialPictureInPictureMobileFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28876,19 +28876,6 @@ const IconMaterialPieChartFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialPieChartFilled.displayName = 'AmauiIconMaterialPieChartFilled';
 
 
-const IconMaterialPillFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PillFilled",
-    short_name: "Pill",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m668 707 106-107q32-32 49-73t17-86q0-94-65.5-159.5T615 216q-45 0-86 17t-73 49L349 388l319 319ZM345 936q45 0 86-17t73-49l107-106-319-319-106 107q-32 32-49 73t-17 86q0 94 65.5 159.5T345 936Z"
-  }));
-});
-IconMaterialPillFilled.displayName = 'AmauiIconMaterialPillFilled';
-
-
 const IconMaterialPillOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -28900,6 +28887,19 @@ const IconMaterialPillOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialPillOffFilled.displayName = 'AmauiIconMaterialPillOffFilled';
+
+
+const IconMaterialPillFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PillFilled",
+    short_name: "Pill",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m668 707 106-107q32-32 49-73t17-86q0-94-65.5-159.5T615 216q-45 0-86 17t-73 49L349 388l319 319ZM345 936q45 0 86-17t73-49l107-106-319-319-106 107q-32 32-49 73t-17 86q0 94 65.5 159.5T345 936Z"
+  }));
+});
+IconMaterialPillFilled.displayName = 'AmauiIconMaterialPillFilled';
 
 
 const IconMaterialPinDropFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -28993,19 +28993,6 @@ const IconMaterialPinchZoomOutFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialPinchZoomOutFilled.displayName = 'AmauiIconMaterialPinchZoomOutFilled';
 
 
-const IconMaterialPipExitFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PipExitFilled",
-    short_name: "PipExit",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M80 896V536h360V256h440v640H80Zm603-140 57-57-124-123h104v-80H480v240h80V633l123 123ZM80 456V256h280v200H80Z"
-  }));
-});
-IconMaterialPipExitFilled.displayName = 'AmauiIconMaterialPipExitFilled';
-
-
 const IconMaterialPipFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -29019,17 +29006,17 @@ const IconMaterialPipFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialPipFilled.displayName = 'AmauiIconMaterialPipFilled';
 
 
-const IconMaterialPivotTableChartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialPipExitFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "PivotTableChartFilled",
-    short_name: "PivotTableChart",
-    viewBox: "0 0 24 24"
+    name: "PipExitFilled",
+    short_name: "PipExit",
+    viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10 8V3h11v5ZM3 21V10h5v11ZM3 8V3h5v5Zm10 14-4-4 4-4 1.4 1.4-1.55 1.6H15q.825 0 1.413-.587Q17 15.825 17 15v-2.2l-1.6 1.6L14 13l4-4 4 4-1.4 1.4-1.6-1.6V15q0 1.65-1.175 2.825Q16.65 19 15 19h-2.15l1.55 1.6Z"
+    d: "M80 896V536h360V256h440v640H80Zm603-140 57-57-124-123h104v-80H480v240h80V633l123 123ZM80 456V256h280v200H80Z"
   }));
 });
-IconMaterialPivotTableChartFilled.displayName = 'AmauiIconMaterialPivotTableChartFilled';
+IconMaterialPipExitFilled.displayName = 'AmauiIconMaterialPipExitFilled';
 
 
 const IconMaterialPixel33xl3aFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29045,17 +29032,17 @@ const IconMaterialPixel33xl3aFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialPixel33xl3aFilled.displayName = 'AmauiIconMaterialPixel33xl3aFilled';
 
 
-const IconMaterialPlaceItemFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialPivotTableChartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "PlaceItemFilled",
-    short_name: "PlaceItem",
+    name: "PivotTableChartFilled",
+    short_name: "PivotTableChart",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5 21q-.825 0-1.413-.587Q3 19.825 3 19V9q0-.825.587-1.413Q4.175 7 5 7h4v2H5v10h14V9h-4V7h4q.825 0 1.413.587Q21 8.175 21 9v10q0 .825-.587 1.413Q19.825 21 19 21Zm7-5-4-4 1.4-1.4 1.6 1.575V0h2v12.175l1.6-1.575L16 12Z"
+    d: "M10 8V3h11v5ZM3 21V10h5v11ZM3 8V3h5v5Zm10 14-4-4 4-4 1.4 1.4-1.55 1.6H15q.825 0 1.413-.587Q17 15.825 17 15v-2.2l-1.6 1.6L14 13l4-4 4 4-1.4 1.4-1.6-1.6V15q0 1.65-1.175 2.825Q16.65 19 15 19h-2.15l1.55 1.6Z"
   }));
 });
-IconMaterialPlaceItemFilled.displayName = 'AmauiIconMaterialPlaceItemFilled';
+IconMaterialPivotTableChartFilled.displayName = 'AmauiIconMaterialPivotTableChartFilled';
 
 
 const IconMaterialPlagiarismFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29071,17 +29058,17 @@ const IconMaterialPlagiarismFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialPlagiarismFilled.displayName = 'AmauiIconMaterialPlagiarismFilled';
 
 
-const IconMaterialPlannerBannerAdPtFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialPlaceItemFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "PlannerBannerAdPtFilled",
-    short_name: "PlannerBannerAdPt",
-    viewBox: "0 -960 960 960"
+    name: "PlaceItemFilled",
+    short_name: "PlaceItem",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M160-80v-800h640v800H160Zm120-160h400L542-420l-92 120-62-80-108 140Z"
+    d: "M5 21q-.825 0-1.413-.587Q3 19.825 3 19V9q0-.825.587-1.413Q4.175 7 5 7h4v2H5v10h14V9h-4V7h4q.825 0 1.413.587Q21 8.175 21 9v10q0 .825-.587 1.413Q19.825 21 19 21Zm7-5-4-4 1.4-1.4 1.6 1.575V0h2v12.175l1.6-1.575L16 12Z"
   }));
 });
-IconMaterialPlannerBannerAdPtFilled.displayName = 'AmauiIconMaterialPlannerBannerAdPtFilled';
+IconMaterialPlaceItemFilled.displayName = 'AmauiIconMaterialPlaceItemFilled';
 
 
 const IconMaterialPlannerReviewFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29097,6 +29084,19 @@ const IconMaterialPlannerReviewFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialPlannerReviewFilled.displayName = 'AmauiIconMaterialPlannerReviewFilled';
 
 
+const IconMaterialPlayCircleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PlayCircleFilled",
+    short_name: "PlayCircle",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m9.5 16.5 7-4.5-7-4.5ZM12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
+  }));
+});
+IconMaterialPlayCircleFilled.displayName = 'AmauiIconMaterialPlayCircleFilled';
+
+
 const IconMaterialPlayArrowFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -29110,17 +29110,17 @@ const IconMaterialPlayArrowFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialPlayArrowFilled.displayName = 'AmauiIconMaterialPlayArrowFilled';
 
 
-const IconMaterialPlayCircleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialPlannerBannerAdPtFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "PlayCircleFilled",
-    short_name: "PlayCircle",
-    viewBox: "0 0 24 24"
+    name: "PlannerBannerAdPtFilled",
+    short_name: "PlannerBannerAdPt",
+    viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m9.5 16.5 7-4.5-7-4.5ZM12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
+    d: "M160-80v-800h640v800H160Zm120-160h400L542-420l-92 120-62-80-108 140Z"
   }));
 });
-IconMaterialPlayCircleFilled.displayName = 'AmauiIconMaterialPlayCircleFilled';
+IconMaterialPlannerBannerAdPtFilled.displayName = 'AmauiIconMaterialPlannerBannerAdPtFilled';
 
 
 const IconMaterialPlayDisabledFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29175,19 +29175,6 @@ const IconMaterialPlayPauseFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialPlayPauseFilled.displayName = 'AmauiIconMaterialPlayPauseFilled';
 
 
-const IconMaterialPlayShapesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PlayShapesFilled",
-    short_name: "PlayShapes",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m80-520 200-360 200 360H80Zm200 400q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm240 0v-320h320v320H520Zm56-420-56-56 104-104-104-104 56-56 104 104 104-104 56 56-104 104 104 104-56 56-104-104-104 104Z"
-  }));
-});
-IconMaterialPlayShapesFilled.displayName = 'AmauiIconMaterialPlayShapesFilled';
-
-
 const IconMaterialPlayingCardsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -29199,6 +29186,19 @@ const IconMaterialPlayingCardsFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialPlayingCardsFilled.displayName = 'AmauiIconMaterialPlayingCardsFilled';
+
+
+const IconMaterialPlayShapesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PlayShapesFilled",
+    short_name: "PlayShapes",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m80-520 200-360 200 360H80Zm200 400q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm240 0v-320h320v320H520Zm56-420-56-56 104-104-104-104 56-56 104 104 104-104 56 56-104 104 104 104-56 56-104-104-104 104Z"
+  }));
+});
+IconMaterialPlayShapesFilled.displayName = 'AmauiIconMaterialPlayShapesFilled';
 
 
 const IconMaterialPlaylistAddCheckCircleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29318,19 +29318,6 @@ const IconMaterialPodiatryFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialPodiatryFilled.displayName = 'AmauiIconMaterialPodiatryFilled';
 
 
-const IconMaterialPodiumFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PodiumFilled",
-    short_name: "Podium",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M500 276q0 33-23.5 56.5T420 356q-13 0-24-3.5T374 341q-24 8-38.5 29T321 416h519l-40 280H693l19-190H248l19 190H160l-40-280h120q0-49 27-89t73-59q3-31 26-51.5t54-20.5q33 0 56.5 23.5T500 276ZM347 906h266l32-340H315l32 340Z"
-  }));
-});
-IconMaterialPodiumFilled.displayName = 'AmauiIconMaterialPodiumFilled';
-
-
 const IconMaterialPointOfSaleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -29342,6 +29329,19 @@ const IconMaterialPointOfSaleFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialPointOfSaleFilled.displayName = 'AmauiIconMaterialPointOfSaleFilled';
+
+
+const IconMaterialPodiumFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PodiumFilled",
+    short_name: "Podium",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M500 276q0 33-23.5 56.5T420 356q-13 0-24-3.5T374 341q-24 8-38.5 29T321 416h519l-40 280H693l19-190H248l19 190H160l-40-280h120q0-49 27-89t73-59q3-31 26-51.5t54-20.5q33 0 56.5 23.5T500 276ZM347 906h266l32-340H315l32 340Z"
+  }));
+});
+IconMaterialPodiumFilled.displayName = 'AmauiIconMaterialPodiumFilled';
 
 
 const IconMaterialPointScanFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29422,19 +29422,6 @@ const IconMaterialPortableWifiOffFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialPortableWifiOffFilled.displayName = 'AmauiIconMaterialPortableWifiOffFilled';
 
 
-const IconMaterialPortraitLightingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PortraitLightingFilled",
-    short_name: "PortraitLighting",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480 576q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160 896V784q0-34 17.5-62.5T224 678q62-31 126-46.5T480 616q66 0 130 15.5T736 678q29 15 46.5 43.5T800 784v112H160Zm320-80h240v-32q0-11-5.5-20T700 750q-54-27-109-40.5T480 696v120Zm0-320q33 0 56.5-23.5T560 416q0-33-23.5-56.5T480 336v160Z"
-  }));
-});
-IconMaterialPortraitLightingFilled.displayName = 'AmauiIconMaterialPortraitLightingFilled';
-
-
 const IconMaterialPortraitLightingOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -29446,6 +29433,19 @@ const IconMaterialPortraitLightingOffFilled = /*#__PURE__*/React.forwardRef((pro
   }));
 });
 IconMaterialPortraitLightingOffFilled.displayName = 'AmauiIconMaterialPortraitLightingOffFilled';
+
+
+const IconMaterialPortraitLightingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PortraitLightingFilled",
+    short_name: "PortraitLighting",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480 576q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160 896V784q0-34 17.5-62.5T224 678q62-31 126-46.5T480 616q66 0 130 15.5T736 678q29 15 46.5 43.5T800 784v112H160Zm320-80h240v-32q0-11-5.5-20T700 750q-54-27-109-40.5T480 696v120Zm0-320q33 0 56.5-23.5T560 416q0-33-23.5-56.5T480 336v160Z"
+  }));
+});
+IconMaterialPortraitLightingFilled.displayName = 'AmauiIconMaterialPortraitLightingFilled';
 
 
 const IconMaterialPositionBottomLeftFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29526,19 +29526,6 @@ const IconMaterialPottedPlantFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialPottedPlantFilled.displayName = 'AmauiIconMaterialPottedPlantFilled';
 
 
-const IconMaterialPowerInputFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PowerInputFilled",
-    short_name: "PowerInput",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 15v-2h5v2Zm7 0v-2h5v2Zm7 0v-2h5v2ZM2 11V9h19v2Z"
-  }));
-});
-IconMaterialPowerInputFilled.displayName = 'AmauiIconMaterialPowerInputFilled';
-
-
 const IconMaterialPowerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -29550,6 +29537,19 @@ const IconMaterialPowerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialPowerFilled.displayName = 'AmauiIconMaterialPowerFilled';
+
+
+const IconMaterialPowerInputFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PowerInputFilled",
+    short_name: "PowerInput",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 15v-2h5v2Zm7 0v-2h5v2Zm7 0v-2h5v2ZM2 11V9h19v2Z"
+  }));
+});
+IconMaterialPowerInputFilled.displayName = 'AmauiIconMaterialPowerInputFilled';
 
 
 const IconMaterialPowerOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29630,19 +29630,6 @@ const IconMaterialPregnancyFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialPregnancyFilled.displayName = 'AmauiIconMaterialPregnancyFilled';
 
 
-const IconMaterialPregnantWomanFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PregnantWomanFilled",
-    short_name: "PregnantWoman",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 6q-.825 0-1.412-.588Q9 4.825 9 4t.588-1.413Q10.175 2 11 2t1.413.587Q13 3.175 13 4q0 .825-.587 1.412Q11.825 6 11 6Zm-1 16v-5H8v-7q0-1.25.875-2.125T11 7q1.25 0 2.125.875T14 10q.9.375 1.45 1.2.55.825.55 1.8v4h-3v5Z"
-  }));
-});
-IconMaterialPregnantWomanFilled.displayName = 'AmauiIconMaterialPregnantWomanFilled';
-
-
 const IconMaterialPreliminaryFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -29654,6 +29641,19 @@ const IconMaterialPreliminaryFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialPreliminaryFilled.displayName = 'AmauiIconMaterialPreliminaryFilled';
+
+
+const IconMaterialPregnantWomanFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PregnantWomanFilled",
+    short_name: "PregnantWoman",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11 6q-.825 0-1.412-.588Q9 4.825 9 4t.588-1.413Q10.175 2 11 2t1.413.587Q13 3.175 13 4q0 .825-.587 1.412Q11.825 6 11 6Zm-1 16v-5H8v-7q0-1.25.875-2.125T11 7q1.25 0 2.125.875T14 10q.9.375 1.45 1.2.55.825.55 1.8v4h-3v5Z"
+  }));
+});
+IconMaterialPregnantWomanFilled.displayName = 'AmauiIconMaterialPregnantWomanFilled';
 
 
 const IconMaterialPrescriptionsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29682,19 +29682,6 @@ const IconMaterialPresentToAllFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialPresentToAllFilled.displayName = 'AmauiIconMaterialPresentToAllFilled';
 
 
-const IconMaterialPreviewFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PreviewFilled",
-    short_name: "Preview",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 15.5q1.4 0 2.55-.663 1.15-.662 1.8-1.837-.65-1.175-1.8-1.838Q13.4 10.5 12 10.5t-2.55.662Q8.3 11.825 7.65 13q.65 1.175 1.8 1.837 1.15.663 2.55.663Zm0 1.5q-2.05 0-3.662-1.113Q6.725 14.775 6 13q.725-1.775 2.338-2.887Q9.95 9 12 9t3.663 1.113Q17.275 11.225 18 13q-.725 1.775-2.337 2.887Q14.05 17 12 17Zm0-2.5q-.625 0-1.062-.438Q10.5 13.625 10.5 13t.438-1.062Q11.375 11.5 12 11.5t1.062.438q.438.437.438 1.062t-.438 1.062q-.437.438-1.062.438ZM3 21V3h18v18Zm2-2h14V7H5Z"
-  }));
-});
-IconMaterialPreviewFilled.displayName = 'AmauiIconMaterialPreviewFilled';
-
-
 const IconMaterialPreviewOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -29706,6 +29693,19 @@ const IconMaterialPreviewOffFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialPreviewOffFilled.displayName = 'AmauiIconMaterialPreviewOffFilled';
+
+
+const IconMaterialPreviewFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PreviewFilled",
+    short_name: "Preview",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 15.5q1.4 0 2.55-.663 1.15-.662 1.8-1.837-.65-1.175-1.8-1.838Q13.4 10.5 12 10.5t-2.55.662Q8.3 11.825 7.65 13q.65 1.175 1.8 1.837 1.15.663 2.55.663Zm0 1.5q-2.05 0-3.662-1.113Q6.725 14.775 6 13q.725-1.775 2.338-2.887Q9.95 9 12 9t3.663 1.113Q17.275 11.225 18 13q-.725 1.775-2.337 2.887Q14.05 17 12 17Zm0-2.5q-.625 0-1.062-.438Q10.5 13.625 10.5 13t.438-1.062Q11.375 11.5 12 11.5t1.062.438q.438.437.438 1.062t-.438 1.062q-.437.438-1.062.438ZM3 21V3h18v18Zm2-2h14V7H5Z"
+  }));
+});
+IconMaterialPreviewFilled.displayName = 'AmauiIconMaterialPreviewFilled';
 
 
 const IconMaterialPriceChangeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29734,19 +29734,6 @@ const IconMaterialPriceCheckFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialPriceCheckFilled.displayName = 'AmauiIconMaterialPriceCheckFilled';
 
 
-const IconMaterialPrintConnectFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PrintConnectFilled",
-    short_name: "PrintConnect",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M718 903 604 790l57-56 57 56 141-141 57 56-198 198Zm-478 33V776H80V416h800v150q-27-14-56.5-22t-60.5-8q-78 0-141.5 44T530 696H320v160h204q7 22 17 42t24 38H240Zm0-560V216h480v160H240Z"
-  }));
-});
-IconMaterialPrintConnectFilled.displayName = 'AmauiIconMaterialPrintConnectFilled';
-
-
 const IconMaterialPrintAddFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -29758,6 +29745,19 @@ const IconMaterialPrintAddFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialPrintAddFilled.displayName = 'AmauiIconMaterialPrintAddFilled';
+
+
+const IconMaterialPrintConnectFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PrintConnectFilled",
+    short_name: "PrintConnect",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M718 903 604 790l57-56 57 56 141-141 57 56-198 198Zm-478 33V776H80V416h800v150q-27-14-56.5-22t-60.5-8q-78 0-141.5 44T530 696H320v160h204q7 22 17 42t24 38H240Zm0-560V216h480v160H240Z"
+  }));
+});
+IconMaterialPrintConnectFilled.displayName = 'AmauiIconMaterialPrintConnectFilled';
 
 
 const IconMaterialPrintDisabledFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -29981,19 +29981,6 @@ const IconMaterialProgressActivityFilled = /*#__PURE__*/React.forwardRef((props,
 IconMaterialProgressActivityFilled.displayName = 'AmauiIconMaterialProgressActivityFilled';
 
 
-const IconMaterialPropaneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PropaneFilled",
-    short_name: "Propane",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10 6h4V5h-4ZM7 21v-3q-2.5 0-4.25-1.75T1 12q0-2.5 1.75-4.25T7 6h1V3h8v3h1q2.5 0 4.25 1.75T23 12q0 2.5-1.75 4.25T17 18v3h-2v-3H9v3Z"
-  }));
-});
-IconMaterialPropaneFilled.displayName = 'AmauiIconMaterialPropaneFilled';
-
-
 const IconMaterialPromptSuggestionFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -30005,6 +29992,19 @@ const IconMaterialPromptSuggestionFilled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialPromptSuggestionFilled.displayName = 'AmauiIconMaterialPromptSuggestionFilled';
+
+
+const IconMaterialPropaneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PropaneFilled",
+    short_name: "Propane",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10 6h4V5h-4ZM7 21v-3q-2.5 0-4.25-1.75T1 12q0-2.5 1.75-4.25T7 6h1V3h8v3h1q2.5 0 4.25 1.75T23 12q0 2.5-1.75 4.25T17 18v3h-2v-3H9v3Z"
+  }));
+});
+IconMaterialPropaneFilled.displayName = 'AmauiIconMaterialPropaneFilled';
 
 
 const IconMaterialPropaneTankFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -30046,19 +30046,6 @@ const IconMaterialPsychologyAltFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialPsychologyAltFilled.displayName = 'AmauiIconMaterialPsychologyAltFilled';
 
 
-const IconMaterialPsychologyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "PsychologyFilled",
-    short_name: "Psychology",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 21v-3H6v-5H4.5q-.25 0-.438-.262-.187-.263.038-.538l1.925-2.55Q6.15 7 8.1 5q1.95-2 4.9-2 2.9 0 4.95 2.05Q20 7.1 20 10q0 2.125-1.112 3.8-1.113 1.675-2.888 2.55V21Zm3-7h2l.15-1.25q.2-.075.35-.163.15-.087.3-.237l1.15.5 1-1.7-1-.75q.05-.2.05-.4t-.05-.4l1-.75-1-1.7-1.15.5q-.15-.15-.3-.238-.15-.087-.35-.162L14 6h-2l-.15 1.25q-.2.075-.35.162-.15.088-.3.238l-1.15-.5-1 1.7 1 .75q-.05.2-.05.4t.05.4l-1 .75 1 1.7 1.15-.5q.15.15.3.237.15.088.35.163Zm1-2.5q-.65 0-1.075-.425Q11.5 10.65 11.5 10q0-.65.425-1.075Q12.35 8.5 13 8.5q.65 0 1.075.425.425.425.425 1.075 0 .65-.425 1.075-.425.425-1.075.425Z"
-  }));
-});
-IconMaterialPsychologyFilled.displayName = 'AmauiIconMaterialPsychologyFilled';
-
-
 const IconMaterialPublicFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -30083,6 +30070,19 @@ const IconMaterialPublicOffFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialPublicOffFilled.displayName = 'AmauiIconMaterialPublicOffFilled';
+
+
+const IconMaterialPsychologyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "PsychologyFilled",
+    short_name: "Psychology",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9 21v-3H6v-5H4.5q-.25 0-.438-.262-.187-.263.038-.538l1.925-2.55Q6.15 7 8.1 5q1.95-2 4.9-2 2.9 0 4.95 2.05Q20 7.1 20 10q0 2.125-1.112 3.8-1.113 1.675-2.888 2.55V21Zm3-7h2l.15-1.25q.2-.075.35-.163.15-.087.3-.237l1.15.5 1-1.7-1-.75q.05-.2.05-.4t-.05-.4l1-.75-1-1.7-1.15.5q-.15-.15-.3-.238-.15-.087-.35-.162L14 6h-2l-.15 1.25q-.2.075-.35.162-.15.088-.3.238l-1.15-.5-1 1.7 1 .75q-.05.2-.05.4t.05.4l-1 .75 1 1.7 1.15-.5q.15.15.3.237.15.088.35.163Zm1-2.5q-.65 0-1.075-.425Q11.5 10.65 11.5 10q0-.65.425-1.075Q12.35 8.5 13 8.5q.65 0 1.075.425.425.425.425 1.075 0 .65-.425 1.075-.425.425-1.075.425Z"
+  }));
+});
+IconMaterialPsychologyFilled.displayName = 'AmauiIconMaterialPsychologyFilled';
 
 
 const IconMaterialPublishFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -30215,19 +30215,6 @@ const IconMaterialQrCodeScannerFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialQrCodeScannerFilled.displayName = 'AmauiIconMaterialQrCodeScannerFilled';
 
 
-const IconMaterialQueryStatsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "QueryStatsFilled",
-    short_name: "QueryStats",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2.625 18.175 1 17l5-8 3 3.5L13 6l2.725 4.075q-.575.025-1.088.137-.512.113-1.012.313l-.55-.825-3.8 6.175L6.25 12.35ZM21.575 23l-3.125-3.125q-.5.35-1.113.525-.612.175-1.262.175-1.875 0-3.187-1.313-1.313-1.312-1.313-3.187 0-1.875 1.313-3.188 1.312-1.312 3.187-1.312 1.875 0 3.188 1.312 1.312 1.313 1.312 3.188 0 .65-.175 1.262-.175.613-.525 1.138l3.125 3.1Zm-5.5-4.425q1.05 0 1.775-.725.725-.725.725-1.775 0-1.05-.725-1.775-.725-.725-1.775-.725-1.05 0-1.775.725-.725.725-.725 1.775 0 1.05.725 1.775.725.725 1.775.725Zm2.225-8q-.475-.2-.988-.325-.512-.125-1.062-.15L21.375 2 23 3.175Z"
-  }));
-});
-IconMaterialQueryStatsFilled.displayName = 'AmauiIconMaterialQueryStatsFilled';
-
-
 const IconMaterialQuestionExchangeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -30239,6 +30226,19 @@ const IconMaterialQuestionExchangeFilled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialQuestionExchangeFilled.displayName = 'AmauiIconMaterialQuestionExchangeFilled';
+
+
+const IconMaterialQueryStatsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "QueryStatsFilled",
+    short_name: "QueryStats",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2.625 18.175 1 17l5-8 3 3.5L13 6l2.725 4.075q-.575.025-1.088.137-.512.113-1.012.313l-.55-.825-3.8 6.175L6.25 12.35ZM21.575 23l-3.125-3.125q-.5.35-1.113.525-.612.175-1.262.175-1.875 0-3.187-1.313-1.313-1.312-1.313-3.187 0-1.875 1.313-3.188 1.312-1.312 3.187-1.312 1.875 0 3.188 1.312 1.312 1.313 1.312 3.188 0 .65-.175 1.262-.175.613-.525 1.138l3.125 3.1Zm-5.5-4.425q1.05 0 1.775-.725.725-.725.725-1.775 0-1.05-.725-1.775-.725-.725-1.775-.725-1.05 0-1.775.725-.725.725-.725 1.775 0 1.05.725 1.775.725.725 1.775.725Zm2.225-8q-.475-.2-.988-.325-.512-.125-1.062-.15L21.375 2 23 3.175Z"
+  }));
+});
+IconMaterialQueryStatsFilled.displayName = 'AmauiIconMaterialQueryStatsFilled';
 
 
 const IconMaterialQuestionMarkFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -30436,19 +30436,6 @@ const IconMaterialRadioButtonPartialFilled = /*#__PURE__*/React.forwardRef((prop
 IconMaterialRadioButtonPartialFilled.displayName = 'AmauiIconMaterialRadioButtonPartialFilled';
 
 
-const IconMaterialRadioFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "RadioFilled",
-    short_name: "Radio",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 22V6.65L15.9 1l.65 1.65L8.3 6H22v16Zm2-11h12V9h2v2h2V8H4Zm4 8q1.05 0 1.775-.725.725-.725.725-1.775 0-1.05-.725-1.775Q9.05 14 8 14q-1.05 0-1.775.725Q5.5 15.45 5.5 16.5q0 1.05.725 1.775Q6.95 19 8 19Z"
-  }));
-});
-IconMaterialRadioFilled.displayName = 'AmauiIconMaterialRadioFilled';
-
-
 const IconMaterialRadioButtonUncheckedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -30462,6 +30449,19 @@ const IconMaterialRadioButtonUncheckedFilled = /*#__PURE__*/React.forwardRef((pr
 IconMaterialRadioButtonUncheckedFilled.displayName = 'AmauiIconMaterialRadioButtonUncheckedFilled';
 
 
+const IconMaterialRadioFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "RadioFilled",
+    short_name: "Radio",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 22V6.65L15.9 1l.65 1.65L8.3 6H22v16Zm2-11h12V9h2v2h2V8H4Zm4 8q1.05 0 1.775-.725.725-.725.725-1.775 0-1.05-.725-1.775Q9.05 14 8 14q-1.05 0-1.775.725Q5.5 15.45 5.5 16.5q0 1.05.725 1.775Q6.95 19 8 19Z"
+  }));
+});
+IconMaterialRadioFilled.displayName = 'AmauiIconMaterialRadioFilled';
+
+
 const IconMaterialRadiologyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -30473,6 +30473,19 @@ const IconMaterialRadiologyFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialRadiologyFilled.displayName = 'AmauiIconMaterialRadiologyFilled';
+
+
+const IconMaterialRainyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "RainyFilled",
+    short_name: "Rainy",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M13.95 21.9q-.375.2-.762.062-.388-.137-.588-.512l-1.5-3q-.2-.375-.062-.762.137-.388.512-.588.375-.2.762-.062.388.137.588.512l1.5 3q.2.375.063.762-.138.388-.513.588Zm6 0q-.375.2-.762.062-.388-.137-.588-.512l-1.5-3q-.2-.375-.062-.762.137-.388.512-.588.375-.2.762-.062.388.137.588.512l1.5 3q.2.375.063.762-.138.388-.513.588Zm-12 0q-.375.2-.762.062-.388-.137-.588-.512l-1.5-3q-.2-.375-.062-.762.137-.388.512-.588.375-.2.762-.062.388.137.588.512l1.5 3q.2.375.063.762-.138.388-.513.588ZM7.5 16q-2.275 0-3.887-1.613Q2 12.775 2 10.5q0-2.075 1.375-3.625 1.375-1.55 3.4-1.825.8-1.425 2.188-2.238Q10.35 2 12 2q2.25 0 3.912 1.438 1.663 1.437 2.013 3.587 1.725.15 2.9 1.425Q22 9.725 22 11.5q0 1.875-1.312 3.188Q19.375 16 17.5 16Z"
+  }));
+});
+IconMaterialRainyFilled.displayName = 'AmauiIconMaterialRainyFilled';
 
 
 const IconMaterialRailwayAlertFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -30499,19 +30512,6 @@ const IconMaterialRainyHeavyFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialRainyHeavyFilled.displayName = 'AmauiIconMaterialRainyHeavyFilled';
-
-
-const IconMaterialRainyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "RainyFilled",
-    short_name: "Rainy",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M13.95 21.9q-.375.2-.762.062-.388-.137-.588-.512l-1.5-3q-.2-.375-.062-.762.137-.388.512-.588.375-.2.762-.062.388.137.588.512l1.5 3q.2.375.063.762-.138.388-.513.588Zm6 0q-.375.2-.762.062-.388-.137-.588-.512l-1.5-3q-.2-.375-.062-.762.137-.388.512-.588.375-.2.762-.062.388.137.588.512l1.5 3q.2.375.063.762-.138.388-.513.588Zm-12 0q-.375.2-.762.062-.388-.137-.588-.512l-1.5-3q-.2-.375-.062-.762.137-.388.512-.588.375-.2.762-.062.388.137.588.512l1.5 3q.2.375.063.762-.138.388-.513.588ZM7.5 16q-2.275 0-3.887-1.613Q2 12.775 2 10.5q0-2.075 1.375-3.625 1.375-1.55 3.4-1.825.8-1.425 2.188-2.238Q10.35 2 12 2q2.25 0 3.912 1.438 1.663 1.437 2.013 3.587 1.725.15 2.9 1.425Q22 9.725 22 11.5q0 1.875-1.312 3.188Q19.375 16 17.5 16Z"
-  }));
-});
-IconMaterialRainyFilled.displayName = 'AmauiIconMaterialRainyFilled';
 
 
 const IconMaterialRainyLightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -30657,19 +30657,6 @@ const IconMaterialReadMoreFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialReadMoreFilled.displayName = 'AmauiIconMaterialReadMoreFilled';
 
 
-const IconMaterialReadinessScoreFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ReadinessScoreFilled",
-    short_name: "ReadinessScore",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M295-119q-36-1-68.5-18.5T165-189q-40-48-62.5-114.5T80-440q0-83 31.5-156T197-723q54-54 127-85.5T480-840q83 0 156 32t127 87q54 55 85.5 129T880-433q0 77-25 144t-71 113q-28 28-59 42.5T662-119q-18 0-36-4.5T590-137l-56-28q-12-6-25.5-9t-28.5-3q-15 0-28.5 3t-25.5 9l-56 28q-19 10-37.5 14.5T295-119Zm339-361h82q-15-88-81.5-144T480-680q-88 0-155 56.5T244-480h82q14-54 57-87t97-33q17 0 32 3t29 9L425-433l66 46 113-152q10 13 17.5 27.5T634-480Z"
-  }));
-});
-IconMaterialReadinessScoreFilled.displayName = 'AmauiIconMaterialReadinessScoreFilled';
-
-
 const IconMaterialRealEstateAgentFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -30694,6 +30681,19 @@ const IconMaterialRearCameraFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialRearCameraFilled.displayName = 'AmauiIconMaterialRearCameraFilled';
+
+
+const IconMaterialReadinessScoreFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ReadinessScoreFilled",
+    short_name: "ReadinessScore",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M295-119q-36-1-68.5-18.5T165-189q-40-48-62.5-114.5T80-440q0-83 31.5-156T197-723q54-54 127-85.5T480-840q83 0 156 32t127 87q54 55 85.5 129T880-433q0 77-25 144t-71 113q-28 28-59 42.5T662-119q-18 0-36-4.5T590-137l-56-28q-12-6-25.5-9t-28.5-3q-15 0-28.5 3t-25.5 9l-56 28q-19 10-37.5 14.5T295-119Zm339-361h82q-15-88-81.5-144T480-680q-88 0-155 56.5T244-480h82q14-54 57-87t97-33q17 0 32 3t29 9L425-433l66 46 113-152q10 13 17.5 27.5T634-480Z"
+  }));
+});
+IconMaterialReadinessScoreFilled.displayName = 'AmauiIconMaterialReadinessScoreFilled';
 
 
 const IconMaterialRebaseEditFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -30748,19 +30748,6 @@ const IconMaterialReceiptLongFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialReceiptLongFilled.displayName = 'AmauiIconMaterialReceiptLongFilled';
 
 
-const IconMaterialRecentPatientFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "RecentPatientFilled",
-    short_name: "RecentPatient",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M160 896V784q0-34 17.5-62.5T224 678q62-31 126-46.5T480 616q20 0 40 1.5t40 4.5v274H160Zm320-320q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm240 480V856h-80V616h240l-80 160h80l-160 280Z"
-  }));
-});
-IconMaterialRecentPatientFilled.displayName = 'AmauiIconMaterialRecentPatientFilled';
-
-
 const IconMaterialRecentActorsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -30772,6 +30759,19 @@ const IconMaterialRecentActorsFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialRecentActorsFilled.displayName = 'AmauiIconMaterialRecentActorsFilled';
+
+
+const IconMaterialRecentPatientFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "RecentPatientFilled",
+    short_name: "RecentPatient",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M160 896V784q0-34 17.5-62.5T224 678q62-31 126-46.5T480 616q20 0 40 1.5t40 4.5v274H160Zm320-320q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm240 480V856h-80V616h240l-80 160h80l-160 280Z"
+  }));
+});
+IconMaterialRecentPatientFilled.displayName = 'AmauiIconMaterialRecentPatientFilled';
 
 
 const IconMaterialRecommendFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -31008,19 +31008,6 @@ const IconMaterialRemoveModeratorFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialRemoveModeratorFilled.displayName = 'AmauiIconMaterialRemoveModeratorFilled';
 
 
-const IconMaterialRemoveRoadFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "RemoveRoadFilled",
-    short_name: "RemoveRoad",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M18 13V4h2v9ZM4 20V4h2v16Zm7-12V4h2v4Zm0 6v-4h2v4Zm0 6v-4h2v4Zm4.425.575 2.125-2.125-2.125-2.1 1.425-1.425 2.125 2.125 2.125-2.125 1.4 1.425-2.125 2.125 2.1 2.125L21.1 22l-2.15-2.125L16.825 22Z"
-  }));
-});
-IconMaterialRemoveRoadFilled.displayName = 'AmauiIconMaterialRemoveRoadFilled';
-
-
 const IconMaterialRemoveSelectionFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -31045,6 +31032,19 @@ const IconMaterialRemoveShoppingCartFilled = /*#__PURE__*/React.forwardRef((prop
   }));
 });
 IconMaterialRemoveShoppingCartFilled.displayName = 'AmauiIconMaterialRemoveShoppingCartFilled';
+
+
+const IconMaterialRemoveRoadFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "RemoveRoadFilled",
+    short_name: "RemoveRoad",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M18 13V4h2v9ZM4 20V4h2v16Zm7-12V4h2v4Zm0 6v-4h2v4Zm0 6v-4h2v4Zm4.425.575 2.125-2.125-2.125-2.1 1.425-1.425 2.125 2.125 2.125-2.125 1.4 1.425-2.125 2.125 2.1 2.125L21.1 22l-2.15-2.125L16.825 22Z"
+  }));
+});
+IconMaterialRemoveRoadFilled.displayName = 'AmauiIconMaterialRemoveRoadFilled';
 
 
 const IconMaterialReopenWindowFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -31190,19 +31190,6 @@ const IconMaterialReplayCircleFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialReplayCircleFilled.displayName = 'AmauiIconMaterialReplayCircleFilled';
 
 
-const IconMaterialReplayCircleFilledFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ReplayCircleFilledFilled",
-    short_name: "ReplayCircleFilled",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 18.5q2.5 0 4.25-1.75T18 12.5q0-2.525-1.812-4.262Q14.375 6.5 11.8 6.5l1.6-1.6L12 3.5l-4 4 4 4 1.4-1.4-1.55-1.6q1.725 0 2.938 1.162Q16 10.825 16 12.5q0 1.65-1.175 2.825Q13.65 16.5 12 16.5q-1.65 0-2.825-1.175Q8 14.15 8 12.5H6q0 2.5 1.75 4.25T12 18.5Zm0 3.5q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
-  }));
-});
-IconMaterialReplayCircleFilledFilled.displayName = 'AmauiIconMaterialReplayCircleFilledFilled';
-
-
 const IconMaterialReplayFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -31214,6 +31201,19 @@ const IconMaterialReplayFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialReplayFilled.displayName = 'AmauiIconMaterialReplayFilled';
+
+
+const IconMaterialReplayCircleFilledFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ReplayCircleFilledFilled",
+    short_name: "ReplayCircleFilled",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 18.5q2.5 0 4.25-1.75T18 12.5q0-2.525-1.812-4.262Q14.375 6.5 11.8 6.5l1.6-1.6L12 3.5l-4 4 4 4 1.4-1.4-1.55-1.6q1.725 0 2.938 1.162Q16 10.825 16 12.5q0 1.65-1.175 2.825Q13.65 16.5 12 16.5q-1.65 0-2.825-1.175Q8 14.15 8 12.5H6q0 2.5 1.75 4.25T12 18.5Zm0 3.5q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
+  }));
+});
+IconMaterialReplayCircleFilledFilled.displayName = 'AmauiIconMaterialReplayCircleFilledFilled';
 
 
 const IconMaterialReplyAllFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -31385,19 +31385,6 @@ const IconMaterialRestartAltFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialRestartAltFilled.displayName = 'AmauiIconMaterialRestartAltFilled';
 
 
-const IconMaterialRestaurantFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "RestaurantFilled",
-    short_name: "Restaurant",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M17 22v-8h-3V7q0-2.075 1.463-3.537Q16.925 2 19 2v20ZM7 22v-9.15q-1.275-.35-2.137-1.4Q4 10.4 4 9V2h2v7h1V2h2v7h1V2h2v7q0 1.4-.863 2.45-.862 1.05-2.137 1.4V22Z"
-  }));
-});
-IconMaterialRestaurantFilled.displayName = 'AmauiIconMaterialRestaurantFilled';
-
-
 const IconMaterialRestaurantMenuFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -31409,6 +31396,19 @@ const IconMaterialRestaurantMenuFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialRestaurantMenuFilled.displayName = 'AmauiIconMaterialRestaurantMenuFilled';
+
+
+const IconMaterialRestaurantFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "RestaurantFilled",
+    short_name: "Restaurant",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M17 22v-8h-3V7q0-2.075 1.463-3.537Q16.925 2 19 2v20ZM7 22v-9.15q-1.275-.35-2.137-1.4Q4 10.4 4 9V2h2v7h1V2h2v7h1V2h2v7q0 1.4-.863 2.45-.862 1.05-2.137 1.4V22Z"
+  }));
+});
+IconMaterialRestaurantFilled.displayName = 'AmauiIconMaterialRestaurantFilled';
 
 
 const IconMaterialRestoreFromTrashFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -31424,19 +31424,6 @@ const IconMaterialRestoreFromTrashFilled = /*#__PURE__*/React.forwardRef((props,
 IconMaterialRestoreFromTrashFilled.displayName = 'AmauiIconMaterialRestoreFromTrashFilled';
 
 
-const IconMaterialResumeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ResumeFilled",
-    short_name: "Resume",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M240 816V336h80v480h-80Zm160 0 400-240-400-240v480Z"
-  }));
-});
-IconMaterialResumeFilled.displayName = 'AmauiIconMaterialResumeFilled';
-
-
 const IconMaterialRestorePageFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -31448,6 +31435,19 @@ const IconMaterialRestorePageFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialRestorePageFilled.displayName = 'AmauiIconMaterialRestorePageFilled';
+
+
+const IconMaterialResumeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ResumeFilled",
+    short_name: "Resume",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M240 816V336h80v480h-80Zm160 0 400-240-400-240v480Z"
+  }));
+});
+IconMaterialResumeFilled.displayName = 'AmauiIconMaterialResumeFilled';
 
 
 const IconMaterialReviewsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -31593,19 +31593,6 @@ const IconMaterialRobot2Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialRobot2Filled.displayName = 'AmauiIconMaterialRobot2Filled';
 
 
-const IconMaterialRobotFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "RobotFilled",
-    short_name: "Robot",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 12q.825 0 1.413-.588Q11 10.825 11 10t-.587-1.413Q9.825 8 9 8q-.825 0-1.412.587Q7 9.175 7 10q0 .825.588 1.412Q8.175 12 9 12Zm6 0q.825 0 1.413-.588Q17 10.825 17 10t-.587-1.413Q15.825 8 15 8q-.825 0-1.412.587Q13 9.175 13 10q0 .825.588 1.412Q14.175 12 15 12Zm-6 9v-4h2v4Zm4 0v-4h2v4Zm-8 0q-.825 0-1.413-.587Q3 19.825 3 19V9q0-2.5 1.75-4.25T9 3h6q2.5 0 4.25 1.75T21 9v10q0 .825-.587 1.413Q19.825 21 19 21h-2v-4q0-.825-.587-1.412Q15.825 15 15 15H9q-.825 0-1.412.588Q7 16.175 7 17v4Z"
-  }));
-});
-IconMaterialRobotFilled.displayName = 'AmauiIconMaterialRobotFilled';
-
-
 const IconMaterialRocketFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -31617,6 +31604,19 @@ const IconMaterialRocketFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialRocketFilled.displayName = 'AmauiIconMaterialRocketFilled';
+
+
+const IconMaterialRobotFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "RobotFilled",
+    short_name: "Robot",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9 12q.825 0 1.413-.588Q11 10.825 11 10t-.587-1.413Q9.825 8 9 8q-.825 0-1.412.587Q7 9.175 7 10q0 .825.588 1.412Q8.175 12 9 12Zm6 0q.825 0 1.413-.588Q17 10.825 17 10t-.587-1.413Q15.825 8 15 8q-.825 0-1.412.587Q13 9.175 13 10q0 .825.588 1.412Q14.175 12 15 12Zm-6 9v-4h2v4Zm4 0v-4h2v4Zm-8 0q-.825 0-1.413-.587Q3 19.825 3 19V9q0-2.5 1.75-4.25T9 3h6q2.5 0 4.25 1.75T21 9v10q0 .825-.587 1.413Q19.825 21 19 21h-2v-4q0-.825-.587-1.412Q15.825 15 15 15H9q-.825 0-1.412.588Q7 16.175 7 17v4Z"
+  }));
+});
+IconMaterialRobotFilled.displayName = 'AmauiIconMaterialRobotFilled';
 
 
 const IconMaterialRocketLaunchFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -31723,19 +31723,6 @@ const IconMaterialRotate90DegreesCcwFilled = /*#__PURE__*/React.forwardRef((prop
 IconMaterialRotate90DegreesCcwFilled.displayName = 'AmauiIconMaterialRotate90DegreesCcwFilled';
 
 
-const IconMaterialRotate90DegreesCwFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Rotate90DegreesCwFilled",
-    short_name: "Rotate90DegreesCw",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 22q-1.875 0-3.512-.712-1.638-.713-2.85-1.926-1.213-1.212-1.925-2.85Q2 14.875 2 13q0-3.75 2.625-6.375T11 4h.15L9.6 2.45 11 1l4 4-4 4-1.4-1.45L11.15 6H11Q8.075 6 6.038 8.037 4 10.075 4 13q0 2.925 2.038 4.962Q8.075 20 11 20q.875 0 1.725-.212.85-.213 1.625-.638l1.45 1.45q-1.075.7-2.3 1.05-1.225.35-2.5.35Zm6-3-6-6 6-6 6 6Z"
-  }));
-});
-IconMaterialRotate90DegreesCwFilled.displayName = 'AmauiIconMaterialRotate90DegreesCwFilled';
-
-
 const IconMaterialRotateLeftFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -31749,17 +31736,17 @@ const IconMaterialRotateLeftFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialRotateLeftFilled.displayName = 'AmauiIconMaterialRotateLeftFilled';
 
 
-const IconMaterialRotateRightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialRotate90DegreesCwFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "RotateRightFilled",
-    short_name: "RotateRight",
+    name: "Rotate90DegreesCwFilled",
+    short_name: "Rotate90DegreesCw",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M13.05 22v-2.05q.85-.125 1.663-.45.812-.325 1.537-.85l1.4 1.45q-1.05.8-2.2 1.287-1.15.488-2.4.613Zm-2 0q-3.45-.45-5.725-2.987Q3.05 16.475 3.05 13.05q0-1.875.713-3.513.712-1.637 1.925-2.85Q6.9 5.475 8.538 4.762q1.637-.712 3.512-.712h.15L10.65 2.5l1.4-1.45 4 4-4 4-1.4-1.4 1.6-1.6h-.2q-2.925 0-4.962 2.038Q5.05 10.125 5.05 13.05q0 2.6 1.7 4.563 1.7 1.962 4.3 2.337Zm8.05-3.35-1.45-1.4q.525-.725.85-1.538.325-.812.45-1.662H21q-.125 1.25-.612 2.4-.488 1.15-1.288 2.2Zm1.9-6.6h-2.05q-.125-.85-.45-1.663-.325-.812-.85-1.537l1.45-1.4q.8.975 1.275 2.15.475 1.175.625 2.45Z"
+    d: "M11 22q-1.875 0-3.512-.712-1.638-.713-2.85-1.926-1.213-1.212-1.925-2.85Q2 14.875 2 13q0-3.75 2.625-6.375T11 4h.15L9.6 2.45 11 1l4 4-4 4-1.4-1.45L11.15 6H11Q8.075 6 6.038 8.037 4 10.075 4 13q0 2.925 2.038 4.962Q8.075 20 11 20q.875 0 1.725-.212.85-.213 1.625-.638l1.45 1.45q-1.075.7-2.3 1.05-1.225.35-2.5.35Zm6-3-6-6 6-6 6 6Z"
   }));
 });
-IconMaterialRotateRightFilled.displayName = 'AmauiIconMaterialRotateRightFilled';
+IconMaterialRotate90DegreesCwFilled.displayName = 'AmauiIconMaterialRotate90DegreesCwFilled';
 
 
 const IconMaterialRoundaboutLeftFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -31775,6 +31762,19 @@ const IconMaterialRoundaboutLeftFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialRoundaboutLeftFilled.displayName = 'AmauiIconMaterialRoundaboutLeftFilled';
 
 
+const IconMaterialRotateRightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "RotateRightFilled",
+    short_name: "RotateRight",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M13.05 22v-2.05q.85-.125 1.663-.45.812-.325 1.537-.85l1.4 1.45q-1.05.8-2.2 1.287-1.15.488-2.4.613Zm-2 0q-3.45-.45-5.725-2.987Q3.05 16.475 3.05 13.05q0-1.875.713-3.513.712-1.637 1.925-2.85Q6.9 5.475 8.538 4.762q1.637-.712 3.512-.712h.15L10.65 2.5l1.4-1.45 4 4-4 4-1.4-1.4 1.6-1.6h-.2q-2.925 0-4.962 2.038Q5.05 10.125 5.05 13.05q0 2.6 1.7 4.563 1.7 1.962 4.3 2.337Zm8.05-3.35-1.45-1.4q.525-.725.85-1.538.325-.812.45-1.662H21q-.125 1.25-.612 2.4-.488 1.15-1.288 2.2Zm1.9-6.6h-2.05q-.125-.85-.45-1.663-.325-.812-.85-1.537l1.45-1.4q.8.975 1.275 2.15.475 1.175.625 2.45Z"
+  }));
+});
+IconMaterialRotateRightFilled.displayName = 'AmauiIconMaterialRotateRightFilled';
+
+
 const IconMaterialRoundaboutRightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -31788,19 +31788,6 @@ const IconMaterialRoundaboutRightFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialRoundaboutRightFilled.displayName = 'AmauiIconMaterialRoundaboutRightFilled';
 
 
-const IconMaterialRoundedCornerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "RoundedCornerFilled",
-    short_name: "RoundedCorner",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M19 21v-2h2v2Zm0-4v-2h2v2ZM3 13v-2h2v2Zm0 4v-2h2v2Zm0-8V7h2v2Zm0-4V3h2v2Zm4 0V3h2v2Zm8 16v-2h2v2Zm-4 0v-2h2v2Zm-4 0v-2h2v2Zm-4 0v-2h2v2Zm16-8V8q0-1.25-.875-2.125T16 5h-5V3h5q2.075 0 3.538 1.463Q21 5.925 21 8v5Z"
-  }));
-});
-IconMaterialRoundedCornerFilled.displayName = 'AmauiIconMaterialRoundedCornerFilled';
-
-
 const IconMaterialRouteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -31812,6 +31799,19 @@ const IconMaterialRouteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialRouteFilled.displayName = 'AmauiIconMaterialRouteFilled';
+
+
+const IconMaterialRoundedCornerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "RoundedCornerFilled",
+    short_name: "RoundedCorner",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M19 21v-2h2v2Zm0-4v-2h2v2ZM3 13v-2h2v2Zm0 4v-2h2v2Zm0-8V7h2v2Zm0-4V3h2v2Zm4 0V3h2v2Zm8 16v-2h2v2Zm-4 0v-2h2v2Zm-4 0v-2h2v2Zm-4 0v-2h2v2Zm16-8V8q0-1.25-.875-2.125T16 5h-5V3h5q2.075 0 3.538 1.463Q21 5.925 21 8v5Z"
+  }));
+});
+IconMaterialRoundedCornerFilled.displayName = 'AmauiIconMaterialRoundedCornerFilled';
 
 
 const IconMaterialRouterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -31970,6 +31970,19 @@ const IconMaterialRunningWithErrorsFilled = /*#__PURE__*/React.forwardRef((props
 IconMaterialRunningWithErrorsFilled.displayName = 'AmauiIconMaterialRunningWithErrorsFilled';
 
 
+const IconMaterialRvHookupFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "RvHookupFilled",
+    short_name: "RvHookup",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m19.5 21.5-1.4-1.4 1.1-1.1h-7.4q-.3.9-1.075 1.45Q9.95 21 9 21q-.95 0-1.712-.55Q6.525 19.9 6.2 19H2v-9h6V7H2V5h15v12h2.15l-1.05-1.05 1.4-1.45L23 18ZM10 10h5V7h-5Zm-1 9q.425 0 .713-.288Q10 18.425 10 18t-.287-.712Q9.425 17 9 17t-.712.288Q8 17.575 8 18t.288.712Q8.575 19 9 19Z"
+  }));
+});
+IconMaterialRvHookupFilled.displayName = 'AmauiIconMaterialRvHookupFilled';
+
+
 const IconMaterialSadTabFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -31996,19 +32009,6 @@ const IconMaterialSafetyCheckFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialSafetyCheckFilled.displayName = 'AmauiIconMaterialSafetyCheckFilled';
 
 
-const IconMaterialRvHookupFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "RvHookupFilled",
-    short_name: "RvHookup",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m19.5 21.5-1.4-1.4 1.1-1.1h-7.4q-.3.9-1.075 1.45Q9.95 21 9 21q-.95 0-1.712-.55Q6.525 19.9 6.2 19H2v-9h6V7H2V5h15v12h2.15l-1.05-1.05 1.4-1.45L23 18ZM10 10h5V7h-5Zm-1 9q.425 0 .713-.288Q10 18.425 10 18t-.287-.712Q9.425 17 9 17t-.712.288Q8 17.575 8 18t.288.712Q8.575 19 9 19Z"
-  }));
-});
-IconMaterialRvHookupFilled.displayName = 'AmauiIconMaterialRvHookupFilled';
-
-
 const IconMaterialSafetyCheckOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -32020,19 +32020,6 @@ const IconMaterialSafetyCheckOffFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialSafetyCheckOffFilled.displayName = 'AmauiIconMaterialSafetyCheckOffFilled';
-
-
-const IconMaterialSafetyDividerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SafetyDividerFilled",
-    short_name: "SafetyDivider",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 19V5h2v14Zm-6-7q-.825 0-1.413-.588Q3 10.825 3 10t.587-1.413Q4.175 8 5 8q.825 0 1.412.587Q7 9.175 7 10q0 .825-.588 1.412Q5.825 12 5 12Zm-4 4v-.575q0-.6.325-1.1.325-.5.9-.75.65-.275 1.337-.425Q4.25 13 5 13t1.438.15q.687.15 1.337.425.575.25.9.75.325.5.325 1.1V16Zm18-4q-.825 0-1.413-.588Q17 10.825 17 10t.587-1.413Q18.175 8 19 8q.825 0 1.413.587Q21 9.175 21 10q0 .825-.587 1.412Q19.825 12 19 12Zm-4 4v-.575q0-.6.325-1.1.325-.5.9-.75.65-.275 1.337-.425Q18.25 13 19 13t1.438.15q.687.15 1.337.425.575.25.9.75.325.5.325 1.1V16Z"
-  }));
-});
-IconMaterialSafetyDividerFilled.displayName = 'AmauiIconMaterialSafetyDividerFilled';
 
 
 const IconMaterialSailingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -32048,6 +32035,19 @@ const IconMaterialSailingFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialSailingFilled.displayName = 'AmauiIconMaterialSailingFilled';
 
 
+const IconMaterialSafetyDividerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SafetyDividerFilled",
+    short_name: "SafetyDivider",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11 19V5h2v14Zm-6-7q-.825 0-1.413-.588Q3 10.825 3 10t.587-1.413Q4.175 8 5 8q.825 0 1.412.587Q7 9.175 7 10q0 .825-.588 1.412Q5.825 12 5 12Zm-4 4v-.575q0-.6.325-1.1.325-.5.9-.75.65-.275 1.337-.425Q4.25 13 5 13t1.438.15q.687.15 1.337.425.575.25.9.75.325.5.325 1.1V16Zm18-4q-.825 0-1.413-.588Q17 10.825 17 10t.587-1.413Q18.175 8 19 8q.825 0 1.413.587Q21 9.175 21 10q0 .825-.587 1.412Q19.825 12 19 12Zm-4 4v-.575q0-.6.325-1.1.325-.5.9-.75.65-.275 1.337-.425Q18.25 13 19 13t1.438.15q.687.15 1.337.425.575.25.9.75.325.5.325 1.1V16Z"
+  }));
+});
+IconMaterialSafetyDividerFilled.displayName = 'AmauiIconMaterialSafetyDividerFilled';
+
+
 const IconMaterialSalinityFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -32059,6 +32059,19 @@ const IconMaterialSalinityFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialSalinityFilled.displayName = 'AmauiIconMaterialSalinityFilled';
+
+
+const IconMaterialSatelliteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SatelliteFilled",
+    short_name: "Satellite",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6 12q2.5 0 4.25-1.75T12 6h-1.7q0 1.8-1.25 3.05Q7.8 10.3 6 10.3Zm0-3.4q1.075 0 1.812-.763Q8.55 7.075 8.55 6H6ZM6 17h12l-3.75-5-3 4L9 13Zm-3 4V3h18v18Z"
+  }));
+});
+IconMaterialSatelliteFilled.displayName = 'AmauiIconMaterialSatelliteFilled';
 
 
 const IconMaterialSanitizerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -32085,19 +32098,6 @@ const IconMaterialSatelliteAltFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialSatelliteAltFilled.displayName = 'AmauiIconMaterialSatelliteAltFilled';
-
-
-const IconMaterialSatelliteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SatelliteFilled",
-    short_name: "Satellite",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6 12q2.5 0 4.25-1.75T12 6h-1.7q0 1.8-1.25 3.05Q7.8 10.3 6 10.3Zm0-3.4q1.075 0 1.812-.763Q8.55 7.075 8.55 6H6ZM6 17h12l-3.75-5-3 4L9 13Zm-3 4V3h18v18Z"
-  }));
-});
-IconMaterialSatelliteFilled.displayName = 'AmauiIconMaterialSatelliteFilled';
 
 
 const IconMaterialSaunaFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -32438,19 +32438,6 @@ const IconMaterialScreenRotationUpFilled = /*#__PURE__*/React.forwardRef((props,
 IconMaterialScreenRotationUpFilled.displayName = 'AmauiIconMaterialScreenRotationUpFilled';
 
 
-const IconMaterialScreenSearchDesktopFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ScreenSearchDesktopFilled",
-    short_name: "ScreenSearchDesktop",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m15.45 15.05 1.1-1.05-2.1-2.1q.275-.425.413-.9.137-.475.137-1 0-1.475-1.037-2.488Q12.925 6.5 11.5 6.5T9.038 7.512Q8 8.525 8 10t1.038 2.488Q10.075 13.5 11.5 13.5q.525 0 .988-.137.462-.138.912-.413ZM11.5 12q-.825 0-1.412-.588Q9.5 10.825 9.5 10t.588-1.413Q10.675 8 11.5 8q.8 0 1.4.587.6.588.6 1.413 0 .825-.587 1.412Q12.325 12 11.5 12ZM2 18V3h20v15Zm-1 3v-2h22v2Z"
-  }));
-});
-IconMaterialScreenSearchDesktopFilled.displayName = 'AmauiIconMaterialScreenSearchDesktopFilled';
-
-
 const IconMaterialScreenShareFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -32462,6 +32449,19 @@ const IconMaterialScreenShareFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialScreenShareFilled.displayName = 'AmauiIconMaterialScreenShareFilled';
+
+
+const IconMaterialScreenSearchDesktopFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ScreenSearchDesktopFilled",
+    short_name: "ScreenSearchDesktop",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m15.45 15.05 1.1-1.05-2.1-2.1q.275-.425.413-.9.137-.475.137-1 0-1.475-1.037-2.488Q12.925 6.5 11.5 6.5T9.038 7.512Q8 8.525 8 10t1.038 2.488Q10.075 13.5 11.5 13.5q.525 0 .988-.137.462-.138.912-.413ZM11.5 12q-.825 0-1.412-.588Q9.5 10.825 9.5 10t.588-1.413Q10.675 8 11.5 8q.8 0 1.4.587.6.588.6 1.413 0 .825-.587 1.412Q12.325 12 11.5 12ZM2 18V3h20v15Zm-1 3v-2h22v2Z"
+  }));
+});
+IconMaterialScreenSearchDesktopFilled.displayName = 'AmauiIconMaterialScreenSearchDesktopFilled';
 
 
 const IconMaterialScreencastFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -32490,19 +32490,6 @@ const IconMaterialScreenshotFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialScreenshotFilled.displayName = 'AmauiIconMaterialScreenshotFilled';
 
 
-const IconMaterialScreenshotFrameFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ScreenshotFrameFilled",
-    short_name: "ScreenshotFrame",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M200-680v-200h200v80H280v120h-80Zm0 600v-200h80v120h120v80H200Zm480-600v-120H560v-80h200v200h-80ZM560-80v-80h120v-120h80v200H560Z"
-  }));
-});
-IconMaterialScreenshotFrameFilled.displayName = 'AmauiIconMaterialScreenshotFrameFilled';
-
-
 const IconMaterialScreenshotKeyboardFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -32516,17 +32503,17 @@ const IconMaterialScreenshotKeyboardFilled = /*#__PURE__*/React.forwardRef((prop
 IconMaterialScreenshotKeyboardFilled.displayName = 'AmauiIconMaterialScreenshotKeyboardFilled';
 
 
-const IconMaterialScreenshotMonitorFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialScreenshotFrameFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "ScreenshotMonitorFilled",
-    short_name: "ScreenshotMonitor",
-    viewBox: "0 0 24 24"
+    name: "ScreenshotFrameFilled",
+    short_name: "ScreenshotFrame",
+    viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5 10h1.5V7.5H9V6H5Zm10 6h4v-4h-1.5v2.5H15Zm-7 5v-2H2V3h20v16h-6v2Z"
+    d: "M200-680v-200h200v80H280v120h-80Zm0 600v-200h80v120h120v80H200Zm480-600v-120H560v-80h200v200h-80ZM560-80v-80h120v-120h80v200H560Z"
   }));
 });
-IconMaterialScreenshotMonitorFilled.displayName = 'AmauiIconMaterialScreenshotMonitorFilled';
+IconMaterialScreenshotFrameFilled.displayName = 'AmauiIconMaterialScreenshotFrameFilled';
 
 
 const IconMaterialScreenshotRegionFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -32540,6 +32527,19 @@ const IconMaterialScreenshotRegionFilled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialScreenshotRegionFilled.displayName = 'AmauiIconMaterialScreenshotRegionFilled';
+
+
+const IconMaterialScreenshotMonitorFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ScreenshotMonitorFilled",
+    short_name: "ScreenshotMonitor",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5 10h1.5V7.5H9V6H5Zm10 6h4v-4h-1.5v2.5H15Zm-7 5v-2H2V3h20v16h-6v2Z"
+  }));
+});
+IconMaterialScreenshotMonitorFilled.displayName = 'AmauiIconMaterialScreenshotMonitorFilled';
 
 
 const IconMaterialScreenshotTabletFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -32685,19 +32685,6 @@ const IconMaterialSearchOffFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialSearchOffFilled.displayName = 'AmauiIconMaterialSearchOffFilled';
 
 
-const IconMaterialSecurityFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SecurityFilled",
-    short_name: "Security",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 22q-3.475-.875-5.737-3.988Q4 14.9 4 11.1V5l8-3 8 3v6.1q0 3.8-2.262 6.912Q15.475 21.125 12 22Zm0-2.1q2.425-.75 4.05-2.962 1.625-2.213 1.9-4.938H12V4.125l-6 2.25v5.175q0 .175.05.45H12Z"
-  }));
-});
-IconMaterialSecurityFilled.displayName = 'AmauiIconMaterialSecurityFilled';
-
-
 const IconMaterialSecurityKeyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -32711,6 +32698,19 @@ const IconMaterialSecurityKeyFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialSecurityKeyFilled.displayName = 'AmauiIconMaterialSecurityKeyFilled';
 
 
+const IconMaterialSecurityFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SecurityFilled",
+    short_name: "Security",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 22q-3.475-.875-5.737-3.988Q4 14.9 4 11.1V5l8-3 8 3v6.1q0 3.8-2.262 6.912Q15.475 21.125 12 22Zm0-2.1q2.425-.75 4.05-2.962 1.625-2.213 1.9-4.938H12V4.125l-6 2.25v5.175q0 .175.05.45H12Z"
+  }));
+});
+IconMaterialSecurityFilled.displayName = 'AmauiIconMaterialSecurityFilled';
+
+
 const IconMaterialSecurityUpdateGoodFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -32722,19 +32722,6 @@ const IconMaterialSecurityUpdateGoodFilled = /*#__PURE__*/React.forwardRef((prop
   }));
 });
 IconMaterialSecurityUpdateGoodFilled.displayName = 'AmauiIconMaterialSecurityUpdateGoodFilled';
-
-
-const IconMaterialSecurityUpdateWarningFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SecurityUpdateWarningFilled",
-    short_name: "SecurityUpdateWarning",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 13V7h2v6Zm1 4q-.425 0-.712-.288Q11 16.425 11 16t.288-.713Q11.575 15 12 15t.713.287Q13 15.575 13 16t-.287.712Q12.425 17 12 17Zm-7 6V1h14v22Zm2-5h10V6H7Z"
-  }));
-});
-IconMaterialSecurityUpdateWarningFilled.displayName = 'AmauiIconMaterialSecurityUpdateWarningFilled';
 
 
 const IconMaterialSegmentFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -32761,6 +32748,19 @@ const IconMaterialSelectAllFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialSelectAllFilled.displayName = 'AmauiIconMaterialSelectAllFilled';
+
+
+const IconMaterialSecurityUpdateWarningFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SecurityUpdateWarningFilled",
+    short_name: "SecurityUpdateWarning",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11 13V7h2v6Zm1 4q-.425 0-.712-.288Q11 16.425 11 16t.288-.713Q11.575 15 12 15t.713.287Q13 15.575 13 16t-.287.712Q12.425 17 12 17Zm-7 6V1h14v22Zm2-5h10V6H7Z"
+  }));
+});
+IconMaterialSecurityUpdateWarningFilled.displayName = 'AmauiIconMaterialSecurityUpdateWarningFilled';
 
 
 const IconMaterialSelectCheckBoxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -32906,19 +32906,6 @@ const IconMaterialSendMoneyFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialSendMoneyFilled.displayName = 'AmauiIconMaterialSendMoneyFilled';
 
 
-const IconMaterialSendTimeExtensionFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SendTimeExtensionFilled",
-    short_name: "SendTimeExtension",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M13 22v-4l4-1-4-1v-4l10 5Zm-4.2-1H3v-5.8q1.2 0 2.1-.762.9-.763.9-1.938 0-1.175-.9-1.938Q4.2 9.8 3 9.8V4h6q0-1.05.725-1.775Q10.45 1.5 11.5 1.5q1.05 0 1.775.725Q14 2.95 14 4h6v9.25l-9-4.5v9.3q-1 .2-1.6.938-.6.737-.6 2.012Z"
-  }));
-});
-IconMaterialSendTimeExtensionFilled.displayName = 'AmauiIconMaterialSendTimeExtensionFilled';
-
-
 const IconMaterialSendToMobileFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -32930,6 +32917,19 @@ const IconMaterialSendToMobileFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialSendToMobileFilled.displayName = 'AmauiIconMaterialSendToMobileFilled';
+
+
+const IconMaterialSendTimeExtensionFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SendTimeExtensionFilled",
+    short_name: "SendTimeExtension",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M13 22v-4l4-1-4-1v-4l10 5Zm-4.2-1H3v-5.8q1.2 0 2.1-.762.9-.763.9-1.938 0-1.175-.9-1.938Q4.2 9.8 3 9.8V4h6q0-1.05.725-1.775Q10.45 1.5 11.5 1.5q1.05 0 1.775.725Q14 2.95 14 4h6v9.25l-9-4.5v9.3q-1 .2-1.6.938-.6.737-.6 2.012Z"
+  }));
+});
+IconMaterialSendTimeExtensionFilled.displayName = 'AmauiIconMaterialSendTimeExtensionFilled';
 
 
 const IconMaterialSensorDoorFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -32984,19 +32984,6 @@ const IconMaterialSensorsFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialSensorsFilled.displayName = 'AmauiIconMaterialSensorsFilled';
 
 
-const IconMaterialSensorsKrxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SensorsKrxFilled",
-    short_name: "SensorsKrx",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480-280q-84 0-142-58t-58-142q0-83 58-141.5T480-680q83 0 141.5 58.5T680-480q0 84-58.5 142T480-280Zm-312-20q-23-40-35.5-85T120-480q0-50 12.5-95t35.5-85l69 40q-18 31-27.5 66.5T200-480q0 38 9.5 73.5T237-340l-69 40Zm624 0-69-40q18-31 27.5-66.5T760-480q0-38-9.5-73.5T723-620l69-40q23 40 35.5 85t12.5 95q0 50-12.5 95T792-300Z"
-  }));
-});
-IconMaterialSensorsKrxFilled.displayName = 'AmauiIconMaterialSensorsKrxFilled';
-
-
 const IconMaterialSensorsKrxOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -33008,6 +32995,19 @@ const IconMaterialSensorsKrxOffFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialSensorsKrxOffFilled.displayName = 'AmauiIconMaterialSensorsKrxOffFilled';
+
+
+const IconMaterialSensorsKrxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SensorsKrxFilled",
+    short_name: "SensorsKrx",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480-280q-84 0-142-58t-58-142q0-83 58-141.5T480-680q83 0 141.5 58.5T680-480q0 84-58.5 142T480-280Zm-312-20q-23-40-35.5-85T120-480q0-50 12.5-95t35.5-85l69 40q-18 31-27.5 66.5T200-480q0 38 9.5 73.5T237-340l-69 40Zm624 0-69-40q18-31 27.5-66.5T760-480q0-38-9.5-73.5T723-620l69-40q23 40 35.5 85t12.5 95q0 50-12.5 95T792-300Z"
+  }));
+});
+IconMaterialSensorsKrxFilled.displayName = 'AmauiIconMaterialSensorsKrxFilled';
 
 
 const IconMaterialSensorsOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33270,19 +33270,6 @@ const IconMaterialSettingsApplicationsFilled = /*#__PURE__*/React.forwardRef((pr
 IconMaterialSettingsApplicationsFilled.displayName = 'AmauiIconMaterialSettingsApplicationsFilled';
 
 
-const IconMaterialSettingsBRollFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SettingsBRollFilled",
-    short_name: "SettingsBRoll",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m680-160 120-120-120-120-28 28 72 72H560v40h163l-71 72 28 28Zm0 80q-83 0-141.5-58.5T480-280q0-83 58.5-141.5T680-480q83 0 141.5 58.5T880-280q0 83-58.5 141.5T680-80Zm-310 0-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 22.5-15t24.5-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-74 56q-30-15-62-23t-66-8q-20 0-38.5 3.5T604-548q-19-33-51.5-52.5T482-620q-58 0-99 41t-41 99q0 38 18.5 70t50.5 51q-6 20-8.5 41.5T400-275q1 56 22.5 106.5T484-80H370Z"
-  }));
-});
-IconMaterialSettingsBRollFilled.displayName = 'AmauiIconMaterialSettingsBRollFilled';
-
-
 const IconMaterialSettingsBackupRestoreFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -33296,17 +33283,17 @@ const IconMaterialSettingsBackupRestoreFilled = /*#__PURE__*/React.forwardRef((p
 IconMaterialSettingsBackupRestoreFilled.displayName = 'AmauiIconMaterialSettingsBackupRestoreFilled';
 
 
-const IconMaterialSettingsBluetoothFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialSettingsBRollFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "SettingsBluetoothFilled",
-    short_name: "SettingsBluetooth",
-    viewBox: "0 0 24 24"
+    name: "SettingsBRollFilled",
+    short_name: "SettingsBRoll",
+    viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8 24q-.425 0-.713-.288Q7 23.425 7 23t.287-.712Q7.575 22 8 22t.713.288Q9 22.575 9 23t-.287.712Q8.425 24 8 24Zm4 0q-.425 0-.712-.288Q11 23.425 11 23t.288-.712Q11.575 22 12 22t.713.288Q13 22.575 13 23t-.287.712Q12.425 24 12 24Zm4 0q-.425 0-.712-.288Q15 23.425 15 23t.288-.712Q15.575 22 16 22t.712.288Q17 22.575 17 23t-.288.712Q16.425 24 16 24Zm-5-4v-7.6L6.4 17 5 15.6l5.6-5.6L5 4.4 6.4 3 11 7.6V0h1l5.7 5.7-4.3 4.3 4.3 4.3L12 20Zm2-12.4 1.9-1.9L13 3.85Zm0 8.55 1.9-1.85-1.9-1.9Z"
+    d: "m680-160 120-120-120-120-28 28 72 72H560v40h163l-71 72 28 28Zm0 80q-83 0-141.5-58.5T480-280q0-83 58.5-141.5T680-480q83 0 141.5 58.5T880-280q0 83-58.5 141.5T680-80Zm-310 0-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 22.5-15t24.5-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-74 56q-30-15-62-23t-66-8q-20 0-38.5 3.5T604-548q-19-33-51.5-52.5T482-620q-58 0-99 41t-41 99q0 38 18.5 70t50.5 51q-6 20-8.5 41.5T400-275q1 56 22.5 106.5T484-80H370Z"
   }));
 });
-IconMaterialSettingsBluetoothFilled.displayName = 'AmauiIconMaterialSettingsBluetoothFilled';
+IconMaterialSettingsBRollFilled.displayName = 'AmauiIconMaterialSettingsBRollFilled';
 
 
 const IconMaterialSettingsBrightnessFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33322,6 +33309,19 @@ const IconMaterialSettingsBrightnessFilled = /*#__PURE__*/React.forwardRef((prop
 IconMaterialSettingsBrightnessFilled.displayName = 'AmauiIconMaterialSettingsBrightnessFilled';
 
 
+const IconMaterialSettingsBluetoothFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SettingsBluetoothFilled",
+    short_name: "SettingsBluetooth",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8 24q-.425 0-.713-.288Q7 23.425 7 23t.287-.712Q7.575 22 8 22t.713.288Q9 22.575 9 23t-.287.712Q8.425 24 8 24Zm4 0q-.425 0-.712-.288Q11 23.425 11 23t.288-.712Q11.575 22 12 22t.713.288Q13 22.575 13 23t-.287.712Q12.425 24 12 24Zm4 0q-.425 0-.712-.288Q15 23.425 15 23t.288-.712Q15.575 22 16 22t.712.288Q17 22.575 17 23t-.288.712Q16.425 24 16 24Zm-5-4v-7.6L6.4 17 5 15.6l5.6-5.6L5 4.4 6.4 3 11 7.6V0h1l5.7 5.7-4.3 4.3 4.3 4.3L12 20Zm2-12.4 1.9-1.9L13 3.85Zm0 8.55 1.9-1.85-1.9-1.9Z"
+  }));
+});
+IconMaterialSettingsBluetoothFilled.displayName = 'AmauiIconMaterialSettingsBluetoothFilled';
+
+
 const IconMaterialSettingsCellFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -33333,19 +33333,6 @@ const IconMaterialSettingsCellFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialSettingsCellFilled.displayName = 'AmauiIconMaterialSettingsCellFilled';
-
-
-const IconMaterialSettingsCinematicBlurFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SettingsCinematicBlurFilled",
-    short_name: "SettingsCinematicBlur",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M520-80v-314h33l27 54h60l-30-60h60l30 60h60l-30-60h60l30 60h60l-30-60h70v320H520Zm60-60h280v-140H580v140ZM370-80l-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v13.5H622q0-58-41-99t-99-41q-58 0-99 41t-41 99q0 48 27 84t71 50v266h-70Z"
-  }));
-});
-IconMaterialSettingsCinematicBlurFilled.displayName = 'AmauiIconMaterialSettingsCinematicBlurFilled';
 
 
 const IconMaterialSettingsEthernetFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33374,6 +33361,32 @@ const IconMaterialSettingsFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialSettingsFilled.displayName = 'AmauiIconMaterialSettingsFilled';
 
 
+const IconMaterialSettingsCinematicBlurFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SettingsCinematicBlurFilled",
+    short_name: "SettingsCinematicBlur",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M520-80v-314h33l27 54h60l-30-60h60l30 60h60l-30-60h60l30 60h60l-30-60h70v320H520Zm60-60h280v-140H580v140ZM370-80l-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v13.5H622q0-58-41-99t-99-41q-58 0-99 41t-41 99q0 48 27 84t71 50v266h-70Z"
+  }));
+});
+IconMaterialSettingsCinematicBlurFilled.displayName = 'AmauiIconMaterialSettingsCinematicBlurFilled';
+
+
+const IconMaterialSettingsInputComponentFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SettingsInputComponentFilled",
+    short_name: "SettingsInputComponent",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M19 23v-4.2h-2V14h6v4.8h-2V23Zm-8 0v-4.2H9V14h6v4.8h-2V23Zm-8 0v-4.2H1V14h6v4.8H5V23ZM1 12V6h2V2q0-.425.288-.713Q3.575 1 4 1t.713.287Q5 1.575 5 2v4h2v6Zm8 0V6h2V2q0-.425.288-.713Q11.575 1 12 1t.713.287Q13 1.575 13 2v4h2v6Zm8 0V6h2V2q0-.425.288-.713Q19.575 1 20 1t.712.287Q21 1.575 21 2v4h2v6Z"
+  }));
+});
+IconMaterialSettingsInputComponentFilled.displayName = 'AmauiIconMaterialSettingsInputComponentFilled';
+
+
 const IconMaterialSettingsHeartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -33398,19 +33411,6 @@ const IconMaterialSettingsInputAntennaFilled = /*#__PURE__*/React.forwardRef((pr
   }));
 });
 IconMaterialSettingsInputAntennaFilled.displayName = 'AmauiIconMaterialSettingsInputAntennaFilled';
-
-
-const IconMaterialSettingsInputComponentFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SettingsInputComponentFilled",
-    short_name: "SettingsInputComponent",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M19 23v-4.2h-2V14h6v4.8h-2V23Zm-8 0v-4.2H9V14h6v4.8h-2V23Zm-8 0v-4.2H1V14h6v4.8H5V23ZM1 12V6h2V2q0-.425.288-.713Q3.575 1 4 1t.713.287Q5 1.575 5 2v4h2v6Zm8 0V6h2V2q0-.425.288-.713Q11.575 1 12 1t.713.287Q13 1.575 13 2v4h2v6Zm8 0V6h2V2q0-.425.288-.713Q19.575 1 20 1t.712.287Q21 1.575 21 2v4h2v6Z"
-  }));
-});
-IconMaterialSettingsInputComponentFilled.displayName = 'AmauiIconMaterialSettingsInputComponentFilled';
 
 
 const IconMaterialSettingsInputHdmiFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33465,19 +33465,6 @@ const IconMaterialSettingsNightSightFilled = /*#__PURE__*/React.forwardRef((prop
 IconMaterialSettingsNightSightFilled.displayName = 'AmauiIconMaterialSettingsNightSightFilled';
 
 
-const IconMaterialSettingsOverscanFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SettingsOverscanFilled",
-    short_name: "SettingsOverscan",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10 9h4l-2-2Zm7 5 2-2-2-2ZM7 14v-4l-2 2Zm5 3 2-2h-4ZM2 20V4h20v16Z"
-  }));
-});
-IconMaterialSettingsOverscanFilled.displayName = 'AmauiIconMaterialSettingsOverscanFilled';
-
-
 const IconMaterialSettingsPanoramaFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -33489,6 +33476,19 @@ const IconMaterialSettingsPanoramaFilled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialSettingsPanoramaFilled.displayName = 'AmauiIconMaterialSettingsPanoramaFilled';
+
+
+const IconMaterialSettingsOverscanFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SettingsOverscanFilled",
+    short_name: "SettingsOverscan",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10 9h4l-2-2Zm7 5 2-2-2-2ZM7 14v-4l-2 2Zm5 3 2-2h-4ZM2 20V4h20v16Z"
+  }));
+});
+IconMaterialSettingsOverscanFilled.displayName = 'AmauiIconMaterialSettingsOverscanFilled';
 
 
 const IconMaterialSettingsPhoneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33556,32 +33556,6 @@ const IconMaterialSettingsSlowMotionFilled = /*#__PURE__*/React.forwardRef((prop
 IconMaterialSettingsSlowMotionFilled.displayName = 'AmauiIconMaterialSettingsSlowMotionFilled';
 
 
-const IconMaterialSettingsSystemDaydreamFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SettingsSystemDaydreamFilled",
-    short_name: "SettingsSystemDaydream",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 16h6.5q1.05 0 1.775-.725Q18 14.55 18 13.5q0-1.05-.725-1.775Q16.55 11 15.5 11h-.05q-.2-1.275-1.112-2.137Q13.425 8 12.15 8q-1.05 0-1.95.525Q9.3 9.05 8.85 10h-.125q-1.175 0-1.95.9Q6 11.8 6 13q0 1.25.875 2.125T9 16Zm-7 4V4h20v16Z"
-  }));
-});
-IconMaterialSettingsSystemDaydreamFilled.displayName = 'AmauiIconMaterialSettingsSystemDaydreamFilled';
-
-
-const IconMaterialSettingsTimelapseFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SettingsTimelapseFilled",
-    short_name: "SettingsTimelapse",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v33.5q0 10-2 20H616q3-10 4.5-19.5T622-480q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 48 27.5 84t70.5 50v266h-70Zm350-40v-240l200 120-200 120Zm-200 0v-240l200 120-200 120Z"
-  }));
-});
-IconMaterialSettingsTimelapseFilled.displayName = 'AmauiIconMaterialSettingsTimelapseFilled';
-
-
 const IconMaterialSettingsSuggestFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -33595,6 +33569,19 @@ const IconMaterialSettingsSuggestFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialSettingsSuggestFilled.displayName = 'AmauiIconMaterialSettingsSuggestFilled';
 
 
+const IconMaterialSettingsSystemDaydreamFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SettingsSystemDaydreamFilled",
+    short_name: "SettingsSystemDaydream",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9 16h6.5q1.05 0 1.775-.725Q18 14.55 18 13.5q0-1.05-.725-1.775Q16.55 11 15.5 11h-.05q-.2-1.275-1.112-2.137Q13.425 8 12.15 8q-1.05 0-1.95.525Q9.3 9.05 8.85 10h-.125q-1.175 0-1.95.9Q6 11.8 6 13q0 1.25.875 2.125T9 16Zm-7 4V4h20v16Z"
+  }));
+});
+IconMaterialSettingsSystemDaydreamFilled.displayName = 'AmauiIconMaterialSettingsSystemDaydreamFilled';
+
+
 const IconMaterialSettingsVideoCameraFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -33606,6 +33593,19 @@ const IconMaterialSettingsVideoCameraFilled = /*#__PURE__*/React.forwardRef((pro
   }));
 });
 IconMaterialSettingsVideoCameraFilled.displayName = 'AmauiIconMaterialSettingsVideoCameraFilled';
+
+
+const IconMaterialSettingsTimelapseFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SettingsTimelapseFilled",
+    short_name: "SettingsTimelapse",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v33.5q0 10-2 20H616q3-10 4.5-19.5T622-480q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 48 27.5 84t70.5 50v266h-70Zm350-40v-240l200 120-200 120Zm-200 0v-240l200 120-200 120Z"
+  }));
+});
+IconMaterialSettingsTimelapseFilled.displayName = 'AmauiIconMaterialSettingsTimelapseFilled';
 
 
 const IconMaterialSettingsVoiceFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33699,17 +33699,17 @@ const IconMaterialShapeLineFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialShapeLineFilled.displayName = 'AmauiIconMaterialShapeLineFilled';
 
 
-const IconMaterialShapesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialShareFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "ShapesFilled",
-    short_name: "Shapes",
+    name: "ShareFilled",
+    short_name: "Share",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9 16q-2.925 0-4.963-2.038Q2 11.925 2 9t2.037-4.963Q6.075 2 9 2q2.925 0 4.963 2.037Q16 6.075 16 9q0 2.925-2.037 4.962Q11.925 16 9 16Zm-1 6v-4.05q.25.025.5.038.25.012.5.012 3.75 0 6.375-2.625T18 9q0-.25-.012-.5-.013-.25-.038-.5H22v14Z"
+    d: "M18 22q-1.25 0-2.125-.875T15 19q0-.175.025-.363.025-.187.075-.337l-7.05-4.1q-.425.375-.95.587Q6.575 15 6 15q-1.25 0-2.125-.875T3 12q0-1.25.875-2.125T6 9q.575 0 1.1.212.525.213.95.588l7.05-4.1q-.05-.15-.075-.337Q15 5.175 15 5q0-1.25.875-2.125T18 2q1.25 0 2.125.875T21 5q0 1.25-.875 2.125T18 8q-.575 0-1.1-.213-.525-.212-.95-.587L8.9 11.3q.05.15.075.337Q9 11.825 9 12t-.025.362q-.025.188-.075.338l7.05 4.1q.425-.375.95-.588Q17.425 16 18 16q1.25 0 2.125.875T21 19q0 1.25-.875 2.125T18 22Z"
   }));
 });
-IconMaterialShapesFilled.displayName = 'AmauiIconMaterialShapesFilled';
+IconMaterialShareFilled.displayName = 'AmauiIconMaterialShareFilled';
 
 
 const IconMaterialShareLocationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33723,19 +33723,6 @@ const IconMaterialShareLocationFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialShareLocationFilled.displayName = 'AmauiIconMaterialShareLocationFilled';
-
-
-const IconMaterialShareFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ShareFilled",
-    short_name: "Share",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M18 22q-1.25 0-2.125-.875T15 19q0-.175.025-.363.025-.187.075-.337l-7.05-4.1q-.425.375-.95.587Q6.575 15 6 15q-1.25 0-2.125-.875T3 12q0-1.25.875-2.125T6 9q.575 0 1.1.212.525.213.95.588l7.05-4.1q-.05-.15-.075-.337Q15 5.175 15 5q0-1.25.875-2.125T18 2q1.25 0 2.125.875T21 5q0 1.25-.875 2.125T18 8q-.575 0-1.1-.213-.525-.212-.95-.587L8.9 11.3q.05.15.075.337Q9 11.825 9 12t-.025.362q-.025.188-.075.338l7.05 4.1q.425-.375.95-.588Q17.425 16 18 16q1.25 0 2.125.875T21 19q0 1.25-.875 2.125T18 22Z"
-  }));
-});
-IconMaterialShareFilled.displayName = 'AmauiIconMaterialShareFilled';
 
 
 const IconMaterialShareOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33777,19 +33764,6 @@ const IconMaterialShareWindowsFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialShareWindowsFilled.displayName = 'AmauiIconMaterialShareWindowsFilled';
 
 
-const IconMaterialSheetsRtlFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SheetsRtlFilled",
-    short_name: "SheetsRtl",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4 13V1h16v12Zm2-7h5V3H6Zm7 0h5V3h-5Zm-7 5h5V8H6Zm7 0h5V8h-5ZM7 22l-4-4 4-4 1.4 1.4L6.825 17H20v2H6.825L8.4 20.6Z"
-  }));
-});
-IconMaterialSheetsRtlFilled.displayName = 'AmauiIconMaterialSheetsRtlFilled';
-
-
 const IconMaterialShelfAutoHideFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -33801,6 +33775,19 @@ const IconMaterialShelfAutoHideFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialShelfAutoHideFilled.displayName = 'AmauiIconMaterialShelfAutoHideFilled';
+
+
+const IconMaterialShapesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ShapesFilled",
+    short_name: "Shapes",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9 16q-2.925 0-4.963-2.038Q2 11.925 2 9t2.037-4.963Q6.075 2 9 2q2.925 0 4.963 2.037Q16 6.075 16 9q0 2.925-2.037 4.962Q11.925 16 9 16Zm-1 6v-4.05q.25.025.5.038.25.012.5.012 3.75 0 6.375-2.625T18 9q0-.25-.012-.5-.013-.25-.038-.5H22v14Z"
+  }));
+});
+IconMaterialShapesFilled.displayName = 'AmauiIconMaterialShapesFilled';
 
 
 const IconMaterialShelfPositionFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33816,17 +33803,17 @@ const IconMaterialShelfPositionFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialShelfPositionFilled.displayName = 'AmauiIconMaterialShelfPositionFilled';
 
 
-const IconMaterialShelvesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialSheetsRtlFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "ShelvesFilled",
-    short_name: "Shelves",
+    name: "SheetsRtlFilled",
+    short_name: "SheetsRtl",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 23V1h2v2h14V1h2v22h-2v-2H5v2Zm2-12h2V7h6v4h6V5H5Zm0 8h6v-4h6v4h2v-6H5Z"
+    d: "M4 13V1h16v12Zm2-7h5V3H6Zm7 0h5V3h-5Zm-7 5h5V8H6Zm7 0h5V8h-5ZM7 22l-4-4 4-4 1.4 1.4L6.825 17H20v2H6.825L8.4 20.6Z"
   }));
 });
-IconMaterialShelvesFilled.displayName = 'AmauiIconMaterialShelvesFilled';
+IconMaterialSheetsRtlFilled.displayName = 'AmauiIconMaterialSheetsRtlFilled';
 
 
 const IconMaterialShieldFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33853,6 +33840,19 @@ const IconMaterialShieldLockFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialShieldLockFilled.displayName = 'AmauiIconMaterialShieldLockFilled';
+
+
+const IconMaterialShelvesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ShelvesFilled",
+    short_name: "Shelves",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 23V1h2v2h14V1h2v22h-2v-2H5v2Zm2-12h2V7h6v4h6V5H5Zm0 8h6v-4h6v4h2v-6H5Z"
+  }));
+});
+IconMaterialShelvesFilled.displayName = 'AmauiIconMaterialShelvesFilled';
 
 
 const IconMaterialShieldLockedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33894,19 +33894,6 @@ const IconMaterialShieldPersonFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialShieldPersonFilled.displayName = 'AmauiIconMaterialShieldPersonFilled';
 
 
-const IconMaterialShieldQuestionFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ShieldQuestionFilled",
-    short_name: "ShieldQuestion",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-200q17 0 29.5-12.5T522-322q0-17-12.5-29.5T480-364q-17 0-29.5 12.5T438-322q0 17 12.5 29.5T480-280Zm-29-128h60v-22q0-11 5-21 6-14 16-23.5t21-19.5q17-17 29.5-38t12.5-46q0-45-34.5-73.5T480-680q-40 0-71.5 23T366-596l54 22q6-20 22.5-34t37.5-14q22 0 38.5 13t16.5 33q0 17-10.5 31.5T501-518q-12 11-24 22.5T458-469q-7 14-7 29.5v31.5Z"
-  }));
-});
-IconMaterialShieldQuestionFilled.displayName = 'AmauiIconMaterialShieldQuestionFilled';
-
-
 const IconMaterialShieldSparkFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -33918,6 +33905,19 @@ const IconMaterialShieldSparkFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialShieldSparkFilled.displayName = 'AmauiIconMaterialShieldSparkFilled';
+
+
+const IconMaterialShieldQuestionFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ShieldQuestionFilled",
+    short_name: "ShieldQuestion",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-200q17 0 29.5-12.5T522-322q0-17-12.5-29.5T480-364q-17 0-29.5 12.5T438-322q0 17 12.5 29.5T480-280Zm-29-128h60v-22q0-11 5-21 6-14 16-23.5t21-19.5q17-17 29.5-38t12.5-46q0-45-34.5-73.5T480-680q-40 0-71.5 23T366-596l54 22q6-20 22.5-34t37.5-14q22 0 38.5 13t16.5 33q0 17-10.5 31.5T501-518q-12 11-24 22.5T458-469q-7 14-7 29.5v31.5Z"
+  }));
+});
+IconMaterialShieldQuestionFilled.displayName = 'AmauiIconMaterialShieldQuestionFilled';
 
 
 const IconMaterialShieldWithHeartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -33972,19 +33972,6 @@ const IconMaterialShiftLockFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialShiftLockFilled.displayName = 'AmauiIconMaterialShiftLockFilled';
 
 
-const IconMaterialShopFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ShopFilled",
-    short_name: "Shop",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 21V6h6V2h8v4h6v15Zm8-15h4V4h-4Zm-.5 12 7-4.5-7-4.5Z"
-  }));
-});
-IconMaterialShopFilled.displayName = 'AmauiIconMaterialShopFilled';
-
-
 const IconMaterialShopTwoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -33996,6 +33983,19 @@ const IconMaterialShopTwoFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialShopTwoFilled.displayName = 'AmauiIconMaterialShopTwoFilled';
+
+
+const IconMaterialShopFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ShopFilled",
+    short_name: "Shop",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 21V6h6V2h8v4h6v15Zm8-15h4V4h-4Zm-.5 12 7-4.5-7-4.5Z"
+  }));
+});
+IconMaterialShopFilled.displayName = 'AmauiIconMaterialShopFilled';
 
 
 const IconMaterialShoppingBagFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -34102,19 +34102,6 @@ const IconMaterialShortTextFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialShortTextFilled.displayName = 'AmauiIconMaterialShortTextFilled';
 
 
-const IconMaterialShowChartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ShowChartFilled",
-    short_name: "ShowChart",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3.5 18.5 2 17l7.5-7.5 4 4 7.1-8L22 6.9l-8.5 9.6-4-4Z"
-  }));
-});
-IconMaterialShowChartFilled.displayName = 'AmauiIconMaterialShowChartFilled';
-
-
 const IconMaterialShowerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -34126,6 +34113,19 @@ const IconMaterialShowerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialShowerFilled.displayName = 'AmauiIconMaterialShowerFilled';
+
+
+const IconMaterialShowChartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ShowChartFilled",
+    short_name: "ShowChart",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3.5 18.5 2 17l7.5-7.5 4 4 7.1-8L22 6.9l-8.5 9.6-4-4Z"
+  }));
+});
+IconMaterialShowChartFilled.displayName = 'AmauiIconMaterialShowChartFilled';
 
 
 const IconMaterialShuffleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -34427,19 +34427,6 @@ const IconMaterialSignalCellularPauseFilled = /*#__PURE__*/React.forwardRef((pro
 IconMaterialSignalCellularPauseFilled.displayName = 'AmauiIconMaterialSignalCellularPauseFilled';
 
 
-const IconMaterialSignalDisconnectedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SignalDisconnectedFilled",
-    short_name: "SignalDisconnected",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m17.1 14.275-1.225-1.225q.55-.65.837-1.438Q17 10.825 17 10q0-.9-.375-1.825Q16.25 7.25 15.5 6.5l1.2-1.2q.975.975 1.488 2.2.512 1.225.512 2.5 0 1.15-.4 2.237-.4 1.088-1.2 2.038ZM14.125 11.3 10.7 7.875q.275-.175.612-.275.338-.1.688-.1 1.05 0 1.775.725.725.725.725 1.775 0 .35-.1.675-.1.325-.275.625Zm5.375 5.35-1.2-1.2q1.025-1.175 1.512-2.588Q20.3 11.45 20.3 10q0-1.575-.6-3.138Q19.1 5.3 17.9 4.1l1.2-1.2q1.425 1.5 2.163 3.325Q22 8.05 22 10q0 1.825-.6 3.512-.6 1.688-1.9 3.138Zm.275 5.95L13 15.825V21h-2v-7.175L7 9.85V10q0 .9.375 1.825.375.925 1.125 1.675l-1.2 1.2q-.975-.975-1.488-2.2Q5.3 11.275 5.3 10q0-.425.05-.825.05-.4.175-.825L4.25 7.075q-.275.725-.412 1.462Q3.7 9.275 3.7 10q0 1.575.6 3.137.6 1.563 1.8 2.763l-1.2 1.2q-1.425-1.5-2.163-3.325Q2 11.95 2 10q0-1.1.237-2.163.238-1.062.713-2.062L1.4 4.225 2.8 2.8l18.4 18.4Z"
-  }));
-});
-IconMaterialSignalDisconnectedFilled.displayName = 'AmauiIconMaterialSignalDisconnectedFilled';
-
-
 const IconMaterialSignalWifi0BarFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -34529,6 +34516,19 @@ const IconMaterialSignatureFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialSignatureFilled.displayName = 'AmauiIconMaterialSignatureFilled';
+
+
+const IconMaterialSignalDisconnectedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SignalDisconnectedFilled",
+    short_name: "SignalDisconnected",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m17.1 14.275-1.225-1.225q.55-.65.837-1.438Q17 10.825 17 10q0-.9-.375-1.825Q16.25 7.25 15.5 6.5l1.2-1.2q.975.975 1.488 2.2.512 1.225.512 2.5 0 1.15-.4 2.237-.4 1.088-1.2 2.038ZM14.125 11.3 10.7 7.875q.275-.175.612-.275.338-.1.688-.1 1.05 0 1.775.725.725.725.725 1.775 0 .35-.1.675-.1.325-.275.625Zm5.375 5.35-1.2-1.2q1.025-1.175 1.512-2.588Q20.3 11.45 20.3 10q0-1.575-.6-3.138Q19.1 5.3 17.9 4.1l1.2-1.2q1.425 1.5 2.163 3.325Q22 8.05 22 10q0 1.825-.6 3.512-.6 1.688-1.9 3.138Zm.275 5.95L13 15.825V21h-2v-7.175L7 9.85V10q0 .9.375 1.825.375.925 1.125 1.675l-1.2 1.2q-.975-.975-1.488-2.2Q5.3 11.275 5.3 10q0-.425.05-.825.05-.4.175-.825L4.25 7.075q-.275.725-.412 1.462Q3.7 9.275 3.7 10q0 1.575.6 3.137.6 1.563 1.8 2.763l-1.2 1.2q-1.425-1.5-2.163-3.325Q2 11.95 2 10q0-1.1.237-2.163.238-1.062.713-2.062L1.4 4.225 2.8 2.8l18.4 18.4Z"
+  }));
+});
+IconMaterialSignalDisconnectedFilled.displayName = 'AmauiIconMaterialSignalDisconnectedFilled';
 
 
 const IconMaterialSignpostFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -34687,19 +34687,6 @@ const IconMaterialSkullFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialSkullFilled.displayName = 'AmauiIconMaterialSkullFilled';
 
 
-const IconMaterialSleddingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SleddingFilled",
-    short_name: "Sledding",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 6.5q-.825 0-1.412-.588Q10 5.325 10 4.5t.588-1.413Q11.175 2.5 12 2.5t1.413.587Q14 3.675 14 4.5q0 .825-.587 1.412Q12.825 6.5 12 6.5ZM19.125 23q-.475 0-.787-.05-.313-.05-.588-.15L1 17.35l.45-1.425L5.4 17.2l.45-1.425L1.925 14.5l.475-1.425L4 13.6V9.5l5.475-2.35q.2-.1.388-.125Q10.05 7 10.275 7q.85 0 1.375.737.525.738.25 1.613l-1.05 3.25 3.65-.6 2.725 5.9 1.925.625-.45 1.425-3.325-1.075L14.9 20.3l3.325 1.075q.2.05.413.087.212.038.487.038.9 0 1.638-.738.737-.737.737-1.637 0-.85-.413-1.5-.412-.65-1.337-1l.475-1.425q1.3.425 2.038 1.475.737 1.05.737 2.45 0 1.55-1.163 2.712Q20.675 23 19.125 23ZM7 14.575 7.925 10 6 10.825v3.425Zm6.475 5.275.475-1.45-6.675-2.15-.45 1.425Zm1.15-2.8L13.45 14.5l-3.975.875Z"
-  }));
-});
-IconMaterialSleddingFilled.displayName = 'AmauiIconMaterialSleddingFilled';
-
-
 const IconMaterialSleepFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -34711,6 +34698,19 @@ const IconMaterialSleepFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialSleepFilled.displayName = 'AmauiIconMaterialSleepFilled';
+
+
+const IconMaterialSleddingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SleddingFilled",
+    short_name: "Sledding",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 6.5q-.825 0-1.412-.588Q10 5.325 10 4.5t.588-1.413Q11.175 2.5 12 2.5t1.413.587Q14 3.675 14 4.5q0 .825-.587 1.412Q12.825 6.5 12 6.5ZM19.125 23q-.475 0-.787-.05-.313-.05-.588-.15L1 17.35l.45-1.425L5.4 17.2l.45-1.425L1.925 14.5l.475-1.425L4 13.6V9.5l5.475-2.35q.2-.1.388-.125Q10.05 7 10.275 7q.85 0 1.375.737.525.738.25 1.613l-1.05 3.25 3.65-.6 2.725 5.9 1.925.625-.45 1.425-3.325-1.075L14.9 20.3l3.325 1.075q.2.05.413.087.212.038.487.038.9 0 1.638-.738.737-.737.737-1.637 0-.85-.413-1.5-.412-.65-1.337-1l.475-1.425q1.3.425 2.038 1.475.737 1.05.737 2.45 0 1.55-1.163 2.712Q20.675 23 19.125 23ZM7 14.575 7.925 10 6 10.825v3.425Zm6.475 5.275.475-1.45-6.675-2.15-.45 1.425Zm1.15-2.8L13.45 14.5l-3.975.875Z"
+  }));
+});
+IconMaterialSleddingFilled.displayName = 'AmauiIconMaterialSleddingFilled';
 
 
 const IconMaterialSleepScoreFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -34765,19 +34765,6 @@ const IconMaterialSlideshowFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialSlideshowFilled.displayName = 'AmauiIconMaterialSlideshowFilled';
 
 
-const IconMaterialSlowMotionVideoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SlowMotionVideoFilled",
-    short_name: "SlowMotionVideo",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.25 18.3q-.95-1.1-1.525-2.45T2 13h2.05q.15 1.1.55 2.087.4.988 1.05 1.813ZM2 11q.2-1.5.75-2.85t1.5-2.45l1.4 1.4Q5 7.925 4.6 8.912 4.2 9.9 4.05 11Zm8.95 10.95q-1.5-.15-2.837-.725-1.338-.575-2.463-1.475l1.4-1.45q.875.65 1.838 1.075.962.425 2.062.575ZM7.1 5.7 5.65 4.25q1.125-.9 2.463-1.475Q9.45 2.2 11 2.05v2q-1.125.15-2.1.575-.975.425-1.8 1.075Zm2.4 10.8v-9l7 4.5Zm3.5 5.45v-2q3.025-.425 5.013-2.675Q20 15.025 20 12q0-3.025-1.987-5.275Q16.025 4.475 13 4.05v-2q3.85.425 6.425 3.25Q22 8.125 22 12t-2.575 6.7Q16.85 21.525 13 21.95Z"
-  }));
-});
-IconMaterialSlowMotionVideoFilled.displayName = 'AmauiIconMaterialSlowMotionVideoFilled';
-
-
 const IconMaterialSmartButtonFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -34789,6 +34776,19 @@ const IconMaterialSmartButtonFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialSmartButtonFilled.displayName = 'AmauiIconMaterialSmartButtonFilled';
+
+
+const IconMaterialSlowMotionVideoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SlowMotionVideoFilled",
+    short_name: "SlowMotionVideo",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.25 18.3q-.95-1.1-1.525-2.45T2 13h2.05q.15 1.1.55 2.087.4.988 1.05 1.813ZM2 11q.2-1.5.75-2.85t1.5-2.45l1.4 1.4Q5 7.925 4.6 8.912 4.2 9.9 4.05 11Zm8.95 10.95q-1.5-.15-2.837-.725-1.338-.575-2.463-1.475l1.4-1.45q.875.65 1.838 1.075.962.425 2.062.575ZM7.1 5.7 5.65 4.25q1.125-.9 2.463-1.475Q9.45 2.2 11 2.05v2q-1.125.15-2.1.575-.975.425-1.8 1.075Zm2.4 10.8v-9l7 4.5Zm3.5 5.45v-2q3.025-.425 5.013-2.675Q20 15.025 20 12q0-3.025-1.987-5.275Q16.025 4.475 13 4.05v-2q3.85.425 6.425 3.25Q22 8.125 22 12t-2.575 6.7Q16.85 21.525 13 21.95Z"
+  }));
+});
+IconMaterialSlowMotionVideoFilled.displayName = 'AmauiIconMaterialSlowMotionVideoFilled';
 
 
 const IconMaterialSmartDisplayFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -34908,19 +34908,6 @@ const IconMaterialSmokingRoomsFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialSmokingRoomsFilled.displayName = 'AmauiIconMaterialSmokingRoomsFilled';
 
 
-const IconMaterialSmsFailedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SmsFailedFilled",
-    short_name: "SmsFailed",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 11h2V5h-2Zm1 4q.425 0 .713-.288Q13 14.425 13 14t-.287-.713Q12.425 13 12 13t-.712.287Q11 13.575 11 14t.288.712Q11.575 15 12 15ZM2 22V2h20v16H6Z"
-  }));
-});
-IconMaterialSmsFailedFilled.displayName = 'AmauiIconMaterialSmsFailedFilled';
-
-
 const IconMaterialSmsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -34932,6 +34919,19 @@ const IconMaterialSmsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialSmsFilled.displayName = 'AmauiIconMaterialSmsFilled';
+
+
+const IconMaterialSmsFailedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SmsFailedFilled",
+    short_name: "SmsFailed",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11 11h2V5h-2Zm1 4q.425 0 .713-.288Q13 14.425 13 14t-.287-.713Q12.425 13 12 13t-.712.287Q11 13.575 11 14t.288.712Q11.575 15 12 15ZM2 22V2h20v16H6Z"
+  }));
+});
+IconMaterialSmsFailedFilled.displayName = 'AmauiIconMaterialSmsFailedFilled';
 
 
 const IconMaterialSnippetFolderFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -35025,19 +35025,6 @@ const IconMaterialSnowshoeingFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialSnowshoeingFilled.displayName = 'AmauiIconMaterialSnowshoeingFilled';
 
 
-const IconMaterialSoapFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SoapFilled",
-    short_name: "Soap",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M14.25 7.5q.3 0 .525-.225Q15 7.05 15 6.75q0-.3-.225-.525Q14.55 6 14.25 6q-.3 0-.525.225-.225.225-.225.525 0 .3.225.525.225.225.525.225Zm0 1.5q-.95 0-1.6-.65Q12 7.7 12 6.75q0-.95.65-1.6.65-.65 1.6-.65.95 0 1.6.65.65.65.65 1.6 0 .95-.65 1.6-.65.65-1.6.65ZM20 6.5q.2 0 .35-.15.15-.15.15-.35 0-.2-.15-.35-.15-.15-.35-.15-.2 0-.35.15-.15.15-.15.35 0 .2.15.35.15.15.35.15ZM20 8q-.825 0-1.413-.588Q18 6.825 18 6t.587-1.412Q19.175 4 20 4q.825 0 1.413.588Q22 5.175 22 6t-.587 1.412Q20.825 8 20 8Zm-3.5-4q-.625 0-1.062-.438Q15 3.125 15 2.5t.438-1.062Q15.875 1 16.5 1t1.062.438Q18 1.875 18 2.5t-.438 1.062Q17.125 4 16.5 4ZM1 23V12.7L9.125 5l1.625 1.7L8.875 10H20v2.5h-8v1h10V16H12v1h9v2.5h-9v1h7V23Z"
-  }));
-});
-IconMaterialSoapFilled.displayName = 'AmauiIconMaterialSoapFilled';
-
-
 const IconMaterialSocialDistanceFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -35051,6 +35038,19 @@ const IconMaterialSocialDistanceFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialSocialDistanceFilled.displayName = 'AmauiIconMaterialSocialDistanceFilled';
 
 
+const IconMaterialSoapFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SoapFilled",
+    short_name: "Soap",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M14.25 7.5q.3 0 .525-.225Q15 7.05 15 6.75q0-.3-.225-.525Q14.55 6 14.25 6q-.3 0-.525.225-.225.225-.225.525 0 .3.225.525.225.225.525.225Zm0 1.5q-.95 0-1.6-.65Q12 7.7 12 6.75q0-.95.65-1.6.65-.65 1.6-.65.95 0 1.6.65.65.65.65 1.6 0 .95-.65 1.6-.65.65-1.6.65ZM20 6.5q.2 0 .35-.15.15-.15.15-.35 0-.2-.15-.35-.15-.15-.35-.15-.2 0-.35.15-.15.15-.15.35 0 .2.15.35.15.15.35.15ZM20 8q-.825 0-1.413-.588Q18 6.825 18 6t.587-1.412Q19.175 4 20 4q.825 0 1.413.588Q22 5.175 22 6t-.587 1.412Q20.825 8 20 8Zm-3.5-4q-.625 0-1.062-.438Q15 3.125 15 2.5t.438-1.062Q15.875 1 16.5 1t1.062.438Q18 1.875 18 2.5t-.438 1.062Q17.125 4 16.5 4ZM1 23V12.7L9.125 5l1.625 1.7L8.875 10H20v2.5h-8v1h10V16H12v1h9v2.5h-9v1h7V23Z"
+  }));
+});
+IconMaterialSoapFilled.displayName = 'AmauiIconMaterialSoapFilled';
+
+
 const IconMaterialSocialLeaderboardFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -35062,19 +35062,6 @@ const IconMaterialSocialLeaderboardFilled = /*#__PURE__*/React.forwardRef((props
   }));
 });
 IconMaterialSocialLeaderboardFilled.displayName = 'AmauiIconMaterialSocialLeaderboardFilled';
-
-
-const IconMaterialSolarPowerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SolarPowerFilled",
-    short_name: "SolarPower",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 4V2h3v2ZM2 22h9v-4H2.8ZM6.125 9.325 4.7 7.925 6.825 5.8 8.25 7.2ZM3.2 16H11v-4H4ZM12 7Q9.925 7 8.463 5.537 7 4.075 7 2h10q0 2.075-1.462 3.537Q14.075 7 12 7Zm-1 4V8h2v3Zm2 11h9l-.8-4H13Zm0-6h7.8l-.8-4h-7Zm4.875-6.675-2.1-2.125 1.4-1.4L19.3 7.9ZM18 4V2h3v2Z"
-  }));
-});
-IconMaterialSolarPowerFilled.displayName = 'AmauiIconMaterialSolarPowerFilled';
 
 
 const IconMaterialSortByAlphaFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -35127,6 +35114,19 @@ const IconMaterialSoundDetectionDogBarkingFilled = /*#__PURE__*/React.forwardRef
   }));
 });
 IconMaterialSoundDetectionDogBarkingFilled.displayName = 'AmauiIconMaterialSoundDetectionDogBarkingFilled';
+
+
+const IconMaterialSoundDetectionGlassBreakFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SoundDetectionGlassBreakFilled",
+    short_name: "SoundDetectionGlassBreak",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 21V3h18v18Zm2-7 4.5-4.525 4 4L19 7.3V5H5Zm0 5h14v-8.7l-5.5 6.175-4-4L5 17Z"
+  }));
+});
+IconMaterialSoundDetectionGlassBreakFilled.displayName = 'AmauiIconMaterialSoundDetectionGlassBreakFilled';
 
 
 const IconMaterialSoundDetectionLoudSoundFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -35207,19 +35207,6 @@ const IconMaterialSouthAmericaFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialSouthAmericaFilled.displayName = 'AmauiIconMaterialSouthAmericaFilled';
 
 
-const IconMaterialSoundDetectionGlassBreakFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SoundDetectionGlassBreakFilled",
-    short_name: "SoundDetectionGlassBreak",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 21V3h18v18Zm2-7 4.5-4.525 4 4L19 7.3V5H5Zm0 5h14v-8.7l-5.5 6.175-4-4L5 17Z"
-  }));
-});
-IconMaterialSoundDetectionGlassBreakFilled.displayName = 'AmauiIconMaterialSoundDetectionGlassBreakFilled';
-
-
 const IconMaterialSouthEastFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -35298,6 +35285,19 @@ const IconMaterialSpaceDashboardFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialSpaceDashboardFilled.displayName = 'AmauiIconMaterialSpaceDashboardFilled';
 
 
+const IconMaterialSpatialAudioOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SpatialAudioOffFilled",
+    short_name: "SpatialAudioOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m20.3 13.75-1.4-1.4q1-1 1.563-2.288.562-1.287.562-2.712 0-1.425-.562-2.7Q19.9 3.375 18.9 2.375l1.4-1.45q1.275 1.275 2 2.95.725 1.675.725 3.475t-.725 3.462q-.725 1.663-2 2.938Zm-2.8-2.85-1.4-1.4q.425-.425.675-.975.25-.55.25-1.175t-.25-1.175q-.25-.55-.675-.975l1.4-1.425q.725.725 1.125 1.625t.4 1.925q0 1.025-.4 1.95T17.5 10.9ZM10 13q-1.65 0-2.825-1.175Q6 10.65 6 9q0-1.65 1.175-2.825Q8.35 5 10 5q1.65 0 2.825 1.175Q14 7.35 14 9q0 1.65-1.175 2.825Q11.65 13 10 13Zm-8 8v-2.8q0-.825.425-1.55.425-.725 1.175-1.1 1.275-.65 2.875-1.1Q8.075 14 10 14q1.925 0 3.525.45 1.6.45 2.875 1.1.75.375 1.175 1.1.425.725.425 1.55V21Z"
+  }));
+});
+IconMaterialSpatialAudioOffFilled.displayName = 'AmauiIconMaterialSpatialAudioOffFilled';
+
+
 const IconMaterialSpatialAudioFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -35311,17 +35311,17 @@ const IconMaterialSpatialAudioFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialSpatialAudioFilled.displayName = 'AmauiIconMaterialSpatialAudioFilled';
 
 
-const IconMaterialSpatialAudioOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialSolarPowerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "SpatialAudioOffFilled",
-    short_name: "SpatialAudioOff",
+    name: "SolarPowerFilled",
+    short_name: "SolarPower",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m20.3 13.75-1.4-1.4q1-1 1.563-2.288.562-1.287.562-2.712 0-1.425-.562-2.7Q19.9 3.375 18.9 2.375l1.4-1.45q1.275 1.275 2 2.95.725 1.675.725 3.475t-.725 3.462q-.725 1.663-2 2.938Zm-2.8-2.85-1.4-1.4q.425-.425.675-.975.25-.55.25-1.175t-.25-1.175q-.25-.55-.675-.975l1.4-1.425q.725.725 1.125 1.625t.4 1.925q0 1.025-.4 1.95T17.5 10.9ZM10 13q-1.65 0-2.825-1.175Q6 10.65 6 9q0-1.65 1.175-2.825Q8.35 5 10 5q1.65 0 2.825 1.175Q14 7.35 14 9q0 1.65-1.175 2.825Q11.65 13 10 13Zm-8 8v-2.8q0-.825.425-1.55.425-.725 1.175-1.1 1.275-.65 2.875-1.1Q8.075 14 10 14q1.925 0 3.525.45 1.6.45 2.875 1.1.75.375 1.175 1.1.425.725.425 1.55V21Z"
+    d: "M3 4V2h3v2ZM2 22h9v-4H2.8ZM6.125 9.325 4.7 7.925 6.825 5.8 8.25 7.2ZM3.2 16H11v-4H4ZM12 7Q9.925 7 8.463 5.537 7 4.075 7 2h10q0 2.075-1.462 3.537Q14.075 7 12 7Zm-1 4V8h2v3Zm2 11h9l-.8-4H13Zm0-6h7.8l-.8-4h-7Zm4.875-6.675-2.1-2.125 1.4-1.4L19.3 7.9ZM18 4V2h3v2Z"
   }));
 });
-IconMaterialSpatialAudioOffFilled.displayName = 'AmauiIconMaterialSpatialAudioOffFilled';
+IconMaterialSolarPowerFilled.displayName = 'AmauiIconMaterialSolarPowerFilled';
 
 
 const IconMaterialSpatialTrackingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -35701,19 +35701,6 @@ const IconMaterialSportsFootballFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialSportsFootballFilled.displayName = 'AmauiIconMaterialSportsFootballFilled';
 
 
-const IconMaterialSportsGolfFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SportsGolfFilled",
-    short_name: "SportsGolf",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 16q-2.925 0-4.962-2.038Q5 11.925 5 9t2.038-4.963Q9.075 2 12 2t4.962 2.037Q19 6.075 19 9q0 2.925-2.038 4.962Q14.925 16 12 16Zm-2-7q.425 0 .713-.288Q11 8.425 11 8t-.287-.713Q10.425 7 10 7t-.712.287Q9 7.575 9 8t.288.712Q9.575 9 10 9Zm4 0q.425 0 .713-.288Q15 8.425 15 8t-.287-.713Q14.425 7 14 7t-.712.287Q13 7.575 13 8t.288.712Q13.575 9 14 9Zm-2-2q.425 0 .713-.287Q13 6.425 13 6t-.287-.713Q12.425 5 12 5t-.712.287Q11 5.575 11 6t.288.713Q11.575 7 12 7Zm-1 15v-1q0-.825-.587-1.413Q9.825 19 9 19H7v-2h10v2h-2q-.825 0-1.412.587Q13 20.175 13 21v1Z"
-  }));
-});
-IconMaterialSportsGolfFilled.displayName = 'AmauiIconMaterialSportsGolfFilled';
-
-
 const IconMaterialSportsGymnasticsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -35738,6 +35725,19 @@ const IconMaterialSportsHandballFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialSportsHandballFilled.displayName = 'AmauiIconMaterialSportsHandballFilled';
+
+
+const IconMaterialSportsGolfFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SportsGolfFilled",
+    short_name: "SportsGolf",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 16q-2.925 0-4.962-2.038Q5 11.925 5 9t2.038-4.963Q9.075 2 12 2t4.962 2.037Q19 6.075 19 9q0 2.925-2.038 4.962Q14.925 16 12 16Zm-2-7q.425 0 .713-.288Q11 8.425 11 8t-.287-.713Q10.425 7 10 7t-.712.287Q9 7.575 9 8t.288.712Q9.575 9 10 9Zm4 0q.425 0 .713-.288Q15 8.425 15 8t-.287-.713Q14.425 7 14 7t-.712.287Q13 7.575 13 8t.288.712Q13.575 9 14 9Zm-2-2q.425 0 .713-.287Q13 6.425 13 6t-.287-.713Q12.425 5 12 5t-.712.287Q11 5.575 11 6t.288.713Q11.575 7 12 7Zm-1 15v-1q0-.825-.587-1.413Q9.825 19 9 19H7v-2h10v2h-2q-.825 0-1.412.587Q13 20.175 13 21v1Z"
+  }));
+});
+IconMaterialSportsGolfFilled.displayName = 'AmauiIconMaterialSportsGolfFilled';
 
 
 const IconMaterialSportsHockeyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -35883,19 +35883,6 @@ const IconMaterialSprinklerFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialSprinklerFilled.displayName = 'AmauiIconMaterialSprinklerFilled';
 
 
-const IconMaterialSprintFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SprintFilled",
-    short_name: "Sprint",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5.4 20 4 18.6 13.6 9H11v2H9V7h5.825q.4 0 .775.15t.65.425l3 2.975q.675.675 1.65 1.05.975.375 2.1.4v2q-1.55 0-2.812-.475-1.263-.475-2.238-1.425l-1-1.05-2.2 2.2L17 15.5l-6.55 3.775-1-1.725 4.3-2.475-1.7-1.7ZM3 13v-2h5v2Zm-2-3V8h5v2Zm18.475-2q-.825 0-1.425-.588-.6-.587-.6-1.412t.6-1.412Q18.65 4 19.475 4q.825 0 1.425.588.6.587.6 1.412t-.6 1.412Q20.3 8 19.475 8ZM3 7V5h5v2Z"
-  }));
-});
-IconMaterialSprintFilled.displayName = 'AmauiIconMaterialSprintFilled';
-
-
 const IconMaterialSquareFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -35922,6 +35909,19 @@ const IconMaterialSquareFootFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialSquareFootFilled.displayName = 'AmauiIconMaterialSquareFootFilled';
 
 
+const IconMaterialSprintFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SprintFilled",
+    short_name: "Sprint",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5.4 20 4 18.6 13.6 9H11v2H9V7h5.825q.4 0 .775.15t.65.425l3 2.975q.675.675 1.65 1.05.975.375 2.1.4v2q-1.55 0-2.812-.475-1.263-.475-2.238-1.425l-1-1.05-2.2 2.2L17 15.5l-6.55 3.775-1-1.725 4.3-2.475-1.7-1.7ZM3 13v-2h5v2Zm-2-3V8h5v2Zm18.475-2q-.825 0-1.425-.588-.6-.587-.6-1.412t.6-1.412Q18.65 4 19.475 4q.825 0 1.425.588.6.587.6 1.412t-.6 1.412Q20.3 8 19.475 8ZM3 7V5h5v2Z"
+  }));
+});
+IconMaterialSprintFilled.displayName = 'AmauiIconMaterialSprintFilled';
+
+
 const IconMaterialSsidChartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -35935,19 +35935,6 @@ const IconMaterialSsidChartFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialSsidChartFilled.displayName = 'AmauiIconMaterialSsidChartFilled';
 
 
-const IconMaterialStackOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "StackOffFilled",
-    short_name: "StackOff",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m880-194-80-80v-286H514l-80-80h446v446ZM560-720v-80H274l-80-80h446v160h-80Zm240 446L514-560h286v286Zm23 251-57-57H320v-446L160-686v286h80v80H80v-446l-57-57 57-57L880-80l-57 57Z"
-  }));
-});
-IconMaterialStackOffFilled.displayName = 'AmauiIconMaterialStackOffFilled';
-
-
 const IconMaterialStackFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -35959,6 +35946,19 @@ const IconMaterialStackFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialStackFilled.displayName = 'AmauiIconMaterialStackFilled';
+
+
+const IconMaterialStackOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "StackOffFilled",
+    short_name: "StackOff",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m880-194-80-80v-286H514l-80-80h446v446ZM560-720v-80H274l-80-80h446v160h-80Zm240 446L514-560h286v286Zm23 251-57-57H320v-446L160-686v286h80v80H80v-446l-57-57 57-57L880-80l-57 57Z"
+  }));
+});
+IconMaterialStackOffFilled.displayName = 'AmauiIconMaterialStackOffFilled';
 
 
 const IconMaterialStackStarFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -36481,19 +36481,6 @@ const IconMaterialStopCircleFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialStopCircleFilled.displayName = 'AmauiIconMaterialStopCircleFilled';
 
 
-const IconMaterialStopFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "StopFilled",
-    short_name: "Stop",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6 18V6h12v12Z"
-  }));
-});
-IconMaterialStopFilled.displayName = 'AmauiIconMaterialStopFilled';
-
-
 const IconMaterialStopScreenShareFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -36505,6 +36492,19 @@ const IconMaterialStopScreenShareFilled = /*#__PURE__*/React.forwardRef((props, 
   }));
 });
 IconMaterialStopScreenShareFilled.displayName = 'AmauiIconMaterialStopScreenShareFilled';
+
+
+const IconMaterialStopFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "StopFilled",
+    short_name: "Stop",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M6 18V6h12v12Z"
+  }));
+});
+IconMaterialStopFilled.displayName = 'AmauiIconMaterialStopFilled';
 
 
 const IconMaterialStorageFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -36572,19 +36572,6 @@ const IconMaterialStraightFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialStraightFilled.displayName = 'AmauiIconMaterialStraightFilled';
 
 
-const IconMaterialStraightenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "StraightenFilled",
-    short_name: "Straighten",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 18V6h5v6h2V6h2v6h2V6h2v6h2V6h5v12Z"
-  }));
-});
-IconMaterialStraightenFilled.displayName = 'AmauiIconMaterialStraightenFilled';
-
-
 const IconMaterialStrategyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -36596,6 +36583,19 @@ const IconMaterialStrategyFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialStrategyFilled.displayName = 'AmauiIconMaterialStrategyFilled';
+
+
+const IconMaterialStraightenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "StraightenFilled",
+    short_name: "Straighten",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 18V6h5v6h2V6h2v6h2V6h2v6h2V6h5v12Z"
+  }));
+});
+IconMaterialStraightenFilled.displayName = 'AmauiIconMaterialStraightenFilled';
 
 
 const IconMaterialStreamAppsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -36624,19 +36624,6 @@ const IconMaterialStreamFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialStreamFilled.displayName = 'AmauiIconMaterialStreamFilled';
 
 
-const IconMaterialStressManagementFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "StressManagementFilled",
-    short_name: "StressManagement",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480 736q68 0 151-27t249-95v-15q0-51-41-82t-90-17q-17 5-34.5 12T668 530q-61 26-103 36t-85 10q-45 0-87-10.5T287 529q-24-10-41.5-16.5T212 501q-49-16-90.5 15T80 599v13q131 60 230 92t170 32Zm0 240q138 0 242.5-75.5T864 707q-131 56-220 82.5T480 816q-76 0-173.5-28.5T94 706q34 123 137 196.5T480 976Zm0-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Z"
-  }));
-});
-IconMaterialStressManagementFilled.displayName = 'AmauiIconMaterialStressManagementFilled';
-
-
 const IconMaterialStreetviewFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -36648,6 +36635,19 @@ const IconMaterialStreetviewFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialStreetviewFilled.displayName = 'AmauiIconMaterialStreetviewFilled';
+
+
+const IconMaterialStressManagementFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "StressManagementFilled",
+    short_name: "StressManagement",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M480 736q68 0 151-27t249-95v-15q0-51-41-82t-90-17q-17 5-34.5 12T668 530q-61 26-103 36t-85 10q-45 0-87-10.5T287 529q-24-10-41.5-16.5T212 501q-49-16-90.5 15T80 599v13q131 60 230 92t170 32Zm0 240q138 0 242.5-75.5T864 707q-131 56-220 82.5T480 816q-76 0-173.5-28.5T94 706q34 123 137 196.5T480 976Zm0-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Z"
+  }));
+});
+IconMaterialStressManagementFilled.displayName = 'AmauiIconMaterialStressManagementFilled';
 
 
 const IconMaterialStrikethroughSFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -36689,19 +36689,6 @@ const IconMaterialStrokePartialFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialStrokePartialFilled.displayName = 'AmauiIconMaterialStrokePartialFilled';
 
 
-const IconMaterialStrollerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "StrollerFilled",
-    short_name: "Stroller",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16 22q-.825 0-1.412-.587Q14 20.825 14 20q0-.825.588-1.413Q15.175 18 16 18t1.413.587Q18 19.175 18 20q0 .825-.587 1.413Q16.825 22 16 22ZM6 22q-.825 0-1.412-.587Q4 20.825 4 20q0-.825.588-1.413Q5.175 18 6 18t1.412.587Q8 19.175 8 20q0 .825-.588 1.413Q6.825 22 6 22Zm-.725-5L16.2 4.175q.5-.575 1.112-.875.613-.3 1.338-.3 1.425 0 2.388.963Q22 4.925 22 6.35V7h-2v-.65q0-.575-.387-.963Q19.225 5 18.65 5q-.275 0-.487.1-.213.1-.388.3L17 6.275V17ZM9.6 9.6 4.725 4.725q1.2-.85 2.525-1.287Q8.575 3 10 3q1.125 0 2.213.275Q13.3 3.55 14.3 4.1Z"
-  }));
-});
-IconMaterialStrollerFilled.displayName = 'AmauiIconMaterialStrollerFilled';
-
-
 const IconMaterialStyleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -36728,17 +36715,17 @@ const IconMaterialStylerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialStylerFilled.displayName = 'AmauiIconMaterialStylerFilled';
 
 
-const IconMaterialStylusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialStrollerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "StylusFilled",
-    short_name: "Stylus",
-    viewBox: "0 -960 960 960"
+    name: "StrollerFilled",
+    short_name: "Stroller",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m338-156-230 48 48-230 182 182Zm65-49L205-403l470-470 198 198-470 470Z"
+    d: "M16 22q-.825 0-1.412-.587Q14 20.825 14 20q0-.825.588-1.413Q15.175 18 16 18t1.413.587Q18 19.175 18 20q0 .825-.587 1.413Q16.825 22 16 22ZM6 22q-.825 0-1.412-.587Q4 20.825 4 20q0-.825.588-1.413Q5.175 18 6 18t1.412.587Q8 19.175 8 20q0 .825-.588 1.413Q6.825 22 6 22Zm-.725-5L16.2 4.175q.5-.575 1.112-.875.613-.3 1.338-.3 1.425 0 2.388.963Q22 4.925 22 6.35V7h-2v-.65q0-.575-.387-.963Q19.225 5 18.65 5q-.275 0-.487.1-.213.1-.388.3L17 6.275V17ZM9.6 9.6 4.725 4.725q1.2-.85 2.525-1.287Q8.575 3 10 3q1.125 0 2.213.275Q13.3 3.55 14.3 4.1Z"
   }));
 });
-IconMaterialStylusFilled.displayName = 'AmauiIconMaterialStylusFilled';
+IconMaterialStrollerFilled.displayName = 'AmauiIconMaterialStrollerFilled';
 
 
 const IconMaterialStylusLaserPointerFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -36752,6 +36739,19 @@ const IconMaterialStylusLaserPointerFilled = /*#__PURE__*/React.forwardRef((prop
   }));
 });
 IconMaterialStylusLaserPointerFilled.displayName = 'AmauiIconMaterialStylusLaserPointerFilled';
+
+
+const IconMaterialStylusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "StylusFilled",
+    short_name: "Stylus",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m338-156-230 48 48-230 182 182Zm65-49L205-403l470-470 198 198-470 470Z"
+  }));
+});
+IconMaterialStylusFilled.displayName = 'AmauiIconMaterialStylusFilled';
 
 
 const IconMaterialStylusNoteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -36858,19 +36858,6 @@ const IconMaterialSubtitlesFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialSubtitlesFilled.displayName = 'AmauiIconMaterialSubtitlesFilled';
 
 
-const IconMaterialSubtitlesOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SubtitlesOffFilled",
-    short_name: "SubtitlesOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M18 10h-5.15l-6-6H22v15.15L14.85 12H18Zm2.55 13.35L17.15 20H2V4h2v2.8L.65 3.45l1.4-1.4 19.9 19.9ZM11.15 14H6v2h7.15ZM6 12h2v-1.2l-.8-.8H6Z"
-  }));
-});
-IconMaterialSubtitlesOffFilled.displayName = 'AmauiIconMaterialSubtitlesOffFilled';
-
-
 const IconMaterialSubwayFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -36882,6 +36869,19 @@ const IconMaterialSubwayFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialSubwayFilled.displayName = 'AmauiIconMaterialSubwayFilled';
+
+
+const IconMaterialSubtitlesOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SubtitlesOffFilled",
+    short_name: "SubtitlesOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M18 10h-5.15l-6-6H22v15.15L14.85 12H18Zm2.55 13.35L17.15 20H2V4h2v2.8L.65 3.45l1.4-1.4 19.9 19.9ZM11.15 14H6v2h7.15ZM6 12h2v-1.2l-.8-.8H6Z"
+  }));
+});
+IconMaterialSubtitlesOffFilled.displayName = 'AmauiIconMaterialSubtitlesOffFilled';
 
 
 const IconMaterialSummarizeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -37014,19 +37014,6 @@ const IconMaterialSurfingFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialSurfingFilled.displayName = 'AmauiIconMaterialSurfingFilled';
 
 
-const IconMaterialSurgicalFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SurgicalFilled",
-    short_name: "Surgical",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M496 710 346 560l361-361 150 150-361 361Zm-56 226 80-80h360v80H440Zm-237 0q-46 0-88.5-18T40 868l265-264 175 174-90 90q-32 32-74.5 50T227 936h-24Z"
-  }));
-});
-IconMaterialSurgicalFilled.displayName = 'AmauiIconMaterialSurgicalFilled';
-
-
 const IconMaterialSurroundSoundFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -37038,6 +37025,19 @@ const IconMaterialSurroundSoundFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialSurroundSoundFilled.displayName = 'AmauiIconMaterialSurroundSoundFilled';
+
+
+const IconMaterialSurgicalFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SurgicalFilled",
+    short_name: "Surgical",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M496 710 346 560l361-361 150 150-361 361Zm-56 226 80-80h360v80H440Zm-237 0q-46 0-88.5-18T40 868l265-264 175 174-90 90q-32 32-74.5 50T227 936h-24Z"
+  }));
+});
+IconMaterialSurgicalFilled.displayName = 'AmauiIconMaterialSurgicalFilled';
 
 
 const IconMaterialSwapCallsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -37313,19 +37313,6 @@ const IconMaterialSwitchAccessShortcutAddFilled = /*#__PURE__*/React.forwardRef(
 IconMaterialSwitchAccessShortcutAddFilled.displayName = 'AmauiIconMaterialSwitchAccessShortcutAddFilled';
 
 
-const IconMaterialSwitchAccessShortcutFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SwitchAccessShortcutFilled",
-    short_name: "SwitchAccessShortcut",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m5 15-.625-1.375L3 13l1.375-.625L5 11l.625 1.375L7 13l-1.375.625Zm3 6-.95-2.05L5 18l2.05-.95L8 15l.95 2.05L11 18l-2.05.95Zm0-10-.95-2.05L5 8l2.05-.95L8 5l.95 2.05L11 8l-2.05.95Zm11 11q-3.1-1.2-5.05-3.962Q12 15.275 12 12q0-2.35.938-4.4.937-2.05 2.512-3.6H12V2h7v7h-2V5.275Q15.65 6.6 14.825 8.35 14 10.1 14 12q0 2.5 1.4 4.6 1.4 2.1 3.6 3.225Z"
-  }));
-});
-IconMaterialSwitchAccessShortcutFilled.displayName = 'AmauiIconMaterialSwitchAccessShortcutFilled';
-
-
 const IconMaterialSwitchAccountFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -37337,6 +37324,19 @@ const IconMaterialSwitchAccountFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialSwitchAccountFilled.displayName = 'AmauiIconMaterialSwitchAccountFilled';
+
+
+const IconMaterialSwitchAccessShortcutFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SwitchAccessShortcutFilled",
+    short_name: "SwitchAccessShortcut",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m5 15-.625-1.375L3 13l1.375-.625L5 11l.625 1.375L7 13l-1.375.625Zm3 6-.95-2.05L5 18l2.05-.95L8 15l.95 2.05L11 18l-2.05.95Zm0-10-.95-2.05L5 8l2.05-.95L8 5l.95 2.05L11 8l-2.05.95Zm11 11q-3.1-1.2-5.05-3.962Q12 15.275 12 12q0-2.35.938-4.4.937-2.05 2.512-3.6H12V2h7v7h-2V5.275Q15.65 6.6 14.825 8.35 14 10.1 14 12q0 2.5 1.4 4.6 1.4 2.1 3.6 3.225Z"
+  }));
+});
+IconMaterialSwitchAccessShortcutFilled.displayName = 'AmauiIconMaterialSwitchAccessShortcutFilled';
 
 
 const IconMaterialSwitchCameraFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -37417,19 +37417,6 @@ const IconMaterialSwitchesFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialSwitchesFilled.displayName = 'AmauiIconMaterialSwitchesFilled';
 
 
-const IconMaterialSwordRoseFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SwordRoseFilled",
-    short_name: "SwordRose",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M644-484 484-644l236-236h160v160L644-484ZM170-64 64-170l144-145-88-88 84-84 62 61 48-48 160 160-48 48 62 61-85 85-88-88L170-64Zm709-72-56 56-466-464q-49 30-107 23.5T150-569l-25-25 27-28q26-27 63.5-26.5T279-622l78 78q9-5 17-11.5t16-14.5q7-7 13-15t11-16l-78-78q-51-50-121-50T96-678l-27 27-29-29 240-239 110 110q43 43 48.5 101T414-601l289 289q-8-26-10-54t3-56q6-30 20.5-56t34-48.5q19.5-22.5 44.5-41t52-32.5q39 48 60 105t9 117q-11 51-42.5 91T797-218l82 82Z"
-  }));
-});
-IconMaterialSwordRoseFilled.displayName = 'AmauiIconMaterialSwordRoseFilled';
-
-
 const IconMaterialSwordsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -37441,6 +37428,19 @@ const IconMaterialSwordsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialSwordsFilled.displayName = 'AmauiIconMaterialSwordsFilled';
+
+
+const IconMaterialSwordRoseFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SwordRoseFilled",
+    short_name: "SwordRose",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M644-484 484-644l236-236h160v160L644-484ZM170-64 64-170l144-145-88-88 84-84 62 61 48-48 160 160-48 48 62 61-85 85-88-88L170-64Zm709-72-56 56-466-464q-49 30-107 23.5T150-569l-25-25 27-28q26-27 63.5-26.5T279-622l78 78q9-5 17-11.5t16-14.5q7-7 13-15t11-16l-78-78q-51-50-121-50T96-678l-27 27-29-29 240-239 110 110q43 43 48.5 101T414-601l289 289q-8-26-10-54t3-56q6-30 20.5-56t34-48.5q19.5-22.5 44.5-41t52-32.5q39 48 60 105t9 117q-11 51-42.5 91T797-218l82 82Z"
+  }));
+});
+IconMaterialSwordRoseFilled.displayName = 'AmauiIconMaterialSwordRoseFilled';
 
 
 const IconMaterialSymptomsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -37495,19 +37495,6 @@ const IconMaterialSyncDisabledFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialSyncDisabledFilled.displayName = 'AmauiIconMaterialSyncDisabledFilled';
 
 
-const IconMaterialSyncFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "SyncFilled",
-    short_name: "Sync",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4 20v-2h2.75l-.4-.35q-1.225-1.225-1.788-2.662Q4 13.55 4 12.05q0-2.775 1.662-4.938Q7.325 4.95 10 4.25v2.1Q8.2 7 7.1 8.562 6 10.125 6 12.05q0 1.125.425 2.187Q6.85 15.3 7.75 16.2l.25.25V14h2v6Zm10-.25v-2.1q1.8-.65 2.9-2.212Q18 13.875 18 11.95q0-1.125-.425-2.188Q17.15 8.7 16.25 7.8L16 7.55V10h-2V4h6v2h-2.75l.4.35q1.225 1.225 1.788 2.662Q20 10.45 20 11.95q0 2.775-1.663 4.937Q16.675 19.05 14 19.75Z"
-  }));
-});
-IconMaterialSyncFilled.displayName = 'AmauiIconMaterialSyncFilled';
-
-
 const IconMaterialSyncLockFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -37519,6 +37506,19 @@ const IconMaterialSyncLockFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialSyncLockFilled.displayName = 'AmauiIconMaterialSyncLockFilled';
+
+
+const IconMaterialSyncFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "SyncFilled",
+    short_name: "Sync",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4 20v-2h2.75l-.4-.35q-1.225-1.225-1.788-2.662Q4 13.55 4 12.05q0-2.775 1.662-4.938Q7.325 4.95 10 4.25v2.1Q8.2 7 7.1 8.562 6 10.125 6 12.05q0 1.125.425 2.187Q6.85 15.3 7.75 16.2l.25.25V14h2v6Zm10-.25v-2.1q1.8-.65 2.9-2.212Q18 13.875 18 11.95q0-1.125-.425-2.188Q17.15 8.7 16.25 7.8L16 7.55V10h-2V4h6v2h-2.75l.4.35q1.225 1.225 1.788 2.662Q20 10.45 20 11.95q0 2.775-1.663 4.937Q16.675 19.05 14 19.75Z"
+  }));
+});
+IconMaterialSyncFilled.displayName = 'AmauiIconMaterialSyncFilled';
 
 
 const IconMaterialSyncProblemFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -37612,19 +37612,6 @@ const IconMaterialTabCloseRightFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialTabCloseRightFilled.displayName = 'AmauiIconMaterialTabCloseRightFilled';
 
 
-const IconMaterialTabDuplicateFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TabDuplicateFilled",
-    short_name: "TabDuplicate",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M160 976H80v-80h80v80ZM80 816v-80h80v80H80Zm0-160v-80h80v80H80Zm0-160v-80h80v80H80Zm0-160v-80h80v80H80Zm160 640v-80h80v80h-80Zm160 0v-80h80v80h-80Zm160 0v-80h80v80h-80Zm160 0v-80h80v80h-80ZM240 816V176h640v640H240Zm280-400h280V256H520v160Z"
-  }));
-});
-IconMaterialTabDuplicateFilled.displayName = 'AmauiIconMaterialTabDuplicateFilled';
-
-
 const IconMaterialTabFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -37636,6 +37623,19 @@ const IconMaterialTabFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialTabFilled.displayName = 'AmauiIconMaterialTabFilled';
+
+
+const IconMaterialTabDuplicateFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TabDuplicateFilled",
+    short_name: "TabDuplicate",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M160 976H80v-80h80v80ZM80 816v-80h80v80H80Zm0-160v-80h80v80H80Zm0-160v-80h80v80H80Zm0-160v-80h80v80H80Zm160 640v-80h80v80h-80Zm160 0v-80h80v80h-80Zm160 0v-80h80v80h-80Zm160 0v-80h80v80h-80ZM240 816V176h640v640H240Zm280-400h280V256H520v160Z"
+  }));
+});
+IconMaterialTabDuplicateFilled.displayName = 'AmauiIconMaterialTabDuplicateFilled';
 
 
 const IconMaterialTabGroupFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -37794,19 +37794,6 @@ const IconMaterialTableRowsFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialTableRowsFilled.displayName = 'AmauiIconMaterialTableRowsFilled';
 
 
-const IconMaterialTableRowsNarrowFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TableRowsNarrowFilled",
-    short_name: "TableRowsNarrow",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M120 716h720V616H120v100Zm0-180h720V436H120v100Zm0-180h720V256H120v100Zm720 580V216v720Zm-720-40h720V796H120v100Z"
-  }));
-});
-IconMaterialTableRowsNarrowFilled.displayName = 'AmauiIconMaterialTableRowsNarrowFilled';
-
-
 const IconMaterialTableViewFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -37818,6 +37805,19 @@ const IconMaterialTableViewFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialTableViewFilled.displayName = 'AmauiIconMaterialTableViewFilled';
+
+
+const IconMaterialTableRowsNarrowFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TableRowsNarrowFilled",
+    short_name: "TableRowsNarrow",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M120 716h720V616H120v100Zm0-180h720V436H120v100Zm0-180h720V256H120v100Zm720 580V216v720Zm-720-40h720V796H120v100Z"
+  }));
+});
+IconMaterialTableRowsNarrowFilled.displayName = 'AmauiIconMaterialTableRowsNarrowFilled';
 
 
 const IconMaterialTabletAndroidFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -37859,19 +37859,6 @@ const IconMaterialTabletMacFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialTabletMacFilled.displayName = 'AmauiIconMaterialTabletMacFilled';
 
 
-const IconMaterialTabsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TabsFilled",
-    short_name: "Tabs",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M120-120v-720h720v720H120Zm80-80h560v-280H200v280Zm280-440h240v-80H480v80Z"
-  }));
-});
-IconMaterialTabsFilled.displayName = 'AmauiIconMaterialTabsFilled';
-
-
 const IconMaterialTacticFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -37883,6 +37870,19 @@ const IconMaterialTacticFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialTacticFilled.displayName = 'AmauiIconMaterialTacticFilled';
+
+
+const IconMaterialTabsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TabsFilled",
+    short_name: "Tabs",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M120-120v-720h720v720H120Zm80-80h560v-280H200v280Zm280-440h240v-80H480v80Z"
+  }));
+});
+IconMaterialTabsFilled.displayName = 'AmauiIconMaterialTabsFilled';
 
 
 const IconMaterialTagFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -37950,19 +37950,6 @@ const IconMaterialTapAndPlayFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialTapAndPlayFilled.displayName = 'AmauiIconMaterialTapAndPlayFilled';
 
 
-const IconMaterialTapasFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TapasFilled",
-    short_name: "Tapas",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M6 23v-9H4q-1.05 0-1.775-.725Q1.5 12.55 1.5 11.5q0-1.05.725-1.775Q2.95 9 4 9h2V8H4q-1.05 0-1.775-.725Q1.5 6.55 1.5 5.5q0-1.05.725-1.775Q2.95 3 4 3h2V1h2v2h2q1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775Q11.05 8 10 8H8v1h2q1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775Q11.05 14 10 14H8v9Zm9 0v-2h2v-7.15q-1.3-.35-2.15-1.4Q14 11.4 14 10V1h8v9q0 1.4-.85 2.45-.85 1.05-2.15 1.4V21h2v2Zm1-17h4V3h-4Z"
-  }));
-});
-IconMaterialTapasFilled.displayName = 'AmauiIconMaterialTapasFilled';
-
-
 const IconMaterialTargetFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -37976,17 +37963,17 @@ const IconMaterialTargetFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialTargetFilled.displayName = 'AmauiIconMaterialTargetFilled';
 
 
-const IconMaterialTaskAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialTapasFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "TaskAltFilled",
-    short_name: "TaskAlt",
+    name: "TapasFilled",
+    short_name: "Tapas",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2q1.625 0 3.075.475 1.45.475 2.675 1.325L16.3 5.275q-.95-.6-2.025-.938Q13.2 4 12 4 8.675 4 6.338 6.337 4 8.675 4 12t2.338 5.663Q8.675 20 12 20q3.325 0 5.663-2.337Q20 15.325 20 12q0-.45-.05-.9t-.15-.875L21.425 8.6q.275.8.425 1.65.15.85.15 1.75 0 2.075-.788 3.9-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm-1.4-5.4-4.25-4.25 1.4-1.4 2.85 2.85 10-10.025 1.4 1.4Z"
+    d: "M6 23v-9H4q-1.05 0-1.775-.725Q1.5 12.55 1.5 11.5q0-1.05.725-1.775Q2.95 9 4 9h2V8H4q-1.05 0-1.775-.725Q1.5 6.55 1.5 5.5q0-1.05.725-1.775Q2.95 3 4 3h2V1h2v2h2q1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775Q11.05 8 10 8H8v1h2q1.05 0 1.775.725.725.725.725 1.775 0 1.05-.725 1.775Q11.05 14 10 14H8v9Zm9 0v-2h2v-7.15q-1.3-.35-2.15-1.4Q14 11.4 14 10V1h8v9q0 1.4-.85 2.45-.85 1.05-2.15 1.4V21h2v2Zm1-17h4V3h-4Z"
   }));
 });
-IconMaterialTaskAltFilled.displayName = 'AmauiIconMaterialTaskAltFilled';
+IconMaterialTapasFilled.displayName = 'AmauiIconMaterialTapasFilled';
 
 
 const IconMaterialTaskFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38000,6 +37987,19 @@ const IconMaterialTaskFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialTaskFilled.displayName = 'AmauiIconMaterialTaskFilled';
+
+
+const IconMaterialTaskAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TaskAltFilled",
+    short_name: "TaskAlt",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2q1.625 0 3.075.475 1.45.475 2.675 1.325L16.3 5.275q-.95-.6-2.025-.938Q13.2 4 12 4 8.675 4 6.338 6.337 4 8.675 4 12t2.338 5.663Q8.675 20 12 20q3.325 0 5.663-2.337Q20 15.325 20 12q0-.45-.05-.9t-.15-.875L21.425 8.6q.275.8.425 1.65.15.85.15 1.75 0 2.075-.788 3.9-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm-1.4-5.4-4.25-4.25 1.4-1.4 2.85 2.85 10-10.025 1.4 1.4Z"
+  }));
+});
+IconMaterialTaskAltFilled.displayName = 'AmauiIconMaterialTaskAltFilled';
 
 
 const IconMaterialTauntFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38028,19 +38028,6 @@ const IconMaterialTaxiAlertFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialTaxiAlertFilled.displayName = 'AmauiIconMaterialTaxiAlertFilled';
 
 
-const IconMaterialTeamDashboardFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TeamDashboardFilled",
-    short_name: "TeamDashboard",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5 21q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h14q.825 0 1.413.587Q21 4.175 21 5v14q0 .825-.587 1.413Q19.825 21 19 21Zm5-2v-6H5v6Zm2 0h7v-6h-7Zm-7-8h14V5H5Z"
-  }));
-});
-IconMaterialTeamDashboardFilled.displayName = 'AmauiIconMaterialTeamDashboardFilled';
-
-
 const IconMaterialTempPreferencesCustomFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -38052,6 +38039,19 @@ const IconMaterialTempPreferencesCustomFilled = /*#__PURE__*/React.forwardRef((p
   }));
 });
 IconMaterialTempPreferencesCustomFilled.displayName = 'AmauiIconMaterialTempPreferencesCustomFilled';
+
+
+const IconMaterialTeamDashboardFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TeamDashboardFilled",
+    short_name: "TeamDashboard",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5 21q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h14q.825 0 1.413.587Q21 4.175 21 5v14q0 .825-.587 1.413Q19.825 21 19 21Zm5-2v-6H5v6Zm2 0h7v-6h-7Zm-7-8h14V5H5Z"
+  }));
+});
+IconMaterialTeamDashboardFilled.displayName = 'AmauiIconMaterialTeamDashboardFilled';
 
 
 const IconMaterialTempPreferencesEcoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38078,19 +38078,6 @@ const IconMaterialTempleBuddhistFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialTempleBuddhistFilled.displayName = 'AmauiIconMaterialTempleBuddhistFilled';
-
-
-const IconMaterialTempleHinduFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TempleHinduFilled",
-    short_name: "TempleHindu",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m7.8 7 1.175-3.875V1h2v2H13V1h2v2l1.2 4ZM2 22V11h2v2h16v-2h2v11h-9v-5h-2v5Zm4.6-11 .6-2h9.6l.6 2Z"
-  }));
-});
-IconMaterialTempleHinduFilled.displayName = 'AmauiIconMaterialTempleHinduFilled';
 
 
 const IconMaterialTenancyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38145,17 +38132,17 @@ const IconMaterialTextDecreaseFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialTextDecreaseFilled.displayName = 'AmauiIconMaterialTextDecreaseFilled';
 
 
-const IconMaterialTextFieldsAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialTempleHinduFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "TextFieldsAltFilled",
-    short_name: "TextFieldsAlt",
-    viewBox: "0 -960 960 960"
+    name: "TempleHinduFilled",
+    short_name: "TempleHindu",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M80-120v-80h800v80H80Zm680-160v-560h60v560h-60Zm-600 0 210-560h100l210 560h-96l-50-144H308l-52 144h-96Zm176-224h168l-82-232h-4l-82 232Z"
+    d: "m7.8 7 1.175-3.875V1h2v2H13V1h2v2l1.2 4ZM2 22V11h2v2h16v-2h2v11h-9v-5h-2v5Zm4.6-11 .6-2h9.6l.6 2Z"
   }));
 });
-IconMaterialTextFieldsAltFilled.displayName = 'AmauiIconMaterialTextFieldsAltFilled';
+IconMaterialTempleHinduFilled.displayName = 'AmauiIconMaterialTempleHinduFilled';
 
 
 const IconMaterialTextFieldsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38169,6 +38156,19 @@ const IconMaterialTextFieldsFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialTextFieldsFilled.displayName = 'AmauiIconMaterialTextFieldsFilled';
+
+
+const IconMaterialTextFieldsAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TextFieldsAltFilled",
+    short_name: "TextFieldsAlt",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M80-120v-80h800v80H80Zm680-160v-560h60v560h-60Zm-600 0 210-560h100l210 560h-96l-50-144H308l-52 144h-96Zm176-224h168l-82-232h-4l-82 232Z"
+  }));
+});
+IconMaterialTextFieldsAltFilled.displayName = 'AmauiIconMaterialTextFieldsAltFilled';
 
 
 const IconMaterialTextFormatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38314,17 +38314,17 @@ const IconMaterialTextSelectJumpToEndFilled = /*#__PURE__*/React.forwardRef((pro
 IconMaterialTextSelectJumpToEndFilled.displayName = 'AmauiIconMaterialTextSelectJumpToEndFilled';
 
 
-const IconMaterialTextSelectMoveBackCharacterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialTextSelectMoveDownFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "TextSelectMoveBackCharacterFilled",
-    short_name: "TextSelectMoveBackCharacter",
+    name: "TextSelectMoveDownFilled",
+    short_name: "TextSelectMoveDown",
     viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M440 296v-80h80v80h-80Zm0 640v-80h80v80h-80ZM280 296v-80h80v80h-80Zm0 640v-80h80v80h-80ZM120 296v-80h80v80h-80Zm0 640v-80h80v80h-80Zm480 0v-80h80V296h-80v-80h240v80h-80v560h80v80H600ZM280 736 120 576l160-160 56 56-63 64h287v80H273l63 64-56 56Z"
+    d: "M120 296v-80h720v80H120Zm360 480L320 616l56-56 64 63V376h80v247l64-63 56 56-160 160ZM120 936v-80h720v80H120Z"
   }));
 });
-IconMaterialTextSelectMoveBackCharacterFilled.displayName = 'AmauiIconMaterialTextSelectMoveBackCharacterFilled';
+IconMaterialTextSelectMoveDownFilled.displayName = 'AmauiIconMaterialTextSelectMoveDownFilled';
 
 
 const IconMaterialTextSelectMoveBackWordFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38340,17 +38340,17 @@ const IconMaterialTextSelectMoveBackWordFilled = /*#__PURE__*/React.forwardRef((
 IconMaterialTextSelectMoveBackWordFilled.displayName = 'AmauiIconMaterialTextSelectMoveBackWordFilled';
 
 
-const IconMaterialTextSelectMoveDownFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialTextSelectMoveBackCharacterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "TextSelectMoveDownFilled",
-    short_name: "TextSelectMoveDown",
+    name: "TextSelectMoveBackCharacterFilled",
+    short_name: "TextSelectMoveBackCharacter",
     viewBox: "0 96 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M120 296v-80h720v80H120Zm360 480L320 616l56-56 64 63V376h80v247l64-63 56 56-160 160ZM120 936v-80h720v80H120Z"
+    d: "M440 296v-80h80v80h-80Zm0 640v-80h80v80h-80ZM280 296v-80h80v80h-80Zm0 640v-80h80v80h-80ZM120 296v-80h80v80h-80Zm0 640v-80h80v80h-80Zm480 0v-80h80V296h-80v-80h240v80h-80v560h80v80H600ZM280 736 120 576l160-160 56 56-63 64h287v80H273l63 64-56 56Z"
   }));
 });
-IconMaterialTextSelectMoveDownFilled.displayName = 'AmauiIconMaterialTextSelectMoveDownFilled';
+IconMaterialTextSelectMoveBackCharacterFilled.displayName = 'AmauiIconMaterialTextSelectMoveBackCharacterFilled';
 
 
 const IconMaterialTextSelectMoveForwardCharacterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38574,19 +38574,6 @@ const IconMaterialThermostatAutoFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialThermostatAutoFilled.displayName = 'AmauiIconMaterialThermostatAutoFilled';
 
 
-const IconMaterialThermostatCarbonFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ThermostatCarbonFilled",
-    short_name: "ThermostatCarbon",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M13.425 21.45q-.575.575-1.425.575-.85 0-1.425-.575L2.55 13.425Q1.975 12.85 1.975 12q0-.85.575-1.425l8.025-8.025q.575-.575 1.425-.575.85 0 1.425.575l8.025 8.025q.575.575.575 1.425 0 .85-.575 1.425ZM12 20.025 20.025 12 12 3.975 3.975 12 12 20.025Z"
-  }));
-});
-IconMaterialThermostatCarbonFilled.displayName = 'AmauiIconMaterialThermostatCarbonFilled';
-
-
 const IconMaterialThermostatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -38598,6 +38585,19 @@ const IconMaterialThermostatFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialThermostatFilled.displayName = 'AmauiIconMaterialThermostatFilled';
+
+
+const IconMaterialThermostatCarbonFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ThermostatCarbonFilled",
+    short_name: "ThermostatCarbon",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M13.425 21.45q-.575.575-1.425.575-.85 0-1.425-.575L2.55 13.425Q1.975 12.85 1.975 12q0-.85.575-1.425l8.025-8.025q.575-.575 1.425-.575.85 0 1.425.575l8.025 8.025q.575.575.575 1.425 0 .85-.575 1.425ZM12 20.025 20.025 12 12 3.975 3.975 12 12 20.025Z"
+  }));
+});
+IconMaterialThermostatCarbonFilled.displayName = 'AmauiIconMaterialThermostatCarbonFilled';
 
 
 const IconMaterialThingsToDoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38626,19 +38626,6 @@ const IconMaterialThreadUnreadFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialThreadUnreadFilled.displayName = 'AmauiIconMaterialThreadUnreadFilled';
 
 
-const IconMaterialThumbDownFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ThumbDownFilled",
-    short_name: "ThumbDown",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M1 16v-4.4L4.65 3H16v13l-7 7-1.85-1.85L8.45 16Zm17 0V3h4v13Z"
-  }));
-});
-IconMaterialThumbDownFilled.displayName = 'AmauiIconMaterialThumbDownFilled';
-
-
 const IconMaterialThumbDownOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -38650,6 +38637,19 @@ const IconMaterialThumbDownOffFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialThumbDownOffFilled.displayName = 'AmauiIconMaterialThumbDownOffFilled';
+
+
+const IconMaterialThumbDownFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ThumbDownFilled",
+    short_name: "ThumbDown",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M1 16v-4.4L4.65 3H16v13l-7 7-1.85-1.85L8.45 16Zm17 0V3h4v13Z"
+  }));
+});
+IconMaterialThumbDownFilled.displayName = 'AmauiIconMaterialThumbDownFilled';
 
 
 const IconMaterialThumbUpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38756,19 +38756,6 @@ const IconMaterialTimeAutoFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialTimeAutoFilled.displayName = 'AmauiIconMaterialTimeAutoFilled';
 
 
-const IconMaterialTimelapseFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TimelapseFilled",
-    short_name: "Timelapse",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 18q2.5 0 4.25-1.75T18 12q0-2.5-1.75-4.25T12 6v6l-4.25 4.25q.875.825 1.963 1.288Q10.8 18 12 18Zm0 4q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
-  }));
-});
-IconMaterialTimelapseFilled.displayName = 'AmauiIconMaterialTimelapseFilled';
-
-
 const IconMaterialTimelineFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -38780,6 +38767,19 @@ const IconMaterialTimelineFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialTimelineFilled.displayName = 'AmauiIconMaterialTimelineFilled';
+
+
+const IconMaterialTimelapseFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TimelapseFilled",
+    short_name: "Timelapse",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 18q2.5 0 4.25-1.75T18 12q0-2.5-1.75-4.25T12 6v6l-4.25 4.25q.875.825 1.963 1.288Q10.8 18 12 18Zm0 4q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Z"
+  }));
+});
+IconMaterialTimelapseFilled.displayName = 'AmauiIconMaterialTimelapseFilled';
 
 
 const IconMaterialTimer10Alt1Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38795,19 +38795,6 @@ const IconMaterialTimer10Alt1Filled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialTimer10Alt1Filled.displayName = 'AmauiIconMaterialTimer10Alt1Filled';
 
 
-const IconMaterialTimer10Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Timer10Filled",
-    short_name: "Timer10",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M4.35 16.95v-7.8l-1.55 1.1L2 9.1l2.8-2.05h1.1v9.9Zm6.75.05q-2.025 0-2.987-1.6-.963-1.6-.963-3.4 0-1.8.963-3.4Q9.075 7 11.1 7q2.025 0 2.962 1.6Q15 10.2 15 12q0 1.775-.938 3.387Q13.125 17 11.1 17Zm0-1.45q1.35 0 1.85-1.225t.5-2.325q0-1.1-.475-2.325T11.1 8.45q-1.4 0-1.875 1.212Q8.75 10.875 8.75 12q0 1.1.5 2.325t1.85 1.225ZM19 17q-.975 0-1.85-.438-.875-.437-1.25-1.462l1.35-.6q.275.575.713.863.437.287 1.037.287.375 0 .863-.175.487-.175.487-.675 0-.425-.412-.675-.413-.25-1.088-.375-.95-.2-1.825-.663-.875-.462-.875-1.587 0-1.1.888-1.575.887-.475 1.862-.475.875 0 1.662.337.788.338 1.138 1.213l-1.3.55q-.225-.425-.6-.612-.375-.188-.9-.188-.35 0-.775.15-.425.15-.425.6 0 .425.35.637.35.213 1.15.363.95.2 1.825.637.875.438.875 1.613 0 1.2-.925 1.725Q20.05 17 19 17Z"
-  }));
-});
-IconMaterialTimer10Filled.displayName = 'AmauiIconMaterialTimer10Filled';
-
-
 const IconMaterialTimer10SelectFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -38821,6 +38808,19 @@ const IconMaterialTimer10SelectFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialTimer10SelectFilled.displayName = 'AmauiIconMaterialTimer10SelectFilled';
 
 
+const IconMaterialTimer10Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Timer10Filled",
+    short_name: "Timer10",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M4.35 16.95v-7.8l-1.55 1.1L2 9.1l2.8-2.05h1.1v9.9Zm6.75.05q-2.025 0-2.987-1.6-.963-1.6-.963-3.4 0-1.8.963-3.4Q9.075 7 11.1 7q2.025 0 2.962 1.6Q15 10.2 15 12q0 1.775-.938 3.387Q13.125 17 11.1 17Zm0-1.45q1.35 0 1.85-1.225t.5-2.325q0-1.1-.475-2.325T11.1 8.45q-1.4 0-1.875 1.212Q8.75 10.875 8.75 12q0 1.1.5 2.325t1.85 1.225ZM19 17q-.975 0-1.85-.438-.875-.437-1.25-1.462l1.35-.6q.275.575.713.863.437.287 1.037.287.375 0 .863-.175.487-.175.487-.675 0-.425-.412-.675-.413-.25-1.088-.375-.95-.2-1.825-.663-.875-.462-.875-1.587 0-1.1.888-1.575.887-.475 1.862-.475.875 0 1.662.337.788.338 1.138 1.213l-1.3.55q-.225-.425-.6-.612-.375-.188-.9-.188-.35 0-.775.15-.425.15-.425.6 0 .425.35.637.35.213 1.15.363.95.2 1.825.637.875.438.875 1.613 0 1.2-.925 1.725Q20.05 17 19 17Z"
+  }));
+});
+IconMaterialTimer10Filled.displayName = 'AmauiIconMaterialTimer10Filled';
+
+
 const IconMaterialTimer3Alt1Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -38832,19 +38832,6 @@ const IconMaterialTimer3Alt1Filled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialTimer3Alt1Filled.displayName = 'AmauiIconMaterialTimer3Alt1Filled';
-
-
-const IconMaterialTimer3Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Timer3Filled",
-    short_name: "Timer3",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8.45 17q-1.2 0-2.05-.663-.85-.662-1.2-1.787l1.45-.6q.15.725.625 1.137.475.413 1.225.413.675 0 1.188-.387.512-.388.512-1.113 0-.8-.612-1.15-.613-.35-1.288-.35h-.8v-1.45h.75q.65 0 1.125-.313.475-.312.475-1.037 0-.65-.437-.95-.438-.3-1.013-.3-.525 0-.962.312Q7 9.075 6.85 9.6L5.45 9q.3-.975 1.138-1.488Q7.425 7 8.4 7q1.175 0 2.088.662.912.663.912 1.938 0 .75-.3 1.237-.3.488-.95.863v.05q.75.3 1.175.925.425.625.425 1.425 0 1.35-.988 2.125Q9.775 17 8.45 17Zm7.45 0q-.975 0-1.875-.462-.9-.463-1.275-1.438l1.4-.6q.275.6.713.85.437.25 1.037.25.375 0 .863-.15.487-.15.487-.65 0-.45-.438-.663-.437-.212-.962-.337-.95-.15-1.875-.663-.925-.512-.925-1.637 0-1.1.888-1.575.887-.475 1.862-.475.875 0 1.662.337.788.338 1.138 1.213l-1.3.55q-.225-.425-.6-.612-.375-.188-.9-.188-.35 0-.775.15-.425.15-.425.6 0 .425.425.612.425.188 1.175.388.9.2 1.75.662.85.463.85 1.588t-.963 1.688Q16.875 17 15.9 17Z"
-  }));
-});
-IconMaterialTimer3Filled.displayName = 'AmauiIconMaterialTimer3Filled';
 
 
 const IconMaterialTimer3SelectFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38884,6 +38871,19 @@ const IconMaterialTimerOffFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialTimerOffFilled.displayName = 'AmauiIconMaterialTimerOffFilled';
+
+
+const IconMaterialTimer3Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Timer3Filled",
+    short_name: "Timer3",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M8.45 17q-1.2 0-2.05-.663-.85-.662-1.2-1.787l1.45-.6q.15.725.625 1.137.475.413 1.225.413.675 0 1.188-.387.512-.388.512-1.113 0-.8-.612-1.15-.613-.35-1.288-.35h-.8v-1.45h.75q.65 0 1.125-.313.475-.312.475-1.037 0-.65-.437-.95-.438-.3-1.013-.3-.525 0-.962.312Q7 9.075 6.85 9.6L5.45 9q.3-.975 1.138-1.488Q7.425 7 8.4 7q1.175 0 2.088.662.912.663.912 1.938 0 .75-.3 1.237-.3.488-.95.863v.05q.75.3 1.175.925.425.625.425 1.425 0 1.35-.988 2.125Q9.775 17 8.45 17Zm7.45 0q-.975 0-1.875-.462-.9-.463-1.275-1.438l1.4-.6q.275.6.713.85.437.25 1.037.25.375 0 .863-.15.487-.15.487-.65 0-.45-.438-.663-.437-.212-.962-.337-.95-.15-1.875-.663-.925-.512-.925-1.637 0-1.1.888-1.575.887-.475 1.862-.475.875 0 1.662.337.788.338 1.138 1.213l-1.3.55q-.225-.425-.6-.612-.375-.188-.9-.188-.35 0-.775.15-.425.15-.425.6 0 .425.425.612.425.188 1.175.388.9.2 1.75.662.85.463.85 1.588t-.963 1.688Q16.875 17 15.9 17Z"
+  }));
+});
+IconMaterialTimer3Filled.displayName = 'AmauiIconMaterialTimer3Filled';
 
 
 const IconMaterialTipsAndUpdatesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -38951,19 +38951,6 @@ const IconMaterialTocFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialTocFilled.displayName = 'AmauiIconMaterialTocFilled';
 
 
-const IconMaterialToggleOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ToggleOffFilled",
-    short_name: "ToggleOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7 18q-2.5 0-4.25-1.75T1 12q0-2.5 1.75-4.25T7 6h10q2.5 0 4.25 1.75T23 12q0 2.5-1.75 4.25T17 18Zm0-3q1.25 0 2.125-.875T10 12q0-1.25-.875-2.125T7 9q-1.25 0-2.125.875T4 12q0 1.25.875 2.125T7 15Z"
-  }));
-});
-IconMaterialToggleOffFilled.displayName = 'AmauiIconMaterialToggleOffFilled';
-
-
 const IconMaterialTodayFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -38977,17 +38964,17 @@ const IconMaterialTodayFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialTodayFilled.displayName = 'AmauiIconMaterialTodayFilled';
 
 
-const IconMaterialTokenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialToggleOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "TokenFilled",
-    short_name: "Token",
+    name: "ToggleOffFilled",
+    short_name: "ToggleOff",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M9.1 9.25 4.05 6.425 12 2l7.95 4.425L14.9 9.25q-.55-.575-1.287-.913Q12.875 8 12 8t-1.613.337q-.737.338-1.287.913Zm1.9 12.2L3 17V8.125L8.125 11q-.075.225-.1.475Q8 11.725 8 12q0 1.4.85 2.462.85 1.063 2.15 1.413ZM12 14q-.825 0-1.412-.588Q10 12.825 10 12t.588-1.413Q11.175 10 12 10t1.413.587Q14 11.175 14 12q0 .825-.587 1.412Q12.825 14 12 14Zm1 7.45v-5.575q1.3-.35 2.15-1.413Q16 13.4 16 12q0-.275-.025-.512-.025-.238-.1-.488L21 8.125V17Z"
+    d: "M7 18q-2.5 0-4.25-1.75T1 12q0-2.5 1.75-4.25T7 6h10q2.5 0 4.25 1.75T23 12q0 2.5-1.75 4.25T17 18Zm0-3q1.25 0 2.125-.875T10 12q0-1.25-.875-2.125T7 9q-1.25 0-2.125.875T4 12q0 1.25.875 2.125T7 15Z"
   }));
 });
-IconMaterialTokenFilled.displayName = 'AmauiIconMaterialTokenFilled';
+IconMaterialToggleOffFilled.displayName = 'AmauiIconMaterialToggleOffFilled';
 
 
 const IconMaterialToggleOnFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39001,6 +38988,19 @@ const IconMaterialToggleOnFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialToggleOnFilled.displayName = 'AmauiIconMaterialToggleOnFilled';
+
+
+const IconMaterialTokenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TokenFilled",
+    short_name: "Token",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M9.1 9.25 4.05 6.425 12 2l7.95 4.425L14.9 9.25q-.55-.575-1.287-.913Q12.875 8 12 8t-1.613.337q-.737.338-1.287.913Zm1.9 12.2L3 17V8.125L8.125 11q-.075.225-.1.475Q8 11.725 8 12q0 1.4.85 2.462.85 1.063 2.15 1.413ZM12 14q-.825 0-1.412-.588Q10 12.825 10 12t.588-1.413Q11.175 10 12 10t1.413.587Q14 11.175 14 12q0 .825-.587 1.412Q12.825 14 12 14Zm1 7.45v-5.575q1.3-.35 2.15-1.413Q16 13.4 16 12q0-.275-.025-.512-.025-.238-.1-.488L21 8.125V17Z"
+  }));
+});
+IconMaterialTokenFilled.displayName = 'AmauiIconMaterialTokenFilled';
 
 
 const IconMaterialTonalityFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39276,19 +39276,6 @@ const IconMaterialToysAndGamesFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialToysAndGamesFilled.displayName = 'AmauiIconMaterialToysAndGamesFilled';
 
 
-const IconMaterialToysFanFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ToysFanFilled",
-    short_name: "ToysFan",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 12q0-2.275 1.613-3.887Q15.225 6.5 17.5 6.5t3.888 1.613Q23 9.725 23 12Zm-5.5 5.5q-2.275 0-3.887-1.613Q1 14.275 1 12h11q0 2.275-1.613 3.887Q8.775 17.5 6.5 17.5ZM12 12q-2.275 0-3.887-1.613Q6.5 8.775 6.5 6.5t1.613-3.888Q9.725 1 12 1Zm0 11V12q2.275 0 3.887 1.613Q17.5 15.225 17.5 17.5t-1.613 3.887Q14.275 23 12 23Z"
-  }));
-});
-IconMaterialToysFanFilled.displayName = 'AmauiIconMaterialToysFanFilled';
-
-
 const IconMaterialToysFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39300,6 +39287,19 @@ const IconMaterialToysFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialToysFilled.displayName = 'AmauiIconMaterialToysFilled';
+
+
+const IconMaterialToysFanFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ToysFanFilled",
+    short_name: "ToysFan",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 12q0-2.275 1.613-3.887Q15.225 6.5 17.5 6.5t3.888 1.613Q23 9.725 23 12Zm-5.5 5.5q-2.275 0-3.887-1.613Q1 14.275 1 12h11q0 2.275-1.613 3.887Q8.775 17.5 6.5 17.5ZM12 12q-2.275 0-3.887-1.613Q6.5 8.775 6.5 6.5t1.613-3.888Q9.725 1 12 1Zm0 11V12q2.275 0 3.887 1.613Q17.5 15.225 17.5 17.5t-1.613 3.887Q14.275 23 12 23Z"
+  }));
+});
+IconMaterialToysFanFilled.displayName = 'AmauiIconMaterialToysFanFilled';
 
 
 const IconMaterialTrackChangesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39328,19 +39328,6 @@ const IconMaterialTrafficFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialTrafficFilled.displayName = 'AmauiIconMaterialTrafficFilled';
 
 
-const IconMaterialTrailLengthFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TrailLengthFilled",
-    short_name: "TrailLength",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M7 17v-2h6q-.35-.425-.562-.925-.213-.5-.338-1.075H9v-2h3.1q.125-.575.338-1.075.212-.5.562-.925H3V7h14q2.075 0 3.538 1.462Q22 9.925 22 12q0 2.075-1.462 3.537Q19.075 17 17 17Zm-5-4v-2h6v2Zm1 4v-2h3v2Z"
-  }));
-});
-IconMaterialTrailLengthFilled.displayName = 'AmauiIconMaterialTrailLengthFilled';
-
-
 const IconMaterialTrailLengthMediumFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39352,6 +39339,19 @@ const IconMaterialTrailLengthMediumFilled = /*#__PURE__*/React.forwardRef((props
   }));
 });
 IconMaterialTrailLengthMediumFilled.displayName = 'AmauiIconMaterialTrailLengthMediumFilled';
+
+
+const IconMaterialTrailLengthFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TrailLengthFilled",
+    short_name: "TrailLength",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M7 17v-2h6q-.35-.425-.562-.925-.213-.5-.338-1.075H9v-2h3.1q.125-.575.338-1.075.212-.5.562-.925H3V7h14q2.075 0 3.538 1.462Q22 9.925 22 12q0 2.075-1.462 3.537Q19.075 17 17 17Zm-5-4v-2h6v2Zm1 4v-2h3v2Z"
+  }));
+});
+IconMaterialTrailLengthFilled.displayName = 'AmauiIconMaterialTrailLengthFilled';
 
 
 const IconMaterialTrailLengthShortFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39458,19 +39458,6 @@ const IconMaterialTransitEnterexitFilled = /*#__PURE__*/React.forwardRef((props,
 IconMaterialTransitEnterexitFilled.displayName = 'AmauiIconMaterialTransitEnterexitFilled';
 
 
-const IconMaterialTransitionChopFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TransitionChopFilled",
-    short_name: "TransitionChop",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M80-160v-640h800v640H80Zm175-80h545v-480H627l93 360-465 120Z"
-  }));
-});
-IconMaterialTransitionChopFilled.displayName = 'AmauiIconMaterialTransitionChopFilled';
-
-
 const IconMaterialTransitionDissolveFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39482,6 +39469,19 @@ const IconMaterialTransitionDissolveFilled = /*#__PURE__*/React.forwardRef((prop
   }));
 });
 IconMaterialTransitionDissolveFilled.displayName = 'AmauiIconMaterialTransitionDissolveFilled';
+
+
+const IconMaterialTransitionChopFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TransitionChopFilled",
+    short_name: "TransitionChop",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M80-160v-640h800v640H80Zm175-80h545v-480H627l93 360-465 120Z"
+  }));
+});
+IconMaterialTransitionChopFilled.displayName = 'AmauiIconMaterialTransitionChopFilled';
 
 
 const IconMaterialTransitionFadeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39510,19 +39510,6 @@ const IconMaterialTransitionPushFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialTransitionPushFilled.displayName = 'AmauiIconMaterialTransitionPushFilled';
 
 
-const IconMaterialTransitionSlideFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TransitionSlideFilled",
-    short_name: "TransitionSlide",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M40-160v-640h240v640H40Zm320 0v-640h560v640H360Z"
-  }));
-});
-IconMaterialTransitionSlideFilled.displayName = 'AmauiIconMaterialTransitionSlideFilled';
-
-
 const IconMaterialTranslateFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39534,6 +39521,19 @@ const IconMaterialTranslateFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialTranslateFilled.displayName = 'AmauiIconMaterialTranslateFilled';
+
+
+const IconMaterialTransitionSlideFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TransitionSlideFilled",
+    short_name: "TransitionSlide",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M40-160v-640h240v640H40Zm320 0v-640h560v640H360Z"
+  }));
+});
+IconMaterialTransitionSlideFilled.displayName = 'AmauiIconMaterialTransitionSlideFilled';
 
 
 const IconMaterialTransportationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39588,19 +39588,6 @@ const IconMaterialTravelLuggageAndBagsFilled = /*#__PURE__*/React.forwardRef((pr
 IconMaterialTravelLuggageAndBagsFilled.displayName = 'AmauiIconMaterialTravelLuggageAndBagsFilled';
 
 
-const IconMaterialTrendingDownFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TrendingDownFilled",
-    short_name: "TrendingDown",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16 18v-2h2.6l-5.2-5.15-4 4L2 7.4 3.4 6l6 6 4-4 6.6 6.6V12h2v6Z"
-  }));
-});
-IconMaterialTrendingDownFilled.displayName = 'AmauiIconMaterialTrendingDownFilled';
-
-
 const IconMaterialTrendingFlatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39612,6 +39599,19 @@ const IconMaterialTrendingFlatFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialTrendingFlatFilled.displayName = 'AmauiIconMaterialTrendingFlatFilled';
+
+
+const IconMaterialTrendingDownFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TrendingDownFilled",
+    short_name: "TrendingDown",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M16 18v-2h2.6l-5.2-5.15-4 4L2 7.4 3.4 6l6 6 4-4 6.6 6.6V12h2v6Z"
+  }));
+});
+IconMaterialTrendingDownFilled.displayName = 'AmauiIconMaterialTrendingDownFilled';
 
 
 const IconMaterialTrendingUpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39679,19 +39679,6 @@ const IconMaterialTrophyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialTrophyFilled.displayName = 'AmauiIconMaterialTrophyFilled';
 
 
-const IconMaterialTsunamiFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TsunamiFilled",
-    short_name: "Tsunami",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 21v-2q.95 0 1.7-.363.75-.362 1.625-1.012.75.625 1.638.988.887.362 1.712.362t1.725-.35q.9-.35 1.625-1 .8.7 1.65 1.025.85.325 1.7.325.825 0 1.613-.325.787-.325 1.737-1.025.975.75 1.725 1.063Q21.2 19 22 19v2q-.875 0-1.688-.238-.812-.237-1.587-.687-.8.5-1.663.713Q16.2 21 15.375 21q-.825 0-1.687-.212-.863-.213-1.663-.713-.725.475-1.6.7Q9.55 21 8.675 21q-.85 0-1.7-.225t-1.65-.7q-.775.45-1.613.687Q2.875 21 2 21Zm0-4.5v-2q0-2.425.938-4.525.937-2.1 2.562-3.65 1.625-1.55 3.812-2.438Q11.5 3 14 3q.825 0 1.637.087.813.088 1.463.238-.525.8-.812 1.687Q16 5.9 16 6.675q0 1.375.975 2.35.975.975 2.35.975H22v2h-2.675q-2.225 0-3.775-1.55Q14 8.9 14 6.675q0-.35.05-.737.05-.388.15-.763-1.85.45-3.025 1.912Q10 8.55 10 10.5q0 .9.288 1.712.287.813.812 1.538.2-.125.425-.288.225-.162.475-.337.725.65 1.675 1 .95.35 1.7.35t1.675-.362q.925-.363 1.675-.988.8.6 1.587.988.788.387 1.688.387v2q-.875 0-1.688-.238-.812-.237-1.587-.687-.8.5-1.625.713-.825.212-1.725.212-.9 0-1.8-.25t-1.55-.675q-.775.475-1.625.688-.85.212-1.725.237-.875.025-1.725-.225-.85-.25-1.625-.7-.775.45-1.613.687Q2.875 16.5 2 16.5Z"
-  }));
-});
-IconMaterialTsunamiFilled.displayName = 'AmauiIconMaterialTsunamiFilled';
-
-
 const IconMaterialTroubleshootFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39703,6 +39690,19 @@ const IconMaterialTroubleshootFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialTroubleshootFilled.displayName = 'AmauiIconMaterialTroubleshootFilled';
+
+
+const IconMaterialTsunamiFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TsunamiFilled",
+    short_name: "Tsunami",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 21v-2q.95 0 1.7-.363.75-.362 1.625-1.012.75.625 1.638.988.887.362 1.712.362t1.725-.35q.9-.35 1.625-1 .8.7 1.65 1.025.85.325 1.7.325.825 0 1.613-.325.787-.325 1.737-1.025.975.75 1.725 1.063Q21.2 19 22 19v2q-.875 0-1.688-.238-.812-.237-1.587-.687-.8.5-1.663.713Q16.2 21 15.375 21q-.825 0-1.687-.212-.863-.213-1.663-.713-.725.475-1.6.7Q9.55 21 8.675 21q-.85 0-1.7-.225t-1.65-.7q-.775.45-1.613.687Q2.875 21 2 21Zm0-4.5v-2q0-2.425.938-4.525.937-2.1 2.562-3.65 1.625-1.55 3.812-2.438Q11.5 3 14 3q.825 0 1.637.087.813.088 1.463.238-.525.8-.812 1.687Q16 5.9 16 6.675q0 1.375.975 2.35.975.975 2.35.975H22v2h-2.675q-2.225 0-3.775-1.55Q14 8.9 14 6.675q0-.35.05-.737.05-.388.15-.763-1.85.45-3.025 1.912Q10 8.55 10 10.5q0 .9.288 1.712.287.813.812 1.538.2-.125.425-.288.225-.162.475-.337.725.65 1.675 1 .95.35 1.7.35t1.675-.362q.925-.363 1.675-.988.8.6 1.587.988.788.387 1.688.387v2q-.875 0-1.688-.238-.812-.237-1.587-.687-.8.5-1.625.713-.825.212-1.725.212-.9 0-1.8-.25t-1.55-.675q-.775.475-1.625.688-.85.212-1.725.237-.875.025-1.725-.225-.85-.25-1.625-.7-.775.45-1.613.687Q2.875 16.5 2 16.5Z"
+  }));
+});
+IconMaterialTsunamiFilled.displayName = 'AmauiIconMaterialTsunamiFilled';
 
 
 const IconMaterialTsvFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39718,19 +39718,6 @@ const IconMaterialTsvFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialTsvFilled.displayName = 'AmauiIconMaterialTsvFilled';
 
 
-const IconMaterialTtyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TtyFilled",
-    short_name: "Tty",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M15 6q-.425 0-.712-.287Q14 5.425 14 5t.288-.713Q14.575 4 15 4t.713.287Q16 4.575 16 5t-.287.713Q15.425 6 15 6Zm3 0q-.425 0-.712-.287Q17 5.425 17 5t.288-.713Q17.575 4 18 4t.712.287Q19 4.575 19 5t-.288.713Q18.425 6 18 6Zm-6 0q-.425 0-.712-.287Q11 5.425 11 5t.288-.713Q11.575 4 12 4t.713.287Q13 4.575 13 5t-.287.713Q12.425 6 12 6Zm9 0q-.425 0-.712-.287Q20 5.425 20 5t.288-.713Q20.575 4 21 4t.712.287Q22 4.575 22 5t-.288.713Q21.425 6 21 6Zm-4 3q-.425 0-.712-.288Q16 8.425 16 8t.288-.713Q16.575 7 17 7t.712.287Q18 7.575 18 8t-.288.712Q17.425 9 17 9Zm3 0q-.425 0-.712-.288Q19 8.425 19 8t.288-.713Q19.575 7 20 7t.712.287Q21 7.575 21 8t-.288.712Q20.425 9 20 9Zm-6 0q-.425 0-.712-.288Q13 8.425 13 8t.288-.713Q13.575 7 14 7t.713.287Q15 7.575 15 8t-.287.712Q14.425 9 14 9Zm4 3q-.425 0-.712-.288Q17 11.425 17 11t.288-.713Q17.575 10 18 10t.712.287Q19 10.575 19 11t-.288.712Q18.425 12 18 12Zm-3 0q-.425 0-.712-.288Q14 11.425 14 11t.288-.713Q14.575 10 15 10t.713.287Q16 10.575 16 11t-.287.712Q15.425 12 15 12Zm6 0q-.425 0-.712-.288Q20 11.425 20 11t.288-.713Q20.575 10 21 10t.712.287Q22 10.575 22 11t-.288.712Q21.425 12 21 12Zm-9 0q-.425 0-.712-.288Q11 11.425 11 11t.288-.713Q11.575 10 12 10t.713.287Q13 10.575 13 11t-.287.712Q12.425 12 12 12Zm6.95 9q-3.225 0-6.287-1.425-3.063-1.425-5.425-3.8-2.363-2.375-3.8-5.438Q2 7.275 2 4.05v-.525Q2 3.25 2.05 3H7.9l.925 5.025-2.85 2.875q1.05 1.8 2.638 3.375Q10.2 15.85 12.1 17l2.9-2.9 5 1v5.85q-.25.025-.525.038Q19.2 21 18.95 21Z"
-  }));
-});
-IconMaterialTtyFilled.displayName = 'AmauiIconMaterialTtyFilled';
-
-
 const IconMaterialTuneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39742,6 +39729,19 @@ const IconMaterialTuneFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialTuneFilled.displayName = 'AmauiIconMaterialTuneFilled';
+
+
+const IconMaterialTtyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TtyFilled",
+    short_name: "Tty",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M15 6q-.425 0-.712-.287Q14 5.425 14 5t.288-.713Q14.575 4 15 4t.713.287Q16 4.575 16 5t-.287.713Q15.425 6 15 6Zm3 0q-.425 0-.712-.287Q17 5.425 17 5t.288-.713Q17.575 4 18 4t.712.287Q19 4.575 19 5t-.288.713Q18.425 6 18 6Zm-6 0q-.425 0-.712-.287Q11 5.425 11 5t.288-.713Q11.575 4 12 4t.713.287Q13 4.575 13 5t-.287.713Q12.425 6 12 6Zm9 0q-.425 0-.712-.287Q20 5.425 20 5t.288-.713Q20.575 4 21 4t.712.287Q22 4.575 22 5t-.288.713Q21.425 6 21 6Zm-4 3q-.425 0-.712-.288Q16 8.425 16 8t.288-.713Q16.575 7 17 7t.712.287Q18 7.575 18 8t-.288.712Q17.425 9 17 9Zm3 0q-.425 0-.712-.288Q19 8.425 19 8t.288-.713Q19.575 7 20 7t.712.287Q21 7.575 21 8t-.288.712Q20.425 9 20 9Zm-6 0q-.425 0-.712-.288Q13 8.425 13 8t.288-.713Q13.575 7 14 7t.713.287Q15 7.575 15 8t-.287.712Q14.425 9 14 9Zm4 3q-.425 0-.712-.288Q17 11.425 17 11t.288-.713Q17.575 10 18 10t.712.287Q19 10.575 19 11t-.288.712Q18.425 12 18 12Zm-3 0q-.425 0-.712-.288Q14 11.425 14 11t.288-.713Q14.575 10 15 10t.713.287Q16 10.575 16 11t-.287.712Q15.425 12 15 12Zm6 0q-.425 0-.712-.288Q20 11.425 20 11t.288-.713Q20.575 10 21 10t.712.287Q22 10.575 22 11t-.288.712Q21.425 12 21 12Zm-9 0q-.425 0-.712-.288Q11 11.425 11 11t.288-.713Q11.575 10 12 10t.713.287Q13 10.575 13 11t-.287.712Q12.425 12 12 12Zm6.95 9q-3.225 0-6.287-1.425-3.063-1.425-5.425-3.8-2.363-2.375-3.8-5.438Q2 7.275 2 4.05v-.525Q2 3.25 2.05 3H7.9l.925 5.025-2.85 2.875q1.05 1.8 2.638 3.375Q10.2 15.85 12.1 17l2.9-2.9 5 1v5.85q-.25.025-.525.038Q19.2 21 18.95 21Z"
+  }));
+});
+IconMaterialTtyFilled.displayName = 'AmauiIconMaterialTtyFilled';
 
 
 const IconMaterialTurnLeftFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39822,19 +39822,6 @@ const IconMaterialTurnSlightRightFilled = /*#__PURE__*/React.forwardRef((props, 
 IconMaterialTurnSlightRightFilled.displayName = 'AmauiIconMaterialTurnSlightRightFilled';
 
 
-const IconMaterialTvFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "TvFilled",
-    short_name: "Tv",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M8 21v-2H2V3h20v16h-6v2Z"
-  }));
-});
-IconMaterialTvFilled.displayName = 'AmauiIconMaterialTvFilled';
-
-
 const IconMaterialTvGenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -39848,17 +39835,17 @@ const IconMaterialTvGenFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialTvGenFilled.displayName = 'AmauiIconMaterialTvGenFilled';
 
 
-const IconMaterialTvGuideFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialTvFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "TvGuideFilled",
-    short_name: "TvGuide",
-    viewBox: "0 -960 960 960"
+    name: "TvFilled",
+    short_name: "Tv",
+    viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M120-120v-720h720v720H120Zm200-200h80v-240h70l90 240h80l120-320H660l-60 180-60-180H200v80h120v240Z"
+    d: "M8 21v-2H2V3h20v16h-6v2Z"
   }));
 });
-IconMaterialTvGuideFilled.displayName = 'AmauiIconMaterialTvGuideFilled';
+IconMaterialTvFilled.displayName = 'AmauiIconMaterialTvFilled';
 
 
 const IconMaterialTvOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -39872,6 +39859,19 @@ const IconMaterialTvOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialTvOffFilled.displayName = 'AmauiIconMaterialTvOffFilled';
+
+
+const IconMaterialTvGuideFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "TvGuideFilled",
+    short_name: "TvGuide",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M120-120v-720h720v720H120Zm200-200h80v-240h70l90 240h80l120-320H660l-60 180-60-180H200v80h120v240Z"
+  }));
+});
+IconMaterialTvGuideFilled.displayName = 'AmauiIconMaterialTvGuideFilled';
 
 
 const IconMaterialTvOptionsEditChannelsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40017,19 +40017,6 @@ const IconMaterialUlnaRadiusAltFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialUlnaRadiusAltFilled.displayName = 'AmauiIconMaterialUlnaRadiusAltFilled';
 
 
-const IconMaterialUlnaRadiusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "UlnaRadiusFilled",
-    short_name: "UlnaRadius",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M17.975 21.95q-.55 0-1.062-.213-.513-.212-.863-.562l-.112-.113-.113-.112h-2.35q-1.05 0-1.775-.738-.725-.737-.725-1.787 0-.575.25-1.088.25-.512.75-.912l1-.8v-5.55l-1.55-2.2q-.225-.325-.337-.7-.113-.375-.113-.725 0-1.05.725-1.775.725-.725 1.775-.725h5q1.05 0 1.763.712.712.713.712 1.763 0 .375-.1.725t-.325.675l-1.55 2.25v5.6l.975.975q.5.5.763 1.087.262.588.262 1.213 0 1.25-.875 2.125t-2.125.875ZM8.8 20.65q-.275.125-.562.187-.288.063-.588.063-1.125 0-1.9-.763-.775-.762-.775-1.862v-9.1L3.225 5.5q-.125-.25-.187-.525-.063-.275-.063-.55 0-1.05.725-1.763.725-.712 1.775-.712h4.5v2q1.05 0 1.775.725.725.725.725 1.775 0 .425-.125.787-.125.363-.375.688l-1 1.35v5L12.05 15.9q.2.325.313.687.112.363.112.713 0 .725-.375 1.325t-1 .9Z"
-  }));
-});
-IconMaterialUlnaRadiusFilled.displayName = 'AmauiIconMaterialUlnaRadiusFilled';
-
-
 const IconMaterialUmbrellaFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40041,6 +40028,19 @@ const IconMaterialUmbrellaFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialUmbrellaFilled.displayName = 'AmauiIconMaterialUmbrellaFilled';
+
+
+const IconMaterialUlnaRadiusFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "UlnaRadiusFilled",
+    short_name: "UlnaRadius",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M17.975 21.95q-.55 0-1.062-.213-.513-.212-.863-.562l-.112-.113-.113-.112h-2.35q-1.05 0-1.775-.738-.725-.737-.725-1.787 0-.575.25-1.088.25-.512.75-.912l1-.8v-5.55l-1.55-2.2q-.225-.325-.337-.7-.113-.375-.113-.725 0-1.05.725-1.775.725-.725 1.775-.725h5q1.05 0 1.763.712.712.713.712 1.763 0 .375-.1.725t-.325.675l-1.55 2.25v5.6l.975.975q.5.5.763 1.087.262.588.262 1.213 0 1.25-.875 2.125t-2.125.875ZM8.8 20.65q-.275.125-.562.187-.288.063-.588.063-1.125 0-1.9-.763-.775-.762-.775-1.862v-9.1L3.225 5.5q-.125-.25-.187-.525-.063-.275-.063-.55 0-1.05.725-1.763.725-.712 1.775-.712h4.5v2q1.05 0 1.775.725.725.725.725 1.775 0 .425-.125.787-.125.363-.375.688l-1 1.35v5L12.05 15.9q.2.325.313.687.112.363.112.713 0 .725-.375 1.325t-1 .9Z"
+  }));
+});
+IconMaterialUlnaRadiusFilled.displayName = 'AmauiIconMaterialUlnaRadiusFilled';
 
 
 const IconMaterialUnarchiveFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40121,19 +40121,6 @@ const IconMaterialUnfoldLessFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialUnfoldLessFilled.displayName = 'AmauiIconMaterialUnfoldLessFilled';
 
 
-const IconMaterialUnfoldMoreDoubleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "UnfoldMoreDoubleFilled",
-    short_name: "UnfoldMoreDouble",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12.025 23.975 7.45 19.4l1.4-1.4 3.175 3.15 3.175-3.175 1.4 1.425Zm0-5L7.45 14.4l1.4-1.4 3.175 3.15 3.175-3.175 1.4 1.425ZM8.85 11 7.425 9.575l4.6-4.6 4.575 4.6L15.175 11l-3.15-3.175Zm0-5L7.425 4.575l4.6-4.6 4.575 4.6L15.175 6l-3.15-3.175Z"
-  }));
-});
-IconMaterialUnfoldMoreDoubleFilled.displayName = 'AmauiIconMaterialUnfoldMoreDoubleFilled';
-
-
 const IconMaterialUnfoldMoreFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40147,6 +40134,19 @@ const IconMaterialUnfoldMoreFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialUnfoldMoreFilled.displayName = 'AmauiIconMaterialUnfoldMoreFilled';
 
 
+const IconMaterialUnfoldMoreDoubleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "UnfoldMoreDoubleFilled",
+    short_name: "UnfoldMoreDouble",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12.025 23.975 7.45 19.4l1.4-1.4 3.175 3.15 3.175-3.175 1.4 1.425Zm0-5L7.45 14.4l1.4-1.4 3.175 3.15 3.175-3.175 1.4 1.425ZM8.85 11 7.425 9.575l4.6-4.6 4.575 4.6L15.175 11l-3.15-3.175Zm0-5L7.425 4.575l4.6-4.6 4.575 4.6L15.175 6l-3.15-3.175Z"
+  }));
+});
+IconMaterialUnfoldMoreDoubleFilled.displayName = 'AmauiIconMaterialUnfoldMoreDoubleFilled';
+
+
 const IconMaterialUngroupFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40158,19 +40158,6 @@ const IconMaterialUngroupFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialUngroupFilled.displayName = 'AmauiIconMaterialUngroupFilled';
-
-
-const IconMaterialUniversalCurrencyAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "UniversalCurrencyAltFilled",
-    short_name: "UniversalCurrencyAlt",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M160-200q-33 0-56.5-23.5T80-280v-400q0-33 23.5-56.5T160-760h640q33 0 56.5 23.5T880-680v400q0 33-23.5 56.5T800-200H160Zm440-120h160v-160h-60v100H600v60Zm-120-40q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM200-480h60v-100h100v-60H200v160Z"
-  }));
-});
-IconMaterialUniversalCurrencyAltFilled.displayName = 'AmauiIconMaterialUniversalCurrencyAltFilled';
 
 
 const IconMaterialUniversalCurrencyFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40199,17 +40186,17 @@ const IconMaterialUniversalLocalFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialUniversalLocalFilled.displayName = 'AmauiIconMaterialUniversalLocalFilled';
 
 
-const IconMaterialUnknown5Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialUniversalCurrencyAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "Unknown5Filled",
-    short_name: "Unknown5",
+    name: "UniversalCurrencyAltFilled",
+    short_name: "UniversalCurrencyAlt",
     viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M160-480v-80h320v80H160ZM480-80q-80 0-153.5-29.5T196-196l56-56q47 44 106 68t122 24q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800v-80q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155t-86 127.5q-54.5 54.5-127 86T480-80Z"
+    d: "M160-200q-33 0-56.5-23.5T80-280v-400q0-33 23.5-56.5T160-760h640q33 0 56.5 23.5T880-680v400q0 33-23.5 56.5T800-200H160Zm440-120h160v-160h-60v100H600v60Zm-120-40q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM200-480h60v-100h100v-60H200v160Z"
   }));
 });
-IconMaterialUnknown5Filled.displayName = 'AmauiIconMaterialUnknown5Filled';
+IconMaterialUniversalCurrencyAltFilled.displayName = 'AmauiIconMaterialUniversalCurrencyAltFilled';
 
 
 const IconMaterialUnknown2Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40223,6 +40210,19 @@ const IconMaterialUnknown2Filled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialUnknown2Filled.displayName = 'AmauiIconMaterialUnknown2Filled';
+
+
+const IconMaterialUnknown5Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Unknown5Filled",
+    short_name: "Unknown5",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M160-480v-80h320v80H160ZM480-80q-80 0-153.5-29.5T196-196l56-56q47 44 106 68t122 24q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800v-80q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155t-86 127.5q-54.5 54.5-127 86T480-80Z"
+  }));
+});
+IconMaterialUnknown5Filled.displayName = 'AmauiIconMaterialUnknown5Filled';
 
 
 const IconMaterialUnknownDocumentFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40264,19 +40264,6 @@ const IconMaterialUnlicenseFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialUnlicenseFilled.displayName = 'AmauiIconMaterialUnlicenseFilled';
 
 
-const IconMaterialUnsubscribeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "UnsubscribeFilled",
-    short_name: "Unsubscribe",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M19 23q-2.075 0-3.537-1.462Q14 20.075 14 18q0-2.075 1.463-3.538Q16.925 13 19 13t3.538 1.462Q24 15.925 24 18q0 2.075-1.462 3.538Q21.075 23 19 23Zm-3-4.5h6v-1h-6ZM12 13l8-5V6l-8 5-8-5v2ZM2 20V4h20v7.7q-.7-.35-1.462-.525Q19.775 11 19 11q-1.45 0-2.725.55-1.275.55-2.225 1.5-.95.95-1.5 2.225Q12 16.55 12 18q0 .525.075 1.012.075.488.225.988Z"
-  }));
-});
-IconMaterialUnsubscribeFilled.displayName = 'AmauiIconMaterialUnsubscribeFilled';
-
-
 const IconMaterialUnpublishedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40288,6 +40275,19 @@ const IconMaterialUnpublishedFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialUnpublishedFilled.displayName = 'AmauiIconMaterialUnpublishedFilled';
+
+
+const IconMaterialUnsubscribeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "UnsubscribeFilled",
+    short_name: "Unsubscribe",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M19 23q-2.075 0-3.537-1.462Q14 20.075 14 18q0-2.075 1.463-3.538Q16.925 13 19 13t3.538 1.462Q24 15.925 24 18q0 2.075-1.462 3.538Q21.075 23 19 23Zm-3-4.5h6v-1h-6ZM12 13l8-5V6l-8 5-8-5v2ZM2 20V4h20v7.7q-.7-.35-1.462-.525Q19.775 11 19 11q-1.45 0-2.725.55-1.275.55-2.225 1.5-.95.95-1.5 2.225Q12 16.55 12 18q0 .525.075 1.012.075.488.225.988Z"
+  }));
+});
+IconMaterialUnsubscribeFilled.displayName = 'AmauiIconMaterialUnsubscribeFilled';
 
 
 const IconMaterialUpcomingFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40303,19 +40303,6 @@ const IconMaterialUpcomingFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialUpcomingFilled.displayName = 'AmauiIconMaterialUpcomingFilled';
 
 
-const IconMaterialUpdateDisabledFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "UpdateDisabledFilled",
-    short_name: "UpdateDisabled",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m19.775 22.625-3-3q-1.05.65-2.25 1.012Q13.325 21 12 21q-1.875 0-3.512-.712-1.638-.713-2.85-1.926-1.213-1.212-1.926-2.85Q3 13.875 3 12q0-1.325.362-2.525.363-1.2 1.013-2.25l-3-3L2.8 2.8l18.4 18.4ZM12 19q.9 0 1.738-.212.837-.213 1.587-.613l-9.5-9.5q-.4.75-.612 1.587Q5 11.1 5 12q0 2.925 2.038 4.962Q9.075 19 12 19Zm3-9V8h2.75q-1.025-1.4-2.525-2.2Q13.725 5 12 5q-.9 0-1.737.213-.838.212-1.588.612l-1.45-1.45q1.05-.65 2.25-1.013Q10.675 3 12 3q2.05 0 3.888.875Q17.725 4.75 19 6.35V4h2v6Zm-2 .15-2-2V7h2Zm6.625 6.625-1.45-1.45q.275-.55.462-1.125.188-.575.263-1.2h2.05q-.125 1.05-.462 2-.338.95-.863 1.775Z"
-  }));
-});
-IconMaterialUpdateDisabledFilled.displayName = 'AmauiIconMaterialUpdateDisabledFilled';
-
-
 const IconMaterialUpdateFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40327,6 +40314,19 @@ const IconMaterialUpdateFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialUpdateFilled.displayName = 'AmauiIconMaterialUpdateFilled';
+
+
+const IconMaterialUpdateDisabledFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "UpdateDisabledFilled",
+    short_name: "UpdateDisabled",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m19.775 22.625-3-3q-1.05.65-2.25 1.012Q13.325 21 12 21q-1.875 0-3.512-.712-1.638-.713-2.85-1.926-1.213-1.212-1.926-2.85Q3 13.875 3 12q0-1.325.362-2.525.363-1.2 1.013-2.25l-3-3L2.8 2.8l18.4 18.4ZM12 19q.9 0 1.738-.212.837-.213 1.587-.613l-9.5-9.5q-.4.75-.612 1.587Q5 11.1 5 12q0 2.925 2.038 4.962Q9.075 19 12 19Zm3-9V8h2.75q-1.025-1.4-2.525-2.2Q13.725 5 12 5q-.9 0-1.737.213-.838.212-1.588.612l-1.45-1.45q1.05-.65 2.25-1.013Q10.675 3 12 3q2.05 0 3.888.875Q17.725 4.75 19 6.35V4h2v6Zm-2 .15-2-2V7h2Zm6.625 6.625-1.45-1.45q.275-.55.462-1.125.188-.575.263-1.2h2.05q-.125 1.05-.462 2-.338.95-.863 1.775Z"
+  }));
+});
+IconMaterialUpdateDisabledFilled.displayName = 'AmauiIconMaterialUpdateDisabledFilled';
 
 
 const IconMaterialUpgradeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40563,19 +40563,6 @@ const IconMaterialVentilatorFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialVentilatorFilled.displayName = 'AmauiIconMaterialVentilatorFilled';
 
 
-const IconMaterialVerifiedUserFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "VerifiedUserFilled",
-    short_name: "VerifiedUser",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M10.95 15.55 16.6 9.9l-1.425-1.425L10.95 12.7l-2.1-2.1-1.425 1.425ZM12 22q-3.475-.875-5.737-3.988Q4 14.9 4 11.1V5l8-3 8 3v6.1q0 3.8-2.262 6.912Q15.475 21.125 12 22Z"
-  }));
-});
-IconMaterialVerifiedUserFilled.displayName = 'AmauiIconMaterialVerifiedUserFilled';
-
-
 const IconMaterialVerifiedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40587,6 +40574,19 @@ const IconMaterialVerifiedFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialVerifiedFilled.displayName = 'AmauiIconMaterialVerifiedFilled';
+
+
+const IconMaterialVerifiedUserFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "VerifiedUserFilled",
+    short_name: "VerifiedUser",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M10.95 15.55 16.6 9.9l-1.425-1.425L10.95 12.7l-2.1-2.1-1.425 1.425ZM12 22q-3.475-.875-5.737-3.988Q4 14.9 4 11.1V5l8-3 8 3v6.1q0 3.8-2.262 6.912Q15.475 21.125 12 22Z"
+  }));
+});
+IconMaterialVerifiedUserFilled.displayName = 'AmauiIconMaterialVerifiedUserFilled';
 
 
 const IconMaterialVerticalAlignBottomFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40628,19 +40628,6 @@ const IconMaterialVerticalAlignTopFilled = /*#__PURE__*/React.forwardRef((props,
 IconMaterialVerticalAlignTopFilled.displayName = 'AmauiIconMaterialVerticalAlignTopFilled';
 
 
-const IconMaterialVerticalDistributeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "VerticalDistributeFilled",
-    short_name: "VerticalDistribute",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 22v-2h20v2Zm5-8.5v-3h10v3ZM2 4V2h20v2Z"
-  }));
-});
-IconMaterialVerticalDistributeFilled.displayName = 'AmauiIconMaterialVerticalDistributeFilled';
-
-
 const IconMaterialVerticalShadesClosedFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40654,19 +40641,6 @@ const IconMaterialVerticalShadesClosedFilled = /*#__PURE__*/React.forwardRef((pr
 IconMaterialVerticalShadesClosedFilled.displayName = 'AmauiIconMaterialVerticalShadesClosedFilled';
 
 
-const IconMaterialVerticalShadesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "VerticalShadesFilled",
-    short_name: "VerticalShades",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 21v-2h2V3h16v16h2v2Zm8-2h4V5h-4Z"
-  }));
-});
-IconMaterialVerticalShadesFilled.displayName = 'AmauiIconMaterialVerticalShadesFilled';
-
-
 const IconMaterialVerticalSplitFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40678,6 +40652,32 @@ const IconMaterialVerticalSplitFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialVerticalSplitFilled.displayName = 'AmauiIconMaterialVerticalSplitFilled';
+
+
+const IconMaterialVerticalDistributeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "VerticalDistributeFilled",
+    short_name: "VerticalDistribute",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 22v-2h20v2Zm5-8.5v-3h10v3ZM2 4V2h20v2Z"
+  }));
+});
+IconMaterialVerticalDistributeFilled.displayName = 'AmauiIconMaterialVerticalDistributeFilled';
+
+
+const IconMaterialVerticalShadesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "VerticalShadesFilled",
+    short_name: "VerticalShades",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 21v-2h2V3h16v16h2v2Zm8-2h4V5h-4Z"
+  }));
+});
+IconMaterialVerticalShadesFilled.displayName = 'AmauiIconMaterialVerticalShadesFilled';
 
 
 const IconMaterialVibrationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40771,19 +40771,6 @@ const IconMaterialVideoChatFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialVideoChatFilled.displayName = 'AmauiIconMaterialVideoChatFilled';
 
 
-const IconMaterialVideoLabelFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "VideoLabelFilled",
-    short_name: "VideoLabel",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 20V4h20v16Zm2-5h16V6H4Z"
-  }));
-});
-IconMaterialVideoLabelFilled.displayName = 'AmauiIconMaterialVideoLabelFilled';
-
-
 const IconMaterialVideoLibraryFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40795,6 +40782,19 @@ const IconMaterialVideoLibraryFilled = /*#__PURE__*/React.forwardRef((props, ref
   }));
 });
 IconMaterialVideoLibraryFilled.displayName = 'AmauiIconMaterialVideoLibraryFilled';
+
+
+const IconMaterialVideoLabelFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "VideoLabelFilled",
+    short_name: "VideoLabel",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 20V4h20v16Zm2-5h16V6H4Z"
+  }));
+});
+IconMaterialVideoLabelFilled.displayName = 'AmauiIconMaterialVideoLabelFilled';
 
 
 const IconMaterialVideoSearchFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40836,19 +40836,6 @@ const IconMaterialVideoStableFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialVideoStableFilled.displayName = 'AmauiIconMaterialVideoStableFilled';
 
 
-const IconMaterialVideocamFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "VideocamFilled",
-    short_name: "Videocam",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 20V4h16v6.5l4-4v11l-4-4V20Z"
-  }));
-});
-IconMaterialVideocamFilled.displayName = 'AmauiIconMaterialVideocamFilled';
-
-
 const IconMaterialVideocamOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40862,17 +40849,17 @@ const IconMaterialVideocamOffFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialVideocamOffFilled.displayName = 'AmauiIconMaterialVideocamOffFilled';
 
 
-const IconMaterialVideogameAssetOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialVideocamFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "VideogameAssetOffFilled",
-    short_name: "VideogameAssetOff",
+    name: "VideocamFilled",
+    short_name: "Videocam",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 18V5.975h3.975L15 15h-2.85L1.375 4.225 2.8 2.8l18.4 18.4-1.425 1.425L15.15 18ZM8.85 6H22v11.875h-1.275Zm8.65 3q-.625 0-1.062.438Q16 9.875 16 10.5t.438 1.062Q16.875 12 17.5 12t1.062-.438Q19 11.125 19 10.5t-.438-1.062Q18.125 9 17.5 9ZM7 15h2v-2h2v-2H9V9H7v2H5v2h2Z"
+    d: "M2 20V4h16v6.5l4-4v11l-4-4V20Z"
   }));
 });
-IconMaterialVideogameAssetOffFilled.displayName = 'AmauiIconMaterialVideogameAssetOffFilled';
+IconMaterialVideocamFilled.displayName = 'AmauiIconMaterialVideocamFilled';
 
 
 const IconMaterialVideogameAssetFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40886,6 +40873,19 @@ const IconMaterialVideogameAssetFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialVideogameAssetFilled.displayName = 'AmauiIconMaterialVideogameAssetFilled';
+
+
+const IconMaterialVideogameAssetOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "VideogameAssetOffFilled",
+    short_name: "VideogameAssetOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 18V5.975h3.975L15 15h-2.85L1.375 4.225 2.8 2.8l18.4 18.4-1.425 1.425L15.15 18ZM8.85 6H22v11.875h-1.275Zm8.65 3q-.625 0-1.062.438Q16 9.875 16 10.5t.438 1.062Q16.875 12 17.5 12t1.062-.438Q19 11.125 19 10.5t-.438-1.062Q18.125 9 17.5 9ZM7 15h2v-2h2v-2H9V9H7v2H5v2h2Z"
+  }));
+});
+IconMaterialVideogameAssetOffFilled.displayName = 'AmauiIconMaterialVideogameAssetOffFilled';
 
 
 const IconMaterialViewAgendaFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -40927,19 +40927,6 @@ const IconMaterialViewCarouselFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialViewCarouselFilled.displayName = 'AmauiIconMaterialViewCarouselFilled';
 
 
-const IconMaterialViewColumn2Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ViewColumn2Filled",
-    short_name: "ViewColumn2",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M15 21q-.825 0-1.412-.587Q13 19.825 13 19V5q0-.825.588-1.413Q14.175 3 15 3h4q.825 0 1.413.587Q21 4.175 21 5v14q0 .825-.587 1.413Q19.825 21 19 21ZM5 21q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h4q.825 0 1.413.587Q11 4.175 11 5v14q0 .825-.587 1.413Q9.825 21 9 21Z"
-  }));
-});
-IconMaterialViewColumn2Filled.displayName = 'AmauiIconMaterialViewColumn2Filled';
-
-
 const IconMaterialViewColumnFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -40951,6 +40938,19 @@ const IconMaterialViewColumnFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialViewColumnFilled.displayName = 'AmauiIconMaterialViewColumnFilled';
+
+
+const IconMaterialViewColumn2Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ViewColumn2Filled",
+    short_name: "ViewColumn2",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M15 21q-.825 0-1.412-.587Q13 19.825 13 19V5q0-.825.588-1.413Q14.175 3 15 3h4q.825 0 1.413.587Q21 4.175 21 5v14q0 .825-.587 1.413Q19.825 21 19 21ZM5 21q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h4q.825 0 1.413.587Q11 4.175 11 5v14q0 .825-.587 1.413Q9.825 21 9 21Z"
+  }));
+});
+IconMaterialViewColumn2Filled.displayName = 'AmauiIconMaterialViewColumn2Filled';
 
 
 const IconMaterialViewComfyAltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41083,19 +41083,6 @@ const IconMaterialViewInArOffFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialViewInArOffFilled.displayName = 'AmauiIconMaterialViewInArOffFilled';
 
 
-const IconMaterialViewListFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ViewListFilled",
-    short_name: "ViewList",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 9V5h4v4Zm5 0V5h13v4Zm0 5v-4h13v4Zm0 5v-4h13v4Zm-5 0v-4h4v4Zm0-5v-4h4v4Z"
-  }));
-});
-IconMaterialViewListFilled.displayName = 'AmauiIconMaterialViewListFilled';
-
-
 const IconMaterialViewKanbanFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41109,17 +41096,17 @@ const IconMaterialViewKanbanFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialViewKanbanFilled.displayName = 'AmauiIconMaterialViewKanbanFilled';
 
 
-const IconMaterialViewModuleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialViewListFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "ViewModuleFilled",
-    short_name: "ViewModule",
+    name: "ViewListFilled",
+    short_name: "ViewList",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M15.675 11.5v-6H21v6Zm-6.325 0v-6h5.325v6Zm-6.325 0v-6H8.35v6Zm0 7v-6H8.35v6Zm6.325 0v-6h5.325v6Zm6.325 0v-6H21v6Z"
+    d: "M3 9V5h4v4Zm5 0V5h13v4Zm0 5v-4h13v4Zm0 5v-4h13v4Zm-5 0v-4h4v4Zm0-5v-4h4v4Z"
   }));
 });
-IconMaterialViewModuleFilled.displayName = 'AmauiIconMaterialViewModuleFilled';
+IconMaterialViewListFilled.displayName = 'AmauiIconMaterialViewListFilled';
 
 
 const IconMaterialViewQuiltFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41133,6 +41120,19 @@ const IconMaterialViewQuiltFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialViewQuiltFilled.displayName = 'AmauiIconMaterialViewQuiltFilled';
+
+
+const IconMaterialViewModuleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ViewModuleFilled",
+    short_name: "ViewModule",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M15.675 11.5v-6H21v6Zm-6.325 0v-6h5.325v6Zm-6.325 0v-6H8.35v6Zm0 7v-6H8.35v6Zm6.325 0v-6h5.325v6Zm6.325 0v-6H21v6Z"
+  }));
+});
+IconMaterialViewModuleFilled.displayName = 'AmauiIconMaterialViewModuleFilled';
 
 
 const IconMaterialViewSidebarFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41213,32 +41213,6 @@ const IconMaterialVillaFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialVillaFilled.displayName = 'AmauiIconMaterialVillaFilled';
 
 
-const IconMaterialVisibilityFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "VisibilityFilled",
-    short_name: "Visibility",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M12 16q1.875 0 3.188-1.312Q16.5 13.375 16.5 11.5q0-1.875-1.312-3.188Q13.875 7 12 7q-1.875 0-3.188 1.312Q7.5 9.625 7.5 11.5q0 1.875 1.312 3.188Q10.125 16 12 16Zm0-1.8q-1.125 0-1.912-.788Q9.3 12.625 9.3 11.5t.788-1.913Q10.875 8.8 12 8.8t1.913.787q.787.788.787 1.913t-.787 1.912q-.788.788-1.913.788Zm0 4.8q-3.65 0-6.65-2.038-3-2.037-4.35-5.462 1.35-3.425 4.35-5.463Q8.35 4 12 4q3.65 0 6.65 2.037 3 2.038 4.35 5.463-1.35 3.425-4.35 5.462Q15.65 19 12 19Z"
-  }));
-});
-IconMaterialVisibilityFilled.displayName = 'AmauiIconMaterialVisibilityFilled';
-
-
-const IconMaterialVisibilityOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "VisibilityOffFilled",
-    short_name: "VisibilityOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m19.8 22.6-4.2-4.15q-.875.275-1.762.413Q12.95 19 12 19q-3.775 0-6.725-2.087Q2.325 14.825 1 11.5q.525-1.325 1.325-2.463Q3.125 7.9 4.15 7L1.4 4.2l1.4-1.4 18.4 18.4ZM12 16q.275 0 .512-.025.238-.025.513-.1l-5.4-5.4q-.075.275-.1.513-.025.237-.025.512 0 1.875 1.312 3.188Q10.125 16 12 16Zm7.3.45-3.175-3.15q.175-.425.275-.862.1-.438.1-.938 0-1.875-1.312-3.188Q13.875 7 12 7q-.5 0-.938.1-.437.1-.862.3L7.65 4.85q1.025-.425 2.1-.638Q10.825 4 12 4q3.775 0 6.725 2.087Q21.675 8.175 23 11.5q-.575 1.475-1.512 2.738Q20.55 15.5 19.3 16.45Zm-4.625-4.6-3-3q.7-.125 1.288.112.587.238 1.012.688.425.45.613 1.038.187.587.087 1.162Z"
-  }));
-});
-IconMaterialVisibilityOffFilled.displayName = 'AmauiIconMaterialVisibilityOffFilled';
-
-
 const IconMaterialVisibilityLockFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41250,6 +41224,19 @@ const IconMaterialVisibilityLockFilled = /*#__PURE__*/React.forwardRef((props, r
   }));
 });
 IconMaterialVisibilityLockFilled.displayName = 'AmauiIconMaterialVisibilityLockFilled';
+
+
+const IconMaterialVisibilityFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "VisibilityFilled",
+    short_name: "Visibility",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M12 16q1.875 0 3.188-1.312Q16.5 13.375 16.5 11.5q0-1.875-1.312-3.188Q13.875 7 12 7q-1.875 0-3.188 1.312Q7.5 9.625 7.5 11.5q0 1.875 1.312 3.188Q10.125 16 12 16Zm0-1.8q-1.125 0-1.912-.788Q9.3 12.625 9.3 11.5t.788-1.913Q10.875 8.8 12 8.8t1.913.787q.787.788.787 1.913t-.787 1.912q-.788.788-1.913.788Zm0 4.8q-3.65 0-6.65-2.038-3-2.037-4.35-5.462 1.35-3.425 4.35-5.463Q8.35 4 12 4q3.65 0 6.65 2.037 3 2.038 4.35 5.463-1.35 3.425-4.35 5.462Q15.65 19 12 19Z"
+  }));
+});
+IconMaterialVisibilityFilled.displayName = 'AmauiIconMaterialVisibilityFilled';
 
 
 const IconMaterialVitalSignsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41265,17 +41252,17 @@ const IconMaterialVitalSignsFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialVitalSignsFilled.displayName = 'AmauiIconMaterialVitalSignsFilled';
 
 
-const IconMaterialVitalsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialVisibilityOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "VitalsFilled",
-    short_name: "Vitals",
+    name: "VisibilityOffFilled",
+    short_name: "VisibilityOff",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M1 13v-2h5.7L9 17.1l6-15.825L18.7 11H23v2h-5.7L15 6.9 9 22.725 5.3 13Z"
+    d: "m19.8 22.6-4.2-4.15q-.875.275-1.762.413Q12.95 19 12 19q-3.775 0-6.725-2.087Q2.325 14.825 1 11.5q.525-1.325 1.325-2.463Q3.125 7.9 4.15 7L1.4 4.2l1.4-1.4 18.4 18.4ZM12 16q.275 0 .512-.025.238-.025.513-.1l-5.4-5.4q-.075.275-.1.513-.025.237-.025.512 0 1.875 1.312 3.188Q10.125 16 12 16Zm7.3.45-3.175-3.15q.175-.425.275-.862.1-.438.1-.938 0-1.875-1.312-3.188Q13.875 7 12 7q-.5 0-.938.1-.437.1-.862.3L7.65 4.85q1.025-.425 2.1-.638Q10.825 4 12 4q3.775 0 6.725 2.087Q21.675 8.175 23 11.5q-.575 1.475-1.512 2.738Q20.55 15.5 19.3 16.45Zm-4.625-4.6-3-3q.7-.125 1.288.112.587.238 1.012.688.425.45.613 1.038.187.587.087 1.162Z"
   }));
 });
-IconMaterialVitalsFilled.displayName = 'AmauiIconMaterialVitalsFilled';
+IconMaterialVisibilityOffFilled.displayName = 'AmauiIconMaterialVisibilityOffFilled';
 
 
 const IconMaterialVoiceChatFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41289,6 +41276,19 @@ const IconMaterialVoiceChatFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialVoiceChatFilled.displayName = 'AmauiIconMaterialVoiceChatFilled';
+
+
+const IconMaterialVitalsFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "VitalsFilled",
+    short_name: "Vitals",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M1 13v-2h5.7L9 17.1l6-15.825L18.7 11H23v2h-5.7L15 6.9 9 22.725 5.3 13Z"
+  }));
+});
+IconMaterialVitalsFilled.displayName = 'AmauiIconMaterialVitalsFilled';
 
 
 const IconMaterialVoiceOverOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41356,19 +41356,6 @@ const IconMaterialVolumeDownAltFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialVolumeDownAltFilled.displayName = 'AmauiIconMaterialVolumeDownAltFilled';
 
 
-const IconMaterialVolumeDownFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "VolumeDownFilled",
-    short_name: "VolumeDown",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m14 20-5-5H5V9h4l5-5Zm2-4V7.95q1.125.525 1.812 1.625.688 1.1.688 2.425 0 1.325-.688 2.4Q17.125 15.475 16 16Z"
-  }));
-});
-IconMaterialVolumeDownFilled.displayName = 'AmauiIconMaterialVolumeDownFilled';
-
-
 const IconMaterialVolumeMuteFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41380,19 +41367,6 @@ const IconMaterialVolumeMuteFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialVolumeMuteFilled.displayName = 'AmauiIconMaterialVolumeMuteFilled';
-
-
-const IconMaterialVolumeOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "VolumeOffFilled",
-    short_name: "VolumeOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m19.8 22.6-3.025-3.025q-.625.4-1.325.688-.7.287-1.45.462v-2.05q.35-.125.688-.25.337-.125.637-.3L12 14.8V20l-5-5H3V9h3.2L1.4 4.2l1.4-1.4 18.4 18.4Zm-.2-5.8-1.45-1.45q.425-.775.638-1.625.212-.85.212-1.75 0-2.35-1.375-4.2T14 5.275v-2.05q3.1.7 5.05 3.137Q21 8.8 21 11.975q0 1.325-.362 2.55-.363 1.225-1.038 2.275Zm-3.35-3.35L14 11.2V7.95q1.175.55 1.838 1.65.662 1.1.662 2.4 0 .375-.062.738-.063.362-.188.712ZM12 9.2 9.4 6.6 12 4Z"
-  }));
-});
-IconMaterialVolumeOffFilled.displayName = 'AmauiIconMaterialVolumeOffFilled';
 
 
 const IconMaterialVolumeUpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41408,17 +41382,17 @@ const IconMaterialVolumeUpFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialVolumeUpFilled.displayName = 'AmauiIconMaterialVolumeUpFilled';
 
 
-const IconMaterialVolunteerActivismFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialVolumeOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "VolunteerActivismFilled",
-    short_name: "VolunteerActivism",
+    name: "VolumeOffFilled",
+    short_name: "VolumeOff",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M16 13q-2.35-2.125-4.175-4.062Q10 7 10 5.3q0-1.4.95-2.35Q11.9 2 13.3 2q.8 0 1.5.337.7.338 1.2.913.5-.575 1.2-.913Q17.9 2 18.7 2q1.4 0 2.35.95.95.95.95 2.35 0 1.7-1.825 3.638Q18.35 10.875 16 13ZM1 22V11h4v11Zm13 0-7-1.975V11h1.975L17 14v2h-4l-1.75-.675-.35.925L13 17h9v2Z"
+    d: "m19.8 22.6-3.025-3.025q-.625.4-1.325.688-.7.287-1.45.462v-2.05q.35-.125.688-.25.337-.125.637-.3L12 14.8V20l-5-5H3V9h3.2L1.4 4.2l1.4-1.4 18.4 18.4Zm-.2-5.8-1.45-1.45q.425-.775.638-1.625.212-.85.212-1.75 0-2.35-1.375-4.2T14 5.275v-2.05q3.1.7 5.05 3.137Q21 8.8 21 11.975q0 1.325-.362 2.55-.363 1.225-1.038 2.275Zm-3.35-3.35L14 11.2V7.95q1.175.55 1.838 1.65.662 1.1.662 2.4 0 .375-.062.738-.063.362-.188.712ZM12 9.2 9.4 6.6 12 4Z"
   }));
 });
-IconMaterialVolunteerActivismFilled.displayName = 'AmauiIconMaterialVolunteerActivismFilled';
+IconMaterialVolumeOffFilled.displayName = 'AmauiIconMaterialVolumeOffFilled';
 
 
 const IconMaterialVotingChipFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41432,6 +41406,32 @@ const IconMaterialVotingChipFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialVotingChipFilled.displayName = 'AmauiIconMaterialVotingChipFilled';
+
+
+const IconMaterialVolumeDownFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "VolumeDownFilled",
+    short_name: "VolumeDown",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m14 20-5-5H5V9h4l5-5Zm2-4V7.95q1.125.525 1.812 1.625.688 1.1.688 2.425 0 1.325-.688 2.4Q17.125 15.475 16 16Z"
+  }));
+});
+IconMaterialVolumeDownFilled.displayName = 'AmauiIconMaterialVolumeDownFilled';
+
+
+const IconMaterialVolunteerActivismFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "VolunteerActivismFilled",
+    short_name: "VolunteerActivism",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M16 13q-2.35-2.125-4.175-4.062Q10 7 10 5.3q0-1.4.95-2.35Q11.9 2 13.3 2q.8 0 1.5.337.7.338 1.2.913.5-.575 1.2-.913Q17.9 2 18.7 2q1.4 0 2.35.95.95.95.95 2.35 0 1.7-1.825 3.638Q18.35 10.875 16 13ZM1 22V11h4v11Zm13 0-7-1.975V11h1.975L17 14v2h-4l-1.75-.675-.35.925L13 17h9v2Z"
+  }));
+});
+IconMaterialVolunteerActivismFilled.displayName = 'AmauiIconMaterialVolunteerActivismFilled';
 
 
 const IconMaterialVpnKeyAlertFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41499,19 +41499,6 @@ const IconMaterialVr180Create2dFilled = /*#__PURE__*/React.forwardRef((props, re
 IconMaterialVr180Create2dFilled.displayName = 'AmauiIconMaterialVr180Create2dFilled';
 
 
-const IconMaterialVr180Create2dOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Vr180Create2dOffFilled",
-    short_name: "Vr180Create2dOff",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M320-250q-107-27-173.5-113.5T80-560q0-45 12-86t33-77L25-823l56-56 767 767-56 56-24-24H400v-368l-80-79v277Zm80-630q110 0 196.5 66.5T710-640H433L238-836q37-22 78-33t84-11Zm113 320h367v367L513-560Zm135 360-28-29-57-56-63 85h148Z"
-  }));
-});
-IconMaterialVr180Create2dOffFilled.displayName = 'AmauiIconMaterialVr180Create2dOffFilled';
-
-
 const IconMaterialVrpanoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41523,6 +41510,19 @@ const IconMaterialVrpanoFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialVrpanoFilled.displayName = 'AmauiIconMaterialVrpanoFilled';
+
+
+const IconMaterialVr180Create2dOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Vr180Create2dOffFilled",
+    short_name: "Vr180Create2dOff",
+    viewBox: "0 -960 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M320-250q-107-27-173.5-113.5T80-560q0-45 12-86t33-77L25-823l56-56 767 767-56 56-24-24H400v-368l-80-79v277Zm80-630q110 0 196.5 66.5T710-640H433L238-836q37-22 78-33t84-11Zm113 320h367v367L513-560Zm135 360-28-29-57-56-63 85h148Z"
+  }));
+});
+IconMaterialVr180Create2dOffFilled.displayName = 'AmauiIconMaterialVr180Create2dOffFilled';
 
 
 const IconMaterialWallArtFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41603,6 +41603,19 @@ const IconMaterialWardFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialWardFilled.displayName = 'AmauiIconMaterialWardFilled';
 
 
+const IconMaterialWarehouseFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WarehouseFilled",
+    short_name: "Warehouse",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 21V7l10-4 10 4v14h-6v-8H8v8Zm7 0v-2h2v2Zm2-3v-2h2v2Zm2 3v-2h2v2Z"
+  }));
+});
+IconMaterialWarehouseFilled.displayName = 'AmauiIconMaterialWarehouseFilled';
+
+
 const IconMaterialWarningFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41627,19 +41640,6 @@ const IconMaterialWarningOffFilled = /*#__PURE__*/React.forwardRef((props, ref) 
   }));
 });
 IconMaterialWarningOffFilled.displayName = 'AmauiIconMaterialWarningOffFilled';
-
-
-const IconMaterialWarehouseFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WarehouseFilled",
-    short_name: "Warehouse",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 21V7l10-4 10 4v14h-6v-8H8v8Zm7 0v-2h2v2Zm2-3v-2h2v2Zm2 3v-2h2v2Z"
-  }));
-});
-IconMaterialWarehouseFilled.displayName = 'AmauiIconMaterialWarehouseFilled';
 
 
 const IconMaterialWashFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41720,19 +41720,6 @@ const IconMaterialWatchWakeFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialWatchWakeFilled.displayName = 'AmauiIconMaterialWatchWakeFilled';
 
 
-const IconMaterialWaterBottleLargeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WaterBottleLargeFilled",
-    short_name: "WaterBottleLarge",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M200 976V736h80V536h-80V296h200v-40h-40v-80h240v80h-40v40h200v240h-80v200h80v240H200Z"
-  }));
-});
-IconMaterialWaterBottleLargeFilled.displayName = 'AmauiIconMaterialWaterBottleLargeFilled';
-
-
 const IconMaterialWaterBottleFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41744,6 +41731,19 @@ const IconMaterialWaterBottleFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialWaterBottleFilled.displayName = 'AmauiIconMaterialWaterBottleFilled';
+
+
+const IconMaterialWaterBottleLargeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WaterBottleLargeFilled",
+    short_name: "WaterBottleLarge",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M200 976V736h80V536h-80V296h200v-40h-40v-80h240v80h-40v40h200v240h-80v200h80v240H200Z"
+  }));
+});
+IconMaterialWaterBottleLargeFilled.displayName = 'AmauiIconMaterialWaterBottleLargeFilled';
 
 
 const IconMaterialWaterDamageFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41785,19 +41785,6 @@ const IconMaterialWaterDropFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialWaterDropFilled.displayName = 'AmauiIconMaterialWaterDropFilled';
 
 
-const IconMaterialWaterEcFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WaterEcFilled",
-    short_name: "WaterEc",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M11 18h1l4-6h-3V8h-1l-4 6h3Zm1 4q-3.425 0-5.712-2.35Q4 17.3 4 13.8q0-2.5 1.988-5.437Q7.975 5.425 12 2q4.025 3.425 6.013 6.363Q20 11.3 20 13.8q0 3.5-2.288 5.85Q15.425 22 12 22Z"
-  }));
-});
-IconMaterialWaterEcFilled.displayName = 'AmauiIconMaterialWaterEcFilled';
-
-
 const IconMaterialWaterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41822,6 +41809,19 @@ const IconMaterialWaterFullFilled = /*#__PURE__*/React.forwardRef((props, ref) =
   }));
 });
 IconMaterialWaterFullFilled.displayName = 'AmauiIconMaterialWaterFullFilled';
+
+
+const IconMaterialWaterEcFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WaterEcFilled",
+    short_name: "WaterEc",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M11 18h1l4-6h-3V8h-1l-4 6h3Zm1 4q-3.425 0-5.712-2.35Q4 17.3 4 13.8q0-2.5 1.988-5.437Q7.975 5.425 12 2q4.025 3.425 6.013 6.363Q20 11.3 20 13.8q0 3.5-2.288 5.85Q15.425 22 12 22Z"
+  }));
+});
+IconMaterialWaterEcFilled.displayName = 'AmauiIconMaterialWaterEcFilled';
 
 
 const IconMaterialWaterHeaterFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41863,19 +41863,6 @@ const IconMaterialWaterLossFilled = /*#__PURE__*/React.forwardRef((props, ref) =
 IconMaterialWaterLossFilled.displayName = 'AmauiIconMaterialWaterLossFilled';
 
 
-const IconMaterialWaterMediumFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WaterMediumFilled",
-    short_name: "WaterMedium",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M245 582q47-23 97.5-34.5T445 536q30 0 59.5 4t58.5 12q50 14 76.5 19t56.5 5h19l35-320H209l36 326Zm-37 394-88-800h720l-88 800H208Z"
-  }));
-});
-IconMaterialWaterMediumFilled.displayName = 'AmauiIconMaterialWaterMediumFilled';
-
-
 const IconMaterialWaterLuxFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41887,6 +41874,19 @@ const IconMaterialWaterLuxFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialWaterLuxFilled.displayName = 'AmauiIconMaterialWaterLuxFilled';
+
+
+const IconMaterialWaterMediumFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WaterMediumFilled",
+    short_name: "WaterMedium",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M245 582q47-23 97.5-34.5T445 536q30 0 59.5 4t58.5 12q50 14 76.5 19t56.5 5h19l35-320H209l36 326Zm-37 394-88-800h720l-88 800H208Z"
+  }));
+});
+IconMaterialWaterMediumFilled.displayName = 'AmauiIconMaterialWaterMediumFilled';
 
 
 const IconMaterialWaterOrpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41902,19 +41902,6 @@ const IconMaterialWaterOrpFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialWaterOrpFilled.displayName = 'AmauiIconMaterialWaterOrpFilled';
 
 
-const IconMaterialWaterPumpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WaterPumpFilled",
-    short_name: "WaterPump",
-    viewBox: "0 -960 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M480-230q-104 0-177-73t-73-177q0-104 73-177t177-73q104 0 177 73t73 177q0 104-73 177t-177 73Zm0-141q42 0 71-29t29-70q0-20-7.5-37.5T551-539l-71-70-71 70q-14 14-21.5 31.5T380-470q0 41 29 70t71 29Zm360-109v-40h-53q-11-80-57.5-143.5T613-760h227v-40h80v320h-80ZM40-160v-320h80v40h53q11 80 57.5 143.5T347-200H120v40H40Z"
-  }));
-});
-IconMaterialWaterPumpFilled.displayName = 'AmauiIconMaterialWaterPumpFilled';
-
-
 const IconMaterialWaterPhFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -41928,17 +41915,17 @@ const IconMaterialWaterPhFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
 IconMaterialWaterPhFilled.displayName = 'AmauiIconMaterialWaterPhFilled';
 
 
-const IconMaterialWaterfallChartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialWaterPumpFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "WaterfallChartFilled",
-    short_name: "WaterfallChart",
-    viewBox: "0 0 24 24"
+    name: "WaterPumpFilled",
+    short_name: "WaterPump",
+    viewBox: "0 -960 960 960"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M3 20v-7h3v7Zm4-6v-4h3v4Zm3-5V5h3v4Zm4-2V4h3v3Zm4 13V4h3v16Z"
+    d: "M480-230q-104 0-177-73t-73-177q0-104 73-177t177-73q104 0 177 73t73 177q0 104-73 177t-177 73Zm0-141q42 0 71-29t29-70q0-20-7.5-37.5T551-539l-71-70-71 70q-14 14-21.5 31.5T380-470q0 41 29 70t71 29Zm360-109v-40h-53q-11-80-57.5-143.5T613-760h227v-40h80v320h-80ZM40-160v-320h80v40h53q11 80 57.5 143.5T347-200H120v40H40Z"
   }));
 });
-IconMaterialWaterfallChartFilled.displayName = 'AmauiIconMaterialWaterfallChartFilled';
+IconMaterialWaterPumpFilled.displayName = 'AmauiIconMaterialWaterPumpFilled';
 
 
 const IconMaterialWaterVocFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -41952,6 +41939,19 @@ const IconMaterialWaterVocFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
   }));
 });
 IconMaterialWaterVocFilled.displayName = 'AmauiIconMaterialWaterVocFilled';
+
+
+const IconMaterialWaterfallChartFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WaterfallChartFilled",
+    short_name: "WaterfallChart",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M3 20v-7h3v7Zm4-6v-4h3v4Zm3-5V5h3v4Zm4-2V4h3v3Zm4 13V4h3v16Z"
+  }));
+});
+IconMaterialWaterfallChartFilled.displayName = 'AmauiIconMaterialWaterfallChartFilled';
 
 
 const IconMaterialWavesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42006,6 +42006,19 @@ const IconMaterialWbIncandescentFilled = /*#__PURE__*/React.forwardRef((props, r
 IconMaterialWbIncandescentFilled.displayName = 'AmauiIconMaterialWbIncandescentFilled';
 
 
+const IconMaterialWbIridescentFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WbIridescentFilled",
+    short_name: "WbIridescent",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M5 15.05v-6h14v6ZM11 5V2h2v3Zm7.7 2.8-1.4-1.4 1.8-1.8L20.5 6ZM11 22v-3h2v3Zm8.1-2.5-1.8-1.8 1.4-1.4 1.8 1.8ZM5.3 7.8 3.5 6l1.4-1.4 1.8 1.8Zm-.4 11.7-1.4-1.4 1.8-1.8 1.4 1.4Z"
+  }));
+});
+IconMaterialWbIridescentFilled.displayName = 'AmauiIconMaterialWbIridescentFilled';
+
+
 const IconMaterialWbShadeFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42030,19 +42043,6 @@ const IconMaterialWbSunnyFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialWbSunnyFilled.displayName = 'AmauiIconMaterialWbSunnyFilled';
-
-
-const IconMaterialWbIridescentFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WbIridescentFilled",
-    short_name: "WbIridescent",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M5 15.05v-6h14v6ZM11 5V2h2v3Zm7.7 2.8-1.4-1.4 1.8-1.8L20.5 6ZM11 22v-3h2v3Zm8.1-2.5-1.8-1.8 1.4-1.4 1.8 1.8ZM5.3 7.8 3.5 6l1.4-1.4 1.8 1.8Zm-.4 11.7-1.4-1.4 1.8-1.8 1.4 1.4Z"
-  }));
-});
-IconMaterialWbIridescentFilled.displayName = 'AmauiIconMaterialWbIridescentFilled';
 
 
 const IconMaterialWbTwilightFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42110,19 +42110,6 @@ const IconMaterialWeatherSnowyFilled = /*#__PURE__*/React.forwardRef((props, ref
 IconMaterialWeatherSnowyFilled.displayName = 'AmauiIconMaterialWeatherSnowyFilled';
 
 
-const IconMaterialWebAssetFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WebAssetFilled",
-    short_name: "WebAsset",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 20V4h20v16ZM4 8v10h16V8Z"
-  }));
-});
-IconMaterialWebAssetFilled.displayName = 'AmauiIconMaterialWebAssetFilled';
-
-
 const IconMaterialWebAssetOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42136,17 +42123,17 @@ const IconMaterialWebAssetOffFilled = /*#__PURE__*/React.forwardRef((props, ref)
 IconMaterialWebAssetOffFilled.displayName = 'AmauiIconMaterialWebAssetOffFilled';
 
 
-const IconMaterialWebStoriesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+const IconMaterialWebAssetFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
-    name: "WebStoriesFilled",
-    short_name: "WebStories",
+    name: "WebAssetFilled",
+    short_name: "WebAsset",
     viewBox: "0 0 24 24"
   }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M18 20V4h2v16ZM3 22V2h13v20Zm19-4V6h1.5v12Z"
+    d: "M2 20V4h20v16ZM4 8v10h16V8Z"
   }));
 });
-IconMaterialWebStoriesFilled.displayName = 'AmauiIconMaterialWebStoriesFilled';
+IconMaterialWebAssetFilled.displayName = 'AmauiIconMaterialWebAssetFilled';
 
 
 const IconMaterialWebFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42160,6 +42147,19 @@ const IconMaterialWebFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialWebFilled.displayName = 'AmauiIconMaterialWebFilled';
+
+
+const IconMaterialWebStoriesFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WebStoriesFilled",
+    short_name: "WebStories",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M18 20V4h2v16ZM3 22V2h13v20Zm19-4V6h1.5v12Z"
+  }));
+});
+IconMaterialWebStoriesFilled.displayName = 'AmauiIconMaterialWebStoriesFilled';
 
 
 const IconMaterialWebTrafficFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42292,19 +42292,6 @@ const IconMaterialWidthFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
 IconMaterialWidthFilled.displayName = 'AmauiIconMaterialWidthFilled';
 
 
-const IconMaterialWidthFullFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WidthFullFilled",
-    short_name: "WidthFull",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M2 20V4h20v16Zm2-2h1V6H4Zm15 0h1V6h-1Z"
-  }));
-});
-IconMaterialWidthFullFilled.displayName = 'AmauiIconMaterialWidthFullFilled';
-
-
 const IconMaterialWidthNormalFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42316,6 +42303,19 @@ const IconMaterialWidthNormalFilled = /*#__PURE__*/React.forwardRef((props, ref)
   }));
 });
 IconMaterialWidthNormalFilled.displayName = 'AmauiIconMaterialWidthNormalFilled';
+
+
+const IconMaterialWidthFullFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WidthFullFilled",
+    short_name: "WidthFull",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M2 20V4h20v16Zm2-2h1V6H4Zm15 0h1V6h-1Z"
+  }));
+});
+IconMaterialWidthFullFilled.displayName = 'AmauiIconMaterialWidthFullFilled';
 
 
 const IconMaterialWidthWideFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42344,19 +42344,6 @@ const IconMaterialWifi1BarFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialWifi1BarFilled.displayName = 'AmauiIconMaterialWifi1BarFilled';
 
 
-const IconMaterialWifi2BarFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "Wifi2BarFilled",
-    short_name: "Wifi2Bar",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m6.35 15.35-2.1-2.15q1.475-1.475 3.463-2.337Q9.7 10 12 10t4.288.875q1.987.875 3.462 2.375l-2.1 2.1q-1.1-1.1-2.55-1.725Q13.65 13 12 13q-1.65 0-3.1.625-1.45.625-2.55 1.725ZM12 21l3.525-3.55q-.675-.675-1.575-1.063Q13.05 16 12 16q-1.05 0-1.95.387-.9.388-1.575 1.063Z"
-  }));
-});
-IconMaterialWifi2BarFilled.displayName = 'AmauiIconMaterialWifi2BarFilled';
-
-
 const IconMaterialWifiAddFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42368,6 +42355,19 @@ const IconMaterialWifiAddFilled = /*#__PURE__*/React.forwardRef((props, ref) => 
   }));
 });
 IconMaterialWifiAddFilled.displayName = 'AmauiIconMaterialWifiAddFilled';
+
+
+const IconMaterialWifi2BarFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "Wifi2BarFilled",
+    short_name: "Wifi2Bar",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m6.35 15.35-2.1-2.15q1.475-1.475 3.463-2.337Q9.7 10 12 10t4.288.875q1.987.875 3.462 2.375l-2.1 2.1q-1.1-1.1-2.55-1.725Q13.65 13 12 13q-1.65 0-3.1.625-1.45.625-2.55 1.725ZM12 21l3.525-3.55q-.675-.675-1.575-1.063Q13.05 16 12 16q-1.05 0-1.95.387-.9.388-1.575 1.063Z"
+  }));
+});
+IconMaterialWifi2BarFilled.displayName = 'AmauiIconMaterialWifi2BarFilled';
 
 
 const IconMaterialWifiCalling1Filled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42487,19 +42487,6 @@ const IconMaterialWifiLockFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialWifiLockFilled.displayName = 'AmauiIconMaterialWifiLockFilled';
 
 
-const IconMaterialWifiOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WifiOffFilled",
-    short_name: "WifiOff",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M21.9 11.1q-1.925-1.925-4.462-3.013Q14.9 7 12 7q-.525 0-1.012.037-.488.038-.988.113L7.45 4.6q1.1-.3 2.238-.45Q10.825 4 12 4q3.55 0 6.625 1.325T24 8.95Zm-4 3.95-.725-.725-.725-.725-3.6-3.6q2.025.2 3.788 1.025 1.762.825 3.112 2.175Zm1.85 7.55-9.4-9.45q-1.175.275-2.187.825-1.013.55-1.813 1.375l-2.1-2.15q.8-.8 1.725-1.4.925-.6 1.975-1.05L5.7 8.5q-1.025.525-1.912 1.162Q2.9 10.3 2.1 11.1L0 8.95q.8-.8 1.663-1.438Q2.525 6.875 3.5 6.3L1.4 4.2l1.4-1.4 18.4 18.4ZM12 21l-3.525-3.55q.675-.675 1.575-1.063Q10.95 16 12 16q1.05 0 1.95.387.9.388 1.575 1.063Z"
-  }));
-});
-IconMaterialWifiOffFilled.displayName = 'AmauiIconMaterialWifiOffFilled';
-
-
 const IconMaterialWifiNotificationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42511,6 +42498,19 @@ const IconMaterialWifiNotificationFilled = /*#__PURE__*/React.forwardRef((props,
   }));
 });
 IconMaterialWifiNotificationFilled.displayName = 'AmauiIconMaterialWifiNotificationFilled';
+
+
+const IconMaterialWifiOffFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WifiOffFilled",
+    short_name: "WifiOff",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M21.9 11.1q-1.925-1.925-4.462-3.013Q14.9 7 12 7q-.525 0-1.012.037-.488.038-.988.113L7.45 4.6q1.1-.3 2.238-.45Q10.825 4 12 4q3.55 0 6.625 1.325T24 8.95Zm-4 3.95-.725-.725-.725-.725-3.6-3.6q2.025.2 3.788 1.025 1.762.825 3.112 2.175Zm1.85 7.55-9.4-9.45q-1.175.275-2.187.825-1.013.55-1.813 1.375l-2.1-2.15q.8-.8 1.725-1.4.925-.6 1.975-1.05L5.7 8.5q-1.025.525-1.912 1.162Q2.9 10.3 2.1 11.1L0 8.95q.8-.8 1.663-1.438Q2.525 6.875 3.5 6.3L1.4 4.2l1.4-1.4 18.4 18.4ZM12 21l-3.525-3.55q.675-.675 1.575-1.063Q10.95 16 12 16q1.05 0 1.95.387.9.388 1.575 1.063Z"
+  }));
+});
+IconMaterialWifiOffFilled.displayName = 'AmauiIconMaterialWifiOffFilled';
 
 
 const IconMaterialWifiPasswordFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42812,19 +42812,6 @@ const IconMaterialWrapTextFilled = /*#__PURE__*/React.forwardRef((props, ref) =>
 IconMaterialWrapTextFilled.displayName = 'AmauiIconMaterialWrapTextFilled';
 
 
-const IconMaterialWristFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "WristFilled",
-    short_name: "Wrist",
-    viewBox: "0 96 960 960"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "M440 972 244 776H40V376h184l78-80h498v80H560v60h320v80H560v60h360v80H560v60h280v80H485l45 89-90 87Z"
-  }));
-});
-IconMaterialWristFilled.displayName = 'AmauiIconMaterialWristFilled';
-
-
 const IconMaterialWrongLocationFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42836,6 +42823,19 @@ const IconMaterialWrongLocationFilled = /*#__PURE__*/React.forwardRef((props, re
   }));
 });
 IconMaterialWrongLocationFilled.displayName = 'AmauiIconMaterialWrongLocationFilled';
+
+
+const IconMaterialWristFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "WristFilled",
+    short_name: "Wrist",
+    viewBox: "0 96 960 960"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "M440 972 244 776H40V376h184l78-80h498v80H560v60h320v80H560v60h360v80H560v60h280v80H485l45 89-90 87Z"
+  }));
+});
+IconMaterialWristFilled.displayName = 'AmauiIconMaterialWristFilled';
 
 
 const IconMaterialWysiwygFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42942,19 +42942,6 @@ const IconMaterialZonePersonUrgentFilled = /*#__PURE__*/React.forwardRef((props,
 IconMaterialZonePersonUrgentFilled.displayName = 'AmauiIconMaterialZonePersonUrgentFilled';
 
 
-const IconMaterialZoomInMapFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
-  return /*#__PURE__*/React.createElement(Icon, _extends({
-    ref: ref,
-    name: "ZoomInMapFilled",
-    short_name: "ZoomInMap",
-    viewBox: "0 0 24 24"
-  }, props), /*#__PURE__*/React.createElement("path", {
-    d: "m3.9 21.5-1.4-1.4L5.6 17H3v-2h6v6H7v-2.6Zm16.2 0L17 18.4V21h-2v-6h6v2h-2.6l3.1 3.1ZM3 9V7h2.6L2.5 3.9l1.4-1.4L7 5.6V3h2v6Zm12 0V3h2v2.6l3.1-3.1 1.4 1.4L18.4 7H21v2Z"
-  }));
-});
-IconMaterialZoomInMapFilled.displayName = 'AmauiIconMaterialZoomInMapFilled';
-
-
 const IconMaterialZoomInFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   return /*#__PURE__*/React.createElement(Icon, _extends({
     ref: ref,
@@ -42966,6 +42953,19 @@ const IconMaterialZoomInFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
   }));
 });
 IconMaterialZoomInFilled.displayName = 'AmauiIconMaterialZoomInFilled';
+
+
+const IconMaterialZoomInMapFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
+  return /*#__PURE__*/React.createElement(Icon, _extends({
+    ref: ref,
+    name: "ZoomInMapFilled",
+    short_name: "ZoomInMap",
+    viewBox: "0 0 24 24"
+  }, props), /*#__PURE__*/React.createElement("path", {
+    d: "m3.9 21.5-1.4-1.4L5.6 17H3v-2h6v6H7v-2.6Zm16.2 0L17 18.4V21h-2v-6h6v2h-2.6l3.1 3.1ZM3 9V7h2.6L2.5 3.9l1.4-1.4L7 5.6V3h2v6Zm12 0V3h2v2.6l3.1-3.1 1.4 1.4L18.4 7H21v2Z"
+  }));
+});
+IconMaterialZoomInMapFilled.displayName = 'AmauiIconMaterialZoomInMapFilled';
 
 
 const IconMaterialZoomOutFilled = /*#__PURE__*/React.forwardRef((props, ref) => {
@@ -42994,4 +42994,4 @@ const IconMaterialZoomOutMapFilled = /*#__PURE__*/React.forwardRef((props, ref) 
 IconMaterialZoomOutMapFilled.displayName = 'AmauiIconMaterialZoomOutMapFilled';
 
 
-export default [ IconMaterial10kFilled,  IconMaterial10mpFilled,  IconMaterial11mpFilled,  IconMaterial12mpFilled,  IconMaterial123Filled,  IconMaterial14mpFilled,  IconMaterial13mpFilled,  IconMaterial15mpFilled,  IconMaterial16mpFilled,  IconMaterial17mpFilled,  IconMaterial18UpRatingFilled,  IconMaterial18mpFilled,  IconMaterial19mpFilled,  IconMaterial1kPlusFilled,  IconMaterial1kFilled,  IconMaterial20mpFilled,  IconMaterial1xMobiledataFilled,  IconMaterial21mpFilled,  IconMaterial1xMobiledataBadgeFilled,  IconMaterial22mpFilled,  IconMaterial23mpFilled,  IconMaterial24mpFilled,  IconMaterial2dFilled,  IconMaterial2kPlusFilled,  IconMaterial2kFilled,  IconMaterial2mpFilled,  IconMaterial30fpsFilled,  IconMaterial30fpsSelectFilled,  IconMaterial360Filled,  IconMaterial3gMobiledataBadgeFilled,  IconMaterial3gMobiledataFilled,  IconMaterial3kFilled,  IconMaterial3kPlusFilled,  IconMaterial3dRotationFilled,  IconMaterial3mpFilled,  IconMaterial3pFilled,  IconMaterial4gMobiledataBadgeFilled,  IconMaterial4gMobiledataFilled,  IconMaterial4gPlusMobiledataFilled,  IconMaterial4kFilled,  IconMaterial4kPlusFilled,  IconMaterial4mpFilled,  IconMaterial50mpFilled,  IconMaterial5gFilled,  IconMaterial5gMobiledataBadgeFilled,  IconMaterial5kFilled,  IconMaterial5kPlusFilled,  IconMaterial5mpFilled,  IconMaterial60fpsFilled,  IconMaterial60fpsSelectFilled,  IconMaterial6FtApartFilled,  IconMaterial6kFilled,  IconMaterial6kPlusFilled,  IconMaterial6mpFilled,  IconMaterial7kFilled,  IconMaterial7kPlusFilled,  IconMaterial7mpFilled,  IconMaterial8kFilled,  IconMaterial8kPlusFilled,  IconMaterial8mpFilled,  IconMaterial9kFilled,  IconMaterial9kPlusFilled,  IconMaterial9mpFilled,  IconMaterialAbcFilled,  IconMaterialAcUnitFilled,  IconMaterialAccessibilityFilled,  IconMaterialAccessibilityNewFilled,  IconMaterialAccessibleFilled,  IconMaterialAccessibleForwardFilled,  IconMaterialAccountBalanceFilled,  IconMaterialAccountBalanceWalletFilled,  IconMaterialAccountBoxFilled,  IconMaterialAccountChildInvertFilled,  IconMaterialAccountChildFilled,  IconMaterialAccountCircleFilled,  IconMaterialAccountCircleOffFilled,  IconMaterialAccountTreeFilled,  IconMaterialActionKeyFilled,  IconMaterialActivityZoneFilled,  IconMaterialAcuteFilled,  IconMaterialAdFilled,  IconMaterialAdGroupFilled,  IconMaterialAdGroupOffFilled,  IconMaterialAdOffFilled,  IconMaterialAdUnitsFilled,  IconMaterialAdbFilled,  IconMaterialAddAPhotoFilled,  IconMaterialAddAdFilled,  IconMaterialAddAlertFilled,  IconMaterialAddBoxFilled,  IconMaterialAddBusinessFilled,  IconMaterialAddCallFilled,  IconMaterialAddCardFilled,  IconMaterialAddChartFilled,  IconMaterialAddCommentFilled,  IconMaterialAddCircleFilled,  IconMaterialAddFilled,  IconMaterialAddHomeFilled,  IconMaterialAddHomeWorkFilled,  IconMaterialAddLinkFilled,  IconMaterialAddLocationAltFilled,  IconMaterialAddLocationFilled,  IconMaterialAddNotesFilled,  IconMaterialAddModeratorFilled,  IconMaterialAddPhotoAlternateFilled,  IconMaterialAddRoadFilled,  IconMaterialAddReactionFilled,  IconMaterialAddTaskFilled,  IconMaterialAddShoppingCartFilled,  IconMaterialAddToDriveFilled,  IconMaterialAddToHomeScreenFilled,  IconMaterialAddToPhotosFilled,  IconMaterialAddToQueueFilled,  IconMaterialAdjustFilled,  IconMaterialAdfScannerFilled,  IconMaterialAdminMedsFilled,  IconMaterialAdminPanelSettingsFilled,  IconMaterialAdsClickFilled,  IconMaterialAgenderFilled,  IconMaterialAgricultureFilled,  IconMaterialAirFilled,  IconMaterialAirPurifierFilled,  IconMaterialAirPurifierGenFilled,  IconMaterialAirFreshenerFilled,  IconMaterialAirlineSeatFlatAngledFilled,  IconMaterialAirlineSeatFlatFilled,  IconMaterialAirlineSeatIndividualSuiteFilled,  IconMaterialAirlineSeatLegroomExtraFilled,  IconMaterialAirlineSeatLegroomNormalFilled,  IconMaterialAirlineSeatLegroomReducedFilled,  IconMaterialAirlineSeatReclineExtraFilled,  IconMaterialAirlineSeatReclineNormalFilled,  IconMaterialAirlineStopsFilled,  IconMaterialAirlinesFilled,  IconMaterialAirplaneTicketFilled,  IconMaterialAirplanemodeActiveFilled,  IconMaterialAirplanemodeInactiveFilled,  IconMaterialAirplayFilled,  IconMaterialAirportShuttleFilled,  IconMaterialAirwaveFilled,  IconMaterialAlarmAddFilled,  IconMaterialAlarmFilled,  IconMaterialAirwareFilled,  IconMaterialAlarmOffFilled,  IconMaterialAlarmOnFilled,  IconMaterialAlarmSmartWakeFilled,  IconMaterialAlbumFilled,  IconMaterialAlignCenterFilled,  IconMaterialAlignEndFilled,  IconMaterialAlignFlexCenterFilled,  IconMaterialAlignFlexEndFilled,  IconMaterialAlignFlexStartFilled,  IconMaterialAlignHorizontalCenterFilled,  IconMaterialAlignHorizontalLeftFilled,  IconMaterialAlignHorizontalRightFilled,  IconMaterialAlignItemsStretchFilled,  IconMaterialAlignJustifyCenterFilled,  IconMaterialAlignJustifyFlexEndFilled,  IconMaterialAlignJustifyFlexStartFilled,  IconMaterialAlignJustifySpaceAroundFilled,  IconMaterialAlignJustifySpaceBetweenFilled,  IconMaterialAlignJustifySpaceEvenFilled,  IconMaterialAlignJustifyStretchFilled,  IconMaterialAlignSelfStretchFilled,  IconMaterialAlignSpaceAroundFilled,  IconMaterialAlignSpaceEvenFilled,  IconMaterialAlignStartFilled,  IconMaterialAlignSpaceBetweenFilled,  IconMaterialAlignStretchFilled,  IconMaterialAlignVerticalBottomFilled,  IconMaterialAlignVerticalCenterFilled,  IconMaterialAlignVerticalTopFilled,  IconMaterialAllInboxFilled,  IconMaterialAllInclusiveFilled,  IconMaterialAllMatchFilled,  IconMaterialAllOutFilled,  IconMaterialAllergiesFilled,  IconMaterialAllergyFilled,  IconMaterialAltRouteFilled,  IconMaterialAlternateEmailFilled,  IconMaterialAltitudeFilled,  IconMaterialAmbientScreenFilled,  IconMaterialAmbulanceFilled,  IconMaterialAmendFilled,  IconMaterialAmpStoriesFilled,  IconMaterialAnalyticsFilled,  IconMaterialAnchorFilled,  IconMaterialAndroidFilled,  IconMaterialAnimationFilled,  IconMaterialAodFilled,  IconMaterialAodTabletFilled,  IconMaterialAodWatchFilled,  IconMaterialApartmentFilled,  IconMaterialApiFilled,  IconMaterialApkDocumentFilled,  IconMaterialAppBadgingFilled,  IconMaterialAppBlockingFilled,  IconMaterialAppPromoFilled,  IconMaterialAppRegistrationFilled,  IconMaterialApkInstallFilled,  IconMaterialAppShortcutFilled,  IconMaterialApparelFilled,  IconMaterialApprovalDelegationFilled,  IconMaterialApprovalFilled,  IconMaterialAppsFilled,  IconMaterialAppsOutageFilled,  IconMaterialAqFilled,  IconMaterialAqIndoorFilled,  IconMaterialArOnYouFilled,  IconMaterialArchitectureFilled,  IconMaterialArStickersFilled,  IconMaterialArchiveFilled,  IconMaterialArmingCountdownFilled,  IconMaterialArrowAndEdgeFilled,  IconMaterialAreaChartFilled,  IconMaterialArrowBackFilled,  IconMaterialArrowBackIosFilled,  IconMaterialArrowBackIosNewFilled,  IconMaterialArrowCircleLeftFilled,  IconMaterialArrowCircleDownFilled,  IconMaterialArrowCircleRightFilled,  IconMaterialArrowCircleUpFilled,  IconMaterialArrowDownwardAltFilled,  IconMaterialArrowDownwardFilled,  IconMaterialArrowDropDownCircleFilled,  IconMaterialArrowDropDownFilled,  IconMaterialArrowDropUpFilled,  IconMaterialArrowForwardIosFilled,  IconMaterialArrowForwardFilled,  IconMaterialArrowInsertFilled,  IconMaterialArrowLeftAltFilled,  IconMaterialArrowLeftFilled,  IconMaterialArrowOrEdgeFilled,  IconMaterialArrowOutwardFilled,  IconMaterialArrowRangeFilled,  IconMaterialArrowRightAltFilled,  IconMaterialArrowRightFilled,  IconMaterialArrowSelectorToolFilled,  IconMaterialArrowSplitFilled,  IconMaterialArrowTopLeftFilled,  IconMaterialArrowTopRightFilled,  IconMaterialArrowUpwardAltFilled,  IconMaterialArrowUpwardFilled,  IconMaterialArrowsMoreDownFilled,  IconMaterialArrowsMoreUpFilled,  IconMaterialArrowsOutwardFilled,  IconMaterialArtTrackFilled,  IconMaterialArticleFilled,  IconMaterialArticleShortcutFilled,  IconMaterialArtistFilled,  IconMaterialAspectRatioFilled,  IconMaterialAssignmentAddFilled,  IconMaterialAssignmentFilled,  IconMaterialAssignmentIndFilled,  IconMaterialAssignmentLateFilled,  IconMaterialAssignmentReturnFilled,  IconMaterialAssignmentReturnedFilled,  IconMaterialAssistWalkerFilled,  IconMaterialAssistantDirectionFilled,  IconMaterialAssistantDeviceFilled,  IconMaterialAssignmentTurnedInFilled,  IconMaterialAssistantNavigationFilled,  IconMaterialAssistantOnHubFilled,  IconMaterialAssistantFilled,  IconMaterialAssuredWorkloadFilled,  IconMaterialAsteriskFilled,  IconMaterialAstrophotographyAutoFilled,  IconMaterialAstrophotographyOffFilled,  IconMaterialAtmFilled,  IconMaterialAtrFilled,  IconMaterialAttachEmailFilled,  IconMaterialAttachFileAddFilled,  IconMaterialAttachFileFilled,  IconMaterialAttachMoneyFilled,  IconMaterialAttachmentFilled,  IconMaterialAttractionsFilled,  IconMaterialAttributionFilled,  IconMaterialAudioDescriptionFilled,  IconMaterialAudioFileFilled,  IconMaterialAudioVideoReceiverFilled,  IconMaterialAutoActivityZoneFilled,  IconMaterialAutoAwesomeFilled,  IconMaterialAutoAwesomeMosaicFilled,  IconMaterialAutoAwesomeMotionFilled,  IconMaterialAutoDeleteFilled,  IconMaterialAutoDetectVoiceFilled,  IconMaterialAutoFixFilled,  IconMaterialAutoFixHighFilled,  IconMaterialAutoFixNormalFilled,  IconMaterialAutoFixOffFilled,  IconMaterialAutoGraphFilled,  IconMaterialAutoLabelFilled,  IconMaterialAutoMeetingRoomFilled,  IconMaterialAutoModeFilled,  IconMaterialAutoReadPauseFilled,  IconMaterialAutoReadPlayFilled,  IconMaterialAutoScheduleFilled,  IconMaterialAutoStoriesFilled,  IconMaterialAutoTimerFilled,  IconMaterialAutoTowingFilled,  IconMaterialAutoTransmissionFilled,  IconMaterialAutoVideocamFilled,  IconMaterialAutofpsSelectFilled,  IconMaterialAutopauseFilled,  IconMaterialAutopayFilled,  IconMaterialAutoplayFilled,  IconMaterialAutorenewFilled,  IconMaterialAutostopFilled,  IconMaterialAvTimerFilled,  IconMaterialAvgPaceFilled,  IconMaterialAvgTimeFilled,  IconMaterialAwardStarFilled,  IconMaterialAzmFilled,  IconMaterialBabyChangingStationFilled,  IconMaterialBackHandFilled,  IconMaterialBackToTabFilled,  IconMaterialBackgroundBlurFullFilled,  IconMaterialBackgroundBlurLightFilled,  IconMaterialBackgroundDotLargeFilled,  IconMaterialBackgroundDotSmallFilled,  IconMaterialBackgroundGridSmallFilled,  IconMaterialBackgroundReplaceFilled,  IconMaterialBacklightHighFilled,  IconMaterialBacklightLowFilled,  IconMaterialBackpackFilled,  IconMaterialBackspaceFilled,  IconMaterialBackupFilled,  IconMaterialBackupTableFilled,  IconMaterialBadgeCriticalBatteryFilled,  IconMaterialBadgeFilled,  IconMaterialBakeryDiningFilled,  IconMaterialBalanceFilled,  IconMaterialBalconyFilled,  IconMaterialBallotFilled,  IconMaterialBarChart4BarsFilled,  IconMaterialBarChartFilled,  IconMaterialBarcodeFilled,  IconMaterialBarcodeReaderFilled,  IconMaterialBarcodeScannerFilled,  IconMaterialBarefootFilled,  IconMaterialBatchPredictionFilled,  IconMaterialBathOutdoorFilled,  IconMaterialBathPrivateFilled,  IconMaterialBathPublicLargeFilled,  IconMaterialBathroomFilled,  IconMaterialBathtubFilled,  IconMaterialBattery0BarFilled,  IconMaterialBattery1BarFilled,  IconMaterialBattery20Filled,  IconMaterialBattery2BarFilled,  IconMaterialBattery30Filled,  IconMaterialBattery3BarFilled,  IconMaterialBattery4BarFilled,  IconMaterialBattery50Filled,  IconMaterialBattery5BarFilled,  IconMaterialBattery60Filled,  IconMaterialBattery80Filled,  IconMaterialBattery6BarFilled,  IconMaterialBattery90Filled,  IconMaterialBatteryAlertFilled,  IconMaterialBatteryChangeFilled,  IconMaterialBatteryCharging20Filled,  IconMaterialBatteryCharging30Filled,  IconMaterialBatteryCharging50Filled,  IconMaterialBatteryCharging60Filled,  IconMaterialBatteryCharging80Filled,  IconMaterialBatteryCharging90Filled,  IconMaterialBatteryChargingFullFilled,  IconMaterialBatteryErrorFilled,  IconMaterialBatteryFullAltFilled,  IconMaterialBatteryFullFilled,  IconMaterialBatteryHoriz000Filled,  IconMaterialBatteryHoriz050Filled,  IconMaterialBatteryHoriz075Filled,  IconMaterialBatteryLowFilled,  IconMaterialBatteryPlusFilled,  IconMaterialBatteryProfileFilled,  IconMaterialBatterySaverFilled,  IconMaterialBatteryShareFilled,  IconMaterialBatteryStatusGoodFilled,  IconMaterialBatteryUnknownFilled,  IconMaterialBatteryVert005Filled,  IconMaterialBatteryVert020Filled,  IconMaterialBatteryVert050Filled,  IconMaterialBatteryVeryLowFilled,  IconMaterialBeachAccessFilled,  IconMaterialBedFilled,  IconMaterialBedroomBabyFilled,  IconMaterialBedroomChildFilled,  IconMaterialBedroomParentFilled,  IconMaterialBedtimeFilled,  IconMaterialBedtimeOffFilled,  IconMaterialBeenhereFilled,  IconMaterialBentoFilled,  IconMaterialBiaFilled,  IconMaterialBidLandscapeDisabledFilled,  IconMaterialBidLandscapeFilled,  IconMaterialBigtopUpdatesFilled,  IconMaterialBiotechFilled,  IconMaterialBlanketFilled,  IconMaterialBlenderFilled,  IconMaterialBikeScooterFilled,  IconMaterialBlindFilled,  IconMaterialBlindsClosedFilled,  IconMaterialBlindsFilled,  IconMaterialBlockFilled,  IconMaterialBloodPressureFilled,  IconMaterialBluetoothConnectedFilled,  IconMaterialBluetoothDriveFilled,  IconMaterialBluetoothDisabledFilled,  IconMaterialBluetoothFilled,  IconMaterialBloodtypeFilled,  IconMaterialBluetoothSearchingFilled,  IconMaterialBlurCircularFilled,  IconMaterialBlurLinearFilled,  IconMaterialBlurMediumFilled,  IconMaterialBlurOffFilled,  IconMaterialBlurOnFilled,  IconMaterialBlurShortFilled,  IconMaterialBodyFatFilled,  IconMaterialBodySystemFilled,  IconMaterialBoltFilled,  IconMaterialBombFilled,  IconMaterialBook2Filled,  IconMaterialBook3Filled,  IconMaterialBook4Filled,  IconMaterialBook5Filled,  IconMaterialBookFilled,  IconMaterialBookOnlineFilled,  IconMaterialBookmarkAddedFilled,  IconMaterialBookmarkAddFilled,  IconMaterialBookmarkFilled,  IconMaterialBookmarkManagerFilled,  IconMaterialBookmarkRemoveFilled,  IconMaterialBookmarksFilled,  IconMaterialBorderAllFilled,  IconMaterialBorderBottomFilled,  IconMaterialBorderClearFilled,  IconMaterialBorderColorFilled,  IconMaterialBorderHorizontalFilled,  IconMaterialBorderInnerFilled,  IconMaterialBorderLeftFilled,  IconMaterialBorderOuterFilled,  IconMaterialBorderRightFilled,  IconMaterialBorderStyleFilled,  IconMaterialBorderTopFilled,  IconMaterialBorderVerticalFilled,  IconMaterialBottomAppBarFilled,  IconMaterialBottomDrawerFilled,  IconMaterialBottomNavigationFilled,  IconMaterialBottomPanelCloseFilled,  IconMaterialBottomPanelOpenFilled,  IconMaterialBottomRightClickFilled,  IconMaterialBottomSheetsFilled,  IconMaterialBoxAddFilled,  IconMaterialBoxEditFilled,  IconMaterialBoxFilled,  IconMaterialBrandAwarenessFilled,  IconMaterialBoyFilled,  IconMaterialBrandFamilyFilled,  IconMaterialBrandingWatermarkFilled,  IconMaterialBreakfastDiningFilled,  IconMaterialBreakingNewsAlt1Filled,  IconMaterialBreastfeedingFilled,  IconMaterialBrightness1Filled,  IconMaterialBreakingNewsFilled,  IconMaterialBrightness2Filled,  IconMaterialBrightness3Filled,  IconMaterialBrightness4Filled,  IconMaterialBrightness5Filled,  IconMaterialBrightness6Filled,  IconMaterialBrightness7Filled,  IconMaterialBrightnessAlertFilled,  IconMaterialBrightnessAutoFilled,  IconMaterialBrightnessEmptyFilled,  IconMaterialBrightnessHighFilled,  IconMaterialBrightnessLowFilled,  IconMaterialBrightnessMediumFilled,  IconMaterialBringYourOwnIpFilled,  IconMaterialBroadcastOnHomeFilled,  IconMaterialBroadcastOnPersonalFilled,  IconMaterialBrokenImageFilled,  IconMaterialBrowseActivityFilled,  IconMaterialBrowseFilled,  IconMaterialBrowseGalleryFilled,  IconMaterialBrowserUpdatedFilled,  IconMaterialBrunchDiningFilled,  IconMaterialBrushFilled,  IconMaterialBubbleChartFilled,  IconMaterialBubbleFilled,  IconMaterialBubblesFilled,  IconMaterialBugReportFilled,  IconMaterialBuildCircleFilled,  IconMaterialBuildFilled,  IconMaterialBungalowFilled,  IconMaterialBurstModeFilled,  IconMaterialBusAlertFilled,  IconMaterialBusinessCenterFilled,  IconMaterialBusinessChipFilled,  IconMaterialBusinessMessagesFilled,  IconMaterialButtonsAltFilled,  IconMaterialCabinFilled,  IconMaterialCableFilled,  IconMaterialCachedFilled,  IconMaterialCakeAddFilled,  IconMaterialCakeFilled,  IconMaterialCalculateFilled,  IconMaterialCalendarAddOnFilled,  IconMaterialCalendarAppsScriptFilled,  IconMaterialCalendarMonthFilled,  IconMaterialCalendarClockFilled,  IconMaterialCalendarTodayFilled,  IconMaterialCalendarViewDayFilled,  IconMaterialCalendarViewMonthFilled,  IconMaterialCalendarViewWeekFilled,  IconMaterialCallEndFilled,  IconMaterialCallFilled,  IconMaterialCallLogFilled,  IconMaterialCallMadeFilled,  IconMaterialCallMergeFilled,  IconMaterialCallMissedFilled,  IconMaterialCallMissedOutgoingFilled,  IconMaterialCallQualityFilled,  IconMaterialCallReceivedFilled,  IconMaterialCallSplitFilled,  IconMaterialCallToActionFilled,  IconMaterialCameraEnhanceFilled,  IconMaterialCameraFilled,  IconMaterialCameraFrontFilled,  IconMaterialCameraIndoorFilled,  IconMaterialCameraOutdoorFilled,  IconMaterialCameraRearFilled,  IconMaterialCameraRollFilled,  IconMaterialCameraVideoFilled,  IconMaterialCameraswitchFilled,  IconMaterialCampaignFilled,  IconMaterialCampingFilled,  IconMaterialCancelFilled,  IconMaterialCancelPresentationFilled,  IconMaterialCancelScheduleSendFilled,  IconMaterialCandleFilled,  IconMaterialCandlestickChartFilled,  IconMaterialCaptivePortalFilled,  IconMaterialCaptureFilled,  IconMaterialCarCrashFilled,  IconMaterialCarRentalFilled,  IconMaterialCarRepairFilled,  IconMaterialCardMembershipFilled,  IconMaterialCardTravelFilled,  IconMaterialCardiologyFilled,  IconMaterialCardsFilled,  IconMaterialCarpenterFilled,  IconMaterialCarryOnBagCheckedFilled,  IconMaterialCarryOnBagFilled,  IconMaterialCarryOnBagInactiveFilled,  IconMaterialCarryOnBagQuestionFilled,  IconMaterialCasesFilled,  IconMaterialCasinoFilled,  IconMaterialCastFilled,  IconMaterialCastConnectedFilled,  IconMaterialCastForEducationFilled,  IconMaterialCastPauseFilled,  IconMaterialCastWarningFilled,  IconMaterialCastleFilled,  IconMaterialCelebrationFilled,  IconMaterialCategoryFilled,  IconMaterialCellMergeFilled,  IconMaterialCellTowerFilled,  IconMaterialCellWifiFilled,  IconMaterialCenterFocusStrongFilled,  IconMaterialCenterFocusWeakFilled,  IconMaterialChairAltFilled,  IconMaterialChairFilled,  IconMaterialChaletFilled,  IconMaterialChangeCircleFilled,  IconMaterialChangeHistoryFilled,  IconMaterialChargerFilled,  IconMaterialChargingStationFilled,  IconMaterialChartDataFilled,  IconMaterialChatAddOnFilled,  IconMaterialChatAppsScriptFilled,  IconMaterialChatBubbleFilled,  IconMaterialChatErrorFilled,  IconMaterialChatFilled,  IconMaterialChatInfoFilled,  IconMaterialChatPasteGoFilled,  IconMaterialCheckBoxFilled,  IconMaterialCheckBoxOutlineBlankFilled,  IconMaterialCheckCircleFilled,  IconMaterialCheckFilled,  IconMaterialCheckInOutFilled,  IconMaterialCheckIndeterminateSmallFilled,  IconMaterialCheckSmallFilled,  IconMaterialCheckedBagFilled,  IconMaterialCheckedBagQuestionFilled,  IconMaterialCheckbookFilled,  IconMaterialChecklistRtlFilled,  IconMaterialChecklistFilled,  IconMaterialCheckroomFilled,  IconMaterialCheerFilled,  IconMaterialChessFilled,  IconMaterialChevronLeftFilled,  IconMaterialChevronRightFilled,  IconMaterialChildCareFilled,  IconMaterialChildFriendlyFilled,  IconMaterialChipExtractionFilled,  IconMaterialChipsFilled,  IconMaterialChromeMaximizeFilled,  IconMaterialChromeMinimizeFilled,  IconMaterialChromeReaderModeFilled,  IconMaterialChromeRestoreFilled,  IconMaterialChromeToteFilled,  IconMaterialChromecast2Filled,  IconMaterialChromecastDeviceFilled,  IconMaterialChronicFilled,  IconMaterialChurchFilled,  IconMaterialCinematicBlurFilled,  IconMaterialCircleFilled,  IconMaterialCircleNotificationsFilled,  IconMaterialCirclesExtFilled,  IconMaterialCirclesFilled,  IconMaterialClarifyFilled,  IconMaterialCleanHandsFilled,  IconMaterialCleaningBucketFilled,  IconMaterialCleaningFilled,  IconMaterialCleaningServicesFilled,  IconMaterialClearAllFilled,  IconMaterialClearDayFilled,  IconMaterialClearNightFilled,  IconMaterialClimateMiniSplitFilled,  IconMaterialClinicalNotesFilled,  IconMaterialClockLoader10Filled,  IconMaterialClockLoader20Filled,  IconMaterialClockLoader40Filled,  IconMaterialClockLoader60Filled,  IconMaterialClockLoader80Filled,  IconMaterialClockLoader90Filled,  IconMaterialCloseFilled,  IconMaterialCloseFullscreenFilled,  IconMaterialCloseSmallFilled,  IconMaterialClosedCaptionDisabledFilled,  IconMaterialClosedCaptionFilled,  IconMaterialCloudCircleFilled,  IconMaterialCloudDoneFilled,  IconMaterialCloudDownloadFilled,  IconMaterialCloudFilled,  IconMaterialCloudOffFilled,  IconMaterialCloudQueueFilled,  IconMaterialCloudSyncFilled,  IconMaterialCloudUploadFilled,  IconMaterialCloudyFilled,  IconMaterialCloudyFilledFilled,  IconMaterialCloudySnowingFilled,  IconMaterialCo2Filled,  IconMaterialCoPresentFilled,  IconMaterialCodeBlocksFilled,  IconMaterialCodeOffFilled,  IconMaterialCodeFilled,  IconMaterialCoffeeFilled,  IconMaterialCoffeeMakerFilled,  IconMaterialCognitionFilled,  IconMaterialCollapseAllFilled,  IconMaterialCollapseContentFilled,  IconMaterialCollectionsBookmarkFilled,  IconMaterialColorizeFilled,  IconMaterialColorsFilled,  IconMaterialComicBubbleFilled,  IconMaterialCommentBankFilled,  IconMaterialCommentFilled,  IconMaterialCommentsDisabledFilled,  IconMaterialCommitFilled,  IconMaterialCommunicationFilled,  IconMaterialCommunitiesFilled,  IconMaterialCommuteFilled,  IconMaterialCompareArrowsFilled,  IconMaterialCompareFilled,  IconMaterialCompassCalibrationFilled,  IconMaterialComponentExchangeFilled,  IconMaterialCompostFilled,  IconMaterialCompressFilled,  IconMaterialComputerFilled,  IconMaterialConciergeFilled,  IconMaterialConditionsFilled,  IconMaterialConfirmationNumberFilled,  IconMaterialCongenitalFilled,  IconMaterialConnectWithoutContactFilled,  IconMaterialConnectedTvFilled,  IconMaterialConnectingAirportsFilled,  IconMaterialConstructionFilled,  IconMaterialContactEmergencyFilled,  IconMaterialContactMailFilled,  IconMaterialContactPageFilled,  IconMaterialContactPhoneFilled,  IconMaterialContactSupportFilled,  IconMaterialContactlessFilled,  IconMaterialContactlessOffFilled,  IconMaterialContactsFilled,  IconMaterialContactsProductFilled,  IconMaterialContentCopyFilled,  IconMaterialContentCutFilled,  IconMaterialContentPasteFilled,  IconMaterialContentPasteGoFilled,  IconMaterialContentPasteOffFilled,  IconMaterialContentPasteSearchFilled,  IconMaterialContractDeleteFilled,  IconMaterialContractEditFilled,  IconMaterialContractFilled,  IconMaterialContrastFilled,  IconMaterialContrastRtlOffFilled,  IconMaterialControlCameraFilled,  IconMaterialControlPointDuplicateFilled,  IconMaterialControllerGenFilled,  IconMaterialConversionPathFilled,  IconMaterialConversionPathOffFilled,  IconMaterialConveyorBeltFilled,  IconMaterialCookieFilled,  IconMaterialCookieOffFilled,  IconMaterialCookingFilled,  IconMaterialCopyAllFilled,  IconMaterialCopyrightFilled,  IconMaterialCoolToDryFilled,  IconMaterialCoronavirusFilled,  IconMaterialCorporateFareFilled,  IconMaterialCottageFilled,  IconMaterialCounter0Filled,  IconMaterialCounter1Filled,  IconMaterialCounter2Filled,  IconMaterialCounter3Filled,  IconMaterialCounter4Filled,  IconMaterialCounter5Filled,  IconMaterialCounter6Filled,  IconMaterialCounter7Filled,  IconMaterialCounter8Filled,  IconMaterialCounter9Filled,  IconMaterialCountertopsFilled,  IconMaterialCreateNewFolderFilled,  IconMaterialCreditCardFilled,  IconMaterialCreditCardGearFilled,  IconMaterialCreditCardHeartFilled,  IconMaterialCreditCardOffFilled,  IconMaterialCreditScoreFilled,  IconMaterialCribFilled,  IconMaterialCrisisAlertFilled,  IconMaterialCrop169Filled,  IconMaterialCrop32Filled,  IconMaterialCrop54Filled,  IconMaterialCrop75Filled,  IconMaterialCrop916Filled,  IconMaterialCropFilled,  IconMaterialCropFreeFilled,  IconMaterialCropLandscapeFilled,  IconMaterialCropPortraitFilled,  IconMaterialCropRotateFilled,  IconMaterialCropSquareFilled,  IconMaterialCrosswordFilled,  IconMaterialCrowdsourceFilled,  IconMaterialCrueltyFreeFilled,  IconMaterialCssFilled,  IconMaterialCsvFilled,  IconMaterialCurrencyBitcoinFilled,  IconMaterialCurrencyExchangeFilled,  IconMaterialCurrencyFrancFilled,  IconMaterialCurrencyLiraFilled,  IconMaterialCurrencyPoundFilled,  IconMaterialCurrencyRubleFilled,  IconMaterialCurrencyRupeeFilled,  IconMaterialCurrencyYuanFilled,  IconMaterialCurrencyYenFilled,  IconMaterialCurtainsClosedFilled,  IconMaterialCurtainsFilled,  IconMaterialCustomTypographyFilled,  IconMaterialCutFilled,  IconMaterialCycleFilled,  IconMaterialCycloneFilled,  IconMaterialDangerousFilled,  IconMaterialDarkModeFilled,  IconMaterialDashboardCustomizeFilled,  IconMaterialDashboardFilled,  IconMaterialDataAlertFilled,  IconMaterialDataArrayFilled,  IconMaterialDataCheckFilled,  IconMaterialDataExplorationFilled,  IconMaterialDataInfoAlertFilled,  IconMaterialDataLossPreventionFilled,  IconMaterialDataObjectFilled,  IconMaterialDataSaverOnFilled,  IconMaterialDataTableFilled,  IconMaterialDataThresholdingFilled,  IconMaterialDataUsageFilled,  IconMaterialDatabaseFilled,  IconMaterialDatasetFilled,  IconMaterialDatasetLinkedFilled,  IconMaterialDateRangeFilled,  IconMaterialDeblurFilled,  IconMaterialDeceasedFilled,  IconMaterialDecimalDecreaseFilled,  IconMaterialDecimalIncreaseFilled,  IconMaterialDeckFilled,  IconMaterialDehazeFilled,  IconMaterialDeleteFilled,  IconMaterialDeleteForeverFilled,  IconMaterialDeleteHistoryFilled,  IconMaterialDeleteSweepFilled,  IconMaterialDemographyFilled,  IconMaterialDensityLargeFilled,  IconMaterialDensityMediumFilled,  IconMaterialDensitySmallFilled,  IconMaterialDentistryFilled,  IconMaterialDepartureBoardFilled,  IconMaterialDeployedCodeAccountFilled,  IconMaterialDeployedCodeFilled,  IconMaterialDeployedCodeAlertFilled,  IconMaterialDeployedCodeHistoryFilled,  IconMaterialDeployedCodeUpdateFilled,  IconMaterialDermatologyFilled,  IconMaterialDescriptionFilled,  IconMaterialDeselectFilled,  IconMaterialDesignServicesFilled,  IconMaterialDeskFilled,  IconMaterialDeskphoneFilled,  IconMaterialDesktopAccessDisabledFilled,  IconMaterialDesktopMacFilled,  IconMaterialDesktopWindowsFilled,  IconMaterialDestructionFilled,  IconMaterialDetailsFilled,  IconMaterialDetectionAndZoneFilled,  IconMaterialDetectorAlarmFilled,  IconMaterialDetectorBatteryFilled,  IconMaterialDetectorCoFilled,  IconMaterialDetectorFilled,  IconMaterialDetectorOfflineFilled,  IconMaterialDetectorSmokeFilled,  IconMaterialDetectorStatusFilled,  IconMaterialDeveloperBoardOffFilled,  IconMaterialDeveloperBoardFilled,  IconMaterialDeveloperGuideFilled,  IconMaterialDeveloperModeFilled,  IconMaterialDeveloperModeTvFilled,  IconMaterialDeviceHubFilled,  IconMaterialDeviceResetFilled,  IconMaterialDeviceThermostatFilled,  IconMaterialDeviceUnknownFilled,  IconMaterialDevicesFilled,  IconMaterialDevicesFoldFilled,  IconMaterialDevicesOffFilled,  IconMaterialDevicesOtherFilled,  IconMaterialDevicesWearablesFilled,  IconMaterialDewPointFilled,  IconMaterialDiagnosisFilled,  IconMaterialDialerSipFilled,  IconMaterialDialogsFilled,  IconMaterialDialpadFilled,  IconMaterialDiamondFilled,  IconMaterialDictionaryFilled,  IconMaterialDifferenceFilled,  IconMaterialDigitalOutOfHomeFilled,  IconMaterialDigitalWellbeingFilled,  IconMaterialDiningFilled,  IconMaterialDinnerDiningFilled,  IconMaterialDirectionsAltOffFilled,  IconMaterialDirectionsAltFilled,  IconMaterialDirectionsBikeFilled,  IconMaterialDirectionsBoatFilled,  IconMaterialDirectionsBusFilled,  IconMaterialDirectionsCarFilled,  IconMaterialDirectionsFilled,  IconMaterialDirectionsOffFilled,  IconMaterialDirectionsRailwayFilled,  IconMaterialDirectionsRunFilled,  IconMaterialDirectionsSubwayFilled,  IconMaterialDirectionsWalkFilled,  IconMaterialDirectorySyncFilled,  IconMaterialDirtyLensFilled,  IconMaterialDisabledByDefaultFilled,  IconMaterialDisabledVisibleFilled,  IconMaterialDiscFullFilled,  IconMaterialDiscoverTuneFilled,  IconMaterialDishwasherFilled,  IconMaterialDishwasherGenFilled,  IconMaterialDisplayExternalInputFilled,  IconMaterialDisplaySettingsFilled,  IconMaterialDistanceFilled,  IconMaterialDiversity1Filled,  IconMaterialDiversity2Filled,  IconMaterialDiversity4Filled,  IconMaterialDiversity3Filled,  IconMaterialDnsFilled,  IconMaterialDoNotDisturbOffFilled,  IconMaterialDoNotDisturbOnFilled,  IconMaterialDoNotDisturbOnTotalSilenceFilled,  IconMaterialDoNotStepFilled,  IconMaterialDoNotTouchFilled,  IconMaterialDockFilled,  IconMaterialDockToBottomFilled,  IconMaterialDockToLeftFilled,  IconMaterialDockToRightFilled,  IconMaterialDocsAddOnFilled,  IconMaterialDocsAppsScriptFilled,  IconMaterialDocumentScannerFilled,  IconMaterialDomainAddFilled,  IconMaterialDomainDisabledFilled,  IconMaterialDomainFilled,  IconMaterialDomainVerificationFilled,  IconMaterialDomainVerificationOffFilled,  IconMaterialDominoMaskFilled,  IconMaterialDoneAllFilled,  IconMaterialDoneFilled,  IconMaterialDoneOutlineFilled,  IconMaterialDonutLargeFilled,  IconMaterialDonutSmallFilled,  IconMaterialDoorBackFilled,  IconMaterialDoorFrontFilled,  IconMaterialDoorOpenFilled,  IconMaterialDoorSensorFilled,  IconMaterialDoorSlidingFilled,  IconMaterialDoorbell3pFilled,  IconMaterialDoorbellChimeFilled,  IconMaterialDoorbellFilled,  IconMaterialDoubleArrowFilled,  IconMaterialDownhillSkiingFilled,  IconMaterialDownload2Filled,  IconMaterialDownloadDoneFilled,  IconMaterialDownloadFilled,  IconMaterialDownloadForOfflineFilled,  IconMaterialDownloadingFilled,  IconMaterialDraftFilled,  IconMaterialDraftOrdersFilled,  IconMaterialDraftsFilled,  IconMaterialDragClickFilled,  IconMaterialDragHandleFilled,  IconMaterialDragIndicatorFilled,  IconMaterialDragPanFilled,  IconMaterialDrawAbstractFilled,  IconMaterialDrawCollageFilled,  IconMaterialDrawFilled,  IconMaterialDresserFilled,  IconMaterialDriveFileMoveFilled,  IconMaterialDriveFileMoveOutlineFilled,  IconMaterialDriveFileMoveRtlFilled,  IconMaterialDriveFileRenameOutlineFilled,  IconMaterialDriveFolderUploadFilled,  IconMaterialDropdownFilled,  IconMaterialDryCleaningFilled,  IconMaterialDualScreenFilled,  IconMaterialDryFilled,  IconMaterialDuoFilled,  IconMaterialDvrFilled,  IconMaterialDynamicFeedFilled,  IconMaterialDynamicFormFilled,  IconMaterialE911AvatarFilled,  IconMaterialE911EmergencyFilled,  IconMaterialEMobiledataBadgeFilled,  IconMaterialEMobiledataFilled,  IconMaterialEarbudsBatteryFilled,  IconMaterialEarbudsFilled,  IconMaterialEarlyOnFilled,  IconMaterialEarthquakeFilled,  IconMaterialEastFilled,  IconMaterialEcgFilled,  IconMaterialEcgHeartFilled,  IconMaterialEcoFilled,  IconMaterialEdaFilled,  IconMaterialEdgesensorHighFilled,  IconMaterialEdgesensorLowFilled,  IconMaterialEditAttributesFilled,  IconMaterialEditCalendarFilled,  IconMaterialEditDocumentFilled,  IconMaterialEditFilled,  IconMaterialEditLocationAltFilled,  IconMaterialEditLocationFilled,  IconMaterialEditNoteFilled,  IconMaterialEditNotificationsFilled,  IconMaterialEditOffFilled,  IconMaterialEditRoadFilled,  IconMaterialEditSquareFilled,  IconMaterialEditorChoiceFilled,  IconMaterialEggFilled,  IconMaterialEggAltFilled,  IconMaterialEjectFilled,  IconMaterialElderlyFilled,  IconMaterialElderlyWomanFilled,  IconMaterialElectricBikeFilled,  IconMaterialElectricBoltFilled,  IconMaterialElectricCarFilled,  IconMaterialElectricMeterFilled,  IconMaterialElectricMopedFilled,  IconMaterialElectricRickshawFilled,  IconMaterialElectricScooterFilled,  IconMaterialElectricalServicesFilled,  IconMaterialElevationFilled,  IconMaterialElevatorFilled,  IconMaterialEmergencyHeatFilled,  IconMaterialEmergencyFilled,  IconMaterialEmergencyHomeFilled,  IconMaterialEmergencyRecordingFilled,  IconMaterialEmergencyShareFilled,  IconMaterialEmergencyShareOffFilled,  IconMaterialEmojiEventsFilled,  IconMaterialEmojiFlagsFilled,  IconMaterialEmojiFoodBeverageFilled,  IconMaterialEmojiNatureFilled,  IconMaterialEmojiObjectsFilled,  IconMaterialEmojiPeopleFilled,  IconMaterialEmojiSymbolsFilled,  IconMaterialEmojiTransportationFilled,  IconMaterialEmoticonFilled,  IconMaterialEmptyDashboardFilled,  IconMaterialEnableFilled,  IconMaterialEncryptedFilled,  IconMaterialEndocrinologyFilled,  IconMaterialEnergyFilled,  IconMaterialEnergyProgramSavingFilled,  IconMaterialEnergyProgramTimeUsedFilled,  IconMaterialEnergySavingsLeafFilled,  IconMaterialEngineeringFilled,  IconMaterialEnhancedEncryptionFilled,  IconMaterialEntFilled,  IconMaterialEnterpriseFilled,  IconMaterialEnterpriseOffFilled,  IconMaterialEqualFilled,  IconMaterialEqualizerFilled,  IconMaterialErrorCircleRoundedFilled,  IconMaterialErrorFilled,  IconMaterialErrorMedFilled,  IconMaterialEscalatorFilled,  IconMaterialEscalatorWarningFilled,  IconMaterialEuroFilled,  IconMaterialEuroSymbolFilled,  IconMaterialEvChargerFilled,  IconMaterialEvMobiledataBadgeFilled,  IconMaterialEvShadowAddFilled,  IconMaterialEvShadowFilled,  IconMaterialEvShadowMinusFilled,  IconMaterialEvStationFilled,  IconMaterialEventAvailableFilled,  IconMaterialEventBusyFilled,  IconMaterialEventFilled,  IconMaterialEventListFilled,  IconMaterialEventNoteFilled,  IconMaterialEventRepeatFilled,  IconMaterialEventSeatFilled,  IconMaterialEventUpcomingFilled,  IconMaterialExclamationFilled,  IconMaterialExerciseFilled,  IconMaterialExitToAppFilled,  IconMaterialExpandAllFilled,  IconMaterialExpandCircleDownFilled,  IconMaterialExpandCircleRightFilled,  IconMaterialExpandCircleUpFilled,  IconMaterialExpandContentFilled,  IconMaterialExpandFilled,  IconMaterialExpandLessFilled,  IconMaterialExpandMoreFilled,  IconMaterialExperimentFilled,  IconMaterialExplicitFilled,  IconMaterialExploreFilled,  IconMaterialExploreNearbyFilled,  IconMaterialExploreOffFilled,  IconMaterialExplosionFilled,  IconMaterialExportNotesFilled,  IconMaterialExposureFilled,  IconMaterialExposureNeg1Filled,  IconMaterialExposureNeg2Filled,  IconMaterialExposurePlus1Filled,  IconMaterialExposurePlus2Filled,  IconMaterialExposureZeroFilled,  IconMaterialExtensionFilled,  IconMaterialExtensionOffFilled,  IconMaterialEyeglassesFilled,  IconMaterialFace2Filled,  IconMaterialFace3Filled,  IconMaterialFace4Filled,  IconMaterialFace5Filled,  IconMaterialFace6Filled,  IconMaterialFaceFilled,  IconMaterialFaceRetouchingNaturalFilled,  IconMaterialFaceRetouchingOffFilled,  IconMaterialFactCheckFilled,  IconMaterialFactoryFilled,  IconMaterialFallingFilled,  IconMaterialFamiliarFaceAndZoneFilled,  IconMaterialFamilyHistoryFilled,  IconMaterialFamilyHomeFilled,  IconMaterialFamilyLinkFilled,  IconMaterialFamilyRestroomFilled,  IconMaterialFamilyStarFilled,  IconMaterialFarsightDigitalFilled,  IconMaterialFastForwardFilled,  IconMaterialFastRewindFilled,  IconMaterialFastfoodFilled,  IconMaterialFaucetFilled,  IconMaterialFavoriteFilled,  IconMaterialFaxFilled,  IconMaterialFeatureSearchFilled,  IconMaterialFeaturedPlayListFilled,  IconMaterialFeaturedSeasonalAndGiftsFilled,  IconMaterialFeaturedVideoFilled,  IconMaterialFeedFilled,  IconMaterialFeedbackFilled,  IconMaterialFemaleFilled,  IconMaterialFemurAltFilled,  IconMaterialFemurFilled,  IconMaterialFenceFilled,  IconMaterialFertileFilled,  IconMaterialFestivalFilled,  IconMaterialFiberDvrFilled,  IconMaterialFiberManualRecordFilled,  IconMaterialFiberNewFilled,  IconMaterialFiberPinFilled,  IconMaterialFiberSmartRecordFilled,  IconMaterialFileCopyFilled,  IconMaterialFileDownloadDoneFilled,  IconMaterialFileDownloadFilled,  IconMaterialFileDownloadOffFilled,  IconMaterialFileMapFilled,  IconMaterialFileOpenFilled,  IconMaterialFilePresentFilled,  IconMaterialFileSaveFilled,  IconMaterialFileSaveOffFilled,  IconMaterialFileUploadFilled,  IconMaterialFileUploadOffFilled,  IconMaterialFilter1Filled,  IconMaterialFilter2Filled,  IconMaterialFilter3Filled,  IconMaterialFilter4Filled,  IconMaterialFilter5Filled,  IconMaterialFilter6Filled,  IconMaterialFilter7Filled,  IconMaterialFilter8Filled,  IconMaterialFilter9Filled,  IconMaterialFilter9PlusFilled,  IconMaterialFilterAltFilled,  IconMaterialFilterAltOffFilled,  IconMaterialFilterBAndWFilled,  IconMaterialFilterCenterFocusFilled,  IconMaterialFilterDramaFilled,  IconMaterialFilterFilled,  IconMaterialFilterFramesFilled,  IconMaterialFilterHdrFilled,  IconMaterialFilterListOffFilled,  IconMaterialFilterListFilled,  IconMaterialFilterNoneFilled,  IconMaterialFilterRetroluxFilled,  IconMaterialFilterTiltShiftFilled,  IconMaterialFilterVintageFilled,  IconMaterialFinanceChipFilled,  IconMaterialFinanceFilled,  IconMaterialFinanceModeFilled,  IconMaterialFindInPageFilled,  IconMaterialFindReplaceFilled,  IconMaterialFingerprintFilled,  IconMaterialFireExtinguisherFilled,  IconMaterialFireHydrantFilled,  IconMaterialFireTruckFilled,  IconMaterialFireplaceFilled,  IconMaterialFirstPageFilled,  IconMaterialFitPageFilled,  IconMaterialFitScreenFilled,  IconMaterialFitWidthFilled,  IconMaterialFitbitArrowDownwardFilled,  IconMaterialFitbitArrowUpwardFilled,  IconMaterialFitbitCheckSmallFilled,  IconMaterialFitnessCenterFilled,  IconMaterialFlagCircleFilled,  IconMaterialFlagFilled,  IconMaterialFlakyFilled,  IconMaterialFlareFilled,  IconMaterialFlashAutoFilled,  IconMaterialFlashOffFilled,  IconMaterialFlashOnFilled,  IconMaterialFlashlightOffFilled,  IconMaterialFlashlightOnFilled,  IconMaterialFlatwareFilled,  IconMaterialFlexDirectionFilled,  IconMaterialFlexNoWrapFilled,  IconMaterialFlexWrapFilled,  IconMaterialFlightClassFilled,  IconMaterialFlightFilled,  IconMaterialFlightLandFilled,  IconMaterialFlightTakeoffFilled,  IconMaterialFlightsAndHotelsFilled,  IconMaterialFlightsmodeFilled,  IconMaterialFlipCameraAndroidFilled,  IconMaterialFlipCameraIosFilled,  IconMaterialFlipFilled,  IconMaterialFlipToBackFilled,  IconMaterialFlipToFrontFilled,  IconMaterialFloatLandscapeFilled,  IconMaterialFloatPortraitFilled,  IconMaterialFloodFilled,  IconMaterialFloorFilled,  IconMaterialFloorLampFilled,  IconMaterialFlourescentFilled,  IconMaterialFlowsheetFilled,  IconMaterialFluidBalanceFilled,  IconMaterialFluidFilled,  IconMaterialFluidMedFilled,  IconMaterialFluorescentFilled,  IconMaterialFlutterDashFilled,  IconMaterialFlutterFilled,  IconMaterialFmdBadFilled,  IconMaterialFoggyFilled,  IconMaterialFoldedHandsFilled,  IconMaterialFolderCopyFilled,  IconMaterialFolderDataFilled,  IconMaterialFolderDeleteFilled,  IconMaterialFolderManagedFilled,  IconMaterialFolderFilled,  IconMaterialFolderOffFilled,  IconMaterialFolderOpenFilled,  IconMaterialFolderSharedFilled,  IconMaterialFolderSpecialFilled,  IconMaterialFolderSupervisedFilled,  IconMaterialFolderZipFilled,  IconMaterialFollowTheSignsFilled,  IconMaterialFontDownloadFilled,  IconMaterialFontDownloadOffFilled,  IconMaterialFoodBankFilled,  IconMaterialFootBonesFilled,  IconMaterialFootprintFilled,  IconMaterialForYouFilled,  IconMaterialForestFilled,  IconMaterialForkLeftFilled,  IconMaterialForkRightFilled,  IconMaterialForkliftFilled,  IconMaterialFormatAlignCenterFilled,  IconMaterialFormatAlignJustifyFilled,  IconMaterialFormatAlignLeftFilled,  IconMaterialFormatAlignRightFilled,  IconMaterialFormatBoldFilled,  IconMaterialFormatClearFilled,  IconMaterialFormatColorFillFilled,  IconMaterialFormatColorResetFilled,  IconMaterialFormatColorTextFilled,  IconMaterialFormatH1Filled,  IconMaterialFormatH2Filled,  IconMaterialFormatH3Filled,  IconMaterialFormatH4Filled,  IconMaterialFormatH5Filled,  IconMaterialFormatH6Filled,  IconMaterialFormatImageLeftFilled,  IconMaterialFormatImageRightFilled,  IconMaterialFormatIndentDecreaseFilled,  IconMaterialFormatIndentIncreaseFilled,  IconMaterialFormatInkHighlighterFilled,  IconMaterialFormatItalicFilled,  IconMaterialFormatLetterSpacing2Filled,  IconMaterialFormatLetterSpacingFilled,  IconMaterialFormatLetterSpacingStandardFilled,  IconMaterialFormatLetterSpacingWideFilled,  IconMaterialFormatLetterSpacingWiderFilled,  IconMaterialFormatLineSpacingFilled,  IconMaterialFormatListBulletedAddFilled,  IconMaterialFormatListBulletedFilled,  IconMaterialFormatListNumberedRtlFilled,  IconMaterialFormatListNumberedFilled,  IconMaterialFormatOverlineFilled,  IconMaterialFormatPaintFilled,  IconMaterialFormatParagraphFilled,  IconMaterialFormatQuoteFilled,  IconMaterialFormatShapesFilled,  IconMaterialFormatSizeFilled,  IconMaterialFormatStrikethroughFilled,  IconMaterialFormatTextClipFilled,  IconMaterialFormatTextOverflowFilled,  IconMaterialFormatTextWrapFilled,  IconMaterialFormatTextdirectionLToRFilled,  IconMaterialFormatTextdirectionRToLFilled,  IconMaterialFormatUnderlinedFilled,  IconMaterialFormatUnderlinedSquiggleFilled,  IconMaterialFormsAddOnFilled,  IconMaterialFormsAppsScriptFilled,  IconMaterialFortFilled,  IconMaterialForumFilled,  IconMaterialForward10Filled,  IconMaterialForward30Filled,  IconMaterialForward5Filled,  IconMaterialForwardCircleFilled,  IconMaterialForwardFilled,  IconMaterialForwardMediaFilled,  IconMaterialForwardToInboxFilled,  IconMaterialFoundationFilled,  IconMaterialFrameInspectFilled,  IconMaterialFramePersonOffFilled,  IconMaterialFramePersonFilled,  IconMaterialFrameReloadFilled,  IconMaterialFrameSourceFilled,  IconMaterialFreeCancellationFilled,  IconMaterialFrontHandFilled,  IconMaterialFrontLoaderFilled,  IconMaterialFullCoverageFilled,  IconMaterialFullHdFilled,  IconMaterialFullStackedBarChartFilled,  IconMaterialFullscreenExitFilled,  IconMaterialFullscreenFilled,  IconMaterialFunctionFilled,  IconMaterialFunctionsFilled,  IconMaterialGMobiledataBadgeFilled,  IconMaterialGMobiledataFilled,  IconMaterialGTranslateFilled,  IconMaterialGalleryThumbnailFilled,  IconMaterialGamepadFilled,  IconMaterialGarageDoorFilled,  IconMaterialGarageFilled,  IconMaterialGarageHomeFilled,  IconMaterialGardenCartFilled,  IconMaterialGastroenterologyFilled,  IconMaterialGasMeterFilled,  IconMaterialGateFilled,  IconMaterialGavelFilled,  IconMaterialGeneralDeviceFilled,  IconMaterialGeneratingTokensFilled,  IconMaterialGeneticsFilled,  IconMaterialGenresFilled,  IconMaterialGestureFilled,  IconMaterialGestureSelectFilled,  IconMaterialGifBoxFilled,  IconMaterialGifFilled,  IconMaterialGirlFilled,  IconMaterialGiteFilled,  IconMaterialGlassCupFilled,  IconMaterialGlobeFilled,  IconMaterialGlobeAsiaFilled,  IconMaterialGlobeUkFilled,  IconMaterialGlucoseFilled,  IconMaterialGlyphsFilled,  IconMaterialGoToLineFilled,  IconMaterialGolfCourseFilled,  IconMaterialGoogleHomeDevicesFilled,  IconMaterialGooglePlusReshareFilled,  IconMaterialGoogleTvRemoteFilled,  IconMaterialGoogleWifiFilled,  IconMaterialGppBadFilled,  IconMaterialGppMaybeFilled,  IconMaterialGradeFilled,  IconMaterialGradientFilled,  IconMaterialGradingFilled,  IconMaterialGrainFilled,  IconMaterialGraphicEqFilled,  IconMaterialGrassFilled,  IconMaterialGrid3x3Filled,  IconMaterialGrid3x3OffFilled,  IconMaterialGrid4x4Filled,  IconMaterialGridGoldenratioFilled,  IconMaterialGridGuidesFilled,  IconMaterialGridOffFilled,  IconMaterialGridOnFilled,  IconMaterialGridViewFilled,  IconMaterialGroceryFilled,  IconMaterialGroupAddFilled,  IconMaterialGroupAutoFilled,  IconMaterialGroupFilled,  IconMaterialGroupOffFilled,  IconMaterialGroupRemoveFilled,  IconMaterialGroupWorkFilled,  IconMaterialGroupedBarChartFilled,  IconMaterialGroups2Filled,  IconMaterialGroups3Filled,  IconMaterialGroupsFilled,  IconMaterialGynecologyFilled,  IconMaterialHMobiledataBadgeFilled,  IconMaterialHMobiledataFilled,  IconMaterialHPlusMobiledataBadgeFilled,  IconMaterialHPlusMobiledataFilled,  IconMaterialHailFilled,  IconMaterialHallwayFilled,  IconMaterialHandBonesFilled,  IconMaterialHandGestureFilled,  IconMaterialHandshakeFilled,  IconMaterialHandymanFilled,  IconMaterialHangoutMeetingFilled,  IconMaterialHangoutVideoFilled,  IconMaterialHangoutVideoOffFilled,  IconMaterialHardDrive2Filled,  IconMaterialHardDriveFilled,  IconMaterialHardwareFilled,  IconMaterialHdFilled,  IconMaterialHdrAutoFilled,  IconMaterialHdrAutoSelectFilled,  IconMaterialHdrEnhancedSelectFilled,  IconMaterialHdrOffFilled,  IconMaterialHdrOffSelectFilled,  IconMaterialHdrOnFilled,  IconMaterialHdrOnSelectFilled,  IconMaterialHdrPlusFilled,  IconMaterialHdrPlusOffFilled,  IconMaterialHdrStrongFilled,  IconMaterialHdrWeakFilled,  IconMaterialHeadphonesBatteryFilled,  IconMaterialHeadphonesFilled,  IconMaterialHeadsetMicFilled,  IconMaterialHeadsetOffFilled,  IconMaterialHealingFilled,  IconMaterialHealthAndBeautyFilled,  IconMaterialHealthAndSafetyFilled,  IconMaterialHealthMetricsFilled,  IconMaterialHeapSnapshotLargeFilled,  IconMaterialHeapSnapshotMultipleFilled,  IconMaterialHeapSnapshotThumbnailFilled,  IconMaterialHearingDisabledFilled,  IconMaterialHearingFilled,  IconMaterialHeartBrokenFilled,  IconMaterialHeartCheckFilled,  IconMaterialHeartMinusFilled,  IconMaterialHeartPlusFilled,  IconMaterialHeatFilled,  IconMaterialHeatPumpBalanceFilled,  IconMaterialHeatPumpFilled,  IconMaterialHeightFilled,  IconMaterialHelicopterFilled,  IconMaterialHelpCenterFilled,  IconMaterialHelpClinicFilled,  IconMaterialHelpFilled,  IconMaterialHematologyFilled,  IconMaterialHevcFilled,  IconMaterialHexagonFilled,  IconMaterialHideFilled,  IconMaterialHideImageFilled,  IconMaterialHideSourceFilled,  IconMaterialHighDensityFilled,  IconMaterialHighQualityFilled,  IconMaterialHighResFilled,  IconMaterialHighlightFilled,  IconMaterialHighlightKeyboardFocusFilled,  IconMaterialHighlightMouseCursorFilled,  IconMaterialHighlightTextCursorFilled,  IconMaterialHighlighterSize1Filled,  IconMaterialHighlighterSize2Filled,  IconMaterialHighlighterSize4Filled,  IconMaterialHighlighterSize3Filled,  IconMaterialHighlighterSize5Filled,  IconMaterialHikingFilled,  IconMaterialHistoryEduFilled,  IconMaterialHistoryFilled,  IconMaterialHistoryToggleOffFilled,  IconMaterialHiveFilled,  IconMaterialHlsFilled,  IconMaterialHlsOffFilled,  IconMaterialHolidayVillageFilled,  IconMaterialHomeAndGardenFilled,  IconMaterialHomeAppLogoFilled,  IconMaterialHomeFilled,  IconMaterialHomeHealthFilled,  IconMaterialHomeImprovementAndToolsFilled,  IconMaterialHomeIotDeviceFilled,  IconMaterialHomeMaxDotsFilled,  IconMaterialHomeMaxFilled,  IconMaterialHomeMiniFilled,  IconMaterialHomePinFilled,  IconMaterialHomeRepairServiceFilled,  IconMaterialHomeSpeakerFilled,  IconMaterialHomeStorageFilled,  IconMaterialHomeWorkFilled,  IconMaterialHorizontalDistributeFilled,  IconMaterialHorizontalRuleFilled,  IconMaterialHorizontalSplitFilled,  IconMaterialHotTubFilled,  IconMaterialHotelClassFilled,  IconMaterialHotelFilled,  IconMaterialHourglassBottomFilled,  IconMaterialHourglassDisabledFilled,  IconMaterialHourglassEmptyFilled,  IconMaterialHourglassFilled,  IconMaterialHourglassFullFilled,  IconMaterialHourglassTopFilled,  IconMaterialHouseFilled,  IconMaterialHouseWithShieldFilled,  IconMaterialHouseSidingFilled,  IconMaterialHouseboatFilled,  IconMaterialHouseholdSuppliesFilled,  IconMaterialHowToRegFilled,  IconMaterialHowToVoteFilled,  IconMaterialHrRestingFilled,  IconMaterialHtmlFilled,  IconMaterialHttpFilled,  IconMaterialHubFilled,  IconMaterialHumerusAltFilled,  IconMaterialHumerusFilled,  IconMaterialHumidityHelperFilled,  IconMaterialHumidityHighFilled,  IconMaterialHumidityIndoorFilled,  IconMaterialHumidityLowFilled,  IconMaterialHumidityMidFilled,  IconMaterialHumidityPercentageFilled,  IconMaterialHvacFilled,  IconMaterialIceSkatingFilled,  IconMaterialIcecreamFilled,  IconMaterialIflFilled,  IconMaterialIframeOffFilled,  IconMaterialIframeFilled,  IconMaterialImageAspectRatioFilled,  IconMaterialImageFilled,  IconMaterialImageNotSupportedFilled,  IconMaterialImageSearchFilled,  IconMaterialImagesearchRollerFilled,  IconMaterialImmunologyFilled,  IconMaterialImagesmodeFilled,  IconMaterialImportContactsFilled,  IconMaterialImportantDevicesFilled,  IconMaterialInactiveOrderFilled,  IconMaterialInHomeModeFilled,  IconMaterialInboxCustomizeFilled,  IconMaterialInboxFilled,  IconMaterialIncompleteCircleFilled,  IconMaterialIndeterminateCheckBoxFilled,  IconMaterialInfoFilled,  IconMaterialInfoIFilled,  IconMaterialIndeterminateQuestionBoxFilled,  IconMaterialInfraredFilled,  IconMaterialInkEraserFilled,  IconMaterialInkEraserOffFilled,  IconMaterialInkHighlighterMoveFilled,  IconMaterialInkHighlighterFilled,  IconMaterialInkMarkerFilled,  IconMaterialInkPenFilled,  IconMaterialInpatientFilled,  IconMaterialInputCircleFilled,  IconMaterialInputFilled,  IconMaterialInsertChartFilled,  IconMaterialInsertPageBreakFilled,  IconMaterialInsertTextFilled,  IconMaterialInsightsFilled,  IconMaterialInstallDesktopFilled,  IconMaterialInstallMobileFilled,  IconMaterialInstantMixFilled,  IconMaterialIntegrationInstructionsFilled,  IconMaterialInteractiveSpaceFilled,  IconMaterialInterestsFilled,  IconMaterialInterpreterModeFilled,  IconMaterialInventory2Filled,  IconMaterialInventoryFilled,  IconMaterialInvertColorsOffFilled,  IconMaterialInvertColorsFilled,  IconMaterialIosFilled,  IconMaterialIosShareFilled,  IconMaterialIronFilled,  IconMaterialJamboardKioskFilled,  IconMaterialJavascriptFilled,  IconMaterialJoinFilled,  IconMaterialJoinFullFilled,  IconMaterialJoinInnerFilled,  IconMaterialJoinLeftFilled,  IconMaterialJoinRightFilled,  IconMaterialJoystickFilled,  IconMaterialKayakingFilled,  IconMaterialJumpToElementFilled,  IconMaterialKebabDiningFilled,  IconMaterialKeepPublicFilled,  IconMaterialKettleFilled,  IconMaterialKeyFilled,  IconMaterialKeyOffFilled,  IconMaterialKeyVerticalFilled,  IconMaterialKeyVisualizerFilled,  IconMaterialKeyboardAltFilled,  IconMaterialKeyboardArrowDownFilled,  IconMaterialKeyboardArrowLeftFilled,  IconMaterialKeyboardArrowRightFilled,  IconMaterialKeyboardArrowUpFilled,  IconMaterialKeyboardBackspaceFilled,  IconMaterialKeyboardCapslockBadgeFilled,  IconMaterialKeyboardCommandKeyFilled,  IconMaterialKeyboardControlKeyFilled,  IconMaterialKeyboardCapslockFilled,  IconMaterialKeyboardDoubleArrowDownFilled,  IconMaterialKeyboardDoubleArrowLeftFilled,  IconMaterialKeyboardDoubleArrowRightFilled,  IconMaterialKeyboardDoubleArrowUpFilled,  IconMaterialKeyboardExternalInputFilled,  IconMaterialKeyboardFilled,  IconMaterialKeyboardFullFilled,  IconMaterialKeyboardHideFilled,  IconMaterialKeyboardKeysFilled,  IconMaterialKeyboardOffFilled,  IconMaterialKeyboardOnscreenFilled,  IconMaterialKeyboardOptionKeyFilled,  IconMaterialKeyboardPreviousLanguageFilled,  IconMaterialKeyboardReturnFilled,  IconMaterialKeyboardTabFilled,  IconMaterialKeyboardTabRtlFilled,  IconMaterialKeyboardVoiceFilled,  IconMaterialKidStarFilled,  IconMaterialKingBedFilled,  IconMaterialKitchenFilled,  IconMaterialKitesurfingFilled,  IconMaterialLabPanelFilled,  IconMaterialLabProfileFilled,  IconMaterialLabResearchFilled,  IconMaterialLabelFilled,  IconMaterialLabelImportantFilled,  IconMaterialLabelOffFilled,  IconMaterialLabsFilled,  IconMaterialLanFilled,  IconMaterialLandscapeFilled,  IconMaterialLandslideFilled,  IconMaterialLanguageChineseArrayFilled,  IconMaterialLanguageChineseCangjieFilled,  IconMaterialLanguageChineseDayiFilled,  IconMaterialLanguageChinesePinyinFilled,  IconMaterialLanguageChineseQuickFilled,  IconMaterialLanguageChineseWubiFilled,  IconMaterialLanguageFilled,  IconMaterialLanguageFrenchFilled,  IconMaterialLanguageGbEnglishFilled,  IconMaterialLanguageInternationalFilled,  IconMaterialLanguageJapaneseKanaFilled,  IconMaterialLanguageKoreanLatinFilled,  IconMaterialLanguageSpanishFilled,  IconMaterialLanguagePinyinFilled,  IconMaterialLanguageUsColemakFilled,  IconMaterialLanguageUsDvorakFilled,  IconMaterialLanguageUsFilled,  IconMaterialLapsFilled,  IconMaterialLaptopChromebookFilled,  IconMaterialLaptopMacFilled,  IconMaterialLaptopWindowsFilled,  IconMaterialLassoSelectFilled,  IconMaterialLastPageFilled,  IconMaterialLauncherAssistantOffFilled,  IconMaterialLauncherAssistantOnFilled,  IconMaterialLaundryFilled,  IconMaterialLayersClearFilled,  IconMaterialLayersFilled,  IconMaterialLdaFilled,  IconMaterialLeaderboardFilled,  IconMaterialLeafSparkFilled,  IconMaterialLeakAddFilled,  IconMaterialLeakRemoveFilled,  IconMaterialLeftClickFilled,  IconMaterialLeftPanelCloseFilled,  IconMaterialLeftPanelOpenFilled,  IconMaterialLegendToggleFilled,  IconMaterialLensBlurFilled,  IconMaterialLensFilled,  IconMaterialLetterSwitchFilled,  IconMaterialLibraryAddCheckFilled,  IconMaterialLibraryAddFilled,  IconMaterialLibraryBooksFilled,  IconMaterialLibraryMusicFilled,  IconMaterialLicenseFilled,  IconMaterialLiftToTalkFilled,  IconMaterialLightFilled,  IconMaterialLightGroupFilled,  IconMaterialLightModeFilled,  IconMaterialLightOffFilled,  IconMaterialLightbulbCircleFilled,  IconMaterialLightbulbFilled,  IconMaterialLightningStandFilled,  IconMaterialLineAxisFilled,  IconMaterialLineCurveFilled,  IconMaterialLineEndArrowFilled,  IconMaterialLineEndArrowNotchFilled,  IconMaterialLineEndCircleFilled,  IconMaterialLineEndDiamondFilled,  IconMaterialLineEndFilled,  IconMaterialLineEndSquareFilled,  IconMaterialLineStartArrowFilled,  IconMaterialLineStartArrowNotchFilled,  IconMaterialLineStartCircleFilled,  IconMaterialLineStartDiamondFilled,  IconMaterialLineStartFilled,  IconMaterialLineStartSquareFilled,  IconMaterialLineStyleFilled,  IconMaterialLineWeightFilled,  IconMaterialLinearScaleFilled,  IconMaterialLinkFilled,  IconMaterialLinkOffFilled,  IconMaterialLinkedCameraFilled,  IconMaterialLinkedServicesFilled,  IconMaterialLiquorFilled,  IconMaterialListAltAddFilled,  IconMaterialListAltFilled,  IconMaterialListFilled,  IconMaterialListsFilled,  IconMaterialLiveHelpFilled,  IconMaterialLiveTvFilled,  IconMaterialLivingFilled,  IconMaterialLocalActivityFilled,  IconMaterialLocalAtmFilled,  IconMaterialLocalBarFilled,  IconMaterialLocalCafeFilled,  IconMaterialLocalCarWashFilled,  IconMaterialLocalConvenienceStoreFilled,  IconMaterialLocalDiningFilled,  IconMaterialLocalDrinkFilled,  IconMaterialLocalFloristFilled,  IconMaterialLocalGasStationFilled,  IconMaterialLocalHospitalFilled,  IconMaterialLocalLaundryServiceFilled,  IconMaterialLocalFireDepartmentFilled,  IconMaterialLocalLibraryFilled,  IconMaterialLocalMallFilled,  IconMaterialLocalParkingFilled,  IconMaterialLocalPharmacyFilled,  IconMaterialLocalPoliceFilled,  IconMaterialLocalPizzaFilled,  IconMaterialLocalPostOfficeFilled,  IconMaterialLocalSeeFilled,  IconMaterialLocalShippingFilled,  IconMaterialLocalTaxiFilled,  IconMaterialLocationAutomationFilled,  IconMaterialLocationAwayFilled,  IconMaterialLocationChipFilled,  IconMaterialLocationCityFilled,  IconMaterialLocationDisabledFilled,  IconMaterialLocationHomeFilled,  IconMaterialLocationOffFilled,  IconMaterialLocationOnFilled,  IconMaterialLocationSearchingFilled,  IconMaterialLockClockFilled,  IconMaterialLockFilled,  IconMaterialLockOpenFilled,  IconMaterialLockOpenRightFilled,  IconMaterialLockPersonFilled,  IconMaterialLockResetFilled,  IconMaterialLoginFilled,  IconMaterialLogoDevFilled,  IconMaterialLogoutFilled,  IconMaterialLooks3Filled,  IconMaterialLooks4Filled,  IconMaterialLooks5Filled,  IconMaterialLooks6Filled,  IconMaterialLooksFilled,  IconMaterialLooksOneFilled,  IconMaterialLooksTwoFilled,  IconMaterialLowDensityFilled,  IconMaterialLoupeFilled,  IconMaterialLowPriorityFilled,  IconMaterialLoyaltyFilled,  IconMaterialLteMobiledataBadgeFilled,  IconMaterialLteMobiledataFilled,  IconMaterialLtePlusMobiledataBadgeFilled,  IconMaterialLtePlusMobiledataFilled,  IconMaterialLuggageFilled,  IconMaterialLunchDiningFilled,  IconMaterialLyricsFilled,  IconMaterialMacroAutoFilled,  IconMaterialMacroOffFilled,  IconMaterialMagicButtonFilled,  IconMaterialMagicExchangeFilled,  IconMaterialMagicTetherFilled,  IconMaterialMagnificationLargeFilled,  IconMaterialMagnificationSmallFilled,  IconMaterialMagnifyDockedFilled,  IconMaterialMagnifyFullscreenFilled,  IconMaterialMailFilled,  IconMaterialMailLockFilled,  IconMaterialMaleFilled,  IconMaterialMan2Filled,  IconMaterialMan3Filled,  IconMaterialMan4Filled,  IconMaterialManFilled,  IconMaterialManageAccountsFilled,  IconMaterialManageHistoryFilled,  IconMaterialManageSearchFilled,  IconMaterialMangaFilled,  IconMaterialManufacturingFilled,  IconMaterialMapFilled,  IconMaterialMapsUgcFilled,  IconMaterialMarginFilled,  IconMaterialMarkAsUnreadFilled,  IconMaterialMarkChatReadFilled,  IconMaterialMarkChatUnreadFilled,  IconMaterialMarkEmailReadFilled,  IconMaterialMarkEmailUnreadFilled,  IconMaterialMarkUnreadChatAltFilled,  IconMaterialMarkdownCopyFilled,  IconMaterialMarkdownFilled,  IconMaterialMarkunreadMailboxFilled,  IconMaterialMarkdownPasteFilled,  IconMaterialMaskedTransitionsFilled,  IconMaterialMasksFilled,  IconMaterialMatchCaseFilled,  IconMaterialMatterFilled,  IconMaterialMatchWordFilled,  IconMaterialMaximizeFilled,  IconMaterialMeasuringTapeFilled,  IconMaterialMediaBluetoothOffFilled,  IconMaterialMediaBluetoothOnFilled,  IconMaterialMediaLinkFilled,  IconMaterialMediaOutputFilled,  IconMaterialMediationFilled,  IconMaterialMediaOutputOffFilled,  IconMaterialMedicalInformationFilled,  IconMaterialMedicalMaskFilled,  IconMaterialMedicalServicesFilled,  IconMaterialMedicationLiquidFilled,  IconMaterialMedicationFilled,  IconMaterialMeetingRoomFilled,  IconMaterialMemoryAltFilled,  IconMaterialMemoryFilled,  IconMaterialMenstrualHealthFilled,  IconMaterialMenuBookFilled,  IconMaterialMenuOpenFilled,  IconMaterialMenuFilled,  IconMaterialMergeFilled,  IconMaterialMergeTypeFilled,  IconMaterialMetabolismFilled,  IconMaterialMfgNestYaleLockFilled,  IconMaterialMicDoubleFilled,  IconMaterialMicExternalOffFilled,  IconMaterialMicExternalOnFilled,  IconMaterialMicFilled,  IconMaterialMicNoiseCancelHighFilled,  IconMaterialMicNoiseCancelLowFilled,  IconMaterialMicNoiseCancelOffFilled,  IconMaterialMicOffFilled,  IconMaterialMicrobiologyFilled,  IconMaterialMicrowaveFilled,  IconMaterialMicrowaveGenFilled,  IconMaterialMilitaryTechFilled,  IconMaterialMimoDisconnectFilled,  IconMaterialMimoFilled,  IconMaterialMindfulnessFilled,  IconMaterialMinimizeFilled,  IconMaterialMinorCrashFilled,  IconMaterialMintmarkFilled,  IconMaterialMissedVideoCallFilled,  IconMaterialMissingControllerFilled,  IconMaterialMistFilled,  IconMaterialMitreFilled,  IconMaterialMixtureMedFilled,  IconMaterialMmsFilled,  IconMaterialMobileFriendlyFilled,  IconMaterialMobileOffFilled,  IconMaterialMobileScreenShareFilled,  IconMaterialMobiledataOffFilled,  IconMaterialModeCommentFilled,  IconMaterialModeCoolFilled,  IconMaterialModeCoolOffFilled,  IconMaterialModeDualFilled,  IconMaterialModeFanFilled,  IconMaterialModeFanOffFilled,  IconMaterialModeHeatCoolFilled,  IconMaterialModeHeatFilled,  IconMaterialModeHeatOffFilled,  IconMaterialModeNightFilled,  IconMaterialModeOfTravelFilled,  IconMaterialModeOffOnFilled,  IconMaterialModeStandbyFilled,  IconMaterialModelTrainingFilled,  IconMaterialMonetizationOnFilled,  IconMaterialMoneyFilled,  IconMaterialMoneyOffFilled,  IconMaterialMonitorFilled,  IconMaterialMonitorHeartFilled,  IconMaterialMonitorWeightFilled,  IconMaterialMonitorWeightGainFilled,  IconMaterialMonitorWeightLossFilled,  IconMaterialMonitoringFilled,  IconMaterialMonochromePhotosFilled,  IconMaterialMoodBadFilled,  IconMaterialMoodFilled,  IconMaterialMopFilled,  IconMaterialMoreDownFilled,  IconMaterialMoreFilled,  IconMaterialMoreHorizFilled,  IconMaterialMoreTimeFilled,  IconMaterialMoreUpFilled,  IconMaterialMoreVertFilled,  IconMaterialMosqueFilled,  IconMaterialMotionBlurFilled,  IconMaterialMotionModeFilled,  IconMaterialMotionPhotosAutoFilled,  IconMaterialMotionPhotosOffFilled,  IconMaterialMotionPhotosOnFilled,  IconMaterialMotionPhotosPausedFilled,  IconMaterialMotionSensorActiveFilled,  IconMaterialMotionSensorAlertFilled,  IconMaterialMotionSensorIdleFilled,  IconMaterialMotionSensorUrgentFilled,  IconMaterialMotorcycleFilled,  IconMaterialMountainFlagFilled,  IconMaterialMouseFilled,  IconMaterialMoveDownFilled,  IconMaterialMoveFilled,  IconMaterialMoveGroupFilled,  IconMaterialMoveItemFilled,  IconMaterialMoveLocationFilled,  IconMaterialMoveSelectionDownFilled,  IconMaterialMoveSelectionLeftFilled,  IconMaterialMoveSelectionRightFilled,  IconMaterialMoveSelectionUpFilled,  IconMaterialMoveToInboxFilled,  IconMaterialMoveUpFilled,  IconMaterialMovedLocationFilled,  IconMaterialMovieEditFilled,  IconMaterialMovieFilled,  IconMaterialMovieFilterFilled,  IconMaterialMovieInfoFilled,  IconMaterialMovingBedsFilled,  IconMaterialMovingFilled,  IconMaterialMovingMinistryFilled,  IconMaterialMpFilled,  IconMaterialMulticookerFilled,  IconMaterialMultilineChartFilled,  IconMaterialMultipleStopFilled,  IconMaterialMuseumFilled,  IconMaterialMusicCastFilled,  IconMaterialMusicNoteFilled,  IconMaterialMusicOffFilled,  IconMaterialMusicVideoFilled,  IconMaterialMyLocationFilled,  IconMaterialMysteryFilled,  IconMaterialNatFilled,  IconMaterialNaturePeopleFilled,  IconMaterialNatureFilled,  IconMaterialNavigateBeforeFilled,  IconMaterialNavigateNextFilled,  IconMaterialNavigationFilled,  IconMaterialNearMeDisabledFilled,  IconMaterialNearMeFilled,  IconMaterialNearbyErrorFilled,  IconMaterialNearbyFilled,  IconMaterialNearbyOffFilled,  IconMaterialNephrologyFilled,  IconMaterialNestAudioFilled,  IconMaterialNestCamFloodlightFilled,  IconMaterialNestCamIndoorFilled,  IconMaterialNestCamIqFilled,  IconMaterialNestCamIqOutdoorFilled,  IconMaterialNestCamMagnetMountFilled,  IconMaterialNestCamOutdoorFilled,  IconMaterialNestCamStandFilled,  IconMaterialNestCamWallMountFilled,  IconMaterialNestCamWiredStandFilled,  IconMaterialNestClockFarsightAnalogFilled,  IconMaterialNestClockFarsightDigitalFilled,  IconMaterialNestConnectFilled,  IconMaterialNestDetectFilled,  IconMaterialNestDisplayMaxFilled,  IconMaterialNestDisplayFilled,  IconMaterialNestDoorbellVisitorFilled,  IconMaterialNestEcoLeafFilled,  IconMaterialNestFarsightWeatherFilled,  IconMaterialNestFoundSavingsFilled,  IconMaterialNestGaleWifiFilled,  IconMaterialNestHeatLinkEFilled,  IconMaterialNestHeatLinkGen3Filled,  IconMaterialNestHelloDoorbellFilled,  IconMaterialNestLocatorTagFilled,  IconMaterialNestMiniFilled,  IconMaterialNestMultiRoomFilled,  IconMaterialNestProtectFilled,  IconMaterialNestRemoteComfortSensorFilled,  IconMaterialNestSecureAlarmFilled,  IconMaterialNestRemoteFilled,  IconMaterialNestSunblockFilled,  IconMaterialNestTagFilled,  IconMaterialNestThermostatEEuFilled,  IconMaterialNestThermostatFilled,  IconMaterialNestThermostatGen3Filled,  IconMaterialNestThermostatSensorEuFilled,  IconMaterialNestThermostatSensorFilled,  IconMaterialNestThermostatZirconiumEuFilled,  IconMaterialNestTrueRadiantFilled,  IconMaterialNestWakeOnApproachFilled,  IconMaterialNestWakeOnPressFilled,  IconMaterialNestWifiGaleFilled,  IconMaterialNestWifiMistralFilled,  IconMaterialNestWifiPointVentoFilled,  IconMaterialNestWifiPointFilled,  IconMaterialNestWifiPro2Filled,  IconMaterialNestWifiProFilled,  IconMaterialNestWifiRouterFilled,  IconMaterialNetworkCellFilled,  IconMaterialNetworkCheckFilled,  IconMaterialNetworkIntelligenceHistoryFilled,  IconMaterialNetworkIntelligenceUpdateFilled,  IconMaterialNetworkLockedFilled,  IconMaterialNetworkManageFilled,  IconMaterialNetworkNodeFilled,  IconMaterialNetworkPingFilled,  IconMaterialNetworkWifi1BarFilled,  IconMaterialNetworkWifi1BarLockedFilled,  IconMaterialNetworkWifi2BarFilled,  IconMaterialNetworkWifi2BarLockedFilled,  IconMaterialNetworkWifi3BarFilled,  IconMaterialNetworkWifiFilled,  IconMaterialNetworkWifiLockedFilled,  IconMaterialNetworkWifi3BarLockedFilled,  IconMaterialNeurologyFilled,  IconMaterialNewLabelFilled,  IconMaterialNewReleasesFilled,  IconMaterialNewWindowFilled,  IconMaterialNewsFilled,  IconMaterialNewsmodeFilled,  IconMaterialNewspaperFilled,  IconMaterialNewsstandFilled,  IconMaterialNextPlanFilled,  IconMaterialNextWeekFilled,  IconMaterialNightShelterFilled,  IconMaterialNfcFilled,  IconMaterialNightSightAutoFilled,  IconMaterialNightSightAutoOffFilled,  IconMaterialNightSightMaxFilled,  IconMaterialNightlifeFilled,  IconMaterialNightlightBadgeFilled,  IconMaterialNightlightFilled,  IconMaterialNightlightOffFilled,  IconMaterialNightsStayFilled,  IconMaterialNoAccountsFilled,  IconMaterialNoAdultContentFilled,  IconMaterialNoBackpackFilled,  IconMaterialNoCrashFilled,  IconMaterialNoDrinksFilled,  IconMaterialNoEncryptionFilled,  IconMaterialNoFlashFilled,  IconMaterialNoFoodFilled,  IconMaterialNoLuggageFilled,  IconMaterialNoMealsFilled,  IconMaterialNoMeetingRoomFilled,  IconMaterialNoPhotographyFilled,  IconMaterialNoSimFilled,  IconMaterialNoSoundFilled,  IconMaterialNoStrollerFilled,  IconMaterialNoTransferFilled,  IconMaterialNoiseAwareFilled,  IconMaterialNoiseControlOffFilled,  IconMaterialNoiseControlOnFilled,  IconMaterialNordicWalkingFilled,  IconMaterialNorthEastFilled,  IconMaterialNorthFilled,  IconMaterialNorthWestFilled,  IconMaterialNotAccessibleFilled,  IconMaterialNotAccessibleForwardFilled,  IconMaterialNotListedLocationFilled,  IconMaterialNotStartedFilled,  IconMaterialNoteAddFilled,  IconMaterialNoteAltFilled,  IconMaterialNoteFilled,  IconMaterialNoteStackAddFilled,  IconMaterialNoteStackFilled,  IconMaterialNotesFilled,  IconMaterialNotificationAddFilled,  IconMaterialNotificationImportantFilled,  IconMaterialNotificationMultipleFilled,  IconMaterialNotificationsActiveFilled,  IconMaterialNotificationsFilled,  IconMaterialNotificationsOffFilled,  IconMaterialNotificationsPausedFilled,  IconMaterialNotificationsUnreadFilled,  IconMaterialNumbersFilled,  IconMaterialNutritionFilled,  IconMaterialOdsFilled,  IconMaterialOdtFilled,  IconMaterialOfflineBoltFilled,  IconMaterialOfflinePinFilled,  IconMaterialOfflineShareFilled,  IconMaterialOilBarrelFilled,  IconMaterialOnDeviceTrainingFilled,  IconMaterialOnHubDeviceFilled,  IconMaterialOncologyFilled,  IconMaterialOnlinePredictionFilled,  IconMaterialOnsenFilled,  IconMaterialOpacityFilled,  IconMaterialOpenInBrowserFilled,  IconMaterialOpenInFullFilled,  IconMaterialOpenInNewDownFilled,  IconMaterialOpenInNewFilled,  IconMaterialOpenInNewOffFilled,  IconMaterialOpenInPhoneFilled,  IconMaterialOpenJamFilled,  IconMaterialOpenWithFilled,  IconMaterialOphthalmologyFilled,  IconMaterialOralDiseaseFilled,  IconMaterialOrderApproveFilled,  IconMaterialOrderPlayFilled,  IconMaterialOrdersFilled,  IconMaterialOrthopedicsFilled,  IconMaterialOtherAdmissionFilled,  IconMaterialOtherHousesFilled,  IconMaterialOutboundFilled,  IconMaterialOutboxAltFilled,  IconMaterialOutboxFilled,  IconMaterialOutdoorGardenFilled,  IconMaterialOutdoorGrillFilled,  IconMaterialOutgoingMailFilled,  IconMaterialOutletFilled,  IconMaterialOutpatientFilled,  IconMaterialOutpatientMedFilled,  IconMaterialOutputCircleFilled,  IconMaterialOutputFilled,  IconMaterialOvenFilled,  IconMaterialOvenGenFilled,  IconMaterialOverviewFilled,  IconMaterialOverviewKeyFilled,  IconMaterialOxygenSaturationFilled,  IconMaterialP2pFilled,  IconMaterialPaceFilled,  IconMaterialPacemakerFilled,  IconMaterialPackage2Filled,  IconMaterialPackageFilled,  IconMaterialPaddingFilled,  IconMaterialPageControlFilled,  IconMaterialPageInfoFilled,  IconMaterialPagelessFilled,  IconMaterialPagesFilled,  IconMaterialPageviewFilled,  IconMaterialPaidFilled,  IconMaterialPaletteFilled,  IconMaterialPalletFilled,  IconMaterialPanToolAltFilled,  IconMaterialPanToolFilled,  IconMaterialPanZoomFilled,  IconMaterialPanoramaFilled,  IconMaterialPanoramaFishEyeFilled,  IconMaterialPanoramaHorizontalFilled,  IconMaterialPanoramaPhotosphereFilled,  IconMaterialPanoramaVerticalFilled,  IconMaterialPanoramaWideAngleFilled,  IconMaterialParaglidingFilled,  IconMaterialParkFilled,  IconMaterialPartlyCloudyDayFilled,  IconMaterialPartlyCloudyNightFilled,  IconMaterialPartnerExchangeFilled,  IconMaterialPartnerReportsFilled,  IconMaterialPartyModeFilled,  IconMaterialPasskeyFilled,  IconMaterialPasswordFilled,  IconMaterialPatientListFilled,  IconMaterialPatternFilled,  IconMaterialPauseCircleFilled,  IconMaterialPauseFilled,  IconMaterialPausePresentationFilled,  IconMaterialPaymentsFilled,  IconMaterialPdfOffFilled,  IconMaterialPedalBikeFilled,  IconMaterialPediatricsFilled,  IconMaterialPenSize1Filled,  IconMaterialPenSize2Filled,  IconMaterialPenSize3Filled,  IconMaterialPenSize4Filled,  IconMaterialPenSize5Filled,  IconMaterialPendingActionsFilled,  IconMaterialPendingFilled,  IconMaterialPentagonFilled,  IconMaterialPercentFilled,  IconMaterialPerformanceMaxFilled,  IconMaterialPergolaFilled,  IconMaterialPermCameraMicFilled,  IconMaterialPermContactCalendarFilled,  IconMaterialPermDataSettingFilled,  IconMaterialPermDeviceInformationFilled,  IconMaterialPermMediaFilled,  IconMaterialPermPhoneMsgFilled,  IconMaterialPermScanWifiFilled,  IconMaterialPerson2Filled,  IconMaterialPerson3Filled,  IconMaterialPerson4Filled,  IconMaterialPersonAddDisabledFilled,  IconMaterialPersonAddFilled,  IconMaterialPersonAlertFilled,  IconMaterialPersonApronFilled,  IconMaterialPersonBookFilled,  IconMaterialPersonCancelFilled,  IconMaterialPersonCelebrateFilled,  IconMaterialPersonCheckFilled,  IconMaterialPersonEditFilled,  IconMaterialPersonFilled,  IconMaterialPersonFilledFilled,  IconMaterialPersonOffFilled,  IconMaterialPersonPinCircleFilled,  IconMaterialPersonPinFilled,  IconMaterialPersonPlayFilled,  IconMaterialPersonRaisedHandFilled,  IconMaterialPersonRemoveFilled,  IconMaterialPersonSearchFilled,  IconMaterialPersonalBagFilled,  IconMaterialPersonalBagOffFilled,  IconMaterialPersonalBagQuestionFilled,  IconMaterialPersonalInjuryFilled,  IconMaterialPersonalPlacesFilled,  IconMaterialPestControlFilled,  IconMaterialPestControlRodentFilled,  IconMaterialPetSuppliesFilled,  IconMaterialPetsFilled,  IconMaterialPhishingFilled,  IconMaterialPhoneAndroidFilled,  IconMaterialPhoneBluetoothSpeakerFilled,  IconMaterialPhoneCallbackFilled,  IconMaterialPhoneDisabledFilled,  IconMaterialPhoneEnabledFilled,  IconMaterialPhoneForwardedFilled,  IconMaterialPhoneInTalkFilled,  IconMaterialPhoneInTalkWatchfaceIndicatorFilled,  IconMaterialPhoneIphoneFilled,  IconMaterialPhoneLockedFilled,  IconMaterialPhoneMissedFilled,  IconMaterialPhonePausedFilled,  IconMaterialPhonelinkEraseFilled,  IconMaterialPhonelinkLockFilled,  IconMaterialPhonelinkOffFilled,  IconMaterialPhonelinkRingFilled,  IconMaterialPhonelinkRingOffFilled,  IconMaterialPhonelinkSetupFilled,  IconMaterialPhotoAlbumFilled,  IconMaterialPhotoAutoMergeFilled,  IconMaterialPhotoCameraFilled,  IconMaterialPhotoCameraFrontFilled,  IconMaterialPhotoCameraBackFilled,  IconMaterialPhotoFilled,  IconMaterialPhotoFilterFilled,  IconMaterialPhotoFrameFilled,  IconMaterialPhotoLibraryFilled,  IconMaterialPhotoPrintsFilled,  IconMaterialPhotoSizeSelectLargeFilled,  IconMaterialPhotoSizeSelectSmallFilled,  IconMaterialPhpFilled,  IconMaterialPhysicalTherapyFilled,  IconMaterialPianoFilled,  IconMaterialPianoOffFilled,  IconMaterialPictureAsPdfFilled,  IconMaterialPictureInPictureAltFilled,  IconMaterialPictureInPictureCenterFilled,  IconMaterialPictureInPictureFilled,  IconMaterialPictureInPictureLargeFilled,  IconMaterialPictureInPictureMediumFilled,  IconMaterialPictureInPictureMobileFilled,  IconMaterialPictureInPictureOffFilled,  IconMaterialPictureInPictureSmallFilled,  IconMaterialPieChartFilled,  IconMaterialPillFilled,  IconMaterialPillOffFilled,  IconMaterialPinDropFilled,  IconMaterialPinEndFilled,  IconMaterialPinFilled,  IconMaterialPinInvokeFilled,  IconMaterialPinchFilled,  IconMaterialPinchZoomInFilled,  IconMaterialPinchZoomOutFilled,  IconMaterialPipExitFilled,  IconMaterialPipFilled,  IconMaterialPivotTableChartFilled,  IconMaterialPixel33xl3aFilled,  IconMaterialPlaceItemFilled,  IconMaterialPlagiarismFilled,  IconMaterialPlannerBannerAdPtFilled,  IconMaterialPlannerReviewFilled,  IconMaterialPlayArrowFilled,  IconMaterialPlayCircleFilled,  IconMaterialPlayDisabledFilled,  IconMaterialPlayForWorkFilled,  IconMaterialPlayLessonFilled,  IconMaterialPlayPauseFilled,  IconMaterialPlayShapesFilled,  IconMaterialPlayingCardsFilled,  IconMaterialPlaylistAddCheckCircleFilled,  IconMaterialPlaylistAddCheckFilled,  IconMaterialPlaylistAddCircleFilled,  IconMaterialPlaylistAddFilled,  IconMaterialPlaylistPlayFilled,  IconMaterialPlaylistRemoveFilled,  IconMaterialPlumbingFilled,  IconMaterialPodcastsFilled,  IconMaterialPodiatryFilled,  IconMaterialPodiumFilled,  IconMaterialPointOfSaleFilled,  IconMaterialPointScanFilled,  IconMaterialPolicyFilled,  IconMaterialPolylineFilled,  IconMaterialPolymerFilled,  IconMaterialPoolFilled,  IconMaterialPortableWifiOffFilled,  IconMaterialPortraitLightingFilled,  IconMaterialPortraitLightingOffFilled,  IconMaterialPositionBottomLeftFilled,  IconMaterialPositionBottomRightFilled,  IconMaterialPositionTopRightFilled,  IconMaterialPostAddFilled,  IconMaterialPostFilled,  IconMaterialPottedPlantFilled,  IconMaterialPowerInputFilled,  IconMaterialPowerFilled,  IconMaterialPowerOffFilled,  IconMaterialPowerRoundedFilled,  IconMaterialPowerSettingsNewFilled,  IconMaterialPrayerTimesFilled,  IconMaterialPrecisionManufacturingFilled,  IconMaterialPregnancyFilled,  IconMaterialPregnantWomanFilled,  IconMaterialPreliminaryFilled,  IconMaterialPrescriptionsFilled,  IconMaterialPresentToAllFilled,  IconMaterialPreviewFilled,  IconMaterialPreviewOffFilled,  IconMaterialPriceChangeFilled,  IconMaterialPriceCheckFilled,  IconMaterialPrintConnectFilled,  IconMaterialPrintAddFilled,  IconMaterialPrintDisabledFilled,  IconMaterialPrintErrorFilled,  IconMaterialPrintFilled,  IconMaterialPrintLockFilled,  IconMaterialPriorityFilled,  IconMaterialPriorityHighFilled,  IconMaterialPrivacyFilled,  IconMaterialPrivacyScreenFilled,  IconMaterialPrivacyScreenOffFilled,  IconMaterialPrivacyTipFilled,  IconMaterialPrivateConnectivityFilled,  IconMaterialProblemFilled,  IconMaterialProcedureFilled,  IconMaterialProcessChartFilled,  IconMaterialProductionQuantityLimitsFilled,  IconMaterialProductivityFilled,  IconMaterialProgressActivityFilled,  IconMaterialPropaneFilled,  IconMaterialPromptSuggestionFilled,  IconMaterialPropaneTankFilled,  IconMaterialPsychiatryFilled,  IconMaterialPsychologyAltFilled,  IconMaterialPsychologyFilled,  IconMaterialPublicFilled,  IconMaterialPublicOffFilled,  IconMaterialPublishFilled,  IconMaterialPublishedWithChangesFilled,  IconMaterialPulmonologyFilled,  IconMaterialPulseAlertFilled,  IconMaterialPunchClockFilled,  IconMaterialPushPinFilled,  IconMaterialQrCode2AddFilled,  IconMaterialQrCode2Filled,  IconMaterialQrCodeFilled,  IconMaterialQrCodeScannerFilled,  IconMaterialQueryStatsFilled,  IconMaterialQuestionExchangeFilled,  IconMaterialQuestionMarkFilled,  IconMaterialQueueMusicFilled,  IconMaterialQueuePlayNextFilled,  IconMaterialQuickPhrasesFilled,  IconMaterialQuickReferenceAllFilled,  IconMaterialQuickReferenceFilled,  IconMaterialQuickReorderFilled,  IconMaterialQuickreplyFilled,  IconMaterialQuietTimeActiveFilled,  IconMaterialQuietTimeFilled,  IconMaterialQuizFilled,  IconMaterialRMobiledataFilled,  IconMaterialRadarFilled,  IconMaterialRadioButtonCheckedFilled,  IconMaterialRadioButtonPartialFilled,  IconMaterialRadioFilled,  IconMaterialRadioButtonUncheckedFilled,  IconMaterialRadiologyFilled,  IconMaterialRailwayAlertFilled,  IconMaterialRainyHeavyFilled,  IconMaterialRainyFilled,  IconMaterialRainyLightFilled,  IconMaterialRainySnowFilled,  IconMaterialRamenDiningFilled,  IconMaterialRampLeftFilled,  IconMaterialRampRightFilled,  IconMaterialRangeHoodFilled,  IconMaterialRateReviewFilled,  IconMaterialRavenFilled,  IconMaterialRawOffFilled,  IconMaterialRawOnFilled,  IconMaterialReadMoreFilled,  IconMaterialReadinessScoreFilled,  IconMaterialRealEstateAgentFilled,  IconMaterialRearCameraFilled,  IconMaterialRebaseEditFilled,  IconMaterialRebaseFilled,  IconMaterialReceiptFilled,  IconMaterialReceiptLongFilled,  IconMaterialRecentPatientFilled,  IconMaterialRecentActorsFilled,  IconMaterialRecommendFilled,  IconMaterialRecordVoiceOverFilled,  IconMaterialRectangleFilled,  IconMaterialRecyclingFilled,  IconMaterialRedeemFilled,  IconMaterialRedoFilled,  IconMaterialReduceCapacityFilled,  IconMaterialRefreshFilled,  IconMaterialRegularExpressionFilled,  IconMaterialRelaxFilled,  IconMaterialReleaseAlertFilled,  IconMaterialRememberMeFilled,  IconMaterialReminderFilled,  IconMaterialRemoteGenFilled,  IconMaterialRemoveDoneFilled,  IconMaterialRemoveFilled,  IconMaterialRemoveFromQueueFilled,  IconMaterialRemoveModeratorFilled,  IconMaterialRemoveRoadFilled,  IconMaterialRemoveSelectionFilled,  IconMaterialRemoveShoppingCartFilled,  IconMaterialReopenWindowFilled,  IconMaterialReorderFilled,  IconMaterialRepartitionFilled,  IconMaterialRepeatFilled,  IconMaterialRepeatOnFilled,  IconMaterialRepeatOneFilled,  IconMaterialRepeatOneOnFilled,  IconMaterialReplay10Filled,  IconMaterialReplay30Filled,  IconMaterialReplay5Filled,  IconMaterialReplayCircleFilled,  IconMaterialReplayCircleFilledFilled,  IconMaterialReplayFilled,  IconMaterialReplyAllFilled,  IconMaterialReplyFilled,  IconMaterialReportFilled,  IconMaterialReportOffFilled,  IconMaterialRequestPageFilled,  IconMaterialRequestQuoteFilled,  IconMaterialResetImageFilled,  IconMaterialResetTvFilled,  IconMaterialResetWrenchFilled,  IconMaterialResizeFilled,  IconMaterialRespiratoryRateFilled,  IconMaterialResponsiveLayoutFilled,  IconMaterialRestartAltFilled,  IconMaterialRestaurantFilled,  IconMaterialRestaurantMenuFilled,  IconMaterialRestoreFromTrashFilled,  IconMaterialResumeFilled,  IconMaterialRestorePageFilled,  IconMaterialReviewsFilled,  IconMaterialRewardedAdsFilled,  IconMaterialRheumatologyFilled,  IconMaterialRibCageFilled,  IconMaterialRiceBowlFilled,  IconMaterialRightClickFilled,  IconMaterialRightPanelCloseFilled,  IconMaterialRightPanelOpenFilled,  IconMaterialRingVolumeFilled,  IconMaterialRipplesFilled,  IconMaterialRobot2Filled,  IconMaterialRobotFilled,  IconMaterialRocketFilled,  IconMaterialRocketLaunchFilled,  IconMaterialRollerShadesClosedFilled,  IconMaterialRollerShadesFilled,  IconMaterialRollerSkatingFilled,  IconMaterialRoofingFilled,  IconMaterialRoomPreferencesFilled,  IconMaterialRoomServiceFilled,  IconMaterialRotate90DegreesCcwFilled,  IconMaterialRotate90DegreesCwFilled,  IconMaterialRotateLeftFilled,  IconMaterialRotateRightFilled,  IconMaterialRoundaboutLeftFilled,  IconMaterialRoundaboutRightFilled,  IconMaterialRoundedCornerFilled,  IconMaterialRouteFilled,  IconMaterialRouterFilled,  IconMaterialRoutineFilled,  IconMaterialRowingFilled,  IconMaterialRssFeedFilled,  IconMaterialRsvpFilled,  IconMaterialRttFilled,  IconMaterialRubricFilled,  IconMaterialRuleFilled,  IconMaterialRuleFolderFilled,  IconMaterialRuleSettingsFilled,  IconMaterialRunCircleFilled,  IconMaterialRunningWithErrorsFilled,  IconMaterialSadTabFilled,  IconMaterialSafetyCheckFilled,  IconMaterialRvHookupFilled,  IconMaterialSafetyCheckOffFilled,  IconMaterialSafetyDividerFilled,  IconMaterialSailingFilled,  IconMaterialSalinityFilled,  IconMaterialSanitizerFilled,  IconMaterialSatelliteAltFilled,  IconMaterialSatelliteFilled,  IconMaterialSaunaFilled,  IconMaterialSaveAsFilled,  IconMaterialSaveFilled,  IconMaterialSavedSearchFilled,  IconMaterialSavingsFilled,  IconMaterialScaleFilled,  IconMaterialScanDeleteFilled,  IconMaterialScanFilled,  IconMaterialScannerFilled,  IconMaterialScatterPlotFilled,  IconMaterialSceneFilled,  IconMaterialScheduleFilled,  IconMaterialScheduleSendFilled,  IconMaterialSchemaFilled,  IconMaterialSchoolFilled,  IconMaterialScienceFilled,  IconMaterialScienceOffFilled,  IconMaterialScoreFilled,  IconMaterialScoreboardFilled,  IconMaterialScreenLockLandscapeFilled,  IconMaterialScreenLockPortraitFilled,  IconMaterialScreenLockRotationFilled,  IconMaterialScreenRecordFilled,  IconMaterialScreenRotationAltFilled,  IconMaterialScreenRotationFilled,  IconMaterialScreenRotationUpFilled,  IconMaterialScreenSearchDesktopFilled,  IconMaterialScreenShareFilled,  IconMaterialScreencastFilled,  IconMaterialScreenshotFilled,  IconMaterialScreenshotFrameFilled,  IconMaterialScreenshotKeyboardFilled,  IconMaterialScreenshotMonitorFilled,  IconMaterialScreenshotRegionFilled,  IconMaterialScreenshotTabletFilled,  IconMaterialScrollableHeaderFilled,  IconMaterialScubaDivingFilled,  IconMaterialSdCardAlertFilled,  IconMaterialSdCardFilled,  IconMaterialSdFilled,  IconMaterialSdkFilled,  IconMaterialSearchCheckFilled,  IconMaterialSearchFilled,  IconMaterialSearchHandsFreeFilled,  IconMaterialSearchOffFilled,  IconMaterialSecurityFilled,  IconMaterialSecurityKeyFilled,  IconMaterialSecurityUpdateGoodFilled,  IconMaterialSecurityUpdateWarningFilled,  IconMaterialSegmentFilled,  IconMaterialSelectAllFilled,  IconMaterialSelectCheckBoxFilled,  IconMaterialSelectFilled,  IconMaterialSelectToSpeakFilled,  IconMaterialSelectWindowFilled,  IconMaterialSelectWindowOffFilled,  IconMaterialSelfCareFilled,  IconMaterialSelfImprovementFilled,  IconMaterialSellFilled,  IconMaterialSendAndArchiveFilled,  IconMaterialSendFilled,  IconMaterialSendMoneyFilled,  IconMaterialSendTimeExtensionFilled,  IconMaterialSendToMobileFilled,  IconMaterialSensorDoorFilled,  IconMaterialSensorOccupiedFilled,  IconMaterialSensorWindowFilled,  IconMaterialSensorsFilled,  IconMaterialSensorsKrxFilled,  IconMaterialSensorsKrxOffFilled,  IconMaterialSensorsOffFilled,  IconMaterialSentimentCalmFilled,  IconMaterialSentimentContentFilled,  IconMaterialSentimentDissatisfiedFilled,  IconMaterialSentimentExcitedFilled,  IconMaterialSentimentExtremelyDissatisfiedFilled,  IconMaterialSentimentFrustratedFilled,  IconMaterialSentimentNeutralFilled,  IconMaterialSentimentSadFilled,  IconMaterialSentimentSatisfiedFilled,  IconMaterialSentimentStressedFilled,  IconMaterialSentimentVeryDissatisfiedFilled,  IconMaterialSentimentVerySatisfiedFilled,  IconMaterialSentimentWorriedFilled,  IconMaterialServiceToolboxFilled,  IconMaterialSetMealFilled,  IconMaterialSettingsAccessibilityFilled,  IconMaterialSettingsAccountBoxFilled,  IconMaterialSettingsAlertFilled,  IconMaterialSettingsApplicationsFilled,  IconMaterialSettingsBRollFilled,  IconMaterialSettingsBackupRestoreFilled,  IconMaterialSettingsBluetoothFilled,  IconMaterialSettingsBrightnessFilled,  IconMaterialSettingsCellFilled,  IconMaterialSettingsCinematicBlurFilled,  IconMaterialSettingsEthernetFilled,  IconMaterialSettingsFilled,  IconMaterialSettingsHeartFilled,  IconMaterialSettingsInputAntennaFilled,  IconMaterialSettingsInputComponentFilled,  IconMaterialSettingsInputHdmiFilled,  IconMaterialSettingsInputSvideoFilled,  IconMaterialSettingsMotionModeFilled,  IconMaterialSettingsNightSightFilled,  IconMaterialSettingsOverscanFilled,  IconMaterialSettingsPanoramaFilled,  IconMaterialSettingsPhoneFilled,  IconMaterialSettingsPhotoCameraFilled,  IconMaterialSettingsPowerFilled,  IconMaterialSettingsRemoteFilled,  IconMaterialSettingsSlowMotionFilled,  IconMaterialSettingsSystemDaydreamFilled,  IconMaterialSettingsTimelapseFilled,  IconMaterialSettingsSuggestFilled,  IconMaterialSettingsVideoCameraFilled,  IconMaterialSettingsVoiceFilled,  IconMaterialSettopComponentFilled,  IconMaterialSevereColdFilled,  IconMaterialShadowAddFilled,  IconMaterialShadowFilled,  IconMaterialShadowMinusFilled,  IconMaterialShapeLineFilled,  IconMaterialShapesFilled,  IconMaterialShareLocationFilled,  IconMaterialShareFilled,  IconMaterialShareOffFilled,  IconMaterialShareReviewsFilled,  IconMaterialShareWindowsFilled,  IconMaterialSheetsRtlFilled,  IconMaterialShelfAutoHideFilled,  IconMaterialShelfPositionFilled,  IconMaterialShelvesFilled,  IconMaterialShieldFilled,  IconMaterialShieldLockFilled,  IconMaterialShieldLockedFilled,  IconMaterialShieldMoonFilled,  IconMaterialShieldPersonFilled,  IconMaterialShieldQuestionFilled,  IconMaterialShieldSparkFilled,  IconMaterialShieldWithHeartFilled,  IconMaterialShieldWithHouseFilled,  IconMaterialShiftFilled,  IconMaterialShiftLockFilled,  IconMaterialShopFilled,  IconMaterialShopTwoFilled,  IconMaterialShoppingBagFilled,  IconMaterialShoppingBasketFilled,  IconMaterialShoppingCartCheckoutFilled,  IconMaterialShoppingCartFilled,  IconMaterialShoppingCartOffFilled,  IconMaterialShoppingmodeFilled,  IconMaterialShortStayFilled,  IconMaterialShortTextFilled,  IconMaterialShowChartFilled,  IconMaterialShowerFilled,  IconMaterialShuffleFilled,  IconMaterialShuffleOnFilled,  IconMaterialShutterSpeedAddFilled,  IconMaterialShutterSpeedFilled,  IconMaterialShutterSpeedMinusFilled,  IconMaterialSickFilled,  IconMaterialSideNavigationFilled,  IconMaterialSignLanguageFilled,  IconMaterialSignalCellular0BarFilled,  IconMaterialSignalCellular1BarFilled,  IconMaterialSignalCellular2BarFilled,  IconMaterialSignalCellular3BarFilled,  IconMaterialSignalCellular4BarFilled,  IconMaterialSignalCellularAddFilled,  IconMaterialSignalCellularAlt1BarFilled,  IconMaterialSignalCellularAlt2BarFilled,  IconMaterialSignalCellularAltFilled,  IconMaterialSignalCellularConnectedNoInternet0BarFilled,  IconMaterialSignalCellularConnectedNoInternet4BarFilled,  IconMaterialSignalCellularNodataFilled,  IconMaterialSignalCellularNullFilled,  IconMaterialSignalCellularOffFilled,  IconMaterialSignalCellularPauseFilled,  IconMaterialSignalDisconnectedFilled,  IconMaterialSignalWifi0BarFilled,  IconMaterialSignalWifi4BarFilled,  IconMaterialSignalWifiBadFilled,  IconMaterialSignalWifiOffFilled,  IconMaterialSignalWifiStatusbarNotConnectedFilled,  IconMaterialSignalWifiStatusbarNullFilled,  IconMaterialSignatureFilled,  IconMaterialSignpostFilled,  IconMaterialSimCardDownloadFilled,  IconMaterialSimCardFilled,  IconMaterialSingleBedFilled,  IconMaterialSipFilled,  IconMaterialSkateboardingFilled,  IconMaterialSkeletonFilled,  IconMaterialSkilletCooktopFilled,  IconMaterialSkilletFilled,  IconMaterialSkipNextFilled,  IconMaterialSkipPreviousFilled,  IconMaterialSkullFilled,  IconMaterialSleddingFilled,  IconMaterialSleepFilled,  IconMaterialSleepScoreFilled,  IconMaterialSlideLibraryFilled,  IconMaterialSlidersFilled,  IconMaterialSlideshowFilled,  IconMaterialSlowMotionVideoFilled,  IconMaterialSmartButtonFilled,  IconMaterialSmartDisplayFilled,  IconMaterialSmartOutletFilled,  IconMaterialSmartScreenFilled,  IconMaterialSmartToyFilled,  IconMaterialSmartVentilationFilled,  IconMaterialSmartphoneFilled,  IconMaterialSmbShareFilled,  IconMaterialSmokeFreeFilled,  IconMaterialSmokingRoomsFilled,  IconMaterialSmsFailedFilled,  IconMaterialSmsFilled,  IconMaterialSnippetFolderFilled,  IconMaterialSnoozeFilled,  IconMaterialSnowboardingFilled,  IconMaterialSnowingFilled,  IconMaterialSnowingHeavyFilled,  IconMaterialSnowmobileFilled,  IconMaterialSnowshoeingFilled,  IconMaterialSoapFilled,  IconMaterialSocialDistanceFilled,  IconMaterialSocialLeaderboardFilled,  IconMaterialSolarPowerFilled,  IconMaterialSortByAlphaFilled,  IconMaterialSortFilled,  IconMaterialSosFilled,  IconMaterialSoundDetectionDogBarkingFilled,  IconMaterialSoundDetectionLoudSoundFilled,  IconMaterialSoundSamplerFilled,  IconMaterialSoupKitchenFilled,  IconMaterialSourceEnvironmentFilled,  IconMaterialSourceNotesFilled,  IconMaterialSouthAmericaFilled,  IconMaterialSoundDetectionGlassBreakFilled,  IconMaterialSouthEastFilled,  IconMaterialSouthFilled,  IconMaterialSouthWestFilled,  IconMaterialSpaFilled,  IconMaterialSpaceBarFilled,  IconMaterialSpaceDashboardFilled,  IconMaterialSpatialAudioFilled,  IconMaterialSpatialAudioOffFilled,  IconMaterialSpatialTrackingFilled,  IconMaterialSpeakerFilled,  IconMaterialSpeakerGroupFilled,  IconMaterialSpeakerNotesFilled,  IconMaterialSpeakerNotesOffFilled,  IconMaterialSpeakerPhoneFilled,  IconMaterialSpecialCharacterFilled,  IconMaterialSpecificGravityFilled,  IconMaterialSpeechToTextFilled,  IconMaterialSpeedFilled,  IconMaterialSpellcheckFilled,  IconMaterialSplitscreenAddFilled,  IconMaterialSplitscreenBottomFilled,  IconMaterialSplitscreenFilled,  IconMaterialSplitscreenLeftFilled,  IconMaterialSplitscreenRightFilled,  IconMaterialSplitscreenTopFilled,  IconMaterialSplitscreenVerticalAddFilled,  IconMaterialSpo2Filled,  IconMaterialSpokeFilled,  IconMaterialSpoofFilled,  IconMaterialSportsAndOutdoorsFilled,  IconMaterialSportsBarFilled,  IconMaterialSportsBaseballFilled,  IconMaterialSportsBasketballFilled,  IconMaterialSportsCricketFilled,  IconMaterialSportsEsportsFilled,  IconMaterialSportsFilled,  IconMaterialSportsFootballFilled,  IconMaterialSportsGolfFilled,  IconMaterialSportsGymnasticsFilled,  IconMaterialSportsHandballFilled,  IconMaterialSportsHockeyFilled,  IconMaterialSportsKabaddiFilled,  IconMaterialSportsMartialArtsFilled,  IconMaterialSportsMmaFilled,  IconMaterialSportsMotorsportsFilled,  IconMaterialSportsRugbyFilled,  IconMaterialSportsScoreFilled,  IconMaterialSportsSoccerFilled,  IconMaterialSportsTennisFilled,  IconMaterialSportsVolleyballFilled,  IconMaterialSprinklerFilled,  IconMaterialSprintFilled,  IconMaterialSquareFilled,  IconMaterialSquareFootFilled,  IconMaterialSsidChartFilled,  IconMaterialStackOffFilled,  IconMaterialStackFilled,  IconMaterialStackStarFilled,  IconMaterialStackedBarChartFilled,  IconMaterialStackedEmailFilled,  IconMaterialStackedInboxFilled,  IconMaterialStackedLineChartFilled,  IconMaterialStacksFilled,  IconMaterialStadiaControllerFilled,  IconMaterialStadiumFilled,  IconMaterialStairsFilled,  IconMaterialStarFilled,  IconMaterialStarHalfFilled,  IconMaterialStarRateFilled,  IconMaterialStarRateHalfFilled,  IconMaterialStarsFilled,  IconMaterialStartFilled,  IconMaterialStat0Filled,  IconMaterialStat1Filled,  IconMaterialStat2Filled,  IconMaterialStat3Filled,  IconMaterialStatMinus1Filled,  IconMaterialStatMinus2Filled,  IconMaterialStatMinus3Filled,  IconMaterialStayCurrentLandscapeFilled,  IconMaterialStayCurrentPortraitFilled,  IconMaterialStayPrimaryLandscapeFilled,  IconMaterialStayPrimaryPortraitFilled,  IconMaterialStepFilled,  IconMaterialStepIntoFilled,  IconMaterialStepOutFilled,  IconMaterialStepOverFilled,  IconMaterialSteppersFilled,  IconMaterialStepsFilled,  IconMaterialStethoscopeArrowFilled,  IconMaterialStethoscopeCheckFilled,  IconMaterialStethoscopeFilled,  IconMaterialStickyNote2Filled,  IconMaterialStickyNoteFilled,  IconMaterialStockMediaFilled,  IconMaterialStockpotFilled,  IconMaterialStopCircleFilled,  IconMaterialStopFilled,  IconMaterialStopScreenShareFilled,  IconMaterialStorageFilled,  IconMaterialStoreFilled,  IconMaterialStorefrontFilled,  IconMaterialStormFilled,  IconMaterialStraightFilled,  IconMaterialStraightenFilled,  IconMaterialStrategyFilled,  IconMaterialStreamAppsFilled,  IconMaterialStreamFilled,  IconMaterialStressManagementFilled,  IconMaterialStreetviewFilled,  IconMaterialStrikethroughSFilled,  IconMaterialStrokeFullFilled,  IconMaterialStrokePartialFilled,  IconMaterialStrollerFilled,  IconMaterialStyleFilled,  IconMaterialStylerFilled,  IconMaterialStylusFilled,  IconMaterialStylusLaserPointerFilled,  IconMaterialStylusNoteFilled,  IconMaterialSubdirectoryArrowLeftFilled,  IconMaterialSubdirectoryArrowRightFilled,  IconMaterialSubheaderFilled,  IconMaterialSubjectFilled,  IconMaterialSubscriptFilled,  IconMaterialSubscriptionsFilled,  IconMaterialSubtitlesFilled,  IconMaterialSubtitlesOffFilled,  IconMaterialSubwayFilled,  IconMaterialSummarizeFilled,  IconMaterialSunnyFilled,  IconMaterialSunnySnowingFilled,  IconMaterialSuperscriptFilled,  IconMaterialSupervisedUserCircleFilled,  IconMaterialSupervisedUserCircleOffFilled,  IconMaterialSupervisorAccountFilled,  IconMaterialSupportAgentFilled,  IconMaterialSupportFilled,  IconMaterialSurfingFilled,  IconMaterialSurgicalFilled,  IconMaterialSurroundSoundFilled,  IconMaterialSwapCallsFilled,  IconMaterialSwapDrivingAppsFilled,  IconMaterialSwapDrivingAppsWheelFilled,  IconMaterialSwapHorizFilled,  IconMaterialSwapHorizontalCircleFilled,  IconMaterialSwapVertFilled,  IconMaterialSwapVerticalCircleFilled,  IconMaterialSweepFilled,  IconMaterialSwipeDownAltFilled,  IconMaterialSwipeDownFilled,  IconMaterialSwipeFilled,  IconMaterialSwipeLeftAltFilled,  IconMaterialSwipeLeftFilled,  IconMaterialSwipeRightAltFilled,  IconMaterialSwipeRightFilled,  IconMaterialSwipeUpAltFilled,  IconMaterialSwipeUpFilled,  IconMaterialSwipeVerticalFilled,  IconMaterialSwitchAccess2Filled,  IconMaterialSwitchAccessFilled,  IconMaterialSwitchAccessShortcutAddFilled,  IconMaterialSwitchAccessShortcutFilled,  IconMaterialSwitchAccountFilled,  IconMaterialSwitchCameraFilled,  IconMaterialSwitchFilled,  IconMaterialSwitchLeftFilled,  IconMaterialSwitchRightFilled,  IconMaterialSwitchVideoFilled,  IconMaterialSwitchesFilled,  IconMaterialSwordRoseFilled,  IconMaterialSwordsFilled,  IconMaterialSymptomsFilled,  IconMaterialSynagogueFilled,  IconMaterialSyncAltFilled,  IconMaterialSyncDisabledFilled,  IconMaterialSyncFilled,  IconMaterialSyncLockFilled,  IconMaterialSyncProblemFilled,  IconMaterialSyncSavedLocallyFilled,  IconMaterialSyringeFilled,  IconMaterialSystemUpdateAltFilled,  IconMaterialSystemUpdateFilled,  IconMaterialTabCloseFilled,  IconMaterialTabCloseRightFilled,  IconMaterialTabDuplicateFilled,  IconMaterialTabFilled,  IconMaterialTabGroupFilled,  IconMaterialTabMoveFilled,  IconMaterialTabNewRightFilled,  IconMaterialTabRecentFilled,  IconMaterialTabUnselectedFilled,  IconMaterialTableBarFilled,  IconMaterialTableChartFilled,  IconMaterialTableChartViewFilled,  IconMaterialTableFilled,  IconMaterialTableLampFilled,  IconMaterialTableRestaurantFilled,  IconMaterialTableRowsFilled,  IconMaterialTableRowsNarrowFilled,  IconMaterialTableViewFilled,  IconMaterialTabletAndroidFilled,  IconMaterialTabletFilled,  IconMaterialTabletMacFilled,  IconMaterialTabsFilled,  IconMaterialTacticFilled,  IconMaterialTagFilled,  IconMaterialTakeoutDiningFilled,  IconMaterialTamperDetectionOffFilled,  IconMaterialTamperDetectionOnFilled,  IconMaterialTapAndPlayFilled,  IconMaterialTapasFilled,  IconMaterialTargetFilled,  IconMaterialTaskAltFilled,  IconMaterialTaskFilled,  IconMaterialTauntFilled,  IconMaterialTaxiAlertFilled,  IconMaterialTeamDashboardFilled,  IconMaterialTempPreferencesCustomFilled,  IconMaterialTempPreferencesEcoFilled,  IconMaterialTempleBuddhistFilled,  IconMaterialTempleHinduFilled,  IconMaterialTenancyFilled,  IconMaterialTerminalFilled,  IconMaterialTextAdFilled,  IconMaterialTextDecreaseFilled,  IconMaterialTextFieldsAltFilled,  IconMaterialTextFieldsFilled,  IconMaterialTextFormatFilled,  IconMaterialTextIncreaseFilled,  IconMaterialTextRotateUpFilled,  IconMaterialTextRotateVerticalFilled,  IconMaterialTextRotationAngledownFilled,  IconMaterialTextRotationAngleupFilled,  IconMaterialTextRotationDownFilled,  IconMaterialTextRotationNoneFilled,  IconMaterialTextSelectEndFilled,  IconMaterialTextSelectJumpToBeginningFilled,  IconMaterialTextSelectJumpToEndFilled,  IconMaterialTextSelectMoveBackCharacterFilled,  IconMaterialTextSelectMoveBackWordFilled,  IconMaterialTextSelectMoveDownFilled,  IconMaterialTextSelectMoveForwardCharacterFilled,  IconMaterialTextSelectMoveForwardWordFilled,  IconMaterialTextSelectMoveUpFilled,  IconMaterialTextSelectStartFilled,  IconMaterialTextSnippetFilled,  IconMaterialTextToSpeechFilled,  IconMaterialTextureAddFilled,  IconMaterialTextureFilled,  IconMaterialTextureMinusFilled,  IconMaterialTheaterComedyFilled,  IconMaterialTheatersFilled,  IconMaterialThermometerAddFilled,  IconMaterialThermometerFilled,  IconMaterialThermometerGainFilled,  IconMaterialThermometerLossFilled,  IconMaterialThermometerMinusFilled,  IconMaterialThermostatAutoFilled,  IconMaterialThermostatCarbonFilled,  IconMaterialThermostatFilled,  IconMaterialThingsToDoFilled,  IconMaterialThreadUnreadFilled,  IconMaterialThumbDownFilled,  IconMaterialThumbDownOffFilled,  IconMaterialThumbUpFilled,  IconMaterialThumbUpOffFilled,  IconMaterialThumbnailBarFilled,  IconMaterialThumbsUpDownFilled,  IconMaterialThunderstormFilled,  IconMaterialTibiaAltFilled,  IconMaterialTibiaFilled,  IconMaterialTimeAutoFilled,  IconMaterialTimelapseFilled,  IconMaterialTimelineFilled,  IconMaterialTimer10Alt1Filled,  IconMaterialTimer10Filled,  IconMaterialTimer10SelectFilled,  IconMaterialTimer3Alt1Filled,  IconMaterialTimer3Filled,  IconMaterialTimer3SelectFilled,  IconMaterialTimerFilled,  IconMaterialTimerOffFilled,  IconMaterialTipsAndUpdatesFilled,  IconMaterialTireRepairFilled,  IconMaterialTitleFilled,  IconMaterialToastFilled,  IconMaterialTocFilled,  IconMaterialToggleOffFilled,  IconMaterialTodayFilled,  IconMaterialTokenFilled,  IconMaterialToggleOnFilled,  IconMaterialTonalityFilled,  IconMaterialTollFilled,  IconMaterialToolbarFilled,  IconMaterialToolsFlatHeadFilled,  IconMaterialToolsInstallationKitFilled,  IconMaterialToolsLadderFilled,  IconMaterialToolsLevelFilled,  IconMaterialToolsPhillipsFilled,  IconMaterialToolsPliersWireStripperFilled,  IconMaterialToolsPowerDrillFilled,  IconMaterialToolsWrenchFilled,  IconMaterialTooltipFilled,  IconMaterialTopPanelCloseFilled,  IconMaterialTopPanelOpenFilled,  IconMaterialTopicFilled,  IconMaterialTornadoFilled,  IconMaterialTotalDissolvedSolidsFilled,  IconMaterialTouchAppFilled,  IconMaterialTouchpadMouseFilled,  IconMaterialTourFilled,  IconMaterialToysAndGamesFilled,  IconMaterialToysFanFilled,  IconMaterialToysFilled,  IconMaterialTrackChangesFilled,  IconMaterialTrafficFilled,  IconMaterialTrailLengthFilled,  IconMaterialTrailLengthMediumFilled,  IconMaterialTrailLengthShortFilled,  IconMaterialTrainFilled,  IconMaterialTramFilled,  IconMaterialTranscribeFilled,  IconMaterialTransferWithinAStationFilled,  IconMaterialTransformFilled,  IconMaterialTransgenderFilled,  IconMaterialTransitEnterexitFilled,  IconMaterialTransitionChopFilled,  IconMaterialTransitionDissolveFilled,  IconMaterialTransitionFadeFilled,  IconMaterialTransitionPushFilled,  IconMaterialTransitionSlideFilled,  IconMaterialTranslateFilled,  IconMaterialTransportationFilled,  IconMaterialTravelExploreFilled,  IconMaterialTravelFilled,  IconMaterialTravelLuggageAndBagsFilled,  IconMaterialTrendingDownFilled,  IconMaterialTrendingFlatFilled,  IconMaterialTrendingUpFilled,  IconMaterialTripFilled,  IconMaterialTripOriginFilled,  IconMaterialTrolleyFilled,  IconMaterialTrophyFilled,  IconMaterialTsunamiFilled,  IconMaterialTroubleshootFilled,  IconMaterialTsvFilled,  IconMaterialTtyFilled,  IconMaterialTuneFilled,  IconMaterialTurnLeftFilled,  IconMaterialTurnRightFilled,  IconMaterialTurnSharpLeftFilled,  IconMaterialTurnSharpRightFilled,  IconMaterialTurnSlightLeftFilled,  IconMaterialTurnSlightRightFilled,  IconMaterialTvFilled,  IconMaterialTvGenFilled,  IconMaterialTvGuideFilled,  IconMaterialTvOffFilled,  IconMaterialTvOptionsEditChannelsFilled,  IconMaterialTvOptionsInputSettingsFilled,  IconMaterialTvRemoteFilled,  IconMaterialTvSigninFilled,  IconMaterialTvWithAssistantFilled,  IconMaterialTwoPagerFilled,  IconMaterialTwoWheelerFilled,  IconMaterialTypeSpecimenFilled,  IconMaterialUTurnLeftFilled,  IconMaterialUTurnRightFilled,  IconMaterialUlnaRadiusAltFilled,  IconMaterialUlnaRadiusFilled,  IconMaterialUmbrellaFilled,  IconMaterialUnarchiveFilled,  IconMaterialUndoFilled,  IconMaterialUnfloatLandscapeFilled,  IconMaterialUnfloatPortraitFilled,  IconMaterialUnfoldLessDoubleFilled,  IconMaterialUnfoldLessFilled,  IconMaterialUnfoldMoreDoubleFilled,  IconMaterialUnfoldMoreFilled,  IconMaterialUngroupFilled,  IconMaterialUniversalCurrencyAltFilled,  IconMaterialUniversalCurrencyFilled,  IconMaterialUniversalLocalFilled,  IconMaterialUnknown5Filled,  IconMaterialUnknown2Filled,  IconMaterialUnknownDocumentFilled,  IconMaterialUnknownMedFilled,  IconMaterialUnlicenseFilled,  IconMaterialUnsubscribeFilled,  IconMaterialUnpublishedFilled,  IconMaterialUpcomingFilled,  IconMaterialUpdateDisabledFilled,  IconMaterialUpdateFilled,  IconMaterialUpgradeFilled,  IconMaterialUpload2Filled,  IconMaterialUploadFileFilled,  IconMaterialUploadFilled,  IconMaterialUrologyFilled,  IconMaterialUsbFilled,  IconMaterialUsbOffFilled,  IconMaterialUserAttributesFilled,  IconMaterialVaccinesFilled,  IconMaterialVacuumFilled,  IconMaterialValveFilled,  IconMaterialVapeFreeFilled,  IconMaterialVapingRoomsFilled,  IconMaterialVariableAddFilled,  IconMaterialVariableInsertFilled,  IconMaterialVariableRemoveFilled,  IconMaterialVariablesFilled,  IconMaterialVentilatorFilled,  IconMaterialVerifiedUserFilled,  IconMaterialVerifiedFilled,  IconMaterialVerticalAlignBottomFilled,  IconMaterialVerticalAlignCenterFilled,  IconMaterialVerticalAlignTopFilled,  IconMaterialVerticalDistributeFilled,  IconMaterialVerticalShadesClosedFilled,  IconMaterialVerticalShadesFilled,  IconMaterialVerticalSplitFilled,  IconMaterialVibrationFilled,  IconMaterialVideoCallFilled,  IconMaterialVideoCameraBackFilled,  IconMaterialVideoCameraFrontFilled,  IconMaterialVideoCameraFrontOffFilled,  IconMaterialVideoFileFilled,  IconMaterialVideoChatFilled,  IconMaterialVideoLabelFilled,  IconMaterialVideoLibraryFilled,  IconMaterialVideoSearchFilled,  IconMaterialVideoSettingsFilled,  IconMaterialVideoStableFilled,  IconMaterialVideocamFilled,  IconMaterialVideocamOffFilled,  IconMaterialVideogameAssetOffFilled,  IconMaterialVideogameAssetFilled,  IconMaterialViewAgendaFilled,  IconMaterialViewArrayFilled,  IconMaterialViewCarouselFilled,  IconMaterialViewColumn2Filled,  IconMaterialViewColumnFilled,  IconMaterialViewComfyAltFilled,  IconMaterialViewComfyFilled,  IconMaterialViewCompactAltFilled,  IconMaterialViewCompactFilled,  IconMaterialViewCozyFilled,  IconMaterialViewDayFilled,  IconMaterialViewHeadlineFilled,  IconMaterialViewInArFilled,  IconMaterialViewInArNewFilled,  IconMaterialViewInArOffFilled,  IconMaterialViewListFilled,  IconMaterialViewKanbanFilled,  IconMaterialViewModuleFilled,  IconMaterialViewQuiltFilled,  IconMaterialViewSidebarFilled,  IconMaterialViewStreamFilled,  IconMaterialViewTimelineFilled,  IconMaterialViewWeekFilled,  IconMaterialVignetteFilled,  IconMaterialVillaFilled,  IconMaterialVisibilityFilled,  IconMaterialVisibilityOffFilled,  IconMaterialVisibilityLockFilled,  IconMaterialVitalSignsFilled,  IconMaterialVitalsFilled,  IconMaterialVoiceChatFilled,  IconMaterialVoiceOverOffFilled,  IconMaterialVoiceSelectionFilled,  IconMaterialVoicemailFilled,  IconMaterialVolcanoFilled,  IconMaterialVolumeDownAltFilled,  IconMaterialVolumeDownFilled,  IconMaterialVolumeMuteFilled,  IconMaterialVolumeOffFilled,  IconMaterialVolumeUpFilled,  IconMaterialVolunteerActivismFilled,  IconMaterialVotingChipFilled,  IconMaterialVpnKeyAlertFilled,  IconMaterialVpnKeyFilled,  IconMaterialVpnKeyOffFilled,  IconMaterialVpnLockFilled,  IconMaterialVr180Create2dFilled,  IconMaterialVr180Create2dOffFilled,  IconMaterialVrpanoFilled,  IconMaterialWallArtFilled,  IconMaterialWallLampFilled,  IconMaterialWalletFilled,  IconMaterialWallpaperFilled,  IconMaterialWallpaperSlideshowFilled,  IconMaterialWardFilled,  IconMaterialWarningFilled,  IconMaterialWarningOffFilled,  IconMaterialWarehouseFilled,  IconMaterialWashFilled,  IconMaterialWatchButtonPressFilled,  IconMaterialWatchFilled,  IconMaterialWatchOffFilled,  IconMaterialWatchScreentimeFilled,  IconMaterialWatchWakeFilled,  IconMaterialWaterBottleLargeFilled,  IconMaterialWaterBottleFilled,  IconMaterialWaterDamageFilled,  IconMaterialWaterDoFilled,  IconMaterialWaterDropFilled,  IconMaterialWaterEcFilled,  IconMaterialWaterFilled,  IconMaterialWaterFullFilled,  IconMaterialWaterHeaterFilled,  IconMaterialWaterLockFilled,  IconMaterialWaterLossFilled,  IconMaterialWaterMediumFilled,  IconMaterialWaterLuxFilled,  IconMaterialWaterOrpFilled,  IconMaterialWaterPumpFilled,  IconMaterialWaterPhFilled,  IconMaterialWaterfallChartFilled,  IconMaterialWaterVocFilled,  IconMaterialWavesFilled,  IconMaterialWavingHandFilled,  IconMaterialWbAutoFilled,  IconMaterialWbIncandescentFilled,  IconMaterialWbShadeFilled,  IconMaterialWbSunnyFilled,  IconMaterialWbIridescentFilled,  IconMaterialWbTwilightFilled,  IconMaterialWcFilled,  IconMaterialWeatherHailFilled,  IconMaterialWeatherMixFilled,  IconMaterialWeatherSnowyFilled,  IconMaterialWebAssetFilled,  IconMaterialWebAssetOffFilled,  IconMaterialWebStoriesFilled,  IconMaterialWebFilled,  IconMaterialWebTrafficFilled,  IconMaterialWebhookFilled,  IconMaterialWeekendFilled,  IconMaterialWeightFilled,  IconMaterialWestFilled,  IconMaterialWhatshotFilled,  IconMaterialWheelchairPickupFilled,  IconMaterialWhereToVoteFilled,  IconMaterialWidgetsFilled,  IconMaterialWidthFilled,  IconMaterialWidthFullFilled,  IconMaterialWidthNormalFilled,  IconMaterialWidthWideFilled,  IconMaterialWifi1BarFilled,  IconMaterialWifi2BarFilled,  IconMaterialWifiAddFilled,  IconMaterialWifiCalling1Filled,  IconMaterialWifiCalling2Filled,  IconMaterialWifiCalling3Filled,  IconMaterialWifiCallingFilled,  IconMaterialWifiChannelFilled,  IconMaterialWifiFilled,  IconMaterialWifiFindFilled,  IconMaterialWifiHomeFilled,  IconMaterialWifiLockFilled,  IconMaterialWifiOffFilled,  IconMaterialWifiNotificationFilled,  IconMaterialWifiPasswordFilled,  IconMaterialWifiProtectedSetupFilled,  IconMaterialWifiProxyFilled,  IconMaterialWifiTetheringErrorFilled,  IconMaterialWifiTetheringFilled,  IconMaterialWifiTetheringOffFilled,  IconMaterialWindPowerFilled,  IconMaterialWindowClosedFilled,  IconMaterialWindowFilled,  IconMaterialWindowOpenFilled,  IconMaterialWindowSensorFilled,  IconMaterialWineBarFilled,  IconMaterialWoman2Filled,  IconMaterialWomanFilled,  IconMaterialWorkAlertFilled,  IconMaterialWorkHistoryFilled,  IconMaterialWorkFilled,  IconMaterialWorkUpdateFilled,  IconMaterialWorkspacePremiumFilled,  IconMaterialWorkspacesFilled,  IconMaterialWorkspacesOutlineFilled,  IconMaterialWoundsInjuriesFilled,  IconMaterialWrapTextFilled,  IconMaterialWristFilled,  IconMaterialWrongLocationFilled,  IconMaterialWysiwygFilled,  IconMaterialYardFilled,  IconMaterialYourTripsFilled,  IconMaterialYoutubeActivityFilled,  IconMaterialYoutubeSearchedForFilled,  IconMaterialZonePersonAlertFilled,  IconMaterialZonePersonIdleFilled,  IconMaterialZonePersonUrgentFilled,  IconMaterialZoomInMapFilled,  IconMaterialZoomInFilled,  IconMaterialZoomOutFilled,  IconMaterialZoomOutMapFilled ];
+export default [ IconMaterial10kFilled,  IconMaterial10mpFilled,  IconMaterial123Filled,  IconMaterial11mpFilled,  IconMaterial12mpFilled,  IconMaterial13mpFilled,  IconMaterial14mpFilled,  IconMaterial15mpFilled,  IconMaterial16mpFilled,  IconMaterial17mpFilled,  IconMaterial18UpRatingFilled,  IconMaterial18mpFilled,  IconMaterial19mpFilled,  IconMaterial1kFilled,  IconMaterial1kPlusFilled,  IconMaterial1xMobiledataBadgeFilled,  IconMaterial1xMobiledataFilled,  IconMaterial20mpFilled,  IconMaterial21mpFilled,  IconMaterial22mpFilled,  IconMaterial23mpFilled,  IconMaterial24mpFilled,  IconMaterial2dFilled,  IconMaterial2kFilled,  IconMaterial2kPlusFilled,  IconMaterial2mpFilled,  IconMaterial30fpsFilled,  IconMaterial30fpsSelectFilled,  IconMaterial360Filled,  IconMaterial3dRotationFilled,  IconMaterial3gMobiledataBadgeFilled,  IconMaterial3gMobiledataFilled,  IconMaterial3kFilled,  IconMaterial3kPlusFilled,  IconMaterial3mpFilled,  IconMaterial3pFilled,  IconMaterial4gMobiledataBadgeFilled,  IconMaterial4gMobiledataFilled,  IconMaterial4gPlusMobiledataFilled,  IconMaterial4kFilled,  IconMaterial4kPlusFilled,  IconMaterial4mpFilled,  IconMaterial50mpFilled,  IconMaterial5gFilled,  IconMaterial5gMobiledataBadgeFilled,  IconMaterial5kPlusFilled,  IconMaterial5kFilled,  IconMaterial60fpsFilled,  IconMaterial5mpFilled,  IconMaterial60fpsSelectFilled,  IconMaterial6FtApartFilled,  IconMaterial6kPlusFilled,  IconMaterial6kFilled,  IconMaterial6mpFilled,  IconMaterial7kFilled,  IconMaterial7kPlusFilled,  IconMaterial7mpFilled,  IconMaterial8kFilled,  IconMaterial8kPlusFilled,  IconMaterial8mpFilled,  IconMaterial9kFilled,  IconMaterial9kPlusFilled,  IconMaterialAbcFilled,  IconMaterial9mpFilled,  IconMaterialAcUnitFilled,  IconMaterialAccessibilityNewFilled,  IconMaterialAccessibilityFilled,  IconMaterialAccessibleFilled,  IconMaterialAccessibleForwardFilled,  IconMaterialAccountBalanceFilled,  IconMaterialAccountBalanceWalletFilled,  IconMaterialAccountBoxFilled,  IconMaterialAccountChildFilled,  IconMaterialAccountChildInvertFilled,  IconMaterialAccountCircleFilled,  IconMaterialAccountCircleOffFilled,  IconMaterialActionKeyFilled,  IconMaterialAccountTreeFilled,  IconMaterialAcuteFilled,  IconMaterialActivityZoneFilled,  IconMaterialAdFilled,  IconMaterialAdGroupFilled,  IconMaterialAdGroupOffFilled,  IconMaterialAdOffFilled,  IconMaterialAdUnitsFilled,  IconMaterialAdbFilled,  IconMaterialAddAPhotoFilled,  IconMaterialAddAdFilled,  IconMaterialAddAlertFilled,  IconMaterialAddBoxFilled,  IconMaterialAddBusinessFilled,  IconMaterialAddCallFilled,  IconMaterialAddCardFilled,  IconMaterialAddChartFilled,  IconMaterialAddCircleFilled,  IconMaterialAddCommentFilled,  IconMaterialAddFilled,  IconMaterialAddHomeFilled,  IconMaterialAddHomeWorkFilled,  IconMaterialAddLinkFilled,  IconMaterialAddLocationAltFilled,  IconMaterialAddLocationFilled,  IconMaterialAddNotesFilled,  IconMaterialAddModeratorFilled,  IconMaterialAddPhotoAlternateFilled,  IconMaterialAddReactionFilled,  IconMaterialAddRoadFilled,  IconMaterialAddTaskFilled,  IconMaterialAddShoppingCartFilled,  IconMaterialAddToDriveFilled,  IconMaterialAddToHomeScreenFilled,  IconMaterialAddToPhotosFilled,  IconMaterialAddToQueueFilled,  IconMaterialAdfScannerFilled,  IconMaterialAdjustFilled,  IconMaterialAdminPanelSettingsFilled,  IconMaterialAdminMedsFilled,  IconMaterialAdsClickFilled,  IconMaterialAgenderFilled,  IconMaterialAirFilled,  IconMaterialAgricultureFilled,  IconMaterialAirFreshenerFilled,  IconMaterialAirPurifierFilled,  IconMaterialAirPurifierGenFilled,  IconMaterialAirlineSeatFlatAngledFilled,  IconMaterialAirlineSeatFlatFilled,  IconMaterialAirlineSeatLegroomExtraFilled,  IconMaterialAirlineSeatIndividualSuiteFilled,  IconMaterialAirlineSeatLegroomNormalFilled,  IconMaterialAirlineSeatLegroomReducedFilled,  IconMaterialAirlineSeatReclineExtraFilled,  IconMaterialAirlineSeatReclineNormalFilled,  IconMaterialAirlineStopsFilled,  IconMaterialAirlinesFilled,  IconMaterialAirplaneTicketFilled,  IconMaterialAirplanemodeActiveFilled,  IconMaterialAirplanemodeInactiveFilled,  IconMaterialAirplayFilled,  IconMaterialAirportShuttleFilled,  IconMaterialAirwareFilled,  IconMaterialAirwaveFilled,  IconMaterialAlarmAddFilled,  IconMaterialAlarmFilled,  IconMaterialAlarmOnFilled,  IconMaterialAlarmSmartWakeFilled,  IconMaterialAlbumFilled,  IconMaterialAlarmOffFilled,  IconMaterialAlignCenterFilled,  IconMaterialAlignFlexCenterFilled,  IconMaterialAlignEndFilled,  IconMaterialAlignFlexStartFilled,  IconMaterialAlignFlexEndFilled,  IconMaterialAlignHorizontalCenterFilled,  IconMaterialAlignHorizontalLeftFilled,  IconMaterialAlignHorizontalRightFilled,  IconMaterialAlignItemsStretchFilled,  IconMaterialAlignJustifyCenterFilled,  IconMaterialAlignJustifyFlexEndFilled,  IconMaterialAlignJustifySpaceAroundFilled,  IconMaterialAlignJustifyFlexStartFilled,  IconMaterialAlignJustifySpaceBetweenFilled,  IconMaterialAlignJustifySpaceEvenFilled,  IconMaterialAlignJustifyStretchFilled,  IconMaterialAlignSelfStretchFilled,  IconMaterialAlignSpaceAroundFilled,  IconMaterialAlignSpaceEvenFilled,  IconMaterialAlignSpaceBetweenFilled,  IconMaterialAlignStartFilled,  IconMaterialAlignVerticalBottomFilled,  IconMaterialAlignStretchFilled,  IconMaterialAlignVerticalCenterFilled,  IconMaterialAlignVerticalTopFilled,  IconMaterialAllInboxFilled,  IconMaterialAllInclusiveFilled,  IconMaterialAllMatchFilled,  IconMaterialAllergiesFilled,  IconMaterialAllOutFilled,  IconMaterialAltRouteFilled,  IconMaterialAlternateEmailFilled,  IconMaterialAltitudeFilled,  IconMaterialAllergyFilled,  IconMaterialAmbientScreenFilled,  IconMaterialAmbulanceFilled,  IconMaterialAmendFilled,  IconMaterialAmpStoriesFilled,  IconMaterialAnalyticsFilled,  IconMaterialAnchorFilled,  IconMaterialAndroidFilled,  IconMaterialAnimationFilled,  IconMaterialAodTabletFilled,  IconMaterialAodFilled,  IconMaterialAodWatchFilled,  IconMaterialApartmentFilled,  IconMaterialApiFilled,  IconMaterialApkDocumentFilled,  IconMaterialApkInstallFilled,  IconMaterialAppBadgingFilled,  IconMaterialAppBlockingFilled,  IconMaterialAppPromoFilled,  IconMaterialAppShortcutFilled,  IconMaterialAppRegistrationFilled,  IconMaterialApparelFilled,  IconMaterialApprovalDelegationFilled,  IconMaterialApprovalFilled,  IconMaterialAppsFilled,  IconMaterialAppsOutageFilled,  IconMaterialAqIndoorFilled,  IconMaterialAqFilled,  IconMaterialArOnYouFilled,  IconMaterialArStickersFilled,  IconMaterialArchitectureFilled,  IconMaterialArchiveFilled,  IconMaterialAreaChartFilled,  IconMaterialArmingCountdownFilled,  IconMaterialArrowAndEdgeFilled,  IconMaterialArrowBackFilled,  IconMaterialArrowBackIosFilled,  IconMaterialArrowBackIosNewFilled,  IconMaterialArrowCircleDownFilled,  IconMaterialArrowCircleLeftFilled,  IconMaterialArrowCircleRightFilled,  IconMaterialArrowCircleUpFilled,  IconMaterialArrowDownwardAltFilled,  IconMaterialArrowDownwardFilled,  IconMaterialArrowDropDownCircleFilled,  IconMaterialArrowDropUpFilled,  IconMaterialArrowDropDownFilled,  IconMaterialArrowForwardIosFilled,  IconMaterialArrowForwardFilled,  IconMaterialArrowInsertFilled,  IconMaterialArrowLeftAltFilled,  IconMaterialArrowLeftFilled,  IconMaterialArrowOutwardFilled,  IconMaterialArrowOrEdgeFilled,  IconMaterialArrowRangeFilled,  IconMaterialArrowRightAltFilled,  IconMaterialArrowRightFilled,  IconMaterialArrowSelectorToolFilled,  IconMaterialArrowSplitFilled,  IconMaterialArrowTopLeftFilled,  IconMaterialArrowTopRightFilled,  IconMaterialArrowUpwardAltFilled,  IconMaterialArrowsMoreUpFilled,  IconMaterialArrowsMoreDownFilled,  IconMaterialArrowUpwardFilled,  IconMaterialArrowsOutwardFilled,  IconMaterialArtTrackFilled,  IconMaterialArticleFilled,  IconMaterialArticleShortcutFilled,  IconMaterialArtistFilled,  IconMaterialAspectRatioFilled,  IconMaterialAssignmentAddFilled,  IconMaterialAssignmentFilled,  IconMaterialAssignmentLateFilled,  IconMaterialAssignmentReturnFilled,  IconMaterialAssignmentIndFilled,  IconMaterialAssignmentReturnedFilled,  IconMaterialAssignmentTurnedInFilled,  IconMaterialAssistWalkerFilled,  IconMaterialAssistantDeviceFilled,  IconMaterialAssistantDirectionFilled,  IconMaterialAssistantNavigationFilled,  IconMaterialAssistantOnHubFilled,  IconMaterialAssistantFilled,  IconMaterialAssuredWorkloadFilled,  IconMaterialAsteriskFilled,  IconMaterialAstrophotographyAutoFilled,  IconMaterialAstrophotographyOffFilled,  IconMaterialAtmFilled,  IconMaterialAtrFilled,  IconMaterialAttachEmailFilled,  IconMaterialAttachFileFilled,  IconMaterialAttachFileAddFilled,  IconMaterialAttachMoneyFilled,  IconMaterialAttachmentFilled,  IconMaterialAttractionsFilled,  IconMaterialAttributionFilled,  IconMaterialAudioDescriptionFilled,  IconMaterialAudioFileFilled,  IconMaterialAudioVideoReceiverFilled,  IconMaterialAutoActivityZoneFilled,  IconMaterialAutoAwesomeFilled,  IconMaterialAutoAwesomeMosaicFilled,  IconMaterialAutoAwesomeMotionFilled,  IconMaterialAutoDeleteFilled,  IconMaterialAutoDetectVoiceFilled,  IconMaterialAutoFixFilled,  IconMaterialAutoFixHighFilled,  IconMaterialAutoFixNormalFilled,  IconMaterialAutoFixOffFilled,  IconMaterialAutoGraphFilled,  IconMaterialAutoLabelFilled,  IconMaterialAutoMeetingRoomFilled,  IconMaterialAutoModeFilled,  IconMaterialAutoReadPauseFilled,  IconMaterialAutoReadPlayFilled,  IconMaterialAutoScheduleFilled,  IconMaterialAutoStoriesFilled,  IconMaterialAutoTimerFilled,  IconMaterialAutoTowingFilled,  IconMaterialAutoTransmissionFilled,  IconMaterialAutoVideocamFilled,  IconMaterialAutofpsSelectFilled,  IconMaterialAutopauseFilled,  IconMaterialAutoplayFilled,  IconMaterialAutorenewFilled,  IconMaterialAutostopFilled,  IconMaterialAutopayFilled,  IconMaterialAvTimerFilled,  IconMaterialAvgPaceFilled,  IconMaterialAvgTimeFilled,  IconMaterialAwardStarFilled,  IconMaterialAzmFilled,  IconMaterialBabyChangingStationFilled,  IconMaterialBackHandFilled,  IconMaterialBackToTabFilled,  IconMaterialBackgroundBlurFullFilled,  IconMaterialBackgroundBlurLightFilled,  IconMaterialBackgroundDotLargeFilled,  IconMaterialBackgroundGridSmallFilled,  IconMaterialBackgroundReplaceFilled,  IconMaterialBackgroundDotSmallFilled,  IconMaterialBacklightHighFilled,  IconMaterialBacklightLowFilled,  IconMaterialBackpackFilled,  IconMaterialBackspaceFilled,  IconMaterialBackupFilled,  IconMaterialBackupTableFilled,  IconMaterialBadgeCriticalBatteryFilled,  IconMaterialBadgeFilled,  IconMaterialBakeryDiningFilled,  IconMaterialBalanceFilled,  IconMaterialBalconyFilled,  IconMaterialBallotFilled,  IconMaterialBarChart4BarsFilled,  IconMaterialBarChartFilled,  IconMaterialBarcodeFilled,  IconMaterialBarcodeScannerFilled,  IconMaterialBarcodeReaderFilled,  IconMaterialBarefootFilled,  IconMaterialBatchPredictionFilled,  IconMaterialBathOutdoorFilled,  IconMaterialBathPrivateFilled,  IconMaterialBathPublicLargeFilled,  IconMaterialBathroomFilled,  IconMaterialBathtubFilled,  IconMaterialBattery0BarFilled,  IconMaterialBattery1BarFilled,  IconMaterialBattery20Filled,  IconMaterialBattery2BarFilled,  IconMaterialBattery30Filled,  IconMaterialBattery3BarFilled,  IconMaterialBattery4BarFilled,  IconMaterialBattery5BarFilled,  IconMaterialBattery50Filled,  IconMaterialBattery60Filled,  IconMaterialBattery80Filled,  IconMaterialBattery90Filled,  IconMaterialBattery6BarFilled,  IconMaterialBatteryAlertFilled,  IconMaterialBatteryChangeFilled,  IconMaterialBatteryCharging20Filled,  IconMaterialBatteryCharging30Filled,  IconMaterialBatteryCharging50Filled,  IconMaterialBatteryCharging60Filled,  IconMaterialBatteryCharging80Filled,  IconMaterialBatteryCharging90Filled,  IconMaterialBatteryChargingFullFilled,  IconMaterialBatteryErrorFilled,  IconMaterialBatteryFullAltFilled,  IconMaterialBatteryFullFilled,  IconMaterialBatteryHoriz000Filled,  IconMaterialBatteryHoriz050Filled,  IconMaterialBatteryHoriz075Filled,  IconMaterialBatteryLowFilled,  IconMaterialBatteryPlusFilled,  IconMaterialBatteryProfileFilled,  IconMaterialBatterySaverFilled,  IconMaterialBatteryShareFilled,  IconMaterialBatteryStatusGoodFilled,  IconMaterialBatteryUnknownFilled,  IconMaterialBatteryVert005Filled,  IconMaterialBatteryVert020Filled,  IconMaterialBatteryVert050Filled,  IconMaterialBatteryVeryLowFilled,  IconMaterialBeachAccessFilled,  IconMaterialBedFilled,  IconMaterialBedroomBabyFilled,  IconMaterialBedroomChildFilled,  IconMaterialBedroomParentFilled,  IconMaterialBedtimeFilled,  IconMaterialBedtimeOffFilled,  IconMaterialBeenhereFilled,  IconMaterialBentoFilled,  IconMaterialBiaFilled,  IconMaterialBidLandscapeDisabledFilled,  IconMaterialBidLandscapeFilled,  IconMaterialBigtopUpdatesFilled,  IconMaterialBikeScooterFilled,  IconMaterialBiotechFilled,  IconMaterialBlanketFilled,  IconMaterialBlenderFilled,  IconMaterialBlindFilled,  IconMaterialBlindsClosedFilled,  IconMaterialBlindsFilled,  IconMaterialBloodPressureFilled,  IconMaterialBlockFilled,  IconMaterialBloodtypeFilled,  IconMaterialBluetoothConnectedFilled,  IconMaterialBluetoothDisabledFilled,  IconMaterialBluetoothDriveFilled,  IconMaterialBluetoothFilled,  IconMaterialBluetoothSearchingFilled,  IconMaterialBlurCircularFilled,  IconMaterialBlurLinearFilled,  IconMaterialBlurMediumFilled,  IconMaterialBlurOffFilled,  IconMaterialBlurOnFilled,  IconMaterialBlurShortFilled,  IconMaterialBodyFatFilled,  IconMaterialBoltFilled,  IconMaterialBodySystemFilled,  IconMaterialBombFilled,  IconMaterialBook2Filled,  IconMaterialBook4Filled,  IconMaterialBook3Filled,  IconMaterialBook5Filled,  IconMaterialBookFilled,  IconMaterialBookOnlineFilled,  IconMaterialBookmarkAddFilled,  IconMaterialBookmarkAddedFilled,  IconMaterialBookmarkFilled,  IconMaterialBookmarkManagerFilled,  IconMaterialBookmarkRemoveFilled,  IconMaterialBookmarksFilled,  IconMaterialBorderAllFilled,  IconMaterialBorderBottomFilled,  IconMaterialBorderClearFilled,  IconMaterialBorderColorFilled,  IconMaterialBorderHorizontalFilled,  IconMaterialBorderInnerFilled,  IconMaterialBorderLeftFilled,  IconMaterialBorderRightFilled,  IconMaterialBorderOuterFilled,  IconMaterialBorderStyleFilled,  IconMaterialBorderTopFilled,  IconMaterialBorderVerticalFilled,  IconMaterialBottomAppBarFilled,  IconMaterialBottomDrawerFilled,  IconMaterialBottomNavigationFilled,  IconMaterialBottomPanelCloseFilled,  IconMaterialBottomRightClickFilled,  IconMaterialBottomPanelOpenFilled,  IconMaterialBottomSheetsFilled,  IconMaterialBoxAddFilled,  IconMaterialBoxEditFilled,  IconMaterialBoxFilled,  IconMaterialBoyFilled,  IconMaterialBrandAwarenessFilled,  IconMaterialBrandFamilyFilled,  IconMaterialBrandingWatermarkFilled,  IconMaterialBreakfastDiningFilled,  IconMaterialBreakingNewsAlt1Filled,  IconMaterialBreakingNewsFilled,  IconMaterialBreastfeedingFilled,  IconMaterialBrightness1Filled,  IconMaterialBrightness2Filled,  IconMaterialBrightness3Filled,  IconMaterialBrightness4Filled,  IconMaterialBrightness5Filled,  IconMaterialBrightness6Filled,  IconMaterialBrightness7Filled,  IconMaterialBrightnessAlertFilled,  IconMaterialBrightnessAutoFilled,  IconMaterialBrightnessEmptyFilled,  IconMaterialBrightnessHighFilled,  IconMaterialBrightnessLowFilled,  IconMaterialBrightnessMediumFilled,  IconMaterialBringYourOwnIpFilled,  IconMaterialBroadcastOnHomeFilled,  IconMaterialBrokenImageFilled,  IconMaterialBroadcastOnPersonalFilled,  IconMaterialBrowseActivityFilled,  IconMaterialBrowseFilled,  IconMaterialBrowseGalleryFilled,  IconMaterialBrowserUpdatedFilled,  IconMaterialBrunchDiningFilled,  IconMaterialBrushFilled,  IconMaterialBubbleChartFilled,  IconMaterialBubbleFilled,  IconMaterialBubblesFilled,  IconMaterialBugReportFilled,  IconMaterialBuildFilled,  IconMaterialBuildCircleFilled,  IconMaterialBungalowFilled,  IconMaterialBurstModeFilled,  IconMaterialBusAlertFilled,  IconMaterialBusinessChipFilled,  IconMaterialBusinessCenterFilled,  IconMaterialBusinessMessagesFilled,  IconMaterialButtonsAltFilled,  IconMaterialCabinFilled,  IconMaterialCableFilled,  IconMaterialCachedFilled,  IconMaterialCalculateFilled,  IconMaterialCakeAddFilled,  IconMaterialCalendarAddOnFilled,  IconMaterialCakeFilled,  IconMaterialCalendarAppsScriptFilled,  IconMaterialCalendarClockFilled,  IconMaterialCalendarMonthFilled,  IconMaterialCalendarTodayFilled,  IconMaterialCalendarViewDayFilled,  IconMaterialCalendarViewMonthFilled,  IconMaterialCalendarViewWeekFilled,  IconMaterialCallEndFilled,  IconMaterialCallFilled,  IconMaterialCallLogFilled,  IconMaterialCallMergeFilled,  IconMaterialCallMadeFilled,  IconMaterialCallMissedFilled,  IconMaterialCallMissedOutgoingFilled,  IconMaterialCallQualityFilled,  IconMaterialCallReceivedFilled,  IconMaterialCallSplitFilled,  IconMaterialCallToActionFilled,  IconMaterialCameraEnhanceFilled,  IconMaterialCameraFrontFilled,  IconMaterialCameraIndoorFilled,  IconMaterialCameraFilled,  IconMaterialCameraOutdoorFilled,  IconMaterialCameraRollFilled,  IconMaterialCameraRearFilled,  IconMaterialCameraVideoFilled,  IconMaterialCameraswitchFilled,  IconMaterialCampaignFilled,  IconMaterialCampingFilled,  IconMaterialCancelFilled,  IconMaterialCancelPresentationFilled,  IconMaterialCancelScheduleSendFilled,  IconMaterialCandleFilled,  IconMaterialCandlestickChartFilled,  IconMaterialCaptivePortalFilled,  IconMaterialCaptureFilled,  IconMaterialCarCrashFilled,  IconMaterialCarRentalFilled,  IconMaterialCarRepairFilled,  IconMaterialCardMembershipFilled,  IconMaterialCardTravelFilled,  IconMaterialCardiologyFilled,  IconMaterialCardsFilled,  IconMaterialCarpenterFilled,  IconMaterialCarryOnBagCheckedFilled,  IconMaterialCarryOnBagFilled,  IconMaterialCarryOnBagInactiveFilled,  IconMaterialCarryOnBagQuestionFilled,  IconMaterialCasesFilled,  IconMaterialCasinoFilled,  IconMaterialCastConnectedFilled,  IconMaterialCastFilled,  IconMaterialCastPauseFilled,  IconMaterialCastForEducationFilled,  IconMaterialCastWarningFilled,  IconMaterialCastleFilled,  IconMaterialCategoryFilled,  IconMaterialCelebrationFilled,  IconMaterialCellMergeFilled,  IconMaterialCellTowerFilled,  IconMaterialCellWifiFilled,  IconMaterialCenterFocusStrongFilled,  IconMaterialCenterFocusWeakFilled,  IconMaterialChairAltFilled,  IconMaterialChairFilled,  IconMaterialChaletFilled,  IconMaterialChangeCircleFilled,  IconMaterialChangeHistoryFilled,  IconMaterialChargerFilled,  IconMaterialChargingStationFilled,  IconMaterialChartDataFilled,  IconMaterialChatAddOnFilled,  IconMaterialChatBubbleFilled,  IconMaterialChatAppsScriptFilled,  IconMaterialChatFilled,  IconMaterialChatErrorFilled,  IconMaterialChatInfoFilled,  IconMaterialChatPasteGoFilled,  IconMaterialCheckBoxOutlineBlankFilled,  IconMaterialCheckBoxFilled,  IconMaterialCheckCircleFilled,  IconMaterialCheckFilled,  IconMaterialCheckInOutFilled,  IconMaterialCheckIndeterminateSmallFilled,  IconMaterialCheckbookFilled,  IconMaterialCheckSmallFilled,  IconMaterialCheckedBagFilled,  IconMaterialCheckedBagQuestionFilled,  IconMaterialChecklistFilled,  IconMaterialChecklistRtlFilled,  IconMaterialCheckroomFilled,  IconMaterialCheerFilled,  IconMaterialChessFilled,  IconMaterialChevronLeftFilled,  IconMaterialChevronRightFilled,  IconMaterialChildCareFilled,  IconMaterialChildFriendlyFilled,  IconMaterialChipExtractionFilled,  IconMaterialChipsFilled,  IconMaterialChromeMaximizeFilled,  IconMaterialChromeMinimizeFilled,  IconMaterialChromeReaderModeFilled,  IconMaterialChromeRestoreFilled,  IconMaterialChromeToteFilled,  IconMaterialChromecastDeviceFilled,  IconMaterialChromecast2Filled,  IconMaterialChronicFilled,  IconMaterialCinematicBlurFilled,  IconMaterialChurchFilled,  IconMaterialCircleFilled,  IconMaterialCircleNotificationsFilled,  IconMaterialCirclesExtFilled,  IconMaterialCirclesFilled,  IconMaterialClarifyFilled,  IconMaterialCleanHandsFilled,  IconMaterialCleaningBucketFilled,  IconMaterialCleaningServicesFilled,  IconMaterialCleaningFilled,  IconMaterialClearAllFilled,  IconMaterialClearNightFilled,  IconMaterialClearDayFilled,  IconMaterialClimateMiniSplitFilled,  IconMaterialClinicalNotesFilled,  IconMaterialClockLoader10Filled,  IconMaterialClockLoader40Filled,  IconMaterialClockLoader60Filled,  IconMaterialClockLoader80Filled,  IconMaterialClockLoader90Filled,  IconMaterialCloseFilled,  IconMaterialClockLoader20Filled,  IconMaterialCloseFullscreenFilled,  IconMaterialCloseSmallFilled,  IconMaterialClosedCaptionDisabledFilled,  IconMaterialClosedCaptionFilled,  IconMaterialCloudCircleFilled,  IconMaterialCloudDownloadFilled,  IconMaterialCloudDoneFilled,  IconMaterialCloudFilled,  IconMaterialCloudOffFilled,  IconMaterialCloudSyncFilled,  IconMaterialCloudQueueFilled,  IconMaterialCloudUploadFilled,  IconMaterialCloudyFilled,  IconMaterialCloudyFilledFilled,  IconMaterialCloudySnowingFilled,  IconMaterialCo2Filled,  IconMaterialCoPresentFilled,  IconMaterialCodeBlocksFilled,  IconMaterialCodeFilled,  IconMaterialCodeOffFilled,  IconMaterialCoffeeFilled,  IconMaterialCoffeeMakerFilled,  IconMaterialCognitionFilled,  IconMaterialCollapseAllFilled,  IconMaterialCollapseContentFilled,  IconMaterialCollectionsBookmarkFilled,  IconMaterialColorizeFilled,  IconMaterialColorsFilled,  IconMaterialComicBubbleFilled,  IconMaterialCommentBankFilled,  IconMaterialCommentsDisabledFilled,  IconMaterialCommitFilled,  IconMaterialCommunicationFilled,  IconMaterialCommentFilled,  IconMaterialCommuteFilled,  IconMaterialCommunitiesFilled,  IconMaterialCompareArrowsFilled,  IconMaterialCompareFilled,  IconMaterialCompassCalibrationFilled,  IconMaterialComponentExchangeFilled,  IconMaterialCompostFilled,  IconMaterialCompressFilled,  IconMaterialComputerFilled,  IconMaterialConciergeFilled,  IconMaterialConditionsFilled,  IconMaterialConfirmationNumberFilled,  IconMaterialCongenitalFilled,  IconMaterialConnectWithoutContactFilled,  IconMaterialConnectedTvFilled,  IconMaterialConnectingAirportsFilled,  IconMaterialConstructionFilled,  IconMaterialContactEmergencyFilled,  IconMaterialContactMailFilled,  IconMaterialContactPageFilled,  IconMaterialContactPhoneFilled,  IconMaterialContactlessFilled,  IconMaterialContactlessOffFilled,  IconMaterialContactSupportFilled,  IconMaterialContactsFilled,  IconMaterialContactsProductFilled,  IconMaterialContentCopyFilled,  IconMaterialContentCutFilled,  IconMaterialContentPasteFilled,  IconMaterialContentPasteGoFilled,  IconMaterialContentPasteOffFilled,  IconMaterialContentPasteSearchFilled,  IconMaterialContractDeleteFilled,  IconMaterialContractEditFilled,  IconMaterialContrastFilled,  IconMaterialContractFilled,  IconMaterialContrastRtlOffFilled,  IconMaterialControlCameraFilled,  IconMaterialControlPointDuplicateFilled,  IconMaterialControllerGenFilled,  IconMaterialConversionPathFilled,  IconMaterialConversionPathOffFilled,  IconMaterialConveyorBeltFilled,  IconMaterialCookieFilled,  IconMaterialCookieOffFilled,  IconMaterialCoolToDryFilled,  IconMaterialCopyAllFilled,  IconMaterialCookingFilled,  IconMaterialCopyrightFilled,  IconMaterialCoronavirusFilled,  IconMaterialCorporateFareFilled,  IconMaterialCottageFilled,  IconMaterialCounter0Filled,  IconMaterialCounter1Filled,  IconMaterialCounter2Filled,  IconMaterialCounter3Filled,  IconMaterialCounter4Filled,  IconMaterialCounter6Filled,  IconMaterialCounter5Filled,  IconMaterialCounter7Filled,  IconMaterialCounter8Filled,  IconMaterialCounter9Filled,  IconMaterialCountertopsFilled,  IconMaterialCreateNewFolderFilled,  IconMaterialCreditCardGearFilled,  IconMaterialCreditCardFilled,  IconMaterialCreditCardHeartFilled,  IconMaterialCreditCardOffFilled,  IconMaterialCreditScoreFilled,  IconMaterialCribFilled,  IconMaterialCrisisAlertFilled,  IconMaterialCrop169Filled,  IconMaterialCrop32Filled,  IconMaterialCrop75Filled,  IconMaterialCrop54Filled,  IconMaterialCrop916Filled,  IconMaterialCropFreeFilled,  IconMaterialCropFilled,  IconMaterialCropLandscapeFilled,  IconMaterialCropPortraitFilled,  IconMaterialCropRotateFilled,  IconMaterialCropSquareFilled,  IconMaterialCrosswordFilled,  IconMaterialCrowdsourceFilled,  IconMaterialCrueltyFreeFilled,  IconMaterialCssFilled,  IconMaterialCsvFilled,  IconMaterialCurrencyBitcoinFilled,  IconMaterialCurrencyExchangeFilled,  IconMaterialCurrencyFrancFilled,  IconMaterialCurrencyLiraFilled,  IconMaterialCurrencyPoundFilled,  IconMaterialCurrencyRubleFilled,  IconMaterialCurrencyRupeeFilled,  IconMaterialCurrencyYenFilled,  IconMaterialCurrencyYuanFilled,  IconMaterialCurtainsClosedFilled,  IconMaterialCurtainsFilled,  IconMaterialCustomTypographyFilled,  IconMaterialCutFilled,  IconMaterialCycleFilled,  IconMaterialCycloneFilled,  IconMaterialDangerousFilled,  IconMaterialDarkModeFilled,  IconMaterialDashboardCustomizeFilled,  IconMaterialDashboardFilled,  IconMaterialDataAlertFilled,  IconMaterialDataArrayFilled,  IconMaterialDataExplorationFilled,  IconMaterialDataCheckFilled,  IconMaterialDataInfoAlertFilled,  IconMaterialDataLossPreventionFilled,  IconMaterialDataSaverOnFilled,  IconMaterialDataObjectFilled,  IconMaterialDataTableFilled,  IconMaterialDataThresholdingFilled,  IconMaterialDataUsageFilled,  IconMaterialDatabaseFilled,  IconMaterialDatasetFilled,  IconMaterialDatasetLinkedFilled,  IconMaterialDateRangeFilled,  IconMaterialDeblurFilled,  IconMaterialDeceasedFilled,  IconMaterialDecimalDecreaseFilled,  IconMaterialDecimalIncreaseFilled,  IconMaterialDeckFilled,  IconMaterialDehazeFilled,  IconMaterialDeleteFilled,  IconMaterialDeleteForeverFilled,  IconMaterialDeleteHistoryFilled,  IconMaterialDeleteSweepFilled,  IconMaterialDemographyFilled,  IconMaterialDensityLargeFilled,  IconMaterialDensityMediumFilled,  IconMaterialDensitySmallFilled,  IconMaterialDentistryFilled,  IconMaterialDepartureBoardFilled,  IconMaterialDeployedCodeAlertFilled,  IconMaterialDeployedCodeAccountFilled,  IconMaterialDeployedCodeFilled,  IconMaterialDeployedCodeUpdateFilled,  IconMaterialDeployedCodeHistoryFilled,  IconMaterialDermatologyFilled,  IconMaterialDescriptionFilled,  IconMaterialDeselectFilled,  IconMaterialDesignServicesFilled,  IconMaterialDeskFilled,  IconMaterialDesktopAccessDisabledFilled,  IconMaterialDeskphoneFilled,  IconMaterialDesktopWindowsFilled,  IconMaterialDestructionFilled,  IconMaterialDetailsFilled,  IconMaterialDesktopMacFilled,  IconMaterialDetectionAndZoneFilled,  IconMaterialDetectorAlarmFilled,  IconMaterialDetectorBatteryFilled,  IconMaterialDetectorCoFilled,  IconMaterialDetectorFilled,  IconMaterialDetectorOfflineFilled,  IconMaterialDetectorSmokeFilled,  IconMaterialDetectorStatusFilled,  IconMaterialDeveloperBoardFilled,  IconMaterialDeveloperBoardOffFilled,  IconMaterialDeveloperGuideFilled,  IconMaterialDeveloperModeFilled,  IconMaterialDeveloperModeTvFilled,  IconMaterialDeviceHubFilled,  IconMaterialDeviceResetFilled,  IconMaterialDeviceThermostatFilled,  IconMaterialDeviceUnknownFilled,  IconMaterialDevicesFilled,  IconMaterialDevicesFoldFilled,  IconMaterialDevicesOffFilled,  IconMaterialDevicesOtherFilled,  IconMaterialDevicesWearablesFilled,  IconMaterialDewPointFilled,  IconMaterialDiagnosisFilled,  IconMaterialDialogsFilled,  IconMaterialDialerSipFilled,  IconMaterialDialpadFilled,  IconMaterialDiamondFilled,  IconMaterialDictionaryFilled,  IconMaterialDifferenceFilled,  IconMaterialDigitalOutOfHomeFilled,  IconMaterialDigitalWellbeingFilled,  IconMaterialDiningFilled,  IconMaterialDinnerDiningFilled,  IconMaterialDirectionsAltFilled,  IconMaterialDirectionsAltOffFilled,  IconMaterialDirectionsBikeFilled,  IconMaterialDirectionsBoatFilled,  IconMaterialDirectionsBusFilled,  IconMaterialDirectionsCarFilled,  IconMaterialDirectionsFilled,  IconMaterialDirectionsOffFilled,  IconMaterialDirectionsRailwayFilled,  IconMaterialDirectionsRunFilled,  IconMaterialDirectionsSubwayFilled,  IconMaterialDirectionsWalkFilled,  IconMaterialDirectorySyncFilled,  IconMaterialDisabledByDefaultFilled,  IconMaterialDirtyLensFilled,  IconMaterialDiscFullFilled,  IconMaterialDisabledVisibleFilled,  IconMaterialDiscoverTuneFilled,  IconMaterialDishwasherFilled,  IconMaterialDishwasherGenFilled,  IconMaterialDisplayExternalInputFilled,  IconMaterialDisplaySettingsFilled,  IconMaterialDistanceFilled,  IconMaterialDiversity1Filled,  IconMaterialDiversity2Filled,  IconMaterialDiversity3Filled,  IconMaterialDiversity4Filled,  IconMaterialDnsFilled,  IconMaterialDoNotDisturbOnFilled,  IconMaterialDoNotDisturbOffFilled,  IconMaterialDoNotDisturbOnTotalSilenceFilled,  IconMaterialDoNotStepFilled,  IconMaterialDoNotTouchFilled,  IconMaterialDockFilled,  IconMaterialDockToBottomFilled,  IconMaterialDockToLeftFilled,  IconMaterialDockToRightFilled,  IconMaterialDocsAddOnFilled,  IconMaterialDocsAppsScriptFilled,  IconMaterialDocumentScannerFilled,  IconMaterialDomainAddFilled,  IconMaterialDomainVerificationOffFilled,  IconMaterialDomainDisabledFilled,  IconMaterialDomainFilled,  IconMaterialDomainVerificationFilled,  IconMaterialDominoMaskFilled,  IconMaterialDoneFilled,  IconMaterialDoneAllFilled,  IconMaterialDoneOutlineFilled,  IconMaterialDonutLargeFilled,  IconMaterialDonutSmallFilled,  IconMaterialDoorBackFilled,  IconMaterialDoorOpenFilled,  IconMaterialDoorSensorFilled,  IconMaterialDoorFrontFilled,  IconMaterialDoorSlidingFilled,  IconMaterialDoorbell3pFilled,  IconMaterialDoorbellChimeFilled,  IconMaterialDoorbellFilled,  IconMaterialDoubleArrowFilled,  IconMaterialDownhillSkiingFilled,  IconMaterialDownload2Filled,  IconMaterialDownloadDoneFilled,  IconMaterialDownloadFilled,  IconMaterialDownloadForOfflineFilled,  IconMaterialDownloadingFilled,  IconMaterialDraftFilled,  IconMaterialDraftOrdersFilled,  IconMaterialDraftsFilled,  IconMaterialDragClickFilled,  IconMaterialDragHandleFilled,  IconMaterialDragIndicatorFilled,  IconMaterialDrawAbstractFilled,  IconMaterialDrawCollageFilled,  IconMaterialDrawFilled,  IconMaterialDragPanFilled,  IconMaterialDresserFilled,  IconMaterialDriveFileMoveFilled,  IconMaterialDriveFileMoveOutlineFilled,  IconMaterialDriveFileMoveRtlFilled,  IconMaterialDriveFileRenameOutlineFilled,  IconMaterialDriveFolderUploadFilled,  IconMaterialDropdownFilled,  IconMaterialDryCleaningFilled,  IconMaterialDryFilled,  IconMaterialDualScreenFilled,  IconMaterialDuoFilled,  IconMaterialDvrFilled,  IconMaterialDynamicFeedFilled,  IconMaterialDynamicFormFilled,  IconMaterialE911AvatarFilled,  IconMaterialE911EmergencyFilled,  IconMaterialEMobiledataBadgeFilled,  IconMaterialEMobiledataFilled,  IconMaterialEarbudsBatteryFilled,  IconMaterialEarbudsFilled,  IconMaterialEarlyOnFilled,  IconMaterialEarthquakeFilled,  IconMaterialEcgFilled,  IconMaterialEastFilled,  IconMaterialEcgHeartFilled,  IconMaterialEcoFilled,  IconMaterialEdaFilled,  IconMaterialEdgesensorHighFilled,  IconMaterialEdgesensorLowFilled,  IconMaterialEditAttributesFilled,  IconMaterialEditCalendarFilled,  IconMaterialEditDocumentFilled,  IconMaterialEditFilled,  IconMaterialEditLocationAltFilled,  IconMaterialEditLocationFilled,  IconMaterialEditNoteFilled,  IconMaterialEditNotificationsFilled,  IconMaterialEditOffFilled,  IconMaterialEditSquareFilled,  IconMaterialEditRoadFilled,  IconMaterialEditorChoiceFilled,  IconMaterialEggAltFilled,  IconMaterialEggFilled,  IconMaterialEjectFilled,  IconMaterialElderlyFilled,  IconMaterialElderlyWomanFilled,  IconMaterialElectricBikeFilled,  IconMaterialElectricBoltFilled,  IconMaterialElectricCarFilled,  IconMaterialElectricMopedFilled,  IconMaterialElectricMeterFilled,  IconMaterialElectricScooterFilled,  IconMaterialElectricRickshawFilled,  IconMaterialElevationFilled,  IconMaterialElectricalServicesFilled,  IconMaterialElevatorFilled,  IconMaterialEmergencyFilled,  IconMaterialEmergencyHeatFilled,  IconMaterialEmergencyHomeFilled,  IconMaterialEmergencyShareFilled,  IconMaterialEmergencyRecordingFilled,  IconMaterialEmergencyShareOffFilled,  IconMaterialEmojiFlagsFilled,  IconMaterialEmojiEventsFilled,  IconMaterialEmojiFoodBeverageFilled,  IconMaterialEmojiNatureFilled,  IconMaterialEmojiObjectsFilled,  IconMaterialEmojiPeopleFilled,  IconMaterialEmojiSymbolsFilled,  IconMaterialEmojiTransportationFilled,  IconMaterialEmoticonFilled,  IconMaterialEmptyDashboardFilled,  IconMaterialEnableFilled,  IconMaterialEncryptedFilled,  IconMaterialEnergyProgramSavingFilled,  IconMaterialEnergyFilled,  IconMaterialEndocrinologyFilled,  IconMaterialEnergyProgramTimeUsedFilled,  IconMaterialEnergySavingsLeafFilled,  IconMaterialEnhancedEncryptionFilled,  IconMaterialEntFilled,  IconMaterialEngineeringFilled,  IconMaterialEnterpriseFilled,  IconMaterialEnterpriseOffFilled,  IconMaterialEqualizerFilled,  IconMaterialEqualFilled,  IconMaterialErrorCircleRoundedFilled,  IconMaterialErrorFilled,  IconMaterialEscalatorFilled,  IconMaterialEscalatorWarningFilled,  IconMaterialErrorMedFilled,  IconMaterialEuroSymbolFilled,  IconMaterialEuroFilled,  IconMaterialEvChargerFilled,  IconMaterialEvMobiledataBadgeFilled,  IconMaterialEvShadowAddFilled,  IconMaterialEvShadowFilled,  IconMaterialEvStationFilled,  IconMaterialEvShadowMinusFilled,  IconMaterialEventAvailableFilled,  IconMaterialEventBusyFilled,  IconMaterialEventFilled,  IconMaterialEventListFilled,  IconMaterialEventNoteFilled,  IconMaterialEventSeatFilled,  IconMaterialEventUpcomingFilled,  IconMaterialEventRepeatFilled,  IconMaterialExclamationFilled,  IconMaterialExerciseFilled,  IconMaterialExitToAppFilled,  IconMaterialExpandAllFilled,  IconMaterialExpandCircleDownFilled,  IconMaterialExpandCircleRightFilled,  IconMaterialExpandCircleUpFilled,  IconMaterialExpandContentFilled,  IconMaterialExpandFilled,  IconMaterialExpandLessFilled,  IconMaterialExpandMoreFilled,  IconMaterialExperimentFilled,  IconMaterialExplicitFilled,  IconMaterialExploreFilled,  IconMaterialExploreNearbyFilled,  IconMaterialExploreOffFilled,  IconMaterialExplosionFilled,  IconMaterialExportNotesFilled,  IconMaterialExposureFilled,  IconMaterialExposureNeg1Filled,  IconMaterialExposureNeg2Filled,  IconMaterialExposurePlus1Filled,  IconMaterialExposurePlus2Filled,  IconMaterialExposureZeroFilled,  IconMaterialExtensionFilled,  IconMaterialExtensionOffFilled,  IconMaterialEyeglassesFilled,  IconMaterialFace2Filled,  IconMaterialFace3Filled,  IconMaterialFace4Filled,  IconMaterialFace5Filled,  IconMaterialFace6Filled,  IconMaterialFaceFilled,  IconMaterialFaceRetouchingNaturalFilled,  IconMaterialFaceRetouchingOffFilled,  IconMaterialFactCheckFilled,  IconMaterialFactoryFilled,  IconMaterialFallingFilled,  IconMaterialFamilyHistoryFilled,  IconMaterialFamiliarFaceAndZoneFilled,  IconMaterialFamilyHomeFilled,  IconMaterialFamilyLinkFilled,  IconMaterialFamilyRestroomFilled,  IconMaterialFamilyStarFilled,  IconMaterialFarsightDigitalFilled,  IconMaterialFastForwardFilled,  IconMaterialFastRewindFilled,  IconMaterialFastfoodFilled,  IconMaterialFaucetFilled,  IconMaterialFavoriteFilled,  IconMaterialFaxFilled,  IconMaterialFeatureSearchFilled,  IconMaterialFeaturedPlayListFilled,  IconMaterialFeaturedSeasonalAndGiftsFilled,  IconMaterialFeaturedVideoFilled,  IconMaterialFeedFilled,  IconMaterialFeedbackFilled,  IconMaterialFemaleFilled,  IconMaterialFemurAltFilled,  IconMaterialFemurFilled,  IconMaterialFenceFilled,  IconMaterialFertileFilled,  IconMaterialFestivalFilled,  IconMaterialFiberDvrFilled,  IconMaterialFiberManualRecordFilled,  IconMaterialFiberNewFilled,  IconMaterialFiberSmartRecordFilled,  IconMaterialFiberPinFilled,  IconMaterialFileCopyFilled,  IconMaterialFileDownloadDoneFilled,  IconMaterialFileDownloadFilled,  IconMaterialFileDownloadOffFilled,  IconMaterialFileMapFilled,  IconMaterialFileOpenFilled,  IconMaterialFilePresentFilled,  IconMaterialFileSaveFilled,  IconMaterialFileSaveOffFilled,  IconMaterialFileUploadFilled,  IconMaterialFileUploadOffFilled,  IconMaterialFilter1Filled,  IconMaterialFilter2Filled,  IconMaterialFilter3Filled,  IconMaterialFilter4Filled,  IconMaterialFilter5Filled,  IconMaterialFilter6Filled,  IconMaterialFilter7Filled,  IconMaterialFilter8Filled,  IconMaterialFilter9Filled,  IconMaterialFilter9PlusFilled,  IconMaterialFilterAltOffFilled,  IconMaterialFilterAltFilled,  IconMaterialFilterBAndWFilled,  IconMaterialFilterCenterFocusFilled,  IconMaterialFilterDramaFilled,  IconMaterialFilterFramesFilled,  IconMaterialFilterFilled,  IconMaterialFilterHdrFilled,  IconMaterialFilterListFilled,  IconMaterialFilterListOffFilled,  IconMaterialFilterNoneFilled,  IconMaterialFilterRetroluxFilled,  IconMaterialFilterTiltShiftFilled,  IconMaterialFilterVintageFilled,  IconMaterialFinanceChipFilled,  IconMaterialFinanceFilled,  IconMaterialFinanceModeFilled,  IconMaterialFindInPageFilled,  IconMaterialFindReplaceFilled,  IconMaterialFingerprintFilled,  IconMaterialFireExtinguisherFilled,  IconMaterialFireHydrantFilled,  IconMaterialFireTruckFilled,  IconMaterialFireplaceFilled,  IconMaterialFirstPageFilled,  IconMaterialFitPageFilled,  IconMaterialFitScreenFilled,  IconMaterialFitbitArrowDownwardFilled,  IconMaterialFitbitArrowUpwardFilled,  IconMaterialFitWidthFilled,  IconMaterialFitbitCheckSmallFilled,  IconMaterialFitnessCenterFilled,  IconMaterialFlagCircleFilled,  IconMaterialFlagFilled,  IconMaterialFlakyFilled,  IconMaterialFlareFilled,  IconMaterialFlashAutoFilled,  IconMaterialFlashOffFilled,  IconMaterialFlashOnFilled,  IconMaterialFlashlightOffFilled,  IconMaterialFlashlightOnFilled,  IconMaterialFlatwareFilled,  IconMaterialFlexDirectionFilled,  IconMaterialFlexWrapFilled,  IconMaterialFlexNoWrapFilled,  IconMaterialFlightClassFilled,  IconMaterialFlightFilled,  IconMaterialFlightLandFilled,  IconMaterialFlightTakeoffFilled,  IconMaterialFlightsAndHotelsFilled,  IconMaterialFlightsmodeFilled,  IconMaterialFlipCameraAndroidFilled,  IconMaterialFlipCameraIosFilled,  IconMaterialFlipToBackFilled,  IconMaterialFlipFilled,  IconMaterialFlipToFrontFilled,  IconMaterialFloatLandscapeFilled,  IconMaterialFloatPortraitFilled,  IconMaterialFloodFilled,  IconMaterialFloorFilled,  IconMaterialFloorLampFilled,  IconMaterialFlourescentFilled,  IconMaterialFlowsheetFilled,  IconMaterialFluidFilled,  IconMaterialFluidMedFilled,  IconMaterialFluidBalanceFilled,  IconMaterialFluorescentFilled,  IconMaterialFlutterDashFilled,  IconMaterialFlutterFilled,  IconMaterialFmdBadFilled,  IconMaterialFoggyFilled,  IconMaterialFoldedHandsFilled,  IconMaterialFolderCopyFilled,  IconMaterialFolderDataFilled,  IconMaterialFolderDeleteFilled,  IconMaterialFolderFilled,  IconMaterialFolderManagedFilled,  IconMaterialFolderOffFilled,  IconMaterialFolderOpenFilled,  IconMaterialFolderSharedFilled,  IconMaterialFolderSpecialFilled,  IconMaterialFolderSupervisedFilled,  IconMaterialFolderZipFilled,  IconMaterialFollowTheSignsFilled,  IconMaterialFontDownloadFilled,  IconMaterialFontDownloadOffFilled,  IconMaterialFoodBankFilled,  IconMaterialFootprintFilled,  IconMaterialFootBonesFilled,  IconMaterialForYouFilled,  IconMaterialForestFilled,  IconMaterialForkLeftFilled,  IconMaterialForkRightFilled,  IconMaterialForkliftFilled,  IconMaterialFormatAlignCenterFilled,  IconMaterialFormatAlignJustifyFilled,  IconMaterialFormatAlignRightFilled,  IconMaterialFormatAlignLeftFilled,  IconMaterialFormatBoldFilled,  IconMaterialFormatClearFilled,  IconMaterialFormatColorFillFilled,  IconMaterialFormatColorResetFilled,  IconMaterialFormatColorTextFilled,  IconMaterialFormatH1Filled,  IconMaterialFormatH2Filled,  IconMaterialFormatH3Filled,  IconMaterialFormatH4Filled,  IconMaterialFormatH6Filled,  IconMaterialFormatH5Filled,  IconMaterialFormatImageLeftFilled,  IconMaterialFormatImageRightFilled,  IconMaterialFormatIndentDecreaseFilled,  IconMaterialFormatIndentIncreaseFilled,  IconMaterialFormatInkHighlighterFilled,  IconMaterialFormatItalicFilled,  IconMaterialFormatLetterSpacing2Filled,  IconMaterialFormatLetterSpacingFilled,  IconMaterialFormatLetterSpacingStandardFilled,  IconMaterialFormatLineSpacingFilled,  IconMaterialFormatLetterSpacingWiderFilled,  IconMaterialFormatLetterSpacingWideFilled,  IconMaterialFormatListBulletedAddFilled,  IconMaterialFormatListNumberedFilled,  IconMaterialFormatListBulletedFilled,  IconMaterialFormatListNumberedRtlFilled,  IconMaterialFormatOverlineFilled,  IconMaterialFormatPaintFilled,  IconMaterialFormatParagraphFilled,  IconMaterialFormatQuoteFilled,  IconMaterialFormatShapesFilled,  IconMaterialFormatSizeFilled,  IconMaterialFormatTextClipFilled,  IconMaterialFormatStrikethroughFilled,  IconMaterialFormatTextOverflowFilled,  IconMaterialFormatTextWrapFilled,  IconMaterialFormatTextdirectionLToRFilled,  IconMaterialFormatTextdirectionRToLFilled,  IconMaterialFormatUnderlinedFilled,  IconMaterialFormatUnderlinedSquiggleFilled,  IconMaterialFormsAddOnFilled,  IconMaterialFormsAppsScriptFilled,  IconMaterialFortFilled,  IconMaterialForumFilled,  IconMaterialForward10Filled,  IconMaterialForward30Filled,  IconMaterialForward5Filled,  IconMaterialForwardCircleFilled,  IconMaterialForwardFilled,  IconMaterialForwardMediaFilled,  IconMaterialForwardToInboxFilled,  IconMaterialFoundationFilled,  IconMaterialFrameInspectFilled,  IconMaterialFramePersonFilled,  IconMaterialFramePersonOffFilled,  IconMaterialFrameReloadFilled,  IconMaterialFrameSourceFilled,  IconMaterialFreeCancellationFilled,  IconMaterialFrontLoaderFilled,  IconMaterialFrontHandFilled,  IconMaterialFullCoverageFilled,  IconMaterialFullStackedBarChartFilled,  IconMaterialFullHdFilled,  IconMaterialFullscreenExitFilled,  IconMaterialFullscreenFilled,  IconMaterialFunctionFilled,  IconMaterialFunctionsFilled,  IconMaterialGMobiledataBadgeFilled,  IconMaterialGMobiledataFilled,  IconMaterialGTranslateFilled,  IconMaterialGalleryThumbnailFilled,  IconMaterialGamepadFilled,  IconMaterialGarageDoorFilled,  IconMaterialGarageFilled,  IconMaterialGarageHomeFilled,  IconMaterialGardenCartFilled,  IconMaterialGastroenterologyFilled,  IconMaterialGasMeterFilled,  IconMaterialGateFilled,  IconMaterialGavelFilled,  IconMaterialGeneralDeviceFilled,  IconMaterialGeneratingTokensFilled,  IconMaterialGeneticsFilled,  IconMaterialGenresFilled,  IconMaterialGestureFilled,  IconMaterialGestureSelectFilled,  IconMaterialGifBoxFilled,  IconMaterialGifFilled,  IconMaterialGiteFilled,  IconMaterialGirlFilled,  IconMaterialGlassCupFilled,  IconMaterialGlobeAsiaFilled,  IconMaterialGlobeUkFilled,  IconMaterialGlobeFilled,  IconMaterialGlucoseFilled,  IconMaterialGlyphsFilled,  IconMaterialGoToLineFilled,  IconMaterialGolfCourseFilled,  IconMaterialGooglePlusReshareFilled,  IconMaterialGoogleHomeDevicesFilled,  IconMaterialGoogleTvRemoteFilled,  IconMaterialGoogleWifiFilled,  IconMaterialGppBadFilled,  IconMaterialGppMaybeFilled,  IconMaterialGradeFilled,  IconMaterialGradientFilled,  IconMaterialGradingFilled,  IconMaterialGrainFilled,  IconMaterialGraphicEqFilled,  IconMaterialGrassFilled,  IconMaterialGrid3x3OffFilled,  IconMaterialGrid3x3Filled,  IconMaterialGrid4x4Filled,  IconMaterialGridGoldenratioFilled,  IconMaterialGridGuidesFilled,  IconMaterialGridOffFilled,  IconMaterialGridOnFilled,  IconMaterialGridViewFilled,  IconMaterialGroceryFilled,  IconMaterialGroupAddFilled,  IconMaterialGroupAutoFilled,  IconMaterialGroupFilled,  IconMaterialGroupOffFilled,  IconMaterialGroupRemoveFilled,  IconMaterialGroupWorkFilled,  IconMaterialGroupedBarChartFilled,  IconMaterialGroups3Filled,  IconMaterialGroups2Filled,  IconMaterialGroupsFilled,  IconMaterialHMobiledataBadgeFilled,  IconMaterialGynecologyFilled,  IconMaterialHMobiledataFilled,  IconMaterialHPlusMobiledataBadgeFilled,  IconMaterialHPlusMobiledataFilled,  IconMaterialHailFilled,  IconMaterialHallwayFilled,  IconMaterialHandBonesFilled,  IconMaterialHandGestureFilled,  IconMaterialHandshakeFilled,  IconMaterialHandymanFilled,  IconMaterialHangoutMeetingFilled,  IconMaterialHangoutVideoFilled,  IconMaterialHangoutVideoOffFilled,  IconMaterialHardDrive2Filled,  IconMaterialHardDriveFilled,  IconMaterialHardwareFilled,  IconMaterialHdFilled,  IconMaterialHdrAutoFilled,  IconMaterialHdrAutoSelectFilled,  IconMaterialHdrEnhancedSelectFilled,  IconMaterialHdrOffFilled,  IconMaterialHdrOffSelectFilled,  IconMaterialHdrOnFilled,  IconMaterialHdrOnSelectFilled,  IconMaterialHdrPlusOffFilled,  IconMaterialHdrPlusFilled,  IconMaterialHdrStrongFilled,  IconMaterialHdrWeakFilled,  IconMaterialHeadphonesBatteryFilled,  IconMaterialHeadphonesFilled,  IconMaterialHeadsetMicFilled,  IconMaterialHeadsetOffFilled,  IconMaterialHealingFilled,  IconMaterialHealthAndBeautyFilled,  IconMaterialHealthAndSafetyFilled,  IconMaterialHealthMetricsFilled,  IconMaterialHeapSnapshotMultipleFilled,  IconMaterialHeapSnapshotLargeFilled,  IconMaterialHeapSnapshotThumbnailFilled,  IconMaterialHearingFilled,  IconMaterialHearingDisabledFilled,  IconMaterialHeartBrokenFilled,  IconMaterialHeartCheckFilled,  IconMaterialHeartMinusFilled,  IconMaterialHeartPlusFilled,  IconMaterialHeatPumpBalanceFilled,  IconMaterialHeatFilled,  IconMaterialHeatPumpFilled,  IconMaterialHeightFilled,  IconMaterialHelicopterFilled,  IconMaterialHelpCenterFilled,  IconMaterialHelpClinicFilled,  IconMaterialHelpFilled,  IconMaterialHematologyFilled,  IconMaterialHevcFilled,  IconMaterialHexagonFilled,  IconMaterialHideFilled,  IconMaterialHideImageFilled,  IconMaterialHideSourceFilled,  IconMaterialHighDensityFilled,  IconMaterialHighQualityFilled,  IconMaterialHighResFilled,  IconMaterialHighlightKeyboardFocusFilled,  IconMaterialHighlightFilled,  IconMaterialHighlightMouseCursorFilled,  IconMaterialHighlightTextCursorFilled,  IconMaterialHighlighterSize1Filled,  IconMaterialHighlighterSize2Filled,  IconMaterialHighlighterSize3Filled,  IconMaterialHighlighterSize4Filled,  IconMaterialHighlighterSize5Filled,  IconMaterialHistoryEduFilled,  IconMaterialHikingFilled,  IconMaterialHistoryFilled,  IconMaterialHistoryToggleOffFilled,  IconMaterialHiveFilled,  IconMaterialHlsOffFilled,  IconMaterialHlsFilled,  IconMaterialHolidayVillageFilled,  IconMaterialHomeAndGardenFilled,  IconMaterialHomeAppLogoFilled,  IconMaterialHomeFilled,  IconMaterialHomeHealthFilled,  IconMaterialHomeImprovementAndToolsFilled,  IconMaterialHomeMaxDotsFilled,  IconMaterialHomeMaxFilled,  IconMaterialHomeIotDeviceFilled,  IconMaterialHomeMiniFilled,  IconMaterialHomePinFilled,  IconMaterialHomeRepairServiceFilled,  IconMaterialHomeSpeakerFilled,  IconMaterialHomeStorageFilled,  IconMaterialHomeWorkFilled,  IconMaterialHorizontalDistributeFilled,  IconMaterialHorizontalRuleFilled,  IconMaterialHotTubFilled,  IconMaterialHotelClassFilled,  IconMaterialHotelFilled,  IconMaterialHorizontalSplitFilled,  IconMaterialHourglassBottomFilled,  IconMaterialHourglassDisabledFilled,  IconMaterialHourglassEmptyFilled,  IconMaterialHourglassFilled,  IconMaterialHourglassFullFilled,  IconMaterialHourglassTopFilled,  IconMaterialHouseSidingFilled,  IconMaterialHouseFilled,  IconMaterialHouseWithShieldFilled,  IconMaterialHouseboatFilled,  IconMaterialHouseholdSuppliesFilled,  IconMaterialHowToRegFilled,  IconMaterialHrRestingFilled,  IconMaterialHowToVoteFilled,  IconMaterialHtmlFilled,  IconMaterialHubFilled,  IconMaterialHttpFilled,  IconMaterialHumerusAltFilled,  IconMaterialHumerusFilled,  IconMaterialHumidityHelperFilled,  IconMaterialHumidityHighFilled,  IconMaterialHumidityIndoorFilled,  IconMaterialHumidityLowFilled,  IconMaterialHumidityPercentageFilled,  IconMaterialHumidityMidFilled,  IconMaterialHvacFilled,  IconMaterialIceSkatingFilled,  IconMaterialIcecreamFilled,  IconMaterialIflFilled,  IconMaterialIframeOffFilled,  IconMaterialIframeFilled,  IconMaterialImageNotSupportedFilled,  IconMaterialImageAspectRatioFilled,  IconMaterialImageFilled,  IconMaterialImageSearchFilled,  IconMaterialImagesearchRollerFilled,  IconMaterialImagesmodeFilled,  IconMaterialImmunologyFilled,  IconMaterialImportContactsFilled,  IconMaterialImportantDevicesFilled,  IconMaterialInHomeModeFilled,  IconMaterialInactiveOrderFilled,  IconMaterialInboxCustomizeFilled,  IconMaterialInboxFilled,  IconMaterialIncompleteCircleFilled,  IconMaterialIndeterminateCheckBoxFilled,  IconMaterialIndeterminateQuestionBoxFilled,  IconMaterialInfoIFilled,  IconMaterialInfoFilled,  IconMaterialInfraredFilled,  IconMaterialInkEraserFilled,  IconMaterialInkEraserOffFilled,  IconMaterialInkHighlighterFilled,  IconMaterialInkHighlighterMoveFilled,  IconMaterialInkMarkerFilled,  IconMaterialInkPenFilled,  IconMaterialInpatientFilled,  IconMaterialInputCircleFilled,  IconMaterialInsertChartFilled,  IconMaterialInsertPageBreakFilled,  IconMaterialInsertTextFilled,  IconMaterialInsightsFilled,  IconMaterialInputFilled,  IconMaterialInstallDesktopFilled,  IconMaterialInstallMobileFilled,  IconMaterialInstantMixFilled,  IconMaterialIntegrationInstructionsFilled,  IconMaterialInteractiveSpaceFilled,  IconMaterialInterestsFilled,  IconMaterialInterpreterModeFilled,  IconMaterialInventory2Filled,  IconMaterialInvertColorsFilled,  IconMaterialInvertColorsOffFilled,  IconMaterialIosFilled,  IconMaterialInventoryFilled,  IconMaterialIosShareFilled,  IconMaterialIronFilled,  IconMaterialJamboardKioskFilled,  IconMaterialJavascriptFilled,  IconMaterialJoinFilled,  IconMaterialJoinFullFilled,  IconMaterialJoinInnerFilled,  IconMaterialJoinLeftFilled,  IconMaterialJoinRightFilled,  IconMaterialJoystickFilled,  IconMaterialJumpToElementFilled,  IconMaterialKayakingFilled,  IconMaterialKebabDiningFilled,  IconMaterialKeepPublicFilled,  IconMaterialKettleFilled,  IconMaterialKeyFilled,  IconMaterialKeyVerticalFilled,  IconMaterialKeyOffFilled,  IconMaterialKeyVisualizerFilled,  IconMaterialKeyboardArrowLeftFilled,  IconMaterialKeyboardArrowDownFilled,  IconMaterialKeyboardAltFilled,  IconMaterialKeyboardArrowRightFilled,  IconMaterialKeyboardArrowUpFilled,  IconMaterialKeyboardBackspaceFilled,  IconMaterialKeyboardCapslockBadgeFilled,  IconMaterialKeyboardCapslockFilled,  IconMaterialKeyboardCommandKeyFilled,  IconMaterialKeyboardControlKeyFilled,  IconMaterialKeyboardDoubleArrowDownFilled,  IconMaterialKeyboardDoubleArrowLeftFilled,  IconMaterialKeyboardDoubleArrowRightFilled,  IconMaterialKeyboardDoubleArrowUpFilled,  IconMaterialKeyboardExternalInputFilled,  IconMaterialKeyboardFilled,  IconMaterialKeyboardFullFilled,  IconMaterialKeyboardHideFilled,  IconMaterialKeyboardKeysFilled,  IconMaterialKeyboardOffFilled,  IconMaterialKeyboardOnscreenFilled,  IconMaterialKeyboardOptionKeyFilled,  IconMaterialKeyboardPreviousLanguageFilled,  IconMaterialKeyboardReturnFilled,  IconMaterialKeyboardTabFilled,  IconMaterialKeyboardTabRtlFilled,  IconMaterialKeyboardVoiceFilled,  IconMaterialKidStarFilled,  IconMaterialKingBedFilled,  IconMaterialKitchenFilled,  IconMaterialKitesurfingFilled,  IconMaterialLabPanelFilled,  IconMaterialLabProfileFilled,  IconMaterialLabResearchFilled,  IconMaterialLabelFilled,  IconMaterialLabelImportantFilled,  IconMaterialLabelOffFilled,  IconMaterialLabsFilled,  IconMaterialLanFilled,  IconMaterialLandscapeFilled,  IconMaterialLandslideFilled,  IconMaterialLanguageChineseArrayFilled,  IconMaterialLanguageChineseCangjieFilled,  IconMaterialLanguageChinesePinyinFilled,  IconMaterialLanguageChineseDayiFilled,  IconMaterialLanguageChineseQuickFilled,  IconMaterialLanguageChineseWubiFilled,  IconMaterialLanguageFilled,  IconMaterialLanguageFrenchFilled,  IconMaterialLanguageGbEnglishFilled,  IconMaterialLanguageInternationalFilled,  IconMaterialLanguageJapaneseKanaFilled,  IconMaterialLanguageKoreanLatinFilled,  IconMaterialLanguagePinyinFilled,  IconMaterialLanguageSpanishFilled,  IconMaterialLanguageUsColemakFilled,  IconMaterialLanguageUsDvorakFilled,  IconMaterialLanguageUsFilled,  IconMaterialLapsFilled,  IconMaterialLaptopChromebookFilled,  IconMaterialLaptopMacFilled,  IconMaterialLaptopWindowsFilled,  IconMaterialLassoSelectFilled,  IconMaterialLastPageFilled,  IconMaterialLauncherAssistantOffFilled,  IconMaterialLauncherAssistantOnFilled,  IconMaterialLaundryFilled,  IconMaterialLayersClearFilled,  IconMaterialLayersFilled,  IconMaterialLdaFilled,  IconMaterialLeaderboardFilled,  IconMaterialLeafSparkFilled,  IconMaterialLeakAddFilled,  IconMaterialLeakRemoveFilled,  IconMaterialLeftClickFilled,  IconMaterialLeftPanelCloseFilled,  IconMaterialLeftPanelOpenFilled,  IconMaterialLegendToggleFilled,  IconMaterialLensBlurFilled,  IconMaterialLensFilled,  IconMaterialLetterSwitchFilled,  IconMaterialLibraryAddCheckFilled,  IconMaterialLibraryAddFilled,  IconMaterialLibraryBooksFilled,  IconMaterialLibraryMusicFilled,  IconMaterialLicenseFilled,  IconMaterialLiftToTalkFilled,  IconMaterialLightFilled,  IconMaterialLightGroupFilled,  IconMaterialLightModeFilled,  IconMaterialLightOffFilled,  IconMaterialLightbulbCircleFilled,  IconMaterialLightningStandFilled,  IconMaterialLightbulbFilled,  IconMaterialLineAxisFilled,  IconMaterialLineCurveFilled,  IconMaterialLineEndArrowFilled,  IconMaterialLineEndArrowNotchFilled,  IconMaterialLineEndCircleFilled,  IconMaterialLineEndDiamondFilled,  IconMaterialLineEndFilled,  IconMaterialLineEndSquareFilled,  IconMaterialLineStartArrowFilled,  IconMaterialLineStartArrowNotchFilled,  IconMaterialLineStartCircleFilled,  IconMaterialLineStartDiamondFilled,  IconMaterialLineStartFilled,  IconMaterialLineStartSquareFilled,  IconMaterialLineStyleFilled,  IconMaterialLineWeightFilled,  IconMaterialLinearScaleFilled,  IconMaterialLinkFilled,  IconMaterialLinkOffFilled,  IconMaterialLinkedCameraFilled,  IconMaterialLinkedServicesFilled,  IconMaterialLiquorFilled,  IconMaterialListAltFilled,  IconMaterialListAltAddFilled,  IconMaterialListFilled,  IconMaterialListsFilled,  IconMaterialLiveHelpFilled,  IconMaterialLiveTvFilled,  IconMaterialLivingFilled,  IconMaterialLocalActivityFilled,  IconMaterialLocalAtmFilled,  IconMaterialLocalBarFilled,  IconMaterialLocalCafeFilled,  IconMaterialLocalCarWashFilled,  IconMaterialLocalConvenienceStoreFilled,  IconMaterialLocalDiningFilled,  IconMaterialLocalDrinkFilled,  IconMaterialLocalFireDepartmentFilled,  IconMaterialLocalFloristFilled,  IconMaterialLocalGasStationFilled,  IconMaterialLocalHospitalFilled,  IconMaterialLocalLaundryServiceFilled,  IconMaterialLocalMallFilled,  IconMaterialLocalParkingFilled,  IconMaterialLocalPharmacyFilled,  IconMaterialLocalLibraryFilled,  IconMaterialLocalPizzaFilled,  IconMaterialLocalPoliceFilled,  IconMaterialLocalPostOfficeFilled,  IconMaterialLocalSeeFilled,  IconMaterialLocalShippingFilled,  IconMaterialLocalTaxiFilled,  IconMaterialLocationAutomationFilled,  IconMaterialLocationAwayFilled,  IconMaterialLocationChipFilled,  IconMaterialLocationCityFilled,  IconMaterialLocationDisabledFilled,  IconMaterialLocationHomeFilled,  IconMaterialLocationOffFilled,  IconMaterialLocationSearchingFilled,  IconMaterialLocationOnFilled,  IconMaterialLockFilled,  IconMaterialLockClockFilled,  IconMaterialLockOpenRightFilled,  IconMaterialLockOpenFilled,  IconMaterialLockPersonFilled,  IconMaterialLockResetFilled,  IconMaterialLoginFilled,  IconMaterialLogoDevFilled,  IconMaterialLogoutFilled,  IconMaterialLooks3Filled,  IconMaterialLooks4Filled,  IconMaterialLooks5Filled,  IconMaterialLooks6Filled,  IconMaterialLooksFilled,  IconMaterialLooksOneFilled,  IconMaterialLooksTwoFilled,  IconMaterialLoupeFilled,  IconMaterialLowDensityFilled,  IconMaterialLowPriorityFilled,  IconMaterialLoyaltyFilled,  IconMaterialLteMobiledataFilled,  IconMaterialLteMobiledataBadgeFilled,  IconMaterialLtePlusMobiledataFilled,  IconMaterialLtePlusMobiledataBadgeFilled,  IconMaterialLunchDiningFilled,  IconMaterialLuggageFilled,  IconMaterialLyricsFilled,  IconMaterialMacroAutoFilled,  IconMaterialMacroOffFilled,  IconMaterialMagicButtonFilled,  IconMaterialMagicExchangeFilled,  IconMaterialMagicTetherFilled,  IconMaterialMagnificationLargeFilled,  IconMaterialMagnificationSmallFilled,  IconMaterialMagnifyDockedFilled,  IconMaterialMagnifyFullscreenFilled,  IconMaterialMailFilled,  IconMaterialMailLockFilled,  IconMaterialMaleFilled,  IconMaterialMan2Filled,  IconMaterialMan3Filled,  IconMaterialMan4Filled,  IconMaterialManFilled,  IconMaterialManageAccountsFilled,  IconMaterialManageHistoryFilled,  IconMaterialManageSearchFilled,  IconMaterialMangaFilled,  IconMaterialManufacturingFilled,  IconMaterialMapFilled,  IconMaterialMapsUgcFilled,  IconMaterialMarginFilled,  IconMaterialMarkAsUnreadFilled,  IconMaterialMarkChatUnreadFilled,  IconMaterialMarkChatReadFilled,  IconMaterialMarkEmailReadFilled,  IconMaterialMarkEmailUnreadFilled,  IconMaterialMarkUnreadChatAltFilled,  IconMaterialMarkdownCopyFilled,  IconMaterialMarkdownFilled,  IconMaterialMarkdownPasteFilled,  IconMaterialMarkunreadMailboxFilled,  IconMaterialMaskedTransitionsFilled,  IconMaterialMasksFilled,  IconMaterialMatchCaseFilled,  IconMaterialMatterFilled,  IconMaterialMatchWordFilled,  IconMaterialMaximizeFilled,  IconMaterialMeasuringTapeFilled,  IconMaterialMediaBluetoothOnFilled,  IconMaterialMediaBluetoothOffFilled,  IconMaterialMediaLinkFilled,  IconMaterialMediaOutputFilled,  IconMaterialMediaOutputOffFilled,  IconMaterialMediationFilled,  IconMaterialMedicalInformationFilled,  IconMaterialMedicalMaskFilled,  IconMaterialMedicalServicesFilled,  IconMaterialMedicationFilled,  IconMaterialMedicationLiquidFilled,  IconMaterialMeetingRoomFilled,  IconMaterialMemoryFilled,  IconMaterialMemoryAltFilled,  IconMaterialMenstrualHealthFilled,  IconMaterialMenuBookFilled,  IconMaterialMenuFilled,  IconMaterialMenuOpenFilled,  IconMaterialMergeFilled,  IconMaterialMergeTypeFilled,  IconMaterialMetabolismFilled,  IconMaterialMfgNestYaleLockFilled,  IconMaterialMicDoubleFilled,  IconMaterialMicExternalOffFilled,  IconMaterialMicExternalOnFilled,  IconMaterialMicFilled,  IconMaterialMicNoiseCancelHighFilled,  IconMaterialMicNoiseCancelLowFilled,  IconMaterialMicNoiseCancelOffFilled,  IconMaterialMicOffFilled,  IconMaterialMicrobiologyFilled,  IconMaterialMicrowaveFilled,  IconMaterialMicrowaveGenFilled,  IconMaterialMilitaryTechFilled,  IconMaterialMimoDisconnectFilled,  IconMaterialMimoFilled,  IconMaterialMindfulnessFilled,  IconMaterialMinimizeFilled,  IconMaterialMinorCrashFilled,  IconMaterialMintmarkFilled,  IconMaterialMissedVideoCallFilled,  IconMaterialMissingControllerFilled,  IconMaterialMistFilled,  IconMaterialMitreFilled,  IconMaterialMixtureMedFilled,  IconMaterialMmsFilled,  IconMaterialMobileFriendlyFilled,  IconMaterialMobileOffFilled,  IconMaterialMobiledataOffFilled,  IconMaterialMobileScreenShareFilled,  IconMaterialModeCommentFilled,  IconMaterialModeCoolFilled,  IconMaterialModeCoolOffFilled,  IconMaterialModeDualFilled,  IconMaterialModeFanOffFilled,  IconMaterialModeFanFilled,  IconMaterialModeHeatCoolFilled,  IconMaterialModeHeatOffFilled,  IconMaterialModeHeatFilled,  IconMaterialModeNightFilled,  IconMaterialModeOfTravelFilled,  IconMaterialModeOffOnFilled,  IconMaterialModeStandbyFilled,  IconMaterialModelTrainingFilled,  IconMaterialMonetizationOnFilled,  IconMaterialMoneyFilled,  IconMaterialMoneyOffFilled,  IconMaterialMonitorHeartFilled,  IconMaterialMonitorFilled,  IconMaterialMonitorWeightFilled,  IconMaterialMonitorWeightGainFilled,  IconMaterialMonitorWeightLossFilled,  IconMaterialMonitoringFilled,  IconMaterialMonochromePhotosFilled,  IconMaterialMoodBadFilled,  IconMaterialMoodFilled,  IconMaterialMopFilled,  IconMaterialMoreDownFilled,  IconMaterialMoreFilled,  IconMaterialMoreHorizFilled,  IconMaterialMoreTimeFilled,  IconMaterialMoreUpFilled,  IconMaterialMoreVertFilled,  IconMaterialMotionBlurFilled,  IconMaterialMosqueFilled,  IconMaterialMotionPhotosAutoFilled,  IconMaterialMotionModeFilled,  IconMaterialMotionPhotosOffFilled,  IconMaterialMotionPhotosOnFilled,  IconMaterialMotionPhotosPausedFilled,  IconMaterialMotionSensorActiveFilled,  IconMaterialMotionSensorAlertFilled,  IconMaterialMotionSensorIdleFilled,  IconMaterialMotionSensorUrgentFilled,  IconMaterialMotorcycleFilled,  IconMaterialMountainFlagFilled,  IconMaterialMouseFilled,  IconMaterialMoveDownFilled,  IconMaterialMoveGroupFilled,  IconMaterialMoveFilled,  IconMaterialMoveItemFilled,  IconMaterialMoveLocationFilled,  IconMaterialMoveSelectionDownFilled,  IconMaterialMoveSelectionLeftFilled,  IconMaterialMoveSelectionRightFilled,  IconMaterialMoveSelectionUpFilled,  IconMaterialMoveToInboxFilled,  IconMaterialMoveUpFilled,  IconMaterialMovedLocationFilled,  IconMaterialMovieEditFilled,  IconMaterialMovieFilterFilled,  IconMaterialMovieFilled,  IconMaterialMovieInfoFilled,  IconMaterialMovingBedsFilled,  IconMaterialMovingFilled,  IconMaterialMovingMinistryFilled,  IconMaterialMpFilled,  IconMaterialMultipleStopFilled,  IconMaterialMultilineChartFilled,  IconMaterialMuseumFilled,  IconMaterialMulticookerFilled,  IconMaterialMusicCastFilled,  IconMaterialMusicNoteFilled,  IconMaterialMusicOffFilled,  IconMaterialMusicVideoFilled,  IconMaterialMyLocationFilled,  IconMaterialMysteryFilled,  IconMaterialNatureFilled,  IconMaterialNatFilled,  IconMaterialNaturePeopleFilled,  IconMaterialNavigateBeforeFilled,  IconMaterialNavigateNextFilled,  IconMaterialNavigationFilled,  IconMaterialNearMeDisabledFilled,  IconMaterialNearMeFilled,  IconMaterialNearbyErrorFilled,  IconMaterialNearbyFilled,  IconMaterialNearbyOffFilled,  IconMaterialNephrologyFilled,  IconMaterialNestAudioFilled,  IconMaterialNestCamFloodlightFilled,  IconMaterialNestCamIndoorFilled,  IconMaterialNestCamIqFilled,  IconMaterialNestCamIqOutdoorFilled,  IconMaterialNestCamMagnetMountFilled,  IconMaterialNestCamOutdoorFilled,  IconMaterialNestCamWallMountFilled,  IconMaterialNestCamWiredStandFilled,  IconMaterialNestClockFarsightAnalogFilled,  IconMaterialNestCamStandFilled,  IconMaterialNestClockFarsightDigitalFilled,  IconMaterialNestConnectFilled,  IconMaterialNestDetectFilled,  IconMaterialNestDisplayFilled,  IconMaterialNestDisplayMaxFilled,  IconMaterialNestDoorbellVisitorFilled,  IconMaterialNestEcoLeafFilled,  IconMaterialNestFarsightWeatherFilled,  IconMaterialNestFoundSavingsFilled,  IconMaterialNestGaleWifiFilled,  IconMaterialNestHeatLinkEFilled,  IconMaterialNestHeatLinkGen3Filled,  IconMaterialNestHelloDoorbellFilled,  IconMaterialNestLocatorTagFilled,  IconMaterialNestMiniFilled,  IconMaterialNestMultiRoomFilled,  IconMaterialNestProtectFilled,  IconMaterialNestRemoteComfortSensorFilled,  IconMaterialNestRemoteFilled,  IconMaterialNestSecureAlarmFilled,  IconMaterialNestSunblockFilled,  IconMaterialNestThermostatEEuFilled,  IconMaterialNestThermostatFilled,  IconMaterialNestThermostatGen3Filled,  IconMaterialNestTagFilled,  IconMaterialNestThermostatSensorEuFilled,  IconMaterialNestThermostatSensorFilled,  IconMaterialNestThermostatZirconiumEuFilled,  IconMaterialNestWakeOnApproachFilled,  IconMaterialNestTrueRadiantFilled,  IconMaterialNestWakeOnPressFilled,  IconMaterialNestWifiGaleFilled,  IconMaterialNestWifiMistralFilled,  IconMaterialNestWifiPointVentoFilled,  IconMaterialNestWifiPointFilled,  IconMaterialNestWifiPro2Filled,  IconMaterialNestWifiProFilled,  IconMaterialNestWifiRouterFilled,  IconMaterialNetworkCellFilled,  IconMaterialNetworkCheckFilled,  IconMaterialNetworkIntelligenceHistoryFilled,  IconMaterialNetworkLockedFilled,  IconMaterialNetworkIntelligenceUpdateFilled,  IconMaterialNetworkNodeFilled,  IconMaterialNetworkManageFilled,  IconMaterialNetworkPingFilled,  IconMaterialNetworkWifi1BarFilled,  IconMaterialNetworkWifi1BarLockedFilled,  IconMaterialNetworkWifi2BarFilled,  IconMaterialNetworkWifi3BarFilled,  IconMaterialNetworkWifi2BarLockedFilled,  IconMaterialNetworkWifi3BarLockedFilled,  IconMaterialNetworkWifiFilled,  IconMaterialNetworkWifiLockedFilled,  IconMaterialNeurologyFilled,  IconMaterialNewLabelFilled,  IconMaterialNewReleasesFilled,  IconMaterialNewWindowFilled,  IconMaterialNewsFilled,  IconMaterialNewspaperFilled,  IconMaterialNewsmodeFilled,  IconMaterialNewsstandFilled,  IconMaterialNextPlanFilled,  IconMaterialNextWeekFilled,  IconMaterialNfcFilled,  IconMaterialNightShelterFilled,  IconMaterialNightSightAutoOffFilled,  IconMaterialNightSightAutoFilled,  IconMaterialNightSightMaxFilled,  IconMaterialNightlifeFilled,  IconMaterialNightlightFilled,  IconMaterialNightlightBadgeFilled,  IconMaterialNightlightOffFilled,  IconMaterialNightsStayFilled,  IconMaterialNoAccountsFilled,  IconMaterialNoAdultContentFilled,  IconMaterialNoBackpackFilled,  IconMaterialNoCrashFilled,  IconMaterialNoEncryptionFilled,  IconMaterialNoFlashFilled,  IconMaterialNoDrinksFilled,  IconMaterialNoFoodFilled,  IconMaterialNoLuggageFilled,  IconMaterialNoMealsFilled,  IconMaterialNoMeetingRoomFilled,  IconMaterialNoPhotographyFilled,  IconMaterialNoSimFilled,  IconMaterialNoSoundFilled,  IconMaterialNoStrollerFilled,  IconMaterialNoTransferFilled,  IconMaterialNoiseAwareFilled,  IconMaterialNoiseControlOffFilled,  IconMaterialNoiseControlOnFilled,  IconMaterialNordicWalkingFilled,  IconMaterialNorthEastFilled,  IconMaterialNorthFilled,  IconMaterialNorthWestFilled,  IconMaterialNotAccessibleFilled,  IconMaterialNotAccessibleForwardFilled,  IconMaterialNotStartedFilled,  IconMaterialNotListedLocationFilled,  IconMaterialNoteAddFilled,  IconMaterialNoteAltFilled,  IconMaterialNoteFilled,  IconMaterialNoteStackAddFilled,  IconMaterialNoteStackFilled,  IconMaterialNotificationAddFilled,  IconMaterialNotificationImportantFilled,  IconMaterialNotesFilled,  IconMaterialNotificationMultipleFilled,  IconMaterialNotificationsActiveFilled,  IconMaterialNotificationsOffFilled,  IconMaterialNotificationsFilled,  IconMaterialNotificationsPausedFilled,  IconMaterialNotificationsUnreadFilled,  IconMaterialNumbersFilled,  IconMaterialNutritionFilled,  IconMaterialOdsFilled,  IconMaterialOdtFilled,  IconMaterialOfflineBoltFilled,  IconMaterialOfflinePinFilled,  IconMaterialOfflineShareFilled,  IconMaterialOilBarrelFilled,  IconMaterialOnDeviceTrainingFilled,  IconMaterialOnHubDeviceFilled,  IconMaterialOncologyFilled,  IconMaterialOnlinePredictionFilled,  IconMaterialOnsenFilled,  IconMaterialOpacityFilled,  IconMaterialOpenInBrowserFilled,  IconMaterialOpenInFullFilled,  IconMaterialOpenInNewDownFilled,  IconMaterialOpenInNewFilled,  IconMaterialOpenInNewOffFilled,  IconMaterialOpenInPhoneFilled,  IconMaterialOpenJamFilled,  IconMaterialOphthalmologyFilled,  IconMaterialOpenWithFilled,  IconMaterialOralDiseaseFilled,  IconMaterialOrderApproveFilled,  IconMaterialOrderPlayFilled,  IconMaterialOrdersFilled,  IconMaterialOrthopedicsFilled,  IconMaterialOtherAdmissionFilled,  IconMaterialOtherHousesFilled,  IconMaterialOutboundFilled,  IconMaterialOutboxAltFilled,  IconMaterialOutboxFilled,  IconMaterialOutdoorGrillFilled,  IconMaterialOutdoorGardenFilled,  IconMaterialOutgoingMailFilled,  IconMaterialOutletFilled,  IconMaterialOutpatientFilled,  IconMaterialOutpatientMedFilled,  IconMaterialOutputCircleFilled,  IconMaterialOutputFilled,  IconMaterialOvenGenFilled,  IconMaterialOvenFilled,  IconMaterialOverviewFilled,  IconMaterialOverviewKeyFilled,  IconMaterialOxygenSaturationFilled,  IconMaterialP2pFilled,  IconMaterialPaceFilled,  IconMaterialPacemakerFilled,  IconMaterialPackage2Filled,  IconMaterialPackageFilled,  IconMaterialPaddingFilled,  IconMaterialPageInfoFilled,  IconMaterialPagelessFilled,  IconMaterialPageControlFilled,  IconMaterialPagesFilled,  IconMaterialPageviewFilled,  IconMaterialPaidFilled,  IconMaterialPaletteFilled,  IconMaterialPalletFilled,  IconMaterialPanToolAltFilled,  IconMaterialPanToolFilled,  IconMaterialPanZoomFilled,  IconMaterialPanoramaFilled,  IconMaterialPanoramaFishEyeFilled,  IconMaterialPanoramaHorizontalFilled,  IconMaterialPanoramaPhotosphereFilled,  IconMaterialPanoramaVerticalFilled,  IconMaterialPanoramaWideAngleFilled,  IconMaterialParkFilled,  IconMaterialPartlyCloudyDayFilled,  IconMaterialPartlyCloudyNightFilled,  IconMaterialParaglidingFilled,  IconMaterialPartnerExchangeFilled,  IconMaterialPartnerReportsFilled,  IconMaterialPartyModeFilled,  IconMaterialPasskeyFilled,  IconMaterialPasswordFilled,  IconMaterialPatientListFilled,  IconMaterialPatternFilled,  IconMaterialPausePresentationFilled,  IconMaterialPauseCircleFilled,  IconMaterialPauseFilled,  IconMaterialPaymentsFilled,  IconMaterialPdfOffFilled,  IconMaterialPedalBikeFilled,  IconMaterialPediatricsFilled,  IconMaterialPenSize1Filled,  IconMaterialPenSize2Filled,  IconMaterialPenSize4Filled,  IconMaterialPenSize5Filled,  IconMaterialPenSize3Filled,  IconMaterialPendingActionsFilled,  IconMaterialPendingFilled,  IconMaterialPentagonFilled,  IconMaterialPercentFilled,  IconMaterialPergolaFilled,  IconMaterialPerformanceMaxFilled,  IconMaterialPermCameraMicFilled,  IconMaterialPermContactCalendarFilled,  IconMaterialPermDataSettingFilled,  IconMaterialPermDeviceInformationFilled,  IconMaterialPermMediaFilled,  IconMaterialPermPhoneMsgFilled,  IconMaterialPermScanWifiFilled,  IconMaterialPerson2Filled,  IconMaterialPerson3Filled,  IconMaterialPerson4Filled,  IconMaterialPersonAddDisabledFilled,  IconMaterialPersonAddFilled,  IconMaterialPersonAlertFilled,  IconMaterialPersonApronFilled,  IconMaterialPersonBookFilled,  IconMaterialPersonCancelFilled,  IconMaterialPersonCheckFilled,  IconMaterialPersonCelebrateFilled,  IconMaterialPersonEditFilled,  IconMaterialPersonFilled,  IconMaterialPersonFilledFilled,  IconMaterialPersonOffFilled,  IconMaterialPersonPinCircleFilled,  IconMaterialPersonPinFilled,  IconMaterialPersonPlayFilled,  IconMaterialPersonRaisedHandFilled,  IconMaterialPersonRemoveFilled,  IconMaterialPersonSearchFilled,  IconMaterialPersonalBagOffFilled,  IconMaterialPersonalBagFilled,  IconMaterialPersonalBagQuestionFilled,  IconMaterialPersonalInjuryFilled,  IconMaterialPersonalPlacesFilled,  IconMaterialPestControlRodentFilled,  IconMaterialPestControlFilled,  IconMaterialPetSuppliesFilled,  IconMaterialPetsFilled,  IconMaterialPhishingFilled,  IconMaterialPhoneAndroidFilled,  IconMaterialPhoneBluetoothSpeakerFilled,  IconMaterialPhoneCallbackFilled,  IconMaterialPhoneDisabledFilled,  IconMaterialPhoneEnabledFilled,  IconMaterialPhoneForwardedFilled,  IconMaterialPhoneInTalkFilled,  IconMaterialPhoneInTalkWatchfaceIndicatorFilled,  IconMaterialPhoneIphoneFilled,  IconMaterialPhoneLockedFilled,  IconMaterialPhonePausedFilled,  IconMaterialPhoneMissedFilled,  IconMaterialPhonelinkEraseFilled,  IconMaterialPhonelinkLockFilled,  IconMaterialPhonelinkOffFilled,  IconMaterialPhonelinkRingFilled,  IconMaterialPhonelinkRingOffFilled,  IconMaterialPhonelinkSetupFilled,  IconMaterialPhotoAlbumFilled,  IconMaterialPhotoAutoMergeFilled,  IconMaterialPhotoCameraBackFilled,  IconMaterialPhotoCameraFilled,  IconMaterialPhotoCameraFrontFilled,  IconMaterialPhotoFilled,  IconMaterialPhotoFilterFilled,  IconMaterialPhotoFrameFilled,  IconMaterialPhotoLibraryFilled,  IconMaterialPhotoPrintsFilled,  IconMaterialPhotoSizeSelectLargeFilled,  IconMaterialPhotoSizeSelectSmallFilled,  IconMaterialPhpFilled,  IconMaterialPhysicalTherapyFilled,  IconMaterialPianoOffFilled,  IconMaterialPianoFilled,  IconMaterialPictureAsPdfFilled,  IconMaterialPictureInPictureAltFilled,  IconMaterialPictureInPictureCenterFilled,  IconMaterialPictureInPictureLargeFilled,  IconMaterialPictureInPictureMediumFilled,  IconMaterialPictureInPictureFilled,  IconMaterialPictureInPictureMobileFilled,  IconMaterialPictureInPictureOffFilled,  IconMaterialPictureInPictureSmallFilled,  IconMaterialPieChartFilled,  IconMaterialPillOffFilled,  IconMaterialPillFilled,  IconMaterialPinDropFilled,  IconMaterialPinEndFilled,  IconMaterialPinFilled,  IconMaterialPinInvokeFilled,  IconMaterialPinchFilled,  IconMaterialPinchZoomInFilled,  IconMaterialPinchZoomOutFilled,  IconMaterialPipFilled,  IconMaterialPipExitFilled,  IconMaterialPixel33xl3aFilled,  IconMaterialPivotTableChartFilled,  IconMaterialPlagiarismFilled,  IconMaterialPlaceItemFilled,  IconMaterialPlannerReviewFilled,  IconMaterialPlayCircleFilled,  IconMaterialPlayArrowFilled,  IconMaterialPlannerBannerAdPtFilled,  IconMaterialPlayDisabledFilled,  IconMaterialPlayForWorkFilled,  IconMaterialPlayLessonFilled,  IconMaterialPlayPauseFilled,  IconMaterialPlayingCardsFilled,  IconMaterialPlayShapesFilled,  IconMaterialPlaylistAddCheckCircleFilled,  IconMaterialPlaylistAddCheckFilled,  IconMaterialPlaylistAddCircleFilled,  IconMaterialPlaylistAddFilled,  IconMaterialPlaylistPlayFilled,  IconMaterialPlaylistRemoveFilled,  IconMaterialPlumbingFilled,  IconMaterialPodcastsFilled,  IconMaterialPodiatryFilled,  IconMaterialPointOfSaleFilled,  IconMaterialPodiumFilled,  IconMaterialPointScanFilled,  IconMaterialPolicyFilled,  IconMaterialPolylineFilled,  IconMaterialPolymerFilled,  IconMaterialPoolFilled,  IconMaterialPortableWifiOffFilled,  IconMaterialPortraitLightingOffFilled,  IconMaterialPortraitLightingFilled,  IconMaterialPositionBottomLeftFilled,  IconMaterialPositionBottomRightFilled,  IconMaterialPositionTopRightFilled,  IconMaterialPostAddFilled,  IconMaterialPostFilled,  IconMaterialPottedPlantFilled,  IconMaterialPowerFilled,  IconMaterialPowerInputFilled,  IconMaterialPowerOffFilled,  IconMaterialPowerRoundedFilled,  IconMaterialPowerSettingsNewFilled,  IconMaterialPrayerTimesFilled,  IconMaterialPrecisionManufacturingFilled,  IconMaterialPregnancyFilled,  IconMaterialPreliminaryFilled,  IconMaterialPregnantWomanFilled,  IconMaterialPrescriptionsFilled,  IconMaterialPresentToAllFilled,  IconMaterialPreviewOffFilled,  IconMaterialPreviewFilled,  IconMaterialPriceChangeFilled,  IconMaterialPriceCheckFilled,  IconMaterialPrintAddFilled,  IconMaterialPrintConnectFilled,  IconMaterialPrintDisabledFilled,  IconMaterialPrintErrorFilled,  IconMaterialPrintFilled,  IconMaterialPrintLockFilled,  IconMaterialPriorityFilled,  IconMaterialPriorityHighFilled,  IconMaterialPrivacyFilled,  IconMaterialPrivacyScreenFilled,  IconMaterialPrivacyScreenOffFilled,  IconMaterialPrivacyTipFilled,  IconMaterialPrivateConnectivityFilled,  IconMaterialProblemFilled,  IconMaterialProcedureFilled,  IconMaterialProcessChartFilled,  IconMaterialProductionQuantityLimitsFilled,  IconMaterialProductivityFilled,  IconMaterialProgressActivityFilled,  IconMaterialPromptSuggestionFilled,  IconMaterialPropaneFilled,  IconMaterialPropaneTankFilled,  IconMaterialPsychiatryFilled,  IconMaterialPsychologyAltFilled,  IconMaterialPublicFilled,  IconMaterialPublicOffFilled,  IconMaterialPsychologyFilled,  IconMaterialPublishFilled,  IconMaterialPublishedWithChangesFilled,  IconMaterialPulmonologyFilled,  IconMaterialPulseAlertFilled,  IconMaterialPunchClockFilled,  IconMaterialPushPinFilled,  IconMaterialQrCode2AddFilled,  IconMaterialQrCode2Filled,  IconMaterialQrCodeFilled,  IconMaterialQrCodeScannerFilled,  IconMaterialQuestionExchangeFilled,  IconMaterialQueryStatsFilled,  IconMaterialQuestionMarkFilled,  IconMaterialQueueMusicFilled,  IconMaterialQueuePlayNextFilled,  IconMaterialQuickPhrasesFilled,  IconMaterialQuickReferenceAllFilled,  IconMaterialQuickReferenceFilled,  IconMaterialQuickReorderFilled,  IconMaterialQuickreplyFilled,  IconMaterialQuietTimeActiveFilled,  IconMaterialQuietTimeFilled,  IconMaterialQuizFilled,  IconMaterialRMobiledataFilled,  IconMaterialRadarFilled,  IconMaterialRadioButtonCheckedFilled,  IconMaterialRadioButtonPartialFilled,  IconMaterialRadioButtonUncheckedFilled,  IconMaterialRadioFilled,  IconMaterialRadiologyFilled,  IconMaterialRainyFilled,  IconMaterialRailwayAlertFilled,  IconMaterialRainyHeavyFilled,  IconMaterialRainyLightFilled,  IconMaterialRainySnowFilled,  IconMaterialRamenDiningFilled,  IconMaterialRampLeftFilled,  IconMaterialRampRightFilled,  IconMaterialRangeHoodFilled,  IconMaterialRateReviewFilled,  IconMaterialRavenFilled,  IconMaterialRawOffFilled,  IconMaterialRawOnFilled,  IconMaterialReadMoreFilled,  IconMaterialRealEstateAgentFilled,  IconMaterialRearCameraFilled,  IconMaterialReadinessScoreFilled,  IconMaterialRebaseEditFilled,  IconMaterialRebaseFilled,  IconMaterialReceiptFilled,  IconMaterialReceiptLongFilled,  IconMaterialRecentActorsFilled,  IconMaterialRecentPatientFilled,  IconMaterialRecommendFilled,  IconMaterialRecordVoiceOverFilled,  IconMaterialRectangleFilled,  IconMaterialRecyclingFilled,  IconMaterialRedeemFilled,  IconMaterialRedoFilled,  IconMaterialReduceCapacityFilled,  IconMaterialRefreshFilled,  IconMaterialRegularExpressionFilled,  IconMaterialRelaxFilled,  IconMaterialReleaseAlertFilled,  IconMaterialRememberMeFilled,  IconMaterialReminderFilled,  IconMaterialRemoteGenFilled,  IconMaterialRemoveDoneFilled,  IconMaterialRemoveFilled,  IconMaterialRemoveFromQueueFilled,  IconMaterialRemoveModeratorFilled,  IconMaterialRemoveSelectionFilled,  IconMaterialRemoveShoppingCartFilled,  IconMaterialRemoveRoadFilled,  IconMaterialReopenWindowFilled,  IconMaterialReorderFilled,  IconMaterialRepartitionFilled,  IconMaterialRepeatFilled,  IconMaterialRepeatOnFilled,  IconMaterialRepeatOneFilled,  IconMaterialRepeatOneOnFilled,  IconMaterialReplay10Filled,  IconMaterialReplay30Filled,  IconMaterialReplay5Filled,  IconMaterialReplayCircleFilled,  IconMaterialReplayFilled,  IconMaterialReplayCircleFilledFilled,  IconMaterialReplyAllFilled,  IconMaterialReplyFilled,  IconMaterialReportFilled,  IconMaterialReportOffFilled,  IconMaterialRequestPageFilled,  IconMaterialRequestQuoteFilled,  IconMaterialResetImageFilled,  IconMaterialResetTvFilled,  IconMaterialResetWrenchFilled,  IconMaterialResizeFilled,  IconMaterialRespiratoryRateFilled,  IconMaterialResponsiveLayoutFilled,  IconMaterialRestartAltFilled,  IconMaterialRestaurantMenuFilled,  IconMaterialRestaurantFilled,  IconMaterialRestoreFromTrashFilled,  IconMaterialRestorePageFilled,  IconMaterialResumeFilled,  IconMaterialReviewsFilled,  IconMaterialRewardedAdsFilled,  IconMaterialRheumatologyFilled,  IconMaterialRibCageFilled,  IconMaterialRiceBowlFilled,  IconMaterialRightClickFilled,  IconMaterialRightPanelCloseFilled,  IconMaterialRightPanelOpenFilled,  IconMaterialRingVolumeFilled,  IconMaterialRipplesFilled,  IconMaterialRobot2Filled,  IconMaterialRocketFilled,  IconMaterialRobotFilled,  IconMaterialRocketLaunchFilled,  IconMaterialRollerShadesClosedFilled,  IconMaterialRollerShadesFilled,  IconMaterialRollerSkatingFilled,  IconMaterialRoofingFilled,  IconMaterialRoomPreferencesFilled,  IconMaterialRoomServiceFilled,  IconMaterialRotate90DegreesCcwFilled,  IconMaterialRotateLeftFilled,  IconMaterialRotate90DegreesCwFilled,  IconMaterialRoundaboutLeftFilled,  IconMaterialRotateRightFilled,  IconMaterialRoundaboutRightFilled,  IconMaterialRouteFilled,  IconMaterialRoundedCornerFilled,  IconMaterialRouterFilled,  IconMaterialRoutineFilled,  IconMaterialRowingFilled,  IconMaterialRssFeedFilled,  IconMaterialRsvpFilled,  IconMaterialRttFilled,  IconMaterialRubricFilled,  IconMaterialRuleFilled,  IconMaterialRuleFolderFilled,  IconMaterialRuleSettingsFilled,  IconMaterialRunCircleFilled,  IconMaterialRunningWithErrorsFilled,  IconMaterialRvHookupFilled,  IconMaterialSadTabFilled,  IconMaterialSafetyCheckFilled,  IconMaterialSafetyCheckOffFilled,  IconMaterialSailingFilled,  IconMaterialSafetyDividerFilled,  IconMaterialSalinityFilled,  IconMaterialSatelliteFilled,  IconMaterialSanitizerFilled,  IconMaterialSatelliteAltFilled,  IconMaterialSaunaFilled,  IconMaterialSaveAsFilled,  IconMaterialSaveFilled,  IconMaterialSavedSearchFilled,  IconMaterialSavingsFilled,  IconMaterialScaleFilled,  IconMaterialScanDeleteFilled,  IconMaterialScanFilled,  IconMaterialScannerFilled,  IconMaterialScatterPlotFilled,  IconMaterialSceneFilled,  IconMaterialScheduleFilled,  IconMaterialScheduleSendFilled,  IconMaterialSchemaFilled,  IconMaterialSchoolFilled,  IconMaterialScienceFilled,  IconMaterialScienceOffFilled,  IconMaterialScoreFilled,  IconMaterialScoreboardFilled,  IconMaterialScreenLockLandscapeFilled,  IconMaterialScreenLockPortraitFilled,  IconMaterialScreenLockRotationFilled,  IconMaterialScreenRecordFilled,  IconMaterialScreenRotationAltFilled,  IconMaterialScreenRotationFilled,  IconMaterialScreenRotationUpFilled,  IconMaterialScreenShareFilled,  IconMaterialScreenSearchDesktopFilled,  IconMaterialScreencastFilled,  IconMaterialScreenshotFilled,  IconMaterialScreenshotKeyboardFilled,  IconMaterialScreenshotFrameFilled,  IconMaterialScreenshotRegionFilled,  IconMaterialScreenshotMonitorFilled,  IconMaterialScreenshotTabletFilled,  IconMaterialScrollableHeaderFilled,  IconMaterialScubaDivingFilled,  IconMaterialSdCardAlertFilled,  IconMaterialSdCardFilled,  IconMaterialSdFilled,  IconMaterialSdkFilled,  IconMaterialSearchCheckFilled,  IconMaterialSearchFilled,  IconMaterialSearchHandsFreeFilled,  IconMaterialSearchOffFilled,  IconMaterialSecurityKeyFilled,  IconMaterialSecurityFilled,  IconMaterialSecurityUpdateGoodFilled,  IconMaterialSegmentFilled,  IconMaterialSelectAllFilled,  IconMaterialSecurityUpdateWarningFilled,  IconMaterialSelectCheckBoxFilled,  IconMaterialSelectFilled,  IconMaterialSelectToSpeakFilled,  IconMaterialSelectWindowFilled,  IconMaterialSelectWindowOffFilled,  IconMaterialSelfCareFilled,  IconMaterialSelfImprovementFilled,  IconMaterialSellFilled,  IconMaterialSendAndArchiveFilled,  IconMaterialSendFilled,  IconMaterialSendMoneyFilled,  IconMaterialSendToMobileFilled,  IconMaterialSendTimeExtensionFilled,  IconMaterialSensorDoorFilled,  IconMaterialSensorOccupiedFilled,  IconMaterialSensorWindowFilled,  IconMaterialSensorsFilled,  IconMaterialSensorsKrxOffFilled,  IconMaterialSensorsKrxFilled,  IconMaterialSensorsOffFilled,  IconMaterialSentimentCalmFilled,  IconMaterialSentimentContentFilled,  IconMaterialSentimentDissatisfiedFilled,  IconMaterialSentimentExcitedFilled,  IconMaterialSentimentExtremelyDissatisfiedFilled,  IconMaterialSentimentFrustratedFilled,  IconMaterialSentimentNeutralFilled,  IconMaterialSentimentSadFilled,  IconMaterialSentimentSatisfiedFilled,  IconMaterialSentimentStressedFilled,  IconMaterialSentimentVeryDissatisfiedFilled,  IconMaterialSentimentVerySatisfiedFilled,  IconMaterialSentimentWorriedFilled,  IconMaterialServiceToolboxFilled,  IconMaterialSetMealFilled,  IconMaterialSettingsAccessibilityFilled,  IconMaterialSettingsAccountBoxFilled,  IconMaterialSettingsAlertFilled,  IconMaterialSettingsApplicationsFilled,  IconMaterialSettingsBackupRestoreFilled,  IconMaterialSettingsBRollFilled,  IconMaterialSettingsBrightnessFilled,  IconMaterialSettingsBluetoothFilled,  IconMaterialSettingsCellFilled,  IconMaterialSettingsEthernetFilled,  IconMaterialSettingsFilled,  IconMaterialSettingsCinematicBlurFilled,  IconMaterialSettingsInputComponentFilled,  IconMaterialSettingsHeartFilled,  IconMaterialSettingsInputAntennaFilled,  IconMaterialSettingsInputHdmiFilled,  IconMaterialSettingsInputSvideoFilled,  IconMaterialSettingsMotionModeFilled,  IconMaterialSettingsNightSightFilled,  IconMaterialSettingsPanoramaFilled,  IconMaterialSettingsOverscanFilled,  IconMaterialSettingsPhoneFilled,  IconMaterialSettingsPhotoCameraFilled,  IconMaterialSettingsPowerFilled,  IconMaterialSettingsRemoteFilled,  IconMaterialSettingsSlowMotionFilled,  IconMaterialSettingsSuggestFilled,  IconMaterialSettingsSystemDaydreamFilled,  IconMaterialSettingsVideoCameraFilled,  IconMaterialSettingsTimelapseFilled,  IconMaterialSettingsVoiceFilled,  IconMaterialSettopComponentFilled,  IconMaterialSevereColdFilled,  IconMaterialShadowAddFilled,  IconMaterialShadowFilled,  IconMaterialShadowMinusFilled,  IconMaterialShapeLineFilled,  IconMaterialShareFilled,  IconMaterialShareLocationFilled,  IconMaterialShareOffFilled,  IconMaterialShareReviewsFilled,  IconMaterialShareWindowsFilled,  IconMaterialShelfAutoHideFilled,  IconMaterialShapesFilled,  IconMaterialShelfPositionFilled,  IconMaterialSheetsRtlFilled,  IconMaterialShieldFilled,  IconMaterialShieldLockFilled,  IconMaterialShelvesFilled,  IconMaterialShieldLockedFilled,  IconMaterialShieldMoonFilled,  IconMaterialShieldPersonFilled,  IconMaterialShieldSparkFilled,  IconMaterialShieldQuestionFilled,  IconMaterialShieldWithHeartFilled,  IconMaterialShieldWithHouseFilled,  IconMaterialShiftFilled,  IconMaterialShiftLockFilled,  IconMaterialShopTwoFilled,  IconMaterialShopFilled,  IconMaterialShoppingBagFilled,  IconMaterialShoppingBasketFilled,  IconMaterialShoppingCartCheckoutFilled,  IconMaterialShoppingCartFilled,  IconMaterialShoppingCartOffFilled,  IconMaterialShoppingmodeFilled,  IconMaterialShortStayFilled,  IconMaterialShortTextFilled,  IconMaterialShowerFilled,  IconMaterialShowChartFilled,  IconMaterialShuffleFilled,  IconMaterialShuffleOnFilled,  IconMaterialShutterSpeedAddFilled,  IconMaterialShutterSpeedFilled,  IconMaterialShutterSpeedMinusFilled,  IconMaterialSickFilled,  IconMaterialSideNavigationFilled,  IconMaterialSignLanguageFilled,  IconMaterialSignalCellular0BarFilled,  IconMaterialSignalCellular1BarFilled,  IconMaterialSignalCellular2BarFilled,  IconMaterialSignalCellular3BarFilled,  IconMaterialSignalCellular4BarFilled,  IconMaterialSignalCellularAddFilled,  IconMaterialSignalCellularAlt1BarFilled,  IconMaterialSignalCellularAlt2BarFilled,  IconMaterialSignalCellularAltFilled,  IconMaterialSignalCellularConnectedNoInternet0BarFilled,  IconMaterialSignalCellularConnectedNoInternet4BarFilled,  IconMaterialSignalCellularNodataFilled,  IconMaterialSignalCellularNullFilled,  IconMaterialSignalCellularOffFilled,  IconMaterialSignalCellularPauseFilled,  IconMaterialSignalWifi0BarFilled,  IconMaterialSignalWifi4BarFilled,  IconMaterialSignalWifiBadFilled,  IconMaterialSignalWifiOffFilled,  IconMaterialSignalWifiStatusbarNotConnectedFilled,  IconMaterialSignalWifiStatusbarNullFilled,  IconMaterialSignatureFilled,  IconMaterialSignalDisconnectedFilled,  IconMaterialSignpostFilled,  IconMaterialSimCardDownloadFilled,  IconMaterialSimCardFilled,  IconMaterialSingleBedFilled,  IconMaterialSipFilled,  IconMaterialSkateboardingFilled,  IconMaterialSkeletonFilled,  IconMaterialSkilletCooktopFilled,  IconMaterialSkilletFilled,  IconMaterialSkipNextFilled,  IconMaterialSkipPreviousFilled,  IconMaterialSkullFilled,  IconMaterialSleepFilled,  IconMaterialSleddingFilled,  IconMaterialSleepScoreFilled,  IconMaterialSlideLibraryFilled,  IconMaterialSlidersFilled,  IconMaterialSlideshowFilled,  IconMaterialSmartButtonFilled,  IconMaterialSlowMotionVideoFilled,  IconMaterialSmartDisplayFilled,  IconMaterialSmartOutletFilled,  IconMaterialSmartScreenFilled,  IconMaterialSmartToyFilled,  IconMaterialSmartVentilationFilled,  IconMaterialSmartphoneFilled,  IconMaterialSmbShareFilled,  IconMaterialSmokeFreeFilled,  IconMaterialSmokingRoomsFilled,  IconMaterialSmsFilled,  IconMaterialSmsFailedFilled,  IconMaterialSnippetFolderFilled,  IconMaterialSnoozeFilled,  IconMaterialSnowboardingFilled,  IconMaterialSnowingFilled,  IconMaterialSnowingHeavyFilled,  IconMaterialSnowmobileFilled,  IconMaterialSnowshoeingFilled,  IconMaterialSocialDistanceFilled,  IconMaterialSoapFilled,  IconMaterialSocialLeaderboardFilled,  IconMaterialSortByAlphaFilled,  IconMaterialSortFilled,  IconMaterialSosFilled,  IconMaterialSoundDetectionDogBarkingFilled,  IconMaterialSoundDetectionGlassBreakFilled,  IconMaterialSoundDetectionLoudSoundFilled,  IconMaterialSoundSamplerFilled,  IconMaterialSoupKitchenFilled,  IconMaterialSourceEnvironmentFilled,  IconMaterialSourceNotesFilled,  IconMaterialSouthAmericaFilled,  IconMaterialSouthEastFilled,  IconMaterialSouthFilled,  IconMaterialSouthWestFilled,  IconMaterialSpaFilled,  IconMaterialSpaceBarFilled,  IconMaterialSpaceDashboardFilled,  IconMaterialSpatialAudioOffFilled,  IconMaterialSpatialAudioFilled,  IconMaterialSolarPowerFilled,  IconMaterialSpatialTrackingFilled,  IconMaterialSpeakerFilled,  IconMaterialSpeakerGroupFilled,  IconMaterialSpeakerNotesFilled,  IconMaterialSpeakerNotesOffFilled,  IconMaterialSpeakerPhoneFilled,  IconMaterialSpecialCharacterFilled,  IconMaterialSpecificGravityFilled,  IconMaterialSpeechToTextFilled,  IconMaterialSpeedFilled,  IconMaterialSpellcheckFilled,  IconMaterialSplitscreenAddFilled,  IconMaterialSplitscreenBottomFilled,  IconMaterialSplitscreenFilled,  IconMaterialSplitscreenLeftFilled,  IconMaterialSplitscreenRightFilled,  IconMaterialSplitscreenTopFilled,  IconMaterialSplitscreenVerticalAddFilled,  IconMaterialSpo2Filled,  IconMaterialSpokeFilled,  IconMaterialSpoofFilled,  IconMaterialSportsAndOutdoorsFilled,  IconMaterialSportsBarFilled,  IconMaterialSportsBaseballFilled,  IconMaterialSportsBasketballFilled,  IconMaterialSportsCricketFilled,  IconMaterialSportsEsportsFilled,  IconMaterialSportsFilled,  IconMaterialSportsFootballFilled,  IconMaterialSportsGymnasticsFilled,  IconMaterialSportsHandballFilled,  IconMaterialSportsGolfFilled,  IconMaterialSportsHockeyFilled,  IconMaterialSportsKabaddiFilled,  IconMaterialSportsMartialArtsFilled,  IconMaterialSportsMmaFilled,  IconMaterialSportsMotorsportsFilled,  IconMaterialSportsRugbyFilled,  IconMaterialSportsScoreFilled,  IconMaterialSportsSoccerFilled,  IconMaterialSportsTennisFilled,  IconMaterialSportsVolleyballFilled,  IconMaterialSprinklerFilled,  IconMaterialSquareFilled,  IconMaterialSquareFootFilled,  IconMaterialSprintFilled,  IconMaterialSsidChartFilled,  IconMaterialStackFilled,  IconMaterialStackOffFilled,  IconMaterialStackStarFilled,  IconMaterialStackedBarChartFilled,  IconMaterialStackedEmailFilled,  IconMaterialStackedInboxFilled,  IconMaterialStackedLineChartFilled,  IconMaterialStacksFilled,  IconMaterialStadiaControllerFilled,  IconMaterialStadiumFilled,  IconMaterialStairsFilled,  IconMaterialStarFilled,  IconMaterialStarHalfFilled,  IconMaterialStarRateFilled,  IconMaterialStarRateHalfFilled,  IconMaterialStarsFilled,  IconMaterialStartFilled,  IconMaterialStat0Filled,  IconMaterialStat1Filled,  IconMaterialStat2Filled,  IconMaterialStat3Filled,  IconMaterialStatMinus1Filled,  IconMaterialStatMinus2Filled,  IconMaterialStatMinus3Filled,  IconMaterialStayCurrentLandscapeFilled,  IconMaterialStayCurrentPortraitFilled,  IconMaterialStayPrimaryLandscapeFilled,  IconMaterialStayPrimaryPortraitFilled,  IconMaterialStepFilled,  IconMaterialStepIntoFilled,  IconMaterialStepOutFilled,  IconMaterialStepOverFilled,  IconMaterialSteppersFilled,  IconMaterialStepsFilled,  IconMaterialStethoscopeArrowFilled,  IconMaterialStethoscopeCheckFilled,  IconMaterialStethoscopeFilled,  IconMaterialStickyNote2Filled,  IconMaterialStickyNoteFilled,  IconMaterialStockMediaFilled,  IconMaterialStockpotFilled,  IconMaterialStopCircleFilled,  IconMaterialStopScreenShareFilled,  IconMaterialStopFilled,  IconMaterialStorageFilled,  IconMaterialStoreFilled,  IconMaterialStorefrontFilled,  IconMaterialStormFilled,  IconMaterialStraightFilled,  IconMaterialStrategyFilled,  IconMaterialStraightenFilled,  IconMaterialStreamAppsFilled,  IconMaterialStreamFilled,  IconMaterialStreetviewFilled,  IconMaterialStressManagementFilled,  IconMaterialStrikethroughSFilled,  IconMaterialStrokeFullFilled,  IconMaterialStrokePartialFilled,  IconMaterialStyleFilled,  IconMaterialStylerFilled,  IconMaterialStrollerFilled,  IconMaterialStylusLaserPointerFilled,  IconMaterialStylusFilled,  IconMaterialStylusNoteFilled,  IconMaterialSubdirectoryArrowLeftFilled,  IconMaterialSubdirectoryArrowRightFilled,  IconMaterialSubheaderFilled,  IconMaterialSubjectFilled,  IconMaterialSubscriptFilled,  IconMaterialSubscriptionsFilled,  IconMaterialSubtitlesFilled,  IconMaterialSubwayFilled,  IconMaterialSubtitlesOffFilled,  IconMaterialSummarizeFilled,  IconMaterialSunnyFilled,  IconMaterialSunnySnowingFilled,  IconMaterialSuperscriptFilled,  IconMaterialSupervisedUserCircleFilled,  IconMaterialSupervisedUserCircleOffFilled,  IconMaterialSupervisorAccountFilled,  IconMaterialSupportAgentFilled,  IconMaterialSupportFilled,  IconMaterialSurfingFilled,  IconMaterialSurroundSoundFilled,  IconMaterialSurgicalFilled,  IconMaterialSwapCallsFilled,  IconMaterialSwapDrivingAppsFilled,  IconMaterialSwapDrivingAppsWheelFilled,  IconMaterialSwapHorizFilled,  IconMaterialSwapHorizontalCircleFilled,  IconMaterialSwapVertFilled,  IconMaterialSwapVerticalCircleFilled,  IconMaterialSweepFilled,  IconMaterialSwipeDownAltFilled,  IconMaterialSwipeDownFilled,  IconMaterialSwipeFilled,  IconMaterialSwipeLeftAltFilled,  IconMaterialSwipeLeftFilled,  IconMaterialSwipeRightAltFilled,  IconMaterialSwipeRightFilled,  IconMaterialSwipeUpAltFilled,  IconMaterialSwipeUpFilled,  IconMaterialSwipeVerticalFilled,  IconMaterialSwitchAccess2Filled,  IconMaterialSwitchAccessFilled,  IconMaterialSwitchAccessShortcutAddFilled,  IconMaterialSwitchAccountFilled,  IconMaterialSwitchAccessShortcutFilled,  IconMaterialSwitchCameraFilled,  IconMaterialSwitchFilled,  IconMaterialSwitchLeftFilled,  IconMaterialSwitchRightFilled,  IconMaterialSwitchVideoFilled,  IconMaterialSwitchesFilled,  IconMaterialSwordsFilled,  IconMaterialSwordRoseFilled,  IconMaterialSymptomsFilled,  IconMaterialSynagogueFilled,  IconMaterialSyncAltFilled,  IconMaterialSyncDisabledFilled,  IconMaterialSyncLockFilled,  IconMaterialSyncFilled,  IconMaterialSyncProblemFilled,  IconMaterialSyncSavedLocallyFilled,  IconMaterialSyringeFilled,  IconMaterialSystemUpdateAltFilled,  IconMaterialSystemUpdateFilled,  IconMaterialTabCloseFilled,  IconMaterialTabCloseRightFilled,  IconMaterialTabFilled,  IconMaterialTabDuplicateFilled,  IconMaterialTabGroupFilled,  IconMaterialTabMoveFilled,  IconMaterialTabNewRightFilled,  IconMaterialTabRecentFilled,  IconMaterialTabUnselectedFilled,  IconMaterialTableBarFilled,  IconMaterialTableChartFilled,  IconMaterialTableChartViewFilled,  IconMaterialTableFilled,  IconMaterialTableLampFilled,  IconMaterialTableRestaurantFilled,  IconMaterialTableRowsFilled,  IconMaterialTableViewFilled,  IconMaterialTableRowsNarrowFilled,  IconMaterialTabletAndroidFilled,  IconMaterialTabletFilled,  IconMaterialTabletMacFilled,  IconMaterialTacticFilled,  IconMaterialTabsFilled,  IconMaterialTagFilled,  IconMaterialTakeoutDiningFilled,  IconMaterialTamperDetectionOffFilled,  IconMaterialTamperDetectionOnFilled,  IconMaterialTapAndPlayFilled,  IconMaterialTargetFilled,  IconMaterialTapasFilled,  IconMaterialTaskFilled,  IconMaterialTaskAltFilled,  IconMaterialTauntFilled,  IconMaterialTaxiAlertFilled,  IconMaterialTempPreferencesCustomFilled,  IconMaterialTeamDashboardFilled,  IconMaterialTempPreferencesEcoFilled,  IconMaterialTempleBuddhistFilled,  IconMaterialTenancyFilled,  IconMaterialTerminalFilled,  IconMaterialTextAdFilled,  IconMaterialTextDecreaseFilled,  IconMaterialTempleHinduFilled,  IconMaterialTextFieldsFilled,  IconMaterialTextFieldsAltFilled,  IconMaterialTextFormatFilled,  IconMaterialTextIncreaseFilled,  IconMaterialTextRotateUpFilled,  IconMaterialTextRotateVerticalFilled,  IconMaterialTextRotationAngledownFilled,  IconMaterialTextRotationAngleupFilled,  IconMaterialTextRotationDownFilled,  IconMaterialTextRotationNoneFilled,  IconMaterialTextSelectEndFilled,  IconMaterialTextSelectJumpToBeginningFilled,  IconMaterialTextSelectJumpToEndFilled,  IconMaterialTextSelectMoveDownFilled,  IconMaterialTextSelectMoveBackWordFilled,  IconMaterialTextSelectMoveBackCharacterFilled,  IconMaterialTextSelectMoveForwardCharacterFilled,  IconMaterialTextSelectMoveForwardWordFilled,  IconMaterialTextSelectMoveUpFilled,  IconMaterialTextSelectStartFilled,  IconMaterialTextSnippetFilled,  IconMaterialTextToSpeechFilled,  IconMaterialTextureAddFilled,  IconMaterialTextureFilled,  IconMaterialTextureMinusFilled,  IconMaterialTheaterComedyFilled,  IconMaterialTheatersFilled,  IconMaterialThermometerAddFilled,  IconMaterialThermometerFilled,  IconMaterialThermometerGainFilled,  IconMaterialThermometerLossFilled,  IconMaterialThermometerMinusFilled,  IconMaterialThermostatAutoFilled,  IconMaterialThermostatFilled,  IconMaterialThermostatCarbonFilled,  IconMaterialThingsToDoFilled,  IconMaterialThreadUnreadFilled,  IconMaterialThumbDownOffFilled,  IconMaterialThumbDownFilled,  IconMaterialThumbUpFilled,  IconMaterialThumbUpOffFilled,  IconMaterialThumbnailBarFilled,  IconMaterialThumbsUpDownFilled,  IconMaterialThunderstormFilled,  IconMaterialTibiaAltFilled,  IconMaterialTibiaFilled,  IconMaterialTimeAutoFilled,  IconMaterialTimelineFilled,  IconMaterialTimelapseFilled,  IconMaterialTimer10Alt1Filled,  IconMaterialTimer10SelectFilled,  IconMaterialTimer10Filled,  IconMaterialTimer3Alt1Filled,  IconMaterialTimer3SelectFilled,  IconMaterialTimerFilled,  IconMaterialTimerOffFilled,  IconMaterialTimer3Filled,  IconMaterialTipsAndUpdatesFilled,  IconMaterialTireRepairFilled,  IconMaterialTitleFilled,  IconMaterialToastFilled,  IconMaterialTocFilled,  IconMaterialTodayFilled,  IconMaterialToggleOffFilled,  IconMaterialToggleOnFilled,  IconMaterialTokenFilled,  IconMaterialTonalityFilled,  IconMaterialTollFilled,  IconMaterialToolbarFilled,  IconMaterialToolsFlatHeadFilled,  IconMaterialToolsInstallationKitFilled,  IconMaterialToolsLadderFilled,  IconMaterialToolsLevelFilled,  IconMaterialToolsPhillipsFilled,  IconMaterialToolsPliersWireStripperFilled,  IconMaterialToolsPowerDrillFilled,  IconMaterialToolsWrenchFilled,  IconMaterialTooltipFilled,  IconMaterialTopPanelCloseFilled,  IconMaterialTopPanelOpenFilled,  IconMaterialTopicFilled,  IconMaterialTornadoFilled,  IconMaterialTotalDissolvedSolidsFilled,  IconMaterialTouchAppFilled,  IconMaterialTouchpadMouseFilled,  IconMaterialTourFilled,  IconMaterialToysAndGamesFilled,  IconMaterialToysFilled,  IconMaterialToysFanFilled,  IconMaterialTrackChangesFilled,  IconMaterialTrafficFilled,  IconMaterialTrailLengthMediumFilled,  IconMaterialTrailLengthFilled,  IconMaterialTrailLengthShortFilled,  IconMaterialTrainFilled,  IconMaterialTramFilled,  IconMaterialTranscribeFilled,  IconMaterialTransferWithinAStationFilled,  IconMaterialTransformFilled,  IconMaterialTransgenderFilled,  IconMaterialTransitEnterexitFilled,  IconMaterialTransitionDissolveFilled,  IconMaterialTransitionChopFilled,  IconMaterialTransitionFadeFilled,  IconMaterialTransitionPushFilled,  IconMaterialTranslateFilled,  IconMaterialTransitionSlideFilled,  IconMaterialTransportationFilled,  IconMaterialTravelExploreFilled,  IconMaterialTravelFilled,  IconMaterialTravelLuggageAndBagsFilled,  IconMaterialTrendingFlatFilled,  IconMaterialTrendingDownFilled,  IconMaterialTrendingUpFilled,  IconMaterialTripFilled,  IconMaterialTripOriginFilled,  IconMaterialTrolleyFilled,  IconMaterialTrophyFilled,  IconMaterialTroubleshootFilled,  IconMaterialTsunamiFilled,  IconMaterialTsvFilled,  IconMaterialTuneFilled,  IconMaterialTtyFilled,  IconMaterialTurnLeftFilled,  IconMaterialTurnRightFilled,  IconMaterialTurnSharpLeftFilled,  IconMaterialTurnSharpRightFilled,  IconMaterialTurnSlightLeftFilled,  IconMaterialTurnSlightRightFilled,  IconMaterialTvGenFilled,  IconMaterialTvFilled,  IconMaterialTvOffFilled,  IconMaterialTvGuideFilled,  IconMaterialTvOptionsEditChannelsFilled,  IconMaterialTvOptionsInputSettingsFilled,  IconMaterialTvRemoteFilled,  IconMaterialTvSigninFilled,  IconMaterialTvWithAssistantFilled,  IconMaterialTwoPagerFilled,  IconMaterialTwoWheelerFilled,  IconMaterialTypeSpecimenFilled,  IconMaterialUTurnLeftFilled,  IconMaterialUTurnRightFilled,  IconMaterialUlnaRadiusAltFilled,  IconMaterialUmbrellaFilled,  IconMaterialUlnaRadiusFilled,  IconMaterialUnarchiveFilled,  IconMaterialUndoFilled,  IconMaterialUnfloatLandscapeFilled,  IconMaterialUnfloatPortraitFilled,  IconMaterialUnfoldLessDoubleFilled,  IconMaterialUnfoldLessFilled,  IconMaterialUnfoldMoreFilled,  IconMaterialUnfoldMoreDoubleFilled,  IconMaterialUngroupFilled,  IconMaterialUniversalCurrencyFilled,  IconMaterialUniversalLocalFilled,  IconMaterialUniversalCurrencyAltFilled,  IconMaterialUnknown2Filled,  IconMaterialUnknown5Filled,  IconMaterialUnknownDocumentFilled,  IconMaterialUnknownMedFilled,  IconMaterialUnlicenseFilled,  IconMaterialUnpublishedFilled,  IconMaterialUnsubscribeFilled,  IconMaterialUpcomingFilled,  IconMaterialUpdateFilled,  IconMaterialUpdateDisabledFilled,  IconMaterialUpgradeFilled,  IconMaterialUpload2Filled,  IconMaterialUploadFileFilled,  IconMaterialUploadFilled,  IconMaterialUrologyFilled,  IconMaterialUsbFilled,  IconMaterialUsbOffFilled,  IconMaterialUserAttributesFilled,  IconMaterialVaccinesFilled,  IconMaterialVacuumFilled,  IconMaterialValveFilled,  IconMaterialVapeFreeFilled,  IconMaterialVapingRoomsFilled,  IconMaterialVariableAddFilled,  IconMaterialVariableInsertFilled,  IconMaterialVariableRemoveFilled,  IconMaterialVariablesFilled,  IconMaterialVentilatorFilled,  IconMaterialVerifiedFilled,  IconMaterialVerifiedUserFilled,  IconMaterialVerticalAlignBottomFilled,  IconMaterialVerticalAlignCenterFilled,  IconMaterialVerticalAlignTopFilled,  IconMaterialVerticalShadesClosedFilled,  IconMaterialVerticalSplitFilled,  IconMaterialVerticalDistributeFilled,  IconMaterialVerticalShadesFilled,  IconMaterialVibrationFilled,  IconMaterialVideoCallFilled,  IconMaterialVideoCameraBackFilled,  IconMaterialVideoCameraFrontFilled,  IconMaterialVideoCameraFrontOffFilled,  IconMaterialVideoFileFilled,  IconMaterialVideoChatFilled,  IconMaterialVideoLibraryFilled,  IconMaterialVideoLabelFilled,  IconMaterialVideoSearchFilled,  IconMaterialVideoSettingsFilled,  IconMaterialVideoStableFilled,  IconMaterialVideocamOffFilled,  IconMaterialVideocamFilled,  IconMaterialVideogameAssetFilled,  IconMaterialVideogameAssetOffFilled,  IconMaterialViewAgendaFilled,  IconMaterialViewArrayFilled,  IconMaterialViewCarouselFilled,  IconMaterialViewColumnFilled,  IconMaterialViewColumn2Filled,  IconMaterialViewComfyAltFilled,  IconMaterialViewComfyFilled,  IconMaterialViewCompactAltFilled,  IconMaterialViewCompactFilled,  IconMaterialViewCozyFilled,  IconMaterialViewDayFilled,  IconMaterialViewHeadlineFilled,  IconMaterialViewInArFilled,  IconMaterialViewInArNewFilled,  IconMaterialViewInArOffFilled,  IconMaterialViewKanbanFilled,  IconMaterialViewListFilled,  IconMaterialViewQuiltFilled,  IconMaterialViewModuleFilled,  IconMaterialViewSidebarFilled,  IconMaterialViewStreamFilled,  IconMaterialViewTimelineFilled,  IconMaterialViewWeekFilled,  IconMaterialVignetteFilled,  IconMaterialVillaFilled,  IconMaterialVisibilityLockFilled,  IconMaterialVisibilityFilled,  IconMaterialVitalSignsFilled,  IconMaterialVisibilityOffFilled,  IconMaterialVoiceChatFilled,  IconMaterialVitalsFilled,  IconMaterialVoiceOverOffFilled,  IconMaterialVoiceSelectionFilled,  IconMaterialVoicemailFilled,  IconMaterialVolcanoFilled,  IconMaterialVolumeDownAltFilled,  IconMaterialVolumeMuteFilled,  IconMaterialVolumeUpFilled,  IconMaterialVolumeOffFilled,  IconMaterialVotingChipFilled,  IconMaterialVolumeDownFilled,  IconMaterialVolunteerActivismFilled,  IconMaterialVpnKeyAlertFilled,  IconMaterialVpnKeyFilled,  IconMaterialVpnKeyOffFilled,  IconMaterialVpnLockFilled,  IconMaterialVr180Create2dFilled,  IconMaterialVrpanoFilled,  IconMaterialVr180Create2dOffFilled,  IconMaterialWallArtFilled,  IconMaterialWallLampFilled,  IconMaterialWalletFilled,  IconMaterialWallpaperFilled,  IconMaterialWallpaperSlideshowFilled,  IconMaterialWardFilled,  IconMaterialWarehouseFilled,  IconMaterialWarningFilled,  IconMaterialWarningOffFilled,  IconMaterialWashFilled,  IconMaterialWatchButtonPressFilled,  IconMaterialWatchFilled,  IconMaterialWatchOffFilled,  IconMaterialWatchScreentimeFilled,  IconMaterialWatchWakeFilled,  IconMaterialWaterBottleFilled,  IconMaterialWaterBottleLargeFilled,  IconMaterialWaterDamageFilled,  IconMaterialWaterDoFilled,  IconMaterialWaterDropFilled,  IconMaterialWaterFilled,  IconMaterialWaterFullFilled,  IconMaterialWaterEcFilled,  IconMaterialWaterHeaterFilled,  IconMaterialWaterLockFilled,  IconMaterialWaterLossFilled,  IconMaterialWaterLuxFilled,  IconMaterialWaterMediumFilled,  IconMaterialWaterOrpFilled,  IconMaterialWaterPhFilled,  IconMaterialWaterPumpFilled,  IconMaterialWaterVocFilled,  IconMaterialWaterfallChartFilled,  IconMaterialWavesFilled,  IconMaterialWavingHandFilled,  IconMaterialWbAutoFilled,  IconMaterialWbIncandescentFilled,  IconMaterialWbIridescentFilled,  IconMaterialWbShadeFilled,  IconMaterialWbSunnyFilled,  IconMaterialWbTwilightFilled,  IconMaterialWcFilled,  IconMaterialWeatherHailFilled,  IconMaterialWeatherMixFilled,  IconMaterialWeatherSnowyFilled,  IconMaterialWebAssetOffFilled,  IconMaterialWebAssetFilled,  IconMaterialWebFilled,  IconMaterialWebStoriesFilled,  IconMaterialWebTrafficFilled,  IconMaterialWebhookFilled,  IconMaterialWeekendFilled,  IconMaterialWeightFilled,  IconMaterialWestFilled,  IconMaterialWhatshotFilled,  IconMaterialWheelchairPickupFilled,  IconMaterialWhereToVoteFilled,  IconMaterialWidgetsFilled,  IconMaterialWidthFilled,  IconMaterialWidthNormalFilled,  IconMaterialWidthFullFilled,  IconMaterialWidthWideFilled,  IconMaterialWifi1BarFilled,  IconMaterialWifiAddFilled,  IconMaterialWifi2BarFilled,  IconMaterialWifiCalling1Filled,  IconMaterialWifiCalling2Filled,  IconMaterialWifiCalling3Filled,  IconMaterialWifiCallingFilled,  IconMaterialWifiChannelFilled,  IconMaterialWifiFilled,  IconMaterialWifiFindFilled,  IconMaterialWifiHomeFilled,  IconMaterialWifiLockFilled,  IconMaterialWifiNotificationFilled,  IconMaterialWifiOffFilled,  IconMaterialWifiPasswordFilled,  IconMaterialWifiProtectedSetupFilled,  IconMaterialWifiProxyFilled,  IconMaterialWifiTetheringErrorFilled,  IconMaterialWifiTetheringFilled,  IconMaterialWifiTetheringOffFilled,  IconMaterialWindPowerFilled,  IconMaterialWindowClosedFilled,  IconMaterialWindowFilled,  IconMaterialWindowOpenFilled,  IconMaterialWindowSensorFilled,  IconMaterialWineBarFilled,  IconMaterialWoman2Filled,  IconMaterialWomanFilled,  IconMaterialWorkAlertFilled,  IconMaterialWorkHistoryFilled,  IconMaterialWorkFilled,  IconMaterialWorkUpdateFilled,  IconMaterialWorkspacePremiumFilled,  IconMaterialWorkspacesFilled,  IconMaterialWorkspacesOutlineFilled,  IconMaterialWoundsInjuriesFilled,  IconMaterialWrapTextFilled,  IconMaterialWrongLocationFilled,  IconMaterialWristFilled,  IconMaterialWysiwygFilled,  IconMaterialYardFilled,  IconMaterialYourTripsFilled,  IconMaterialYoutubeActivityFilled,  IconMaterialYoutubeSearchedForFilled,  IconMaterialZonePersonAlertFilled,  IconMaterialZonePersonIdleFilled,  IconMaterialZonePersonUrgentFilled,  IconMaterialZoomInFilled,  IconMaterialZoomInMapFilled,  IconMaterialZoomOutFilled,  IconMaterialZoomOutMapFilled ];
