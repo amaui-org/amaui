@@ -209,16 +209,16 @@ const NumericTextField: React.FC<INumericTextField> = React.forwardRef((props_, 
   const onChange = (valueNew_: any) => {
     let valueNew: any = valueNew_;
 
+    const min_ = min !== undefined ? min : Number.MIN_SAFE_INTEGER;
+
+    const max_ = max !== undefined ? max : Number.MAX_SAFE_INTEGER;
+
     if (['', ' ', props.prefix, `${props.prefix} `, undefined].includes(valueNew)) valueNew = '';
 
-    if (!(['', ' ', '+', '-', `${props.prefix}+`, `${props.prefix}-`, undefined].includes(valueNew))) {
+    if (!['', ' ', '+', '-', 'e', 'e+', 'e-', `${props.prefix}+`, `${props.prefix}-`, undefined].includes(valueNew)) {
       if (props.prefix !== undefined) valueNew = valueNew.replace(props.prefix, '');
 
       if (props.thousand) valueNew = valueNew.replace(new RegExp(`\\${props.thousandSeparator || ','}`, 'g'), '');
-
-      const min_ = min !== undefined ? min : Number.MIN_SAFE_INTEGER;
-
-      const max_ = max !== undefined ? max : Number.MAX_SAFE_INTEGER;
 
       valueNew = clamp(+valueNew, min_, max_);
 
@@ -227,7 +227,10 @@ const NumericTextField: React.FC<INumericTextField> = React.forwardRef((props_, 
       if (props.prefix !== undefined) valueNew = `${props.prefix}${valueNew}`;
     }
 
-    if (String(valueNew_)?.endsWith('.')) valueNew = `${valueNew}.`;
+    if (
+      ['+', '-', 'e', 'e+', 'e-'].includes(valueNew_) ||
+      ((String(valueNew_).startsWith('-0') || String(valueNew_).includes('.')) && clamp(+valueNew_, min_, max_) === +valueNew_)
+    ) valueNew = valueNew_;
 
     // Update inner or controlled
     if (!props.hasOwnProperty('value')) setValue(valueNew);
@@ -334,7 +337,7 @@ const NumericTextField: React.FC<INumericTextField> = React.forwardRef((props_, 
       validate={(valueNew_: any) => {
         if (valueNew_.startsWith(' ') || valueNew_.endsWith(' ')) return;
 
-        if (['', ' ', props.prefix, `${props.prefix} `, `${props.prefix}+`, `${props.prefix}-`, undefined].includes(valueNew_)) return true;
+        if (['', ' ', '+', '-', 'e', 'e+', 'e-', '-0', '-0.', props.prefix, `${props.prefix} `, `${props.prefix}+`, `${props.prefix}-`, undefined].includes(valueNew_)) return true;
 
         let valueNew = valueNew_;
 

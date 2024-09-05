@@ -179,6 +179,7 @@ export interface ISelect extends ITextField {
   getLabel?: (item: any, props: any) => any;
   chip?: boolean;
   clear?: boolean;
+  noSelectText?: any;
 
   renderValues?: (value: string | string[]) => IElement;
   renderChip?: (item: any, value: any, props: IPropsAny) => IElement;
@@ -238,6 +239,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
     chip,
     clear,
     readOnly,
+    noSelectText = 'Select an option',
     disabled,
 
     renderValues: renderValues_,
@@ -419,7 +421,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
       if (valueItem !== undefined) return valueItem;
     }
 
-    return 'No name';
+    return noSelectText || 'Select an option';
   };
 
   const renderValue = (itemValue: any = value) => {

@@ -653,7 +653,7 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
   const {
     size = 'regular',
 
-    minSize = -0.0001,
+    minSize = 0.0001,
 
     maxSize = 240_000,
 
@@ -732,6 +732,8 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
       m: 40
     }),
     groupCounter: React.useRef(1),
+    minSize: React.useRef(minSize),
+    maxSize: React.useRef(maxSize),
     floors: React.useRef(floors),
     defaults: React.useRef(defaults),
     disabled: React.useRef(disabled)
@@ -752,6 +754,10 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
   refs.selectedGroup.current = selectedGroup;
 
   refs.keepAspectRatio.current = keepAspectRatio;
+
+  refs.minSize.current = minSize;
+
+  refs.maxSize.current = maxSize;
 
   refs.floors.current = floors;
 
@@ -931,33 +937,37 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
   }, []);
 
   const getUnitValue = React.useCallback((valueNew_: any) => {
+    if (['', ' ', '+', '-', 'e', 'e+', 'e-', undefined, null].includes(valueNew_)) return valueNew_;
+
     let valueNew = +valueNew_;
 
     const unit_ = refs.unit.current;
 
-    if (!valueNew) valueNew = clamp(+valueNew_, minSize, maxSize);
+    if (!valueNew) valueNew = clamp(+valueNew_, refs.minSize.current, refs.maxSize.current);
 
     valueNew = unit_ === 'px' ? +valueNew : +valueNew / refs.units.current.m;
 
-    valueNew = clamp(+valueNew % 1 > 0 ? +(valueNew).toFixed(4) : valueNew, minSize, maxSize);
+    valueNew = clamp(+valueNew % 1 > 0 ? +(valueNew).toFixed(4) : valueNew, refs.minSize.current, refs.maxSize.current);
 
-    if (String(valueNew_).endsWith('.')) return `${valueNew}.`;
+    if ((String(valueNew_).startsWith('-0') || String(valueNew_).includes('.')) && clamp(+valueNew_, refs.minSize.current, refs.maxSize.current) === +valueNew_) return valueNew_;
 
-    return !valueNew ? clamp(+valueNew, minSize, maxSize) : valueNew;
+    return !valueNew ? clamp(+valueNew, refs.minSize.current, refs.maxSize.current) : valueNew;
   }, []);
 
   const toUnitValue = React.useCallback((valueNew_: any, raw = false) => {
+    if (['', ' ', '+', '-', 'e', 'e+', 'e-', undefined, null].includes(valueNew_)) return valueNew_;
+
     let valueNew = valueNew_;
 
     const unit_ = refs.unit.current;
 
-    if (!valueNew) valueNew = clamp(+valueNew_, minSize, maxSize);
+    if (!valueNew) valueNew = clamp(+valueNew_, refs.minSize.current, refs.maxSize.current);
 
     valueNew = unit_ === 'px' ? +valueNew : +valueNew * refs.units.current.m;
 
-    valueNew = clamp(+valueNew % 1 > 0 ? +(valueNew).toFixed(4) : valueNew, minSize, maxSize);
+    valueNew = clamp(+valueNew % 1 > 0 ? +(valueNew).toFixed(4) : valueNew, refs.minSize.current, refs.maxSize.current);
 
-    if (raw && String(valueNew_).endsWith('.')) return `${valueNew}.`;
+    if (raw && (String(valueNew_).startsWith('-0') || String(valueNew_).includes('.')) && clamp(+valueNew_, refs.minSize.current, refs.maxSize.current) === +valueNew_) return valueNew_;
 
     return valueNew;
   }, []);
@@ -1291,17 +1301,21 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
         if (valueNew.props?.style?.width) {
           let valueHeight = valueNew.props?.style?.width / ratio;
 
-          valueHeight = clamp(+valueHeight, minSize, maxSize);
+          valueHeight = clamp(+valueHeight, refs.minSize.current, refs.maxSize.current);
 
           itemToUpdate.props.style.height = itemToUpdate.height = valueHeight % 1 > 0 ? +(valueHeight).toFixed(4) : valueHeight;
+
+          if (Number.isNaN(itemToUpdate.props.style.height)) itemToUpdate.props.style.height = valueNew.props?.style?.width;
         }
 
         if (valueNew.props?.style?.height) {
           let valueWidth = valueNew.props?.style?.height * ratio;
 
-          valueWidth = clamp(+valueWidth, minSize, maxSize);
+          valueWidth = clamp(+valueWidth, refs.minSize.current, refs.maxSize.current);
 
           itemToUpdate.props.style.width = itemToUpdate.width = valueWidth % 1 > 0 ? +(valueWidth).toFixed(4) : valueWidth;
+
+          if (Number.isNaN(itemToUpdate.props.style.width)) itemToUpdate.props.style.width = valueNew.props?.style?.height;
         }
       }
 
