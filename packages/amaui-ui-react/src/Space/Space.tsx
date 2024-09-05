@@ -546,6 +546,12 @@ const useStyle = style(theme => ({
     }
   },
 
+  select: {
+    '& .amaui-Select-input': {
+      borderRadius: 0
+    }
+  },
+
   disabled: {
     pointerEvents: 'none',
     opacity: 0.54,
@@ -1662,8 +1668,8 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
       name: (
         <div
           style={{
-            width: 34,
-            height: 34,
+            width: 20,
+            height: 20,
             backgroundImage: `url(${item.url})`,
             bacgkroundSize: '17px'
           }}
@@ -2254,6 +2260,8 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
                   onChange={(valueNew: any) => onItemUpdate({ backgroundImage: valueNew })}
 
                   fullWidth
+
+                  className={classes.select}
                 >
                   {optionsBackgroundImage.map(item => (
                     <ListItem
