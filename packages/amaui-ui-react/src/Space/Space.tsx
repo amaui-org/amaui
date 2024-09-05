@@ -1427,8 +1427,8 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
 
     const textOtherProps = {
       style: {
-        // transform: `scale(${textZoomAdjusted})`,
-        transform: `scale(${textZoomAdjusted}) rotate(-${item.rotate}deg)`
+        transform: `scale(${textZoomAdjusted})`,
+        // transform: `scale(${textZoomAdjusted}) rotate(-${item.rotate}deg)`
       }
     };
 
