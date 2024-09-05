@@ -613,8 +613,11 @@ export * from './AutoCompleteCurrency';
 export { default as AutoCompleteGooglePlaces } from './AutoCompleteGooglePlaces';
 export * from './AutoCompleteGooglePlaces';
 
+export { default as NotFound } from './NotFound';
+export * from './NotFound';
+
 export { default as HTMLCanvas } from './HTMLCanvas';
 export * from './HTMLCanvas';
 
-export { default as NotFound } from './NotFound';
-export * from './NotFound';
+export { default as Space } from './Space';
+export * from './Space';

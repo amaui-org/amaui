@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { clamp, is, isEnvironment } from '@amaui/utils';
+import { clamp, debounce, is, isEnvironment } from '@amaui/utils';
 import { classNames, style, useAmauiTheme } from '@amaui/style-react';
 
 import LineElement from '../Line';
@@ -49,13 +49,35 @@ const useStyle = style(theme => ({
     transformOrigin: '0 0'
   },
 
+  miniMap: {
+    position: 'absolute',
+    bottom: '12px',
+    left: '12px',
+    borderRadius: 8,
+    background: theme.palette.background.default.primary,
+    border: theme.palette.light ? '' : `1px solid ${theme.palette.text.divider}`,
+    boxShadow: theme.shadows.values.default[2],
+    cursor: 'pointer'
+  },
+
+  miniMapMain: {
+    position: 'absolute',
+    inset: 0
+  },
+
+  miniMapViewport: {
+    position: 'absolute',
+    borderRadius: 14,
+    border: `2px solid ${theme.palette.color.info.main}`
+  },
+
   actions: {
     position: 'absolute',
     top: '8px',
     right: '8px',
     padding: '4px 20px',
     borderRadius: 140,
-    background: theme.palette.background.default.secondary,
+    background: theme.palette.background.default[theme.palette.light ? 'primary' : 'quaternary'],
     boxShadow: theme.shadows.values.default[1],
     overflow: 'auto hidden',
     zIndex: '1'
@@ -64,7 +86,7 @@ const useStyle = style(theme => ({
   // luv you: https://stackoverflow.com/a/32861765
   guidelines_lines: {
     backgroundSize: '40px 40px',
-    backgroundImage: `linear-gradient(to right, ${theme.palette.text.default.quaternary} 0.15px, transparent 0.15px), linear-gradient(to bottom, ${theme.palette.text.default.quaternary} 0.15px, transparent 0.15px)`
+    backgroundImage: `linear-gradient(to right, ${theme.palette.text.default.quaternary} 0.5px, transparent 0.5px), linear-gradient(to bottom, ${theme.palette.text.default.quaternary} 0.5px, transparent 0.5px)`
   },
 
   guidelines_dots: {
@@ -85,6 +107,13 @@ const useStyle = style(theme => ({
     userSelect: 'none'
   },
 
+  menu: {
+    '& .amaui-List-root': {
+      maxHeight: 240,
+      overflow: 'hidden auto'
+    }
+  },
+
   disabled: {
     pointerEvents: 'none',
     opacity: 0.54,
@@ -92,12 +121,22 @@ const useStyle = style(theme => ({
   }
 }), { name: 'amaui-HTMLCanvas' });
 
+export interface IHTMLCanvasOnChangeValue {
+  zoom: number;
+  top: number;
+  left: number;
+  boundaries: { x: number; y: number; };
+  root: { width: number; height: number; };
+}
+
 export interface IHTMLCanvas extends IBaseElement {
   size?: ISize;
 
   minZoom?: number;
 
   maxZoom?: number;
+
+  showGuidelinesDefault?: boolean;
 
   guidelines?: 'lines' | 'dots' | boolean;
 
@@ -108,6 +147,10 @@ export interface IHTMLCanvas extends IBaseElement {
   pre?: any;
 
   post?: any;
+
+  miniMap?: boolean;
+
+  onChange?: (value: IHTMLCanvasOnChangeValue) => any;
 
   onWheel?: (event: WheelEvent) => any;
 
@@ -122,6 +165,8 @@ export interface IHTMLCanvas extends IBaseElement {
   noFitCenter?: boolean;
 
   noZoomMenu?: boolean;
+
+  methods?: any;
 
   disabled?: boolean;
 
@@ -164,15 +209,23 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
 
     height = 240_000,
 
-    minZoom = 0.14,
+    minZoom = 0.04,
 
     maxZoom = 4,
+
+    showGuidelinesDefault,
 
     guidelines = 'dots',
 
     pre,
 
     post,
+
+    miniMap: useMiniMap = true,
+
+    methods,
+
+    onChange: onChange_,
 
     onWheel: onWheel_,
 
@@ -207,31 +260,28 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
 
   const { classes } = useStyle();
 
-  const [zoomedIn, setZoomedIn] = React.useState(1);
+  const [positions, setPositions] = React.useState<any>({ zoom: 1, left: 0, top: 0 });
   const [keyDown, setKeyDown] = React.useState<any>();
-  const [showGuidelines, setShowGuidelines] = React.useState(false);
+  const [showGuidelines, setShowGuidelines] = React.useState(!!showGuidelinesDefault);
 
   const refs = {
     root: React.useRef<HTMLElement>(),
     container: React.useRef<HTMLElement>(),
-    velocity: React.useRef<any>(),
-    momentumID: React.useRef<any>(),
+    miniMap: React.useRef<HTMLElement>(),
     minZoom: React.useRef(minZoom),
     maxZoom: React.useRef(maxZoom),
-    positions: React.useRef({
-      top: 0,
-      left: 0,
-      zoom: 1
-    }),
+    positions: React.useRef(positions),
     previousMouseEvent: React.useRef<MouseEvent | TouchEvent>(),
     mouseDown: React.useRef(false),
+    mouseDownMiniMap: React.useRef(false),
     keyDown: React.useRef<any>(),
-    boundaries: React.useRef({ x: [width * zoomedIn * -1, 0], y: [height * zoomedIn * -1, 0] }),
+    boundaries: React.useRef({ x: [width * positions?.zoom * -1, 0], y: [height * positions?.zoom * -1, 0] }),
     width: React.useRef(width),
     height: React.useRef(height),
-    zoomedIn: React.useRef(zoomedIn),
     disabled: React.useRef(disabled)
   };
+
+  refs.positions.current = positions;
 
   refs.minZoom.current = minZoom;
 
@@ -243,11 +293,34 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
 
   refs.height.current = height;
 
-  refs.zoomedIn.current = zoomedIn;
-
   refs.disabled.current = disabled;
 
-  const updateBoundaries = React.useCallback((valueZoom = refs.zoomedIn.current) => {
+  React.useEffect(() => {
+    if (is('object', methods)) {
+      methods.updatePositions = updatePositions;
+    }
+  }, [methods]);
+
+  const onChange = React.useCallback((valueNew?: any) => {
+    const root = refs.root.current as HTMLElement;
+
+    const values = {
+      ...refs.positions.current,
+
+      ...valueNew,
+
+      root: {
+        width: root.clientWidth,
+        height: root.clientHeight
+      },
+
+      boundaries: refs.boundaries.current
+    };
+
+    if (is('function', onChange_)) onChange_!(values);
+  }, [onChange_]);
+
+  const updateBoundaries = React.useCallback((valueZoom = refs.positions.current?.zoom) => {
     const root = refs.root.current as HTMLElement;
 
     const rootRect = root.getBoundingClientRect();
@@ -261,7 +334,19 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
   React.useEffect(() => {
     // update boundaries
     updateBoundaries();
-  }, [width, height, zoomedIn]);
+  }, [width, height, positions]);
+
+  const updatePositions = React.useCallback((valueNew: any) => {
+    valueNew.zoom = clamp(valueNew.zoom, refs.minZoom.current, refs.maxZoom.current);
+    valueNew.top = clamp(valueNew.top, ...refs.boundaries.current.y);
+    valueNew.left = clamp(valueNew.left, ...refs.boundaries.current.x);
+
+    refs.container.current!.style.transform = `matrix(${valueNew.zoom}, 0, 0, ${valueNew.zoom}, ${valueNew.left}, ${valueNew.top})`;
+
+    setPositions(valueNew);
+
+    onChange(valueNew);
+  }, []);
 
   const update = React.useCallback((values: any, event?: WheelEvent) => {
     const root = refs.root.current as HTMLElement;
@@ -286,10 +371,6 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
     if (values.zoom !== undefined) {
       zoom_ = clamp(values.zoom, refs.minZoom.current, refs.maxZoom.current);
 
-      refs.positions.current.zoom = zoom_;
-
-      setZoomedIn(zoom_);
-
       // update boundaries
       updateBoundaries(zoom_);
 
@@ -299,26 +380,19 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
       left = values.left !== undefined ? values.left : x - ((left >= 0 ? left - x : x - left) * zoomDelta);
 
       top = values.top !== undefined ? values.top : y - ((top >= 0 ? top - y : y - top) * zoomDelta);
-
-      left = clamp(left, ...refs.boundaries.current.x);
-
-      top = clamp(top, ...refs.boundaries.current.y);
     }
     else {
       if (values.top !== undefined) {
-        top = clamp(values.top, ...refs.boundaries.current.y);
+        top = values.top;
       }
 
       if (values.left !== undefined) {
-        left = clamp(values.left, ...refs.boundaries.current.x);
+        left = values.left;
       }
     }
 
-    refs.positions.current.left = left;
-
-    refs.positions.current.top = top;
-
-    container.style.transform = `matrix(${zoom_}, 0, 0, ${zoom_}, ${left}, ${top})`;
+    // update
+    updatePositions({ zoom: zoom_, left, top });
   }, []);
 
   const zoom = React.useCallback((value = 1, event: MouseEvent) => {
@@ -341,33 +415,66 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
     const values = {
       top: Number.MAX_SAFE_INTEGER,
       left: Number.MAX_SAFE_INTEGER,
-      right: 0,
-      bottom: 0
+      width: 0,
+      height: 0
     };
 
+    // left, top
     items.forEach((item: HTMLElement) => {
-      const rect = item.getBoundingClientRect();
+      const itemRect = item.getBoundingClientRect();
 
-      values.top = Math.min(values.top, rect.top - rootRect.top);
+      (item as any).rect = itemRect;
 
-      values.left = Math.min(values.left, rect.left - rootRect.left);
+      values.top = Math.min(values.top, itemRect.top - rootRect.top);
 
-      values.bottom = Math.max(values.bottom, rect.top - rootRect.top + item.offsetHeight);
-
-      values.right = Math.max(values.right, rect.left - rootRect.left + item.offsetWidth);
+      values.left = Math.min(values.left, itemRect.left - rootRect.left);
     });
 
-    const width_ = values.bottom - values.top;
+    // width, height
+    items.forEach((item: HTMLElement) => {
+      const itemRect = (item as any).rect;
 
-    const height_ = values.right - values.left;
+      const top_ = itemRect.top - rootRect.top;
 
-    const top = (values.top + (height_ / 2) - (rootRect.height / 2)) * -1;
+      const left_ = itemRect.left - rootRect.left;
 
-    const left = (values.left + (width_ / 2) - (rootRect.width / 2)) * -1;
+      const right = left_ + itemRect.width;
 
-    // center
-    // all of the children
+      const bottom = top_ + itemRect.height;
+
+      values.width = Math.max(values.width, Math.abs(right) - Math.abs(values.left));
+
+      values.height = Math.max(values.height, Math.abs(bottom) - Math.abs(values.top));
+    });
+
+    if (!items.length) {
+      values.top = container.clientHeight / 2;
+
+      values.left = container.clientWidth / 2;
+
+      values.width = values.height = 0;
+    }
+
+    const top = (values.top + (values.height / 2) - (rootRect.height / 2)) * -1;
+
+    const left = (values.left + (values.width / 2) - (rootRect.width / 2)) * -1;
+
+    const zoomPadding = 0.94;
+
+    let zoom_ = Math.min(
+      clamp(rootRect.width / values.width, 0, 4) * zoomPadding,
+      clamp(rootRect.height / values.height, 0, 4) * zoomPadding
+    );
+
+    if (!items.length || items.length === 1) zoom_ = 1;
+
+    // update
+    // top, left
     update({ zoom: 1, top, left });
+
+    // update
+    // zoom
+    if (zoom_ !== 1) update({ zoom: zoom_ });
   }, []);
 
   const init = React.useCallback(() => {
@@ -378,7 +485,7 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
 
   const onWheel = React.useCallback((event: WheelEvent) => {
     if (event.target === refs.root.current || refs.root.current?.contains(event.target as any)) {
-      const positions = refs.positions.current;
+      const positions_ = refs.positions.current;
 
       const root = refs.root.current as HTMLElement;
 
@@ -394,7 +501,7 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
       if (event.deltaY !== 0 && meta) {
         const delta = event.deltaY * -0.0024;
 
-        const value = positions.zoom + delta;
+        const value = positions_.zoom + delta;
 
         update({ zoom: value, x, y, delta }, event);
 
@@ -404,14 +511,14 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
       else if (!meta) {
         // vertical
         if (event.deltaY !== 0) {
-          const value = positions.top + event.deltaY * -1;
+          const value = positions_.top + event.deltaY * -1;
 
           update({ top: value, x, y });
         }
 
         // horizontal
         if (event.deltaX !== 0) {
-          const value = positions.left + event.deltaX * -1;
+          const value = positions_.left + event.deltaX * -1;
 
           update({ left: value, x, y });
         }
@@ -431,6 +538,7 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
 
   const onMouseUp = React.useCallback(() => {
     refs.mouseDown.current = false;
+    refs.mouseDownMiniMap.current = false;
 
     refs.previousMouseEvent.current = undefined;
   }, []);
@@ -447,39 +555,78 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
     if (is('function', onTouchStart_)) onTouchStart_!(event);
   }, [onTouchStart_]);
 
+  const onMouseDownMiniMap = React.useCallback((event: MouseEvent) => {
+    refs.mouseDownMiniMap.current = true;
+  }, []);
+
+  const onTouchStartMiniMap = React.useCallback((event: TouchEvent) => {
+    refs.mouseDownMiniMap.current = true;
+  }, []);
+
+  const onMoveMiniMap = React.useCallback((x_: number, y_: number, event: MouseEvent) => {
+    if (refs.mouseDownMiniMap.current && refs.previousMouseEvent.current && !refs.disabled.current) {
+      const positions_ = refs.positions.current;
+
+      const root = refs.root.current as HTMLElement;
+      const container = refs.container.current as HTMLElement;
+      const miniMap_ = refs.miniMap.current as HTMLElement;
+
+      const rectMiniMap = miniMap_.getBoundingClientRect();
+
+      const ratios = {
+        containerMiniMap: container.clientWidth / 170,
+        rootContainer: root.clientWidth / container.clientWidth
+      };
+
+      const zoomAdjusted = 1 / positions_.zoom;
+
+      const x = (event.clientX - rectMiniMap.x) * ratios.containerMiniMap / zoomAdjusted;
+
+      const y = (event.clientY - rectMiniMap.y) * ratios.containerMiniMap / zoomAdjusted;
+
+      const left = (x * -1) + (root.clientWidth / 2);
+
+      const top = (y * -1) + (root.clientHeight / 2);
+
+      update({ left, top });
+    }
+  }, []);
+
   const onMove = React.useCallback((x_: number, y_: number, event: MouseEvent) => {
     if (refs.keyDown.current === ' ' && refs.mouseDown.current && refs.previousMouseEvent.current && !refs.disabled.current) {
       const { clientX: xPrevious, clientY: yPrevious } = refs.previousMouseEvent.current as any;
 
-      const positions = refs.positions.current;
+      const positions_ = refs.positions.current;
 
       const x = x_ - xPrevious;
 
       const y = y_ - yPrevious;
 
-      const left = x + positions.left;
+      const left = x + positions_.left;
 
-      const top = y + positions.top;
+      const top = y + positions_.top;
 
       update({ left, top });
     }
   }, []);
 
   const onMouseMove = React.useCallback((event: MouseEvent) => {
-    if (refs.mouseDown.current && !refs.disabled.current) {
+    if ((refs.mouseDown.current || refs.mouseDownMiniMap.current) && !refs.disabled.current) {
       const { clientY, clientX } = event;
 
-      onMove(clientX, clientY, event);
+      if (refs.mouseDownMiniMap.current) onMoveMiniMap(clientX, clientY, event);
+      else if (refs.mouseDown.current) onMove(clientX, clientY, event);
 
       refs.previousMouseEvent.current = event;
     }
   }, []);
 
   const onTouchMove = React.useCallback((event: TouchEvent) => {
-    if (refs.mouseDown.current && !refs.disabled.current) {
+    if ((refs.mouseDown.current || refs.mouseDownMiniMap.current) && !refs.disabled.current) {
       const { clientY, clientX } = event.touches[0];
 
-      onMove(clientX, clientY, event as any);
+      if (refs.mouseDownMiniMap.current) onMoveMiniMap(clientX, clientY, event as any);
+      else if (refs.mouseDown.current) onMove(clientX, clientY, event as any);
 
       refs.previousMouseEvent.current = event;
 
@@ -534,8 +681,7 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
   const zoomOptions = React.useMemo(() => {
 
     return [
-      { name: 'Zoom to fit', props: { onClick: (event: MouseEvent) => zoom(1, event) } },
-      { name: 'Zoom to fit, center', props: { onClick: (event: MouseEvent) => onCenter() } },
+      { name: 'Zoom to fit', props: { onClick: (event: MouseEvent) => onCenter() } },
       { name: 'Zoom to 25%', value: 0.25, props: { onClick: (event: MouseEvent) => zoom(0.25, event) } },
       { name: 'Zoom to 50%', value: 0.5, props: { onClick: (event: MouseEvent) => zoom(0.5, event) } },
       { name: 'Zoom to 75%', value: 0.75, props: { onClick: (event: MouseEvent) => zoom(0.75, event) } },
@@ -547,6 +693,154 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
       { name: 'Zoom to 400%', value: 4, props: { onClick: (event: MouseEvent) => zoom(4, event) } }
     ];
   }, []);
+
+  const miniMap = React.useMemo(() => {
+    const root = refs.root.current as HTMLElement;
+    const container = refs.container.current as HTMLElement;
+
+    if (!container) return null;
+
+    const zoomAdjusted = 1 / positions.zoom;
+
+    const ratios = {
+      root: root.clientWidth / root.clientHeight,
+      container: container.clientWidth / container.clientHeight,
+      rootContainer: root.clientWidth / container.clientWidth
+    };
+
+    const width_ = 170;
+
+    const height_ = 170 / ratios.container;
+
+    const zoomPerSize = container.clientWidth / width_;
+
+    const viewportStyles: any = {
+      width: (width_ * ratios.rootContainer) * zoomAdjusted,
+      height: ((width_ / ratios.root) * ratios.rootContainer) * zoomAdjusted
+    };
+
+    viewportStyles.left = (Math.abs(positions.left) / zoomPerSize) * zoomAdjusted;
+
+    viewportStyles.top = (Math.abs(positions.top) / zoomPerSize) * zoomAdjusted;
+
+    return (
+      <Line
+        ref={refs.miniMap}
+
+        onMouseDown={onMouseDownMiniMap}
+
+        onTouchStart={onTouchStartMiniMap}
+
+        className={classNames([
+          classes.miniMap
+        ])}
+
+        style={{
+          width: width_,
+          height: height_
+        }}
+      >
+        <Line
+          className={classes.miniMapMain}
+        />
+
+        <Line
+          className={classes.miniMapViewport}
+
+          style={{
+            ...viewportStyles
+          }}
+        />
+      </Line>
+    );
+  }, [positions, onMouseDownMiniMap, onTouchStartMiniMap]);
+
+  const updateMiniMap = React.useCallback(debounce(() => {
+    const root = refs.root.current as HTMLElement;
+    const container = refs.container.current as HTMLElement;
+    const miniMap_ = refs.miniMap.current as HTMLElement;
+
+    if (!miniMap_) return;
+
+    const itemsContainer = Array.from(container.children) as HTMLElement[];
+
+    const itemsContainerMap: any = {};
+
+    itemsContainer.forEach(element => {
+      itemsContainerMap[element.dataset.id as string] = element;
+    });
+
+    const miniMapItems = miniMap_.children[0];
+
+    const itemsMiniMapItems = Array.from(miniMapItems.children) as HTMLElement[];
+
+    const itemsMiniMapItemsMap: any = {};
+
+    itemsMiniMapItems.forEach(element => {
+      itemsMiniMapItemsMap[element.dataset.id as string] = element;
+    });
+
+    const ratios = {
+      root: root.clientWidth / root.clientHeight,
+      container: container.clientWidth / container.clientHeight,
+      contanerMiniMap: 170 / container.clientWidth
+    };
+
+    const updateItemCopy = (item: HTMLElement) => {
+      const left = +item.style.left.replace('px', '');
+      const top = +item.style.top.replace('px', '');
+      const width_ = +item.style.width.replace('px', '');
+      const height_ = +item.style.height.replace('px', '');
+
+      item.style.width = `${width_ * ratios.contanerMiniMap}px`;
+
+      item.style.height = `${height_ * ratios.contanerMiniMap}px`;
+
+      item.style.left = `${left * ratios.contanerMiniMap}px`;
+
+      item.style.top = `${top * ratios.contanerMiniMap}px`;
+    };
+
+    itemsContainer.forEach(item => {
+      const id = item.dataset.id as string;
+
+      const itemCopy = item.cloneNode() as HTMLElement;
+
+      updateItemCopy(itemCopy);
+
+      // add
+      if (!itemsMiniMapItemsMap[id]) {
+        miniMapItems.append(itemCopy);
+      }
+      // update
+      else {
+        const itemExisting = itemsMiniMapItemsMap[id];
+
+        itemExisting.style.left = itemCopy.style.left;
+
+        itemExisting.style.top = itemCopy.style.top;
+
+        itemExisting.style.width = itemCopy.style.width;
+
+        itemExisting.style.height = itemCopy.style.height;
+      }
+    });
+
+    itemsMiniMapItems.forEach(item => {
+      const id = item.dataset.id as string;
+
+      // remove
+      if (!itemsContainerMap[id]) {
+        item.remove();
+      }
+    });
+  }, 440), []);
+
+  React.useEffect(() => {
+    // update
+    // mini map
+    if (useMiniMap) updateMiniMap();
+  }, [children, useMiniMap]);
 
   return (
     <Surface
@@ -635,7 +929,7 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
               justify='flex-end'
             >
               <Tooltip
-                name='Fit, center'
+                name='Fit'
               >
                 <IconButton
                   size={size}
@@ -666,7 +960,7 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
 
                   value={item.name}
 
-                  selected={+(zoomedIn).toFixed(2) === +(item.value || 0).toFixed(2)}
+                  selected={+(positions.zoom).toFixed(2) === +(item.value || 0).toFixed(2)}
 
                   {...item.props}
 
@@ -675,6 +969,8 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
                   button
                 />
               ))}
+
+              className={classes.menu}
             >
               <Line
                 align='center'
@@ -692,7 +988,7 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
 
                   fullWidth
                 >
-                  {(zoomedIn * 100).toFixed(0)}%
+                  {(positions.zoom * 100).toFixed(0)}%
                 </Type>
               </Line>
             </Menu>
@@ -701,7 +997,16 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
       )}
 
       <Line
-        ref={refs.container}
+        {...ContainerProps}
+
+        ref={(item: any) => {
+          if (ContainerProps?.ref) {
+            if (is('function', ContainerProps?.ref)) ContainerProps.ref(item);
+            ContainerProps.ref.current = item;
+          }
+
+          refs.container.current = item;
+        }}
 
         gap={0}
 
@@ -718,17 +1023,22 @@ const HTMLCanvas: React.FC<IHTMLCanvas> = React.forwardRef((props_, ref: any) =>
             'amaui-HTMLCanvas-container'
           ],
 
+          ContainerProps?.className,
           classes.container,
-          showGuidelines && guidelines && classes[`guidelines_${[true, 'lines'].includes(guidelines) ? 'lines' : 'dots'}`]
+          showGuidelines && guidelines && classes[`guidelines_${[true, 'dots'].includes(guidelines) ? 'dots' : 'lines'}`]
         ])}
 
         style={{
           width,
-          height
+          height,
+
+          ...ContainerProps?.style
         }}
       >
         {children}
       </Line>
+
+      {useMiniMap && miniMap}
 
       {post}
     </Surface>
