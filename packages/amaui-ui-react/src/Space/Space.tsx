@@ -497,6 +497,7 @@ const useStyle = style(theme => ({
   },
 
   element: {
+    width: 114,
     overflow: 'hidden',
     cursor: 'pointer',
     userSelect: 'none',
@@ -516,6 +517,11 @@ const useStyle = style(theme => ({
     '&:active': {
       transform: 'scale(0.94)'
     }
+  },
+
+  elementImage: {
+    width: 114,
+    height: 114
   },
 
   accordion: {
@@ -1421,8 +1427,8 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
 
     const textOtherProps = {
       style: {
-        transform: `scale(${textZoomAdjusted})`,
-        // transform: `scale(${textZoomAdjusted}) rotate(-${item.rotate}deg)`
+        // transform: `scale(${textZoomAdjusted})`,
+        transform: `scale(${textZoomAdjusted}) rotate(-${item.rotate}deg)`
       }
     };
 
@@ -1432,13 +1438,19 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
 
     let rootElement = null;
 
+    const styleIcon = {
+      transform: 'unset'
+    };
+
     if (item.version === 'table-oval-seat-4-1') {
       rootElement = (
         <IconFurnitureTableOvalSeat4Version1
           color={item.props.color}
 
           style={{
-            ...item.props.style
+            ...item.props.style,
+
+            ...styleIcon
           }}
         />
       );
@@ -1450,7 +1462,9 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
           color={item.props.color}
 
           style={{
-            ...item.props.style
+            ...item.props.style,
+
+            ...styleIcon
           }}
         />
       );
@@ -1522,25 +1536,30 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
   }, [selected, onMouseDown, onTouchStart]);
 
   const getThumbnail = React.useCallback((item: any) => {
+    let element: any = null;
+
     if (['rectangle', 'oval'].includes(item.version)) {
-      return (
+      element = (
         <Line
           style={{
             ...item.props.style,
 
-            width: 140,
-            height: 140
+            width: '100%',
+            height: '100%'
           }}
         />
       );
     }
 
     const styleIcon = {
-      width: 140
+      maxWidth: '100%',
+      maxHeight: '100%',
+      height: '100%',
+      width: '100%'
     };
 
     if (item.version === 'table-oval-seat-4-1') {
-      return (
+      element = (
         <IconFurnitureTableOvalSeat4Version1
           style={{
             ...item.props.style,
@@ -1551,7 +1570,7 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
     }
 
     if (item.version === 'table-rectangle-seat-6-1') {
-      return (
+      element = (
         <IconFurnitureTableRectangleSeat6Version1
           style={{
             ...item.props.style,
@@ -1561,7 +1580,17 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
       );
     }
 
-    return null;
+    return (
+      <Line
+        align='center'
+
+        justify='center'
+
+        className={classes.elementImage}
+      >
+        {element}
+      </Line>
+    );
   }, []);
 
   const onAdd = React.useCallback((item: any) => {
@@ -2706,7 +2735,7 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
             className={classes.menuMain}
           >
             <FormRow
-              gap={2.5}
+              gap={3.5}
 
               start={(
                 <TextField
@@ -2732,7 +2761,7 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
 
               MainProps={{
                 direction: 'row',
-                align: 'center',
+                align: 'flex-start',
                 className: classes.main
               }}
 
@@ -2753,7 +2782,9 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
                   {getThumbnail(item)}
 
                   <Type
-                    version='l2'
+                    version='b3'
+
+                    align='center'
                   >
                     {item.name}
                   </Type>
