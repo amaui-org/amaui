@@ -1217,6 +1217,8 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
 
         setSelected(id);
 
+        if (refs.itemOpen.current) setItemOpen(item);
+
         // reset
         if (item.group !== refs.selectedGroup.current) setSelectedGroup(null);
       }
