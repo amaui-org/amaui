@@ -1305,7 +1305,7 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
 
           itemToUpdate.props.style.height = itemToUpdate.height = valueHeight % 1 > 0 ? +(valueHeight).toFixed(4) : valueHeight;
 
-          if (Number.isNaN(itemToUpdate.props.style.height)) itemToUpdate.props.style.height = valueNew.props?.style?.width;
+          if (Number.isNaN(itemToUpdate.props.style.height)) itemToUpdate.props.style.height = itemToUpdate.height = valueNew.props?.style?.width;
         }
 
         if (valueNew.props?.style?.height) {
@@ -1315,7 +1315,7 @@ const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
 
           itemToUpdate.props.style.width = itemToUpdate.width = valueWidth % 1 > 0 ? +(valueWidth).toFixed(4) : valueWidth;
 
-          if (Number.isNaN(itemToUpdate.props.style.width)) itemToUpdate.props.style.width = valueNew.props?.style?.height;
+          if (Number.isNaN(itemToUpdate.props.style.width)) itemToUpdate.props.style.width = itemToUpdate.width = valueNew.props?.style?.height;
         }
       }
 
