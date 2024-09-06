@@ -613,6 +613,8 @@ export interface ISpace extends IBaseElement {
   Component?: any;
 }
 
+// info
+// 1. icons (freecads.com)
 const Space: React.FC<ISpace> = React.forwardRef((props_, ref: any) => {
   const theme = useAmauiTheme();
 
