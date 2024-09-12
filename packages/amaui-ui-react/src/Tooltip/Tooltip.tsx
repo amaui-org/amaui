@@ -17,8 +17,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   nameRoot: {
-    pointerEvents: 'all',
-    whiteSpace: 'nowrap'
+    pointerEvents: 'all'
+    // whiteSpace: 'nowrap'
   },
 
   nameRoot_position_top: { paddingBlock: theme.methods.space.value(2, 'px') },

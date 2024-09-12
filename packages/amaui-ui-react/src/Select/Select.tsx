@@ -52,7 +52,7 @@ const useStyle = styleMethod(theme => {
   const overflow = {
     width: '100%',
     overflow: 'hidden',
-    whiteSpace: 'nowrap',
+    whiteSpace: 'pre',
     textOverflow: 'ellipsis'
   };
 
@@ -114,6 +114,7 @@ const useStyle = styleMethod(theme => {
       pointerEvents: 'none',
 
       ...theme.typography.values.b2,
+
       ...overflow
     },
 
@@ -483,7 +484,11 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
         );
       }
 
-      return value.flatMap((item, index) => [renderValue(item), ...(index < value.length - 1 ? [', '] : [])]);
+      const valuesAll = value.flatMap((item, index) => [renderValue(item), ...(index < value.length - 1 ? [', '] : [])]);
+
+      if (valuesAll.every(item => is('simple', item))) return valuesAll.join(', ');
+
+      return valuesAll;
     }
 
     return renderValue(value);

@@ -125,7 +125,9 @@ const useStyle = styleMethod(theme => {
       background: 'transparent',
       '-webkit-tap-highlight-color': 'transparent',
       textAlign: 'start',
+
       ...theme.typography.values.b2,
+
       ...overflow
     },
 
