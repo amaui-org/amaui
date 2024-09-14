@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { is } from '@amaui/utils';
-import { AmauiDate, format, is as isAmauiDate } from '@amaui/date';
+import { AmauiDate, endOf, format, is as isAmauiDate, startOf } from '@amaui/date';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import IconElement from '../Icon';
@@ -560,9 +560,9 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
   }, [input]);
 
   const onToday = React.useCallback((event: React.MouseEvent) => {
-    const valueNew = [new AmauiDate()];
+    const valueNew = [startOf(new AmauiDate(), 'day')];
 
-    if (range) valueNew.push(new AmauiDate());
+    if (range) valueNew.push(endOf(new AmauiDate(), 'day'));
 
     // Update value
     onUpdate(valueNew as any);
