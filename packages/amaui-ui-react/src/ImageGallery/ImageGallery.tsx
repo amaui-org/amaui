@@ -137,6 +137,7 @@ const useStyle = styleMethod(theme => ({
   imageWrapper: {
     position: 'relative',
     height: '0px',
+    pointerEvents: 'none',
     // zIndex: 1,
     transition: theme.methods.transitions.make(['transform'], { duration: 100, timing_function: 'ease' as any })
   },
@@ -694,8 +695,7 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
           ],
 
           ImageWrapperProps?.className,
-          classes.imageWrapper,
-          classes.pointerEventsAuto
+          classes.imageWrapper
         ])}
 
         style={{
@@ -736,7 +736,8 @@ const ImageGallery: React.FC<IImageGallery> = React.forwardRef((props_, ref: any
               ],
 
               ImageProps?.className,
-              classes.image
+              classes.image,
+              classes.pointerEventsAuto
             ])}
           />
         )}
