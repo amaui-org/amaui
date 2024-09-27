@@ -249,7 +249,7 @@ const Tooltip: React.FC<ITooltip> = React.forwardRef((props_, ref: any) => {
     alignment = 'center',
     portal = true,
     fullWidth,
-    maxWidth = 'xxs',
+    maxWidth = 'unset',
     arrow,
     anchor: anchor_,
     anchorElement,
