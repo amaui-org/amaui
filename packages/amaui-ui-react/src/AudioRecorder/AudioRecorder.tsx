@@ -108,7 +108,8 @@ const useStyle = styleMethod(theme => ({
   },
 
   root: {
-    width: 'auto'
+    width: 'auto',
+    whiteSpace: 'nowrap'
   },
 
   recordDot: {
@@ -130,6 +131,12 @@ const useStyle = styleMethod(theme => ({
   recordDot_size_large: {
     width: 12,
     height: 12,
+  },
+
+  time: {
+    '&.amaui-Type-root': {
+      whiteSpace: 'nowrap'
+    }
   }
 }), { name: 'amaui-AudioRecorder' });
 
