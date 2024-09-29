@@ -125,6 +125,8 @@ const DropZone: React.FC<IDropZone> = React.forwardRef((props_, ref: any) => {
 
     disabled,
 
+    children,
+
     className,
 
     ...other
@@ -253,6 +255,8 @@ const DropZone: React.FC<IDropZone> = React.forwardRef((props_, ref: any) => {
 
   other.onDragOver = onDragOver;
 
+  const custom = !!children;
+
   let WrapperProps: any = {};
 
   let ComponentProps: any = {};
@@ -334,7 +338,7 @@ const DropZone: React.FC<IDropZone> = React.forwardRef((props_, ref: any) => {
           ],
 
           ComponentProps?.className,
-          classes.label
+          !custom && classes.label
         ])
       }}
 
@@ -355,29 +359,33 @@ const DropZone: React.FC<IDropZone> = React.forwardRef((props_, ref: any) => {
         pulse={focus || dragOver}
       />
 
-      <Line
-        direction='row'
+      {children}
 
-        align='center'
+      {!custom && (
+        <Line
+          direction='row'
 
-        justify='center'
+          align='center'
 
-        className={classNames([
-          staticClassName('DropZone', theme) && [
-            'amaui-DropZone-wrapper-text'
-          ],
+          justify='center'
 
-          classes.wrapperText
-        ])}
-      >
-        <IconStart />
+          className={classNames([
+            staticClassName('DropZone', theme) && [
+              'amaui-DropZone-wrapper-text'
+            ],
 
-        <Type
-          version='t1'
+            classes.wrapperText
+          ])}
         >
-          Drop files here
-        </Type>
-      </Line>
+          <IconStart />
+
+          <Type
+            version='t1'
+          >
+            Drop files here
+          </Type>
+        </Line>
+      )}
     </FileChoose>
   );
 });

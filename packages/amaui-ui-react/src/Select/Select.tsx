@@ -228,7 +228,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
 
     options,
 
-    label,
+    name,
     multiple,
     prefix,
     sufix,
@@ -422,7 +422,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
       if (valueItem !== undefined) return valueItem;
     }
 
-    return noSelectText || 'Select an option';
+    return name || noSelectText || 'Select an option';
   };
 
   const renderValue = (itemValue: any = value) => {
@@ -484,11 +484,11 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
         );
       }
 
-      const valuesAll = value.flatMap((item, index) => [renderValue(item), ...(index < value.length - 1 ? [', '] : [])]);
+      const valuesAll = value.map(item => renderValue(item));
 
       if (valuesAll.every(item => is('simple', item))) return valuesAll.join(', ');
 
-      return valuesAll;
+      return value?.length ? valuesAll : name || noSelectText || 'Select an option';
     }
 
     return renderValue(value);
@@ -538,6 +538,8 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
       </IconButton>
     ] : [])
   ];
+
+  const sizeListItem = MenuProps?.size || size;
 
   return (
     <Line
@@ -611,7 +613,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
 
         version={version}
 
-        label={label}
+        name={name}
 
         prefix={prefix}
 
@@ -635,7 +637,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
 
         aria-haspopup='listbox'
 
-        aria-labelledby={label}
+        aria-labelledby={name}
 
         aria-disabled={disabled}
 
@@ -711,6 +713,8 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
 
           maxWidth='unset'
 
+          size={size}
+
           menuItems={!!items.length ? (
             items.map((item: any, index: number) => (
               <ListItem
@@ -728,7 +732,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
 
                 primary={(
                   <Type
-                    version='b3'
+                    version={sizeListItem === 'large' ? 'b1' : sizeListItem === 'regular' ? 'b2' : 'b3'}
                   >
                     {item.name}
                   </Type>
@@ -736,7 +740,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
 
                 value={item.value}
 
-                size='small'
+                size={MenuProps?.size || size}
 
                 button
 
@@ -792,13 +796,13 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
           ListProps={{
             menu: true,
 
-            size,
+            size: ListProps?.size || MenuProps?.size || size,
 
             role: 'listbox',
 
             id: refs.ids.list,
 
-            'aria-label': label,
+            'aria-label': name,
 
             ...ListProps
           }}
