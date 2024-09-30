@@ -121,10 +121,6 @@ const useStyle = styleMethod(theme => ({
 
   open: {},
 
-  menu_autoWidth: {
-    width: '100%'
-  },
-
   readOnly: {
     '&.amaui-TextField-input-wrapper': {
       cursor: 'default'
@@ -336,6 +332,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
   const refs = {
     root: React.useRef<any>(),
+    wrapper: React.useRef<any>(),
     value: React.useRef<any>(),
     valueInput: React.useRef<any>(),
     menu: React.useRef<any>(),
@@ -355,8 +352,16 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
   const styles: any = {
     root: {
 
+    },
+
+    menu: {
+
     }
   };
+
+  if (MenuProps?.portal && autoWidth) {
+    styles.menu.width = refs.wrapper.current?.clientWidth;
+  }
 
   React.useEffect(() => {
     const rootDocument = isEnvironment('browser') ? (refs.root.current?.ownerDocument || window.document) : undefined;
@@ -879,6 +884,8 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
   return (
     <Line
+      ref={refs.wrapper}
+
       gap={0}
 
       direction='column'
@@ -1068,7 +1075,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
         autoSelectOnBlur={autoSelectOnBlur}
 
-        portal={false}
+        portal={true}
 
         onClose={() => onClose(false)}
 
@@ -1085,9 +1092,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
         maxWidth='unset'
 
         AppendProps={{
-          ...(!autoWidth && {
-            alignment: 'start'
-          })
+          alignment: 'start'
         }}
 
         ModalProps={{
@@ -1119,12 +1124,17 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
         {...MenuProps}
 
+        style={{
+          ...styles.menu,
+
+          ...MenuProps?.menu
+        }}
+
         className={classNames([
-          MenuProps?.className,
-          autoWidth && classes.menu_autoWidth
+          MenuProps?.className
         ])}
       />
-    </Line >
+    </Line>
   );
 });
 

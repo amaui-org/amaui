@@ -140,10 +140,6 @@ const useStyle = styleMethod(theme => {
       transform: 'rotate(-180deg)'
     },
 
-    menu_autoWidth: {
-      width: '100%'
-    },
-
     open: {
       '&.amaui-TextField-root': {
         cursor: 'default'
@@ -234,13 +230,13 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
     sufix,
     start,
     end,
-    autoWidth = false,
+    autoWidth = true,
     getLabel: getLabel_,
     fullWidth,
     chip,
     clear,
     readOnly,
-    noSelectText = 'Select an option',
+    noSelectText,
     disabled,
 
     renderValues: renderValues_,
@@ -297,8 +293,16 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
   const styles: any = {
     root: {
 
+    },
+
+    menu: {
+
     }
   };
+
+  if (MenuProps?.portal && autoWidth) {
+    styles.menu.width = refs.wrapper.current?.clientWidth;
+  }
 
   React.useEffect(() => {
     const method = (event: KeyboardEvent) => {
@@ -422,7 +426,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
       if (valueItem !== undefined) return valueItem;
     }
 
-    return name || noSelectText || 'Select an option';
+    return noSelectText || 'Select an option';
   };
 
   const renderValue = (itemValue: any = value) => {
@@ -488,7 +492,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
 
       if (valuesAll.every(item => is('simple', item))) return valuesAll.join(', ');
 
-      return value?.length ? valuesAll : name || noSelectText || 'Select an option';
+      return value?.length ? valuesAll : noSelectText || name;
     }
 
     return renderValue(value);
@@ -782,16 +786,12 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
           ))}
 
           AppendProps={{
-            ...(!autoWidth && {
-              alignment: 'start'
-            })
+            alignment: 'start'
           }}
 
           ModalProps={{
             // focus: !MenuProps.portal
           }}
-
-          style={styles.menu}
 
           ListProps={{
             menu: true,
@@ -809,9 +809,14 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
 
           {...MenuProps}
 
+          style={{
+            ...styles.menu,
+
+            ...MenuProps?.menu
+          }}
+
           className={classNames([
-            MenuProps?.className,
-            autoWidth && classes.menu_autoWidth
+            MenuProps?.className
           ])}
         />
       )}
