@@ -25,7 +25,6 @@ const ModalFooter: React.FC<IModalFooter> = React.forwardRef((props_, ref: any) 
 
   const {
     className,
-    style,
 
     children,
 

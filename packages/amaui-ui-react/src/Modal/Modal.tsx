@@ -396,54 +396,53 @@ const Modal: React.FC<IModal> = React.forwardRef((props_, ref: any) => {
 
         add
       >
-        {
-          !modalWrapperSurface ?
-            (
-              <div
-                className={classNames([
-                  staticClassName('Modal', theme) && [
-                    'amaui-Modal-no-surface'
-                  ],
-
-                  NoSurfaceProps?.className,
-                  classes.noSurface
-                ])}
-              >
-                {children}
-              </div>
-            ) :
-
-            <Surface
-              ref={mainRef}
-
-              tonal={tonal}
-
-              color={color}
-
-              tabIndex='-1'
-
-              {...SurfaceProps}
-
+        {!modalWrapperSurface ?
+          (
+            <div
               className={classNames([
                 staticClassName('Modal', theme) && [
-                  'amaui-Modal-surface',
-                  `amaui-Modal-size-${size}`
+                  'amaui-Modal-no-surface'
                 ],
 
-                classes.surface,
-                classes[`minWidth_${minWidth}`],
-                classes[`maxWidth_${maxWidth}`],
-                classes[`size_${size}`],
-                fullScreen && classes.fullScreen,
-                fullWidth && classes.fullWidth,
-
-                SurfaceProps?.className
+                NoSurfaceProps?.className,
+                classes.noSurface
               ])}
-
-              onKeyDown={onKeyDown}
             >
               {children}
-            </Surface>
+            </div>
+          ) :
+
+          <Surface
+            ref={mainRef}
+
+            tonal={tonal}
+
+            color={color}
+
+            tabIndex='-1'
+
+            {...SurfaceProps}
+
+            className={classNames([
+              staticClassName('Modal', theme) && [
+                'amaui-Modal-surface',
+                `amaui-Modal-size-${size}`
+              ],
+
+              classes.surface,
+              classes[`minWidth_${minWidth}`],
+              classes[`maxWidth_${maxWidth}`],
+              classes[`size_${size}`],
+              fullScreen && classes.fullScreen,
+              fullWidth && classes.fullWidth,
+
+              SurfaceProps?.className
+            ])}
+
+            onKeyDown={onKeyDown}
+          >
+            {children}
+          </Surface>
         }
       </TransitionComponent>
     </div>

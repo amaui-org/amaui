@@ -233,6 +233,8 @@ const Slide: React.FC<ISlide> = React.forwardRef((props_, ref: any) => {
 
             ...styles(status),
 
+            ...(children as any)?.props?.style,
+
             ...style
           }
         });
