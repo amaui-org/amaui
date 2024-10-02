@@ -202,6 +202,7 @@ export interface IAutoComplete extends ITextField {
   disabled?: boolean;
 
   IconClear?: IElementReference;
+  IconDropdown?: IElementReference;
 
   WrapperProps?: IPropsAny;
   ChipProps?: IPropsAny;
@@ -301,6 +302,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
     disabled,
 
     IconClear = IconMaterialCloseRounded,
+    IconDropdown = IconMaterialArrowDropDownRounded,
 
     WrapperProps,
     ChipProps,
@@ -868,7 +870,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
         {...IconButtonProps}
       >
-        <IconMaterialArrowDropDownRounded
+        <IconDropdown
           className={classNames([
             classes.arrow,
             open && classes.arrow_open

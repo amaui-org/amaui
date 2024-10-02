@@ -54,8 +54,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   menu: {
-    width: 'auto',
-    maxWidth: '280px'
+
   },
 
   noMaxWidth: {

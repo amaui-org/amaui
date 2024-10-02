@@ -181,6 +181,9 @@ export interface ISelect extends ITextField {
   renderValues?: (value: string | string[]) => IElement;
   renderChip?: (item: any, value: any, props: IPropsAny) => IElement;
 
+  IconClear?: any;
+  IconDropdown?: any;
+
   WrapperProps?: IPropsAny;
   ChipProps?: IPropsAny;
   ChiProps?: IPropsAny;
@@ -243,6 +246,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
     renderChip,
 
     IconClear = IconMaterialCloseRounded,
+    IconDropdown = IconMaterialArrowDropDownRounded,
 
     WrapperProps,
     ChipProps,
@@ -533,7 +537,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
 
         {...IconButtonProps}
       >
-        <IconMaterialArrowDropDownRounded
+        <IconDropdown
           className={classNames([
             classes.arrow,
             open && classes.arrow_open
