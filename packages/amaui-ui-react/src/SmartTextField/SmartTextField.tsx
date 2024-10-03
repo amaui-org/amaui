@@ -237,6 +237,8 @@ export interface ISmartTextField extends ITextField {
   mentionLabel?: (items: any[], props: { addTag?: (value: any) => any }) => any;
 
   additional?: any;
+
+  pasteText?: boolean;
 }
 
 const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref: any) => {
@@ -275,7 +277,7 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
   const Menu = React.useMemo(() => theme?.elements?.Menu || MenuElement, [theme]);
 
   const {
-    version = 'type',
+    version = 'text',
 
     size = 'regular',
 
@@ -306,6 +308,8 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
     mentionLabel,
 
     onKeyDown: onKeyDown_,
+
+    pasteText = true,
 
     readOnly,
 
@@ -399,7 +403,7 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
   refs.rootWindow.current = rootWindow;
 
   const init = React.useCallback(() => {
-    if (version === 'type') {
+    if (version === 'text') {
       const valueNew = valueDefault || value || '';
 
       if (refs.root.current) {
@@ -695,6 +699,14 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
     // const text = event.clipboardData?.getData('text/plain');
 
     // window.document.execCommand('insertText', false, text);
+  }, []);
+
+  const onPasteText = React.useCallback((event: ClipboardEvent) => {
+    event.preventDefault();
+
+    const text = event.clipboardData?.getData('text/plain');
+
+    window.document.execCommand('insertText', false, text);
   }, []);
 
   const onDrop = React.useCallback((event: DragEvent) => {
@@ -1551,7 +1563,7 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
 
         spellCheck: false,
 
-        onPaste,
+        onPaste: pasteText ? onPasteText : onPaste,
 
         onDrop,
 
@@ -1592,7 +1604,7 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
     />
   );
 
-  if (version === 'type') main = (
+  if (version === 'text') main = (
     <Type
       ref={(item: any) => {
         if (ref) {
@@ -1619,7 +1631,7 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
 
       onBlur={onBlur}
 
-      onPaste={onPaste}
+      onPaste={pasteText ? onPasteText : onPaste}
 
       onDrop={onDrop}
 
