@@ -566,6 +566,7 @@ export interface ITextField extends IBaseElement {
   IconClear?: IElementReference;
   InputComponent?: IElementReference;
   WrapperComponent?: IElementReference;
+  IconProps?: IPropsAny;
 }
 
 const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
@@ -635,6 +636,7 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
     inputProps = {},
     InputWrapperProps = {},
     HelperTextProps,
+    IconProps,
 
     IconClear = IconMaterialCloseRounded,
     InputComponent: InputComponent_,
@@ -916,11 +918,17 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
         <IconClear
           key={refs.ids.clear}
 
-          className={classes.clear}
-
           color='inherit'
 
           onClick={onClear}
+
+          {...IconProps}
+
+          className={classNames([
+            IconProps?.className,
+
+            classes.clear
+          ])}
         />
       );
     }

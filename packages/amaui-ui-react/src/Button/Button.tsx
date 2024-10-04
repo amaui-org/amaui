@@ -447,11 +447,11 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
             }) :
             React.cloneElement(item, {
               key: index,
-              size: !noFontSize ? iconFontSize !== undefined ? iconFontSize : (item.props as any).size !== undefined ? (item.props as any).size : size as any / 1.667 : undefined
+              size: item.props.size !== undefined ? item.props.size : !noFontSize ? iconFontSize !== undefined ? iconFontSize : size as any / 1.667 : undefined
             } as any)
         ) :
         React.cloneElement(children_ as any, {
-          size: !noFontSize ? iconFontSize !== undefined ? iconFontSize : (children_ as any).props?.size !== undefined ? (children_ as any).props.size : size as any / 1.667 : undefined
+          size: children_.props.size !== undefined ? children_.props.size : !noFontSize ? iconFontSize !== undefined ? iconFontSize : size as any / 1.667 : undefined
         });
 
       styles.root.width = size;
@@ -472,11 +472,11 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
             }) :
             React.cloneElement(item, {
               key: index,
-              size: !noFontSize ? iconFontSize !== undefined ? iconFontSize : (children_ as any).props?.size !== undefined ? (children_ as any).props?.size : (size === 'large' ? 'medium' : size) : undefined
+              size: item.props.size !== undefined ? item.props.size : !noFontSize ? iconFontSize !== undefined ? iconFontSize : (size === 'large' ? 'medium' : size) : undefined
             } as any)
         ) :
         React.cloneElement((children_ as any), {
-          size: !noFontSize ? iconFontSize !== undefined ? iconFontSize : (children_ as any).props?.size !== undefined ? (children_ as any).props?.size : (size === 'large' ? 'medium' : size) : undefined
+          size: children_.props.size !== undefined ? children_.props.size : !noFontSize ? iconFontSize !== undefined ? iconFontSize : (size === 'large' ? 'medium' : size) : undefined
         });
 
       if (!noFontSize) {

@@ -210,6 +210,7 @@ export interface IAutoComplete extends ITextField {
   MenuProps?: IPropsAny;
   IconButtonProps?: IPropsAny;
   InputProps?: IPropsAny;
+  IconProps?: IPropsAny;
 }
 
 const getText = (value: any) => {
@@ -310,6 +311,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
     MenuProps,
     IconButtonProps,
     InputProps,
+    IconProps,
 
     className,
     style,
@@ -847,7 +849,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
           {...IconButtonProps}
         >
-          <IconClear />
+          <IconClear {...IconProps} />
         </IconButton>
       ),
 
@@ -871,7 +873,11 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
         {...IconButtonProps}
       >
         <IconDropdown
+          {...IconProps}
+
           className={classNames([
+            IconProps?.className,
+
             classes.arrow,
             open && classes.arrow_open
           ])}

@@ -109,8 +109,6 @@ const AutoCompleteGooglePlaces: React.FC<IAutoCompleteGooglePlaces> = React.forw
     <AutoComplete
       ref={ref}
 
-      name='Places'
-
       valueInputDefault={valueInputDefault}
 
       valueDefault={valueDefault}

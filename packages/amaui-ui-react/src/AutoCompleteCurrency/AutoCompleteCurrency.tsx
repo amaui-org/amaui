@@ -61,8 +61,6 @@ const AutoCompleteCurrency: React.FC<IAutoCompleteCurrency> = React.forwardRef((
     <AutoComplete
       ref={ref}
 
-      name='Currency'
-
       valueInputDefault={valueInputDefault}
 
       options={options}

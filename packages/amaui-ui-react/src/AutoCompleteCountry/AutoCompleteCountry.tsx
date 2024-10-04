@@ -75,8 +75,6 @@ const AutoCompleteCountry: React.FC<IAutoCompleteCountry> = React.forwardRef((pr
     <AutoComplete
       ref={ref}
 
-      name='Country'
-
       valueInputDefault={valueInputDefault}
 
       valueDefault={valueDefault}

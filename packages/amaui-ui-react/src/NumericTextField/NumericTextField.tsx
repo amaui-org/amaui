@@ -98,6 +98,7 @@ const NumericTextField: React.FC<INumericTextField> = React.forwardRef((props_, 
     IconDecrement = IconMaterialKeyboardArrowDownRounded,
 
     IconButtonProps,
+    IconProps,
 
     className,
 
@@ -295,7 +296,7 @@ const NumericTextField: React.FC<INumericTextField> = React.forwardRef((props_, 
 
       {...IconButtonProps}
     >
-      <IconDecrement />
+      <IconDecrement {...IconProps} />
     </IconButton>
   );
 
@@ -307,7 +308,7 @@ const NumericTextField: React.FC<INumericTextField> = React.forwardRef((props_, 
 
       {...IconButtonProps}
     >
-      <IconIncrement />
+      <IconIncrement {...IconProps} />
     </IconButton>
   );
 

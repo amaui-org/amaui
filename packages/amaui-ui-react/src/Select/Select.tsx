@@ -190,6 +190,7 @@ export interface ISelect extends ITextField {
   ListProps?: IPropsAny;
   MenuProps?: IPropsAny;
   IconButtonProps?: IPropsAny;
+  IconProps?: IPropsAny;
 }
 
 const getValue = (value: any) => value?.value !== undefined ? value.value : value;
@@ -262,6 +263,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
       portal: true
     },
     IconButtonProps,
+    IconProps,
 
     className,
     style,
@@ -517,7 +519,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
 
         {...IconButtonProps}
       >
-        <IconClear />
+        <IconClear {...IconProps} />
       </IconButton>
     ),
 
@@ -538,7 +540,11 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
         {...IconButtonProps}
       >
         <IconDropdown
+          {...IconProps}
+
           className={classNames([
+            IconProps?.className,
+
             classes.arrow,
             open && classes.arrow_open
           ])}
