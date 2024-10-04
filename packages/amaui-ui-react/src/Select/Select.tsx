@@ -822,7 +822,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
           style={{
             ...styles.menu,
 
-            ...MenuProps?.menu
+            ...MenuProps?.style
           }}
 
           className={classNames([
