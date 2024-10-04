@@ -353,6 +353,8 @@ const NumericTextField: React.FC<INumericTextField> = React.forwardRef((props_, 
 
       end={end}
 
+      endVerticalAlign='center'
+
       className={classNames([
         staticClassName('NumericTextField', theme) && [
           'amaui-NumericTextField-root',
