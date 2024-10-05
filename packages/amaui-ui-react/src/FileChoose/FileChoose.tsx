@@ -11,7 +11,7 @@ import LineElement from '../Line';
 import IconElement from '../Icon';
 import { ILine } from '../Line/Line';
 import { iconFontSize, staticClassName } from '../utils';
-import { ITonal, IColor, IRef, IElementReference, IPropsAny } from '../types';
+import { ITonal, IColor, IRef, IElementReference, IPropsAny, ISize } from '../types';
 
 const IconMaterialCloseRounded = React.forwardRef((props: any, ref) => {
 
@@ -126,6 +126,8 @@ export interface IFileChoose extends ILine {
 
   inputRef?: IRef;
 
+  size?: ISize;
+
   max?: number;
   allowedTypes?: Array<string>;
 
@@ -173,6 +175,8 @@ const FileChoose: React.FC<IFileChoose> = React.forwardRef((props_, ref: any) =>
     color = 'default',
 
     inputRef,
+
+    size = 'regular',
 
     max,
     allowedTypes,
@@ -335,6 +339,8 @@ const FileChoose: React.FC<IFileChoose> = React.forwardRef((props_, ref: any) =>
         )}
 
         onClick={onReset}
+
+        size={size}
 
         {...ComponentProps}
       >

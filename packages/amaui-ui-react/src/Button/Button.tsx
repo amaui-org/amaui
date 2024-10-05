@@ -416,21 +416,21 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
   };
 
   // Size
-  if (size === 'small') {
-    if (!noFontSize) styles.Icon.fontSize = '0.9375rem';
+  // if (size === 'small') {
+  //   if (!noFontSize) styles.Icon.fontSize = '0.9375rem';
 
-    TypeProps.version = 'l3';
-  }
+  //   TypeProps.version = 'l3';
+  // }
 
-  if (size === 'large') {
-    if (!noFontSize) styles.Icon.fontSize = '1.375rem';
+  // if (size === 'large') {
+  //   if (!noFontSize) styles.Icon.fontSize = '1.375rem';
 
-    TypeProps.version = 'l1';
-  }
+  //   TypeProps.version = 'l1';
+  // }
 
-  if (fontSize !== undefined) {
-    if (!noFontSize) styles.Icon.fontSize = fontSize;
-  }
+  // if (fontSize !== undefined) {
+  //   if (!noFontSize) styles.Icon.fontSize = fontSize;
+  // }
 
   let children_ = children;
 
@@ -660,7 +660,9 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
             chip && classes[`chip_start_size_${size}`]
           ])}
         >
-          {React.cloneElement(start as any, { style: styles.Icon })}
+          {React.cloneElement(start as any, {
+            size: (start as any)?.props?.size || size || 'regular'
+          })}
         </span>
       )}
 
@@ -743,7 +745,9 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
             chip && classes[`chip_end_size_${size}`]
           ])}
         >
-          {React.cloneElement(end as any, { style: styles.Icon })}
+          {React.cloneElement(end as any, {
+            size: (end as any)?.props?.size || size || 'regular'
+          })}
         </span>
       )}
     </Surface>
