@@ -904,7 +904,8 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
       className={classNames([
         staticClassName('AutoComplete', theme) && [
-          'amaui-AutoComplete-wrapper'
+          'amaui-AutoComplete-wrapper',
+          fullWidth && 'amaui-full-width'
         ],
         WrapperProps?.className,
         classes.wrapper
@@ -988,6 +989,8 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
         aria-labelledby={label}
 
         aria-disabled={disabled}
+
+        fullWidth={fullWidth}
 
         disabled={disabled}
 

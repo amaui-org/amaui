@@ -952,7 +952,8 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
       staticClassName('TextField', theme) && [
         'amaui-TextField-wrapper',
         fullWidth && 'amaui-TextField-full-width',
-        disabled && 'amaui-TextField-disabled'
+        disabled && 'amaui-TextField-disabled',
+        fullWidth && 'amaui-full-width'
       ],
 
       className,
@@ -1058,7 +1059,8 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
             mouseDown && `amaui-TextField-mouse-down`,
             focus && `amaui-TextField-focus`,
             readOnly && `amaui-TextField-read-only`,
-            disabled && 'amaui-TextField-disabled'
+            disabled && 'amaui-TextField-disabled',
+            fullWidth && 'amaui-full-width'
           ],
 
           ComponentProps.className,

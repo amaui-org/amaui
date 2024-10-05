@@ -577,9 +577,10 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
       className={classNames([
         staticClassName('Select', theme) && [
           'amaui-Select-wrapper',
-          WrapperProps?.className,
-          classes.wrapper
-        ]
+          fullWidth && 'amaui-full-width'
+        ],
+        WrapperProps?.className,
+        classes.wrapper
       ])}
     >
       <TextField
@@ -615,7 +616,6 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
           className,
           classes.root,
           open && classes.open,
-          fullWidth && classes.fullWidth,
           disabled && classes.disabled
         ])}
 
@@ -654,6 +654,8 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
         aria-labelledby={name}
 
         aria-disabled={disabled}
+
+        fullWidth={fullWidth}
 
         disabled={disabled}
 
