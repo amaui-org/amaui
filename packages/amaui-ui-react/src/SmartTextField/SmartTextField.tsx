@@ -216,6 +216,12 @@ const useStyle = styleMethod(theme => ({
   singleLine: {
     whiteSpace: 'nowrap',
     overflow: 'hidden'
+  },
+
+  inputLink: {
+    '&.amaui-TextField-root': {
+      flex: '1 1 auto !important'
+    }
   }
 }), { name: 'amaui-SmartTextField' });
 
@@ -1030,6 +1036,8 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
 
       if (valueElement) valueElement = innerHTMLToText(valueElement);
     }
+
+    textQueryUpdate();
   }, []);
 
   const AppendProps: any = {
@@ -1325,6 +1333,8 @@ const SmartTextField: React.FC<ISmartTextField> = React.forwardRef((props_, ref:
 
                 updateInputValues('link', '');
               }}
+
+              className={classes.inputLink}
             />
           </ClickListener>
         )}
