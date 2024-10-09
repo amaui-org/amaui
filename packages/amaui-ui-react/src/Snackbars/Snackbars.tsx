@@ -22,6 +22,10 @@ const useStyle = styleMethod(theme => ({
   root: {
     position: 'fixed',
     zIndex: theme.z_index.modal + 114,
+
+    '& > *': {
+      width: 'auto !important'
+    }
   },
 
   position_top: {
@@ -93,14 +97,7 @@ const Snackbars: React.FC<ISnackbars> = React.forwardRef((props_, ref: any) => {
     position = 'bottom',
     alignment = 'start',
 
-    SnackbarProps = {
-      TransitionComponent: Slide,
-
-      TransitionComponentProps: {
-        add: true,
-        direction: (props.position === 'top' && props.alignment === 'center') ? 'top' : (props.position === 'bottom' && props.alignment === 'center') ? 'bottom' : props.alignment === 'left' ? 'left' : 'right'
-      },
-    },
+    SnackbarProps,
 
     className,
 
@@ -125,15 +122,26 @@ const Snackbars: React.FC<ISnackbars> = React.forwardRef((props_, ref: any) => {
 
   refs.preOpen.current = preOpen;
 
-  // Start and ltr change direction to left or right
-  if (alignment === 'start' && theme.direction === 'ltr') SnackbarProps.TransitionComponentProps.direction = 'left';
+  const snackbarProps: any = {
+    TransitionComponent: Slide,
 
-  if (alignment === 'start' && theme.direction === 'rtl') SnackbarProps.TransitionComponentProps.direction = 'right';
+    TransitionComponentProps: {
+      add: true,
+      direction: (props.position === 'top' && props.alignment === 'center') ? 'top' : (props.position === 'bottom' && props.alignment === 'center') ? 'bottom' : props.alignment === 'left' ? 'left' : 'right'
+    },
+
+    ...SnackbarProps
+  };
+
+  // Start and ltr change direction to left or right
+  if (alignment === 'start' && theme.direction === 'ltr') snackbarProps.TransitionComponentProps.direction = 'left';
+
+  if (alignment === 'start' && theme.direction === 'rtl') snackbarProps.TransitionComponentProps.direction = 'right';
 
   // End and ltr change direction to right or left
-  if (alignment === 'end' && theme.direction === 'ltr') SnackbarProps.TransitionComponentProps.direction = 'right';
+  if (alignment === 'end' && theme.direction === 'ltr') snackbarProps.TransitionComponentProps.direction = 'right';
 
-  if (alignment === 'end' && theme.direction === 'rtl') SnackbarProps.TransitionComponentProps.direction = 'left';
+  if (alignment === 'end' && theme.direction === 'rtl') snackbarProps.TransitionComponentProps.direction = 'left';
 
   // Add preOpen
   React.useEffect(() => {
@@ -293,12 +301,12 @@ const Snackbars: React.FC<ISnackbars> = React.forwardRef((props_, ref: any) => {
 
               open={item.in}
 
-              {...SnackbarProps}
+              {...snackbarProps}
 
               {...item.Snackbar}
 
               TransitionComponentProps={{
-                ...SnackbarProps?.TransitionComponentProps,
+                ...snackbarProps?.TransitionComponentProps,
                 ...item.Snackbar?.TransitionComponentProps,
 
                 removeOnExited: false,
@@ -306,7 +314,7 @@ const Snackbars: React.FC<ISnackbars> = React.forwardRef((props_, ref: any) => {
                 onExited: (...args: any) => {
                   onSnackbarExited(item.id);
 
-                  if (is('function', SnackbarProps?.TransitionComponentProps?.onExited)) SnackbarProps.TransitionComponentProps.onExited(...args);
+                  if (is('function', snackbarProps?.TransitionComponentProps?.onExited)) snackbarProps.TransitionComponentProps.onExited(...args);
 
                   if (is('function', item.Snackbar?.onExited)) item.Snackbar.onExited(...args);
                 }

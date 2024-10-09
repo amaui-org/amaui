@@ -112,8 +112,12 @@ export interface ISnackbar extends ISurface {
   onMouseLeave?: (event: React.MouseEvent<any>) => any;
   onClose?: () => any;
 
+  IconClose?: any;
+
   TransitionComponent?: IElementReference;
 
+  IconProps?: IPropsAny;
+  IconButtonProps?: IPropsAny;
   TransitionComponentProps?: IPropsAny;
 }
 
@@ -158,8 +162,12 @@ const Snackbar: React.FC<ISnackbar> = React.forwardRef((props_, ref: any) => {
     onMouseLeave: onMouseLeave_,
     onClose: onClose_,
 
+    IconClose = IconMaterialCloseRounded,
+
     TransitionComponent = Grow,
 
+    IconProps,
+    IconButtonProps,
     TransitionComponentProps,
 
     Component = 'div',
@@ -258,8 +266,10 @@ const Snackbar: React.FC<ISnackbar> = React.forwardRef((props_, ref: any) => {
           color='inherit'
 
           onClick={onClose}
+
+          {...IconButtonProps}
         >
-          <IconMaterialCloseRounded />
+          <IconClose {...IconProps} />
         </IconButton>
       );
     }
