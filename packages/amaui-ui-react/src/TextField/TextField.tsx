@@ -1072,9 +1072,9 @@ const TextField: React.FC<ITextField> = React.forwardRef((props_, ref: any) => {
         ])}
 
         style={{
-          ...ComponentProps?.style,
+          minWidth,
 
-          minWidth
+          ...ComponentProps?.style
         }}
       >
         {['filled'].includes(version) && (
