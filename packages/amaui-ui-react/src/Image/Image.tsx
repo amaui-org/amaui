@@ -146,6 +146,7 @@ export interface IImage extends IBaseElement {
 
   IconNoImage?: any;
 
+  RootProps?: IPropsAny;
   NoImageProps?: IPropsAny;
   DescriptionProps?: IPropsAny;
   UseVisibleProps?: IUseVisible;
@@ -186,6 +187,7 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
 
     loading,
 
+    RootProps,
     NoImageProps,
     DescriptionProps,
     UseVisibleProps,
@@ -395,6 +397,8 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
 
     other.children = children;
 
+    other.style = style;
+
     delete other.Component;
   }
 
@@ -411,6 +415,8 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
         refs.root.current = item;
       }}
 
+      {...RootProps}
+
       className={classNames([
         staticClassName('Image', theme) && [
           'amaui-Image-root',
@@ -418,6 +424,7 @@ const Image: React.FC<IImage> = React.forwardRef((props_, ref: any) => {
           (picture && !description) && `amaui-Image-picture`
         ],
 
+        RootProps?.className,
         className,
         classes.root,
         classes[`align_${align}`],
