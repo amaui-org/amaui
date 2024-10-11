@@ -128,7 +128,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   list: {
-    maxHeight: '40vh',
+    maxHeight: '250px',
     overflow: 'auto'
   },
 

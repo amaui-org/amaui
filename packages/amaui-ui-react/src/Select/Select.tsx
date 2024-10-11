@@ -254,7 +254,7 @@ const Select: React.FC<ISelect> = React.forwardRef((props_, ref: any) => {
     ChiProps,
     ListProps = {
       style: {
-        maxHeight: 240,
+        maxHeight: 250,
         overflowY: 'auto',
         overflowX: 'hidden'
       }
