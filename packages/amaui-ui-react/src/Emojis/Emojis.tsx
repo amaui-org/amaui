@@ -256,6 +256,7 @@ const useStyle = styleMethod(theme => ({
 
   tab: {
     '&.amaui-Tab-root': {
+      background: 'transparent',
       minWidth: 'unset'
     }
   },

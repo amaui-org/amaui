@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { is, unique, Try, isEnvironment } from '@amaui/utils';
+import { is, unique, isEnvironment } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import { staticClassName } from '../utils';
@@ -35,9 +35,11 @@ const SpyScroll: React.FC<ISpyScroll> = React.forwardRef((props_, ref: any) => {
     ids,
 
     offset,
+
     offsetStart,
 
     addClassName,
+
     addStyle,
 
     onActive,
@@ -45,6 +47,7 @@ const SpyScroll: React.FC<ISpyScroll> = React.forwardRef((props_, ref: any) => {
     parent,
 
     className,
+
     style,
 
     children,
@@ -70,111 +73,36 @@ const SpyScroll: React.FC<ISpyScroll> = React.forwardRef((props_, ref: any) => {
 
   React.useEffect(() => {
     // Listen to window scroll value
-    const methodElement = (element: HTMLElement) => {
-      if (element) {
-        if (refs.parent.current) {
-          const rect = element.getBoundingClientRect();
+    const isVisible = (element: HTMLElement) => new Promise(resolve => {
+      if (!(element && refs.root.current)) return resolve(null);
 
-          const parentScrollTop = refs.parent.current.scrollTop;
-          const parentScrollLeft = refs.parent.current.scrollLeft;
+      const observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+        const intersecting = entries?.[0].isIntersecting;
 
-          const offsetTop = element.offsetTop;
-          const offsetLeft = element.offsetLeft;
+        // clean up
+        observer.disconnect();
 
-          if (
-            // vertically
-            (
-              (refs.parent.current.scrollHeight > refs.parent.current.clientHeight) &&
-              (
-                offsetTop <= parentScrollTop &&
-                parentScrollTop < offsetTop + rect.height
-              )
-            ) ||
+        return resolve(intersecting);
+      }, { root: refs.parent.current });
 
-            // horizontally
-            (
-              (refs.parent.current.scrollWidth > refs.parent.current.clientWidth) &&
-              (
-                offsetLeft <= parentScrollLeft &&
-                parentScrollLeft < offsetLeft + rect.width
-              )
-            )
-          ) return true;
-        }
-        else {
-          const rect = element.getBoundingClientRect();
+      observer.observe(element);
+    });
 
-          // SpyScroll
-          const offset_ = refs.props.current.offsetStart !== undefined ? refs.props.current.offsetStart : refs.props.current.offset !== undefined ? refs.props.current.offset : 0;
-
-          const height = refs.parent.current ? refs.parent.current.clientHeight : window.innerHeight;
-
-          const width = refs.parent.current ? refs.parent.current.clientWidth : window.innerWidth;
-
-          if (
-            // Top
-            (
-              // Top
-              (rect.top - offset_ < height && rect.top - offset_ > 0) &&
-
-              (
-                // Left
-                (rect.left - offset_ < width && rect.left - offset_ > 0) ||
-                // Right
-                (rect.left - offset_ < width && rect.right + offset_ > 0)
-              )
-            ) ||
-
-            // Left
-            (
-              // Left
-              (rect.left - offset_ < width && rect.left - offset_ > 0) &&
-
-              (
-                // Top
-                (rect.top - offset_ < height && rect.top - offset_ > 0) ||
-                // Bottom
-                (rect.top - offset_ < height && rect.bottom + offset_ > 0)
-              )
-            ) ||
-
-            // Right
-            (
-              // Right
-              (rect.left - offset_ < width && rect.right + offset_ > 0) &&
-
-              (
-                // Top
-                (rect.top - offset_ < height && rect.top - offset_ > 0) ||
-                // Bottom
-                (rect.top - offset_ < height && rect.bottom + offset_ > 0)
-              )
-            ) ||
-
-            // Bottom
-            (
-              // Bottom
-              (rect.top - offset_ < height && rect.bottom + offset_ > 0) &&
-
-              (
-                // Left
-                (rect.left - offset_ < width && rect.left - offset_ > 0) ||
-                // Right
-                (rect.left - offset_ < width && rect.right + offset_ > 0)
-              )
-            )
-          ) return true;
-        }
-      }
-    };
-
-    const method = () => {
+    const method = async () => {
       // Find first active id
       let id: string;
 
       const rootElement_ = isEnvironment('browser') ? refs.parent.current || (refs.root.current?.ownerDocument || window.document) : undefined;
 
-      Try(() => id = refs.props.current.ids.find((item: string) => methodElement(rootElement_.querySelector(`#${item}`.replace('##', '#')))));
+      for (const item of (refs.props.current.ids || [])) {
+        id = await isVisible(rootElement_.querySelector(`#${item}`.replace('##', '#'))) as any;
+
+        if (id) {
+          id = item;
+
+          break;
+        }
+      }
 
       if (id && refs.root.current) {
         // Update all elements in root
