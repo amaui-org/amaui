@@ -249,6 +249,10 @@ const useStyle = styleMethod(theme => ({
   },
 
   tabs: {
+    '&.amaui-Tabs-root': {
+      background: 'transparent'
+    },
+
     '& .amaui-Tabs-tabs': {
       minWidth: '100%'
     }
@@ -256,7 +260,6 @@ const useStyle = styleMethod(theme => ({
 
   tab: {
     '&.amaui-Tab-root': {
-      background: 'transparent',
       minWidth: 'unset'
     }
   },
@@ -546,7 +549,9 @@ const Emojis: React.FC<IEmojis> = React.forwardRef((props_, ref: any) => {
             >
               {search_ && (
                 <TextField
-                  label='Search'
+                  name='Search'
+
+                  version='outlined'
 
                   onChange={onChangeSearch}
 
