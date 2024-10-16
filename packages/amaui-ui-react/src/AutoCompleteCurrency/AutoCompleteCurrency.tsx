@@ -47,10 +47,14 @@ const AutoCompleteCurrency: React.FC<IAutoCompleteCurrency> = React.forwardRef((
   //   name_plural: 'euros'
   // }
   const options = React.useMemo(() => {
-    return currencies.map(item => ({
-      name: `${item.code} ${item.name} (${item.symbol})`,
-      value: item.code
-    }));
+    return [
+      { name: 'No currency', value: '' },
+
+      ...currencies.map(item => ({
+        name: `${item.code} ${item.name} (${item.symbol})`,
+        value: item.code
+      }))
+    ];
   }, [currencies]);
 
   const valueInputDefault = React.useMemo(() => {
