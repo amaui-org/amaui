@@ -837,7 +837,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
         />
       ] : []),
 
-      !!(multiple ? value.length : valueInput) && (
+      ...(clear ? [!!(multiple ? value.length : valueInput) && (
         <IconButton
           onClick={onClear}
 
@@ -851,7 +851,7 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
         >
           <IconClear {...IconProps} />
         </IconButton>
-      ),
+      )] : []),
 
       <IconButton
         key={3}

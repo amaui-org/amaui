@@ -542,6 +542,14 @@ const Tabs: React.FC<ITabs> = React.forwardRef((props_, ref: any) => {
     </IconButton>
   );
 
+  const TabElements = React.Children.toArray(children).filter((item: any) => item?.type?.displayName?.endsWith('Tab'));
+
+  const tabActive = TabElements.find((item: any, index: number) => {
+    const valueItem = item.props.value !== undefined ? item.props.value : index;
+
+    return is('function', refs.isActive.current) ? refs.isActive.current(value, valueItem) : value === valueItem;
+  });
+
   return (
     <Surface
       ref={item => {
@@ -637,25 +645,27 @@ const Tabs: React.FC<ITabs> = React.forwardRef((props_, ref: any) => {
           classes[`tabs_orientation_${orientation}`]
         ])}
       >
-        <span
-          className={classNames([
-            staticClassName('Tabs', theme) && [
-              'amaui-Tabs-line'
-            ],
+        {tabActive && (
+          <span
+            className={classNames([
+              staticClassName('Tabs', theme) && [
+                'amaui-Tabs-line'
+              ],
 
-            classes.line,
-            classes[`line_version_${version}_size_${size}_orientation_${orientation}`],
-            orientation === 'vertical' && theme.direction === 'rtl' && classes[`line_version_${version}_orientation_vertical_rtl`]
-          ])}
+              classes.line,
+              classes[`line_version_${version}_size_${size}_orientation_${orientation}`],
+              orientation === 'vertical' && theme.direction === 'rtl' && classes[`line_version_${version}_orientation_vertical_rtl`]
+            ])}
 
-          style={{
-            [propPosition]: orientation === 'horizontal' ? lineValues.x : lineValues.y,
+            style={{
+              [propPosition]: orientation === 'horizontal' ? lineValues.x : lineValues.y,
 
-            [propMain]: lineValues[propMain]
-          }}
-        />
+              [propMain]: lineValues[propMain]
+            }}
+          />
+        )}
 
-        {React.Children.toArray(children).filter((item: any) => item?.type?.displayName?.endsWith('Tab')).map((item: any, index: number) => {
+        {TabElements.map((item: any, index: number) => {
           const valueItem = item.props.value !== undefined ? item.props.value : index;
 
           return (
