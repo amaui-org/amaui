@@ -116,7 +116,9 @@ const useStyle = styleMethod(theme => ({
   contentItems: {
     position: 'relative',
     padding: '4px 4px 8px',
-    minWidth: '150px'
+    minWidth: '150px',
+    height: '150px',
+    overflow: 'hidden auto'
   },
 
   contentItemsMonth: {
@@ -129,7 +131,9 @@ const useStyle = styleMethod(theme => ({
   contentItemsWeek: {
     position: 'relative',
     padding: '4px 4px 8px',
-    width: 'clamp(150px, calc(calc(100vi / 7) - 32px), 400px)'
+    width: 'clamp(150px, calc(calc(100vi / 7) - 32px), 400px)',
+    height: '150px',
+    overflow: 'hidden auto'
   },
 
   guidelineHour: {
