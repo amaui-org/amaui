@@ -121,7 +121,7 @@ const useStyle = styleMethod(theme => ({
 
   contentItemsMonth: {
     position: 'relative',
-    padding: '4px 4px 8px',
+    padding: '0px 4px 8px',
     height: '100px',
     overflow: 'hidden auto'
   },
