@@ -104,12 +104,13 @@ const useStyle = styleMethod(theme => ({
     width: '50px',
     alignSelf: 'flex-start',
     left: '0px',
-    background: 'rgb(0, 0, 0)',
+    background: theme.palette.background.default.primary,
     position: 'sticky',
     top: '0',
     marginTop: '-8px',
     zIndex: '40',
-    paddingRight: '4px'
+    paddingRight: '4px',
+    borderRadius: theme.methods.shape.radius.value(0.5)
   },
 
   itemHour: {
@@ -118,7 +119,7 @@ const useStyle = styleMethod(theme => ({
   },
 
   contentHour: {
-    borderLeft: `1px solid ${theme.methods.palette.color.alpha(theme.palette.text.default.primary, theme.palette.light ? 10 : 40)}`
+    borderLeft: `1px solid ${theme.palette.light ? '#dadada' : '#575757'}`
   },
 
   contentItems: {
@@ -150,7 +151,8 @@ const useStyle = styleMethod(theme => ({
   contentItemsWeekDay: {
     position: 'relative',
     padding: '4px',
-    width: 'clamp(150px, calc(calc(100vi / 7) - 32px), 400px)'
+    width: 'clamp(150px, calc(calc(100vi / 7) - 32px), 400px)',
+    zIndex: '54'
   },
 
   guidelineHour: {
@@ -201,13 +203,13 @@ const useStyle = styleMethod(theme => ({
       left: '-8px',
       width: 'calc(100% + 8px)',
       margin: '0px !important',
-      background: `${theme.methods.palette.color.alpha(theme.palette.text.default.primary, theme.palette.light ? 10 : 40)} !important`,
+      background: `${theme.palette.light ? '#dadada' : '#575757'} !important`,
       opacity: '1 !important'
     }
   },
 
   contentItemsDay: {
-    borderRight: `1px solid ${theme.methods.palette.color.alpha(theme.palette.text.default.primary, theme.palette.light ? 10 : 40)}`,
+    borderRight: `1px solid ${theme.palette.light ? '#dadada' : '#575757'}`,
 
     '&:last-child': {
       borderRight: 'none'
