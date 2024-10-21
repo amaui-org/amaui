@@ -621,3 +621,6 @@ export * from './HTMLCanvas';
 
 export { default as Space } from './Space';
 export * from './Space';
+
+export { default as CalendarViews } from './CalendarViews';
+export * from './CalendarViews';
