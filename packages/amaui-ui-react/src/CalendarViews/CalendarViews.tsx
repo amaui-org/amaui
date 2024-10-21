@@ -119,10 +119,17 @@ const useStyle = styleMethod(theme => ({
     minWidth: '150px'
   },
 
+  contentItemsMonth: {
+    position: 'relative',
+    padding: '4px 4px 8px',
+    height: '100px',
+    overflow: 'hidden auto'
+  },
+
   contentItemsWeek: {
     position: 'relative',
     padding: '4px 4px 8px',
-    width: 'clamp(150px, calc(calc(100vi / 7) - 17px), 400px)'
+    width: 'clamp(150px, calc(calc(100vi / 7) - 32px), 400px)'
   },
 
   guidelineHour: {
@@ -255,6 +262,8 @@ export interface ICalendarViews extends ICalendar {
 
   onChangeView?: (view: ICalendarViewsView) => any;
 
+  onChangeDate?: (value: AmauiDate) => any;
+
   IconPrevious?: any;
 
   IconNext?: any;
@@ -295,6 +304,8 @@ const CalendarViews: React.FC<ICalendarViews> = React.forwardRef((props_, ref: a
     onTimeClick,
 
     onChangeView: onChangeViewProps,
+
+    onChangeDate: onChangeDateProps,
 
     IconPrevious = IconMaterialArrowBackIosNew,
 
@@ -360,28 +371,42 @@ const CalendarViews: React.FC<ICalendarViews> = React.forwardRef((props_, ref: a
   }, [onChangeViewProps]);
 
   const onToday = React.useCallback(() => {
-    setDate(new AmauiDate());
-  }, []);
+    const valueNew = new AmauiDate();
+
+    setDate(valueNew);
+
+    if (is('function', onChangeDateProps)) onChangeDateProps(valueNew);
+  }, [onChangeDateProps]);
 
   const onPrevious = React.useCallback(() => {
-    setDate(previous => {
+    let valueNew = new AmauiDate();
 
-      return remove(1, view, previous);
+    setDate(previous => {
+      valueNew = remove(1, view, previous);
+
+      return valueNew;
     });
-  }, [view]);
+
+    if (is('function', onChangeDateProps)) onChangeDateProps(valueNew);
+  }, [view, onChangeDateProps]);
 
   const onNext = React.useCallback(() => {
-    setDate(previous => {
+    let valueNew = new AmauiDate();
 
-      return add(1, view, previous);
+    setDate(previous => {
+      valueNew = add(1, view, previous);
+
+      return valueNew;
     });
-  }, [view]);
+
+    if (is('function', onChangeDateProps)) onChangeDateProps(valueNew);
+  }, [view, onChangeDateProps]);
 
   const renderDay = React.useCallback((valueCalendarMonth: AmauiDate, propsDay: any, day: any, outside: boolean) => {
 
     return (
       <Line
-        gap={1}
+        gap={0.5}
 
         direction='column'
 
@@ -423,7 +448,7 @@ const CalendarViews: React.FC<ICalendarViews> = React.forwardRef((props_, ref: a
 
           fullWidth
 
-          className={classes.contentItems}
+          className={classes.contentItemsMonth}
         >
           {render && render(valueCalendarMonth, view)}
         </Line>
