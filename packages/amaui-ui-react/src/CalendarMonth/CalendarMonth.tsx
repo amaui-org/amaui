@@ -258,6 +258,7 @@ export interface ICalenarDays extends ILine {
   renderDay?: (value: AmauiDate, props: any, day: any, outside: boolean) => React.ReactNode;
   renderDayName?: (order: number) => any;
 
+  DayNameProps?: IPropsAny;
   PaginationItemProps?: IPropsAny;
   TransitionProps?: IPropsAny;
   TransitionsProps?: IPropsAny;
@@ -312,6 +313,7 @@ const CalendarMonth: React.FC<ICalenarDays> = React.forwardRef((props__, ref: an
 
     disabled,
 
+    DayNameProps,
     PaginationItemProps,
     TransitionProps,
     TransitionsProps,
@@ -825,15 +827,11 @@ const CalendarMonth: React.FC<ICalenarDays> = React.forwardRef((props__, ref: an
             <Line
               key={index}
 
-              version='b3'
-
-              direction='row'
+              direction='column'
 
               align='center'
 
               justify='center'
-
-              Component={Type}
 
               className={classNames([
                 staticClassName('CalendarMonth', theme) && [
@@ -844,7 +842,15 @@ const CalendarMonth: React.FC<ICalenarDays> = React.forwardRef((props__, ref: an
                 classes[`dayName_size_${size}`]
               ])}
             >
-              {renderDayNameMethod(day)}
+              <Type
+                version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3'}
+
+                align='center'
+
+                {...DayNameProps}
+              >
+                {renderDayNameMethod(day)}
+              </Type>
             </Line>
           ))}
         </Line>
