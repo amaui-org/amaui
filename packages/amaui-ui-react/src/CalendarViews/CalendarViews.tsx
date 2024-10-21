@@ -14,6 +14,7 @@ import SelectElement from '../Select';
 import ButtonElement from '../Button';
 import IconElement from '../Icon';
 import { ICalendar } from '../Calendar/Calendar';
+import { staticClassName } from '../utils';
 
 const IconMaterialArrowBackIosNew = React.forwardRef((props: any, ref) => {
 
@@ -55,7 +56,7 @@ const IconMaterialArrowForwardIos = React.forwardRef((props: any, ref) => {
 
 const useStyle = styleMethod(theme => ({
   root: {
-
+    background: theme.palette.background.default.primary
   },
 
   main: {
@@ -101,7 +102,14 @@ const useStyle = styleMethod(theme => ({
 
   wrapperHour: {
     width: '50px',
-    alignSelf: 'flex-start'
+    alignSelf: 'flex-start',
+    left: '0px',
+    background: 'rgb(0, 0, 0)',
+    position: 'sticky',
+    top: '0',
+    marginTop: '-8px',
+    zIndex: '40',
+    paddingRight: '4px'
   },
 
   itemHour: {
@@ -115,9 +123,9 @@ const useStyle = styleMethod(theme => ({
 
   contentItems: {
     position: 'relative',
-    padding: '4px 4px 8px',
+    padding: '4px',
     minWidth: '150px',
-    height: '150px',
+    maxHeight: '150px',
     overflow: 'hidden auto'
   },
 
@@ -130,10 +138,19 @@ const useStyle = styleMethod(theme => ({
 
   contentItemsWeek: {
     position: 'relative',
-    padding: '4px 4px 8px',
-    width: 'clamp(150px, calc(calc(100vi / 7) - 32px), 400px)',
-    height: '150px',
+    padding: '4px',
+    width: 'clamp(150px, calc(calc(100vi / 7) - 32px), 400px)'
+  },
+
+  contentItemsWeekContent: {
+    maxHeight: '150px',
     overflow: 'hidden auto'
+  },
+
+  contentItemsWeekDay: {
+    position: 'relative',
+    padding: '4px',
+    width: 'clamp(150px, calc(calc(100vi / 7) - 32px), 400px)'
   },
 
   guidelineHour: {
@@ -175,13 +192,6 @@ const useStyle = styleMethod(theme => ({
       background: theme.palette.color.tertiary[50],
       top: '-5px',
       left: '-6.5px'
-    }
-  },
-
-  typeHour: {
-    '&.amaui-Type-root': {
-      position: 'relative',
-      top: '-8px'
     }
   },
 
@@ -248,6 +258,10 @@ const useStyle = styleMethod(theme => ({
 
   dayWrapper: {
     height: '100%'
+  },
+
+  relative: {
+    position: 'relative'
   }
 }), { name: 'amaui-CalendarViews' });
 
@@ -522,7 +536,7 @@ const CalendarViews: React.FC<ICalendarViews> = React.forwardRef((props_, ref: a
         className={classes.week}
       >
         <Line
-          gap={2}
+          gap={1}
 
           direction='row'
 
@@ -562,7 +576,7 @@ const CalendarViews: React.FC<ICalendarViews> = React.forwardRef((props_, ref: a
                     flex
 
                     className={classNames([
-                      classes.contentItemsWeek
+                      classes.contentItemsWeekDay
                     ])}
                   >
                     <Type
@@ -617,7 +631,7 @@ const CalendarViews: React.FC<ICalendarViews> = React.forwardRef((props_, ref: a
               className={classes.itemHour}
             >
               <Line
-                gap={2}
+                gap={1}
 
                 direction='row'
 
@@ -642,8 +656,6 @@ const CalendarViews: React.FC<ICalendarViews> = React.forwardRef((props_, ref: a
                     version='b3'
 
                     whiteSpace='nowrap'
-
-                    className={classes.typeHour}
                   >
                     {format(itemHour, 'h A')}
                   </Type>
@@ -678,7 +690,7 @@ const CalendarViews: React.FC<ICalendarViews> = React.forwardRef((props_, ref: a
                         <Line
                           key={indexDay}
 
-                          gap={0.5}
+                          gap={0}
 
                           flex
 
@@ -697,7 +709,17 @@ const CalendarViews: React.FC<ICalendarViews> = React.forwardRef((props_, ref: a
                             />
                           )}
 
-                          {render && render(itemDate, view)}
+                          <Line
+                            gap={0.5}
+
+                            flex
+
+                            fullWidth
+
+                            className={classes.contentItemsWeekContent}
+                          >
+                            {render && render(itemDate, view)}
+                          </Line>
                         </Line>
                       );
                     })}
@@ -724,15 +746,13 @@ const CalendarViews: React.FC<ICalendarViews> = React.forwardRef((props_, ref: a
             <Line
               key={index}
 
-              gap={1}
+              gap={0}
 
-              align='unset'
-
-              onClick={onTimeClick && (() => onTimeClick(itemHour, view))}
+              flex
 
               fullWidth
 
-              className={classes.itemHour}
+              className={classes.relative}
             >
               {(itemHour.year === now.year && itemHour.dayYear === now.dayYear) && (itemHour.hour === now.hour) && (
                 <Line
@@ -745,59 +765,71 @@ const CalendarViews: React.FC<ICalendarViews> = React.forwardRef((props_, ref: a
               )}
 
               <Line
-                gap={2}
-
-                direction='row'
+                gap={1}
 
                 align='unset'
 
-                flex
+                onClick={onTimeClick && (() => onTimeClick(itemHour, view))}
 
                 fullWidth
+
+                className={classes.itemHour}
               >
                 <Line
+                  gap={2}
+
                   direction='row'
 
-                  align='center'
-
-                  justify='flex-end'
-
-                  fullWidth
-
-                  className={classes.wrapperHour}
-                >
-                  <Type
-                    version='b3'
-
-                    whiteSpace='nowrap'
-
-                    className={classes.typeHour}
-                  >
-                    {format(itemHour, 'h A')}
-                  </Type>
-                </Line>
-
-                <Line
-                  gap={0}
+                  align='unset'
 
                   flex
 
-                  className={classes.contentHour}
+                  fullWidth
                 >
-                  <Divider
-                    className={classes.dividerHour}
-                  />
-
                   <Line
-                    gap={0.5}
+                    direction='row'
 
-                    flex
+                    align='center'
+
+                    justify='flex-end'
 
                     fullWidth
 
-                    className={classes.contentItems}
+                    className={classes.wrapperHour}
                   >
-                    {render && render(itemHour, view)}
+                    <Type
+                      version='b3'
+
+                      whiteSpace='nowrap'
+
+                      className={classes.typeHour}
+                    >
+                      {format(itemHour, 'h A')}
+                    </Type>
+                  </Line>
+
+                  <Line
+                    gap={0}
+
+                    flex
+
+                    className={classes.contentHour}
+                  >
+                    <Divider
+                      className={classes.dividerHour}
+                    />
+
+                    <Line
+                      gap={0.5}
+
+                      flex
+
+                      fullWidth
+
+                      className={classes.contentItems}
+                    >
+                      {render && render(itemHour, view)}
+                    </Line>
                   </Line>
                 </Line>
               </Line>
@@ -825,6 +857,10 @@ const CalendarViews: React.FC<ICalendarViews> = React.forwardRef((props_, ref: a
       fullWidth
 
       className={classNames([
+        staticClassName('CalendarViews', theme) && [
+          'amaui-CalendarViews-root'
+        ],
+
         className,
         classes.root
       ])}
