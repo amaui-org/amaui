@@ -493,7 +493,7 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
 
     from = textToAmauiDate(from);
 
-    if (to) to = textToAmauiDate(to);
+    if (to) to = textToAmauiDate(to, false);
 
     valueNew = [from, to].filter(Boolean) as any;
 
@@ -636,12 +636,12 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
     return true;
   }, [valid_, min, max, validate]);
 
-  const textToAmauiDate = React.useCallback((valueNew: string) => {
+  const textToAmauiDate = React.useCallback((valueNew: string, start = true) => {
     const [valueDay, valueMonth, valueYear] = (valueNew || '').split('/');
 
     const amauiDate = new AmauiDate(new Date(`${valueMonth}/${valueDay}/${valueYear}`));
 
-    return amauiDate;
+    return start ? startOf(amauiDate, 'day') : endOf(amauiDate, 'day');
   }, []);
 
   const onInputChange = React.useCallback((valueNew_: any) => {
