@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { debounce } from '@amaui/utils';
+import { debounce, is } from '@amaui/utils';
 import { classNames, style as styleMethod, useAmauiTheme } from '@amaui/style-react';
 
 import AutoCompleteElement from '../AutoComplete';
@@ -36,6 +36,8 @@ const AutoCompleteGooglePlaces: React.FC<IAutoCompleteGooglePlaces> = React.forw
     valueDefault,
 
     valueInputDefault: valueInputDefault_,
+
+    onChangeInput: onChangeInputProps,
 
     size = 'regular',
 
@@ -87,11 +89,13 @@ const AutoCompleteGooglePlaces: React.FC<IAutoCompleteGooglePlaces> = React.forw
   }, []);
 
   const onChangeInput = React.useCallback(debounce((valueNew: string) => {
+    if (is('function', onChangeInputProps)) onChangeInputProps(valueNew);
+
     if (!refs.google.current) return;
 
     // Make a Google request
     refs.google.current.getQueryPredictions({ input: valueNew }, onGoogleResults);
-  }, 440), [optionsGoogle]);
+  }, 440), [optionsGoogle, onChangeInputProps]);
 
   const options = React.useMemo(() => {
     return places.map((item: any) => ({
