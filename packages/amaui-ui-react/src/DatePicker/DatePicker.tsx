@@ -1322,7 +1322,8 @@ const DatePicker: React.FC<IDatePicker> = React.forwardRef((props__, ref: any) =
           WrapperProps?.className,
           range && `amaui-DatePicker-range`,
           readOnly && `amaui-DatePicker-read-only`,
-          disabled && `amaui-DatePicker-disabled`
+          disabled && `amaui-DatePicker-disabled`,
+          fullWidth && 'amaui-full-width'
         ],
 
         className,

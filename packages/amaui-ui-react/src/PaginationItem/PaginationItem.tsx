@@ -105,6 +105,8 @@ const PaginationItem: React.FC<IPaginationItem> = React.forwardRef((props_, ref)
       {is('simple', children) ?
         (
           <Type
+            version={size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3'}
+
             {...TypeProps}
           >
             {children}

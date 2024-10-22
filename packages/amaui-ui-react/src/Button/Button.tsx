@@ -398,7 +398,7 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
   let start = (selected && startSelected) || start_;
   let end = (selected && endSelected) || end_;
   const disabled = disabled_ || loading;
-  const TypeProps: any = { version: 'l2' };
+  const TypeProps: any = {};
 
   const children = name !== undefined ? name : childrenProps;
 
@@ -691,6 +691,8 @@ const Button: React.FC<IButton> = React.forwardRef((props_, ref: any) => {
         </IconWrapperComponent>
       ) : (
         <Type
+          version={size === 'large' ? 'l1' : size === 'regular' ? 'l2' : 'l3'}
+
           {...TypeProps}
 
           id={refs.ids.label}

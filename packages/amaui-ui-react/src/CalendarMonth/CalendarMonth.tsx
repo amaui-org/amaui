@@ -721,7 +721,7 @@ const CalendarMonth: React.FC<ICalenarDays> = React.forwardRef((props__, ref: an
                             }}
 
                             TypeProps={{
-                              version: 'b3',
+                              version: size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3',
 
                               priority: !day.selected ? !day.weekend ? 'primary' : 'secondary' : undefined
                             }}

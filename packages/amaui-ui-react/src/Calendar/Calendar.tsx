@@ -86,7 +86,7 @@ const useStyle = style(theme => ({
     },
 
     '& .amaui-ListItem-inset': {
-      paddingInlineStart: theme.methods.space.value(6.25, 'px')
+      paddingInlineStart: '44px'
     }
   },
 
@@ -95,6 +95,10 @@ const useStyle = style(theme => ({
 
     '& .amaui-ListItem-root': {
       minHeight: '50px'
+    },
+
+    '& .amaui-ListItem-inset': {
+      paddingInlineStart: '58px'
     }
   },
 
@@ -106,7 +110,7 @@ const useStyle = style(theme => ({
     },
 
     '& .amaui-ListItem-inset': {
-      paddingInlineStart: theme.methods.space.value(8.5, 'px')
+      paddingInlineStart: '78px'
     }
   },
 
@@ -521,7 +525,7 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
                   ])}
                 >
                   <Type
-                    version='l2'
+                    version={size === 'large' ? 'l1' : size === 'regular' ? 'l2' : 'l3'}
 
                     className={classNames([
                       classes.carousel_item_label
@@ -642,7 +646,7 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
                   >
                     {calendars > 1 && (
                       <Type
-                        version='l2'
+                        version={size === 'large' ? 'l1' : size === 'regular' ? 'l2' : 'l3'}
 
                         style={{
                           paddingInlineStart: '16px'
@@ -1186,7 +1190,7 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
 
                   color={color}
 
-                  size='large'
+                  size={size}
 
                   menu
 
@@ -1304,7 +1308,7 @@ const Calendar: React.FC<ICalendar> = React.forwardRef((props__, ref: any) => {
                         }}
 
                         TypeProps={{
-                          version: 'b2',
+                          version: size === 'large' ? 'b1' : size === 'regular' ? 'b2' : 'b3',
 
                           tone: !selected ? 'primary' : undefined
                         }}
