@@ -7,8 +7,9 @@ import IconElement from '../Icon';
 import TransitionElement, { TTransitionStatus } from '../Transition';
 import LineElement from '../Line';
 import { ILine } from '../Line/Line';
-import { staticClassName } from '../utils';
-import { IColor, ISize, ITonal, IVersion } from '../types';
+import { staticClassName, valueBreakpoints } from '../utils';
+import { IColor, ISize, ITonal, IValueBreakpoints, IVersion } from '../types';
+import useMediaQuery from '../useMediaQuery';
 
 export const IconMaterialDoneSharp = React.forwardRef((props: any, ref) => {
   const {
@@ -43,9 +44,21 @@ const useStyle = styleMethod(theme => ({
     borderRadius: theme.methods.shape.radius.value('xl', 'px')
   },
 
-  orientation_horizontal: {
+  orientation_horizontal_size_small: {
     '& > *': {
-      height: '100% !important'
+      height: '28px'
+    }
+  },
+
+  orientation_horizontal_size_regular: {
+    '& > *': {
+      height: '42px'
+    }
+  },
+
+  orientation_horizontal_size_large: {
+    '& > *': {
+      height: '63px'
     }
   },
 
@@ -242,7 +255,7 @@ export interface IButtons extends ILine {
 
   select?: 'single' | 'multiple';
   unselect?: boolean;
-  orientation?: 'vertical' | 'horizontal';
+  orientation?: 'vertical' | 'horizontal' | Partial<Record<IValueBreakpoints, 'vertical' | 'horizontal'>>;
   noCheckIcon?: boolean;
   elevation?: boolean;
   border?: boolean;
@@ -271,7 +284,7 @@ const Buttons: React.FC<IButtons> = React.forwardRef((props_, ref: any) => {
 
     select,
     unselect = true,
-    orientation = 'horizontal',
+    orientation: orientation_,
     noCheckIcon,
     elevation = true,
     border = true,
@@ -297,8 +310,17 @@ const Buttons: React.FC<IButtons> = React.forwardRef((props_, ref: any) => {
   });
 
   const refs = {
+    root: React.useRef<any>(),
     noCheckIcon: React.useRef(noCheckIcon)
   };
+
+  const breakpoints = {};
+
+  theme.breakpoints.keys.forEach(key => {
+    if (theme.breakpoints.media[key]) breakpoints[key] = useMediaQuery(theme.breakpoints.media[key], { element: refs.root.current });
+  });
+
+  const orientation = valueBreakpoints(orientation_, 'horizontal', breakpoints, theme);
 
   refs.noCheckIcon.current = noCheckIcon;
 
@@ -425,14 +447,21 @@ const Buttons: React.FC<IButtons> = React.forwardRef((props_, ref: any) => {
 
       elevation: false,
 
-      selected: selected.includes(item.props.value),
+      selected: item.props.selected !== undefined ? item.props.selected : selected.includes(item.props.value),
 
       disabled: item.props?.disabled !== undefined ? item.props.disabled : disabled
     }));
 
   return (
     <Line
-      ref={ref}
+      ref={item => {
+        if (ref) {
+          if (is('function', ref)) ref(item);
+          else ref.current = item;
+        }
+
+        refs.root.current = item;
+      }}
 
       gap={0}
 
@@ -453,6 +482,7 @@ const Buttons: React.FC<IButtons> = React.forwardRef((props_, ref: any) => {
         classes[`size_${size}`],
         chip && classes[`chip_size_${size}`],
         classes[`orientation_${orientation}`],
+        classes[`orientation_${orientation}_size_${size}`],
         fullWidth && classes.fullWidth,
         elevation && !disabled && ['filled', 'tonal'].includes(version) && classes.elevation,
         disabled && classes.disabled
