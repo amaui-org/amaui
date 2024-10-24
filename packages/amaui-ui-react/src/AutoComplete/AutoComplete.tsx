@@ -435,6 +435,8 @@ const AutoComplete: React.FC<IAutoComplete> = React.forwardRef((props_, ref: any
 
         setFree(true);
 
+        setOptions(optionsValue);
+
         return;
       }
     }
