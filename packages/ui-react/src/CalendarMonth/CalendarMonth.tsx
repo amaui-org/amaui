@@ -425,7 +425,7 @@ const CalendarMonth: React.FC<ICalendarMonth> = props__ => {
 
   let month: OnesyDate = calendar || value[0] || new OnesyDate();
 
-  if (!month?.valid) month = new OnesyDate();
+  if (!(month?.valid && month?.daysInMonth)) month = new OnesyDate();
 
   const refs = {
     id: React.useRef<string>(`${(month).year} ${(month).month}`),
@@ -712,9 +712,11 @@ const CalendarMonth: React.FC<ICalendarMonth> = props__ => {
     const items = [];
     const nowDate = new OnesyDate();
 
+    const monthToUse = (month?.valid && month?.daysInMonth) ? month : new OnesyDate();
+
     // Add all month days
-    for (let i = 0; i < month.daysInMonth; i++) {
-      let day = set(i + 1, 'day', month);
+    for (let i = 0; i < monthToUse.daysInMonth; i++) {
+      let day = set(i + 1, 'day', monthToUse);
 
       day = set(14, 'hour', day);
 
